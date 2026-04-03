@@ -3,46 +3,33 @@
   "latin": "pedicularis densiflora (indian warrior)",
   "class": "dissociative / sedative",
   "intensity": "Moderate",
-  "mechanism": "Muscle relaxant potential via GABAergic modulation [2, 0].",
+  "mechanism": "muscle relaxant potential via gabaergic modulation [2 | 0]",
   "activeCompounds": [],
   "effects": [
-    "Muscle relaxation",
+    "muscle relaxation",
     "mild body high"
   ],
   "contraindications": [
-    "pregnancy",
-    "use with other sedatives [2",
-    "0]."
+    "avoid in pregnancy",
+    "avoid with use with other sedatives [2",
+    "avoid with 0]"
   ],
-  "safetyNotes": [
-    "drowsiness",
-    "dizziness [2",
-    "0].",
-    "Low",
-    "limited data on long-term use [2"
-  ],
-  "sources": [
-    {
-      "title": "Inferred from Unknown"
-    },
-    {
-      "note": "Inferred from Unknown",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "north american wildflower smoked for muscle relaxation.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: north american wildflower smoked for muscle relaxation.. Muscle relaxant potential via GABAergic modulation [2",
-    "0].. Muscle relaxation",
-    "mild body high. 🌍 africa",
-    "🇮🇳 india."
-  ],
-  "duration": "121.0",
   "interactions": [
     "additive effects with cns depressants [2",
     "0]."
   ],
+  "safetyNotes": "drowsiness,dizziness [2,0].,Low,limited data on long-term use [2",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: pedicularis densiflora (indian warrior)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=pedicularis%20densiflora%20(indian%20warrior)&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.990Z",
+  "description": "north american wildflower smoked for muscle relaxation.",
+  "dosage": "No direct dosage data. Contextual inference: north american wildflower smoked for muscle relaxation.. Muscle relaxant potential via GABAergic modulation [2,0].. Muscle relaxation,mild body high. 🌍 africa,🇮🇳 india.",
+  "duration": "121.0",
   "legalStatus": "Legal / Unregulated",
   "preparation": "Smoked or tea",
   "region": "🌍 africa, 🇮🇳 india",
@@ -59,8 +46,9 @@
     "0]."
   ],
   "slug": "pedicularis-densiflora-indian-warrior",
-  "id": "pedicularis-densiflora-indian-warrior",
-  "displayName": "pedicularis densiflora (indian warrior)",
-  "displayScientificName": "pedicularis densiflora (indian warrior)",
-  "scientificNormalized": "pedicularis densiflora indian warrior"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

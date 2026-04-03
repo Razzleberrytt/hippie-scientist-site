@@ -1,51 +1,31 @@
 {
   "name": "arctium lappa",
   "latin": "Arctium lappa",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Diuretic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, blood purifier, anti-inflammatory. No direct region data. Contextual inference: Diuretic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, blood purifier, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Diuretic",
+    "diuretic",
     "blood purifier",
     "anti-inflammatory",
     "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Generally well tolerated",
-    "rare allergic reactions",
-    "possible diuretic effects",
-    "No direct toxicity data. Contextual inference: Diuretic",
-    "blood purifier",
-    "anti-inflammatory. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Diuretic",
-    "anti-inflammatory. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,Generally well tolerated,rare allergic reactions,possible diuretic effects,No direct toxicity data. Contextual inference: Diuretic,blood purifier,anti-inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diuretic,anti-inflammatory. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Arctium lappa (TaxID 4217)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4217&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.849Z",
   "description": "Diuretic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "500",
-    "1000 mg",
-    "day root or 1",
-    "2 g dried powder"
-  ],
+  "dosage": "500,1000 mg,day root or 1,2 g dried powder",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal; common in traditional herbal medicine",
   "preparation": "Root decocted, roasted, or eaten as vegetable; seeds tinctured or decocted",
   "region": "No direct region data. Contextual inference: Diuretic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, blood purifier, anti-inflammatory. none. ; nan; nan",
@@ -57,8 +37,9 @@
     "possible diuretic effects"
   ],
   "slug": "arctium-lappa",
-  "id": "arctium-lappa",
-  "displayName": "arctium lappa",
-  "displayScientificName": "Arctium lappa",
-  "scientificNormalized": "arctium lappa"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

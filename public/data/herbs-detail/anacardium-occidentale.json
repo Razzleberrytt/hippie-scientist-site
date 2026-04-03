@@ -1,59 +1,39 @@
 {
   "name": "anacardium occidentale",
   "latin": "Anacardium occidentale",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used for diabetes, inflammation, and gastrointestinal issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for diabetes, inflammation, and gastrointestinal issues. No direct region data. Contextual inference: Used for diabetes, inflammation, and gastrointestinal issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for diabetes, inflammation, and gastrointestinal issues. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Used for diabetes",
+    "used for diabetes",
     "inflammation",
     "and gastrointestinal issues"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Used for diabetes",
-    "inflammation",
-    "and gastrointestinal issues. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Used for diabetes",
-    "and gastrointestinal issues. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "No direct toxicity data. Contextual inference: Used for diabetes,inflammation,and gastrointestinal issues. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used for diabetes,and gastrointestinal issues. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Anacardium occidentale (TaxID 171929)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=171929&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.847Z",
   "description": "Used for diabetes, inflammation, and gastrointestinal issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used for diabetes",
-    "inflammation",
-    "and gastrointestinal issues. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Used for diabetes",
-    "and gastrointestinal issues. No direct region data. Contextual inference: Used for diabetes",
-    "and gastrointestinal issues. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Used for diabetes,inflammation,and gastrointestinal issues. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used for diabetes,and gastrointestinal issues. No direct region data. Contextual inference: Used for diabetes,and gastrointestinal issues. none.,nan.",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "No direct preparation data. Contextual inference: Used for diabetes, inflammation, and gastrointestinal issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for diabetes, inflammation, and gastrointestinal issues. No direct region data. Contextual inference: Used for diabetes, inflammation, and gastrointestinal issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for diabetes, inflammation, and gastrointestinal issues. none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Used for diabetes, inflammation, and gastrointestinal issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for diabetes, inflammation, and gastrointestinal issues. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
+  "sideEffects": [],
   "slug": "anacardium-occidentale",
-  "id": "anacardium-occidentale",
-  "displayName": "anacardium occidentale",
-  "displayScientificName": "Anacardium occidentale",
-  "scientificNormalized": "anacardium occidentale"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

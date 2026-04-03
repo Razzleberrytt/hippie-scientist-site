@@ -1,50 +1,29 @@
 {
   "name": "astragalus membranaceus",
   "latin": "Astragalus membranaceus",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Immunostimulant, adaptogen, antiviral. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immunostimulant, adaptogen, antiviral. No direct region data. Contextual inference: Immunostimulant, adaptogen, antiviral. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immunostimulant, adaptogen, antiviral. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Immunostimulant",
+    "immunostimulant",
     "adaptogen",
     "antiviral"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Safe for most people",
-    "rare cases of rash",
-    "immune stimulation",
-    "avoid in autoimmune conditions",
-    "No direct toxicity data. Contextual inference: Immunostimulant",
-    "adaptogen",
-    "antiviral. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Immunostimulant",
-    "antiviral. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,Safe for most people,rare cases of rash,immune stimulation,avoid in autoimmune conditions,No direct toxicity data. Contextual inference: Immunostimulant,adaptogen,antiviral. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Immunostimulant,antiviral. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Astragalus membranaceus (TaxID 649199)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=649199&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.861Z",
   "description": "Immunostimulant, adaptogen, antiviral. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "500",
-    "1500 mg",
-    "day extract or 3",
-    "5 g root"
-  ],
+  "dosage": "500,1500 mg,day extract or 3,5 g root",
   "duration": "6–8 hours",
-  "interactions": [],
   "legalStatus": "Legal and common in herbal commerce",
   "preparation": "Roots sliced and decocted or simmered in soups; also extracted in capsules and tinctures",
   "region": "No direct region data. Contextual inference: Immunostimulant, adaptogen, antiviral. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immunostimulant, adaptogen, antiviral. none. ; nan; nan",
@@ -57,8 +36,9 @@
     "avoid in autoimmune conditions"
   ],
   "slug": "astragalus-membranaceus",
-  "id": "astragalus-membranaceus",
-  "displayName": "astragalus membranaceus",
-  "displayScientificName": "Astragalus membranaceus",
-  "scientificNormalized": "astragalus membranaceus"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

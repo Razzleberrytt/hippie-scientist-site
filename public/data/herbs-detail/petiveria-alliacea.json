@@ -3,74 +3,40 @@
   "latin": "Petiveria alliacea",
   "class": "Mild Psychoactive, Ritualistic",
   "intensity": "No direct intensity data. Contextual inference: Immunomodulatory, anti-inflammatory, analgesic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immunomodulatory, anti-inflammatory, analgesic. No direct region data. Contextual inference: Immunomodulatory, anti-inflammatory, analgesic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immunomodulatory, anti-inflammatory, analgesic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [
-    "Sulfur compounds",
+    "sulfur compounds",
     "trithiolanes"
   ],
   "effects": [
-    "Calmness",
+    "calmness",
     "clarity",
     "mild sedation",
-    "Immunomodulatory",
+    "immunomodulatory",
     "anti-inflammatory",
     "analgesic",
     "anti",
     "inflammatory"
   ],
   "contraindications": [
-    "Pregnancy",
-    "blood disorders"
-  ],
-  "safetyNotes": [
-    "Generally safe in moderate doses",
-    "Digestive upset",
-    "strong odor",
-    "Low",
-    "Not well defined",
-    "Strong odor",
-    "potential blood thinning",
     "avoid in pregnancy",
-    "No direct toxicity data. Contextual inference: Immunomodulatory",
-    "anti-inflammatory",
-    "analgesic. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Immunomodulatory",
-    "analgesic. none."
+    "avoid with blood disorders"
   ],
-  "sources": [
-    {
-      "title": "Afro-Caribbean ethnobotany"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Immunomodulatory, anti-inflammatory, analgesic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Immunomodulatory",
-    "anti",
-    "inflammatory",
-    "analgesic. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Immunomodulatory",
-    "analgesic. No direct region data. Contextual inference: Immunomodulatory",
-    "analgesic. none.",
-    "nan."
-  ],
-  "duration": "1–3 hours",
   "interactions": [
     "Anticoagulants"
   ],
+  "safetyNotes": "Generally safe in moderate doses,Digestive upset,strong odor,Low,Not well defined,Strong odor,potential blood thinning,avoid in pregnancy,No direct toxicity data. Contextual inference: Immunomodulatory,anti-inflammatory,analgesic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Immunomodulatory,analgesic. none.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Petiveria alliacea (TaxID 46142)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=46142&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.993Z",
+  "description": "Immunomodulatory, anti-inflammatory, analgesic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": "No direct dosage data. Contextual inference: Immunomodulatory,anti,inflammatory,analgesic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Immunomodulatory,analgesic. No direct region data. Contextual inference: Immunomodulatory,analgesic. none.,nan.",
+  "duration": "1–3 hours",
   "legalStatus": "Unregulated traditional use",
   "preparation": "Roots and leaves used in decoctions or tinctures; strong-smelling herb used traditionally in the Americas",
   "region": "No direct region data. Contextual inference: Immunomodulatory, anti-inflammatory, analgesic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immunomodulatory, anti-inflammatory, analgesic. none. ; nan; nan",
@@ -79,20 +45,18 @@
     "spiritual protection"
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "petiveria-alliacea",
   "sideEffects": [
     "Strong odor",
     "potential blood thinning",
     "avoid in pregnancy"
   ],
-  "displayName": "petiveria alliacea",
-  "displayScientificName": "Petiveria alliacea",
-  "scientificNormalized": "petiveria alliacea",
-  "id": "petiveria-alliacea",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "petiveria-alliacea",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "sulfur-compounds",
+    "trithiolanes"
   ]
 }

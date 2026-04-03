@@ -1,47 +1,29 @@
 {
   "name": "cnidium monnieri",
   "latin": "Cnidium monnieri",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Aphrodisiac, antipruritic, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, antipruritic, antifungal. No direct region data. Contextual inference: Aphrodisiac, antipruritic, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, antipruritic, antifungal. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Aphrodisiac",
+    "aphrodisiac",
     "antipruritic",
     "antifungal"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "caution",
-    "Possible skin irritation",
-    "avoid during pregnancy due to uterine stimulation",
-    "No direct toxicity data. Contextual inference: Aphrodisiac",
-    "antipruritic",
-    "antifungal. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Aphrodisiac",
-    "antifungal. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "caution,Possible skin irritation,avoid during pregnancy due to uterine stimulation,No direct toxicity data. Contextual inference: Aphrodisiac,antipruritic,antifungal. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Aphrodisiac,antifungal. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Cnidium monnieri (TaxID 94007)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=94007&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.901Z",
   "description": "Aphrodisiac, antipruritic, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "500",
-    "1000 mg",
-    "day seed extract"
-  ],
+  "dosage": "500,1000 mg,day seed extract",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal in traditional medicine; not widely regulated",
   "preparation": "Seeds (She Chuang Zi) decocted or powdered; used in Traditional Chinese Medicine, topically or internally",
   "region": "No direct region data. Contextual inference: Aphrodisiac, antipruritic, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, antipruritic, antifungal. none. ; nan; nan",
@@ -52,8 +34,9 @@
     "avoid during pregnancy due to uterine stimulation"
   ],
   "slug": "cnidium-monnieri",
-  "id": "cnidium-monnieri",
-  "displayName": "cnidium monnieri",
-  "displayScientificName": "Cnidium monnieri",
-  "scientificNormalized": "cnidium monnieri"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

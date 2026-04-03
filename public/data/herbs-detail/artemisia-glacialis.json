@@ -1,51 +1,28 @@
 {
   "name": "artemisia glacialis",
   "latin": "Artemisia glacialis",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Bitter tonic and digestive; used in liqueurs like genepi. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic and digestive; used in liqueurs like genepi. No direct region data. Contextual inference: Bitter tonic and digestive; used in liqueurs like genepi. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic and digestive; used in liqueurs like genepi. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Bitter tonic and digestive",
+    "bitter tonic and digestive",
     "used in liqueurs like genepi"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Similar to other artemisia",
-    "neurotoxicity",
-    "allergies possible",
-    "No direct toxicity data. Contextual inference: Bitter tonic and digestive",
-    "used in liqueurs like genepi. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Bitter tonic and digestive",
-    "used in liqueurs like genepi. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Similar to other artemisia,neurotoxicity,allergies possible,No direct toxicity data. Contextual inference: Bitter tonic and digestive,used in liqueurs like genepi. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Bitter tonic and digestive,used in liqueurs like genepi. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Artemisia glacialis (TaxID 223867)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=223867&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.854Z",
   "description": "Bitter tonic and digestive; used in liqueurs like genepi. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Bitter tonic and digestive",
-    "used in liqueurs like genepi. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Bitter tonic and digestive",
-    "used in liqueurs like genepi. No direct region data. Contextual inference: Bitter tonic and digestive",
-    "used in liqueurs like genepi. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Bitter tonic and digestive,used in liqueurs like genepi. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Bitter tonic and digestive,used in liqueurs like genepi. No direct region data. Contextual inference: Bitter tonic and digestive,used in liqueurs like genepi. none.,nan.",
   "duration": "2–4 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "Aerial parts infused or decocted; alpine wormwood species with digestive and aromatic uses",
   "region": "No direct region data. Contextual inference: Bitter tonic and digestive; used in liqueurs like genepi. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic and digestive; used in liqueurs like genepi. none. ; nan; nan",
@@ -57,8 +34,9 @@
     "allergies possible"
   ],
   "slug": "artemisia-glacialis",
-  "id": "artemisia-glacialis",
-  "displayName": "artemisia glacialis",
-  "displayScientificName": "Artemisia glacialis",
-  "scientificNormalized": "artemisia glacialis"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

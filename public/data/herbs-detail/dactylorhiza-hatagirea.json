@@ -1,62 +1,41 @@
 {
   "name": "dactylorhiza hatagirea",
   "latin": "Dactylorhiza hatagirea",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Aphrodisiac, tonic, and anti-diarrheal in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, tonic, and anti-diarrheal in Ayurveda. No direct region data. Contextual inference: Aphrodisiac, tonic, and anti-diarrheal in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, tonic, and anti-diarrheal in Ayurveda. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Aphrodisiac",
+    "aphrodisiac",
     "tonic",
-    "and anti-diarrheal in Ayurveda",
+    "and anti-diarrheal in ayurveda",
     "and anti",
-    "diarrheal in Ayurveda"
+    "diarrheal in ayurveda"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Aphrodisiac",
-    "tonic",
-    "and anti-diarrheal in ayurveda. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Aphrodisiac",
-    "and anti-diarrheal in Ayurveda. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "No direct toxicity data. Contextual inference: Aphrodisiac,tonic,and anti-diarrheal in ayurveda. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Aphrodisiac,and anti-diarrheal in Ayurveda. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Dactylorhiza hatagirea (TaxID 2942076)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2942076&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.913Z",
   "description": "Aphrodisiac, tonic, and anti-diarrheal in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Aphrodisiac",
-    "tonic",
-    "and anti",
-    "diarrheal in ayurveda. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Aphrodisiac",
-    "diarrheal in Ayurveda. No direct region data. Contextual inference: Aphrodisiac",
-    "diarrheal in Ayurveda. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Aphrodisiac,tonic,and anti,diarrheal in ayurveda. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Aphrodisiac,diarrheal in Ayurveda. No direct region data. Contextual inference: Aphrodisiac,diarrheal in Ayurveda. none.,nan.",
   "duration": "6–8 hours",
-  "interactions": [],
   "legalStatus": "Protected species",
   "preparation": "No direct preparation data. Contextual inference: Aphrodisiac, tonic, and anti-diarrheal in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, tonic, and anti-diarrheal in Ayurveda. No direct region data. Contextual inference: Aphrodisiac, tonic, and anti-diarrheal in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, tonic, and anti-diarrheal in Ayurveda. none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Aphrodisiac, tonic, and anti-diarrheal in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, tonic, and anti-diarrheal in Ayurveda. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
+  "sideEffects": [],
   "slug": "dactylorhiza-hatagirea",
-  "id": "dactylorhiza-hatagirea",
-  "displayName": "dactylorhiza hatagirea",
-  "displayScientificName": "Dactylorhiza hatagirea",
-  "scientificNormalized": "dactylorhiza hatagirea"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

@@ -3,101 +3,33 @@
   "latin": "Ptychopetalum olacoides Benth.",
   "class": "Nootropic, Aphrodisiac, Adaptogen",
   "intensity": "Mild to moderate",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "",
   "activeCompounds": [
-    "Sterols",
+    "sterols",
     "alkaloids",
     "fatty acids",
-    "Muirapuamine",
-    "sterols",
+    "muirapuamine",
     "flavonoids",
     "long-chain fatty acids"
   ],
   "effects": [
-    "Mental clarity",
+    "mental clarity",
     "energy boost",
     "libido enhancement",
-    "Aphrodisiac",
+    "aphrodisiac",
     "stimulant",
     "nerve tonic",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan.",
-    "Improved libido",
+    "improved libido",
     "enhanced cognition",
     "mood elevation",
     "anti-fatigue"
   ],
   "contraindications": [
-    "High blood pressure",
-    "hypertension",
-    "pregnancy.",
-    "Avoid in patients with hypertension or cardiac issues",
-    "consult physician during pregnancy"
+    "avoid with high blood pressure",
+    "avoid with hypertension",
+    "avoid in pregnancy",
+    "avoid in patients with hypertension or cardiac issues"
   ],
-  "safetyNotes": [
-    "Low toxicity",
-    "Irritability",
-    "insomnia in high doses",
-    "Low",
-    "Not established",
-    "headache",
-    "insomnia (high doses).",
-    "No direct toxicity data. Contextual inference: Aphrodisiac",
-    "stimulant",
-    "nerve tonic. May enhance dopamine activity and increase blood flow",
-    "adaptogenic..",
-    "nan.. May enhance dopamine activity and increase blood flow",
-    "adaptogenic.. Aphrodisiac",
-    "nerve tonic.",
-    "safe",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "Generally well tolerated at recommended doses",
-    "high doses may cause agitation",
-    "Insomnia",
-    "restlessness",
-    "increased heart rate (rare",
-    "dose-dependent)",
-    "Very low toxicity reported",
-    "long-term use lacks sufficient study",
-    "Not formally determined in animals or humans"
-  ],
-  "sources": [
-    {
-      "title": "Brazilian herbal medicine"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "title": "NIH PubMed"
-    },
-    {
-      "title": "Planta Medica"
-    },
-    {
-      "title": "Erowid"
-    },
-    {
-      "title": "ethnobotanical databases"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "A Brazilian Amazonian herb traditionally used as an aphrodisiac and nerve tonic. Modern studies suggest cognitive and adaptogenic benefits.",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "Stimulants",
     "MAOIs",
@@ -106,6 +38,18 @@
     "May potentiate stimulants and antidepressants",
     "avoid combining with MAOIs"
   ],
+  "safetyNotes": "Low toxicity,Irritability,insomnia in high doses,Low,Not established,headache,insomnia (high doses).,No direct toxicity data. Contextual inference: Aphrodisiac,stimulant,nerve tonic. May enhance dopamine activity and increase blood flow,adaptogenic..,nan.. May enhance dopamine activity and increase blood flow,adaptogenic.. Aphrodisiac,nerve tonic.,safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,Generally well tolerated at recommended doses,high doses may cause agitation,Insomnia,restlessness,increased heart rate (rare,dose-dependent),Very low toxicity reported,long-term use lacks sufficient study,Not formally determined in animals or humans",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Ptychopetalum olacoides Benth.",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Ptychopetalum%20olacoides%20Benth.&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.003Z",
+  "description": "A Brazilian Amazonian herb traditionally used as an aphrodisiac and nerve tonic. Modern studies suggest cognitive and adaptogenic benefits.",
+  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Legal and widely sold in supplements globally",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -122,17 +66,18 @@
     "adaptogenic use"
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "ptychopetalum-olacoides",
-  "displayName": "ptychopetalum olacoides",
-  "displayScientificName": "Ptychopetalum olacoides Benth.",
-  "scientificNormalized": "ptychopetalum olacoides",
   "sideEffects": [],
-  "id": "ptychopetalum-olacoides",
-  "aliases": [
-    "nan",
-    "Ptychopetalum olacoides"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "ptychopetalum-olacoides",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "sterols",
+    "alkaloids",
+    "fatty-acids",
+    "muirapuamine",
+    "flavonoids",
+    "long-chain-fatty-acids"
   ]
 }

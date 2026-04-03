@@ -1,0 +1,54 @@
+{
+  "name": "Spathodea campanulata",
+  "latin": "Spathodea campanulata",
+  "class": "Antibacterial, Hemostatic",
+  "intensity": "Mild",
+  "mechanism": "tannin-mediated astringency and antimicrobial activity",
+  "activeCompounds": [
+    "phenolics",
+    "flavonoids",
+    "tannins"
+  ],
+  "effects": [
+    "wound healing",
+    "anti-infective effects"
+  ],
+  "contraindications": [
+    "avoid with potential allergenicity with long-term use"
+  ],
+  "interactions": [
+    "May interfere with anticoagulants"
+  ],
+  "safetyNotes": "Topically safe,oral use caution advised,Skin rash or irritation (rare),Low,Unknown in humans",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Spathodea campanulata (TaxID 211926)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=211926&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.973Z",
+  "description": "Used for wound healing, infections, and inflammation in ethnobotany",
+  "dosage": "Topical application or tea, 2–3x daily",
+  "duration": "300",
+  "legalStatus": "Widely unregulated",
+  "preparation": "Leaf poultice or bark tea",
+  "region": "Tropical Africa, Asia",
+  "therapeuticUses": [
+    "Cuts",
+    "ulcers",
+    "infections"
+  ],
+  "traditionalUse": "",
+  "sideEffects": [],
+  "slug": "spathodea-campanulata",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "phenolics",
+    "flavonoids",
+    "tannins"
+  ]
+}

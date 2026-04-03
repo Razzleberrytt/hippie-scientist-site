@@ -1,34 +1,30 @@
 {
   "name": "withania somnifera",
   "latin": "Withania somnifera",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-anxiety, cognitive enhancer. No direct region data. Contextual inference: Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-anxiety, cognitive enhancer. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Proposed actions include HPA-axis modulation and anti-inflammatory signaling; these mechanisms remain partly inferential across study designs.",
+  "mechanism": "proposed actions include hpa-axis modulation and anti-inflammatory signaling | these mechanisms remain partly inferential across study designs",
   "activeCompounds": [],
   "effects": [
-    "Randomized controlled trial evidence suggests improvements in stress outcomes in some adults."
+    "randomized controlled trial evidence suggests improvements in stress outcomes in some adults"
   ],
   "contraindications": [
-    "Avoid in pregnancy unless supervised by qualified clinicians."
+    "avoid in pregnancy"
   ],
-  "safetyNotes": [
-    "Short-term studies suggest tolerability, but real-world products vary in concentration and quality."
+  "interactions": [
+    "Monitor potential interactions with sedatives and thyroid-related medications."
   ],
+  "safetyNotes": "Short-term studies suggest tolerability, but real-world products vary in concentration and quality.",
   "sources": [
     {
       "title": "src_pubmed-31517876",
       "url": "https://pubmed.ncbi.nlm.nih.gov/31517876/"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.033Z",
   "description": "Withania somnifera is the scientific name for ashwagandha and is used in Ayurvedic practice and modern standardized supplements.",
-  "dosage": [
-    "Clinical dosing is extract-specific and cannot be generalized across powders, teas, and concentrated products."
-  ],
+  "dosage": "Clinical dosing is extract-specific and cannot be generalized across powders, teas, and concentrated products.",
   "duration": "Chronic",
-  "interactions": [
-    "Monitor potential interactions with sedatives and thyroid-related medications."
-  ],
   "legalStatus": "Legal globally",
   "preparation": "Typically prepared as root powder or standardized root extract capsules/tablets.",
   "region": "Originates in South Asia and is now marketed worldwide.",
@@ -40,91 +36,9 @@
     "avoid in hyperthyroidism"
   ],
   "slug": "withania-somnifera",
-  "id": "withania-somnifera",
-  "displayName": "withania somnifera",
-  "displayScientificName": "Withania somnifera",
-  "scientificNormalized": "withania somnifera",
-  "summary": "Withania somnifera has moderate randomized evidence for stress-related symptom improvements in standardized extracts, with unresolved long-term safety and interaction questions.",
-  "researchEnrichment": {
-    "evidenceSummary": "Curated governance-backed enrichment for withania-somnifera using 1 registry sources.",
-    "evidenceTier": "tier-3-limited",
-    "evidenceClassesPresent": [
-      "human-clinical"
-    ],
-    "supportedUses": [],
-    "unsupportedOrUnclearUses": [],
-    "mechanisms": [
-      {
-        "claim": "Proposed actions include HPA-axis modulation and anti-inflammatory signaling; these mechanisms remain partly inferential across study designs.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_pubmed-31517876"
-        ],
-        "uncertaintyNote": "Mechanistic interpretation should not be treated as proven clinical efficacy."
-      }
-    ],
-    "constituents": [],
-    "interactions": [
-      {
-        "claim": "Monitor potential interactions with sedatives and thyroid-related medications.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_pubmed-31517876"
-        ]
-      }
-    ],
-    "contraindications": [
-      {
-        "claim": "Avoid in pregnancy unless supervised by qualified clinicians.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_pubmed-31517876"
-        ]
-      }
-    ],
-    "adverseEffects": [
-      {
-        "claim": "Short-term studies suggest tolerability, but real-world products vary in concentration and quality.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_pubmed-31517876"
-        ]
-      }
-    ],
-    "dosageContextNotes": [
-      {
-        "claim": "Clinical dosing is extract-specific and cannot be generalized across powders, teas, and concentrated products.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_pubmed-31517876"
-        ]
-      }
-    ],
-    "populationSpecificNotes": [],
-    "conflictNotes": [],
-    "researchGaps": [
-      {
-        "claim": "Evidence remains limited or heterogeneous; avoid overgeneralizing efficacy across formulations or populations.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_pubmed-31517876"
-        ],
-        "uncertaintyNote": "Additional controlled human data are needed for stronger confidence."
-      }
-    ],
-    "sourceRegistryIds": [
-      "src_pubmed-31517876"
-    ],
-    "sourceRefs": [
-      {
-        "sourceId": "src_pubmed-31517876",
-        "extractConfidence": "medium",
-        "reviewer": "codex",
-        "notes": "Claim mapping for indexability remediation batch-01."
-      }
-    ],
-    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
-    "reviewedBy": "codex-batch-01",
-    "editorialStatus": "in-review"
-  }
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

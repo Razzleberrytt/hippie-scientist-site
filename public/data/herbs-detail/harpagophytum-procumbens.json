@@ -1,57 +1,31 @@
 {
   "name": "harpagophytum procumbens",
   "latin": "Harpagophytum procumbens",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, analgesic, osteoarthritis relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, osteoarthritis relief. No direct region data. Contextual inference: Anti-inflammatory, analgesic, osteoarthritis relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, osteoarthritis relief. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Anti-inflammatory",
+    "anti-inflammatory",
     "analgesic",
     "osteoarthritis relief",
-    "Anti",
+    "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "GI discomfort",
-    "diarrhea",
-    "caution with ulcers and anticoagulants",
-    "No direct toxicity data. Contextual inference: Anti-inflammatory",
-    "analgesic",
-    "osteoarthritis relief. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti-inflammatory",
-    "osteoarthritis relief. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "GI discomfort,diarrhea,caution with ulcers and anticoagulants,No direct toxicity data. Contextual inference: Anti-inflammatory,analgesic,osteoarthritis relief. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,osteoarthritis relief. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Harpagophytum procumbens (TaxID 222879)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=222879&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.940Z",
   "description": "Anti-inflammatory, analgesic, osteoarthritis relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Anti",
-    "inflammatory",
-    "analgesic",
-    "osteoarthritis relief. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti",
-    "osteoarthritis relief. No direct region data. Contextual inference: Anti",
-    "osteoarthritis relief. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Anti,inflammatory,analgesic,osteoarthritis relief. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti,osteoarthritis relief. No direct region data. Contextual inference: Anti,osteoarthritis relief. none.,nan.",
   "duration": "6–8 hours",
-  "interactions": [],
   "legalStatus": "Legal; used in herbal medicine",
   "preparation": "Dried root tubers decocted or powdered; available in capsules or teas (devil’s claw)",
   "region": "No direct region data. Contextual inference: Anti-inflammatory, analgesic, osteoarthritis relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, osteoarthritis relief. none. ; nan; nan",
@@ -63,8 +37,9 @@
     "caution with ulcers and anticoagulants"
   ],
   "slug": "harpagophytum-procumbens",
-  "id": "harpagophytum-procumbens",
-  "displayName": "harpagophytum procumbens",
-  "displayScientificName": "Harpagophytum procumbens",
-  "scientificNormalized": "harpagophytum procumbens"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

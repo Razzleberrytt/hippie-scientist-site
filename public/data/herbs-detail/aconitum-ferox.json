@@ -1,52 +1,28 @@
 {
   "name": "aconitum ferox",
   "latin": "Aconitum ferox",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Highly toxic; traditionally used as analgesic after detoxification. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Highly toxic; traditionally used as analgesic after detoxification. No direct region data. Contextual inference: Highly toxic; traditionally used as analgesic after detoxification. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Highly toxic; traditionally used as analgesic after detoxification. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Highly toxic",
+    "highly toxic",
     "traditionally used as analgesic after detoxification"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Highly toxic",
-    "cardiotoxicity",
-    "neurotoxicity",
-    "fatal in small doses",
-    "No direct toxicity data. Contextual inference: Highly toxic",
-    "traditionally used as analgesic after detoxification. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Highly toxic",
-    "traditionally used as analgesic after detoxification. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Highly toxic,cardiotoxicity,neurotoxicity,fatal in small doses,No direct toxicity data. Contextual inference: Highly toxic,traditionally used as analgesic after detoxification. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Highly toxic,traditionally used as analgesic after detoxification. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Aconitum ferox (TaxID 50866)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=50866&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.835Z",
   "description": "Highly toxic; traditionally used as analgesic after detoxification. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Highly toxic",
-    "traditionally used as analgesic after detoxification. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Highly toxic",
-    "traditionally used as analgesic after detoxification. No direct region data. Contextual inference: Highly toxic",
-    "traditionally used as analgesic after detoxification. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Highly toxic,traditionally used as analgesic after detoxification. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Highly toxic,traditionally used as analgesic after detoxification. No direct region data. Contextual inference: Highly toxic,traditionally used as analgesic after detoxification. none.,nan.",
   "duration": "6–12 hours",
-  "interactions": [],
   "legalStatus": "Controlled in many regions",
   "preparation": "Root highly toxic; traditionally detoxified and used in TCM and Ayurveda with strict regulation",
   "region": "No direct region data. Contextual inference: Highly toxic; traditionally used as analgesic after detoxification. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Highly toxic; traditionally used as analgesic after detoxification. none. ; nan; nan",
@@ -59,8 +35,9 @@
     "fatal in small doses"
   ],
   "slug": "aconitum-ferox",
-  "id": "aconitum-ferox",
-  "displayName": "aconitum ferox",
-  "displayScientificName": "Aconitum ferox",
-  "scientificNormalized": "aconitum ferox"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

@@ -1,56 +1,38 @@
 {
   "name": "nymphaea nouchali",
   "latin": "Nymphaea nouchali",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Mild sedative and aphrodisiac; used in ayurveda and traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative and aphrodisiac; used in Ayurveda and traditional medicine. No direct region data. Contextual inference: Mild sedative and aphrodisiac; used in ayurveda and traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative and aphrodisiac; used in Ayurveda and traditional medicine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Mild sedative and aphrodisiac",
-    "used in Ayurveda and traditional medicine"
+    "mild sedative and aphrodisiac",
+    "used in ayurveda and traditional medicine"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Mild sedative and aphrodisiac",
-    "used in ayurveda and traditional medicine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Mild sedative and aphrodisiac",
-    "used in Ayurveda and traditional medicine. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "No direct toxicity data. Contextual inference: Mild sedative and aphrodisiac,used in ayurveda and traditional medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Mild sedative and aphrodisiac,used in Ayurveda and traditional medicine. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Nymphaea nouchali (TaxID 58040)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=58040&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.983Z",
   "description": "Mild sedative and aphrodisiac; used in ayurveda and traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Mild sedative and aphrodisiac",
-    "used in ayurveda and traditional medicine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Mild sedative and aphrodisiac",
-    "used in Ayurveda and traditional medicine. No direct region data. Contextual inference: Mild sedative and aphrodisiac",
-    "used in Ayurveda and traditional medicine. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Mild sedative and aphrodisiac,used in ayurveda and traditional medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Mild sedative and aphrodisiac,used in Ayurveda and traditional medicine. No direct region data. Contextual inference: Mild sedative and aphrodisiac,used in Ayurveda and traditional medicine. none.,nan.",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "No direct preparation data. Contextual inference: Mild sedative and aphrodisiac; used in ayurveda and traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative and aphrodisiac; used in Ayurveda and traditional medicine. No direct region data. Contextual inference: Mild sedative and aphrodisiac; used in ayurveda and traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative and aphrodisiac; used in Ayurveda and traditional medicine. none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Mild sedative and aphrodisiac; used in ayurveda and traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative and aphrodisiac; used in Ayurveda and traditional medicine. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
+  "sideEffects": [],
   "slug": "nymphaea-nouchali",
-  "id": "nymphaea-nouchali",
-  "displayName": "nymphaea nouchali",
-  "displayScientificName": "Nymphaea nouchali",
-  "scientificNormalized": "nymphaea nouchali"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

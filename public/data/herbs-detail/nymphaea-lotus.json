@@ -3,82 +3,47 @@
   "latin": "Nymphaea lotus L.",
   "class": "Ethnobotanical, Psychoactive, Relaxant",
   "intensity": "Mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+  "mechanism": "",
   "activeCompounds": [
-    "Nuciferine",
+    "nuciferine",
     "aporphine",
     "flavonoids",
     "tannins",
     "glycosides"
   ],
   "effects": [
-    "Relaxation",
+    "relaxation",
     "mild euphoria",
     "lucid dreaming",
     "increased tactile sensation",
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
+    "used in ritual",
+    "dreaming or folk medicine used in ritual",
     "dreaming or folk medicine"
   ],
   "contraindications": [
-    "Avoid use with CNS depressants",
-    "sedatives",
-    "and alcohol",
-    "caution during pregnancy"
+    "avoid use with cns depressants",
+    "avoid with sedatives",
+    "avoid with and alcohol",
+    "avoid in pregnancy"
   ],
-  "safetyNotes": [
-    "Low risk in moderate amounts",
-    "high doses may impair motor control or cause nausea",
-    "Dry mouth",
-    "dizziness",
-    "sedation",
-    "nausea (high doses)",
-    "Very low",
-    "no known fatal dose in humans",
-    "Not formally established",
-    "animal models show low acute toxicity",
-    "safe",
-    "No direct toxicity data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
-  ],
-  "sources": [
-    {
-      "title": "Ethnobotanical texts"
-    },
-    {
-      "title": "PubMed studies"
-    },
-    {
-      "title": "ancient Egyptian records"
-    },
-    {
-      "title": "herbal compendiums"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "A water lily native to the Nile and East Africa, revered in ancient Egypt for spiritual and aphrodisiac uses. It contains alkaloids that produce sedative and mildly psychoactive effects.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine"
-  ],
-  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "interactions": [
     "Potentiates effects of alcohol",
     "opioids",
     "and sedatives",
     "may interact with dopamine pathways"
   ],
+  "safetyNotes": "Low risk in moderate amounts,high doses may impair motor control or cause nausea,Dry mouth,dizziness,sedation,nausea (high doses),Very low,no known fatal dose in humans,Not formally established,animal models show low acute toxicity,safe,No direct toxicity data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Nymphaea lotus L.",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Nymphaea%20lotus%20L.&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.983Z",
+  "description": "A water lily native to the Nile and East Africa, revered in ancient Egypt for spiritual and aphrodisiac uses. It contains alkaloids that produce sedative and mildly psychoactive effects.",
+  "dosage": "No direct dosage data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual,dreaming or folk medicine",
+  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "Legal in most countries; restricted in some US states (e.g., Louisiana)",
   "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
@@ -89,15 +54,17 @@
     "dream enhancement"
   ],
   "traditionalUse": "Used in ritual, dreaming or folk medicine",
+  "sideEffects": [],
   "slug": "nymphaea-lotus",
-  "displayName": "nymphaea lotus",
-  "displayScientificName": "Nymphaea lotus L.",
-  "scientificNormalized": "nymphaea lotus",
-  "id": "nymphaea-lotus",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "nuciferine",
+    "aporphine",
+    "flavonoids",
+    "tannins",
+    "glycosides"
   ]
 }

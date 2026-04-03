@@ -1,77 +1,41 @@
 {
   "name": "rhododendron tomentosum",
   "latin": "Rhododendron tomentosum",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, antiseptic; once used as beer spice (toxic in high doses). No direct region data. Contextual inference: Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, antiseptic; once used as beer spice (toxic in high doses). none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Sedative",
+    "sedative",
     "antiseptic",
     "once used as beer spice (toxic in high doses)",
-    "Same as Ledum palustre",
+    "same as ledum palustre",
     "sedative and antimicrobial"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Sedative",
-    "antiseptic",
-    "once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Sedative",
-    "once used as beer spice (toxic in high doses). none.",
-    "No direct toxicity data. Contextual inference: Same as ledum palustre",
-    "sedative and antimicrobial. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Same as Ledum palustre",
-    "sedative and antimicrobial. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "No direct toxicity data. Contextual inference: Sedative,antiseptic,once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Sedative,once used as beer spice (toxic in high doses). none.,No direct toxicity data. Contextual inference: Same as ledum palustre,sedative and antimicrobial. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Same as Ledum palustre,sedative and antimicrobial. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Rhododendron tomentosum (TaxID 49170)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=49170&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.008Z",
   "description": "Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Sedative",
-    "antiseptic",
-    "once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Sedative",
-    "once used as beer spice (toxic in high doses). No direct region data. Contextual inference: Sedative",
-    "once used as beer spice (toxic in high doses). none.",
-    "nan.",
-    "No direct dosage data. Contextual inference: Same as ledum palustre",
-    "sedative and antimicrobial. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Same as Ledum palustre",
-    "sedative and antimicrobial. No direct region data. Contextual inference: Same as ledum palustre",
-    "sedative and antimicrobial. none."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Sedative,antiseptic,once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Sedative,once used as beer spice (toxic in high doses). No direct region data. Contextual inference: Sedative,once used as beer spice (toxic in high doses). none.,nan.,No direct dosage data. Contextual inference: Same as ledum palustre,sedative and antimicrobial. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Same as Ledum palustre,sedative and antimicrobial. No direct region data. Contextual inference: Same as ledum palustre,sedative and antimicrobial. none.",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Restricted in some countries",
   "preparation": "No direct preparation data. Contextual inference: Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, antiseptic; once used as beer spice (toxic in high doses). No direct region data. Contextual inference: Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, antiseptic; once used as beer spice (toxic in high doses). none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, antiseptic; once used as beer spice (toxic in high doses). none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
-  "slug": "rhododendron-tomentosum",
   "sideEffects": [],
-  "displayName": "rhododendron tomentosum",
-  "displayScientificName": "Rhododendron tomentosum",
-  "scientificNormalized": "rhododendron tomentosum",
-  "id": "rhododendron-tomentosum",
-  "aliases": [
-    "ledum palustre"
-  ],
-  "slugAliases": [
-    "ledum-palustre"
-  ]
+  "slug": "rhododendron-tomentosum",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

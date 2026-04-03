@@ -1,0 +1,57 @@
+{
+  "name": "Solandra grandiflora",
+  "latin": "Solandra grandiflora",
+  "class": "Deliriant, Tropane alkaloid",
+  "intensity": "Very strong",
+  "mechanism": "anticholinergic | muscarinic receptor antagonism",
+  "activeCompounds": [
+    "atropine",
+    "scopolamine",
+    "hyoscyamine"
+  ],
+  "effects": [
+    "visual and auditory hallucinations",
+    "confusion",
+    "amnesia"
+  ],
+  "contraindications": [
+    "avoid with cardiac conditions",
+    "avoid with glaucoma",
+    "avoid in pregnancy"
+  ],
+  "interactions": [
+    "Other deliriants",
+    "MAOIs",
+    "CNS depressants"
+  ],
+  "safetyNotes": "Highly toxic,traditional use only,Severe delirium,tachycardia,death (in overdose),High,Not well studied in humans",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Solandra grandiflora (TaxID 33123)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=33123&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.976Z",
+  "description": "Powerful deliriant used in Huichol rituals; causes intense hallucinations and confusion.",
+  "dosage": "Extremely variable and dangerous",
+  "duration": "8–12 hours",
+  "legalStatus": "Regulated in some regions",
+  "preparation": "Infusion of flowers or roots (extreme caution)",
+  "region": "Mexico, Central America",
+  "therapeuticUses": [
+    "Vision quests (ritual only)"
+  ],
+  "traditionalUse": "",
+  "sideEffects": [],
+  "slug": "solandra-grandiflora",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "atropine",
+    "scopolamine",
+    "hyoscyamine"
+  ]
+}

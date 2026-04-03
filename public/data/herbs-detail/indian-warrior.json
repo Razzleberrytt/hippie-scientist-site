@@ -3,73 +3,41 @@
   "latin": "Pedicularis densiflora",
   "class": "Muscle Relaxant, Mild Sedative",
   "intensity": "No direct intensity data. Contextual inference: Skeletal muscle relaxant, calming; used in smoking blends. May act on gaba receptors; muscle relaxant and sedative properties.. ; nan; nan.. May act on GABA receptors; muscle relaxant and sedative properties.. Skeletal muscle relaxant, calming; used in smoking blends. No direct region data. Contextual inference: Skeletal muscle relaxant, calming; used in smoking blends. May act on gaba receptors; muscle relaxant and sedative properties.. ; nan; nan.. May act on GABA receptors; muscle relaxant and sedative properties.. Skeletal muscle relaxant, calming; used in smoking blends. ; nan; nan. ; nan; nan",
-  "mechanism": "May act on GABA receptors; muscle relaxant and sedative properties.",
+  "mechanism": "act on gaba receptors | muscle relaxant and sedative properties",
   "activeCompounds": [
-    "Iridoids",
-    "flavonoids",
-    "alkaloids (uncharacterized)"
+    "iridoids",
+    "flavonoids"
   ],
   "effects": [
-    "Muscle relaxation",
+    "muscle relaxation",
     "mild sedation",
     "euphoria",
-    "Skeletal muscle relaxant",
+    "skeletal muscle relaxant",
     "calming",
     "used in smoking blends"
   ],
   "contraindications": [
-    "None well established",
-    "pregnancy",
-    "cns depression."
+    "avoid with none well established",
+    "avoid in pregnancy",
+    "avoid with cns depression"
   ],
-  "safetyNotes": [
-    "Generally regarded as safe",
-    "Drowsiness",
-    "Low",
-    "drowsiness",
-    "dry mouth.",
-    "No direct toxicity data. Contextual inference: Skeletal muscle relaxant",
-    "calming",
-    "used in smoking blends. May act on gaba receptors",
-    "muscle relaxant and sedative properties..",
-    "nan.. May act on GABA receptors",
-    "muscle relaxant and sedative properties.. Skeletal muscle relaxant",
-    "used in smoking blends."
-  ],
-  "sources": [
-    {
-      "title": "Western herbalism"
-    },
-    {
-      "title": "indigenous ethnobotany"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Skeletal muscle relaxant, calming; used in smoking blends. May act on gaba receptors; muscle relaxant and sedative properties.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Skeletal muscle relaxant",
-    "calming",
-    "used in smoking blends. May act on gaba receptors",
-    "muscle relaxant and sedative properties..",
-    "nan.. May act on GABA receptors",
-    "muscle relaxant and sedative properties.. Skeletal muscle relaxant",
-    "used in smoking blends. No direct region data. Contextual inference: Skeletal muscle relaxant",
-    "used in smoking blends.",
-    "nan."
-  ],
-  "duration": "4–6 hours",
   "interactions": [
     "Sedatives (theoretical)",
     "sedatives",
     "depressants."
   ],
+  "safetyNotes": "Generally regarded as safe,Drowsiness,Low,drowsiness,dry mouth.,No direct toxicity data. Contextual inference: Skeletal muscle relaxant,calming,used in smoking blends. May act on gaba receptors,muscle relaxant and sedative properties..,nan.. May act on GABA receptors,muscle relaxant and sedative properties.. Skeletal muscle relaxant,used in smoking blends.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Pedicularis densiflora (TaxID 1392144)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1392144&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.949Z",
+  "description": "Skeletal muscle relaxant, calming; used in smoking blends. May act on gaba receptors; muscle relaxant and sedative properties.. ; nan; nan.",
+  "dosage": "No direct dosage data. Contextual inference: Skeletal muscle relaxant,calming,used in smoking blends. May act on gaba receptors,muscle relaxant and sedative properties..,nan.. May act on GABA receptors,muscle relaxant and sedative properties.. Skeletal muscle relaxant,used in smoking blends. No direct region data. Contextual inference: Skeletal muscle relaxant,used in smoking blends.,nan.",
+  "duration": "4–6 hours",
   "legalStatus": "Unregulated",
   "preparation": "No direct preparation data. Contextual inference: Skeletal muscle relaxant, calming; used in smoking blends. May act on gaba receptors; muscle relaxant and sedative properties.. ; nan; nan.. May act on GABA receptors; muscle relaxant and sedative properties.. Skeletal muscle relaxant, calming; used in smoking blends. No direct region data. Contextual inference: Skeletal muscle relaxant, calming; used in smoking blends. May act on gaba receptors; muscle relaxant and sedative properties.. ; nan; nan.. May act on GABA receptors; muscle relaxant and sedative properties.. Skeletal muscle relaxant, calming; used in smoking blends. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Skeletal muscle relaxant, calming; used in smoking blends. May act on gaba receptors; muscle relaxant and sedative properties.. ; nan; nan.. May act on GABA receptors; muscle relaxant and sedative properties.. Skeletal muscle relaxant, calming; used in smoking blends. ; nan; nan",
@@ -82,20 +50,17 @@
     "mild pain relief."
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "pedicularis-densiflora",
   "sideEffects": [
     "drowsiness",
     "dry mouth."
   ],
-  "displayName": "indian warrior",
-  "displayScientificName": "Pedicularis densiflora",
-  "scientificNormalized": "pedicularis densiflora",
-  "id": "pedicularis-densiflora",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "indian-warrior",
-    "nan"
+  "slug": "indian-warrior",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "iridoids",
+    "flavonoids"
   ]
 }

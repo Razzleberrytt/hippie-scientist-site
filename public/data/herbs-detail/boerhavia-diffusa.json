@@ -1,47 +1,29 @@
 {
   "name": "boerhavia diffusa",
   "latin": "Boerhavia diffusa",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Diuretic, hepatoprotective, adaptogen. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, hepatoprotective, adaptogen. No direct region data. Contextual inference: Diuretic, hepatoprotective, adaptogen. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, hepatoprotective, adaptogen. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Diuretic",
+    "diuretic",
     "hepatoprotective",
     "adaptogen"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "May cause diuresis",
-    "generally safe but monitor renal function with prolonged use",
-    "No direct toxicity data. Contextual inference: Diuretic",
-    "hepatoprotective",
-    "adaptogen. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Diuretic",
-    "adaptogen. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,May cause diuresis,generally safe but monitor renal function with prolonged use,No direct toxicity data. Contextual inference: Diuretic,hepatoprotective,adaptogen. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diuretic,adaptogen. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Boerhavia diffusa (TaxID 930814)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=930814&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.868Z",
   "description": "Diuretic, hepatoprotective, adaptogen. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "500",
-    "1000 mg",
-    "day root extract"
-  ],
+  "dosage": "500,1000 mg,day root extract",
   "duration": "6–8 hours",
-  "interactions": [],
   "legalStatus": "Legal in Ayurveda and herbal markets",
   "preparation": "Whole plant decocted in Ayurvedic practice (Punarnava); also powdered or tinctured",
   "region": "No direct region data. Contextual inference: Diuretic, hepatoprotective, adaptogen. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, hepatoprotective, adaptogen. none. ; nan; nan",
@@ -52,8 +34,9 @@
     "generally safe but monitor renal function with prolonged use"
   ],
   "slug": "boerhavia-diffusa",
-  "id": "boerhavia-diffusa",
-  "displayName": "boerhavia diffusa",
-  "displayScientificName": "Boerhavia diffusa",
-  "scientificNormalized": "boerhavia diffusa"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

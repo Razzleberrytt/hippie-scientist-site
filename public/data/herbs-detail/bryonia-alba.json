@@ -1,51 +1,31 @@
 {
   "name": "bryonia alba",
   "latin": "Bryonia alba",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Purgative, anti-inflammatory (homeopathic use); toxic in crude form. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Purgative, anti-inflammatory (homeopathic use); toxic in crude form. No direct region data. Contextual inference: Purgative, anti-inflammatory (homeopathic use); toxic in crude form. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Purgative, anti-inflammatory (homeopathic use); toxic in crude form. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Purgative",
+    "purgative",
     "anti-inflammatory (homeopathic use)",
     "toxic in crude form",
     "anti",
     "inflammatory (homeopathic use)"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Toxic – avoid oral use",
-    "Toxic",
-    "can cause severe vomiting",
-    "diarrhea",
-    "dizziness",
-    "and paralysis if ingested",
-    "No direct toxicity data. Contextual inference: Purgative",
-    "anti-inflammatory (homeopathic use)",
-    "toxic in crude form. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Purgative",
-    "toxic in crude form. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Toxic – avoid oral use,Toxic,can cause severe vomiting,diarrhea,dizziness,and paralysis if ingested,No direct toxicity data. Contextual inference: Purgative,anti-inflammatory (homeopathic use),toxic in crude form. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Purgative,toxic in crude form. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Bryonia alba (TaxID 243967)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=243967&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.875Z",
   "description": "Purgative, anti-inflammatory (homeopathic use); toxic in crude form. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "Toxic",
-    "homeopathic only"
-  ],
+  "dosage": "Toxic,homeopathic only",
   "duration": "6–8 hours",
-  "interactions": [],
   "legalStatus": "Restricted for internal use; used in homeopathy",
   "preparation": "Roots dried and tinctured; use is very limited due to toxic glycosides",
   "region": "No direct region data. Contextual inference: Purgative, anti-inflammatory (homeopathic use); toxic in crude form. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Purgative, anti-inflammatory (homeopathic use); toxic in crude form. none. ; nan; nan",
@@ -59,8 +39,9 @@
     "and paralysis if ingested"
   ],
   "slug": "bryonia-alba",
-  "id": "bryonia-alba",
-  "displayName": "bryonia alba",
-  "displayScientificName": "Bryonia alba",
-  "scientificNormalized": "bryonia alba"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

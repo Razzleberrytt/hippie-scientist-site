@@ -1,52 +1,29 @@
 {
   "name": "salvia dorrii",
   "latin": "Salvia dorrii",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Aromatic; antimicrobial; mild calming properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aromatic; antimicrobial; mild calming properties. No direct region data. Contextual inference: Aromatic; antimicrobial; mild calming properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aromatic; antimicrobial; mild calming properties. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Aromatic",
+    "aromatic",
     "antimicrobial",
     "mild calming properties"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "May cause dizziness or dry mouth in high doses",
-    "No direct toxicity data. Contextual inference: Aromatic",
-    "antimicrobial",
-    "mild calming properties. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Aromatic",
-    "mild calming properties. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "May cause dizziness or dry mouth in high doses,No direct toxicity data. Contextual inference: Aromatic,antimicrobial,mild calming properties. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Aromatic,mild calming properties. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Salvia dorrii (TaxID 207754)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=207754&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.017Z",
   "description": "Aromatic; antimicrobial; mild calming properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Aromatic",
-    "antimicrobial",
-    "mild calming properties. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Aromatic",
-    "mild calming properties. No direct region data. Contextual inference: Aromatic",
-    "mild calming properties. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Aromatic,antimicrobial,mild calming properties. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Aromatic,mild calming properties. No direct region data. Contextual inference: Aromatic,mild calming properties. none.,nan.",
   "duration": "2–4 hours",
-  "interactions": [],
   "legalStatus": "Unregulated",
   "preparation": "Aerial parts dried and used in infusions or smudges; used by Native American tribes for respiratory and ritual purposes",
   "region": "No direct region data. Contextual inference: Aromatic; antimicrobial; mild calming properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aromatic; antimicrobial; mild calming properties. none. ; nan; nan",
@@ -56,8 +33,9 @@
     "May cause dizziness or dry mouth in high doses"
   ],
   "slug": "salvia-dorrii",
-  "id": "salvia-dorrii",
-  "displayName": "salvia dorrii",
-  "displayScientificName": "Salvia dorrii",
-  "scientificNormalized": "salvia dorrii"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

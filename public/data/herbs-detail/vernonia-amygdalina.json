@@ -1,0 +1,53 @@
+{
+  "name": "Vernonia amygdalina",
+  "latin": "Vernonia amygdalina",
+  "class": "Antidiabetic, Anticancer",
+  "intensity": "Moderate to strong",
+  "mechanism": "insulin-sensitization and inhibition of tumor proliferation",
+  "activeCompounds": [
+    "sesquiterpene lactones",
+    "flavonoids",
+    "alkaloids"
+  ],
+  "effects": [
+    "blood sugar regulation",
+    "cytotoxic effects on cancer cells"
+  ],
+  "contraindications": [
+    "avoid in pregnancy"
+  ],
+  "interactions": [
+    "Enhances effect of antidiabetic and chemotherapeutic drugs"
+  ],
+  "safetyNotes": "Generally regarded as safe in traditional use,Bitterness may cause nausea,Low to moderate,Approx. 1500 mg/kg in rodents",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Vernonia amygdalina",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Vernonia%20amygdalina&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.975Z",
+  "description": "Widely used in West Africa for malaria, diabetes, and cancer adjunct therapy",
+  "dosage": "Leaf juice or infusion, 100–200 ml daily",
+  "duration": "420",
+  "legalStatus": "Unregulated",
+  "preparation": "Crushed fresh leaves or boiled infusion",
+  "region": "Tropical Africa",
+  "therapeuticUses": [
+    "Type 2 diabetes",
+    "cancer support"
+  ],
+  "traditionalUse": "",
+  "sideEffects": [],
+  "slug": "vernonia-amygdalina",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "sesquiterpene-lactones",
+    "flavonoids",
+    "alkaloids"
+  ]
+}

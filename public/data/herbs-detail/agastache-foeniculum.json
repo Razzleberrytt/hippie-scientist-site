@@ -1,53 +1,29 @@
 {
   "name": "agastache foeniculum",
   "latin": "Agastache foeniculum",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Carminative, antibacterial, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, antibacterial, mild sedative. No direct region data. Contextual inference: Carminative, antibacterial, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, antibacterial, mild sedative. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Carminative",
+    "carminative",
     "antibacterial",
     "mild sedative"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Generally well tolerated",
-    "possible allergic skin reactions in sensitive individuals",
-    "No direct toxicity data. Contextual inference: Carminative",
-    "antibacterial",
-    "mild sedative. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Carminative",
-    "mild sedative. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Generally well tolerated,possible allergic skin reactions in sensitive individuals,No direct toxicity data. Contextual inference: Carminative,antibacterial,mild sedative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Carminative,mild sedative. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Agastache foeniculum (TaxID 39269)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=39269&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.842Z",
   "description": "Carminative, antibacterial, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Carminative",
-    "antibacterial",
-    "mild sedative. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Carminative",
-    "mild sedative. No direct region data. Contextual inference: Carminative",
-    "mild sedative. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Carminative,antibacterial,mild sedative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Carminative,mild sedative. No direct region data. Contextual inference: Carminative,mild sedative. none.,nan.",
   "duration": "2–4 hours",
-  "interactions": [],
   "legalStatus": "Legal; commonly used in teas and herbalism",
   "preparation": "Leaves and flowers used fresh or dried in infusions, or as culinary flavoring",
   "region": "No direct region data. Contextual inference: Carminative, antibacterial, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, antibacterial, mild sedative. none. ; nan; nan",
@@ -58,8 +34,9 @@
     "possible allergic skin reactions in sensitive individuals"
   ],
   "slug": "agastache-foeniculum",
-  "id": "agastache-foeniculum",
-  "displayName": "agastache foeniculum",
-  "displayScientificName": "Agastache foeniculum",
-  "scientificNormalized": "agastache foeniculum"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

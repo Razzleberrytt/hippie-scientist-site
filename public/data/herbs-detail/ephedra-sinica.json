@@ -1,67 +1,19 @@
 {
   "name": "ephedra sinica",
   "latin": "Ephedra sinica",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Stimulant and decongestant; contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and cns activity.. ; nan; nan.. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and CNS activity.. Stimulant and decongestant; contains ephedrine alkaloids. No direct region data. Contextual inference: Stimulant and decongestant; contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and cns activity.. ; nan; nan.. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and CNS activity.. Stimulant and decongestant; contains ephedrine alkaloids. ; nan; nan. ; nan; nan",
-  "mechanism": "Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and CNS activity.",
+  "mechanism": "ephedrine stimulates alpha and beta adrenergic receptors | raises heart rate and cns activity",
   "activeCompounds": [],
   "effects": [
-    "Stimulant and decongestant",
-    "contains ephedrine alkaloids",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "stimulant and decongestant",
+    "contains ephedrine alkaloids"
   ],
   "contraindications": [
-    "heart conditions",
-    "hypertension",
-    "pregnancy."
+    "avoid with heart conditions",
+    "avoid with hypertension",
+    "avoid in pregnancy"
   ],
-  "safetyNotes": [
-    "palpitations",
-    "anxiety",
-    "hypertension.",
-    "No direct toxicity data. Contextual inference: Stimulant and decongestant",
-    "contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors",
-    "raises heart rate and cns activity..",
-    "nan.. Ephedrine stimulates alpha and beta adrenergic receptors",
-    "raises heart rate and CNS activity.. Stimulant and decongestant",
-    "contains ephedrine alkaloids.",
-    "caution",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
-  ],
-  "sources": [
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Stimulant and decongestant; contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and cns activity.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Stimulant and decongestant",
-    "contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors",
-    "raises heart rate and cns activity..",
-    "nan.. Ephedrine stimulates alpha and beta adrenergic receptors",
-    "raises heart rate and CNS activity.. Stimulant and decongestant",
-    "contains ephedrine alkaloids. No direct region data. Contextual inference: Stimulant and decongestant",
-    "contains ephedrine alkaloids.",
-    "nan.",
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan. No direct region data. Contextual inference:"
-  ],
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "stimulants",
     "beta-blockers",
@@ -69,6 +21,18 @@
     "beta",
     "blockers"
   ],
+  "safetyNotes": "palpitations,anxiety,hypertension.,No direct toxicity data. Contextual inference: Stimulant and decongestant,contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors,raises heart rate and cns activity..,nan.. Ephedrine stimulates alpha and beta adrenergic receptors,raises heart rate and CNS activity.. Stimulant and decongestant,contains ephedrine alkaloids.,caution,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Ephedra sinica (TaxID 33152)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=33152&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.933Z",
+  "description": "Stimulant and decongestant; contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and cns activity.. ; nan; nan.",
+  "dosage": "No direct dosage data. Contextual inference: Stimulant and decongestant,contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors,raises heart rate and cns activity..,nan.. Ephedrine stimulates alpha and beta adrenergic receptors,raises heart rate and CNS activity.. Stimulant and decongestant,contains ephedrine alkaloids. No direct region data. Contextual inference: Stimulant and decongestant,contains ephedrine alkaloids.,nan.,No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan. No direct region data. Contextual inference:",
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Regulated globally",
   "preparation": "No direct preparation data. Contextual inference: Stimulant and decongestant; contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and cns activity.. ; nan; nan.. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and CNS activity.. Stimulant and decongestant; contains ephedrine alkaloids. No direct region data. Contextual inference: Stimulant and decongestant; contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and cns activity.. ; nan; nan.. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and CNS activity.. Stimulant and decongestant; contains ephedrine alkaloids. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Stimulant and decongestant; contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and cns activity.. ; nan; nan.. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and CNS activity.. Stimulant and decongestant; contains ephedrine alkaloids. ; nan; nan",
@@ -84,14 +48,9 @@
     "hypertension."
   ],
   "slug": "ephedra-sinica",
-  "displayName": "ephedra sinica",
-  "displayScientificName": "Ephedra sinica",
-  "scientificNormalized": "ephedra sinica",
-  "id": "ephedra-sinica",
-  "aliases": [
-    "ephedra"
-  ],
-  "slugAliases": [
-    "ephedra"
-  ]
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

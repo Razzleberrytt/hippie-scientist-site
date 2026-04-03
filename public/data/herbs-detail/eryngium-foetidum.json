@@ -1,56 +1,31 @@
 {
   "name": "eryngium foetidum",
   "latin": "Eryngium foetidum",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Carminative, anti-inflammatory, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, anti-inflammatory, antioxidant. No direct region data. Contextual inference: Carminative, anti-inflammatory, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, anti-inflammatory, antioxidant. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Carminative",
+    "carminative",
     "anti-inflammatory",
     "antioxidant",
     "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Rare allergic skin or respiratory reactions",
-    "generally safe in culinary use",
-    "No direct toxicity data. Contextual inference: Carminative",
-    "anti-inflammatory",
-    "antioxidant. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Carminative",
-    "antioxidant. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Rare allergic skin or respiratory reactions,generally safe in culinary use,No direct toxicity data. Contextual inference: Carminative,anti-inflammatory,antioxidant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Carminative,antioxidant. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Eryngium foetidum (TaxID 477864)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=477864&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.933Z",
   "description": "Carminative, anti-inflammatory, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Carminative",
-    "anti",
-    "inflammatory",
-    "antioxidant. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Carminative",
-    "antioxidant. No direct region data. Contextual inference: Carminative",
-    "antioxidant. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Carminative,anti,inflammatory,antioxidant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Carminative,antioxidant. No direct region data. Contextual inference: Carminative,antioxidant. none.,nan.",
   "duration": "2–4 hours",
-  "interactions": [],
   "legalStatus": "Legal; used as spice and herb",
   "preparation": "Leaves used fresh or dried in decoctions or culinary infusions; known as “culantro”",
   "region": "No direct region data. Contextual inference: Carminative, anti-inflammatory, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, anti-inflammatory, antioxidant. none. ; nan; nan",
@@ -61,8 +36,9 @@
     "generally safe in culinary use"
   ],
   "slug": "eryngium-foetidum",
-  "id": "eryngium-foetidum",
-  "displayName": "eryngium foetidum",
-  "displayScientificName": "Eryngium foetidum",
-  "scientificNormalized": "eryngium foetidum"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

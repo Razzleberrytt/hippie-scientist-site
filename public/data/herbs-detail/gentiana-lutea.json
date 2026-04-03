@@ -1,50 +1,29 @@
 {
   "name": "gentiana lutea",
   "latin": "Gentiana lutea",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Bitter tonic, appetite stimulant, digestive support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, appetite stimulant, digestive support. No direct region data. Contextual inference: Bitter tonic, appetite stimulant, digestive support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, appetite stimulant, digestive support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Bitter tonic",
+    "bitter tonic",
     "appetite stimulant",
-    "digestive support"
+    "digestive"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "GI irritation",
-    "nausea",
-    "headache",
-    "avoid in gastric ulcers",
-    "No direct toxicity data. Contextual inference: Bitter tonic",
-    "appetite stimulant",
-    "digestive support. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Bitter tonic",
-    "digestive support. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,GI irritation,nausea,headache,avoid in gastric ulcers,No direct toxicity data. Contextual inference: Bitter tonic,appetite stimulant,digestive support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Bitter tonic,digestive support. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Gentiana lutea (TaxID 38851)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=38851&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.938Z",
   "description": "Bitter tonic, appetite stimulant, digestive support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "500",
-    "1000 mg",
-    "day root extract or 1",
-    "2 g infusion"
-  ],
+  "dosage": "500,1000 mg,day root extract or 1,2 g infusion",
   "duration": "2–4 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "Roots dried and tinctured or decocted; used as a bitter tonic for digestion",
   "region": "No direct region data. Contextual inference: Bitter tonic, appetite stimulant, digestive support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, appetite stimulant, digestive support. none. ; nan; nan",
@@ -57,8 +36,9 @@
     "avoid in gastric ulcers"
   ],
   "slug": "gentiana-lutea",
-  "id": "gentiana-lutea",
-  "displayName": "gentiana lutea",
-  "displayScientificName": "Gentiana lutea",
-  "scientificNormalized": "gentiana lutea"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

@@ -1,39 +1,30 @@
 {
   "name": "anisoptera thurifera",
   "latin": "Anisoptera thurifera",
-  "class": null,
+  "class": "general",
   "intensity": "Mild.",
-  "mechanism": "Volatile terpenes, resins modulate inflammation and microbial load.",
+  "mechanism": "volatile terpenes | resins modulate inflammation and microbial load",
   "activeCompounds": [],
   "effects": [
-    "Antibacterial",
-    "anti-inflammatory.",
+    "antibacterial",
+    "anti-inflammatory",
     "anti",
-    "inflammatory."
+    "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Very limited data",
-    "possible allergenic or irritant resin effects similar to Dipterocarpaceae relatives",
-    "Low",
-    "resin sometimes inhaled or used externally."
-  ],
+  "interactions": [],
+  "safetyNotes": "Very limited data,possible allergenic or irritant resin effects similar to Dipterocarpaceae relatives,Low,resin sometimes inhaled or used externally.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Anisoptera thurifera (TaxID 2028324)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2028324&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.848Z",
   "description": "Dipterocarpaceae tree native to Southeast Asia; known for aromatic resin.",
-  "dosage": [
-    "Small amounts used topically or as incense."
-  ],
+  "dosage": "Small amounts used topically or as incense.",
   "duration": "Short-acting.",
-  "interactions": [],
   "legalStatus": "Unregulated; used locally",
   "preparation": "Resinous exudate burned, inhaled, or applied.",
   "region": "Malaysia, Indonesia, Philippines",
@@ -44,8 +35,9 @@
     "possible allergenic or irritant resin effects similar to Dipterocarpaceae relatives"
   ],
   "slug": "anisoptera-thurifera",
-  "id": "anisoptera-thurifera",
-  "displayName": "anisoptera thurifera",
-  "displayScientificName": "Anisoptera thurifera",
-  "scientificNormalized": "anisoptera thurifera"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

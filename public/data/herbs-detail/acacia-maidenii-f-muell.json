@@ -1,0 +1,60 @@
+{
+  "name": "Acacia maidenii F. Muell.",
+  "latin": "Acacia maidenii F. Muell.",
+  "class": "Psychoactive, Ethnobotanical",
+  "intensity": "High",
+  "mechanism": "dmt is a 5-ht2a receptor agonist | effects depend on maoi inhibition of monoamine oxidase",
+  "activeCompounds": [
+    "nmt",
+    "tryptamines",
+    "tannins",
+    "flavonoids"
+  ],
+  "effects": [
+    "psychedelic visions",
+    "auditory changes",
+    "altered time perception",
+    "emotional insight"
+  ],
+  "contraindications": [
+    "may interact with maois",
+    "avoid with antidepressants",
+    "avoid with unstable mental health conditions"
+  ],
+  "interactions": [
+    "Strong interaction with MAOIs and SSRIs",
+    "risk of serotonin syndrome"
+  ],
+  "safetyNotes": "Unknown clinical safety,psychological and physiological risks if misused,Confusion,nausea,anxiety,dissociation,Low direct toxicity,high psychological risk,Not established in humans,DMT oral LD50 ~50 mg/kg in rats",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Acacia maidenii F. Muell.",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Acacia%20maidenii%20F.%20Muell.&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.970Z",
+  "description": "Acacia maidenii is an Australian native tree traditionally used by Aboriginal peoples. It contains tryptamines like DMT and has been studied for its entheogenic potential.",
+  "dosage": "Not traditionally used in standardized doses; alkaloid extraction for research ranges from 5–15g bark (not recommended for human use)",
+  "duration": "4–6 hours (if orally consumed with MAOI; not recommended)",
+  "legalStatus": "DMT is scheduled; plant legal status varies globally",
+  "preparation": "Crushed bark sometimes used for DMT extraction (research purposes only)",
+  "region": "Eastern Australia (NSW, QLD)",
+  "therapeuticUses": [
+    "Traditionally spiritual",
+    "not medically approved"
+  ],
+  "traditionalUse": "",
+  "sideEffects": [],
+  "slug": "acacia-maidenii-f-muell",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "nmt",
+    "tryptamines",
+    "tannins",
+    "flavonoids"
+  ]
+}

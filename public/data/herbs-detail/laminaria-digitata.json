@@ -1,52 +1,29 @@
 {
   "name": "laminaria digitata",
   "latin": "Laminaria digitata",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Iodine source, thyroid stimulant, laxative in medical use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Iodine source, thyroid stimulant, laxative in medical use. No direct region data. Contextual inference: Iodine source, thyroid stimulant, laxative in medical use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Iodine source, thyroid stimulant, laxative in medical use. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Iodine source",
+    "iodine source",
     "thyroid stimulant",
     "laxative in medical use"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Thyroid dysfunction due to high iodine content",
-    "No direct toxicity data. Contextual inference: Iodine source",
-    "thyroid stimulant",
-    "laxative in medical use. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Iodine source",
-    "laxative in medical use. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Thyroid dysfunction due to high iodine content,No direct toxicity data. Contextual inference: Iodine source,thyroid stimulant,laxative in medical use. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Iodine source,laxative in medical use. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Laminaria digitata (TaxID 80365)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=80365&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.953Z",
   "description": "Iodine source, thyroid stimulant, laxative in medical use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Iodine source",
-    "thyroid stimulant",
-    "laxative in medical use. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Iodine source",
-    "laxative in medical use. No direct region data. Contextual inference: Iodine source",
-    "laxative in medical use. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Iodine source,thyroid stimulant,laxative in medical use. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Iodine source,laxative in medical use. No direct region data. Contextual inference: Iodine source,laxative in medical use. none.,nan.",
   "duration": "6–12 hours",
-  "interactions": [],
   "legalStatus": "Regulated in some jurisdictions",
   "preparation": "Dried seaweed thallus powdered or decocted; used in thyroid support due to iodine content",
   "region": "No direct region data. Contextual inference: Iodine source, thyroid stimulant, laxative in medical use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Iodine source, thyroid stimulant, laxative in medical use. none. ; nan; nan",
@@ -56,8 +33,9 @@
     "Thyroid dysfunction due to high iodine content"
   ],
   "slug": "laminaria-digitata",
-  "id": "laminaria-digitata",
-  "displayName": "laminaria digitata",
-  "displayScientificName": "Laminaria digitata",
-  "scientificNormalized": "laminaria digitata"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

@@ -1,53 +1,28 @@
 {
   "name": "boophone disticha",
   "latin": "Boophone disticha",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Narcotic, traditional use in african medicine for mental illness. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Narcotic, traditional use in African medicine for mental illness. No direct region data. Contextual inference: Narcotic, traditional use in african medicine for mental illness. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Narcotic, traditional use in African medicine for mental illness. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Narcotic",
-    "traditional use in African medicine for mental illness"
+    "narcotic",
+    "traditional use in african medicine for mental illness"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Very toxic",
-    "may cause hallucinations",
-    "nausea",
-    "convulsions",
-    "contains potent alkaloids",
-    "No direct toxicity data. Contextual inference: Narcotic",
-    "traditional use in african medicine for mental illness. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Narcotic",
-    "traditional use in African medicine for mental illness. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Very toxic,may cause hallucinations,nausea,convulsions,contains potent alkaloids,No direct toxicity data. Contextual inference: Narcotic,traditional use in african medicine for mental illness. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Narcotic,traditional use in African medicine for mental illness. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Boophone disticha (TaxID 112533)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=112533&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.869Z",
   "description": "Narcotic, traditional use in african medicine for mental illness. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Narcotic",
-    "traditional use in african medicine for mental illness. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Narcotic",
-    "traditional use in African medicine for mental illness. No direct region data. Contextual inference: Narcotic",
-    "traditional use in African medicine for mental illness. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Narcotic,traditional use in african medicine for mental illness. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Narcotic,traditional use in African medicine for mental illness. No direct region data. Contextual inference: Narcotic,traditional use in African medicine for mental illness. none.,nan.",
   "duration": "6–12 hours",
-  "interactions": [],
   "legalStatus": "Controlled or restricted in many regions",
   "preparation": "Bulbs used traditionally with caution; mostly applied topically or in ritual use due to toxicity",
   "region": "No direct region data. Contextual inference: Narcotic, traditional use in african medicine for mental illness. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Narcotic, traditional use in African medicine for mental illness. none. ; nan; nan",
@@ -61,8 +36,9 @@
     "contains potent alkaloids"
   ],
   "slug": "boophone-disticha",
-  "id": "boophone-disticha",
-  "displayName": "boophone disticha",
-  "displayScientificName": "Boophone disticha",
-  "scientificNormalized": "boophone disticha"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

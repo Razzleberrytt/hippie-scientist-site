@@ -3,76 +3,45 @@
   "latin": "Desmodium gangeticum",
   "class": "Adaptogen, Nervine",
   "intensity": "Mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "",
   "activeCompounds": [
-    "Flavonoids",
+    "flavonoids",
     "alkaloids",
     "pterocarpans",
     "sterols",
     "tannins",
-    "Desmodin",
-    "flavonoids"
+    "desmodin"
   ],
   "effects": [
-    "Relaxation",
+    "relaxation",
     "improved mood",
     "mild clarity",
-    "Calming",
+    "calming",
     "expectorant",
-    "mild analgesic",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "mild analgesic"
   ],
   "contraindications": [
-    "None known",
-    "caution with sedatives",
-    "None known in moderate doses"
+    "avoid with none known",
+    "avoid with caution with sedatives",
+    "avoid with none known in moderate doses"
   ],
-  "safetyNotes": [
-    "Well tolerated in traditional use",
-    "Mild drowsiness",
-    "Low",
-    "Not established in humans",
-    "Generally recognized as safe",
-    "Drowsiness",
-    "dry throat (rare)",
-    "Not established",
-    "safe",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
-  ],
-  "sources": [
-    {
-      "title": "Ayurvedic texts"
-    },
-    {
-      "title": "traditional use"
-    },
-    {
-      "title": "pharmacognosy journals"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Ayurvedic herb used for rejuvenation and calming the nervous system",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "May enhance effects of CNS depressants",
     "Sedatives",
     "antihypertensives"
   ],
+  "safetyNotes": "Well tolerated in traditional use,Mild drowsiness,Low,Not established in humans,Generally recognized as safe,Drowsiness,dry throat (rare),Not established,safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Desmodium gangeticum",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Desmodium%20gangeticum&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.919Z",
+  "description": "Ayurvedic herb used for rejuvenation and calming the nervous system",
+  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Legal",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -85,16 +54,18 @@
     "inflammation"
   ],
   "traditionalUse": "Used in Dashamoola preparation in Ayurveda",
-  "slug": "desmodium-gangeticum",
   "sideEffects": [],
-  "displayName": "desmodium gangeticum",
-  "displayScientificName": "Desmodium gangeticum",
-  "scientificNormalized": "desmodium gangeticum",
-  "id": "desmodium-gangeticum",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "desmodium-gangeticum",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "flavonoids",
+    "alkaloids",
+    "pterocarpans",
+    "sterols",
+    "tannins",
+    "desmodin"
   ]
 }

@@ -1,22 +1,21 @@
 {
   "name": "cbd",
   "latin": "cbd",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "CBD engages multiple receptor and enzyme pathways; mechanistic complexity and formulation variability limit simple efficacy extrapolation across products.",
+  "mechanism": "cbd engages multiple receptor and enzyme pathways | mechanistic complexity and formulation variability limit simple efficacy extrapolation across products",
   "activeCompounds": [],
   "effects": [
-    "Human evidence supports indication-specific benefit in regulated contexts rather than broad universal efficacy claims.",
-    "Adverse event and interaction monitoring remains central to risk management."
+    "adverse event and interaction monitoring remains central to risk management"
   ],
   "contraindications": [
-    "Use caution in significant hepatic impairment without clinician oversight.",
-    "Avoid unsupported replacement of prescribed therapy with non-standardized CBD products."
+    "avoid with use caution in significant hepatic impairment without clinician oversight",
+    "avoid unsupported replacement of prescribed therapy with non-standardized cbd products"
   ],
-  "safetyNotes": [
-    "Monitor for liver enzyme elevations in higher-risk populations and polypharmacy contexts.",
-    "Sedation, gastrointestinal effects, and drug-drug interactions are key counseling points."
+  "interactions": [
+    "Potential interaction with CYP-metabolized medications including antiseizure agents and other narrow-therapeutic-index drugs."
   ],
+  "safetyNotes": "Monitor for liver enzyme elevations in higher-risk populations and polypharmacy contexts.,Sedation, gastrointestinal effects, and drug-drug interactions are key counseling points.",
   "sources": [
     {
       "title": "src_doi-10-1186-cpr-2024-11820",
@@ -31,121 +30,20 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/40622698/"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.891Z",
   "description": "Cannabidiol (CBD) is a cannabinoid used in regulated products (for example prescription formulations) and consumer supplements with variable quality standards.",
-  "dosage": [
-    "Dose context is product- and indication-specific; use approved labeling or clinician guidance rather than generic self-dosing ranges."
-  ],
+  "dosage": "Dose context is product- and indication-specific; use approved labeling or clinician guidance rather than generic self-dosing ranges.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Potential interaction with CYP-metabolized medications including antiseizure agents and other narrow-therapeutic-index drugs."
-  ],
-  "legalStatus": null,
+  "legalStatus": "",
   "preparation": "Prepared as purified pharmaceutical oral solutions, oils, capsules, and other extracts with large quality differences across markets.",
   "region": "Global commercial availability varies by jurisdiction and product class.",
   "therapeuticUses": [],
   "traditionalUse": "Cannabis-related traditional use exists in multiple cultures, but modern CBD claims should rely on product-specific clinical and regulatory evidence.",
+  "sideEffects": [],
   "slug": "cbd",
-  "id": "cbd",
-  "displayName": "cbd",
-  "displayScientificName": "cbd",
-  "scientificNormalized": "cbd",
-  "summary": "CBD has regulated human-clinical use in specific indications, but safety and interaction monitoring remain essential, especially for hepatic enzyme elevation and concomitant medications.",
-  "researchEnrichment": {
-    "evidenceSummary": "Curated governance-backed enrichment for cbd using 3 registry sources.",
-    "evidenceTier": "tier-2-moderate",
-    "evidenceClassesPresent": [
-      "human-clinical",
-      "preclinical-mechanistic"
-    ],
-    "supportedUses": [],
-    "unsupportedOrUnclearUses": [],
-    "mechanisms": [
-      {
-        "claim": "CBD engages multiple receptor and enzyme pathways; mechanistic complexity and formulation variability limit simple efficacy extrapolation across products.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_doi-10-1186-cpr-2024-11820"
-        ],
-        "uncertaintyNote": "Mechanistic interpretation should not be treated as proven clinical efficacy."
-      }
-    ],
-    "constituents": [],
-    "interactions": [
-      {
-        "claim": "Potential interaction with CYP-metabolized medications including antiseizure agents and other narrow-therapeutic-index drugs.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_doi-10-1186-cpr-2024-11820"
-        ]
-      }
-    ],
-    "contraindications": [
-      {
-        "claim": "Use caution in significant hepatic impairment without clinician oversight.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_doi-10-1186-cpr-2024-11820"
-        ]
-      }
-    ],
-    "adverseEffects": [
-      {
-        "claim": "Monitor for liver enzyme elevations in higher-risk populations and polypharmacy contexts.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_doi-10-1186-cpr-2024-11820"
-        ]
-      }
-    ],
-    "dosageContextNotes": [
-      {
-        "claim": "Dose context is product- and indication-specific; use approved labeling or clinician guidance rather than generic self-dosing ranges.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_doi-10-1186-cpr-2024-11820"
-        ]
-      }
-    ],
-    "populationSpecificNotes": [],
-    "conflictNotes": [],
-    "researchGaps": [
-      {
-        "claim": "Evidence remains limited or heterogeneous; avoid overgeneralizing efficacy across formulations or populations.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_doi-10-1186-cpr-2024-11820"
-        ],
-        "uncertaintyNote": "Additional controlled human data are needed for stronger confidence."
-      }
-    ],
-    "sourceRegistryIds": [
-      "src_doi-10-1186-cpr-2024-11820",
-      "src_fda-epidiolex-label-2021",
-      "src_pubmed-40622698"
-    ],
-    "sourceRefs": [
-      {
-        "sourceId": "src_doi-10-1186-cpr-2024-11820",
-        "extractConfidence": "medium",
-        "reviewer": "codex",
-        "notes": "Claim mapping for indexability remediation batch-01."
-      },
-      {
-        "sourceId": "src_fda-epidiolex-label-2021",
-        "extractConfidence": "medium",
-        "reviewer": "codex",
-        "notes": "Claim mapping for indexability remediation batch-01."
-      },
-      {
-        "sourceId": "src_pubmed-40622698",
-        "extractConfidence": "medium",
-        "reviewer": "codex",
-        "notes": "Claim mapping for indexability remediation batch-01."
-      }
-    ],
-    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
-    "reviewedBy": "codex-batch-01",
-    "editorialStatus": "in-review"
-  }
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

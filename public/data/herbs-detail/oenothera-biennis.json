@@ -1,59 +1,31 @@
 {
   "name": "oenothera biennis",
   "latin": "Oenothera biennis",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, hormonal support (pms, menopause). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, hormonal support (PMS, menopause). No direct region data. Contextual inference: Anti-inflammatory, hormonal support (pms, menopause). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, hormonal support (PMS, menopause). none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Anti-inflammatory",
-    "hormonal support (PMS",
+    "anti-inflammatory",
+    "hormonal (pms",
     "menopause)",
-    "Anti",
+    "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Headache",
-    "GI upset",
-    "allergic skin reactions",
-    "No direct toxicity data. Contextual inference: Anti-inflammatory",
-    "hormonal support (pms",
-    "menopause). Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti-inflammatory",
-    "hormonal support (PMS",
-    "menopause). none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Headache,GI upset,allergic skin reactions,No direct toxicity data. Contextual inference: Anti-inflammatory,hormonal support (pms,menopause). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,hormonal support (PMS,menopause). none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Oenothera biennis (TaxID 3942)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3942&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.985Z",
   "description": "Anti-inflammatory, hormonal support (pms, menopause). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Anti",
-    "inflammatory",
-    "hormonal support (pms",
-    "menopause). Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti",
-    "hormonal support (PMS",
-    "menopause). No direct region data. Contextual inference: Anti",
-    "menopause). none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Anti,inflammatory,hormonal support (pms,menopause). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti,hormonal support (PMS,menopause). No direct region data. Contextual inference: Anti,menopause). none.,nan.",
   "duration": "Chronic",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "Seeds cold-pressed to extract evening primrose oil; traditionally also used as infusions or poultices",
   "region": "No direct region data. Contextual inference: Anti-inflammatory, hormonal support (pms, menopause). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, hormonal support (PMS, menopause). none. ; nan; nan",
@@ -65,8 +37,9 @@
     "allergic skin reactions"
   ],
   "slug": "oenothera-biennis",
-  "id": "oenothera-biennis",
-  "displayName": "oenothera biennis",
-  "displayScientificName": "Oenothera biennis",
-  "scientificNormalized": "oenothera biennis"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

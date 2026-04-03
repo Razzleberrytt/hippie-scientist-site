@@ -3,71 +3,40 @@
   "latin": "Valeriana officinalis",
   "class": "Sedative, Hypnotic, Nervine",
   "intensity": "No direct intensity data. Contextual inference: Sedative, anxiolytic, sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anxiolytic, sleep aid. No direct region data. Contextual inference: Sedative, anxiolytic, sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anxiolytic, sleep aid. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [
-    "Valerenic acid",
+    "valerenic acid",
     "isovaleric acid",
     "sesquiterpenes"
   ],
   "effects": [
-    "Sedation",
+    "sedation",
     "muscle relaxation",
-    "sleep support",
-    "Sedative",
+    "sleep",
+    "sedative",
     "anxiolytic",
     "sleep aid"
   ],
   "contraindications": [
-    "Avoid with alcohol",
-    "benzodiazepines",
-    "or barbiturates"
+    "avoid with alcohol",
+    "avoid with benzodiazepines",
+    "avoid with or barbiturates"
   ],
-  "safetyNotes": [
-    "Safe in moderate doses",
-    "Grogginess",
-    "vivid dreams",
-    "GI upset",
-    "Low",
-    "~ 1500 mg/kg in rats",
-    "safe",
-    "Drowsiness",
-    "dizziness",
-    "avoid with sedatives",
-    "No direct toxicity data. Contextual inference: Sedative",
-    "anxiolytic",
-    "sleep aid. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Sedative",
-    "sleep aid. none."
-  ],
-  "sources": [
-    {
-      "title": "Phytomedicine Journal"
-    },
-    {
-      "title": "WHO monographs"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Sedative, anxiolytic, sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "400",
-    "900 mg",
-    "day root extract"
-  ],
-  "duration": "4–6 hours",
   "interactions": [
     "Synergistic with CNS depressants"
   ],
+  "safetyNotes": "Safe in moderate doses,Grogginess,vivid dreams,GI upset,Low,~ 1500 mg/kg in rats,safe,Drowsiness,dizziness,avoid with sedatives,No direct toxicity data. Contextual inference: Sedative,anxiolytic,sleep aid. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Sedative,sleep aid. none.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Valeriana officinalis (TaxID 19953)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=19953&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.030Z",
+  "description": "Sedative, anxiolytic, sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": "400,900 mg,day root extract",
+  "duration": "4–6 hours",
   "legalStatus": "Legal worldwide",
   "preparation": "Root dried and used in teas, tinctures, or capsules; sedative and anxiolytic properties",
   "region": "No direct region data. Contextual inference: Sedative, anxiolytic, sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anxiolytic, sleep aid. none. ; nan; nan",
@@ -77,21 +46,20 @@
     "muscle tension"
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "valeriana-officinalis",
   "sideEffects": [
     "Drowsiness",
     "dizziness",
     "vivid dreams",
     "avoid with sedatives"
   ],
-  "displayName": "valeriana officinalis",
-  "displayScientificName": "Valeriana officinalis",
-  "scientificNormalized": "valeriana officinalis",
-  "id": "valeriana-officinalis",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "valeriana-officinalis",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "valerenic-acid",
+    "isovaleric-acid",
+    "sesquiterpenes"
   ]
 }

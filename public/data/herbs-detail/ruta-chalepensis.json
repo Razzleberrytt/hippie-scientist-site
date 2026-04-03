@@ -1,59 +1,39 @@
 {
   "name": "ruta chalepensis",
   "latin": "Ruta chalepensis",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Emmenagogue, antispasmodic, and insect repellent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emmenagogue, antispasmodic, and insect repellent. No direct region data. Contextual inference: Emmenagogue, antispasmodic, and insect repellent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emmenagogue, antispasmodic, and insect repellent. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Emmenagogue",
+    "emmenagogue",
     "antispasmodic",
     "and insect repellent"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Emmenagogue",
-    "antispasmodic",
-    "and insect repellent. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Emmenagogue",
-    "and insect repellent. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "No direct toxicity data. Contextual inference: Emmenagogue,antispasmodic,and insect repellent. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Emmenagogue,and insect repellent. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Ruta chalepensis (TaxID 452790)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=452790&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.016Z",
   "description": "Emmenagogue, antispasmodic, and insect repellent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Emmenagogue",
-    "antispasmodic",
-    "and insect repellent. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Emmenagogue",
-    "and insect repellent. No direct region data. Contextual inference: Emmenagogue",
-    "and insect repellent. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Emmenagogue,antispasmodic,and insect repellent. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Emmenagogue,and insect repellent. No direct region data. Contextual inference: Emmenagogue,and insect repellent. none.,nan.",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Unregulated",
   "preparation": "No direct preparation data. Contextual inference: Emmenagogue, antispasmodic, and insect repellent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emmenagogue, antispasmodic, and insect repellent. No direct region data. Contextual inference: Emmenagogue, antispasmodic, and insect repellent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emmenagogue, antispasmodic, and insect repellent. none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Emmenagogue, antispasmodic, and insect repellent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emmenagogue, antispasmodic, and insect repellent. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
+  "sideEffects": [],
   "slug": "ruta-chalepensis",
-  "id": "ruta-chalepensis",
-  "displayName": "ruta chalepensis",
-  "displayScientificName": "Ruta chalepensis",
-  "scientificNormalized": "ruta chalepensis"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

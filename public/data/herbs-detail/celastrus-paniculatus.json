@@ -1,145 +1,48 @@
 {
   "name": "celastrus paniculatus",
   "latin": "celastrus paniculatus",
-  "class": null,
+  "class": "general",
   "intensity": "mild",
-  "mechanism": "Preclinical studies describe antioxidant, anti-inflammatory, cholinergic, and neuroprotective signaling hypotheses.",
+  "mechanism": "preclinical studies describe antioxidant | anti-inflammatory | cholinergic",
   "activeCompounds": [
-    "Celastrine",
-    "Paniculatin"
+    "celastrine",
+    "paniculatin"
   ],
   "effects": [
-    "Review evidence highlights neuroprotective potential in experimental models.",
-    "Human clinical confirmation for neurological indications remains limited."
+    "review evidence highlights neuroprotective potential in experimental models",
+    "human clinical confirmation for neurological indications remains limited"
   ],
   "contraindications": [
-    "Avoid use in pregnancy/breastfeeding until human safety is better characterized."
+    "avoid in pregnancy"
   ],
-  "safetyNotes": [
-    "Human dose-finding and long-term safety data are limited in modern controlled settings."
-  ],
-  "sources": [
-    {
-      "title": "src_pubmed-35005853",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35005853/"
-    }
-  ],
-  "lastUpdated": "2026-04-01",
-  "description": "Celastrus paniculatus is an Ayurvedic medicinal seed plant often discussed for memory-related traditional use and modern neuroprotection research.",
-  "dosage": [
-    "No validated, product-agnostic therapeutic dosing standard was identified in the promoted review source."
-  ],
-  "duration": "No direct duration data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.",
   "interactions": [
     "Potential CNS-active interactions are plausible but insufficiently quantified."
   ],
+  "safetyNotes": "Human dose-finding and long-term safety data are limited in modern controlled settings.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: celastrus paniculatus (TaxID 994668)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=994668&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.892Z",
+  "description": "Celastrus paniculatus is an Ayurvedic medicinal seed plant often discussed for memory-related traditional use and modern neuroprotection research.",
+  "dosage": "No validated, product-agnostic therapeutic dosing standard was identified in the promoted review source.",
+  "duration": "No direct duration data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.",
   "legalStatus": "legal",
   "preparation": "Traditional use frequently involves seed oil preparations with variable concentration.",
   "region": "Native to South and Southeast Asia, especially India and Sri Lanka.",
   "therapeuticUses": [],
   "traditionalUse": "Traditional South Asian medicine describes seed oil use for memory and cognition support.",
+  "sideEffects": [],
   "slug": "celastrus-paniculatus",
-  "id": "celastrus-paniculatus",
-  "displayName": "celastrus paniculatus",
-  "displayScientificName": "celastrus paniculatus",
-  "scientificNormalized": "celastrus paniculatus",
-  "summary": "Current promoted evidence for Celastrus paniculatus is mainly narrative and preclinical, supporting mechanistic plausibility but not definitive clinical efficacy.",
-  "researchEnrichment": {
-    "evidenceSummary": "Indexability remediation update for celastrus-paniculatus using curated registry sources and claim-level provenance.",
-    "evidenceTier": "tier-3-limited",
-    "evidenceClassesPresent": [
-      "preclinical-mechanistic",
-      "traditional-use"
-    ],
-    "supportedUses": [
-      {
-        "claim": "Current promoted evidence for Celastrus paniculatus is mainly narrative and preclinical, supporting mechanistic plausibility but not definitive clinical efficacy.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-35005853"
-        ]
-      }
-    ],
-    "unsupportedOrUnclearUses": [
-      {
-        "claim": "Evidence remains limited by study design heterogeneity and/or sparse direct human trials for this exact herb preparation.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-35005853"
-        ]
-      }
-    ],
-    "mechanisms": [
-      {
-        "claim": "Preclinical studies describe antioxidant, anti-inflammatory, cholinergic, and neuroprotective signaling hypotheses.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-35005853"
-        ],
-        "uncertaintyNote": "Mechanistic findings should not be interpreted as proven clinical efficacy."
-      }
-    ],
-    "constituents": [],
-    "interactions": [
-      {
-        "claim": "Potential CNS-active interactions are plausible but insufficiently quantified.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-35005853"
-        ]
-      }
-    ],
-    "contraindications": [
-      {
-        "claim": "Avoid use in pregnancy/breastfeeding until human safety is better characterized.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-35005853"
-        ]
-      }
-    ],
-    "adverseEffects": [
-      {
-        "claim": "Human dose-finding and long-term safety data are limited in modern controlled settings.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-35005853"
-        ]
-      }
-    ],
-    "dosageContextNotes": [
-      {
-        "claim": "No validated, product-agnostic therapeutic dosing standard was identified in the promoted review source.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-35005853"
-        ]
-      }
-    ],
-    "populationSpecificNotes": [],
-    "conflictNotes": [],
-    "researchGaps": [
-      {
-        "claim": "High-quality, formulation-specific human trials and longer-term safety follow-up are still needed.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-35005853"
-        ]
-      }
-    ],
-    "sourceRegistryIds": [
-      "src_pubmed-35005853"
-    ],
-    "sourceRefs": [
-      {
-        "sourceId": "src_pubmed-35005853",
-        "extractConfidence": "medium",
-        "reviewer": "codex",
-        "notes": "Indexability remediation batch-01 claim mapping."
-      }
-    ],
-    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
-    "reviewedBy": "codex-batch-01",
-    "editorialStatus": "in-review"
-  }
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "celastrine",
+    "paniculatin"
+  ]
 }

@@ -3,52 +3,32 @@
   "latin": "3,4,5-trimethoxyphenethylamine",
   "class": "psychedelic",
   "intensity": "Moderate",
-  "mechanism": "Phenethylamine psychedelic acting on 5-HT2A and dopamine receptors.",
+  "mechanism": "phenethylamine psychedelic acting on 5-ht2a and dopamine receptors",
   "activeCompounds": [],
   "effects": [
-    "Color enhancement",
+    "color enhancement",
     "empathy",
     "spiritual visions"
   ],
   "contraindications": [
-    "heart disease",
-    "pregnancy."
+    "avoid with heart disease",
+    "avoid in pregnancy"
   ],
-  "safetyNotes": [
-    "Toxic – psychedelic",
-    "nausea",
-    "increased heart rate",
-    "dilated pupils.",
-    "Low physiological toxicity",
-    "psychological effects strong."
-  ],
-  "sources": [
-    {
-      "title": "Inferred from 3"
-    },
-    {
-      "note": "Inferred from 3",
-      "url": ""
-    },
-    {
-      "note": "4",
-      "url": ""
-    },
-    {
-      "note": "5-trimethoxyphenethylamine",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "classic phenethylamine psychedelic from peyote and san pedro cacti.",
-  "dosage": [
-    "Active ~200",
-    "400 mg (psychoactive)"
-  ],
-  "duration": "No direct duration data. Contextual inference: classic phenethylamine psychedelic from peyote and san pedro cacti.. Phenethylamine psychedelic acting on 5-HT2A and dopamine receptors.. Color enhancement;empathy;spiritual visions. 🌎 americas. ; nan; nan",
   "interactions": [
     "maois and sympathomimetics may potentiate."
   ],
+  "safetyNotes": "Toxic – psychedelic,nausea,increased heart rate,dilated pupils.,Low physiological toxicity,psychological effects strong.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: 3,4,5-trimethoxyphenethylamine",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=3%2C4%2C5-trimethoxyphenethylamine&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.961Z",
+  "description": "classic phenethylamine psychedelic from peyote and san pedro cacti.",
+  "dosage": "Active ~200,400 mg (psychoactive)",
+  "duration": "No direct duration data. Contextual inference: classic phenethylamine psychedelic from peyote and san pedro cacti.. Phenethylamine psychedelic acting on 5-HT2A and dopamine receptors.. Color enhancement;empathy;spiritual visions. 🌎 americas. ; nan; nan",
   "legalStatus": "Controlled in many regions",
   "preparation": "Ingested cactus buttons or purified sulfate",
   "region": "🌎 americas",
@@ -63,8 +43,9 @@
     "dilated pupils."
   ],
   "slug": "mescaline",
-  "id": "mescaline",
-  "displayName": "mescaline",
-  "displayScientificName": "3,4,5-trimethoxyphenethylamine",
-  "scientificNormalized": "3 4 5-trimethoxyphenethylamine"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

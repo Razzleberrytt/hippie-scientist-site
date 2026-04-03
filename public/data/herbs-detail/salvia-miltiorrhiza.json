@@ -1,50 +1,31 @@
 {
   "name": "salvia miltiorrhiza",
   "latin": "Salvia miltiorrhiza",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Cardioprotective, antioxidant, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cardioprotective, antioxidant, anti-inflammatory. No direct region data. Contextual inference: Cardioprotective, antioxidant, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cardioprotective, antioxidant, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Cardioprotective",
+    "cardioprotective",
     "antioxidant",
     "anti-inflammatory",
     "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "May lower blood pressure",
-    "dizziness",
-    "GI upset",
-    "No direct toxicity data. Contextual inference: Cardioprotective",
-    "antioxidant",
-    "anti-inflammatory. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Cardioprotective",
-    "anti-inflammatory. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,May lower blood pressure,dizziness,GI upset,No direct toxicity data. Contextual inference: Cardioprotective,antioxidant,anti-inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Cardioprotective,anti-inflammatory. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Salvia miltiorrhiza (TaxID 226208)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=226208&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.017Z",
   "description": "Cardioprotective, antioxidant, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "750 mg",
-    "day root extract"
-  ],
+  "dosage": "250,750 mg,day root extract",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal; common in traditional Chinese medicine",
   "preparation": "Roots decocted in Traditional Chinese Medicine (Danshen); used for cardiovascular and circulation support",
   "region": "No direct region data. Contextual inference: Cardioprotective, antioxidant, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cardioprotective, antioxidant, anti-inflammatory. none. ; nan; nan",
@@ -56,8 +37,9 @@
     "GI upset"
   ],
   "slug": "salvia-miltiorrhiza",
-  "id": "salvia-miltiorrhiza",
-  "displayName": "salvia miltiorrhiza",
-  "displayScientificName": "Salvia miltiorrhiza",
-  "scientificNormalized": "salvia miltiorrhiza"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

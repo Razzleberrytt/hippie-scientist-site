@@ -1,50 +1,31 @@
 {
   "name": "commiphora myrrha",
   "latin": "Commiphora myrrha",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antiseptic, anti-inflammatory, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, anti-inflammatory, antimicrobial. No direct region data. Contextual inference: Antiseptic, anti-inflammatory, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, anti-inflammatory, antimicrobial. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Antiseptic",
+    "antiseptic",
     "anti-inflammatory",
     "antimicrobial",
     "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Possible skin rash",
-    "GI irritation in large amounts",
-    "avoid in pregnancy",
-    "No direct toxicity data. Contextual inference: Antiseptic",
-    "anti-inflammatory",
-    "antimicrobial. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antiseptic",
-    "antimicrobial. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,Possible skin rash,GI irritation in large amounts,avoid in pregnancy,No direct toxicity data. Contextual inference: Antiseptic,anti-inflammatory,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiseptic,antimicrobial. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Commiphora myrrha (TaxID 318982)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=318982&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.905Z",
   "description": "Antiseptic, anti-inflammatory, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "500 mg",
-    "day gum resin or tincture"
-  ],
+  "dosage": "250,500 mg,day gum resin or tincture",
   "duration": "3–6 hours",
-  "interactions": [],
   "legalStatus": "Widely legal; used in traditional and modern applications",
   "preparation": "Resin extracted and powdered or tinctured; used in oral rinses, capsules, and incense",
   "region": "No direct region data. Contextual inference: Antiseptic, anti-inflammatory, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, anti-inflammatory, antimicrobial. none. ; nan; nan",
@@ -56,8 +37,9 @@
     "avoid in pregnancy"
   ],
   "slug": "commiphora-myrrha",
-  "id": "commiphora-myrrha",
-  "displayName": "commiphora myrrha",
-  "displayScientificName": "Commiphora myrrha",
-  "scientificNormalized": "commiphora myrrha"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

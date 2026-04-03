@@ -1,48 +1,28 @@
 {
   "name": "baptisia tinctoria",
   "latin": "Baptisia tinctoria",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Immune stimulant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immune stimulant, antimicrobial. No direct region data. Contextual inference: Immune stimulant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immune stimulant, antimicrobial. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Immune stimulant",
+    "immune stimulant",
     "antimicrobial"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "caution",
-    "Nausea",
-    "vomiting",
-    "hypotension at high doses",
-    "hepatotoxicity possible with prolonged use",
-    "No direct toxicity data. Contextual inference: Immune stimulant",
-    "antimicrobial. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Immune stimulant",
-    "antimicrobial. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "caution,Nausea,vomiting,hypotension at high doses,hepatotoxicity possible with prolonged use,No direct toxicity data. Contextual inference: Immune stimulant,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Immune stimulant,antimicrobial. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Baptisia tinctoria (TaxID 49797)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=49797&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.864Z",
   "description": "Immune stimulant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "500 mg",
-    "day root extract (short",
-    "term)"
-  ],
+  "dosage": "250,500 mg,day root extract (short,term)",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Unregulated but used under supervision",
   "preparation": "Root tinctured or decocted; used in very small doses due to potential toxicity",
   "region": "No direct region data. Contextual inference: Immune stimulant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immune stimulant, antimicrobial. none. ; nan; nan",
@@ -55,8 +35,9 @@
     "hepatotoxicity possible with prolonged use"
   ],
   "slug": "baptisia-tinctoria",
-  "id": "baptisia-tinctoria",
-  "displayName": "baptisia tinctoria",
-  "displayScientificName": "Baptisia tinctoria",
-  "scientificNormalized": "baptisia tinctoria"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

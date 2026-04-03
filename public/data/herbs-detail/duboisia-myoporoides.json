@@ -1,52 +1,28 @@
 {
   "name": "duboisia myoporoides",
   "latin": "Duboisia myoporoides",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Source of scopolamine and hyoscyamine; used pharmaceutically. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of scopolamine and hyoscyamine; used pharmaceutically. No direct region data. Contextual inference: Source of scopolamine and hyoscyamine; used pharmaceutically. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of scopolamine and hyoscyamine; used pharmaceutically. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Source of scopolamine and hyoscyamine",
+    "source of scopolamine and hyoscyamine",
     "used pharmaceutically"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Dry mouth",
-    "blurred vision",
-    "confusion",
-    "toxic at high doses",
-    "No direct toxicity data. Contextual inference: Source of scopolamine and hyoscyamine",
-    "used pharmaceutically. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Source of scopolamine and hyoscyamine",
-    "used pharmaceutically. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Dry mouth,blurred vision,confusion,toxic at high doses,No direct toxicity data. Contextual inference: Source of scopolamine and hyoscyamine,used pharmaceutically. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Source of scopolamine and hyoscyamine,used pharmaceutically. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Duboisia myoporoides (TaxID 195737)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=195737&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.922Z",
   "description": "Source of scopolamine and hyoscyamine; used pharmaceutically. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Source of scopolamine and hyoscyamine",
-    "used pharmaceutically. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Source of scopolamine and hyoscyamine",
-    "used pharmaceutically. No direct region data. Contextual inference: Source of scopolamine and hyoscyamine",
-    "used pharmaceutically. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Source of scopolamine and hyoscyamine,used pharmaceutically. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Source of scopolamine and hyoscyamine,used pharmaceutically. No direct region data. Contextual inference: Source of scopolamine and hyoscyamine,used pharmaceutically. none.,nan.",
   "duration": "6–12 hours",
-  "interactions": [],
   "legalStatus": "Regulated in pharmaceuticals",
   "preparation": "Leaves used in pharmaceutical alkaloid extraction (scopolamine, hyoscine); not commonly used by herbalists",
   "region": "No direct region data. Contextual inference: Source of scopolamine and hyoscyamine; used pharmaceutically. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of scopolamine and hyoscyamine; used pharmaceutically. none. ; nan; nan",
@@ -59,8 +35,9 @@
     "toxic at high doses"
   ],
   "slug": "duboisia-myoporoides",
-  "id": "duboisia-myoporoides",
-  "displayName": "duboisia myoporoides",
-  "displayScientificName": "Duboisia myoporoides",
-  "scientificNormalized": "duboisia myoporoides"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

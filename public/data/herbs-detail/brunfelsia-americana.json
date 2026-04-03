@@ -1,56 +1,38 @@
 {
   "name": "brunfelsia americana",
   "latin": "Brunfelsia americana",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Traditionally used as a hallucinogen and antispasmodic; contains tropane alkaloids. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as a hallucinogen and antispasmodic; contains tropane alkaloids. No direct region data. Contextual inference: Traditionally used as a hallucinogen and antispasmodic; contains tropane alkaloids. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as a hallucinogen and antispasmodic; contains tropane alkaloids. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Traditionally used as a hallucinogen and antispasmodic",
+    "traditionally used as a hallucinogen and antispasmodic",
     "contains tropane alkaloids"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Traditionally used as a hallucinogen and antispasmodic",
-    "contains tropane alkaloids. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Traditionally used as a hallucinogen and antispasmodic",
-    "contains tropane alkaloids. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "No direct toxicity data. Contextual inference: Traditionally used as a hallucinogen and antispasmodic,contains tropane alkaloids. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditionally used as a hallucinogen and antispasmodic,contains tropane alkaloids. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Brunfelsia americana (TaxID 225614)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=225614&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.873Z",
   "description": "Traditionally used as a hallucinogen and antispasmodic; contains tropane alkaloids. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Traditionally used as a hallucinogen and antispasmodic",
-    "contains tropane alkaloids. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Traditionally used as a hallucinogen and antispasmodic",
-    "contains tropane alkaloids. No direct region data. Contextual inference: Traditionally used as a hallucinogen and antispasmodic",
-    "contains tropane alkaloids. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Traditionally used as a hallucinogen and antispasmodic,contains tropane alkaloids. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditionally used as a hallucinogen and antispasmodic,contains tropane alkaloids. No direct region data. Contextual inference: Traditionally used as a hallucinogen and antispasmodic,contains tropane alkaloids. none.,nan.",
   "duration": "6–8 hours",
-  "interactions": [],
   "legalStatus": "Unregulated",
   "preparation": "No direct preparation data. Contextual inference: Traditionally used as a hallucinogen and antispasmodic; contains tropane alkaloids. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as a hallucinogen and antispasmodic; contains tropane alkaloids. No direct region data. Contextual inference: Traditionally used as a hallucinogen and antispasmodic; contains tropane alkaloids. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as a hallucinogen and antispasmodic; contains tropane alkaloids. none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Traditionally used as a hallucinogen and antispasmodic; contains tropane alkaloids. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as a hallucinogen and antispasmodic; contains tropane alkaloids. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
+  "sideEffects": [],
   "slug": "brunfelsia-americana",
-  "id": "brunfelsia-americana",
-  "displayName": "brunfelsia americana",
-  "displayScientificName": "Brunfelsia americana",
-  "scientificNormalized": "brunfelsia americana"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

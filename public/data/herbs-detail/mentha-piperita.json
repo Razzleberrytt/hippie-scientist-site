@@ -3,9 +3,9 @@
   "latin": "Mentha piperita",
   "class": "Digestive Aid, Antispasmodic, Aromatic",
   "intensity": "Mild to moderate, preparation-dependent.",
-  "mechanism": "Menthol-rich essential oils show antispasmodic and sensory receptor activity consistent with digestive and cooling effects in studied preparations.",
+  "mechanism": "",
   "activeCompounds": [
-    "Menthol",
+    "menthol",
     "menthone",
     "limonene",
     "pulegone",
@@ -13,76 +13,36 @@
     "menthyl acetate"
   ],
   "effects": [
-    "Soothes GI tract",
+    "soothes gi tract",
     "reduces bloating",
     "cools skin and mucosa",
     "mild analgesic",
-    "Digestive aid",
+    "digestive aid",
     "antispasmodic",
     "cooling"
   ],
   "contraindications": [
-    "GERD",
-    "gallbladder disorders",
-    "infants (menthol sensitivity)"
+    "avoid with gerd",
+    "avoid with gallbladder disorders",
+    "avoid with infants (menthol sensitivity)"
   ],
-  "safetyNotes": [
-    "High",
-    "when used appropriately",
-    "Heartburn",
-    "allergic reactions",
-    "perianal burning (oil)",
-    "Low",
-    "caution with concentrated oil",
-    "~3500 mg/kg (rat",
-    "oral)",
-    "safe",
-    "nausea",
-    "allergic reactions in sensitive individuals",
-    "Use caution in reflux-sensitive individuals and with concentrated essential oil products.",
-    "antispasmodic",
-    "cooling. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Digestive aid",
-    "cooling. none."
-  ],
-  "sources": [
-    {
-      "title": "PubMed"
-    },
-    {
-      "title": "Mount Sinai"
-    },
-    {
-      "title": "Poison Control"
-    },
-    {
-      "title": "NIH"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "A hybrid mint (Mentha aquatica × Mentha spicata) widely used for digestive support, flavoring, and aromatherapy; possesses antispasmodic, carminative, and cooling properties.",
-  "dosage": [
-    "250",
-    "750 mg",
-    "day extract or 1",
-    "3 g infusion"
-  ],
-  "duration": "4–8 hours (oral/enteric-coated oil)",
   "interactions": [
     "Antacids",
     "calcium channel blockers",
     "CYP450 substrates"
   ],
+  "safetyNotes": "High,when used appropriately,Heartburn,allergic reactions,perianal burning (oil),Low,caution with concentrated oil,~3500 mg/kg (rat,oral),safe,nausea,allergic reactions in sensitive individuals,Use caution in reflux-sensitive individuals and with concentrated essential oil products.,antispasmodic,cooling. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Digestive aid,cooling. none.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Mentha piperita",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Mentha%20piperita&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.960Z",
+  "description": "A hybrid mint (Mentha aquatica × Mentha spicata) widely used for digestive support, flavoring, and aromatherapy; possesses antispasmodic, carminative, and cooling properties.",
+  "dosage": "250,750 mg,day extract or 1,3 g infusion",
+  "duration": "4–8 hours (oral/enteric-coated oil)",
   "legalStatus": "Unregulated; approved in supplements and food",
   "preparation": "Leaves dried or fresh for teas, tinctures, and essential oil distillation; widely used for digestion and headaches",
   "region": "Widely cultivated and used globally in culinary, medicinal, and aromatic preparations.",
@@ -94,21 +54,22 @@
     "cold symptoms"
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "mentha-piperita",
   "sideEffects": [
     "Heartburn",
     "nausea",
     "allergic reactions in sensitive individuals"
   ],
-  "displayName": "mentha piperita",
-  "displayScientificName": "Mentha piperita",
-  "scientificNormalized": "mentha piperita",
-  "id": "mentha-piperita",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
-  "summary": "Mentha piperita has human and preclinical evidence for gastrointestinal symptom support, while efficacy depends on preparation and indication."
+  "slug": "mentha-piperita",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "menthol",
+    "menthone",
+    "limonene",
+    "pulegone",
+    "cineole",
+    "menthyl-acetate"
+  ]
 }

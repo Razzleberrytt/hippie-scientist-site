@@ -1,56 +1,31 @@
 {
   "name": "yucca schidigera",
   "latin": "Yucca schidigera",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, digestive aid, used for arthritis. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, digestive aid, used for arthritis. No direct region data. Contextual inference: Anti-inflammatory, digestive aid, used for arthritis. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, digestive aid, used for arthritis. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Anti-inflammatory",
+    "anti-inflammatory",
     "digestive aid",
     "used for arthritis",
-    "Anti",
+    "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Generally safe",
-    "high doses may cause stomach upset",
-    "No direct toxicity data. Contextual inference: Anti-inflammatory",
-    "digestive aid",
-    "used for arthritis. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti-inflammatory",
-    "used for arthritis. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Generally safe,high doses may cause stomach upset,No direct toxicity data. Contextual inference: Anti-inflammatory,digestive aid,used for arthritis. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,used for arthritis. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Yucca schidigera (TaxID 334597)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=334597&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.034Z",
   "description": "Anti-inflammatory, digestive aid, used for arthritis. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Anti",
-    "inflammatory",
-    "digestive aid",
-    "used for arthritis. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti",
-    "used for arthritis. No direct region data. Contextual inference: Anti",
-    "used for arthritis. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Anti,inflammatory,digestive aid,used for arthritis. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti,used for arthritis. No direct region data. Contextual inference: Anti,used for arthritis. none.,nan.",
   "duration": "Chronic",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "Root dried and decocted or tinctured; traditional use in Native American medicine for inflammation and joint support",
   "region": "No direct region data. Contextual inference: Anti-inflammatory, digestive aid, used for arthritis. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, digestive aid, used for arthritis. none. ; nan; nan",
@@ -61,8 +36,9 @@
     "high doses may cause stomach upset"
   ],
   "slug": "yucca-schidigera",
-  "id": "yucca-schidigera",
-  "displayName": "yucca schidigera",
-  "displayScientificName": "Yucca schidigera",
-  "scientificNormalized": "yucca schidigera"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

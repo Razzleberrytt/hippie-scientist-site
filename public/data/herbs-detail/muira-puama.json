@@ -2,69 +2,47 @@
   "name": "Muira Puama",
   "latin": "Ptychopetalum olacoides Benth.; Ptychopetalum olacoides",
   "class": "Nootropic, Aphrodisiac, Adaptogen",
-  "intensity": "nan",
-  "mechanism": "May enhance dopamine activity and increase blood flow; adaptogenic.",
+  "intensity": "",
+  "mechanism": "enhance dopamine activity and increase blood flow | adaptogenic",
   "activeCompounds": [
-    "Muirapuamine",
+    "muirapuamine",
     "sterols",
     "flavonoids",
     "long-chain fatty acids",
     "alkaloids"
   ],
   "effects": [
-    "Improved libido",
+    "improved libido",
     "enhanced cognition",
     "mood elevation",
     "anti-fatigue",
-    "Aphrodisiac",
+    "aphrodisiac",
     "stimulant",
     "nerve tonic"
   ],
   "contraindications": [
-    "Avoid in patients with hypertension or cardiac issues",
-    "consult physician during pregnancy",
-    "hypertension",
-    "pregnancy."
+    "avoid in patients with hypertension or cardiac issues",
+    "avoid in pregnancy",
+    "avoid with hypertension"
   ],
-  "safetyNotes": [
-    "Generally well tolerated at recommended doses",
-    "high doses may cause agitation",
-    "Generally recognized as safe at typical dosages",
-    "Insomnia",
-    "restlessness",
-    "increased heart rate (rare",
-    "dose-dependent)",
-    "May cause insomnia",
-    "restlessness at high doses",
-    "Very low toxicity reported",
-    "long-term use lacks sufficient study"
-  ],
-  "sources": [
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Aphrodisiac, stimulant, nerve tonic. May enhance dopamine activity and increase blood flow; adaptogenic.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Aphrodisiac",
-    "stimulant",
-    "nerve tonic. May enhance dopamine activity and increase blood flow",
-    "adaptogenic..",
-    "nan.. May enhance dopamine activity and increase blood flow",
-    "adaptogenic.. Aphrodisiac",
-    "nerve tonic. No direct region data. Contextual inference: Aphrodisiac",
-    "nerve tonic.",
-    "nan."
-  ],
-  "duration": "4–6 hours",
   "interactions": [
     "May potentiate stimulants and antidepressants",
     "avoid combining with MAOIs",
     "stimulants",
     "antidepressants."
   ],
+  "safetyNotes": "Generally well tolerated at recommended doses,high doses may cause agitation,Generally recognized as safe at typical dosages,Insomnia,restlessness,increased heart rate (rare,dose-dependent),May cause insomnia,restlessness at high doses,Very low toxicity reported,long-term use lacks sufficient study",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Ptychopetalum olacoides Benth.; Ptychopetalum olacoides",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Ptychopetalum%20olacoides%20Benth.%3B%20Ptychopetalum%20olacoides&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.968Z",
+  "description": "Aphrodisiac, stimulant, nerve tonic. May enhance dopamine activity and increase blood flow; adaptogenic.. ; nan; nan.",
+  "dosage": "No direct dosage data. Contextual inference: Aphrodisiac,stimulant,nerve tonic. May enhance dopamine activity and increase blood flow,adaptogenic..,nan.. May enhance dopamine activity and increase blood flow,adaptogenic.. Aphrodisiac,nerve tonic. No direct region data. Contextual inference: Aphrodisiac,nerve tonic.,nan.",
+  "duration": "4–6 hours",
   "legalStatus": "Legal and widely sold in supplements globally",
   "preparation": "Decoction from root bark; also used in tinctures or powdered extract",
   "region": "Amazon rainforest (Brazil, Guyana, parts of Peru)",
@@ -80,14 +58,21 @@
     "cognitive function",
     "stress relief."
   ],
-  "traditionalUse": null,
+  "traditionalUse": "",
   "sideEffects": [
     "headache",
     "insomnia (high doses)."
   ],
   "slug": "muira-puama",
-  "id": "muira-puama",
-  "displayName": "Muira Puama",
-  "displayScientificName": "Ptychopetalum olacoides Benth.; Ptychopetalum olacoides",
-  "scientificNormalized": "ptychopetalum olacoides ptychopetalum olacoides"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "muirapuamine",
+    "sterols",
+    "flavonoids",
+    "long-chain-fatty-acids",
+    "alkaloids"
+  ]
 }

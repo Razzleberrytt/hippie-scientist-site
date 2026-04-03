@@ -3,11 +3,10 @@
   "latin": "Alangium salvifolium",
   "class": "Tree",
   "intensity": "No direct intensity data. Contextual inference: Used in ayurveda for anti-epileptic, anti-inflammatory, and analgesic properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Ayurveda for anti-epileptic, anti-inflammatory, and analgesic properties. No direct region data. Contextual inference: Used in ayurveda for anti-epileptic, anti-inflammatory, and analgesic properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Ayurveda for anti-epileptic, anti-inflammatory, and analgesic properties. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Seeds, leaves, and bark contain a variety of alkaloids; deoxytubulosine and related alkaloids exhibit cytotoxic and antimicrobial activities; specific mechanisms involve DNA intercalation and enzyme inhibition【979907954310287†L106-L115】.",
+  "mechanism": "seeds | leaves | and bark contain a variety of alkaloids",
   "activeCompounds": [
     "deoxytubulosine",
     "cephaeline",
-    "N-methylcephaeline (alamarckine)",
     "alamarckine",
     "emetin",
     "psychotrin",
@@ -23,60 +22,65 @@
     "alangimarin"
   ],
   "effects": [
-    "Used in Ayurveda for anti-epileptic",
+    "used in ayurveda for anti-epileptic",
     "anti-inflammatory",
     "and analgesic properties",
-    "Used in Ayurveda for anti",
+    "used in ayurveda for anti",
     "epileptic",
     "anti",
     "inflammatory"
   ],
-  "contraindications": "Due to potent alkaloids, can be toxic; use with caution and avoid during pregnancy or without medical supervision.",
-  "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Used in ayurveda for anti-epileptic",
-    "anti-inflammatory",
-    "and analgesic properties. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Used in Ayurveda for anti-epileptic",
-    "and analgesic properties. none."
+  "contraindications": [
+    "avoid with due to potent alkaloids",
+    "avoid with can be toxic",
+    "avoid in pregnancy"
   ],
+  "interactions": [],
+  "safetyNotes": "No direct toxicity data. Contextual inference: Used in ayurveda for anti-epileptic,anti-inflammatory,and analgesic properties. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in Ayurveda for anti-epileptic,and analgesic properties. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Alangium salvifolium",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Alangium%20salvifolium&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.843Z",
   "description": "Used in ayurveda for anti-epileptic, anti-inflammatory, and analgesic properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used in ayurveda for anti",
-    "epileptic",
-    "anti",
-    "inflammatory",
-    "and analgesic properties. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Used in Ayurveda for anti",
-    "and analgesic properties. No direct region data. Contextual inference: Used in ayurveda for anti",
-    "and analgesic properties. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Used in ayurveda for anti,epileptic,anti,inflammatory,and analgesic properties. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in Ayurveda for anti,and analgesic properties. No direct region data. Contextual inference: Used in ayurveda for anti,and analgesic properties. none.,nan.",
   "duration": "6–8 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "No direct preparation data. Contextual inference: Used in ayurveda for anti-epileptic, anti-inflammatory, and analgesic properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Ayurveda for anti-epileptic, anti-inflammatory, and analgesic properties. No direct region data. Contextual inference: Used in ayurveda for anti-epileptic, anti-inflammatory, and analgesic properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Ayurveda for anti-epileptic, anti-inflammatory, and analgesic properties. none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Used in ayurveda for anti-epileptic, anti-inflammatory, and analgesic properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Ayurveda for anti-epileptic, anti-inflammatory, and analgesic properties. none. ; nan; nan",
-  "therapeuticUses": "Used in traditional medicine for treating pain, fever, cough, and as a purgative; seeds used for emetic effect; bark used for respiratory ailments.",
+  "therapeuticUses": [
+    "Used in traditional medicine for treating pain",
+    "fever",
+    "cough",
+    "and as a purgative",
+    "seeds used for emetic effect",
+    "bark used for respiratory ailments."
+  ],
   "traditionalUse": "; nan; nan",
+  "sideEffects": [],
   "slug": "alangium-salvifolium",
-  "id": "alangium-salvifolium",
-  "displayName": "alangium salvifolium",
-  "displayScientificName": "Alangium salvifolium",
-  "scientificNormalized": "alangium salvifolium"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "deoxytubulosine",
+    "cephaeline",
+    "alamarckine",
+    "emetin",
+    "psychotrin",
+    "alangamide",
+    "venoterpine",
+    "salsoline",
+    "isocephaeline",
+    "alangimarine",
+    "alamarine",
+    "alangimaridine",
+    "alamaridine",
+    "alangiside",
+    "alangimarin"
+  ]
 }

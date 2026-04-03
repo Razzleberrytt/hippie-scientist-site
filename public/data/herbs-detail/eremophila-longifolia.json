@@ -1,59 +1,40 @@
 {
   "name": "eremophila longifolia",
   "latin": "Eremophila longifolia",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial and anti-inflammatory; ceremonial and medicinal plant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial and anti-inflammatory; ceremonial and medicinal plant. No direct region data. Contextual inference: Antimicrobial and anti-inflammatory; ceremonial and medicinal plant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial and anti-inflammatory; ceremonial and medicinal plant. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Antimicrobial and anti-inflammatory",
+    "antimicrobial and anti-inflammatory",
     "ceremonial and medicinal plant",
-    "Antimicrobial and anti",
+    "antimicrobial and anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Antimicrobial and anti-inflammatory",
-    "ceremonial and medicinal plant. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antimicrobial and anti-inflammatory",
-    "ceremonial and medicinal plant. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "No direct toxicity data. Contextual inference: Antimicrobial and anti-inflammatory,ceremonial and medicinal plant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antimicrobial and anti-inflammatory,ceremonial and medicinal plant. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Eremophila longifolia (TaxID 2528947)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2528947&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.933Z",
   "description": "Antimicrobial and anti-inflammatory; ceremonial and medicinal plant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Antimicrobial and anti",
-    "inflammatory",
-    "ceremonial and medicinal plant. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antimicrobial and anti",
-    "ceremonial and medicinal plant. No direct region data. Contextual inference: Antimicrobial and anti",
-    "ceremonial and medicinal plant. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Antimicrobial and anti,inflammatory,ceremonial and medicinal plant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antimicrobial and anti,ceremonial and medicinal plant. No direct region data. Contextual inference: Antimicrobial and anti,ceremonial and medicinal plant. none.,nan.",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Unregulated",
   "preparation": "No direct preparation data. Contextual inference: Antimicrobial and anti-inflammatory; ceremonial and medicinal plant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial and anti-inflammatory; ceremonial and medicinal plant. No direct region data. Contextual inference: Antimicrobial and anti-inflammatory; ceremonial and medicinal plant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial and anti-inflammatory; ceremonial and medicinal plant. none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Antimicrobial and anti-inflammatory; ceremonial and medicinal plant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial and anti-inflammatory; ceremonial and medicinal plant. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
+  "sideEffects": [],
   "slug": "eremophila-longifolia",
-  "id": "eremophila-longifolia",
-  "displayName": "eremophila longifolia",
-  "displayScientificName": "Eremophila longifolia",
-  "scientificNormalized": "eremophila longifolia"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

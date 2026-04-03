@@ -3,71 +3,39 @@
   "latin": "Heimia myrtifolia",
   "class": "Oneirogen, Sedative",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "",
   "activeCompounds": [
-    "Cryogenine",
+    "cryogenine",
     "lyfoline",
-    "lythrine",
-    "Vertine (cryogenine)"
+    "lythrine"
   ],
   "effects": [
-    "Auditory shifts",
+    "auditory shifts",
     "relaxed dreamlike state",
-    "Mild auditory and visual alterations",
+    "mild auditory and visual alterations",
     "relaxation",
-    "dream enhancement",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "dream enhancement"
   ],
   "contraindications": [
-    "CNS depressants",
-    "pregnancy",
-    "Avoid use with MAOIs or CNS depressants"
+    "avoid with cns depressants",
+    "avoid in pregnancy",
+    "may interact with maois"
   ],
-  "safetyNotes": [
-    "Mild effects",
-    "few known adverse reports",
-    "Lethargy",
-    "slight motor coordination loss",
-    "Low",
-    "Unknown in humans",
-    "Generally regarded as safe in moderate doses",
-    "Mild dizziness or dry mouth with large doses",
-    "Not established",
-    "caution",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
-  ],
-  "sources": [
-    {
-      "title": "Traditional Mexican use"
-    },
-    {
-      "title": "Traditional use records"
-    },
-    {
-      "title": "ethnobotanical texts"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Rare cousin of Sinicuichi used for mild auditory alterations and calm dream states",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "CNS depressants may amplify effects"
   ],
+  "safetyNotes": "Mild effects,few known adverse reports,Lethargy,slight motor coordination loss,Low,Unknown in humans,Generally regarded as safe in moderate doses,Mild dizziness or dry mouth with large doses,Not established,caution,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Heimia myrtifolia (TaxID 135798)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=135798&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.940Z",
+  "description": "Rare cousin of Sinicuichi used for mild auditory alterations and calm dream states",
+  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Legal",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -79,16 +47,15 @@
     "spiritual practices"
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "heimia-myrtifolia",
   "sideEffects": [],
-  "displayName": "heimia myrtifolia",
-  "displayScientificName": "Heimia myrtifolia",
-  "scientificNormalized": "heimia myrtifolia",
-  "id": "heimia-myrtifolia",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "heimia-myrtifolia",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "cryogenine",
+    "lyfoline",
+    "lythrine"
   ]
 }

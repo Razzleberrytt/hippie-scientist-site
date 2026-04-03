@@ -1,56 +1,31 @@
 {
   "name": "lonicera japonica",
   "latin": "Lonicera japonica",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antibacterial, anti-inflammatory, antipyretic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antibacterial, anti-inflammatory, antipyretic. No direct region data. Contextual inference: Antibacterial, anti-inflammatory, antipyretic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antibacterial, anti-inflammatory, antipyretic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Antibacterial",
+    "antibacterial",
     "anti-inflammatory",
     "antipyretic",
     "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Allergic reactions",
-    "GI irritation possible",
-    "No direct toxicity data. Contextual inference: Antibacterial",
-    "anti-inflammatory",
-    "antipyretic. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antibacterial",
-    "antipyretic. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Allergic reactions,GI irritation possible,No direct toxicity data. Contextual inference: Antibacterial,anti-inflammatory,antipyretic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antibacterial,antipyretic. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Lonicera japonica (TaxID 105884)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=105884&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.956Z",
   "description": "Antibacterial, anti-inflammatory, antipyretic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Antibacterial",
-    "anti",
-    "inflammatory",
-    "antipyretic. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antibacterial",
-    "antipyretic. No direct region data. Contextual inference: Antibacterial",
-    "antipyretic. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Antibacterial,anti,inflammatory,antipyretic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antibacterial,antipyretic. No direct region data. Contextual inference: Antibacterial,antipyretic. none.,nan.",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal; widely used in TCM",
   "preparation": "Flowers dried and used in decoctions in Traditional Chinese Medicine for heat-clearing and detoxifying",
   "region": "No direct region data. Contextual inference: Antibacterial, anti-inflammatory, antipyretic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antibacterial, anti-inflammatory, antipyretic. none. ; nan; nan",
@@ -61,8 +36,9 @@
     "GI irritation possible"
   ],
   "slug": "lonicera-japonica",
-  "id": "lonicera-japonica",
-  "displayName": "lonicera japonica",
-  "displayScientificName": "Lonicera japonica",
-  "scientificNormalized": "lonicera japonica"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

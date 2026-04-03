@@ -1,0 +1,54 @@
+{
+  "name": "Sinicuichi (Heimia myrtifolia)",
+  "latin": "Sinicuichi (Heimia myrtifolia)",
+  "class": "Oneirogen, Relaxant",
+  "intensity": "Mild",
+  "mechanism": "gabaergic | unknown alkaloid activity",
+  "activeCompounds": [
+    "cryogenine",
+    "lyfoline"
+  ],
+  "effects": [
+    "mild auditory hallucinations",
+    "warmth",
+    "euphoria"
+  ],
+  "contraindications": [
+    "avoid with antidepressants",
+    "avoid in liver disease"
+  ],
+  "interactions": [
+    "CNS depressants",
+    "antidepressants"
+  ],
+  "safetyNotes": "Safe in small traditional doses,Dry mouth,lethargy,Low,Not recorded",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Sinicuichi (Heimia myrtifolia)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Sinicuichi%20(Heimia%20myrtifolia)&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.976Z",
+  "description": "Rare species of Heimia used for auditory enhancement and dream states. Closely related to H. salicifolia.",
+  "dosage": "1–3 g dried leaves (infusion or smoked)",
+  "duration": "2–5 hours",
+  "legalStatus": "Legal",
+  "preparation": "Sun-fermented tea or smoke",
+  "region": "Mexico, Central America",
+  "therapeuticUses": [
+    "Mild anxiety relief",
+    "lucid dreaming"
+  ],
+  "traditionalUse": "",
+  "sideEffects": [],
+  "slug": "sinicuichi-heimia-myrtifolia",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "cryogenine",
+    "lyfoline"
+  ]
+}

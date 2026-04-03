@@ -3,56 +3,38 @@
   "latin": "Brugmansia suaveolens",
   "class": "Deliriant, Tropane alkaloid hallucinogen",
   "intensity": "Very strong to incapacitating",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use",
+  "mechanism": "ritual use",
   "activeCompounds": [
-    "Scopolamine",
+    "scopolamine",
     "hyoscyamine",
     "atropine"
   ],
   "effects": [
-    "Complete dissociation",
+    "complete dissociation",
     "hallucinations",
     "amnesia",
-    "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use"
+    "ritual use ritual use ritual use"
   ],
   "contraindications": [
-    "Extremely dangerous",
+    "avoid with extremely dangerous",
     "avoid recreational use"
   ],
-  "safetyNotes": [
-    "Very dangerous",
-    "cases of coma and death",
-    "Dry mouth",
-    "confusion",
-    "delirium",
-    "tachycardia",
-    "Extremely high",
-    "~50 mg/kg (scopolamine",
-    "rats)",
-    "Toxic – deliriant tropane alkaloids",
-    "No direct toxicity data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use"
-  ],
-  "sources": [
-    {
-      "title": "Toxicology studies"
-    },
-    {
-      "title": "Erowid"
-    },
-    {
-      "title": "ethnobotany literature"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Ornamental plant with potent deliriant effects",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use"
-  ],
-  "duration": "No direct duration data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
   "interactions": [
     "Dangerous with sedatives",
     "anticholinergics"
   ],
+  "safetyNotes": "Very dangerous,cases of coma and death,Dry mouth,confusion,delirium,tachycardia,Extremely high,~50 mg/kg (scopolamine,rats),Toxic – deliriant tropane alkaloids,No direct toxicity data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Brugmansia suaveolens (TaxID 905076)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=905076&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.872Z",
+  "description": "Ornamental plant with potent deliriant effects",
+  "dosage": "No direct dosage data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
+  "duration": "No direct duration data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
   "legalStatus": "Legal, not controlled (plant); regulated in some countries",
   "preparation": "No direct preparation data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
   "region": "No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use",
@@ -60,16 +42,15 @@
     "Rarely used topically in folk medicine"
   ],
   "traditionalUse": "Ritual use",
-  "slug": "brugmansia-suaveolens",
   "sideEffects": [],
-  "displayName": "brugmansia suaveolens",
-  "displayScientificName": "Brugmansia suaveolens",
-  "scientificNormalized": "brugmansia suaveolens",
-  "id": "brugmansia-suaveolens",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "brugmansia-suaveolens",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "scopolamine",
+    "hyoscyamine",
+    "atropine"
   ]
 }

@@ -1,0 +1,55 @@
+{
+  "name": "unnamed herb",
+  "latin": "unnamed herb",
+  "class": "Psychoactive",
+  "intensity": "Moderate",
+  "mechanism": "",
+  "activeCompounds": [
+    "asarone",
+    "eugenol",
+    "farnesol",
+    "linalool"
+  ],
+  "effects": [
+    "mild sedative",
+    "hallucinogenic in high doses",
+    "anxiolytic",
+    "relaxing",
+    "description not available"
+  ],
+  "contraindications": [
+    "avoid in pregnancy",
+    "avoid with high doses",
+    "avoid with none known"
+  ],
+  "interactions": [],
+  "safetyNotes": "Toxic in large amounts,Not well documented,Low toxicity,Not established",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: unnamed herb",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=unnamed%20herb&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.978Z",
+  "description": "Description not available.",
+  "dosage": "1-3g dried root",
+  "duration": "4-8 hours",
+  "legalStatus": "",
+  "preparation": "Root chewed, boiled as tea",
+  "region": "Asia, Europe",
+  "therapeuticUses": [],
+  "traditionalUse": "",
+  "sideEffects": [],
+  "slug": "unnamed-herb",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "asarone",
+    "eugenol",
+    "farnesol",
+    "linalool"
+  ]
+}

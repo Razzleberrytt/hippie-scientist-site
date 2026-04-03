@@ -1,0 +1,55 @@
+{
+  "name": "Rhynchosia pyramidalis",
+  "latin": "Rhynchosia pyramidalis",
+  "class": "Anti-inflammatory, Antibacterial",
+  "intensity": "Moderate",
+  "mechanism": "inhibition of pro-inflammatory cytokines via flavonoids",
+  "activeCompounds": [
+    "prenylated isoflavonoids",
+    "flavonoids",
+    "phenolic acids"
+  ],
+  "effects": [
+    "pain relief",
+    "immune modulation"
+  ],
+  "contraindications": [
+    "avoid in pregnancy",
+    "avoid with hormone-sensitive conditions"
+  ],
+  "interactions": [
+    "May potentiate NSAIDs and immunosuppressants"
+  ],
+  "safetyNotes": "Generally safe with traditional dosage,Mild gastrointestinal discomfort,Low toxicity,Not determined in humans",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Rhynchosia pyramidalis (TaxID 1179171)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1179171&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.972Z",
+  "description": "Traditional African medicinal herb with analgesic and anti-inflammatory use",
+  "dosage": "Infusion or decoction, 2–3 cups per day",
+  "duration": "360",
+  "legalStatus": "Unregulated",
+  "preparation": "Dried root decoction or tea",
+  "region": "Sub-Saharan Africa",
+  "therapeuticUses": [
+    "Analgesic",
+    "antipyretic",
+    "antibacterial"
+  ],
+  "traditionalUse": "",
+  "sideEffects": [],
+  "slug": "rhynchosia-pyramidalis",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "prenylated-isoflavonoids",
+    "flavonoids",
+    "phenolic-acids"
+  ]
+}

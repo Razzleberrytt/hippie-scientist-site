@@ -1,0 +1,53 @@
+{
+  "name": "Zanthoxylum zanthoxyloides",
+  "latin": "Zanthoxylum zanthoxyloides",
+  "class": "Anthelmintic, Analgesic",
+  "intensity": "Moderate to strong",
+  "mechanism": "neural desensitization and antihelminthic disruption",
+  "activeCompounds": [
+    "alkaloids",
+    "lignans",
+    "xanthones"
+  ],
+  "effects": [
+    "pain relief",
+    "worm expulsion"
+  ],
+  "contraindications": [
+    "avoid in pregnancy"
+  ],
+  "interactions": [
+    "May potentiate antiparasitic drugs"
+  ],
+  "safetyNotes": "Used traditionally,avoid overdose,Mouth numbness,GI irritation,Moderate in excess,Animal LD50 varies",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Zanthoxylum zanthoxyloides (TaxID 2099548)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2099548&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.974Z",
+  "description": "Traditional remedy for toothache, worms, and infections",
+  "dosage": "Chewed root bark or decoction",
+  "duration": "300",
+  "legalStatus": "Not regulated",
+  "preparation": "Chewed or boiled bark",
+  "region": "West and Central Africa",
+  "therapeuticUses": [
+    "Toothache",
+    "intestinal worms"
+  ],
+  "traditionalUse": "",
+  "sideEffects": [],
+  "slug": "zanthoxylum-zanthoxyloides",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "alkaloids",
+    "lignans",
+    "xanthones"
+  ]
+}

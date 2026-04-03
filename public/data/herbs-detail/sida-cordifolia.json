@@ -3,83 +3,48 @@
   "latin": "Sida cordifolia",
   "class": "Stimulant, Traditional Medicine",
   "intensity": "No direct intensity data. Contextual inference: Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. No direct region data. Contextual inference: Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [
-    "Ephedrine",
+    "ephedrine",
     "pseudoephedrine",
     "vasicinone"
   ],
   "effects": [
-    "Increased energy",
+    "increased energy",
     "focus",
     "thermogenesis",
     "alertness",
     "bronchodilation",
-    "Stimulant",
+    "stimulant",
     "anti-inflammatory",
     "traditionally used for asthma and weight loss",
     "anti",
     "inflammatory"
   ],
   "contraindications": [
-    "Hypertension",
-    "cardiac conditions",
-    "MAOIs",
-    "heart conditions",
-    "pregnancy"
+    "avoid with hypertension",
+    "avoid with cardiac conditions",
+    "may interact with maois",
+    "avoid with heart conditions",
+    "avoid in pregnancy"
   ],
-  "safetyNotes": [
-    "Moderate risk",
-    "contraindications important",
-    "Insomnia",
-    "anxiety",
-    "elevated heart rate",
-    "Moderate",
-    "~2000 mg/kg (rats",
-    "ephedrine)",
-    "Use with caution under supervision",
-    "Palpitations",
-    "insomnia in high doses",
-    "Moderate (dose dependent)",
-    "Ephedrine approx. 50–75 mg/kg (rat)",
-    "caution",
-    "Contains ephedrine-like alkaloids",
-    "increases BP",
-    "stroke risk",
-    "No direct toxicity data. Contextual inference: Stimulant",
-    "anti-inflammatory",
-    "traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Stimulant",
-    "traditionally used for asthma and weight loss. none."
-  ],
-  "sources": [
-    {
-      "title": "Ayurvedic medicine"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "100",
-    "300 mg",
-    "day aerial extract (restricted in some regions)"
-  ],
-  "duration": "4–6 hours",
   "interactions": [
     "Stimulants",
     "MAOIs",
     "antihypertensives"
   ],
+  "safetyNotes": "Moderate risk,contraindications important,Insomnia,anxiety,elevated heart rate,Moderate,~2000 mg/kg (rats,ephedrine),Use with caution under supervision,Palpitations,insomnia in high doses,Moderate (dose dependent),Ephedrine approx. 50–75 mg/kg (rat),caution,Contains ephedrine-like alkaloids,increases BP,stroke risk,No direct toxicity data. Contextual inference: Stimulant,anti-inflammatory,traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant,traditionally used for asthma and weight loss. none.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Sida cordifolia (TaxID 108362)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=108362&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.020Z",
+  "description": "Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": "100,300 mg,day aerial extract (restricted in some regions)",
+  "duration": "4–6 hours",
   "legalStatus": "Regulated in some countries (ephedrine content)",
   "preparation": "Aerial parts and roots decocted or tinctured; Ayurvedic herb known for stimulant and anti-inflammatory actions",
   "region": "No direct region data. Contextual inference: Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. none. ; nan; nan",
@@ -90,21 +55,20 @@
     "respiratory support"
   ],
   "traditionalUse": "Ayurvedic medicine for vitality and asthma",
-  "slug": "sida-cordifolia",
   "sideEffects": [
     "Contains ephedrine",
     "like alkaloids",
     "increases BP",
     "stroke risk"
   ],
-  "displayName": "sida cordifolia",
-  "displayScientificName": "Sida cordifolia",
-  "scientificNormalized": "sida cordifolia",
-  "id": "sida-cordifolia",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "sida-cordifolia",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "ephedrine",
+    "pseudoephedrine",
+    "vasicinone"
   ]
 }

@@ -1,45 +1,27 @@
 {
   "name": "artemisia tilesii",
   "latin": "Artemisia tilesii",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional use for pain and colds. No direct region data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional use for pain and colds. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Traditional use for pain and colds"
+    "traditional use for pain and colds"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Limited data",
-    "may share effects with related species like allergic reactions or mild GI upset",
-    "No direct toxicity data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Traditional use for pain and colds. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Limited data,may share effects with related species like allergic reactions or mild GI upset,No direct toxicity data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional use for pain and colds. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Artemisia tilesii (TaxID 200866)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=200866&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.856Z",
   "description": "Traditional use for pain and colds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Traditional use for pain and colds. No direct region data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Traditional use for pain and colds. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional use for pain and colds. No direct region data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional use for pain and colds. none.,nan.",
   "duration": "3–5 hours",
-  "interactions": [],
   "legalStatus": "Unregulated; used in traditional contexts",
   "preparation": "Leaves decocted or made into poultices in traditional Alaska Native practices",
   "region": "No direct region data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional use for pain and colds. none. ; nan; nan",
@@ -50,8 +32,9 @@
     "may share effects with related species like allergic reactions or mild GI upset"
   ],
   "slug": "artemisia-tilesii",
-  "id": "artemisia-tilesii",
-  "displayName": "artemisia tilesii",
-  "displayScientificName": "Artemisia tilesii",
-  "scientificNormalized": "artemisia tilesii"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

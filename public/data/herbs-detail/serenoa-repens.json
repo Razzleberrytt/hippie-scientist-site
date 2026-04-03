@@ -1,46 +1,28 @@
 {
   "name": "serenoa repens",
   "latin": "Serenoa repens",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antiandrogenic, used for bph support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiandrogenic, used for BPH support. No direct region data. Contextual inference: Antiandrogenic, used for bph support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiandrogenic, used for BPH support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Antiandrogenic",
-    "used for BPH support"
+    "antiandrogenic",
+    "used for bph"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "GI upset",
-    "headache",
-    "dizziness",
-    "No direct toxicity data. Contextual inference: Antiandrogenic",
-    "used for bph support. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antiandrogenic",
-    "used for BPH support. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,GI upset,headache,dizziness,No direct toxicity data. Contextual inference: Antiandrogenic,used for bph support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiandrogenic,used for BPH support. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Serenoa repens (TaxID 4722)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4722&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.020Z",
   "description": "Antiandrogenic, used for bph support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "160",
-    "320 mg",
-    "day lipophilic extract"
-  ],
+  "dosage": "160,320 mg,day lipophilic extract",
   "duration": "Chronic",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "Fruit dried and extracted into lipophilic extracts or tinctures; used for benign prostatic hyperplasia (BPH)",
   "region": "No direct region data. Contextual inference: Antiandrogenic, used for bph support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiandrogenic, used for BPH support. none. ; nan; nan",
@@ -52,8 +34,9 @@
     "dizziness"
   ],
   "slug": "serenoa-repens",
-  "id": "serenoa-repens",
-  "displayName": "serenoa repens",
-  "displayScientificName": "Serenoa repens",
-  "scientificNormalized": "serenoa repens"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

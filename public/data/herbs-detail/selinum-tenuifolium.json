@@ -1,57 +1,39 @@
 {
   "name": "selinum tenuifolium",
   "latin": "Selinum tenuifolium",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used in traditional medicine as digestive aid and relaxant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in traditional medicine as digestive aid and relaxant. No direct region data. Contextual inference: Used in traditional medicine as digestive aid and relaxant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in traditional medicine as digestive aid and relaxant. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Used in traditional medicine as digestive aid and relaxant"
+    "used in traditional medicine as digestive aid and relaxant"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Insufficient data",
-    "unknown toxicity profile",
-    "No direct toxicity data. Contextual inference: Used in traditional medicine as digestive aid and relaxant. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Used in traditional medicine as digestive aid and relaxant. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Insufficient data,unknown toxicity profile,No direct toxicity data. Contextual inference: Used in traditional medicine as digestive aid and relaxant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in traditional medicine as digestive aid and relaxant. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Selinum tenuifolium",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Selinum%20tenuifolium&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.019Z",
   "description": "Used in traditional medicine as digestive aid and relaxant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used in traditional medicine as digestive aid and relaxant. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Used in traditional medicine as digestive aid and relaxant. No direct region data. Contextual inference: Used in traditional medicine as digestive aid and relaxant. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Used in traditional medicine as digestive aid and relaxant. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Used in traditional medicine as digestive aid and relaxant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in traditional medicine as digestive aid and relaxant. No direct region data. Contextual inference: Used in traditional medicine as digestive aid and relaxant. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in traditional medicine as digestive aid and relaxant. none.,nan.",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Unregulated",
   "preparation": "Aromatic plant; roots occasionally used in decoctions in Himalayan folk medicine; limited documentation",
   "region": "No direct region data. Contextual inference: Used in traditional medicine as digestive aid and relaxant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in traditional medicine as digestive aid and relaxant. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
-    "Insufficient data",
     "unknown toxicity profile"
   ],
   "slug": "selinum-tenuifolium",
-  "id": "selinum-tenuifolium",
-  "displayName": "selinum tenuifolium",
-  "displayScientificName": "Selinum tenuifolium",
-  "scientificNormalized": "selinum tenuifolium"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

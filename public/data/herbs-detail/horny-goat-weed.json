@@ -1,61 +1,38 @@
 {
   "name": "horny goat weed",
   "latin": "Epimedium spp.",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Aphrodisiac, testosterone support; contains icariin. Icariin inhibits pde5 and boosts nitric oxide; mimics testosterone effects.. ; nan; nan.. Icariin inhibits PDE5 and boosts nitric oxide; mimics testosterone effects.. Aphrodisiac, testosterone support; contains icariin. No direct region data. Contextual inference: Aphrodisiac, testosterone support; contains icariin. Icariin inhibits pde5 and boosts nitric oxide; mimics testosterone effects.. ; nan; nan.. Icariin inhibits PDE5 and boosts nitric oxide; mimics testosterone effects.. Aphrodisiac, testosterone support; contains icariin. ; nan; nan. ; nan; nan",
-  "mechanism": "Icariin inhibits PDE5 and boosts nitric oxide; mimics testosterone effects.",
+  "mechanism": "icariin inhibits pde5 and boosts nitric oxide | mimics testosterone effects",
   "activeCompounds": [],
   "effects": [
-    "Aphrodisiac",
-    "testosterone support",
+    "aphrodisiac",
+    "testosterone",
     "contains icariin"
   ],
   "contraindications": [
-    "heart conditions",
-    "hormone-sensitive disorders.",
-    "hormone",
-    "sensitive disorders."
+    "avoid with heart conditions",
+    "avoid with hormone-sensitive disorders",
+    "avoid with hormone",
+    "avoid with sensitive disorders"
   ],
-  "safetyNotes": [
-    "dizziness",
-    "rapid heartbeat",
-    "dry mouth.",
-    "No direct toxicity data. Contextual inference: Aphrodisiac",
-    "testosterone support",
-    "contains icariin. Icariin inhibits pde5 and boosts nitric oxide",
-    "mimics testosterone effects..",
-    "nan.. Icariin inhibits PDE5 and boosts nitric oxide",
-    "mimics testosterone effects.. Aphrodisiac",
-    "contains icariin."
-  ],
-  "sources": [
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Aphrodisiac, testosterone support; contains icariin. Icariin inhibits pde5 and boosts nitric oxide; mimics testosterone effects.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Aphrodisiac",
-    "testosterone support",
-    "contains icariin. Icariin inhibits pde5 and boosts nitric oxide",
-    "mimics testosterone effects..",
-    "nan.. Icariin inhibits PDE5 and boosts nitric oxide",
-    "mimics testosterone effects.. Aphrodisiac",
-    "contains icariin. No direct region data. Contextual inference: Aphrodisiac",
-    "contains icariin.",
-    "nan."
-  ],
-  "duration": "4–6 hours",
   "interactions": [
     "nitrates",
     "antihypertensives",
     "stimulants."
   ],
+  "safetyNotes": "dizziness,rapid heartbeat,dry mouth.,No direct toxicity data. Contextual inference: Aphrodisiac,testosterone support,contains icariin. Icariin inhibits pde5 and boosts nitric oxide,mimics testosterone effects..,nan.. Icariin inhibits PDE5 and boosts nitric oxide,mimics testosterone effects.. Aphrodisiac,contains icariin.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Epimedium spp.",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Epimedium%20spp.&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.942Z",
+  "description": "Aphrodisiac, testosterone support; contains icariin. Icariin inhibits pde5 and boosts nitric oxide; mimics testosterone effects.. ; nan; nan.",
+  "dosage": "No direct dosage data. Contextual inference: Aphrodisiac,testosterone support,contains icariin. Icariin inhibits pde5 and boosts nitric oxide,mimics testosterone effects..,nan.. Icariin inhibits PDE5 and boosts nitric oxide,mimics testosterone effects.. Aphrodisiac,contains icariin. No direct region data. Contextual inference: Aphrodisiac,contains icariin.,nan.",
+  "duration": "4–6 hours",
   "legalStatus": "Legal globally",
   "preparation": "No direct preparation data. Contextual inference: Aphrodisiac, testosterone support; contains icariin. Icariin inhibits pde5 and boosts nitric oxide; mimics testosterone effects.. ; nan; nan.. Icariin inhibits PDE5 and boosts nitric oxide; mimics testosterone effects.. Aphrodisiac, testosterone support; contains icariin. No direct region data. Contextual inference: Aphrodisiac, testosterone support; contains icariin. Icariin inhibits pde5 and boosts nitric oxide; mimics testosterone effects.. ; nan; nan.. Icariin inhibits PDE5 and boosts nitric oxide; mimics testosterone effects.. Aphrodisiac, testosterone support; contains icariin. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Aphrodisiac, testosterone support; contains icariin. Icariin inhibits pde5 and boosts nitric oxide; mimics testosterone effects.. ; nan; nan.. Icariin inhibits PDE5 and boosts nitric oxide; mimics testosterone effects.. Aphrodisiac, testosterone support; contains icariin. ; nan; nan",
@@ -71,8 +48,9 @@
     "dry mouth."
   ],
   "slug": "horny-goat-weed",
-  "id": "horny-goat-weed",
-  "displayName": "horny goat weed",
-  "displayScientificName": "Epimedium spp.",
-  "scientificNormalized": "epimedium spp"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

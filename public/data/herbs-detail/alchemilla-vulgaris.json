@@ -3,7 +3,7 @@
   "latin": "Alchemilla vulgaris",
   "class": "Herb",
   "intensity": "No direct intensity data. Contextual inference: Uterine tonic, astringent, anti-inflammatory; regulates menstruation and bleeding.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Uterine tonic, astringent, anti-inflammatory; regulates menstruation and bleeding.. No direct region data. Contextual inference: Uterine tonic, astringent, anti-inflammatory; regulates menstruation and bleeding.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Uterine tonic, astringent, anti-inflammatory; regulates menstruation and bleeding.. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Rich in tannins and polyphenols; ellagitannins provide strong astringent and antimicrobial effects; flavonoids and phenolic acids offer antioxidant and anti‑inflammatory actions; salicylic acid derivatives contribute to mild analgesic effects; overall the herb tones tissues and reduces mucosal inflammation【859641390196180†L204-L229】.",
+  "mechanism": "rich in tannins and polyphenols | ellagitannins provide strong astringent and antimicrobial effects | flavonoids and phenolic acids offer antioxidant and anti‑inflammatory actions",
   "activeCompounds": [
     "ellagitannins",
     "quercetin",
@@ -17,51 +17,42 @@
     "catechin"
   ],
   "effects": [
-    "Uterine tonic",
+    "uterine tonic",
     "astringent",
     "anti-inflammatory",
-    "regulates menstruation and bleeding.",
+    "regulates menstruation and bleeding",
     "anti",
     "inflammatory"
   ],
-  "contraindications": "Excessive internal use may cause constipation or dry mucous membranes; caution in pregnancy or lactation; may interact with blood thinners due to tannin content【859641390196180†L297-L313】.",
-  "safetyNotes": [
-    "safe",
-    "Nausea",
-    "skin rash in rare cases",
-    "caution in people with hormone-sensitive conditions",
-    "No direct toxicity data. Contextual inference: Uterine tonic",
-    "astringent",
-    "anti-inflammatory",
-    "regulates menstruation and bleeding.. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Uterine tonic",
-    "regulates menstruation and bleeding.. none."
+  "contraindications": [
+    "avoid with excessive internal use cause constipation or dry mucous membranes",
+    "avoid in pregnancy",
+    "avoid with interact with blood thinners due to tannin content【859641390196180†l297-l313】"
   ],
+  "interactions": [],
+  "safetyNotes": "safe,Nausea,skin rash in rare cases,caution in people with hormone-sensitive conditions,No direct toxicity data. Contextual inference: Uterine tonic,astringent,anti-inflammatory,regulates menstruation and bleeding.. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Uterine tonic,regulates menstruation and bleeding.. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Alchemilla vulgaris (TaxID 49855)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=49855&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.844Z",
   "description": "Uterine tonic, astringent, anti-inflammatory; regulates menstruation and bleeding.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "1",
-    "3 g",
-    "day aerial parts or 300 mg extract"
-  ],
+  "dosage": "1,3 g,day aerial parts or 300 mg extract",
   "duration": "Cyclic (e.g., 2 weeks/month)",
-  "interactions": [],
   "legalStatus": "Legal in EU and US as traditional remedy; used for gynecological purposes.",
   "preparation": "Leaves steeped as tea or decoction; used internally and externally",
   "region": "No direct region data. Contextual inference: Uterine tonic, astringent, anti-inflammatory; regulates menstruation and bleeding.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Uterine tonic, astringent, anti-inflammatory; regulates menstruation and bleeding.. none. ; nan; nan",
-  "therapeuticUses": "Used for menstrual discomfort, wound healing, diarrhoea, and postpartum recovery; infusion or decoction tightens tissues, reduces bleeding and soothes irritated membranes.",
+  "therapeuticUses": [
+    "Used for menstrual discomfort",
+    "wound healing",
+    "diarrhoea",
+    "and postpartum recovery",
+    "infusion or decoction tightens tissues",
+    "reduces bleeding and soothes irritated membranes."
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
     "Nausea",
@@ -70,8 +61,20 @@
     "sensitive conditions"
   ],
   "slug": "alchemilla-vulgaris",
-  "id": "alchemilla-vulgaris",
-  "displayName": "alchemilla vulgaris",
-  "displayScientificName": "Alchemilla vulgaris",
-  "scientificNormalized": "alchemilla vulgaris"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "ellagitannins",
+    "quercetin",
+    "kaempferol",
+    "salicylic-acid-derivatives",
+    "phytosterols",
+    "luteolin",
+    "apigenin",
+    "gallic-acid",
+    "caffeic-acid",
+    "catechin"
+  ]
 }

@@ -3,71 +3,26 @@
   "latin": "Rivea corymbosa",
   "class": "Entheogen, Tryptamine-based hallucinogen",
   "intensity": "Moderate to strong",
-  "mechanism": "LSA interacts with serotonin receptors.",
+  "mechanism": "lsa interacts with serotonin receptors",
   "activeCompounds": [
-    "Lysergic acid amide (LSA)",
     "isoergine"
   ],
   "effects": [
-    "Visual hallucinations",
+    "visual hallucinations",
     "euphoria",
     "dream-like state",
-    "Psychedelic",
-    "induces visual and cognitive alterations."
+    "psychedelic",
+    "induces visual and cognitive alterations"
   ],
   "contraindications": [
-    "Avoid with psychiatric conditions",
-    "MAOIs",
-    "SSRIs",
-    "cardiovascular disease",
-    "pregnancy [0",
-    "4].",
-    "Pregnancy",
-    "heart conditions"
+    "avoid with psychiatric conditions",
+    "may interact with maois",
+    "may interact with ssris",
+    "avoid with cardiovascular disease",
+    "avoid in pregnancy",
+    "avoid with 4]",
+    "avoid with heart conditions"
   ],
-  "safetyNotes": [
-    "Psychoactive dose causes nausea and dizziness",
-    "Nausea",
-    "sedation",
-    "body load",
-    "Moderate",
-    "Not well-documented",
-    "nausea",
-    "vasoconstriction",
-    "dizziness [0",
-    "4].",
-    "Mild",
-    "contains lysergic acid amide (LSA)",
-    "similar to LSD.",
-    "Low",
-    "moderate overdose risk [0",
-    "12]."
-  ],
-  "sources": [
-    {
-      "title": "Shulgin"
-    },
-    {
-      "title": "Erowid"
-    },
-    {
-      "title": "Aztec ethnobotany"
-    },
-    {
-      "title": "Inferred from Unknown"
-    },
-    {
-      "note": "Inferred from Unknown",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Morning glory species used in Mesoamerican rituals.",
-  "dosage": [
-    "20",
-    "100 seeds traditionally ground into cold water infusion."
-  ],
-  "duration": "480",
   "interactions": [
     "Risk of serotonin syndrome",
     "serotonergic medications [0",
@@ -76,6 +31,18 @@
     "MAOIs",
     "hallucinogens"
   ],
+  "safetyNotes": "Psychoactive dose causes nausea and dizziness,Nausea,sedation,body load,Moderate,Not well-documented,nausea,vasoconstriction,dizziness [0,4].,Mild,contains lysergic acid amide (LSA),similar to LSD.,Low,moderate overdose risk [0,12].",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Rivea corymbosa",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Rivea%20corymbosa&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.009Z",
+  "description": "Morning glory species used in Mesoamerican rituals.",
+  "dosage": "20,100 seeds traditionally ground into cold water infusion.",
+  "duration": "480",
   "legalStatus": "Regulated in some countries; seeds often legal",
   "preparation": "Ground seeds soaked in water; consumed ceremonially.",
   "region": "Mexico, Central America",
@@ -86,21 +53,18 @@
     "4]."
   ],
   "traditionalUse": "Sacred plant for healing, prophecy, and communion with spirits.",
-  "slug": "rivea-corymbosa",
   "sideEffects": [
     "nausea",
     "vasoconstriction",
     "dizziness [0",
     "4]."
   ],
-  "displayName": "rivea corymbosa",
-  "displayScientificName": "Rivea corymbosa",
-  "scientificNormalized": "rivea corymbosa",
-  "id": "rivea-corymbosa",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "rivea-corymbosa",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "isoergine"
   ]
 }

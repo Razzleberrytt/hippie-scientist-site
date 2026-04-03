@@ -1,49 +1,31 @@
 {
   "name": "plantago major",
   "latin": "Plantago major",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, wound healing, demulcent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, demulcent. No direct region data. Contextual inference: Anti-inflammatory, wound healing, demulcent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, demulcent. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Anti-inflammatory",
+    "anti-inflammatory",
     "wound healing",
     "demulcent",
-    "Anti",
+    "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Generally safe",
-    "rare allergic skin reactions",
-    "No direct toxicity data. Contextual inference: Anti-inflammatory",
-    "wound healing",
-    "demulcent. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti-inflammatory",
-    "demulcent. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,Generally safe,rare allergic skin reactions,No direct toxicity data. Contextual inference: Anti-inflammatory,wound healing,demulcent. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,demulcent. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Plantago major (TaxID 29818)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=29818&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.998Z",
   "description": "Anti-inflammatory, wound healing, demulcent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "1000 mg",
-    "day leaf extract"
-  ],
+  "dosage": "250,1000 mg,day leaf extract",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "Leaves fresh or dried for teas, poultices, or tinctures; seeds also used for mucilage (demulcent)",
   "region": "No direct region data. Contextual inference: Anti-inflammatory, wound healing, demulcent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, demulcent. none. ; nan; nan",
@@ -54,8 +36,9 @@
     "rare allergic skin reactions"
   ],
   "slug": "plantago-major",
-  "id": "plantago-major",
-  "displayName": "plantago major",
-  "displayScientificName": "Plantago major",
-  "scientificNormalized": "plantago major"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

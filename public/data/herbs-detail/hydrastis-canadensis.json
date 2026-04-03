@@ -1,47 +1,29 @@
 {
   "name": "hydrastis canadensis",
   "latin": "Hydrastis canadensis",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, digestive tonic, mucous membrane support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, digestive tonic, mucous membrane support. No direct region data. Contextual inference: Antimicrobial, digestive tonic, mucous membrane support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, digestive tonic, mucous membrane support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Antimicrobial",
+    "antimicrobial",
     "digestive tonic",
-    "mucous membrane support"
+    "mucous membrane"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "caution",
-    "GI irritation",
-    "potential liver toxicity with long use",
-    "No direct toxicity data. Contextual inference: Antimicrobial",
-    "digestive tonic",
-    "mucous membrane support. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antimicrobial",
-    "mucous membrane support. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "caution,GI irritation,potential liver toxicity with long use,No direct toxicity data. Contextual inference: Antimicrobial,digestive tonic,mucous membrane support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antimicrobial,mucous membrane support. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Hydrastis canadensis (TaxID 13569)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=13569&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.943Z",
   "description": "Antimicrobial, digestive tonic, mucous membrane support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "500 mg",
-    "day rhizome extract"
-  ],
+  "dosage": "250,500 mg,day rhizome extract",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal; regulated as supplement",
   "preparation": "Rhizome dried and powdered or tinctured; potent bitter and antimicrobial herb",
   "region": "No direct region data. Contextual inference: Antimicrobial, digestive tonic, mucous membrane support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, digestive tonic, mucous membrane support. none. ; nan; nan",
@@ -52,8 +34,9 @@
     "potential liver toxicity with long use"
   ],
   "slug": "hydrastis-canadensis",
-  "id": "hydrastis-canadensis",
-  "displayName": "hydrastis canadensis",
-  "displayScientificName": "Hydrastis canadensis",
-  "scientificNormalized": "hydrastis canadensis"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

@@ -1,59 +1,37 @@
 {
   "name": "tongkat ali",
   "latin": "Eurycoma longifolia",
-  "class": null,
+  "class": "general",
   "intensity": "moderate",
-  "mechanism": "Boosts free testosterone; reduces cortisol.",
+  "mechanism": "boosts free testosterone | reduces cortisol",
   "activeCompounds": [],
   "effects": [
-    "Aphrodisiac",
+    "aphrodisiac",
     "testosterone booster",
     "and energy tonic"
   ],
   "contraindications": [
-    "heart disease",
-    "hormone-sensitive conditions.",
-    "hormone",
-    "sensitive conditions."
+    "avoid with heart disease",
+    "avoid with hormone-sensitive conditions",
+    "avoid with hormone",
+    "avoid with sensitive conditions"
   ],
-  "safetyNotes": [
-    "irritability",
-    "insomnia.",
-    "No direct toxicity data. Contextual inference: Aphrodisiac",
-    "testosterone booster",
-    "and energy tonic. Boosts free testosterone",
-    "reduces cortisol..",
-    "nan.. Boosts free testosterone",
-    "reduces cortisol.. Aphrodisiac",
-    "and energy tonic."
-  ],
-  "sources": [
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Aphrodisiac, testosterone booster, and energy tonic. Boosts free testosterone; reduces cortisol.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Aphrodisiac",
-    "testosterone booster",
-    "and energy tonic. Boosts free testosterone",
-    "reduces cortisol..",
-    "nan.. Boosts free testosterone",
-    "reduces cortisol.. Aphrodisiac",
-    "and energy tonic. No direct region data. Contextual inference: Aphrodisiac",
-    "and energy tonic.",
-    "nan."
-  ],
-  "duration": "6–8 hours",
   "interactions": [
     "stimulants",
     "steroids."
   ],
+  "safetyNotes": "irritability,insomnia.,No direct toxicity data. Contextual inference: Aphrodisiac,testosterone booster,and energy tonic. Boosts free testosterone,reduces cortisol..,nan.. Boosts free testosterone,reduces cortisol.. Aphrodisiac,and energy tonic.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Eurycoma longifolia (TaxID 458531)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=458531&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.026Z",
+  "description": "Aphrodisiac, testosterone booster, and energy tonic. Boosts free testosterone; reduces cortisol.. ; nan; nan.",
+  "dosage": "No direct dosage data. Contextual inference: Aphrodisiac,testosterone booster,and energy tonic. Boosts free testosterone,reduces cortisol..,nan.. Boosts free testosterone,reduces cortisol.. Aphrodisiac,and energy tonic. No direct region data. Contextual inference: Aphrodisiac,and energy tonic.,nan.",
+  "duration": "6–8 hours",
   "legalStatus": "Legal globally",
   "preparation": "No direct preparation data. Contextual inference: Aphrodisiac, testosterone booster, and energy tonic. Boosts free testosterone; reduces cortisol.. ; nan; nan.. Boosts free testosterone; reduces cortisol.. Aphrodisiac, testosterone booster, and energy tonic. No direct region data. Contextual inference: Aphrodisiac, testosterone booster, and energy tonic. Boosts free testosterone; reduces cortisol.. ; nan; nan.. Boosts free testosterone; reduces cortisol.. Aphrodisiac, testosterone booster, and energy tonic. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Aphrodisiac, testosterone booster, and energy tonic. Boosts free testosterone; reduces cortisol.. ; nan; nan.. Boosts free testosterone; reduces cortisol.. Aphrodisiac, testosterone booster, and energy tonic. ; nan; nan",
@@ -68,8 +46,9 @@
     "insomnia."
   ],
   "slug": "tongkat-ali",
-  "id": "tongkat-ali",
-  "displayName": "tongkat ali",
-  "displayScientificName": "Eurycoma longifolia",
-  "scientificNormalized": "eurycoma longifolia"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }
