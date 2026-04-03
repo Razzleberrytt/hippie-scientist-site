@@ -176,6 +176,90 @@ export const herbProducts: HerbProductEntry[] = [
     ],
   },
   {
+    herbSlug: 'reishi-mushroom',
+    products: [
+      {
+        name: 'Organic Reishi Mushroom Extract Capsules',
+        brand: 'Real Mushrooms',
+        form: 'capsule',
+        attributes: [
+          'fruiting body extract',
+          'beta-glucans listed on label',
+          'grain-free mushroom material',
+        ],
+        notes: 'Strong baseline option when comparing reishi extracts for standardized mushroom content.',
+        score: 93,
+        highlight: true,
+        reasoning:
+          'Fruiting-body sourcing plus disclosed beta-glucan content improves cross-product comparability and avoids mycelium-heavy ambiguity.',
+        affiliateUrl: 'https://www.amazon.com/dp/B00M9MPS8E?tag=razzleberry02-20',
+      },
+    ],
+  },
+  {
+    herbSlug: 'bacopa-monnieri',
+    products: [
+      {
+        name: 'Bacopa Monnieri Standardized Extract',
+        brand: 'Double Wood Supplements',
+        form: 'capsule',
+        attributes: [
+          'bacopa monnieri species named',
+          'bacosides standardization disclosed',
+          'third-party tested',
+        ],
+        notes: 'Capsule format with marker compounds identified for simpler side-by-side brand review.',
+        score: 91,
+        highlight: true,
+        reasoning:
+          'Species-specific labeling and bacoside standardization align with conservative quality filters for bacopa buyers.',
+        affiliateUrl: 'https://www.amazon.com/dp/B07X5KZ67V?tag=razzleberry02-20',
+      },
+    ],
+  },
+  {
+    herbSlug: 'silybum-marianum',
+    products: [
+      {
+        name: 'Milk Thistle Seed Extract Capsules',
+        brand: 'Jarrow Formulas',
+        form: 'capsule',
+        attributes: [
+          'silymarin standardized extract',
+          'seed-derived milk thistle',
+          'clear per-serving dosage',
+        ],
+        notes: 'Commonly compared format for milk thistle shoppers prioritizing standardized silymarin.',
+        score: 92,
+        highlight: true,
+        reasoning:
+          'Seed extract standardization with explicit silymarin strength supports consistent potency comparisons across products.',
+        affiliateUrl: 'https://www.amazon.com/dp/B0013OXD38?tag=razzleberry02-20',
+      },
+    ],
+  },
+  {
+    herbSlug: 'sambucus-nigra',
+    products: [
+      {
+        name: 'Black Elderberry Standardized Extract',
+        brand: 'Nature’s Way',
+        form: 'capsule',
+        attributes: [
+          'sambucus nigra species identified',
+          'standardized anthocyanin-rich extract',
+          'single-active herb emphasis',
+        ],
+        notes: 'Useful option for elderberry buyers who want a named species in a measured capsule format.',
+        score: 90,
+        highlight: true,
+        reasoning:
+          'Species-identified elderberry extract with standardized active compounds reduces ambiguity compared with blend-heavy immune formulas.',
+        affiliateUrl: 'https://www.amazon.com/dp/B0009ETA0E?tag=razzleberry02-20',
+      },
+    ],
+  },
+  {
     herbSlug: 'turmeric',
     products: [
       {
