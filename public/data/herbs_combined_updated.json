@@ -22311,7 +22311,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -22337,9 +22340,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "mugwort"
+    "slug": "mugwort",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "Muira Puama",
@@ -22443,7 +22453,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -22468,9 +22481,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "mullein"
+    "slug": "mullein",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "myroxylon balsamum",
@@ -22483,7 +22503,10 @@
       "Used in perfumery and cough remedies",
       "antiseptic properties"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used in perfumery and cough remedies",
       "antiseptic properties. Herbs often act via neurotransmitter modulation",
@@ -22520,9 +22543,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Used in perfumery and cough remedies; antiseptic properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in perfumery and cough remedies; antiseptic properties. No direct region data. Contextual inference: Used in perfumery and cough remedies; antiseptic properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in perfumery and cough remedies; antiseptic properties. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Used in perfumery and cough remedies; antiseptic properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in perfumery and cough remedies; antiseptic properties. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "myroxylon-balsamum"
+    "slug": "myroxylon-balsamum",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "nan",
@@ -30227,7 +30257,11 @@
       "Highly toxic cardiac glycosides",
       "used in traditional remedies"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "do not ingest; severe cardiac toxicity risk",
+      "contraindicated in pregnancy, breastfeeding, and children",
+      "avoid with cardiac medications (e.g., digoxin, antiarrhythmics)"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Highly toxic cardiac glycosides",
       "used in traditional remedies. Herbs often act via neurotransmitter modulation",
@@ -30264,9 +30298,17 @@
     "legalStatus": "Restricted or banned",
     "preparation": "No direct preparation data. Contextual inference: Highly toxic cardiac glycosides; used in traditional remedies. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Highly toxic cardiac glycosides; used in traditional remedies. No direct region data. Contextual inference: Highly toxic cardiac glycosides; used in traditional remedies. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Highly toxic cardiac glycosides; used in traditional remedies. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Highly toxic cardiac glycosides; used in traditional remedies. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Highly toxic cardiac glycosides; used in traditional remedies. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical external folk use for skin parasites (not internal use)",
+      "traditional topical use in highly diluted preparations"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "nerium-oleander"
+    "slug": "nerium-oleander",
+    "sideEffects": [
+      "nausea, vomiting, abdominal pain",
+      "dangerous heart rhythm changes",
+      "dizziness, confusion, or severe poisoning"
+    ]
   },
   {
     "name": "nicotiana tabacum",
@@ -30687,7 +30729,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "contraindicated with respiratory depression or acute intoxication",
+      "avoid with alcohol, benzodiazepines, and other sedatives",
+      "high dependence and overdose risk; medical supervision required"
+    ],
     "safetyNotes": [
       "Toxic – opioid alkaloids",
       "No direct toxicity data. Contextual inference:",
@@ -30712,9 +30758,17 @@
     "legalStatus": "restricted",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "source plant for opioid analgesic alkaloids",
+      "historical use for severe pain and cough suppression"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "opium-poppy"
+    "slug": "opium-poppy",
+    "sideEffects": [
+      "sedation and constipation",
+      "nausea and itching",
+      "respiratory depression and dependence"
+    ]
   },
   {
     "name": "origanum vulgare",
@@ -31073,7 +31127,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid in anxiety disorders, hypertension, and cardiovascular disease",
+      "avoid with antidepressants, stimulants, and MAO-active substances",
+      "avoid during pregnancy and breastfeeding"
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference:",
@@ -31098,9 +31156,17 @@
     "legalStatus": "restricted",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional use for male sexual dysfunction",
+      "traditional stimulant and aphrodisiac use"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "pausinystalia-yohimbe"
+    "slug": "pausinystalia-yohimbe",
+    "sideEffects": [
+      "anxiety, tremor, or insomnia",
+      "elevated heart rate and blood pressure",
+      "headache, nausea, or dizziness"
+    ]
   },
   {
     "name": "pedicularis densiflora (indian warrior)",
@@ -31299,7 +31365,10 @@
       "Anti",
       "inflammatory"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Anti-inflammatory",
       "analgesic",
@@ -31341,9 +31410,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Anti-inflammatory, analgesic, and antioxidant; used in herbal medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, and antioxidant; used in herbal medicine. No direct region data. Contextual inference: Anti-inflammatory, analgesic, and antioxidant; used in herbal medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, and antioxidant; used in herbal medicine. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Anti-inflammatory, analgesic, and antioxidant; used in herbal medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, and antioxidant; used in herbal medicine. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "peperomia-pellucida"
+    "slug": "peperomia-pellucida",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "peppermint",
@@ -31358,7 +31434,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "may worsen reflux symptoms in GERD",
+      "avoid concentrated oil in infants and young children",
+      "use caution with gallbladder disorders"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -31383,9 +31463,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "support for bloating and functional dyspepsia",
+      "traditional soothing herb for mild tension headache"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "peppermint"
+    "slug": "peppermint",
+    "sideEffects": [
+      "heartburn or reflux",
+      "mouth/throat irritation from concentrated oil",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "perilla frutescens",
@@ -31400,7 +31488,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -31416,9 +31507,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "perilla-frutescens"
+    "slug": "perilla-frutescens",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "peruvian torch",
@@ -31433,7 +31531,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "Toxic – entheogenic alkaloids",
       "No direct toxicity data. Contextual inference:",
@@ -31458,9 +31559,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "peruvian-torch"
+    "slug": "peruvian-torch",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "peumus boldus",
@@ -31478,7 +31586,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -31503,9 +31614,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "peumus-boldus"
+    "slug": "peumus-boldus",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "phalaris arundinacea",
@@ -31577,7 +31695,10 @@
       "Anti",
       "inflammatory and antimicrobial"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Anti-inflammatory and antimicrobial",
       "contains berberine. Herbs often act via neurotransmitter modulation",
@@ -31615,9 +31736,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Anti-inflammatory and antimicrobial; contains berberine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains berberine. No direct region data. Contextual inference: Anti-inflammatory and antimicrobial; contains berberine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains berberine. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Anti-inflammatory and antimicrobial; contains berberine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains berberine. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "phellodendron-amurense"
+    "slug": "phellodendron-amurense",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "picrorhiza kurroa",
@@ -31633,7 +31761,10 @@
       "anti",
       "inflammatory"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Hepatoprotective",
@@ -31666,9 +31797,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Hepatoprotective, anti-inflammatory, and antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hepatoprotective, anti-inflammatory, and antioxidant. No direct region data. Contextual inference: Hepatoprotective, anti-inflammatory, and antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hepatoprotective, anti-inflammatory, and antioxidant. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Hepatoprotective, anti-inflammatory, and antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hepatoprotective, anti-inflammatory, and antioxidant. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "picrorhiza-kurroa"
+    "slug": "picrorhiza-kurroa",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "pimenta dioica",
@@ -31683,7 +31821,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. No direct effects data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity."
@@ -31699,9 +31840,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. No direct effects data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.. No direct region data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. No direct effects data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.",
     "region": "No direct region data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. No direct effects data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Used as a digestive tonic and flavoring spice with subtle psychoactivity.",
-    "slug": "pimenta-dioica"
+    "slug": "pimenta-dioica",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "pimenta racemosa",
@@ -31714,7 +31862,10 @@
       "Antiseptic and aromatic",
       "used in Bay Rum for skin and scalp"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Antiseptic and aromatic",
       "used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation",
@@ -31751,9 +31902,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Antiseptic and aromatic; used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic and aromatic; used in Bay Rum for skin and scalp. No direct region data. Contextual inference: Antiseptic and aromatic; used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic and aromatic; used in Bay Rum for skin and scalp. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Antiseptic and aromatic; used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic and aromatic; used in Bay Rum for skin and scalp. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "pimenta-racemosa"
+    "slug": "pimenta-racemosa",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "pimpinella anisum",
@@ -31826,7 +31984,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference:",
@@ -31851,9 +32012,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "pinkroot"
+    "slug": "pinkroot",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "piper auritum",
@@ -32032,7 +32200,10 @@
     "effects": [
       "Used in Hawaiian medicine for pain relief and wound healing"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used in hawaiian medicine for pain relief and wound healing. Herbs often act via neurotransmitter modulation",
       "antioxidant effects",
@@ -32065,9 +32236,16 @@
     "legalStatus": "Unregulated",
     "preparation": "No direct preparation data. Contextual inference: Used in hawaiian medicine for pain relief and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Hawaiian medicine for pain relief and wound healing. No direct region data. Contextual inference: Used in hawaiian medicine for pain relief and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Hawaiian medicine for pain relief and wound healing. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Used in hawaiian medicine for pain relief and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Hawaiian medicine for pain relief and wound healing. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "pipturus-albidus"
+    "slug": "pipturus-albidus",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "plantago major",
@@ -32207,7 +32385,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -32234,9 +32415,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "pogostemon-cablin"
+    "slug": "pogostemon-cablin",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "polygala tenuifolia",
@@ -32251,7 +32439,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -32276,9 +32467,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "polygala-tenuifolia"
+    "slug": "polygala-tenuifolia",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "polygonum multiflorum",
@@ -32350,7 +32548,10 @@
       "Stimulant effects due to nicotine",
       "ceremonial use"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Stimulant effects due to nicotine",
       "ceremonial use. Herbs often act via neurotransmitter modulation",
@@ -32387,9 +32588,16 @@
     "legalStatus": "Regulated in some regions",
     "preparation": "No direct preparation data. Contextual inference: Stimulant effects due to nicotine; ceremonial use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant effects due to nicotine; ceremonial use. No direct region data. Contextual inference: Stimulant effects due to nicotine; ceremonial use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant effects due to nicotine; ceremonial use. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Stimulant effects due to nicotine; ceremonial use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant effects due to nicotine; ceremonial use. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "polynesian-nicotiana-spp"
+    "slug": "polynesian-nicotiana-spp",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "poria cocos",
@@ -32462,7 +32670,10 @@
     "effects": [
       "Emetic and hallucinogenic use reported in indigenous medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Emetic and hallucinogenic use reported in indigenous medicine. Herbs often act via neurotransmitter modulation",
       "antioxidant effects",
@@ -32495,9 +32706,16 @@
     "legalStatus": "Unregulated",
     "preparation": "No direct preparation data. Contextual inference: Emetic and hallucinogenic use reported in indigenous medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emetic and hallucinogenic use reported in indigenous medicine. No direct region data. Contextual inference: Emetic and hallucinogenic use reported in indigenous medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emetic and hallucinogenic use reported in indigenous medicine. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Emetic and hallucinogenic use reported in indigenous medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emetic and hallucinogenic use reported in indigenous medicine. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "prestonia-amazonica"
+    "slug": "prestonia-amazonica",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "prickly ash",
@@ -32512,7 +32730,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -32537,9 +32758,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "prickly-ash"
+    "slug": "prickly-ash",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "primula veris",
@@ -32673,7 +32901,11 @@
       "Psychedelic",
       "contains psilocybin"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid in psychotic disorders and bipolar spectrum disorders",
+      "avoid with serotonergic psychoactive substances unless medically supervised",
+      "avoid during pregnancy and breastfeeding"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Psychedelic",
       "contains psilocybin. Herbs often act via neurotransmitter modulation",
@@ -32710,9 +32942,17 @@
     "legalStatus": "Illegal or restricted in most countries",
     "preparation": "No direct preparation data. Contextual inference: Psychedelic; contains psilocybin. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic; contains psilocybin. No direct region data. Contextual inference: Psychedelic; contains psilocybin. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic; contains psilocybin. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Psychedelic; contains psilocybin. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic; contains psilocybin. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional ceremonial psychoactive use",
+      "historical spiritual and ritual use"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "psilocybe-mexicana"
+    "slug": "psilocybe-mexicana",
+    "sideEffects": [
+      "anxiety, panic, or confusion during intoxication",
+      "nausea and dizziness",
+      "transient increases in heart rate and blood pressure"
+    ]
   },
   {
     "name": "psilocybin",
@@ -32791,7 +33031,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -32816,9 +33059,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "psychotria-carthaginensis"
+    "slug": "psychotria-carthaginensis",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "psychotria viridis",
@@ -33182,7 +33432,10 @@
       "Antihypertensive and sedative",
       "contains reserpine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Antihypertensive and sedative",
       "contains reserpine. Herbs often act via neurotransmitter modulation",
@@ -33219,9 +33472,16 @@
     "legalStatus": "Regulated in some countries",
     "preparation": "No direct preparation data. Contextual inference: Antihypertensive and sedative; contains reserpine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antihypertensive and sedative; contains reserpine. No direct region data. Contextual inference: Antihypertensive and sedative; contains reserpine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antihypertensive and sedative; contains reserpine. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Antihypertensive and sedative; contains reserpine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antihypertensive and sedative; contains reserpine. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "rauvolfia-vomitoria"
+    "slug": "rauvolfia-vomitoria",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "red/blue water lily",
@@ -33236,7 +33496,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -33261,9 +33524,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "red-blue-water-lily"
+    "slug": "red-blue-water-lily",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "reishi mushroom",
@@ -33278,7 +33548,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -33303,9 +33576,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "reishi-mushroom"
+    "slug": "reishi-mushroom",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "rheum palmatum",
@@ -33375,7 +33655,10 @@
       "Astringent and antiseptic",
       "used for ulcers and wounds"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Astringent and antiseptic",
       "used for ulcers and wounds. Herbs often act via neurotransmitter modulation",
@@ -33412,9 +33695,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Astringent and antiseptic; used for ulcers and wounds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent and antiseptic; used for ulcers and wounds. No direct region data. Contextual inference: Astringent and antiseptic; used for ulcers and wounds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent and antiseptic; used for ulcers and wounds. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Astringent and antiseptic; used for ulcers and wounds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent and antiseptic; used for ulcers and wounds. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "rhizophora-mangle"
+    "slug": "rhizophora-mangle",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "rhizophora stylosa",
@@ -33426,7 +33716,10 @@
     "effects": [
       "Used in folk medicine for diarrhea and wound healing"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation",
       "antioxidant effects",
@@ -33459,9 +33752,16 @@
     "legalStatus": "Unregulated",
     "preparation": "No direct preparation data. Contextual inference: Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in folk medicine for diarrhea and wound healing. No direct region data. Contextual inference: Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in folk medicine for diarrhea and wound healing. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in folk medicine for diarrhea and wound healing. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "rhizophora-stylosa"
+    "slug": "rhizophora-stylosa",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "rhodiola",
@@ -33550,7 +33850,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine."
     ],
@@ -33565,9 +33868,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct region data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.",
     "region": "No direct region data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Burned in Tibetan Buddhist rituals and used in Himalayan medicine.",
-    "slug": "rhododendron-anthopogon"
+    "slug": "rhododendron-anthopogon",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "rhynchosia phaseoloides",
@@ -33823,7 +34133,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... No direct mechanismofaction data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... Used in midwifery and herbal traditions to support reproductive health.. Used in midwifery and herbal traditions to support reproductive health."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... No direct mechanismofaction data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... Used in midwifery and herbal traditions to support reproductive health.. No direct effects data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... No direct mechanismofaction data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... Used in midwifery and herbal traditions to support reproductive health.. Used in midwifery and herbal traditions to support reproductive health.. Used in midwifery and herbal traditions to support reproductive health."
@@ -33839,9 +34152,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... No direct mechanismofaction data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... Used in midwifery and herbal traditions to support reproductive health.. No direct effects data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... No direct mechanismofaction data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... Used in midwifery and herbal traditions to support reproductive health.. Used in midwifery and herbal traditions to support reproductive health.. No direct region data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... No direct mechanismofaction data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... Used in midwifery and herbal traditions to support reproductive health.. No direct effects data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... No direct mechanismofaction data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... Used in midwifery and herbal traditions to support reproductive health.. Used in midwifery and herbal traditions to support reproductive health.. Used in midwifery and herbal traditions to support reproductive health.. Used in midwifery and herbal traditions to support reproductive health.",
     "region": "No direct region data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... No direct mechanismofaction data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... Used in midwifery and herbal traditions to support reproductive health.. No direct effects data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... No direct mechanismofaction data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... Used in midwifery and herbal traditions to support reproductive health.. Used in midwifery and herbal traditions to support reproductive health.. Used in midwifery and herbal traditions to support reproductive health.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Used in midwifery and herbal traditions to support reproductive health.",
-    "slug": "rubus-idaeus"
+    "slug": "rubus-idaeus",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "ruta chalepensis",
@@ -33855,7 +34175,10 @@
       "antispasmodic",
       "and insect repellent"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Emmenagogue",
       "antispasmodic",
@@ -33894,9 +34217,16 @@
     "legalStatus": "Unregulated",
     "preparation": "No direct preparation data. Contextual inference: Emmenagogue, antispasmodic, and insect repellent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emmenagogue, antispasmodic, and insect repellent. No direct region data. Contextual inference: Emmenagogue, antispasmodic, and insect repellent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emmenagogue, antispasmodic, and insect repellent. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Emmenagogue, antispasmodic, and insect repellent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emmenagogue, antispasmodic, and insect repellent. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "ruta-chalepensis"
+    "slug": "ruta-chalepensis",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "ruta graveolens",
@@ -33912,7 +34242,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
@@ -33928,9 +34261,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. No direct region data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.",
     "region": "No direct region data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Used historically in folk magic and herbalism.",
-    "slug": "ruta-graveolens"
+    "slug": "ruta-graveolens",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "sacred basil",
@@ -34018,7 +34358,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -34042,9 +34385,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "sakae-naa"
+    "slug": "sakae-naa",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "salacia reticulata",
@@ -34396,7 +34746,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -34421,9 +34774,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "salvia-sclarea"
+    "slug": "salvia-sclarea",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "sambucus nigra",
@@ -34564,7 +34924,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use"
@@ -34580,9 +34943,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
     "region": "No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Ritual use",
-    "slug": "sanango"
+    "slug": "sanango",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "sanguinaria canadensis",
@@ -34690,7 +35060,10 @@
     "effects": [
       "Used in Polynesian medicine for inflammation and as a laxative"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used in polynesian medicine for inflammation and as a laxative. Herbs often act via neurotransmitter modulation",
       "antioxidant effects",
@@ -34723,9 +35096,16 @@
     "legalStatus": "Unregulated",
     "preparation": "No direct preparation data. Contextual inference: Used in polynesian medicine for inflammation and as a laxative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Polynesian medicine for inflammation and as a laxative. No direct region data. Contextual inference: Used in polynesian medicine for inflammation and as a laxative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Polynesian medicine for inflammation and as a laxative. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Used in polynesian medicine for inflammation and as a laxative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Polynesian medicine for inflammation and as a laxative. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "scaevola-taccada"
+    "slug": "scaevola-taccada",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "sceletium expansum",
@@ -35161,7 +35541,10 @@
       "Antioxidant and anti",
       "aging effects"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Antioxidant and anti-aging effects",
       "traditional chinese medicine. Herbs often act via neurotransmitter modulation",
@@ -35199,9 +35582,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-aging effects; traditional Chinese medicine. No direct region data. Contextual inference: Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-aging effects; traditional Chinese medicine. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-aging effects; traditional Chinese medicine. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "selaginella-tamariscina"
+    "slug": "selaginella-tamariscina",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "selinum tenuifolium",
@@ -35371,7 +35761,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -35387,9 +35780,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "shampoo-ginger"
+    "slug": "shampoo-ginger",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "shankhpushpi",
@@ -35404,7 +35804,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -35428,9 +35831,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "shankhpushpi"
+    "slug": "shankhpushpi",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "sichuan pepper",
@@ -35442,7 +35852,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -35458,9 +35871,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "sichuan-pepper"
+    "slug": "sichuan-pepper",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "sida acuta",
@@ -35475,7 +35895,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference:",
@@ -35500,9 +35923,16 @@
     "legalStatus": "varies",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "sida-acuta"
+    "slug": "sida-acuta",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "silene undulata",
@@ -35520,7 +35950,10 @@
       "meaningful dreams.. Used by Xhosa shamans to induce vivid",
       "meaningful dreams."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used by xhosa shamans to induce vivid",
       "meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid",
@@ -35546,9 +35979,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct region data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.",
     "region": "No direct region data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Used by Xhosa shamans to induce vivid, meaningful dreams.",
-    "slug": "silene-undulata"
+    "slug": "silene-undulata",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "silphium (extinct)",
@@ -35654,7 +36094,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -35679,9 +36122,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "silybum-marianum"
+    "slug": "silybum-marianum",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "sinicuichi",
@@ -35859,7 +36309,10 @@
       "Anti",
       "inflammatory"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "Toxic – use with expert guidance",
       "No direct toxicity data. Contextual inference: Anti-inflammatory",
@@ -35891,9 +36344,16 @@
     "legalStatus": "Legal globally with caution",
     "preparation": "No direct preparation data. Contextual inference: Anti-inflammatory, hepatoprotective; contains solanine (toxic if unripe). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, hepatoprotective; contains solanine (toxic if unripe). No direct region data. Contextual inference: Anti-inflammatory, hepatoprotective; contains solanine (toxic if unripe). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, hepatoprotective; contains solanine (toxic if unripe). none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Anti-inflammatory, hepatoprotective; contains solanine (toxic if unripe). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, hepatoprotective; contains solanine (toxic if unripe). none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "solanum-nigrum"
+    "slug": "solanum-nigrum",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "solidago virgaurea",
@@ -36094,7 +36554,10 @@
     "effects": [
       "Traditionally used in Chinese medicine for inflammation and pain relief"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Traditionally used in chinese medicine for inflammation and pain relief. Herbs often act via neurotransmitter modulation",
       "antioxidant effects",
@@ -36127,9 +36590,16 @@
     "legalStatus": "Unregulated",
     "preparation": "No direct preparation data. Contextual inference: Traditionally used in chinese medicine for inflammation and pain relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used in Chinese medicine for inflammation and pain relief. No direct region data. Contextual inference: Traditionally used in chinese medicine for inflammation and pain relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used in Chinese medicine for inflammation and pain relief. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Traditionally used in chinese medicine for inflammation and pain relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used in Chinese medicine for inflammation and pain relief. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "stephania-cepharantha"
+    "slug": "stephania-cepharantha",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "stephania tetrandra",
@@ -36207,7 +36677,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -36223,9 +36696,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "sweet-acacia"
+    "slug": "sweet-acacia",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "sweet violet",
@@ -36245,7 +36725,10 @@
       "and gentle mood support.. Used for sleep",
       "and gentle mood support."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used for sleep",
@@ -36274,9 +36757,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. No direct effects data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.. No direct region data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. No direct effects data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.",
     "region": "No direct region data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. No direct effects data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Used for sleep, coughs, and gentle mood support.",
-    "slug": "sweet-violet"
+    "slug": "sweet-violet",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "sweetgrass",
@@ -36291,7 +36781,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -36315,9 +36808,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "sweetgrass"
+    "slug": "sweetgrass",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "symphytum officinale",
@@ -36447,7 +36947,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "contains MAO-inhibiting alkaloids; avoid with SSRIs/SNRIs and many medications",
+      "avoid tyramine-rich diets when used in concentrated preparations",
+      "avoid during pregnancy and breastfeeding"
+    ],
     "safetyNotes": [
       "Toxic – MAOI",
       "potentiates other substances",
@@ -36473,9 +36977,17 @@
     "legalStatus": "restricted",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional ceremonial use as a psychoactive admixture",
+      "traditional use for ritual fumigation"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "syrian-rue"
+    "slug": "syrian-rue",
+    "sideEffects": [
+      "nausea, vomiting, and dizziness",
+      "headache or blood pressure changes",
+      "agitation or serotonin-toxicity risk with drug interactions"
+    ]
   },
   {
     "name": "syzygium aromaticum",
@@ -36677,7 +37189,10 @@
       "analgesic",
       "and hallucinogenic alkaloids"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Sedative",
       "analgesic",
@@ -36716,9 +37231,16 @@
     "legalStatus": "Unregulated",
     "preparation": "No direct preparation data. Contextual inference: Sedative, analgesic, and hallucinogenic alkaloids. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, analgesic, and hallucinogenic alkaloids. No direct region data. Contextual inference: Sedative, analgesic, and hallucinogenic alkaloids. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, analgesic, and hallucinogenic alkaloids. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Sedative, analgesic, and hallucinogenic alkaloids. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, analgesic, and hallucinogenic alkaloids. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "tabernaemontana-divaricata"
+    "slug": "tabernaemontana-divaricata",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "tabernaemontana spp.",
@@ -36856,7 +37378,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -36882,9 +37407,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "tagetes-lucida-mexican-tarragon"
+    "slug": "tagetes-lucida-mexican-tarragon",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "tamarindus indica",
@@ -36899,7 +37431,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support."
     ],
@@ -36914,9 +37449,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. No direct region data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.",
     "region": "No direct region data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Used in traditional medicine and cuisine for digestive support.",
-    "slug": "tamarindus-indica"
+    "slug": "tamarindus-indica",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "tanaecium nocturnum",
@@ -36929,7 +37471,10 @@
       "Aromatic",
       "traditionally used as a stimulant and for rituals"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Aromatic",
       "traditionally used as a stimulant and for rituals. Herbs often act via neurotransmitter modulation",
@@ -36966,9 +37511,16 @@
     "legalStatus": "Unregulated",
     "preparation": "No direct preparation data. Contextual inference: Aromatic; traditionally used as a stimulant and for rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aromatic; traditionally used as a stimulant and for rituals. No direct region data. Contextual inference: Aromatic; traditionally used as a stimulant and for rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aromatic; traditionally used as a stimulant and for rituals. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Aromatic; traditionally used as a stimulant and for rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aromatic; traditionally used as a stimulant and for rituals. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "tanaecium-nocturnum"
+    "slug": "tanaecium-nocturnum",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "taraxacum officinale",
@@ -37095,7 +37647,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -37120,9 +37675,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "tetradenia-riparia"
+    "slug": "tetradenia-riparia",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "tetradium ruticarpum",
@@ -37264,7 +37826,10 @@
       "MAOI",
       "containing"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Maoi-containing",
       "used in amazonian rituals similarly to banisteriopsis caapi. Herbs often act via neurotransmitter modulation",
@@ -37302,9 +37867,16 @@
     "legalStatus": "Restricted in some regions",
     "preparation": "No direct preparation data. Contextual inference: Maoi-containing; used in amazonian rituals similarly to banisteriopsis caapi. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. MAOI-containing; used in Amazonian rituals similarly to Banisteriopsis caapi. No direct region data. Contextual inference: Maoi-containing; used in amazonian rituals similarly to banisteriopsis caapi. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. MAOI-containing; used in Amazonian rituals similarly to Banisteriopsis caapi. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Maoi-containing; used in amazonian rituals similarly to banisteriopsis caapi. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. MAOI-containing; used in Amazonian rituals similarly to Banisteriopsis caapi. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "tetrapterys-methystica"
+    "slug": "tetrapterys-methystica",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "teucrium chamaedrys",
@@ -37583,7 +38155,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -37608,9 +38183,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "thymus-vulgaris"
+    "slug": "thymus-vulgaris",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "tilia europaea (linden flower)",
@@ -37625,7 +38207,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -37649,9 +38234,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "tilia-europaea-linden-flower"
+    "slug": "tilia-europaea-linden-flower",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "toloache",
@@ -37667,7 +38259,11 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "contains tropane alkaloids; high toxicity risk",
+      "avoid in glaucoma, urinary retention, and heart disease",
+      "avoid with anticholinergic medications and alcohol"
+    ],
     "safetyNotes": [
       "Toxic – anticholinergic",
       "deliriant",
@@ -37695,9 +38291,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical ceremonial use for altered states",
+      "traditional external use for localized pain in folk practice"
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "toloache"
+    "slug": "toloache",
+    "sideEffects": [
+      "dry mouth and blurred vision",
+      "confusion, delirium, and hallucinations",
+      "rapid heart rate and dangerous poisoning"
+    ]
   },
   {
     "name": "tongkat ali",
@@ -37783,7 +38387,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -37808,9 +38415,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "toothache-plant"
+    "slug": "toothache-plant",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "tragia involucrata",
@@ -37948,7 +38562,10 @@
       "fever",
       "and inflammation in African medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used for malaria",
       "fever",
@@ -37987,9 +38604,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Used for malaria, fever, and inflammation in african medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for malaria, fever, and inflammation in African medicine. No direct region data. Contextual inference: Used for malaria, fever, and inflammation in african medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for malaria, fever, and inflammation in African medicine. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Used for malaria, fever, and inflammation in african medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for malaria, fever, and inflammation in African medicine. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "trichilia-emetica"
+    "slug": "trichilia-emetica",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "trichocereus bridgesii",
@@ -38126,7 +38750,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness."
     ],
@@ -38141,9 +38768,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.. No direct region data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.",
     "region": "No direct region data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Used in Andean herbalism to clear lungs and improve alertness.",
-    "slug": "tropaeolum-majus"
+    "slug": "tropaeolum-majus",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "tulsi",
@@ -38233,7 +38867,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "use caution with anticoagulant or antiplatelet therapy",
+      "use caution in gallstone disease or bile duct obstruction",
+      "avoid high-dose supplements during pregnancy unless advised"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -38257,9 +38895,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "support for mild inflammatory discomfort",
+      "digestive support for dyspepsia and bile flow"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "turmeric"
+    "slug": "turmeric",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "reflux or nausea at higher doses",
+      "rare allergic reaction"
+    ]
   },
   {
     "name": "turnera diffusa var. aphrodisiaca",
@@ -38277,7 +38923,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -38302,9 +38951,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "turnera-diffusa-var-aphrodisiaca"
+    "slug": "turnera-diffusa-var-aphrodisiaca",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "turnera ulmifolia",
@@ -38320,7 +38976,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -38347,9 +39006,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "turnera-ulmifolia"
+    "slug": "turnera-ulmifolia",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "tussilago farfara",
@@ -38429,7 +39095,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -38456,9 +39125,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "twinleaf-zornia"
+    "slug": "twinleaf-zornia",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "tylophora indica",
@@ -38546,7 +39222,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion."
     ],
@@ -38561,9 +39240,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. No direct region data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.",
     "region": "No direct region data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Used in Amazonian herbalism for sexual energy and digestion.",
-    "slug": "tynanthus-panurensis"
+    "slug": "tynanthus-panurensis",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "uncaria rhynchophylla",
@@ -38575,7 +39261,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -38591,9 +39280,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "uncaria-rhynchophylla"
+    "slug": "uncaria-rhynchophylla",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "uncaria tomentosa",
@@ -38605,7 +39301,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless clinician-guided",
+      "use caution with prescription medications and chronic medical conditions"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -38621,9 +39320,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild digestive and general wellness complaints",
+      "historical use for symptom relief in regional folk medicine"
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "uncaria-tomentosa"
+    "slug": "uncaria-tomentosa",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "allergic reaction in sensitive individuals"
+    ]
   },
   {
     "name": "usnea barbata",
@@ -38699,7 +39405,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "not for long-term use",
+      "avoid in kidney disease and in pregnancy/breastfeeding",
+      "avoid in children without clinician guidance"
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference:",
@@ -38724,9 +39434,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional short-term urinary tract support",
+      "historical use for urinary discomfort"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "uva-ursi"
+    "slug": "uva-ursi",
+    "sideEffects": [
+      "nausea or stomach irritation",
+      "green-brown urine discoloration",
+      "rare liver stress with prolonged high-dose use"
+    ]
   },
   {
     "name": "valerian",
