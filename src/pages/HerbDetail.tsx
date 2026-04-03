@@ -31,6 +31,7 @@ import GovernedResearchSections from '@/components/detail/GovernedResearchSectio
 import GovernedReviewFreshnessPanel from '@/components/detail/GovernedReviewFreshnessPanel'
 import EnrichmentRecommendationBlocks from '@/components/detail/EnrichmentRecommendationBlocks'
 import GovernedQuickCompareBlock from '@/components/detail/GovernedQuickCompareBlock'
+import PremiumDataSection from '@/components/detail/PremiumDataSection'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
@@ -188,6 +189,18 @@ export default function HerbDetail() {
   const sources = toSources(herb.sources)
   const primaryEffects = extractPrimaryEffects(effects, 4)
   const compoundByName = new Map(compounds.map(compound => [normalizeKey(compound.name), compound]))
+  const herbByKey = new Map<string, { label: string; slug: string }>()
+
+  herbs.forEach(item => {
+    const label = item.common || item.name || item.scientific || item.slug
+    const candidates = [item.slug, item.common, item.name, item.scientific]
+    candidates.forEach(candidate => {
+      const value = String(candidate || '').trim()
+      if (!value) return
+      herbByKey.set(normalizeKey(value), { label, slug: item.slug })
+    })
+  })
+
   const linkedCompounds = activeCompounds.map(name => {
     const record = compoundByName.get(normalizeKey(name))
     return {
@@ -195,6 +208,32 @@ export default function HerbDetail() {
       slug: record?.slug || '',
       explanation: record?.mechanism || record?.description || '',
       whyItMatters: record?.effects?.slice(0, 2).join(' + ') || '',
+    }
+  })
+  const premiumDetails = [
+    { title: 'Identity', value: String(herb.identity || '').trim() },
+    {
+      title: 'Category / Use Context',
+      value: String(herb.categoryUseContext || '').trim(),
+    },
+    { title: 'Evidence Level', value: String(herb.evidenceLevel || '').trim() },
+  ]
+  const premiumRelatedHerbs = (Array.isArray(herb.relatedEntities) ? herb.relatedEntities : []).map(
+    entry => {
+      const normalized = herbByKey.get(normalizeKey(entry))
+      return {
+        label: normalized?.label || entry,
+        to: normalized?.slug ? `/herbs/${encodeURIComponent(normalized.slug)}` : undefined,
+      }
+    },
+  )
+  const premiumRelatedCompounds = (
+    Array.isArray(herb.relatedCompounds) ? herb.relatedCompounds : []
+  ).map(entry => {
+    const normalized = compoundByName.get(normalizeKey(entry))
+    return {
+      label: normalized?.name || entry,
+      to: normalized?.slug ? `/compounds/${encodeURIComponent(normalized.slug)}` : undefined,
     }
   })
 
@@ -651,6 +690,14 @@ export default function HerbDetail() {
             ))}
           </div>
         )}
+
+        <PremiumDataSection
+          details={premiumDetails}
+          relationGroups={[
+            { title: 'Related Herbs', items: premiumRelatedHerbs },
+            { title: 'Related Compounds', items: premiumRelatedCompounds },
+          ]}
+        />
 
         {governedResearch && governedFaq && governedRelatedQuestions && (
           <GovernedResearchSections

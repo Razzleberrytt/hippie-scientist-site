@@ -29,6 +29,7 @@ import GovernedResearchSections from '@/components/detail/GovernedResearchSectio
 import GovernedReviewFreshnessPanel from '@/components/detail/GovernedReviewFreshnessPanel'
 import EnrichmentRecommendationBlocks from '@/components/detail/EnrichmentRecommendationBlocks'
 import GovernedQuickCompareBlock from '@/components/detail/GovernedQuickCompareBlock'
+import PremiumDataSection from '@/components/detail/PremiumDataSection'
 import CuratedProductModule from '@/components/CuratedProductModule'
 import CtaVariantLayout from '@/components/cta/CtaVariantLayout'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
@@ -80,6 +81,10 @@ function buildInteractionsLink(tokens: string[]) {
   return `/interactions?items=${tokens.join(',')}`
 }
 
+function normalizeKey(value: string) {
+  return value.trim().toLowerCase()
+}
+
 export default function CompoundDetail() {
   const { slug = '' } = useParams()
   const { compound, isLoading: isCompoundLoading } = useCompoundDetailState(slug)
@@ -102,9 +107,53 @@ export default function CompoundDetail() {
   }
 
   const linkedHerbs = mapRelatedHerbsForCompound(compound, herbs)
+  const herbByKey = new Map<string, { label: string; slug: string }>()
+  const compoundByKey = new Map<string, { label: string; slug: string }>()
+
+  herbs.forEach(item => {
+    const label = item.common || item.name || item.scientific || item.slug
+    ;[item.slug, item.common, item.name, item.scientific].forEach(candidate => {
+      const value = String(candidate || '').trim()
+      if (!value) return
+      herbByKey.set(normalizeKey(value), { label, slug: item.slug })
+    })
+  })
+
+  compounds.forEach(item => {
+    const label = item.name || item.slug
+    ;[item.slug, item.name].forEach(candidate => {
+      const value = String(candidate || '').trim()
+      if (!value) return
+      compoundByKey.set(normalizeKey(value), { label, slug: item.slug })
+    })
+  })
 
   const whyItMatters = compound.effects.slice(0, 2).join(' + ')
   const doesText = compound.mechanism || compound.description
+  const premiumDetails = [
+    { title: 'Identity', value: compound.identity },
+    {
+      title: 'Category / Use Context',
+      value: compound.categoryUseContext,
+    },
+    { title: 'Evidence Level', value: compound.evidenceLevel },
+  ]
+  const premiumHerbEntries =
+    compound.linkedHerbs.length > 0 ? compound.linkedHerbs : compound.relatedEntities
+  const premiumRelatedHerbs = premiumHerbEntries.map(entry => {
+    const normalized = herbByKey.get(normalizeKey(entry))
+    return {
+      label: normalized?.label || entry.replace(/-/g, ' '),
+      to: normalized?.slug ? `/herbs/${encodeURIComponent(normalized.slug)}` : undefined,
+    }
+  })
+  const premiumRelatedCompounds = compound.relatedCompounds.map(entry => {
+    const normalized = compoundByKey.get(normalizeKey(entry))
+    return {
+      label: normalized?.label || entry,
+      to: normalized?.slug ? `/compounds/${encodeURIComponent(normalized.slug)}` : undefined,
+    }
+  })
 
   const confidence =
     compound.confidence ??
@@ -521,6 +570,14 @@ export default function CompoundDetail() {
             ))}
           </div>
         )}
+
+        <PremiumDataSection
+          details={premiumDetails}
+          relationGroups={[
+            { title: 'Related Herbs', items: premiumRelatedHerbs },
+            { title: 'Related Compounds', items: premiumRelatedCompounds },
+          ]}
+        />
 
         {governedResearch && governedFaq && governedRelatedQuestions && (
           <GovernedResearchSections

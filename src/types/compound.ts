@@ -23,6 +23,12 @@ export type Compound = {
   herbs?: string[]
   confidence?: ConfidenceLevel
   type?: string
+  identity?: string
+  categoryUseContext?: string
+  evidenceLevel?: string
+  relatedEntities?: string[]
+  relatedCompounds?: string[]
+  linkedHerbs?: string[]
   researchEnrichment?: ResearchEnrichment
   researchEnrichmentSummary?: PublishSafeEnrichmentSummary
   foundIn?: string[]

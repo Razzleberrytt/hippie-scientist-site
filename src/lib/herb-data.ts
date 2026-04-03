@@ -169,6 +169,11 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   const region = cleanText(data.region) || ''
   const category = cleanText(data.class ?? data.category) || ''
   const intensity = cleanText(data.intensity) || ''
+  const relatedEntities = splitClean(data.relatedEntities)
+  const relatedCompounds = splitClean(data.relatedCompounds)
+  const identity = cleanText(data.identity) || ''
+  const categoryUseContext = cleanText(data.categoryUseContext ?? data.category_use_context) || ''
+  const evidenceLevel = cleanText(data.evidenceLevel ?? data.evidence_level) || ''
 
   return {
     ...(data as Herb),
@@ -197,6 +202,11 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     compounds: activeCompounds,
     active_compounds: activeCompounds,
     legalStatus,
+    identity,
+    categoryUseContext,
+    evidenceLevel,
+    relatedEntities,
+    relatedCompounds,
     sources,
     researchEnrichment: researchEnrichment || undefined,
     productRecommendations,

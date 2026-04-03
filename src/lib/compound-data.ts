@@ -35,6 +35,12 @@ export type CompoundRecord = {
   sources: SourceRef[]
   lastUpdated: string
   confidence: ConfidenceLevel
+  identity: string
+  categoryUseContext: string
+  evidenceLevel: string
+  relatedEntities: string[]
+  relatedCompounds: string[]
+  linkedHerbs: string[]
 }
 
 export type CompoundSummaryRecord = {
@@ -138,6 +144,12 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     rawNotes: rawInteractionNotes,
     seed: seededInteraction,
   })
+  const identity = cleanText(data.identity) || ''
+  const categoryUseContext = cleanText(data.categoryUseContext ?? data.category_use_context) || ''
+  const evidenceLevel = cleanText(data.evidenceLevel ?? data.evidence_level) || ''
+  const relatedEntities = splitClean(data.relatedEntities)
+  const relatedCompounds = splitClean(data.relatedCompounds)
+  const linkedHerbs = splitClean(data.linkedHerbs)
 
   return {
     id: String(data.id || slug),
@@ -162,6 +174,12 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     legalStatus: cleanText(data.legalStatus) || '',
     sideEffects: splitClean(data.sideEffects),
     herbs,
+    identity,
+    categoryUseContext,
+    evidenceLevel,
+    relatedEntities,
+    relatedCompounds,
+    linkedHerbs,
     confidence: calculateCompoundConfidence({ mechanism, effects, compounds: herbs }),
     sources: normalizeSources(data.sources),
     researchEnrichment: researchEnrichment || undefined,

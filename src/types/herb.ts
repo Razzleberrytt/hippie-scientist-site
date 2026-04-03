@@ -95,6 +95,11 @@ export type Herb = {
   compoundClasses?: string[]
   pharmCategories?: string[]
   class?: string
+  identity?: string
+  categoryUseContext?: string
+  evidenceLevel?: string
+  relatedEntities?: string[]
+  relatedCompounds?: string[]
   researchEnrichment?: ResearchEnrichment
   researchEnrichmentSummary?: PublishSafeEnrichmentSummary
   activeCompounds?: string[]
