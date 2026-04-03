@@ -6,11 +6,9 @@
   "mechanism": "Curcuminoids modulate NF-kB, COX-2, and cytokine signaling; bioavailability is low without formulation enhancement (for example piperine or phospholipid complexes).",
   "activeCompounds": [],
   "effects": [
-    "Anti-inflammatory",
+    "anti-inflammatory",
     "antioxidant",
-    "liver protective",
-    "Anti",
-    "inflammatory"
+    "liver protective"
   ],
   "contraindications": [],
   "safetyNotes": "Usually well tolerated at culinary intake; supplemental doses may cause dyspepsia or diarrhea. Use caution with anticoagulation and gallbladder disease.",

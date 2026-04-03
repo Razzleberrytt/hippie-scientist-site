@@ -5,12 +5,7 @@
   "intensity": "mild",
   "mechanism": "Eleutherosides and phenylpropanoid glycosides show stress-response modulation and may influence HPA-axis signaling and fatigue-related outcomes.",
   "activeCompounds": [],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
+  "effects": [],
   "contraindications": [
     "avoid during pregnancy and breastfeeding",
     "Use caution with prescription medications and chronic conditions; monitor for intolerance."

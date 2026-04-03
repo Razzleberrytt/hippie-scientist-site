@@ -10,12 +10,11 @@
     "atropine"
   ],
   "effects": [
-    "true hallucinations",
+    "hallucinogenic",
     "confusion",
     "amnesia",
     "delirium",
     "anticholinergic",
-    "hallucinogenic",
     "sedative"
   ],
   "contraindications": [

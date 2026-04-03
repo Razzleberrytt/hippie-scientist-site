@@ -5,9 +5,7 @@
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "mechanism": "cbd engages multiple receptor and enzyme pathways | mechanistic complexity and formulation variability limit simple efficacy extrapolation across products",
   "activeCompounds": [],
-  "effects": [
-    "adverse event and interaction monitoring remains central to risk management"
-  ],
+  "effects": [],
   "contraindications": [
     "avoid with use caution in significant hepatic impairment without clinician oversight",
     "avoid unsupported replacement of prescribed therapy with non-standardized cbd products"

@@ -6,9 +6,9 @@
   "mechanism": "Artemisinin contains an endoperoxide bridge that generates reactive intermediates in heme-rich parasites, producing rapid antimalarial activity.",
   "activeCompounds": [],
   "effects": [
-    "Antimalarial",
+    "antimalarial",
     "antiviral",
-    "immune modulating"
+    "immune support"
   ],
   "contraindications": [],
   "safetyNotes": "Standardized antimalarial regimens are generally tolerated, but unsupervised nonstandard products may lead to underdosing or toxicity. Use caution in pregnancy unless regimen is clinician-guided.",
