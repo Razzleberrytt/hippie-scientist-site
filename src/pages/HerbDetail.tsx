@@ -32,6 +32,7 @@ import GovernedReviewFreshnessPanel from '@/components/detail/GovernedReviewFres
 import EnrichmentRecommendationBlocks from '@/components/detail/EnrichmentRecommendationBlocks'
 import GovernedQuickCompareBlock from '@/components/detail/GovernedQuickCompareBlock'
 import PremiumDataSection from '@/components/detail/PremiumDataSection'
+import HerbBuyerGuidanceSection from '@/components/detail/HerbBuyerGuidanceSection'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
@@ -977,12 +978,7 @@ export default function HerbDetail() {
             : 'All core evidence fields present for this profile.'}
           <InfoTooltip text='Values with published studies should be cross-checked against the Sources section.' />
         </div>
-        {herbRecommendation && (
-          <div className='mt-3 text-xs text-white/45'>
-            Shopping guidance criteria are available for this herb and ready for a future
-            recommendation module.
-          </div>
-        )}
+        {herbRecommendation && <HerbBuyerGuidanceSection recommendation={herbRecommendation} />}
       </article>
     </main>
   )
