@@ -43,6 +43,7 @@ export function trackAffiliateLinkClick({
     entityType: 'herb',
     entitySlug: herbSlug,
     ctaType: 'affiliate',
+    timestamp: Date.now(),
   })
 
   if (import.meta.env.DEV) {
@@ -73,5 +74,6 @@ export function trackAffiliateConversion({
     herbSlug,
     useCaseAnchor,
     valueUsd,
+    timestamp: Date.now(),
   })
 }

@@ -16,4 +16,9 @@ export const RANKING_CONFIG = {
   thresholds: {
     closeScore: 0.05,
   },
+
+  decay: {
+    clickHalfLifeMs: 1000 * 60 * 60 * 24 * 7,
+    conversionHalfLifeMs: 1000 * 60 * 60 * 24 * 14,
+  },
 }

@@ -248,7 +248,6 @@ const MIN_EXPOSURE_CLICKS = 2
 const MIN_DATA_THRESHOLD = 4
 const COLD_START_BOOST_CAP = 0.65
 const HIGH_CONVERSION_PROTECTION_THRESHOLD = 0.75
-const TIME_DECAY_HALF_LIFE_MS = 7 * 24 * 60 * 60 * 1000
 const MAX_CLICK_EVENT_AGE_MS = 60 * 24 * 60 * 60 * 1000
 
 function getHerbSlugFromAnalyticsEvent(event: { slug?: string; entitySlug?: string }): string | null {
@@ -259,8 +258,8 @@ function getHerbSlugFromAnalyticsEvent(event: { slug?: string; entitySlug?: stri
 
 type ProductClickMetrics = {
   rawCount: number
-  weightedScore: number
-  weightedEventCount: number
+  decayedScore: number
+  timestampedEventCount: number
   latestTimestamp?: number
 }
 type ClickMetricsByProductId = Record<string, ProductClickMetrics>
@@ -270,6 +269,8 @@ type ProductConversionScores = Record<string, number>
 type ProductConversionMetrics = {
   score: number
   rawCount: number
+  decayedCount: number
+  timestampedEventCount: number
   latestTimestamp?: number
 }
 type ProductConversionMetricsById = Record<string, ProductConversionMetrics>
@@ -291,11 +292,26 @@ function getDwellWeight(dwellTimeMs: number | null): number {
   return 1.5
 }
 
+function getDecayWeight(timestamp: number, halfLifeMs: number, nowMs: number): number {
+  const ageMs = Math.max(0, nowMs - timestamp)
+  return Math.exp(-ageMs / halfLifeMs)
+}
+
 export function getTimeDecayWeight(timestamp?: number, nowMs: number = Date.now()): number {
   if (typeof timestamp !== 'number' || !Number.isFinite(timestamp)) return 1
+  return getDecayWeight(timestamp, RANKING_CONFIG.decay.clickHalfLifeMs, nowMs)
+}
 
-  const ageMs = Math.max(0, nowMs - timestamp)
-  return Math.pow(0.5, ageMs / TIME_DECAY_HALF_LIFE_MS)
+export function applyTimeDecay(
+  events: Array<{ timestamp?: number }>,
+  halfLifeMs: number,
+  nowMs: number = Date.now(),
+): number {
+  return events.reduce((sum, event) => {
+    if (typeof event.timestamp !== 'number' || !Number.isFinite(event.timestamp)) return sum
+    const weight = getDecayWeight(event.timestamp, halfLifeMs, nowMs)
+    return sum + weight
+  }, 0)
 }
 
 function shouldSkipByAge(timestamp?: number, nowMs: number = Date.now()): boolean {
@@ -308,20 +324,19 @@ function hasWeightedSignal(event: StoredAnalyticsEvent): boolean {
   return typeof event.position === 'number' || 'dwellTimeMs' in event
 }
 
-function getEventWeightedScore(event: StoredAnalyticsEvent, nowMs: number): number {
+function getEventWeightedScore(event: StoredAnalyticsEvent): number {
   const position = typeof event.position === 'number' && Number.isFinite(event.position) ? event.position : 6
   const dwellTimeMs =
     event.dwellTimeMs === null || (typeof event.dwellTimeMs === 'number' && Number.isFinite(event.dwellTimeMs))
       ? event.dwellTimeMs
       : null
-  const timeDecayWeight = getTimeDecayWeight(event.timestamp, nowMs)
-  return getPositionWeight(position) * getDwellWeight(dwellTimeMs) * timeDecayWeight
+  return getPositionWeight(position) * getDwellWeight(dwellTimeMs)
 }
 
 export function getWeightedClickScore(events: StoredAnalyticsEvent[], nowMs: number = Date.now()): number {
   return events.reduce((total, event) => {
     if (shouldSkipByAge(event.timestamp, nowMs)) return total
-    return total + getEventWeightedScore(event, nowMs)
+    return total + getEventWeightedScore(event)
   }, 0)
 }
 
@@ -335,18 +350,21 @@ function addClickEvent(
 
   const next = (metrics[productId] ||= {
     rawCount: 0,
-    weightedScore: 0,
-    weightedEventCount: 0,
+    decayedScore: 0,
+    timestampedEventCount: 0,
   })
 
   next.rawCount += 1
-  if (hasWeightedSignal(event)) {
-    next.weightedScore += getEventWeightedScore(event, nowMs)
-    next.weightedEventCount += 1
-  }
   if (typeof event.timestamp === 'number' && Number.isFinite(event.timestamp)) {
-    next.latestTimestamp = Math.max(next.latestTimestamp ?? Number.NEGATIVE_INFINITY, event.timestamp)
+    const decayedWeight = applyTimeDecay([event], RANKING_CONFIG.decay.clickHalfLifeMs, nowMs)
+    const scoreUnit = hasWeightedSignal(event) ? getEventWeightedScore(event) : 1
+    next.decayedScore += decayedWeight * scoreUnit
+    next.timestampedEventCount += 1
   }
+  next.latestTimestamp =
+    typeof event.timestamp === 'number' && Number.isFinite(event.timestamp)
+      ? Math.max(next.latestTimestamp ?? Number.NEGATIVE_INFINITY, event.timestamp)
+      : next.latestTimestamp
 }
 
 function getHerbProductClickCountsByAnchor(nowMs: number): HerbProductClickMetricsByAnchor {
@@ -373,14 +391,12 @@ function getHerbProductClickCountsByAnchor(nowMs: number): HerbProductClickMetri
   return countsByHerb
 }
 
-function getConversionEventScore(event: StoredAnalyticsEvent, nowMs: number): number {
-  const base = 1
+function getConversionEventScore(event: StoredAnalyticsEvent): number {
   const valueWeight =
     typeof event.valueUsd === 'number' && Number.isFinite(event.valueUsd) && event.valueUsd > 0
       ? Math.log(1 + event.valueUsd)
       : 1
-  const timeDecayWeight = getTimeDecayWeight(event.timestamp, nowMs)
-  return base * valueWeight * timeDecayWeight
+  return valueWeight
 }
 
 function addConversionEvent(
@@ -390,7 +406,12 @@ function addConversionEvent(
   nowMs: number,
 ) {
   if (shouldSkipByAge(event.timestamp, nowMs)) return
-  scores[productId] = (scores[productId] || 0) + getConversionEventScore(event, nowMs)
+  if (typeof event.timestamp !== 'number' || !Number.isFinite(event.timestamp)) {
+    scores[productId] = (scores[productId] || 0) + 1
+    return
+  }
+  const decayedWeight = applyTimeDecay([event], RANKING_CONFIG.decay.conversionHalfLifeMs, nowMs)
+  scores[productId] = (scores[productId] || 0) + getConversionEventScore(event) * decayedWeight
 }
 
 function addConversionMetricsEvent(
@@ -400,8 +421,16 @@ function addConversionMetricsEvent(
   nowMs: number,
 ) {
   if (shouldSkipByAge(event.timestamp, nowMs)) return
-  const next = (scores[productId] ||= { score: 0, rawCount: 0 })
-  next.score += getConversionEventScore(event, nowMs)
+  const next = (scores[productId] ||= { score: 0, rawCount: 0, decayedCount: 0, timestampedEventCount: 0 })
+  if (typeof event.timestamp === 'number' && Number.isFinite(event.timestamp)) {
+    const decayedWeight = applyTimeDecay([event], RANKING_CONFIG.decay.conversionHalfLifeMs, nowMs)
+    next.score += getConversionEventScore(event) * decayedWeight
+    next.decayedCount += decayedWeight
+    next.timestampedEventCount += 1
+  } else {
+    next.score += 1
+    next.decayedCount += 1
+  }
   next.rawCount += 1
   if (typeof event.timestamp === 'number' && Number.isFinite(event.timestamp)) {
     next.latestTimestamp = Math.max(next.latestTimestamp ?? Number.NEGATIVE_INFINITY, event.timestamp)
@@ -527,8 +556,10 @@ type RankingScoreComponents = {
 
 type RankingScoreMetadata = {
   isColdStart: boolean
-  totalClicks: number
-  totalConversions: number
+  rawClicks: number
+  rawConversions: number
+  decayedClicks: number
+  decayedConversions: number
   lastEventAgeMs: number | null
 }
 
@@ -549,19 +580,23 @@ function getRankingDebugInfo(params: {
 }): CuratedProductRankingDebugInfo {
   const { product, clickMetrics, conversionMetrics, entitySlug, nowMs } = params
   const clickEvidenceScore = clickMetrics?.rawCount || 0
-  const clickSignal =
-    clickMetrics ? (clickMetrics.weightedEventCount > 0 ? clickMetrics.weightedScore : clickMetrics.rawCount) : 0
-  const conversionSignal = conversionMetrics?.score || 0
+  const decayedClickScore =
+    clickMetrics && clickMetrics.timestampedEventCount > 0 ? clickMetrics.decayedScore : clickEvidenceScore
+  const conversionRawCount = conversionMetrics?.rawCount || 0
+  const decayedConversionScore =
+    conversionMetrics && conversionMetrics.timestampedEventCount > 0
+      ? conversionMetrics.score
+      : conversionRawCount
   const coldStart = isColdStart({
-    totalClickScore: clickSignal,
-    totalConversionScore: conversionSignal,
+    totalClickScore: decayedClickScore,
+    totalConversionScore: decayedConversionScore,
   })
   const components: RankingScoreComponents = {
     baseScore: 0,
-    clickScore: cappedClickScore(clickSignal) * RANKING_CONFIG.weights.click,
-    conversionScore: conversionSignal * RANKING_CONFIG.weights.conversion,
+    clickScore: cappedClickScore(decayedClickScore) * RANKING_CONFIG.weights.click,
+    conversionScore: decayedConversionScore * RANKING_CONFIG.weights.conversion,
     coldStartBoost: coldStart ? getColdStartScoreBoost(product, clickEvidenceScore) : 0,
-    explorationBoost: exposureBoost(clickSignal),
+    explorationBoost: exposureBoost(decayedClickScore),
     jitter: deterministicJitter(`${entitySlug}:${product.productId}`),
   }
   const latestTimestamp = Math.max(
@@ -579,8 +614,10 @@ function getRankingDebugInfo(params: {
     components,
     metadata: {
       isColdStart: coldStart,
-      totalClicks: clickEvidenceScore,
-      totalConversions: conversionMetrics?.rawCount || 0,
+      rawClicks: clickEvidenceScore,
+      rawConversions: conversionRawCount,
+      decayedClicks: decayedClickScore,
+      decayedConversions: decayedConversionScore,
       lastEventAgeMs: Number.isFinite(latestTimestamp) ? Math.max(0, nowMs - latestTimestamp) : null,
     },
     configSnapshot: RANKING_CONFIG,
@@ -616,7 +653,7 @@ function toConversionMetrics(
 ): ProductConversionMetrics | undefined {
   if (metric) return metric
   if (!score) return undefined
-  return { score, rawCount: 0 }
+  return { score, rawCount: 0, decayedCount: 0, timestampedEventCount: 0 }
 }
 
 export function getRenderableCuratedProducts(
