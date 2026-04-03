@@ -110,6 +110,60 @@ export const herbRecommendations: HerbRecommendation[] = [
     recommendationConfidence: 'high',
   },
   {
+    herbSlug: 'lemon-balm',
+    recommendedForms: ['tea', 'tincture', 'capsule'],
+    preferredAttributes: [
+      'single-herb melissa officinalis labeling',
+      'leaf-focused ingredient disclosure',
+      'clear serving-size instructions',
+      'minimal flavoring additives',
+    ],
+    avoidFlags: [
+      'stress blends where lemon balm amount is hidden',
+      'labels that do not identify plant part',
+      'vague extract strength descriptions',
+    ],
+    shoppingNotes:
+      'Tea is the easiest entry format. For tinctures or capsules, prioritize labels that clearly state species, plant part, and serving size.',
+    recommendationConfidence: 'medium',
+  },
+  {
+    herbSlug: 'lion-s-mane',
+    recommendedForms: ['capsule', 'extract', 'powder'],
+    preferredAttributes: [
+      'fruiting body identified on label',
+      'beta-glucan or active-content transparency',
+      'single-mushroom formula',
+      'third-party tested when available',
+    ],
+    avoidFlags: [
+      'mycelium-heavy products with no active-content disclosure',
+      'proprietary nootropic blends hiding lion’s mane amount',
+      'labels without extract ratio details',
+    ],
+    shoppingNotes:
+      'Capsules and extracts are usually easiest to compare. Focus on fruiting-body and active-content details before broad cognition marketing claims.',
+    recommendationConfidence: 'medium',
+  },
+  {
+    herbSlug: 'passionflower',
+    recommendedForms: ['tea', 'tincture', 'capsule'],
+    preferredAttributes: [
+      'passiflora species identified',
+      'single-herb formula',
+      'clear evening serving guidance',
+      'simple ingredient panel',
+    ],
+    avoidFlags: [
+      'sleep blends that hide passionflower quantity',
+      'vague extract strength labeling',
+      'stacked sedative formulas without dosing clarity',
+    ],
+    shoppingNotes:
+      'Tea and tincture are common entry points. Compare products by species clarity and serving transparency instead of broad sleep language.',
+    recommendationConfidence: 'medium',
+  },
+  {
     herbSlug: 'peppermint',
     recommendedForms: ['tea', 'loose herb', 'capsule', 'tincture'],
     preferredAttributes: [

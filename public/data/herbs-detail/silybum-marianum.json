@@ -17,19 +17,28 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.021Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "description": "Silybum marianum (milk thistle) is often chosen for liver-focused supplement routines that prioritize standardized silymarin labeling.",
+  "dosage": "Use standardized extract labels with clear silymarin amounts and avoid hidden-dose blends.",
+  "duration": "Frequently used in medium-length daily routines with periodic review of medication interactions.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Capsules and softgels are the main formats for consistent labeled intake.",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [],
+  "therapeuticUses": [
+    "Liver-support supplement routines",
+    "Standardized extract comparison shopping",
+    "Single-herb protocols that avoid complex detox blends"
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],
   "slug": "silybum-marianum",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Compared for liver-support category use, standardized extract purchasing, and conservative single-herb protocols.",
+  "evidenceLevel": "Moderate evidence in selected liver-related contexts; formulation quality and standardization drive comparability.",
+  "relatedEntities": [
+    "turmeric",
+    "reishi-mushroom",
+    "ginger",
+    "ashwagandha"
+  ],
   "relatedCompounds": []
 }

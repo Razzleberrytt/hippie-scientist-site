@@ -17,19 +17,28 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.988Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "description": "Passionflower is usually selected for calming and bedtime routines when users want a middle-ground option between chamomile and stronger sedative herbs.",
+  "dosage": "Start with conservative evening servings and avoid combining with multiple sedating products unless guided clinically.",
+  "duration": "Often used situationally or in short nightly blocks based on next-day alertness needs.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Tea and tincture are common; capsules are used for easier serving consistency.",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [],
+  "therapeuticUses": [
+    "Evening tension and wind-down support",
+    "Bedtime routine support before stronger sedative escalation",
+    "Short-duration calm protocols during high-stress periods"
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],
   "slug": "passionflower",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Compared for evening calm support, situational tension relief, and sleep-onset preparation routines.",
+  "evidenceLevel": "Early-to-moderate evidence with variable formulations; practical utility depends heavily on form and serving consistency.",
+  "relatedEntities": [
+    "lemon-balm",
+    "valerian-root",
+    "chamomile",
+    "ashwagandha"
+  ],
   "relatedCompounds": []
 }

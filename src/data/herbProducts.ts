@@ -126,6 +126,90 @@ export const herbProducts: HerbProductEntry[] = [
     ],
   },
   {
+    herbSlug: 'lemon-balm',
+    products: [
+      {
+        productTitle: 'Lemon Balm Herbal Tea',
+        brand: 'Traditional Medicinals',
+        form: 'tea',
+        attributes: ['melissa officinalis listed', 'single-herb tea format', 'routine-friendly tea bags'],
+        notes: 'Useful baseline format for gentle calming routines and simple nightly adherence.',
+        score: 88,
+        highlight: true,
+        reasoning:
+          'Species-labeled single-herb tea keeps quality checks straightforward for first-time buyers.',
+        affiliateUrl: 'https://www.amazon.com/dp/B0009F3QK6?tag=razzleberry02-20',
+      },
+      {
+        productTitle: 'Lemon Balm Liquid Extract',
+        brand: 'Herb Pharm',
+        form: 'extract',
+        attributes: ['single-herb extract', 'clear dropper serving guidance', 'alcohol extract disclosure'],
+        notes: 'Alternative for buyers who prefer low-volume servings over tea preparation.',
+        score: 84,
+        reasoning:
+          'Liquid format offers flexible serving adjustments while keeping ingredient identity explicit.',
+        affiliateUrl: 'https://www.amazon.com/dp/B0016AFR98?tag=razzleberry02-20',
+      },
+    ],
+  },
+  {
+    herbSlug: 'lion-s-mane',
+    products: [
+      {
+        productTitle: 'Lion’s Mane Fruiting Body Capsules',
+        brand: 'Real Mushrooms',
+        form: 'capsule',
+        attributes: ['fruiting body sourced', 'beta-glucans disclosed', 'grain-free mushroom material'],
+        notes: 'Capsule-first option for users who want consistent daily mushroom intake.',
+        score: 92,
+        highlight: true,
+        reasoning:
+          'Fruiting-body transparency plus active-content disclosure supports cleaner cross-product comparisons.',
+        affiliateUrl: 'https://www.amazon.com/dp/B078SZX3ML?tag=razzleberry02-20',
+      },
+      {
+        productTitle: 'Lion’s Mane Mushroom Powder',
+        brand: 'Om Mushroom',
+        form: 'powder',
+        attributes: ['powder mix format', 'measured scoop serving', 'single-mushroom focus'],
+        notes: 'Works for smoothie/coffee routines when users prefer mix-ins over capsules.',
+        score: 83,
+        reasoning:
+          'Powder format broadens onboarding options for buyers who avoid pill-based routines.',
+        affiliateUrl: 'https://www.amazon.com/dp/B01N4SM3LF?tag=razzleberry02-20',
+      },
+    ],
+  },
+  {
+    herbSlug: 'passionflower',
+    products: [
+      {
+        productTitle: 'Organic Passionflower Tea',
+        brand: 'Traditional Medicinals',
+        form: 'tea',
+        attributes: ['single-herb passionflower emphasis', 'easy tea-bag dosing', 'caffeine-free evening format'],
+        notes: 'Good first-step product for users testing passionflower in bedtime wind-down routines.',
+        score: 87,
+        highlight: true,
+        reasoning:
+          'Tea-first format keeps serving intensity moderate and supports conservative onboarding.',
+        affiliateUrl: 'https://www.amazon.com/dp/B00F3RCL2O?tag=razzleberry02-20',
+      },
+      {
+        productTitle: 'Passionflower Liquid Extract',
+        brand: 'Nature’s Answer',
+        form: 'extract',
+        attributes: ['passiflora incarnata labeling', 'dropper dosage instructions', 'single-herb liquid formula'],
+        notes: 'For users who want easier serving control than loose herb or tea prep.',
+        score: 82,
+        reasoning:
+          'Adds a liquid alternative for buyers who need portable evening format options.',
+        affiliateUrl: 'https://www.amazon.com/dp/B0014AU7R8?tag=razzleberry02-20',
+      },
+    ],
+  },
+  {
     herbSlug: 'peppermint',
     products: [
       {

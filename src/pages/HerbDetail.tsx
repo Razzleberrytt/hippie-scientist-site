@@ -198,6 +198,20 @@ function dedupeRelatedLinks(items: Array<RelatedLinkItem | null | undefined>) {
   return Array.from(unique.values()).sort((a, b) => a.label.localeCompare(b.label))
 }
 
+function dedupeStrings(items: Array<string | null | undefined>) {
+  const seen = new Set<string>()
+  const values: string[] = []
+  items.forEach(item => {
+    const normalized = String(item || '').trim()
+    if (!normalized) return
+    const key = normalizeKey(normalized)
+    if (seen.has(key)) return
+    seen.add(key)
+    values.push(normalized)
+  })
+  return values
+}
+
 export default function HerbDetail() {
   const { slug = '' } = useParams()
   const { herb, isLoading } = useHerbDetailState(slug)
@@ -531,6 +545,22 @@ export default function HerbDetail() {
   const quickCompareSection = buildGovernedQuickCompareSection('herb', herb.slug)
   const herbRecommendation = getHerbRecommendation(herb.slug)
   const herbProducts = getHerbProducts(herb.slug)
+  const whyPeopleChooseBullets = dedupeStrings([
+    herb.categoryUseContext,
+    herbRecommendation
+      ? `Common buyer formats: ${herbRecommendation.recommendedForms.slice(0, 3).join(', ')}.`
+      : null,
+    herbRecommendation ? `Quality checks buyers use: ${herbRecommendation.preferredAttributes[0]}.` : null,
+    herbProducts.length > 0
+      ? `Product options shown: ${herbProducts.length} format${herbProducts.length === 1 ? '' : 's'} for side-by-side comparison.`
+      : null,
+    relatedHerbLinks.length > 0
+      ? `Related alternatives: ${relatedHerbLinks
+          .slice(0, 3)
+          .map(item => item.label)
+          .join(', ')}.`
+      : null,
+  ]).slice(0, 4)
   const recommendationNames = {
     herb: new Map(herbs.map(item => [item.slug, item.common || item.name || item.slug])),
     compound: new Map(compounds.map(item => [item.slug, item.name || item.slug])),
@@ -859,6 +889,21 @@ export default function HerbDetail() {
             ) : null}
             {description}
           </Section>
+        )}
+
+        {whyPeopleChooseBullets.length > 0 && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <div className='rounded-2xl border border-white/12 bg-white/[0.03] p-4'>
+              <h2 className='text-xs font-semibold uppercase tracking-[0.18em] text-white/55'>
+                Why people choose this herb
+              </h2>
+              <ul className='mt-3 list-disc space-y-1.5 pl-5 text-sm text-white/85'>
+                {whyPeopleChooseBullets.map(item => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </section>
         )}
 
         {useCaseAnchors.length > 0 && (

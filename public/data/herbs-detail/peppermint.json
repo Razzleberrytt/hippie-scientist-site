@@ -17,19 +17,28 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.992Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "description": "Peppermint is often chosen as a practical tea-first herb for digestive comfort routines and refreshing non-caffeinated daily use.",
+  "dosage": "Match form to use-case: tea serving counts differ from concentrated capsule/oil products.",
+  "duration": "Often used as-needed around meals or in short daily routines.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Tea and loose leaf are the easiest entry formats; enteric-coated capsules are compared for more targeted delivery contexts.",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [],
+  "therapeuticUses": [
+    "Post-meal comfort tea use",
+    "Low-friction single-herb daily beverage routines",
+    "Digestive-focused herb stack comparisons"
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],
   "slug": "peppermint",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Common in digestive comfort plans, post-meal tea habits, and simple single-herb beverage routines.",
+  "evidenceLevel": "Moderate traditional use support with selected clinical evidence depending on form (tea vs oil/capsule).",
+  "relatedEntities": [
+    "ginger",
+    "chamomile",
+    "lemon-balm",
+    "turmeric"
+  ],
   "relatedCompounds": []
 }

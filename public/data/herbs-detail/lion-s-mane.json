@@ -17,19 +17,28 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.955Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "description": "Lion’s mane is commonly chosen for cognitive-support routines where users prefer mushroom-based daily formats over stimulant-heavy products.",
+  "dosage": "Compare fruiting-body disclosure and per-serving extract amounts rather than relying on front-label mushroom claims.",
+  "duration": "Typically evaluated across multi-week routines to judge consistency and tolerability.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Capsules, powdered drink mixes, and dual extracts are the main shopper formats.",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [],
+  "therapeuticUses": [
+    "Daily cognitive-support routines",
+    "Non-caffeine focus stacks",
+    "Mushroom extract comparisons centered on label transparency"
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],
   "slug": "lion-s-mane",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Compared for focus and mental-clarity support in daytime routines, usually as capsules or powdered extracts.",
+  "evidenceLevel": "Early-to-moderate human evidence with stronger preclinical interest; product sourcing and extract quality vary widely.",
+  "relatedEntities": [
+    "rhodiola-rosea",
+    "bacopa-monnieri",
+    "reishi-mushroom",
+    "ashwagandha"
+  ],
   "relatedCompounds": []
 }

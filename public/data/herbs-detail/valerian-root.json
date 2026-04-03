@@ -17,19 +17,28 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.030Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "description": "Valerian root is usually selected for bedtime-focused routines when users want a stronger evening herb than tea-only calming options.",
+  "dosage": "Use conservative bedtime serving ranges from labeled products and avoid combining multiple sedating herbs without a clear reason.",
+  "duration": "Commonly used in short sleep-support blocks or intermittent bedtime use based on next-day grogginess tolerance.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Capsules and tinctures are popular for bedtime convenience; teas are used for gentler onboarding.",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [],
+  "therapeuticUses": [
+    "Bedtime transition support",
+    "Sleep routine escalation after tea-first strategies feel too light",
+    "Night-focused calm support when daytime sedation is acceptable"
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],
   "slug": "valerian-root",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Primarily compared for sleep-onset support, nighttime wind-down, and sedative-leaning herbal protocols.",
+  "evidenceLevel": "Mixed-to-moderate evidence for sleep-related outcomes with notable preparation variability across products.",
+  "relatedEntities": [
+    "chamomile",
+    "passionflower",
+    "lemon-balm",
+    "ashwagandha"
+  ],
   "relatedCompounds": []
 }

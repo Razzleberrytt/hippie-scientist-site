@@ -17,19 +17,28 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.028Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "description": "Turmeric is typically selected for daily wellness routines where users want a familiar food-compatible herb with standardized extract options available.",
+  "dosage": "Match dosage to product form: culinary powders and concentrated curcumin extracts use different serving logic and should not be directly swapped.",
+  "duration": "Usually framed as a daily consistency herb; reassess tolerance and medication context during longer use periods.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Common options include cooking powder, capsules, and concentrated extracts with absorption-support ingredients.",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [],
+  "therapeuticUses": [
+    "Daily food-plus-supplement wellness routines",
+    "Standardized curcumin capsule comparisons for consistency",
+    "Long-horizon routines where convenience and adherence matter"
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],
   "slug": "turmeric",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Frequently compared for long-term daily use, food-first routines, and extract-based convenience formats.",
+  "evidenceLevel": "Moderate evidence for selected inflammatory-context outcomes in standardized curcumin products; culinary turmeric and extracts are not equivalent.",
+  "relatedEntities": [
+    "ginger",
+    "silybum-marianum",
+    "reishi-mushroom",
+    "tulsi"
+  ],
   "relatedCompounds": []
 }
