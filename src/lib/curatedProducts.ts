@@ -7,7 +7,7 @@ import {
   type CuratedProductRecommendation,
 } from '@/data/curatedProducts'
 import { normalizeAmazonAffiliateUrl } from '@/utils/affiliateUrls'
-import { readAnalyticsEvents } from '@/utils/analytics/eventStorage'
+import { readAnalyticsEvents, type StoredAnalyticsEvent } from '@/utils/analytics/eventStorage'
 import type { AffiliateUseCaseAnchor } from '@/lib/affiliateClickTracking'
 
 type CuratedProductPageContext = {
@@ -249,12 +249,61 @@ function getHerbSlugFromAnalyticsEvent(event: { slug?: string; entitySlug?: stri
   return null
 }
 
-type ClickCountsByProductId = Record<string, number>
-type HerbClickCountsByAnchor = Record<string, ClickCountsByProductId>
-type HerbProductClickCountsByAnchor = Record<string, HerbClickCountsByAnchor>
+type ProductClickMetrics = {
+  rawCount: number
+  weightedScore: number
+  weightedEventCount: number
+}
+type ClickMetricsByProductId = Record<string, ProductClickMetrics>
+type HerbClickMetricsByAnchor = Record<string, ClickMetricsByProductId>
+type HerbProductClickMetricsByAnchor = Record<string, HerbClickMetricsByAnchor>
 
-function getHerbProductClickCountsByAnchor(): HerbProductClickCountsByAnchor {
-  const countsByHerb: HerbProductClickCountsByAnchor = {}
+function getPositionWeight(position: number): number {
+  if (position <= 2) return 0.6
+  if (position <= 5) return 0.8
+  return 1
+}
+
+function getDwellWeight(dwellTimeMs: number | null): number {
+  if (dwellTimeMs === null) return 1
+  if (dwellTimeMs < 3000) return 0.5
+  if (dwellTimeMs < 10000) return 1
+  return 1.5
+}
+
+function hasWeightedSignal(event: StoredAnalyticsEvent): boolean {
+  return typeof event.position === 'number' || 'dwellTimeMs' in event
+}
+
+function getEventWeightedScore(event: StoredAnalyticsEvent): number {
+  const position = typeof event.position === 'number' && Number.isFinite(event.position) ? event.position : 6
+  const dwellTimeMs =
+    event.dwellTimeMs === null || (typeof event.dwellTimeMs === 'number' && Number.isFinite(event.dwellTimeMs))
+      ? event.dwellTimeMs
+      : null
+  return getPositionWeight(position) * getDwellWeight(dwellTimeMs)
+}
+
+export function getWeightedClickScore(events: StoredAnalyticsEvent[]): number {
+  return events.reduce((total, event) => total + getEventWeightedScore(event), 0)
+}
+
+function addClickEvent(metrics: ClickMetricsByProductId, productId: string, event: StoredAnalyticsEvent) {
+  const next = (metrics[productId] ||= {
+    rawCount: 0,
+    weightedScore: 0,
+    weightedEventCount: 0,
+  })
+
+  next.rawCount += 1
+  if (hasWeightedSignal(event)) {
+    next.weightedScore += getEventWeightedScore(event)
+    next.weightedEventCount += 1
+  }
+}
+
+function getHerbProductClickCountsByAnchor(): HerbProductClickMetricsByAnchor {
+  const countsByHerb: HerbProductClickMetricsByAnchor = {}
 
   const events = readAnalyticsEvents()
   events.forEach(event => {
@@ -266,12 +315,12 @@ function getHerbProductClickCountsByAnchor(): HerbProductClickCountsByAnchor {
 
     const herbCounts = (countsByHerb[herbSlug] ||= {})
     const globalCounts = (herbCounts.__global ||= {})
-    globalCounts[productId] = (globalCounts[productId] || 0) + 1
+    addClickEvent(globalCounts, productId, event)
 
     const anchorKey = String(event.useCaseAnchor || '').trim()
     if (!anchorKey) return
     const anchorCounts = (herbCounts[anchorKey] ||= {})
-    anchorCounts[productId] = (anchorCounts[productId] || 0) + 1
+    addClickEvent(anchorCounts, productId, event)
   })
 
   return countsByHerb
@@ -327,8 +376,18 @@ export function getRenderableCuratedProducts(
       const featuredRank = Number(b.featured) - Number(a.featured)
       if (featuredRank !== 0) return featuredRank
 
-      const aClicks = resolvedClickCounts?.[a.productId] || 0
-      const bClicks = resolvedClickCounts?.[b.productId] || 0
+      const aMetrics = resolvedClickCounts?.[a.productId]
+      const bMetrics = resolvedClickCounts?.[b.productId]
+      const aClicks = aMetrics
+        ? aMetrics.weightedEventCount > 0
+          ? aMetrics.weightedScore
+          : aMetrics.rawCount
+        : 0
+      const bClicks = bMetrics
+        ? bMetrics.weightedEventCount > 0
+          ? bMetrics.weightedScore
+          : bMetrics.rawCount
+        : 0
       const baseScore = 0
       const aScore = baseScore + cappedClickScore(aClicks) + exposureBoost(aClicks)
       const bScore = baseScore + cappedClickScore(bClicks) + exposureBoost(bClicks)
