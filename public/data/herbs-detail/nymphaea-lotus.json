@@ -28,7 +28,8 @@
     "and sedatives",
     "may interact with dopamine pathways"
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid use with cns depressants; Avoid with sedatives",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nymphaea lotus L.",

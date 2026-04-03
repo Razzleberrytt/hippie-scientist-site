@@ -11,7 +11,8 @@
   "effects": [],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.",
+  "safetyLevel": "caution",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: rhododendron anthopogon (TaxID 49619)",

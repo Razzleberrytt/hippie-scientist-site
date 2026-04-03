@@ -26,7 +26,8 @@
     "Sedatives",
     "antihypertensives"
   ],
-  "safetyNotes": "Avoid with hypotension; Avoid with sedation",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nelumbo nucifera (TaxID 4432)",

@@ -19,7 +19,8 @@
   "interactions": [
     "Enhances effect of antidiabetic and chemotherapeutic drugs"
   ],
-  "safetyNotes": "Generally regarded as safe in traditional use,Bitterness may cause nausea,Low to moderate,Approx. 1500 mg/kg in rodents",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Vernonia amygdalina",

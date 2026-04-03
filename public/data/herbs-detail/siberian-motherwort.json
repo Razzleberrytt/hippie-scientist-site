@@ -19,7 +19,8 @@
     "sedatives",
     "antihypertensives."
   ],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine,mild sedation,low blood pressure.,No direct toxicity data. Contextual inference: Mild sedative,uterine tonic,and relaxant,used in traditional chinese medicine. Contains leonurine,acts as a mild gaba modulator and muscle relaxant..,nan.. Contains leonurine,acts as a mild GABA modulator and muscle relaxant.. Mild sedative,used in traditional Chinese medicine.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: leonurus sibiricus",

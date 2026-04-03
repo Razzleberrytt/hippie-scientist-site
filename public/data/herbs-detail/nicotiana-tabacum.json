@@ -24,7 +24,8 @@
     "caffeine",
     "CYP inducers"
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with heart disease; Avoid with epilepsy",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nicotiana tabacum L.",

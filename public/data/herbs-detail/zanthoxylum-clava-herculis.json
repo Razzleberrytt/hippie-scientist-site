@@ -16,7 +16,8 @@
   "interactions": [
     "May potentiate stimulant effects when combined with sympathomimetic agents."
   ],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with other stimulants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: zanthoxylum clava-herculis (TaxID 1620214)",

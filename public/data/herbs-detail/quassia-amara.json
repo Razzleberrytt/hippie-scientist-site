@@ -23,7 +23,8 @@
     "may increase gastrointestinal irritation when combined with NSAIDs or other gastric irritants",
     "use caution with other strongly bitter digestive stimulants"
   ],
-  "safetyNotes": "Short-term use of traditional preparations is usually tolerated, but higher doses can cause nausea, vomiting, and abdominal discomfort. Keep dosing conservative and time-limited.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with other stimulants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Quassia amara (TaxID 43725)",

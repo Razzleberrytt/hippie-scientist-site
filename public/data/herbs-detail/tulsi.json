@@ -17,7 +17,8 @@
     "blood thinners",
     "sedatives."
   ],
-  "safetyNotes": "rare nausea,drowsiness.,No direct toxicity data. Contextual inference: Adaptogenic,immunomodulatory,stress-relieving,used in ayurvedic medicine. Acts as an adaptogen,modulates cortisol and inflammatory pathways..,nan.. Acts as an adaptogen,modulates cortisol and inflammatory pathways.. Adaptogenic,used in Ayurvedic medicine.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Ocimum tenuiflorum (TaxID 204149)",

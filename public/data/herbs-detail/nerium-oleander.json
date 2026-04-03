@@ -8,7 +8,8 @@
   "effects": [],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Highly toxic cardiac glycosides,used in traditional remedies. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Highly toxic cardiac glycosides,used in traditional remedies. none.",
+  "safetyLevel": "high",
+  "safetyNotes": "High risk: serious toxicity or overdose harm is possible. Avoid unsupervised use and seek clinical guidance before use.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nerium oleander (TaxID 63479)",

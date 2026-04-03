@@ -38,7 +38,8 @@
     "May interact dangerously with MAOIs and stimulants",
     "avoid combining with other psychoactives"
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with cardiac issues; May interact with maois",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nicotiana rustica L.",

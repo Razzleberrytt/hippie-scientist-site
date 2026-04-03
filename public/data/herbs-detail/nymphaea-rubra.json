@@ -28,7 +28,8 @@
     "alcohol",
     "CNS depressants"
   ],
-  "safetyNotes": "Avoid with sedative sensitivity; Avoid in liver disease",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nymphaea rubra (TaxID 307976)",

@@ -23,7 +23,8 @@
     "may have additive sedation with CNS depressants",
     "use caution with antiepileptic and anxiolytic medications"
   ],
-  "safetyNotes": "Traditionally used as a calming nervine. Drowsiness and gastrointestinal discomfort are possible; avoid combining with other sedatives until better interaction data are available.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nardostachys jatamansi (TaxID 179860)",

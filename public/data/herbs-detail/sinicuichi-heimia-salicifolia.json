@@ -24,7 +24,8 @@
     "Use caution with serotonergic or psychoactive medications due to possible CNS interaction.",
     "Use caution with hepatotoxic medications."
   ],
-  "safetyNotes": "Generally considered safe in small doses,Dry mouth,muscle weakness,dizziness,Low,Not well-established,traditional use considered safe in moderate doses",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Sinicuichi (Heimia salicifolia)",

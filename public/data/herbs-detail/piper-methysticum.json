@@ -18,7 +18,8 @@
   "interactions": [
     "Potentiates CNS depressants and sedatives"
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid in liver disease; Avoid with concurrent alcohol use",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Piper methysticum (TaxID 130404)",

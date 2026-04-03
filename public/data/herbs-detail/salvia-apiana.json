@@ -23,7 +23,8 @@
   "interactions": [
     "None significant"
   ],
-  "safetyNotes": "Avoid with neurotoxic in high doses",
+  "safetyLevel": "caution",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid use during pregnancy unless advised by a clinician.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Salvia apiana (TaxID 392646)",

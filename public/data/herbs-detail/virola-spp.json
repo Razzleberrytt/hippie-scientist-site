@@ -18,7 +18,8 @@
     "maois",
     "and other serotonergic substances."
   ],
-  "safetyNotes": "Toxic – psychoactive and ceremonial,nausea,intense hallucinations,elevated heart rate.,Can be overwhelming,physical toxicity low but psychological risks high.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Virola spp.",

@@ -18,7 +18,8 @@
   "interactions": [
     "May potentiate CNS depressants"
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid in liver disease",
+  "safetyLevel": "caution",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Petasites hybridus (TaxID 278673)",

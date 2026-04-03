@@ -24,7 +24,8 @@
     "May increase sedation when combined with CNS depressants.",
     "Use caution with serotonergic or psychoactive medications due to possible CNS interaction."
   ],
-  "safetyNotes": "Toxic in large amounts,Not well documented,Low toxicity,Not established",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: unnamed herb",

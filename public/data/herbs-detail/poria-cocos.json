@@ -11,7 +11,8 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Generally safe,mild GI effects in some,No direct toxicity data. Contextual inference: Diuretic,calming,spleen tonic in tcm. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diuretic,spleen tonic in TCM. none.",
+  "safetyLevel": "low",
+  "safetyNotes": "Low risk at typical doses for most adults. Use standard doses and stop if adverse effects appear.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Poria cocos",

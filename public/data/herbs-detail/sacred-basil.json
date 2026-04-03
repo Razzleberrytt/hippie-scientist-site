@@ -21,7 +21,8 @@
     "sedatives",
     "anticoagulants."
   ],
-  "safetyNotes": "dry mouth,mild sedation.,No direct toxicity data. Contextual inference: Adaptogen,stress reducer,immune modulator. Modulates cortisol,dopamine,and serotonin,adaptogenic and anxiolytic..,nan.. Modulates cortisol,adaptogenic and anxiolytic.. Adaptogen,immune modulator.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Ocimum tenuiflorum (Tulsi)",
