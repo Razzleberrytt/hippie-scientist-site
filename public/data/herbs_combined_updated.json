@@ -39459,7 +39459,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -39484,9 +39488,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "valerian"
+    "slug": "valerian",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "valerian root",
@@ -39501,7 +39513,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -39526,9 +39542,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "valerian-root"
+    "slug": "valerian-root",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "valeriana jatamansi",
@@ -39545,7 +39569,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -39570,9 +39598,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "valeriana-jatamansi"
+    "slug": "valeriana-jatamansi",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "verbascum thapsus",
@@ -39650,7 +39686,11 @@
     "effects": [
       "No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming."
@@ -39666,9 +39706,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. No direct region data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.",
     "region": "No direct region data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "Used in European folk medicine for anxiety and dreaming.",
-    "slug": "verbena-officinalis"
+    "slug": "verbena-officinalis",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "veronicastrum virginicum",
@@ -39919,7 +39967,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -39943,9 +39995,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "viola-odorata-sweet-violet"
+    "slug": "viola-odorata-sweet-violet",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "virola elongata",
@@ -39958,7 +40018,11 @@
       "Psychoactive snuffs made from bark and resin",
       "used by Amazonian tribes"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Psychoactive snuffs made from bark and resin",
       "used by amazonian tribes. Herbs often act via neurotransmitter modulation",
@@ -39995,9 +40059,17 @@
     "legalStatus": "Restricted in some countries",
     "preparation": "No direct preparation data. Contextual inference: Psychoactive snuffs made from bark and resin; used by amazonian tribes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychoactive snuffs made from bark and resin; used by Amazonian tribes. No direct region data. Contextual inference: Psychoactive snuffs made from bark and resin; used by amazonian tribes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychoactive snuffs made from bark and resin; used by Amazonian tribes. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Psychoactive snuffs made from bark and resin; used by amazonian tribes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychoactive snuffs made from bark and resin; used by Amazonian tribes. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "virola-elongata"
+    "slug": "virola-elongata",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "virola sebifera",
@@ -40200,7 +40272,11 @@
       "Anti",
       "inflammatory"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Anti-inflammatory",
@@ -40233,9 +40309,17 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Anti-inflammatory, antipyretic, and digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antipyretic, and digestive aid. No direct region data. Contextual inference: Anti-inflammatory, antipyretic, and digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antipyretic, and digestive aid. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Anti-inflammatory, antipyretic, and digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antipyretic, and digestive aid. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "vitex-trifolia"
+    "slug": "vitex-trifolia",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "white lily",
@@ -40251,7 +40335,11 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -40278,9 +40366,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "white-lily"
+    "slug": "white-lily",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "white sage",
@@ -40296,7 +40392,11 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -40322,9 +40422,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "white-sage"
+    "slug": "white-sage",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "wild dagga",
@@ -40339,7 +40447,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -40364,9 +40476,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "wild-dagga"
+    "slug": "wild-dagga",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "wild jujube seed",
@@ -40378,7 +40498,11 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -40394,9 +40518,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "wild-jujube-seed"
+    "slug": "wild-jujube-seed",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "wild lettuce",
@@ -40416,7 +40548,11 @@
       "century medicine for pain and insomnia.. Used in 19th",
       "century medicine for pain and insomnia."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia."
@@ -40438,9 +40574,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. No direct region data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",
     "region": "No direct region data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "Used in 19th-century medicine for pain and insomnia.",
-    "slug": "wild-lettuce"
+    "slug": "wild-lettuce",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "withania somnifera",
@@ -40514,7 +40658,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -40539,9 +40687,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "withania-somnifera-ashwagandha"
+    "slug": "withania-somnifera-ashwagandha",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "wormwood",
@@ -40557,7 +40713,11 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "Toxic – neurotoxic at high doses",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -40584,9 +40744,17 @@
     "legalStatus": "restricted",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "wormwood"
+    "slug": "wormwood",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "xanthium strumarium",
@@ -40665,7 +40833,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -40690,9 +40862,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "yarrow"
+    "slug": "yarrow",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "yellow horned poppy",
@@ -40707,7 +40887,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference:",
@@ -40732,9 +40916,17 @@
     "legalStatus": "varies",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "yellow-horned-poppy"
+    "slug": "yellow-horned-poppy",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "yerba mate",
@@ -40750,7 +40942,11 @@
     "effects": [
       "No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America."
@@ -40766,9 +40962,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. No direct region data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.",
     "region": "No direct region data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "Consumed as a social and energizing herbal tea throughout South America.",
-    "slug": "yerba-mate"
+    "slug": "yerba-mate",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "yohimbe",
@@ -40783,7 +40987,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference:",
@@ -40808,9 +41016,17 @@
     "legalStatus": "restricted",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "yohimbe"
+    "slug": "yohimbe",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "yopo",
@@ -40826,7 +41042,11 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "Toxic – psychoactive and traditional use only",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -40853,9 +41073,17 @@
     "legalStatus": "restricted",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "yopo"
+    "slug": "yopo",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "yucca schidigera",
@@ -40934,7 +41162,11 @@
       "and aromatic",
       "used for toothache and digestion"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Spasmolytic",
       "stimulant",
@@ -40975,9 +41207,17 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Spasmolytic, stimulant, and aromatic; used for toothache and digestion. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Spasmolytic, stimulant, and aromatic; used for toothache and digestion. No direct region data. Contextual inference: Spasmolytic, stimulant, and aromatic; used for toothache and digestion. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Spasmolytic, stimulant, and aromatic; used for toothache and digestion. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Spasmolytic, stimulant, and aromatic; used for toothache and digestion. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Spasmolytic, stimulant, and aromatic; used for toothache and digestion. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "zanthoxylum-capense"
+    "slug": "zanthoxylum-capense",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "zanthoxylum clava-herculis",
@@ -40992,7 +41232,11 @@
     "effects": [
       "No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize."
@@ -41008,9 +41252,17 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. No direct region data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.",
     "region": "No direct region data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "traditionalUse": "Used by Native Americans to numb toothaches and energize.",
-    "slug": "zanthoxylum-clava-herculis"
+    "slug": "zanthoxylum-clava-herculis",
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ]
   },
   {
     "name": "zingiber officinale",
@@ -43739,11 +43991,18 @@
       "and as a psychoactive in folk rituals.. Used in spice blends",
       "and as a psychoactive in folk rituals."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used in spice blends",
       "aphrodisiacs",
@@ -43760,7 +44019,11 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals..",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "myristica-fragrans"
   },
   {
@@ -43776,11 +44039,18 @@
     "effects": [
       "No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. No direct region data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion."
     ],
@@ -43790,7 +44060,11 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "Used in ayurveda and buddhist practices for calm and devotion..",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "nelumbo-nucifera"
   },
   {
@@ -43845,11 +44119,18 @@
     "effects": [
       "No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. No direct region data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
     ],
@@ -43859,7 +44140,11 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "Used in shamanic rituals for grounding and spirit communication..",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "nicotiana-rustica"
   },
   {
@@ -43921,11 +44206,18 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -43940,7 +44232,11 @@
     "legalStatus": "varies",
     "interactions": [],
     "description": "; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "nymphaea-rubra"
   },
   {
@@ -43995,7 +44291,11 @@
       "Source of opiates",
       "analgesic and sedative"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [
       {
@@ -44004,7 +44304,10 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "Pharmaceutical use only under regulation"
     ],
@@ -44014,7 +44317,11 @@
     "legalStatus": "Highly regulated",
     "interactions": [],
     "description": "Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "papaver-somniferum"
   },
   {
@@ -44111,11 +44418,18 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -44130,7 +44444,11 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "paullinia-yoco"
   },
   {
@@ -44190,11 +44508,18 @@
       "and spasms.. Used historically to treat pain",
       "and spasms."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used historically to treat pain",
       "migraines",
@@ -44211,7 +44536,11 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "Used historically to treat pain, migraines, and spasms..",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "petasites-hybridus"
   },
   {
@@ -44331,11 +44660,18 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -44350,7 +44686,11 @@
     "legalStatus": "restricted",
     "interactions": [],
     "description": "; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "piper-methysticum"
   },
   {
@@ -44365,7 +44705,11 @@
       "nicotine alkaloids",
       "traditional Aboriginal use"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [
       {
@@ -44374,7 +44718,10 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Stimulant due to nicotine and nor",
       "nicotine alkaloids",
@@ -44393,7 +44740,11 @@
     "legalStatus": "Unregulated",
     "interactions": [],
     "description": "Stimulant due to nicotine and nor-nicotine alkaloids; traditional aboriginal use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "pituri"
   },
   {
@@ -44406,11 +44757,18 @@
     "effects": [
       "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use"
     ],
@@ -44420,7 +44778,11 @@
     "legalStatus": "restricted",
     "interactions": [],
     "description": "Ritual use.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "psychotria-carthagenensis"
   },
   {
@@ -44436,11 +44798,18 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -44455,7 +44824,11 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "ptychopetalum-olacoides"
   },
   {
@@ -44471,11 +44844,18 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -44490,7 +44870,11 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "rhodiola-rosea"
   },
   {
@@ -44504,7 +44888,11 @@
       "Same as Ledum palustre",
       "sedative and antimicrobial"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [
       {
@@ -44513,7 +44901,10 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Same as ledum palustre",
       "sedative and antimicrobial. Herbs often act via neurotransmitter modulation",
@@ -44531,7 +44922,11 @@
     "legalStatus": "Restricted in some countries",
     "interactions": [],
     "description": "Same as ledum palustre; sedative and antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "rhododendron-tomentosum"
   },
   {
@@ -44596,11 +44991,18 @@
     "effects": [
       "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. No direct region data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
     ],
@@ -44610,7 +45012,11 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "Used in smudging rituals for purification and clarity..",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "salvia-apiana"
   },
   {
@@ -44819,11 +45225,18 @@
     "effects": [
       "No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. No direct region data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia."
     ],
@@ -44833,7 +45246,11 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "Used by native american tribes for anxiety and insomnia..",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "scutellaria-lateriflora"
   },
   {
@@ -44949,11 +45366,18 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -44969,7 +45393,11 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "Used in ritual, dreaming or folk medicine.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "silene-capensis"
   },
   {
@@ -45046,11 +45474,18 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -45065,7 +45500,11 @@
     "legalStatus": null,
     "interactions": [],
     "description": "; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "sophora-secundiflora"
   },
   {
@@ -45189,11 +45628,18 @@
     "effects": [
       "No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. No direct region data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition."
     ],
@@ -45203,7 +45649,11 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "Used by indigenous healers to improve vision and intuition..",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "tabernaemontana-undulata"
   },
   {
@@ -45221,11 +45671,18 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -45240,7 +45697,11 @@
     "legalStatus": "restricted",
     "interactions": [],
     "description": "; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "tabernanthe-iboga"
   },
   {
@@ -45256,7 +45717,11 @@
       "mild euphoriant",
       "contains theobromine and caffeine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [
       {
@@ -45265,7 +45730,10 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Stimulant",
       "antioxidant",
@@ -45285,7 +45753,11 @@
     "legalStatus": "Legal globally",
     "interactions": [],
     "description": "Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "theobroma-cacao"
   },
   {
@@ -45304,11 +45776,18 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -45323,7 +45802,11 @@
     "legalStatus": null,
     "interactions": [],
     "description": "; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "tilia-tomentosa"
   },
   {
@@ -45436,11 +45919,18 @@
     "effects": [
       "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct region data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism."
     ],
@@ -45450,7 +45940,11 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "Used as an aphrodisiac and mood enhancer in mexican herbalism..",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "turnera-diffusa"
   },
   {
@@ -45622,11 +46116,18 @@
     "effects": [
       "No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. No direct region data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals."
     ],
@@ -45636,7 +46137,11 @@
     "legalStatus": "restricted",
     "interactions": [],
     "description": "Used by amazonian tribes as a snuff for spiritual rituals..",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "virola-theiodora"
   },
   {
@@ -45653,11 +46158,18 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -45673,7 +46185,11 @@
     "legalStatus": "restricted",
     "interactions": [],
     "description": "Used in ritual, dreaming or folk medicine.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "voacanga-africana"
   },
   {
@@ -45793,11 +46309,18 @@
     "effects": [
       "No direct effects data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "avoid during pregnancy and breastfeeding unless advised by a clinician",
+      "use caution with chronic medical conditions and prescription medications",
+      "discontinue if hypersensitivity or allergic symptoms occur"
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "historical use for broad vitality support",
+      "general traditional wellness support"
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct effects data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct region data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct effects data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available."
     ],
@@ -45807,7 +46330,11 @@
     "legalStatus": null,
     "interactions": [],
     "description": "Description not available.",
-    "sideEffects": [],
+    "sideEffects": [
+      "mild gastrointestinal upset",
+      "headache",
+      "allergic skin reaction in sensitive individuals"
+    ],
     "slug": "unknown"
   }
 ]
