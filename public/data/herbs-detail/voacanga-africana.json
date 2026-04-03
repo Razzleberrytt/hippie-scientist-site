@@ -3,70 +3,45 @@
   "latin": "Voacanga africana",
   "class": "Psychoactive, Traditional medicine",
   "intensity": "Moderate to Strong",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+  "mechanism": "",
   "activeCompounds": [
-    "Voacangine",
+    "voacangine",
     "ibogaine-related alkaloids",
     "voacamine",
     "voacristine",
     "coronaridine"
   ],
   "effects": [
-    "Altered perception",
+    "altered perception",
     "stimulation",
     "euphoria",
     "potential visionary states",
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
+    "used in ritual",
+    "dreaming or folk medicine used in ritual",
     "dreaming or folk medicine"
   ],
   "contraindications": [
-    "Pregnancy",
-    "cardiovascular conditions",
-    "MAOI use"
+    "avoid in pregnancy",
+    "avoid with cardiovascular conditions",
+    "may interact with maois"
   ],
-  "safetyNotes": [
-    "Moderate caution advised due to alkaloid potency",
-    "Nausea",
-    "tachycardia",
-    "anxiety",
-    "Moderate",
-    "Not well established",
-    "caution",
-    "No direct toxicity data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
-  ],
-  "sources": [
-    {
-      "title": "Ethnobotanical literature"
-    },
-    {
-      "title": "phytochemical studies"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Voacanga africana is a small tree native to West Africa. Its bark and seeds are traditionally used for spiritual purposes and stimulation, due to the presence of powerful indole alkaloids.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine"
-  ],
-  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "interactions": [
     "Antidepressants",
     "MAOIs",
     "stimulants"
   ],
+  "safetyNotes": "Moderate caution advised due to alkaloid potency,Nausea,tachycardia,anxiety,Moderate,Not well established,caution,No direct toxicity data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Voacanga africana (TaxID 141630)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=141630&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.032Z",
+  "description": "Voacanga africana is a small tree native to West Africa. Its bark and seeds are traditionally used for spiritual purposes and stimulation, due to the presence of powerful indole alkaloids.",
+  "dosage": "No direct dosage data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual,dreaming or folk medicine",
+  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "Varies; uncontrolled in most regions",
   "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
@@ -76,16 +51,17 @@
     "cognitive stimulation (traditional)"
   ],
   "traditionalUse": "Used in African rituals and traditional medicine for stamina and clarity",
-  "slug": "voacanga-africana",
   "sideEffects": [],
-  "displayName": "voacanga africana",
-  "displayScientificName": "Voacanga africana",
-  "scientificNormalized": "voacanga africana",
-  "id": "voacanga-africana",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "voacanga-africana",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "voacangine",
+    "ibogaine-related-alkaloids",
+    "voacamine",
+    "voacristine",
+    "coronaridine"
   ]
 }

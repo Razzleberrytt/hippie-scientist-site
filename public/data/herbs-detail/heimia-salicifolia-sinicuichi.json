@@ -1,0 +1,84 @@
+{
+  "name": "heimia salicifolia (sinicuichi)",
+  "latin": "Heimia salicifolia",
+  "class": "Psychoactive, Ethnobotanical",
+  "intensity": "Mild to moderate",
+  "mechanism": "",
+  "activeCompounds": [
+    "cryogenine",
+    "lythrine",
+    "lyfoline",
+    "nesodine"
+  ],
+  "effects": [
+    "auditory distortion",
+    "calmness",
+    "dream enhancement",
+    "muscle relaxation",
+    "light euphoria",
+    "relaxation",
+    "mild euphoria",
+    "dream-like state",
+    "mild auditory and dream-related perceptual changes are described in traditional ethnobotanical reports",
+    "mild auditory and memory effects",
+    "traditional fermentation increases effects"
+  ],
+  "contraindications": [
+    "avoid in pregnancy",
+    "avoid with sedatives or antidepressants",
+    "avoid with psychiatric disorders",
+    "avoid with alcohol or cns depressants",
+    "avoid with 4]"
+  ],
+  "interactions": [
+    "Potentiates sedatives and alcohol",
+    "Alcohol",
+    "CNS depressants",
+    "none known",
+    "caution with psychiatric medications [9",
+    "4]."
+  ],
+  "safetyNotes": "Safe in traditional use,but modern dosage should be conservative,Mild dizziness,lethargy,Low,Not well established,Moderate with responsible use,Dry mouth,sedation,muscle weakness,no established LD50 in humans,Mild,but long-term safety unverified,Lethargy,muscle relaxation,dry mouth,caution,CNS-active effects can occur; avoid combining with alcohol or sedative drugs.,altered hearing [9,4].,Low toxicity,high doses may cause mild sedation or nausea [9",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Heimia salicifolia (TaxID 312921)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=312921&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.941Z",
+  "description": "Traditional Mexican herb used for altered states and memory recall",
+  "dosage": "No standardized clinical dose is available; use only cautious, source-documented preparation practices.,1,2 g,day infusion (traditional use)",
+  "duration": "Duration appears preparation- and dose-dependent in traditional use reports; standardized human trial data are limited.",
+  "legalStatus": "Unregulated",
+  "preparation": "Traditional use includes infusion and fermented preparations; product concentration varies across preparations.",
+  "region": "Native to Mexico and parts of Central and South America, with traditional use in regional ethnomedicine.",
+  "therapeuticUses": [
+    "Stress relief",
+    "dream enhancement",
+    "Muscle relaxant",
+    "Possibly anxiolytic or sedative",
+    "divination",
+    "auditory changes",
+    "euphoria in folk practices [9",
+    "4]."
+  ],
+  "traditionalUse": "Used in Aztec and Mexican rituals for memory recall and divination",
+  "sideEffects": [
+    "dry mouth",
+    "muscle relaxation",
+    "altered hearing [9",
+    "4]."
+  ],
+  "slug": "heimia-salicifolia-sinicuichi",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "cryogenine",
+    "lythrine",
+    "lyfoline",
+    "nesodine"
+  ]
+}

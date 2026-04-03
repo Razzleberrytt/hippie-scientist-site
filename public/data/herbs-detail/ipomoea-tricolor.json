@@ -1,20 +1,20 @@
 {
   "name": "ipomoea tricolor",
   "latin": "Ipomoea tricolor",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. No direct region data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. none. ; nan; nan. ; nan; nan",
-  "mechanism": "A fungal symbiosis (Periglandula) is linked to ergoline alkaloid production in plant tissues and associated defensive functions.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
-    "Mechanistic literature supports alkaloid-related psychoactive potential and plant defense roles.",
-    "No controlled human therapeutic efficacy evidence was established in the current promoted source set."
+    "mechanistic literature alkaloid-related psychoactive potential and plant defense roles"
   ],
   "contraindications": [
-    "Avoid in people with psychosis risk, bipolar instability, or during pregnancy/breastfeeding."
+    "avoid in pregnancy"
   ],
-  "safetyNotes": [
-    "Ergoline-associated exposure can be unpredictable and may carry significant neuropsychiatric risk."
+  "interactions": [
+    "Potential additive effects with serotonergic or other psychoactive substances."
   ],
+  "safetyNotes": "Ergoline-associated exposure can be unpredictable and may carry significant neuropsychiatric risk.",
   "sources": [
     {
       "title": "src_doi-10-1080-00275514-2025-2483634",
@@ -23,142 +23,22 @@
     {
       "title": "src_doi-10-1055-a-0577-8049",
       "url": "https://pubmed.ncbi.nlm.nih.gov/29499587/"
-    },
-    {
-      "title": "src_pubmed-31686336",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31686336/"
     }
   ],
-  "lastUpdated": "2026-04-01",
+  "lastUpdated": "2026-04-01T18:55:37.949Z",
   "description": "Ipomoea tricolor (morning glory) is discussed in ethnobotanical and plant-symbiosis literature, including ergoline-associated chemistry.",
-  "dosage": [
-    "No validated therapeutic dosage recommendation is supported by promoted sources."
-  ],
+  "dosage": "No validated therapeutic dosage recommendation is supported by promoted sources.",
   "duration": "6–10 hours",
-  "interactions": [
-    "Potential additive effects with serotonergic or other psychoactive substances."
-  ],
   "legalStatus": "Restricted in some countries",
   "preparation": "Historical ritual contexts involve seed use; modern self-experimentation is not supported by safety evidence.",
   "region": "Native to Mesoamerica and cultivated widely as an ornamental species.",
   "therapeuticUses": [],
   "traditionalUse": "Historical Mesoamerican ritual use is described in ethnobotanical records and should be treated as traditional-use context.",
+  "sideEffects": [],
   "slug": "ipomoea-tricolor",
-  "id": "ipomoea-tricolor",
-  "displayName": "ipomoea tricolor",
-  "displayScientificName": "Ipomoea tricolor",
-  "scientificNormalized": "ipomoea tricolor",
-  "summary": "Current promoted evidence for Ipomoea tricolor is mechanistic and ecological, not human clinical efficacy evidence.",
-  "researchEnrichment": {
-    "evidenceSummary": "Indexability remediation update for ipomoea-tricolor using curated registry sources and claim-level provenance.",
-    "evidenceTier": "tier-3-limited",
-    "evidenceClassesPresent": [
-      "preclinical-mechanistic",
-      "traditional-use"
-    ],
-    "supportedUses": [
-      {
-        "claim": "Current promoted evidence for Ipomoea tricolor is mechanistic and ecological, not human clinical efficacy evidence.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31686336"
-        ]
-      }
-    ],
-    "unsupportedOrUnclearUses": [
-      {
-        "claim": "Evidence remains limited by study design heterogeneity and/or sparse direct human trials for this exact herb preparation.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31686336"
-        ]
-      }
-    ],
-    "mechanisms": [
-      {
-        "claim": "A fungal symbiosis (Periglandula) is linked to ergoline alkaloid production in plant tissues and associated defensive functions.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31686336"
-        ],
-        "uncertaintyNote": "Mechanistic findings should not be interpreted as proven clinical efficacy."
-      }
-    ],
-    "constituents": [],
-    "interactions": [
-      {
-        "claim": "Potential additive effects with serotonergic or other psychoactive substances.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31686336"
-        ]
-      }
-    ],
-    "contraindications": [
-      {
-        "claim": "Avoid in people with psychosis risk, bipolar instability, or during pregnancy/breastfeeding.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31686336"
-        ]
-      }
-    ],
-    "adverseEffects": [
-      {
-        "claim": "Ergoline-associated exposure can be unpredictable and may carry significant neuropsychiatric risk.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31686336"
-        ]
-      }
-    ],
-    "dosageContextNotes": [
-      {
-        "claim": "No validated therapeutic dosage recommendation is supported by promoted sources.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31686336"
-        ]
-      }
-    ],
-    "populationSpecificNotes": [],
-    "conflictNotes": [],
-    "researchGaps": [
-      {
-        "claim": "High-quality, formulation-specific human trials and longer-term safety follow-up are still needed.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31686336"
-        ]
-      }
-    ],
-    "sourceRegistryIds": [
-      "src_doi-10-1080-00275514-2025-2483634",
-      "src_doi-10-1055-a-0577-8049",
-      "src_pubmed-31686336"
-    ],
-    "sourceRefs": [
-      {
-        "sourceId": "src_doi-10-1080-00275514-2025-2483634",
-        "extractConfidence": "low",
-        "reviewer": "codex",
-        "notes": "Indexability remediation batch-01 claim mapping."
-      },
-      {
-        "sourceId": "src_doi-10-1055-a-0577-8049",
-        "extractConfidence": "low",
-        "reviewer": "codex",
-        "notes": "Indexability remediation batch-01 claim mapping."
-      },
-      {
-        "sourceId": "src_pubmed-31686336",
-        "extractConfidence": "medium",
-        "reviewer": "codex",
-        "notes": "Indexability remediation batch-01 claim mapping."
-      }
-    ],
-    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
-    "reviewedBy": "codex-batch-01",
-    "editorialStatus": "in-review"
-  }
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

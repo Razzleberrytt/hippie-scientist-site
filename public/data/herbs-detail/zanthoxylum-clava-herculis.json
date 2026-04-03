@@ -1,37 +1,41 @@
 {
   "name": "zanthoxylum clava-herculis",
   "latin": "zanthoxylum clava-herculis",
-  "class": null,
+  "class": "general",
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.",
+  "mechanism": "used by native americans to numb toothaches and energize",
   "activeCompounds": [
-    "Pellitorine",
-    "Sanshools"
+    "pellitorine",
+    "sanshools"
   ],
-  "effects": [
-    "No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize."
-  ],
+  "effects": [],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize."
-  ],
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Used by native americans to numb toothaches and energize..",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. No direct region data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize."
-  ],
-  "duration": "No direct duration data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. No direct region data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.",
   "interactions": [],
+  "safetyNotes": "safe,No direct toxicity data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: zanthoxylum clava-herculis (TaxID 1620214)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1620214&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.034Z",
+  "description": "Used by native americans to numb toothaches and energize..",
+  "dosage": "No direct dosage data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. No direct region data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.",
+  "duration": "No direct duration data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. No direct region data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.",
   "legalStatus": "legal",
   "preparation": "No direct preparation data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. No direct region data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.",
   "region": "No direct region data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize.",
   "therapeuticUses": [],
   "traditionalUse": "Used by Native Americans to numb toothaches and energize.",
+  "sideEffects": [],
   "slug": "zanthoxylum-clava-herculis",
-  "id": "zanthoxylum-clava-herculis",
-  "displayName": "zanthoxylum clava-herculis",
-  "displayScientificName": "zanthoxylum clava-herculis",
-  "scientificNormalized": "zanthoxylum clava-herculis"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "pellitorine",
+    "sanshools"
+  ]
 }

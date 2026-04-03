@@ -3,44 +3,34 @@
   "latin": "Viscum album",
   "class": "immunomodulator / nervine / traditional european",
   "intensity": "Moderate",
-  "mechanism": "Contains viscotoxins, lectins, and alkaloids that affect immune cells, induce apoptosis, and modulate autonomic nervous system activity. Used in anthroposophic cancer therapy.",
+  "mechanism": "contains viscotoxins | lectins | and alkaloids that affect immune cells",
   "activeCompounds": [],
   "effects": [
-    "Immune regulation",
-    "Sedation",
-    "Nervous system balance",
-    "Blood pressure modulation"
+    "immune regulation",
+    "sedation",
+    "nervous system balance",
+    "blood pressure modulation"
   ],
   "contraindications": [
     "avoid in pregnancy",
-    "active infection",
-    "or autoimmune conditions without supervision. toxic at high doses."
+    "avoid with active infection",
+    "avoid with or autoimmune conditions without supervision toxic at high doses"
   ],
-  "safetyNotes": [
-    "Toxic – medical supervision required",
-    "injection-site inflammation",
-    "allergic reactions",
-    "or flu-like symptoms possible. oral use milder but requires caution.",
-    "Moderate–high (dose-dependent)"
-  ],
-  "sources": [
-    {
-      "title": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3201634/"
-    },
-    {
-      "note": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3201634/;European Medicines Agency;Plants of the Gods – Rätsch",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "a sacred plant in ancient druidic and european traditions, mistletoe has been used both ritually and medicinally for nervous disorders, cancer support, and hypertension. often associated with peace and protection.",
-  "dosage": [
-    "Subcutaneous injection in integrative cancer therapy"
-  ],
-  "duration": "Long-term under supervision",
   "interactions": [
     "may interfere with immunosuppressants or chemotherapeutics."
   ],
+  "safetyNotes": "Toxic – medical supervision required,injection-site inflammation,allergic reactions,or flu-like symptoms possible. oral use milder but requires caution.,Moderate–high (dose-dependent)",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Viscum album (TaxID 3972)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3972&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.963Z",
+  "description": "a sacred plant in ancient druidic and european traditions, mistletoe has been used both ritually and medicinally for nervous disorders, cancer support, and hypertension. often associated with peace and protection.",
+  "dosage": "Subcutaneous injection in integrative cancer therapy",
+  "duration": "Long-term under supervision",
   "legalStatus": "Legal but regulated in some countries",
   "preparation": "Extracts used in standardized injectable cancer therapies (e.g., Iscador). Traditional tea/tincture use with caution.",
   "region": "europe, western asia",
@@ -61,8 +51,9 @@
     "like symptoms possible. oral use milder but requires caution."
   ],
   "slug": "mistletoe",
-  "id": "mistletoe",
-  "displayName": "mistletoe",
-  "displayScientificName": "Viscum album",
-  "scientificNormalized": "viscum album"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

@@ -3,20 +3,19 @@
   "latin": "Achillea millefolium L.",
   "class": "Medicinal, Aromatic, Traditional Herb",
   "intensity": "Mild to moderate",
-  "mechanism": "Flavonoids and sesquiterpenes modulate inflammatory pathways and smooth muscle activity",
+  "mechanism": "flavonoids and sesquiterpenes modulate inflammatory pathways and smooth muscle activity",
   "activeCompounds": [
-    "Azulene",
-    "Chamazulene",
-    "Cineole",
-    "Thujone",
-    "Flavonoids",
-    "Tannins",
+    "azulene",
+    "chamazulene",
+    "cineole",
+    "thujone",
+    "flavonoids",
+    "tannins",
     "sesquiterpenes",
-    "alkaloids",
-    "tannins"
+    "alkaloids"
   ],
   "effects": [
-    "Anti-inflammatory",
+    "anti-inflammatory",
     "astringent",
     "digestive aid",
     "hemostatic",
@@ -24,51 +23,29 @@
     "antispasmodic"
   ],
   "contraindications": [
-    "Pregnancy",
-    "allergies to Asteraceae",
-    "bleeding disorders",
-    "allergy to Asteraceae",
-    "anticoagulant use"
+    "avoid in pregnancy",
+    "avoid with allergies to asteraceae",
+    "increase bleeding risk",
+    "avoid with allergy to asteraceae"
   ],
-  "safetyNotes": [
-    "Generally safe in moderate amounts",
-    "monitor for allergic reactions",
-    "Allergic rash",
-    "dizziness",
-    "photosensitivity",
-    "Low",
-    "Use caution with Asteraceae allergy history and during pregnancy unless clinically advised.",
-    "Generally safe",
-    "may cause skin irritation",
-    "Headache"
-  ],
-  "sources": [
-    {
-      "title": "PubMed"
-    },
-    {
-      "title": "WHO monographs"
-    },
-    {
-      "title": "herbal pharmacopoeias"
-    },
-    {
-      "title": "WHO"
-    },
-    {
-      "title": "ESCOP"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "A flowering plant native to temperate regions, used for centuries in traditional medicine for wound healing, digestion, and fever reduction.",
-  "dosage": "Tea: 1–2g dried herb per cup, 1–3 times daily",
-  "duration": "Several hours depending on use",
   "interactions": [
     "Anticoagulants",
     "sedatives",
     "NSAIDs",
     "diuretics"
   ],
+  "safetyNotes": "Generally safe in moderate amounts,monitor for allergic reactions,Allergic rash,dizziness,photosensitivity,Low,Use caution with Asteraceae allergy history and during pregnancy unless clinically advised.,Generally safe,may cause skin irritation,Headache",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Achillea millefolium L.",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Achillea%20millefolium%20L.&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.971Z",
+  "description": "A flowering plant native to temperate regions, used for centuries in traditional medicine for wound healing, digestion, and fever reduction.",
+  "dosage": "Tea: 1–2g dried herb per cup, 1–3 times daily",
+  "duration": "Several hours depending on use",
   "legalStatus": "Legal worldwide",
   "preparation": "Infusion, tincture, poultice",
   "region": "Europe, North America, Asia",
@@ -81,17 +58,21 @@
     "cramps",
     "digestion"
   ],
-  "traditionalUse": null,
+  "traditionalUse": "",
+  "sideEffects": [],
   "slug": "achillea-millefolium",
-  "displayName": "achillea millefolium",
-  "displayScientificName": "Achillea millefolium L.",
-  "scientificNormalized": "achillea millefolium",
-  "id": "achillea-millefolium",
-  "aliases": [
-    "Achillea millefolium"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
-  "summary": "Achillea millefolium is used for digestive, inflammatory, and wound-related traditional indications with mixed modern evidence quality."
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "azulene",
+    "chamazulene",
+    "cineole",
+    "thujone",
+    "flavonoids",
+    "tannins",
+    "sesquiterpenes",
+    "alkaloids"
+  ]
 }

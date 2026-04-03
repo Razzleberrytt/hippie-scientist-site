@@ -1,0 +1,52 @@
+{
+  "name": "Carapa procera",
+  "latin": "Carapa procera",
+  "class": "Antiparasitic, Dermatological",
+  "intensity": "Moderate",
+  "mechanism": "limonoids disrupt parasite metabolism",
+  "activeCompounds": [
+    "limonoids",
+    "terpenoids"
+  ],
+  "effects": [
+    "skin healing",
+    "antiparasitic action"
+  ],
+  "contraindications": [
+    "avoid with cause allergic dermatitis"
+  ],
+  "interactions": [
+    "None well documented"
+  ],
+  "safetyNotes": "Safe when used topically in diluted form,Possible irritation if undiluted,Low topical toxicity,Unknown orally",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Carapa procera (TaxID 587564)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=587564&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.973Z",
+  "description": "Used topically to treat skin infections and inflammation",
+  "dosage": "Oil applied topically 1–2 times/day",
+  "duration": "Varies by condition",
+  "legalStatus": "Unregulated",
+  "preparation": "Seed oil extraction for topical use",
+  "region": "Tropical Africa",
+  "therapeuticUses": [
+    "Eczema",
+    "ringworm",
+    "inflammation"
+  ],
+  "traditionalUse": "",
+  "sideEffects": [],
+  "slug": "carapa-procera",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "limonoids",
+    "terpenoids"
+  ]
+}

@@ -1,49 +1,30 @@
 {
   "name": "eupatorium perfoliatum",
   "latin": "Eupatorium perfoliatum",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Diaphoretic, immune stimulant, cold/flu relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diaphoretic, immune stimulant, cold/flu relief. No direct region data. Contextual inference: Diaphoretic, immune stimulant, cold/flu relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diaphoretic, immune stimulant, cold/flu relief. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Diaphoretic",
+    "diaphoretic",
     "immune stimulant",
     "cold",
     "flu relief"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "caution",
-    "May cause allergic skin rash or hepatotoxicity",
-    "avoid long-term use",
-    "No direct toxicity data. Contextual inference: Diaphoretic",
-    "immune stimulant",
-    "cold/flu relief. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Diaphoretic",
-    "cold/flu relief. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "caution,May cause allergic skin rash or hepatotoxicity,avoid long-term use,No direct toxicity data. Contextual inference: Diaphoretic,immune stimulant,cold/flu relief. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diaphoretic,cold/flu relief. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Eupatorium perfoliatum (TaxID 102777)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=102777&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.935Z",
   "description": "Diaphoretic, immune stimulant, cold/flu relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "1",
-    "2 g",
-    "day infusion or 300",
-    "500 mg extract"
-  ],
+  "dosage": "1,2 g,day infusion or 300,500 mg extract",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal; used in traditional Western herbalism",
   "preparation": "Aerial parts dried and used in hot infusions or decoctions; known as 'boneset' for fever support",
   "region": "No direct region data. Contextual inference: Diaphoretic, immune stimulant, cold/flu relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diaphoretic, immune stimulant, cold/flu relief. none. ; nan; nan",
@@ -55,8 +36,9 @@
     "term use"
   ],
   "slug": "eupatorium-perfoliatum",
-  "id": "eupatorium-perfoliatum",
-  "displayName": "eupatorium perfoliatum",
-  "displayScientificName": "Eupatorium perfoliatum",
-  "scientificNormalized": "eupatorium perfoliatum"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

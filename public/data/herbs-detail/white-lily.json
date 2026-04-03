@@ -1,49 +1,39 @@
 {
   "name": "white lily",
   "latin": "white lily",
-  "class": null,
+  "class": "general",
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
+    "used in ritual",
+    "dreaming or folk medicine used in ritual",
     "dreaming or folk medicine"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
-  ],
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Used in ritual, dreaming or folk medicine.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine"
-  ],
-  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "interactions": [],
+  "safetyNotes": "safe,No direct toxicity data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: white lily",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=white%20lily&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.032Z",
+  "description": "Used in ritual, dreaming or folk medicine.",
+  "dosage": "No direct dosage data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual,dreaming or folk medicine",
+  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "legal",
   "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "therapeuticUses": [],
   "traditionalUse": "Used in ritual, dreaming or folk medicine",
+  "sideEffects": [],
   "slug": "white-lily",
-  "id": "white-lily",
-  "displayName": "white lily",
-  "displayScientificName": "white lily",
-  "scientificNormalized": "white lily"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

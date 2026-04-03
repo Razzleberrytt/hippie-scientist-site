@@ -1,49 +1,29 @@
 {
   "name": "berberis vulgaris",
   "latin": "Berberis vulgaris",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, bitter tonic, liver support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, bitter tonic, liver support. No direct region data. Contextual inference: Antimicrobial, bitter tonic, liver support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, bitter tonic, liver support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Antimicrobial",
+    "antimicrobial",
     "bitter tonic",
-    "liver support"
+    "liver"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "GI irritation",
-    "hypotension",
-    "uterine stimulation",
-    "avoid in pregnancy and infants",
-    "No direct toxicity data. Contextual inference: Antimicrobial",
-    "bitter tonic",
-    "liver support. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antimicrobial",
-    "liver support. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,GI irritation,hypotension,uterine stimulation,avoid in pregnancy and infants,No direct toxicity data. Contextual inference: Antimicrobial,bitter tonic,liver support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antimicrobial,liver support. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Berberis vulgaris (TaxID 258209)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=258209&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.866Z",
   "description": "Antimicrobial, bitter tonic, liver support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "200",
-    "500 mg",
-    "day extract"
-  ],
+  "dosage": "200,500 mg,day extract",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal in herbal products",
   "preparation": "Root bark decocted or tinctured; berries sometimes eaten or juiced",
   "region": "No direct region data. Contextual inference: Antimicrobial, bitter tonic, liver support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, bitter tonic, liver support. none. ; nan; nan",
@@ -56,8 +36,9 @@
     "avoid in pregnancy and infants"
   ],
   "slug": "berberis-vulgaris",
-  "id": "berberis-vulgaris",
-  "displayName": "berberis vulgaris",
-  "displayScientificName": "Berberis vulgaris",
-  "scientificNormalized": "berberis vulgaris"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

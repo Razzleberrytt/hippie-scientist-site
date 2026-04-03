@@ -1,154 +1,47 @@
 {
   "name": "acorus calamus var. angustatus",
   "latin": "acorus calamus var. angustatus",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "mechanism": "Review literature describes asarone-related signaling, oxidative-stress modulation, and apoptosis pathways in experimental models only.",
+  "mechanism": "review literature describes asarone-related signaling | oxidative-stress modulation | and apoptosis pathways in experimental models only",
   "activeCompounds": [
-    "Beta-asarone",
-    "Beta",
+    "beta-asarone",
+    "beta",
     "asarone"
   ],
-  "effects": [
-    "Experimental literature reports bioactivity signals in cell and animal models, including chemoprevention-relevant pathways.",
-    "No high-quality controlled human efficacy evidence was established in the reviewed source set."
-  ],
+  "effects": [],
   "contraindications": [
-    "Avoid use in pregnancy or breastfeeding until herb-specific human safety data are available."
+    "avoid in pregnancy"
   ],
-  "safetyNotes": [
-    "Beta-asarone exposure and product variability are recurring safety concerns in modern reviews.",
-    "Use should be framed cautiously because toxicology risk can vary by chemotype and preparation."
-  ],
-  "sources": [
-    {
-      "title": "src_pubmed-31193009",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31193009/"
-    }
-  ],
-  "lastUpdated": "2026-04-01",
-  "description": "Acorus calamus var. angustatus is a calamus chemotype discussed in phytochemistry literature for asarone-rich composition and toxicology concerns.",
-  "dosage": [
-    "No validated therapeutic dose range was established in the promoted source; dosing remains formulation-dependent and uncertain."
-  ],
-  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "interactions": [
     "Potential interactions are insufficiently characterized; use caution with CNS-active co-exposures until stronger data are available."
   ],
-  "legalStatus": null,
+  "safetyNotes": "Beta-asarone exposure and product variability are recurring safety concerns in modern reviews.,Use should be framed cautiously because toxicology risk can vary by chemotype and preparation.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: acorus calamus var. angustatus (TaxID 325552)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=325552&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.840Z",
+  "description": "Acorus calamus var. angustatus is a calamus chemotype discussed in phytochemistry literature for asarone-rich composition and toxicology concerns.",
+  "dosage": "No validated therapeutic dose range was established in the promoted source; dosing remains formulation-dependent and uncertain.",
+  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "legalStatus": "",
   "preparation": "Traditional preparations include rhizome-based decoctions and powders; review literature emphasizes chemotype-dependent safety differences.",
   "region": "Acorus species are described across South and East Asian traditional systems and in broader wetland habitats.",
   "therapeuticUses": [],
   "traditionalUse": "Traditional use is described in regional materia medica records, but those records are distinct from modern clinical efficacy evidence.",
+  "sideEffects": [],
   "slug": "acorus-calamus-var-angustatus",
-  "id": "acorus-calamus-var-angustatus",
-  "displayName": "acorus calamus var. angustatus",
-  "displayScientificName": "acorus calamus var. angustatus",
-  "scientificNormalized": "acorus calamus angustatus",
-  "summary": "Current indexed evidence for Acorus calamus var. angustatus is mainly preclinical or review-level; mechanistic findings should not be interpreted as proven human therapeutic efficacy.",
-  "researchEnrichment": {
-    "evidenceSummary": "Indexability remediation update for acorus-calamus-var-angustatus using curated registry sources and claim-level provenance.",
-    "evidenceTier": "tier-3-limited",
-    "evidenceClassesPresent": [
-      "preclinical-mechanistic",
-      "traditional-use"
-    ],
-    "supportedUses": [
-      {
-        "claim": "Current indexed evidence for Acorus calamus var. angustatus is mainly preclinical or review-level; mechanistic findings should not be interpreted as proven human therapeutic efficacy.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31193009"
-        ]
-      }
-    ],
-    "unsupportedOrUnclearUses": [
-      {
-        "claim": "Evidence remains limited by study design heterogeneity and/or sparse direct human trials for this exact herb preparation.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31193009"
-        ]
-      }
-    ],
-    "mechanisms": [
-      {
-        "claim": "Review literature describes asarone-related signaling, oxidative-stress modulation, and apoptosis pathways in experimental models only.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31193009"
-        ],
-        "uncertaintyNote": "Mechanistic findings should not be interpreted as proven clinical efficacy."
-      }
-    ],
-    "constituents": [],
-    "interactions": [
-      {
-        "claim": "Potential interactions are insufficiently characterized; use caution with CNS-active co-exposures until stronger data are available.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31193009"
-        ]
-      }
-    ],
-    "contraindications": [
-      {
-        "claim": "Avoid use in pregnancy or breastfeeding until herb-specific human safety data are available.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31193009"
-        ]
-      }
-    ],
-    "adverseEffects": [
-      {
-        "claim": "Beta-asarone exposure and product variability are recurring safety concerns in modern reviews.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31193009"
-        ]
-      },
-      {
-        "claim": "Use should be framed cautiously because toxicology risk can vary by chemotype and preparation.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31193009"
-        ]
-      }
-    ],
-    "dosageContextNotes": [
-      {
-        "claim": "No validated therapeutic dose range was established in the promoted source; dosing remains formulation-dependent and uncertain.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31193009"
-        ]
-      }
-    ],
-    "populationSpecificNotes": [],
-    "conflictNotes": [],
-    "researchGaps": [
-      {
-        "claim": "High-quality, formulation-specific human trials and longer-term safety follow-up are still needed.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-31193009"
-        ]
-      }
-    ],
-    "sourceRegistryIds": [
-      "src_pubmed-31193009"
-    ],
-    "sourceRefs": [
-      {
-        "sourceId": "src_pubmed-31193009",
-        "extractConfidence": "medium",
-        "reviewer": "codex",
-        "notes": "Indexability remediation batch-01 claim mapping."
-      }
-    ],
-    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
-    "reviewedBy": "codex-batch-01",
-    "editorialStatus": "in-review"
-  }
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "beta-asarone",
+    "beta",
+    "asarone"
+  ]
 }

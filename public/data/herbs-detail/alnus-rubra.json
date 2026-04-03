@@ -1,56 +1,31 @@
 {
   "name": "alnus rubra",
   "latin": "Alnus rubra",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, astringent, febrifuge. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, astringent, febrifuge. No direct region data. Contextual inference: Anti-inflammatory, astringent, febrifuge. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, astringent, febrifuge. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Anti-inflammatory",
+    "anti-inflammatory",
     "astringent",
     "febrifuge",
-    "Anti",
+    "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Rare allergic reactions",
-    "excessive use may cause nausea or dizziness",
-    "No direct toxicity data. Contextual inference: Anti-inflammatory",
-    "astringent",
-    "febrifuge. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti-inflammatory",
-    "febrifuge. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Rare allergic reactions,excessive use may cause nausea or dizziness,No direct toxicity data. Contextual inference: Anti-inflammatory,astringent,febrifuge. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,febrifuge. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Alnus rubra (TaxID 109069)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=109069&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.846Z",
   "description": "Anti-inflammatory, astringent, febrifuge. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Anti",
-    "inflammatory",
-    "astringent",
-    "febrifuge. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti",
-    "febrifuge. No direct region data. Contextual inference: Anti",
-    "febrifuge. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Anti,inflammatory,astringent,febrifuge. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti,febrifuge. No direct region data. Contextual inference: Anti,febrifuge. none.,nan.",
   "duration": "2–4 hours",
-  "interactions": [],
   "legalStatus": "Not restricted; used in North American herbalism",
   "preparation": "Inner bark dried and decocted for teas or used externally for skin and wound care",
   "region": "No direct region data. Contextual inference: Anti-inflammatory, astringent, febrifuge. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, astringent, febrifuge. none. ; nan; nan",
@@ -61,8 +36,9 @@
     "excessive use may cause nausea or dizziness"
   ],
   "slug": "alnus-rubra",
-  "id": "alnus-rubra",
-  "displayName": "alnus rubra",
-  "displayScientificName": "Alnus rubra",
-  "scientificNormalized": "alnus rubra"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

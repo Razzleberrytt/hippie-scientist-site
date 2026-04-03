@@ -3,46 +3,33 @@
   "latin": "Lysergic acid diethylamide",
   "class": "psychedelic",
   "intensity": "High",
-  "mechanism": "Potent 5-HT2A receptor agonist affecting serotonin and dopamine systems.",
+  "mechanism": "potent 5-ht2a receptor agonist affecting serotonin and dopamine systems",
   "activeCompounds": [],
   "effects": [
-    "Intense visuals",
+    "intense visuals",
     "ego dissolution",
     "synesthesia"
   ],
   "contraindications": [
-    "psychosis",
-    "severe cardiovascular disease."
+    "avoid with unstable mental health conditions",
+    "avoid with severe cardiovascular disease"
   ],
-  "safetyNotes": [
-    "Toxic – potent hallucinogen",
-    "anxiety",
-    "confusion",
-    "possible flashbacks at high doses.",
-    "Very low physiological toxicity but strong psychological effects."
-  ],
-  "sources": [
-    {
-      "title": "Inferred from Lysergic acid diethylamide"
-    },
-    {
-      "note": "Inferred from Lysergic acid diethylamide",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "semi-synthetic ergoline discovered in 1938; among the most potent psychedelics.",
-  "dosage": [
-    "Microdose: 5",
-    "20 mcg",
-    "Psychoactive: 50",
-    "200 mcg"
-  ],
-  "duration": "No direct duration data. Contextual inference: semi-synthetic ergoline discovered in 1938; among the most potent psychedelics.. Potent 5-HT2A receptor agonist affecting serotonin and dopamine systems.. Intense visuals;ego dissolution;synesthesia. 🌎 synthetic. ; nan; nan",
   "interactions": [
     "ssris may blunt effects",
     "maois potentiate."
   ],
+  "safetyNotes": "Toxic – potent hallucinogen,anxiety,confusion,possible flashbacks at high doses.,Very low physiological toxicity but strong psychological effects.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Lysergic acid diethylamide",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Lysergic%20acid%20diethylamide&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.956Z",
+  "description": "semi-synthetic ergoline discovered in 1938; among the most potent psychedelics.",
+  "dosage": "Microdose: 5,20 mcg,Psychoactive: 50,200 mcg",
+  "duration": "No direct duration data. Contextual inference: semi-synthetic ergoline discovered in 1938; among the most potent psychedelics.. Potent 5-HT2A receptor agonist affecting serotonin and dopamine systems.. Intense visuals;ego dissolution;synesthesia. 🌎 synthetic. ; nan; nan",
   "legalStatus": "Controlled / Illegal in many regions",
   "preparation": "Oral blotter or liquid",
   "region": "🌎 synthetic",
@@ -58,8 +45,9 @@
     "possible flashbacks at high doses."
   ],
   "slug": "lsd",
-  "id": "lsd",
-  "displayName": "lsd",
-  "displayScientificName": "Lysergic acid diethylamide",
-  "scientificNormalized": "lysergic acid diethylamide"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

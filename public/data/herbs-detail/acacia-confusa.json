@@ -3,74 +3,42 @@
   "latin": "Acacia confusa",
   "class": "Psychoactive, Traditional, Medicinal",
   "intensity": "High (with MAOI); mild otherwise",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "",
   "activeCompounds": [
-    "DMT",
-    "N-methyltryptamine",
+    "dmt",
+    "n-methyltryptamine",
     "β-carbolines",
     "flavonoids",
     "tannins"
   ],
   "effects": [
-    "Psychedelic visuals",
+    "psychedelic visuals",
     "introspection",
-    "altered consciousness",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "altered consciousness"
   ],
   "contraindications": [
-    "Mental health conditions",
-    "MAOI use",
-    "pregnancy",
-    "liver disease"
+    "avoid with unstable mental health conditions",
+    "may interact with maois",
+    "avoid in pregnancy",
+    "avoid in liver disease"
   ],
-  "safetyNotes": [
-    "Caution required",
-    "psychological risks and drug interactions",
-    "Nausea",
-    "vomiting",
-    "anxiety",
-    "confusion",
-    "dissociation",
-    "Low physical toxicity",
-    "high psychological variability",
-    "Not established in humans",
-    "caution",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
-  ],
-  "sources": [
-    {
-      "title": "PubMed"
-    },
-    {
-      "title": "Ayahuasca Studies"
-    },
-    {
-      "title": "Ethnobotanical journals"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "A perennial tree native to Southeast Asia and the Pacific, traditionally used in spiritual practices. Its root bark contains alkaloids used in entheogenic brews.",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "Strong interactions with MAOIs",
     "SSRIs",
     "CNS depressants"
   ],
+  "safetyNotes": "Caution required,psychological risks and drug interactions,Nausea,vomiting,anxiety,confusion,dissociation,Low physical toxicity,high psychological variability,Not established in humans,caution,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Acacia confusa (TaxID 3809)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3809&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.827Z",
+  "description": "A perennial tree native to Southeast Asia and the Pacific, traditionally used in spiritual practices. Its root bark contains alkaloids used in entheogenic brews.",
+  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Varies; restricted in some countries due to DMT content",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -79,16 +47,17 @@
     "anecdotal trauma integration"
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "acacia-confusa",
   "sideEffects": [],
-  "displayName": "acacia confusa",
-  "displayScientificName": "Acacia confusa",
-  "scientificNormalized": "acacia confusa",
-  "id": "acacia-confusa",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "acacia-confusa",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "dmt",
+    "n-methyltryptamine",
+    "carbolines",
+    "flavonoids",
+    "tannins"
   ]
 }

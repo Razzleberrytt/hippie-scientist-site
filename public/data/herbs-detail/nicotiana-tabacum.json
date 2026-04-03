@@ -3,69 +3,40 @@
   "latin": "Nicotiana tabacum L.",
   "class": "Psychoactive, Medicinal, Stimulant",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "",
   "activeCompounds": [
-    "Nicotine",
+    "nicotine",
     "nornicotine",
     "anabasine"
   ],
   "effects": [
-    "Stimulation",
+    "stimulation",
     "mood elevation",
-    "alertness",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "alertness"
   ],
   "contraindications": [
-    "Heart disease",
-    "pregnancy",
-    "epilepsy"
+    "avoid with heart disease",
+    "avoid in pregnancy",
+    "avoid with epilepsy"
   ],
-  "safetyNotes": [
-    "Addictive",
-    "cancer risk",
-    "Nausea",
-    "increased heart rate",
-    "respiratory irritation",
-    "High in concentration",
-    "40–60 mg nicotine",
-    "Toxic – nicotine dependency",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
-  ],
-  "sources": [
-    {
-      "title": "CDC"
-    },
-    {
-      "title": "WHO"
-    },
-    {
-      "title": "scientific literature"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Cultivated tobacco plant used for its stimulant alkaloid nicotine.",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "MAOIs",
     "insulin",
     "caffeine",
     "CYP inducers"
   ],
+  "safetyNotes": "Addictive,cancer risk,Nausea,increased heart rate,respiratory irritation,High in concentration,40–60 mg nicotine,Toxic – nicotine dependency,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Nicotiana tabacum L.",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Nicotiana%20tabacum%20L.&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.981Z",
+  "description": "Cultivated tobacco plant used for its stimulant alkaloid nicotine.",
+  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Legal with age restrictions",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -74,15 +45,15 @@
     "traditional pain relief"
   ],
   "traditionalUse": "; nan; nan",
+  "sideEffects": [],
   "slug": "nicotiana-tabacum",
-  "displayName": "nicotiana tabacum",
-  "displayScientificName": "Nicotiana tabacum L.",
-  "scientificNormalized": "nicotiana tabacum",
-  "id": "nicotiana-tabacum",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "nicotine",
+    "nornicotine",
+    "anabasine"
   ]
 }

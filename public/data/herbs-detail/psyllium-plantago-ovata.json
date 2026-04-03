@@ -1,54 +1,29 @@
 {
   "name": "psyllium (plantago ovata)",
   "latin": "Plantago ovata",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Laxative, bulking fiber, cholesterol reduction. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, bulking fiber, cholesterol reduction. No direct region data. Contextual inference: Laxative, bulking fiber, cholesterol reduction. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, bulking fiber, cholesterol reduction. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Laxative",
+    "laxative",
     "bulking fiber",
     "cholesterol reduction"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Bloating",
-    "gas",
-    "potential choking if not taken with water",
-    "No direct toxicity data. Contextual inference: Laxative",
-    "bulking fiber",
-    "cholesterol reduction. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Laxative",
-    "cholesterol reduction. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Bloating,gas,potential choking if not taken with water,No direct toxicity data. Contextual inference: Laxative,bulking fiber,cholesterol reduction. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Laxative,cholesterol reduction. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Plantago ovata (TaxID 185002)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=185002&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.003Z",
   "description": "Laxative, bulking fiber, cholesterol reduction. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Laxative",
-    "bulking fiber",
-    "cholesterol reduction. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Laxative",
-    "cholesterol reduction. No direct region data. Contextual inference: Laxative",
-    "cholesterol reduction. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Laxative,bulking fiber,cholesterol reduction. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Laxative,cholesterol reduction. No direct region data. Contextual inference: Laxative,cholesterol reduction. none.,nan.",
   "duration": "Daily use",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "Seeds used whole or powdered for mucilage; soaked in water or taken as fiber supplement",
   "region": "No direct region data. Contextual inference: Laxative, bulking fiber, cholesterol reduction. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, bulking fiber, cholesterol reduction. none. ; nan; nan",
@@ -60,8 +35,9 @@
     "potential choking if not taken with water"
   ],
   "slug": "psyllium-plantago-ovata",
-  "id": "psyllium-plantago-ovata",
-  "displayName": "psyllium (plantago ovata)",
-  "displayScientificName": "Plantago ovata",
-  "scientificNormalized": "plantago ovata"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

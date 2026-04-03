@@ -3,104 +3,33 @@
   "latin": "Nymphaea caerulea",
   "class": "Sedative, Psychoactive",
   "intensity": "No direct intensity data. Contextual inference: Mild sedative, mood enhancement, possible aphrodisiac. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, mood enhancement, possible aphrodisiac. No direct region data. Contextual inference: Mild sedative, mood enhancement, possible aphrodisiac. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, mood enhancement, possible aphrodisiac. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [
-    "Aporphine",
+    "aporphine",
     "nuciferine",
     "nupharine",
-    "nupharidine",
-    "Nuciferine",
-    "aporphine"
+    "nupharidine"
   ],
   "effects": [
-    "Euphoria",
+    "euphoria",
     "relaxation",
     "dream intensification",
     "mild sedation",
     "dream enhancement",
     "aphrodisiac",
-    "Mild euphoria",
+    "mild euphoria",
     "heightened awareness",
-    "Mild sedative",
+    "mild sedative",
     "mood enhancement",
     "possible aphrodisiac"
   ],
   "contraindications": [
-    "Avoid combining with MAOIs or sedatives",
-    "Pregnancy",
-    "liver conditions",
-    "concurrent CNS depressants",
-    "driving or operating machinery"
+    "may interact with maois",
+    "avoid in pregnancy",
+    "avoid in liver disease",
+    "avoid with concurrent cns depressants",
+    "avoid with driving or operating machinery"
   ],
-  "safetyNotes": [
-    "Generally safe in moderate doses",
-    "Sedation",
-    "dizziness at high doses",
-    "Low to moderate (at high doses)",
-    "Generally safe in traditional doses",
-    "Nausea",
-    "dizziness",
-    "lethargy",
-    "Low at traditional doses",
-    "Not well established",
-    "Generally considered safe in moderate doses",
-    "Drowsiness",
-    "nausea (high doses)",
-    "Low toxicity at standard doses",
-    "Not well documented",
-    "Sedative effects",
-    "dizziness in high amounts",
-    "No direct toxicity data. Contextual inference: Mild sedative",
-    "mood enhancement",
-    "possible aphrodisiac. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Mild sedative",
-    "possible aphrodisiac. none."
-  ],
-  "sources": [
-    {
-      "title": "Frontiers"
-    },
-    {
-      "title": "Traditional Medicine Archives"
-    },
-    {
-      "title": "Ethnobotanical databases"
-    },
-    {
-      "title": "historical records"
-    },
-    {
-      "title": "Ethnobotanical texts"
-    },
-    {
-      "title": "phytochemical analyses"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Mild sedative, mood enhancement, possible aphrodisiac. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Mild sedative",
-    "mood enhancement",
-    "possible aphrodisiac. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Mild sedative",
-    "possible aphrodisiac. No direct region data. Contextual inference: Mild sedative",
-    "possible aphrodisiac. none.",
-    "nan."
-  ],
-  "duration": "4–6 hours",
   "interactions": [
     "Potentiates sedatives",
     "avoid with alcohol",
@@ -109,6 +38,18 @@
     "Sedatives",
     "MAOIs"
   ],
+  "safetyNotes": "Generally safe in moderate doses,Sedation,dizziness at high doses,Low to moderate (at high doses),Generally safe in traditional doses,Nausea,dizziness,lethargy,Low at traditional doses,Not well established,Generally considered safe in moderate doses,Drowsiness,nausea (high doses),Low toxicity at standard doses,Not well documented,Sedative effects,dizziness in high amounts,No direct toxicity data. Contextual inference: Mild sedative,mood enhancement,possible aphrodisiac. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Mild sedative,possible aphrodisiac. none.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Nymphaea caerulea",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Nymphaea%20caerulea&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.982Z",
+  "description": "Mild sedative, mood enhancement, possible aphrodisiac. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": "No direct dosage data. Contextual inference: Mild sedative,mood enhancement,possible aphrodisiac. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Mild sedative,possible aphrodisiac. No direct region data. Contextual inference: Mild sedative,possible aphrodisiac. none.,nan.",
+  "duration": "4–6 hours",
   "legalStatus": "Regulated in some regions (e.g., Louisiana)",
   "preparation": "Flowers infused in wine or tea, or smoked; traditional Egyptian use for mood and relaxation",
   "region": "No direct region data. Contextual inference: Mild sedative, mood enhancement, possible aphrodisiac. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, mood enhancement, possible aphrodisiac. none. ; nan; nan",
@@ -121,19 +62,19 @@
     "mood enhancement"
   ],
   "traditionalUse": "Used in Egyptian rituals for spiritual and aphrodisiac purposes",
-  "slug": "nymphaea-caerulea",
   "sideEffects": [
     "Sedative effects",
     "dizziness in high amounts"
   ],
-  "displayName": "nymphaea caerulea",
-  "displayScientificName": "Nymphaea caerulea",
-  "scientificNormalized": "nymphaea caerulea",
-  "id": "nymphaea-caerulea",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "nymphaea-caerulea",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "aporphine",
+    "nuciferine",
+    "nupharine",
+    "nupharidine"
   ]
 }

@@ -3,113 +3,41 @@
   "latin": "Erythrina mulungu",
   "class": "Sedative, Anxiolytic",
   "intensity": "No direct intensity data. Contextual inference: Sedative, anxiolytic; used for sleep and stress in south america. Sedative alkaloids may bind gaba and serotonin receptors.. ; nan; nan.. Sedative alkaloids may bind GABA and serotonin receptors.. Sedative, anxiolytic; used for sleep and stress in South America. No direct region data. Contextual inference: Sedative, anxiolytic; used for sleep and stress in south america. Sedative alkaloids may bind gaba and serotonin receptors.. ; nan; nan.. Sedative alkaloids may bind GABA and serotonin receptors.. Sedative, anxiolytic; used for sleep and stress in South America. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+  "mechanism": "",
   "activeCompounds": [
-    "Erythrinian alkaloids",
+    "erythrinian alkaloids",
     "flavonoids",
-    "Erythravine",
+    "erythravine",
     "hypaphorine",
     "erythrinan alkaloids",
     "erythrinine",
     "mulunguine"
   ],
   "effects": [
-    "Relaxation",
+    "relaxation",
     "improved sleep",
     "reduced stress",
-    "Calmness",
+    "calmness",
     "reduced anxiety",
     "sedation",
     "muscle relaxation",
     "anxiety reduction",
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
+    "used in ritual",
+    "dreaming or folk medicine used in ritual",
     "dreaming or folk medicine",
-    "Sedative",
+    "sedative",
     "anxiolytic",
-    "used for sleep and stress in South America"
+    "used for sleep and stress in south america"
   ],
   "contraindications": [
-    "Sedatives",
-    "pregnancy",
-    "Pregnancy",
-    "sedative medications",
-    "hypotension",
-    "CNS depressants",
-    "low blood pressure",
-    "sedative use."
+    "avoid with sedatives",
+    "avoid in pregnancy",
+    "avoid with sedative medications",
+    "avoid with hypotension",
+    "avoid with cns depressants",
+    "avoid with low blood pressure",
+    "avoid with sedative use"
   ],
-  "safetyNotes": [
-    "Low toxicity",
-    "traditionally safe",
-    "Drowsiness",
-    "dizziness",
-    "Low",
-    "Generally safe at moderate doses",
-    "hypotension",
-    "Not well established",
-    "Generally considered safe in traditional doses",
-    "Low at recommended doses",
-    "safe",
-    "No direct toxicity data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine",
-    "drowsiness",
-    "hypotension.",
-    "No direct toxicity data. Contextual inference: Sedative",
-    "anxiolytic",
-    "used for sleep and stress in south america. Sedative alkaloids may bind gaba and serotonin receptors..",
-    "nan.. Sedative alkaloids may bind GABA and serotonin receptors.. Sedative",
-    "used for sleep and stress in South America."
-  ],
-  "sources": [
-    {
-      "title": "Brazilian herbalism"
-    },
-    {
-      "title": "Ethnobotanical surveys"
-    },
-    {
-      "title": "Brazilian herbal medicine"
-    },
-    {
-      "title": "Phytochemical studies"
-    },
-    {
-      "title": "ethnobotanical records"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Sedative, anxiolytic; used for sleep and stress in south america. Sedative alkaloids may bind gaba and serotonin receptors.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine",
-    "No direct dosage data. Contextual inference: Sedative",
-    "anxiolytic",
-    "used for sleep and stress in south america. Sedative alkaloids may bind gaba and serotonin receptors..",
-    "nan.. Sedative alkaloids may bind GABA and serotonin receptors.. Sedative",
-    "used for sleep and stress in South America. No direct region data. Contextual inference: Sedative",
-    "used for sleep and stress in South America.",
-    "nan."
-  ],
-  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "interactions": [
     "CNS depressants",
     "benzodiazepines",
@@ -118,6 +46,18 @@
     "antihypertensives",
     "depressants."
   ],
+  "safetyNotes": "Low toxicity,traditionally safe,Drowsiness,dizziness,Low,Generally safe at moderate doses,hypotension,Not well established,Generally considered safe in traditional doses,Low at recommended doses,safe,No direct toxicity data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine,drowsiness,hypotension.,No direct toxicity data. Contextual inference: Sedative,anxiolytic,used for sleep and stress in south america. Sedative alkaloids may bind gaba and serotonin receptors..,nan.. Sedative alkaloids may bind GABA and serotonin receptors.. Sedative,used for sleep and stress in South America.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Erythrina mulungu (TaxID 3086802)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3086802&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.934Z",
+  "description": "Sedative, anxiolytic; used for sleep and stress in south america. Sedative alkaloids may bind gaba and serotonin receptors.. ; nan; nan.",
+  "dosage": "No direct dosage data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual,dreaming or folk medicine,No direct dosage data. Contextual inference: Sedative,anxiolytic,used for sleep and stress in south america. Sedative alkaloids may bind gaba and serotonin receptors..,nan.. Sedative alkaloids may bind GABA and serotonin receptors.. Sedative,used for sleep and stress in South America. No direct region data. Contextual inference: Sedative,used for sleep and stress in South America.,nan.",
+  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "Unregulated",
   "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
@@ -133,21 +73,22 @@
     "insomnia."
   ],
   "traditionalUse": "Used by Amazonian tribes to treat anxiety and insomnia",
-  "slug": "erythrina-mulungu",
   "sideEffects": [
     "drowsiness",
     "hypotension."
   ],
-  "displayName": "erythrina mulungu",
-  "displayScientificName": "Erythrina mulungu",
-  "scientificNormalized": "erythrina mulungu",
-  "id": "erythrina-mulungu",
-  "aliases": [
-    "nan",
-    "mulungu"
-  ],
-  "slugAliases": [
-    "mulungu",
-    "nan"
+  "slug": "erythrina-mulungu",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "erythrinian-alkaloids",
+    "flavonoids",
+    "erythravine",
+    "hypaphorine",
+    "erythrinan-alkaloids",
+    "erythrinine",
+    "mulunguine"
   ]
 }

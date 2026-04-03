@@ -1,0 +1,40 @@
+{
+  "name": "guaraná",
+  "latin": "guaraná",
+  "class": "general",
+  "intensity": "moderate",
+  "mechanism": "",
+  "activeCompounds": [],
+  "effects": [
+    "meta-analysis reports modest improvements in selected cognitive-performance domains",
+    "clinical effects are context-dependent and should not be generalized to all formulations"
+  ],
+  "contraindications": [],
+  "interactions": [
+    "Potential additive stimulation with caffeine-containing products, sympathomimetics, and other CNS stimulants."
+  ],
+  "safetyNotes": "Caffeine-related adverse effects (for example insomnia, palpitations, anxiety) remain a practical safety concern.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: guaraná",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=guaran%C3%A1&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.939Z",
+  "description": "Guarana (Paullinia cupana) is a caffeine-rich Amazonian plant used in beverages and supplements, with modern clinical syntheses focused on cognition and fatigue.",
+  "dosage": "Clinical dosing varies by caffeine-equivalent content and standardized extract composition.",
+  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "legalStatus": "legal",
+  "preparation": "Prepared as seeds/powder in traditional beverages and as standardized extracts in supplements.",
+  "region": "Indigenous to the Amazon basin, especially Brazil, with global commercial distribution.",
+  "therapeuticUses": [],
+  "traditionalUse": "Traditional Amazonian use includes stimulant and endurance contexts.",
+  "sideEffects": [],
+  "slug": "guaran",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
+}

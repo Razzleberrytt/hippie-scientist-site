@@ -3,95 +3,41 @@
   "latin": "Amanita muscaria",
   "class": "Deliriant, Psychoactive mushroom",
   "intensity": "No direct intensity data. Contextual inference: Psychoactive and deliriant; contains muscimol and ibotenic acid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychoactive and deliriant; contains muscimol and ibotenic acid. No direct region data. Contextual inference: Psychoactive and deliriant; contains muscimol and ibotenic acid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychoactive and deliriant; contains muscimol and ibotenic acid. none. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+  "mechanism": "",
   "activeCompounds": [
-    "Muscimol",
-    "ibotenic acid",
-    "Ibotenic Acid"
+    "muscimol",
+    "ibotenic acid"
   ],
   "effects": [
-    "Muscle jerks",
+    "muscle jerks",
     "euphoria",
     "confusion",
     "dream-like states",
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
+    "used in ritual",
+    "dreaming or folk medicine used in ritual",
     "dreaming or folk medicine",
-    "Psychoactive and deliriant",
+    "psychoactive and deliriant",
     "contains muscimol and ibotenic acid"
   ],
   "contraindications": [
-    "Toxic if misused",
-    "dangerous with alcohol or sedatives"
+    "avoid with toxic if misused",
+    "avoid with dangerous with alcohol or sedatives"
   ],
-  "safetyNotes": [
-    "Dose-dependent",
-    "vomiting common",
-    "Nausea",
-    "tremors",
-    "confusion",
-    "Medium",
-    "~38 mg/kg (muscimol",
-    "mice)",
-    "safe",
-    "No direct toxicity data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine",
-    "No direct toxicity data. Contextual inference: Psychoactive and deliriant",
-    "contains muscimol and ibotenic acid. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Psychoactive and deliriant",
-    "contains muscimol and ibotenic acid. none."
-  ],
-  "sources": [
-    {
-      "title": "Mycology books"
-    },
-    {
-      "title": "Erowid"
-    },
-    {
-      "title": "field reports"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Psychoactive and deliriant; contains muscimol and ibotenic acid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine",
-    "No direct dosage data. Contextual inference: Psychoactive and deliriant",
-    "contains muscimol and ibotenic acid. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Psychoactive and deliriant",
-    "contains muscimol and ibotenic acid. No direct region data. Contextual inference: Psychoactive and deliriant",
-    "contains muscimol and ibotenic acid. none.",
-    "nan."
-  ],
-  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "interactions": [
     "CNS depressants increase risk"
   ],
+  "safetyNotes": "Dose-dependent,vomiting common,Nausea,tremors,confusion,Medium,~38 mg/kg (muscimol,mice),safe,No direct toxicity data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine,No direct toxicity data. Contextual inference: Psychoactive and deliriant,contains muscimol and ibotenic acid. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Psychoactive and deliriant,contains muscimol and ibotenic acid. none.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Amanita muscaria (TaxID 41956)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=41956&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.846Z",
+  "description": "Psychoactive and deliriant; contains muscimol and ibotenic acid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": "No direct dosage data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual,dreaming or folk medicine,No direct dosage data. Contextual inference: Psychoactive and deliriant,contains muscimol and ibotenic acid. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Psychoactive and deliriant,contains muscimol and ibotenic acid. No direct region data. Contextual inference: Psychoactive and deliriant,contains muscimol and ibotenic acid. none.,nan.",
+  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "Unregulated in most regions",
   "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
@@ -100,18 +46,14 @@
     "sleep medicine"
   ],
   "traditionalUse": "Used in ritual, dreaming or folk medicine",
-  "slug": "amanita-muscaria",
   "sideEffects": [],
-  "displayName": "amanita muscaria",
-  "displayScientificName": "Amanita muscaria",
-  "scientificNormalized": "amanita muscaria",
-  "id": "amanita-muscaria",
-  "aliases": [
-    "nan",
-    "fly agaric"
-  ],
-  "slugAliases": [
-    "fly-agaric",
-    "nan"
+  "slug": "amanita-muscaria",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "muscimol",
+    "ibotenic-acid"
   ]
 }

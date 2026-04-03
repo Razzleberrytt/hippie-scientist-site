@@ -1,47 +1,29 @@
 {
   "name": "citrus aurantium",
   "latin": "Citrus aurantium",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Appetite suppressant, stimulant, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Appetite suppressant, stimulant, digestive aid. No direct region data. Contextual inference: Appetite suppressant, stimulant, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Appetite suppressant, stimulant, digestive aid. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Appetite suppressant",
+    "appetite suppressant",
     "stimulant",
     "digestive aid"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "caution",
-    "May increase blood pressure and heart rate",
-    "avoid with stimulants or in cardiovascular conditions",
-    "No direct toxicity data. Contextual inference: Appetite suppressant",
-    "stimulant",
-    "digestive aid. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Appetite suppressant",
-    "digestive aid. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "caution,May increase blood pressure and heart rate,avoid with stimulants or in cardiovascular conditions,No direct toxicity data. Contextual inference: Appetite suppressant,stimulant,digestive aid. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Appetite suppressant,digestive aid. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Citrus aurantium",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Citrus%20aurantium&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.898Z",
   "description": "Appetite suppressant, stimulant, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "500 mg",
-    "day peel extract or decoction"
-  ],
+  "dosage": "250,500 mg,day peel extract or decoction",
   "duration": "3–5 hours",
-  "interactions": [],
   "legalStatus": "Legal; some countries warn of ephedrine-like effects",
   "preparation": "Peel and flowers used in decoctions or tinctures; also steam-distilled for neroli oil; caution advised with synephrine content",
   "region": "No direct region data. Contextual inference: Appetite suppressant, stimulant, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Appetite suppressant, stimulant, digestive aid. none. ; nan; nan",
@@ -52,8 +34,9 @@
     "avoid with stimulants or in cardiovascular conditions"
   ],
   "slug": "citrus-aurantium",
-  "id": "citrus-aurantium",
-  "displayName": "citrus aurantium",
-  "displayScientificName": "Citrus aurantium",
-  "scientificNormalized": "citrus aurantium"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

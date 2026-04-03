@@ -1,54 +1,30 @@
 {
   "name": "aristolochia grandiflora",
   "latin": "Aristolochia grandiflora",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Historically used as anti-inflammatory; toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Historically used as anti-inflammatory; toxic. No direct region data. Contextual inference: Historically used as anti-inflammatory; toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Historically used as anti-inflammatory; toxic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Historically used as anti-inflammatory",
+    "historically used as anti-inflammatory",
     "toxic",
-    "Historically used as anti",
+    "historically used as anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Highly toxic",
-    "contains aristolochic acid linked to nephrotoxicity and cancer",
-    "banned in many countries",
-    "No direct toxicity data. Contextual inference: Historically used as anti-inflammatory",
-    "toxic. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Historically used as anti-inflammatory",
-    "toxic. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Highly toxic,contains aristolochic acid linked to nephrotoxicity and cancer,banned in many countries,No direct toxicity data. Contextual inference: Historically used as anti-inflammatory,toxic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Historically used as anti-inflammatory,toxic. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Aristolochia grandiflora (TaxID 145283)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=145283&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.851Z",
   "description": "Historically used as anti-inflammatory; toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Historically used as anti",
-    "inflammatory",
-    "toxic. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Historically used as anti",
-    "toxic. No direct region data. Contextual inference: Historically used as anti",
-    "toxic. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Historically used as anti,inflammatory,toxic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Historically used as anti,toxic. No direct region data. Contextual inference: Historically used as anti,toxic. none.,nan.",
   "duration": "Varies",
-  "interactions": [],
   "legalStatus": "Banned or restricted in many countries",
   "preparation": "Highly toxic; not used in modern herbalism due to nephrotoxins",
   "region": "No direct region data. Contextual inference: Historically used as anti-inflammatory; toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Historically used as anti-inflammatory; toxic. none. ; nan; nan",
@@ -60,8 +36,9 @@
     "banned in many countries"
   ],
   "slug": "aristolochia-grandiflora",
-  "id": "aristolochia-grandiflora",
-  "displayName": "aristolochia grandiflora",
-  "displayScientificName": "Aristolochia grandiflora",
-  "scientificNormalized": "aristolochia grandiflora"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

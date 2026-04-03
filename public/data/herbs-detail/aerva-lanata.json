@@ -3,7 +3,7 @@
   "latin": "Aerva lanata",
   "class": "Herb",
   "intensity": "No direct intensity data. Contextual inference: Diuretic, anti-inflammatory, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, anti-inflammatory, antimicrobial. No direct region data. Contextual inference: Diuretic, anti-inflammatory, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, anti-inflammatory, antimicrobial. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Rich in diverse alkaloids and flavonoids that contribute to diuretic, anti-inflammatory, hypoglycemic, antimicrobial and anti-urolithiatic activities; compounds may modulate enzymes and scavenge free radicals.",
+  "mechanism": "rich in diverse alkaloids and flavonoids that contribute to diuretic | hypoglycemic",
   "activeCompounds": [
     "ervine",
     "methylervine",
@@ -17,8 +17,8 @@
     "quercetin",
     "isorhamnetin",
     "persinol",
-    "persinosides A",
-    "persinosides B",
+    "persinosides a",
+    "persinosides b",
     "methyl grevillate",
     "lupeol",
     "lupeol acetate",
@@ -27,54 +27,29 @@
     "tannic acid"
   ],
   "effects": [
-    "Diuretic",
+    "diuretic",
     "anti-inflammatory",
     "antimicrobial",
     "anti",
     "inflammatory"
   ],
   "contraindications": [
-    "Limited safety data; some alkaloids may be toxic at high doses",
-    "Pregnant women should use cautiously"
+    "avoid with limited safety data some alkaloids be toxic at high doses",
+    "avoid in pregnancy"
   ],
-  "safetyNotes": [
-    "Rarely associated with side effects",
-    "may cause diuresis or mild GI upset in sensitive individuals",
-    "No direct toxicity data. Contextual inference: Diuretic",
-    "anti-inflammatory",
-    "antimicrobial. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Diuretic",
-    "antimicrobial. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Rarely associated with side effects,may cause diuresis or mild GI upset in sensitive individuals,No direct toxicity data. Contextual inference: Diuretic,anti-inflammatory,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diuretic,antimicrobial. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Aerva lanata",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Aerva%20lanata&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.842Z",
   "description": "Diuretic, anti-inflammatory, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Diuretic",
-    "anti",
-    "inflammatory",
-    "antimicrobial. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Diuretic",
-    "antimicrobial. No direct region data. Contextual inference: Diuretic",
-    "antimicrobial. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Diuretic,anti,inflammatory,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diuretic,antimicrobial. No direct region data. Contextual inference: Diuretic,antimicrobial. none.,nan.",
   "duration": "3–5 hours",
-  "interactions": [],
   "legalStatus": "Traditional medicine use; not formally regulated",
   "preparation": "Whole plant decoction or infusion used in Ayurveda, especially for urinary conditions",
   "region": "No direct region data. Contextual inference: Diuretic, anti-inflammatory, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, anti-inflammatory, antimicrobial. none. ; nan; nan",
@@ -92,8 +67,30 @@
     "may cause diuresis or mild GI upset in sensitive individuals"
   ],
   "slug": "aerva-lanata",
-  "id": "aerva-lanata",
-  "displayName": "aerva lanata",
-  "displayScientificName": "Aerva lanata",
-  "scientificNormalized": "aerva lanata"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "ervine",
+    "methylervine",
+    "ervoside",
+    "aervine",
+    "methaervine",
+    "aervoside",
+    "ervolanine",
+    "aervolanine",
+    "kaempferol",
+    "quercetin",
+    "isorhamnetin",
+    "persinol",
+    "persinosides-a",
+    "persinosides-b",
+    "methyl-grevillate",
+    "lupeol",
+    "lupeol-acetate",
+    "benzoic-acid",
+    "sitosteryl-acetate",
+    "tannic-acid"
+  ]
 }

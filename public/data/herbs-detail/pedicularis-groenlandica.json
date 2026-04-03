@@ -3,46 +3,34 @@
   "latin": "pedicularis groenlandica",
   "class": "dissociative / sedative",
   "intensity": "Mild to moderate.",
-  "mechanism": "May modulate GABA receptors.",
+  "mechanism": "modulate gaba receptors",
   "activeCompounds": [],
   "effects": [
-    "Relieves tension",
+    "relieves tension",
     "anxiety",
-    "and spasms."
+    "and spasms"
   ],
   "contraindications": [
-    "pregnancy",
-    "lactation [0",
-    "7]."
+    "avoid in pregnancy",
+    "avoid during breastfeeding",
+    "avoid with 7]"
   ],
-  "safetyNotes": [
-    "rare",
-    "possible gi upset [0",
-    "7].",
-    "Low.",
-    "Low",
-    "no significant toxicity reported [0"
-  ],
-  "sources": [
-    {
-      "title": "Inferred from Unknown"
-    },
-    {
-      "note": "Inferred from Unknown",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "High-altitude flowering plant known for CNS and muscle relaxation.",
-  "dosage": [
-    "Similar to P. densiflora",
-    "tea or tincture."
-  ],
-  "duration": "1–3 hours when taken as tea or tincture.",
   "interactions": [
     "additive with cns depressants [0",
     "7]."
   ],
+  "safetyNotes": "rare,possible gi upset [0,7].,Low.,Low,no significant toxicity reported [0",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: pedicularis groenlandica (TaxID 262426)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=262426&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.990Z",
+  "description": "High-altitude flowering plant known for CNS and muscle relaxation.",
+  "dosage": "Similar to P. densiflora,tea or tincture.",
+  "duration": "1–3 hours when taken as tea or tincture.",
   "legalStatus": "Legal / Unregulated",
   "preparation": "Dried flower infusions or tinctures.",
   "region": "Rocky Mountains and western North America",
@@ -60,8 +48,9 @@
     "7]."
   ],
   "slug": "pedicularis-groenlandica",
-  "id": "pedicularis-groenlandica",
-  "displayName": "pedicularis groenlandica",
-  "displayScientificName": "pedicularis groenlandica",
-  "scientificNormalized": "pedicularis groenlandica"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

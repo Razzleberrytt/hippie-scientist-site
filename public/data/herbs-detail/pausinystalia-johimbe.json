@@ -1,0 +1,60 @@
+{
+  "name": "Pausinystalia johimbe",
+  "latin": "Pausinystalia johimbe",
+  "class": "Stimulant, Aphrodisiac",
+  "intensity": "Moderate to strong",
+  "mechanism": "alpha-2 adrenergic receptor antagonist | increases norepinephrine",
+  "activeCompounds": [
+    "yohimbine",
+    "indole alkaloids",
+    "corynanthine"
+  ],
+  "effects": [
+    "stimulation",
+    "increased blood flow",
+    "heightened alertness",
+    "sexual arousal"
+  ],
+  "contraindications": [
+    "avoid with heart disease",
+    "avoid with anxiety",
+    "avoid with hypertension",
+    "avoid with psychiatric conditions"
+  ],
+  "interactions": [
+    "Antidepressants",
+    "stimulants",
+    "MAOIs"
+  ],
+  "safetyNotes": "Moderate risk,side effects common,Anxiety,hypertension,agitation,insomnia,Moderate,~43 mg/kg (yohimbine,oral,rat)",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Pausinystalia johimbe",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Pausinystalia%20johimbe&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.972Z",
+  "description": "West African tree bark traditionally used as an aphrodisiac and stimulant, especially for male sexual dysfunction.",
+  "dosage": "5–10 mg yohimbine HCl; bark extract ~250–500 mg",
+  "duration": "2–4 hours",
+  "legalStatus": "Controlled in some countries; supplement in others",
+  "preparation": "Bark infusion, extract capsules, tablets",
+  "region": "West and Central Africa",
+  "therapeuticUses": [
+    "Erectile dysfunction",
+    "fatigue"
+  ],
+  "traditionalUse": "",
+  "sideEffects": [],
+  "slug": "pausinystalia-johimbe",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "yohimbine",
+    "indole-alkaloids",
+    "corynanthine"
+  ]
+}

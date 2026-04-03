@@ -3,46 +3,33 @@
   "latin": "Psilocybin",
   "class": "psychedelic",
   "intensity": "Moderate",
-  "mechanism": "Converted to psilocin which acts as 5-HT2A agonist.",
+  "mechanism": "converted to psilocin which acts as 5-ht2a agonist",
   "activeCompounds": [],
   "effects": [
-    "Visual patterns",
+    "visual patterns",
     "mystical insight",
     "emotional release"
   ],
   "contraindications": [
-    "psychosis",
-    "uncontrolled hypertension."
+    "avoid with unstable mental health conditions",
+    "avoid with uncontrolled hypertension"
   ],
-  "safetyNotes": [
-    "Toxic – controlled psychedelic",
-    "nausea",
-    "anxiety",
-    "transient increase in heart rate.",
-    "Low toxicity",
-    "wide margin of safety."
-  ],
-  "sources": [
-    {
-      "title": "Inferred from Psilocybin"
-    },
-    {
-      "note": "Inferred from Psilocybin",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "active compound in psychedelic mushrooms producing profound perceptual changes.",
-  "dosage": [
-    "10",
-    "25 mg pure or ~1",
-    "5 g dried mushrooms"
-  ],
-  "duration": "No direct duration data. Contextual inference: active compound in psychedelic mushrooms producing profound perceptual changes.. Converted to psilocin which acts as 5-HT2A agonist.. Visual patterns;mystical insight;emotional release. 🌎 global. ; nan; nan",
   "interactions": [
     "ssris may reduce effects",
     "avoid maois."
   ],
+  "safetyNotes": "Toxic – controlled psychedelic,nausea,anxiety,transient increase in heart rate.,Low toxicity,wide margin of safety.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Psilocybin",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Psilocybin&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.001Z",
+  "description": "active compound in psychedelic mushrooms producing profound perceptual changes.",
+  "dosage": "10,25 mg pure or ~1,5 g dried mushrooms",
+  "duration": "No direct duration data. Contextual inference: active compound in psychedelic mushrooms producing profound perceptual changes.. Converted to psilocin which acts as 5-HT2A agonist.. Visual patterns;mystical insight;emotional release. 🌎 global. ; nan; nan",
   "legalStatus": "Controlled in many countries",
   "preparation": "Consumed as dried mushrooms or extract",
   "region": "🌎 global",
@@ -61,8 +48,9 @@
     "transient increase in heart rate."
   ],
   "slug": "psilocybin",
-  "id": "psilocybin",
-  "displayName": "psilocybin",
-  "displayScientificName": "Psilocybin",
-  "scientificNormalized": "psilocybin"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

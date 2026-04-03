@@ -3,49 +3,38 @@
   "latin": "Tabernaemontana undulata",
   "class": "Entheogen, Visionary",
   "intensity": "moderate",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.",
+  "mechanism": "used by indigenous healers to improve vision and intuition",
   "activeCompounds": [
-    "Iboga alkaloids",
+    "iboga alkaloids",
     "voacangine",
-    "tabersonine",
-    "Voacangine"
+    "tabersonine"
   ],
   "effects": [
-    "Inner visions",
+    "inner visions",
     "deep introspection",
-    "energetic clarity",
-    "No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition."
+    "energetic clarity"
   ],
   "contraindications": [
-    "Heart conditions",
-    "psychiatric illness"
+    "avoid with heart conditions",
+    "avoid with psychiatric illness"
   ],
-  "safetyNotes": [
-    "Caution advised due to alkaloid intensity",
-    "Nausea",
-    "tremors",
-    "psychological discomfort",
-    "Moderate",
-    "Not well studied",
-    "caution",
-    "No direct toxicity data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition."
-  ],
-  "sources": [
-    {
-      "title": "Shamanic ethnobotany"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Amazonian plant used in shamanic rituals for inner vision and spiritual healing; chemically similar to iboga.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. No direct region data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition."
-  ],
-  "duration": "No direct duration data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. No direct region data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.",
   "interactions": [
     "MAOIs",
     "SSRIs",
     "stimulants"
   ],
+  "safetyNotes": "Caution advised due to alkaloid intensity,Nausea,tremors,psychological discomfort,Moderate,Not well studied,caution,No direct toxicity data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Tabernaemontana undulata (TaxID 761101)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=761101&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.024Z",
+  "description": "Amazonian plant used in shamanic rituals for inner vision and spiritual healing; chemically similar to iboga.",
+  "dosage": "No direct dosage data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. No direct region data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.",
+  "duration": "No direct duration data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. No direct region data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.",
   "legalStatus": "Unregulated in most regions",
   "preparation": "No direct preparation data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. No direct region data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.",
   "region": "No direct region data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.",
@@ -55,16 +44,15 @@
     "energetic healing"
   ],
   "traditionalUse": "Used by indigenous healers to improve vision and intuition.",
-  "slug": "tabernaemontana-undulata",
   "sideEffects": [],
-  "displayName": "tabernaemontana undulata",
-  "displayScientificName": "Tabernaemontana undulata",
-  "scientificNormalized": "tabernaemontana undulata",
-  "id": "tabernaemontana-undulata",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "tabernaemontana-undulata",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "iboga-alkaloids",
+    "voacangine",
+    "tabersonine"
   ]
 }

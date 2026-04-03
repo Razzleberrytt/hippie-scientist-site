@@ -1,59 +1,39 @@
 {
   "name": "trichilia emetica",
   "latin": "Trichilia emetica",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used for malaria, fever, and inflammation in african medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for malaria, fever, and inflammation in African medicine. No direct region data. Contextual inference: Used for malaria, fever, and inflammation in african medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for malaria, fever, and inflammation in African medicine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Used for malaria",
+    "used for malaria",
     "fever",
-    "and inflammation in African medicine"
+    "and inflammation in african medicine"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Used for malaria",
-    "fever",
-    "and inflammation in african medicine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Used for malaria",
-    "and inflammation in African medicine. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "No direct toxicity data. Contextual inference: Used for malaria,fever,and inflammation in african medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used for malaria,and inflammation in African medicine. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Trichilia emetica (TaxID 43895)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=43895&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.027Z",
   "description": "Used for malaria, fever, and inflammation in african medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used for malaria",
-    "fever",
-    "and inflammation in african medicine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Used for malaria",
-    "and inflammation in African medicine. No direct region data. Contextual inference: Used for malaria",
-    "and inflammation in African medicine. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Used for malaria,fever,and inflammation in african medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used for malaria,and inflammation in African medicine. No direct region data. Contextual inference: Used for malaria,and inflammation in African medicine. none.,nan.",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "No direct preparation data. Contextual inference: Used for malaria, fever, and inflammation in african medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for malaria, fever, and inflammation in African medicine. No direct region data. Contextual inference: Used for malaria, fever, and inflammation in african medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for malaria, fever, and inflammation in African medicine. none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Used for malaria, fever, and inflammation in african medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for malaria, fever, and inflammation in African medicine. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
+  "sideEffects": [],
   "slug": "trichilia-emetica",
-  "id": "trichilia-emetica",
-  "displayName": "trichilia emetica",
-  "displayScientificName": "Trichilia emetica",
-  "scientificNormalized": "trichilia emetica"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

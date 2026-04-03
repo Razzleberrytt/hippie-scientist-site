@@ -1,47 +1,29 @@
 {
   "name": "cynara scolymus",
   "latin": "Cynara scolymus",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Liver support, cholesterol reduction, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver support, cholesterol reduction, digestive aid. No direct region data. Contextual inference: Liver support, cholesterol reduction, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver support, cholesterol reduction, digestive aid. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Liver support",
+    "liver",
     "cholesterol reduction",
     "digestive aid"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Occasional allergic reactions",
-    "may worsen gallstones or bile duct obstruction",
-    "No direct toxicity data. Contextual inference: Liver support",
-    "cholesterol reduction",
-    "digestive aid. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Liver support",
-    "digestive aid. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,Occasional allergic reactions,may worsen gallstones or bile duct obstruction,No direct toxicity data. Contextual inference: Liver support,cholesterol reduction,digestive aid. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Liver support,digestive aid. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Cynara scolymus",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Cynara%20scolymus&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.912Z",
   "description": "Liver support, cholesterol reduction, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "300",
-    "1000 mg",
-    "day leaf extract"
-  ],
+  "dosage": "300,1000 mg,day leaf extract",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "Leaves and flower heads steamed or tinctured; leaf extracts used for liver support",
   "region": "No direct region data. Contextual inference: Liver support, cholesterol reduction, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver support, cholesterol reduction, digestive aid. none. ; nan; nan",
@@ -52,8 +34,9 @@
     "may worsen gallstones or bile duct obstruction"
   ],
   "slug": "cynara-scolymus",
-  "id": "cynara-scolymus",
-  "displayName": "cynara scolymus",
-  "displayScientificName": "Cynara scolymus",
-  "scientificNormalized": "cynara scolymus"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

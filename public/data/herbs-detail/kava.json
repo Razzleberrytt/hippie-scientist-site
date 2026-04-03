@@ -1,125 +1,40 @@
 {
   "name": "kava",
   "latin": "kava",
-  "class": null,
+  "class": "general",
   "intensity": "mild",
-  "mechanism": "Kavalactones appear to modulate GABAergic and other neurochemical pathways, but pathway-level certainty does not equal universal clinical efficacy.",
+  "mechanism": "kavalactones appear to modulate gabaergic and other neurochemical pathways | but pathway-level certainty does not equal universal clinical efficacy",
   "activeCompounds": [],
   "effects": [
-    "Systematic review evidence indicates possible short-term anxiety reduction in selected formulations."
+    "systematic review evidence indicates possible short-term anxiety reduction in selected formulations"
   ],
   "contraindications": [
-    "Avoid in known liver disease or substantial alcohol use."
+    "avoid in liver disease"
   ],
-  "safetyNotes": [
-    "Liver safety concerns remain a core caution point, especially with nontraditional extracts and co-exposures."
+  "interactions": [
+    "Potential additive sedation with alcohol, benzodiazepines, and other CNS depressants."
   ],
+  "safetyNotes": "Liver safety concerns remain a core caution point, especially with nontraditional extracts and co-exposures.",
   "sources": [
     {
       "title": "src_cochrane-cd003383",
       "url": "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD003383/full"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.951Z",
   "description": "Kava (Piper methysticum) is a Pacific traditional beverage plant studied in standardized extracts for anxiety-related outcomes.",
-  "dosage": [
-    "Use product-specific clinical labeling or trial-standardized extract context; avoid unsupervised high-dose use."
-  ],
+  "dosage": "Use product-specific clinical labeling or trial-standardized extract context; avoid unsupervised high-dose use.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Potential additive sedation with alcohol, benzodiazepines, and other CNS depressants."
-  ],
   "legalStatus": "legal",
   "preparation": "Traditionally prepared as aqueous root beverage; commercial products include capsules and tincture-like extracts.",
   "region": "Traditional use is centered in Oceania/Pacific Island cultures.",
   "therapeuticUses": [],
   "traditionalUse": "Traditional use in Pacific ceremonial and social contexts is well documented and culturally specific.",
+  "sideEffects": [],
   "slug": "kava",
-  "id": "kava",
-  "displayName": "kava",
-  "displayScientificName": "kava",
-  "scientificNormalized": "kava",
-  "summary": "Kava has human trial synthesis suggesting anxiolytic potential in some extracts, but hepatotoxicity concerns and product variability require careful risk communication.",
-  "researchEnrichment": {
-    "evidenceSummary": "Curated governance-backed enrichment for kava using 1 registry sources.",
-    "evidenceTier": "tier-3-limited",
-    "evidenceClassesPresent": [
-      "human-clinical"
-    ],
-    "supportedUses": [],
-    "unsupportedOrUnclearUses": [],
-    "mechanisms": [
-      {
-        "claim": "Kavalactones appear to modulate GABAergic and other neurochemical pathways, but pathway-level certainty does not equal universal clinical efficacy.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_cochrane-cd003383"
-        ],
-        "uncertaintyNote": "Mechanistic interpretation should not be treated as proven clinical efficacy."
-      }
-    ],
-    "constituents": [],
-    "interactions": [
-      {
-        "claim": "Potential additive sedation with alcohol, benzodiazepines, and other CNS depressants.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_cochrane-cd003383"
-        ]
-      }
-    ],
-    "contraindications": [
-      {
-        "claim": "Avoid in known liver disease or substantial alcohol use.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_cochrane-cd003383"
-        ]
-      }
-    ],
-    "adverseEffects": [
-      {
-        "claim": "Liver safety concerns remain a core caution point, especially with nontraditional extracts and co-exposures.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_cochrane-cd003383"
-        ]
-      }
-    ],
-    "dosageContextNotes": [
-      {
-        "claim": "Use product-specific clinical labeling or trial-standardized extract context; avoid unsupervised high-dose use.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_cochrane-cd003383"
-        ]
-      }
-    ],
-    "populationSpecificNotes": [],
-    "conflictNotes": [],
-    "researchGaps": [
-      {
-        "claim": "Evidence remains limited or heterogeneous; avoid overgeneralizing efficacy across formulations or populations.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_cochrane-cd003383"
-        ],
-        "uncertaintyNote": "Additional controlled human data are needed for stronger confidence."
-      }
-    ],
-    "sourceRegistryIds": [
-      "src_cochrane-cd003383"
-    ],
-    "sourceRefs": [
-      {
-        "sourceId": "src_cochrane-cd003383",
-        "extractConfidence": "medium",
-        "reviewer": "codex",
-        "notes": "Claim mapping for indexability remediation batch-01."
-      }
-    ],
-    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
-    "reviewedBy": "codex-batch-01",
-    "editorialStatus": "in-review"
-  }
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

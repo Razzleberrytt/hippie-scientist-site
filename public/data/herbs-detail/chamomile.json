@@ -1,125 +1,38 @@
 {
   "name": "chamomile",
   "latin": "chamomile",
-  "class": null,
+  "class": "general",
   "intensity": "mild",
-  "mechanism": "Likely involves multi-component phytochemistry (for example apigenin-related GABAergic and anti-inflammatory hypotheses), but definitive clinical mechanism remains unresolved.",
+  "mechanism": "likely involves multi-component phytochemistry (for example apigenin-related gabaergic and anti-inflammatory hypotheses) | but definitive clinical mechanism remains unresolved",
   "activeCompounds": [],
-  "effects": [
-    "Systematic review data suggest possible benefit for generalized anxiety symptoms in some populations."
-  ],
+  "effects": [],
   "contraindications": [
-    "Avoid use in individuals with known severe ragweed/Asteraceae allergy."
+    "avoid use in individuals with known severe ragweed/asteraceae allergy"
   ],
-  "safetyNotes": [
-    "Generally well tolerated, but allergic reactions can occur, especially in Asteraceae-sensitive individuals."
+  "interactions": [
+    "Potential additive sedation with sedative drugs; monitor anticoagulant co-use cautiously in high-intake extract contexts."
   ],
+  "safetyNotes": "Generally well tolerated, but allergic reactions can occur, especially in Asteraceae-sensitive individuals.",
   "sources": [
     {
       "title": "src_pubmed-31006899",
       "url": "https://pubmed.ncbi.nlm.nih.gov/31006899/"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.895Z",
   "description": "Chamomile (Matricaria chamomilla/recutita) is widely used as tea and extract for calming and gastrointestinal comfort, with modern trials focused on anxiety outcomes.",
-  "dosage": [
-    "Evidence is formulation-specific (tea vs extract); no single universal dosage applies across products."
-  ],
+  "dosage": "Evidence is formulation-specific (tea vs extract); no single universal dosage applies across products.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Potential additive sedation with sedative drugs; monitor anticoagulant co-use cautiously in high-intake extract contexts."
-  ],
   "legalStatus": "legal",
   "preparation": "Usually prepared as infusion (tea) or standardized extract in capsules/liquids.",
   "region": "Native to Europe and Western Asia; now cultivated globally.",
   "therapeuticUses": [],
   "traditionalUse": "Traditional use includes digestive and calming applications across European and Middle Eastern herbal traditions.",
+  "sideEffects": [],
   "slug": "chamomile",
-  "id": "chamomile",
-  "displayName": "chamomile",
-  "displayScientificName": "chamomile",
-  "scientificNormalized": "chamomile",
-  "summary": "Chamomile has human clinical review evidence suggesting potential anxiety-symptom benefit, but effect sizes and study heterogeneity warrant conservative interpretation.",
-  "researchEnrichment": {
-    "evidenceSummary": "Curated governance-backed enrichment for chamomile using 1 registry sources.",
-    "evidenceTier": "tier-3-limited",
-    "evidenceClassesPresent": [
-      "human-clinical"
-    ],
-    "supportedUses": [],
-    "unsupportedOrUnclearUses": [],
-    "mechanisms": [
-      {
-        "claim": "Likely involves multi-component phytochemistry (for example apigenin-related GABAergic and anti-inflammatory hypotheses), but definitive clinical mechanism remains unresolved.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_pubmed-31006899"
-        ],
-        "uncertaintyNote": "Mechanistic interpretation should not be treated as proven clinical efficacy."
-      }
-    ],
-    "constituents": [],
-    "interactions": [
-      {
-        "claim": "Potential additive sedation with sedative drugs; monitor anticoagulant co-use cautiously in high-intake extract contexts.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_pubmed-31006899"
-        ]
-      }
-    ],
-    "contraindications": [
-      {
-        "claim": "Avoid use in individuals with known severe ragweed/Asteraceae allergy.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_pubmed-31006899"
-        ]
-      }
-    ],
-    "adverseEffects": [
-      {
-        "claim": "Generally well tolerated, but allergic reactions can occur, especially in Asteraceae-sensitive individuals.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_pubmed-31006899"
-        ]
-      }
-    ],
-    "dosageContextNotes": [
-      {
-        "claim": "Evidence is formulation-specific (tea vs extract); no single universal dosage applies across products.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_pubmed-31006899"
-        ]
-      }
-    ],
-    "populationSpecificNotes": [],
-    "conflictNotes": [],
-    "researchGaps": [
-      {
-        "claim": "Evidence remains limited or heterogeneous; avoid overgeneralizing efficacy across formulations or populations.",
-        "evidenceClass": "human-clinical",
-        "sourceRefIds": [
-          "src_pubmed-31006899"
-        ],
-        "uncertaintyNote": "Additional controlled human data are needed for stronger confidence."
-      }
-    ],
-    "sourceRegistryIds": [
-      "src_pubmed-31006899"
-    ],
-    "sourceRefs": [
-      {
-        "sourceId": "src_pubmed-31006899",
-        "extractConfidence": "medium",
-        "reviewer": "codex",
-        "notes": "Claim mapping for indexability remediation batch-01."
-      }
-    ],
-    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
-    "reviewedBy": "codex-batch-01",
-    "editorialStatus": "in-review"
-  }
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

@@ -3,40 +3,30 @@
   "latin": "Delosperma cooperi",
   "class": "Ornamental, antioxidant (mild)",
   "intensity": "Very mild.",
-  "mechanism": "Contains phenolic compounds.",
+  "mechanism": "contains phenolic compounds",
   "activeCompounds": [],
   "effects": [
-    "Antioxidant",
-    "antimicrobial."
+    "antioxidant",
+    "antimicrobial"
   ],
   "contraindications": [
-    "None known"
+    "avoid with none known"
   ],
-  "safetyNotes": [
-    "Generally non-toxic",
-    "rare allergic reaction in sensitive individuals",
-    "Non-toxic",
-    "edible flowers."
-  ],
-  "sources": [
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Succulent used as groundcover; mild traditional use.",
-  "dosage": [
-    "Not typically dosed",
-    "used ornamentally."
-  ],
-  "duration": "Short-acting; external application only.",
   "interactions": [
     "None documented"
   ],
+  "safetyNotes": "Generally non-toxic,rare allergic reaction in sensitive individuals,Non-toxic,edible flowers.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Delosperma cooperi (TaxID 278074)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=278074&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.916Z",
+  "description": "Succulent used as groundcover; mild traditional use.",
+  "dosage": "Not typically dosed,used ornamentally.",
+  "duration": "Short-acting; external application only.",
   "legalStatus": "Unregulated",
   "preparation": "Occasionally juiced or crushed for skin.",
   "region": "South Africa",
@@ -48,8 +38,9 @@
     "rare allergic reaction in sensitive individuals"
   ],
   "slug": "delosperma-cooperi",
-  "id": "delosperma-cooperi",
-  "displayName": "delosperma cooperi",
-  "displayScientificName": "Delosperma cooperi",
-  "scientificNormalized": "delosperma cooperi"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

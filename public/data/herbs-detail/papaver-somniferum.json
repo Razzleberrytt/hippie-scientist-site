@@ -3,93 +3,32 @@
   "latin": "Papaver somniferum L.",
   "class": "Analgesic, Sedative, Psychoactive",
   "intensity": "High and dose-dependent due to opioid alkaloid content.",
-  "mechanism": "Opioid alkaloids from this species act primarily at opioid receptors with dose-dependent analgesic, sedative, and respiratory effects.",
+  "mechanism": "sedative | and respiratory effects",
   "activeCompounds": [
-    "Morphine",
+    "morphine",
     "codeine",
     "papaverine",
     "noscapine",
     "thebaine"
   ],
   "effects": [
-    "Euphoria",
+    "euphoria",
     "analgesia",
     "sedation",
     "cough suppression",
-    "Source of opiates",
+    "source of opiates",
     "analgesic and sedative",
-    "Pain relief",
-    "euphoria"
+    "pain relief"
   ],
   "contraindications": [
-    "Respiratory issues",
-    "liver impairment",
-    "pregnancy",
-    "opioid use",
-    "Respiratory disorders",
-    "MAOIs",
-    "addiction history"
+    "avoid with respiratory issues",
+    "avoid in liver disease",
+    "avoid in pregnancy",
+    "avoid with opioid use",
+    "avoid with respiratory disorders",
+    "may interact with maois",
+    "avoid with addiction history"
   ],
-  "safetyNotes": [
-    "High risk if misused",
-    "addiction potential",
-    "Constipation",
-    "respiratory depression",
-    "dependence",
-    "High",
-    "~200 mg/kg (morphine",
-    "oral",
-    "human extrapolated)",
-    "restricted",
-    "High-risk profile includes dependence, overdose, and respiratory depression potential.",
-    "analgesic and sedative. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Source of opiates",
-    "analgesic and sedative. none.",
-    "High abuse potential",
-    "nausea",
-    "tolerance",
-    "overdose risk",
-    "Morphine LD50 in humans ~120–250 mg"
-  ],
-  "sources": [
-    {
-      "title": "PubMed"
-    },
-    {
-      "title": "ADF"
-    },
-    {
-      "title": "WHO"
-    },
-    {
-      "title": "Pharmacognosy Texts"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "title": "EMCDDA"
-    },
-    {
-      "title": "FDA"
-    },
-    {
-      "title": "UNODC"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Papaver somniferum is the botanical source of opiate alkaloids associated with analgesic and sedative pharmacology and substantial dependence risk.",
-  "dosage": [
-    "Pharmaceutical use only under regulation"
-  ],
-  "duration": "4–6 hours (morphine); longer with raw opium",
   "interactions": [
     "CNS depressants",
     "alcohol",
@@ -97,6 +36,18 @@
     "SSRIs",
     "anticoagulants"
   ],
+  "safetyNotes": "High risk if misused,addiction potential,Constipation,respiratory depression,dependence,High,~200 mg/kg (morphine,oral,human extrapolated),restricted,High-risk profile includes dependence, overdose, and respiratory depression potential.,analgesic and sedative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Source of opiates,analgesic and sedative. none.,High abuse potential,nausea,tolerance,overdose risk,Morphine LD50 in humans ~120–250 mg",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Papaver somniferum L.",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Papaver%20somniferum%20L.&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.987Z",
+  "description": "Papaver somniferum is the botanical source of opiate alkaloids associated with analgesic and sedative pharmacology and substantial dependence risk.",
+  "dosage": "Pharmaceutical use only under regulation",
+  "duration": "4–6 hours (morphine); longer with raw opium",
   "legalStatus": "Strictly regulated; illegal to grow for opium in most countries",
   "preparation": "Preparation and legal status vary widely; concentrated or unregulated products materially increase harm risk.",
   "region": "Originally from the Mediterranean and western Asia, now cultivated in multiple regulated regions.",
@@ -108,18 +59,17 @@
     "cough"
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "papaver-somniferum",
-  "displayName": "papaver somniferum",
-  "displayScientificName": "Papaver somniferum L.",
-  "scientificNormalized": "papaver somniferum",
   "sideEffects": [],
-  "id": "papaver-somniferum",
-  "aliases": [
-    "nan",
-    "Papaver somniferum"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
-  "summary": "This plant has strong opioid-related pharmacology and safety liabilities; non-medical use carries high overdose and dependence risk."
+  "slug": "papaver-somniferum",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "morphine",
+    "codeine",
+    "papaverine",
+    "noscapine",
+    "thebaine"
+  ]
 }

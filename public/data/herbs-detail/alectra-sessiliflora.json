@@ -1,40 +1,32 @@
 {
   "name": "alectra sessiliflora",
   "latin": "Alectra sessiliflora",
-  "class": null,
+  "class": "general",
   "intensity": "Low to none.",
-  "mechanism": "Possibly modulates host-root absorption biochemistry.",
+  "mechanism": "modulates host-root absorption biochemistry",
   "activeCompounds": [],
   "effects": [
-    "Not well-documented",
-    "likely non-psychoactive.",
-    "Not well",
+    "not well-documented",
+    "likely non-psychoactive",
+    "not well",
     "documented",
     "likely non",
-    "psychoactive."
+    "psychoactive"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Limited data",
-    "no common adverse effects reported",
-    "presumed low due to traditional use."
-  ],
+  "interactions": [],
+  "safetyNotes": "Limited data,no common adverse effects reported,presumed low due to traditional use.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Alectra sessiliflora (TaxID 46040)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=46040&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.845Z",
   "description": "Parasitic herb in the Orobanchaceae family; possibly used in traditional African medicine.",
-  "dosage": [
-    "Not established."
-  ],
+  "dosage": "Not established.",
   "duration": "Acute topical application.",
-  "interactions": [],
   "legalStatus": "Unregulated",
   "preparation": "Crushed leaves in poultice or decoction.",
   "region": "Sub-Saharan Africa",
@@ -45,8 +37,9 @@
     "no common adverse effects reported"
   ],
   "slug": "alectra-sessiliflora",
-  "id": "alectra-sessiliflora",
-  "displayName": "alectra sessiliflora",
-  "displayScientificName": "Alectra sessiliflora",
-  "scientificNormalized": "alectra sessiliflora"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

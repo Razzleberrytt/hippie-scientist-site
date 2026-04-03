@@ -1,57 +1,31 @@
 {
   "name": "elephantopus mollis",
   "latin": "Elephantopus mollis",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antipyretic, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antipyretic, antimicrobial. No direct region data. Contextual inference: Anti-inflammatory, antipyretic, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antipyretic, antimicrobial. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Anti-inflammatory",
+    "anti-inflammatory",
     "antipyretic",
     "antimicrobial",
-    "Anti",
+    "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Insufficient safety data",
-    "use with caution",
-    "possible GI effects",
-    "No direct toxicity data. Contextual inference: Anti-inflammatory",
-    "antipyretic",
-    "antimicrobial. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti-inflammatory",
-    "antimicrobial. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Insufficient safety data,use with caution,possible GI effects,No direct toxicity data. Contextual inference: Anti-inflammatory,antipyretic,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,antimicrobial. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Elephantopus mollis (TaxID 318057)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=318057&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.925Z",
   "description": "Anti-inflammatory, antipyretic, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Anti",
-    "inflammatory",
-    "antipyretic",
-    "antimicrobial. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti",
-    "antimicrobial. No direct region data. Contextual inference: Anti",
-    "antimicrobial. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Anti,inflammatory,antipyretic,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti,antimicrobial. No direct region data. Contextual inference: Anti,antimicrobial. none.,nan.",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Unregulated; folk use",
   "preparation": "Leaves decocted or crushed into poultices; used topically or internally in African folk medicine",
   "region": "No direct region data. Contextual inference: Anti-inflammatory, antipyretic, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antipyretic, antimicrobial. none. ; nan; nan",
@@ -63,8 +37,9 @@
     "possible GI effects"
   ],
   "slug": "elephantopus-mollis",
-  "id": "elephantopus-mollis",
-  "displayName": "elephantopus mollis",
-  "displayScientificName": "Elephantopus mollis",
-  "scientificNormalized": "elephantopus mollis"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

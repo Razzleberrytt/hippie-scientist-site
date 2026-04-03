@@ -1,51 +1,31 @@
 {
   "name": "curcuma longa",
   "latin": "Curcuma longa",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, liver protective. No direct region data. Contextual inference: Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, liver protective. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Anti-inflammatory",
+    "anti-inflammatory",
     "antioxidant",
     "liver protective",
-    "Anti",
+    "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "High doses may cause GI upset",
-    "nausea",
-    "or diarrhea",
-    "gallbladder stimulation noted",
-    "No direct toxicity data. Contextual inference: Anti-inflammatory",
-    "antioxidant",
-    "liver protective. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti-inflammatory",
-    "liver protective. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,High doses may cause GI upset,nausea,or diarrhea,gallbladder stimulation noted,No direct toxicity data. Contextual inference: Anti-inflammatory,antioxidant,liver protective. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,liver protective. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Curcuma longa (TaxID 136217)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=136217&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.911Z",
   "description": "Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "500",
-    "2000 mg",
-    "day standardized extract"
-  ],
+  "dosage": "500,2000 mg,day standardized extract",
   "duration": "6–8 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "Rhizome dried and powdered (turmeric); also decocted or extracted in oil or alcohol-based preparations",
   "region": "No direct region data. Contextual inference: Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, liver protective. none. ; nan; nan",
@@ -58,8 +38,9 @@
     "gallbladder stimulation noted"
   ],
   "slug": "curcuma-longa",
-  "id": "curcuma-longa",
-  "displayName": "curcuma longa",
-  "displayScientificName": "Curcuma longa",
-  "scientificNormalized": "curcuma longa"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

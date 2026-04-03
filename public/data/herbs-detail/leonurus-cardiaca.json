@@ -1,49 +1,29 @@
 {
   "name": "leonurus cardiaca",
   "latin": "Leonurus cardiaca",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Cardiotonic, sedative, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cardiotonic, sedative, antispasmodic. No direct region data. Contextual inference: Cardiotonic, sedative, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cardiotonic, sedative, antispasmodic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Cardiotonic",
+    "cardiotonic",
     "sedative",
     "antispasmodic"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "GI irritation",
-    "drowsiness",
-    "avoid in pregnancy",
-    "No direct toxicity data. Contextual inference: Cardiotonic",
-    "sedative",
-    "antispasmodic. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Cardiotonic",
-    "antispasmodic. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,GI irritation,drowsiness,avoid in pregnancy,No direct toxicity data. Contextual inference: Cardiotonic,sedative,antispasmodic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Cardiotonic,antispasmodic. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Leonurus cardiaca (TaxID 587664)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=587664&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.954Z",
   "description": "Cardiotonic, sedative, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "500 mg",
-    "day aerial parts extract or 1",
-    "3 g infusion"
-  ],
+  "dosage": "250,500 mg,day aerial parts extract or 1,3 g infusion",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal in most herbal traditions",
   "preparation": "Aerial parts tinctured or infused; used in cardiovascular and uterine tonics (“motherwort”)",
   "region": "No direct region data. Contextual inference: Cardiotonic, sedative, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cardiotonic, sedative, antispasmodic. none. ; nan; nan",
@@ -55,8 +35,9 @@
     "avoid in pregnancy"
   ],
   "slug": "leonurus-cardiaca",
-  "id": "leonurus-cardiaca",
-  "displayName": "leonurus cardiaca",
-  "displayScientificName": "Leonurus cardiaca",
-  "scientificNormalized": "leonurus cardiaca"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

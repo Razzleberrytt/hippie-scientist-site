@@ -3,9 +3,9 @@
   "latin": "Nymphaea rubra",
   "class": "Nootropic, Sedative, Traditional",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "",
   "activeCompounds": [
-    "Nupharine",
+    "nupharine",
     "nupharidine",
     "flavonoids",
     "alkaloids",
@@ -13,62 +13,33 @@
     "tannins"
   ],
   "effects": [
-    "Relaxation",
+    "relaxation",
     "mild euphoria",
     "dream enhancement",
-    "anxiolytic",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "anxiolytic"
   ],
   "contraindications": [
-    "Pregnancy",
-    "sedative sensitivity",
-    "liver dysfunction (high doses)"
+    "avoid in pregnancy",
+    "avoid with sedative sensitivity",
+    "avoid in liver disease"
   ],
-  "safetyNotes": [
-    "Generally considered safe in traditional use",
-    "Drowsiness",
-    "dizziness",
-    "dry mouth (rare)",
-    "Low",
-    "Not well-established",
-    "likely >2000 mg/kg (extrapolated)",
-    "safe",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
-  ],
-  "sources": [
-    {
-      "title": "Ethnobotanical texts"
-    },
-    {
-      "title": "Ayurvedic and traditional medicine records"
-    },
-    {
-      "title": "PubMed references"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Aquatic plant traditionally used in Southeast Asia for calming and spiritual purposes. It has mild sedative and nootropic effects.",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "Sedatives",
     "alcohol",
     "CNS depressants"
   ],
+  "safetyNotes": "Generally considered safe in traditional use,Drowsiness,dizziness,dry mouth (rare),Low,Not well-established,likely >2000 mg/kg (extrapolated),safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Nymphaea rubra (TaxID 307976)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=307976&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.984Z",
+  "description": "Aquatic plant traditionally used in Southeast Asia for calming and spiritual purposes. It has mild sedative and nootropic effects.",
+  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Unregulated in most regions",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -79,16 +50,18 @@
     "mild cognitive support"
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "nymphaea-rubra",
   "sideEffects": [],
-  "displayName": "nymphaea rubra",
-  "displayScientificName": "Nymphaea rubra",
-  "scientificNormalized": "nymphaea rubra",
-  "id": "nymphaea-rubra",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "nymphaea-rubra",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "nupharine",
+    "nupharidine",
+    "flavonoids",
+    "alkaloids",
+    "glycosides",
+    "tannins"
   ]
 }

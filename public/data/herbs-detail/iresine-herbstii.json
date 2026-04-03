@@ -1,44 +1,40 @@
 {
   "name": "iresine herbstii",
   "latin": "Iresine herbstii",
-  "class": null,
+  "class": "general",
   "intensity": "Mild.",
-  "mechanism": "Polyphenols and anthocyanins may be active.",
+  "mechanism": "polyphenols and anthocyanins be active",
   "activeCompounds": [],
   "effects": [
-    "Antioxidant",
-    "anti-inflammatory.",
+    "antioxidant",
+    "anti-inflammatory",
     "anti",
-    "inflammatory."
+    "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Low."
-  ],
+  "interactions": [],
+  "safetyNotes": "Low.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Iresine herbstii (TaxID 169210)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=169210&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.949Z",
   "description": "Vibrant ornamental plant; used in folk remedies.",
-  "dosage": [
-    "Mild teas or poultices."
-  ],
+  "dosage": "Mild teas or poultices.",
   "duration": "Mild; effects last a few hours.",
-  "interactions": [],
   "legalStatus": "Unregulated",
   "preparation": "Decoction or crushed leaves.",
   "region": "South and Central America",
   "therapeuticUses": [],
   "traditionalUse": "Folk use for fever, wounds, and vitality.",
+  "sideEffects": [],
   "slug": "iresine-herbstii",
-  "id": "iresine-herbstii",
-  "displayName": "iresine herbstii",
-  "displayScientificName": "Iresine herbstii",
-  "scientificNormalized": "iresine herbstii"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

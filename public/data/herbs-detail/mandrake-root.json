@@ -3,56 +3,40 @@
   "latin": "mandrake root",
   "class": "deliriant / toxic",
   "intensity": "High, dose-dependent.",
-  "mechanism": "Anticholinergic activity.",
+  "mechanism": "anticholinergic activity",
   "activeCompounds": [],
   "effects": [
-    "Hallucinations",
+    "hallucinations",
     "stupor",
-    "anti-spasmodic.",
+    "anti-spasmodic",
     "anti",
-    "spasmodic."
+    "spasmodic"
   ],
   "contraindications": [
-    "pregnancy",
-    "glaucoma",
-    "heart conditions.",
-    "Pregnancy",
-    "mental health disorders",
-    "cardiovascular issues"
+    "avoid in pregnancy",
+    "avoid with glaucoma",
+    "avoid with heart conditions",
+    "avoid with unstable mental health conditions",
+    "avoid with cardiovascular issues"
   ],
-  "safetyNotes": [
-    "dry mouth",
-    "confusion",
-    "hallucinations",
-    "elevated heart rate.",
-    "High",
-    "contains atropine",
-    "scopolamine",
-    "hyoscyamine.",
-    "Highly toxic in moderate doses."
-  ],
-  "sources": [
-    {
-      "title": "Inferred from Unknown"
-    },
-    {
-      "note": "Inferred from Unknown",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "A legendary plant with anthropomorphic root; used as sedative and aphrodisiac.",
-  "dosage": [
-    "Extremely risky",
-    "used historically in small root slices."
-  ],
-  "duration": "121.0",
   "interactions": [
     "potentiates other anticholinergics",
     "cns depressants.",
     "Interacts with CNS depressants",
     "anticholinergic drugs"
   ],
+  "safetyNotes": "dry mouth,confusion,hallucinations,elevated heart rate.,High,contains atropine,scopolamine,hyoscyamine.,Highly toxic in moderate doses.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: mandrake root",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=mandrake%20root&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.958Z",
+  "description": "A legendary plant with anthropomorphic root; used as sedative and aphrodisiac.",
+  "dosage": "Extremely risky,used historically in small root slices.",
+  "duration": "121.0",
   "legalStatus": "Controlled / Toxic",
   "preparation": "Decoction, salve, wine tincture.",
   "region": "Mediterranean and Middle East",
@@ -69,8 +53,9 @@
     "elevated heart rate."
   ],
   "slug": "mandrake-root",
-  "id": "mandrake-root",
-  "displayName": "mandrake root",
-  "displayScientificName": "mandrake root",
-  "scientificNormalized": "mandrake root"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

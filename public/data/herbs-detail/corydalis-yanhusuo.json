@@ -1,36 +1,35 @@
 {
   "name": "corydalis yanhusuo",
   "latin": "corydalis yanhusuo",
-  "class": null,
+  "class": "general",
   "intensity": "moderate",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.",
-  "activeCompounds": [
-    "Tetrahydropalmatine (THP)"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep."
-  ],
+  "mechanism": "used in traditional chinese medicine for pain and sleep",
+  "activeCompounds": [],
+  "effects": [],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep."
-  ],
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Used in traditional chinese medicine for pain and sleep..",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. No direct region data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep."
-  ],
-  "duration": "No direct duration data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. No direct region data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.",
   "interactions": [],
+  "safetyNotes": "safe,No direct toxicity data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: corydalis yanhusuo (TaxID 458692)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=458692&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.909Z",
+  "description": "Used in traditional chinese medicine for pain and sleep..",
+  "dosage": "No direct dosage data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. No direct region data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.",
+  "duration": "No direct duration data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. No direct region data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.",
   "legalStatus": "legal",
   "preparation": "No direct preparation data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. No direct region data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.",
   "region": "No direct region data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep.",
   "therapeuticUses": [],
   "traditionalUse": "Used in Traditional Chinese Medicine for pain and sleep.",
+  "sideEffects": [],
   "slug": "corydalis-yanhusuo",
-  "id": "corydalis-yanhusuo",
-  "displayName": "corydalis yanhusuo",
-  "displayScientificName": "corydalis yanhusuo",
-  "scientificNormalized": "corydalis yanhusuo"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

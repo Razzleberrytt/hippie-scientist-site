@@ -3,75 +3,41 @@
   "latin": "Datura stramonium",
   "class": "Deliriant, Anticholinergic",
   "intensity": "No direct intensity data. Contextual inference: Anticholinergic, hallucinogenic, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anticholinergic, hallucinogenic, sedative. No direct region data. Contextual inference: Anticholinergic, hallucinogenic, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anticholinergic, hallucinogenic, sedative. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [
-    "Scopolamine",
+    "scopolamine",
     "hyoscyamine",
     "atropine"
   ],
   "effects": [
-    "True hallucinations",
+    "true hallucinations",
     "confusion",
     "amnesia",
     "delirium",
-    "Anticholinergic",
+    "anticholinergic",
     "hallucinogenic",
     "sedative"
   ],
   "contraindications": [
-    "All use discouraged without medical oversight"
+    "avoid with all use discouraged without medical oversight"
   ],
-  "safetyNotes": [
-    "Very unsafe",
-    "narrow therapeutic window",
-    "Severe confusion",
-    "hyperthermia",
-    "death",
-    "High",
-    "Hyoscyamine ~50 mg/kg (rat",
-    "oral)",
-    "Toxic – historical and pharmaceutical",
-    "Highly toxic",
-    "hallucinations",
-    "dry mouth",
-    "tachycardia",
-    "coma at high doses",
-    "No direct toxicity data. Contextual inference: Anticholinergic",
-    "hallucinogenic",
-    "sedative. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anticholinergic",
-    "sedative. none."
-  ],
-  "sources": [
-    {
-      "title": "Various traditional uses"
-    },
-    {
-      "title": "toxicology records"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Anticholinergic, hallucinogenic, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "Toxic",
-    "narrow window of safety"
-  ],
-  "duration": "8–24 hours",
   "interactions": [
     "CNS depressants",
     "stimulants",
     "MAOIs"
   ],
+  "safetyNotes": "Very unsafe,narrow therapeutic window,Severe confusion,hyperthermia,death,High,Hyoscyamine ~50 mg/kg (rat,oral),Toxic – historical and pharmaceutical,Highly toxic,hallucinations,dry mouth,tachycardia,coma at high doses,No direct toxicity data. Contextual inference: Anticholinergic,hallucinogenic,sedative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anticholinergic,sedative. none.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Datura stramonium (TaxID 4076)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4076&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.915Z",
+  "description": "Anticholinergic, hallucinogenic, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": "Toxic,narrow window of safety",
+  "duration": "8–24 hours",
   "legalStatus": "Controlled substance in many countries",
   "preparation": "Traditionally smoked or used topically in very small amounts; highly toxic — internal use discouraged",
   "region": "No direct region data. Contextual inference: Anticholinergic, hallucinogenic, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anticholinergic, hallucinogenic, sedative. none. ; nan; nan",
@@ -80,7 +46,6 @@
     "antispasmodic history"
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "datura-stramonium",
   "sideEffects": [
     "Highly toxic",
     "hallucinations",
@@ -88,14 +53,14 @@
     "tachycardia",
     "coma at high doses"
   ],
-  "displayName": "datura stramonium",
-  "displayScientificName": "Datura stramonium",
-  "scientificNormalized": "datura stramonium",
-  "id": "datura-stramonium",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "datura-stramonium",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "scopolamine",
+    "hyoscyamine",
+    "atropine"
   ]
 }

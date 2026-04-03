@@ -3,74 +3,39 @@
   "latin": "Combretum micranthum",
   "class": "Antioxidant, Antidiabetic",
   "intensity": "No direct intensity data. Contextual inference: Antioxidant, anti-inflammatory, hepatoprotective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant, anti-inflammatory, hepatoprotective. No direct region data. Contextual inference: Antioxidant, anti-inflammatory, hepatoprotective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant, anti-inflammatory, hepatoprotective. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [
-    "Flavonoids",
+    "flavonoids",
     "catechins",
     "gallic acid"
   ],
   "effects": [
-    "Detoxification",
+    "detoxification",
     "improved glucose tolerance",
-    "Antioxidant",
+    "antioxidant",
     "anti-inflammatory",
     "hepatoprotective",
     "anti",
     "inflammatory"
   ],
   "contraindications": [
-    "Avoid during pregnancy due to uterine stimulation potential"
+    "avoid in pregnancy"
   ],
-  "safetyNotes": [
-    "Generally considered safe",
-    "Occasional mild laxative effect",
-    "Low",
-    "No human LD50 data",
-    "May cause mild hypotension or dizziness",
-    "generally safe in moderate amounts",
-    "No direct toxicity data. Contextual inference: Antioxidant",
-    "anti-inflammatory",
-    "hepatoprotective. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antioxidant",
-    "hepatoprotective. none."
-  ],
-  "sources": [
-    {
-      "title": "Journal of Ethnopharmacology"
-    },
-    {
-      "title": "PubMed"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Antioxidant, anti-inflammatory, hepatoprotective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Antioxidant",
-    "anti",
-    "inflammatory",
-    "hepatoprotective. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antioxidant",
-    "hepatoprotective. No direct region data. Contextual inference: Antioxidant",
-    "hepatoprotective. none.",
-    "nan."
-  ],
-  "duration": "4–6 hours",
   "interactions": [
     "Potential synergy with antidiabetic medication"
   ],
+  "safetyNotes": "Generally considered safe,Occasional mild laxative effect,Low,No human LD50 data,May cause mild hypotension or dizziness,generally safe in moderate amounts,No direct toxicity data. Contextual inference: Antioxidant,anti-inflammatory,hepatoprotective. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antioxidant,hepatoprotective. none.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Combretum micranthum (TaxID 578542)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=578542&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.904Z",
+  "description": "Antioxidant, anti-inflammatory, hepatoprotective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": "No direct dosage data. Contextual inference: Antioxidant,anti,inflammatory,hepatoprotective. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antioxidant,hepatoprotective. No direct region data. Contextual inference: Antioxidant,hepatoprotective. none.,nan.",
+  "duration": "4–6 hours",
   "legalStatus": "Traditional use in West Africa; not formally regulated",
   "preparation": "Leaves infused or decocted into tea (Kinkeliba) widely consumed in West Africa",
   "region": "No direct region data. Contextual inference: Antioxidant, anti-inflammatory, hepatoprotective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant, anti-inflammatory, hepatoprotective. none. ; nan; nan",
@@ -79,19 +44,18 @@
     "glycemic control"
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "combretum-micranthum",
   "sideEffects": [
     "May cause mild hypotension or dizziness",
     "generally safe in moderate amounts"
   ],
-  "displayName": "combretum micranthum",
-  "displayScientificName": "Combretum micranthum",
-  "scientificNormalized": "combretum micranthum",
-  "id": "combretum-micranthum",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "combretum-micranthum",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "flavonoids",
+    "catechins",
+    "gallic-acid"
   ]
 }

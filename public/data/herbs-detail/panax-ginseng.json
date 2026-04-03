@@ -1,49 +1,29 @@
 {
   "name": "panax ginseng",
   "latin": "Panax ginseng",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, energy booster, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, energy booster, cognitive enhancer. No direct region data. Contextual inference: Adaptogen, energy booster, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, energy booster, cognitive enhancer. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Adaptogen",
+    "adaptogen",
     "energy booster",
     "cognitive enhancer"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Insomnia",
-    "nervousness",
-    "GI upset",
-    "avoid with stimulants",
-    "No direct toxicity data. Contextual inference: Adaptogen",
-    "energy booster",
-    "cognitive enhancer. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Adaptogen",
-    "cognitive enhancer. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,Insomnia,nervousness,GI upset,avoid with stimulants,No direct toxicity data. Contextual inference: Adaptogen,energy booster,cognitive enhancer. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Adaptogen,cognitive enhancer. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Panax ginseng (TaxID 4054)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4054&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.986Z",
   "description": "Adaptogen, energy booster, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "1000 mg",
-    "day root extract"
-  ],
+  "dosage": "250,1000 mg,day root extract",
   "duration": "4–8 hours",
-  "interactions": [],
   "legalStatus": "Legal globally; traditional and supplement use",
   "preparation": "Roots dried and decocted, tinctured, or powdered; tonic and adaptogen for energy and vitality",
   "region": "No direct region data. Contextual inference: Adaptogen, energy booster, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, energy booster, cognitive enhancer. none. ; nan; nan",
@@ -56,8 +36,9 @@
     "avoid with stimulants"
   ],
   "slug": "panax-ginseng",
-  "id": "panax-ginseng",
-  "displayName": "panax ginseng",
-  "displayScientificName": "Panax ginseng",
-  "scientificNormalized": "panax ginseng"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

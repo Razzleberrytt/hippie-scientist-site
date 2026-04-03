@@ -1,47 +1,29 @@
 {
   "name": "tasmannia lanceolata",
   "latin": "Tasmannia lanceolata",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, antioxidant, flavoring agent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antioxidant, flavoring agent. No direct region data. Contextual inference: Antimicrobial, antioxidant, flavoring agent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antioxidant, flavoring agent. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Antimicrobial",
+    "antimicrobial",
     "antioxidant",
     "flavoring agent"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Generally safe in culinary doses",
-    "high amounts may cause GI upset",
-    "No direct toxicity data. Contextual inference: Antimicrobial",
-    "antioxidant",
-    "flavoring agent. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antimicrobial",
-    "flavoring agent. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,Generally safe in culinary doses,high amounts may cause GI upset,No direct toxicity data. Contextual inference: Antimicrobial,antioxidant,flavoring agent. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antimicrobial,flavoring agent. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Tasmannia lanceolata",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Tasmannia%20lanceolata&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.025Z",
   "description": "Antimicrobial, antioxidant, flavoring agent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "0.5",
-    "1.5 g",
-    "day leaf or extract"
-  ],
+  "dosage": "0.5,1.5 g,day leaf or extract",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal in Australia and globally",
   "preparation": "Leaves and berries used as spice; traditionally infused in teas or decoctions for antimicrobial effects",
   "region": "No direct region data. Contextual inference: Antimicrobial, antioxidant, flavoring agent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antioxidant, flavoring agent. none. ; nan; nan",
@@ -52,8 +34,9 @@
     "high amounts may cause GI upset"
   ],
   "slug": "tasmannia-lanceolata",
-  "id": "tasmannia-lanceolata",
-  "displayName": "tasmannia lanceolata",
-  "displayScientificName": "Tasmannia lanceolata",
-  "scientificNormalized": "tasmannia lanceolata"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

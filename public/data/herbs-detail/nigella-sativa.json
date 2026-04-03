@@ -1,50 +1,31 @@
 {
   "name": "nigella sativa",
   "latin": "Nigella sativa",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antioxidant, immune modulating. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, immune modulating. No direct region data. Contextual inference: Anti-inflammatory, antioxidant, immune modulating. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, immune modulating. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Anti-inflammatory",
+    "anti-inflammatory",
     "antioxidant",
     "immune modulating",
-    "Anti",
+    "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "GI upset",
-    "allergic reactions",
-    "avoid high doses in pregnancy",
-    "No direct toxicity data. Contextual inference: Anti-inflammatory",
-    "antioxidant",
-    "immune modulating. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti-inflammatory",
-    "immune modulating. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,GI upset,allergic reactions,avoid high doses in pregnancy,No direct toxicity data. Contextual inference: Anti-inflammatory,antioxidant,immune modulating. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,immune modulating. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Nigella sativa (TaxID 555479)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=555479&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.981Z",
   "description": "Anti-inflammatory, antioxidant, immune modulating. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "500",
-    "1000 mg",
-    "day seed extract"
-  ],
+  "dosage": "500,1000 mg,day seed extract",
   "duration": "6–12 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "Seeds used whole, ground, or as extracted oil (black seed oil); immune and anti-inflammatory support",
   "region": "No direct region data. Contextual inference: Anti-inflammatory, antioxidant, immune modulating. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, immune modulating. none. ; nan; nan",
@@ -56,8 +37,9 @@
     "avoid high doses in pregnancy"
   ],
   "slug": "nigella-sativa",
-  "id": "nigella-sativa",
-  "displayName": "nigella sativa",
-  "displayScientificName": "Nigella sativa",
-  "scientificNormalized": "nigella sativa"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

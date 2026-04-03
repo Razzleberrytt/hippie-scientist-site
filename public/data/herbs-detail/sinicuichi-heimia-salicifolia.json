@@ -1,0 +1,52 @@
+{
+  "name": "Sinicuichi (Heimia salicifolia)",
+  "latin": "Sinicuichi (Heimia salicifolia)",
+  "class": "Psychoactive, auditory hallucinogen",
+  "intensity": "Mild to moderate",
+  "mechanism": "contains alkaloids that act on cholinergic pathways and gaba receptors",
+  "activeCompounds": [
+    "lyfoline",
+    "lythrine"
+  ],
+  "effects": [
+    "auditory hallucinations",
+    "relaxation",
+    "memory alterations",
+    "vivid dreams"
+  ],
+  "contraindications": [
+    "avoid in pregnancy",
+    "avoid in liver disease",
+    "avoid with concurrent cns depressants"
+  ],
+  "interactions": [],
+  "safetyNotes": "Generally considered safe in small doses,Dry mouth,muscle weakness,dizziness,Low,Not well-established,traditional use considered safe in moderate doses",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Sinicuichi (Heimia salicifolia)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Sinicuichi%20(Heimia%20salicifolia)&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.977Z",
+  "description": "Sinicuichi is a traditional Mexican herb used for inducing auditory distortions, mild sedation, and dream enhancement. It has historical use in spiritual and shamanic practices.",
+  "dosage": "20–50g dried leaves brewed into tea",
+  "duration": "4–6 hours",
+  "legalStatus": "",
+  "preparation": "Leaves sun-fermented in water or brewed fresh as tea",
+  "region": "Mexico, Central America",
+  "therapeuticUses": [
+    "Used traditionally for memory enhancement and relaxation"
+  ],
+  "traditionalUse": "Used by Aztecs and rural Mexican shamans for auditory vision quests",
+  "sideEffects": [],
+  "slug": "sinicuichi-heimia-salicifolia",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "lyfoline",
+    "lythrine"
+  ]
+}

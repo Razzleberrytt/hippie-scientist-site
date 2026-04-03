@@ -3,56 +3,33 @@
   "latin": "Asarum canadense",
   "class": "Mild stimulant, aromatic",
   "intensity": "Mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "",
   "activeCompounds": [
-    "Asarone",
+    "asarone",
     "volatile oils",
     "flavonoids"
   ],
   "effects": [
-    "Mild stimulation",
-    "warming sensation",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "mild stimulation",
+    "warming sensation"
   ],
   "contraindications": [
-    "Pregnancy",
-    "gastrointestinal disorders"
+    "avoid in pregnancy",
+    "avoid with gastrointestinal disorders"
   ],
-  "safetyNotes": [
-    "Generally safe in small doses",
-    "not for chronic use",
-    "Large doses may cause nausea",
-    "Low to moderate (long-term use discouraged)",
-    "Toxic – regulatory concern in US/EU",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
-  ],
+  "interactions": [],
+  "safetyNotes": "Generally safe in small doses,not for chronic use,Large doses may cause nausea,Low to moderate (long-term use discouraged),Toxic – regulatory concern in US/EU,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
   "sources": [
     {
-      "title": "Ethnobotanical records"
-    },
-    {
-      "title": "phytochemical surveys"
+      "title": "NCBI Taxonomy: Asarum canadense (TaxID 28498)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=28498&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.858Z",
   "description": "Wild Ginger has been used by Native American tribes as a ceremonial herb and stimulant, as well as a seasoning substitute.",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
+  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
   "legalStatus": "legal",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -61,16 +38,15 @@
     "cold remedy"
   ],
   "traditionalUse": "Used in indigenous medicine as a stimulant and expectorant",
-  "slug": "asarum-canadense",
   "sideEffects": [],
-  "displayName": "asarum canadense",
-  "displayScientificName": "Asarum canadense",
-  "scientificNormalized": "asarum canadense",
-  "id": "asarum-canadense",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "asarum-canadense",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "asarone",
+    "volatile-oils",
+    "flavonoids"
   ]
 }

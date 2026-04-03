@@ -1,53 +1,29 @@
 {
   "name": "veronicastrum virginicum",
   "latin": "Veronicastrum virginicum",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Bitter tonic, liver stimulant, purgative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, liver stimulant, purgative. No direct region data. Contextual inference: Bitter tonic, liver stimulant, purgative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, liver stimulant, purgative. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Bitter tonic",
+    "bitter tonic",
     "liver stimulant",
     "purgative"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "GI irritation in high doses",
-    "avoid in pregnancy",
-    "No direct toxicity data. Contextual inference: Bitter tonic",
-    "liver stimulant",
-    "purgative. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Bitter tonic",
-    "purgative. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "GI irritation in high doses,avoid in pregnancy,No direct toxicity data. Contextual inference: Bitter tonic,liver stimulant,purgative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Bitter tonic,purgative. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Veronicastrum virginicum (TaxID 165346)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=165346&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.030Z",
   "description": "Bitter tonic, liver stimulant, purgative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Bitter tonic",
-    "liver stimulant",
-    "purgative. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Bitter tonic",
-    "purgative. No direct region data. Contextual inference: Bitter tonic",
-    "purgative. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Bitter tonic,liver stimulant,purgative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Bitter tonic,purgative. No direct region data. Contextual inference: Bitter tonic,purgative. none.,nan.",
   "duration": "6–10 hours",
-  "interactions": [],
   "legalStatus": "Unregulated",
   "preparation": "Root historically dried and used as decoction; emetic and purgative; use not common today",
   "region": "No direct region data. Contextual inference: Bitter tonic, liver stimulant, purgative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, liver stimulant, purgative. none. ; nan; nan",
@@ -58,8 +34,9 @@
     "avoid in pregnancy"
   ],
   "slug": "veronicastrum-virginicum",
-  "id": "veronicastrum-virginicum",
-  "displayName": "veronicastrum virginicum",
-  "displayScientificName": "Veronicastrum virginicum",
-  "scientificNormalized": "veronicastrum virginicum"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

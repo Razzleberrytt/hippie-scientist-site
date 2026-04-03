@@ -3,48 +3,39 @@
   "latin": "henbane",
   "class": "deliriant / toxic",
   "intensity": "High; causes strong psychoactive and anticholinergic effects.",
-  "mechanism": "Antagonist at muscarinic acetylcholine receptors.",
+  "mechanism": "antagonist at muscarinic acetylcholine receptors",
   "activeCompounds": [],
   "effects": [
-    "Hallucinations",
+    "hallucinations",
     "dry mouth",
     "blurred vision",
-    "delirium."
+    "delirium"
   ],
   "contraindications": [
-    "not well documented",
-    "Glaucoma",
-    "heart disease",
-    "elderly",
-    "children",
-    "pregnancy"
+    "avoid with not well documented",
+    "avoid with glaucoma",
+    "avoid with heart disease",
+    "avoid with elderly",
+    "avoid with children",
+    "avoid in pregnancy"
   ],
-  "safetyNotes": [
-    "not well documented",
-    "Contains tropane alkaloids (hyoscyamine",
-    "scopolamine) – highly toxic."
-  ],
-  "sources": [
-    {
-      "title": "Inferred from Unknown"
-    },
-    {
-      "note": "Inferred from Unknown",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "A toxic plant used historically as an anesthetic, sedative, and hallucinogen.",
-  "dosage": [
-    "Not recommended",
-    "very narrow therapeutic window."
-  ],
-  "duration": "121.0",
   "interactions": [
     "not well documented",
     "Enhances effects of anticholinergics",
     "sedatives"
   ],
+  "safetyNotes": "not well documented,Contains tropane alkaloids (hyoscyamine,scopolamine) – highly toxic.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: henbane",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=henbane&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.941Z",
+  "description": "A toxic plant used historically as an anesthetic, sedative, and hallucinogen.",
+  "dosage": "Not recommended,very narrow therapeutic window.",
+  "duration": "121.0",
   "legalStatus": "Controlled / Toxic",
   "preparation": "Smoked, made into salves or extracts; extremely dangerous.",
   "region": "Eurasia",
@@ -56,8 +47,9 @@
     "not well documented"
   ],
   "slug": "henbane",
-  "id": "henbane",
-  "displayName": "henbane",
-  "displayScientificName": "henbane",
-  "scientificNormalized": "henbane"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

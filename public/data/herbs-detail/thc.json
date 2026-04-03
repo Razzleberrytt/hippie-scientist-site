@@ -1,64 +1,38 @@
 {
   "name": "thc",
   "latin": "Δ9-Tetrahydrocannabinol (from Cannabis sativa/indica)",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. No direct region data. Contextual inference: Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. ; nan; nan. ; nan; nan",
-  "mechanism": "Agonist at CB1 receptors; modulates dopamine and GABA release.",
+  "mechanism": "agonist at cb1 receptors | modulates dopamine and gaba release",
   "activeCompounds": [],
   "effects": [
-    "Psychoactive compound in cannabis",
+    "psychoactive compound in cannabis",
     "euphoric",
     "analgesic",
     "antiemetic"
   ],
   "contraindications": [
-    "psychosis",
-    "pregnancy",
-    "heart disease."
+    "avoid with unstable mental health conditions",
+    "avoid in pregnancy",
+    "avoid with heart disease"
   ],
-  "safetyNotes": [
-    "euphoria",
-    "anxiety",
-    "dry mouth",
-    "impaired cognition.",
-    "No direct toxicity data. Contextual inference: Psychoactive compound in cannabis",
-    "euphoric",
-    "analgesic",
-    "antiemetic. Agonist at cb1 receptors",
-    "modulates dopamine and gaba release..",
-    "nan.. Agonist at CB1 receptors",
-    "modulates dopamine and GABA release.. Psychoactive compound in cannabis",
-    "antiemetic."
-  ],
-  "sources": [
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Psychoactive compound in cannabis",
-    "euphoric",
-    "analgesic",
-    "antiemetic. Agonist at cb1 receptors",
-    "modulates dopamine and gaba release..",
-    "nan.. Agonist at CB1 receptors",
-    "modulates dopamine and GABA release.. Psychoactive compound in cannabis",
-    "antiemetic. No direct region data. Contextual inference: Psychoactive compound in cannabis",
-    "antiemetic.",
-    "nan."
-  ],
-  "duration": "2–6 hours",
   "interactions": [
     "cns depressants",
     "alcohol",
     "ssris."
   ],
+  "safetyNotes": "euphoria,anxiety,dry mouth,impaired cognition.,No direct toxicity data. Contextual inference: Psychoactive compound in cannabis,euphoric,analgesic,antiemetic. Agonist at cb1 receptors,modulates dopamine and gaba release..,nan.. Agonist at CB1 receptors,modulates dopamine and GABA release.. Psychoactive compound in cannabis,antiemetic.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Δ9-Tetrahydrocannabinol (from Cannabis sativa/indica)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=%CE%949-Tetrahydrocannabinol%20(from%20Cannabis%20sativa%2Findica)&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.025Z",
+  "description": "Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.",
+  "dosage": "No direct dosage data. Contextual inference: Psychoactive compound in cannabis,euphoric,analgesic,antiemetic. Agonist at cb1 receptors,modulates dopamine and gaba release..,nan.. Agonist at CB1 receptors,modulates dopamine and GABA release.. Psychoactive compound in cannabis,antiemetic. No direct region data. Contextual inference: Psychoactive compound in cannabis,antiemetic.,nan.",
+  "duration": "2–6 hours",
   "legalStatus": "Legal, medical or recreational in some jurisdictions; controlled elsewhere",
   "preparation": "No direct preparation data. Contextual inference: Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. No direct region data. Contextual inference: Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. ; nan; nan",
@@ -76,8 +50,9 @@
     "impaired cognition."
   ],
   "slug": "thc",
-  "id": "thc",
-  "displayName": "thc",
-  "displayScientificName": "Δ9-Tetrahydrocannabinol (from Cannabis sativa/indica)",
-  "scientificNormalized": "δ9-tetrahydrocannabinol from cannabis sativa/indica"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

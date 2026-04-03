@@ -1,46 +1,29 @@
 {
   "name": "leptospermum scoparium",
   "latin": "Leptospermum scoparium",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Manuka; antimicrobial, used topically and internally. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Manuka; antimicrobial, used topically and internally. No direct region data. Contextual inference: Manuka; antimicrobial, used topically and internally. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Manuka; antimicrobial, used topically and internally. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Manuka",
+    "manuka",
     "antimicrobial",
     "used topically and internally"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Generally safe",
-    "mild GI or allergic responses possible",
-    "No direct toxicity data. Contextual inference: Manuka",
-    "antimicrobial",
-    "used topically and internally. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Manuka",
-    "used topically and internally. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,Generally safe,mild GI or allergic responses possible,No direct toxicity data. Contextual inference: Manuka,antimicrobial,used topically and internally. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Manuka,used topically and internally. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Leptospermum scoparium (TaxID 295139)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=295139&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.954Z",
   "description": "Manuka; antimicrobial, used topically and internally. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "Topical or 1",
-    "2 mL honey orally"
-  ],
+  "dosage": "Topical or 1,2 mL honey orally",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "Leaves and flowers infused or used in steam; known as Manuka; external and internal antimicrobial use",
   "region": "No direct region data. Contextual inference: Manuka; antimicrobial, used topically and internally. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Manuka; antimicrobial, used topically and internally. none. ; nan; nan",
@@ -51,8 +34,9 @@
     "mild GI or allergic responses possible"
   ],
   "slug": "leptospermum-scoparium",
-  "id": "leptospermum-scoparium",
-  "displayName": "leptospermum scoparium",
-  "displayScientificName": "Leptospermum scoparium",
-  "scientificNormalized": "leptospermum scoparium"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

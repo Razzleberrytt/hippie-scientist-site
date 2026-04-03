@@ -1,48 +1,29 @@
 {
   "name": "melissa officinalis",
   "latin": "Melissa officinalis",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anxiolytic, cognitive support, antiviral. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anxiolytic, cognitive support, antiviral. No direct region data. Contextual inference: Anxiolytic, cognitive support, antiviral. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anxiolytic, cognitive support, antiviral. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Anxiolytic",
-    "cognitive support",
+    "anxiolytic",
+    "cognitive",
     "antiviral"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Drowsiness",
-    "allergic skin reactions",
-    "may lower thyroid hormone levels",
-    "No direct toxicity data. Contextual inference: Anxiolytic",
-    "cognitive support",
-    "antiviral. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anxiolytic",
-    "antiviral. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,Drowsiness,allergic skin reactions,may lower thyroid hormone levels,No direct toxicity data. Contextual inference: Anxiolytic,cognitive support,antiviral. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anxiolytic,antiviral. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Melissa officinalis (TaxID 39338)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=39338&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.960Z",
   "description": "Anxiolytic, cognitive support, antiviral. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "750 mg",
-    "day leaf extract or infusion"
-  ],
+  "dosage": "250,750 mg,day leaf extract or infusion",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal; common in European and folk medicine",
   "preparation": "Leaves used fresh or dried in infusions, tinctures, and essential oils; calming and antiviral properties",
   "region": "No direct region data. Contextual inference: Anxiolytic, cognitive support, antiviral. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anxiolytic, cognitive support, antiviral. none. ; nan; nan",
@@ -54,8 +35,9 @@
     "may lower thyroid hormone levels"
   ],
   "slug": "melissa-officinalis",
-  "id": "melissa-officinalis",
-  "displayName": "melissa officinalis",
-  "displayScientificName": "Melissa officinalis",
-  "scientificNormalized": "melissa officinalis"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

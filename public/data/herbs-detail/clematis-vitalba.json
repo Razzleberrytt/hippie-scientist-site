@@ -1,45 +1,28 @@
 {
   "name": "clematis vitalba",
   "latin": "Clematis vitalba",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Traditional homeopathic use for inflammation, ulcers. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional homeopathic use for inflammation, ulcers. No direct region data. Contextual inference: Traditional homeopathic use for inflammation, ulcers. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional homeopathic use for inflammation, ulcers. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Traditional homeopathic use for inflammation",
+    "traditional homeopathic use for inflammation",
     "ulcers"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Toxic – avoid unprocessed",
-    "Irritant to skin and mucosa",
-    "toxic if ingested in large quantities",
-    "causes GI and neurological effects",
-    "No direct toxicity data. Contextual inference: Traditional homeopathic use for inflammation",
-    "ulcers. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Traditional homeopathic use for inflammation",
-    "ulcers. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Toxic – avoid unprocessed,Irritant to skin and mucosa,toxic if ingested in large quantities,causes GI and neurological effects,No direct toxicity data. Contextual inference: Traditional homeopathic use for inflammation,ulcers. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional homeopathic use for inflammation,ulcers. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Clematis vitalba (TaxID 37490)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=37490&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.899Z",
   "description": "Traditional homeopathic use for inflammation, ulcers. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "Homeopathic dilutions",
-    "raw plant toxic"
-  ],
+  "dosage": "Homeopathic dilutions,raw plant toxic",
   "duration": "Varies",
-  "interactions": [],
   "legalStatus": "Homeopathic use legal",
   "preparation": "Young shoots cooked to neutralize irritants; traditionally used in topical washes; toxic when raw",
   "region": "No direct region data. Contextual inference: Traditional homeopathic use for inflammation, ulcers. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional homeopathic use for inflammation, ulcers. none. ; nan; nan",
@@ -51,8 +34,9 @@
     "causes GI and neurological effects"
   ],
   "slug": "clematis-vitalba",
-  "id": "clematis-vitalba",
-  "displayName": "clematis vitalba",
-  "displayScientificName": "Clematis vitalba",
-  "scientificNormalized": "clematis vitalba"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

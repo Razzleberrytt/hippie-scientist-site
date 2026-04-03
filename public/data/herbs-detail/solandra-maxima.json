@@ -1,52 +1,28 @@
 {
   "name": "solandra maxima",
   "latin": "Solandra maxima",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Traditionally used as hallucinogen; contains tropane alkaloids. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as hallucinogen; contains tropane alkaloids. No direct region data. Contextual inference: Traditionally used as hallucinogen; contains tropane alkaloids. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as hallucinogen; contains tropane alkaloids. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Traditionally used as hallucinogen",
+    "traditionally used as hallucinogen",
     "contains tropane alkaloids"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Toxic",
-    "hallucinations",
-    "dry mouth",
-    "tachycardia",
-    "No direct toxicity data. Contextual inference: Traditionally used as hallucinogen",
-    "contains tropane alkaloids. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Traditionally used as hallucinogen",
-    "contains tropane alkaloids. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Toxic,hallucinations,dry mouth,tachycardia,No direct toxicity data. Contextual inference: Traditionally used as hallucinogen,contains tropane alkaloids. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditionally used as hallucinogen,contains tropane alkaloids. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Solandra maxima (TaxID 310467)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=310467&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.021Z",
   "description": "Traditionally used as hallucinogen; contains tropane alkaloids. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Traditionally used as hallucinogen",
-    "contains tropane alkaloids. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Traditionally used as hallucinogen",
-    "contains tropane alkaloids. No direct region data. Contextual inference: Traditionally used as hallucinogen",
-    "contains tropane alkaloids. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Traditionally used as hallucinogen,contains tropane alkaloids. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditionally used as hallucinogen,contains tropane alkaloids. No direct region data. Contextual inference: Traditionally used as hallucinogen,contains tropane alkaloids. none.,nan.",
   "duration": "6–12 hours",
-  "interactions": [],
   "legalStatus": "Controlled in some countries",
   "preparation": "Leaves and flowers historically used by indigenous cultures; contains tropane alkaloids; highly toxic—**not recommended**",
   "region": "No direct region data. Contextual inference: Traditionally used as hallucinogen; contains tropane alkaloids. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as hallucinogen; contains tropane alkaloids. none. ; nan; nan",
@@ -59,8 +35,9 @@
     "tachycardia"
   ],
   "slug": "solandra-maxima",
-  "id": "solandra-maxima",
-  "displayName": "solandra maxima",
-  "displayScientificName": "Solandra maxima",
-  "scientificNormalized": "solandra maxima"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

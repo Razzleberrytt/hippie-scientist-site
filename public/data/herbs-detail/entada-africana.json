@@ -1,0 +1,54 @@
+{
+  "name": "Entada africana",
+  "latin": "Entada africana",
+  "class": "Anti-inflammatory, Antioxidant",
+  "intensity": "Moderate",
+  "mechanism": "flavonoid-mediated inhibition of pro-inflammatory cytokines",
+  "activeCompounds": [
+    "flavonoids",
+    "triterpenes",
+    "saponins"
+  ],
+  "effects": [
+    "anti-inflammatory",
+    "hepatoprotective"
+  ],
+  "contraindications": [
+    "avoid in liver disease"
+  ],
+  "interactions": [
+    "May enhance effects of NSAIDs"
+  ],
+  "safetyNotes": "Safe in moderate doses,Possible mild GI upset,Low,Not well established",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Entada africana (TaxID 2005481)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2005481&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.974Z",
+  "description": "Used in traditional medicine for inflammation, liver support, and pain",
+  "dosage": "Leaf or bark decoction taken 1–2 times daily",
+  "duration": "360",
+  "legalStatus": "Unregulated",
+  "preparation": "Bark or leaf decoction",
+  "region": "West and Central Africa",
+  "therapeuticUses": [
+    "Hepatitis",
+    "inflammation",
+    "rheumatism"
+  ],
+  "traditionalUse": "",
+  "sideEffects": [],
+  "slug": "entada-africana",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "flavonoids",
+    "triterpenes",
+    "saponins"
+  ]
+}

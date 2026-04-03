@@ -1,53 +1,29 @@
 {
   "name": "tetrapleura tetraptera",
   "latin": "Tetrapleura tetraptera",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antidiabetic, antimicrobial, used in african medicine and cuisine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antidiabetic, antimicrobial, used in African medicine and cuisine. No direct region data. Contextual inference: Antidiabetic, antimicrobial, used in african medicine and cuisine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antidiabetic, antimicrobial, used in African medicine and cuisine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Antidiabetic",
+    "antidiabetic",
     "antimicrobial",
-    "used in African medicine and cuisine"
+    "used in african medicine and cuisine"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Generally safe",
-    "limited data on adverse effects",
-    "No direct toxicity data. Contextual inference: Antidiabetic",
-    "antimicrobial",
-    "used in african medicine and cuisine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antidiabetic",
-    "used in African medicine and cuisine. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Generally safe,limited data on adverse effects,No direct toxicity data. Contextual inference: Antidiabetic,antimicrobial,used in african medicine and cuisine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antidiabetic,used in African medicine and cuisine. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Tetrapleura tetraptera (TaxID 148728)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=148728&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.025Z",
   "description": "Antidiabetic, antimicrobial, used in african medicine and cuisine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Antidiabetic",
-    "antimicrobial",
-    "used in african medicine and cuisine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antidiabetic",
-    "used in African medicine and cuisine. No direct region data. Contextual inference: Antidiabetic",
-    "used in African medicine and cuisine. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Antidiabetic,antimicrobial,used in african medicine and cuisine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antidiabetic,used in African medicine and cuisine. No direct region data. Contextual inference: Antidiabetic,used in African medicine and cuisine. none.,nan.",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal in most regions",
   "preparation": "Pods boiled in soups, decoctions, or infusions; traditional West African spice and tonic herb",
   "region": "No direct region data. Contextual inference: Antidiabetic, antimicrobial, used in african medicine and cuisine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antidiabetic, antimicrobial, used in African medicine and cuisine. none. ; nan; nan",
@@ -58,8 +34,9 @@
     "limited data on adverse effects"
   ],
   "slug": "tetrapleura-tetraptera",
-  "id": "tetrapleura-tetraptera",
-  "displayName": "tetrapleura tetraptera",
-  "displayScientificName": "Tetrapleura tetraptera",
-  "scientificNormalized": "tetrapleura tetraptera"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

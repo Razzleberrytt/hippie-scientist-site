@@ -1,56 +1,31 @@
 {
   "name": "solidago virgaurea",
   "latin": "Solidago virgaurea",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, diuretic, urinary tract support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, diuretic, urinary tract support. No direct region data. Contextual inference: Anti-inflammatory, diuretic, urinary tract support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, diuretic, urinary tract support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Anti-inflammatory",
+    "anti-inflammatory",
     "diuretic",
-    "urinary tract support",
-    "Anti",
+    "urinary tract",
+    "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Allergic reactions",
-    "avoid in kidney disease",
-    "No direct toxicity data. Contextual inference: Anti-inflammatory",
-    "diuretic",
-    "urinary tract support. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti-inflammatory",
-    "urinary tract support. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Allergic reactions,avoid in kidney disease,No direct toxicity data. Contextual inference: Anti-inflammatory,diuretic,urinary tract support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,urinary tract support. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Solidago virgaurea (TaxID 462879)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=462879&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.021Z",
   "description": "Anti-inflammatory, diuretic, urinary tract support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Anti",
-    "inflammatory",
-    "diuretic",
-    "urinary tract support. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti",
-    "urinary tract support. No direct region data. Contextual inference: Anti",
-    "urinary tract support. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Anti,inflammatory,diuretic,urinary tract support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti,urinary tract support. No direct region data. Contextual inference: Anti,urinary tract support. none.,nan.",
   "duration": "3–5 hours",
-  "interactions": [],
   "legalStatus": "Legal and available in herbal preparations",
   "preparation": "Aerial parts dried for teas or tinctures; used for urinary tract and anti-inflammatory support",
   "region": "No direct region data. Contextual inference: Anti-inflammatory, diuretic, urinary tract support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, diuretic, urinary tract support. none. ; nan; nan",
@@ -61,8 +36,9 @@
     "avoid in kidney disease"
   ],
   "slug": "solidago-virgaurea",
-  "id": "solidago-virgaurea",
-  "displayName": "solidago virgaurea",
-  "displayScientificName": "Solidago virgaurea",
-  "scientificNormalized": "solidago virgaurea"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

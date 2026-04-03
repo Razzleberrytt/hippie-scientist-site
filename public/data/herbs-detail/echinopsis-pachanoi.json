@@ -1,72 +1,36 @@
 {
   "name": "echinopsis pachanoi",
   "latin": "echinopsis pachanoi",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Psychedelic effects due to mescaline; traditionally used in andean ceremonies. Contains mescaline; affects serotonin 5-ht2a receptors.. ; nan; nan.. Contains mescaline; affects serotonin 5-HT2A receptors.. Psychedelic effects due to mescaline; traditionally used in Andean ceremonies. No direct region data. Contextual inference: Psychedelic effects due to mescaline; traditionally used in andean ceremonies. Contains mescaline; affects serotonin 5-ht2a receptors.. ; nan; nan.. Contains mescaline; affects serotonin 5-HT2A receptors.. Psychedelic effects due to mescaline; traditionally used in Andean ceremonies. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "",
   "activeCompounds": [
-    "Mescaline"
+    "mescaline"
   ],
   "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan.",
-    "Psychedelic effects due to mescaline",
-    "traditionally used in Andean ceremonies"
+    "psychedelic effects due to mescaline",
+    "traditionally used in andean ceremonies"
   ],
   "contraindications": [
-    "mental illness",
-    "pregnancy."
+    "avoid with mental illness",
+    "avoid in pregnancy"
   ],
-  "safetyNotes": [
-    "Toxic – hallucinogen",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "gi upset",
-    "hallucinations.",
-    "No direct toxicity data. Contextual inference: Psychedelic effects due to mescaline",
-    "traditionally used in andean ceremonies. Contains mescaline",
-    "affects serotonin 5-ht2a receptors..",
-    "nan.. Contains mescaline",
-    "affects serotonin 5-HT2A receptors.. Psychedelic effects due to mescaline",
-    "traditionally used in Andean ceremonies."
-  ],
-  "sources": [
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Psychedelic effects due to mescaline; traditionally used in andean ceremonies. Contains mescaline; affects serotonin 5-ht2a receptors.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:",
-    "No direct dosage data. Contextual inference: Psychedelic effects due to mescaline",
-    "traditionally used in andean ceremonies. Contains mescaline",
-    "affects serotonin 5",
-    "ht2a receptors..",
-    "nan.. Contains mescaline",
-    "HT2A receptors.. Psychedelic effects due to mescaline",
-    "traditionally used in Andean ceremonies. No direct region data. Contextual inference: Psychedelic effects due to mescaline",
-    "traditionally used in Andean ceremonies."
-  ],
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "psychedelics",
     "maois."
   ],
+  "safetyNotes": "Toxic – hallucinogen,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,gi upset,hallucinations.,No direct toxicity data. Contextual inference: Psychedelic effects due to mescaline,traditionally used in andean ceremonies. Contains mescaline,affects serotonin 5-ht2a receptors..,nan.. Contains mescaline,affects serotonin 5-HT2A receptors.. Psychedelic effects due to mescaline,traditionally used in Andean ceremonies.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: echinopsis pachanoi",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=echinopsis%20pachanoi&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.923Z",
+  "description": "Psychedelic effects due to mescaline; traditionally used in andean ceremonies. Contains mescaline; affects serotonin 5-ht2a receptors.. ; nan; nan.",
+  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:,No direct dosage data. Contextual inference: Psychedelic effects due to mescaline,traditionally used in andean ceremonies. Contains mescaline,affects serotonin 5,ht2a receptors..,nan.. Contains mescaline,HT2A receptors.. Psychedelic effects due to mescaline,traditionally used in Andean ceremonies. No direct region data. Contextual inference: Psychedelic effects due to mescaline,traditionally used in Andean ceremonies.",
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Controlled in some countries; legal as ornamental cactus",
   "preparation": "No direct preparation data. Contextual inference: Psychedelic effects due to mescaline; traditionally used in andean ceremonies. Contains mescaline; affects serotonin 5-ht2a receptors.. ; nan; nan.. Contains mescaline; affects serotonin 5-HT2A receptors.. Psychedelic effects due to mescaline; traditionally used in Andean ceremonies. No direct region data. Contextual inference: Psychedelic effects due to mescaline; traditionally used in andean ceremonies. Contains mescaline; affects serotonin 5-ht2a receptors.. ; nan; nan.. Contains mescaline; affects serotonin 5-HT2A receptors.. Psychedelic effects due to mescaline; traditionally used in Andean ceremonies. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Psychedelic effects due to mescaline; traditionally used in andean ceremonies. Contains mescaline; affects serotonin 5-ht2a receptors.. ; nan; nan.. Contains mescaline; affects serotonin 5-HT2A receptors.. Psychedelic effects due to mescaline; traditionally used in Andean ceremonies. ; nan; nan",
@@ -75,20 +39,16 @@
     "emotional healing."
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "echinopsis-pachanoi",
   "sideEffects": [
     "gi upset",
     "hallucinations."
   ],
-  "displayName": "echinopsis pachanoi",
-  "displayScientificName": "echinopsis pachanoi",
-  "scientificNormalized": "echinopsis pachanoi",
-  "id": "echinopsis-pachanoi",
-  "aliases": [
-    "san pedro",
-    "Echinopsis pachanoi"
-  ],
-  "slugAliases": [
-    "san-pedro"
+  "slug": "echinopsis-pachanoi",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "mescaline"
   ]
 }

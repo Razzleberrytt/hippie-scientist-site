@@ -3,53 +3,60 @@
   "latin": "albizia julibrissin",
   "class": "Tree",
   "intensity": "mild",
-  "mechanism": "Rich in flavonoids, lignan glycosides and saponins; bioactive constituents such as quercitrin and julibroside C1 show antidepressant and anxiolytic effects by modulating monoamine neurotransmission, the HPA axis and GABA and 5-HT1A receptors【769566324375905†L437-L447】【769566324375905†L486-L506】.",
+  "mechanism": "rich in flavonoids | lignan glycosides and saponins | the hpa axis and gaba and 5-ht1a receptors【769566324375905†l437-l447】【769566324375905†l486-l506】",
   "activeCompounds": [
     "quercitrin",
-    "julibroside C1",
-    "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside",
+    "julibroside c1",
     "flavonoids",
     "lignan glycosides",
     "saponins",
     "triterpenoids",
     "sterols"
   ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+  "effects": [],
+  "contraindications": [
+    "avoid with limited safety data",
+    "avoid with potentiate sedative or antidepressant drugs",
+    "avoid in pregnancy"
   ],
-  "contraindications": "Limited safety data; may potentiate sedative or antidepressant drugs; avoid in pregnancy or lactation unless supervised.",
-  "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
-  ],
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [],
+  "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: albizia julibrissin (TaxID 3813)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3813&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.843Z",
+  "description": "; nan; nan.",
+  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "legal",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": "Traditional antidepressant and anxiolytic; used to relieve stress, anxiety, depression and insomnia; also exhibits anti‑inflammatory, antioxidant and immunomodulatory properties.",
+  "therapeuticUses": [
+    "Traditional antidepressant and anxiolytic",
+    "used to relieve stress",
+    "anxiety",
+    "depression and insomnia",
+    "also exhibits anti‑inflammatory",
+    "antioxidant and immunomodulatory properties."
+  ],
   "traditionalUse": "; nan; nan",
+  "sideEffects": [],
   "slug": "albizia-julibrissin",
-  "id": "albizia-julibrissin",
-  "displayName": "albizia julibrissin",
-  "displayScientificName": "albizia julibrissin",
-  "scientificNormalized": "albizia julibrissin"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "quercitrin",
+    "julibroside-c1",
+    "flavonoids",
+    "lignan-glycosides",
+    "saponins",
+    "triterpenoids",
+    "sterols"
+  ]
 }

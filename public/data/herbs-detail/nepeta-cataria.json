@@ -3,72 +3,41 @@
   "latin": "Nepeta cataria",
   "class": "Traditional, Sedative, Recreational",
   "intensity": "Mild in typical tea-level use; stronger effects are uncommon.",
-  "mechanism": "Likely mediated by volatile terpenes and other phytochemicals with mild calming and antispasmodic activity in preclinical data.",
+  "mechanism": "",
   "activeCompounds": [
-    "Nepetalactone",
+    "nepetalactone",
     "thymol",
     "citral",
     "limonene",
     "rosmarinic acid"
   ],
   "effects": [
-    "Mild sedation",
+    "mild sedation",
     "relaxation",
     "antispasmodic",
-    "Mild sedative",
+    "mild sedative",
     "carminative"
   ],
   "contraindications": [
-    "Pregnancy",
-    "sedation-sensitive individuals"
+    "avoid in pregnancy",
+    "avoid with sedation-sensitive individuals"
   ],
-  "safetyNotes": [
-    "Generally safe in moderate doses",
-    "Drowsiness",
-    "nausea (high doses)",
-    "Low",
-    "Limited pregnancy/lactation safety evidence supports conservative use.",
-    "safe",
-    "avoid in pregnancy due to uterine stimulation",
-    "Avoid combining with sedatives without clinical guidance.",
-    "antispasmodic",
-    "carminative. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Mild sedative",
-    "carminative. none."
-  ],
-  "sources": [
-    {
-      "title": "PubMed"
-    },
-    {
-      "title": "Traditional Herbal Compendia"
-    },
-    {
-      "title": "NIH"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "A member of the mint family known for its euphoric effects on cats and mild sedative properties in humans. Traditionally used for colds, anxiety, and cramps.",
-  "dosage": [
-    "250",
-    "500 mg",
-    "day aerial parts"
-  ],
-  "duration": "1–3 hours",
   "interactions": [
     "Sedatives",
     "CNS depressants"
   ],
+  "safetyNotes": "Generally safe in moderate doses,Drowsiness,nausea (high doses),Low,Limited pregnancy/lactation safety evidence supports conservative use.,safe,avoid in pregnancy due to uterine stimulation,Avoid combining with sedatives without clinical guidance.,antispasmodic,carminative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Mild sedative,carminative. none.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Nepeta cataria (TaxID 39347)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=39347&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.979Z",
+  "description": "A member of the mint family known for its euphoric effects on cats and mild sedative properties in humans. Traditionally used for colds, anxiety, and cramps.",
+  "dosage": "250,500 mg,day aerial parts",
+  "duration": "1–3 hours",
   "legalStatus": "Legal worldwide",
   "preparation": "Leaves and flowers dried for tea or tincture; calming and digestive herb (catnip)",
   "region": "Cultivated in Europe, North America, and other temperate regions.",
@@ -78,20 +47,20 @@
     "digestive cramps"
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "nepeta-cataria",
   "sideEffects": [
     "Drowsiness",
     "avoid in pregnancy due to uterine stimulation"
   ],
-  "displayName": "nepeta cataria",
-  "displayScientificName": "Nepeta cataria",
-  "scientificNormalized": "nepeta cataria",
-  "id": "nepeta-cataria",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
-  "summary": "Nepeta cataria is traditionally used for mild calming and digestive support, with limited modern clinical evidence."
+  "slug": "nepeta-cataria",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "nepetalactone",
+    "thymol",
+    "citral",
+    "limonene",
+    "rosmarinic-acid"
+  ]
 }

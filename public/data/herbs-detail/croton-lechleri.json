@@ -1,12 +1,12 @@
 {
   "name": "croton lechleri",
   "latin": "Croton lechleri",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. No direct region data. Contextual inference: Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Source of dragon’s blood",
+    "source of dragon’s blood",
     "anti-diarrheal",
     "antiviral",
     "and wound healing",
@@ -14,44 +14,29 @@
     "diarrheal"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference: Source of dragon’s blood",
-    "anti-diarrheal",
-    "antiviral",
-    "and wound healing. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Source of dragon’s blood",
-    "and wound healing. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,No direct toxicity data. Contextual inference: Source of dragon’s blood,anti-diarrheal,antiviral,and wound healing. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Source of dragon’s blood,and wound healing. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Croton lechleri (TaxID 323063)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=323063&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.911Z",
   "description": "Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "300",
-    "600 mg",
-    "day sap or extract"
-  ],
+  "dosage": "300,600 mg,day sap or extract",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "No direct preparation data. Contextual inference: Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. No direct region data. Contextual inference: Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
+  "sideEffects": [],
   "slug": "croton-lechleri",
-  "id": "croton-lechleri",
-  "displayName": "croton lechleri",
-  "displayScientificName": "Croton lechleri",
-  "scientificNormalized": "croton lechleri"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

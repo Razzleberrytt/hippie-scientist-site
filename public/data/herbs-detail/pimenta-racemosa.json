@@ -1,56 +1,38 @@
 {
   "name": "pimenta racemosa",
   "latin": "Pimenta racemosa",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antiseptic and aromatic; used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic and aromatic; used in Bay Rum for skin and scalp. No direct region data. Contextual inference: Antiseptic and aromatic; used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic and aromatic; used in Bay Rum for skin and scalp. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Antiseptic and aromatic",
-    "used in Bay Rum for skin and scalp"
+    "antiseptic and aromatic",
+    "used in bay rum for skin and scalp"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Antiseptic and aromatic",
-    "used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antiseptic and aromatic",
-    "used in Bay Rum for skin and scalp. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "No direct toxicity data. Contextual inference: Antiseptic and aromatic,used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiseptic and aromatic,used in Bay Rum for skin and scalp. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Pimenta racemosa (TaxID 260139)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=260139&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.995Z",
   "description": "Antiseptic and aromatic; used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Antiseptic and aromatic",
-    "used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antiseptic and aromatic",
-    "used in Bay Rum for skin and scalp. No direct region data. Contextual inference: Antiseptic and aromatic",
-    "used in Bay Rum for skin and scalp. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Antiseptic and aromatic,used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiseptic and aromatic,used in Bay Rum for skin and scalp. No direct region data. Contextual inference: Antiseptic and aromatic,used in Bay Rum for skin and scalp. none.,nan.",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "No direct preparation data. Contextual inference: Antiseptic and aromatic; used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic and aromatic; used in Bay Rum for skin and scalp. No direct region data. Contextual inference: Antiseptic and aromatic; used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic and aromatic; used in Bay Rum for skin and scalp. none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Antiseptic and aromatic; used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic and aromatic; used in Bay Rum for skin and scalp. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
+  "sideEffects": [],
   "slug": "pimenta-racemosa",
-  "id": "pimenta-racemosa",
-  "displayName": "pimenta racemosa",
-  "displayScientificName": "Pimenta racemosa",
-  "scientificNormalized": "pimenta racemosa"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

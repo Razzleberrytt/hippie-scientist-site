@@ -3,75 +3,39 @@
   "latin": "Datura ferox",
   "class": "Deliriant, anticholinergic",
   "intensity": "No direct intensity data. Contextual inference: Anticholinergic, hallucinogenic; contains scopolamine and atropine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anticholinergic, hallucinogenic; contains scopolamine and atropine. No direct region data. Contextual inference: Anticholinergic, hallucinogenic; contains scopolamine and atropine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anticholinergic, hallucinogenic; contains scopolamine and atropine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [
-    "Scopolamine",
+    "scopolamine",
     "atropine",
     "hyoscyamine"
   ],
   "effects": [
-    "Hallucinations",
+    "hallucinations",
     "delirium",
     "dry mouth",
     "amnesia",
-    "Anticholinergic",
+    "anticholinergic",
     "hallucinogenic",
     "contains scopolamine and atropine"
   ],
   "contraindications": [
-    "Heart conditions",
-    "pregnancy",
-    "glaucoma"
+    "avoid with heart conditions",
+    "avoid in pregnancy",
+    "avoid with glaucoma"
   ],
-  "safetyNotes": [
-    "Highly dangerous",
-    "often leads to poisoning or fatality",
-    "Tachycardia",
-    "confusion",
-    "potentially fatal toxicity",
-    "High",
-    "Atropine: ~453 mg/kg (rat",
-    "oral)",
-    "No direct toxicity data. Contextual inference: Anticholinergic",
-    "hallucinogenic",
-    "contains scopolamine and atropine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anticholinergic",
-    "contains scopolamine and atropine. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "Highly dangerous,often leads to poisoning or fatality,Tachycardia,confusion,potentially fatal toxicity,High,Atropine: ~453 mg/kg (rat,oral),No direct toxicity data. Contextual inference: Anticholinergic,hallucinogenic,contains scopolamine and atropine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anticholinergic,contains scopolamine and atropine. none.",
   "sources": [
     {
-      "title": "Ethnobotanical texts"
-    },
-    {
-      "title": "toxicology references"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Datura ferox (TaxID 169103)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=169103&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.914Z",
   "description": "Anticholinergic, hallucinogenic; contains scopolamine and atropine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Anticholinergic",
-    "hallucinogenic",
-    "contains scopolamine and atropine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anticholinergic",
-    "contains scopolamine and atropine. No direct region data. Contextual inference: Anticholinergic",
-    "contains scopolamine and atropine. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Anticholinergic,hallucinogenic,contains scopolamine and atropine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anticholinergic,contains scopolamine and atropine. No direct region data. Contextual inference: Anticholinergic,contains scopolamine and atropine. none.,nan.",
   "duration": "6–24 hours",
-  "interactions": [],
   "legalStatus": "Restricted or banned in many regions",
   "preparation": "No direct preparation data. Contextual inference: Anticholinergic, hallucinogenic; contains scopolamine and atropine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anticholinergic, hallucinogenic; contains scopolamine and atropine. No direct region data. Contextual inference: Anticholinergic, hallucinogenic; contains scopolamine and atropine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anticholinergic, hallucinogenic; contains scopolamine and atropine. none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Anticholinergic, hallucinogenic; contains scopolamine and atropine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anticholinergic, hallucinogenic; contains scopolamine and atropine. none. ; nan; nan",
@@ -79,16 +43,15 @@
     "None recommended due to extreme toxicity"
   ],
   "traditionalUse": "Used by shamans in initiation or divinatory rites in Africa and Asia",
-  "slug": "datura-ferox",
   "sideEffects": [],
-  "displayName": "datura ferox",
-  "displayScientificName": "Datura ferox",
-  "scientificNormalized": "datura ferox",
-  "id": "datura-ferox",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "datura-ferox",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "scopolamine",
+    "atropine",
+    "hyoscyamine"
   ]
 }

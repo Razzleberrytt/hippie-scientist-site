@@ -1,48 +1,29 @@
 {
   "name": "monarda fistulosa",
   "latin": "Monarda fistulosa",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antiseptic, digestive, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, digestive, calming. No direct region data. Contextual inference: Antiseptic, digestive, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, digestive, calming. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Antiseptic",
+    "antiseptic",
     "digestive",
     "calming"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Possible allergic reactions",
-    "avoid large doses",
-    "No direct toxicity data. Contextual inference: Antiseptic",
-    "digestive",
-    "calming. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antiseptic",
-    "calming. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,Possible allergic reactions,avoid large doses,No direct toxicity data. Contextual inference: Antiseptic,digestive,calming. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiseptic,calming. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Monarda fistulosa (TaxID 39344)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=39344&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.966Z",
   "description": "Antiseptic, digestive, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "1",
-    "2 g",
-    "day infusion or 250",
-    "500 mg extract"
-  ],
+  "dosage": "1,2 g,day infusion or 250,500 mg extract",
   "duration": "2–4 hours",
-  "interactions": [],
   "legalStatus": "Unregulated",
   "preparation": "Leaves and flowers infused as tea or tinctured; also used in poultices for topical antimicrobial use",
   "region": "No direct region data. Contextual inference: Antiseptic, digestive, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, digestive, calming. none. ; nan; nan",
@@ -53,8 +34,9 @@
     "avoid large doses"
   ],
   "slug": "monarda-fistulosa",
-  "id": "monarda-fistulosa",
-  "displayName": "monarda fistulosa",
-  "displayScientificName": "Monarda fistulosa",
-  "scientificNormalized": "monarda fistulosa"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

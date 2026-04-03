@@ -3,66 +3,40 @@
   "latin": "Paullinia yoco",
   "class": "Stimulant, Traditional Amazonian",
   "intensity": "Mild to moderate",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "",
   "activeCompounds": [
-    "Caffeine",
+    "caffeine",
     "theobromine",
     "saponins",
     "tannins"
   ],
   "effects": [
-    "Mental stimulation",
+    "mental stimulation",
     "increased alertness",
-    "mild diuretic",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "mild diuretic"
   ],
   "contraindications": [
-    "Hypertension",
-    "heart disease",
-    "anxiety disorders"
+    "avoid with hypertension",
+    "avoid with heart disease",
+    "avoid with anxiety disorders"
   ],
-  "safetyNotes": [
-    "Generally safe in traditional use",
-    "Insomnia",
-    "restlessness",
-    "palpitations (high dose)",
-    "Low (unless excessive caffeine exposure)",
-    "~192 mg/kg (caffeine oral",
-    "human extrapolated)",
-    "safe",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
-  ],
-  "sources": [
-    {
-      "title": "Ethnobotany journals"
-    },
-    {
-      "title": "traditional medicine records"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Amazonian vine used by indigenous tribes as a stimulant tea; contains caffeine; culturally significant in morning rituals.",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "CNS stimulants",
     "caffeine",
     "MAOIs"
   ],
+  "safetyNotes": "Generally safe in traditional use,Insomnia,restlessness,palpitations (high dose),Low (unless excessive caffeine exposure),~192 mg/kg (caffeine oral,human extrapolated),safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Paullinia yoco",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Paullinia%20yoco&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.989Z",
+  "description": "Amazonian vine used by indigenous tribes as a stimulant tea; contains caffeine; culturally significant in morning rituals.",
+  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Not controlled",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -71,16 +45,16 @@
     "low energy"
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "paullinia-yoco",
   "sideEffects": [],
-  "displayName": "paullinia yoco",
-  "displayScientificName": "Paullinia yoco",
-  "scientificNormalized": "paullinia yoco",
-  "id": "paullinia-yoco",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "paullinia-yoco",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "caffeine",
+    "theobromine",
+    "saponins",
+    "tannins"
   ]
 }

@@ -1,49 +1,31 @@
 {
   "name": "gardenia jasminoides",
   "latin": "Gardenia jasminoides",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antioxidant, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, calming. No direct region data. Contextual inference: Anti-inflammatory, antioxidant, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, calming. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Anti-inflammatory",
+    "anti-inflammatory",
     "antioxidant",
     "calming",
-    "Anti",
+    "anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Generally safe",
-    "rare allergic reactions or mild digestive discomfort",
-    "No direct toxicity data. Contextual inference: Anti-inflammatory",
-    "antioxidant",
-    "calming. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti-inflammatory",
-    "calming. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,Generally safe,rare allergic reactions or mild digestive discomfort,No direct toxicity data. Contextual inference: Anti-inflammatory,antioxidant,calming. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,calming. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Gardenia jasminoides (TaxID 114476)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=114476&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.937Z",
   "description": "Anti-inflammatory, antioxidant, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "750 mg",
-    "day fruit extract"
-  ],
+  "dosage": "250,750 mg,day fruit extract",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal in TCM and herbal systems",
   "preparation": "Fruit (Zhi Zi) used in decoctions in Traditional Chinese Medicine; sometimes added to herbal pastes",
   "region": "No direct region data. Contextual inference: Anti-inflammatory, antioxidant, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, calming. none. ; nan; nan",
@@ -54,8 +36,9 @@
     "rare allergic reactions or mild digestive discomfort"
   ],
   "slug": "gardenia-jasminoides",
-  "id": "gardenia-jasminoides",
-  "displayName": "gardenia jasminoides",
-  "displayScientificName": "Gardenia jasminoides",
-  "scientificNormalized": "gardenia jasminoides"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

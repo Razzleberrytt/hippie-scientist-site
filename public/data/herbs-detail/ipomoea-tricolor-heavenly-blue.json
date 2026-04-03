@@ -3,53 +3,39 @@
   "latin": "ipomoea tricolor (heavenly blue)",
   "class": "ethnobotanical / rare",
   "intensity": "Medium-high.",
-  "mechanism": "LSA affects 5-HT2A serotonin receptors.",
+  "mechanism": "lsa affects 5-ht2a serotonin receptors",
   "activeCompounds": [],
   "effects": [
-    "Altered states",
+    "altered states",
     "euphoria",
     "introspection",
-    "visual distortions."
+    "visual distortions"
   ],
   "contraindications": [
-    "cardiovascular disorders",
-    "psychiatric conditions [0",
-    "5].",
-    "Pregnancy",
-    "liver",
-    "kidney issues"
+    "avoid with cardiovascular disorders",
+    "avoid with psychiatric conditions [0",
+    "avoid with 5]",
+    "avoid in pregnancy",
+    "avoid in liver disease",
+    "avoid in kidney disease"
   ],
-  "safetyNotes": [
-    "nausea",
-    "vasoconstriction",
-    "headache [0",
-    "5].",
-    "Mild",
-    "GI discomfort from seed coatings.",
-    "Low",
-    "rodent LD50 ~200–300 mg/kg [0"
-  ],
-  "sources": [
-    {
-      "title": "Inferred from Unknown"
-    },
-    {
-      "note": "Inferred from Unknown",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Ornamental morning glory whose seeds contain LSA.",
-  "dosage": [
-    "100",
-    "300 seeds ground and soaked."
-  ],
-  "duration": "121.0",
   "interactions": [
     "ssris/maois [0",
     "5].",
     "May potentiate serotonergic substances"
   ],
+  "safetyNotes": "nausea,vasoconstriction,headache [0,5].,Mild,GI discomfort from seed coatings.,Low,rodent LD50 ~200–300 mg/kg [0",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: ipomoea tricolor (heavenly blue)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=ipomoea%20tricolor%20(heavenly%20blue)&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.949Z",
+  "description": "Ornamental morning glory whose seeds contain LSA.",
+  "dosage": "100,300 seeds ground and soaked.",
+  "duration": "121.0",
   "legalStatus": "Restricted in some countries",
   "preparation": "Cold water extraction of crushed seeds.",
   "region": "Central America",
@@ -66,8 +52,9 @@
     "5]."
   ],
   "slug": "ipomoea-tricolor-heavenly-blue",
-  "id": "ipomoea-tricolor-heavenly-blue",
-  "displayName": "ipomoea tricolor (heavenly blue)",
-  "displayScientificName": "ipomoea tricolor (heavenly blue)",
-  "scientificNormalized": "ipomoea tricolor heavenly blue"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

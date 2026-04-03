@@ -1,46 +1,29 @@
 {
   "name": "citrus limon",
   "latin": "Citrus limon",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antiseptic, digestive tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, digestive tonic, antioxidant. No direct region data. Contextual inference: Antiseptic, digestive tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, digestive tonic, antioxidant. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Antiseptic",
+    "antiseptic",
     "digestive tonic",
     "antioxidant"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Generally well tolerated",
-    "possible heartburn or skin irritation from essential oil",
-    "No direct toxicity data. Contextual inference: Antiseptic",
-    "digestive tonic",
-    "antioxidant. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antiseptic",
-    "antioxidant. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,Generally well tolerated,possible heartburn or skin irritation from essential oil,No direct toxicity data. Contextual inference: Antiseptic,digestive tonic,antioxidant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiseptic,antioxidant. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Citrus limon",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Citrus%20limon&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.898Z",
   "description": "Antiseptic, digestive tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "Fresh juice or 250",
-    "750 mg extract"
-  ],
+  "dosage": "Fresh juice or 250,750 mg extract",
   "duration": "2–4 hours",
-  "interactions": [],
   "legalStatus": "Legal globally",
   "preparation": "Juice used fresh or preserved; peel used in infusions, essential oil, or tincture; popular in digestive and detox formulas",
   "region": "No direct region data. Contextual inference: Antiseptic, digestive tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, digestive tonic, antioxidant. none. ; nan; nan",
@@ -51,8 +34,9 @@
     "possible heartburn or skin irritation from essential oil"
   ],
   "slug": "citrus-limon",
-  "id": "citrus-limon",
-  "displayName": "citrus limon",
-  "displayScientificName": "Citrus limon",
-  "scientificNormalized": "citrus limon"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

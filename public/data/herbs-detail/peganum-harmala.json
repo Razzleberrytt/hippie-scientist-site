@@ -3,100 +3,35 @@
   "latin": "Peganum harmala",
   "class": "MAOI, Psychoactive, Entheogen",
   "intensity": "No direct intensity data. Contextual inference: Mao inhibitor, antispasmodic, psychoactive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. MAO inhibitor, antispasmodic, psychoactive. No direct region data. Contextual inference: Mao inhibitor, antispasmodic, psychoactive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. MAO inhibitor, antispasmodic, psychoactive. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [
-    "Harmaline",
+    "harmaline",
     "harmine",
-    "tetrahydroharmine (beta-carbolines)",
-    "Harmine",
-    "Harmalol",
-    "tetrahydroharmine",
-    "harmaline"
+    "harmalol",
+    "tetrahydroharmine"
   ],
   "effects": [
-    "Altered perception",
+    "altered perception",
     "dream intensification",
     "nausea",
-    "Mild euphoria",
-    "altered perception",
-    "potentiation of DMT",
-    "MAOI activity",
+    "mild euphoria",
+    "potentiation of dmt",
+    "maoi activity",
     "altered consciousness",
     "dream enhancement",
-    "MAO inhibitor",
+    "mao inhibitor",
     "antispasmodic",
     "psychoactive"
   ],
   "contraindications": [
-    "Avoid with SSRIs",
-    "stimulants",
-    "tyramine-rich foods",
-    "Antidepressants",
-    "SSRIs",
-    "pregnancy",
-    "MAOIs",
-    "liver issues"
+    "may interact with ssris",
+    "avoid with stimulants",
+    "avoid with tyramine-rich foods",
+    "avoid with antidepressants",
+    "avoid in pregnancy",
+    "may interact with maois",
+    "avoid in liver disease"
   ],
-  "safetyNotes": [
-    "Toxic in high doses",
-    "caution needed",
-    "Nausea",
-    "tremors",
-    "hallucinations",
-    "Moderate",
-    "~1200 mg/kg in rats",
-    "risk increases with combination substances",
-    "vomiting",
-    "dizziness",
-    "Low to moderate",
-    "400 mg/kg (mice",
-    "harmaline)",
-    "Use with caution",
-    "risk of serotonin syndrome",
-    "headache",
-    "Moderate at high doses",
-    "Toxic – psychoactive and potent",
-    "liver issues",
-    "No direct toxicity data. Contextual inference: Mao inhibitor",
-    "antispasmodic",
-    "psychoactive. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. MAO inhibitor",
-    "psychoactive. none."
-  ],
-  "sources": [
-    {
-      "title": "PubMed"
-    },
-    {
-      "title": "Traditional Islamic Medicine"
-    },
-    {
-      "title": "Ayahuasca research"
-    },
-    {
-      "title": "Ethnobotanical literature"
-    },
-    {
-      "title": "scientific reviews"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Mao inhibitor, antispasmodic, psychoactive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "0.5",
-    "1.5 g seed (with caution)"
-  ],
-  "duration": "4–6 hours",
   "interactions": [
     "Dangerous with many drugs (serotonin syndrome risk)",
     "MAOIs",
@@ -105,6 +40,18 @@
     "tyramine-rich foods",
     "antidepressants"
   ],
+  "safetyNotes": "Toxic in high doses,caution needed,Nausea,tremors,hallucinations,Moderate,~1200 mg/kg in rats,risk increases with combination substances,vomiting,dizziness,Low to moderate,400 mg/kg (mice,harmaline),Use with caution,risk of serotonin syndrome,headache,Moderate at high doses,Toxic – psychoactive and potent,liver issues,No direct toxicity data. Contextual inference: Mao inhibitor,antispasmodic,psychoactive. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. MAO inhibitor,psychoactive. none.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Peganum harmala (TaxID 43879)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=43879&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.991Z",
+  "description": "Mao inhibitor, antispasmodic, psychoactive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": "0.5,1.5 g seed (with caution)",
+  "duration": "4–6 hours",
   "legalStatus": "Controlled in some countries",
   "preparation": "Seeds used in tinctures or decoctions in very small doses; psychoactive and MAOI properties—use cautiously",
   "region": "No direct region data. Contextual inference: Mao inhibitor, antispasmodic, psychoactive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. MAO inhibitor, antispasmodic, psychoactive. none. ; nan; nan",
@@ -117,20 +64,20 @@
     "ritual aid"
   ],
   "traditionalUse": "Spiritual ceremonies in Persia and Central Asia",
-  "slug": "peganum-harmala",
   "sideEffects": [
     "Toxic in high doses",
     "hallucinations",
     "liver issues"
   ],
-  "displayName": "peganum harmala",
-  "displayScientificName": "Peganum harmala",
-  "scientificNormalized": "peganum harmala",
-  "id": "peganum-harmala",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "peganum-harmala",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "harmaline",
+    "harmine",
+    "harmalol",
+    "tetrahydroharmine"
   ]
 }

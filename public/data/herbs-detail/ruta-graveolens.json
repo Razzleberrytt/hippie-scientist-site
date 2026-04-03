@@ -1,38 +1,43 @@
 {
   "name": "ruta graveolens",
   "latin": "ruta graveolens",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. No direct region data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.",
+  "mechanism": "used historically in folk magic and herbalism",
   "activeCompounds": [
-    "Rutarin",
-    "Graveoline",
-    "Rutin"
+    "rutarin",
+    "graveoline",
+    "rutin"
   ],
-  "effects": [
-    "No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
-  ],
+  "effects": [],
   "contraindications": [],
-  "safetyNotes": [
-    "caution",
-    "No direct toxicity data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
-  ],
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Used historically in folk magic and herbalism..",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. No direct region data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
-  ],
-  "duration": "No direct duration data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. No direct region data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.",
   "interactions": [],
-  "legalStatus": null,
+  "safetyNotes": "caution,No direct toxicity data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: ruta graveolens (TaxID 37565)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=37565&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.016Z",
+  "description": "Used historically in folk magic and herbalism..",
+  "dosage": "No direct dosage data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. No direct region data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.",
+  "duration": "No direct duration data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. No direct region data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.",
+  "legalStatus": "",
   "preparation": "No direct preparation data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. No direct region data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.",
   "region": "No direct region data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism.",
   "therapeuticUses": [],
   "traditionalUse": "Used historically in folk magic and herbalism.",
+  "sideEffects": [],
   "slug": "ruta-graveolens",
-  "id": "ruta-graveolens",
-  "displayName": "ruta graveolens",
-  "displayScientificName": "ruta graveolens",
-  "scientificNormalized": "ruta graveolens"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "rutarin",
+    "graveoline",
+    "rutin"
+  ]
 }

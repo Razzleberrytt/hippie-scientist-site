@@ -1,47 +1,29 @@
 {
   "name": "lycopus virginicus",
   "latin": "Lycopus virginicus",
-  "class": null,
+  "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Thyroid modulator, sedative, astringent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Thyroid modulator, sedative, astringent. No direct region data. Contextual inference: Thyroid modulator, sedative, astringent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Thyroid modulator, sedative, astringent. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "Thyroid modulator",
+    "thyroid modulator",
     "sedative",
     "astringent"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "May affect thyroid",
-    "avoid in hypothyroidism or pregnancy",
-    "No direct toxicity data. Contextual inference: Thyroid modulator",
-    "sedative",
-    "astringent. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Thyroid modulator",
-    "astringent. none."
-  ],
+  "interactions": [],
+  "safetyNotes": "safe,May affect thyroid,avoid in hypothyroidism or pregnancy,No direct toxicity data. Contextual inference: Thyroid modulator,sedative,astringent. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Thyroid modulator,astringent. none.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "NCBI Taxonomy: Lycopus virginicus (TaxID 1620142)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1620142&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:37.957Z",
   "description": "Thyroid modulator, sedative, astringent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "500 mg",
-    "day aerial parts extract"
-  ],
+  "dosage": "250,500 mg,day aerial parts extract",
   "duration": "4–6 hours",
-  "interactions": [],
   "legalStatus": "Legal in Western herbal medicine",
   "preparation": "Aerial parts used fresh or dried in infusions or tinctures; traditionally used for thyroid and heart conditions",
   "region": "No direct region data. Contextual inference: Thyroid modulator, sedative, astringent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Thyroid modulator, sedative, astringent. none. ; nan; nan",
@@ -52,8 +34,9 @@
     "avoid in hypothyroidism or pregnancy"
   ],
   "slug": "lycopus-virginicus",
-  "id": "lycopus-virginicus",
-  "displayName": "lycopus virginicus",
-  "displayScientificName": "Lycopus virginicus",
-  "scientificNormalized": "lycopus virginicus"
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": []
 }

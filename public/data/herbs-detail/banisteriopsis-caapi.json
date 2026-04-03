@@ -3,64 +3,39 @@
   "latin": "Banisteriopsis caapi",
   "class": "MAOI, Entheogen",
   "intensity": "moderate",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "",
   "activeCompounds": [
-    "Harmine",
+    "harmine",
     "harmaline",
     "tetrahydroharmine"
   ],
   "effects": [
-    "Dreamlike visions",
+    "dreamlike visions",
     "introspection",
-    "emotional release",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "emotional release"
   ],
   "contraindications": [
-    "SSRIs",
-    "psychiatric disorders",
-    "MAOIs"
+    "may interact with ssris",
+    "avoid with psychiatric disorders",
+    "may interact with maois"
   ],
-  "safetyNotes": [
-    "Traditional use considered safe with proper guidance",
-    "Vomiting (purge)",
-    "dizziness",
-    "emotional intensity",
-    "Moderate",
-    "Not well established",
-    "caution",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
-  ],
-  "sources": [
-    {
-      "title": "Ethnobotany"
-    },
-    {
-      "title": "psychedelic studies"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Amazonian vine used in ayahuasca brew for vision and healing",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "MAOIs",
     "SSRIs",
     "psychedelics"
   ],
+  "safetyNotes": "Traditional use considered safe with proper guidance,Vomiting (purge),dizziness,emotional intensity,Moderate,Not well established,caution,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "sources": [
+    {
+      "title": "NCBI Taxonomy: Banisteriopsis caapi (TaxID 577683)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=577683&mode=Info",
+      "note": "Bootstrap identity source (tier: high, canonical-id)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:37.864Z",
+  "description": "Amazonian vine used in ayahuasca brew for vision and healing",
+  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Restricted in some countries",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -69,16 +44,15 @@
     "depression (investigational)"
   ],
   "traditionalUse": "; nan; nan",
-  "slug": "banisteriopsis-caapi",
   "sideEffects": [],
-  "displayName": "banisteriopsis caapi",
-  "displayScientificName": "Banisteriopsis caapi",
-  "scientificNormalized": "banisteriopsis caapi",
-  "id": "banisteriopsis-caapi",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
+  "slug": "banisteriopsis-caapi",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "relatedCompounds": [
+    "harmine",
+    "harmaline",
+    "tetrahydroharmine"
   ]
 }
