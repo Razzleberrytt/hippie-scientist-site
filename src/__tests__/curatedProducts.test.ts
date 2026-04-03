@@ -8,6 +8,29 @@ import {
   isMalformedAmazonProductUrl,
   resolveAffiliateUrl,
 } from '@/lib/curatedProducts'
+import { ANALYTICS_STORAGE_KEY } from '@/utils/analytics/eventStorage'
+
+function installAnalyticsWindow(events: unknown[]) {
+  const storage = new Map<string, string>()
+  storage.set(ANALYTICS_STORAGE_KEY, JSON.stringify(events))
+
+  ;(globalThis as typeof globalThis & { window?: unknown }).window = {
+    localStorage: {
+      getItem(key: string) {
+        return storage.get(key) ?? null
+      },
+      setItem(key: string, value: string) {
+        storage.set(key, value)
+      },
+      removeItem(key: string) {
+        storage.delete(key)
+      },
+    },
+    dispatchEvent() {
+      return true
+    },
+  }
+}
 
 async function run() {
   const base = curatedProductRecommendations[0]
@@ -48,6 +71,29 @@ async function run() {
   })
   assert.equal(unknownEntity.length, 0)
 
+  const rankedInput = curatedProductRecommendations
+    .filter(product => product.entityType === 'herb' && product.entitySlug === 'ashwagandha')
+    .sort((a, b) => Number(b.featured) - Number(a.featured) || a.sortOrder - b.sortOrder)
+  const candidateA = rankedInput[1]
+  const candidateB = rankedInput[2]
+  assert.ok(candidateA)
+  assert.ok(candidateB)
+
+  installAnalyticsWindow([
+    { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateB.productId, timestamp: 1712000001000 },
+    { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateB.productId, timestamp: 1712000000000 },
+    { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateA.productId, timestamp: 1712000002000 },
+  ])
+
+  const boostedRows = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  })
+  const boostedAlternativeRows = boostedRows.filter(product => !product.featured)
+  assert.equal(boostedAlternativeRows[0]?.productId, candidateB.productId)
+
   assert.match(resolveAffiliateUrl(herbRows[0]), /tag=razzleberry02-20/)
   assert.equal(hasGenericAffiliateLink('https://www.amazon.com/s?k=ashwagandha'), true)
   assert.equal(isMalformedAmazonProductUrl('https://www.amazon.com/s?k=ashwagandha'), true)
@@ -74,6 +120,8 @@ async function run() {
   assert.equal(readiness.failureReasons.includes('missing_disclosure'), true)
   assert.equal(readiness.failureReasons.includes('missing_reviewed_at'), true)
   assert.equal(readiness.reviewRecencyState, 'missing_reviewed_at')
+
+  delete (globalThis as typeof globalThis & { window?: unknown }).window
 }
 
 run()
