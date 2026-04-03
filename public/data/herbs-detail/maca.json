@@ -3,12 +3,28 @@
   "latin": "maca",
   "class": "general",
   "intensity": "mild",
-  "mechanism": "",
-  "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "mechanism": "Limited human and preclinical data suggest macamides and glucosinolates may influence stress-response and metabolic signaling; definitive mechanism remains uncertain.",
+  "activeCompounds": [
+    "macamides",
+    "macaenes",
+    "glucosinolates",
+    "sterols",
+    "polyphenols"
+  ],
+  "effects": [
+    "possible support for libido",
+    "possible support for perceived energy",
+    "possible support for stress resilience"
+  ],
+  "contraindications": [
+    "use caution during pregnancy or breastfeeding due to limited safety data",
+    "use caution in hormone-sensitive conditions until more clinical data are available"
+  ],
+  "interactions": [
+    "monitor with thyroid medications (goitrogen-containing preparations)",
+    "use caution with antihypertensive or glucose-lowering medications"
+  ],
+  "safetyNotes": "Generally well tolerated in food-level and supplemental use, but high-quality long-term safety trials are limited. Use standardized products and monitor for gastrointestinal upset or sleep disturbance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: maca",
@@ -24,7 +40,9 @@
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [],
-  "traditionalUse": "; nan; nan",
+  "traditionalUse": [
+    "Andean food and tonic root used for stamina and fertility support"
+  ],
   "sideEffects": [],
   "slug": "maca",
   "identity": "",

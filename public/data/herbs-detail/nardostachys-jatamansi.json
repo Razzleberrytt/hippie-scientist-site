@@ -3,16 +3,27 @@
   "latin": "Nardostachys jatamansi",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Calming, neuroprotective, used for stress and epilepsy in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, neuroprotective, used for stress and epilepsy in Ayurveda. No direct region data. Contextual inference: Calming, neuroprotective, used for stress and epilepsy in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, neuroprotective, used for stress and epilepsy in Ayurveda. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
-  "activeCompounds": [],
+  "mechanism": "Preclinical evidence suggests sesquiterpenes may enhance GABAergic tone and reduce neuroinflammatory signaling; robust human mechanistic confirmation is still limited.",
+  "activeCompounds": [
+    "jatamansone (valeranone)",
+    "sesquiterpenes",
+    "nardin",
+    "jatamansic acid"
+  ],
   "effects": [
     "calming",
     "neuroprotective",
     "used for stress and epilepsy in ayurveda"
   ],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Drowsiness,GI discomfort in large doses,No direct toxicity data. Contextual inference: Calming,neuroprotective,used for stress and epilepsy in ayurveda. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Calming,used for stress and epilepsy in Ayurveda. none.",
+  "contraindications": [
+    "avoid in pregnancy due to insufficient safety data",
+    "use caution with sedative medications and alcohol"
+  ],
+  "interactions": [
+    "may have additive sedation with CNS depressants",
+    "use caution with antiepileptic and anxiolytic medications"
+  ],
+  "safetyNotes": "Traditionally used as a calming nervine. Drowsiness and gastrointestinal discomfort are possible; avoid combining with other sedatives until better interaction data are available.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nardostachys jatamansi (TaxID 179860)",
@@ -23,12 +34,14 @@
   "lastUpdated": "2026-04-01T18:55:37.978Z",
   "description": "Calming, neuroprotective, used for stress and epilepsy in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
   "dosage": "No direct dosage data. Contextual inference: Calming,neuroprotective,used for stress and epilepsy in ayurveda. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Calming,used for stress and epilepsy in Ayurveda. No direct region data. Contextual inference: Calming,used for stress and epilepsy in Ayurveda. none.,nan.",
-  "duration": "4–8 hours",
+  "duration": "4\u20138 hours",
   "legalStatus": "Legal; protected plant in some areas",
   "preparation": "Rhizome dried, powdered, tinctured, or decocted; used in Ayurveda as nervine and sedative",
   "region": "No direct region data. Contextual inference: Calming, neuroprotective, used for stress and epilepsy in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, neuroprotective, used for stress and epilepsy in Ayurveda. none. ; nan; nan",
   "therapeuticUses": [],
-  "traditionalUse": "; nan; nan",
+  "traditionalUse": [
+    "Ayurvedic nervine used for sleep, stress, and emotional regulation support"
+  ],
   "sideEffects": [
     "Drowsiness",
     "GI discomfort in large doses"
