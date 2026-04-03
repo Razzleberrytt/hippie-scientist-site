@@ -44,6 +44,9 @@ const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage'))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
 const DisclaimerPage = lazy(() => import('./pages/DisclaimerPage'))
 const UnknownCompoundSurvivalGuide = lazy(() => import('./pages/UnknownCompoundSurvivalGuide'))
+const DevAnalyticsViewer = import.meta.env.DEV
+  ? lazy(() => import('@/dev/AnalyticsViewer'))
+  : null
 import { useTrippy } from '@/lib/trippy'
 import { useGrowthTracking } from '@/lib/growth'
 import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
@@ -203,6 +206,11 @@ function RootLayout() {
       <Footer />
       <ConsentBanner />
       <AppToaster />
+      {DevAnalyticsViewer ? (
+        <Suspense fallback={null}>
+          <DevAnalyticsViewer />
+        </Suspense>
+      ) : null}
     </div>
   )
 }
