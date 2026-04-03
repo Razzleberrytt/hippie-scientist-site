@@ -1,7 +1,7 @@
 {
   "name": "harmaline)",
   "category": "general",
-  "description": "harmaline) is a compound reported in banisteriopsis caapi and peganum harmala. Available source coverage remains preliminary in this dataset.",
+  "description": "harmaline) is a compound reported in banisteriopsis caapi and peganum harmala. Available references are still early and incomplete.",
   "herbs": [
     "banisteriopsis caapi",
     "peganum harmala"
@@ -63,5 +63,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harmaline",
-  "summary": "harmaline) is a compound reported in banisteriopsis caapi and peganum harmala. Available source coverage remains preliminary in this dataset."
+  "summary": "harmaline) is a compound reported in banisteriopsis caapi and peganum harmala. Available references are still early and incomplete."
 }

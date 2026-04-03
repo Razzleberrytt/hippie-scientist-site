@@ -1,7 +1,7 @@
 {
   "name": "N-Dimethyltryptamine (DMT)",
   "category": "general",
-  "description": "N-Dimethyltryptamine (DMT) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "description": "N-Dimethyltryptamine (DMT) is listed as a compound in this profile. Available references are still early and incomplete.",
   "herbs": [],
   "effects": [
     "Closed-eye visuals",
@@ -30,5 +30,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "n-dimethyltryptamine-dmt",
-  "summary": "N-Dimethyltryptamine (DMT) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "N-Dimethyltryptamine (DMT) is listed as a compound in this profile. Available references are still early and incomplete."
 }

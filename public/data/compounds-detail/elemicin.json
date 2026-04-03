@@ -1,7 +1,7 @@
 {
   "name": "elemicin",
   "category": "general",
-  "description": "elemicin is a compound reported in myristica fragrans and Myristica fragrans Houtt.. Available source coverage remains preliminary in this dataset.",
+  "description": "elemicin is a compound reported in myristica fragrans and Myristica fragrans Houtt.. Available references are still early and incomplete.",
   "herbs": [
     "myristica fragrans",
     "Myristica fragrans Houtt."
@@ -48,5 +48,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "elemicin",
-  "summary": "elemicin is a compound reported in myristica fragrans and Myristica fragrans Houtt.. Available source coverage remains preliminary in this dataset."
+  "summary": "elemicin is a compound reported in myristica fragrans and Myristica fragrans Houtt.. Available references are still early and incomplete."
 }

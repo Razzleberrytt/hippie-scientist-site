@@ -1,7 +1,7 @@
 {
   "name": "Sclareol",
   "category": "general",
-  "description": "Sclareol is a compound reported in salvia sclarea. Available source coverage remains preliminary in this dataset.",
+  "description": "Sclareol appears in records as a compound reported in salvia sclarea. Current source coverage is limited and still developing.",
   "herbs": [
     "salvia sclarea"
   ],
@@ -30,5 +30,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "sclareol",
-  "summary": "Sclareol is a compound reported in salvia sclarea. Available source coverage remains preliminary in this dataset."
+  "summary": "Sclareol appears in records as a compound reported in salvia sclarea. Current source coverage is limited and still developing."
 }

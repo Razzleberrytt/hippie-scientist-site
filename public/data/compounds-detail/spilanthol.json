@@ -1,7 +1,7 @@
 {
   "name": "Spilanthol",
   "category": "general",
-  "description": "Spilanthol is a compound reported in acmella oleracea. Available source coverage remains preliminary in this dataset.",
+  "description": "Spilanthol is a compound reported in acmella oleracea. Available references are still early and incomplete.",
   "herbs": [
     "acmella oleracea"
   ],
@@ -42,5 +42,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "spilanthol",
-  "summary": "Spilanthol is a compound reported in acmella oleracea. Available source coverage remains preliminary in this dataset."
+  "summary": "Spilanthol is a compound reported in acmella oleracea. Available references are still early and incomplete."
 }

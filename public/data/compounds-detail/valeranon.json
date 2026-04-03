@@ -1,7 +1,7 @@
 {
   "name": "Valeranon",
   "category": "general",
-  "description": "Valeranon is a compound reported in valeriana jatamansi. Available source coverage remains preliminary in this dataset.",
+  "description": "Valeranon is a compound reported in valeriana jatamansi. Available references are still early and incomplete.",
   "herbs": [
     "valeriana jatamansi"
   ],
@@ -30,5 +30,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "valeranon",
-  "summary": "Valeranon is a compound reported in valeriana jatamansi. Available source coverage remains preliminary in this dataset."
+  "summary": "Valeranon is a compound reported in valeriana jatamansi. Available references are still early and incomplete."
 }

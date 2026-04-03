@@ -1,7 +1,7 @@
 {
   "name": "catechin",
   "category": "general",
-  "description": "catechin is a compound reported in agrimonia eupatoria and alchemilla vulgaris. Available source coverage remains preliminary in this dataset.",
+  "description": "catechin appears in records as a compound reported in agrimonia eupatoria and alchemilla vulgaris. Current source coverage is limited and still developing.",
   "herbs": [
     "agrimonia eupatoria",
     "alchemilla vulgaris"
@@ -43,5 +43,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "catechin",
-  "summary": "catechin is a compound reported in agrimonia eupatoria and alchemilla vulgaris. Available source coverage remains preliminary in this dataset."
+  "summary": "catechin appears in records as a compound reported in agrimonia eupatoria and alchemilla vulgaris. Current source coverage is limited and still developing."
 }

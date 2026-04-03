@@ -1,7 +1,7 @@
 {
   "name": "o-cymene",
   "category": "general",
-  "description": "o-cymene is a compound reported in acorus tatarinowii. Available source coverage remains preliminary in this dataset.",
+  "description": "o-cymene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
   "herbs": [
     "acorus tatarinowii"
   ],
@@ -38,5 +38,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "o-cymene",
-  "summary": "o-cymene is a compound reported in acorus tatarinowii. Available source coverage remains preliminary in this dataset."
+  "summary": "o-cymene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing."
 }

@@ -1,7 +1,7 @@
 {
   "name": "Sulfur compounds",
   "category": "general",
-  "description": "Sulfur compounds is a compound reported in petiveria alliacea. Available source coverage remains preliminary in this dataset.",
+  "description": "Sulfur compounds appears in records as a compound reported in petiveria alliacea. Current source coverage is limited and still developing.",
   "herbs": [
     "petiveria alliacea"
   ],
@@ -35,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "sulfur-compounds",
-  "summary": "Sulfur compounds is a compound reported in petiveria alliacea. Available source coverage remains preliminary in this dataset."
+  "summary": "Sulfur compounds appears in records as a compound reported in petiveria alliacea. Current source coverage is limited and still developing."
 }

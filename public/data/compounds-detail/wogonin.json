@@ -1,7 +1,7 @@
 {
   "name": "wogonin",
   "category": "general",
-  "description": "wogonin is a compound reported in scutellaria lateriflora. Available source coverage remains preliminary in this dataset.",
+  "description": "wogonin appears in records as a compound reported in scutellaria lateriflora. Current source coverage is limited and still developing.",
   "herbs": [
     "scutellaria lateriflora"
   ],
@@ -39,5 +39,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "wogonin",
-  "summary": "wogonin is a compound reported in scutellaria lateriflora. Available source coverage remains preliminary in this dataset."
+  "summary": "wogonin appears in records as a compound reported in scutellaria lateriflora. Current source coverage is limited and still developing."
 }

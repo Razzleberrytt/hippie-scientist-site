@@ -1,7 +1,7 @@
 {
   "name": "ibotenic acid",
   "category": "general",
-  "description": "ibotenic acid is a compound reported in amanita muscaria. Available source coverage remains preliminary in this dataset.",
+  "description": "ibotenic acid is a compound reported in amanita muscaria. Available references are still early and incomplete.",
   "herbs": [
     "amanita muscaria"
   ],
@@ -40,5 +40,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "ibotenic-acid",
-  "summary": "ibotenic acid is a compound reported in amanita muscaria. Available source coverage remains preliminary in this dataset."
+  "summary": "ibotenic acid is a compound reported in amanita muscaria. Available references are still early and incomplete."
 }

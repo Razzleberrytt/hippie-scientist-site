@@ -1,7 +1,7 @@
 {
   "name": "Scutellarin",
   "category": "general",
-  "description": "Scutellarin is a compound reported in scutellaria lateriflora. Available source coverage remains preliminary in this dataset.",
+  "description": "Scutellarin is a compound reported in scutellaria lateriflora. Available references are still early and incomplete.",
   "herbs": [
     "scutellaria lateriflora"
   ],
@@ -39,5 +39,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "scutellarin",
-  "summary": "Scutellarin is a compound reported in scutellaria lateriflora. Available source coverage remains preliminary in this dataset."
+  "summary": "Scutellarin is a compound reported in scutellaria lateriflora. Available references are still early and incomplete."
 }

@@ -1,7 +1,7 @@
 {
   "name": "voacangine",
   "category": "general",
-  "description": "voacangine is a compound reported in tabernaemontana undulata and voacanga africana. Available source coverage remains preliminary in this dataset.",
+  "description": "voacangine appears in records as a compound reported in tabernaemontana undulata and voacanga africana. Current source coverage is limited and still developing.",
   "herbs": [
     "tabernaemontana undulata",
     "voacanga africana"
@@ -46,5 +46,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "voacangine",
-  "summary": "voacangine is a compound reported in tabernaemontana undulata and voacanga africana. Available source coverage remains preliminary in this dataset."
+  "summary": "voacangine appears in records as a compound reported in tabernaemontana undulata and voacanga africana. Current source coverage is limited and still developing."
 }

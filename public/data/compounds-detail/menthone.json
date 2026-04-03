@@ -1,7 +1,7 @@
 {
   "name": "menthone",
   "category": "general",
-  "description": "menthone is a compound reported in mentha piperita. Available source coverage remains preliminary in this dataset.",
+  "description": "menthone is a compound reported in mentha piperita. Available references are still early and incomplete.",
   "herbs": [
     "mentha piperita"
   ],
@@ -37,5 +37,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "menthone",
-  "summary": "menthone is a compound reported in mentha piperita. Available source coverage remains preliminary in this dataset."
+  "summary": "menthone is a compound reported in mentha piperita. Available references are still early and incomplete."
 }

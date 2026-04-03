@@ -1,7 +1,7 @@
 {
   "name": "Nicotine",
   "category": "general",
-  "description": "Nicotine is a compound reported in nicotiana rustica and nicotiana tabacum. Available source coverage remains preliminary in this dataset.",
+  "description": "Nicotine appears in records as a compound reported in nicotiana rustica and nicotiana tabacum. Current source coverage is limited and still developing.",
   "herbs": [
     "nicotiana rustica",
     "nicotiana tabacum"
@@ -35,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nicotine",
-  "summary": "Nicotine is a compound reported in nicotiana rustica and nicotiana tabacum. Available source coverage remains preliminary in this dataset."
+  "summary": "Nicotine appears in records as a compound reported in nicotiana rustica and nicotiana tabacum. Current source coverage is limited and still developing."
 }

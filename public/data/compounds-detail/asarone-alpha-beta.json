@@ -1,7 +1,7 @@
 {
   "name": "Asarone (alpha & beta)",
   "category": "general",
-  "description": "Asarone (alpha & beta) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "description": "Asarone (alpha & beta) is listed as a compound in this profile. Available references are still early and incomplete.",
   "herbs": [],
   "effects": [
     "Mild stimulation",
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "asarone-alpha-beta",
-  "summary": "Asarone (alpha & beta) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Asarone (alpha & beta) is listed as a compound in this profile. Available references are still early and incomplete."
 }

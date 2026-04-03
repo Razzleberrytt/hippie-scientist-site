@@ -1,7 +1,7 @@
 {
   "name": "Petasin",
   "category": "general",
-  "description": "Petasin is a compound reported in petasites hybridus. Available source coverage remains preliminary in this dataset.",
+  "description": "Petasin is a compound reported in petasites hybridus. Available references are still early and incomplete.",
   "herbs": [
     "petasites hybridus"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "petasin",
-  "summary": "Petasin is a compound reported in petasites hybridus. Available source coverage remains preliminary in this dataset."
+  "summary": "Petasin is a compound reported in petasites hybridus. Available references are still early and incomplete."
 }

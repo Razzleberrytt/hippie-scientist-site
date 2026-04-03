@@ -1,7 +1,7 @@
 {
   "name": "monoterpenes",
   "category": "terpenoid",
-  "description": "monoterpenes is a terpenoid compound reported in acorus calamus. Available source coverage remains preliminary in this dataset.",
+  "description": "monoterpenes is a terpenoid compound reported in acorus calamus. Current source coverage is limited and still developing.",
   "herbs": [
     "acorus calamus"
   ],
@@ -49,5 +49,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "monoterpenes",
-  "summary": "monoterpenes is a terpenoid compound reported in acorus calamus. Available source coverage remains preliminary in this dataset."
+  "summary": "monoterpenes is a terpenoid compound reported in acorus calamus. Current source coverage is limited and still developing."
 }

@@ -1,7 +1,7 @@
 {
   "name": "phenylethylamine",
   "category": "general",
-  "description": "phenylethylamine is a compound reported in theobroma cacao. Available source coverage remains preliminary in this dataset.",
+  "description": "phenylethylamine is a compound reported in theobroma cacao. Available references are still early and incomplete.",
   "herbs": [
     "theobroma cacao"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "phenylethylamine",
-  "summary": "phenylethylamine is a compound reported in theobroma cacao. Available source coverage remains preliminary in this dataset."
+  "summary": "phenylethylamine is a compound reported in theobroma cacao. Available references are still early and incomplete."
 }

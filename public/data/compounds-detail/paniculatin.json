@@ -1,7 +1,7 @@
 {
   "name": "Paniculatin",
   "category": "general",
-  "description": "Paniculatin is a compound reported in celastrus paniculatus. Available source coverage remains preliminary in this dataset.",
+  "description": "Paniculatin is a compound reported in celastrus paniculatus. Available references are still early and incomplete.",
   "herbs": [
     "celastrus paniculatus"
   ],
@@ -32,5 +32,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "paniculatin",
-  "summary": "Paniculatin is a compound reported in celastrus paniculatus. Available source coverage remains preliminary in this dataset."
+  "summary": "Paniculatin is a compound reported in celastrus paniculatus. Available references are still early and incomplete."
 }

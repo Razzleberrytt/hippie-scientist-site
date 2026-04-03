@@ -1,7 +1,7 @@
 {
   "name": "albiziasaponins A–E",
   "category": "general",
-  "description": "albiziasaponins A–E is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset.",
+  "description": "albiziasaponins A–E is a compound reported in albizia lebbeck. Available references are still early and incomplete.",
   "herbs": [
     "albizia lebbeck"
   ],
@@ -33,5 +33,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "albiziasaponins-a-e",
-  "summary": "albiziasaponins A–E is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset."
+  "summary": "albiziasaponins A–E is a compound reported in albizia lebbeck. Available references are still early and incomplete."
 }

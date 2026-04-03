@@ -1,7 +1,7 @@
 {
   "name": "myricetin",
   "category": "general",
-  "description": "myricetin is a compound reported in acacia nilotica. Available source coverage remains preliminary in this dataset.",
+  "description": "myricetin is a compound reported in acacia nilotica. Available references are still early and incomplete.",
   "herbs": [
     "acacia nilotica"
   ],
@@ -31,5 +31,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "myricetin",
-  "summary": "myricetin is a compound reported in acacia nilotica. Available source coverage remains preliminary in this dataset."
+  "summary": "myricetin is a compound reported in acacia nilotica. Available references are still early and incomplete."
 }

@@ -1,7 +1,7 @@
 {
   "name": "methysticin",
   "category": "general",
-  "description": "methysticin is a compound reported in piper methysticum. Available source coverage remains preliminary in this dataset.",
+  "description": "methysticin appears in records as a compound reported in piper methysticum. Current source coverage is limited and still developing.",
   "herbs": [
     "piper methysticum"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "methysticin",
-  "summary": "methysticin is a compound reported in piper methysticum. Available source coverage remains preliminary in this dataset."
+  "summary": "methysticin appears in records as a compound reported in piper methysticum. Current source coverage is limited and still developing."
 }

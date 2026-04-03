@@ -1,7 +1,7 @@
 {
   "name": "Zapotin",
   "category": "general",
-  "description": "Zapotin is a compound reported in casimiroa edulis. Available source coverage remains preliminary in this dataset.",
+  "description": "Zapotin appears in records as a compound reported in casimiroa edulis. Current source coverage is limited and still developing.",
   "herbs": [
     "casimiroa edulis"
   ],
@@ -32,5 +32,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "zapotin",
-  "summary": "Zapotin is a compound reported in casimiroa edulis. Available source coverage remains preliminary in this dataset."
+  "summary": "Zapotin appears in records as a compound reported in casimiroa edulis. Current source coverage is limited and still developing."
 }

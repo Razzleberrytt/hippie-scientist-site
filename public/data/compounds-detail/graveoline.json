@@ -1,7 +1,7 @@
 {
   "name": "Graveoline",
   "category": "general",
-  "description": "Graveoline is a compound reported in ruta graveolens. Available source coverage remains preliminary in this dataset.",
+  "description": "Graveoline is a compound reported in ruta graveolens. Available references are still early and incomplete.",
   "herbs": [
     "ruta graveolens"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "graveoline",
-  "summary": "Graveoline is a compound reported in ruta graveolens. Available source coverage remains preliminary in this dataset."
+  "summary": "Graveoline is a compound reported in ruta graveolens. Available references are still early and incomplete."
 }

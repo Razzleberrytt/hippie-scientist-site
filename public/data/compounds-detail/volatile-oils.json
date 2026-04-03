@@ -1,7 +1,7 @@
 {
   "name": "volatile oils",
   "category": "general",
-  "description": "volatile oils is a compound reported in agrimonia eupatoria, rhododendron anthopogon, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "volatile oils appears in records as a compound reported in agrimonia eupatoria, rhododendron anthopogon, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "agrimonia eupatoria",
     "rhododendron anthopogon",
@@ -50,5 +50,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "volatile-oils",
-  "summary": "volatile oils is a compound reported in agrimonia eupatoria, rhododendron anthopogon, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "volatile oils appears in records as a compound reported in agrimonia eupatoria, rhododendron anthopogon, and related herbs. Current source coverage is limited and still developing."
 }

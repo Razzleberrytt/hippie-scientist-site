@@ -1,7 +1,7 @@
 {
   "name": "bulnesene",
   "category": "general",
-  "description": "bulnesene is a compound reported in pogostemon cablin. Available source coverage remains preliminary in this dataset.",
+  "description": "bulnesene appears in records as a compound reported in pogostemon cablin. Current source coverage is limited and still developing.",
   "herbs": [
     "pogostemon cablin"
   ],
@@ -31,5 +31,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "bulnesene",
-  "summary": "bulnesene is a compound reported in pogostemon cablin. Available source coverage remains preliminary in this dataset."
+  "summary": "bulnesene appears in records as a compound reported in pogostemon cablin. Current source coverage is limited and still developing."
 }

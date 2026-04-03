@@ -1,7 +1,7 @@
 {
   "name": "Tartaric acid",
   "category": "general",
-  "description": "Tartaric acid is a compound reported in tamarindus indica. Available source coverage remains preliminary in this dataset.",
+  "description": "Tartaric acid appears in records as a compound reported in tamarindus indica. Current source coverage is limited and still developing.",
   "herbs": [
     "tamarindus indica"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "tartaric-acid",
-  "summary": "Tartaric acid is a compound reported in tamarindus indica. Available source coverage remains preliminary in this dataset."
+  "summary": "Tartaric acid appears in records as a compound reported in tamarindus indica. Current source coverage is limited and still developing."
 }

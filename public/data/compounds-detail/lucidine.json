@@ -1,7 +1,7 @@
 {
   "name": "Lucidine",
   "category": "general",
-  "description": "Lucidine is a compound reported in Herba lucidum fictus. Available source coverage remains preliminary in this dataset.",
+  "description": "Lucidine appears in records as a compound reported in Herba lucidum fictus. Current source coverage is limited and still developing.",
   "herbs": [
     "Herba lucidum fictus"
   ],
@@ -32,5 +32,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "lucidine",
-  "summary": "Lucidine is a compound reported in Herba lucidum fictus. Available source coverage remains preliminary in this dataset."
+  "summary": "Lucidine appears in records as a compound reported in Herba lucidum fictus. Current source coverage is limited and still developing."
 }

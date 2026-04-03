@@ -1,7 +1,7 @@
 {
   "name": "theophylline",
   "category": "general",
-  "description": "theophylline is a compound reported in paullinia cupana. Available source coverage remains preliminary in this dataset.",
+  "description": "theophylline appears in records as a compound reported in paullinia cupana. Current source coverage is limited and still developing.",
   "herbs": [
     "paullinia cupana"
   ],
@@ -42,5 +42,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "theophylline",
-  "summary": "theophylline is a compound reported in paullinia cupana. Available source coverage remains preliminary in this dataset."
+  "summary": "theophylline appears in records as a compound reported in paullinia cupana. Current source coverage is limited and still developing."
 }

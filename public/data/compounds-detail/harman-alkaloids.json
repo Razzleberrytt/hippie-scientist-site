@@ -1,7 +1,7 @@
 {
   "name": "harman alkaloids",
   "category": "alkaloid",
-  "description": "harman alkaloids is a alkaloid compound reported in passiflora incarnata. Available source coverage remains preliminary in this dataset.",
+  "description": "harman alkaloids is an alkaloid compound reported in passiflora incarnata. Current source coverage is limited and still developing.",
   "herbs": [
     "passiflora incarnata"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harman-alkaloids",
-  "summary": "harman alkaloids is a alkaloid compound reported in passiflora incarnata. Available source coverage remains preliminary in this dataset."
+  "summary": "harman alkaloids is an alkaloid compound reported in passiflora incarnata. Current source coverage is limited and still developing."
 }

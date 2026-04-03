@@ -1,7 +1,7 @@
 {
   "name": "ergine",
   "category": "general",
-  "description": "ergine is a compound reported in argyreia nervosa. Available source coverage remains preliminary in this dataset.",
+  "description": "ergine is a compound reported in argyreia nervosa. Available references are still early and incomplete.",
   "herbs": [
     "argyreia nervosa"
   ],
@@ -39,5 +39,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "ergine",
-  "summary": "ergine is a compound reported in argyreia nervosa. Available source coverage remains preliminary in this dataset."
+  "summary": "ergine is a compound reported in argyreia nervosa. Available references are still early and incomplete."
 }

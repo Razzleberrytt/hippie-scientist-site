@@ -1,7 +1,7 @@
 {
   "name": "Triterpenoid saponins",
   "category": "saponin",
-  "description": "Triterpenoid saponins is a saponin compound reported in silene undulata. Available source coverage remains preliminary in this dataset.",
+  "description": "Triterpenoid saponins is a saponin compound reported in silene undulata. Available references are still early and incomplete.",
   "herbs": [
     "silene undulata"
   ],
@@ -31,5 +31,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "triterpenoid-saponins",
-  "summary": "Triterpenoid saponins is a saponin compound reported in silene undulata. Available source coverage remains preliminary in this dataset."
+  "summary": "Triterpenoid saponins is a saponin compound reported in silene undulata. Available references are still early and incomplete."
 }

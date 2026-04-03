@@ -1,7 +1,7 @@
 {
   "name": "Nepetalactone",
   "category": "general",
-  "description": "Nepetalactone is a compound reported in catnip and nepeta cataria. Available source coverage remains preliminary in this dataset.",
+  "description": "Nepetalactone appears in records as a compound reported in catnip and nepeta cataria. Current source coverage is limited and still developing.",
   "herbs": [
     "catnip",
     "nepeta cataria"
@@ -41,5 +41,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nepetalactone",
-  "summary": "Nepetalactone is a compound reported in catnip and nepeta cataria. Available source coverage remains preliminary in this dataset."
+  "summary": "Nepetalactone appears in records as a compound reported in catnip and nepeta cataria. Current source coverage is limited and still developing."
 }

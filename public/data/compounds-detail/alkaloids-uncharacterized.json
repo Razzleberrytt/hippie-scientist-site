@@ -1,7 +1,7 @@
 {
   "name": "alkaloids (uncharacterized)",
   "category": "alkaloid",
-  "description": "alkaloids (uncharacterized) is a alkaloid compound. Available source coverage remains preliminary in this dataset.",
+  "description": "alkaloids (uncharacterized) is an alkaloid compound. Current source coverage is limited and still developing.",
   "herbs": [],
   "effects": [
     "Muscle relaxation",
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "alkaloids-uncharacterized",
-  "summary": "alkaloids (uncharacterized) is a alkaloid compound. Available source coverage remains preliminary in this dataset."
+  "summary": "alkaloids (uncharacterized) is an alkaloid compound. Current source coverage is limited and still developing."
 }

@@ -1,7 +1,7 @@
 {
   "name": "tiliroside",
   "category": "general",
-  "description": "tiliroside is a compound reported in agrimonia eupatoria and rubus idaeus. Available source coverage remains preliminary in this dataset.",
+  "description": "tiliroside is a compound reported in agrimonia eupatoria and rubus idaeus. Available references are still early and incomplete.",
   "herbs": [
     "agrimonia eupatoria",
     "rubus idaeus"
@@ -37,5 +37,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "tiliroside",
-  "summary": "tiliroside is a compound reported in agrimonia eupatoria and rubus idaeus. Available source coverage remains preliminary in this dataset."
+  "summary": "tiliroside is a compound reported in agrimonia eupatoria and rubus idaeus. Available references are still early and incomplete."
 }

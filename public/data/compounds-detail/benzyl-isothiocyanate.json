@@ -1,7 +1,7 @@
 {
   "name": "Benzyl isothiocyanate",
   "category": "general",
-  "description": "Benzyl isothiocyanate is a compound reported in tropaeolum majus. Available source coverage remains preliminary in this dataset.",
+  "description": "Benzyl isothiocyanate is a compound reported in tropaeolum majus. Available references are still early and incomplete.",
   "herbs": [
     "tropaeolum majus"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "benzyl-isothiocyanate",
-  "summary": "Benzyl isothiocyanate is a compound reported in tropaeolum majus. Available source coverage remains preliminary in this dataset."
+  "summary": "Benzyl isothiocyanate is a compound reported in tropaeolum majus. Available references are still early and incomplete."
 }

@@ -1,7 +1,7 @@
 {
   "name": "camphor",
   "category": "general",
-  "description": "camphor is a compound reported in acorus tatarinowii, artemisia abrotanum, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "camphor is a compound reported in acorus tatarinowii, artemisia abrotanum, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "acorus tatarinowii",
     "artemisia abrotanum",
@@ -62,5 +62,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "camphor",
-  "summary": "camphor is a compound reported in acorus tatarinowii, artemisia abrotanum, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "camphor is a compound reported in acorus tatarinowii, artemisia abrotanum, and related herbs. Available references are still early and incomplete."
 }

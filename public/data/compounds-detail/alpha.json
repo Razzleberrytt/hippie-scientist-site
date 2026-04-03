@@ -1,7 +1,7 @@
 {
   "name": "Alpha",
   "category": "general",
-  "description": "Alpha is a compound reported in acorus americanus and pogostemon cablin. Available source coverage remains preliminary in this dataset.",
+  "description": "Alpha is a compound reported in acorus americanus and pogostemon cablin. Available references are still early and incomplete.",
   "herbs": [
     "acorus americanus",
     "pogostemon cablin"
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "alpha",
-  "summary": "Alpha is a compound reported in acorus americanus and pogostemon cablin. Available source coverage remains preliminary in this dataset."
+  "summary": "Alpha is a compound reported in acorus americanus and pogostemon cablin. Available references are still early and incomplete."
 }

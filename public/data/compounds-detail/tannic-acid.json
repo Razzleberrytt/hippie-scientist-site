@@ -1,7 +1,7 @@
 {
   "name": "tannic acid",
   "category": "general",
-  "description": "tannic acid is a compound reported in aerva lanata. Available source coverage remains preliminary in this dataset.",
+  "description": "tannic acid is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "herbs": [
     "aerva lanata"
   ],
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "tannic-acid",
-  "summary": "tannic acid is a compound reported in aerva lanata. Available source coverage remains preliminary in this dataset."
+  "summary": "tannic acid is a compound reported in aerva lanata. Available references are still early and incomplete."
 }

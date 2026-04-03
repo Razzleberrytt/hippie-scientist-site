@@ -1,7 +1,7 @@
 {
   "name": "pinocembrin",
   "category": "general",
-  "description": "pinocembrin is a compound reported in turnera diffusa. Available source coverage remains preliminary in this dataset.",
+  "description": "pinocembrin is a compound reported in turnera diffusa. Available references are still early and incomplete.",
   "herbs": [
     "turnera diffusa"
   ],
@@ -40,5 +40,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "pinocembrin",
-  "summary": "pinocembrin is a compound reported in turnera diffusa. Available source coverage remains preliminary in this dataset."
+  "summary": "pinocembrin is a compound reported in turnera diffusa. Available references are still early and incomplete."
 }

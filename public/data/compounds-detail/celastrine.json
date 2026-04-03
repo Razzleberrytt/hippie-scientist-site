@@ -1,7 +1,7 @@
 {
   "name": "Celastrine",
   "category": "general",
-  "description": "Celastrine is a compound reported in celastrus paniculatus. Available source coverage remains preliminary in this dataset.",
+  "description": "Celastrine is a compound reported in celastrus paniculatus. Available references are still early and incomplete.",
   "herbs": [
     "celastrus paniculatus"
   ],
@@ -32,5 +32,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "celastrine",
-  "summary": "Celastrine is a compound reported in celastrus paniculatus. Available source coverage remains preliminary in this dataset."
+  "summary": "Celastrine is a compound reported in celastrus paniculatus. Available references are still early and incomplete."
 }

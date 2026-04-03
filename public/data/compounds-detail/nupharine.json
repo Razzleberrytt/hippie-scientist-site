@@ -1,7 +1,7 @@
 {
   "name": "Nupharine",
   "category": "general",
-  "description": "Nupharine is a compound reported in nymphaea caerulea and nymphaea rubra. Available source coverage remains preliminary in this dataset.",
+  "description": "Nupharine is a compound reported in nymphaea caerulea and nymphaea rubra. Available references are still early and incomplete.",
   "herbs": [
     "nymphaea caerulea",
     "nymphaea rubra"
@@ -53,5 +53,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "nupharine",
-  "summary": "Nupharine is a compound reported in nymphaea caerulea and nymphaea rubra. Available source coverage remains preliminary in this dataset."
+  "summary": "Nupharine is a compound reported in nymphaea caerulea and nymphaea rubra. Available references are still early and incomplete."
 }

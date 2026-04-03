@@ -1,7 +1,7 @@
 {
   "name": "Cryogenine",
   "category": "general",
-  "description": "Cryogenine is a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "Cryogenine appears in records as a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "heimia myrtifolia",
     "heimia salicifolia (sinicuichi)",
@@ -62,5 +62,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "cryogenine",
-  "summary": "Cryogenine is a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "Cryogenine appears in records as a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Current source coverage is limited and still developi"
 }

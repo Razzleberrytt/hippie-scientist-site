@@ -1,7 +1,7 @@
 {
   "name": "eugenol",
   "category": "general",
-  "description": "eugenol is a compound reported in pimenta dioica, tynanthus panurensis, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "eugenol appears in records as a compound reported in pimenta dioica, tynanthus panurensis, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "pimenta dioica",
     "tynanthus panurensis",
@@ -89,5 +89,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "eugenol",
-  "summary": "eugenol is a compound reported in pimenta dioica, tynanthus panurensis, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "eugenol appears in records as a compound reported in pimenta dioica, tynanthus panurensis, and related herbs. Current source coverage is limited and still developing."
 }

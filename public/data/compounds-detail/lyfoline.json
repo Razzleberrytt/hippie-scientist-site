@@ -1,7 +1,7 @@
 {
   "name": "lyfoline",
   "category": "general",
-  "description": "lyfoline is a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "lyfoline is a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "heimia myrtifolia",
     "heimia salicifolia (sinicuichi)",
@@ -67,5 +67,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "lyfoline",
-  "summary": "lyfoline is a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "lyfoline is a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Available references are still early and incomplete."
 }

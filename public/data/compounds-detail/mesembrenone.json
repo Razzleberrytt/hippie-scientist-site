@@ -1,7 +1,7 @@
 {
   "name": "mesembrenone",
   "category": "general",
-  "description": "mesembrenone is a compound reported in sceletium tortuosum. Available source coverage remains preliminary in this dataset.",
+  "description": "mesembrenone is a compound reported in sceletium tortuosum. Available references are still early and incomplete.",
   "herbs": [
     "sceletium tortuosum"
   ],
@@ -46,5 +46,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mesembrenone",
-  "summary": "mesembrenone is a compound reported in sceletium tortuosum. Available source coverage remains preliminary in this dataset."
+  "summary": "mesembrenone is a compound reported in sceletium tortuosum. Available references are still early and incomplete."
 }

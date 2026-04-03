@@ -1,7 +1,7 @@
 {
   "name": "Coumarin",
   "category": "coumarin",
-  "description": "Coumarin is a coumarin compound reported in justicia pectoralis. Available source coverage remains preliminary in this dataset.",
+  "description": "Coumarin is a coumarin compound reported in justicia pectoralis. Available references are still early and incomplete.",
   "herbs": [
     "justicia pectoralis"
   ],
@@ -39,5 +39,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "coumarin",
-  "summary": "Coumarin is a coumarin compound reported in justicia pectoralis. Available source coverage remains preliminary in this dataset."
+  "summary": "Coumarin is a coumarin compound reported in justicia pectoralis. Available references are still early and incomplete."
 }

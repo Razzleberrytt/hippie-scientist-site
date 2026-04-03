@@ -1,7 +1,7 @@
 {
   "name": "Lactucin",
   "category": "general",
-  "description": "Lactucin is a compound reported in wild lettuce and lactuca virosa. Available source coverage remains preliminary in this dataset.",
+  "description": "Lactucin appears in records as a compound reported in wild lettuce and lactuca virosa. Current source coverage is limited and still developing.",
   "herbs": [
     "wild lettuce",
     "lactuca virosa"
@@ -41,5 +41,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "lactucin",
-  "summary": "Lactucin is a compound reported in wild lettuce and lactuca virosa. Available source coverage remains preliminary in this dataset."
+  "summary": "Lactucin appears in records as a compound reported in wild lettuce and lactuca virosa. Current source coverage is limited and still developing."
 }

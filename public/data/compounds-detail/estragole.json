@@ -1,7 +1,7 @@
 {
   "name": "estragole",
   "category": "general",
-  "description": "estragole is a compound reported in acorus tatarinowii. Available source coverage remains preliminary in this dataset.",
+  "description": "estragole is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
   "herbs": [
     "acorus tatarinowii"
   ],
@@ -38,5 +38,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "estragole",
-  "summary": "estragole is a compound reported in acorus tatarinowii. Available source coverage remains preliminary in this dataset."
+  "summary": "estragole is a compound reported in acorus tatarinowii. Available references are still early and incomplete."
 }

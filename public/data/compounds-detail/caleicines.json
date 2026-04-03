@@ -1,7 +1,7 @@
 {
   "name": "Caleicines",
   "category": "general",
-  "description": "Caleicines is a compound reported in calea ternifolia. Available source coverage remains preliminary in this dataset.",
+  "description": "Caleicines is a compound reported in calea ternifolia. Available references are still early and incomplete.",
   "herbs": [
     "calea ternifolia"
   ],
@@ -45,5 +45,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "caleicines",
-  "summary": "Caleicines is a compound reported in calea ternifolia. Available source coverage remains preliminary in this dataset."
+  "summary": "Caleicines is a compound reported in calea ternifolia. Available references are still early and incomplete."
 }

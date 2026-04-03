@@ -1,7 +1,7 @@
 {
   "name": "quercetin",
   "category": "general",
-  "description": "quercetin is a compound reported in acacia nilotica, aerva lanata, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "quercetin is a compound reported in acacia nilotica, aerva lanata, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "acacia nilotica",
     "aerva lanata",
@@ -66,5 +66,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "quercetin",
-  "summary": "quercetin is a compound reported in acacia nilotica, aerva lanata, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "quercetin is a compound reported in acacia nilotica, aerva lanata, and related herbs. Available references are still early and incomplete."
 }

@@ -1,7 +1,7 @@
 {
   "name": "Violine",
   "category": "general",
-  "description": "Violine is a compound reported in sweet violet. Available source coverage remains preliminary in this dataset.",
+  "description": "Violine is a compound reported in sweet violet. Available references are still early and incomplete.",
   "herbs": [
     "sweet violet"
   ],
@@ -32,5 +32,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "violine",
-  "summary": "Violine is a compound reported in sweet violet. Available source coverage remains preliminary in this dataset."
+  "summary": "Violine is a compound reported in sweet violet. Available references are still early and incomplete."
 }

@@ -1,7 +1,7 @@
 {
   "name": "linalool",
   "category": "general",
-  "description": "linalool is a compound reported in acorus tatarinowii, unnamed herb, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "linalool is a compound reported in acorus tatarinowii, unnamed herb, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "acorus tatarinowii",
     "unnamed herb",
@@ -61,5 +61,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "linalool",
-  "summary": "linalool is a compound reported in acorus tatarinowii, unnamed herb, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "linalool is a compound reported in acorus tatarinowii, unnamed herb, and related herbs. Available references are still early and incomplete."
 }

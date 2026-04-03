@@ -1,7 +1,7 @@
 {
   "name": "Azulene",
   "category": "general",
-  "description": "Azulene is a compound reported in achillea millefolium. Available source coverage remains preliminary in this dataset.",
+  "description": "Azulene is a compound reported in achillea millefolium. Available references are still early and incomplete.",
   "herbs": [
     "achillea millefolium"
   ],
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "azulene",
-  "summary": "Azulene is a compound reported in achillea millefolium. Available source coverage remains preliminary in this dataset."
+  "summary": "Azulene is a compound reported in achillea millefolium. Available references are still early and incomplete."
 }

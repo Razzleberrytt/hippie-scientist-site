@@ -1,7 +1,7 @@
 {
   "name": "ferulic acid",
   "category": "general",
-  "description": "ferulic acid is a compound reported in adenostoma fasciculatum. Available source coverage remains preliminary in this dataset.",
+  "description": "ferulic acid appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
   "herbs": [
     "adenostoma fasciculatum"
   ],
@@ -31,5 +31,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "ferulic-acid",
-  "summary": "ferulic acid is a compound reported in adenostoma fasciculatum. Available source coverage remains preliminary in this dataset."
+  "summary": "ferulic acid appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing."
 }

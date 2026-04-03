@@ -1,7 +1,7 @@
 {
   "name": "glycosides",
   "category": "glycoside",
-  "description": "glycosides is a glycoside compound reported in nymphaea lotus and nymphaea rubra. Available source coverage remains preliminary in this dataset.",
+  "description": "glycosides is a glycoside compound reported in nymphaea lotus and nymphaea rubra. Available references are still early and incomplete.",
   "herbs": [
     "nymphaea lotus",
     "nymphaea rubra"
@@ -45,5 +45,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "glycosides",
-  "summary": "glycosides is a glycoside compound reported in nymphaea lotus and nymphaea rubra. Available source coverage remains preliminary in this dataset."
+  "summary": "glycosides is a glycoside compound reported in nymphaea lotus and nymphaea rubra. Available references are still early and incomplete."
 }

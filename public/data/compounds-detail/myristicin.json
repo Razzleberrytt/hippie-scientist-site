@@ -1,7 +1,7 @@
 {
   "name": "Myristicin",
   "category": "general",
-  "description": "Myristicin is a compound reported in myristica fragrans and Myristica fragrans Houtt.. Available source coverage remains preliminary in this dataset.",
+  "description": "Myristicin appears in records as a compound reported in myristica fragrans and Myristica fragrans Houtt.. Current source coverage is limited and still developing.",
   "herbs": [
     "myristica fragrans",
     "Myristica fragrans Houtt."
@@ -48,5 +48,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "myristicin",
-  "summary": "Myristicin is a compound reported in myristica fragrans and Myristica fragrans Houtt.. Available source coverage remains preliminary in this dataset."
+  "summary": "Myristicin appears in records as a compound reported in myristica fragrans and Myristica fragrans Houtt.. Current source coverage is limited and still developing."
 }

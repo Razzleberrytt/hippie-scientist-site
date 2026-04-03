@@ -1,7 +1,7 @@
 {
   "name": "calein A",
   "category": "general",
-  "description": "calein A is a compound reported in calea ternifolia. Available source coverage remains preliminary in this dataset.",
+  "description": "calein A appears in records as a compound reported in calea ternifolia. Current source coverage is limited and still developing.",
   "herbs": [
     "calea ternifolia"
   ],
@@ -45,5 +45,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "calein-a",
-  "summary": "calein A is a compound reported in calea ternifolia. Available source coverage remains preliminary in this dataset."
+  "summary": "calein A appears in records as a compound reported in calea ternifolia. Current source coverage is limited and still developing."
 }

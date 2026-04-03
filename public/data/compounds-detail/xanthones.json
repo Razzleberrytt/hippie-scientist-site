@@ -1,7 +1,7 @@
 {
   "name": "xanthones",
   "category": "xanthone",
-  "description": "xanthones is a xanthone compound reported in alchornea castaneifolia and Zanthoxylum zanthoxyloides. Available source coverage remains preliminary in this dataset.",
+  "description": "xanthones is a xanthone compound reported in alchornea castaneifolia and Zanthoxylum zanthoxyloides. Available references are still early and incomplete.",
   "herbs": [
     "alchornea castaneifolia",
     "Zanthoxylum zanthoxyloides"
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "xanthones",
-  "summary": "xanthones is a xanthone compound reported in alchornea castaneifolia and Zanthoxylum zanthoxyloides. Available source coverage remains preliminary in this dataset."
+  "summary": "xanthones is a xanthone compound reported in alchornea castaneifolia and Zanthoxylum zanthoxyloides. Available references are still early and incomplete."
 }

@@ -1,7 +1,7 @@
 {
   "name": "Elaeagnin",
   "category": "general",
-  "description": "Elaeagnin is a compound reported in elaeagnus angustifolia. Available source coverage remains preliminary in this dataset.",
+  "description": "Elaeagnin is a compound reported in elaeagnus angustifolia. Available references are still early and incomplete.",
   "herbs": [
     "elaeagnus angustifolia"
   ],
@@ -32,5 +32,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "elaeagnin",
-  "summary": "Elaeagnin is a compound reported in elaeagnus angustifolia. Available source coverage remains preliminary in this dataset."
+  "summary": "Elaeagnin is a compound reported in elaeagnus angustifolia. Available references are still early and incomplete."
 }

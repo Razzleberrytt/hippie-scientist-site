@@ -1,7 +1,7 @@
 {
   "name": "mulunguine",
   "category": "general",
-  "description": "mulunguine is a compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset.",
+  "description": "mulunguine appears in records as a compound reported in erythrina mulungu. Current source coverage is limited and still developing.",
   "herbs": [
     "erythrina mulungu"
   ],
@@ -51,5 +51,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mulunguine",
-  "summary": "mulunguine is a compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset."
+  "summary": "mulunguine appears in records as a compound reported in erythrina mulungu. Current source coverage is limited and still developing."
 }

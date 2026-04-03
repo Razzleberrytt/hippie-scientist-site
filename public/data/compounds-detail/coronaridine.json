@@ -1,7 +1,7 @@
 {
   "name": "coronaridine",
   "category": "general",
-  "description": "coronaridine is a compound reported in voacanga africana. Available source coverage remains preliminary in this dataset.",
+  "description": "coronaridine appears in records as a compound reported in voacanga africana. Current source coverage is limited and still developing.",
   "herbs": [
     "voacanga africana"
   ],
@@ -39,5 +39,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "coronaridine",
-  "summary": "coronaridine is a compound reported in voacanga africana. Available source coverage remains preliminary in this dataset."
+  "summary": "coronaridine appears in records as a compound reported in voacanga africana. Current source coverage is limited and still developing."
 }

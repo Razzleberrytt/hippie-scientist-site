@@ -1,7 +1,7 @@
 {
   "name": "deoxyaconitine",
   "category": "general",
-  "description": "deoxyaconitine is a compound reported in aconitum napellus. Available source coverage remains preliminary in this dataset.",
+  "description": "deoxyaconitine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing.",
   "herbs": [
     "aconitum napellus"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "deoxyaconitine",
-  "summary": "deoxyaconitine is a compound reported in aconitum napellus. Available source coverage remains preliminary in this dataset."
+  "summary": "deoxyaconitine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing."
 }

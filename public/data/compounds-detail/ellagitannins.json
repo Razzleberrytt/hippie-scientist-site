@@ -1,7 +1,7 @@
 {
   "name": "ellagitannins",
   "category": "general",
-  "description": "ellagitannins is a compound reported in alchemilla vulgaris. Available source coverage remains preliminary in this dataset.",
+  "description": "ellagitannins appears in records as a compound reported in alchemilla vulgaris. Current source coverage is limited and still developing.",
   "herbs": [
     "alchemilla vulgaris"
   ],
@@ -37,5 +37,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "ellagitannins",
-  "summary": "ellagitannins is a compound reported in alchemilla vulgaris. Available source coverage remains preliminary in this dataset."
+  "summary": "ellagitannins appears in records as a compound reported in alchemilla vulgaris. Current source coverage is limited and still developing."
 }

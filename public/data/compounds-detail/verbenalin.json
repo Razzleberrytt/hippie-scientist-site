@@ -1,7 +1,7 @@
 {
   "name": "Verbenalin",
   "category": "general",
-  "description": "Verbenalin is a compound reported in verbena officinalis. Available source coverage remains preliminary in this dataset.",
+  "description": "Verbenalin is a compound reported in verbena officinalis. Available references are still early and incomplete.",
   "herbs": [
     "verbena officinalis"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "verbenalin",
-  "summary": "Verbenalin is a compound reported in verbena officinalis. Available source coverage remains preliminary in this dataset."
+  "summary": "Verbenalin is a compound reported in verbena officinalis. Available references are still early and incomplete."
 }

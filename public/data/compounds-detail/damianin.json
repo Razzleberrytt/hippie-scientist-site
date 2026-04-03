@@ -1,7 +1,7 @@
 {
   "name": "Damianin",
   "category": "general",
-  "description": "Damianin is a compound reported in turnera diffusa var. aphrodisiaca and turnera diffusa. Available source coverage remains preliminary in this dataset.",
+  "description": "Damianin appears in records as a compound reported in turnera diffusa var. aphrodisiaca and turnera diffusa. Current source coverage is limited and still developing.",
   "herbs": [
     "turnera diffusa var. aphrodisiaca",
     "turnera diffusa"
@@ -45,5 +45,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "damianin",
-  "summary": "Damianin is a compound reported in turnera diffusa var. aphrodisiaca and turnera diffusa. Available source coverage remains preliminary in this dataset."
+  "summary": "Damianin appears in records as a compound reported in turnera diffusa var. aphrodisiaca and turnera diffusa. Current source coverage is limited and still developing."
 }

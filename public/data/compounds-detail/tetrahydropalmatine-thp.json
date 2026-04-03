@@ -1,7 +1,7 @@
 {
   "name": "Tetrahydropalmatine (THP)",
   "category": "general",
-  "description": "Tetrahydropalmatine (THP) is a compound reported in corydalis yanhusuo. Available source coverage remains preliminary in this dataset.",
+  "description": "Tetrahydropalmatine (THP) is a compound reported in corydalis yanhusuo. Available references are still early and incomplete.",
   "herbs": [
     "corydalis yanhusuo"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "tetrahydropalmatine-thp",
-  "summary": "Tetrahydropalmatine (THP) is a compound reported in corydalis yanhusuo. Available source coverage remains preliminary in this dataset."
+  "summary": "Tetrahydropalmatine (THP) is a compound reported in corydalis yanhusuo. Available references are still early and incomplete."
 }

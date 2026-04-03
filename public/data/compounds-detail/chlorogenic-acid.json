@@ -1,7 +1,7 @@
 {
   "name": "Chlorogenic acid",
   "category": "general",
-  "description": "Chlorogenic acid is a compound reported in yerba mate. Available source coverage remains preliminary in this dataset.",
+  "description": "Chlorogenic acid is a compound reported in yerba mate. Available references are still early and incomplete.",
   "herbs": [
     "yerba mate"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "chlorogenic-acid",
-  "summary": "Chlorogenic acid is a compound reported in yerba mate. Available source coverage remains preliminary in this dataset."
+  "summary": "Chlorogenic acid is a compound reported in yerba mate. Available references are still early and incomplete."
 }

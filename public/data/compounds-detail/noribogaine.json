@@ -1,7 +1,7 @@
 {
   "name": "noribogaine",
   "category": "general",
-  "description": "noribogaine is a compound reported in tabernanthe iboga. Available source coverage remains preliminary in this dataset.",
+  "description": "noribogaine appears in records as a compound reported in tabernanthe iboga. Current source coverage is limited and still developing.",
   "herbs": [
     "tabernanthe iboga"
   ],
@@ -41,5 +41,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "noribogaine",
-  "summary": "noribogaine is a compound reported in tabernanthe iboga. Available source coverage remains preliminary in this dataset."
+  "summary": "noribogaine appears in records as a compound reported in tabernanthe iboga. Current source coverage is limited and still developing."
 }

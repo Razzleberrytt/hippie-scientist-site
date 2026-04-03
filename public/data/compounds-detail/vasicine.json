@@ -1,7 +1,7 @@
 {
   "name": "vasicine",
   "category": "general",
-  "description": "vasicine is a compound reported in adhatoda vasica and justicia adhatoda. Available source coverage remains preliminary in this dataset.",
+  "description": "vasicine is a compound reported in adhatoda vasica and justicia adhatoda. Available references are still early and incomplete.",
   "herbs": [
     "adhatoda vasica",
     "justicia adhatoda"
@@ -35,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "vasicine",
-  "summary": "vasicine is a compound reported in adhatoda vasica and justicia adhatoda. Available source coverage remains preliminary in this dataset."
+  "summary": "vasicine is a compound reported in adhatoda vasica and justicia adhatoda. Available references are still early and incomplete."
 }

@@ -1,7 +1,7 @@
 {
   "name": "thebaine",
   "category": "general",
-  "description": "thebaine is a compound reported in papaver somniferum. Available source coverage remains preliminary in this dataset.",
+  "description": "thebaine is a compound reported in papaver somniferum. Available references are still early and incomplete.",
   "herbs": [
     "papaver somniferum"
   ],
@@ -42,5 +42,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "thebaine",
-  "summary": "thebaine is a compound reported in papaver somniferum. Available source coverage remains preliminary in this dataset."
+  "summary": "thebaine is a compound reported in papaver somniferum. Available references are still early and incomplete."
 }

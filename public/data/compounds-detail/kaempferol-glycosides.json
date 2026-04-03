@@ -1,7 +1,7 @@
 {
   "name": "kaempferol glycosides",
   "category": "glycoside",
-  "description": "kaempferol glycosides is a glycoside compound reported in agrimonia eupatoria. Available source coverage remains preliminary in this dataset.",
+  "description": "kaempferol glycosides is a glycoside compound reported in agrimonia eupatoria. Available references are still early and incomplete.",
   "herbs": [
     "agrimonia eupatoria"
   ],
@@ -35,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "kaempferol-glycosides",
-  "summary": "kaempferol glycosides is a glycoside compound reported in agrimonia eupatoria. Available source coverage remains preliminary in this dataset."
+  "summary": "kaempferol glycosides is a glycoside compound reported in agrimonia eupatoria. Available references are still early and incomplete."
 }

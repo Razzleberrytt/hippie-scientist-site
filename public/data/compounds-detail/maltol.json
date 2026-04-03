@@ -1,7 +1,7 @@
 {
   "name": "maltol",
   "category": "general",
-  "description": "maltol is a compound reported in passiflora incarnata. Available source coverage remains preliminary in this dataset.",
+  "description": "maltol appears in records as a compound reported in passiflora incarnata. Current source coverage is limited and still developing.",
   "herbs": [
     "passiflora incarnata"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "maltol",
-  "summary": "maltol is a compound reported in passiflora incarnata. Available source coverage remains preliminary in this dataset."
+  "summary": "maltol appears in records as a compound reported in passiflora incarnata. Current source coverage is limited and still developing."
 }

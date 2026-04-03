@@ -1,7 +1,7 @@
 {
   "name": "cinnamic acid derivatives",
   "category": "general",
-  "description": "cinnamic acid derivatives is a compound reported in erythroxylum coca. Available source coverage remains preliminary in this dataset.",
+  "description": "cinnamic acid derivatives appears in records as a compound reported in erythroxylum coca. Current source coverage is limited and still developing.",
   "herbs": [
     "erythroxylum coca"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "cinnamic-acid-derivatives",
-  "summary": "cinnamic acid derivatives is a compound reported in erythroxylum coca. Available source coverage remains preliminary in this dataset."
+  "summary": "cinnamic acid derivatives appears in records as a compound reported in erythroxylum coca. Current source coverage is limited and still developing."
 }

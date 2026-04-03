@@ -1,7 +1,7 @@
 {
   "name": "Erythrinian alkaloids",
   "category": "alkaloid",
-  "description": "Erythrinian alkaloids is a alkaloid compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset.",
+  "description": "Erythrinian alkaloids is an alkaloid compound reported in erythrina mulungu. Current source coverage is limited and still developing.",
   "herbs": [
     "erythrina mulungu"
   ],
@@ -51,5 +51,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "erythrinian-alkaloids",
-  "summary": "Erythrinian alkaloids is a alkaloid compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset."
+  "summary": "Erythrinian alkaloids is an alkaloid compound reported in erythrina mulungu. Current source coverage is limited and still developing."
 }

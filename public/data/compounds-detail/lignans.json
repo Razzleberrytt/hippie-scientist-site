@@ -1,7 +1,7 @@
 {
   "name": "lignans",
   "category": "lignan",
-  "description": "lignans is a lignan compound reported in Zanthoxylum zanthoxyloides. Available source coverage remains preliminary in this dataset.",
+  "description": "lignans is a lignan compound reported in Zanthoxylum zanthoxyloides. Available references are still early and incomplete.",
   "herbs": [
     "Zanthoxylum zanthoxyloides"
   ],
@@ -30,5 +30,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "lignans",
-  "summary": "lignans is a lignan compound reported in Zanthoxylum zanthoxyloides. Available source coverage remains preliminary in this dataset."
+  "summary": "lignans is a lignan compound reported in Zanthoxylum zanthoxyloides. Available references are still early and incomplete."
 }

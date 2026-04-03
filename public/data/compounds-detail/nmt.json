@@ -1,7 +1,7 @@
 {
   "name": "NMT",
   "category": "general",
-  "description": "NMT is a compound reported in acacia phlebophylla, Acacia confusa Merr., and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "NMT appears in records as a compound reported in acacia phlebophylla, Acacia confusa Merr., and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "acacia phlebophylla",
     "Acacia confusa Merr.",
@@ -46,5 +46,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nmt",
-  "summary": "NMT is a compound reported in acacia phlebophylla, Acacia confusa Merr., and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "NMT appears in records as a compound reported in acacia phlebophylla, Acacia confusa Merr., and related herbs. Current source coverage is limited and still developing."
 }

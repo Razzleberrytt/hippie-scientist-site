@@ -1,7 +1,7 @@
 {
   "name": "lactucopicrin",
   "category": "general",
-  "description": "lactucopicrin is a compound reported in wild lettuce and lactuca virosa. Available source coverage remains preliminary in this dataset.",
+  "description": "lactucopicrin is a compound reported in wild lettuce and lactuca virosa. Available references are still early and incomplete.",
   "herbs": [
     "wild lettuce",
     "lactuca virosa"
@@ -41,5 +41,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "lactucopicrin",
-  "summary": "lactucopicrin is a compound reported in wild lettuce and lactuca virosa. Available source coverage remains preliminary in this dataset."
+  "summary": "lactucopicrin is a compound reported in wild lettuce and lactuca virosa. Available references are still early and incomplete."
 }

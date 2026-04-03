@@ -1,7 +1,7 @@
 {
   "name": "ibogamine",
   "category": "general",
-  "description": "ibogamine is a compound reported in ervatamia coronaria. Available source coverage remains preliminary in this dataset.",
+  "description": "ibogamine appears in records as a compound reported in ervatamia coronaria. Current source coverage is limited and still developing.",
   "herbs": [
     "ervatamia coronaria"
   ],
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "ibogamine",
-  "summary": "ibogamine is a compound reported in ervatamia coronaria. Available source coverage remains preliminary in this dataset."
+  "summary": "ibogamine appears in records as a compound reported in ervatamia coronaria. Current source coverage is limited and still developing."
 }

@@ -1,7 +1,7 @@
 {
   "name": "hypaphorine",
   "category": "general",
-  "description": "hypaphorine is a compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset.",
+  "description": "hypaphorine appears in records as a compound reported in erythrina mulungu. Current source coverage is limited and still developing.",
   "herbs": [
     "erythrina mulungu"
   ],
@@ -51,5 +51,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "hypaphorine",
-  "summary": "hypaphorine is a compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset."
+  "summary": "hypaphorine appears in records as a compound reported in erythrina mulungu. Current source coverage is limited and still developing."
 }

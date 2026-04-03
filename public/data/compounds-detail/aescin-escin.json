@@ -1,7 +1,7 @@
 {
   "name": "aescin (escin)",
   "category": "general",
-  "description": "aescin (escin) is a compound reported in aesculus hippocastanum. Available source coverage remains preliminary in this dataset.",
+  "description": "aescin (escin) is a compound reported in aesculus hippocastanum. Available references are still early and incomplete.",
   "herbs": [
     "aesculus hippocastanum"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "aescin-escin",
-  "summary": "aescin (escin) is a compound reported in aesculus hippocastanum. Available source coverage remains preliminary in this dataset."
+  "summary": "aescin (escin) is a compound reported in aesculus hippocastanum. Available references are still early and incomplete."
 }

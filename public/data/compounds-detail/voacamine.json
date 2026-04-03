@@ -1,7 +1,7 @@
 {
   "name": "Voacamine",
   "category": "general",
-  "description": "Voacamine is a compound reported in ervatamia coronaria and voacanga africana. Available source coverage remains preliminary in this dataset.",
+  "description": "Voacamine appears in records as a compound reported in ervatamia coronaria and voacanga africana. Current source coverage is limited and still developing.",
   "herbs": [
     "ervatamia coronaria",
     "voacanga africana"
@@ -47,5 +47,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "voacamine",
-  "summary": "Voacamine is a compound reported in ervatamia coronaria and voacanga africana. Available source coverage remains preliminary in this dataset."
+  "summary": "Voacamine appears in records as a compound reported in ervatamia coronaria and voacanga africana. Current source coverage is limited and still developing."
 }

@@ -1,7 +1,7 @@
 {
   "name": "Mescaline",
   "category": "general",
-  "description": "Mescaline is a compound reported in echinopsis pachanoi. Available source coverage remains preliminary in this dataset.",
+  "description": "Mescaline appears in records as a compound reported in echinopsis pachanoi. Current source coverage is limited and still developing.",
   "herbs": [
     "echinopsis pachanoi"
   ],
@@ -35,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mescaline",
-  "summary": "Mescaline is a compound reported in echinopsis pachanoi. Available source coverage remains preliminary in this dataset."
+  "summary": "Mescaline appears in records as a compound reported in echinopsis pachanoi. Current source coverage is limited and still developing."
 }

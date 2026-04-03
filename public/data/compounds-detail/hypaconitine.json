@@ -1,7 +1,7 @@
 {
   "name": "hypaconitine",
   "category": "general",
-  "description": "hypaconitine is a compound reported in aconitum napellus. Available source coverage remains preliminary in this dataset.",
+  "description": "hypaconitine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing.",
   "herbs": [
     "aconitum napellus"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "hypaconitine",
-  "summary": "hypaconitine is a compound reported in aconitum napellus. Available source coverage remains preliminary in this dataset."
+  "summary": "hypaconitine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing."
 }

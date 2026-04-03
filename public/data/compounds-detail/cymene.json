@@ -1,7 +1,7 @@
 {
   "name": "Cymene",
   "category": "general",
-  "description": "Cymene is a compound reported in dysphania ambrosioides. Available source coverage remains preliminary in this dataset.",
+  "description": "Cymene appears in records as a compound reported in dysphania ambrosioides. Current source coverage is limited and still developing.",
   "herbs": [
     "dysphania ambrosioides"
   ],
@@ -31,5 +31,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "cymene",
-  "summary": "Cymene is a compound reported in dysphania ambrosioides. Available source coverage remains preliminary in this dataset."
+  "summary": "Cymene appears in records as a compound reported in dysphania ambrosioides. Current source coverage is limited and still developing."
 }

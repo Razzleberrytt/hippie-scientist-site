@@ -1,7 +1,7 @@
 {
   "name": "Caffeine",
   "category": "general",
-  "description": "Caffeine is a compound reported in yerba mate, camellia sinensis, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "Caffeine appears in records as a compound reported in yerba mate, camellia sinensis, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "yerba mate",
     "camellia sinensis",
@@ -69,5 +69,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "caffeine",
-  "summary": "Caffeine is a compound reported in yerba mate, camellia sinensis, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "Caffeine appears in records as a compound reported in yerba mate, camellia sinensis, and related herbs. Current source coverage is limited and still developing."
 }

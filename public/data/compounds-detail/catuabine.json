@@ -1,7 +1,7 @@
 {
   "name": "Catuabine",
   "category": "general",
-  "description": "Catuabine is a compound reported in catuaba. Available source coverage remains preliminary in this dataset.",
+  "description": "Catuabine is a compound reported in catuaba. Available references are still early and incomplete.",
   "herbs": [
     "catuaba"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "catuabine",
-  "summary": "Catuabine is a compound reported in catuaba. Available source coverage remains preliminary in this dataset."
+  "summary": "Catuabine is a compound reported in catuaba. Available references are still early and incomplete."
 }

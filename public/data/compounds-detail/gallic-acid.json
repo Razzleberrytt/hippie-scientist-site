@@ -1,7 +1,7 @@
 {
   "name": "gallic acid",
   "category": "general",
-  "description": "gallic acid is a compound reported in alchemilla vulgaris and combretum micranthum. Available source coverage remains preliminary in this dataset.",
+  "description": "gallic acid appears in records as a compound reported in alchemilla vulgaris and combretum micranthum. Current source coverage is limited and still developing.",
   "herbs": [
     "alchemilla vulgaris",
     "combretum micranthum"
@@ -43,5 +43,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "gallic-acid",
-  "summary": "gallic acid is a compound reported in alchemilla vulgaris and combretum micranthum. Available source coverage remains preliminary in this dataset."
+  "summary": "gallic acid appears in records as a compound reported in alchemilla vulgaris and combretum micranthum. Current source coverage is limited and still developing."
 }

@@ -1,7 +1,7 @@
 {
   "name": "procyanidin oligomers",
   "category": "general",
-  "description": "procyanidin oligomers is a compound reported in agrimonia eupatoria. Available source coverage remains preliminary in this dataset.",
+  "description": "procyanidin oligomers appears in records as a compound reported in agrimonia eupatoria. Current source coverage is limited and still developing.",
   "herbs": [
     "agrimonia eupatoria"
   ],
@@ -35,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "procyanidin-oligomers",
-  "summary": "procyanidin oligomers is a compound reported in agrimonia eupatoria. Available source coverage remains preliminary in this dataset."
+  "summary": "procyanidin oligomers appears in records as a compound reported in agrimonia eupatoria. Current source coverage is limited and still developing."
 }

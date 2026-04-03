@@ -1,7 +1,7 @@
 {
   "name": "coumarins",
   "category": "coumarin",
-  "description": "coumarins is a coumarin compound reported in acmella oleracea. Available source coverage remains preliminary in this dataset.",
+  "description": "coumarins is a coumarin compound reported in acmella oleracea. Current source coverage is limited and still developing.",
   "herbs": [
     "acmella oleracea"
   ],
@@ -42,5 +42,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "coumarins",
-  "summary": "coumarins is a coumarin compound reported in acmella oleracea. Available source coverage remains preliminary in this dataset."
+  "summary": "coumarins is a coumarin compound reported in acmella oleracea. Current source coverage is limited and still developing."
 }

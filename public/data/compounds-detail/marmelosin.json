@@ -1,7 +1,7 @@
 {
   "name": "Marmelosin",
   "category": "general",
-  "description": "Marmelosin is a compound reported in aegle marmelos. Available source coverage remains preliminary in this dataset.",
+  "description": "Marmelosin appears in records as a compound reported in aegle marmelos. Current source coverage is limited and still developing.",
   "herbs": [
     "aegle marmelos"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "marmelosin",
-  "summary": "Marmelosin is a compound reported in aegle marmelos. Available source coverage remains preliminary in this dataset."
+  "summary": "Marmelosin appears in records as a compound reported in aegle marmelos. Current source coverage is limited and still developing."
 }

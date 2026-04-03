@@ -1,7 +1,7 @@
 {
   "name": "speciogynine",
   "category": "general",
-  "description": "speciogynine is a compound reported in mitragyna javanica. Available source coverage remains preliminary in this dataset.",
+  "description": "speciogynine appears in records as a compound reported in mitragyna javanica. Current source coverage is limited and still developing.",
   "herbs": [
     "mitragyna javanica"
   ],
@@ -38,5 +38,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "speciogynine",
-  "summary": "speciogynine is a compound reported in mitragyna javanica. Available source coverage remains preliminary in this dataset."
+  "summary": "speciogynine appears in records as a compound reported in mitragyna javanica. Current source coverage is limited and still developing."
 }

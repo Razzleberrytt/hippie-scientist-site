@@ -1,7 +1,7 @@
 {
   "name": "sterols",
   "category": "steroid",
-  "description": "sterols is a steroid compound reported in albizia julibrissin, Muira Puama, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "sterols is a steroid compound reported in albizia julibrissin, Muira Puama, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "albizia julibrissin",
     "Muira Puama",
@@ -61,5 +61,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "sterols",
-  "summary": "sterols is a steroid compound reported in albizia julibrissin, Muira Puama, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "sterols is a steroid compound reported in albizia julibrissin, Muira Puama, and related herbs. Available references are still early and incomplete."
 }

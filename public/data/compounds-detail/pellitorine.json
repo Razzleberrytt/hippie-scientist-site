@@ -1,7 +1,7 @@
 {
   "name": "Pellitorine",
   "category": "general",
-  "description": "Pellitorine is a compound reported in zanthoxylum clava-herculis. Available source coverage remains preliminary in this dataset.",
+  "description": "Pellitorine appears in records as a compound reported in zanthoxylum clava-herculis. Current source coverage is limited and still developing.",
   "herbs": [
     "zanthoxylum clava-herculis"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "pellitorine",
-  "summary": "Pellitorine is a compound reported in zanthoxylum clava-herculis. Available source coverage remains preliminary in this dataset."
+  "summary": "Pellitorine appears in records as a compound reported in zanthoxylum clava-herculis. Current source coverage is limited and still developing."
 }

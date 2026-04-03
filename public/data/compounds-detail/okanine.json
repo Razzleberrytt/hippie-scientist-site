@@ -1,7 +1,7 @@
 {
   "name": "okanine",
   "category": "general",
-  "description": "okanine is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset.",
+  "description": "okanine appears in records as a compound reported in albizia lebbeck. Current source coverage is limited and still developing.",
   "herbs": [
     "albizia lebbeck"
   ],
@@ -33,5 +33,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "okanine",
-  "summary": "okanine is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset."
+  "summary": "okanine appears in records as a compound reported in albizia lebbeck. Current source coverage is limited and still developing."
 }

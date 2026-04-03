@@ -1,7 +1,7 @@
 {
   "name": "Desfontainine",
   "category": "general",
-  "description": "Desfontainine is a compound reported in desfontainia spinosa. Available source coverage remains preliminary in this dataset.",
+  "description": "Desfontainine appears in records as a compound reported in desfontainia spinosa. Current source coverage is limited and still developing.",
   "herbs": [
     "desfontainia spinosa"
   ],
@@ -42,5 +42,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "desfontainine",
-  "summary": "Desfontainine is a compound reported in desfontainia spinosa. Available source coverage remains preliminary in this dataset."
+  "summary": "Desfontainine appears in records as a compound reported in desfontainia spinosa. Current source coverage is limited and still developing."
 }

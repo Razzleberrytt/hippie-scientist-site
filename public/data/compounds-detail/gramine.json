@@ -1,7 +1,7 @@
 {
   "name": "gramine",
   "category": "general",
-  "description": "gramine is a compound reported in arundo donax. Available source coverage remains preliminary in this dataset.",
+  "description": "gramine appears in records as a compound reported in arundo donax. Current source coverage is limited and still developing.",
   "herbs": [
     "arundo donax"
   ],
@@ -35,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "gramine",
-  "summary": "gramine is a compound reported in arundo donax. Available source coverage remains preliminary in this dataset."
+  "summary": "gramine appears in records as a compound reported in arundo donax. Current source coverage is limited and still developing."
 }

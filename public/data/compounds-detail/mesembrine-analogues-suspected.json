@@ -1,7 +1,7 @@
 {
   "name": "Mesembrine analogues (suspected)",
   "category": "general",
-  "description": "Mesembrine analogues (suspected) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "description": "Mesembrine analogues (suspected) is currently cataloged as a compound entry. Current source coverage is limited and still developing.",
   "herbs": [],
   "effects": [
     "Mood elevation",
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mesembrine-analogues-suspected",
-  "summary": "Mesembrine analogues (suspected) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Mesembrine analogues (suspected) is currently cataloged as a compound entry. Current source coverage is limited and still developing."
 }

@@ -1,7 +1,7 @@
 {
   "name": "Marrubiin",
   "category": "general",
-  "description": "Marrubiin is a compound reported in marrubium vulgare and leonotis leonurus. Available source coverage remains preliminary in this dataset.",
+  "description": "Marrubiin appears in records as a compound reported in marrubium vulgare and leonotis leonurus. Current source coverage is limited and still developing.",
   "herbs": [
     "marrubium vulgare",
     "leonotis leonurus"
@@ -40,5 +40,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "marrubiin",
-  "summary": "Marrubiin is a compound reported in marrubium vulgare and leonotis leonurus. Available source coverage remains preliminary in this dataset."
+  "summary": "Marrubiin appears in records as a compound reported in marrubium vulgare and leonotis leonurus. Current source coverage is limited and still developing."
 }

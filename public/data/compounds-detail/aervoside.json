@@ -1,7 +1,7 @@
 {
   "name": "aervoside",
   "category": "general",
-  "description": "aervoside is a compound reported in aerva lanata. Available source coverage remains preliminary in this dataset.",
+  "description": "aervoside is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "herbs": [
     "aerva lanata"
   ],
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "aervoside",
-  "summary": "aervoside is a compound reported in aerva lanata. Available source coverage remains preliminary in this dataset."
+  "summary": "aervoside is a compound reported in aerva lanata. Available references are still early and incomplete."
 }

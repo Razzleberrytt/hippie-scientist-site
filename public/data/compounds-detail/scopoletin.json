@@ -1,7 +1,7 @@
 {
   "name": "scopoletin",
   "category": "general",
-  "description": "scopoletin is a compound reported in leonotis leonurus. Available source coverage remains preliminary in this dataset.",
+  "description": "scopoletin is a compound reported in leonotis leonurus. Available references are still early and incomplete.",
   "herbs": [
     "leonotis leonurus"
   ],
@@ -39,5 +39,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "scopoletin",
-  "summary": "scopoletin is a compound reported in leonotis leonurus. Available source coverage remains preliminary in this dataset."
+  "summary": "scopoletin is a compound reported in leonotis leonurus. Available references are still early and incomplete."
 }

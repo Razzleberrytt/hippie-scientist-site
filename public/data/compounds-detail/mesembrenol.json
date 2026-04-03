@@ -1,7 +1,7 @@
 {
   "name": "mesembrenol",
   "category": "general",
-  "description": "mesembrenol is a compound reported in sceletium tortuosum. Available source coverage remains preliminary in this dataset.",
+  "description": "mesembrenol appears in records as a compound reported in sceletium tortuosum. Current source coverage is limited and still developing.",
   "herbs": [
     "sceletium tortuosum"
   ],
@@ -46,5 +46,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mesembrenol",
-  "summary": "mesembrenol is a compound reported in sceletium tortuosum. Available source coverage remains preliminary in this dataset."
+  "summary": "mesembrenol appears in records as a compound reported in sceletium tortuosum. Current source coverage is limited and still developing."
 }
