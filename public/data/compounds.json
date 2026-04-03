@@ -111,44 +111,30 @@
   {
     "name": "5-MeO-DMT",
     "category": "general",
-    "description": "",
+    "description": "5-Methoxy-N,N-dimethyltryptamine (5-MeO-DMT) is a potent serotonergic tryptamine with rapid-onset psychoactive effects and high affinity/potency at 5-HT1A with additional 5-HT2A-mediated psychedelic effects.",
     "herbs": [
       "anadenanthera peregrina",
       "virola calophylla",
       "virola theiodora"
     ],
     "effects": [
-      "Intense visuals",
-      "spiritual experiences",
+      "rapid altered consciousness",
       "ego dissolution",
-      "No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.",
-      "Intense visions",
-      "altered perception",
-      "nausea",
-      "Source of DMT-rich resin",
-      "entheogenic in Amazonian use",
-      "Visuals",
-      "euphoria",
-      "altered states",
-      "stimulation",
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan."
+      "perceptual distortion",
+      "anxiety/panic (possible)",
+      "nausea/vomiting (possible)"
     ],
     "contraindications": [
-      "Avoid with MAOIs or SSRIs",
-      "potent psychoactive",
-      "Strongly visionary",
-      "not for casual use",
-      "Asthma",
-      "MAOIs",
-      "psychiatric conditions",
-      "Heart conditions",
-      "SSRIs",
-      "schizophrenia"
+      "concurrent MAOI use",
+      "concurrent serotonergic antidepressants",
+      "history of psychotic or bipolar disorders",
+      "unstable cardiovascular disease"
     ],
-    "interactions": [],
+    "interactions": [
+      "MAO inhibitors (markedly increase intensity/duration)",
+      "SSRIs/SNRIs and other serotonergic drugs (serotonin-toxicity risk)",
+      "other sympathomimetics (cardiovascular stress)"
+    ],
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -162,9 +148,19 @@
         "title": "PubChem compound: 5-MeO-DMT (CID 1832)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1832",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "Serotonin 1A Receptors Modulate Serotonin 2A Receptor-Mediated Behavioral Effects of 5-MeO-DMT Analogs in Mice",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39636099/",
+        "note": "PubMed primary source on 5-HT1A/5-HT2A pharmacology"
+      },
+      {
+        "title": "The serotonergic hallucinogen 5-methoxy-N,N-dimethyltryptamine disrupts cortical activity via 5-HT1A and 5-HT2A receptors",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26477571/",
+        "note": "PubMed primary source for receptor-mediated CNS effects"
       }
     ],
-    "lastUpdated": "2026-04-01T18:55:38.038Z"
+    "lastUpdated": "2026-04-03T23:16:56Z"
   },
   {
     "name": "7-Hydroxymitragynine",
@@ -237,23 +233,24 @@
   {
     "name": "acetylcholine",
     "category": "general",
-    "description": "",
+    "description": "Acetylcholine is an endogenous neurotransmitter in central and peripheral nervous systems that activates muscarinic and nicotinic receptors to regulate autonomic function, cognition, and neuromuscular transmission.",
     "herbs": [
       "urtica dioica"
     ],
     "effects": [
-      "Mild stimulation",
-      "increased circulation",
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan."
+      "parasympathetic signaling",
+      "reduced heart rate (muscarinic effect)",
+      "smooth-muscle and glandular activation",
+      "neuromuscular transmission support"
     ],
     "contraindications": [
-      "Pregnancy (caution)",
-      "diuretics"
+      "clinically significant bradycardia risk settings",
+      "active bronchospasm risk without supervision"
     ],
-    "interactions": [],
+    "interactions": [
+      "anticholinergics (oppose effects)",
+      "acetylcholinesterase inhibitors (increase cholinergic effects)"
+    ],
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -267,9 +264,14 @@
         "title": "PubChem compound: acetylcholine (CID 187)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/187",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "Acetylcholine receptor overview (NCBI Bookshelf)",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK526133/",
+        "note": "Primary reference for receptor pharmacology overview"
       }
     ],
-    "lastUpdated": "2026-04-01T18:55:38.038Z"
+    "lastUpdated": "2026-04-03T23:16:56Z"
   },
   {
     "name": "Aconine",
