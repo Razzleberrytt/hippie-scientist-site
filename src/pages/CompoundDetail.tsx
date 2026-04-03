@@ -76,6 +76,11 @@ function ListSection({ items }: { items: string[] }) {
   )
 }
 
+type RelatedLinkItem = {
+  label: string
+  to: string
+}
+
 function buildInteractionsLink(tokens: string[]) {
   if (!tokens.length) return '/interactions'
   return `/interactions?items=${tokens.join(',')}`
@@ -83,6 +88,18 @@ function buildInteractionsLink(tokens: string[]) {
 
 function normalizeKey(value: string) {
   return value.trim().toLowerCase()
+}
+
+function dedupeRelatedLinks(items: Array<RelatedLinkItem | null | undefined>) {
+  const unique = new Map<string, RelatedLinkItem>()
+
+  items.forEach(item => {
+    if (!item?.label.trim() || !item.to.trim()) return
+    const key = normalizeKey(item.to)
+    if (!unique.has(key)) unique.set(key, item)
+  })
+
+  return Array.from(unique.values()).sort((a, b) => a.label.localeCompare(b.label))
 }
 
 export default function CompoundDetail() {
@@ -142,18 +159,41 @@ export default function CompoundDetail() {
     compound.linkedHerbs.length > 0 ? compound.linkedHerbs : compound.relatedEntities
   const premiumRelatedHerbs = premiumHerbEntries.map(entry => {
     const normalized = herbByKey.get(normalizeKey(entry))
-    return {
-      label: normalized?.label || entry.replace(/-/g, ' '),
-      to: normalized?.slug ? `/herbs/${encodeURIComponent(normalized.slug)}` : undefined,
-    }
+    return normalized?.slug
+      ? {
+          label: normalized.label || entry.replace(/-/g, ' '),
+          to: `/herbs/${encodeURIComponent(normalized.slug)}`,
+        }
+      : null
   })
   const premiumRelatedCompounds = compound.relatedCompounds.map(entry => {
     const normalized = compoundByKey.get(normalizeKey(entry))
-    return {
-      label: normalized?.label || entry,
-      to: normalized?.slug ? `/compounds/${encodeURIComponent(normalized.slug)}` : undefined,
-    }
+    return normalized?.slug
+      ? {
+          label: normalized.label || entry,
+          to: `/compounds/${encodeURIComponent(normalized.slug)}`,
+        }
+      : null
   })
+  const linkedHerbCards = linkedHerbs.filter(herb => herb.slug && herbByKey.has(normalizeKey(herb.slug)))
+  const foundInHerbLinks = dedupeRelatedLinks([
+    ...linkedHerbCards.map(herb => ({
+      label: herb.name,
+      to: `/herbs/${encodeURIComponent(herb.slug)}`,
+    })),
+    ...premiumRelatedHerbs,
+  ])
+  const relatedCompoundLinks = dedupeRelatedLinks(premiumRelatedCompounds)
+  const relationGroups = [
+    {
+      title: `Found In Herbs (${foundInHerbLinks.length})`,
+      items: foundInHerbLinks,
+    },
+    {
+      title: `Related Compounds (${relatedCompoundLinks.length})`,
+      items: relatedCompoundLinks,
+    },
+  ].filter(group => group.items.length > 0)
 
   const confidence =
     compound.confidence ??
@@ -253,7 +293,7 @@ export default function CompoundDetail() {
           entityName: compound.name,
           enrichment: governedResearch,
           governedFaq,
-          hasVisibleCompareSection: Boolean(linkedHerbs.length || relatedCollections.length),
+          hasVisibleCompareSection: Boolean(foundInHerbLinks.length || relatedCollections.length),
         })
       : null
   const fallbackIntro = buildFallbackCompoundIntro({
@@ -392,8 +432,10 @@ export default function CompoundDetail() {
             quickFacts={governedIntro.quickFacts}
             nextSteps={[
               { label: 'Check this compound in interactions', to: compoundCheckerHref },
-              { label: 'Review related herbs', to: '#related-herbs', variant: 'secondary' },
-              { label: 'Continue to stack builder', to: '/build', variant: 'secondary' },
+              ...(foundInHerbLinks.length > 0
+                ? [{ label: 'Review related herbs', to: '#related-herbs', variant: 'secondary' as const }]
+                : []),
+              { label: 'Continue to stack builder', to: '/build', variant: 'secondary' as const },
             ]}
             onStepClick={step => {
               if (step.to.startsWith('/interactions')) {
@@ -573,10 +615,7 @@ export default function CompoundDetail() {
 
         <PremiumDataSection
           details={premiumDetails}
-          relationGroups={[
-            { title: 'Related Herbs', items: premiumRelatedHerbs },
-            { title: 'Related Compounds', items: premiumRelatedCompounds },
-          ]}
+          relationGroups={relationGroups}
         />
 
         {governedResearch && governedFaq && governedRelatedQuestions && (
@@ -692,23 +731,37 @@ export default function CompoundDetail() {
         )}
 
         {/* Associated herbs */}
-        <section id='related-herbs' className='border-white/8 mt-6 border-t pt-5'>
-          <Collapse title='Related Herbs'>
-            <div className='text-sm leading-relaxed text-white/85'>
-              {linkedHerbs.length > 0 ? (
-                <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
-                  {linkedHerbs.map(herb => (
-                    <RelatedHerbCard key={herb.slug} herb={herb} />
-                  ))}
+        {foundInHerbLinks.length > 0 && (
+          <section id='related-herbs' className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title={`Found In Herbs (${foundInHerbLinks.length})`}>
+              <div className='space-y-4 text-sm leading-relaxed text-white/85'>
+                {linkedHerbCards.length > 0 && (
+                  <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+                    {linkedHerbCards.map(herb => (
+                      <RelatedHerbCard key={herb.slug} herb={herb} />
+                    ))}
+                  </div>
+                )}
+                <div>
+                  <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
+                    Quick Links
+                  </h3>
+                  <div className='flex flex-wrap gap-2.5'>
+                    {foundInHerbLinks.map(item => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        className='inline-flex items-center rounded-full border border-white/12 bg-white/[0.05] px-3 py-1.5 text-xs font-medium tracking-[0.01em] text-white/86 transition duration-200 hover:border-white/24 hover:bg-white/[0.085] hover:text-white'
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              ) : (
-                <div className='rounded-2xl border border-dashed border-white/20 bg-white/5 px-4 py-5 text-sm text-white/65'>
-                  No related herb profiles found yet for this compound.
-                </div>
-              )}
-            </div>
-          </Collapse>
-        </section>
+              </div>
+            </Collapse>
+          </section>
+        )}
 
         {relatedCollections.length > 0 && (
           <section className='border-white/8 mt-6 border-t pt-5'>

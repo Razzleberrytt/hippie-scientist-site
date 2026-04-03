@@ -1,6 +1,5 @@
 import type { Herb } from '@/types'
 import type { CompoundRecord } from '@/lib/compound-data'
-import { slugify } from '@/lib/slug'
 
 export type RelatedHerb = {
   slug: string
@@ -37,20 +36,6 @@ function pickDescriptor(herb: Herb) {
 export function mapRelatedHerbsForCompound(compound: CompoundRecord, herbs: Herb[]): RelatedHerb[] {
   const compoundNameKey = normalizeKey(compound.name)
 
-  const herbSlugByName = new Map<string, string>()
-  for (const herb of herbs) {
-    const slug = String(herb.slug || slugify(pickHerbName(herb)))
-    if (!slug) continue
-
-    const labels = [herb.common, herb.name, herb.scientific, herb.slug]
-    for (const label of labels) {
-      const key = normalizeKey(label)
-      if (key && !herbSlugByName.has(key)) {
-        herbSlugByName.set(key, slug)
-      }
-    }
-  }
-
   const fromCompoundDataset = compound.herbs
     .map(name => {
       const key = normalizeKey(name)
@@ -70,12 +55,8 @@ export function mapRelatedHerbsForCompound(compound: CompoundRecord, herbs: Herb
           confidence: existing.confidence,
         } satisfies RelatedHerb
       }
-
-      return {
-        slug: herbSlugByName.get(key) || slugify(String(name)),
-        name: String(name),
-        descriptor: 'Profile available',
-      } satisfies RelatedHerb
+      
+      return null
     })
     .filter((item): item is RelatedHerb => Boolean(item))
 

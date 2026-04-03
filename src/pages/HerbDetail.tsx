@@ -128,6 +128,11 @@ function ListSection({ items }: { items: string[] }) {
   )
 }
 
+type RelatedLinkItem = {
+  label: string
+  to: string
+}
+
 function normalizeKey(value: string) {
   return value.trim().toLowerCase()
 }
@@ -135,6 +140,18 @@ function normalizeKey(value: string) {
 function buildInteractionsLink(tokens: string[]) {
   if (!tokens.length) return '/interactions'
   return `/interactions?items=${tokens.join(',')}`
+}
+
+function dedupeRelatedLinks(items: Array<RelatedLinkItem | null | undefined>) {
+  const unique = new Map<string, RelatedLinkItem>()
+
+  items.forEach(item => {
+    if (!item?.label.trim() || !item.to.trim()) return
+    const key = normalizeKey(item.to)
+    if (!unique.has(key)) unique.set(key, item)
+  })
+
+  return Array.from(unique.values()).sort((a, b) => a.label.localeCompare(b.label))
 }
 
 export default function HerbDetail() {
@@ -221,21 +238,47 @@ export default function HerbDetail() {
   const premiumRelatedHerbs = (Array.isArray(herb.relatedEntities) ? herb.relatedEntities : []).map(
     entry => {
       const normalized = herbByKey.get(normalizeKey(entry))
-      return {
-        label: normalized?.label || entry,
-        to: normalized?.slug ? `/herbs/${encodeURIComponent(normalized.slug)}` : undefined,
-      }
+      return normalized?.slug
+        ? {
+            label: normalized.label || entry,
+            to: `/herbs/${encodeURIComponent(normalized.slug)}`,
+          }
+        : null
     },
   )
   const premiumRelatedCompounds = (
     Array.isArray(herb.relatedCompounds) ? herb.relatedCompounds : []
   ).map(entry => {
     const normalized = compoundByName.get(normalizeKey(entry))
-    return {
-      label: normalized?.name || entry,
-      to: normalized?.slug ? `/compounds/${encodeURIComponent(normalized.slug)}` : undefined,
-    }
+    return normalized?.slug
+      ? {
+          label: normalized.name || entry,
+          to: `/compounds/${encodeURIComponent(normalized.slug)}`,
+        }
+      : null
   })
+  const relatedHerbLinks = dedupeRelatedLinks(premiumRelatedHerbs)
+  const relatedCompoundLinks = dedupeRelatedLinks([
+    ...premiumRelatedCompounds,
+    ...linkedCompounds.map(compound =>
+      compound.slug
+        ? {
+            label: compound.name,
+            to: `/compounds/${encodeURIComponent(compound.slug)}`,
+          }
+        : null,
+    ),
+  ])
+  const relationGroups = [
+    {
+      title: `Related Herbs (${relatedHerbLinks.length})`,
+      items: relatedHerbLinks,
+    },
+    {
+      title: `Related Compounds (${relatedCompoundLinks.length})`,
+      items: relatedCompoundLinks,
+    },
+  ].filter(group => group.items.length > 0)
 
   const herbDisplayName = herb.commonName || herb.common || herb.name || herb.slug
   const herbMetaDescriptionSource = (
@@ -693,10 +736,7 @@ export default function HerbDetail() {
 
         <PremiumDataSection
           details={premiumDetails}
-          relationGroups={[
-            { title: 'Related Herbs', items: premiumRelatedHerbs },
-            { title: 'Related Compounds', items: premiumRelatedCompounds },
-          ]}
+          relationGroups={relationGroups}
         />
 
         {governedResearch && governedFaq && governedRelatedQuestions && (
