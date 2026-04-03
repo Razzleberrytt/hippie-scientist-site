@@ -238,6 +238,10 @@ export type RenderableCuratedProduct = CuratedProductRecommendation & {
   affiliateUrl: string
 }
 
+export type RenderableCuratedProductDebug = RenderableCuratedProduct & {
+  debug: CuratedProductRankingDebugInfo
+}
+
 const CLICK_CAP = 6
 const CLICK_WEIGHT = 1
 const CONVERSION_WEIGHT = 3
@@ -261,13 +265,22 @@ type ProductClickMetrics = {
   rawCount: number
   weightedScore: number
   weightedEventCount: number
+  latestTimestamp?: number
 }
 type ClickMetricsByProductId = Record<string, ProductClickMetrics>
 type HerbClickMetricsByAnchor = Record<string, ClickMetricsByProductId>
 type HerbProductClickMetricsByAnchor = Record<string, HerbClickMetricsByAnchor>
 type ProductConversionScores = Record<string, number>
+type ProductConversionMetrics = {
+  score: number
+  rawCount: number
+  latestTimestamp?: number
+}
+type ProductConversionMetricsById = Record<string, ProductConversionMetrics>
 type HerbConversionScoresByAnchor = Record<string, ProductConversionScores>
 type HerbProductConversionScoresByAnchor = Record<string, HerbConversionScoresByAnchor>
+type HerbConversionMetricsByAnchor = Record<string, ProductConversionMetricsById>
+type HerbProductConversionMetricsByAnchor = Record<string, HerbConversionMetricsByAnchor>
 
 function getPositionWeight(position: number): number {
   if (position <= 2) return 0.6
@@ -335,6 +348,9 @@ function addClickEvent(
     next.weightedScore += getEventWeightedScore(event, nowMs)
     next.weightedEventCount += 1
   }
+  if (typeof event.timestamp === 'number' && Number.isFinite(event.timestamp)) {
+    next.latestTimestamp = Math.max(next.latestTimestamp ?? Number.NEGATIVE_INFINITY, event.timestamp)
+  }
 }
 
 function getHerbProductClickCountsByAnchor(nowMs: number): HerbProductClickMetricsByAnchor {
@@ -381,6 +397,21 @@ function addConversionEvent(
   scores[productId] = (scores[productId] || 0) + getConversionEventScore(event, nowMs)
 }
 
+function addConversionMetricsEvent(
+  scores: ProductConversionMetricsById,
+  productId: string,
+  event: StoredAnalyticsEvent,
+  nowMs: number,
+) {
+  if (shouldSkipByAge(event.timestamp, nowMs)) return
+  const next = (scores[productId] ||= { score: 0, rawCount: 0 })
+  next.score += getConversionEventScore(event, nowMs)
+  next.rawCount += 1
+  if (typeof event.timestamp === 'number' && Number.isFinite(event.timestamp)) {
+    next.latestTimestamp = Math.max(next.latestTimestamp ?? Number.NEGATIVE_INFINITY, event.timestamp)
+  }
+}
+
 export function getHerbProductConversionScores(nowMs: number): HerbProductConversionScoresByAnchor {
   const scoresByHerb: HerbProductConversionScoresByAnchor = {}
   const events = readAnalyticsEvents()
@@ -405,6 +436,32 @@ export function getHerbProductConversionScores(nowMs: number): HerbProductConver
   })
 
   return scoresByHerb
+}
+
+function getHerbProductConversionMetrics(nowMs: number): HerbProductConversionMetricsByAnchor {
+  const metricsByHerb: HerbProductConversionMetricsByAnchor = {}
+  const events = readAnalyticsEvents()
+
+  events.forEach(event => {
+    if (event.type !== 'affiliate_conversion') return
+
+    const herbSlug = String(event.herbSlug || '').trim() || getHerbSlugFromAnalyticsEvent(event)
+    if (!herbSlug) return
+
+    const productId = String(event.productId || event.item || '').trim()
+    if (!productId) return
+
+    const herbMetrics = (metricsByHerb[herbSlug] ||= {})
+    const globalMetrics = (herbMetrics.__global ||= {})
+    addConversionMetricsEvent(globalMetrics, productId, event, nowMs)
+
+    const anchorKey = String(event.useCaseAnchor || '').trim()
+    if (!anchorKey) return
+    const anchorMetrics = (herbMetrics[anchorKey] ||= {})
+    addConversionMetricsEvent(anchorMetrics, productId, event, nowMs)
+  })
+
+  return metricsByHerb
 }
 
 function cappedClickScore(clickCount: number): number {
@@ -463,10 +520,114 @@ function deterministicJitter(seed: string): number {
   return (hash % 1000) / 1000
 }
 
+type RankingScoreComponents = {
+  baseScore: number
+  clickScore: number
+  conversionScore: number
+  coldStartBoost: number
+  explorationBoost: number
+  jitter: number
+}
+
+type RankingScoreMetadata = {
+  isColdStart: boolean
+  totalClicks: number
+  totalConversions: number
+  lastEventAgeMs: number | null
+}
+
+export type CuratedProductRankingDebugInfo = {
+  productId: string
+  finalScore: number
+  components: RankingScoreComponents
+  metadata: RankingScoreMetadata
+}
+
+function getRankingDebugInfo(params: {
+  product: RenderableCuratedProduct
+  clickMetrics?: ProductClickMetrics
+  conversionMetrics?: ProductConversionMetrics
+  entitySlug: string
+  nowMs: number
+}): CuratedProductRankingDebugInfo {
+  const { product, clickMetrics, conversionMetrics, entitySlug, nowMs } = params
+  const clickEvidenceScore = clickMetrics?.rawCount || 0
+  const clickSignal =
+    clickMetrics ? (clickMetrics.weightedEventCount > 0 ? clickMetrics.weightedScore : clickMetrics.rawCount) : 0
+  const conversionSignal = conversionMetrics?.score || 0
+  const coldStart = isColdStart({
+    totalClickScore: clickSignal,
+    totalConversionScore: conversionSignal,
+  })
+  const components: RankingScoreComponents = {
+    baseScore: 0,
+    clickScore: cappedClickScore(clickSignal) * CLICK_WEIGHT,
+    conversionScore: conversionSignal * CONVERSION_WEIGHT,
+    coldStartBoost: coldStart ? getColdStartScoreBoost(product, clickEvidenceScore) : 0,
+    explorationBoost: exposureBoost(clickSignal),
+    jitter: deterministicJitter(`${entitySlug}:${product.productId}`),
+  }
+  const latestTimestamp = Math.max(
+    clickMetrics?.latestTimestamp ?? Number.NEGATIVE_INFINITY,
+    conversionMetrics?.latestTimestamp ?? Number.NEGATIVE_INFINITY,
+  )
+  return {
+    productId: product.productId,
+    finalScore:
+      components.baseScore +
+      components.clickScore +
+      components.conversionScore +
+      components.coldStartBoost +
+      components.explorationBoost,
+    components,
+    metadata: {
+      isColdStart: coldStart,
+      totalClicks: clickEvidenceScore,
+      totalConversions: conversionMetrics?.rawCount || 0,
+      lastEventAgeMs: Number.isFinite(latestTimestamp) ? Math.max(0, nowMs - latestTimestamp) : null,
+    },
+  }
+}
+
+function compareByDebugScore(a: CuratedProductRankingDebugInfo, b: CuratedProductRankingDebugInfo): number {
+  const aProtectedByConversion =
+    a.components.conversionScore / CONVERSION_WEIGHT >= HIGH_CONVERSION_PROTECTION_THRESHOLD
+  const bProtectedByConversion =
+    b.components.conversionScore / CONVERSION_WEIGHT >= HIGH_CONVERSION_PROTECTION_THRESHOLD
+  if (aProtectedByConversion !== bProtectedByConversion) {
+    return bProtectedByConversion ? 1 : -1
+  }
+
+  const scoreDelta = b.finalScore - a.finalScore
+  if (Math.abs(scoreDelta) > CLOSE_SCORE_DELTA) return scoreDelta > 0 ? 1 : -1
+
+  const jitterDelta = b.components.jitter - a.components.jitter
+  if (Math.abs(jitterDelta) > Number.EPSILON) return jitterDelta > 0 ? 1 : -1
+
+  return 0
+}
+
+function toConversionMetrics(
+  score: number | undefined,
+  metric: ProductConversionMetrics | undefined,
+): ProductConversionMetrics | undefined {
+  if (metric) return metric
+  if (!score) return undefined
+  return { score, rawCount: 0 }
+}
+
 export function getRenderableCuratedProducts(
   context: CuratedProductPageContext,
-  options?: { nowMs?: number },
-): RenderableCuratedProduct[] {
+  options: { nowMs?: number; debug: true },
+): RenderableCuratedProductDebug[]
+export function getRenderableCuratedProducts(
+  context: CuratedProductPageContext,
+  options?: { nowMs?: number; debug?: false | undefined },
+): RenderableCuratedProduct[]
+export function getRenderableCuratedProducts(
+  context: CuratedProductPageContext,
+  options?: { nowMs?: number; debug?: boolean },
+): RenderableCuratedProduct[] | RenderableCuratedProductDebug[] {
   if (context.sourceCount <= 0) return []
   const nowMs = options?.nowMs ?? Date.now()
   const herbClickCountsByAnchor =
@@ -476,6 +637,10 @@ export function getRenderableCuratedProducts(
   const herbConversionScoresByAnchor =
     context.entityType === 'herb'
       ? getHerbProductConversionScores(nowMs)[context.entitySlug]
+      : null
+  const herbConversionMetricsByAnchor =
+    context.entityType === 'herb'
+      ? getHerbProductConversionMetrics(nowMs)[context.entitySlug]
       : null
   const activeAnchorKey = String(context.useCaseAnchor || '').trim()
   const anchorSpecificClickCounts =
@@ -492,8 +657,16 @@ export function getRenderableCuratedProducts(
     anchorSpecificConversionScores && Object.keys(anchorSpecificConversionScores).length > 0
       ? anchorSpecificConversionScores
       : herbConversionScoresByAnchor?.__global
+  const anchorSpecificConversionMetrics =
+    activeAnchorKey && herbConversionMetricsByAnchor
+      ? herbConversionMetricsByAnchor[activeAnchorKey]
+      : undefined
+  const resolvedConversionMetrics =
+    anchorSpecificConversionMetrics && Object.keys(anchorSpecificConversionMetrics).length > 0
+      ? anchorSpecificConversionMetrics
+      : herbConversionMetricsByAnchor?.__global
 
-  return curatedProductRecommendations
+  const rankedProducts = curatedProductRecommendations
     .filter(
       product =>
         product.entityType === context.entityType && product.entitySlug === context.entitySlug,
@@ -511,62 +684,53 @@ export function getRenderableCuratedProducts(
       const featuredRank = Number(b.featured) - Number(a.featured)
       if (featuredRank !== 0) return featuredRank
 
-      const aMetrics = resolvedClickCounts?.[a.productId]
-      const bMetrics = resolvedClickCounts?.[b.productId]
-      const aClickEvidenceScore = aMetrics?.rawCount || 0
-      const bClickEvidenceScore = bMetrics?.rawCount || 0
-      const aClicks = aMetrics
-        ? aMetrics.weightedEventCount > 0
-          ? aMetrics.weightedScore
-          : aMetrics.rawCount
-        : 0
-      const bClicks = bMetrics
-        ? bMetrics.weightedEventCount > 0
-          ? bMetrics.weightedScore
-          : bMetrics.rawCount
-        : 0
-      const aConversionScore = resolvedConversionScores?.[a.productId] || 0
-      const bConversionScore = resolvedConversionScores?.[b.productId] || 0
-      const aColdStartBoost = isColdStart({
-        totalClickScore: aClicks,
-        totalConversionScore: aConversionScore,
+      const aDebug = getRankingDebugInfo({
+        product: a,
+        clickMetrics: resolvedClickCounts?.[a.productId],
+        conversionMetrics: toConversionMetrics(
+          resolvedConversionScores?.[a.productId],
+          resolvedConversionMetrics?.[a.productId],
+        ),
+        entitySlug: context.entitySlug,
+        nowMs,
       })
-        ? getColdStartScoreBoost(a, aClickEvidenceScore)
-        : 0
-      const bColdStartBoost = isColdStart({
-        totalClickScore: bClicks,
-        totalConversionScore: bConversionScore,
+      const bDebug = getRankingDebugInfo({
+        product: b,
+        clickMetrics: resolvedClickCounts?.[b.productId],
+        conversionMetrics: toConversionMetrics(
+          resolvedConversionScores?.[b.productId],
+          resolvedConversionMetrics?.[b.productId],
+        ),
+        entitySlug: context.entitySlug,
+        nowMs,
       })
-        ? getColdStartScoreBoost(b, bClickEvidenceScore)
-        : 0
-      const baseScore = 0
-      const aScore =
-        baseScore +
-        cappedClickScore(aClicks) * CLICK_WEIGHT +
-        aConversionScore * CONVERSION_WEIGHT +
-        aColdStartBoost +
-        exposureBoost(aClicks)
-      const bScore =
-        baseScore +
-        cappedClickScore(bClicks) * CLICK_WEIGHT +
-        bConversionScore * CONVERSION_WEIGHT +
-        bColdStartBoost +
-        exposureBoost(bClicks)
-      const scoreDelta = bScore - aScore
-
-      const aProtectedByConversion = aConversionScore >= HIGH_CONVERSION_PROTECTION_THRESHOLD
-      const bProtectedByConversion = bConversionScore >= HIGH_CONVERSION_PROTECTION_THRESHOLD
-      if (aProtectedByConversion !== bProtectedByConversion) {
-        return bProtectedByConversion ? 1 : -1
-      }
-
-      if (Math.abs(scoreDelta) > CLOSE_SCORE_DELTA) return scoreDelta > 0 ? 1 : -1
-
-      const jitterDelta =
-        deterministicJitter(`${context.entitySlug}:${b.productId}`) -
-        deterministicJitter(`${context.entitySlug}:${a.productId}`)
-      if (Math.abs(jitterDelta) > Number.EPSILON) return jitterDelta > 0 ? 1 : -1
-
+      const rankByDebugScore = compareByDebugScore(aDebug, bDebug)
+      if (rankByDebugScore !== 0) return rankByDebugScore
       return a.sortOrder - b.sortOrder
     })
+
+  if (!options?.debug) return rankedProducts
+
+  const debugRows = rankedProducts.map(product => ({
+    ...product,
+    debug: getRankingDebugInfo({
+      product,
+      clickMetrics: resolvedClickCounts?.[product.productId],
+      conversionMetrics: toConversionMetrics(
+        resolvedConversionScores?.[product.productId],
+        resolvedConversionMetrics?.[product.productId],
+      ),
+      entitySlug: context.entitySlug,
+      nowMs,
+    }),
+  }))
+
+  // Temporary debug visibility for ranking explainability.
+  // eslint-disable-next-line no-console
+  console.debug(
+    `[curated-products][debug] top-ranked ${context.entityType}:${context.entitySlug}`,
+    debugRows.slice(0, 5).map(entry => entry.debug),
+  )
+
+  return debugRows
 }
