@@ -24,6 +24,9 @@ export default function HerbProductSection({ products }: { products: HerbProduct
   if (!products.length) return null
 
   const sortedProducts = [...products].sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
+  const hasVisibleAffiliateProduct = sortedProducts.some(product =>
+    Boolean(normalizeAmazonAffiliateUrl(product.affiliateUrl, DEFAULT_AMAZON_AFFILIATE_TAG)),
+  )
 
   return (
     <section className='border-white/8 mt-6 border-t pt-5'>
@@ -35,6 +38,11 @@ export default function HerbProductSection({ products }: { products: HerbProduct
           <p className='mt-1 text-sm text-white/70'>
             Product-format examples that align with the buyer guidance above.
           </p>
+          {hasVisibleAffiliateProduct && (
+            <p className='mt-1 text-xs text-white/65'>
+              As an Amazon Associate, this site may earn from qualifying purchases.
+            </p>
+          )}
         </div>
 
         <div className='mt-4 grid gap-3 md:grid-cols-2'>

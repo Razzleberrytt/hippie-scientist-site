@@ -72,6 +72,18 @@ export default function CuratedProductModule({
   ctaPosition,
   preDisclosureGuidance,
 }: CuratedProductModuleProps) {
+  const hasVisibleAffiliateProduct = products.some(product => {
+    const affiliateUrl = product.affiliateUrl.trim()
+    if (!affiliateUrl) return false
+
+    try {
+      const parsed = new URL(affiliateUrl)
+      return parsed.searchParams.has('tag')
+    } catch {
+      return false
+    }
+  })
+
   useEffect(() => {
     products.forEach(product => {
       trackProductImpression({
@@ -93,13 +105,11 @@ export default function CuratedProductModule({
       {preDisclosureGuidance && (
         <p className='text-xs leading-relaxed text-white/75'>{preDisclosureGuidance}</p>
       )}
-      <p className='text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-100/85'>
-        Affiliate Disclosure
-      </p>
-      <p className='mt-1 text-xs leading-relaxed text-white/70'>
-        {products[0]?.affiliateDisclosure ||
-          'Affiliate disclosure: We may earn from qualifying purchases. Recommendations are reviewed before publication.'}
-      </p>
+      {hasVisibleAffiliateProduct && (
+        <p className='mt-1 text-xs leading-relaxed text-white/65'>
+          As an Amazon Associate, this site may earn from qualifying purchases.
+        </p>
+      )}
 
       <div className='mt-3 space-y-3'>
         {products.map(product => (
