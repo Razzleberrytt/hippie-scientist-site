@@ -19044,21 +19044,39 @@
     "latin": "peppermint",
     "class": "general",
     "intensity": "mild",
-    "mechanism": "",
+    "mechanism": "Menthol-rich peppermint oil can relax gastrointestinal smooth muscle via calcium-channel effects and TRPM8 signaling.",
     "activeCompounds": [],
-    "effects": [],
-    "contraindications": [],
-    "interactions": [],
+    "effects": [
+      "May reduce IBS abdominal pain and global symptom burden",
+      "Antispasmodic support for functional GI discomfort",
+      "Cooling sensation in oral and topical preparations"
+    ],
+    "contraindications": [
+      "Avoid concentrated oil in infants and young children",
+      "Use caution with severe GERD because reflux can worsen",
+      "Use caution with gallbladder disease unless advised by a clinician"
+    ],
+    "interactions": [
+      "Monitor with acid-suppressing therapy because enteric-coated capsule release can be altered."
+    ],
     "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
     "sources": [
       {
         "title": "NCBI Taxonomy: peppermint",
         "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=peppermint&mode=Info",
         "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubMed: Peppermint oil in IBS meta-analysis (PMID: 35942669)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35942669/"
+      },
+      {
+        "title": "Wikipedia: Peppermint",
+        "url": "https://en.wikipedia.org/wiki/Peppermint"
       }
     ],
-    "lastUpdated": "2026-04-01T18:55:37.992Z",
-    "description": "; nan; nan.",
+    "lastUpdated": "2026-04-03T00:00:00.000Z",
+    "description": "Peppermint (Mentha × piperita) is used for functional gastrointestinal symptoms, with best evidence for enteric-coated oil in irritable bowel syndrome.",
     "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "legalStatus": "legal",
@@ -19066,7 +19084,11 @@
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
     "therapeuticUses": [],
     "traditionalUse": "; nan; nan",
-    "sideEffects": []
+    "sideEffects": [
+      "Heartburn or reflux",
+      "Nausea",
+      "Mouth or perianal burning with some formulations"
+    ]
   },
   {
     "name": "perilla frutescens",
@@ -24632,21 +24654,39 @@
     "latin": "turmeric",
     "class": "general",
     "intensity": "mild",
-    "mechanism": "",
+    "mechanism": "Curcuminoids modulate inflammatory pathways including NF-κB and COX-2, with clinical effect depending on formulation bioavailability.",
     "activeCompounds": [],
-    "effects": [],
-    "contraindications": [],
-    "interactions": [],
+    "effects": [
+      "May modestly reduce osteoarthritis pain and stiffness",
+      "Anti-inflammatory signal reduction in some trials",
+      "Adjunct symptom support rather than disease-modifying treatment"
+    ],
+    "contraindications": [
+      "Use caution with anticoagulant or antiplatelet therapy",
+      "Use caution with gallstones or biliary obstruction",
+      "Avoid high-dose supplemental use before surgery unless clinician advises"
+    ],
+    "interactions": [
+      "Potential additive bleeding risk with anticoagulant or antiplatelet medicines."
+    ],
     "safetyNotes": "No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
     "sources": [
       {
         "title": "NCBI Taxonomy: turmeric",
         "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=turmeric&mode=Info",
         "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubMed: Curcumin/Curcuma for arthritis meta-analysis (PMID: 35935936)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35935936/"
+      },
+      {
+        "title": "Wikipedia: Turmeric",
+        "url": "https://en.wikipedia.org/wiki/Turmeric"
       }
     ],
-    "lastUpdated": "2026-04-01T18:55:38.028Z",
-    "description": "; nan; nan.",
+    "lastUpdated": "2026-04-03T00:00:00.000Z",
+    "description": "Turmeric (Curcuma longa) is a culinary and medicinal rhizome; curcumin-enriched extracts are studied most for osteoarthritis symptom support.",
     "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "legalStatus": "legal",
@@ -24654,7 +24694,11 @@
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
     "therapeuticUses": [],
     "traditionalUse": "; nan; nan",
-    "sideEffects": []
+    "sideEffects": [
+      "Gastrointestinal upset",
+      "Nausea or diarrhea",
+      "Headache in some users at higher doses"
+    ]
   },
   {
     "name": "turnera diffusa",
@@ -25155,21 +25199,39 @@
     "latin": "valerian root",
     "class": "general",
     "intensity": "mild",
-    "mechanism": "",
+    "mechanism": "Valerenic-acid-containing fractions may positively modulate GABA-A receptor signaling.",
     "activeCompounds": [],
-    "effects": [],
-    "contraindications": [],
-    "interactions": [],
+    "effects": [
+      "May improve subjective sleep quality",
+      "Mild sedative and anxiolytic effect",
+      "Possible modest reduction in sleep latency"
+    ],
+    "contraindications": [
+      "Avoid combining with alcohol or sedative-hypnotics without medical guidance",
+      "Avoid during pregnancy because safety evidence is limited",
+      "Use caution before driving or operating machinery due to drowsiness risk"
+    ],
+    "interactions": [
+      "Potential additive CNS depression with benzodiazepines, opioids, and sedating antihistamines."
+    ],
     "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
     "sources": [
       {
         "title": "NCBI Taxonomy: valerian root",
         "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=valerian%20root&mode=Info",
         "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubMed: Valerian sleep meta-analysis (PMID: 33086877)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33086877/"
+      },
+      {
+        "title": "Wikipedia: Valerian (herb)",
+        "url": "https://en.wikipedia.org/wiki/Valerian_(herb)"
       }
     ],
-    "lastUpdated": "2026-04-01T18:55:38.030Z",
-    "description": "; nan; nan.",
+    "lastUpdated": "2026-04-03T00:00:00.000Z",
+    "description": "Valerian root (Valeriana officinalis) is used for insomnia symptoms and restlessness, with mixed but sometimes favorable subjective sleep outcomes.",
     "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "legalStatus": "legal",
@@ -25177,7 +25239,11 @@
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
     "therapeuticUses": [],
     "traditionalUse": "; nan; nan",
-    "sideEffects": []
+    "sideEffects": [
+      "Daytime drowsiness",
+      "Headache",
+      "Gastrointestinal discomfort"
+    ]
   },
   {
     "name": "valeriana jatamansi",
@@ -26062,21 +26128,39 @@
     "latin": "withania somnifera (ashwagandha)",
     "class": "general",
     "intensity": "mild",
-    "mechanism": "",
+    "mechanism": "Human evidence suggests modulation of hypothalamic-pituitary-adrenal stress signaling and inflammatory mediators.",
     "activeCompounds": [],
-    "effects": [],
-    "contraindications": [],
-    "interactions": [],
+    "effects": [
+      "May reduce perceived stress scores",
+      "May improve anxiety symptom scales in randomized trials",
+      "May improve sleep quality in stressed adults"
+    ],
+    "contraindications": [
+      "Avoid in pregnancy",
+      "Use caution with thyroid-active therapy",
+      "Use caution in autoimmune disease or with immunosuppressive therapy"
+    ],
+    "interactions": [
+      "Potential additive sedation with CNS depressants; monitor with thyroid medications."
+    ],
     "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
     "sources": [
       {
         "title": "NCBI Taxonomy: withania somnifera (ashwagandha)",
         "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=withania%20somnifera%20(ashwagandha)&mode=Info",
         "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubMed: Ashwagandha stress/anxiety meta-analysis (PMID: 36017529)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36017529/"
+      },
+      {
+        "title": "Wikipedia: Withania somnifera",
+        "url": "https://en.wikipedia.org/wiki/Withania_somnifera"
       }
     ],
-    "lastUpdated": "2026-04-01T18:55:38.033Z",
-    "description": "; nan; nan.",
+    "lastUpdated": "2026-04-03T00:00:00.000Z",
+    "description": "Withania somnifera (ashwagandha) is an adaptogenic herb studied mainly for stress and anxiety symptom reduction in standardized extracts.",
     "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "legalStatus": "legal",
@@ -26084,7 +26168,11 @@
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
     "therapeuticUses": [],
     "traditionalUse": "; nan; nan",
-    "sideEffects": []
+    "sideEffects": [
+      "Somnolence",
+      "Gastrointestinal upset",
+      "Headache"
+    ]
   },
   {
     "name": "wormwood",
