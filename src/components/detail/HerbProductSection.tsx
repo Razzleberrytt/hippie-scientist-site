@@ -54,7 +54,7 @@ export default function HerbProductSection({ products }: { products: HerbProduct
 
             return (
               <article
-                key={`${product.name}-${product.form}`}
+                key={`${product.productTitle}-${product.form}`}
                 className={`rounded-xl border p-3 ${
                   product.highlight
                     ? 'border-emerald-200/30 bg-emerald-200/[0.04]'
@@ -62,7 +62,7 @@ export default function HerbProductSection({ products }: { products: HerbProduct
                 }`}
               >
                 <div className='flex items-start justify-between gap-3'>
-                  <h3 className='text-sm font-semibold text-white/95'>{product.name}</h3>
+                  <h3 className='text-sm font-semibold text-white/95'>{product.productTitle}</h3>
                   {product.highlight ? (
                     <span className='bg-emerald-200/12 shrink-0 rounded-full border border-emerald-200/30 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.08em] text-emerald-100/90'>
                       Top Pick
