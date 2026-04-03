@@ -27,9 +27,42 @@ const INVALID_NAME_PATTERN = /^(?:nan|null|undefined|n\/a)$/i
 const NUMERIC_ONLY_NAME = /^\d+(?:[\s.,/-]\d+)*$/
 const VALID_NAME_CHARS = /^[\p{L}\p{N}][\p{L}\p{N}\s\-,'()./]*[\p{L}\p{N})]$/u
 
-const slugify = value =>
-  String(value || '')
+const GREEK_LETTER_SLUG_MAP = new Map([
+  ['α', 'alpha'],
+  ['β', 'beta'],
+  ['γ', 'gamma'],
+  ['δ', 'delta'],
+  ['ε', 'epsilon'],
+  ['ζ', 'zeta'],
+  ['η', 'eta'],
+  ['θ', 'theta'],
+  ['ι', 'iota'],
+  ['κ', 'kappa'],
+  ['λ', 'lambda'],
+  ['μ', 'mu'],
+  ['ν', 'nu'],
+  ['ξ', 'xi'],
+  ['ο', 'omicron'],
+  ['π', 'pi'],
+  ['ρ', 'rho'],
+  ['σ', 'sigma'],
+  ['ς', 'sigma'],
+  ['τ', 'tau'],
+  ['υ', 'upsilon'],
+  ['φ', 'phi'],
+  ['χ', 'chi'],
+  ['ψ', 'psi'],
+  ['ω', 'omega'],
+])
+
+function normalizeForSlug(value) {
+  return String(value || '')
     .toLowerCase()
+    .replace(/[α-ως]/g, character => `${GREEK_LETTER_SLUG_MAP.get(character) || character}-`)
+}
+
+const slugify = value =>
+  normalizeForSlug(value)
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
 
@@ -280,9 +313,32 @@ function scoreRecord(record) {
   return sourceCount * 3 + effectCount + hasMechanism * 2 + hasDescription * 2 + hasContraindications
 }
 
-function auditEntity(record, type) {
+function ensureUniqueSlug(preferredSlug, alternatives, usedSlugs) {
+  const candidates = [preferredSlug, ...alternatives].map(asText).filter(Boolean)
+  for (const candidate of candidates) {
+    if (!usedSlugs.has(candidate)) {
+      usedSlugs.add(candidate)
+      return candidate
+    }
+  }
+
+  const base = candidates[0] || 'entry'
+  let index = 2
+  let candidate = `${base}-${index}`
+  while (usedSlugs.has(candidate)) {
+    index += 1
+    candidate = `${base}-${index}`
+  }
+  usedSlugs.add(candidate)
+  return candidate
+}
+
+function auditEntity(record, type, usedSlugs = new Set()) {
   const name = asText(record?.name || record?.commonName || record?.common || record?.latinName || record?.latin)
-  const slug = slugify(record?.slug || name || record?.id)
+  const explicitSlug = slugify(record?.slug)
+  const nameSlug = slugify(name)
+  const idSlug = slugify(record?.id)
+  const slug = ensureUniqueSlug(explicitSlug || nameSlug || idSlug, [nameSlug, idSlug], usedSlugs)
   const route = `/${type}/${slug}`
 
   const flags = {
@@ -428,8 +484,10 @@ function run() {
   const blogIndex = readJson('public/blogdata/index.json')
   const rescuedCompounds = deriveCompoundRescueContext(compounds, herbs)
 
-  const herbAudits = herbs.map(record => auditEntity(record, 'herbs'))
-  const compoundAudits = rescuedCompounds.map(record => auditEntity(record, 'compounds'))
+  const herbSlugSet = new Set()
+  const compoundSlugSet = new Set()
+  const herbAudits = herbs.map(record => auditEntity(record, 'herbs', herbSlugSet))
+  const compoundAudits = rescuedCompounds.map(record => auditEntity(record, 'compounds', compoundSlugSet))
 
   const herbSummary = summarizeAudits(herbAudits)
   const compoundSummary = summarizeAudits(compoundAudits)

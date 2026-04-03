@@ -33,6 +33,34 @@ const AUTHOR_SUFFIX_PATTERN = new RegExp(
 const NOISE_PUNCTUATION_PATTERN = /[(),{};:]|\[|\]/g
 const DASH_PATTERN = /[–—−]/g
 const DIACRITICS_PATTERN = /[\u0300-\u036f]/g
+const GREEK_LETTER_PATTERN = /[α-ως]/g
+const GREEK_LETTER_NORMALIZATION_MAP = new Map([
+  ['α', 'alpha'],
+  ['β', 'beta'],
+  ['γ', 'gamma'],
+  ['δ', 'delta'],
+  ['ε', 'epsilon'],
+  ['ζ', 'zeta'],
+  ['η', 'eta'],
+  ['θ', 'theta'],
+  ['ι', 'iota'],
+  ['κ', 'kappa'],
+  ['λ', 'lambda'],
+  ['μ', 'mu'],
+  ['ν', 'nu'],
+  ['ξ', 'xi'],
+  ['ο', 'omicron'],
+  ['π', 'pi'],
+  ['ρ', 'rho'],
+  ['σ', 'sigma'],
+  ['ς', 'sigma'],
+  ['τ', 'tau'],
+  ['υ', 'upsilon'],
+  ['φ', 'phi'],
+  ['χ', 'chi'],
+  ['ψ', 'psi'],
+  ['ω', 'omega'],
+])
 
 const text = value => String(value || '').trim()
 const asArray = value => (Array.isArray(value) ? value : [])
@@ -63,6 +91,7 @@ function normalizeGenericName(value) {
   return text(value)
     .normalize('NFKD')
     .replace(DIACRITICS_PATTERN, '')
+    .replace(GREEK_LETTER_PATTERN, character => GREEK_LETTER_NORMALIZATION_MAP.get(character) || character)
     .toLowerCase()
     .replace(DASH_PATTERN, '-')
     .replace(NOISE_PUNCTUATION_PATTERN, ' ')

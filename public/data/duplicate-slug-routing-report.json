@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-04-03T00:22:53.024Z",
+  "before": {
+    "herbDuplicateSlugGroups": 0,
+    "compoundDuplicateSlugGroups": 2,
+    "compoundDuplicateSlugs": [
+      {
+        "slug": "pinene",
+        "count": 2
+      },
+      {
+        "slug": "terpinene",
+        "count": 2
+      }
+    ]
+  },
+  "after": {
+    "herbDuplicateSlugGroups": 0,
+    "compoundDuplicateSlugGroups": 0,
+    "compoundDuplicateSlugs": []
+  },
+  "resolvedCollisions": [
+    {
+      "from": [
+        {
+          "name": "β-pinene",
+          "slug": "pinene"
+        },
+        {
+          "name": "α-pinene",
+          "slug": "pinene"
+        }
+      ],
+      "to": [
+        {
+          "name": "α-pinene",
+          "slug": "pinene"
+        },
+        {
+          "name": "β-pinene",
+          "slug": "beta-pinene"
+        }
+      ],
+      "resolution": "kept existing canonical slug for α-pinene and differentiated β-pinene"
+    },
+    {
+      "from": [
+        {
+          "name": "γ-terpinene",
+          "slug": "terpinene"
+        },
+        {
+          "name": "α-terpinene",
+          "slug": "terpinene"
+        }
+      ],
+      "to": [
+        {
+          "name": "α-terpinene",
+          "slug": "terpinene"
+        },
+        {
+          "name": "γ-terpinene",
+          "slug": "gamma-terpinene"
+        }
+      ],
+      "resolution": "kept existing canonical slug for α-terpinene and differentiated γ-terpinene"
+    }
+  ],
+  "unresolvedCollisions": []
+}

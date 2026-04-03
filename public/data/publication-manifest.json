@@ -5248,8 +5248,8 @@
         "lastmod": "2026-04-02"
       },
       {
-        "slug": "pinene",
-        "route": "/compounds/pinene",
+        "slug": "beta-pinene",
+        "route": "/compounds/beta-pinene",
         "name": "β-pinene",
         "kind": "compound",
         "title": "β-pinene | The Hippie Scientist",
@@ -5276,8 +5276,8 @@
         "lastmod": "2026-04-02"
       },
       {
-        "slug": "terpinene",
-        "route": "/compounds/terpinene",
+        "slug": "gamma-terpinene",
+        "route": "/compounds/gamma-terpinene",
         "name": "γ-terpinene",
         "kind": "compound",
         "title": "γ-terpinene | The Hippie Scientist",
@@ -7629,9 +7629,9 @@
       "/compounds/terpinene",
       "/compounds/terpineol",
       "/compounds/caryophyllene",
-      "/compounds/pinene",
+      "/compounds/beta-pinene",
       "/compounds/sitosteryl-acetate",
-      "/compounds/terpinene",
+      "/compounds/gamma-terpinene",
       "/compounds/azulene",
       "/compounds/benzaconine",
       "/compounds/chamazulene",
