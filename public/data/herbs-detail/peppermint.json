@@ -14,9 +14,19 @@
       "title": "NCBI Taxonomy: peppermint",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=peppermint&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: peppermint",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=peppermint",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: peppermint",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=peppermint",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.992Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Peppermint is often chosen as a practical tea-first herb for digestive comfort routines and refreshing non-caffeinated daily use.",
   "dosage": "Match form to use-case: tea serving counts differ from concentrated capsule/oil products.",
   "duration": "Often used as-needed around meals or in short daily routines.",

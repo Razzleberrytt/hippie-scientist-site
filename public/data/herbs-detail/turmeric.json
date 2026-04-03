@@ -14,9 +14,19 @@
       "title": "NCBI Taxonomy: turmeric",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=turmeric&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: turmeric",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=turmeric",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: turmeric",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=turmeric",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.028Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Turmeric is typically selected for daily wellness routines where users want a familiar food-compatible herb with standardized extract options available.",
   "dosage": "Match dosage to product form: culinary powders and concentrated curcumin extracts use different serving logic and should not be directly swapped.",
   "duration": "Usually framed as a daily consistency herb; reassess tolerance and medication context during longer use periods.",

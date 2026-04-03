@@ -3,7 +3,7 @@
   "latin": "Camellia sinensis",
   "class": "Stimulant, Nootropic",
   "intensity": "Mild to moderate",
-  "mechanism": "",
+  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity",
   "activeCompounds": [
     "caffeine",
     "l-theanine",
@@ -23,15 +23,25 @@
     "Stimulants",
     "blood thinners"
   ],
-  "safetyNotes": "Safe in moderation,Jitters,insomnia,stomach upset,Low,LD50 (caffeine): ~190 mg/kg (human est.),safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Avoid with insomnia; Avoid with anxiety; Avoid with heart issues",
   "sources": [
     {
       "title": "NCBI Taxonomy: Camellia sinensis (TaxID 4442)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4442&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Camellia sinensis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Camellia+sinensis",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Camellia sinensis",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Camellia+sinensis",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.884Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "World’s most consumed psychoactive beverage, valued for stimulation and focus",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",

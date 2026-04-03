@@ -32,15 +32,25 @@
     "other tryptamines",
     "stimulants"
   ],
-  "safetyNotes": "Intense effects,used in tribal contexts,Disorientation,nausea,tremors,Moderate,Not clearly documented,Use with caution,intense psychoactive profile,Nausea,vomiting,anxiety,respiratory irritation,Potentially high in overdose,Not clearly established,Toxic – oneirogenic and emetic effects,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with asthma; May interact with maois",
   "sources": [
     {
       "title": "NCBI Taxonomy: Anadenanthera peregrina (TaxID 148672)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=148672&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Anadenanthera peregrina",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Anadenanthera+peregrina",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Anadenanthera peregrina",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Anadenanthera+peregrina",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.847Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "South American snuff prepared from seeds, used for intense visionary states",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",

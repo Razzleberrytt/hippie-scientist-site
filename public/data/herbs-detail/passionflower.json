@@ -7,16 +7,28 @@
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
-  "interactions": [],
+  "interactions": [
+    "May increase sedation when combined with CNS depressants."
+  ],
   "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
   "sources": [
     {
       "title": "NCBI Taxonomy: passionflower",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=passionflower&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: passionflower",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=passionflower",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: passionflower",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=passionflower",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.988Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Passionflower is usually selected for calming and bedtime routines when users want a middle-ground option between chamomile and stronger sedative herbs.",
   "dosage": "Start with conservative evening servings and avoid combining with multiple sedating products unless guided clinically.",
   "duration": "Often used situationally or in short nightly blocks based on next-day alertness needs.",

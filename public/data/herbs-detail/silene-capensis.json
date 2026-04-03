@@ -3,7 +3,7 @@
   "latin": "Silene capensis",
   "class": "Oneirogen, Psychoactive",
   "intensity": "Mild",
-  "mechanism": "",
+  "mechanism": "Saponins may contribute membrane and immune-modulating effects",
   "activeCompounds": [
     "saponins"
   ],
@@ -28,9 +28,19 @@
       "title": "NCBI Taxonomy: Silene capensis",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Silene%20capensis&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: Silene capensis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Silene+capensis",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Silene capensis",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Silene+capensis",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.021Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Sacred Xhosa dream herb used to enhance lucid dreaming",
   "dosage": "No direct dosage data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual,dreaming or folk medicine",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",

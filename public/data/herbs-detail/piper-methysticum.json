@@ -19,15 +19,25 @@
   "interactions": [
     "Potentiates CNS depressants and sedatives"
   ],
-  "safetyNotes": "Safe with proper preparation,hepatotoxicity risk with extracts,Nausea,drowsiness,liver toxicity with overuse,Low to moderate,Not precisely known,caution,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid in liver disease; Avoid with concurrent alcohol use",
   "sources": [
     {
       "title": "NCBI Taxonomy: Piper methysticum (TaxID 130404)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=130404&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Piper methysticum",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Piper+methysticum",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Piper methysticum",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Piper+methysticum",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.997Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Traditional Polynesian root beverage known for relaxation and social bonding",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",

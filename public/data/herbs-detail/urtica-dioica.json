@@ -3,7 +3,7 @@
   "latin": "Urtica dioica",
   "class": "Nutritional Tonic, Mild Stimulant",
   "intensity": "Very mild",
-  "mechanism": "",
+  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity",
   "activeCompounds": [
     "histamine",
     "serotonin",
@@ -22,15 +22,25 @@
     "Diuretics",
     "antihypertensives"
   ],
-  "safetyNotes": "Very safe,stings from fresh plant can irritate skin,Skin irritation,urticaria from contact,Low,considered non-toxic,safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with diuretics",
   "sources": [
     {
       "title": "NCBI Taxonomy: Urtica dioica (TaxID 3501)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3501&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Urtica dioica",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Urtica+dioica",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Urtica dioica",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Urtica+dioica",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.030Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Nutritive herb with minor stimulant and revitalizing effects when fresh",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",

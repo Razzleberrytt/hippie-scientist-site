@@ -21,9 +21,19 @@
       "title": "NCBI Taxonomy: wild lettuce",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=wild%20lettuce&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: wild lettuce",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=wild+lettuce",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: wild lettuce",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=wild+lettuce",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.033Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Used in 19th-century medicine for pain and insomnia..",
   "dosage": "No direct dosage data. Contextual inference: Used in 19th,century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th,century medicine for pain and insomnia... Used in 19th,century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th,century medicine for pain and insomnia.. Used in 19th,century medicine for pain and insomnia.. No direct region data. Contextual inference: Used in 19th,century medicine for pain and insomnia.",
   "duration": "No direct duration data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. No direct region data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",

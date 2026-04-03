@@ -34,15 +34,25 @@
     "NSAIDs",
     "diuretics"
   ],
-  "safetyNotes": "Generally safe in moderate amounts,monitor for allergic reactions,Allergic rash,dizziness,photosensitivity,Low,Use caution with Asteraceae allergy history and during pregnancy unless clinically advised.,Generally safe,may cause skin irritation,Headache",
+  "safetyNotes": "Avoid with allergies to asteraceae; Increase bleeding risk; Avoid with allergy to asteraceae",
   "sources": [
     {
       "title": "NCBI Taxonomy: Achillea millefolium L.",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Achillea%20millefolium%20L.&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: Achillea millefolium L.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Achillea+millefolium+L.",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Achillea millefolium L.",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Achillea+millefolium+L.",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.971Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "A flowering plant native to temperate regions, used for centuries in traditional medicine for wound healing, digestion, and fever reduction.",
   "dosage": "Tea: 1–2g dried herb per cup, 1–3 times daily",
   "duration": "Several hours depending on use",

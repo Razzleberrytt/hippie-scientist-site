@@ -14,9 +14,19 @@
       "title": "NCBI Taxonomy: echinacea purpurea (TaxID 53751)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=53751&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: echinacea purpurea",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=echinacea+purpurea",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: echinacea purpurea",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=echinacea+purpurea",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.923Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Echinacea purpurea is commonly selected for short seasonal support windows when buyers want species-labeled herbal products.",
   "dosage": "Use short labeled serving windows and avoid indefinite high-frequency use unless directed by a clinician.",
   "duration": "Most routines are short and situational rather than year-round continuous use.",

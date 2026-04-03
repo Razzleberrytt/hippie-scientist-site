@@ -3,7 +3,7 @@
   "latin": "Elaeagnus angustifolia",
   "class": "Tonic, Traditional Sedative",
   "intensity": "No direct intensity data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... Used traditionally to relieve pain, stress, and inflammation.. No direct effects data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... Used traditionally to relieve pain, stress, and inflammation.. Used traditionally to relieve pain, stress, and inflammation.. No direct region data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... Used traditionally to relieve pain, stress, and inflammation.. No direct effects data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... Used traditionally to relieve pain, stress, and inflammation.. Used traditionally to relieve pain, stress, and inflammation.. Used traditionally to relieve pain, stress, and inflammation.. Used traditionally to relieve pain, stress, and inflammation.",
-  "mechanism": "",
+  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity; Volatile terpenoids may contribute smooth-muscle, antimicrobial, or sensory effects",
   "activeCompounds": [
     "flavonoids",
     "tannins",
@@ -32,9 +32,19 @@
       "title": "NCBI Taxonomy: Elaeagnus angustifolia (TaxID 36777)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=36777&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Elaeagnus angustifolia",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Elaeagnus+angustifolia",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Elaeagnus angustifolia",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Elaeagnus+angustifolia",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.924Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Fruits and flowers traditionally used for calming effects and sleep support",
   "dosage": "No direct dosage data. Contextual inference: Used traditionally to relieve pain,stress,and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain,and inflammation... Used traditionally to relieve pain,and inflammation.. No direct effects data. Contextual inference: Used traditionally to relieve pain,and inflammation.. Used traditionally to relieve pain,and inflammation.. No direct region data. Contextual inference: Used traditionally to relieve pain,and inflammation.",
   "duration": "No direct duration data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... Used traditionally to relieve pain, stress, and inflammation.. No direct effects data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... Used traditionally to relieve pain, stress, and inflammation.. Used traditionally to relieve pain, stress, and inflammation.. No direct region data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... Used traditionally to relieve pain, stress, and inflammation.. No direct effects data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... Used traditionally to relieve pain, stress, and inflammation.. Used traditionally to relieve pain, stress, and inflammation.. Used traditionally to relieve pain, stress, and inflammation.. Used traditionally to relieve pain, stress, and inflammation.",

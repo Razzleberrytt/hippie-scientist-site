@@ -7,16 +7,28 @@
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
-  "interactions": [],
+  "interactions": [
+    "May potentiate stimulant effects when combined with sympathomimetic agents."
+  ],
   "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
   "sources": [
     {
       "title": "NCBI Taxonomy: reishi mushroom",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=reishi%20mushroom&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: reishi mushroom",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=reishi+mushroom",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: reishi mushroom",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=reishi+mushroom",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.006Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Reishi is typically chosen for long-horizon wellness routines where users want a non-stimulant mushroom option available in extract, capsule, or tea forms.",
   "dosage": "Use products with clear fruiting-body and extract details; dose comparisons should stay within similar extract types.",
   "duration": "Usually framed as a consistency herb used over weeks rather than immediate-effect expectations.",

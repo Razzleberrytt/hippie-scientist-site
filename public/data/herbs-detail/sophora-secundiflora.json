@@ -20,15 +20,25 @@
   "interactions": [
     "Potentiation with other nicotinic agonists"
   ],
-  "safetyNotes": "Highly toxic,not for casual use,Nausea,vomiting,confusion,seizures,Very high,~2.5 mg/kg (mice,oral),Toxic – neuroactive,toxic seeds,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with highly toxic; Avoid with ceremonial use only",
   "sources": [
     {
       "title": "NCBI Taxonomy: Sophora secundiflora",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Sophora%20secundiflora&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: Sophora secundiflora",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Sophora+secundiflora",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Sophora secundiflora",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Sophora+secundiflora",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.022Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Red beans used by Native Americans in vision quests; contains cytisine",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",

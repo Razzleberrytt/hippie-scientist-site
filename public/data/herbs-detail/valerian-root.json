@@ -7,16 +7,28 @@
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
-  "interactions": [],
+  "interactions": [
+    "May increase sedation when combined with CNS depressants."
+  ],
   "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
   "sources": [
     {
       "title": "NCBI Taxonomy: valerian root",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=valerian%20root&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: valerian root",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=valerian+root",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: valerian root",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=valerian+root",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.030Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Valerian root is usually selected for bedtime-focused routines when users want a stronger evening herb than tea-only calming options.",
   "dosage": "Use conservative bedtime serving ranges from labeled products and avoid combining multiple sedating herbs without a clear reason.",
   "duration": "Commonly used in short sleep-support blocks or intermittent bedtime use based on next-day grogginess tolerance.",

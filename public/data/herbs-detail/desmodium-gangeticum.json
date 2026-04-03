@@ -3,7 +3,7 @@
   "latin": "Desmodium gangeticum",
   "class": "Adaptogen, Nervine",
   "intensity": "Mild",
-  "mechanism": "",
+  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity; Alkaloid constituents can modulate neuronal signaling pathways",
   "activeCompounds": [
     "flavonoids",
     "alkaloids",
@@ -30,15 +30,25 @@
     "Sedatives",
     "antihypertensives"
   ],
-  "safetyNotes": "Well tolerated in traditional use,Mild drowsiness,Low,Not established in humans,Generally recognized as safe,Drowsiness,dry throat (rare),Not established,safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Avoid with none known; Avoid with caution with sedatives; Avoid with none known in moderate doses",
   "sources": [
     {
       "title": "NCBI Taxonomy: Desmodium gangeticum",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Desmodium%20gangeticum&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: Desmodium gangeticum",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Desmodium+gangeticum",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Desmodium gangeticum",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Desmodium+gangeticum",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.919Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Ayurvedic herb used for rejuvenation and calming the nervous system",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
