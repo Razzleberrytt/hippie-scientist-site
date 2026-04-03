@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
+import { execSync } from 'node:child_process'
 
 const ROOT = process.cwd()
 const DATA_DIR = path.join(ROOT, 'public', 'data')
@@ -8,6 +9,7 @@ const HERBS_PATH = path.join(DATA_DIR, 'herbs.json')
 const COMPOUNDS_PATH = path.join(DATA_DIR, 'compounds.json')
 const CACHE_PATH = path.join(ROOT, 'ops', 'cache', 'source-bootstrap-candidates.json')
 const REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'source-bootstrap-coverage.json')
+const PRECISION_REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'source-precision-cleanup.json')
 
 const asText = value => String(value ?? '').trim()
 
@@ -52,16 +54,119 @@ function compoundName(entity) {
   return asText(entity?.name || entity?.displayName || entity?.id || entity?.slug)
 }
 
+function toPubChemCompoundPage(name) {
+  const slug = slugify(name)
+  if (!slug) return ''
+  return `https://pubchem.ncbi.nlm.nih.gov/compound/${slug}`
+}
+
+function toNcbiTaxonomyInfoByName(name) {
+  const q = encodeQuery(name)
+  if (!q) return ''
+  return `https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=${q}&mode=Info`
+}
+
+function classifyUrl(url) {
+  const text = asText(url)
+  if (!text) return { isSearchOrFallback: false, isCanonicalEntity: false }
+  const isSearchOrFallback =
+    /#query=|[?&](q|query|term|searchterm|name)=|\/results\?/.test(text) ||
+    /\/search\b/.test(text) ||
+    /wikipedia\.org\//.test(text)
+  const isCanonicalEntity =
+    /pubchem\.ncbi\.nlm\.nih\.gov\/compound\/[a-z0-9-]+\/?$/i.test(text) ||
+    /ncbi\.nlm\.nih\.gov\/Taxonomy\/Browser\/wwwtax\.cgi\?(?=.*\bmode=Info\b)(?=.*\bname=)/i.test(text) ||
+    /powo\.science\.kew\.org\/taxon\//i.test(text) ||
+    /pubmed\.ncbi\.nlm\.nih\.gov\/\d+\/?$/.test(text)
+  return { isSearchOrFallback, isCanonicalEntity }
+}
+
+function precisionMetrics(herbs, compounds) {
+  let searchOrFallback = 0
+  let canonicalEntity = 0
+  for (const collection of [herbs, compounds]) {
+    for (const entity of collection) {
+      const sources = Array.isArray(entity?.sources) ? entity.sources : []
+      for (const source of sources) {
+        const url =
+          typeof source === 'string'
+            ? source
+            : source && typeof source === 'object'
+              ? source.url || source.reference || ''
+              : ''
+        const classification = classifyUrl(url)
+        if (classification.isSearchOrFallback) searchOrFallback += 1
+        if (classification.isCanonicalEntity) canonicalEntity += 1
+      }
+    }
+  }
+  return { searchOrFallback, canonicalEntity }
+}
+
+function readJsonFromGitHead(relativePath) {
+  try {
+    const text = execSync(`git show HEAD:${relativePath}`, {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+      maxBuffer: 64 * 1024 * 1024,
+    })
+    return JSON.parse(text)
+  } catch {
+    return null
+  }
+}
+
+function indexByEntity(collection, nameSelector) {
+  const map = new Map()
+  for (const entity of collection) {
+    map.set(asText(entity?.slug || entity?.id || nameSelector(entity)), entity)
+  }
+  return map
+}
+
+function countHerbImprovements(beforeHerbs, afterHerbs) {
+  const beforeByKey = indexByEntity(beforeHerbs, herbName)
+  let improved = 0
+  for (const herb of afterHerbs) {
+    const key = asText(herb?.slug || herb?.id || herbName(herb))
+    const previous = beforeByKey.get(key)
+    if (!previous) continue
+    const beforeUrls = new Set((previous.sources || []).map(source => asText(source?.url || source)))
+    const afterUrls = new Set((herb.sources || []).map(source => asText(source?.url || source)))
+    const hadSearch = [...beforeUrls].some(url => /Taxonomy\/Browser\/wwwtax\.cgi\?(?=.*\bname=)(?!.*\bmode=Info\b)/i.test(url))
+    const hasInfo = [...afterUrls].some(url => /Taxonomy\/Browser\/wwwtax\.cgi\?(?=.*\bname=)(?=.*\bmode=Info\b)/i.test(url))
+    if (hadSearch && hasInfo) improved += 1
+  }
+  return improved
+}
+
+function countCompoundImprovements(beforeCompounds, afterCompounds) {
+  const beforeByKey = indexByEntity(beforeCompounds, compoundName)
+  let improved = 0
+  for (const compound of afterCompounds) {
+    const key = asText(compound?.slug || compound?.id || compoundName(compound))
+    const previous = beforeByKey.get(key)
+    if (!previous) continue
+    const beforeUrls = new Set((previous.sources || []).map(source => asText(source?.url || source)))
+    const afterUrls = new Set((compound.sources || []).map(source => asText(source?.url || source)))
+    const hadSearch = [...beforeUrls].some(url => /pubchem\.ncbi\.nlm\.nih\.gov\/#query=/i.test(url))
+    const hasCanonical = [...afterUrls].some(url => /pubchem\.ncbi\.nlm\.nih\.gov\/compound\/[a-z0-9-]+\/?$/i.test(url))
+    if (hadSearch && hasCanonical) improved += 1
+  }
+  return improved
+}
+
 function herbCandidates(entity) {
   const name = herbName(entity)
   const slug = slugify(name)
   const q = encodeQuery(name)
+  const ncbiInfoUrl = toNcbiTaxonomyInfoByName(name)
 
   return [
     {
-      title: `NCBI Taxonomy search: ${name}`,
-      url: `https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=${q}`,
-      note: 'Bootstrap identity source (tier: high)',
+      title: `NCBI Taxonomy: ${name}`,
+      url: ncbiInfoUrl || `https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=${q}`,
+      note: 'Bootstrap identity source (tier: high, canonical-by-name)',
       tier: 'high',
     },
     {
@@ -89,12 +194,13 @@ function compoundCandidates(entity) {
   const name = compoundName(entity)
   const q = encodeQuery(name)
   const slug = slugify(name)
+  const pubChemCompoundUrl = toPubChemCompoundPage(name)
 
   return [
     {
-      title: `PubChem compound search: ${name}`,
-      url: `https://pubchem.ncbi.nlm.nih.gov/#query=${q}`,
-      note: 'Bootstrap compound identity source (tier: high)',
+      title: `PubChem compound: ${name}`,
+      url: pubChemCompoundUrl || `https://pubchem.ncbi.nlm.nih.gov/#query=${q}`,
+      note: 'Bootstrap compound identity source (tier: high, canonical-by-name)',
       tier: 'high',
     },
     {
@@ -127,9 +233,51 @@ function ensureArraySources(entity) {
   return entity.sources
 }
 
+function upgradeHerbSource(entity) {
+  const sources = ensureArraySources(entity)
+  const name = herbName(entity)
+  const targetUrl = toNcbiTaxonomyInfoByName(name)
+  if (!targetUrl) return false
+  let changed = false
+  for (const source of sources) {
+    if (!source || typeof source !== 'object') continue
+    const url = asText(source.url)
+    if (!/ncbi\.nlm\.nih\.gov\/Taxonomy\/Browser\/wwwtax\.cgi\?/.test(url)) continue
+    if (!/[?&]name=/.test(url)) continue
+    if (asText(source.url) === targetUrl) continue
+    source.url = targetUrl
+    source.title = `NCBI Taxonomy: ${name}`
+    source.note = 'Bootstrap identity source (tier: high, canonical-by-name)'
+    changed = true
+  }
+  return changed
+}
+
+function upgradeCompoundSource(entity) {
+  const sources = ensureArraySources(entity)
+  const name = compoundName(entity)
+  const targetUrl = toPubChemCompoundPage(name)
+  if (!targetUrl) return false
+  let changed = false
+  for (const source of sources) {
+    if (!source || typeof source !== 'object') continue
+    const url = asText(source.url)
+    if (!/pubchem\.ncbi\.nlm\.nih\.gov\/#query=/i.test(url)) continue
+    if (asText(source.url) === targetUrl) continue
+    source.url = targetUrl
+    source.title = `PubChem compound: ${name}`
+    source.note = 'Bootstrap compound identity source (tier: high, canonical-by-name)'
+    changed = true
+  }
+  return changed
+}
+
 function run() {
   const herbs = JSON.parse(fs.readFileSync(HERBS_PATH, 'utf8'))
   const compounds = JSON.parse(fs.readFileSync(COMPOUNDS_PATH, 'utf8'))
+  const headHerbs = readJsonFromGitHead(path.relative(ROOT, HERBS_PATH)) || herbs
+  const headCompounds = readJsonFromGitHead(path.relative(ROOT, COMPOUNDS_PATH)) || compounds
+  const precisionBefore = precisionMetrics(headHerbs, headCompounds)
 
   const before = {
     herbsZeroSources: herbs.filter(entity => sourceCount(entity) === 0).length,
@@ -138,14 +286,30 @@ function run() {
 
   const touchedHerbs = []
   const touchedCompounds = []
-  const cache = {
+  let cache = {
     generatedAt: new Date().toISOString(),
-    deterministicModelVersion: 'source-bootstrap-v1',
+    deterministicModelVersion: 'source-bootstrap-v2',
     herbCandidates: [],
     compoundCandidates: [],
   }
+  if (fs.existsSync(CACHE_PATH)) {
+    try {
+      const existingCache = JSON.parse(fs.readFileSync(CACHE_PATH, 'utf8'))
+      if (existingCache && typeof existingCache === 'object') {
+        cache = {
+          ...cache,
+          ...existingCache,
+          herbCandidates: Array.isArray(existingCache.herbCandidates) ? existingCache.herbCandidates : [],
+          compoundCandidates: Array.isArray(existingCache.compoundCandidates) ? existingCache.compoundCandidates : [],
+        }
+      }
+    } catch {
+      // keep fresh cache shape
+    }
+  }
 
   for (const herb of herbs) {
+    upgradeHerbSource(herb)
     if (sourceCount(herb) > 0) continue
     const candidates = herbCandidates(herb)
     const chosen = firstViableCandidate(candidates)
@@ -161,6 +325,7 @@ function run() {
   }
 
   for (const compound of compounds) {
+    upgradeCompoundSource(compound)
     if (sourceCount(compound) > 0) continue
     const candidates = compoundCandidates(compound)
     const chosen = firstViableCandidate(candidates)
@@ -179,6 +344,49 @@ function run() {
     herbsZeroSources: herbs.filter(entity => sourceCount(entity) === 0).length,
     compoundsZeroSources: compounds.filter(entity => sourceCount(entity) === 0).length,
   }
+  const precisionAfter = precisionMetrics(herbs, compounds)
+  const herbsPrecisionUpgraded = countHerbImprovements(headHerbs, herbs)
+  const compoundsPrecisionUpgraded = countCompoundImprovements(headCompounds, compounds)
+
+  for (const candidate of cache.herbCandidates) {
+    const name = asText(candidate?.name || candidate?.entity)
+    const upgradedUrl = toNcbiTaxonomyInfoByName(name)
+    if (!upgradedUrl) continue
+    if (candidate.selected && /ncbi\.nlm\.nih\.gov\/Taxonomy\/Browser\/wwwtax\.cgi\?/i.test(asText(candidate.selected.url))) {
+      candidate.selected.url = upgradedUrl
+      candidate.selected.title = `NCBI Taxonomy: ${name}`
+      candidate.selected.note = 'Bootstrap identity source (tier: high, canonical-by-name)'
+    }
+    if (Array.isArray(candidate.candidates)) {
+      for (const option of candidate.candidates) {
+        if (!option || typeof option !== 'object') continue
+        if (!/ncbi\.nlm\.nih\.gov\/Taxonomy\/Browser\/wwwtax\.cgi\?/i.test(asText(option.url))) continue
+        option.url = upgradedUrl
+        option.title = `NCBI Taxonomy: ${name}`
+        option.note = 'Bootstrap identity source (tier: high, canonical-by-name)'
+      }
+    }
+  }
+
+  for (const candidate of cache.compoundCandidates) {
+    const name = asText(candidate?.name || candidate?.entity)
+    const upgradedUrl = toPubChemCompoundPage(name)
+    if (!upgradedUrl) continue
+    if (candidate.selected && /pubchem\.ncbi\.nlm\.nih\.gov\/#query=/i.test(asText(candidate.selected.url))) {
+      candidate.selected.url = upgradedUrl
+      candidate.selected.title = `PubChem compound: ${name}`
+      candidate.selected.note = 'Bootstrap compound identity source (tier: high, canonical-by-name)'
+    }
+    if (Array.isArray(candidate.candidates)) {
+      for (const option of candidate.candidates) {
+        if (!option || typeof option !== 'object') continue
+        if (!/pubchem\.ncbi\.nlm\.nih\.gov\/#query=/i.test(asText(option.url))) continue
+        option.url = upgradedUrl
+        option.title = `PubChem compound: ${name}`
+        option.note = 'Bootstrap compound identity source (tier: high, canonical-by-name)'
+      }
+    }
+  }
 
   fs.writeFileSync(HERBS_PATH, `${JSON.stringify(herbs, null, 2)}\n`, 'utf8')
   fs.writeFileSync(COMPOUNDS_PATH, `${JSON.stringify(compounds, null, 2)}\n`, 'utf8')
@@ -187,7 +395,7 @@ function run() {
 
   const report = {
     generatedAt: new Date().toISOString(),
-    deterministicModelVersion: 'source-bootstrap-v1',
+    deterministicModelVersion: 'source-bootstrap-v2',
     sources: {
       herbs: path.relative(ROOT, HERBS_PATH),
       compounds: path.relative(ROOT, COMPOUNDS_PATH),
@@ -200,6 +408,12 @@ function run() {
       compoundsZeroSourcesAfter: after.compoundsZeroSources,
       herbsGainingAtLeastOneSource: touchedHerbs.length,
       compoundsGainingAtLeastOneSource: touchedCompounds.length,
+      searchOrFallbackBefore: precisionBefore.searchOrFallback,
+      searchOrFallbackAfter: precisionAfter.searchOrFallback,
+      canonicalEntityBefore: precisionBefore.canonicalEntity,
+      canonicalEntityAfter: precisionAfter.canonicalEntity,
+      herbsPrecisionUpgraded,
+      compoundsPrecisionUpgraded,
     },
     touched: {
       herbs: touchedHerbs,
@@ -210,12 +424,27 @@ function run() {
   fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true })
   fs.writeFileSync(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`, 'utf8')
 
+  const precisionReport = {
+    generatedAt: new Date().toISOString(),
+    deterministicModelVersion: 'source-bootstrap-v2',
+    summary: {
+      searchOrFallbackBefore: precisionBefore.searchOrFallback,
+      searchOrFallbackAfter: precisionAfter.searchOrFallback,
+      canonicalEntityBefore: precisionBefore.canonicalEntity,
+      canonicalEntityAfter: precisionAfter.canonicalEntity,
+      herbsImproved: herbsPrecisionUpgraded,
+      compoundsImproved: compoundsPrecisionUpgraded,
+    },
+  }
+  fs.writeFileSync(PRECISION_REPORT_PATH, `${JSON.stringify(precisionReport, null, 2)}\n`, 'utf8')
+
   console.log(`[source-bootstrap] herbs zero sources: ${before.herbsZeroSources} -> ${after.herbsZeroSources}`)
   console.log(`[source-bootstrap] compounds zero sources: ${before.compoundsZeroSources} -> ${after.compoundsZeroSources}`)
   console.log(`[source-bootstrap] herbs gained >=1 source: ${touchedHerbs.length}`)
   console.log(`[source-bootstrap] compounds gained >=1 source: ${touchedCompounds.length}`)
   console.log(`[source-bootstrap] cache: ${path.relative(ROOT, CACHE_PATH)}`)
   console.log(`[source-bootstrap] report: ${path.relative(ROOT, REPORT_PATH)}`)
+  console.log(`[source-bootstrap] precision report: ${path.relative(ROOT, PRECISION_REPORT_PATH)}`)
 }
 
 run()

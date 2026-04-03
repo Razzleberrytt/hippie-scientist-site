@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-04-03T00:10:03.701Z",
+  "deterministicModelVersion": "source-bootstrap-v2",
+  "summary": {
+    "searchOrFallbackBefore": 1071,
+    "searchOrFallbackAfter": 691,
+    "canonicalEntityBefore": 24,
+    "canonicalEntityAfter": 1094,
+    "herbsImproved": 690,
+    "compoundsImproved": 380
+  }
+}
