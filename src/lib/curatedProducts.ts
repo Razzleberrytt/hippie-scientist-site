@@ -243,6 +243,10 @@ const CLICK_WEIGHT = 1
 const CONVERSION_WEIGHT = 3
 const MIN_EXPOSURE_CLICKS = 2
 const MIN_EXPOSURE_BOOST = 1.25
+const MIN_DATA_THRESHOLD = 4
+const COLD_START_BASE_PRIOR = 0.5
+const COLD_START_BOOST_CAP = 0.65
+const HIGH_CONVERSION_PROTECTION_THRESHOLD = 0.75
 const CLOSE_SCORE_DELTA = 0.35
 const TIME_DECAY_HALF_LIFE_MS = 7 * 24 * 60 * 60 * 1000
 const MAX_CLICK_EVENT_AGE_MS = 60 * 24 * 60 * 60 * 1000
@@ -413,6 +417,44 @@ function exposureBoost(clickCount: number): number {
   return (MIN_EXPOSURE_CLICKS - clickCount) * MIN_EXPOSURE_BOOST
 }
 
+function isColdStart(params: { totalClickScore: number; totalConversionScore: number }): boolean {
+  return params.totalClickScore < MIN_DATA_THRESHOLD && params.totalConversionScore === 0
+}
+
+function getColdStartBoost(product: CuratedProductRecommendation): number {
+  let prior = COLD_START_BASE_PRIOR
+
+  const typedProduct = product as CuratedProductRecommendation & {
+    rating?: number
+    reviewCount?: number
+    priceCompetitiveness?: number
+  }
+
+  if (typeof typedProduct.rating === 'number' && Number.isFinite(typedProduct.rating)) {
+    const normalizedRating = Math.max(0, Math.min(typedProduct.rating, 5)) / 5
+    prior += normalizedRating * 0.05
+  }
+  if (typeof typedProduct.reviewCount === 'number' && Number.isFinite(typedProduct.reviewCount)) {
+    prior += Math.min(typedProduct.reviewCount, 500) / 5000
+  }
+  if (
+    typeof typedProduct.priceCompetitiveness === 'number' &&
+    Number.isFinite(typedProduct.priceCompetitiveness)
+  ) {
+    prior += Math.max(-1, Math.min(typedProduct.priceCompetitiveness, 1)) * 0.05
+  }
+
+  return Math.max(0, Math.min(prior, COLD_START_BOOST_CAP))
+}
+
+function getColdStartScoreBoost(
+  product: CuratedProductRecommendation,
+  clickEvidenceScore: number,
+): number {
+  const decayedBoost = getColdStartBoost(product) * Math.exp(-clickEvidenceScore)
+  return Math.min(COLD_START_BOOST_CAP, decayedBoost)
+}
+
 function deterministicJitter(seed: string): number {
   let hash = 0
   for (let index = 0; index < seed.length; index += 1) {
@@ -471,6 +513,8 @@ export function getRenderableCuratedProducts(
 
       const aMetrics = resolvedClickCounts?.[a.productId]
       const bMetrics = resolvedClickCounts?.[b.productId]
+      const aClickEvidenceScore = aMetrics?.rawCount || 0
+      const bClickEvidenceScore = bMetrics?.rawCount || 0
       const aClicks = aMetrics
         ? aMetrics.weightedEventCount > 0
           ? aMetrics.weightedScore
@@ -483,18 +527,38 @@ export function getRenderableCuratedProducts(
         : 0
       const aConversionScore = resolvedConversionScores?.[a.productId] || 0
       const bConversionScore = resolvedConversionScores?.[b.productId] || 0
+      const aColdStartBoost = isColdStart({
+        totalClickScore: aClicks,
+        totalConversionScore: aConversionScore,
+      })
+        ? getColdStartScoreBoost(a, aClickEvidenceScore)
+        : 0
+      const bColdStartBoost = isColdStart({
+        totalClickScore: bClicks,
+        totalConversionScore: bConversionScore,
+      })
+        ? getColdStartScoreBoost(b, bClickEvidenceScore)
+        : 0
       const baseScore = 0
       const aScore =
         baseScore +
         cappedClickScore(aClicks) * CLICK_WEIGHT +
         aConversionScore * CONVERSION_WEIGHT +
+        aColdStartBoost +
         exposureBoost(aClicks)
       const bScore =
         baseScore +
         cappedClickScore(bClicks) * CLICK_WEIGHT +
         bConversionScore * CONVERSION_WEIGHT +
+        bColdStartBoost +
         exposureBoost(bClicks)
       const scoreDelta = bScore - aScore
+
+      const aProtectedByConversion = aConversionScore >= HIGH_CONVERSION_PROTECTION_THRESHOLD
+      const bProtectedByConversion = bConversionScore >= HIGH_CONVERSION_PROTECTION_THRESHOLD
+      if (aProtectedByConversion !== bProtectedByConversion) {
+        return bProtectedByConversion ? 1 : -1
+      }
 
       if (Math.abs(scoreDelta) > CLOSE_SCORE_DELTA) return scoreDelta > 0 ? 1 : -1
 

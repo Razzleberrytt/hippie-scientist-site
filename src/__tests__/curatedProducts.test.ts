@@ -387,6 +387,66 @@ async function run() {
   assert.equal(conversionDominatesClickRows[0]?.productId, candidateB.productId)
 
   installAnalyticsWindow([
+    ...Array.from({ length: 3 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateB.productId,
+      position: 6,
+      dwellTimeMs: 12000,
+      timestamp: TEST_NOW_MS - oneDayMs + index,
+    })),
+  ])
+  const coldStartLiftRows = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(coldStartLiftRows[0]?.productId, candidateA.productId)
+
+  installAnalyticsWindow([
+    ...Array.from({ length: 3 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateB.productId,
+      position: 6,
+      dwellTimeMs: 12000,
+      timestamp: TEST_NOW_MS - oneDayMs + index,
+    })),
+    ...Array.from({ length: 4 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateA.productId,
+      position: 1,
+      dwellTimeMs: 1000,
+      timestamp: TEST_NOW_MS - oneDayMs + 100 + index,
+    })),
+  ])
+  const coldStartDecayRows = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(coldStartDecayRows[0]?.productId, candidateB.productId)
+
+  installAnalyticsWindow([
+    {
+      type: 'affiliate_conversion',
+      herbSlug: 'ashwagandha',
+      productId: candidateB.productId,
+      timestamp: TEST_NOW_MS - oneDayMs,
+    },
+  ])
+  const conversionProtectionRows = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(conversionProtectionRows[0]?.productId, candidateB.productId)
+
+  installAnalyticsWindow([
     {
       type: 'affiliate_conversion',
       herbSlug: 'ashwagandha',
