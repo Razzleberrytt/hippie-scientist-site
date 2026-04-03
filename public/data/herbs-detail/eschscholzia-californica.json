@@ -1,32 +1,64 @@
 {
   "name": "eschscholzia californica",
   "latin": "eschscholzia californica",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "",
+  "mechanism": "Isoquinoline alkaloids (including protopine-containing fractions) show GABAergic and other CNS-modulating sedative/anxiolytic activity in preclinical studies.",
   "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
+  ],
+  "safetyNotes": "Human evidence is limited but short-term use appears generally tolerated; drowsiness can occur, so avoid driving after use and avoid during pregnancy due to limited safety data.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: eschscholzia californica (TaxID 3467)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3467&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "California poppy in anxiety and sleep formulations: clinical evidence review (Phytother Res.)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23794440/",
+      "note": "Clinical context for combination products including Eschscholzia."
+    },
+    {
+      "title": "Eschscholzia californica neuropharmacology study (J Ethnopharmacol. 2011)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21807092/",
+      "note": "Mechanistic preclinical evidence for anxiolytic/sedative effects."
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.935Z",
+  "lastUpdated": "2026-03-21",
   "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "May increase sedation when combined with benzodiazepines, sedative antihistamines, opioids, or alcohol.",
+    "Use caution with other CNS depressant botanicals due to additive drowsiness."
+  ],
   "legalStatus": "legal",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [],
+  "therapeuticUses": [
+    "traditional support for mild digestive comfort"
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "eschscholzia-californica",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "eschscholzia-californica",
+  "displayName": "eschscholzia californica",
+  "displayScientificName": "eschscholzia californica",
+  "scientificNormalized": "eschscholzia californica",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
