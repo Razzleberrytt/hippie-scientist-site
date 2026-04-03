@@ -32,6 +32,10 @@ type InteractionCheckHistory = {
 type StackOutput = {
   selectedHerbs: Herb[]
   intentLabel: string
+  intent: StackIntent
+  practicalSummary: string
+  dominantDirection: string
+  rankedEffects: Array<{ label: string; count: number }>
   timing: string[]
   usageNotes: string[]
   dosage: {
@@ -51,6 +55,7 @@ const STACK_SHARE_PARAM = 's'
 const MAX_NOTES = 6
 const MAX_RECENT_STACKS = 6
 const MAX_INTERACTION_HISTORY = 12
+const MAX_RANKED_EFFECTS = 6
 
 const INTENT_COPY: Record<StackIntent, { label: string; timing: string[] }> = {
   sleep: {
@@ -154,7 +159,46 @@ function buildDosageGuidance(selectedHerbs: Herb[]) {
   }
 }
 
+function inferDominantDirection(
+  intent: StackIntent,
+  rankedEffects: Array<{ label: string; count: number }>
+) {
+  const rankedText = rankedEffects.map(effect => effect.label.toLowerCase()).join(' ')
+  const hasCalmSignal = /(calm|sleep|rest|relax|sedat|anxio)/.test(rankedText)
+  const hasFocusSignal = /(focus|energ|alert|cognit|clarity|stimul)/.test(rankedText)
+  const hasMoodSignal = /(mood|uplift|stress|adapt)/.test(rankedText)
+
+  if (intent === 'sleep' || hasCalmSignal) return 'Nervous-system downshift and evening calm.'
+  if (intent === 'focus' || hasFocusSignal) return 'Daytime clarity and cognitive support.'
+  if (hasMoodSignal) return 'Stress resilience and steady mood support.'
+  return 'General multi-system support with mixed effect signals.'
+}
+
+function buildRankedEffects(selectedHerbs: Herb[]) {
+  const frequency = new Map<string, number>()
+  selectedHerbs.forEach(herb => {
+    normalizeList(herb.effects).forEach(rawEffect => {
+      const cleaned = rawEffect.replace(/\s+/g, ' ').trim()
+      if (!cleaned) return
+      frequency.set(cleaned, (frequency.get(cleaned) ?? 0) + 1)
+    })
+  })
+  return Array.from(frequency.entries())
+    .map(([label, count]) => ({ label, count }))
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
+    .slice(0, MAX_RANKED_EFFECTS)
+}
+
 function buildStackOutput(intent: StackIntent, selectedHerbs: Herb[]): StackOutput {
+  const rankedEffects = buildRankedEffects(selectedHerbs)
+  const dominantDirection = inferDominantDirection(intent, rankedEffects)
+  const practicalSummary =
+    rankedEffects.length > 0
+      ? `Most repeated signals in this stack: ${rankedEffects
+          .slice(0, 3)
+          .map(effect => effect.label)
+          .join(', ')}.`
+      : 'Effects data is sparse for one or more herbs, so start conservatively and log your response.'
   const usageNotes = selectedHerbs
     .flatMap(herb => {
       const herbName = herbDisplayName(herb)
@@ -202,7 +246,11 @@ function buildStackOutput(intent: StackIntent, selectedHerbs: Herb[]): StackOutp
 
   return {
     selectedHerbs,
+    intent,
     intentLabel: INTENT_COPY[intent].label,
+    practicalSummary,
+    dominantDirection,
+    rankedEffects,
     timing: INTENT_COPY[intent].timing,
     usageNotes,
     dosage: buildDosageGuidance(selectedHerbs),
@@ -226,7 +274,6 @@ export default function BuildBlend() {
   const [intent, setIntent] = useState<StackIntent>('sleep')
   const [query, setQuery] = useState('')
   const [selectedSlugs, setSelectedSlugs] = useState<string[]>([])
-  const [result, setResult] = useState<StackOutput | null>(null)
   const [shareStatus, setShareStatus] = useState<'idle' | 'copied'>('idle')
   const [isExportingPdf, setIsExportingPdf] = useState(false)
   const [leadEmail, setLeadEmail] = useState('')
@@ -272,8 +319,6 @@ export default function BuildBlend() {
 
     setIntent(restored.intent)
     setSelectedSlugs(cleanSlugs)
-    const selectedHerbs = herbs.filter(herb => cleanSlugs.includes((herb.slug || '').toLowerCase()))
-    setResult(buildStackOutput(restored.intent, selectedHerbs))
   }, [herbs, searchParams])
 
   const filteredHerbs = useMemo(() => {
@@ -294,6 +339,10 @@ export default function BuildBlend() {
   const selectedHerbs = useMemo(
     () => herbs.filter(herb => selectedSlugs.includes((herb.slug || '').toLowerCase())),
     [herbs, selectedSlugs]
+  )
+  const liveResult = useMemo(
+    () => (selectedHerbs.length ? buildStackOutput(intent, selectedHerbs) : null),
+    [intent, selectedHerbs]
   )
 
   const favoriteHerbs = useMemo(
@@ -363,7 +412,6 @@ export default function BuildBlend() {
   const handleGenerate = () => {
     if (!selectedHerbs.length) return
     const nextResult = buildStackOutput(intent, selectedHerbs)
-    setResult(nextResult)
 
     const plan: StackPlan = { intent, herbSlugs: selectedSlugs }
     const serialized = encodeStackPlan(plan)
@@ -391,8 +439,6 @@ export default function BuildBlend() {
   const applyRecentStack = (stack: RecentStackPlan) => {
     setIntent(stack.intent)
     setSelectedSlugs(stack.herbSlugs)
-    const selected = herbs.filter(herb => stack.herbSlugs.includes((herb.slug || '').toLowerCase()))
-    setResult(buildStackOutput(stack.intent, selected))
     setSearchParams({ [STACK_SHARE_PARAM]: encodeStackPlan(stack) }, { replace: true })
   }
 
@@ -420,36 +466,39 @@ export default function BuildBlend() {
   const shareText = encodeURIComponent('Custom herb stack from The Hippie Scientist')
 
   const exportPdf = async () => {
-    if (!result) return
+    if (!liveResult) return
     setIsExportingPdf(true)
     try {
       const { jsPDF } = await import('jspdf')
       const doc = new jsPDF()
-      const herbNames = result.selectedHerbs.map(herb => `• ${herbDisplayName(herb)}`)
+      const herbNames = liveResult.selectedHerbs.map(herb => `• ${herbDisplayName(herb)}`)
       const lines = [
-        `Intent: ${result.intentLabel}`,
+        `Intent: ${liveResult.intentLabel}`,
         '',
         'Selected Herbs:',
         ...herbNames,
         '',
+        `Dominant Direction: ${liveResult.dominantDirection}`,
+        `Practical Summary: ${liveResult.practicalSummary}`,
+        '',
         'Recommended Timing:',
-        ...result.timing.map(line => `• ${line}`),
+        ...liveResult.timing.map(line => `• ${line}`),
         '',
         'Preparation & Usage Notes:',
-        ...(result.usageNotes.length
-          ? result.usageNotes.map(note => `• ${note}`)
+        ...(liveResult.usageNotes.length
+          ? liveResult.usageNotes.map(note => `• ${note}`)
           : ['• No preparation-specific notes were found in this herb data.']),
         '',
         'Dosage Guidance:',
-        `• Light: ${result.dosage.light}`,
-        `• Moderate: ${result.dosage.moderate}`,
-        `• Strong: ${result.dosage.strong}`,
+        `• Light: ${liveResult.dosage.light}`,
+        `• Moderate: ${liveResult.dosage.moderate}`,
+        `• Strong: ${liveResult.dosage.strong}`,
         '',
         'Safety Notes:',
-        ...result.safetyNotes.map(note => `• ${note}`),
+        ...liveResult.safetyNotes.map(note => `• ${note}`),
         '',
         'Interaction Warnings:',
-        ...result.interactionWarnings.map(note => `• ${note}`),
+        ...liveResult.interactionWarnings.map(note => `• ${note}`),
       ]
 
       const wrapped = doc.splitTextToSize(lines.join('\n'), 180)
@@ -569,7 +618,35 @@ export default function BuildBlend() {
             >
               Add saved herbs
             </Button>
+            <Button
+              type='button'
+              variant='ghost'
+              onClick={() => setSelectedSlugs([])}
+              disabled={!selectedSlugs.length}
+            >
+              Clear selected
+            </Button>
           </div>
+          {selectedHerbs.length > 0 && (
+            <div className='rounded-xl border border-cyan-400/30 bg-cyan-500/5 p-3'>
+              <p className='text-xs uppercase tracking-[0.2em] text-cyan-200'>Selected blend</p>
+              <div className='mt-2 flex flex-wrap gap-2'>
+                {selectedHerbs.map(herb => {
+                  const slug = (herb.slug || '').toLowerCase()
+                  return (
+                    <button
+                      key={slug}
+                      type='button'
+                      onClick={() => toggleHerb(slug)}
+                      className='rounded-full border border-cyan-300/40 bg-cyan-500/15 px-3 py-1 text-xs text-cyan-50 hover:border-cyan-200'
+                    >
+                      {herbDisplayName(herb)} <span className='text-cyan-200/80'>×</span>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          )}
         </section>
 
         <div className='flex flex-wrap items-center gap-2'>
@@ -579,14 +656,13 @@ export default function BuildBlend() {
             onClick={handleGenerate}
             disabled={!selectedHerbs.length}
           >
-            Step 3 · Generate Stack Output
+            Save snapshot to recent
           </Button>
           <Button
             type='button'
             variant='ghost'
             onClick={() => {
               setSelectedSlugs([])
-              setResult(null)
               setSearchParams({}, { replace: true })
               removeStorage(LOCAL_STACK_KEY)
             }}
@@ -660,25 +736,54 @@ export default function BuildBlend() {
 
       <section className='space-y-4'>
         <p className='text-xs uppercase tracking-[0.22em] text-slate-400'>
-          Step 4 · Personalized Output
+          Step 3 · Blend Output
         </p>
-        {!result ? (
+        {!liveResult ? (
           <Card className='rounded-2xl border border-white/10 p-6 text-sm text-slate-300'>
-            Select at least one herb and generate your personalized stack output.
+            Add at least one herb to see ranked effects, blend direction, and practical guidance.
           </Card>
         ) : (
           <div className='space-y-4'>
             <Card className='rounded-2xl p-5'>
               <h2 className='text-lg font-semibold text-white'>Blend Summary</h2>
               <p className='mt-2 text-sm text-slate-300'>
-                Goal: <span className='font-medium text-slate-100'>{result.intentLabel}</span>
+                Goal: <span className='font-medium text-slate-100'>{liveResult.intentLabel}</span>
               </p>
+              <p className='mt-2 text-sm text-slate-200'>{liveResult.practicalSummary}</p>
+              <p className='mt-2 text-sm text-cyan-100'>
+                Dominant direction: <span className='font-medium'>{liveResult.dominantDirection}</span>
+              </p>
+            </Card>
+
+            <Card className='rounded-2xl p-5'>
+              <h2 className='text-lg font-semibold text-white'>Ranked Effects</h2>
+              {liveResult.rankedEffects.length ? (
+                <ul className='mt-3 space-y-2 text-sm text-slate-100'>
+                  {liveResult.rankedEffects.map((effect, index) => (
+                    <li
+                      key={effect.label}
+                      className='flex items-center justify-between gap-3 rounded-lg border border-slate-700/80 bg-slate-900/50 px-3 py-2'
+                    >
+                      <span>
+                        {index + 1}. {effect.label}
+                      </span>
+                      <span className='rounded-full border border-cyan-300/40 bg-cyan-500/15 px-2 py-0.5 text-xs text-cyan-100'>
+                        {effect.count} herb{effect.count === 1 ? '' : 's'}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className='mt-3 text-sm text-slate-300'>
+                  Effect overlap data is limited for this selection.
+                </p>
+              )}
             </Card>
 
             <Card className='rounded-2xl p-5'>
               <h2 className='text-lg font-semibold text-white'>Recommended Usage Timing</h2>
               <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-slate-200'>
-                {result.timing.map(item => (
+                {liveResult.timing.map(item => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
@@ -686,9 +791,9 @@ export default function BuildBlend() {
 
             <Card className='rounded-2xl p-5'>
               <h2 className='text-lg font-semibold text-white'>Preparation & Usage Notes</h2>
-              {result.usageNotes.length ? (
+              {liveResult.usageNotes.length ? (
                 <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-slate-200'>
-                  {result.usageNotes.map(note => (
+                  {liveResult.usageNotes.map(note => (
                     <li key={note}>{note}</li>
                   ))}
                 </ul>
@@ -703,13 +808,13 @@ export default function BuildBlend() {
               <h2 className='text-lg font-semibold text-white'>Dosage Guidance</h2>
               <ul className='mt-3 space-y-2 text-sm text-slate-200'>
                 <li>
-                  <strong>Light:</strong> {result.dosage.light}
+                  <strong>Light:</strong> {liveResult.dosage.light}
                 </li>
                 <li>
-                  <strong>Moderate:</strong> {result.dosage.moderate}
+                  <strong>Moderate:</strong> {liveResult.dosage.moderate}
                 </li>
                 <li>
-                  <strong>Strong:</strong> {result.dosage.strong}
+                  <strong>Strong:</strong> {liveResult.dosage.strong}
                 </li>
               </ul>
             </Card>
@@ -717,7 +822,7 @@ export default function BuildBlend() {
             <Card className='rounded-2xl p-5'>
               <h2 className='text-lg font-semibold text-white'>Safety Notes</h2>
               <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-slate-200'>
-                {result.safetyNotes.map(note => (
+                {liveResult.safetyNotes.map(note => (
                   <li key={note}>{note}</li>
                 ))}
               </ul>
@@ -726,7 +831,7 @@ export default function BuildBlend() {
             <Card className='rounded-2xl border border-amber-400/40 bg-amber-500/10 p-5'>
               <h2 className='text-lg font-semibold text-amber-100'>Interaction Warnings</h2>
               <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-amber-50'>
-                {result.interactionWarnings.map(note => (
+                {liveResult.interactionWarnings.map(note => (
                   <li key={note}>{note}</li>
                 ))}
               </ul>
@@ -735,7 +840,7 @@ export default function BuildBlend() {
             <Card className='rounded-2xl p-5'>
               <h2 className='text-lg font-semibold text-white'>Selected Herbs</h2>
               <ul className='mt-3 list-disc space-y-1 pl-5 text-sm text-slate-200'>
-                {result.selectedHerbs.map(herb => (
+                {liveResult.selectedHerbs.map(herb => (
                   <li key={herb.slug}>{herbDisplayName(herb)}</li>
                 ))}
               </ul>
