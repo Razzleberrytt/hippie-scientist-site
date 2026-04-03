@@ -18,9 +18,9 @@
     "avoid with cns depression"
   ],
   "interactions": [
-    "Sedatives (theoretical)",
-    "sedatives",
-    "depressants."
+    "Avoid with: Sedatives (theoretical)",
+    "Avoid with: sedatives",
+    "Caution with: depressants"
   ],
   "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [

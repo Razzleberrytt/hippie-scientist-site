@@ -23,10 +23,10 @@
     "avoid with hypertension"
   ],
   "interactions": [
-    "May potentiate stimulants and antidepressants",
-    "avoid combining with MAOIs",
-    "stimulants",
-    "antidepressants."
+    "May potentiate: May potentiate stimulants and antidepressants",
+    "Avoid with: avoid combining with MAOIs",
+    "Avoid with: stimulants",
+    "Avoid with: antidepressants"
   ],
   "safetyNotes": "Generally well tolerated at recommended doses,high doses may cause agitation,Generally recognized as safe at typical dosages,Insomnia,restlessness,increased heart rate (rare,dose-dependent),May cause insomnia,restlessness at high doses,Very low toxicity reported,long-term use lacks sufficient study",
   "sources": [

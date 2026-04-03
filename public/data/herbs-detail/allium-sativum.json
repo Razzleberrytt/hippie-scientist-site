@@ -41,9 +41,11 @@
   ],
   "duration": "Daily use safe, long-term",
   "interactions": [
-    "May increase bleeding risk when combined with warfarin, antiplatelet agents, or high-dose NSAIDs.",
-    "Can reduce saquinavir exposure and may alter metabolism/transport of some drugs.",
-    "May add to blood-pressure-lowering effects with antihypertensives."
+    "May potentiate: May increase bleeding risk when combined with warfarin",
+    "Avoid with: antiplatelet agents",
+    "Caution with: high dose NSAIDs",
+    "May potentiate: Can reduce saquinavir exposure and may alter metabolism/transport of some drugs",
+    "May potentiate: May add to blood pressure lowering effects with antihypertensives"
   ],
   "legalStatus": "Widely approved as food and supplement globally (GRAS).",
   "preparation": "Cloves consumed raw, cooked, or in capsules; also tinctured or oil extracted",

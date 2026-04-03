@@ -23,9 +23,9 @@
     "avoid with infants (menthol sensitivity)"
   ],
   "interactions": [
-    "Antacids",
-    "calcium channel blockers",
-    "CYP450 substrates"
+    "Caution with: Antacids",
+    "Caution with: calcium channel blockers",
+    "Caution with: CYP450 substrates"
   ],
   "safetyNotes": "Avoid with gerd; Avoid with gallbladder disorders; Avoid with infants (menthol sensitivity)",
   "sources": [

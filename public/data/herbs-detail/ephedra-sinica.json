@@ -47,9 +47,11 @@
   ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
-    "Strong additive toxicity with caffeine and other stimulants (tachycardia, hypertension, arrhythmia).",
-    "Contraindicated with MAO inhibitors due to hypertensive crisis risk.",
-    "Can oppose antihypertensive therapy and increase cardiovascular event risk."
+    "Avoid with: Strong additive toxicity with caffeine and other stimulants (tachycardia",
+    "Caution with: hypertension",
+    "Caution with: arrhythmia)",
+    "Avoid with: MAO inhibitors due to hypertensive crisis risk",
+    "May potentiate: Can oppose antihypertensive therapy and increase cardiovascular event risk"
   ],
   "legalStatus": "Regulated globally",
   "preparation": "No direct preparation data. Contextual inference: Stimulant and decongestant; contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and cns activity.. ; nan; nan.. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and CNS activity.. Stimulant and decongestant; contains ephedrine alkaloids. No direct region data. Contextual inference: Stimulant and decongestant; contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and cns activity.. ; nan; nan.. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and CNS activity.. Stimulant and decongestant; contains ephedrine alkaloids. ; nan; nan. ; nan; nan",

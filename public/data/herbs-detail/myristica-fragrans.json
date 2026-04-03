@@ -22,8 +22,8 @@
     "may interact with ssris"
   ],
   "interactions": [
-    "Risk of serotonin syndrome",
-    "hepatotoxic drugs"
+    "May potentiate: Risk of serotonin syndrome",
+    "Caution with: hepatotoxic drugs"
   ],
   "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid high doses; May interact with maois",
   "sources": [

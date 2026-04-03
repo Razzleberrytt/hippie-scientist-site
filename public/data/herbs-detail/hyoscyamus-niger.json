@@ -11,8 +11,10 @@
     "avoid in patients with glaucoma urinary retention risk or severe psychiatric vulnerability"
   ],
   "interactions": [
-    "Additive toxicity with anticholinergic drugs.",
-    "Potentially dangerous when combined with sedatives, alcohol, or psychoactive substances."
+    "Avoid with: Additive toxicity with anticholinergic drugs",
+    "Avoid with: Potentially dangerous when combined with sedatives",
+    "Avoid with: alcohol",
+    "Caution with: psychoactive substances"
   ],
   "safetyNotes": "High poisoning risk with unpredictable alkaloid content.,Potential for severe neuropsychiatric and autonomic adverse effects.",
   "sources": [

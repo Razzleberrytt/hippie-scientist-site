@@ -35,9 +35,10 @@
   ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
-    "May increase or decrease blood glucose; monitor when combined with antidiabetic medicines.",
-    "Possible interaction with digoxin immunoassays and caution with anticoagulants based on case-level reports.",
-    "May increase stimulation with caffeine or other stimulants in sensitive users."
+    "Caution with: May increase or decrease blood glucose",
+    "Caution with: monitor when combined with antidiabetic medicines",
+    "Caution with: Possible interaction with digoxin immunoassays and caution with anticoagulants based on case level reports",
+    "May potentiate: May increase stimulation with caffeine or other stimulants in sensitive users"
   ],
   "legalStatus": "legal",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",

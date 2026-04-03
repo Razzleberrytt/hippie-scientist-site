@@ -10,7 +10,9 @@
     "avoid with unstable mental health conditions"
   ],
   "interactions": [
-    "Potentially hazardous additive stimulation with sympathomimetics, caffeine-heavy products, or other psychoactive substances."
+    "May potentiate: Potentially hazardous additive stimulation with sympathomimetics",
+    "Caution with: caffeine heavy products",
+    "Caution with: other psychoactive substances"
   ],
   "safetyNotes": "Systematic-review literature associates frequent use with cardiovascular, psychiatric, sleep, and oral-health concerns.",
   "sources": [

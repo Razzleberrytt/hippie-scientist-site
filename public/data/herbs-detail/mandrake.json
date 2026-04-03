@@ -10,8 +10,9 @@
     "avoid in pregnancy"
   ],
   "interactions": [
-    "Potential additive anticholinergic burden with other anticholinergic medicines.",
-    "Potential additive CNS effects with sedatives or alcohol; toxicity risk may increase."
+    "May potentiate: Potential additive anticholinergic burden with other anticholinergic medicines",
+    "May potentiate: Potential additive CNS effects with sedatives or alcohol",
+    "May potentiate: toxicity risk may increase"
   ],
   "safetyNotes": "Risk of delirium, tachycardia, dry mouth, urinary retention, and confusion from anticholinergic exposure.,Toxicity management requires medical supervision; non-clinical ingestion is high risk.",
   "sources": [

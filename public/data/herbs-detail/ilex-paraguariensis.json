@@ -16,11 +16,11 @@
     "avoid in pregnancy"
   ],
   "interactions": [
-    "stimulants",
-    "maois",
-    "beta-blockers.",
-    "beta",
-    "blockers."
+    "Avoid with: stimulants",
+    "Avoid with: maois",
+    "Caution with: beta blockers",
+    "Caution with: beta",
+    "Caution with: blockers"
   ],
   "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [

@@ -15,8 +15,8 @@
     "avoid with stimulant sensitivity"
   ],
   "interactions": [
-    "Stimulants",
-    "MAOIs"
+    "Avoid with: Stimulants",
+    "Avoid with: MAOIs"
   ],
   "safetyNotes": "Avoid with heart issues; Avoid with stimulant sensitivity",
   "sources": [

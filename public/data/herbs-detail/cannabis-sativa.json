@@ -48,9 +48,13 @@
   ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
-    "Additive sedation and psychomotor impairment with alcohol, opioids, benzodiazepines, or sedative-hypnotics.",
-    "THC/CBD can interact with CYP3A4 and CYP2C9 substrates/inhibitors, potentially changing drug exposure.",
-    "May increase tachycardia risk with sympathomimetic agents."
+    "Avoid with: Additive sedation and psychomotor impairment with alcohol",
+    "Avoid with: opioids",
+    "Avoid with: benzodiazepines",
+    "Avoid with: sedative hypnotics",
+    "May potentiate: THC/CBD can interact with CYP3A4 and CYP2C9 substrates/inhibitors",
+    "Caution with: potentially changing drug exposure",
+    "May potentiate: May increase tachycardia risk with sympathomimetic agents"
   ],
   "legalStatus": "Legal/regulated/illegal depending on region",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",

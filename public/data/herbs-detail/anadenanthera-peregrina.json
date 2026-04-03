@@ -26,10 +26,10 @@
     "avoid with schizophrenia"
   ],
   "interactions": [
-    "MAOIs",
-    "SSRIs",
-    "other tryptamines",
-    "stimulants"
+    "Avoid with: MAOIs",
+    "Avoid with: SSRIs",
+    "Avoid with: other tryptamines",
+    "Avoid with: stimulants"
   ],
   "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with asthma; May interact with maois",
   "sources": [

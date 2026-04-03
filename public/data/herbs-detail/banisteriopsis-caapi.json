@@ -19,9 +19,9 @@
     "may interact with maois"
   ],
   "interactions": [
-    "MAOIs",
-    "SSRIs",
-    "psychedelics"
+    "Avoid with: MAOIs",
+    "Avoid with: SSRIs",
+    "Avoid with: psychedelics"
   ],
   "safetyNotes": "May interact with ssris; Avoid with psychiatric disorders; May interact with maois",
   "sources": [
