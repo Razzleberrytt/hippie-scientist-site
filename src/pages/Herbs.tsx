@@ -88,21 +88,21 @@ export default function HerbsPage() {
   const clearAll = () => setFilters(DEFAULT_FILTER_STATE)
 
   return (
-    <main className='container mx-auto max-w-6xl px-4 py-8 text-white'>
+    <main className='container mx-auto max-w-6xl px-4 py-8 sm:py-10 text-white'>
       <Meta
         title='Herb Knowledge Database | The Hippie Scientist'
         description='Search effects, classification, confidence, and safety context across the herb library.'
         path='/herbs'
       />
 
-      <header className='ds-card-lg mb-6'>
+      <header className='ds-card-lg mb-8'>
         <h1 className='text-3xl font-semibold sm:text-4xl'>Herb Knowledge Database</h1>
         <p className='mt-3 max-w-3xl text-white/80'>
           Search and filter herbs by effect tags, confidence, and class to quickly compare entries.
         </p>
       </header>
 
-      <section className='mb-4 rounded-2xl border border-violet-300/25 bg-violet-500/10 p-4'>
+      <section className='mb-6 rounded-2xl border border-violet-300/25 bg-violet-500/10 p-4 sm:p-5'>
         <div className='flex flex-wrap items-center justify-between gap-3'>
           <div>
             <h2 className='text-lg font-semibold text-violet-100'>Effect Explorer</h2>
@@ -122,7 +122,7 @@ export default function HerbsPage() {
         {showEffectExplorer && <EffectExplorer herbs={decoratedHerbs} />}
       </section>
 
-      <section className='mb-4 space-y-3'>
+      <section className='mb-6 space-y-4'>
         <SearchBar
           value={filters.query}
           onChange={value => {
@@ -239,7 +239,7 @@ export default function HerbsPage() {
         />
       </section>
 
-      <p className='mb-4 text-sm text-white/70'>
+      <p className='mb-6 text-sm text-white/70'>
         {filtered.length} results · {effectIndex.size} indexed effects
       </p>
 
@@ -248,7 +248,7 @@ export default function HerbsPage() {
           No herbs match your current filters.
         </div>
       ) : (
-        <section className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+        <section className='grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3'>
           {visibleHerbs.map((herb, index) => (
             <HerbCard
               key={herb.slug || herb.id || `${herb.common}-${index}`}
