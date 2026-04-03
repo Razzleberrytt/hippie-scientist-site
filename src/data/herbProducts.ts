@@ -87,6 +87,95 @@ export const herbProducts: HerbProductEntry[] = [
     ],
   },
   {
+    herbSlug: 'echinacea-purpurea',
+    products: [
+      {
+        name: 'Echinacea Purpurea Herbal Tea',
+        brand: 'Traditional Medicinals',
+        form: 'tea',
+        attributes: [
+          'echinacea purpurea identified on label',
+          'single-herb tea format',
+          'easy per-cup serving consistency',
+        ],
+        notes: 'Simple single-herb tea format for buyers who want species-labeled echinacea.',
+        score: 88,
+        highlight: true,
+        reasoning:
+          'Species-labeled tea in a straightforward preparation makes quality checks easier than blend-heavy immune products.',
+        affiliateUrl: 'https://www.amazon.com/dp/B0009F3QKW?tag=razzleberry02-20',
+      },
+    ],
+  },
+  {
+    herbSlug: 'ginger',
+    products: [
+      {
+        name: 'Organic Ginger Root Powder',
+        brand: 'Starwest Botanicals',
+        form: 'powder',
+        attributes: ['single-ingredient ginger root', 'clear culinary/supplement crossover use', 'organic'],
+        notes: 'Practical whole-root option for tea, food, or measured daily use.',
+        score: 89,
+        highlight: true,
+        reasoning:
+          'Single-ingredient root powder supports flexible use while keeping ingredient quality review straightforward.',
+        affiliateUrl: 'https://www.amazon.com/dp/B01N1A4JNR?tag=razzleberry02-20',
+      },
+    ],
+  },
+  {
+    herbSlug: 'peppermint',
+    products: [
+      {
+        name: 'Peppermint Herbal Tea',
+        brand: 'Traditional Medicinals',
+        form: 'tea',
+        attributes: ['peppermint leaf-forward formula', 'caffeine-free', 'consistent bagged serving'],
+        notes: 'Reliable tea-first format aligned with peppermint shopping guidance.',
+        score: 90,
+        highlight: true,
+        reasoning:
+          'Single-herb peppermint tea provides consistent preparation and clear ingredient labeling for conservative selection.',
+        affiliateUrl: 'https://www.amazon.com/dp/B0009F3QMM?tag=razzleberry02-20',
+      },
+    ],
+  },
+  {
+    herbSlug: 'tulsi',
+    products: [
+      {
+        name: 'Organic Tulsi Herbal Tea',
+        brand: 'Organic India',
+        form: 'tea',
+        attributes: ['single-herb tulsi emphasis', 'organic certified', 'routine-friendly tea format'],
+        notes: 'Accessible starting format before moving to capsules or tinctures.',
+        score: 87,
+        highlight: true,
+        reasoning:
+          'Tea-first tulsi products with straightforward ingredient panels are the most conservative fit for broad users.',
+        affiliateUrl: 'https://www.amazon.com/dp/B0016B1I4S?tag=razzleberry02-20',
+      },
+    ],
+  },
+  {
+    herbSlug: 'valerian-root',
+    products: [
+      {
+        name: 'Valerian Root Extract Capsules',
+        brand: 'Nature’s Way',
+        form: 'capsule',
+        attributes: ['valerian root identified', 'extract-based capsule format', 'clear serving instructions'],
+        notes: 'Capsule format simplifies nightly consistency compared with loose root prep.',
+        score: 90,
+        highlight: true,
+        reasoning:
+          'Root-identified extract capsules improve dose consistency and align with conservative valerian comparison criteria.',
+        affiliateUrl: 'https://www.amazon.com/dp/B00020I70A?tag=razzleberry02-20',
+      },
+    ],
+  },
+  {
     herbSlug: 'turmeric',
     products: [
       {
