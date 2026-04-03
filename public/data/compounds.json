@@ -342,27 +342,11 @@
   {
     "name": "acorin",
     "category": "general",
-    "description": "",
+    "description": "Acorin is a reported Acorus-associated constituent described in phytochemical literature, but compound-specific human efficacy and safety data are limited.",
     "herbs": [
       "acorus calamus"
     ],
-    "effects": [
-      "Stimulation",
-      "mental clarity",
-      "mild sedation (low dose)",
-      "hallucinations (high dose",
-      "beta-asarone rich)",
-      "Mild sedative",
-      "hallucinogenic in high doses",
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine",
-      "digestive aid",
-      "and purported hallucinogen",
-      "contains β-asarone"
-    ],
+    "effects": "limited direct human data,reported in Acorus phytochemical profiles,clinical effects uncertain",
     "contraindications": [
       "Pregnancy",
       "seizures",
@@ -372,7 +356,7 @@
       "pregnancy",
       "cancer risk (β-asarone in some strains)."
     ],
-    "interactions": [],
+    "interactions": "No compound-specific interaction studies identified; use caution with other CNS-active products.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -386,6 +370,18 @@
         "title": "PubChem compound: acorin",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/acorin",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -393,22 +389,16 @@
   {
     "name": "aervine",
     "category": "general",
-    "description": "",
+    "description": "Aervine is an alkaloid reported from Aerva species in phytochemical studies, with limited direct clinical pharmacology evidence.",
     "herbs": [
       "aerva lanata"
     ],
-    "effects": [
-      "Diuretic",
-      "anti-inflammatory",
-      "antimicrobial",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "preclinical phytochemical constituent,possible anti-inflammatory activity (preclinical),human effects not established",
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
     ],
-    "interactions": [],
+    "interactions": "No direct human interaction data; monitor for additive effects with antihypertensive or diuretic therapies.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -422,6 +412,18 @@
         "title": "PubChem compound: aervine",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/aervine",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -429,22 +431,16 @@
   {
     "name": "aervolanine",
     "category": "general",
-    "description": "",
+    "description": "Aervolanine is a lesser-characterized Aerva alkaloid primarily documented in phytochemical reports rather than clinical trials.",
     "herbs": [
       "aerva lanata"
     ],
-    "effects": [
-      "Diuretic",
-      "anti-inflammatory",
-      "antimicrobial",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "identified as botanical alkaloid,preclinical evidence only,therapeutic effects unconfirmed",
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
     ],
-    "interactions": [],
+    "interactions": "Interaction data are insufficient; conservative use is advised with prescription medicines.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -458,6 +454,18 @@
         "title": "PubChem compound: aervolanine",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/aervolanine",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -465,22 +473,16 @@
   {
     "name": "aervoside",
     "category": "general",
-    "description": "",
+    "description": "Aervoside is a glycosidic constituent reported in Aerva species, with sparse human pharmacology and safety evidence.",
     "herbs": [
       "aerva lanata"
     ],
-    "effects": [
-      "Diuretic",
-      "anti-inflammatory",
-      "antimicrobial",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "reported phytochemical constituent,possible bioactivity in preclinical models,human efficacy unknown",
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
     ],
-    "interactions": [],
+    "interactions": "No validated compound-specific interaction profile is available.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -494,6 +496,18 @@
         "title": "PubChem compound: aervoside",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/aervoside",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -501,24 +515,18 @@
   {
     "name": "aescin (escin)",
     "category": "general",
-    "description": "",
+    "description": "Escin is a triterpene saponin mixture from horse chestnut seeds studied for venotonic and edema-related effects.",
     "herbs": [
       "aesculus hippocastanum"
     ],
-    "effects": [
-      "Venotonic",
-      "anti-inflammatory",
-      "edema relief",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "venotonic activity,reduction in lower-limb edema symptoms,anti-inflammatory signaling (preclinical/clinical)",
     "contraindications": [
       "Individuals with bleeding disorders or taking anticoagulants should avoid use",
       "May interfere with blood sugar regulation; caution in diabetics",
       "May cause mild nausea or abdominal upset",
       "Pregnant or breastfeeding individuals should consult healthcare provider before use"
     ],
-    "interactions": [],
+    "interactions": "May increase bleeding risk with anticoagulants or antiplatelets; gastrointestinal adverse effects can occur.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -532,6 +540,18 @@
         "title": "PubChem compound: aescin (escin)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/aescin-escin",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -576,25 +596,17 @@
   {
     "name": "alamarckine",
     "category": "general",
-    "description": "",
+    "description": "Alamarckine is a reported Alangium alkaloid with limited direct pharmacology and human safety characterization.",
     "herbs": [
       "alangium salvifolium"
     ],
-    "effects": [
-      "Used in Ayurveda for anti-epileptic",
-      "anti-inflammatory",
-      "and analgesic properties",
-      "Used in Ayurveda for anti",
-      "epileptic",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "identified in Alangium phytochemistry,preclinical-only evidence,clinical effects uncertain",
     "contraindications": [
       "Due to potent alkaloids",
       "can be toxic",
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
-    "interactions": [],
+    "interactions": "No compound-specific interaction trials were located.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -608,6 +620,18 @@
         "title": "PubChem compound: alamarckine",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alamarckine",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -615,25 +639,17 @@
   {
     "name": "alamaridine",
     "category": "general",
-    "description": "",
+    "description": "Alamaridine is an Alangium-associated alkaloid mainly documented in constituent surveys, with minimal human data.",
     "herbs": [
       "alangium salvifolium"
     ],
-    "effects": [
-      "Used in Ayurveda for anti-epileptic",
-      "anti-inflammatory",
-      "and analgesic properties",
-      "Used in Ayurveda for anti",
-      "epileptic",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "phytochemical constituent,limited bioactivity evidence,human outcomes not established",
     "contraindications": [
       "Due to potent alkaloids",
       "can be toxic",
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
-    "interactions": [],
+    "interactions": "Interaction evidence is currently insufficient for specific recommendations.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -647,6 +663,18 @@
         "title": "PubChem compound: alamaridine",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alamaridine",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -654,25 +682,17 @@
   {
     "name": "alamarine",
     "category": "general",
-    "description": "",
+    "description": "Alamarine is a reported alkaloidal constituent from Alangium-related sources with sparse clinical evidence.",
     "herbs": [
       "alangium salvifolium"
     ],
-    "effects": [
-      "Used in Ayurveda for anti-epileptic",
-      "anti-inflammatory",
-      "and analgesic properties",
-      "Used in Ayurveda for anti",
-      "epileptic",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "reported botanical alkaloid,limited experimental evidence,clinical efficacy unknown",
     "contraindications": [
       "Due to potent alkaloids",
       "can be toxic",
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
-    "interactions": [],
+    "interactions": "No direct clinical interaction studies identified.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -686,6 +706,18 @@
         "title": "PubChem compound: alamarine (CID 442157)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442157",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -693,25 +725,17 @@
   {
     "name": "alangamide",
     "category": "general",
-    "description": "",
+    "description": "Alangamide is an Alangium-derived compound described in phytochemical literature, with limited clinical pharmacology data.",
     "herbs": [
       "alangium salvifolium"
     ],
-    "effects": [
-      "Used in Ayurveda for anti-epileptic",
-      "anti-inflammatory",
-      "and analgesic properties",
-      "Used in Ayurveda for anti",
-      "epileptic",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "phytochemical constituent,preclinical signals only,human therapeutic role uncertain",
     "contraindications": [
       "Due to potent alkaloids",
       "can be toxic",
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
-    "interactions": [],
+    "interactions": "No robust interaction data available.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -725,6 +749,18 @@
         "title": "PubChem compound: alangamide",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alangamide",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -732,25 +768,17 @@
   {
     "name": "alangimaridine",
     "category": "general",
-    "description": "",
+    "description": "Alangimaridine is a minor Alangium alkaloid reported in analytical studies; human efficacy and safety data are lacking.",
     "herbs": [
       "alangium salvifolium"
     ],
-    "effects": [
-      "Used in Ayurveda for anti-epileptic",
-      "anti-inflammatory",
-      "and analgesic properties",
-      "Used in Ayurveda for anti",
-      "epileptic",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "identified in plant constituent analysis,limited mechanistic data,clinical effects unproven",
     "contraindications": [
       "Due to potent alkaloids",
       "can be toxic",
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
-    "interactions": [],
+    "interactions": "Insufficient evidence for specific drug-interaction guidance.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -764,6 +792,18 @@
         "title": "PubChem compound: alangimaridine",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alangimaridine",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -771,25 +811,17 @@
   {
     "name": "alangimarin",
     "category": "general",
-    "description": "",
+    "description": "Alangimarin is an Alangium-associated constituent with predominantly preclinical or analytical documentation.",
     "herbs": [
       "alangium salvifolium"
     ],
-    "effects": [
-      "Used in Ayurveda for anti-epileptic",
-      "anti-inflammatory",
-      "and analgesic properties",
-      "Used in Ayurveda for anti",
-      "epileptic",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "reported phytochemical constituent,low-quality efficacy evidence,clinical relevance unclear",
     "contraindications": [
       "Due to potent alkaloids",
       "can be toxic",
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
-    "interactions": [],
+    "interactions": "No compound-specific interaction profile has been established.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -803,6 +835,18 @@
         "title": "PubChem compound: alangimarin",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alangimarin",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -810,25 +854,17 @@
   {
     "name": "alangimarine",
     "category": "general",
-    "description": "",
+    "description": "Alangimarine is a reported alkaloidal constituent from Alangium species with very limited human data.",
     "herbs": [
       "alangium salvifolium"
     ],
-    "effects": [
-      "Used in Ayurveda for anti-epileptic",
-      "anti-inflammatory",
-      "and analgesic properties",
-      "Used in Ayurveda for anti",
-      "epileptic",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "constituent-level evidence only,possible CNS relevance (preclinical),clinical effects uncertain",
     "contraindications": [
       "Due to potent alkaloids",
       "can be toxic",
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
-    "interactions": [],
+    "interactions": "Interaction risk remains undetermined due to missing clinical studies.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -842,6 +878,18 @@
         "title": "PubChem compound: alangimarine (CID 442160)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442160",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -849,25 +897,17 @@
   {
     "name": "alangiside",
     "category": "general",
-    "description": "",
+    "description": "Alangiside is a glycoside described in Alangium phytochemistry, but direct human pharmacology evidence is sparse.",
     "herbs": [
       "alangium salvifolium"
     ],
-    "effects": [
-      "Used in Ayurveda for anti-epileptic",
-      "anti-inflammatory",
-      "and analgesic properties",
-      "Used in Ayurveda for anti",
-      "epileptic",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "reported botanical glycoside,preclinical observations only,therapeutic effects not confirmed",
     "contraindications": [
       "Due to potent alkaloids",
       "can be toxic",
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
-    "interactions": [],
+    "interactions": "No direct interaction studies identified.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -881,6 +921,18 @@
         "title": "PubChem compound: alangiside (CID 442161)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442161",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -888,21 +940,17 @@
   {
     "name": "albiziasaponins A–E",
     "category": "general",
-    "description": "",
+    "description": "Albiziasaponins A–E are triterpene saponins identified in Albizia species and studied mainly in preclinical systems.",
     "herbs": [
       "albizia lebbeck"
     ],
-    "effects": [
-      "Used in Ayurveda for asthma",
-      "allergies",
-      "and anxiety"
-    ],
+    "effects": "saponin-related anti-inflammatory activity (preclinical),possible immunomodulatory effects (preclinical),human efficacy unconfirmed",
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
-    "interactions": [],
+    "interactions": "Potential additive sedative or immunomodulatory effects are theoretical; clinical interaction evidence is limited.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -916,6 +964,18 @@
         "title": "PubChem compound: albiziasaponins A–E",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/albiziasaponins-a-e",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -923,19 +983,12 @@
   {
     "name": "alchorneine",
     "category": "general",
-    "description": "",
+    "description": "Alchorneine is an alkaloid reported in Alchornea species, primarily characterized in phytochemical and preclinical literature.",
     "herbs": [
       "alchornea castaneifolia",
       "alchornea floribunda"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
-      "Increased alertness",
-      "minor euphoria",
-      "divinatory visions",
-      "Aphrodisiac and stimulant",
-      "used as a hunting drug in Africa"
-    ],
+    "effects": "constituent identified in traditional medicinal plants,preclinical anti-inflammatory/analgesic signals,human data insufficient",
     "contraindications": [
       "Little clinical research",
       "avoid during pregnancy or while breastfeeding",
@@ -943,7 +996,7 @@
       "use under supervision.",
       "Avoid in pregnancy or heart issues"
     ],
-    "interactions": [],
+    "interactions": "No high-quality human interaction data; use caution with CNS depressants and anticoagulants.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -957,6 +1010,18 @@
         "title": "PubChem compound: alchorneine (CID 217611)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/217611",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -964,7 +1029,7 @@
   {
     "name": "alkaloids",
     "category": "alkaloid",
-    "description": "",
+    "description": "This record represents a mixed alkaloid class rather than a single defined molecule, so effects vary widely by source plant and composition.",
     "herbs": [
       "african dream root",
       "alchornea castaneifolia",
@@ -986,94 +1051,7 @@
       "sceletium tortuosum",
       "zornia latifolia"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine",
-      "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
-      "Improved libido",
-      "enhanced cognition",
-      "mood elevation",
-      "anti-fatigue",
-      "Aphrodisiac",
-      "stimulant",
-      "nerve tonic",
-      "Intense visual hallucinations",
-      "altered perception",
-      "emotional sensitivity",
-      "introspection",
-      "Anti-inflammatory",
-      "diuretic",
-      "antispasmodic",
-      "Calming",
-      "antioxidant",
-      "anti-inflammatory",
-      "lipid-lowering",
-      "No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.",
-      "Relaxation",
-      "mild euphoria",
-      "dream enhancement",
-      "anxiolytic",
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan.",
-      "Pain relief",
-      "reduced inflammation",
-      "worm expulsion",
-      "Blood sugar regulation",
-      "cytotoxic effects on cancer cells",
-      "Color vision changes",
-      "detachment",
-      "vivid hallucinations",
-      "Visual hallucinations",
-      "dizziness",
-      "altered consciousness",
-      "Visual distortions",
-      "sedation",
-      "altered mental state",
-      "No direct effects data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies.",
-      "Increased alertness",
-      "minor euphoria",
-      "divinatory visions",
-      "Aphrodisiac and stimulant",
-      "used as a hunting drug in Africa",
-      "Euphoria",
-      "empathy",
-      "stress relief",
-      "stimulation",
-      "Mood elevation",
-      "sociability",
-      "mild stimulation",
-      "Mood elevator and anxiolytic",
-      "contains mesembrine alkaloids",
-      "Anxiolytic",
-      "mood enhancer",
-      "mild stimulant",
-      "Calmness",
-      "clarity",
-      "mild euphoric",
-      "used in dreamwork",
-      "improved mood",
-      "mild clarity",
-      "expectorant",
-      "mild analgesic",
-      "Mental clarity",
-      "energy boost",
-      "libido enhancement",
-      "Dream enhancement",
-      "Mild entheogen",
-      "possible adaptogen",
-      "little data available",
-      "mild sedation",
-      "slight mood enhancement",
-      "antioxidant (inferred from related Calliandra species).",
-      "Lucid dreaming",
-      "relaxation",
-      "altered states of consciousness"
-    ],
+    "effects": "heterogeneous pharmacology,possible CNS and autonomic effects depending on subtype,benefit-risk profile highly variable",
     "contraindications": [
       "Limited safety data; high doses may irritate the digestive tract and cause vomiting",
       "May cause disturbing or confusing dreams at high doses",
@@ -1120,7 +1098,7 @@
       "Not recommended with CNS depressants",
       "epilepsy"
     ],
-    "interactions": [],
+    "interactions": "Class-level risk includes additive CNS, cardiovascular, or serotonergic effects depending on the alkaloid mixture.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1134,6 +1112,18 @@
         "title": "PubChem compound: alkaloids",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alkaloids",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -1141,19 +1131,17 @@
   {
     "name": "alkaloids (nicotine, leucocyanidin)",
     "category": "alkaloid",
-    "description": "",
+    "description": "This entry refers to a mixed constituent profile including nicotine-related alkaloids; expected effects are formulation-dependent.",
     "herbs": [
       "acacia nilotica"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
-    ],
+    "effects": "nicotinic receptor stimulation (if nicotine present),possible alertness and dependence liability,clinical effects vary by concentration",
     "contraindications": [
       "High doses of bark decoction can irritate the digestive tract and cause constipation or nausea",
       "Avoid during pregnancy or lactation due to potential anti-fertility effects",
       "Not recommended for children under 12"
     ],
-    "interactions": [],
+    "interactions": "Potential additive cardiovascular stimulation with nicotine-containing products and other stimulants.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1167,6 +1155,18 @@
         "title": "PubChem compound: alkaloids (nicotine, leucocyanidin)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alkaloids-nicotine-leucocyanidin",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -1174,22 +1174,15 @@
   {
     "name": "alkaloids (uncharacterized)",
     "category": "alkaloid",
-    "description": "",
+    "description": "Uncharacterized alkaloid mixtures are chemically undefined, making efficacy and safety predictions uncertain.",
     "herbs": [],
-    "effects": [
-      "Muscle relaxation",
-      "mild sedation",
-      "euphoria",
-      "Skeletal muscle relaxant",
-      "calming",
-      "used in smoking blends"
-    ],
+    "effects": "unpredictable CNS effects possible,potency may vary between preparations,evidence quality is low",
     "contraindications": [
       "None well established",
       "pregnancy",
       "cns depression."
     ],
-    "interactions": [],
+    "interactions": "Unknown alkaloids may interact with CNS-active medicines; avoid combining with sedatives or stimulants without oversight.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1203,6 +1196,18 @@
         "title": "PubChem compound: alkaloids (uncharacterized)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alkaloids-uncharacterized",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1210,20 +1215,9 @@
   {
     "name": "alkaloids (undetermined)",
     "category": "alkaloid",
-    "description": "",
+    "description": "Undetermined alkaloid constituents lack full structural identification, so pharmacologic expectations are uncertain.",
     "herbs": [],
-    "effects": [
-      "Color vision changes",
-      "detachment",
-      "vivid hallucinations",
-      "Visual hallucinations",
-      "dizziness",
-      "altered consciousness",
-      "Visual distortions",
-      "sedation",
-      "altered mental state",
-      "No direct effects data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies."
-    ],
+    "effects": "effects not reliably predictable,possible neuroactive properties,insufficient clinical evidence",
     "contraindications": [
       "Potentially toxic",
       "traditional use only",
@@ -1231,7 +1225,7 @@
       "psychiatric disorders",
       "Unknown — caution advised"
     ],
-    "interactions": [],
+    "interactions": "Interaction risks are not well defined; caution is advised with psychiatric and cardiovascular medications.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1245,6 +1239,18 @@
         "title": "PubChem compound: alkaloids (undetermined)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alkaloids-undetermined",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1252,22 +1258,11 @@
   {
     "name": "alkylamides",
     "category": "general",
-    "description": "",
+    "description": "Alkylamides are lipophilic plant constituents (notably in Echinacea and Zanthoxylum) that can affect sensory and immune pathways.",
     "herbs": [
       "acmella oleracea"
     ],
-    "effects": [
-      "Local anesthesia",
-      "salivation",
-      "antimicrobial",
-      "immune stimulation",
-      "Oral tingling",
-      "mild euphoria",
-      "muscle relaxation",
-      "Analgesic",
-      "sialagogue",
-      "anti-inflammatory"
-    ],
+    "effects": "oral tingling/sialagogue sensation,immunomodulatory signaling (preclinical/early clinical),mild local analgesic effects",
     "contraindications": [
       "Pregnancy",
       "oral surgery",
@@ -1275,7 +1270,7 @@
       "None established",
       "avoid overuse on broken skin"
     ],
-    "interactions": [],
+    "interactions": "Potential CYP modulation has been reported for some alkylamides; monitor with narrow-therapeutic-index drugs.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1289,6 +1284,18 @@
         "title": "PubChem compound: alkylamides",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alkylamides",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1296,24 +1303,14 @@
   {
     "name": "Alpha",
     "category": "general",
-    "description": "",
+    "description": "This record appears to represent an unspecified alpha-isomer grouping rather than a single compound, limiting precise clinical interpretation.",
     "herbs": [
       "acorus americanus",
       "pogostemon cablin"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan.",
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
-    ],
+    "effects": "isomer-dependent effects,insufficient compound-specific evidence,clinical significance unclear",
     "contraindications": [],
-    "interactions": [],
+    "interactions": "Interaction profile cannot be defined without clear molecular identity.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1327,6 +1324,18 @@
         "title": "PubChem compound: Alpha (CID 14647596)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/14647596",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1334,32 +1343,12 @@
   {
     "name": "Alpha-asarone",
     "category": "general",
-    "description": "",
+    "description": "Alpha-asarone is a phenylpropanoid from Acorus species with CNS-active preclinical findings and important safety uncertainty.",
     "herbs": [
       "acorus americanus",
       "acorus calamus"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan.",
-      "Stimulation",
-      "mental clarity",
-      "mild sedation (low dose)",
-      "hallucinations (high dose",
-      "beta-asarone rich)",
-      "Mild sedative",
-      "hallucinogenic in high doses",
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine",
-      "digestive aid",
-      "and purported hallucinogen",
-      "contains β-asarone"
-    ],
+    "effects": "CNS-modulating effects in preclinical models,possible sedative or anticonvulsant signaling (preclinical),human efficacy evidence limited",
     "contraindications": [
       "Pregnancy",
       "seizures",
@@ -1369,7 +1358,7 @@
       "pregnancy",
       "cancer risk (β-asarone in some strains)."
     ],
-    "interactions": [],
+    "interactions": "Potential additive CNS effects with sedatives and alcohol; safety with chronic exposure is uncertain.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1383,6 +1372,18 @@
         "title": "PubChem compound: Alpha-asarone (CID 636822)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/636822",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1390,19 +1391,13 @@
   {
     "name": "Alpha-bulnesene",
     "category": "general",
-    "description": "",
+    "description": "Alpha-bulnesene is a sesquiterpene found in essential oils; human therapeutic evidence is limited.",
     "herbs": [
       "pogostemon cablin"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
-    ],
+    "effects": "aromatic sesquiterpene constituent,possible mild anti-inflammatory activity (preclinical),human clinical effects unconfirmed",
     "contraindications": [],
-    "interactions": [],
+    "interactions": "No compound-specific interaction studies identified.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1416,6 +1411,18 @@
         "title": "PubChem compound: Alpha-bulnesene (CID 94275)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/94275",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1423,18 +1430,13 @@
   {
     "name": "Amorphigenin",
     "category": "general",
-    "description": "",
+    "description": "Amorphigenin is a rotenoid-related plant constituent investigated mainly in laboratory studies.",
     "herbs": [
       "amorpha fruticosa"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan."
-    ],
+    "effects": "insecticidal/mitochondrial bioactivity in preclinical research,limited human therapeutic data,clinical effects not established",
     "contraindications": [],
-    "interactions": [],
+    "interactions": "Theoretical additive mitochondrial toxicity with related compounds; human interaction data are lacking.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1448,6 +1450,18 @@
         "title": "PubChem compound: Amorphigenin (CID 92207)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/92207",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1488,18 +1502,13 @@
   {
     "name": "Anthocyanins",
     "category": "anthocyanin",
-    "description": "",
+    "description": "Anthocyanins are flavonoid pigments widely studied for antioxidant and vascular-support effects, typically as dietary mixtures.",
     "herbs": [
       "hibiscus sabdariffa"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan."
-    ],
+    "effects": "antioxidant activity,endothelial/vascular support signals,modest cardiometabolic benefits in some human studies",
     "contraindications": [],
-    "interactions": [],
+    "interactions": "Generally low interaction risk from dietary intake; concentrated extracts may affect antidiabetic or antihypertensive response modestly.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1513,6 +1522,18 @@
         "title": "PubChem compound: Anthocyanins (CID 145858)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/145858",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1573,23 +1594,17 @@
   {
     "name": "apigenin glycosides",
     "category": "glycoside",
-    "description": "",
+    "description": "Apigenin glycosides are flavone derivatives that can release apigenin after metabolism and are studied for anti-inflammatory effects.",
     "herbs": [
       "agrimonia eupatoria"
     ],
-    "effects": [
-      "Astringent",
-      "anti-inflammatory",
-      "digestive tonic",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "anti-inflammatory signaling (preclinical),antioxidant activity,possible mild anxiolytic effects (limited human evidence)",
     "contraindications": [
       "Generally safe when used as tea",
       "due to tannins may cause constipation or reduce absorption of minerals",
       "avoid large doses during pregnancy."
     ],
-    "interactions": [],
+    "interactions": "Potential additive sedation with CNS depressants and theoretical CYP interactions at high supplemental doses.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1603,6 +1618,18 @@
         "title": "PubChem compound: apigenin glycosides",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/apigenin-glycosides",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1610,30 +1637,13 @@
   {
     "name": "Aporphine",
     "category": "general",
-    "description": "",
+    "description": "Aporphine is an alkaloid scaffold present in multiple medicinal plants; pharmacology varies across specific aporphine derivatives.",
     "herbs": [
       "blue lotus",
       "nymphaea caerulea",
       "nymphaea lotus"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement.",
-      "Relaxation",
-      "mild euphoria",
-      "lucid dreaming",
-      "increased tactile sensation",
-      "Euphoria",
-      "relaxation",
-      "dream intensification",
-      "mild sedation",
-      "dream enhancement",
-      "aphrodisiac",
-      "Mild euphoria",
-      "heightened awareness",
-      "Mild sedative",
-      "mood enhancement",
-      "possible aphrodisiac"
-    ],
+    "effects": "dopaminergic and serotonergic activity for some derivatives,CNS effects depend on exact molecule,clinical outcomes are compound-specific",
     "contraindications": [
       "Avoid use with CNS depressants",
       "sedatives",
@@ -1645,7 +1655,7 @@
       "concurrent CNS depressants",
       "driving or operating machinery"
     ],
-    "interactions": [],
+    "interactions": "Possible interactions with dopaminergic,antipsychotic,or serotonergic drugs depending on the derivative.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1659,6 +1669,18 @@
         "title": "PubChem compound: Aporphine (CID 114911)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/114911",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1666,25 +1688,12 @@
   {
     "name": "arbutin",
     "category": "general",
-    "description": "",
+    "description": "Arbutin is a glycosylated hydroquinone derivative used in dermatology and present in uva-ursi; it can metabolize to hydroquinone.",
     "herbs": [
       "adenostoma fasciculatum",
       "turnera diffusa"
     ],
-    "effects": [
-      "Traditional uses include skin and respiratory conditions",
-      "contains tannins",
-      "Mood lift",
-      "mild stimulation",
-      "aphrodisiac",
-      "Mild euphoria",
-      "stimulation",
-      "relaxation",
-      "increased libido",
-      "Mild stimulation",
-      "mood enhancement",
-      "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism."
-    ],
+    "effects": "skin-brightening via tyrosinase inhibition (topical),urinary antiseptic historical use,oral efficacy evidence is limited",
     "contraindications": [
       "Limited safety data",
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone.",
@@ -1692,7 +1701,7 @@
       "Pregnancy",
       "hormone-sensitive conditions"
     ],
-    "interactions": [],
+    "interactions": "Prolonged high-dose use may increase hydroquinone-related risk; avoid combining with other potentially nephrotoxic agents.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1706,6 +1715,18 @@
         "title": "PubChem compound: arbutin (CID 440936)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/440936",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1749,22 +1770,14 @@
   {
     "name": "Asarone (alpha & beta)",
     "category": "general",
-    "description": "",
+    "description": "Asarone (alpha and beta isomers) is an Acorus-associated phenylpropanoid group with CNS activity signals and notable toxicology concerns.",
     "herbs": [],
-    "effects": [
-      "Mild stimulation",
-      "focus",
-      "calm",
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan."
-    ],
+    "effects": "dose-dependent CNS effects reported,toxicology concerns stronger for beta-asarone,human efficacy data remain limited",
     "contraindications": [
       "Similar risks to Acorus calamus",
       "avoid large doses"
     ],
-    "interactions": [],
+    "interactions": "Potential additive CNS and hepatotoxic risk with sedatives,alcohol,or other hepatotoxic compounds.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1778,6 +1791,18 @@
         "title": "PubChem compound: Asarone (alpha & beta)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/asarone-alpha-beta",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1785,24 +1810,14 @@
   {
     "name": "Ascaridole",
     "category": "general",
-    "description": "",
+    "description": "Ascaridole is a monoterpene peroxide from Chenopodium species historically used as an anthelmintic but associated with toxicity risk.",
     "herbs": [
       "dysphania ambrosioides",
       "peumus boldus"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine",
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan."
-    ],
+    "effects": "anthelmintic activity (historical),gastrointestinal irritation at higher exposure,narrow safety margin",
     "contraindications": [],
-    "interactions": [],
+    "interactions": "May increase adverse-effect risk with hepatotoxic agents; avoid combining with harsh anthelmintic regimens.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1816,6 +1831,18 @@
         "title": "PubChem compound: Ascaridole (CID 10545)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10545",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1823,20 +1850,13 @@
   {
     "name": "Astragalin",
     "category": "general",
-    "description": "",
+    "description": "Astragalin (kaempferol-3-O-glucoside) is a flavonoid glycoside with preclinical anti-inflammatory and antioxidant activity.",
     "herbs": [
       "desmodium adscendens"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference: Used to treat asthma",
-      "allergies",
-      "and liver issues in folk medicine... No direct mechanismofaction data. Contextual inference: Used to treat asthma",
-      "and liver issues in folk medicine... Used to treat asthma",
-      "and liver issues in folk medicine.. Used to treat asthma",
-      "and liver issues in folk medicine."
-    ],
+    "effects": "anti-inflammatory signaling (preclinical),antioxidant activity,limited direct human efficacy evidence",
     "contraindications": [],
-    "interactions": [],
+    "interactions": "No robust human interaction data; theoretical additive effects with anti-inflammatory therapies.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1850,6 +1870,18 @@
         "title": "PubChem compound: Astragalin (CID 5282102)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5282102",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1857,7 +1889,7 @@
   {
     "name": "Atropine",
     "category": "general",
-    "description": "",
+    "description": "Atropine is an antimuscarinic alkaloid used clinically for bradycardia, organophosphate poisoning, and selected ophthalmic indications.",
     "herbs": [
       "datura metel",
       "brugmansia sanguinea",
@@ -1867,32 +1899,7 @@
       "datura wrightii",
       "Solandra grandiflora"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
-      "Complete dissociation",
-      "hallucinations",
-      "amnesia",
-      "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use",
-      "Intense hallucinations",
-      "delirium",
-      "Strong anticholinergic and hallucinogenic effects",
-      "toxic",
-      "traditionally used in shamanic contexts.",
-      "True hallucinations",
-      "confusion",
-      "Anticholinergic",
-      "hallucinogenic",
-      "sedative",
-      "Visual and auditory hallucinations",
-      "Delirium",
-      "visual hallucinations",
-      "Hallucinogenic",
-      "anticholinergic",
-      "historically used in rituals",
-      "Hallucinations",
-      "dry mouth",
-      "contains scopolamine and atropine"
-    ],
+    "effects": "anticholinergic effects,increased heart rate,reduced secretions and smooth-muscle spasm",
     "contraindications": [
       "Extremely dangerous",
       "avoid recreational use",
@@ -1905,7 +1912,7 @@
       "mental illness",
       "Heart conditions"
     ],
-    "interactions": [],
+    "interactions": "Additive anticholinergic toxicity with antihistamines,TCAs,or antipsychotics; caution with other tachycardic agents.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1919,6 +1926,18 @@
         "title": "PubChem compound: Atropine (CID 174174)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/174174",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1926,22 +1945,17 @@
   {
     "name": "Azulene",
     "category": "general",
-    "description": "",
+    "description": "Azulene is an aromatic hydrocarbon found in chamomile-related essential oils and valued mainly as a precursor to anti-inflammatory derivatives.",
     "herbs": [
       "achillea millefolium"
     ],
-    "effects": [
-      "Anti-inflammatory",
-      "astringent",
-      "digestive aid",
-      "hemostatic"
-    ],
+    "effects": "limited direct pharmacologic activity,parent hydrocarbon in azulene derivatives,topical soothing claims are mostly derivative-driven",
     "contraindications": [
       "Pregnancy",
       "allergies to Asteraceae",
       "bleeding disorders"
     ],
-    "interactions": [],
+    "interactions": "No clinically meaningful interaction data identified for azulene itself.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1955,6 +1969,18 @@
         "title": "PubChem compound: Azulene (CID 9231)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9231",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1962,18 +1988,13 @@
   {
     "name": "Bacosides A and B",
     "category": "general",
-    "description": "",
+    "description": "Bacosides A and B are dammarane-type saponins from Bacopa monnieri studied for cognitive and neuroprotective effects.",
     "herbs": [
       "bacopa monnieri"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan."
-    ],
+    "effects": "memory and attention support in some Bacopa trials,antioxidant/neuroprotective signaling,gastrointestinal upset possible",
     "contraindications": [],
-    "interactions": [],
+    "interactions": "May have additive sedative or thyroid-modulating effects; caution with CNS depressants and thyroid medications.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -1987,6 +2008,18 @@
         "title": "PubChem compound: Bacosides A and B",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/bacosides-a-and-b",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1994,27 +2027,18 @@
   {
     "name": "Baicalin",
     "category": "general",
-    "description": "",
+    "description": "Baicalin is a flavone glycoside from Scutellaria species with anti-inflammatory and neuroactive effects in preclinical and early clinical literature.",
     "herbs": [
       "scutellaria lateriflora"
     ],
-    "effects": [
-      "Mild sedation",
-      "calm mood",
-      "anxiety relief",
-      "No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.",
-      "Nervine",
-      "anxiolytic",
-      "anti-inflammatory",
-      "used for insomnia and anxiety"
-    ],
+    "effects": "anti-inflammatory activity,possible anxiolytic or neuroprotective effects,clinical evidence remains moderate-to-limited",
     "contraindications": [
       "Avoid during pregnancy",
       "caution with sedatives",
       "pregnancy",
       "sedative sensitivity."
     ],
-    "interactions": [],
+    "interactions": "Potential CYP and transporter interactions are reported in vitro; use caution with narrow-therapeutic-index drugs.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -2028,6 +2052,18 @@
         "title": "PubChem compound: Baicalin (CID 64982)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/64982",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2035,16 +2071,11 @@
   {
     "name": "benzaconine",
     "category": "general",
-    "description": "",
+    "description": "Benzaconine is a hydrolysis product related to aconitum alkaloids and is primarily discussed in toxicology contexts.",
     "herbs": [
       "aconitum napellus"
     ],
-    "effects": [
-      "Potent analgesic and anti-inflammatory",
-      "extremely toxic",
-      "Potent analgesic and anti",
-      "inflammatory"
-    ],
+    "effects": "aconitum-related neurocardiac activity,toxicity potential remains significant,therapeutic evidence is lacking",
     "contraindications": [
       "Highly toxic",
       "ingestion can cause severe arrhythmias",
@@ -2052,7 +2083,7 @@
       "avoid internal use",
       "handling requires caution."
     ],
-    "interactions": [],
+    "interactions": "Avoid with antiarrhythmics,CNS depressants,and other cardiotoxic compounds due to potential additive harm.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -2066,6 +2097,18 @@
         "title": "PubChem compound: benzaconine (CID 60155417)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/60155417",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2073,22 +2116,16 @@
   {
     "name": "benzoic acid",
     "category": "general",
-    "description": "",
+    "description": "Benzoic acid is a simple aromatic acid used widely as an antimicrobial preservative and pharmaceutical intermediate.",
     "herbs": [
       "aerva lanata"
     ],
-    "effects": [
-      "Diuretic",
-      "anti-inflammatory",
-      "antimicrobial",
-      "anti",
-      "inflammatory"
-    ],
+    "effects": "antimicrobial preservative action,limited systemic therapeutic effect at dietary exposure,mucosal irritation possible at high concentrations",
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
     ],
-    "interactions": [],
+    "interactions": "Clinically significant systemic interactions are uncommon at food-level exposure.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -2102,6 +2139,18 @@
         "title": "PubChem compound: benzoic acid (CID 243)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/243",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2109,15 +2158,13 @@
   {
     "name": "Benzyl isothiocyanate",
     "category": "general",
-    "description": "",
+    "description": "Benzyl isothiocyanate is a glucosinolate-derived compound from cruciferous plants studied for chemopreventive and antimicrobial properties.",
     "herbs": [
       "tropaeolum majus"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness."
-    ],
+    "effects": "phase-II enzyme induction signals (preclinical),antimicrobial activity (preclinical),human clinical efficacy remains limited",
     "contraindications": [],
-    "interactions": [],
+    "interactions": "May alter metabolism enzyme activity at high supplemental exposure; clinical interaction magnitude is uncertain.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -2131,6 +2178,18 @@
         "title": "PubChem compound: Benzyl isothiocyanate (CID 2346)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2346",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2138,19 +2197,13 @@
   {
     "name": "Beta",
     "category": "general",
-    "description": "",
+    "description": "This entry appears to represent an unspecified beta-isomer grouping rather than a uniquely identified compound.",
     "herbs": [
       "acorus calamus var. angustatus"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
-    ],
+    "effects": "isomer-dependent bioactivity,insufficient direct evidence,clinical interpretation limited",
     "contraindications": [],
-    "interactions": [],
+    "interactions": "Specific interaction risks cannot be characterized without precise molecular identity.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -2164,6 +2217,18 @@
         "title": "PubChem compound: Beta",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/beta",
         "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2171,28 +2236,12 @@
   {
     "name": "Beta-asarone",
     "category": "general",
-    "description": "",
+    "description": "Beta-asarone is an Acorus phenylpropanoid associated with greater toxicologic concern than alpha-asarone, including genotoxicity/carcinogenicity signals in animal data.",
     "herbs": [
       "acorus calamus var. angustatus",
       "acorus calamus"
     ],
-    "effects": [
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine",
-      "Stimulation",
-      "mental clarity",
-      "mild sedation (low dose)",
-      "hallucinations (high dose",
-      "beta-asarone rich)",
-      "Mild sedative",
-      "hallucinogenic in high doses",
-      "digestive aid",
-      "and purported hallucinogen",
-      "contains β-asarone"
-    ],
+    "effects": "CNS-active effects reported,toxicology concern in preclinical studies,limited high-quality human efficacy data",
     "contraindications": [
       "Pregnancy",
       "seizures",
@@ -2202,7 +2251,7 @@
       "pregnancy",
       "cancer risk (β-asarone in some strains)."
     ],
-    "interactions": [],
+    "interactions": "Potential additive CNS and hepatic risk with sedatives,alcohol,or hepatotoxic drugs; avoid prolonged unsupervised use.",
     "therapeuticUses": [],
     "activeCompounds": [],
     "dosage": "",
@@ -2216,6 +2265,18 @@
         "title": "PubChem compound: Beta-asarone (CID 5281758)",
         "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281758",
         "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/"
+      },
+      {
+        "title": "European Medicines Agency: herbal safety assessments",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal"
+      },
+      {
+        "title": "NIH Office of Dietary Supplements Fact Sheets",
+        "url": "https://ods.od.nih.gov/factsheets/list-all/"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
