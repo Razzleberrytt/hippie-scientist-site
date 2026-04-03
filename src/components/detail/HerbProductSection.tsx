@@ -61,13 +61,24 @@ export default function HerbProductSection({ products }: { products: HerbProduct
                 ))}
               </div>
               {product.notes && <p className='mt-2 text-sm leading-relaxed text-white/80'>{product.notes}</p>}
-              <button
-                type='button'
-                aria-disabled='true'
-                className='mt-3 inline-flex cursor-default items-center rounded-md border border-white/20 bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-white/78'
-              >
-                View Options
-              </button>
+              {product.affiliateUrl?.trim() ? (
+                <a
+                  href={product.affiliateUrl}
+                  target='_blank'
+                  rel='nofollow noopener noreferrer'
+                  className='mt-3 inline-flex items-center rounded-md border border-white/20 bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-white/78'
+                >
+                  View Options
+                </a>
+              ) : (
+                <button
+                  type='button'
+                  aria-disabled='true'
+                  className='mt-3 inline-flex cursor-default items-center rounded-md border border-white/20 bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-white/78'
+                >
+                  View Options
+                </button>
+              )}
             </article>
           ))}
         </div>
