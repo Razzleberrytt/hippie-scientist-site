@@ -20,15 +20,25 @@
     "Stimulants",
     "MAOIs"
   ],
-  "safetyNotes": "Traditional use considered safe,Dry mouth,mild hypertension,dependence (prolonged use),Moderate,~95 mg/kg (cocaine alkaloids),restricted,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Avoid with heart issues; Avoid with stimulant sensitivity",
   "sources": [
     {
       "title": "NCBI Taxonomy: Erythroxylum coca (TaxID 289672)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=289672&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Erythroxylum coca",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Erythroxylum+coca",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Erythroxylum coca",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Erythroxylum+coca",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.934Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Traditional Andean leaf chewed for energy and altitude adaptation",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",

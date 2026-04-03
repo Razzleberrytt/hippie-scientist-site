@@ -23,9 +23,19 @@
     {
       "title": "src_doi-10-1055-a-0577-8049",
       "url": "https://pubmed.ncbi.nlm.nih.gov/29499587/"
+    },
+    {
+      "title": "PubMed search: Ipomoea tricolor",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Ipomoea+tricolor",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Ipomoea tricolor",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Ipomoea+tricolor",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.949Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Ipomoea tricolor (morning glory) is discussed in ethnobotanical and plant-symbiosis literature, including ergoline-associated chemistry.",
   "dosage": "No validated therapeutic dosage recommendation is supported by promoted sources.",
   "duration": "6–10 hours",

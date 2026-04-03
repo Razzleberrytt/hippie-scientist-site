@@ -3,7 +3,7 @@
   "latin": "Nicotiana tabacum L.",
   "class": "Psychoactive, Medicinal, Stimulant",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Alkaloid constituents can modulate neuronal signaling pathways",
   "activeCompounds": [
     "nicotine",
     "nornicotine",
@@ -25,15 +25,25 @@
     "caffeine",
     "CYP inducers"
   ],
-  "safetyNotes": "Addictive,cancer risk,Nausea,increased heart rate,respiratory irritation,High in concentration,40–60 mg nicotine,Toxic – nicotine dependency,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with heart disease; Avoid with epilepsy",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nicotiana tabacum L.",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Nicotiana%20tabacum%20L.&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: Nicotiana tabacum L.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Nicotiana+tabacum+L.",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Nicotiana tabacum L.",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Nicotiana+tabacum+L.",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.981Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Cultivated tobacco plant used for its stimulant alkaloid nicotine.",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",

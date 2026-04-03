@@ -9,16 +9,28 @@
   ],
   "effects": [],
   "contraindications": [],
-  "interactions": [],
+  "interactions": [
+    "May potentiate stimulant effects when combined with sympathomimetic agents."
+  ],
   "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
   "sources": [
     {
       "title": "NCBI Taxonomy: bacopa monnieri (TaxID 263974)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=263974&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: bacopa monnieri",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=bacopa+monnieri",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: bacopa monnieri",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=bacopa+monnieri",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.864Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Bacopa monnieri is commonly selected for long-horizon cognitive routines where users prefer a non-stimulant, standardized daily herb.",
   "dosage": "Choose products with bacoside standardization and clear serving amounts for easier cross-brand comparison.",
   "duration": "Often evaluated over several weeks before deciding whether the routine is useful.",

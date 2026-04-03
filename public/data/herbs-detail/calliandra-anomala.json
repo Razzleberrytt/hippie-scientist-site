@@ -21,16 +21,28 @@
   "contraindications": [
     "avoid with not recommended with cns depressants"
   ],
-  "interactions": [],
+  "interactions": [
+    "May increase sedation when combined with CNS depressants."
+  ],
   "safetyNotes": "Generally safe in moderate doses,Drowsiness,dry mouth,Low,Limited data,may cause mild GI upset or allergic reactions,edible flowers in some regions.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Calliandra anomala",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Calliandra%20anomala&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: Calliandra anomala",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Calliandra+anomala",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Calliandra anomala",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Calliandra+anomala",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.881Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Shrubby Fabaceae species with bright pink flowers; limited pharmacological research.",
   "dosage": "Mild infusions or topical use.",
   "duration": "2–3 hours.",

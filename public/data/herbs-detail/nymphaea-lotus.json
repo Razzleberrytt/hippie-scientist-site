@@ -3,7 +3,7 @@
   "latin": "Nymphaea lotus L.",
   "class": "Ethnobotanical, Psychoactive, Relaxant",
   "intensity": "Mild",
-  "mechanism": "",
+  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity",
   "activeCompounds": [
     "nuciferine",
     "aporphine",
@@ -32,15 +32,25 @@
     "and sedatives",
     "may interact with dopamine pathways"
   ],
-  "safetyNotes": "Low risk in moderate amounts,high doses may impair motor control or cause nausea,Dry mouth,dizziness,sedation,nausea (high doses),Very low,no known fatal dose in humans,Not formally established,animal models show low acute toxicity,safe,No direct toxicity data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine",
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid use with cns depressants; Avoid with sedatives",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nymphaea lotus L.",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Nymphaea%20lotus%20L.&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: Nymphaea lotus L.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Nymphaea+lotus+L.",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Nymphaea lotus L.",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Nymphaea+lotus+L.",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.983Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "A water lily native to the Nile and East Africa, revered in ancient Egypt for spiritual and aphrodisiac uses. It contains alkaloids that produce sedative and mildly psychoactive effects.",
   "dosage": "No direct dosage data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual,dreaming or folk medicine",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",

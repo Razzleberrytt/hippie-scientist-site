@@ -7,16 +7,28 @@
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
-  "interactions": [],
+  "interactions": [
+    "May increase sedation when combined with CNS depressants."
+  ],
   "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
   "sources": [
     {
       "title": "NCBI Taxonomy: lemon balm",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=lemon%20balm&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: lemon balm",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=lemon+balm",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: lemon balm",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=lemon+balm",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.954Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Lemon balm is often selected for gentle calming support when users want a lighter daytime or evening option than strongly sedating herbs.",
   "dosage": "Use consistent tea or extract servings for several days before increasing amount; potency varies by form.",
   "duration": "Commonly used daily in short-to-medium routines, especially during stress-heavy periods.",

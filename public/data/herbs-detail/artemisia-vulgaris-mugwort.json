@@ -20,9 +20,19 @@
       "title": "NCBI Taxonomy: artemisia vulgaris (mugwort)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=artemisia%20vulgaris%20(mugwort)&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: artemisia vulgaris (mugwort)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=artemisia+vulgaris+%28mugwort%29",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: artemisia vulgaris (mugwort)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=artemisia+vulgaris+%28mugwort%29",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.857Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Artemisia vulgaris (mugwort) is a traditional herb in Eurasian medicine with modern pharmacology discussions concentrated in broader Artemisia reviews.",
   "dosage": "No single modern therapeutic dosage standard was established in the promoted review source.",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",

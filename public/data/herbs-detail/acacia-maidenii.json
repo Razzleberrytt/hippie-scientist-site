@@ -3,7 +3,7 @@
   "latin": "Acacia maidenii",
   "class": "Traditional, Psychoactive",
   "intensity": "Strong (psychoactive extract)",
-  "mechanism": "",
+  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity",
   "activeCompounds": [
     "dmt",
     "tryptamines",
@@ -23,15 +23,25 @@
     "MAO inhibitors",
     "serotonergic drugs"
   ],
-  "safetyNotes": "Unsafe without controlled setting,Hallucinations,nausea,confusion,High (in extract misuse),Not established,caution,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "May interact with maois; Avoid with unverified internal use",
   "sources": [
     {
       "title": "NCBI Taxonomy: Acacia maidenii (TaxID 795978)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=795978&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Acacia maidenii",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Acacia+maidenii",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Acacia maidenii",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Acacia+maidenii",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.828Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Australian native tree known for its DMT-rich bark, traditionally used by indigenous people for tools and spiritual use.",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",

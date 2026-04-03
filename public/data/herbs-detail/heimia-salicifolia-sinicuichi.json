@@ -44,9 +44,19 @@
       "title": "NCBI Taxonomy: Heimia salicifolia (TaxID 312921)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=312921&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Heimia salicifolia",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Heimia+salicifolia",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Heimia salicifolia",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Heimia+salicifolia",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.941Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Traditional Mexican herb used for altered states and memory recall",
   "dosage": "No standardized clinical dose is available; use only cautious, source-documented preparation practices.,1,2 g,day infusion (traditional use)",
   "duration": "Duration appears preparation- and dose-dependent in traditional use reports; standardized human trial data are limited.",

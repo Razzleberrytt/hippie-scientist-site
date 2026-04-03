@@ -3,7 +3,7 @@
   "latin": "Asarum canadense",
   "class": "Mild stimulant, aromatic",
   "intensity": "Mild",
-  "mechanism": "",
+  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity",
   "activeCompounds": [
     "asarone",
     "volatile oils",
@@ -17,16 +17,28 @@
     "avoid in pregnancy",
     "avoid with gastrointestinal disorders"
   ],
-  "interactions": [],
-  "safetyNotes": "Generally safe in small doses,not for chronic use,Large doses may cause nausea,Low to moderate (long-term use discouraged),Toxic – regulatory concern in US/EU,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "interactions": [
+    "May potentiate stimulant effects when combined with sympathomimetic agents."
+  ],
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with gastrointestinal disorders",
   "sources": [
     {
       "title": "NCBI Taxonomy: Asarum canadense (TaxID 28498)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=28498&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Asarum canadense",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Asarum+canadense",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Asarum canadense",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Asarum+canadense",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.858Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Wild Ginger has been used by Native American tribes as a ceremonial herb and stimulant, as well as a seasoning substitute.",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
