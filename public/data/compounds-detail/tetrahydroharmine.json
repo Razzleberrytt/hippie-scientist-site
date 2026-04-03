@@ -1,8 +1,11 @@
 {
   "name": "tetrahydroharmine",
   "category": "general",
-  "description": "tetrahydroharmine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "tetrahydroharmine is a compound reported in banisteriopsis caapi and peganum harmala. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "banisteriopsis caapi",
+    "peganum harmala"
+  ],
   "effects": [
     "Altered perception",
     "dream intensification",
@@ -46,12 +49,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: tetrahydroharmine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tetrahydroharmine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: tetrahydroharmine (CID 442118)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442118",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "tetrahydroharmine",
-  "summary": "tetrahydroharmine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "tetrahydroharmine is a compound reported in banisteriopsis caapi and peganum harmala. Available source coverage remains preliminary in this dataset."
 }

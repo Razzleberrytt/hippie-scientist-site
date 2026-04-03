@@ -5,7 +5,8 @@
   "herbs": [
     "anadenanthera colubrina",
     "anadenanthera peregrina",
-    "virola theiodora"
+    "virola theiodora",
+    "arundo donax"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in ritual",
@@ -52,9 +53,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Bufotenine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/bufotenine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Bufotenine (CID 10257)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10257",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",

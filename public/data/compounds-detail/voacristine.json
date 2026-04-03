@@ -1,8 +1,10 @@
 {
   "name": "voacristine",
   "category": "general",
-  "description": "voacristine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "voacristine is a compound reported in voacanga africana. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "voacanga africana"
+  ],
   "effects": [
     "Altered perception",
     "stimulation",
@@ -30,12 +32,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: voacristine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/voacristine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: voacristine (CID 44566752)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/44566752",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "voacristine",
-  "summary": "voacristine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "voacristine is a compound reported in voacanga africana. Available source coverage remains preliminary in this dataset."
 }

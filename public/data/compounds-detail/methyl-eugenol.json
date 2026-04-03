@@ -31,9 +31,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: methyl eugenol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/methyl-eugenol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: methyl eugenol (CID 7127)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/7127",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",

@@ -1,8 +1,10 @@
 {
   "name": "hypaphorine",
   "category": "general",
-  "description": "hypaphorine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "hypaphorine is a compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "erythrina mulungu"
+  ],
   "effects": [
     "Relaxation",
     "improved sleep",
@@ -42,12 +44,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: hypaphorine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/hypaphorine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: hypaphorine (CID 442106)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442106",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "hypaphorine",
-  "summary": "hypaphorine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "hypaphorine is a compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset."
 }

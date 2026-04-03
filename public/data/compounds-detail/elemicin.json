@@ -1,9 +1,10 @@
 {
   "name": "elemicin",
   "category": "general",
-  "description": "elemicin is a compound reported in myristica fragrans. Available source coverage remains preliminary in this dataset.",
+  "description": "elemicin is a compound reported in myristica fragrans and Myristica fragrans Houtt.. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "myristica fragrans"
+    "myristica fragrans",
+    "Myristica fragrans Houtt."
   ],
   "effects": [
     "Euphoria",
@@ -40,12 +41,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: elemicin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/elemicin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: elemicin (CID 10248)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10248",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "elemicin",
-  "summary": "elemicin is a compound reported in myristica fragrans. Available source coverage remains preliminary in this dataset."
+  "summary": "elemicin is a compound reported in myristica fragrans and Myristica fragrans Houtt.. Available source coverage remains preliminary in this dataset."
 }

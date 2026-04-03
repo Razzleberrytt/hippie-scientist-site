@@ -20,9 +20,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Benzyl isothiocyanate",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/benzyl-isothiocyanate",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Benzyl isothiocyanate (CID 2346)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2346",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",

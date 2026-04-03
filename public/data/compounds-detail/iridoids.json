@@ -1,9 +1,11 @@
 {
   "name": "Iridoids",
-  "category": "general",
-  "description": "Iridoids is a compound reported in mitchella repens. Available source coverage remains preliminary in this dataset.",
+  "category": "iridoid",
+  "description": "Iridoids is a iridoid compound reported in mitchella repens, desfontainia spinosa, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "mitchella repens"
+    "mitchella repens",
+    "desfontainia spinosa",
+    "indian warrior"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -48,12 +50,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Iridoids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/iridoids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Iridoids (CID 453214)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/453214",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "iridoids",
-  "summary": "Iridoids is a compound reported in mitchella repens. Available source coverage remains preliminary in this dataset."
+  "summary": "Iridoids is a iridoid compound reported in mitchella repens, desfontainia spinosa, and related herbs. Available source coverage remains preliminary in this dataset."
 }

@@ -1,9 +1,12 @@
 {
   "name": "Leonurine",
   "category": "general",
-  "description": "Leonurine is a compound reported in motherwort. Available source coverage remains preliminary in this dataset.",
+  "description": "Leonurine is a compound reported in motherwort, klip dagga, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "motherwort"
+    "motherwort",
+    "klip dagga",
+    "leonotis leonurus",
+    "siberian motherwort"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in ritual",
@@ -56,12 +59,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Leonurine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/leonurine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Leonurine (CID 161464)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/161464",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "leonurine",
-  "summary": "Leonurine is a compound reported in motherwort. Available source coverage remains preliminary in this dataset."
+  "summary": "Leonurine is a compound reported in motherwort, klip dagga, and related herbs. Available source coverage remains preliminary in this dataset."
 }

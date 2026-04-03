@@ -1,8 +1,10 @@
 {
   "name": "Mitragynine",
   "category": "general",
-  "description": "Mitragynine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Mitragynine is a compound reported in mitragyna javanica. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "mitragyna javanica"
+  ],
   "effects": [
     "Stimulation",
     "mild euphoria",
@@ -29,12 +31,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Mitragynine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mitragynine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Mitragynine (CID 3034396)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3034396",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mitragynine",
-  "summary": "Mitragynine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Mitragynine is a compound reported in mitragyna javanica. Available source coverage remains preliminary in this dataset."
 }

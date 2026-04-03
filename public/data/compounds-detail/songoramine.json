@@ -29,9 +29,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: songoramine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/songoramine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: songoramine (CID 14526618)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/14526618",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",

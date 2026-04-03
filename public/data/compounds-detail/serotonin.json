@@ -1,8 +1,10 @@
 {
   "name": "serotonin",
   "category": "general",
-  "description": "serotonin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "serotonin is a compound reported in urtica dioica. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "urtica dioica"
+  ],
   "effects": [
     "Mild stimulation",
     "increased circulation",
@@ -26,12 +28,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: serotonin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/serotonin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: serotonin (CID 5202)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5202",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "serotonin",
-  "summary": "serotonin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "serotonin is a compound reported in urtica dioica. Available source coverage remains preliminary in this dataset."
 }

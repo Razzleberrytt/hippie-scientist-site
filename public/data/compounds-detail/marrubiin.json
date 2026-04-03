@@ -1,9 +1,10 @@
 {
   "name": "Marrubiin",
   "category": "general",
-  "description": "Marrubiin is a compound reported in marrubium vulgare. Available source coverage remains preliminary in this dataset.",
+  "description": "Marrubiin is a compound reported in marrubium vulgare and leonotis leonurus. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "marrubium vulgare"
+    "marrubium vulgare",
+    "leonotis leonurus"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -32,12 +33,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Marrubiin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/marrubiin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Marrubiin (CID 73401)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/73401",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "marrubiin",
-  "summary": "Marrubiin is a compound reported in marrubium vulgare. Available source coverage remains preliminary in this dataset."
+  "summary": "Marrubiin is a compound reported in marrubium vulgare and leonotis leonurus. Available source coverage remains preliminary in this dataset."
 }

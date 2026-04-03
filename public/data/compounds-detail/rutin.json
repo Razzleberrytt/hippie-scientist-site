@@ -20,9 +20,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Rutin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/rutin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Rutin (CID 5280805)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280805",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",

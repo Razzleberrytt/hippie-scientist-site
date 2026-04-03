@@ -1,7 +1,7 @@
 {
   "name": "Cocaine alkaloids (0.2–1%)",
-  "category": "general",
-  "description": "Cocaine alkaloids (0.2–1%) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "category": "alkaloid",
+  "description": "Cocaine alkaloids (0.2–1%) is a alkaloid compound. Available source coverage remains preliminary in this dataset.",
   "herbs": [],
   "effects": [
     "Mild stimulation",
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "cocaine-alkaloids-0-2-1",
-  "summary": "Cocaine alkaloids (0.2–1%) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Cocaine alkaloids (0.2–1%) is a alkaloid compound. Available source coverage remains preliminary in this dataset."
 }

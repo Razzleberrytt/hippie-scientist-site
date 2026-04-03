@@ -1,7 +1,7 @@
 {
   "name": "Harmala alkaloids",
-  "category": "general",
-  "description": "Harmala alkaloids is a compound reported in nicotiana rustica. Available source coverage remains preliminary in this dataset.",
+  "category": "alkaloid",
+  "description": "Harmala alkaloids is a alkaloid compound reported in nicotiana rustica. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "nicotiana rustica"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harmala-alkaloids",
-  "summary": "Harmala alkaloids is a compound reported in nicotiana rustica. Available source coverage remains preliminary in this dataset."
+  "summary": "Harmala alkaloids is a alkaloid compound reported in nicotiana rustica. Available source coverage remains preliminary in this dataset."
 }

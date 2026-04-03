@@ -1,9 +1,11 @@
 {
   "name": "Farnesol",
   "category": "general",
-  "description": "Farnesol is a compound reported in linden. Available source coverage remains preliminary in this dataset.",
+  "description": "Farnesol is a compound reported in linden, unnamed herb, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "linden"
+    "linden",
+    "unnamed herb",
+    "tilia tomentosa"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used as a calming tea for sleep",
@@ -37,12 +39,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Farnesol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/farnesol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Farnesol (CID 445070)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/445070",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "farnesol",
-  "summary": "Farnesol is a compound reported in linden. Available source coverage remains preliminary in this dataset."
+  "summary": "Farnesol is a compound reported in linden, unnamed herb, and related herbs. Available source coverage remains preliminary in this dataset."
 }

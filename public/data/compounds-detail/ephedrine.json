@@ -1,9 +1,10 @@
 {
   "name": "ephedrine",
   "category": "general",
-  "description": "ephedrine is a compound reported in aconitum napellus. Available source coverage remains preliminary in this dataset.",
+  "description": "ephedrine is a compound reported in aconitum napellus and sida cordifolia. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "aconitum napellus"
+    "aconitum napellus",
+    "sida cordifolia"
   ],
   "effects": [
     "Potent analgesic and anti-inflammatory",
@@ -42,12 +43,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: ephedrine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ephedrine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: ephedrine (CID 9294)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9294",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "ephedrine",
-  "summary": "ephedrine is a compound reported in aconitum napellus. Available source coverage remains preliminary in this dataset."
+  "summary": "ephedrine is a compound reported in aconitum napellus and sida cordifolia. Available source coverage remains preliminary in this dataset."
 }

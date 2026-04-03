@@ -1,9 +1,10 @@
 {
   "name": "Germacranolides",
   "category": "general",
-  "description": "Germacranolides is a compound reported in calea zacatechichi. Available source coverage remains preliminary in this dataset.",
+  "description": "Germacranolides is a compound reported in calea zacatechichi and calea ternifolia. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "calea zacatechichi"
+    "calea zacatechichi",
+    "calea ternifolia"
   ],
   "effects": [
     "Vivid and lucid dreams",
@@ -49,5 +50,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "germacranolides",
-  "summary": "Germacranolides is a compound reported in calea zacatechichi. Available source coverage remains preliminary in this dataset."
+  "summary": "Germacranolides is a compound reported in calea zacatechichi and calea ternifolia. Available source coverage remains preliminary in this dataset."
 }

@@ -30,9 +30,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: alamarine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alamarine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: alamarine (CID 442157)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442157",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",

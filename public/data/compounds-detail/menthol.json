@@ -1,8 +1,10 @@
 {
   "name": "Menthol",
   "category": "general",
-  "description": "Menthol is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Menthol is a compound reported in mentha piperita. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "mentha piperita"
+  ],
   "effects": [
     "Soothes GI tract",
     "reduces bloating",
@@ -28,12 +30,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Menthol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/menthol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Menthol (CID 1254)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1254",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "menthol",
-  "summary": "Menthol is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Menthol is a compound reported in mentha piperita. Available source coverage remains preliminary in this dataset."
 }

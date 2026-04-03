@@ -1,8 +1,10 @@
 {
   "name": "mesembrenol",
   "category": "general",
-  "description": "mesembrenol is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "mesembrenol is a compound reported in sceletium tortuosum. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "sceletium tortuosum"
+  ],
   "effects": [
     "Euphoria",
     "empathy",
@@ -37,12 +39,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: mesembrenol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mesembrenol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: mesembrenol (CID 46898090)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/46898090",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mesembrenol",
-  "summary": "mesembrenol is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "mesembrenol is a compound reported in sceletium tortuosum. Available source coverage remains preliminary in this dataset."
 }

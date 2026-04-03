@@ -1,8 +1,10 @@
 {
   "name": "N-methyltryptamine",
   "category": "general",
-  "description": "N-methyltryptamine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "N-methyltryptamine is a compound reported in acacia confusa. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "acacia confusa"
+  ],
   "effects": [
     "Psychedelic visuals",
     "introspection",
@@ -29,12 +31,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: N-methyltryptamine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/n-methyltryptamine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: N-methyltryptamine (CID 6088)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6088",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "n-methyltryptamine",
-  "summary": "N-methyltryptamine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "N-methyltryptamine is a compound reported in acacia confusa. Available source coverage remains preliminary in this dataset."
 }

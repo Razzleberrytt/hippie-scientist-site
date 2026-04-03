@@ -1,8 +1,11 @@
 {
   "name": "terpenoids",
-  "category": "general",
-  "description": "terpenoids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "category": "terpenoid",
+  "description": "terpenoids is a terpenoid compound reported in Carapa procera and Boswellia dalzielii. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "Carapa procera",
+    "Boswellia dalzielii"
+  ],
   "effects": [
     "Skin healing",
     "antiparasitic action",
@@ -31,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "terpenoids",
-  "summary": "terpenoids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "terpenoids is a terpenoid compound reported in Carapa procera and Boswellia dalzielii. Available source coverage remains preliminary in this dataset."
 }

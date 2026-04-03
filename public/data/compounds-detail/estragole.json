@@ -31,9 +31,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: estragole",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/estragole",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: estragole (CID 8815)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8815",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",

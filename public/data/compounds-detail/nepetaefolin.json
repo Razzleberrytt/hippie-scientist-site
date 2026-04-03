@@ -1,8 +1,10 @@
 {
   "name": "nepetaefolin",
   "category": "general",
-  "description": "nepetaefolin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "nepetaefolin is a compound reported in klip dagga. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "klip dagga"
+  ],
   "effects": [
     "Mild euphoria",
     "sedation",
@@ -32,12 +34,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: nepetaefolin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nepetaefolin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: nepetaefolin (CID 99893)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/99893",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nepetaefolin",
-  "summary": "nepetaefolin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "nepetaefolin is a compound reported in klip dagga. Available source coverage remains preliminary in this dataset."
 }

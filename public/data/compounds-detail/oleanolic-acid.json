@@ -26,9 +26,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: oleanolic acid",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/oleanolic-acid",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: oleanolic acid (CID 10494)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10494",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",

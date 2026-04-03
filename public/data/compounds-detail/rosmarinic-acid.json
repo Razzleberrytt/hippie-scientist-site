@@ -1,10 +1,13 @@
 {
   "name": "rosmarinic acid",
   "category": "general",
-  "description": "rosmarinic acid is a compound reported in perilla frutescens and salvia apiana. Available source coverage remains preliminary in this dataset.",
+  "description": "rosmarinic acid is a compound reported in perilla frutescens, salvia apiana, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "perilla frutescens",
-    "salvia apiana"
+    "salvia apiana",
+    "Salvia nemorosa",
+    "nepeta cataria",
+    "ocimum sanctum"
   ],
   "effects": [
     "Mild sedation",
@@ -42,12 +45,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: rosmarinic acid",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/rosmarinic-acid",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: rosmarinic acid (CID 5281792)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281792",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "rosmarinic-acid",
-  "summary": "rosmarinic acid is a compound reported in perilla frutescens and salvia apiana. Available source coverage remains preliminary in this dataset."
+  "summary": "rosmarinic acid is a compound reported in perilla frutescens, salvia apiana, and related herbs. Available source coverage remains preliminary in this dataset."
 }

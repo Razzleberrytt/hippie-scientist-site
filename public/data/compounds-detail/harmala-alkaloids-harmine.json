@@ -1,7 +1,7 @@
 {
   "name": "harmala alkaloids (harmine",
-  "category": "general",
-  "description": "harmala alkaloids (harmine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "category": "alkaloid",
+  "description": "harmala alkaloids (harmine is a alkaloid compound. Available source coverage remains preliminary in this dataset.",
   "herbs": [],
   "effects": [
     "Intense stimulation",
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harmala-alkaloids-harmine",
-  "summary": "harmala alkaloids (harmine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "harmala alkaloids (harmine is a alkaloid compound. Available source coverage remains preliminary in this dataset."
 }

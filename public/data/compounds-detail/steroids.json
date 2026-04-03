@@ -1,7 +1,7 @@
 {
   "name": "steroids",
-  "category": "general",
-  "description": "steroids is a compound reported in alchornea castaneifolia. Available source coverage remains preliminary in this dataset.",
+  "category": "steroid",
+  "description": "steroids is a steroid compound reported in alchornea castaneifolia. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "alchornea castaneifolia"
   ],
@@ -25,12 +25,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: steroids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/steroids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: steroids (CID 139082353)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/139082353",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "steroids",
-  "summary": "steroids is a compound reported in alchornea castaneifolia. Available source coverage remains preliminary in this dataset."
+  "summary": "steroids is a steroid compound reported in alchornea castaneifolia. Available source coverage remains preliminary in this dataset."
 }

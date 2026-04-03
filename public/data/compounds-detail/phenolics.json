@@ -1,8 +1,10 @@
 {
   "name": "Phenolics",
   "category": "general",
-  "description": "Phenolics is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Phenolics is a compound reported in Spathodea campanulata. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "Spathodea campanulata"
+  ],
   "effects": [
     "Wound healing",
     "anti-infective effects"
@@ -28,5 +30,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "phenolics",
-  "summary": "Phenolics is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Phenolics is a compound reported in Spathodea campanulata. Available source coverage remains preliminary in this dataset."
 }

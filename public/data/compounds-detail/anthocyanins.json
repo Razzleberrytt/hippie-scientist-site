@@ -1,7 +1,7 @@
 {
   "name": "Anthocyanins",
-  "category": "general",
-  "description": "Anthocyanins is a compound reported in hibiscus sabdariffa. Available source coverage remains preliminary in this dataset.",
+  "category": "anthocyanin",
+  "description": "Anthocyanins is a anthocyanin compound reported in hibiscus sabdariffa. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "hibiscus sabdariffa"
   ],
@@ -23,12 +23,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Anthocyanins",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/anthocyanins",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Anthocyanins (CID 145858)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/145858",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "anthocyanins",
-  "summary": "Anthocyanins is a compound reported in hibiscus sabdariffa. Available source coverage remains preliminary in this dataset."
+  "summary": "Anthocyanins is a anthocyanin compound reported in hibiscus sabdariffa. Available source coverage remains preliminary in this dataset."
 }

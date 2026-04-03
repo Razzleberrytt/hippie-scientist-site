@@ -31,9 +31,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: cis-methylisoeugenol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/cis-methylisoeugenol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: cis-methylisoeugenol (CID 1549045)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1549045",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",

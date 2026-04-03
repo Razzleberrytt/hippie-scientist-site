@@ -1,9 +1,10 @@
 {
   "name": "phenolic acids",
-  "category": "general",
-  "description": "phenolic acids is a compound reported in agrimonia eupatoria. Available source coverage remains preliminary in this dataset.",
+  "category": "phenolic compound",
+  "description": "phenolic acids is a phenolic compound compound reported in agrimonia eupatoria and Rhynchosia pyramidalis. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "agrimonia eupatoria"
+    "agrimonia eupatoria",
+    "Rhynchosia pyramidalis"
   ],
   "effects": [
     "Astringent",
@@ -39,5 +40,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "phenolic-acids",
-  "summary": "phenolic acids is a compound reported in agrimonia eupatoria. Available source coverage remains preliminary in this dataset."
+  "summary": "phenolic acids is a phenolic compound compound reported in agrimonia eupatoria and Rhynchosia pyramidalis. Available source coverage remains preliminary in this dataset."
 }

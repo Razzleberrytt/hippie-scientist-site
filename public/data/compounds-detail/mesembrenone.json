@@ -1,8 +1,10 @@
 {
   "name": "mesembrenone",
   "category": "general",
-  "description": "mesembrenone is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "mesembrenone is a compound reported in sceletium tortuosum. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "sceletium tortuosum"
+  ],
   "effects": [
     "Euphoria",
     "empathy",
@@ -37,12 +39,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: mesembrenone",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mesembrenone",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: mesembrenone (CID 216272)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/216272",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mesembrenone",
-  "summary": "mesembrenone is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "mesembrenone is a compound reported in sceletium tortuosum. Available source coverage remains preliminary in this dataset."
 }

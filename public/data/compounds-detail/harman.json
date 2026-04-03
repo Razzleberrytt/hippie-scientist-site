@@ -1,8 +1,10 @@
 {
   "name": "harman",
   "category": "general",
-  "description": "harman is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "harman is a compound reported in nicotiana rustica. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "nicotiana rustica"
+  ],
   "effects": [
     "Intense stimulation",
     "purging",
@@ -31,12 +33,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: harman",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/harman",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: harman (CID 5281404)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281404",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harman",
-  "summary": "harman is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "harman is a compound reported in nicotiana rustica. Available source coverage remains preliminary in this dataset."
 }

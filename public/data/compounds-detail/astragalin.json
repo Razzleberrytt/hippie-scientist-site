@@ -25,9 +25,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Astragalin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/astragalin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Astragalin (CID 5282102)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5282102",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",

@@ -1,10 +1,13 @@
 {
   "name": "catechins",
   "category": "general",
-  "description": "catechins is a compound reported in albizia lebbeck and byrsonima crassifolia. Available source coverage remains preliminary in this dataset.",
+  "description": "catechins is a compound reported in albizia lebbeck, byrsonima crassifolia, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "albizia lebbeck",
-    "byrsonima crassifolia"
+    "byrsonima crassifolia",
+    "camellia sinensis",
+    "combretum micranthum",
+    "paullinia cupana"
   ],
   "effects": [
     "Used in Ayurveda for asthma",
@@ -59,12 +62,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: catechins",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/catechins",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: catechins (CID 1203)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1203",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "catechins",
-  "summary": "catechins is a compound reported in albizia lebbeck and byrsonima crassifolia. Available source coverage remains preliminary in this dataset."
+  "summary": "catechins is a compound reported in albizia lebbeck, byrsonima crassifolia, and related herbs. Available source coverage remains preliminary in this dataset."
 }

@@ -24,9 +24,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: ferulic acid",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ferulic-acid",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: ferulic acid (CID 445858)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/445858",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",

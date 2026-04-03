@@ -31,9 +31,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: camphene",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/camphene",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: camphene (CID 6616)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6616",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",

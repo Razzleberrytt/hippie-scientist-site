@@ -1,8 +1,12 @@
 {
   "name": "terpenes",
-  "category": "general",
-  "description": "terpenes is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "category": "terpenoid",
+  "description": "terpenes is a terpenoid compound reported in cannabis sativa, Myristica fragrans Houtt., and related herbs. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "cannabis sativa",
+    "Myristica fragrans Houtt.",
+    "turnera diffusa"
+  ],
   "effects": [
     "Euphoria",
     "hallucinations",
@@ -56,5 +60,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "terpenes",
-  "summary": "terpenes is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "terpenes is a terpenoid compound reported in cannabis sativa, Myristica fragrans Houtt., and related herbs. Available source coverage remains preliminary in this dataset."
 }

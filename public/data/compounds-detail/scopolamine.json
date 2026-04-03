@@ -1,9 +1,15 @@
 {
   "name": "Scopolamine",
   "category": "general",
-  "description": "Scopolamine is a compound reported in datura metel. Available source coverage remains preliminary in this dataset.",
+  "description": "Scopolamine is a compound reported in datura metel, brugmansia sanguinea, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "datura metel"
+    "datura metel",
+    "brugmansia sanguinea",
+    "brugmansia suaveolens",
+    "datura ferox",
+    "datura stramonium",
+    "datura wrightii",
+    "Solandra grandiflora"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
@@ -54,12 +60,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Scopolamine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/scopolamine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Scopolamine (CID 3000322)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3000322",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "scopolamine",
-  "summary": "Scopolamine is a compound reported in datura metel. Available source coverage remains preliminary in this dataset."
+  "summary": "Scopolamine is a compound reported in datura metel, brugmansia sanguinea, and related herbs. Available source coverage remains preliminary in this dataset."
 }

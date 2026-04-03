@@ -1,8 +1,10 @@
 {
   "name": "Erythravine",
   "category": "general",
-  "description": "Erythravine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Erythravine is a compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "erythrina mulungu"
+  ],
   "effects": [
     "Relaxation",
     "improved sleep",
@@ -42,12 +44,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Erythravine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/erythravine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Erythravine (CID 11231853)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/11231853",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "erythravine",
-  "summary": "Erythravine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Erythravine is a compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset."
 }

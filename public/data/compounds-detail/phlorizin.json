@@ -24,9 +24,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: phlorizin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/phlorizin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: phlorizin (CID 6072)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6072",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",

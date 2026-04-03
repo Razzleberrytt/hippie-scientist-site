@@ -1,11 +1,27 @@
 {
   "name": "alkaloids",
-  "category": "general",
-  "description": "alkaloids is a compound reported in african dream root, alchornea castaneifolia, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "category": "alkaloid",
+  "description": "alkaloids is a alkaloid compound reported in african dream root, alchornea castaneifolia, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "african dream root",
     "alchornea castaneifolia",
-    "Muira Puama"
+    "Muira Puama",
+    "alchornea floribunda",
+    "calliandra anomala",
+    "delosperma bosseranum",
+    "desfontainia spinosa",
+    "desmodium gangeticum",
+    "Acacia confusa Merr.",
+    "achillea millefolium",
+    "Gymnosporia senegalensis",
+    "Zanthoxylum zanthoxyloides",
+    "Vernonia amygdalina",
+    "Herba lucidum fictus",
+    "nelumbo nucifera",
+    "nymphaea rubra",
+    "ptychopetalum olacoides",
+    "sceletium tortuosum",
+    "zornia latifolia"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in ritual",
@@ -159,5 +175,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "alkaloids",
-  "summary": "alkaloids is a compound reported in african dream root, alchornea castaneifolia, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "alkaloids is a alkaloid compound reported in african dream root, alchornea castaneifolia, and related herbs. Available source coverage remains preliminary in this dataset."
 }

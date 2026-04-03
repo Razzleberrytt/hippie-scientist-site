@@ -1,8 +1,10 @@
 {
   "name": "fatty acids",
   "category": "general",
-  "description": "fatty acids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "fatty acids is a compound reported in ptychopetalum olacoides. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "ptychopetalum olacoides"
+  ],
   "effects": [
     "Mental clarity",
     "energy boost",
@@ -38,5 +40,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "fatty-acids",
-  "summary": "fatty acids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "fatty acids is a compound reported in ptychopetalum olacoides. Available source coverage remains preliminary in this dataset."
 }

@@ -29,9 +29,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: hypaconitine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/hypaconitine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: hypaconitine (CID 91973803)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/91973803",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",

@@ -1,8 +1,11 @@
 {
   "name": "nupharidine",
   "category": "general",
-  "description": "nupharidine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "nupharidine is a compound reported in nymphaea caerulea and nymphaea rubra. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "nymphaea caerulea",
+    "nymphaea rubra"
+  ],
   "effects": [
     "Relaxation",
     "mild euphoria",
@@ -43,12 +46,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: nupharidine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nupharidine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: nupharidine (CID 9548786)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9548786",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "nupharidine",
-  "summary": "nupharidine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "nupharidine is a compound reported in nymphaea caerulea and nymphaea rubra. Available source coverage remains preliminary in this dataset."
 }

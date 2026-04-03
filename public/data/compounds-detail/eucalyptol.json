@@ -1,8 +1,10 @@
 {
   "name": "Eucalyptol",
   "category": "general",
-  "description": "Eucalyptol is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Eucalyptol is a compound reported in salvia apiana. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "salvia apiana"
+  ],
   "effects": [
     "Clarity",
     "calm",
@@ -24,12 +26,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Eucalyptol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/eucalyptol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Eucalyptol (CID 2758)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2758",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "eucalyptol",
-  "summary": "Eucalyptol is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Eucalyptol is a compound reported in salvia apiana. Available source coverage remains preliminary in this dataset."
 }

@@ -1,10 +1,14 @@
 {
   "name": "essential oils",
   "category": "general",
-  "description": "essential oils is a compound reported in adhatoda vasica and helichrysum odoratissimum. Available source coverage remains preliminary in this dataset.",
+  "description": "essential oils is a compound reported in adhatoda vasica, helichrysum odoratissimum, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "adhatoda vasica",
-    "helichrysum odoratissimum"
+    "helichrysum odoratissimum",
+    "acorus gramineus",
+    "elaeagnus angustifolia",
+    "justicia pectoralis",
+    "Salvia nemorosa"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -64,5 +68,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "essential-oils",
-  "summary": "essential oils is a compound reported in adhatoda vasica and helichrysum odoratissimum. Available source coverage remains preliminary in this dataset."
+  "summary": "essential oils is a compound reported in adhatoda vasica, helichrysum odoratissimum, and related herbs. Available source coverage remains preliminary in this dataset."
 }

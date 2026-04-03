@@ -1,8 +1,10 @@
 {
   "name": "Iboga alkaloids",
-  "category": "general",
-  "description": "Iboga alkaloids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "category": "alkaloid",
+  "description": "Iboga alkaloids is a alkaloid compound reported in tabernaemontana undulata. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "tabernaemontana undulata"
+  ],
   "effects": [
     "Inner visions",
     "deep introspection",
@@ -31,5 +33,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "iboga-alkaloids",
-  "summary": "Iboga alkaloids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Iboga alkaloids is a alkaloid compound reported in tabernaemontana undulata. Available source coverage remains preliminary in this dataset."
 }

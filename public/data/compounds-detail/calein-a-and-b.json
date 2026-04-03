@@ -1,8 +1,10 @@
 {
   "name": "calein A and B",
   "category": "general",
-  "description": "calein A and B is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "calein A and B is a compound reported in calea zacatechichi. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "calea zacatechichi"
+  ],
   "effects": [
     "Vivid and lucid dreams",
     "dream recall",
@@ -29,5 +31,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "calein-a-and-b",
-  "summary": "calein A and B is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "calein A and B is a compound reported in calea zacatechichi. Available source coverage remains preliminary in this dataset."
 }

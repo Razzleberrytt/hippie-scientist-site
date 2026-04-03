@@ -1,8 +1,10 @@
 {
   "name": "noribogaine",
   "category": "general",
-  "description": "noribogaine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "noribogaine is a compound reported in tabernanthe iboga. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "tabernanthe iboga"
+  ],
   "effects": [
     "Intense visions",
     "introspection",
@@ -32,12 +34,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: noribogaine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/noribogaine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: noribogaine (CID 3083548)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3083548",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "noribogaine",
-  "summary": "noribogaine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "noribogaine is a compound reported in tabernanthe iboga. Available source coverage remains preliminary in this dataset."
 }

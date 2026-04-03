@@ -1,7 +1,7 @@
 {
   "name": "phenols",
-  "category": "general",
-  "description": "phenols is a compound reported in alchornea castaneifolia. Available source coverage remains preliminary in this dataset.",
+  "category": "phenolic compound",
+  "description": "phenols is a phenolic compound compound reported in alchornea castaneifolia. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "alchornea castaneifolia"
   ],
@@ -32,5 +32,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "phenols",
-  "summary": "phenols is a compound reported in alchornea castaneifolia. Available source coverage remains preliminary in this dataset."
+  "summary": "phenols is a phenolic compound compound reported in alchornea castaneifolia. Available source coverage remains preliminary in this dataset."
 }

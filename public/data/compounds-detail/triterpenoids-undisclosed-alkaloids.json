@@ -1,7 +1,7 @@
 {
   "name": "triterpenoids (undisclosed alkaloids)",
-  "category": "general",
-  "description": "triterpenoids (undisclosed alkaloids) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "category": "alkaloid",
+  "description": "triterpenoids (undisclosed alkaloids) is a alkaloid compound. Available source coverage remains preliminary in this dataset.",
   "herbs": [],
   "effects": [
     "Vivid dreams",
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "triterpenoids-undisclosed-alkaloids",
-  "summary": "triterpenoids (undisclosed alkaloids) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "triterpenoids (undisclosed alkaloids) is a alkaloid compound. Available source coverage remains preliminary in this dataset."
 }

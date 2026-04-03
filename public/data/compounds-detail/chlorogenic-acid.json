@@ -20,9 +20,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Chlorogenic acid",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/chlorogenic-acid",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Chlorogenic acid (CID 1794427)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1794427",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",

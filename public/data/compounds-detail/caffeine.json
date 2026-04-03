@@ -1,10 +1,13 @@
 {
   "name": "Caffeine",
   "category": "general",
-  "description": "Caffeine is a compound reported in yerba mate and camellia sinensis. Available source coverage remains preliminary in this dataset.",
+  "description": "Caffeine is a compound reported in yerba mate, camellia sinensis, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "yerba mate",
-    "camellia sinensis"
+    "camellia sinensis",
+    "paullinia cupana",
+    "paullinia yoco",
+    "theobroma cacao"
   ],
   "effects": [
     "Mental alertness",
@@ -59,12 +62,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Caffeine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/caffeine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Caffeine (CID 2519)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2519",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "caffeine",
-  "summary": "Caffeine is a compound reported in yerba mate and camellia sinensis. Available source coverage remains preliminary in this dataset."
+  "summary": "Caffeine is a compound reported in yerba mate, camellia sinensis, and related herbs. Available source coverage remains preliminary in this dataset."
 }

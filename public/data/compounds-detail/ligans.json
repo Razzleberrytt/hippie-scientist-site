@@ -1,8 +1,10 @@
 {
   "name": "ligans",
   "category": "general",
-  "description": "ligans is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "ligans is a compound reported in elaeagnus angustifolia. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "elaeagnus angustifolia"
+  ],
   "effects": [
     "Mild sedation",
     "relaxation",
@@ -34,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "ligans",
-  "summary": "ligans is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "ligans is a compound reported in elaeagnus angustifolia. Available source coverage remains preliminary in this dataset."
 }

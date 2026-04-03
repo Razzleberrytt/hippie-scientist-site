@@ -1,8 +1,10 @@
 {
   "name": "triterpenes",
-  "category": "general",
-  "description": "triterpenes is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "category": "terpenoid",
+  "description": "triterpenes is a terpenoid compound reported in Entada africana. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "Entada africana"
+  ],
   "effects": [
     "Anti-inflammatory",
     "hepatoprotective"
@@ -21,12 +23,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: triterpenes",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/triterpenes",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: triterpenes (CID 451674)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/451674",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "triterpenes",
-  "summary": "triterpenes is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "triterpenes is a terpenoid compound reported in Entada africana. Available source coverage remains preliminary in this dataset."
 }

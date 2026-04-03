@@ -1,8 +1,10 @@
 {
   "name": "alkylamides",
   "category": "general",
-  "description": "alkylamides is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "alkylamides is a compound reported in acmella oleracea. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "acmella oleracea"
+  ],
   "effects": [
     "Local anesthesia",
     "salivation",
@@ -40,5 +42,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "alkylamides",
-  "summary": "alkylamides is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "alkylamides is a compound reported in acmella oleracea. Available source coverage remains preliminary in this dataset."
 }

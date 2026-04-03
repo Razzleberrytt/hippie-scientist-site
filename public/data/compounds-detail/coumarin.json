@@ -1,7 +1,7 @@
 {
   "name": "Coumarin",
-  "category": "general",
-  "description": "Coumarin is a compound reported in justicia pectoralis. Available source coverage remains preliminary in this dataset.",
+  "category": "coumarin",
+  "description": "Coumarin is a coumarin compound reported in justicia pectoralis. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "justicia pectoralis"
   ],
@@ -32,12 +32,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Coumarin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/coumarin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Coumarin (CID 323)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/323",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "coumarin",
-  "summary": "Coumarin is a compound reported in justicia pectoralis. Available source coverage remains preliminary in this dataset."
+  "summary": "Coumarin is a coumarin compound reported in justicia pectoralis. Available source coverage remains preliminary in this dataset."
 }

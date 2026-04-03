@@ -1,9 +1,11 @@
 {
   "name": "limonene",
   "category": "general",
-  "description": "limonene is a compound reported in acorus tatarinowii. Available source coverage remains preliminary in this dataset.",
+  "description": "limonene is a compound reported in acorus tatarinowii, mentha piperita, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "acorus tatarinowii"
+    "acorus tatarinowii",
+    "mentha piperita",
+    "nepeta cataria"
   ],
   "effects": [
     "CNS stimulant",
@@ -47,12 +49,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: limonene",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/limonene",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: limonene (CID 22311)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/22311",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "limonene",
-  "summary": "limonene is a compound reported in acorus tatarinowii. Available source coverage remains preliminary in this dataset."
+  "summary": "limonene is a compound reported in acorus tatarinowii, mentha piperita, and related herbs. Available source coverage remains preliminary in this dataset."
 }

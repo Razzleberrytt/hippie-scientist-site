@@ -1,8 +1,10 @@
 {
   "name": "carvacrol",
   "category": "general",
-  "description": "carvacrol is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "carvacrol is a compound reported in ocimum sanctum. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "ocimum sanctum"
+  ],
   "effects": [
     "Stress relief",
     "respiratory support",
@@ -27,12 +29,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: carvacrol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/carvacrol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: carvacrol (CID 10364)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10364",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "carvacrol",
-  "summary": "carvacrol is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "carvacrol is a compound reported in ocimum sanctum. Available source coverage remains preliminary in this dataset."
 }

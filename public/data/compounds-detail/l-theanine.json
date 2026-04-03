@@ -1,8 +1,10 @@
 {
   "name": "L-theanine",
   "category": "general",
-  "description": "L-theanine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "L-theanine is a compound reported in camellia sinensis. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "camellia sinensis"
+  ],
   "effects": [
     "Alertness",
     "calm focus",
@@ -28,12 +30,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: L-theanine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/l-theanine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: L-theanine (CID 439378)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/439378",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "l-theanine",
-  "summary": "L-theanine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "L-theanine is a compound reported in camellia sinensis. Available source coverage remains preliminary in this dataset."
 }

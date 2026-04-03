@@ -31,9 +31,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: trans-methylisoeugenol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/trans-methylisoeugenol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: trans-methylisoeugenol (CID 637776)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/637776",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",

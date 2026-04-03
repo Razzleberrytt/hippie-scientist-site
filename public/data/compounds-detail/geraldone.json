@@ -26,9 +26,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: geraldone",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/geraldone",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: geraldone (CID 5281618)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281618",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",

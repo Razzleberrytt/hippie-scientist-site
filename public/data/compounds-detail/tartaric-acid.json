@@ -20,9 +20,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Tartaric acid",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tartaric-acid",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Tartaric acid (CID 444305)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/444305",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",

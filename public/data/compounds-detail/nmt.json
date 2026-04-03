@@ -1,8 +1,12 @@
 {
   "name": "NMT",
   "category": "general",
-  "description": "NMT is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "NMT is a compound reported in acacia phlebophylla, Acacia confusa Merr., and related herbs. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "acacia phlebophylla",
+    "Acacia confusa Merr.",
+    "Acacia maidenii F. Muell."
+  ],
   "effects": [
     "Intense visual hallucinations",
     "altered perception",
@@ -42,5 +46,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nmt",
-  "summary": "NMT is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "NMT is a compound reported in acacia phlebophylla, Acacia confusa Merr., and related herbs. Available source coverage remains preliminary in this dataset."
 }

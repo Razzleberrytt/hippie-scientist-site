@@ -30,9 +30,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: deoxytubulosine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/deoxytubulosine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: deoxytubulosine (CID 165003)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/165003",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",

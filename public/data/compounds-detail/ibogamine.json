@@ -1,8 +1,10 @@
 {
   "name": "ibogamine",
   "category": "general",
-  "description": "ibogamine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "ibogamine is a compound reported in ervatamia coronaria. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "ervatamia coronaria"
+  ],
   "effects": [
     "Tranquility",
     "mild distortion of time",
@@ -25,12 +27,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: ibogamine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ibogamine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: ibogamine (CID 100217)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/100217",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "ibogamine",
-  "summary": "ibogamine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "ibogamine is a compound reported in ervatamia coronaria. Available source coverage remains preliminary in this dataset."
 }

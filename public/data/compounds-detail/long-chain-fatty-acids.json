@@ -1,9 +1,10 @@
 {
   "name": "long-chain fatty acids",
   "category": "general",
-  "description": "long-chain fatty acids is a compound reported in Muira Puama. Available source coverage remains preliminary in this dataset.",
+  "description": "long-chain fatty acids is a compound reported in Muira Puama and ptychopetalum olacoides. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "Muira Puama"
+    "Muira Puama",
+    "ptychopetalum olacoides"
   ],
   "effects": [
     "Improved libido",
@@ -38,5 +39,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "long-chain-fatty-acids",
-  "summary": "long-chain fatty acids is a compound reported in Muira Puama. Available source coverage remains preliminary in this dataset."
+  "summary": "long-chain fatty acids is a compound reported in Muira Puama and ptychopetalum olacoides. Available source coverage remains preliminary in this dataset."
 }

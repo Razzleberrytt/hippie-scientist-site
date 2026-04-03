@@ -1,8 +1,10 @@
 {
   "name": "tabersonine",
   "category": "general",
-  "description": "tabersonine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "tabersonine is a compound reported in tabernaemontana undulata. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "tabernaemontana undulata"
+  ],
   "effects": [
     "Inner visions",
     "deep introspection",
@@ -24,12 +26,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: tabersonine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tabersonine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: tabersonine (CID 20485)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/20485",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "tabersonine",
-  "summary": "tabersonine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "tabersonine is a compound reported in tabernaemontana undulata. Available source coverage remains preliminary in this dataset."
 }

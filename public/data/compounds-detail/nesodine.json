@@ -1,8 +1,10 @@
 {
   "name": "nesodine",
   "category": "general",
-  "description": "nesodine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "nesodine is a compound reported in heimia salicifolia (sinicuichi). Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "heimia salicifolia (sinicuichi)"
+  ],
   "effects": [
     "Auditory distortion",
     "calmness",
@@ -36,12 +38,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: nesodine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nesodine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: nesodine (CID 6475455)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6475455",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nesodine",
-  "summary": "nesodine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "nesodine is a compound reported in heimia salicifolia (sinicuichi). Available source coverage remains preliminary in this dataset."
 }

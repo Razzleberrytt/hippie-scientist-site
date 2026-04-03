@@ -1,8 +1,12 @@
 {
   "name": "tryptamines",
-  "category": "general",
-  "description": "tryptamines is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "category": "tryptamine alkaloid",
+  "description": "tryptamines is a tryptamine alkaloid compound reported in acacia maidenii, desmanthus illinoensis, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "acacia maidenii",
+    "desmanthus illinoensis",
+    "Acacia maidenii F. Muell."
+  ],
   "effects": [
     "Psychedelic visions",
     "auditory changes",
@@ -44,5 +48,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "tryptamines",
-  "summary": "tryptamines is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "tryptamines is a tryptamine alkaloid compound reported in acacia maidenii, desmanthus illinoensis, and related herbs. Available source coverage remains preliminary in this dataset."
 }

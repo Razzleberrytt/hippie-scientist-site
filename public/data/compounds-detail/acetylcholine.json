@@ -1,8 +1,10 @@
 {
   "name": "acetylcholine",
   "category": "general",
-  "description": "acetylcholine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "acetylcholine is a compound reported in urtica dioica. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "urtica dioica"
+  ],
   "effects": [
     "Mild stimulation",
     "increased circulation",
@@ -26,12 +28,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: acetylcholine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/acetylcholine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: acetylcholine (CID 187)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/187",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "acetylcholine",
-  "summary": "acetylcholine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "acetylcholine is a compound reported in urtica dioica. Available source coverage remains preliminary in this dataset."
 }

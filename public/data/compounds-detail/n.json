@@ -1,8 +1,10 @@
 {
   "name": "N",
   "category": "general",
-  "description": "N is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "N is a compound reported in psychotria carthagenensis. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "psychotria carthagenensis"
+  ],
   "effects": [
     "Closed-eye visuals",
     "altered cognition",
@@ -23,12 +25,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: N",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/n",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: N (CID 947)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/947",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "n",
-  "summary": "N is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "N is a compound reported in psychotria carthagenensis. Available source coverage remains preliminary in this dataset."
 }

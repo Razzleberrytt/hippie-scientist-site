@@ -1,8 +1,10 @@
 {
   "name": "Solanine",
   "category": "general",
-  "description": "Solanine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Solanine is a compound reported in Cestrum parqui. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "Cestrum parqui"
+  ],
   "effects": [
     "Delirium",
     "confusion",
@@ -23,12 +25,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Solanine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/solanine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Solanine (CID 30185)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/30185",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "solanine",
-  "summary": "Solanine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Solanine is a compound reported in Cestrum parqui. Available source coverage remains preliminary in this dataset."
 }

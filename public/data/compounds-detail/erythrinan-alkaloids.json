@@ -1,8 +1,10 @@
 {
   "name": "erythrinan alkaloids",
-  "category": "general",
-  "description": "erythrinan alkaloids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "category": "alkaloid",
+  "description": "erythrinan alkaloids is a alkaloid compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "erythrina mulungu"
+  ],
   "effects": [
     "Relaxation",
     "improved sleep",
@@ -49,5 +51,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "erythrinan-alkaloids",
-  "summary": "erythrinan alkaloids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "erythrinan alkaloids is a alkaloid compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset."
 }

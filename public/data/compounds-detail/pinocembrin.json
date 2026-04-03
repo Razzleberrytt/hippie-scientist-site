@@ -1,8 +1,10 @@
 {
   "name": "pinocembrin",
   "category": "general",
-  "description": "pinocembrin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "pinocembrin is a compound reported in turnera diffusa. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "turnera diffusa"
+  ],
   "effects": [
     "Mood lift",
     "mild stimulation",
@@ -31,12 +33,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: pinocembrin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/pinocembrin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: pinocembrin (CID 68071)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/68071",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "pinocembrin",
-  "summary": "pinocembrin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "pinocembrin is a compound reported in turnera diffusa. Available source coverage remains preliminary in this dataset."
 }

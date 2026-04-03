@@ -1,9 +1,10 @@
 {
   "name": "diterpenoids",
   "category": "general",
-  "description": "diterpenoids is a compound reported in african dream root. Available source coverage remains preliminary in this dataset.",
+  "description": "diterpenoids is a compound reported in african dream root and klip dagga. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "african dream root"
+    "african dream root",
+    "klip dagga"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in ritual",
@@ -50,5 +51,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "diterpenoids",
-  "summary": "diterpenoids is a compound reported in african dream root. Available source coverage remains preliminary in this dataset."
+  "summary": "diterpenoids is a compound reported in african dream root and klip dagga. Available source coverage remains preliminary in this dataset."
 }

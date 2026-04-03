@@ -1,8 +1,10 @@
 {
   "name": "beta-carbolines",
-  "category": "general",
-  "description": "beta-carbolines is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "category": "beta-carboline alkaloid",
+  "description": "beta-carbolines is a beta-carboline alkaloid compound reported in virola calophylla. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "virola calophylla"
+  ],
   "effects": [
     "Intense visions",
     "altered perception",
@@ -32,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "beta-carbolines",
-  "summary": "beta-carbolines is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "beta-carbolines is a beta-carboline alkaloid compound reported in virola calophylla. Available source coverage remains preliminary in this dataset."
 }
