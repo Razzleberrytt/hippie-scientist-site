@@ -5648,12 +5648,12 @@
   {
     "name": "calendula officinalis",
     "latin": "Calendula officinalis",
-    "class": null,
-    "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, wound healing, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, antifungal. No direct region data. Contextual inference: Anti-inflammatory, wound healing, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, antifungal. none. ; nan; nan. ; nan; nan",
-    "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
-    "effects": ["Anti-inflammatory", "wound healing", "antifungal", "Anti", "inflammatory"],
-    "contraindications": [],
+    "class": "Topical anti-inflammatory herb",
+    "intensity": "mild",
+    "mechanism": "Primarily topical activity; preclinical and limited clinical evidence suggests anti-inflammatory and wound-healing effects.",
+    "activeCompounds": ["triterpenoids", "flavonoids", "carotenoids"],
+    "effects": ["topical anti-inflammatory support", "minor wound-healing support"],
+    "contraindications": ["avoid if allergic to Asteraceae/Compositae plants"],
     "safetyNotes": [
       "safe",
       "Rare allergic skin reactions",
@@ -5669,23 +5669,26 @@
     ],
     "sources": [
       {
-        "title": "Inferred from scientific name:"
+        "title": "NCBI Taxonomy: Calendula officinalis (TaxID 41496)",
+        "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=41496&mode=Info",
+        "note": "Canonical species identity."
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "title": "Systematic review: Calendula officinalis extract for wound healing",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31145533/",
+        "note": "Review-level evidence for topical wound-healing use; certainty is limited by heterogeneous studies."
       }
     ],
     "lastUpdated": "2026-03-21",
-    "description": "Anti-inflammatory, wound healing, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-    "dosage": ["1", "2 g", "day dried flower or 300", "500 mg extract"],
+    "description": "Traditional topical herb used for minor skin inflammation and wound support; human evidence is limited and mostly adjunctive.",
+    "dosage": ["Topical preparations are most common; product-specific dosing should follow labeling and clinical guidance."],
     "duration": "3–6 hours",
     "interactions": [],
     "legalStatus": "Widely legal; approved for use in herbal products",
     "preparation": "Petals used fresh or dried in teas, infusions, salves, and tinctures",
     "region": "No direct region data. Contextual inference: Anti-inflammatory, wound healing, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, antifungal. none. ; nan; nan",
-    "therapeuticUses": [],
-    "traditionalUse": "; nan; nan",
+    "therapeuticUses": ["minor skin irritation support", "adjunct wound-care support"],
+    "traditionalUse": "Traditionally used in European and Mediterranean herbal medicine, mainly as a topical preparation.",
     "sideEffects": ["Rare allergic skin reactions", "generally well tolerated"],
     "slug": "calendula-officinalis"
   },
@@ -37787,22 +37790,33 @@
   },
   {
     "name": "urtica dioica",
-    "latin": null,
-    "class": null,
+    "latin": "Urtica dioica",
+    "class": "Nutritional and anti-inflammatory herb",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
-    "effects": [
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan."
+    "mechanism": "Evidence suggests anti-inflammatory activity and possible effects on cytokine signaling; clinical evidence remains mixed by indication.",
+    "activeCompounds": ["flavonoids", "phenolic acids", "lectins", "histamine (fresh trichomes)"],
+    "effects": ["adjunct symptom support in some inflammatory conditions", "nutritive tonic use in traditional practice"],
+    "contraindications": ["use caution in pregnancy", "use caution with antihypertensives and diuretics"],
+    "safetyNotes": ["Generally well tolerated when processed for oral use.", "Fresh plant contact can cause transient stinging/urticarial skin reactions."],
+    "sources": [
+      {
+        "title": "NCBI Taxonomy: Urtica dioica (TaxID 3501)",
+        "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3501&mode=Info",
+        "note": "Canonical species identity."
+      },
+      {
+        "title": "Randomized trial (BPH): Urtica dioica root extract",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16635963/",
+        "note": "Clinical trial evidence for one indication; not generalizable to all uses."
+      },
+      {
+        "title": "Randomized trial (osteoarthritis): stinging nettle leaf",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/10581821/",
+        "note": "Small trial; evidence should be considered preliminary."
+      }
     ],
-    "contraindications": [],
-    "safetyNotes": [],
-    "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": ["benign prostatic symptom support (selected extracts)", "adjunct joint symptom support (limited evidence)"],
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -37816,8 +37830,8 @@
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "legalStatus": "legal",
     "interactions": [],
-    "description": "; nan; nan.",
-    "sideEffects": [],
+    "description": "Traditional nettle herb with mixed but suggestive human evidence for selected inflammatory and urinary indications.",
+    "sideEffects": ["contact urticaria from fresh plant hairs", "mild gastrointestinal upset in some users"],
     "slug": "urtica-dioica"
   },
   {
