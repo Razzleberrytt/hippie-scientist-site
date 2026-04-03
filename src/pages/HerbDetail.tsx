@@ -43,6 +43,7 @@ import { buildGovernedQuickCompareSection } from '@/lib/governedQuickCompare'
 import { buildFallbackHerbIntro, buildGovernedDetailIntro } from '@/lib/governedIntro'
 import { resolveGovernedCtaDecision } from '@/lib/governedCta'
 import { buildGovernedReviewFreshness } from '@/lib/governedReviewFreshness'
+import { getHerbRecommendation } from '@/lib/herbRecommendations'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -436,6 +437,7 @@ export default function HerbDetail() {
   const breadcrumbId = `${SITE_URL}${pagePath}#breadcrumb`
   const enrichmentRecommendations = buildEnrichmentRecommendations('herb', herb.slug)
   const quickCompareSection = buildGovernedQuickCompareSection('herb', herb.slug)
+  const herbRecommendation = getHerbRecommendation(herb.slug)
   const recommendationNames = {
     herb: new Map(herbs.map(item => [item.slug, item.common || item.name || item.slug])),
     compound: new Map(compounds.map(item => [item.slug, item.name || item.slug])),
@@ -975,6 +977,12 @@ export default function HerbDetail() {
             : 'All core evidence fields present for this profile.'}
           <InfoTooltip text='Values with published studies should be cross-checked against the Sources section.' />
         </div>
+        {herbRecommendation && (
+          <div className='mt-3 text-xs text-white/45'>
+            Shopping guidance criteria are available for this herb and ready for a future
+            recommendation module.
+          </div>
+        )}
       </article>
     </main>
   )
