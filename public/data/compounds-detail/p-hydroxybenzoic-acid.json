@@ -1,5 +1,7 @@
 {
   "name": "p-hydroxybenzoic acid",
+  "category": "general",
+  "description": "p-hydroxybenzoic acid is a compound reported in adenostoma fasciculatum. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "adenostoma fasciculatum"
   ],
@@ -11,15 +13,23 @@
     "Limited safety data",
     "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
   ],
-  "category": null,
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "PubChem compound: p-hydroxybenzoic acid",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/p-hydroxybenzoic-acid",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "p-hydroxybenzoic-acid",
-  "id": "p-hydroxybenzoic-acid",
-  "displayName": "p-hydroxybenzoic acid"
+  "summary": "p-hydroxybenzoic acid is a compound reported in adenostoma fasciculatum. Available source coverage remains preliminary in this dataset."
 }

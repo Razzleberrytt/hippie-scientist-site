@@ -1,8 +1,8 @@
 {
   "name": "Chamazulene",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "Chamazulene is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Anti-inflammatory",
     "astringent",
@@ -14,10 +14,23 @@
     "allergies to Asteraceae",
     "bleeding disorders"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Chamazulene",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/chamazulene",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "chamazulene",
-  "id": "chamazulene",
-  "displayName": "Chamazulene"
+  "summary": "Chamazulene is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

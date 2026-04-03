@@ -1,8 +1,8 @@
 {
   "name": "fatty acids",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "fatty acids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Mental clarity",
     "energy boost",
@@ -20,10 +20,23 @@
     "hypertension",
     "pregnancy."
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: fatty acids",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/fatty-acids",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "fatty-acids",
-  "id": "fatty-acids",
-  "displayName": "fatty acids"
+  "summary": "fatty acids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

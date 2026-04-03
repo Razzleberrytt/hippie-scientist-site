@@ -1,5 +1,7 @@
 {
   "name": "Ergoline alkaloids (trace)",
+  "category": "general",
+  "description": "Ergoline alkaloids (trace) is a compound reported in convolvulus arvensis. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "convolvulus arvensis"
   ],
@@ -10,10 +12,23 @@
     "nan."
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Ergoline alkaloids (trace)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ergoline-alkaloids-trace",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "ergoline-alkaloids-trace",
-  "id": "ergoline-alkaloids-trace",
-  "displayName": "Ergoline alkaloids (trace)"
+  "summary": "Ergoline alkaloids (trace) is a compound reported in convolvulus arvensis. Available source coverage remains preliminary in this dataset."
 }

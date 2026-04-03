@@ -1,8 +1,9 @@
 {
   "name": "Marrubiin",
+  "category": "general",
+  "description": "Marrubiin is a compound reported in marrubium vulgare. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "marrubium vulgare",
-    "nan"
+    "marrubium vulgare"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -20,10 +21,23 @@
     "pregnancy",
     "psychiatric conditions."
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Marrubiin",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/marrubiin",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "marrubiin",
-  "id": "marrubiin",
-  "displayName": "Marrubiin"
+  "summary": "Marrubiin is a compound reported in marrubium vulgare. Available source coverage remains preliminary in this dataset."
 }

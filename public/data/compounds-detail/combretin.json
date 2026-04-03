@@ -1,5 +1,7 @@
 {
   "name": "Combretin",
+  "category": "general",
+  "description": "Combretin is a compound reported in combretum quadrangulare. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "combretum quadrangulare"
   ],
@@ -7,10 +9,23 @@
     "No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures."
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Combretin",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/combretin",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "combretin",
-  "id": "combretin",
-  "displayName": "Combretin"
+  "summary": "Combretin is a compound reported in combretum quadrangulare. Available source coverage remains preliminary in this dataset."
 }

@@ -1,8 +1,8 @@
 {
   "name": "unverified cannabinoids",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "unverified cannabinoids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Calmness",
     "mild euphoria",
@@ -12,10 +12,23 @@
     "used in dreamwork"
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: unverified cannabinoids",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/unverified-cannabinoids",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "unverified-cannabinoids",
-  "id": "unverified-cannabinoids",
-  "displayName": "unverified cannabinoids"
+  "summary": "unverified cannabinoids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

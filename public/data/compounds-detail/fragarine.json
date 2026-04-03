@@ -1,5 +1,7 @@
 {
   "name": "Fragarine",
+  "category": "general",
+  "description": "Fragarine is a compound reported in rubus idaeus. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "rubus idaeus"
   ],
@@ -7,10 +9,23 @@
     "No direct effects data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... No direct mechanismofaction data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... Used in midwifery and herbal traditions to support reproductive health.. Used in midwifery and herbal traditions to support reproductive health."
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Fragarine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/fragarine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "fragarine",
-  "id": "fragarine",
-  "displayName": "Fragarine"
+  "summary": "Fragarine is a compound reported in rubus idaeus. Available source coverage remains preliminary in this dataset."
 }

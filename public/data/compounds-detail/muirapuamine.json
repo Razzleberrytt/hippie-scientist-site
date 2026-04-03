@@ -1,8 +1,9 @@
 {
   "name": "Muirapuamine",
+  "category": "general",
+  "description": "Muirapuamine is a compound reported in Muira Puama. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "Muira Puama",
-    "nan"
+    "Muira Puama"
   ],
   "effects": [
     "Improved libido",
@@ -19,15 +20,23 @@
     "hypertension",
     "pregnancy."
   ],
-  "category": null,
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "PubChem compound: Muirapuamine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/muirapuamine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "muirapuamine",
-  "id": "muirapuamine",
-  "displayName": "Muirapuamine"
+  "summary": "Muirapuamine is a compound reported in Muira Puama. Available source coverage remains preliminary in this dataset."
 }

@@ -1,8 +1,8 @@
 {
   "name": "triterpenes",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "triterpenes is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Anti-inflammatory",
     "hepatoprotective"
@@ -10,10 +10,23 @@
   "contraindications": [
     "Avoid in patients with liver dysfunction"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: triterpenes",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/triterpenes",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "triterpenes",
-  "id": "triterpenes",
-  "displayName": "triterpenes"
+  "summary": "triterpenes is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

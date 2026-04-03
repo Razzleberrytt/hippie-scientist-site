@@ -1,5 +1,7 @@
 {
   "name": "Huperzine A",
+  "category": "general",
+  "description": "Huperzine A is a compound reported in huperzia serrata. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "huperzia serrata"
   ],
@@ -7,10 +9,23 @@
     "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Huperzine A",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/huperzine-a",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "huperzine-a",
-  "id": "huperzine-a",
-  "displayName": "Huperzine A"
+  "summary": "Huperzine A is a compound reported in huperzia serrata. Available source coverage remains preliminary in this dataset."
 }

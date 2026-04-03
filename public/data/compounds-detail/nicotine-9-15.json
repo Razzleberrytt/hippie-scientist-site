@@ -1,8 +1,8 @@
 {
   "name": "Nicotine (9–15%)",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "Nicotine (9–15%) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Intense stimulation",
     "nausea",
@@ -16,10 +16,23 @@
     "pregnancy",
     "psychiatric conditions"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Nicotine (9–15%)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nicotine-9-15",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nicotine-9-15",
-  "id": "nicotine-9-15",
-  "displayName": "Nicotine (9–15%)"
+  "summary": "Nicotine (9–15%) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

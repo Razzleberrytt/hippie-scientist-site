@@ -1,7 +1,8 @@
 {
   "name": "Germacranolides",
+  "category": "general",
+  "description": "Germacranolides is a compound reported in calea zacatechichi. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "nan",
     "calea zacatechichi"
   ],
   "effects": [
@@ -30,10 +31,23 @@
     "pregnancy",
     "epilepsy."
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Germacranolides",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/germacranolides",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "germacranolides",
-  "id": "germacranolides",
-  "displayName": "Germacranolides"
+  "summary": "Germacranolides is a compound reported in calea zacatechichi. Available source coverage remains preliminary in this dataset."
 }

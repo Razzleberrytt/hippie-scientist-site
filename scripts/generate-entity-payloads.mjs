@@ -12,6 +12,7 @@ const COMPOUND_DETAIL_DIR = path.join(DATA_DIR, 'compounds-detail')
 const GOVERNED_ENRICHMENT_PATH = path.join(DATA_DIR, 'enrichment-governed.json')
 
 const asText = value => String(value || '').trim()
+const clip = (value, max = 260) => asText(value).slice(0, max)
 const splitList = value => {
   if (Array.isArray(value)) {
     return value.map(asText).filter(Boolean)
@@ -22,6 +23,79 @@ const splitList = value => {
     .split(/[\n,;|]/)
     .map(item => item.trim())
     .filter(Boolean)
+}
+
+const PLACEHOLDER_PATTERNS = [
+  /\bno direct\b/i,
+  /\bcontextual inference\b/i,
+  /\bnot established\b/i,
+  /\binsufficient data\b/i,
+  /\[object\s+object\]/i,
+  /\bnan\b/i,
+]
+
+const GENERIC_CATEGORY_PATTERNS = /^(?:general|unknown|other|misc(?:ellaneous)?|n\/a)$/i
+
+function cleanNarrative(value) {
+  const text = asText(value).replace(/\s+/g, ' ')
+  if (!text) return ''
+  if (PLACEHOLDER_PATTERNS.some(pattern => pattern.test(text))) return ''
+  return text
+}
+
+function normalizeCategoryLabel(record) {
+  const raw = asText(record.category || record.className || record.class || record.type)
+  if (!raw || GENERIC_CATEGORY_PATTERNS.test(raw)) return ''
+  return raw
+}
+
+function formatHerbContext(herbs) {
+  if (herbs.length === 0) return ''
+  if (herbs.length === 1) return `reported in ${herbs[0]}`
+  if (herbs.length === 2) return `reported in ${herbs[0]} and ${herbs[1]}`
+  return `reported in ${herbs[0]}, ${herbs[1]}, and related herbs`
+}
+
+function formatEvidenceContext(governedSummary, hasEvidence) {
+  const evidenceLabel = asText(governedSummary?.evidenceLabelTitle)
+  if (evidenceLabel) {
+    return `Governed evidence review is currently rated ${evidenceLabel.toLowerCase()}.`
+  }
+  return hasEvidence
+    ? 'Available source coverage remains preliminary in this dataset.'
+    : 'Evidence depth is limited in the current dataset.'
+}
+
+function buildCompoundNarrative(record, governedSummary) {
+  const name = asText(record.name || record.commonName || record.slug || 'This compound')
+  const herbs = splitList(record.herbs || record.foundInHerbs || record.associatedHerbs)
+  const category = normalizeCategoryLabel(record)
+  const mechanism = cleanNarrative(record.mechanism || record.mechanismOfAction)
+  const existingDescription = cleanNarrative(record.description)
+  const existingSummary = cleanNarrative(record.summary)
+  const evidenceContext = formatEvidenceContext(governedSummary, hasEvidenceNotes(record))
+
+  const identitySentence =
+    category && formatHerbContext(herbs)
+      ? `${name} is a ${category} compound ${formatHerbContext(herbs)}.`
+      : category
+        ? `${name} is a ${category} compound.`
+        : formatHerbContext(herbs)
+          ? `${name} is a compound ${formatHerbContext(herbs)}.`
+          : `${name} is a compound documented in this dataset.`
+
+  const mechanismSentence = mechanism
+    ? `Current mechanism notes describe ${mechanism.charAt(0).toLowerCase()}${mechanism.slice(1)}.`
+    : ''
+
+  const generatedDescription = clip(
+    [identitySentence, mechanismSentence, evidenceContext].filter(Boolean).join(' '),
+    320,
+  )
+  const description = existingDescription || generatedDescription
+  const summary = existingSummary || clip(existingDescription || generatedDescription, 180)
+
+  return { description, summary }
 }
 
 const slugify = value =>
@@ -176,13 +250,15 @@ function buildCompoundSummary(record, governedSummaryByEntity) {
   const effects = splitList(record.effects)
   const herbs = splitList(record.herbs || record.foundInHerbs || record.associatedHerbs)
   const interactionTags = splitList(record.interactionTags)
+  const governedSummary = governedSummaryByEntity.get(`compound:${slug}`) || undefined
+  const narrative = buildCompoundNarrative(record, governedSummary)
 
   return {
     id: asText(record.id || slug),
     slug,
     name: asText(record.name || record.commonName || slug),
-    summaryShort: asText(record.summary || record.description || record.mechanism),
-    description: asText(record.description || record.summary),
+    summaryShort: narrative.summary,
+    description: narrative.description,
     className: asText(record.className || record.class || record.type),
     category: asText(record.category || record.className || record.class || record.type),
     mechanism: asText(record.mechanism || record.mechanismOfAction),
@@ -194,8 +270,7 @@ function buildCompoundSummary(record, governedSummaryByEntity) {
       interactionTags.length > 0 ||
       splitList(record.interactionNotes || record.interactions).length > 0,
     hasEvidenceNotes: hasEvidenceNotes(record),
-    researchEnrichmentSummary:
-      governedSummaryByEntity.get(`compound:${slug}`) || undefined,
+    researchEnrichmentSummary: governedSummary,
     aliases: [asText(record.name), asText(record.className), asText(record.category)]
       .map(asText)
       .filter(Boolean),
@@ -228,6 +303,29 @@ function writeEntityDetails(records, targetDir) {
   return writtenSlugs.size
 }
 
+function writeCompoundDetails(records, targetDir, governedSummaryByEntity) {
+  cleanDir(targetDir)
+  const writtenSlugs = new Set()
+
+  for (const record of records) {
+    const slug = slugify(record.slug || record.id || record.name || record.common)
+    if (!slug || writtenSlugs.has(slug)) continue
+
+    const governedSummary = governedSummaryByEntity.get(`compound:${slug}`) || undefined
+    const narrative = buildCompoundNarrative(record, governedSummary)
+    const detailRecord = {
+      ...record,
+      slug,
+      description: narrative.description,
+      summary: narrative.summary,
+    }
+    writeJson(path.join(targetDir, `${slug}.json`), detailRecord)
+    writtenSlugs.add(slug)
+  }
+
+  return writtenSlugs.size
+}
+
 function run() {
   const herbs = JSON.parse(fs.readFileSync(HERBS_PATH, 'utf8'))
   const compounds = JSON.parse(fs.readFileSync(COMPOUNDS_PATH, 'utf8'))
@@ -244,7 +342,7 @@ function run() {
   writeJson(COMPOUND_SUMMARY_PATH, compoundSummaries)
 
   const herbDetailCount = writeEntityDetails(herbs, HERB_DETAIL_DIR)
-  const compoundDetailCount = writeEntityDetails(compounds, COMPOUND_DETAIL_DIR)
+  const compoundDetailCount = writeCompoundDetails(compounds, COMPOUND_DETAIL_DIR, governedSummaryByEntity)
 
   console.log(`[entity-payloads] herbs summary=${herbSummaries.length} detail=${herbDetailCount}`)
   console.log(

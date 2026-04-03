@@ -1,7 +1,8 @@
 {
   "name": "Petasin",
+  "category": "general",
+  "description": "Petasin is a compound reported in petasites hybridus. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "nan",
     "petasites hybridus"
   ],
   "effects": [
@@ -17,10 +18,23 @@
   "contraindications": [
     "Avoid unpurified extracts due to liver-toxic alkaloids"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Petasin",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/petasin",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "petasin",
-  "id": "petasin",
-  "displayName": "Petasin"
+  "summary": "Petasin is a compound reported in petasites hybridus. Available source coverage remains preliminary in this dataset."
 }

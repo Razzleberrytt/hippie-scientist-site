@@ -1,7 +1,8 @@
 {
   "name": "Baicalin",
+  "category": "general",
+  "description": "Baicalin is a compound reported in scutellaria lateriflora. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "nan",
     "scutellaria lateriflora"
   ],
   "effects": [
@@ -20,10 +21,23 @@
     "pregnancy",
     "sedative sensitivity."
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Baicalin",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/baicalin",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "baicalin",
-  "id": "baicalin",
-  "displayName": "Baicalin"
+  "summary": "Baicalin is a compound reported in scutellaria lateriflora. Available source coverage remains preliminary in this dataset."
 }

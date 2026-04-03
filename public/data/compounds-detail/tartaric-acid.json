@@ -1,5 +1,7 @@
 {
   "name": "Tartaric acid",
+  "category": "general",
+  "description": "Tartaric acid is a compound reported in tamarindus indica. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "tamarindus indica"
   ],
@@ -7,10 +9,23 @@
     "No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support."
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Tartaric acid",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tartaric-acid",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "tartaric-acid",
-  "id": "tartaric-acid",
-  "displayName": "Tartaric acid"
+  "summary": "Tartaric acid is a compound reported in tamarindus indica. Available source coverage remains preliminary in this dataset."
 }

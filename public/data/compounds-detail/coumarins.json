@@ -1,8 +1,8 @@
 {
   "name": "coumarins",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "coumarins is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Local anesthesia",
     "salivation",
@@ -22,10 +22,23 @@
     "None established",
     "avoid overuse on broken skin"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: coumarins",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/coumarins",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "coumarins",
-  "id": "coumarins",
-  "displayName": "coumarins"
+  "summary": "coumarins is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

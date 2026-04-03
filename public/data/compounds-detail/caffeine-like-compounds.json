@@ -1,8 +1,8 @@
 {
   "name": "caffeine-like compounds",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "caffeine-like compounds is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Mood lift",
     "mild stimulation",
@@ -20,10 +20,23 @@
     "Pregnancy",
     "hormone-sensitive conditions"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: caffeine-like compounds",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/caffeine-like-compounds",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "caffeine-like-compounds",
-  "id": "caffeine-like-compounds",
-  "displayName": "caffeine-like compounds"
+  "summary": "caffeine-like compounds is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

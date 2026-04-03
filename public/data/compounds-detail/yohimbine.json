@@ -1,8 +1,8 @@
 {
   "name": "Yohimbine",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "Yohimbine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Stimulation",
     "increased blood flow",
@@ -15,10 +15,23 @@
     "hypertension",
     "psychiatric conditions"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Yohimbine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/yohimbine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "yohimbine",
-  "id": "yohimbine",
-  "displayName": "Yohimbine"
+  "summary": "Yohimbine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

@@ -1,8 +1,8 @@
 {
   "name": "calein A and B",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "calein A and B is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Vivid and lucid dreams",
     "dream recall",
@@ -11,10 +11,23 @@
   "contraindications": [
     "Avoid in pregnancy and with CNS depressants"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: calein A and B",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/calein-a-and-b",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "calein-a-and-b",
-  "id": "calein-a-and-b",
-  "displayName": "calein A and B"
+  "summary": "calein A and B is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

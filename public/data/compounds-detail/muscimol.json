@@ -1,7 +1,8 @@
 {
   "name": "Muscimol",
+  "category": "general",
+  "description": "Muscimol is a compound reported in amanita muscaria. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "nan",
     "amanita muscaria"
   ],
   "effects": [
@@ -21,10 +22,23 @@
     "Toxic if misused",
     "dangerous with alcohol or sedatives"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Muscimol",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/muscimol",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "muscimol",
-  "id": "muscimol",
-  "displayName": "Muscimol"
+  "summary": "Muscimol is a compound reported in amanita muscaria. Available source coverage remains preliminary in this dataset."
 }

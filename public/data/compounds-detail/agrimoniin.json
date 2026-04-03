@@ -1,133 +1,39 @@
 {
-  "name": "agrimoniin",
+  "name": "Agrimoniin",
+  "category": "ellagitannin",
+  "description": "Agrimoniin is an ellagitannin studied for redox and inflammatory pathway effects in preclinical models. Human clinical evidence is limited.",
   "herbs": [
     "agrimonia eupatoria"
   ],
   "effects": [
-    "Astringent",
-    "anti-inflammatory",
-    "digestive tonic",
-    "anti",
-    "inflammatory"
+    "Preclinical reviews report antioxidant and inflammation-modulating activity across experimental systems.",
+    "Human clinical efficacy data remain limited."
   ],
   "contraindications": [
-    "Generally safe when used as tea",
-    "due to tannins may cause constipation or reduce absorption of minerals",
-    "avoid large doses during pregnancy."
+    "Insufficient high-quality human safety data for high-dose supplementation."
   ],
-  "category": null,
+  "interactions": [
+    "Interaction profile is not well characterized in clinical studies."
+  ],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "A comprehensive review of agrimoniin.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28731232/"
+    },
+    {
+      "title": "Safety signals and interaction liabilities of dietary flavonoids: systematic review and meta-analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39044112/"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "agrimoniin",
-  "id": "agrimoniin",
-  "displayName": "agrimoniin",
-  "researchEnrichment": {
-    "evidenceSummary": "Agrimoniin evidence is preclinical and mechanistic with uncertain clinical translation.",
-    "evidenceTier": "tier-3-limited",
-    "evidenceClassesPresent": [
-      "preclinical-mechanistic"
-    ],
-    "supportedUses": [],
-    "unsupportedOrUnclearUses": [
-      {
-        "claim": "Clinical efficacy claims remain uncertain or condition-limited for this compound.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ],
-        "uncertaintyNote": "Evidence base is limited, heterogeneous, or indirect."
-      }
-    ],
-    "mechanisms": [
-      {
-        "claim": "Experimental systems suggest redox and inflammatory pathway modulation.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "constituents": [],
-    "interactions": [
-      {
-        "claim": "Interaction risk is present or uncertain; medication reconciliation is advised before use.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "contraindications": [
-      {
-        "claim": "Use should be avoided or medically supervised in higher-risk populations due to limited certainty.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "adverseEffects": [
-      {
-        "claim": "Adverse-event profile varies by dose and context; evidence quality is heterogeneous.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "dosageContextNotes": [
-      {
-        "claim": "No reliable universal dosage range can be asserted from current evidence.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "populationSpecificNotes": [
-      {
-        "claim": "Pregnancy, pediatric, and medically complex populations require extra caution because direct evidence is limited.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "conflictNotes": [
-      {
-        "claim": "Evidence includes mechanistic and observational findings that do not consistently translate to proven clinical benefit.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "researchGaps": [
-      {
-        "claim": "Need better-controlled human trials with standardized exposure definitions and interaction monitoring.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "sourceRegistryIds": [
-      "src_pubmed-28731232"
-    ],
-    "sourceRefs": [
-      {
-        "sourceId": "src_pubmed-28731232",
-        "extractConfidence": "medium",
-        "reviewer": "editorial-team"
-      }
-    ],
-    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
-    "reviewedBy": "editorial-team",
-    "editorialStatus": "in-review"
-  }
+  "summary": "Agrimoniin is an ellagitannin studied for redox and inflammatory pathway effects in preclinical models. Human clinical evidence is limited."
 }

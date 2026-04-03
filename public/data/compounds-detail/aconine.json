@@ -1,134 +1,35 @@
 {
-  "name": "aconine",
+  "name": "Aconine",
+  "category": "diterpenoid alkaloid",
+  "description": "Aconine is an Aconitum-related diterpenoid alkaloid generally discussed within aconitum toxicology rather than therapeutic pharmacology. Direct human evidence is limited.",
   "herbs": [
     "aconitum napellus"
   ],
   "effects": [
-    "Potent analgesic and anti-inflammatory",
-    "extremely toxic",
-    "Potent analgesic and anti",
-    "inflammatory"
+    "Aconine is a hydrolysis-related aconitum alkaloid discussed mainly in toxicity context.",
+    "Compared with aconitine, available evidence remains sparse and largely non-clinical."
   ],
   "contraindications": [
-    "Highly toxic",
-    "ingestion can cause severe arrhythmias",
-    "paralysis and death",
-    "avoid internal use",
-    "handling requires caution."
+    "Avoid self-administration of aconitum-derived concentrates due to narrow safety margins across related alkaloids."
   ],
-  "category": null,
+  "interactions": [
+    "Compound-specific interaction evidence is limited; class-based cardiotoxic risk warrants caution with antiarrhythmic-active drugs."
+  ],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Research progress of aconitine toxicity and forensic analysis of aconitine poisoning.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32490307/"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "aconine",
-  "id": "aconine",
-  "displayName": "aconine",
-  "researchEnrichment": {
-    "evidenceSummary": "Aconine lacks robust direct studies; safety framing relies on aconitum alkaloid class toxicology.",
-    "evidenceTier": "tier-4-insufficient",
-    "evidenceClassesPresent": [
-      "human-observational"
-    ],
-    "supportedUses": [],
-    "unsupportedOrUnclearUses": [
-      {
-        "claim": "Clinical efficacy claims remain uncertain or condition-limited for this compound.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ],
-        "uncertaintyNote": "Evidence base is limited, heterogeneous, or indirect."
-      }
-    ],
-    "mechanisms": [
-      {
-        "claim": "Likely ion-channel effects similar to related aconitum alkaloids, but direct potency data are sparse.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "constituents": [],
-    "interactions": [
-      {
-        "claim": "Interaction risk is present or uncertain; medication reconciliation is advised before use.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "contraindications": [
-      {
-        "claim": "Use should be avoided or medically supervised in higher-risk populations due to limited certainty.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "adverseEffects": [
-      {
-        "claim": "Adverse-event profile varies by dose and context; evidence quality is heterogeneous.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "dosageContextNotes": [
-      {
-        "claim": "No reliable universal dosage range can be asserted from current evidence.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "populationSpecificNotes": [
-      {
-        "claim": "Pregnancy, pediatric, and medically complex populations require extra caution because direct evidence is limited.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "conflictNotes": [
-      {
-        "claim": "Evidence includes mechanistic and observational findings that do not consistently translate to proven clinical benefit.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "researchGaps": [
-      {
-        "claim": "Need better-controlled human trials with standardized exposure definitions and interaction monitoring.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "sourceRegistryIds": [
-      "src_pubmed-32490307"
-    ],
-    "sourceRefs": [
-      {
-        "sourceId": "src_pubmed-32490307",
-        "extractConfidence": "medium",
-        "reviewer": "editorial-team"
-      }
-    ],
-    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
-    "reviewedBy": "editorial-team",
-    "editorialStatus": "in-review"
-  }
+  "summary": "Aconine is an Aconitum-related diterpenoid alkaloid generally discussed within aconitum toxicology rather than therapeutic pharmacology. Direct human evidence is limited."
 }

@@ -1,8 +1,8 @@
 {
   "name": "Valerenic acid",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "Valerenic acid is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Sedation",
     "muscle relaxation",
@@ -16,10 +16,23 @@
     "benzodiazepines",
     "or barbiturates"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Valerenic acid",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/valerenic-acid",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "valerenic-acid",
-  "id": "valerenic-acid",
-  "displayName": "Valerenic acid"
+  "summary": "Valerenic acid is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

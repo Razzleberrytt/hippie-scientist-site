@@ -1,5 +1,7 @@
 {
   "name": "Sanshools",
+  "category": "general",
+  "description": "Sanshools is a compound reported in zanthoxylum clava-herculis. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "zanthoxylum clava-herculis"
   ],
@@ -7,10 +9,23 @@
     "No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize."
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Sanshools",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/sanshools",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "sanshools",
-  "id": "sanshools",
-  "displayName": "Sanshools"
+  "summary": "Sanshools is a compound reported in zanthoxylum clava-herculis. Available source coverage remains preliminary in this dataset."
 }

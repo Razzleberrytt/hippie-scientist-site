@@ -1,8 +1,8 @@
 {
   "name": "acetylcholine",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "acetylcholine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Mild stimulation",
     "increased circulation",
@@ -15,10 +15,23 @@
     "Pregnancy (caution)",
     "diuretics"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: acetylcholine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/acetylcholine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "acetylcholine",
-  "id": "acetylcholine",
-  "displayName": "acetylcholine"
+  "summary": "acetylcholine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

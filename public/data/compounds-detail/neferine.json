@@ -1,7 +1,8 @@
 {
   "name": "neferine",
+  "category": "general",
+  "description": "neferine is a compound reported in nelumbo nucifera. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "nan",
     "nelumbo nucifera"
   ],
   "effects": [
@@ -16,10 +17,23 @@
     "hypotension",
     "sedation"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: neferine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/neferine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "neferine",
-  "id": "neferine",
-  "displayName": "neferine"
+  "summary": "neferine is a compound reported in nelumbo nucifera. Available source coverage remains preliminary in this dataset."
 }

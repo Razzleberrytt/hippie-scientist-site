@@ -1,8 +1,8 @@
 {
   "name": "parquine",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "parquine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Delirium",
     "confusion",
@@ -12,10 +12,23 @@
     "Highly toxic",
     "not for human use"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: parquine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/parquine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "parquine",
-  "id": "parquine",
-  "displayName": "parquine"
+  "summary": "parquine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

@@ -1,8 +1,9 @@
 {
   "name": "gallic acid",
+  "category": "general",
+  "description": "gallic acid is a compound reported in alchemilla vulgaris. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "alchemilla vulgaris",
-    "nan"
+    "alchemilla vulgaris"
   ],
   "effects": [
     "Uterine tonic",
@@ -23,15 +24,23 @@
     "L313】.",
     "Avoid during pregnancy due to uterine stimulation potential"
   ],
-  "category": null,
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "PubChem compound: gallic acid",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/gallic-acid",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "gallic-acid",
-  "id": "gallic-acid",
-  "displayName": "gallic acid"
+  "summary": "gallic acid is a compound reported in alchemilla vulgaris. Available source coverage remains preliminary in this dataset."
 }

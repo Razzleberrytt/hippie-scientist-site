@@ -1,7 +1,8 @@
 {
   "name": "harmine",
+  "category": "general",
+  "description": "harmine is a compound reported in banisteriopsis caapi. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "nan",
     "banisteriopsis caapi"
   ],
   "effects": [
@@ -36,10 +37,23 @@
     "liver issues",
     "psychiatric disorders"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: harmine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/harmine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harmine",
-  "id": "harmine",
-  "displayName": "harmine"
+  "summary": "harmine is a compound reported in banisteriopsis caapi. Available source coverage remains preliminary in this dataset."
 }

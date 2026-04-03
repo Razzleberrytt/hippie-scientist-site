@@ -1,5 +1,7 @@
 {
   "name": "Paniculatin",
+  "category": "general",
+  "description": "Paniculatin is a compound reported in celastrus paniculatus. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "celastrus paniculatus"
   ],
@@ -12,10 +14,23 @@
     "and learning."
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Paniculatin",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/paniculatin",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "paniculatin",
-  "id": "paniculatin",
-  "displayName": "Paniculatin"
+  "summary": "Paniculatin is a compound reported in celastrus paniculatus. Available source coverage remains preliminary in this dataset."
 }

@@ -1,7 +1,8 @@
 {
   "name": "thymol",
+  "category": "general",
+  "description": "thymol is a compound reported in thymus vulgaris. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "nan",
     "thymus vulgaris"
   ],
   "effects": [
@@ -30,10 +31,23 @@
     "Avoid in bipolar disorder and pregnancy",
     "hormone-sensitive conditions"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: thymol",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/thymol",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "thymol",
-  "id": "thymol",
-  "displayName": "thymol"
+  "summary": "thymol is a compound reported in thymus vulgaris. Available source coverage remains preliminary in this dataset."
 }

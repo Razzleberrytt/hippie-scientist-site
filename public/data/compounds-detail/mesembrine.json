@@ -1,8 +1,9 @@
 {
   "name": "Mesembrine",
+  "category": "general",
+  "description": "Mesembrine is a compound reported in kanna. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "kanna",
-    "nan"
+    "kanna"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -40,10 +41,23 @@
     "Pregnancy",
     "concurrent SSRI use"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Mesembrine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mesembrine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mesembrine",
-  "id": "mesembrine",
-  "displayName": "Mesembrine"
+  "summary": "Mesembrine is a compound reported in kanna. Available source coverage remains preliminary in this dataset."
 }

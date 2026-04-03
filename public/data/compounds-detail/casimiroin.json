@@ -1,5 +1,7 @@
 {
   "name": "Casimiroin",
+  "category": "general",
+  "description": "Casimiroin is a compound reported in casimiroa edulis. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "casimiroa edulis"
   ],
@@ -12,10 +14,23 @@
     "and as a mild euphoric."
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Casimiroin",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/casimiroin",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "casimiroin",
-  "id": "casimiroin",
-  "displayName": "Casimiroin"
+  "summary": "Casimiroin is a compound reported in casimiroa edulis. Available source coverage remains preliminary in this dataset."
 }

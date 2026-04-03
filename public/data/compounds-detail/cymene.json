@@ -1,5 +1,7 @@
 {
   "name": "Cymene",
+  "category": "general",
+  "description": "Cymene is a compound reported in dysphania ambrosioides. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "dysphania ambrosioides"
   ],
@@ -11,10 +13,23 @@
     "dreaming or folk medicine"
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Cymene",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/cymene",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "cymene",
-  "id": "cymene",
-  "displayName": "Cymene"
+  "summary": "Cymene is a compound reported in dysphania ambrosioides. Available source coverage remains preliminary in this dataset."
 }

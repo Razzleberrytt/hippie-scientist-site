@@ -1,8 +1,8 @@
 {
   "name": "pseudoephedrine",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "pseudoephedrine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Increased energy",
     "focus",
@@ -20,10 +20,23 @@
     "heart conditions",
     "pregnancy"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: pseudoephedrine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/pseudoephedrine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "pseudoephedrine",
-  "id": "pseudoephedrine",
-  "displayName": "pseudoephedrine"
+  "summary": "pseudoephedrine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }
