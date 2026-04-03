@@ -2,6 +2,10 @@ import React from 'react'
 import { AnimatePresence, motion } from '@/lib/motion'
 import type { Herb } from '../types'
 import HerbCard from './HerbCard'
+import { buildCardSummary } from '@/lib/summary'
+import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
+import { hasVal } from '@/lib/pretty'
+import { slugify } from '@/lib/slug'
 
 const containerVariants = {
   hidden: {},
@@ -51,7 +55,25 @@ const HerbList: React.FC<Props> = ({
         <AnimatePresence>
           {herbs.slice(0, visible).map(h => (
             <motion.div key={h.id || h.name} variants={itemVariants} layout>
-              <HerbCard herb={h} performanceMode />
+              <HerbCard
+                name={String(h.common || h.scientific || h.name || 'Herb')}
+                summary={
+                  buildCardSummary({
+                    effects: h.effects,
+                    mechanism: h.mechanism,
+                    description: h.description,
+                    activeCompounds: h.compounds,
+                    therapeuticUses: h.therapeuticUses,
+                    maxLen: 130,
+                  }) || 'Learn more about this herb and its potential uses.'
+                }
+                tags={extractPrimaryEffects(Array.isArray(h.effects) ? h.effects : [], 2)}
+                detailUrl={
+                  hasVal(h.slug)
+                    ? `/herbs/${encodeURIComponent(String(h.slug))}`
+                    : `/herbs/${encodeURIComponent(slugify(String(h.common || h.scientific || h.name || '')))}`
+                }
+              />
             </motion.div>
           ))}
         </AnimatePresence>

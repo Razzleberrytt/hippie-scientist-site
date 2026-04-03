@@ -10,6 +10,10 @@ import { pickRandomHerb } from '@/lib/discovery'
 import type { Herb } from '@/types'
 import { trackEvent } from '@/lib/growth'
 import { CTA } from '@/lib/cta'
+import { buildCardSummary } from '@/lib/summary'
+import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
+import { hasVal } from '@/lib/pretty'
+import { slugify } from '@/lib/slug'
 
 const POPULAR_SEARCHES = ['ashwagandha', 'lion’s mane', 'kava', 'reishi', 'muscimol']
 const SEARCH_SUGGESTIONS = ['gaba', 'adaptogen', 'sleep', 'focus', 'dream']
@@ -542,9 +546,25 @@ export default function EntityDatabasePage({
           {filtered.map((item, index) => (
             <HerbCard
               key={item.slug ?? item.id ?? `${kind}-${index}`}
-              herb={item}
-              detailBasePath={kind === 'compound' ? '/compounds' : '/herbs'}
-              performanceMode
+              name={String(item.common || item.scientific || item.name || 'Herb')}
+              summary={
+                buildCardSummary({
+                  effects: item.effects,
+                  mechanism: item.mechanism,
+                  description: item.description,
+                  activeCompounds: item.compounds,
+                  therapeuticUses: item.therapeuticUses,
+                  maxLen: 130,
+                }) || 'Learn more about this herb and its potential uses.'
+              }
+              tags={extractPrimaryEffects(Array.isArray(item.effects) ? item.effects : [], 2)}
+              detailUrl={
+                hasVal(item.slug)
+                  ? `${kind === 'compound' ? '/compounds' : '/herbs'}/${encodeURIComponent(String(item.slug))}`
+                  : `${kind === 'compound' ? '/compounds' : '/herbs'}/${encodeURIComponent(
+                      slugify(String(item.common || item.scientific || item.name || ''))
+                    )}`
+              }
             />
           ))}
           {!filtered.length && (
