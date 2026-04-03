@@ -38,6 +38,8 @@ async function run() {
   const TEST_NOW_MS = 1711965000000
   const renderCuratedProducts = (context: Parameters<typeof getRenderableCuratedProducts>[0]) =>
     getRenderableCuratedProducts(context, { nowMs: TEST_NOW_MS })
+  const renderCuratedProductsDebug = (context: Parameters<typeof getRenderableCuratedProducts>[0]) =>
+    getRenderableCuratedProducts(context, { nowMs: TEST_NOW_MS, debug: true })
   const base = curatedProductRecommendations[0]
 
   const herbRows = renderCuratedProducts({
@@ -76,6 +78,35 @@ async function run() {
   })
   assert.equal(unknownEntity.length, 0)
 
+  installAnalyticsWindow([])
+  const debugRows = renderCuratedProductsDebug({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  })
+  const debugSample = debugRows[0]
+  assert.ok(debugSample)
+  assert.equal(typeof debugSample.debug.finalScore, 'number')
+  assert.equal(typeof debugSample.debug.components.baseScore, 'number')
+  assert.equal(typeof debugSample.debug.components.clickScore, 'number')
+  assert.equal(typeof debugSample.debug.components.conversionScore, 'number')
+  assert.equal(typeof debugSample.debug.components.coldStartBoost, 'number')
+  assert.equal(typeof debugSample.debug.components.explorationBoost, 'number')
+  assert.equal(typeof debugSample.debug.components.jitter, 'number')
+  assert.equal(typeof debugSample.debug.metadata.isColdStart, 'boolean')
+  assert.equal(typeof debugSample.debug.metadata.totalClicks, 'number')
+  assert.equal(typeof debugSample.debug.metadata.totalConversions, 'number')
+  assert.equal(debugSample.debug.metadata.lastEventAgeMs, null)
+  assert.equal(
+    debugSample.debug.finalScore,
+    debugSample.debug.components.baseScore +
+      debugSample.debug.components.clickScore +
+      debugSample.debug.components.conversionScore +
+      debugSample.debug.components.coldStartBoost +
+      debugSample.debug.components.explorationBoost,
+  )
+
   const rankedInput = curatedProductRecommendations
     .filter(product => product.entityType === 'herb' && product.entitySlug === 'ashwagandha')
     .sort((a, b) => Number(b.featured) - Number(a.featured) || a.sortOrder - b.sortOrder)
@@ -102,6 +133,30 @@ async function run() {
       timestamp: 1711950000100 + index,
     })),
   ])
+  const baselineRanking = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).map(row => row.productId)
+  // eslint-disable-next-line no-console
+  const originalConsoleDebug = console.debug
+  const debugLogs: unknown[][] = []
+  // eslint-disable-next-line no-console
+  console.debug = (...args: unknown[]) => {
+    debugLogs.push(args)
+  }
+  const debugRanking = renderCuratedProductsDebug({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).map(row => row.productId)
+  // eslint-disable-next-line no-console
+  console.debug = originalConsoleDebug
+  assert.deepEqual(debugRanking, baselineRanking)
+  assert.equal(debugLogs.length > 0, true)
+
   const dwellWeightedRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
@@ -135,6 +190,20 @@ async function run() {
     sourceCount: 3,
   }).filter(product => !product.featured)
   assert.equal(positionWeightedRows[0]?.productId, candidateA.productId)
+
+  const positionWeightedDebugRows = renderCuratedProductsDebug({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  const topPositionDebug = positionWeightedDebugRows[0]?.debug
+  assert.ok(topPositionDebug)
+  assert.equal(topPositionDebug.metadata.totalClicks, 3)
+  assert.equal(topPositionDebug.metadata.totalConversions, 0)
+  assert.equal(topPositionDebug.metadata.lastEventAgeMs !== null, true)
+  assert.equal(topPositionDebug.components.clickScore > 0, true)
+  assert.equal(topPositionDebug.components.conversionScore, 0)
 
   installAnalyticsWindow([
     ...Array.from({ length: 5 }, (_, index) => ({
