@@ -26,10 +26,10 @@ export default function RecommendedProducts({
       <div className='mt-2 space-y-2'>
         {recommendations.map(item => (
           <article
-            key={`${herb.slug || herb.common}-${item.name}`}
+            key={`${herb.slug || herb.common}-${item.productTitle}`}
             className='rounded-lg border border-white/15 bg-white/[0.02] p-3'
           >
-            <p className='text-sm font-medium text-white'>{item.name}</p>
+            <p className='text-sm font-medium text-white'>{item.productTitle}</p>
             <p className='mt-1 text-xs capitalize text-white/70'>Form: {item.form}</p>
             {item.attributes.length > 0 && (
               <p className='mt-1 text-xs text-white/70'>{item.attributes.join(' • ')}</p>

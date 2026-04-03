@@ -1,5 +1,5 @@
 export type HerbProduct = {
-  name: string
+  productTitle: string
   brand?: string
   form: string
   attributes: string[]
@@ -11,6 +11,7 @@ export type HerbProduct = {
 }
 
 export type HerbProductEntry = {
+  // Explicit link target: herbSlug should match the canonical herb.slug field.
   herbSlug: string
   products: HerbProduct[]
 }
@@ -20,7 +21,7 @@ export const herbProducts: HerbProductEntry[] = [
     herbSlug: 'ashwagandha',
     products: [
       {
-        name: 'Organic Ashwagandha Root Extract',
+        productTitle: 'Organic Ashwagandha Root Extract',
         brand: 'Himalaya',
         form: 'capsule',
         attributes: ['root-only', 'standardized withanolides', 'third-party tested'],
@@ -32,7 +33,7 @@ export const herbProducts: HerbProductEntry[] = [
         affiliateUrl: 'https://www.amazon.com/dp/B07N7S35N5?tag=razzleberry02-20',
       },
       {
-        name: 'Ashwagandha Root Powder',
+        productTitle: 'Ashwagandha Root Powder',
         form: 'powder',
         attributes: ['root powder', 'single-herb formula', 'clear serving scoop'],
         notes: 'Works well for tea or warm milk-style preparation when flavor is acceptable.',
@@ -46,7 +47,7 @@ export const herbProducts: HerbProductEntry[] = [
     herbSlug: 'chamomile',
     products: [
       {
-        name: 'Single-Herb Chamomile Tea Bags',
+        productTitle: 'Single-Herb Chamomile Tea Bags',
         form: 'tea',
         attributes: ['flower-only listing', 'no stimulant add-ins', 'aroma-forward dried flowers'],
         notes: 'Easy entry option for nightly wind-down routines.',
@@ -57,7 +58,7 @@ export const herbProducts: HerbProductEntry[] = [
         affiliateUrl: 'https://www.amazon.com/dp/B0009F3POO?tag=razzleberry02-20',
       },
       {
-        name: 'Whole Chamomile Flowers',
+        productTitle: 'Whole Chamomile Flowers',
         form: 'loose herb',
         attributes: ['whole flower heads', 'clean sifted material', 'organic when available'],
         score: 85,
@@ -70,7 +71,7 @@ export const herbProducts: HerbProductEntry[] = [
     herbSlug: 'rhodiola-rosea',
     products: [
       {
-        name: 'Rhodiola Rosea Standardized Extract',
+        productTitle: 'Rhodiola Rosea Standardized Extract',
         form: 'capsule',
         attributes: [
           'rhodiola rosea species named',
@@ -90,7 +91,7 @@ export const herbProducts: HerbProductEntry[] = [
     herbSlug: 'echinacea-purpurea',
     products: [
       {
-        name: 'Echinacea Purpurea Herbal Tea',
+        productTitle: 'Echinacea Purpurea Herbal Tea',
         brand: 'Traditional Medicinals',
         form: 'tea',
         attributes: [
@@ -111,7 +112,7 @@ export const herbProducts: HerbProductEntry[] = [
     herbSlug: 'ginger',
     products: [
       {
-        name: 'Organic Ginger Root Powder',
+        productTitle: 'Organic Ginger Root Powder',
         brand: 'Starwest Botanicals',
         form: 'powder',
         attributes: ['single-ingredient ginger root', 'clear culinary/supplement crossover use', 'organic'],
@@ -128,7 +129,7 @@ export const herbProducts: HerbProductEntry[] = [
     herbSlug: 'peppermint',
     products: [
       {
-        name: 'Peppermint Herbal Tea',
+        productTitle: 'Peppermint Herbal Tea',
         brand: 'Traditional Medicinals',
         form: 'tea',
         attributes: ['peppermint leaf-forward formula', 'caffeine-free', 'consistent bagged serving'],
@@ -145,7 +146,7 @@ export const herbProducts: HerbProductEntry[] = [
     herbSlug: 'tulsi',
     products: [
       {
-        name: 'Organic Tulsi Herbal Tea',
+        productTitle: 'Organic Tulsi Herbal Tea',
         brand: 'Organic India',
         form: 'tea',
         attributes: ['single-herb tulsi emphasis', 'organic certified', 'routine-friendly tea format'],
@@ -162,7 +163,7 @@ export const herbProducts: HerbProductEntry[] = [
     herbSlug: 'valerian-root',
     products: [
       {
-        name: 'Valerian Root Extract Capsules',
+        productTitle: 'Valerian Root Extract Capsules',
         brand: 'Nature’s Way',
         form: 'capsule',
         attributes: ['valerian root identified', 'extract-based capsule format', 'clear serving instructions'],
@@ -179,7 +180,7 @@ export const herbProducts: HerbProductEntry[] = [
     herbSlug: 'reishi-mushroom',
     products: [
       {
-        name: 'Organic Reishi Mushroom Extract Capsules',
+        productTitle: 'Organic Reishi Mushroom Extract Capsules',
         brand: 'Real Mushrooms',
         form: 'capsule',
         attributes: [
@@ -200,7 +201,7 @@ export const herbProducts: HerbProductEntry[] = [
     herbSlug: 'bacopa-monnieri',
     products: [
       {
-        name: 'Bacopa Monnieri Standardized Extract',
+        productTitle: 'Bacopa Monnieri Standardized Extract',
         brand: 'Double Wood Supplements',
         form: 'capsule',
         attributes: [
@@ -221,7 +222,7 @@ export const herbProducts: HerbProductEntry[] = [
     herbSlug: 'silybum-marianum',
     products: [
       {
-        name: 'Milk Thistle Seed Extract Capsules',
+        productTitle: 'Milk Thistle Seed Extract Capsules',
         brand: 'Jarrow Formulas',
         form: 'capsule',
         attributes: [
@@ -242,7 +243,7 @@ export const herbProducts: HerbProductEntry[] = [
     herbSlug: 'sambucus-nigra',
     products: [
       {
-        name: 'Black Elderberry Standardized Extract',
+        productTitle: 'Black Elderberry Standardized Extract',
         brand: 'Nature’s Way',
         form: 'capsule',
         attributes: [
@@ -263,7 +264,7 @@ export const herbProducts: HerbProductEntry[] = [
     herbSlug: 'turmeric',
     products: [
       {
-        name: 'Turmeric Curcuminoid Extract',
+        productTitle: 'Turmeric Curcuminoid Extract',
         form: 'capsule',
         attributes: ['curcuminoid standardization', 'third-party tested', 'clear extract amount'],
         score: 89,
@@ -272,7 +273,7 @@ export const herbProducts: HerbProductEntry[] = [
           'Standardized curcuminoid labeling improves comparability when evaluating concentrated extracts.',
       },
       {
-        name: 'Culinary Turmeric Root Powder',
+        productTitle: 'Culinary Turmeric Root Powder',
         form: 'powder',
         attributes: ['root powder', 'single-ingredient', 'batch freshness details'],
         notes: 'Practical for food-first use when you prefer gradual daily intake.',
