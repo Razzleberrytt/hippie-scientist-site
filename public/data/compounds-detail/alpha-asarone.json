@@ -54,5 +54,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "alpha-asarone",
-  "summary": "Alpha-asarone is a compound reported in acorus americanus and acorus calamus. Available references are still early and incomplete."
+  "summary": "Alpha-asarone is a compound reported in acorus americanus and acorus calamus. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "acorus-americanus",
+    "acorus-calamus"
+  ]
 }

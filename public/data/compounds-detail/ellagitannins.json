@@ -37,5 +37,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "ellagitannins",
-  "summary": "ellagitannins appears in records as a compound reported in alchemilla vulgaris. Current source coverage is limited and still developing."
+  "summary": "ellagitannins appears in records as a compound reported in alchemilla vulgaris. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "alchemilla-vulgaris"
+  ]
 }

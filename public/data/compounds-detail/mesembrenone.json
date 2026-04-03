@@ -46,5 +46,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mesembrenone",
-  "summary": "mesembrenone is a compound reported in sceletium tortuosum. Available references are still early and incomplete."
+  "summary": "mesembrenone is a compound reported in sceletium tortuosum. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "sceletium-tortuosum"
+  ]
 }

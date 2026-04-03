@@ -35,5 +35,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "quercetin-derivatives",
-  "summary": "quercetin derivatives is a compound reported in agrimonia eupatoria. Available references are still early and incomplete."
+  "summary": "quercetin derivatives is a compound reported in agrimonia eupatoria. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "agrimonia-eupatoria"
+  ]
 }

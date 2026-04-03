@@ -49,5 +49,14 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "vasicinone",
-  "summary": "vasicinone appears in records as a compound reported in adhatoda vasica, justicia adhatoda, and related herbs. Current source coverage is limited and still developing."
+  "summary": "vasicinone appears in records as a compound reported in adhatoda vasica, justicia adhatoda, and related herbs. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "adhatoda-vasica",
+    "justicia-adhatoda",
+    "sida-cordifolia"
+  ]
 }

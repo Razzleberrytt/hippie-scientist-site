@@ -35,5 +35,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nicotine",
-  "summary": "Nicotine appears in records as a compound reported in nicotiana rustica and nicotiana tabacum. Current source coverage is limited and still developing."
+  "summary": "Nicotine appears in records as a compound reported in nicotiana rustica and nicotiana tabacum. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nicotiana-rustica",
+    "nicotiana-tabacum"
+  ]
 }

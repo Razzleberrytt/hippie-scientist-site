@@ -41,5 +41,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "lactucin",
-  "summary": "Lactucin appears in records as a compound reported in wild lettuce and lactuca virosa. Current source coverage is limited and still developing."
+  "summary": "Lactucin appears in records as a compound reported in wild lettuce and lactuca virosa. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "wild-lettuce",
+    "lactuca-virosa"
+  ]
 }

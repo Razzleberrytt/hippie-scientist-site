@@ -34,5 +34,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "beta-carbolines",
-  "summary": "beta-carbolines is a beta-carboline alkaloid compound reported in virola calophylla. Current source coverage is limited and still developing."
+  "summary": "beta-carbolines is a beta-carboline alkaloid compound reported in virola calophylla. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "virola-calophylla"
+  ]
 }

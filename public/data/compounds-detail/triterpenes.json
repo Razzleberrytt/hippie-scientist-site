@@ -30,5 +30,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "triterpenes",
-  "summary": "triterpenes is a terpenoid compound reported in Entada africana. Current source coverage is limited and still developing."
+  "summary": "triterpenes is a terpenoid compound reported in Entada africana. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "entada-africana"
+  ]
 }

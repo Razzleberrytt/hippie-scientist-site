@@ -40,5 +40,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "phenolic-acids",
-  "summary": "phenolic acids is a phenolic compound compound reported in agrimonia eupatoria and Rhynchosia pyramidalis. Available references are still early and incomplete."
+  "summary": "phenolic acids is a phenolic compound compound reported in agrimonia eupatoria and Rhynchosia pyramidalis. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "agrimonia-eupatoria",
+    "rhynchosia-pyramidalis"
+  ]
 }

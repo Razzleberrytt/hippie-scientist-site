@@ -35,5 +35,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "serotonin",
-  "summary": "serotonin appears in records as a compound reported in urtica dioica. Current source coverage is limited and still developing."
+  "summary": "serotonin appears in records as a compound reported in urtica dioica. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "urtica-dioica"
+  ]
 }

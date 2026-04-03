@@ -42,5 +42,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "desfontainin",
-  "summary": "Desfontainin is a compound reported in desfontainia spinosa. Available references are still early and incomplete."
+  "summary": "Desfontainin is a compound reported in desfontainia spinosa. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "desfontainia-spinosa"
+  ]
 }

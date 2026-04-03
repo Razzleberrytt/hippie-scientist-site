@@ -35,5 +35,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "kaempferol-glycosides",
-  "summary": "kaempferol glycosides is a glycoside compound reported in agrimonia eupatoria. Available references are still early and incomplete."
+  "summary": "kaempferol glycosides is a glycoside compound reported in agrimonia eupatoria. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "agrimonia-eupatoria"
+  ]
 }

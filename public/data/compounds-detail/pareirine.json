@@ -27,5 +27,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "pareirine",
-  "summary": "Pareirine appears in records as a compound reported in cissampelos pareira. Current source coverage is limited and still developing."
+  "summary": "Pareirine appears in records as a compound reported in cissampelos pareira. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "cissampelos-pareira"
+  ]
 }

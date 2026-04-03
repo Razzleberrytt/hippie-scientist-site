@@ -38,5 +38,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "n-methyltryptamine",
-  "summary": "N-methyltryptamine appears in records as a compound reported in acacia confusa. Current source coverage is limited and still developing."
+  "summary": "N-methyltryptamine appears in records as a compound reported in acacia confusa. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "acacia-confusa"
+  ]
 }

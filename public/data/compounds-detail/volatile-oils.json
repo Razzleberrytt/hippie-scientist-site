@@ -50,5 +50,15 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "volatile-oils",
-  "summary": "volatile oils appears in records as a compound reported in agrimonia eupatoria, rhododendron anthopogon, and related herbs. Current source coverage is limited and still developing."
+  "summary": "volatile oils appears in records as a compound reported in agrimonia eupatoria, rhododendron anthopogon, and related herbs. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "agrimonia-eupatoria",
+    "rhododendron-anthopogon",
+    "tilia-tomentosa",
+    "asarum-canadense"
+  ]
 }

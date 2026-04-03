@@ -32,5 +32,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "steroids",
-  "summary": "steroids is a steroid compound reported in alchornea castaneifolia. Current source coverage is limited and still developing."
+  "summary": "steroids is a steroid compound reported in alchornea castaneifolia. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "alchornea-castaneifolia"
+  ]
 }

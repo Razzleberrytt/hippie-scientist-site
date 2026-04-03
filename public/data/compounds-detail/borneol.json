@@ -38,5 +38,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "borneol",
-  "summary": "borneol appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing."
+  "summary": "borneol appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "acorus-tatarinowii"
+  ]
 }

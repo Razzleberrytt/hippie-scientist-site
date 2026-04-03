@@ -36,5 +36,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "ligans",
-  "summary": "ligans is a compound reported in elaeagnus angustifolia. Available references are still early and incomplete."
+  "summary": "ligans is a compound reported in elaeagnus angustifolia. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "elaeagnus-angustifolia"
+  ]
 }

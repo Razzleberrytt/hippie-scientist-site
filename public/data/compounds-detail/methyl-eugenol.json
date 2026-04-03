@@ -38,5 +38,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "methyl-eugenol",
-  "summary": "methyl eugenol is a compound reported in acorus tatarinowii. Available references are still early and incomplete."
+  "summary": "methyl eugenol is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "acorus-tatarinowii"
+  ]
 }

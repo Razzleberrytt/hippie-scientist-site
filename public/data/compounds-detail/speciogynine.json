@@ -38,5 +38,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "speciogynine",
-  "summary": "speciogynine appears in records as a compound reported in mitragyna javanica. Current source coverage is limited and still developing."
+  "summary": "speciogynine appears in records as a compound reported in mitragyna javanica. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "mitragyna-javanica"
+  ]
 }

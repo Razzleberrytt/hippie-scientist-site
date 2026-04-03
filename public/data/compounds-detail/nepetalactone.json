@@ -41,5 +41,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nepetalactone",
-  "summary": "Nepetalactone appears in records as a compound reported in catnip and nepeta cataria. Current source coverage is limited and still developing."
+  "summary": "Nepetalactone appears in records as a compound reported in catnip and nepeta cataria. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "catnip",
+    "nepeta-cataria"
+  ]
 }

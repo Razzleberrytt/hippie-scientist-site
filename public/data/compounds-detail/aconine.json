@@ -31,5 +31,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "aconine",
-  "summary": "Aconine is an Aconitum-related diterpenoid alkaloid generally discussed within aconitum toxicology rather than therapeutic pharmacology. Direct human evidence is limited."
+  "summary": "Aconine is an Aconitum-related diterpenoid alkaloid generally discussed within aconitum toxicology rather than therapeutic pharmacology. Direct human evidence is limited.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "aconitum-napellus"
+  ]
 }

@@ -40,5 +40,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "fatty-acids",
-  "summary": "fatty acids is a compound reported in ptychopetalum olacoides. Available references are still early and incomplete."
+  "summary": "fatty acids is a compound reported in ptychopetalum olacoides. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "ptychopetalum-olacoides"
+  ]
 }

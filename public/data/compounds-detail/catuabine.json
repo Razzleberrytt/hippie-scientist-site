@@ -27,5 +27,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "catuabine",
-  "summary": "Catuabine is a compound reported in catuaba. Available references are still early and incomplete."
+  "summary": "Catuabine is a compound reported in catuaba. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "catuaba"
+  ]
 }

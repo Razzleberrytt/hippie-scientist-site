@@ -39,5 +39,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "coumarin",
-  "summary": "Coumarin is a coumarin compound reported in justicia pectoralis. Available references are still early and incomplete."
+  "summary": "Coumarin is a coumarin compound reported in justicia pectoralis. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "justicia-pectoralis"
+  ]
 }

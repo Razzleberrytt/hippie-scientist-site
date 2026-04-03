@@ -45,5 +45,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nesodine",
-  "summary": "nesodine appears in records as a compound reported in heimia salicifolia (sinicuichi). Current source coverage is limited and still developing."
+  "summary": "nesodine appears in records as a compound reported in heimia salicifolia (sinicuichi). Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "heimia-salicifolia-sinicuichi"
+  ]
 }

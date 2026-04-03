@@ -32,5 +32,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "zapotin",
-  "summary": "Zapotin appears in records as a compound reported in casimiroa edulis. Current source coverage is limited and still developing."
+  "summary": "Zapotin appears in records as a compound reported in casimiroa edulis. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "casimiroa-edulis"
+  ]
 }

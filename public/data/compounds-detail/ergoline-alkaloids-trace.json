@@ -30,5 +30,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "ergoline-alkaloids-trace",
-  "summary": "Ergoline alkaloids (trace) is an alkaloid compound reported in convolvulus arvensis. Current source coverage is limited and still developing."
+  "summary": "Ergoline alkaloids (trace) is an alkaloid compound reported in convolvulus arvensis. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "convolvulus-arvensis"
+  ]
 }

@@ -30,5 +30,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "phenolics",
-  "summary": "Phenolics appears in records as a compound reported in Spathodea campanulata. Current source coverage is limited and still developing."
+  "summary": "Phenolics appears in records as a compound reported in Spathodea campanulata. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "spathodea-campanulata"
+  ]
 }

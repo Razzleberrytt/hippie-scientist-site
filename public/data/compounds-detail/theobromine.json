@@ -62,5 +62,15 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "theobromine",
-  "summary": "theobromine is a compound reported in yerba mate, paullinia cupana, and related herbs. Available references are still early and incomplete."
+  "summary": "theobromine is a compound reported in yerba mate, paullinia cupana, and related herbs. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "yerba-mate",
+    "paullinia-cupana",
+    "paullinia-yoco",
+    "theobroma-cacao"
+  ]
 }

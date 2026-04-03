@@ -31,5 +31,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "beta",
-  "summary": "Beta is a compound reported in acorus calamus var. angustatus. Available references are still early and incomplete."
+  "summary": "Beta is a compound reported in acorus calamus var. angustatus. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "acorus-calamus-var-angustatus"
+  ]
 }

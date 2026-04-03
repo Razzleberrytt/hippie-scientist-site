@@ -27,5 +27,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "elsholtzia-ketone",
-  "summary": "Elsholtzia ketone appears in records as a compound reported in elsholtzia ciliata. Current source coverage is limited and still developing."
+  "summary": "Elsholtzia ketone appears in records as a compound reported in elsholtzia ciliata. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "elsholtzia-ciliata"
+  ]
 }

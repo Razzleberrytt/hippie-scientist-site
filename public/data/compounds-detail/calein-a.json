@@ -45,5 +45,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "calein-a",
-  "summary": "calein A appears in records as a compound reported in calea ternifolia. Current source coverage is limited and still developing."
+  "summary": "calein A appears in records as a compound reported in calea ternifolia. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "calea-ternifolia"
+  ]
 }

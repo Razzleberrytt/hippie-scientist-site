@@ -31,5 +31,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "anabasine",
-  "summary": "Anabasine is a minor tobacco alkaloid with nicotinic pharmacology and recognized use as an exposure biomarker. Evidence is strongest for toxicology and exposure characterization ra"
+  "summary": "Anabasine is a minor tobacco alkaloid with nicotinic pharmacology and recognized use as an exposure biomarker. Evidence is strongest for toxicology and exposure characterization ra",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nicotiana-tabacum"
+  ]
 }

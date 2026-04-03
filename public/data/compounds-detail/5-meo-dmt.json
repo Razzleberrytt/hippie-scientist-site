@@ -56,5 +56,14 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "5-meo-dmt",
-  "summary": "5-MeO-DMT appears in records as a compound reported in anadenanthera peregrina, virola calophylla, and related herbs. Current source coverage is limited and still developing."
+  "summary": "5-MeO-DMT appears in records as a compound reported in anadenanthera peregrina, virola calophylla, and related herbs. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "anadenanthera-peregrina",
+    "virola-calophylla",
+    "virola-theiodora"
+  ]
 }

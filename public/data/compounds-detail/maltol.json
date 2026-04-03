@@ -36,5 +36,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "maltol",
-  "summary": "maltol appears in records as a compound reported in passiflora incarnata. Current source coverage is limited and still developing."
+  "summary": "maltol appears in records as a compound reported in passiflora incarnata. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "passiflora-incarnata"
+  ]
 }

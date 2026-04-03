@@ -27,5 +27,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "cissamine",
-  "summary": "Cissamine is a compound reported in cissampelos pareira. Available references are still early and incomplete."
+  "summary": "Cissamine is a compound reported in cissampelos pareira. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "cissampelos-pareira"
+  ]
 }

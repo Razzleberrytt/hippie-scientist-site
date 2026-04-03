@@ -46,5 +46,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nornicotine",
-  "summary": "nornicotine is a compound reported in nicotiana rustica and nicotiana tabacum. Available references are still early and incomplete."
+  "summary": "nornicotine is a compound reported in nicotiana rustica and nicotiana tabacum. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nicotiana-rustica",
+    "nicotiana-tabacum"
+  ]
 }

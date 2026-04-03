@@ -31,5 +31,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "7-hydroxybaruol",
-  "summary": "7α-Hydroxybaruol is a triterpenoid reported in botanical constituent surveys. Human pharmacology and safety data remain very limited."
+  "summary": "7α-Hydroxybaruol is a triterpenoid reported in botanical constituent surveys. Human pharmacology and safety data remain very limited.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "adenostoma-fasciculatum"
+  ]
 }

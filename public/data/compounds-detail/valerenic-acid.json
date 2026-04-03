@@ -36,5 +36,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "valerenic-acid",
-  "summary": "Valerenic acid is a compound reported in valeriana officinalis. Available references are still early and incomplete."
+  "summary": "Valerenic acid is a compound reported in valeriana officinalis. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "valeriana-officinalis"
+  ]
 }

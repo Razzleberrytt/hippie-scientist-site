@@ -62,5 +62,15 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "nuciferine",
-  "summary": "Nuciferine is a compound reported in blue lotus, nelumbo nucifera, and related herbs. Available references are still early and incomplete."
+  "summary": "Nuciferine is a compound reported in blue lotus, nelumbo nucifera, and related herbs. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "blue-lotus",
+    "nelumbo-nucifera",
+    "nymphaea-caerulea",
+    "nymphaea-lotus"
+  ]
 }

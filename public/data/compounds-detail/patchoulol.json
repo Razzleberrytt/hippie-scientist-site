@@ -31,5 +31,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "patchoulol",
-  "summary": "Patchoulol appears in records as a compound reported in pogostemon cablin. Current source coverage is limited and still developing."
+  "summary": "Patchoulol appears in records as a compound reported in pogostemon cablin. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "pogostemon-cablin"
+  ]
 }

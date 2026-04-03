@@ -31,5 +31,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "suberosol",
-  "summary": "suberosol is a compound reported in adenostoma fasciculatum. Available references are still early and incomplete."
+  "summary": "suberosol is a compound reported in adenostoma fasciculatum. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "adenostoma-fasciculatum"
+  ]
 }

@@ -41,5 +41,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "ibogaine",
-  "summary": "Ibogaine is a compound reported in tabernanthe iboga. Available references are still early and incomplete."
+  "summary": "Ibogaine is a compound reported in tabernanthe iboga. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "tabernanthe-iboga"
+  ]
 }

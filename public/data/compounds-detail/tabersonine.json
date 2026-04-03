@@ -33,5 +33,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "tabersonine",
-  "summary": "tabersonine is a compound reported in tabernaemontana undulata. Available references are still early and incomplete."
+  "summary": "tabersonine is a compound reported in tabernaemontana undulata. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "tabernaemontana-undulata"
+  ]
 }

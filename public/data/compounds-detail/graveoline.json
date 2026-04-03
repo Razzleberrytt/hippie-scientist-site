@@ -27,5 +27,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "graveoline",
-  "summary": "Graveoline is a compound reported in ruta graveolens. Available references are still early and incomplete."
+  "summary": "Graveoline is a compound reported in ruta graveolens. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "ruta-graveolens"
+  ]
 }

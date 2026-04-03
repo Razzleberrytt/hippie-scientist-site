@@ -36,5 +36,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "hypaconitine",
-  "summary": "hypaconitine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing."
+  "summary": "hypaconitine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "aconitum-napellus"
+  ]
 }

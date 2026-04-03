@@ -38,5 +38,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "terpineol",
-  "summary": "α-terpineol is a compound reported in acorus tatarinowii. Available references are still early and incomplete."
+  "summary": "α-terpineol is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "acorus-tatarinowii"
+  ]
 }

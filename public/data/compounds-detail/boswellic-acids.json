@@ -30,5 +30,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "boswellic-acids",
-  "summary": "Boswellic acids is a compound reported in Boswellia dalzielii. Available references are still early and incomplete."
+  "summary": "Boswellic acids is a compound reported in Boswellia dalzielii. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "boswellia-dalzielii"
+  ]
 }

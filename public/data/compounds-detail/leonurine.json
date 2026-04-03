@@ -66,5 +66,15 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "leonurine",
-  "summary": "Leonurine appears in records as a compound reported in motherwort, klip dagga, and related herbs. Current source coverage is limited and still developing."
+  "summary": "Leonurine appears in records as a compound reported in motherwort, klip dagga, and related herbs. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "motherwort",
+    "klip-dagga",
+    "leonotis-leonurus",
+    "siberian-motherwort"
+  ]
 }

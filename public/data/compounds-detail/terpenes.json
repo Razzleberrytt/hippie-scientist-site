@@ -60,5 +60,14 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "terpenes",
-  "summary": "terpenes is a terpenoid compound reported in cannabis sativa, Myristica fragrans Houtt., and related herbs. Available references are still early and incomplete."
+  "summary": "terpenes is a terpenoid compound reported in cannabis sativa, Myristica fragrans Houtt., and related herbs. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "cannabis-sativa",
+    "myristica-fragrans-houtt",
+    "turnera-diffusa"
+  ]
 }

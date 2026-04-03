@@ -37,5 +37,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "noscapine",
-  "summary": "noscapine is a compound reported in papaver somniferum. Available references are still early and incomplete."
+  "summary": "noscapine is a compound reported in papaver somniferum. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "papaver-somniferum"
+  ]
 }

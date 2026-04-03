@@ -30,5 +30,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "linalyl-acetate",
-  "summary": "Linalyl acetate is a compound reported in salvia sclarea. Available references are still early and incomplete."
+  "summary": "Linalyl acetate is a compound reported in salvia sclarea. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "salvia-sclarea"
+  ]
 }

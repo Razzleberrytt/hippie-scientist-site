@@ -30,5 +30,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "sclareol",
-  "summary": "Sclareol appears in records as a compound reported in salvia sclarea. Current source coverage is limited and still developing."
+  "summary": "Sclareol appears in records as a compound reported in salvia sclarea. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "salvia-sclarea"
+  ]
 }

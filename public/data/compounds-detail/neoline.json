@@ -36,5 +36,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "neoline",
-  "summary": "neoline is a compound reported in aconitum napellus. Available references are still early and incomplete."
+  "summary": "neoline is a compound reported in aconitum napellus. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "aconitum-napellus"
+  ]
 }

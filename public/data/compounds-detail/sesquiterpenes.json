@@ -61,5 +61,14 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "sesquiterpenes",
-  "summary": "sesquiterpenes is a terpenoid compound reported in calea ternifolia, achillea millefolium, and related herbs. Available references are still early and incomplete."
+  "summary": "sesquiterpenes is a terpenoid compound reported in calea ternifolia, achillea millefolium, and related herbs. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "calea-ternifolia",
+    "achillea-millefolium",
+    "valeriana-officinalis"
+  ]
 }

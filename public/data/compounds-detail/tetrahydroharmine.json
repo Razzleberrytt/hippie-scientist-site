@@ -56,5 +56,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "tetrahydroharmine",
-  "summary": "tetrahydroharmine is a compound reported in banisteriopsis caapi and peganum harmala. Available references are still early and incomplete."
+  "summary": "tetrahydroharmine is a compound reported in banisteriopsis caapi and peganum harmala. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "banisteriopsis-caapi",
+    "peganum-harmala"
+  ]
 }

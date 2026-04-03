@@ -40,5 +40,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "muscimol",
-  "summary": "Muscimol appears in records as a compound reported in amanita muscaria. Current source coverage is limited and still developing."
+  "summary": "Muscimol appears in records as a compound reported in amanita muscaria. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "amanita-muscaria"
+  ]
 }

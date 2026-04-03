@@ -37,5 +37,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "isocephaeline",
-  "summary": "isocephaeline appears in records as a compound reported in alangium salvifolium. Current source coverage is limited and still developing."
+  "summary": "isocephaeline appears in records as a compound reported in alangium salvifolium. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "alangium-salvifolium"
+  ]
 }

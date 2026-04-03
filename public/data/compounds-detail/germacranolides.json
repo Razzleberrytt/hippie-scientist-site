@@ -50,5 +50,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "germacranolides",
-  "summary": "Germacranolides is a compound reported in calea zacatechichi and calea ternifolia. Available references are still early and incomplete."
+  "summary": "Germacranolides is a compound reported in calea zacatechichi and calea ternifolia. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "calea-zacatechichi",
+    "calea-ternifolia"
+  ]
 }

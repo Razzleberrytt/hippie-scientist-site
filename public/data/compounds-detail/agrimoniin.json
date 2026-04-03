@@ -35,5 +35,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "agrimoniin",
-  "summary": "Agrimoniin is an ellagitannin studied for redox and inflammatory pathway effects in preclinical models. Human clinical evidence is limited."
+  "summary": "Agrimoniin is an ellagitannin studied for redox and inflammatory pathway effects in preclinical models. Human clinical evidence is limited.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "agrimonia-eupatoria"
+  ]
 }

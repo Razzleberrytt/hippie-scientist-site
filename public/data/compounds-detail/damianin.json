@@ -45,5 +45,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "damianin",
-  "summary": "Damianin appears in records as a compound reported in turnera diffusa var. aphrodisiaca and turnera diffusa. Current source coverage is limited and still developing."
+  "summary": "Damianin appears in records as a compound reported in turnera diffusa var. aphrodisiaca and turnera diffusa. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "turnera-diffusa-var-aphrodisiaca",
+    "turnera-diffusa"
+  ]
 }

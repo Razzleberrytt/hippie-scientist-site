@@ -46,5 +46,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "voacangine",
-  "summary": "voacangine appears in records as a compound reported in tabernaemontana undulata and voacanga africana. Current source coverage is limited and still developing."
+  "summary": "voacangine appears in records as a compound reported in tabernaemontana undulata and voacanga africana. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "tabernaemontana-undulata",
+    "voacanga-africana"
+  ]
 }

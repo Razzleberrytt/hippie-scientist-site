@@ -32,5 +32,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "phenols",
-  "summary": "phenols is a phenolic compound compound reported in alchornea castaneifolia. Current source coverage is limited and still developing."
+  "summary": "phenols is a phenolic compound compound reported in alchornea castaneifolia. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "alchornea-castaneifolia"
+  ]
 }

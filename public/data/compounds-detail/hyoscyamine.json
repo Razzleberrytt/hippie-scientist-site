@@ -65,5 +65,17 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "hyoscyamine",
-  "summary": "hyoscyamine appears in records as a compound reported in brugmansia sanguinea, brugmansia suaveolens, and related herbs. Current source coverage is limited and still developing."
+  "summary": "hyoscyamine appears in records as a compound reported in brugmansia sanguinea, brugmansia suaveolens, and related herbs. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "brugmansia-sanguinea",
+    "brugmansia-suaveolens",
+    "datura-ferox",
+    "datura-stramonium",
+    "datura-wrightii",
+    "solandra-grandiflora"
+  ]
 }

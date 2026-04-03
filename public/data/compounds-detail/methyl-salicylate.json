@@ -37,5 +37,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "methyl-salicylate",
-  "summary": "Methyl salicylate is a compound reported in betula lenta and sweet violet. Available references are still early and incomplete."
+  "summary": "Methyl salicylate is a compound reported in betula lenta and sweet violet. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "betula-lenta",
+    "sweet-violet"
+  ]
 }

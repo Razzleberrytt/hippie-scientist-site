@@ -27,5 +27,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "sanshools",
-  "summary": "Sanshools is a compound reported in zanthoxylum clava-herculis. Available references are still early and incomplete."
+  "summary": "Sanshools is a compound reported in zanthoxylum clava-herculis. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "zanthoxylum-clava-herculis"
+  ]
 }

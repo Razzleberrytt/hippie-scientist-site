@@ -39,5 +39,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "ergine",
-  "summary": "ergine is a compound reported in argyreia nervosa. Available references are still early and incomplete."
+  "summary": "ergine is a compound reported in argyreia nervosa. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "argyreia-nervosa"
+  ]
 }

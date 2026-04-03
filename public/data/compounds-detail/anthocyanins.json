@@ -30,5 +30,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "anthocyanins",
-  "summary": "Anthocyanins is an anthocyanin compound reported in hibiscus sabdariffa. Current source coverage is limited and still developing."
+  "summary": "Anthocyanins is an anthocyanin compound reported in hibiscus sabdariffa. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "hibiscus-sabdariffa"
+  ]
 }

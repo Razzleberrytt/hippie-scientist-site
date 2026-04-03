@@ -39,5 +39,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "alchorneine",
-  "summary": "alchorneine is a compound reported in alchornea castaneifolia and alchornea floribunda. Available references are still early and incomplete."
+  "summary": "alchorneine is a compound reported in alchornea castaneifolia and alchornea floribunda. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "alchornea-castaneifolia",
+    "alchornea-floribunda"
+  ]
 }

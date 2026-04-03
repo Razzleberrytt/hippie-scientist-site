@@ -53,5 +53,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "nupharidine",
-  "summary": "nupharidine appears in records as a compound reported in nymphaea caerulea and nymphaea rubra. Current source coverage is limited and still developing."
+  "summary": "nupharidine appears in records as a compound reported in nymphaea caerulea and nymphaea rubra. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nymphaea-caerulea",
+    "nymphaea-rubra"
+  ]
 }

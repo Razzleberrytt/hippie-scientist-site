@@ -68,5 +68,17 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "essential-oils",
-  "summary": "essential oils appears in records as a compound reported in adhatoda vasica, helichrysum odoratissimum, and related herbs. Current source coverage is limited and still developing."
+  "summary": "essential oils appears in records as a compound reported in adhatoda vasica, helichrysum odoratissimum, and related herbs. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "adhatoda-vasica",
+    "helichrysum-odoratissimum",
+    "acorus-gramineus",
+    "elaeagnus-angustifolia",
+    "justicia-pectoralis",
+    "salvia-nemorosa"
+  ]
 }

@@ -40,5 +40,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harman",
-  "summary": "harman appears in records as a compound reported in nicotiana rustica. Current source coverage is limited and still developing."
+  "summary": "harman appears in records as a compound reported in nicotiana rustica. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nicotiana-rustica"
+  ]
 }

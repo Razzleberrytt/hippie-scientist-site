@@ -38,5 +38,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "sesquiterpene-lactones",
-  "summary": "Sesquiterpene lactones is a terpenoid compound reported in lactuca virosa and Vernonia amygdalina. Available references are still early and incomplete."
+  "summary": "Sesquiterpene lactones is a terpenoid compound reported in lactuca virosa and Vernonia amygdalina. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "lactuca-virosa",
+    "vernonia-amygdalina"
+  ]
 }

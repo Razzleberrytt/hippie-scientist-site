@@ -32,5 +32,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "violine",
-  "summary": "Violine is a compound reported in sweet violet. Available references are still early and incomplete."
+  "summary": "Violine is a compound reported in sweet violet. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "sweet-violet"
+  ]
 }

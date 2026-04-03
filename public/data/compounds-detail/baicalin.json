@@ -39,5 +39,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "baicalin",
-  "summary": "Baicalin appears in records as a compound reported in scutellaria lateriflora. Current source coverage is limited and still developing."
+  "summary": "Baicalin appears in records as a compound reported in scutellaria lateriflora. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "scutellaria-lateriflora"
+  ]
 }

@@ -37,5 +37,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "cytisine",
-  "summary": "Cytisine is a compound reported in sophora secundiflora. Available references are still early and incomplete."
+  "summary": "Cytisine is a compound reported in sophora secundiflora. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "sophora-secundiflora"
+  ]
 }
