@@ -1,5 +1,7 @@
 {
   "name": "alkaloids (nicotine, leucocyanidin)",
+  "category": "general",
+  "description": "alkaloids (nicotine, leucocyanidin) is a compound reported in acacia nilotica. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "acacia nilotica"
   ],
@@ -11,10 +13,23 @@
     "Avoid during pregnancy or lactation due to potential anti-fertility effects",
     "Not recommended for children under 12"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: alkaloids (nicotine, leucocyanidin)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alkaloids-nicotine-leucocyanidin",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "alkaloids-nicotine-leucocyanidin",
-  "id": "alkaloids-nicotine-leucocyanidin",
-  "displayName": "alkaloids (nicotine, leucocyanidin)"
+  "summary": "alkaloids (nicotine, leucocyanidin) is a compound reported in acacia nilotica. Available source coverage remains preliminary in this dataset."
 }

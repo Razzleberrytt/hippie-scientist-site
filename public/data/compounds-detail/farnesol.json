@@ -1,9 +1,9 @@
 {
   "name": "Farnesol",
+  "category": "general",
+  "description": "Farnesol is a compound reported in linden. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "linden",
-    "nan",
-    "Silver Linden"
+    "linden"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used as a calming tea for sleep",
@@ -26,10 +26,23 @@
     "high doses",
     "None known"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Farnesol",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/farnesol",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "farnesol",
-  "id": "farnesol",
-  "displayName": "Farnesol"
+  "summary": "Farnesol is a compound reported in linden. Available source coverage remains preliminary in this dataset."
 }

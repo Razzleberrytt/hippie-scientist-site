@@ -1,10 +1,11 @@
 {
   "name": "tannins",
+  "category": "general",
+  "description": "tannins is a compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "agrimonia eupatoria",
     "alchornea castaneifolia",
-    "ficus religiosa",
-    "nan"
+    "ficus religiosa"
   ],
   "effects": [
     "Astringent",
@@ -126,15 +127,23 @@
     "caution with sedatives",
     "None known in moderate doses"
   ],
-  "category": null,
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "PubChem compound: tannins",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tannins",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "tannins",
-  "id": "tannins",
-  "displayName": "tannins"
+  "summary": "tannins is a compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Available source coverage remains preliminary in this dataset."
 }

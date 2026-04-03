@@ -1,5 +1,7 @@
 {
   "name": "Benzyl isothiocyanate",
+  "category": "general",
+  "description": "Benzyl isothiocyanate is a compound reported in tropaeolum majus. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "tropaeolum majus"
   ],
@@ -7,10 +9,23 @@
     "No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness."
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Benzyl isothiocyanate",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/benzyl-isothiocyanate",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "benzyl-isothiocyanate",
-  "id": "benzyl-isothiocyanate",
-  "displayName": "Benzyl isothiocyanate"
+  "summary": "Benzyl isothiocyanate is a compound reported in tropaeolum majus. Available source coverage remains preliminary in this dataset."
 }

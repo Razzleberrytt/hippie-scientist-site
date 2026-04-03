@@ -1,7 +1,8 @@
 {
   "name": "voacangine",
+  "category": "general",
+  "description": "voacangine is a compound reported in tabernaemontana undulata. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "nan",
     "tabernaemontana undulata"
   ],
   "effects": [
@@ -26,10 +27,23 @@
     "cardiovascular conditions",
     "MAOI use"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: voacangine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/voacangine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "voacangine",
-  "id": "voacangine",
-  "displayName": "voacangine"
+  "summary": "voacangine is a compound reported in tabernaemontana undulata. Available source coverage remains preliminary in this dataset."
 }

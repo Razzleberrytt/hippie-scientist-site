@@ -1,5 +1,7 @@
 {
   "name": "Elsholtzia ketone",
+  "category": "general",
+  "description": "Elsholtzia ketone is a compound reported in elsholtzia ciliata. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "elsholtzia ciliata"
   ],
@@ -7,10 +9,23 @@
     "No direct effects data. Contextual inference: Used in vietnamese herbal teas for alertness and wellness... No direct mechanismofaction data. Contextual inference: Used in vietnamese herbal teas for alertness and wellness... Used in Vietnamese herbal teas for alertness and wellness.. Used in Vietnamese herbal teas for alertness and wellness."
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Elsholtzia ketone",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/elsholtzia-ketone",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "elsholtzia-ketone",
-  "id": "elsholtzia-ketone",
-  "displayName": "Elsholtzia ketone"
+  "summary": "Elsholtzia ketone is a compound reported in elsholtzia ciliata. Available source coverage remains preliminary in this dataset."
 }

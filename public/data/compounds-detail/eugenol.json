@@ -1,7 +1,8 @@
 {
   "name": "eugenol",
+  "category": "general",
+  "description": "eugenol is a compound reported in pimenta dioica and tynanthus panurensis. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "nan",
     "pimenta dioica",
     "tynanthus panurensis"
   ],
@@ -65,10 +66,23 @@
     "SSRIs",
     "None known"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: eugenol",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/eugenol",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "eugenol",
-  "id": "eugenol",
-  "displayName": "eugenol"
+  "summary": "eugenol is a compound reported in pimenta dioica and tynanthus panurensis. Available source coverage remains preliminary in this dataset."
 }

@@ -1,5 +1,7 @@
 {
   "name": "Linalyl acetate",
+  "category": "general",
+  "description": "Linalyl acetate is a compound reported in salvia sclarea. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "salvia sclarea"
   ],
@@ -10,10 +12,23 @@
     "nan."
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Linalyl acetate",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/linalyl-acetate",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "linalyl-acetate",
-  "id": "linalyl-acetate",
-  "displayName": "Linalyl acetate"
+  "summary": "Linalyl acetate is a compound reported in salvia sclarea. Available source coverage remains preliminary in this dataset."
 }

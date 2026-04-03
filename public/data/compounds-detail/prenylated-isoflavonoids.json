@@ -1,8 +1,8 @@
 {
   "name": "Prenylated isoflavonoids",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "Prenylated isoflavonoids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Pain relief",
     "immune modulation"
@@ -11,10 +11,23 @@
     "Pregnancy",
     "hormone-sensitive conditions"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Prenylated isoflavonoids",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/prenylated-isoflavonoids",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "prenylated-isoflavonoids",
-  "id": "prenylated-isoflavonoids",
-  "displayName": "Prenylated isoflavonoids"
+  "summary": "Prenylated isoflavonoids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

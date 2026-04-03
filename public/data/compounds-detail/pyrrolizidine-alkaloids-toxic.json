@@ -1,8 +1,8 @@
 {
   "name": "pyrrolizidine alkaloids (toxic)",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "pyrrolizidine alkaloids (toxic) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Mild sedation",
     "muscle relaxation",
@@ -16,10 +16,23 @@
   "contraindications": [
     "Avoid unpurified extracts due to liver-toxic alkaloids"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: pyrrolizidine alkaloids (toxic)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/pyrrolizidine-alkaloids-toxic",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "pyrrolizidine-alkaloids-toxic",
-  "id": "pyrrolizidine-alkaloids-toxic",
-  "displayName": "pyrrolizidine alkaloids (toxic)"
+  "summary": "pyrrolizidine alkaloids (toxic) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

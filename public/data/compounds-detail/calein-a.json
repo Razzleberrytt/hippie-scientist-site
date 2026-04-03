@@ -1,8 +1,8 @@
 {
   "name": "calein A",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "calein A is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Lucid dreaming",
     "relaxation",
@@ -25,10 +25,23 @@
     "pregnancy",
     "epilepsy."
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: calein A",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/calein-a",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "calein-a",
-  "id": "calein-a",
-  "displayName": "calein A"
+  "summary": "calein A is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

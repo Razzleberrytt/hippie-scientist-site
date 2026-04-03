@@ -1,5 +1,7 @@
 {
   "name": "Himbacine",
+  "category": "general",
+  "description": "Himbacine is a compound reported in galbulimima belgraveana. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "galbulimima belgraveana"
   ],
@@ -7,10 +9,23 @@
     "No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Himbacine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/himbacine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "himbacine",
-  "id": "himbacine",
-  "displayName": "Himbacine"
+  "summary": "Himbacine is a compound reported in galbulimima belgraveana. Available source coverage remains preliminary in this dataset."
 }

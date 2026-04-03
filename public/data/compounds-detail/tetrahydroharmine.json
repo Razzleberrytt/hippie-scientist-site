@@ -1,8 +1,8 @@
 {
   "name": "tetrahydroharmine",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "tetrahydroharmine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Altered perception",
     "dream intensification",
@@ -35,10 +35,23 @@
     "liver issues",
     "psychiatric disorders"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: tetrahydroharmine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tetrahydroharmine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "tetrahydroharmine",
-  "id": "tetrahydroharmine",
-  "displayName": "tetrahydroharmine"
+  "summary": "tetrahydroharmine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

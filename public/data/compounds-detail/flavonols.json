@@ -1,5 +1,7 @@
 {
   "name": "flavonols",
+  "category": "general",
+  "description": "flavonols is a compound reported in alchornea castaneifolia. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "alchornea castaneifolia"
   ],
@@ -12,10 +14,23 @@
     "potential interactions due to alkaloid content",
     "use under supervision."
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: flavonols",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/flavonols",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "flavonols",
-  "id": "flavonols",
-  "displayName": "flavonols"
+  "summary": "flavonols is a compound reported in alchornea castaneifolia. Available source coverage remains preliminary in this dataset."
 }

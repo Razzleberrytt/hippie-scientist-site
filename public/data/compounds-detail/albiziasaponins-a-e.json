@@ -1,5 +1,7 @@
 {
   "name": "albiziasaponins A–E",
+  "category": "general",
+  "description": "albiziasaponins A–E is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "albizia lebbeck"
   ],
@@ -13,15 +15,23 @@
     "due to saponins and alkaloids",
     "excessive intake may cause gastrointestinal irritation or interact with medications."
   ],
-  "category": null,
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "PubChem compound: albiziasaponins A–E",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/albiziasaponins-a-e",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "albiziasaponins-a-e",
-  "id": "albiziasaponins-a-e",
-  "displayName": "albiziasaponins A–E"
+  "summary": "albiziasaponins A–E is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset."
 }

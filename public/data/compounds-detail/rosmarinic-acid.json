@@ -1,7 +1,8 @@
 {
   "name": "rosmarinic acid",
+  "category": "general",
+  "description": "rosmarinic acid is a compound reported in perilla frutescens and salvia apiana. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "nan",
     "perilla frutescens",
     "salvia apiana"
   ],
@@ -30,10 +31,23 @@
     "blood clotting disorders",
     "Avoid high doses of essential oil"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: rosmarinic acid",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/rosmarinic-acid",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "rosmarinic-acid",
-  "id": "rosmarinic-acid",
-  "displayName": "rosmarinic acid"
+  "summary": "rosmarinic acid is a compound reported in perilla frutescens and salvia apiana. Available source coverage remains preliminary in this dataset."
 }

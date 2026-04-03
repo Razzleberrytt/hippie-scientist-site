@@ -1,5 +1,7 @@
 {
   "name": "Valeranon",
+  "category": "general",
+  "description": "Valeranon is a compound reported in valeriana jatamansi. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "valeriana jatamansi"
   ],
@@ -10,10 +12,23 @@
     "nan."
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Valeranon",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/valeranon",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "valeranon",
-  "id": "valeranon",
-  "displayName": "Valeranon"
+  "summary": "Valeranon is a compound reported in valeriana jatamansi. Available source coverage remains preliminary in this dataset."
 }

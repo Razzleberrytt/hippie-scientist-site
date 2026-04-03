@@ -1,8 +1,8 @@
 {
   "name": "ibogaine-related alkaloids",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "ibogaine-related alkaloids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Altered perception",
     "stimulation",
@@ -19,10 +19,23 @@
     "cardiovascular conditions",
     "MAOI use"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: ibogaine-related alkaloids",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ibogaine-related-alkaloids",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "ibogaine-related-alkaloids",
-  "id": "ibogaine-related-alkaloids",
-  "displayName": "ibogaine-related alkaloids"
+  "summary": "ibogaine-related alkaloids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

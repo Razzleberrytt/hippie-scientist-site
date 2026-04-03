@@ -1,8 +1,8 @@
 {
   "name": "harman alkaloids",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "harman alkaloids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Calmness",
     "drowsiness",
@@ -16,10 +16,23 @@
     "sedative use",
     "liver disorders"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: harman alkaloids",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/harman-alkaloids",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harman-alkaloids",
-  "id": "harman-alkaloids",
-  "displayName": "harman alkaloids"
+  "summary": "harman alkaloids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

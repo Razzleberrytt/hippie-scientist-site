@@ -1,5 +1,7 @@
 {
   "name": "Stachydrine",
+  "category": "general",
+  "description": "Stachydrine is a compound reported in motherwort. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "motherwort"
   ],
@@ -7,10 +9,23 @@
     "No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support."
   ],
   "contraindications": [],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Stachydrine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/stachydrine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "stachydrine",
-  "id": "stachydrine",
-  "displayName": "Stachydrine"
+  "summary": "Stachydrine is a compound reported in motherwort. Available source coverage remains preliminary in this dataset."
 }

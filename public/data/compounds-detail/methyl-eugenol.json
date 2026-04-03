@@ -1,5 +1,7 @@
 {
   "name": "methyl eugenol",
+  "category": "general",
+  "description": "methyl eugenol is a compound reported in acorus tatarinowii. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "acorus tatarinowii"
   ],
@@ -18,15 +20,23 @@
     "dose use",
     "contraindicated in pregnancy and children."
   ],
-  "category": null,
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "PubChem compound: methyl eugenol",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/methyl-eugenol",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "methyl-eugenol",
-  "id": "methyl-eugenol",
-  "displayName": "methyl eugenol"
+  "summary": "methyl eugenol is a compound reported in acorus tatarinowii. Available source coverage remains preliminary in this dataset."
 }

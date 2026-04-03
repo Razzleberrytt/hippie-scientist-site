@@ -1,136 +1,35 @@
 {
-  "name": "2,4,5-trimethoxybenzaldehyde",
+  "name": "2,4,5-Trimethoxybenzaldehyde",
+  "category": "aromatic aldehyde",
+  "description": "2,4,5-Trimethoxybenzaldehyde is an aromatic aldehyde reported in Acorus phytochemistry. Direct clinical evidence for efficacy or safety is sparse, so interpretation is largely mechanistic/contextual.",
   "herbs": [
     "acorus tatarinowii"
   ],
   "effects": [
-    "CNS stimulant",
-    "memory aid",
-    "and anti-epileptic in TCM",
-    "and anti",
-    "epileptic in TCM"
+    "Identified as an aromatic constituent in Acorus-related phytochemical profiles.",
+    "Direct human pharmacology evidence remains limited."
   ],
   "contraindications": [
-    "β",
-    "asarone is potentially carcinogenic",
-    "avoid long",
-    "term or high",
-    "dose use",
-    "contraindicated in pregnancy and children."
+    "Insufficient direct clinical safety evidence; avoid high-dose supplemental use."
   ],
-  "category": null,
+  "interactions": [
+    "No compound-specific interaction trials identified; uncertainty remains high."
+  ],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Alpha- and beta-asarone toxicology, interaction potential, and human safety context: a systematic review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34401729/"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.037Z",
   "slug": "2-4-5-trimethoxybenzaldehyde",
-  "id": "2-4-5-trimethoxybenzaldehyde",
-  "displayName": "2,4,5-trimethoxybenzaldehyde",
-  "researchEnrichment": {
-    "evidenceSummary": "Direct evidence for 2,4,5-trimethoxybenzaldehyde is limited and mostly contextual to Acorus phytochemistry.",
-    "evidenceTier": "tier-4-insufficient",
-    "evidenceClassesPresent": [
-      "preclinical-mechanistic"
-    ],
-    "supportedUses": [],
-    "unsupportedOrUnclearUses": [
-      {
-        "claim": "Clinical efficacy claims remain uncertain or condition-limited for this compound.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_doi-10-1007-s43440-021-00273-9"
-        ],
-        "uncertaintyNote": "Evidence base is limited, heterogeneous, or indirect."
-      }
-    ],
-    "mechanisms": [
-      {
-        "claim": "Mechanism remains inferential from structural class and related Acorus data.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_doi-10-1007-s43440-021-00273-9"
-        ]
-      }
-    ],
-    "constituents": [],
-    "interactions": [
-      {
-        "claim": "Interaction risk is present or uncertain; medication reconciliation is advised before use.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_doi-10-1007-s43440-021-00273-9"
-        ]
-      }
-    ],
-    "contraindications": [
-      {
-        "claim": "Use should be avoided or medically supervised in higher-risk populations due to limited certainty.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_doi-10-1007-s43440-021-00273-9"
-        ]
-      }
-    ],
-    "adverseEffects": [
-      {
-        "claim": "Adverse-event profile varies by dose and context; evidence quality is heterogeneous.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_doi-10-1007-s43440-021-00273-9"
-        ]
-      }
-    ],
-    "dosageContextNotes": [
-      {
-        "claim": "No reliable universal dosage range can be asserted from current evidence.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_doi-10-1007-s43440-021-00273-9"
-        ]
-      }
-    ],
-    "populationSpecificNotes": [
-      {
-        "claim": "Pregnancy, pediatric, and medically complex populations require extra caution because direct evidence is limited.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_doi-10-1007-s43440-021-00273-9"
-        ]
-      }
-    ],
-    "conflictNotes": [
-      {
-        "claim": "Evidence includes mechanistic and observational findings that do not consistently translate to proven clinical benefit.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_doi-10-1007-s43440-021-00273-9"
-        ]
-      }
-    ],
-    "researchGaps": [
-      {
-        "claim": "Need better-controlled human trials with standardized exposure definitions and interaction monitoring.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_doi-10-1007-s43440-021-00273-9"
-        ]
-      }
-    ],
-    "sourceRegistryIds": [
-      "src_doi-10-1007-s43440-021-00273-9"
-    ],
-    "sourceRefs": [
-      {
-        "sourceId": "src_doi-10-1007-s43440-021-00273-9",
-        "extractConfidence": "medium",
-        "reviewer": "editorial-team"
-      }
-    ],
-    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
-    "reviewedBy": "editorial-team",
-    "editorialStatus": "in-review"
-  }
+  "summary": "2,4,5-Trimethoxybenzaldehyde is an aromatic aldehyde reported in Acorus phytochemistry. Direct clinical evidence for efficacy or safety is sparse, so interpretation is largely mech"
 }

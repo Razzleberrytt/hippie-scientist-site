@@ -1,5 +1,7 @@
 {
   "name": "aervolanine",
+  "category": "general",
+  "description": "aervolanine is a compound reported in aerva lanata. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "aerva lanata"
   ],
@@ -14,15 +16,23 @@
     "Limited safety data; some alkaloids may be toxic at high doses",
     "Pregnant women should use cautiously"
   ],
-  "category": null,
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "PubChem compound: aervolanine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/aervolanine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "aervolanine",
-  "id": "aervolanine",
-  "displayName": "aervolanine"
+  "summary": "aervolanine is a compound reported in aerva lanata. Available source coverage remains preliminary in this dataset."
 }

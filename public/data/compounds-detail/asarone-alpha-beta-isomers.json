@@ -1,0 +1,38 @@
+{
+  "name": "Asarone (alpha/beta isomers)",
+  "category": "phenylpropanoid ether",
+  "description": "Asarone refers primarily to alpha- and beta-isomers found in Acorus species. Current literature emphasizes toxicology, interaction potential, and uncertainty in safe long-term exposure.",
+  "herbs": [
+    "acorus americanus",
+    "acorus calamus var. angustatus"
+  ],
+  "effects": [
+    "Systematic safety reviews describe CNS-active and gastrointestinal effects with dose- and isomer-dependent variability.",
+    "Higher beta-asarone exposure is linked to greater toxicologic concern."
+  ],
+  "contraindications": [
+    "Avoid in pregnancy and in patients with elevated baseline hepatic risk until safety is clarified.",
+    "Avoid prolonged high-dose exposure because toxicology concerns are unresolved."
+  ],
+  "interactions": [
+    "Potential interaction risk is reported in safety reviews, but quantitative human interaction data remain limited."
+  ],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Asarone (alpha/beta isomers)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/asarone-alpha-beta-isomers",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "slug": "asarone-alpha-beta-isomers",
+  "summary": "Asarone refers primarily to alpha- and beta-isomers found in Acorus species. Current literature emphasizes toxicology, interaction potential, and uncertainty in safe long-term expo"
+}

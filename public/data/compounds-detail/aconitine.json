@@ -1,134 +1,35 @@
 {
-  "name": "aconitine",
+  "name": "Aconitine",
+  "category": "diterpenoid alkaloid",
+  "description": "Aconitine is a highly toxic diterpenoid alkaloid from Aconitum species and is primarily characterized by poisoning literature rather than therapeutic trials.",
   "herbs": [
     "aconitum napellus"
   ],
   "effects": [
-    "Potent analgesic and anti-inflammatory",
-    "extremely toxic",
-    "Potent analgesic and anti",
-    "inflammatory"
+    "Human poisoning reports consistently describe severe cardiotoxic and neurotoxic presentations.",
+    "Forensic and toxicology literature supports high acute toxicity risk."
   ],
   "contraindications": [
-    "Highly toxic",
-    "ingestion can cause severe arrhythmias",
-    "paralysis and death",
-    "avoid internal use",
-    "handling requires caution."
+    "Contraindicated for unsupervised internal use due to risk of life-threatening arrhythmia and neurologic toxicity."
   ],
-  "category": null,
+  "interactions": [
+    "Likely dangerous with other agents that alter cardiac conduction or depress respiration/CNS function."
+  ],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Research progress of aconitine toxicity and forensic analysis of aconitine poisoning.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32490307/"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "aconitine",
-  "id": "aconitine",
-  "displayName": "aconitine",
-  "researchEnrichment": {
-    "evidenceSummary": "Aconitine has strong toxicology signal from human poisoning and forensic evidence.",
-    "evidenceTier": "tier-3-limited",
-    "evidenceClassesPresent": [
-      "human-observational"
-    ],
-    "supportedUses": [],
-    "unsupportedOrUnclearUses": [
-      {
-        "claim": "Clinical efficacy claims remain uncertain or condition-limited for this compound.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ],
-        "uncertaintyNote": "Evidence base is limited, heterogeneous, or indirect."
-      }
-    ],
-    "mechanisms": [
-      {
-        "claim": "Persistent sodium-channel activation produces arrhythmogenic and neurotoxic effects.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "constituents": [],
-    "interactions": [
-      {
-        "claim": "Interaction risk is present or uncertain; medication reconciliation is advised before use.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "contraindications": [
-      {
-        "claim": "Use should be avoided or medically supervised in higher-risk populations due to limited certainty.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "adverseEffects": [
-      {
-        "claim": "Adverse-event profile varies by dose and context; evidence quality is heterogeneous.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "dosageContextNotes": [
-      {
-        "claim": "No reliable universal dosage range can be asserted from current evidence.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "populationSpecificNotes": [
-      {
-        "claim": "Pregnancy, pediatric, and medically complex populations require extra caution because direct evidence is limited.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "conflictNotes": [
-      {
-        "claim": "Evidence includes mechanistic and observational findings that do not consistently translate to proven clinical benefit.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "researchGaps": [
-      {
-        "claim": "Need better-controlled human trials with standardized exposure definitions and interaction monitoring.",
-        "evidenceClass": "human-observational",
-        "sourceRefIds": [
-          "src_pubmed-32490307"
-        ]
-      }
-    ],
-    "sourceRegistryIds": [
-      "src_pubmed-32490307"
-    ],
-    "sourceRefs": [
-      {
-        "sourceId": "src_pubmed-32490307",
-        "extractConfidence": "medium",
-        "reviewer": "editorial-team"
-      }
-    ],
-    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
-    "reviewedBy": "editorial-team",
-    "editorialStatus": "in-review"
-  }
+  "summary": "Aconitine is a highly toxic diterpenoid alkaloid from Aconitum species and is primarily characterized by poisoning literature rather than therapeutic trials."
 }

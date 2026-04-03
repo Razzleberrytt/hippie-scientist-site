@@ -1,5 +1,7 @@
 {
   "name": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside",
+  "category": "general",
+  "description": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside is a compound reported in albizia julibrissin. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "albizia julibrissin"
   ],
@@ -14,10 +16,23 @@
     "may potentiate sedative or antidepressant drugs",
     "avoid in pregnancy or lactation unless supervised."
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: (-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/syringaresnol-4-o-d-apiofuranosyl-1-2-d-glucopyranoside",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.037Z",
   "slug": "syringaresnol-4-o-d-apiofuranosyl-1-2-d-glucopyranoside",
-  "id": "syringaresnol-4-o-d-apiofuranosyl-1-2-d-glucopyranoside",
-  "displayName": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside"
+  "summary": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside is a compound reported in albizia julibrissin. Available source coverage remains preliminary in this dataset."
 }

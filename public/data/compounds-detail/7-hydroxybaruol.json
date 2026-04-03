@@ -1,129 +1,35 @@
 {
-  "name": "7α-hydroxybaruol",
+  "name": "7α-Hydroxybaruol",
+  "category": "triterpenoid",
+  "description": "7α-Hydroxybaruol is a triterpenoid reported in botanical constituent surveys. Human pharmacology and safety data remain very limited.",
   "herbs": [
     "adenostoma fasciculatum"
   ],
   "effects": [
-    "Traditional uses include skin and respiratory conditions",
-    "contains tannins"
+    "Reported as a triterpenoid constituent in phytochemical work.",
+    "No robust human efficacy data identified."
   ],
   "contraindications": [
-    "Limited safety data",
-    "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
+    "Clinical safety profile is not established; avoid concentrated use in pregnancy and in medically complex patients."
   ],
-  "category": null,
+  "interactions": [
+    "No direct interaction studies located; treat interaction risk as unknown."
+  ],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "A comprehensive review of agrimoniin.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28731232/"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "7-hydroxybaruol",
-  "id": "7-hydroxybaruol",
-  "displayName": "7α-hydroxybaruol",
-  "researchEnrichment": {
-    "evidenceSummary": "7α-hydroxybaruol has very limited direct evidence and remains primarily a phytochemical constituent entry.",
-    "evidenceTier": "tier-4-insufficient",
-    "evidenceClassesPresent": [
-      "preclinical-mechanistic"
-    ],
-    "supportedUses": [],
-    "unsupportedOrUnclearUses": [
-      {
-        "claim": "Clinical efficacy claims remain uncertain or condition-limited for this compound.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ],
-        "uncertaintyNote": "Evidence base is limited, heterogeneous, or indirect."
-      }
-    ],
-    "mechanisms": [
-      {
-        "claim": "Mechanistic interpretation is provisional and based on triterpenoid class behavior.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "constituents": [],
-    "interactions": [
-      {
-        "claim": "Interaction risk is present or uncertain; medication reconciliation is advised before use.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "contraindications": [
-      {
-        "claim": "Use should be avoided or medically supervised in higher-risk populations due to limited certainty.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "adverseEffects": [
-      {
-        "claim": "Adverse-event profile varies by dose and context; evidence quality is heterogeneous.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "dosageContextNotes": [
-      {
-        "claim": "No reliable universal dosage range can be asserted from current evidence.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "populationSpecificNotes": [
-      {
-        "claim": "Pregnancy, pediatric, and medically complex populations require extra caution because direct evidence is limited.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "conflictNotes": [
-      {
-        "claim": "Evidence includes mechanistic and observational findings that do not consistently translate to proven clinical benefit.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "researchGaps": [
-      {
-        "claim": "Need better-controlled human trials with standardized exposure definitions and interaction monitoring.",
-        "evidenceClass": "preclinical-mechanistic",
-        "sourceRefIds": [
-          "src_pubmed-28731232"
-        ]
-      }
-    ],
-    "sourceRegistryIds": [
-      "src_pubmed-28731232"
-    ],
-    "sourceRefs": [
-      {
-        "sourceId": "src_pubmed-28731232",
-        "extractConfidence": "medium",
-        "reviewer": "editorial-team"
-      }
-    ],
-    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
-    "reviewedBy": "editorial-team",
-    "editorialStatus": "in-review"
-  }
+  "summary": "7α-Hydroxybaruol is a triterpenoid reported in botanical constituent surveys. Human pharmacology and safety data remain very limited."
 }

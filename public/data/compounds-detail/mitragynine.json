@@ -1,8 +1,8 @@
 {
   "name": "Mitragynine",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "Mitragynine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Stimulation",
     "mild euphoria",
@@ -18,10 +18,23 @@
     "MAOI use",
     "liver conditions"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Mitragynine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mitragynine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mitragynine",
-  "id": "mitragynine",
-  "displayName": "Mitragynine"
+  "summary": "Mitragynine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

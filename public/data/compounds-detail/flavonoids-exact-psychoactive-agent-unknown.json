@@ -1,8 +1,8 @@
 {
   "name": "flavonoids (exact psychoactive agent unknown)",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "flavonoids (exact psychoactive agent unknown) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Enhanced dreams",
     "altered awareness",
@@ -17,10 +17,23 @@
     "Avoid in pregnancy",
     "limited data"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: flavonoids (exact psychoactive agent unknown)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/flavonoids-exact-psychoactive-agent-unknown",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "flavonoids-exact-psychoactive-agent-unknown",
-  "id": "flavonoids-exact-psychoactive-agent-unknown",
-  "displayName": "flavonoids (exact psychoactive agent unknown)"
+  "summary": "flavonoids (exact psychoactive agent unknown) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

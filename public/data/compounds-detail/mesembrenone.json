@@ -1,8 +1,8 @@
 {
   "name": "mesembrenone",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "mesembrenone is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Euphoria",
     "empathy",
@@ -26,10 +26,23 @@
     "ssris",
     "maois."
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: mesembrenone",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mesembrenone",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mesembrenone",
-  "id": "mesembrenone",
-  "displayName": "mesembrenone"
+  "summary": "mesembrenone is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

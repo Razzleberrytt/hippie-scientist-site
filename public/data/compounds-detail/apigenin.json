@@ -1,8 +1,9 @@
 {
   "name": "apigenin",
+  "category": "general",
+  "description": "apigenin is a compound reported in alchemilla vulgaris. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "alchemilla vulgaris",
-    "nan"
+    "alchemilla vulgaris"
   ],
   "effects": [
     "Uterine tonic",
@@ -31,15 +32,23 @@
     "Pregnancy",
     "hormone-sensitive conditions"
   ],
-  "category": null,
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "PubChem compound: apigenin",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/apigenin",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "apigenin",
-  "id": "apigenin",
-  "displayName": "apigenin"
+  "summary": "apigenin is a compound reported in alchemilla vulgaris. Available source coverage remains preliminary in this dataset."
 }

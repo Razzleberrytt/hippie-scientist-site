@@ -1,8 +1,8 @@
 {
   "name": "harmala alkaloids (harmine",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "harmala alkaloids (harmine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Intense stimulation",
     "nausea",
@@ -16,10 +16,23 @@
     "pregnancy",
     "psychiatric conditions"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: harmala alkaloids (harmine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/harmala-alkaloids-harmine",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harmala-alkaloids-harmine",
-  "id": "harmala-alkaloids-harmine",
-  "displayName": "harmala alkaloids (harmine"
+  "summary": "harmala alkaloids (harmine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

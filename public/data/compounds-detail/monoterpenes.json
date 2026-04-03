@@ -1,8 +1,8 @@
 {
   "name": "monoterpenes",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "monoterpenes is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Stimulation",
     "mental clarity",
@@ -29,10 +29,23 @@
     "pregnancy",
     "cancer risk (β-asarone in some strains)."
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: monoterpenes",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/monoterpenes",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "monoterpenes",
-  "id": "monoterpenes",
-  "displayName": "monoterpenes"
+  "summary": "monoterpenes is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

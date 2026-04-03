@@ -1,8 +1,8 @@
 {
   "name": "Sesquiterpene lactones",
-  "herbs": [
-    "nan"
-  ],
+  "category": "general",
+  "description": "Sesquiterpene lactones is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "herbs": [],
   "effects": [
     "Blood sugar regulation",
     "cytotoxic effects on cancer cells",
@@ -17,10 +17,23 @@
     "Pregnant women should avoid high doses",
     "Not recommended during pregnancy or with sedatives"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: Sesquiterpene lactones",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/sesquiterpene-lactones",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "sesquiterpene-lactones",
-  "id": "sesquiterpene-lactones",
-  "displayName": "Sesquiterpene lactones"
+  "summary": "Sesquiterpene lactones is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
 }

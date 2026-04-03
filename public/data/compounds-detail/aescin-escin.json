@@ -1,5 +1,7 @@
 {
   "name": "aescin (escin)",
+  "category": "general",
+  "description": "aescin (escin) is a compound reported in aesculus hippocastanum. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "aesculus hippocastanum"
   ],
@@ -16,15 +18,23 @@
     "May cause mild nausea or abdominal upset",
     "Pregnant or breastfeeding individuals should consult healthcare provider before use"
   ],
-  "category": null,
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "PubChem compound: aescin (escin)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/aescin-escin",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "aescin-escin",
-  "id": "aescin-escin",
-  "displayName": "aescin (escin)"
+  "summary": "aescin (escin) is a compound reported in aesculus hippocastanum. Available source coverage remains preliminary in this dataset."
 }

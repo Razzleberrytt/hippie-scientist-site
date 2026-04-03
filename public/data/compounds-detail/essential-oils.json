@@ -1,9 +1,10 @@
 {
   "name": "essential oils",
+  "category": "general",
+  "description": "essential oils is a compound reported in adhatoda vasica and helichrysum odoratissimum. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "adhatoda vasica",
-    "helichrysum odoratissimum",
-    "nan"
+    "helichrysum odoratissimum"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -45,10 +46,23 @@
     "avoid large doses",
     "caution in pregnancy"
   ],
-  "category": null,
-  "sources": [],
-  "lastUpdated": "2026-03-21",
+  "interactions": [],
+  "therapeuticUses": [],
+  "activeCompounds": [],
+  "dosage": "",
+  "duration": "",
+  "region": "",
+  "preparation": "",
+  "legalStatus": "",
+  "sideEffects": [],
+  "sources": [
+    {
+      "title": "PubChem compound: essential oils",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/essential-oils",
+      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+    }
+  ],
+  "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "essential-oils",
-  "id": "essential-oils",
-  "displayName": "essential oils"
+  "summary": "essential oils is a compound reported in adhatoda vasica and helichrysum odoratissimum. Available source coverage remains preliminary in this dataset."
 }
