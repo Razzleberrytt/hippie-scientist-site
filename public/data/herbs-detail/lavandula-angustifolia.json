@@ -18,8 +18,8 @@
     "avoid with sensitive conditions"
   ],
   "interactions": [
-    "sedatives",
-    "antidepressants."
+    "Avoid with: sedatives",
+    "Avoid with: antidepressants"
   ],
   "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [

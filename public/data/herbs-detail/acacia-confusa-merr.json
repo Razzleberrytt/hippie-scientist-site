@@ -22,9 +22,9 @@
     "may interact with maois"
   ],
   "interactions": [
-    "Dangerous with MAOIs",
-    "SSRIs",
-    "or other serotonin agents"
+    "Avoid with: MAOIs",
+    "Avoid with: SSRIs",
+    "Caution with: other serotonin agents"
   ],
   "safetyNotes": "High risk of psychological distress,unsafe in uncontrolled use,Nausea,vomiting,dissociation,confusion,anxiety,Not well-studied,primary risk is psychological or via MAOI combinations,Not established,DMT estimated oral LD50 > 50 mg/kg (in animals)",
   "sources": [

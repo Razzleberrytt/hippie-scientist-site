@@ -20,8 +20,8 @@
     "avoid with unverified internal use"
   ],
   "interactions": [
-    "MAO inhibitors",
-    "serotonergic drugs"
+    "Caution with: MAO inhibitors",
+    "Caution with: serotonergic drugs"
   ],
   "safetyNotes": "May interact with maois; Avoid with unverified internal use",
   "sources": [

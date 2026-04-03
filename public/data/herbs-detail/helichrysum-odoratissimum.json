@@ -11,7 +11,12 @@
   "effects": [],
   "contraindications": [],
   "interactions": [
-    "Interaction evidence is limited; use caution with prescription medicines, especially CNS-active, anticoagulant, hepatotoxic, and blood-pressure/glucose-lowering drugs."
+    "Caution with: Interaction evidence is limited",
+    "Caution with: use caution with prescription medicines",
+    "Caution with: especially CNS active",
+    "Avoid with: anticoagulant",
+    "Caution with: hepatotoxic",
+    "Caution with: blood pressure/glucose lowering drugs"
   ],
   "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [

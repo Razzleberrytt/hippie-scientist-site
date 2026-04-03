@@ -26,9 +26,9 @@
     "avoid with hepatotoxic in large doses"
   ],
   "interactions": [
-    "Increases effects of sedatives and antidepressants",
-    "inhibits MAO enzymes",
-    "interacts with liver enzymes"
+    "Avoid with: Increases effects of sedatives and antidepressants",
+    "Caution with: inhibits MAO enzymes",
+    "May potentiate: interacts with liver enzymes"
   ],
   "safetyNotes": "Toxic in large amounts,high doses may cause liver damage,delirium,or seizures,Nausea,vomiting,dry mouth,palpitations,hallucinations,confusion,liver toxicity,Hepatotoxic at high doses,myristicin is neurotoxic in excess,Myristicin LD50 in rats: ~400–700 mg/kg oral,human toxic dose ~5g+",
   "sources": [

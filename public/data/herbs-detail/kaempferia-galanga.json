@@ -13,7 +13,12 @@
   ],
   "contraindications": [],
   "interactions": [
-    "Interaction evidence is limited; use caution with prescription medicines, especially CNS-active, anticoagulant, hepatotoxic, and blood-pressure/glucose-lowering drugs."
+    "Caution with: Interaction evidence is limited",
+    "Caution with: use caution with prescription medicines",
+    "Caution with: especially CNS active",
+    "Avoid with: anticoagulant",
+    "Caution with: hepatotoxic",
+    "Caution with: blood pressure/glucose lowering drugs"
   ],
   "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
@@ -26,7 +31,7 @@
   "lastUpdated": "2026-04-01T18:55:37.951Z",
   "description": "Stimulant, expectorant, anti-inflammatory, and aphrodisiac in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
   "dosage": "250,750 mg,day rhizome extract",
-  "duration": "4\u20136 hours",
+  "duration": "4–6 hours",
   "legalStatus": "Legal globally",
   "preparation": "Rhizome dried and powdered or decocted; used in Southeast Asian and Ayurvedic medicine as stimulant and carminative",
   "region": "No direct region data. Contextual inference: Stimulant, expectorant, anti-inflammatory, and aphrodisiac in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, expectorant, anti-inflammatory, and aphrodisiac in traditional medicine. none. ; nan; nan",

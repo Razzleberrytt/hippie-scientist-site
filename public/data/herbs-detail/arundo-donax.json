@@ -18,8 +18,8 @@
     "avoid in pregnancy"
   ],
   "interactions": [
-    "MAOIs",
-    "SSRIs"
+    "Avoid with: MAOIs",
+    "Avoid with: SSRIs"
   ],
   "safetyNotes": "Potentially toxic; avoid unsupervised use; May interact with maois",
   "sources": [

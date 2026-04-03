@@ -29,10 +29,10 @@
     "avoid with allergy to asteraceae"
   ],
   "interactions": [
-    "Anticoagulants",
-    "sedatives",
-    "NSAIDs",
-    "diuretics"
+    "Avoid with: Anticoagulants",
+    "Avoid with: sedatives",
+    "Caution with: NSAIDs",
+    "Caution with: diuretics"
   ],
   "safetyNotes": "Avoid with allergies to asteraceae; Increase bleeding risk; Avoid with allergy to asteraceae",
   "sources": [

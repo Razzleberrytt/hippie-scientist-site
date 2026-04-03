@@ -33,8 +33,9 @@
   ],
   "duration": "4–8 hours",
   "interactions": [
-    "Artemisinin derivatives are metabolized by CYP enzymes; strong inducers/inhibitors can alter exposure.",
-    "Combination with other QT-prolonging drugs may increase arrhythmia risk for susceptible patients."
+    "May potentiate: Artemisinin derivatives are metabolized by CYP enzymes",
+    "Caution with: strong inducers/inhibitors can alter exposure",
+    "May potentiate: Combination with other QT prolonging drugs may increase arrhythmia risk for susceptible patients"
   ],
   "legalStatus": "Legal in many regions; artemisinin regulated",
   "preparation": "Leaves and aerial parts used in decoctions or standardized extracts (e.g., artemisinin)",

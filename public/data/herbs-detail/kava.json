@@ -12,7 +12,9 @@
     "avoid in liver disease"
   ],
   "interactions": [
-    "Potential additive sedation with alcohol, benzodiazepines, and other CNS depressants."
+    "May potentiate: Potential additive sedation with alcohol",
+    "Avoid with: benzodiazepines",
+    "Avoid with: other CNS depressants"
   ],
   "safetyNotes": "Liver safety concerns remain a core caution point, especially with nontraditional extracts and co-exposures.",
   "sources": [
