@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-02T23:44:14.748Z",
+  "generatedAt": "2026-04-03T00:52:55.942Z",
   "counts": {
     "herbs": 812,
     "compounds": 394,
@@ -19,118 +19,9 @@
   ],
   "featuredPool": [
     {
-      "slug": "kava",
-      "name": "kava",
-      "blurb": "kava: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries.",
-      "kind": "herb",
-      "whyItMatters": "kava matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
-      "quality": {
-        "score": -7,
-        "flags": {
-          "isIncomplete": true,
-          "hasPlaceholderText": true,
-          "hasWeakSources": true
-        }
-      },
-      "qualityBadge": "Enriched + reviewed",
-      "governedSummary": {
-        "label": "limited_human_support",
-        "title": "Limited human support",
-        "hasHumanEvidence": true,
-        "safetyCautionsPresent": false,
-        "mechanismCoveragePresent": false,
-        "conflictingEvidence": false,
-        "enrichedAndReviewed": true,
-        "lastReviewedAt": "2026-03-30T18:37:00.000Z"
-      },
-      "governedEligible": true,
-      "publicationIndexed": true,
-      "governanceSource": "approved_governed_rollup"
-    },
-    {
-      "slug": "calliandra-anomala",
-      "name": "calliandra anomala",
-      "blurb": "Relaxation, mild sedation, slight mood enhancement, Anti-inflammatory, antioxidant (inferred from related Calliandra species)., Anti, inflammatory",
-      "kind": "herb",
-      "whyItMatters": "calliandra anomala matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
-      "quality": {
-        "score": 58,
-        "flags": {
-          "isIncomplete": false,
-          "hasPlaceholderText": false,
-          "hasWeakSources": true
-        }
-      },
-      "qualityBadge": "Needs sources",
-      "governedSummary": null,
-      "governedEligible": false,
-      "publicationIndexed": true,
-      "governanceSource": "none"
-    },
-    {
-      "slug": "mentha-piperita",
-      "name": "mentha piperita",
-      "blurb": "Soothes GI tract, reduces bloating, cools skin and mucosa, mild analgesic, Digestive aid, antispasmodic, cooling",
-      "kind": "herb",
-      "whyItMatters": "mentha piperita matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
-      "quality": {
-        "score": 58,
-        "flags": {
-          "isIncomplete": false,
-          "hasPlaceholderText": false,
-          "hasWeakSources": true
-        }
-      },
-      "qualityBadge": "Needs sources",
-      "governedSummary": null,
-      "governedEligible": false,
-      "publicationIndexed": true,
-      "governanceSource": "none"
-    },
-    {
-      "slug": "nepeta-cataria",
-      "name": "nepeta cataria",
-      "blurb": "Mild sedation, relaxation, antispasmodic, Mild sedative, carminative",
-      "kind": "herb",
-      "whyItMatters": "nepeta cataria matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
-      "quality": {
-        "score": 58,
-        "flags": {
-          "isIncomplete": false,
-          "hasPlaceholderText": false,
-          "hasWeakSources": true
-        }
-      },
-      "qualityBadge": "Needs sources",
-      "governedSummary": null,
-      "governedEligible": false,
-      "publicationIndexed": true,
-      "governanceSource": "none"
-    },
-    {
-      "slug": "rivea-corymbosa",
-      "name": "rivea corymbosa",
-      "blurb": "Visual hallucinations, euphoria, dream-like state, Psychedelic, induces visual and cognitive alterations.",
-      "kind": "herb",
-      "whyItMatters": "rivea corymbosa matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
-      "quality": {
-        "score": 50,
-        "flags": {
-          "isIncomplete": false,
-          "hasPlaceholderText": false,
-          "hasWeakSources": true
-        }
-      },
-      "qualityBadge": "Needs sources",
-      "governedSummary": null,
-      "governedEligible": false,
-      "publicationIndexed": true,
-      "governanceSource": "none"
-    },
-    {
       "slug": "hyoscyamus-niger",
       "name": "hyoscyamus niger",
-      "blurb": "Hallucinations, Disorientation, Sedation, Dryness, Trance",
+      "blurb": "Hyoscyamus niger is a historical medicinal and ritual nightshade with modern concern centered on poisoning and anticholinergic toxidrome.",
       "kind": "herb",
       "whyItMatters": "hyoscyamus niger matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
@@ -145,63 +36,26 @@
       "governedSummary": null,
       "governedEligible": false,
       "publicationIndexed": true,
-      "governanceSource": "none"
-    }
-  ],
-  "diverseFeatured": [
-    {
-      "slug": "kava",
-      "name": "kava",
-      "blurb": "kava: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries.",
-      "kind": "herb",
-      "whyItMatters": "kava matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
-      "quality": {
-        "score": -7,
-        "flags": {
-          "isIncomplete": true,
-          "hasPlaceholderText": true,
-          "hasWeakSources": true
-        }
-      },
-      "qualityBadge": "Enriched + reviewed",
-      "governedSummary": {
-        "label": "limited_human_support",
-        "title": "Limited human support",
-        "hasHumanEvidence": true,
-        "safetyCautionsPresent": false,
-        "mechanismCoveragePresent": false,
-        "conflictingEvidence": false,
-        "enrichedAndReviewed": true,
-        "lastReviewedAt": "2026-03-30T18:37:00.000Z"
-      },
-      "governedEligible": true,
-      "publicationIndexed": true,
-      "governanceSource": "approved_governed_rollup"
-    },
-    {
-      "slug": "calliandra-anomala",
-      "name": "calliandra anomala",
-      "blurb": "Relaxation, mild sedation, slight mood enhancement, Anti-inflammatory, antioxidant (inferred from related Calliandra species)., Anti, inflammatory",
-      "kind": "herb",
-      "whyItMatters": "calliandra anomala matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
-      "quality": {
-        "score": 58,
-        "flags": {
-          "isIncomplete": false,
-          "hasPlaceholderText": false,
-          "hasWeakSources": true
-        }
-      },
-      "qualityBadge": "Needs sources",
-      "governedSummary": null,
-      "governedEligible": false,
-      "publicationIndexed": true,
-      "governanceSource": "none"
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "hyoscyamus-niger",
+        "route": "/herbs/hyoscyamus-niger",
+        "name": "hyoscyamus niger",
+        "kind": "herb",
+        "title": "hyoscyamus niger | The Hippie Scientist",
+        "description": "Hyoscyamus niger is a historical medicinal and ritual nightshade with modern concern centered on poisoning and anticholinergic toxidrome.",
+        "completenessScore": 18,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 4,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
     },
     {
       "slug": "mentha-piperita",
       "name": "mentha piperita",
-      "blurb": "Soothes GI tract, reduces bloating, cools skin and mucosa, mild analgesic, Digestive aid, antispasmodic, cooling",
+      "blurb": "Key signals include A hybrid mint (Mentha aquatica × Mentha spicata) widely used for digestive support, flavoring, and aromatherapy; possesses antispasmodic, carminative….",
       "kind": "herb",
       "whyItMatters": "mentha piperita matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
@@ -216,12 +70,26 @@
       "governedSummary": null,
       "governedEligible": false,
       "publicationIndexed": true,
-      "governanceSource": "none"
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "mentha-piperita",
+        "route": "/herbs/mentha-piperita",
+        "name": "mentha piperita",
+        "kind": "herb",
+        "title": "mentha piperita | The Hippie Scientist",
+        "description": "A hybrid mint (Mentha aquatica × Mentha spicata) widely used for digestive support, flavoring, and aromatherapy; possesses antispasmodic, carminative, and ",
+        "completenessScore": 10,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
     },
     {
       "slug": "nepeta-cataria",
       "name": "nepeta cataria",
-      "blurb": "Mild sedation, relaxation, antispasmodic, Mild sedative, carminative",
+      "blurb": "A member of the mint family known for its euphoric effects on cats and mild sedative properties in humans. Traditionally used for colds, anxiety, and….",
       "kind": "herb",
       "whyItMatters": "nepeta cataria matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
@@ -236,12 +104,323 @@
       "governedSummary": null,
       "governedEligible": false,
       "publicationIndexed": true,
-      "governanceSource": "none"
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "nepeta-cataria",
+        "route": "/herbs/nepeta-cataria",
+        "name": "nepeta cataria",
+        "kind": "herb",
+        "title": "nepeta cataria | The Hippie Scientist",
+        "description": "A member of the mint family known for its euphoric effects on cats and mild sedative properties in humans. Traditionally used for colds, anxiety, and cramp",
+        "completenessScore": 8,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "agrimoniin",
+      "name": "agrimoniin",
+      "blurb": "Agrimoniin is a constituent reported in agrimonia eupatoria. Current site data links it to ellagitannin, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "agrimoniin",
+        "route": "/compounds/agrimoniin",
+        "name": "Agrimoniin",
+        "kind": "compound",
+        "title": "Agrimoniin | The Hippie Scientist",
+        "description": "Agrimoniin is a constituent reported in agrimonia eupatoria. Current site data links it to ellagitannin, but evidence depth is still limited.",
+        "completenessScore": 17,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 4,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "luteolin",
+      "name": "luteolin",
+      "blurb": "Luteolin is a constituent reported in albizia lebbeck, alchemilla vulgaris. Current site data links it to flavone, but evidence depth is still limite….",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "luteolin",
+        "route": "/compounds/luteolin",
+        "name": "Luteolin",
+        "kind": "compound",
+        "title": "Luteolin | The Hippie Scientist",
+        "description": "Luteolin is a constituent reported in albizia lebbeck, alchemilla vulgaris. Current site data links it to flavone, but evidence depth is still limited.",
+        "completenessScore": 17,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 4,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "2-4-5-trimethoxybenzaldehyde",
+      "name": "2,4,5-trimethoxybenzaldehyde",
+      "blurb": "2, 4, 5-Trimethoxybenzaldehyde is a constituent reported in acorus tatarinowii. Current site data links it to aromatic aldehyde, but evidence depth i….",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "2-4-5-trimethoxybenzaldehyde",
+        "route": "/compounds/2-4-5-trimethoxybenzaldehyde",
+        "name": "2,4,5-Trimethoxybenzaldehyde",
+        "kind": "compound",
+        "title": "2,4,5-Trimethoxybenzaldehyde | The Hippie Scientist",
+        "description": "2,4,5-Trimethoxybenzaldehyde is a constituent reported in acorus tatarinowii. Current site data links it to aromatic aldehyde, but evidence depth is still ",
+        "completenessScore": 11,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 2,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "7-hydroxybaruol",
+      "name": "7α-hydroxybaruol",
+      "blurb": "7α-Hydroxybaruol is a constituent reported in adenostoma fasciculatum. Current site data links it to triterpenoid, but evidence depth is still limite….",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "7-hydroxybaruol",
+        "route": "/compounds/7-hydroxybaruol",
+        "name": "7α-Hydroxybaruol",
+        "kind": "compound",
+        "title": "7α-Hydroxybaruol | The Hippie Scientist",
+        "description": "7α-Hydroxybaruol is a constituent reported in adenostoma fasciculatum. Current site data links it to triterpenoid, but evidence depth is still limited.",
+        "completenessScore": 11,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 2,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "7-hydroxymitragynine",
+      "name": "7-hydroxymitragynine",
+      "blurb": "7-Hydroxymitragynine is a constituent reported in mitragyna speciosa, mitragyna javanica. Current site data links it to indole alkaloid, but evidence….",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "7-hydroxymitragynine",
+        "route": "/compounds/7-hydroxymitragynine",
+        "name": "7-Hydroxymitragynine",
+        "kind": "compound",
+        "title": "7-Hydroxymitragynine | The Hippie Scientist",
+        "description": "7-Hydroxymitragynine is a constituent reported in mitragyna speciosa, mitragyna javanica. Current site data links it to indole alkaloid, but evidence depth",
+        "completenessScore": 11,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 2,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "aconine",
+      "name": "aconine",
+      "blurb": "Aconine is a constituent reported in aconitum napellus. Current site data links it to diterpenoid alkaloid, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "aconine",
+        "route": "/compounds/aconine",
+        "name": "Aconine",
+        "kind": "compound",
+        "title": "Aconine | The Hippie Scientist",
+        "description": "Aconine is a constituent reported in aconitum napellus. Current site data links it to diterpenoid alkaloid, but evidence depth is still limited.",
+        "completenessScore": 11,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 2,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "aconitine",
+      "name": "aconitine",
+      "blurb": "Aconitine is a constituent reported in aconitum napellus. Current site data links it to diterpenoid alkaloid, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "aconitine",
+        "route": "/compounds/aconitine",
+        "name": "Aconitine",
+        "kind": "compound",
+        "title": "Aconitine | The Hippie Scientist",
+        "description": "Aconitine is a constituent reported in aconitum napellus. Current site data links it to diterpenoid alkaloid, but evidence depth is still limited.",
+        "completenessScore": 11,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 2,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "anabasine",
+      "name": "anabasine",
+      "blurb": "Anabasine is a constituent reported in nicotiana tabacum. Current site data links it to pyridine alkaloid, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "anabasine",
+        "route": "/compounds/anabasine",
+        "name": "Anabasine",
+        "kind": "compound",
+        "title": "Anabasine | The Hippie Scientist",
+        "description": "Anabasine is a constituent reported in nicotiana tabacum. Current site data links it to pyridine alkaloid, but evidence depth is still limited.",
+        "completenessScore": 11,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 2,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "calliandra-anomala",
+      "name": "calliandra anomala",
+      "blurb": "Shrubby Fabaceae species with bright pink flowers; limited pharmacological research.",
+      "kind": "herb",
+      "whyItMatters": "calliandra anomala matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
+      "quality": {
+        "score": 58,
+        "flags": {
+          "isIncomplete": false,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Needs sources",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "calliandra-anomala",
+        "route": "/herbs/calliandra-anomala",
+        "kind": "herb"
+      }
     },
     {
       "slug": "rivea-corymbosa",
       "name": "rivea corymbosa",
-      "blurb": "Visual hallucinations, euphoria, dream-like state, Psychedelic, induces visual and cognitive alterations.",
+      "blurb": "Morning glory species used in Mesoamerican rituals.",
       "kind": "herb",
       "whyItMatters": "rivea corymbosa matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
@@ -256,18 +435,397 @@
       "governedSummary": null,
       "governedEligible": false,
       "publicationIndexed": true,
-      "governanceSource": "none"
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "rivea-corymbosa",
+        "route": "/herbs/rivea-corymbosa",
+        "kind": "herb"
+      }
+    },
+    {
+      "slug": "aervine",
+      "name": "aervine",
+      "blurb": "aervine is a constituent reported in aerva lanata. Current site data links it to general, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "aervine",
+        "route": "/compounds/aervine",
+        "name": "aervine",
+        "kind": "compound",
+        "title": "aervine | The Hippie Scientist",
+        "description": "aervine is a constituent reported in aerva lanata. Current site data links it to general, but evidence depth is still limited.",
+        "completenessScore": 8,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "aervolanine",
+      "name": "aervolanine",
+      "blurb": "aervolanine is a constituent reported in aerva lanata. Current site data links it to general, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "aervolanine",
+        "route": "/compounds/aervolanine",
+        "name": "aervolanine",
+        "kind": "compound",
+        "title": "aervolanine | The Hippie Scientist",
+        "description": "aervolanine is a constituent reported in aerva lanata. Current site data links it to general, but evidence depth is still limited.",
+        "completenessScore": 8,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "aervoside",
+      "name": "aervoside",
+      "blurb": "aervoside is a constituent reported in aerva lanata. Current site data links it to general, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "aervoside",
+        "route": "/compounds/aervoside",
+        "name": "aervoside",
+        "kind": "compound",
+        "title": "aervoside | The Hippie Scientist",
+        "description": "aervoside is a constituent reported in aerva lanata. Current site data links it to general, but evidence depth is still limited.",
+        "completenessScore": 8,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "aescin-escin",
+      "name": "aescin (escin)",
+      "blurb": "aescin (escin) is a constituent reported in aesculus hippocastanum. Current site data links it to general, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "aescin-escin",
+        "route": "/compounds/aescin-escin",
+        "name": "aescin (escin)",
+        "kind": "compound",
+        "title": "aescin (escin) | The Hippie Scientist",
+        "description": "aescin (escin) is a constituent reported in aesculus hippocastanum. Current site data links it to general, but evidence depth is still limited.",
+        "completenessScore": 8,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "alamarckine",
+      "name": "alamarckine",
+      "blurb": "alamarckine is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "alamarckine",
+        "route": "/compounds/alamarckine",
+        "name": "alamarckine",
+        "kind": "compound",
+        "title": "alamarckine | The Hippie Scientist",
+        "description": "alamarckine is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+        "completenessScore": 10,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "alamaridine",
+      "name": "alamaridine",
+      "blurb": "alamaridine is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "alamaridine",
+        "route": "/compounds/alamaridine",
+        "name": "alamaridine",
+        "kind": "compound",
+        "title": "alamaridine | The Hippie Scientist",
+        "description": "alamaridine is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+        "completenessScore": 10,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "alamarine",
+      "name": "alamarine",
+      "blurb": "alamarine is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "alamarine",
+        "route": "/compounds/alamarine",
+        "name": "alamarine",
+        "kind": "compound",
+        "title": "alamarine | The Hippie Scientist",
+        "description": "alamarine is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+        "completenessScore": 10,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "alangamide",
+      "name": "alangamide",
+      "blurb": "alangamide is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "alangamide",
+        "route": "/compounds/alangamide",
+        "name": "alangamide",
+        "kind": "compound",
+        "title": "alangamide | The Hippie Scientist",
+        "description": "alangamide is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+        "completenessScore": 10,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "alangimaridine",
+      "name": "alangimaridine",
+      "blurb": "alangimaridine is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "alangimaridine",
+        "route": "/compounds/alangimaridine",
+        "name": "alangimaridine",
+        "kind": "compound",
+        "title": "alangimaridine | The Hippie Scientist",
+        "description": "alangimaridine is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+        "completenessScore": 10,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "alangimarin",
+      "name": "alangimarin",
+      "blurb": "alangimarin is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "alangimarin",
+        "route": "/compounds/alangimarin",
+        "name": "alangimarin",
+        "kind": "compound",
+        "title": "alangimarin | The Hippie Scientist",
+        "description": "alangimarin is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+        "completenessScore": 10,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "alangimarine",
+      "name": "alangimarine",
+      "blurb": "alangimarine is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "alangimarine",
+        "route": "/compounds/alangimarine",
+        "name": "alangimarine",
+        "kind": "compound",
+        "title": "alangimarine | The Hippie Scientist",
+        "description": "alangimarine is a constituent reported in alangium salvifolium. Current site data links it to general, but evidence depth is still limited.",
+        "completenessScore": 10,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
     }
   ],
-  "curated": [
+  "diverseFeatured": [
     {
-      "slug": "calliandra-anomala",
-      "name": "calliandra anomala",
-      "blurb": "Relaxation, mild sedation, slight mood enhancement, Anti-inflammatory, antioxidant (inferred from related Calliandra species)., Anti, inflammatory",
+      "slug": "hyoscyamus-niger",
+      "name": "hyoscyamus niger",
+      "blurb": "Hyoscyamus niger is a historical medicinal and ritual nightshade with modern concern centered on poisoning and anticholinergic toxidrome.",
       "kind": "herb",
-      "whyItMatters": "calliandra anomala matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
+      "whyItMatters": "hyoscyamus niger matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
-        "score": 58,
+        "score": 48,
         "flags": {
           "isIncomplete": false,
           "hasPlaceholderText": false,
@@ -278,12 +836,26 @@
       "governedSummary": null,
       "governedEligible": false,
       "publicationIndexed": true,
-      "governanceSource": "none"
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "hyoscyamus-niger",
+        "route": "/herbs/hyoscyamus-niger",
+        "name": "hyoscyamus niger",
+        "kind": "herb",
+        "title": "hyoscyamus niger | The Hippie Scientist",
+        "description": "Hyoscyamus niger is a historical medicinal and ritual nightshade with modern concern centered on poisoning and anticholinergic toxidrome.",
+        "completenessScore": 18,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 4,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
     },
     {
       "slug": "mentha-piperita",
       "name": "mentha piperita",
-      "blurb": "Soothes GI tract, reduces bloating, cools skin and mucosa, mild analgesic, Digestive aid, antispasmodic, cooling",
+      "blurb": "Key signals include A hybrid mint (Mentha aquatica × Mentha spicata) widely used for digestive support, flavoring, and aromatherapy; possesses antispasmodic, carminative….",
       "kind": "herb",
       "whyItMatters": "mentha piperita matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
@@ -298,12 +870,26 @@
       "governedSummary": null,
       "governedEligible": false,
       "publicationIndexed": true,
-      "governanceSource": "none"
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "mentha-piperita",
+        "route": "/herbs/mentha-piperita",
+        "name": "mentha piperita",
+        "kind": "herb",
+        "title": "mentha piperita | The Hippie Scientist",
+        "description": "A hybrid mint (Mentha aquatica × Mentha spicata) widely used for digestive support, flavoring, and aromatherapy; possesses antispasmodic, carminative, and ",
+        "completenessScore": 10,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
     },
     {
       "slug": "nepeta-cataria",
       "name": "nepeta cataria",
-      "blurb": "Mild sedation, relaxation, antispasmodic, Mild sedative, carminative",
+      "blurb": "A member of the mint family known for its euphoric effects on cats and mild sedative properties in humans. Traditionally used for colds, anxiety, and….",
       "kind": "herb",
       "whyItMatters": "nepeta cataria matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
@@ -318,7 +904,227 @@
       "governedSummary": null,
       "governedEligible": false,
       "publicationIndexed": true,
-      "governanceSource": "none"
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "nepeta-cataria",
+        "route": "/herbs/nepeta-cataria",
+        "name": "nepeta cataria",
+        "kind": "herb",
+        "title": "nepeta cataria | The Hippie Scientist",
+        "description": "A member of the mint family known for its euphoric effects on cats and mild sedative properties in humans. Traditionally used for colds, anxiety, and cramp",
+        "completenessScore": 8,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "agrimoniin",
+      "name": "agrimoniin",
+      "blurb": "Agrimoniin is a constituent reported in agrimonia eupatoria. Current site data links it to ellagitannin, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "agrimoniin",
+        "route": "/compounds/agrimoniin",
+        "name": "Agrimoniin",
+        "kind": "compound",
+        "title": "Agrimoniin | The Hippie Scientist",
+        "description": "Agrimoniin is a constituent reported in agrimonia eupatoria. Current site data links it to ellagitannin, but evidence depth is still limited.",
+        "completenessScore": 17,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 4,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "luteolin",
+      "name": "luteolin",
+      "blurb": "Luteolin is a constituent reported in albizia lebbeck, alchemilla vulgaris. Current site data links it to flavone, but evidence depth is still limite….",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "luteolin",
+        "route": "/compounds/luteolin",
+        "name": "Luteolin",
+        "kind": "compound",
+        "title": "Luteolin | The Hippie Scientist",
+        "description": "Luteolin is a constituent reported in albizia lebbeck, alchemilla vulgaris. Current site data links it to flavone, but evidence depth is still limited.",
+        "completenessScore": 17,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 4,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    }
+  ],
+  "curated": [
+    {
+      "slug": "hyoscyamus-niger",
+      "name": "hyoscyamus niger",
+      "blurb": "Hyoscyamus niger is a historical medicinal and ritual nightshade with modern concern centered on poisoning and anticholinergic toxidrome.",
+      "kind": "herb",
+      "whyItMatters": "hyoscyamus niger matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
+      "quality": {
+        "score": 48,
+        "flags": {
+          "isIncomplete": false,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Needs sources",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "hyoscyamus-niger",
+        "route": "/herbs/hyoscyamus-niger",
+        "name": "hyoscyamus niger",
+        "kind": "herb",
+        "title": "hyoscyamus niger | The Hippie Scientist",
+        "description": "Hyoscyamus niger is a historical medicinal and ritual nightshade with modern concern centered on poisoning and anticholinergic toxidrome.",
+        "completenessScore": 18,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 4,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "mentha-piperita",
+      "name": "mentha piperita",
+      "blurb": "Key signals include A hybrid mint (Mentha aquatica × Mentha spicata) widely used for digestive support, flavoring, and aromatherapy; possesses antispasmodic, carminative….",
+      "kind": "herb",
+      "whyItMatters": "mentha piperita matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
+      "quality": {
+        "score": 58,
+        "flags": {
+          "isIncomplete": false,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Needs sources",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "mentha-piperita",
+        "route": "/herbs/mentha-piperita",
+        "name": "mentha piperita",
+        "kind": "herb",
+        "title": "mentha piperita | The Hippie Scientist",
+        "description": "A hybrid mint (Mentha aquatica × Mentha spicata) widely used for digestive support, flavoring, and aromatherapy; possesses antispasmodic, carminative, and ",
+        "completenessScore": 10,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "agrimoniin",
+      "name": "agrimoniin",
+      "blurb": "Agrimoniin is a constituent reported in agrimonia eupatoria. Current site data links it to ellagitannin, but evidence depth is still limited.",
+      "kind": "compound",
+      "whyItMatters": "Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.",
+      "quality": {
+        "score": 22,
+        "flags": {
+          "isIncomplete": true,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Incomplete",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "agrimoniin",
+        "route": "/compounds/agrimoniin",
+        "name": "Agrimoniin",
+        "kind": "compound",
+        "title": "Agrimoniin | The Hippie Scientist",
+        "description": "Agrimoniin is a constituent reported in agrimonia eupatoria. Current site data links it to ellagitannin, but evidence depth is still limited.",
+        "completenessScore": 17,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 4,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
+    },
+    {
+      "slug": "nepeta-cataria",
+      "name": "nepeta cataria",
+      "blurb": "A member of the mint family known for its euphoric effects on cats and mild sedative properties in humans. Traditionally used for colds, anxiety, and….",
+      "kind": "herb",
+      "whyItMatters": "nepeta cataria matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
+      "quality": {
+        "score": 58,
+        "flags": {
+          "isIncomplete": false,
+          "hasPlaceholderText": false,
+          "hasWeakSources": true
+        }
+      },
+      "qualityBadge": "Needs sources",
+      "governedSummary": null,
+      "governedEligible": false,
+      "publicationIndexed": true,
+      "governanceSource": "none",
+      "publicationSignals": {
+        "slug": "nepeta-cataria",
+        "route": "/herbs/nepeta-cataria",
+        "name": "nepeta cataria",
+        "kind": "herb",
+        "title": "nepeta cataria | The Hippie Scientist",
+        "description": "A member of the mint family known for its euphoric effects on cats and mild sedative properties in humans. Traditionally used for colds, anxiety, and cramp",
+        "completenessScore": 8,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
     }
   ],
   "governedHighlights": [
@@ -349,7 +1155,21 @@
       },
       "governedEligible": true,
       "publicationIndexed": true,
-      "governanceSource": "approved_governed_rollup"
+      "governanceSource": "approved_governed_rollup",
+      "publicationSignals": {
+        "slug": "kava",
+        "route": "/herbs/kava",
+        "name": "kava",
+        "kind": "herb",
+        "title": "kava | The Hippie Scientist",
+        "description": "Kava (Piper methysticum) is a Pacific traditional beverage plant studied in standardized extracts for anxiety-related outcomes.",
+        "completenessScore": 12,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 2,
+        "publicationEligible": true,
+        "lastmod": "2026-04-02"
+      }
     }
   ],
   "effectExplorerHerbs": [
@@ -12351,7 +13171,7 @@
     },
     "publishableEntityCount": 2,
     "blockedEntityCount": 8,
-    "indexableEntityCount": 515,
+    "indexableEntityCount": 517,
     "indexablePublishableEntityCount": 1,
     "modules": {
       "trustAndSafety": "updated",
