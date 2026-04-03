@@ -24,7 +24,8 @@
     "may add to glucose-lowering effects of antidiabetic medications",
     "may modestly increase antiplatelet effects with blood-thinning drugs"
   ],
-  "safetyNotes": "Culinary use is typically well tolerated. Concentrated extracts may cause gastrointestinal upset in some users; monitor blood glucose and bleeding risk when used with related medications.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: ocimum sanctum (holy basil / tulsi)",

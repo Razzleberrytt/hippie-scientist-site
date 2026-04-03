@@ -31,7 +31,8 @@
     "MAOIs",
     "hallucinogens"
   ],
-  "safetyNotes": "Psychoactive dose causes nausea and dizziness,Nausea,sedation,body load,Moderate,Not well-documented,nausea,vasoconstriction,dizziness [0,4].,Mild,contains lysergic acid amide (LSA),similar to LSD.,Low,moderate overdose risk [0,12].",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rivea corymbosa",

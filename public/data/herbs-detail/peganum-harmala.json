@@ -40,7 +40,8 @@
     "tyramine-rich foods",
     "antidepressants"
   ],
-  "safetyNotes": "Toxic in high doses,caution needed,Nausea,tremors,hallucinations,Moderate,~1200 mg/kg in rats,risk increases with combination substances,vomiting,dizziness,Low to moderate,400 mg/kg (mice,harmaline),Use with caution,risk of serotonin syndrome,headache,Moderate at high doses,Toxic – psychoactive and potent,liver issues,No direct toxicity data. Contextual inference: Mao inhibitor,antispasmodic,psychoactive. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. MAO inhibitor,psychoactive. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Peganum harmala (TaxID 43879)",

@@ -18,7 +18,8 @@
   "interactions": [
     "Monitor potential interactions with sedatives and thyroid-related medications."
   ],
-  "safetyNotes": "Short-term studies suggest tolerability, but real-world products vary in concentration and quality.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "src_pubmed-31517876",

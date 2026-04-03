@@ -21,7 +21,8 @@
     "alcohol",
     "ssris."
   ],
-  "safetyNotes": "euphoria,anxiety,dry mouth,impaired cognition.,No direct toxicity data. Contextual inference: Psychoactive compound in cannabis,euphoric,analgesic,antiemetic. Agonist at cb1 receptors,modulates dopamine and gaba release..,nan.. Agonist at CB1 receptors,modulates dopamine and GABA release.. Psychoactive compound in cannabis,antiemetic.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Δ9-Tetrahydrocannabinol (from Cannabis sativa/indica)",

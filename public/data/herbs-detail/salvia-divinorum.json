@@ -32,7 +32,8 @@
     "3].",
     "May intensify effects of sedatives and dissociatives"
   ],
-  "safetyNotes": "dysphoria,confusion.,No direct toxicity data. Contextual inference: Intense dissociative hallucinogen,short-acting visionary states. Salvinorin a is a kappa-opioid agonist,dissociative hallucinogen..,nan.. Salvinorin A is a kappa-opioid agonist,dissociative hallucinogen.. Intense dissociative hallucinogen,short-acting visionary states.,tiredness,dizziness,amnesia,potential for transient psychosis in vulnerable individuals [3,2].,Low physiological toxicity,intense psychological effects.,Low toxicity,animal studies show minimal organ damage even at high doses [3,3].",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Salvia divinorum (TaxID 28513)",

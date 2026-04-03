@@ -26,7 +26,8 @@
     "stimulants",
     "MAOIs"
   ],
-  "safetyNotes": "Moderate risk,side effects common,Anxiety,hypertension,agitation,insomnia,Moderate,~43 mg/kg (yohimbine,oral,rat)",
+  "safetyLevel": "high",
+  "safetyNotes": "High risk: serious toxicity or overdose harm is possible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Pausinystalia johimbe",

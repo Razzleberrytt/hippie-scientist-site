@@ -36,7 +36,8 @@
     "hormone therapies",
     "Diabetes medications"
   ],
-  "safetyNotes": "Avoid with hormone-sensitive conditions",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Turnera diffusa (TaxID 329212)",

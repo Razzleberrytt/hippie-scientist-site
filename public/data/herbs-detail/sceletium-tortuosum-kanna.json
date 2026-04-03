@@ -26,7 +26,8 @@
     "stimulants [9",
     "4]."
   ],
-  "safetyNotes": "headache,nausea,mild sedation [9,4].,Low toxicity at traditional doses [9",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: sceletium tortuosum (kanna)",

@@ -10,7 +10,8 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in folk medicine for diarrhea and wound healing. none.",
+  "safetyLevel": "caution",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rhizophora stylosa (TaxID 98588)",

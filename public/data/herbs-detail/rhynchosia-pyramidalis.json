@@ -20,7 +20,8 @@
   "interactions": [
     "May potentiate NSAIDs and immunosuppressants"
   ],
-  "safetyNotes": "Generally safe with traditional dosage,Mild gastrointestinal discomfort,Low toxicity,Not determined in humans",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rhynchosia pyramidalis (TaxID 1179171)",

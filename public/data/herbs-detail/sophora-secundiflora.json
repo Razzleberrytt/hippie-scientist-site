@@ -20,7 +20,8 @@
   "interactions": [
     "Potentiation with other nicotinic agonists"
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with highly toxic; Avoid with ceremonial use only",
+  "safetyLevel": "caution",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Sophora secundiflora",

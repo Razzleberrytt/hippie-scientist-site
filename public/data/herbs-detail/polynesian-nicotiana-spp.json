@@ -11,7 +11,8 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Stimulant effects due to nicotine,ceremonial use. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant effects due to nicotine,ceremonial use. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with other stimulants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nicotiana spp. (Polynesian)",

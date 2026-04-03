@@ -25,7 +25,8 @@
   "interactions": [
     "Anticoagulants"
   ],
-  "safetyNotes": "Generally safe in moderate doses,Digestive upset,strong odor,Low,Not well defined,Strong odor,potential blood thinning,avoid in pregnancy,No direct toxicity data. Contextual inference: Immunomodulatory,anti-inflammatory,analgesic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Immunomodulatory,analgesic. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Use caution with anticoagulants or antiplatelet drugs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Petiveria alliacea (TaxID 46142)",

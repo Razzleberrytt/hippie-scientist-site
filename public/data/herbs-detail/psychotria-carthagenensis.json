@@ -19,7 +19,8 @@
   "interactions": [
     "Use caution with serotonergic or psychoactive medications due to possible CNS interaction."
   ],
-  "safetyNotes": "May interact with ssris",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Psychotria carthagenensis (TaxID 189150)",

@@ -19,7 +19,8 @@
     "additive with cns depressants [0",
     "7]."
   ],
-  "safetyNotes": "rare,possible gi upset [0,7].,Low.,Low,no significant toxicity reported [0",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: pedicularis groenlandica (TaxID 262426)",

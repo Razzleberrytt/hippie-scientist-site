@@ -11,7 +11,8 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Antiseptic and aromatic,used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiseptic and aromatic,used in Bay Rum for skin and scalp. none.",
+  "safetyLevel": "caution",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Pimenta racemosa (TaxID 260139)",

@@ -20,7 +20,8 @@
     "stimulants",
     "steroids."
   ],
-  "safetyNotes": "irritability,insomnia.,No direct toxicity data. Contextual inference: Aphrodisiac,testosterone booster,and energy tonic. Boosts free testosterone,reduces cortisol..,nan.. Boosts free testosterone,reduces cortisol.. Aphrodisiac,and energy tonic.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with other stimulants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Eurycoma longifolia (TaxID 458531)",

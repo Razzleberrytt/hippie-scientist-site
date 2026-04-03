@@ -10,7 +10,8 @@
   "interactions": [
     "May potentiate stimulant effects when combined with sympathomimetic agents."
   ],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with other stimulants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: reishi mushroom",

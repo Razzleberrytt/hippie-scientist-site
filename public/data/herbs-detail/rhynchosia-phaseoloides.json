@@ -13,7 +13,8 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Limited data,potential GI discomfort,No direct toxicity data. Contextual inference: Forage crop,traditional use as anti-inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Forage crop,traditional use as anti-inflammatory. none.",
+  "safetyLevel": "caution",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rhynchosia phaseoloides (TaxID 2730134)",

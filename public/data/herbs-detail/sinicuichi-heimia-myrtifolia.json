@@ -21,7 +21,8 @@
     "CNS depressants",
     "antidepressants"
   ],
-  "safetyNotes": "Safe in small traditional doses,Dry mouth,lethargy,Low,Not recorded",
+  "safetyLevel": "caution",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Sinicuichi (Heimia myrtifolia)",

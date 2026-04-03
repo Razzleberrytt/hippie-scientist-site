@@ -11,7 +11,8 @@
   "effects": [],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. No direct effects data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.",
+  "safetyLevel": "caution",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: pimenta dioica (TaxID 375272)",

@@ -22,7 +22,8 @@
     "Diuretics",
     "antihypertensives"
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with diuretics",
+  "safetyLevel": "caution",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid use during pregnancy unless advised by a clinician.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Urtica dioica (TaxID 3501)",

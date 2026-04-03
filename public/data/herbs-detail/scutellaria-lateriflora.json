@@ -32,7 +32,8 @@
     "cns depressants",
     "alcohol."
   ],
-  "safetyNotes": "Safe when not adulterated,historically confused with toxic Teucrium,Drowsiness,dizziness,Low,Not clearly established,safe,No direct toxicity data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.,drowsiness,mild gi upset.,No direct toxicity data. Contextual inference: Nervine,anxiolytic,anti-inflammatory,used for insomnia and anxiety. Flavonoids modulate gaba receptors,offers calming and anxiolytic effects..,nan.. Flavonoids modulate GABA receptors,offers calming and anxiolytic effects.. Nervine,used for insomnia and anxiety.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Scutellaria lateriflora (TaxID 233893)",

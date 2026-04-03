@@ -14,7 +14,8 @@
     "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
     "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
   ],
-  "safetyNotes": "Toxic,hallucinations,dry mouth,tachycardia,No direct toxicity data. Contextual inference: Traditionally used as hallucinogen,contains tropane alkaloids. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditionally used as hallucinogen,contains tropane alkaloids. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Solandra maxima (TaxID 310467)",

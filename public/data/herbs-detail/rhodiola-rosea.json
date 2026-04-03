@@ -19,7 +19,8 @@
     "maois",
     "stimulants."
   ],
-  "safetyNotes": "safe,irritability,dry mouth.,No direct toxicity data. Contextual inference: Adaptogen,mental performance enhancer,antidepressant. Inhibits monoamine oxidase,modulates cortisol and neurotransmitters..,nan.. Inhibits monoamine oxidase,modulates cortisol and neurotransmitters.. Adaptogen,antidepressant.,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rhodiola rosea (TaxID 203015)",

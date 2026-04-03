@@ -19,7 +19,8 @@
   "interactions": [
     "May interfere with anticoagulants"
   ],
-  "safetyNotes": "Topically safe,oral use caution advised,Skin rash or irritation (rare),Low,Unknown in humans",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Use caution with anticoagulants or antiplatelet drugs; Stop use if rash or allergic symptoms occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Spathodea campanulata (TaxID 211926)",
