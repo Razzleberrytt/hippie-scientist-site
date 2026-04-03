@@ -413,6 +413,7 @@ export default function HerbDetail() {
     entitySlug: herb.slug,
     confidence,
     sourceCount,
+    useCaseAnchor: activeUseCaseAnchor,
   })
   const useCaseAnchors = USE_CASE_ANCHORS.map(anchor => {
     const matchedProducts = curatedProducts.filter(product =>
