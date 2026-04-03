@@ -4,7 +4,11 @@
   "class": "general",
   "intensity": "mild",
   "mechanism": "",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "withanolides",
+    "withaferin A",
+    "sitoindosides"
+  ],
   "effects": [
     "May reduce perceived stress scores",
     "May improve anxiety symptom scales in randomized trials",
@@ -24,7 +28,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.033Z",
   "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "dosage": "Common adult use is 300-600 mg/day of root extract standardized to withanolides.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "legal",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",

@@ -4,7 +4,11 @@
   "class": "general",
   "intensity": "moderate",
   "mechanism": "",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "yohimbine",
+    "rauwolscine",
+    "corynanthine"
+  ],
   "effects": [
     "No direct effects data. Contextual inference:",
     "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -26,7 +30,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.034Z",
   "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "restricted",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",

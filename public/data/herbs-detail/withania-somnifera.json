@@ -4,7 +4,11 @@
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-anxiety, cognitive enhancer. No direct region data. Contextual inference: Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-anxiety, cognitive enhancer. none. ; nan; nan. ; nan; nan",
   "mechanism": "proposed actions include hpa-axis modulation and anti-inflammatory signaling | these mechanisms remain partly inferential across study designs",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "withanolides",
+    "withaferin A",
+    "sitoindosides"
+  ],
   "effects": [
     "randomized controlled trial evidence suggests improvements in stress outcomes in some adults"
   ],
@@ -23,7 +27,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.033Z",
   "description": "Withania somnifera is the scientific name for ashwagandha and is used in Ayurvedic practice and modern standardized supplements.",
-  "dosage": "Clinical dosing is extract-specific and cannot be generalized across powders, teas, and concentrated products.",
+  "dosage": "Common adult use is 300-600 mg/day of root extract standardized to withanolides.",
   "duration": "Chronic",
   "legalStatus": "Legal globally",
   "preparation": "Typically prepared as root powder or standardized root extract capsules/tablets.",

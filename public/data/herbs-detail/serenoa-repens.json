@@ -4,7 +4,11 @@
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antiandrogenic, used for bph support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiandrogenic, used for BPH support. No direct region data. Contextual inference: Antiandrogenic, used for bph support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiandrogenic, used for BPH support. none. ; nan; nan. ; nan; nan",
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "fatty acids",
+    "phytosterols",
+    "beta-sitosterol"
+  ],
   "effects": [
     "antiandrogenic",
     "used for bph"
@@ -24,7 +28,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.020Z",
   "description": "Antiandrogenic, used for bph support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "160,320 mg,day lipophilic extract",
+  "dosage": "A common adult regimen is 320 mg/day of a standardized liposterolic extract.",
   "duration": "Chronic",
   "legalStatus": "Legal globally",
   "preparation": "Fruit dried and extracted into lipophilic extracts or tinctures; used for benign prostatic hyperplasia (BPH)",
