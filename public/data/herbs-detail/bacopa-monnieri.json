@@ -19,20 +19,29 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.864Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "description": "Bacopa monnieri is commonly selected for long-horizon cognitive routines where users prefer a non-stimulant, standardized daily herb.",
+  "dosage": "Choose products with bacoside standardization and clear serving amounts for easier cross-brand comparison.",
+  "duration": "Often evaluated over several weeks before deciding whether the routine is useful.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Capsules are most common for consistency; powders and extracts are secondary formats.",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [],
+  "therapeuticUses": [
+    "Gradual cognitive-support routines",
+    "Non-stimulant focus stack building",
+    "Long-horizon daily supplement protocols"
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],
   "slug": "bacopa-monnieri",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Used for memory/focus support plans, especially when buyers want consistent capsule-based daily intake.",
+  "evidenceLevel": "Moderate evidence for select cognitive endpoints with standardized extracts; effects are typically gradual, not immediate.",
+  "relatedEntities": [
+    "rhodiola-rosea",
+    "lion-s-mane",
+    "ashwagandha",
+    "tulsi"
+  ],
   "relatedCompounds": [
     "bacosides-a-and-b"
   ]

@@ -22,19 +22,28 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.860Z",
-  "description": "Ashwagandha is an Ayurvedic adaptogenic herb (Withania somnifera) studied in standardized extract formulations for stress-related outcomes.",
-  "dosage": "Dose ranges vary by extract standardization; source-backed context supports formulation-specific rather than universal dosing statements.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "description": "Ashwagandha (Withania somnifera) is commonly chosen for stress-heavy periods when people want a non-stimulant daily routine option with straightforward labeling.",
+  "dosage": "Use the labeled serving for the exact extract standardization; avoid assuming root powder and concentrated extracts are interchangeable milligram-for-milligram.",
+  "duration": "Often evaluated over multi-week daily use windows; short trials are common, so reassess fit periodically.",
   "legalStatus": "",
-  "preparation": "Common modern preparations are standardized root extracts in capsules or tablets.",
+  "preparation": "Most shoppers compare standardized capsules first, then powders or teas for lower-intensity routines.",
   "region": "Traditional origin and sustained use in South Asia with global supplement adoption.",
-  "therapeuticUses": [],
+  "therapeuticUses": [
+    "Stress-load support in high-demand routines",
+    "Evening calm routines when stimulant-free options are preferred",
+    "General adaptogen category comparisons for daily use"
+  ],
   "traditionalUse": "Traditional Ayurvedic use includes resilience and vitality support; this traditional context should not be treated as proof of all modern claims.",
   "sideEffects": [],
   "slug": "ashwagandha",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Commonly compared for stress resilience, evening wind-down support, and routine-friendly adaptogen use.",
+  "evidenceLevel": "Moderate human evidence for stress-related outcomes in standardized extract studies; product quality still varies.",
+  "relatedEntities": [
+    "rhodiola-rosea",
+    "bacopa-monnieri",
+    "tulsi",
+    "lemon-balm"
+  ],
   "relatedCompounds": []
 }

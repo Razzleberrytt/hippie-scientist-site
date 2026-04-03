@@ -24,12 +24,16 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.018Z",
   "description": "Antiviral, immune stimulant, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "500,1500 mg,day flower,berry extract",
-  "duration": "6–8 hours",
+  "dosage": "Check extract concentration and sugar load per serving, especially for syrups used more than occasionally.",
+  "duration": "Usually used in short seasonal windows or intermittent periods.",
   "legalStatus": "Legal worldwide",
-  "preparation": "Flowers infused, berries cooked or made into syrups and tinctures; immune and cold support",
+  "preparation": "Syrups, capsules, and tinctures are common shopper formats; choose products that name Sambucus nigra clearly.",
   "region": "No direct region data. Contextual inference: Antiviral, immune stimulant, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiviral, immune stimulant, anti-inflammatory. none. ; nan; nan",
-  "therapeuticUses": [],
+  "therapeuticUses": [
+    "Seasonal routine support with species-labeled elderberry",
+    "Short-window use rather than indefinite daily intake",
+    "Family cabinet products where label clarity is prioritized"
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
     "Unripe",
@@ -39,8 +43,13 @@
   ],
   "slug": "sambucus-nigra",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Commonly selected for seasonal support and syrup/extract comparisons where species accuracy matters.",
+  "evidenceLevel": "Mixed-to-moderate evidence depending on formulation and endpoint; high-sugar syrup products can reduce practical fit for some users.",
+  "relatedEntities": [
+    "echinacea-purpurea",
+    "ginger",
+    "tulsi",
+    "reishi-mushroom"
+  ],
   "relatedCompounds": []
 }

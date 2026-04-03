@@ -19,19 +19,28 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.938Z",
-  "description": "Folk medicine.",
-  "dosage": "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+  "description": "Ginger is a high-utility herb commonly chosen for digestive comfort and food-integrated daily routines.",
+  "dosage": "Food-use amounts and concentrated supplement servings differ; follow product-specific labels for capsules/extracts.",
+  "duration": "Used both as-needed and in recurring daily routines depending on goal and tolerance.",
   "legalStatus": "",
-  "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+  "preparation": "Fresh root, powder, tea, and capsules are all common; choose based on convenience and consistency needs.",
   "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-  "therapeuticUses": [],
+  "therapeuticUses": [
+    "Post-meal digestive comfort support",
+    "Food-first daily herb routines",
+    "Simple foundational herb stacking with turmeric or peppermint"
+  ],
   "traditionalUse": "Folk medicine",
   "sideEffects": [],
   "slug": "ginger",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Most often used for digestive support, post-meal comfort, and practical kitchen-to-supplement crossover use.",
+  "evidenceLevel": "Moderate evidence in selected digestive and nausea-related contexts; form and concentration differences matter.",
+  "relatedEntities": [
+    "turmeric",
+    "peppermint",
+    "chamomile",
+    "echinacea-purpurea"
+  ],
   "relatedCompounds": []
 }
