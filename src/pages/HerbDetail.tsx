@@ -92,36 +92,6 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   )
 }
 
-function TagList({
-  items,
-  variant = 'default',
-}: {
-  items: string[]
-  variant?: 'default' | 'warning' | 'accent'
-}) {
-  if (!items.length) return null
-  const cls =
-    variant === 'warning'
-      ? 'rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-2 text-rose-100'
-      : variant === 'accent'
-        ? 'rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
-        : 'ds-pill'
-  return (
-    <div className='flex flex-wrap gap-2'>
-      {items.map(item => (
-        <span key={item} className={cls}>
-          {variant === 'warning' && (
-            <span aria-hidden='true' className='mr-1'>
-              ⚠
-            </span>
-          )}
-          {item}
-        </span>
-      ))}
-    </div>
-  )
-}
-
 function ListSection({ items }: { items: string[] }) {
   if (!items.length) return null
   return (
@@ -210,6 +180,16 @@ function dedupeStrings(items: Array<string | null | undefined>) {
     values.push(normalized)
   })
   return values
+}
+
+function buildShortSummary(therapeuticUses: string[]) {
+  const conciseUses = therapeuticUses
+    .map(item => String(item || '').trim())
+    .filter(Boolean)
+    .slice(0, 2)
+  if (!conciseUses.length) return ''
+  if (conciseUses.length === 1) return conciseUses[0]
+  return `${conciseUses[0]}. ${conciseUses[1]}`
 }
 
 export default function HerbDetail() {
@@ -343,6 +323,7 @@ export default function HerbDetail() {
 
   const herbDisplayName = herb.commonName || herb.common || herb.name || herb.slug
   const primaryUse = String(therapeuticUses[0] || effects[0] || '').trim()
+  const shortSummary = buildShortSummary(therapeuticUses)
   const herbMetaDescriptionSource = (
     herb.summary ||
     herb.description ||
@@ -622,7 +603,7 @@ export default function HerbDetail() {
       </Link>
       <button
         type='button'
-        className='ml-2 inline-flex rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
+        className='ml-2 inline-flex rounded-full border border-white/20 px-3 py-1 text-sm text-white/85 transition hover:border-white/35 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300'
         onClick={() =>
           toggle({
             type: 'herb',
@@ -867,6 +848,30 @@ export default function HerbDetail() {
           </div>
         )}
 
+        {shortSummary && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <p className='max-w-3xl text-base leading-relaxed text-white/88'>{shortSummary}</p>
+          </section>
+        )}
+
+        {therapeuticUses.length > 0 && (
+          <Section title='What it’s used for'>
+            <ListSection items={therapeuticUses} />
+          </Section>
+        )}
+
+        {contraindications.length > 0 && (
+          <Section title='Who should be careful'>
+            <ListSection items={contraindications} />
+          </Section>
+        )}
+
+        {sideEffects.length > 0 && (
+          <Section title='Possible side effects'>
+            <ListSection items={sideEffects} />
+          </Section>
+        )}
+
         <PremiumDataSection
           details={premiumDetails}
           relationGroups={relationGroups}
@@ -1051,43 +1056,11 @@ export default function HerbDetail() {
           </Section>
         )}
 
-        {therapeuticUses.length > 0 && (
+        {interactions.length > 0 && (
           <section className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='Traditional & Therapeutic Use'>
+            <Collapse title='Drug interactions'>
               <div className='text-sm leading-relaxed text-white/85'>
-                <ListSection items={therapeuticUses} />
-              </div>
-            </Collapse>
-          </section>
-        )}
-
-        {/* Safety — always prominent if present */}
-        {contraindications.length > 0 && (
-          <Section title='Contraindications'>
-            <TagList items={contraindications} variant='warning' />
-          </Section>
-        )}
-
-        {(interactions.length > 0 || sideEffects.length > 0) && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='Additional Safety Notes'>
-              <div className='space-y-4 text-sm leading-relaxed text-white/85'>
-                {interactions.length > 0 && (
-                  <div>
-                    <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
-                      Drug Interactions
-                    </h3>
-                    <ListSection items={interactions} />
-                  </div>
-                )}
-                {sideEffects.length > 0 && (
-                  <div>
-                    <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
-                      Side Effects
-                    </h3>
-                    <ListSection items={sideEffects} />
-                  </div>
-                )}
+                <ListSection items={interactions} />
               </div>
             </Collapse>
           </section>
