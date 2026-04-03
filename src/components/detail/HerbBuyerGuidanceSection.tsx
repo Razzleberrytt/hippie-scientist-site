@@ -31,7 +31,7 @@ export default function HerbBuyerGuidanceSection({
         <div className='flex flex-wrap items-start justify-between gap-3'>
           <div>
             <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/75'>
-              How to Choose This Herb
+              Buyer guidance
             </h2>
             <p className='mt-1 text-sm text-white/70'>
               Practical quality checks for comparing labels and formats.

@@ -618,19 +618,6 @@ export default function CompoundDetail() {
           relationGroups={relationGroups}
         />
 
-        {governedResearch && governedFaq && governedRelatedQuestions && (
-          <GovernedResearchSections
-            enrichment={governedResearch}
-            governedFaq={governedFaq}
-            relatedQuestions={governedRelatedQuestions}
-            analyticsContext={{
-              pageType: 'compound_detail',
-              entityType: 'compound',
-              entitySlug: compound.slug,
-            }}
-          />
-        )}
-
         {/* Core fields — only render when value is present */}
         {compound.description && (
           <Section title='Overview'>
@@ -793,6 +780,19 @@ export default function CompoundDetail() {
               </div>
             </Collapse>
           </section>
+        )}
+
+        {governedResearch && governedFaq && governedRelatedQuestions && (
+          <GovernedResearchSections
+            enrichment={governedResearch}
+            governedFaq={governedFaq}
+            relatedQuestions={governedRelatedQuestions}
+            analyticsContext={{
+              pageType: 'compound_detail',
+              entityType: 'compound',
+              entitySlug: compound.slug,
+            }}
+          />
         )}
 
         <section id='governed-compare-links'>
