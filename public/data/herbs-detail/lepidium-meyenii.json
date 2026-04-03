@@ -3,7 +3,7 @@
   "latin": "Lepidium meyenii",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, fertility enhancer, energizer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, fertility enhancer, energizer. No direct region data. Contextual inference: Adaptogen, fertility enhancer, energizer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, fertility enhancer, energizer. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
     "adaptogen",
@@ -20,7 +20,7 @@
   "interactions": [
     "hormonal therapies."
   ],
-  "safetyNotes": "safe,Generally safe,high doses may cause insomnia or jitteriness,No direct toxicity data. Contextual inference: Adaptogen,fertility enhancer,energizer. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Adaptogen,energizer. none.,gi upset,jitteriness (rare).,energy booster,libido enhancer. Alkaloids modulate endocrine function and energy metabolism..,nan.. Alkaloids modulate endocrine function and energy metabolism.. Adaptogen,libido enhancer.",
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Lepidium meyenii (TaxID 153348)",

@@ -3,15 +3,17 @@
   "latin": "Lycopodium clavatum",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Digestive aid, used in homeopathy. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, used in homeopathy. No direct region data. Contextual inference: Digestive aid, used in homeopathy. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, used in homeopathy. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
     "digestive aid",
     "used in homeopathy"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Toxic in large doses,dry mouth,GI upset,dizziness,No direct toxicity data. Contextual inference: Digestive aid,used in homeopathy. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Digestive aid,used in homeopathy. none.",
+  "interactions": [
+    "Interaction evidence is limited; use caution with prescription medicines, especially CNS-active, anticoagulant, hepatotoxic, and blood-pressure/glucose-lowering drugs."
+  ],
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Lycopodium clavatum (TaxID 3252)",

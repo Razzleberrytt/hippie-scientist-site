@@ -12,7 +12,9 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
+  "interactions": [
+    "Interaction evidence is limited; use caution with prescription medicines, especially CNS-active, anticoagulant, hepatotoxic, and blood-pressure/glucose-lowering drugs."
+  ],
   "safetyNotes": "Low.",
   "sources": [
     {

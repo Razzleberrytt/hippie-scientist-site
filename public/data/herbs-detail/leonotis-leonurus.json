@@ -3,7 +3,7 @@
   "latin": "Leonotis leonurus",
   "class": "Anxiolytic, Mild Psychoactive",
   "intensity": "No direct intensity data. Contextual inference: Mild euphoric and calming; used as cannabis substitute. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. ; nan; nan.. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. Mild euphoric and calming; used as cannabis substitute. No direct region data. Contextual inference: Mild euphoric and calming; used as cannabis substitute. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. ; nan; nan.. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. Mild euphoric and calming; used as cannabis substitute. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [
     "marrubiin",
     "leonurine",
@@ -25,7 +25,7 @@
     "cannabis",
     "cns depressants."
   ],
-  "safetyNotes": "Generally regarded as safe in moderation,Dry mouth,mild lethargy,Low,No human LD50 established,safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,dry mouth,sedation.,No direct toxicity data. Contextual inference: Mild euphoric and calming,used as cannabis substitute. Acts on cannabinoid receptors,may offer sedative and euphoric effects..,nan.. Acts on cannabinoid receptors,may offer sedative and euphoric effects.. Mild euphoric and calming,used as cannabis substitute.",
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Leonotis leonurus (TaxID 378904)",
