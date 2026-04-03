@@ -32,5 +32,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "flavonols",
-  "summary": "flavonols is a flavonoid compound reported in alchornea castaneifolia. Available references are still early and incomplete."
+  "summary": "flavonols is a flavonoid compound reported in alchornea castaneifolia. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "alchornea-castaneifolia"
+  ]
 }

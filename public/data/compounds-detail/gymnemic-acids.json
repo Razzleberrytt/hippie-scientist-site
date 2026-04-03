@@ -30,5 +30,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "gymnemic-acids",
-  "summary": "Gymnemic Acids appears in records as a compound reported in gymnema sylvestre. Current source coverage is limited and still developing."
+  "summary": "Gymnemic Acids appears in records as a compound reported in gymnema sylvestre. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "gymnema-sylvestre"
+  ]
 }

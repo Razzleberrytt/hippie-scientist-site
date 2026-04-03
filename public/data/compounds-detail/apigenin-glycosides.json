@@ -35,5 +35,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "apigenin-glycosides",
-  "summary": "apigenin glycosides is a glycoside compound reported in agrimonia eupatoria. Current source coverage is limited and still developing."
+  "summary": "apigenin glycosides is a glycoside compound reported in agrimonia eupatoria. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "agrimonia-eupatoria"
+  ]
 }

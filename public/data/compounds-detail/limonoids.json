@@ -34,5 +34,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "limonoids",
-  "summary": "Limonoids is a compound reported in Carapa procera and Trichilia monadelpha. Available references are still early and incomplete."
+  "summary": "Limonoids is a compound reported in Carapa procera and Trichilia monadelpha. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "carapa-procera",
+    "trichilia-monadelpha"
+  ]
 }

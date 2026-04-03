@@ -75,5 +75,17 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "cineole",
-  "summary": "cineole appears in records as a compound reported in acorus tatarinowii, salvia apiana, and related herbs. Current source coverage is limited and still developing."
+  "summary": "cineole appears in records as a compound reported in acorus tatarinowii, salvia apiana, and related herbs. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "acorus-tatarinowii",
+    "salvia-apiana",
+    "artemisia-vulgaris",
+    "mentha-piperita",
+    "achillea-millefolium",
+    "salvia-officinalis"
+  ]
 }

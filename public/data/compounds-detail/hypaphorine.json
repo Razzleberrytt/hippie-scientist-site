@@ -51,5 +51,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "hypaphorine",
-  "summary": "hypaphorine appears in records as a compound reported in erythrina mulungu. Current source coverage is limited and still developing."
+  "summary": "hypaphorine appears in records as a compound reported in erythrina mulungu. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "erythrina-mulungu"
+  ]
 }

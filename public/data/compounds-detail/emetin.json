@@ -37,5 +37,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "emetin",
-  "summary": "emetin is a compound reported in alangium salvifolium. Available references are still early and incomplete."
+  "summary": "emetin is a compound reported in alangium salvifolium. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "alangium-salvifolium"
+  ]
 }

@@ -36,5 +36,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "ascaridole",
-  "summary": "Ascaridole appears in records as a compound reported in dysphania ambrosioides and peumus boldus. Current source coverage is limited and still developing."
+  "summary": "Ascaridole appears in records as a compound reported in dysphania ambrosioides and peumus boldus. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "dysphania-ambrosioides",
+    "peumus-boldus"
+  ]
 }

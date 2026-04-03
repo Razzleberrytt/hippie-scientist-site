@@ -48,5 +48,14 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "tryptamines",
-  "summary": "tryptamines is a tryptamine alkaloid compound reported in acacia maidenii, desmanthus illinoensis, and related herbs. Available references are still early and incomplete."
+  "summary": "tryptamines is a tryptamine alkaloid compound reported in acacia maidenii, desmanthus illinoensis, and related herbs. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "acacia-maidenii",
+    "desmanthus-illinoensis",
+    "acacia-maidenii-f-muell"
+  ]
 }

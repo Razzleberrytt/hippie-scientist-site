@@ -34,5 +34,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "azulene",
-  "summary": "Azulene is a compound reported in achillea millefolium. Available references are still early and incomplete."
+  "summary": "Azulene is a compound reported in achillea millefolium. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "achillea-millefolium"
+  ]
 }

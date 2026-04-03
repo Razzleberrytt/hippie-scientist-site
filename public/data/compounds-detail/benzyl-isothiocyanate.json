@@ -27,5 +27,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "benzyl-isothiocyanate",
-  "summary": "Benzyl isothiocyanate is a compound reported in tropaeolum majus. Available references are still early and incomplete."
+  "summary": "Benzyl isothiocyanate is a compound reported in tropaeolum majus. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "tropaeolum-majus"
+  ]
 }

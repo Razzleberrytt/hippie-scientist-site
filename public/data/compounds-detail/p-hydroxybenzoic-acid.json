@@ -31,5 +31,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "p-hydroxybenzoic-acid",
-  "summary": "p-hydroxybenzoic acid appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing."
+  "summary": "p-hydroxybenzoic acid appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "adenostoma-fasciculatum"
+  ]
 }

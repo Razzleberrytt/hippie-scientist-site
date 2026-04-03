@@ -30,5 +30,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "valeranon",
-  "summary": "Valeranon is a compound reported in valeriana jatamansi. Available references are still early and incomplete."
+  "summary": "Valeranon is a compound reported in valeriana jatamansi. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "valeriana-jatamansi"
+  ]
 }

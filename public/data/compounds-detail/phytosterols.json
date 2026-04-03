@@ -37,5 +37,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "phytosterols",
-  "summary": "phytosterols is a compound reported in alchemilla vulgaris. Available references are still early and incomplete."
+  "summary": "phytosterols is a compound reported in alchemilla vulgaris. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "alchemilla-vulgaris"
+  ]
 }

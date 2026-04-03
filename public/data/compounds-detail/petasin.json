@@ -36,5 +36,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "petasin",
-  "summary": "Petasin is a compound reported in petasites hybridus. Available references are still early and incomplete."
+  "summary": "Petasin is a compound reported in petasites hybridus. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "petasites-hybridus"
+  ]
 }

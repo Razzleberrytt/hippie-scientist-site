@@ -39,5 +39,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "muirapuamine",
-  "summary": "Muirapuamine appears in records as a compound reported in Muira Puama and ptychopetalum olacoides. Current source coverage is limited and still developing."
+  "summary": "Muirapuamine appears in records as a compound reported in Muira Puama and ptychopetalum olacoides. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "muira-puama",
+    "ptychopetalum-olacoides"
+  ]
 }

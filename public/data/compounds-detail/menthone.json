@@ -37,5 +37,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "menthone",
-  "summary": "menthone is a compound reported in mentha piperita. Available references are still early and incomplete."
+  "summary": "menthone is a compound reported in mentha piperita. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "mentha-piperita"
+  ]
 }

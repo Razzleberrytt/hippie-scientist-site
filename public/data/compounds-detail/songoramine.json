@@ -36,5 +36,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "songoramine",
-  "summary": "songoramine is a compound reported in aconitum napellus. Available references are still early and incomplete."
+  "summary": "songoramine is a compound reported in aconitum napellus. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "aconitum-napellus"
+  ]
 }

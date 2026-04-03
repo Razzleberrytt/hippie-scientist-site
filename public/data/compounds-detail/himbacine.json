@@ -27,5 +27,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "himbacine",
-  "summary": "Himbacine is a compound reported in galbulimima belgraveana. Available references are still early and incomplete."
+  "summary": "Himbacine is a compound reported in galbulimima belgraveana. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "galbulimima-belgraveana"
+  ]
 }

@@ -38,5 +38,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mitragynine",
-  "summary": "Mitragynine appears in records as a compound reported in mitragyna javanica. Current source coverage is limited and still developing."
+  "summary": "Mitragynine appears in records as a compound reported in mitragyna javanica. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "mitragyna-javanica"
+  ]
 }

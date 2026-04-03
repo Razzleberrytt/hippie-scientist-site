@@ -27,5 +27,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "furanocoumarins",
-  "summary": "Furanocoumarins is a compound reported in ficus religiosa. Available references are still early and incomplete."
+  "summary": "Furanocoumarins is a compound reported in ficus religiosa. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "ficus-religiosa"
+  ]
 }

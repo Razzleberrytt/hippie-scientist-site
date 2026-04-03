@@ -35,5 +35,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "indole-alkaloids",
-  "summary": "indole alkaloids is an alkaloid compound reported in Pausinystalia johimbe. Current source coverage is limited and still developing."
+  "summary": "indole alkaloids is an alkaloid compound reported in Pausinystalia johimbe. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "pausinystalia-johimbe"
+  ]
 }

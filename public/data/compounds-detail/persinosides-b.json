@@ -34,5 +34,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "persinosides-b",
-  "summary": "persinosides B is a compound reported in aerva lanata. Available references are still early and incomplete."
+  "summary": "persinosides B is a compound reported in aerva lanata. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "aerva-lanata"
+  ]
 }

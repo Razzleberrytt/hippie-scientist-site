@@ -89,5 +89,18 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "eugenol",
-  "summary": "eugenol appears in records as a compound reported in pimenta dioica, tynanthus panurensis, and related herbs. Current source coverage is limited and still developing."
+  "summary": "eugenol appears in records as a compound reported in pimenta dioica, tynanthus panurensis, and related herbs. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "pimenta-dioica",
+    "tynanthus-panurensis",
+    "acorus-calamus",
+    "myristica-fragrans",
+    "myristica-fragrans-houtt",
+    "unnamed-herb",
+    "ocimum-sanctum"
+  ]
 }

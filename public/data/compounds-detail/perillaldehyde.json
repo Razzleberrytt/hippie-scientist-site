@@ -27,5 +27,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "perillaldehyde",
-  "summary": "Perillaldehyde is a compound reported in perilla frutescens. Available references are still early and incomplete."
+  "summary": "Perillaldehyde is a compound reported in perilla frutescens. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "perilla-frutescens"
+  ]
 }

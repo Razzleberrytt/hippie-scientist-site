@@ -69,5 +69,16 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "caffeine",
-  "summary": "Caffeine appears in records as a compound reported in yerba mate, camellia sinensis, and related herbs. Current source coverage is limited and still developing."
+  "summary": "Caffeine appears in records as a compound reported in yerba mate, camellia sinensis, and related herbs. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "yerba-mate",
+    "camellia-sinensis",
+    "paullinia-cupana",
+    "paullinia-yoco",
+    "theobroma-cacao"
+  ]
 }

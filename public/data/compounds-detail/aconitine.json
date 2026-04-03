@@ -31,5 +31,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "aconitine",
-  "summary": "Aconitine is a highly toxic diterpenoid alkaloid from Aconitum species and is primarily characterized by poisoning literature rather than therapeutic trials."
+  "summary": "Aconitine is a highly toxic diterpenoid alkaloid from Aconitum species and is primarily characterized by poisoning literature rather than therapeutic trials.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "aconitum-napellus"
+  ]
 }

@@ -26,6 +26,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-julibrissin"
+    ],
     "aliases": [
       "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside",
       "general"
@@ -54,6 +61,13 @@
     "confidence": "low",
     "hasInteractionData": true,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
     "aliases": [
       "2,4,5-Trimethoxybenzaldehyde",
       "aromatic aldehyde"
@@ -101,6 +115,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "anadenanthera-peregrina",
+      "virola-calophylla",
+      "virola-theiodora"
+    ],
     "aliases": [
       "5-MeO-DMT",
       "general"
@@ -130,6 +153,14 @@
     "confidence": "low",
     "hasInteractionData": true,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "mitragyna-speciosa",
+      "mitragyna-javanica"
+    ],
     "aliases": [
       "7-Hydroxymitragynine",
       "indole alkaloid"
@@ -158,6 +189,13 @@
     "confidence": "low",
     "hasInteractionData": true,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum"
+    ],
     "aliases": [
       "7α-Hydroxybaruol",
       "triterpenoid"
@@ -192,6 +230,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "urtica-dioica"
+    ],
     "aliases": [
       "acetylcholine",
       "general"
@@ -220,6 +265,13 @@
     "confidence": "low",
     "hasInteractionData": true,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aconitum-napellus"
+    ],
     "aliases": [
       "Aconine",
       "diterpenoid alkaloid"
@@ -248,6 +300,13 @@
     "confidence": "low",
     "hasInteractionData": true,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aconitum-napellus"
+    ],
     "aliases": [
       "Aconitine",
       "diterpenoid alkaloid"
@@ -291,6 +350,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-calamus"
+    ],
     "aliases": [
       "acorin",
       "general"
@@ -324,6 +390,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "aervine",
       "general"
@@ -357,6 +430,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "aervolanine",
       "general"
@@ -390,6 +470,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "aervoside",
       "general"
@@ -423,6 +510,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aesculus-hippocastanum"
+    ],
     "aliases": [
       "aescin (escin)",
       "general"
@@ -451,6 +545,13 @@
     "confidence": "low",
     "hasInteractionData": true,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "agrimonia-eupatoria"
+    ],
     "aliases": [
       "Agrimoniin",
       "ellagitannin"
@@ -486,6 +587,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "alamarckine",
       "general"
@@ -521,6 +629,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "alamaridine",
       "general"
@@ -556,6 +671,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "alamarine",
       "general"
@@ -591,6 +713,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "alangamide",
       "general"
@@ -626,6 +755,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "alangimaridine",
       "general"
@@ -661,6 +797,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "alangimarin",
       "general"
@@ -696,6 +839,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "alangimarine",
       "general"
@@ -731,6 +881,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "alangiside",
       "general"
@@ -761,6 +918,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "albiziasaponins A–E",
       "general"
@@ -796,6 +960,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alchornea-castaneifolia",
+      "alchornea-floribunda"
+    ],
     "aliases": [
       "alchorneine",
       "general"
@@ -928,6 +1100,31 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "african-dream-root",
+      "alchornea-castaneifolia",
+      "muira-puama",
+      "alchornea-floribunda",
+      "calliandra-anomala",
+      "delosperma-bosseranum",
+      "desfontainia-spinosa",
+      "desmodium-gangeticum",
+      "acacia-confusa-merr",
+      "achillea-millefolium",
+      "gymnosporia-senegalensis",
+      "zanthoxylum-zanthoxyloides",
+      "vernonia-amygdalina",
+      "herba-lucidum-fictus",
+      "nelumbo-nucifera",
+      "nymphaea-rubra",
+      "ptychopetalum-olacoides",
+      "sceletium-tortuosum",
+      "zornia-latifolia"
+    ],
     "aliases": [
       "alkaloids",
       "alkaloid"
@@ -954,6 +1151,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acacia-nilotica"
+    ],
     "aliases": [
       "alkaloids (nicotine, leucocyanidin)",
       "alkaloid"
@@ -986,6 +1190,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "alkaloids (uncharacterized)",
       "alkaloid"
@@ -1022,6 +1231,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "alkaloids (undetermined)",
       "alkaloid"
@@ -1060,6 +1274,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acmella-oleracea"
+    ],
     "aliases": [
       "alkylamides",
       "general"
@@ -1098,6 +1319,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-americanus",
+      "pogostemon-cablin"
+    ],
     "aliases": [
       "Alpha",
       "general"
@@ -1146,6 +1375,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-americanus",
+      "acorus-calamus"
+    ],
     "aliases": [
       "Alpha-asarone",
       "general"
@@ -1179,6 +1416,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "pogostemon-cablin"
+    ],
     "aliases": [
       "Alpha-bulnesene",
       "general"
@@ -1211,6 +1455,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "amorpha-fruticosa"
+    ],
     "aliases": [
       "Amorphigenin",
       "general"
@@ -1239,6 +1490,13 @@
     "confidence": "low",
     "hasInteractionData": true,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nicotiana-tabacum"
+    ],
     "aliases": [
       "Anabasine",
       "pyridine alkaloid"
@@ -1271,6 +1529,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "hibiscus-sabdariffa"
+    ],
     "aliases": [
       "Anthocyanins",
       "anthocyanin"
@@ -1316,6 +1581,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alchemilla-vulgaris",
+      "turnera-diffusa"
+    ],
     "aliases": [
       "apigenin",
       "general"
@@ -1349,6 +1622,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "agrimonia-eupatoria"
+    ],
     "aliases": [
       "apigenin glycosides",
       "glycoside"
@@ -1395,6 +1675,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "blue-lotus",
+      "nymphaea-caerulea",
+      "nymphaea-lotus"
+    ],
     "aliases": [
       "Aporphine",
       "general"
@@ -1436,6 +1725,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum",
+      "turnera-diffusa"
+    ],
     "aliases": [
       "arbutin",
       "general"
@@ -1465,6 +1762,14 @@
     "confidence": "low",
     "hasInteractionData": true,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-americanus",
+      "acorus-calamus-var-angustatus"
+    ],
     "aliases": [
       "Asarone (alpha/beta isomers)",
       "phenylpropanoid ether"
@@ -1498,6 +1803,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "Asarone (alpha & beta)",
       "general"
@@ -1536,6 +1846,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "dysphania-ambrosioides",
+      "peumus-boldus"
+    ],
     "aliases": [
       "Ascaridole",
       "general"
@@ -1570,6 +1888,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "desmodium-adscendens"
+    ],
     "aliases": [
       "Astragalin",
       "general"
@@ -1628,6 +1953,19 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "datura-metel",
+      "brugmansia-sanguinea",
+      "brugmansia-suaveolens",
+      "datura-ferox",
+      "datura-stramonium",
+      "datura-wrightii",
+      "solandra-grandiflora"
+    ],
     "aliases": [
       "Atropine",
       "general"
@@ -1660,6 +1998,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "achillea-millefolium"
+    ],
     "aliases": [
       "Azulene",
       "general"
@@ -1692,6 +2037,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "bacopa-monnieri"
+    ],
     "aliases": [
       "Bacosides A and B",
       "general"
@@ -1728,6 +2080,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "scutellaria-lateriflora"
+    ],
     "aliases": [
       "Baicalin",
       "general"
@@ -1760,6 +2119,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aconitum-napellus"
+    ],
     "aliases": [
       "benzaconine",
       "general"
@@ -1793,6 +2159,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "benzoic acid",
       "general"
@@ -1819,6 +2192,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "tropaeolum-majus"
+    ],
     "aliases": [
       "Benzyl isothiocyanate",
       "general"
@@ -1852,6 +2232,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-calamus-var-angustatus"
+    ],
     "aliases": [
       "Beta",
       "general"
@@ -1896,6 +2283,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-calamus-var-angustatus",
+      "acorus-calamus"
+    ],
     "aliases": [
       "Beta-asarone",
       "general"
@@ -1929,6 +2324,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "virola-calophylla"
+    ],
     "aliases": [
       "beta-carbolines",
       "beta-carboline alkaloid"
@@ -1959,6 +2361,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "beta-carbolines (trace)",
       "beta-carboline alkaloid"
@@ -1991,6 +2398,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "peumus-boldus"
+    ],
     "aliases": [
       "Boldine",
       "general"
@@ -2024,6 +2438,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
     "aliases": [
       "borneol",
       "general"
@@ -2052,6 +2473,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "boswellia-dalzielii"
+    ],
     "aliases": [
       "Boswellic acids",
       "general"
@@ -2082,6 +2510,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "budmunchiamines L1-L6",
       "general"
@@ -2120,6 +2555,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "anadenanthera-peregrina"
+    ],
     "aliases": [
       "Bufotenin",
       "general"
@@ -2172,6 +2614,16 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "anadenanthera-colubrina",
+      "anadenanthera-peregrina",
+      "virola-theiodora",
+      "arundo-donax"
+    ],
     "aliases": [
       "Bufotenine",
       "general"
@@ -2205,6 +2657,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "pogostemon-cablin"
+    ],
     "aliases": [
       "bulnesene",
       "general"
@@ -2239,6 +2698,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alchemilla-vulgaris"
+    ],
     "aliases": [
       "caffeic acid",
       "general"
@@ -2296,6 +2762,17 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "yerba-mate",
+      "camellia-sinensis",
+      "paullinia-cupana",
+      "paullinia-yoco",
+      "theobroma-cacao"
+    ],
     "aliases": [
       "Caffeine",
       "general"
@@ -2334,6 +2811,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "turnera-diffusa"
+    ],
     "aliases": [
       "caffeine-like alkaloids",
       "alkaloid"
@@ -2372,6 +2856,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "turnera-diffusa"
+    ],
     "aliases": [
       "caffeine-like compounds",
       "general"
@@ -2413,6 +2904,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "calea-ternifolia"
+    ],
     "aliases": [
       "Caleicines",
       "general"
@@ -2454,6 +2952,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "calea-ternifolia"
+    ],
     "aliases": [
       "calein A",
       "general"
@@ -2484,6 +2989,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "calea-zacatechichi"
+    ],
     "aliases": [
       "calein A and B",
       "general"
@@ -2512,6 +3024,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum"
+    ],
     "aliases": [
       "campesterol",
       "general"
@@ -2545,6 +3064,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
     "aliases": [
       "camphene",
       "general"
@@ -2597,6 +3123,17 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii",
+      "artemisia-abrotanum",
+      "artemisia-ludoviciana",
+      "salvia-apiana",
+      "salvia-officinalis"
+    ],
     "aliases": [
       "camphor",
       "general"
@@ -2632,6 +3169,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "ocimum-sanctum"
+    ],
     "aliases": [
       "carvacrol",
       "general"
@@ -2666,6 +3210,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "casimiroa-edulis"
+    ],
     "aliases": [
       "Casimiroin",
       "general"
@@ -2703,6 +3254,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "agrimonia-eupatoria",
+      "alchemilla-vulgaris"
+    ],
     "aliases": [
       "catechin",
       "general"
@@ -2760,6 +3319,17 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck",
+      "byrsonima-crassifolia",
+      "camellia-sinensis",
+      "combretum-micranthum",
+      "paullinia-cupana"
+    ],
     "aliases": [
       "catechins",
       "general"
@@ -2786,6 +3356,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "catuaba"
+    ],
     "aliases": [
       "Catuabine",
       "general"
@@ -2814,6 +3391,13 @@
     "confidence": "low",
     "hasInteractionData": true,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "cannabis-sativa"
+    ],
     "aliases": [
       "CBD",
       "phytocannabinoid"
@@ -2849,6 +3433,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "cannabis-sativa"
+    ],
     "aliases": [
       "CBN",
       "general"
@@ -2883,6 +3474,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "celastrus-paniculatus"
+    ],
     "aliases": [
       "Celastrine",
       "general"
@@ -2918,6 +3516,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "cephaeline",
       "general"
@@ -2950,6 +3555,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "achillea-millefolium"
+    ],
     "aliases": [
       "Chamazulene",
       "general"
@@ -2976,6 +3588,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "yerba-mate"
+    ],
     "aliases": [
       "Chlorogenic acid",
       "general"
@@ -3036,6 +3655,18 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii",
+      "salvia-apiana",
+      "artemisia-vulgaris",
+      "mentha-piperita",
+      "achillea-millefolium",
+      "salvia-officinalis"
+    ],
     "aliases": [
       "cineole",
       "general"
@@ -3071,6 +3702,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "erythroxylum-coca"
+    ],
     "aliases": [
       "cinnamic acid derivatives",
       "general"
@@ -3104,6 +3742,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
     "aliases": [
       "cis-methylisoeugenol",
       "general"
@@ -3130,6 +3775,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "cissampelos-pareira"
+    ],
     "aliases": [
       "Cissamine",
       "general"
@@ -3168,6 +3820,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aloysia-citrodora",
+      "nepeta-cataria"
+    ],
     "aliases": [
       "Citral",
       "general"
@@ -3201,6 +3861,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "Cocaine alkaloids (0.2–1%)",
       "alkaloid"
@@ -3237,6 +3902,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "papaver-somniferum"
+    ],
     "aliases": [
       "codeine",
       "general"
@@ -3263,6 +3935,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "combretum-quadrangulare"
+    ],
     "aliases": [
       "Combretin",
       "general"
@@ -3289,6 +3968,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "combretum-quadrangulare"
+    ],
     "aliases": [
       "Combretol",
       "general"
@@ -3326,6 +4012,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "voacanga-africana"
+    ],
     "aliases": [
       "coronaridine",
       "general"
@@ -3358,6 +4051,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "pausinystalia-johimbe"
+    ],
     "aliases": [
       "corynanthine",
       "general"
@@ -3394,6 +4094,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "justicia-pectoralis"
+    ],
     "aliases": [
       "Coumarin",
       "coumarin"
@@ -3432,6 +4139,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acmella-oleracea"
+    ],
     "aliases": [
       "coumarins",
       "coumarin"
@@ -3483,6 +4197,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "heimia-myrtifolia",
+      "heimia-salicifolia-sinicuichi",
+      "sinicuichi-heimia-myrtifolia"
+    ],
     "aliases": [
       "Cryogenine",
       "general"
@@ -3523,6 +4246,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "Cryogenine (vertine)",
       "general"
@@ -3556,6 +4284,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "dysphania-ambrosioides"
+    ],
     "aliases": [
       "Cymene",
       "general"
@@ -3592,6 +4327,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "sophora-secundiflora"
+    ],
     "aliases": [
       "Cytisine",
       "general"
@@ -3626,6 +4368,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "Cytisine (nicotinic agonist)",
       "general"
@@ -3669,6 +4416,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "turnera-diffusa-var-aphrodisiaca",
+      "turnera-diffusa"
+    ],
     "aliases": [
       "Damianin",
       "general"
@@ -3701,6 +4456,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aconitum-napellus"
+    ],
     "aliases": [
       "deoxyaconitine",
       "general"
@@ -3736,6 +4498,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "deoxytubulosine",
       "general"
@@ -3774,6 +4543,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "desfontainia-spinosa"
+    ],
     "aliases": [
       "Desfontainin",
       "general"
@@ -3812,6 +4588,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "desfontainia-spinosa"
+    ],
     "aliases": [
       "Desfontainine",
       "general"
@@ -3857,6 +4640,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "desmodium-adscendens",
+      "desmodium-gangeticum"
+    ],
     "aliases": [
       "Desmodin",
       "general"
@@ -3900,6 +4691,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "african-dream-root",
+      "klip-dagga"
+    ],
     "aliases": [
       "diterpenoids",
       "general"
@@ -3964,6 +4763,21 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acacia-maidenii",
+      "virola-theiodora",
+      "acacia-confusa",
+      "acacia-phlebophylla",
+      "anadenanthera-peregrina",
+      "arundo-donax",
+      "acacia-confusa-merr",
+      "calliandra-lucidum",
+      "virola-calophylla"
+    ],
     "aliases": [
       "DMT",
       "general"
@@ -3994,6 +4808,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "DMT (0.3–0.7%)",
       "general"
@@ -4026,6 +4845,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "DMT (in root bark)",
       "general"
@@ -4056,6 +4880,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "echinocystic acid (acacic acid)",
       "general"
@@ -4090,6 +4921,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "elaeagnus-angustifolia"
+    ],
     "aliases": [
       "Elaeagnin",
       "general"
@@ -4132,6 +4970,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "myristica-fragrans",
+      "myristica-fragrans-houtt"
+    ],
     "aliases": [
       "elemicin",
       "general"
@@ -4165,6 +5011,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "agrimonia-eupatoria"
+    ],
     "aliases": [
       "ellagic acid",
       "general"
@@ -4199,6 +5052,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alchemilla-vulgaris"
+    ],
     "aliases": [
       "ellagitannins",
       "general"
@@ -4225,6 +5085,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "elsholtzia-ciliata"
+    ],
     "aliases": [
       "Elsholtzia ketone",
       "general"
@@ -4260,6 +5127,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "emetin",
       "general"
@@ -4301,6 +5175,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aconitum-napellus",
+      "sida-cordifolia"
+    ],
     "aliases": [
       "ephedrine",
       "general"
@@ -4336,6 +5218,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "argyreia-nervosa"
+    ],
     "aliases": [
       "ergine",
       "general"
@@ -4368,6 +5257,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "convolvulus-arvensis"
+    ],
     "aliases": [
       "Ergoline alkaloids (trace)",
       "alkaloid"
@@ -4400,6 +5296,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "claviceps-purpurea"
+    ],
     "aliases": [
       "Ergotamine",
       "general"
@@ -4433,6 +5336,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "ervine",
       "general"
@@ -4466,6 +5376,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "ervolanine",
       "general"
@@ -4499,6 +5416,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "ervoside",
       "general"
@@ -4543,6 +5467,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "erythrina-mulungu"
+    ],
     "aliases": [
       "Erythravine",
       "general"
@@ -4587,6 +5518,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "erythrina-mulungu"
+    ],
     "aliases": [
       "erythrinan alkaloids",
       "alkaloid"
@@ -4631,6 +5569,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "erythrina-mulungu"
+    ],
     "aliases": [
       "Erythrinian alkaloids",
       "alkaloid"
@@ -4675,6 +5620,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "erythrina-mulungu"
+    ],
     "aliases": [
       "erythrinine",
       "general"
@@ -4733,6 +5685,18 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adhatoda-vasica",
+      "helichrysum-odoratissimum",
+      "acorus-gramineus",
+      "elaeagnus-angustifolia",
+      "justicia-pectoralis",
+      "salvia-nemorosa"
+    ],
     "aliases": [
       "essential oils",
       "general"
@@ -4766,6 +5730,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
     "aliases": [
       "estragole",
       "general"
@@ -4798,6 +5769,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "salvia-apiana"
+    ],
     "aliases": [
       "Eucalyptol",
       "general"
@@ -4871,6 +5849,19 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "pimenta-dioica",
+      "tynanthus-panurensis",
+      "acorus-calamus",
+      "myristica-fragrans",
+      "myristica-fragrans-houtt",
+      "unnamed-herb",
+      "ocimum-sanctum"
+    ],
     "aliases": [
       "eugenol",
       "general"
@@ -4915,6 +5906,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "linden",
+      "unnamed-herb",
+      "tilia-tomentosa"
+    ],
     "aliases": [
       "Farnesol",
       "general"
@@ -4953,6 +5953,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "ptychopetalum-olacoides"
+    ],
     "aliases": [
       "fatty acids",
       "general"
@@ -4981,6 +5988,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum"
+    ],
     "aliases": [
       "ferulic acid",
       "general"
@@ -5024,6 +6038,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alchornea-castaneifolia",
+      "calea-ternifolia"
+    ],
     "aliases": [
       "flavones",
       "flavonoid"
@@ -5226,6 +6248,50 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adhatoda-vasica",
+      "agrimonia-eupatoria",
+      "albizia-julibrissin",
+      "helichrysum-odoratissimum",
+      "muira-puama",
+      "rhododendron-anthopogon",
+      "turnera-diffusa-var-aphrodisiaca",
+      "elaeagnus-angustifolia",
+      "acacia-confusa",
+      "acacia-maidenii",
+      "acmella-oleracea",
+      "artemisia-vulgaris",
+      "asarum-canadense",
+      "calliandra-anomala",
+      "combretum-micranthum",
+      "desmodium-gangeticum",
+      "erythrina-mulungu",
+      "indian-warrior",
+      "justicia-pectoralis",
+      "klip-dagga",
+      "acacia-confusa-merr",
+      "acacia-maidenii-f-muell",
+      "achillea-millefolium",
+      "rhynchosia-pyramidalis",
+      "spathodea-campanulata",
+      "alchornea-cordifolia",
+      "entada-africana",
+      "vernonia-amygdalina",
+      "nelumbo-nucifera",
+      "nymphaea-lotus",
+      "nymphaea-rubra",
+      "ptychopetalum-olacoides",
+      "salvia-apiana",
+      "salvia-officinalis",
+      "theobroma-cacao",
+      "turnera-diffusa",
+      "urtica-dioica",
+      "zornia-latifolia"
+    ],
     "aliases": [
       "flavonoids",
       "flavonoid"
@@ -5260,6 +6326,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "flavonoids (exact psychoactive agent unknown)",
       "flavonoid"
@@ -5292,6 +6363,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "Flavonoids (vitexin",
       "flavonoid"
@@ -5318,6 +6394,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alchornea-castaneifolia"
+    ],
     "aliases": [
       "flavonols",
       "flavonoid"
@@ -5344,6 +6427,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "rubus-idaeus"
+    ],
     "aliases": [
       "Fragarine",
       "general"
@@ -5370,6 +6460,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "ficus-religiosa"
+    ],
     "aliases": [
       "Furanocoumarins",
       "general"
@@ -5396,6 +6493,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "galbulimima-belgraveana"
+    ],
     "aliases": [
       "Galbulimimine",
       "general"
@@ -5435,6 +6539,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alchemilla-vulgaris",
+      "combretum-micranthum"
+    ],
     "aliases": [
       "gallic acid",
       "general"
@@ -5465,6 +6577,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "geraldone",
       "general"
@@ -5493,6 +6612,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum"
+    ],
     "aliases": [
       "geranial",
       "general"
@@ -5538,6 +6664,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "calea-zacatechichi",
+      "calea-ternifolia"
+    ],
     "aliases": [
       "Germacranolides",
       "general"
@@ -5566,6 +6700,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum"
+    ],
     "aliases": [
       "glutinol",
       "general"
@@ -5605,6 +6746,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nymphaea-lotus",
+      "nymphaea-rubra"
+    ],
     "aliases": [
       "glycosides",
       "glycoside"
@@ -5639,6 +6788,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "arundo-donax"
+    ],
     "aliases": [
       "gramine",
       "general"
@@ -5665,6 +6821,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "ruta-graveolens"
+    ],
     "aliases": [
       "Graveoline",
       "general"
@@ -5697,6 +6860,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "gymnema-sylvestre"
+    ],
     "aliases": [
       "Gymnemic Acids",
       "general"
@@ -5723,6 +6893,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nicotiana-rustica"
+    ],
     "aliases": [
       "Harmala alkaloids",
       "alkaloid"
@@ -5754,6 +6931,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "harmala alkaloids (harmine",
       "alkaloid"
@@ -5806,6 +6988,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "banisteriopsis-caapi",
+      "peganum-harmala"
+    ],
     "aliases": [
       "harmaline)",
       "general"
@@ -5846,6 +7036,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "peganum-harmala"
+    ],
     "aliases": [
       "Harmalol",
       "general"
@@ -5881,6 +7078,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nicotiana-rustica"
+    ],
     "aliases": [
       "harman",
       "general"
@@ -5915,6 +7119,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "passiflora-incarnata"
+    ],
     "aliases": [
       "harman alkaloids",
       "alkaloid"
@@ -5963,6 +7174,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "banisteriopsis-caapi",
+      "peganum-harmala"
+    ],
     "aliases": [
       "harmine",
       "general"
@@ -5995,6 +7214,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "galbulimima-belgraveana"
+    ],
     "aliases": [
       "Himandrine",
       "general"
@@ -6021,6 +7247,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "galbulimima-belgraveana"
+    ],
     "aliases": [
       "Himbacine",
       "general"
@@ -6051,6 +7284,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "himbacine (alkaloids)",
       "alkaloid"
@@ -6085,6 +7323,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "urtica-dioica"
+    ],
     "aliases": [
       "Histamine",
       "general"
@@ -6111,6 +7356,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "huperzia-serrata"
+    ],
     "aliases": [
       "Huperzine A",
       "general"
@@ -6139,6 +7391,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum"
+    ],
     "aliases": [
       "hydroquinone",
       "general"
@@ -6195,6 +7454,18 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "brugmansia-sanguinea",
+      "brugmansia-suaveolens",
+      "datura-ferox",
+      "datura-stramonium",
+      "datura-wrightii",
+      "solandra-grandiflora"
+    ],
     "aliases": [
       "hyoscyamine",
       "general"
@@ -6227,6 +7498,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aconitum-napellus"
+    ],
     "aliases": [
       "hypaconitine",
       "general"
@@ -6271,6 +7549,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "erythrina-mulungu"
+    ],
     "aliases": [
       "hypaphorine",
       "general"
@@ -6303,6 +7588,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "tabernaemontana-undulata"
+    ],
     "aliases": [
       "Iboga alkaloids",
       "alkaloid"
@@ -6341,6 +7633,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "tabernanthe-iboga"
+    ],
     "aliases": [
       "Ibogaine",
       "general"
@@ -6378,6 +7677,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "voacanga-africana"
+    ],
     "aliases": [
       "ibogaine-related alkaloids",
       "alkaloid"
@@ -6411,6 +7717,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "ervatamia-coronaria"
+    ],
     "aliases": [
       "ibogamine",
       "general"
@@ -6450,6 +7763,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "amanita-muscaria"
+    ],
     "aliases": [
       "ibotenic acid",
       "general"
@@ -6482,6 +7802,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aconitum-napellus"
+    ],
     "aliases": [
       "indaconitine",
       "general"
@@ -6514,6 +7841,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "pausinystalia-johimbe"
+    ],
     "aliases": [
       "indole alkaloids",
       "alkaloid"
@@ -6564,6 +7898,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "mitchella-repens",
+      "desfontainia-spinosa",
+      "indian-warrior"
+    ],
     "aliases": [
       "Iridoids",
       "iridoid"
@@ -6599,6 +7942,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "isocephaeline",
       "general"
@@ -6645,6 +7995,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "argyreia-nervosa",
+      "rivea-corymbosa",
+      "turbina-corymbosa"
+    ],
     "aliases": [
       "isoergine",
       "general"
@@ -6675,6 +8034,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "isookanin",
       "general"
@@ -6711,6 +8077,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "petasites-hybridus"
+    ],
     "aliases": [
       "isopetasin",
       "general"
@@ -6744,6 +8117,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "agrimonia-eupatoria"
+    ],
     "aliases": [
       "isoquercetin",
       "general"
@@ -6777,6 +8157,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "isorhamnetin",
       "general"
@@ -6811,6 +8198,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "valeriana-officinalis"
+    ],
     "aliases": [
       "isovaleric acid",
       "general"
@@ -6843,6 +8237,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "isovitexin)",
       "general"
@@ -6875,6 +8274,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aconitum-napellus"
+    ],
     "aliases": [
       "jesaconitine",
       "general"
@@ -6907,6 +8313,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-julibrissin"
+    ],
     "aliases": [
       "julibroside C1",
       "general"
@@ -6955,6 +8368,16 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata",
+      "albizia-lebbeck",
+      "alchemilla-vulgaris",
+      "linden"
+    ],
     "aliases": [
       "kaempferol",
       "general"
@@ -6988,6 +8411,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "agrimonia-eupatoria"
+    ],
     "aliases": [
       "kaempferol glycosides",
       "glycoside"
@@ -7021,6 +8451,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "Kavalactones (kavain",
       "general"
@@ -7056,6 +8491,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "camellia-sinensis"
+    ],
     "aliases": [
       "L-theanine",
       "general"
@@ -7097,6 +8539,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "wild-lettuce",
+      "lactuca-virosa"
+    ],
     "aliases": [
       "Lactucin",
       "general"
@@ -7138,6 +8588,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "wild-lettuce",
+      "lactuca-virosa"
+    ],
     "aliases": [
       "lactucopicrin",
       "general"
@@ -7168,6 +8626,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "lebbeckalysin",
       "general"
@@ -7198,6 +8663,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "lebbeckoside C",
       "general"
@@ -7228,6 +8700,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "lebbeckosides A and B",
       "general"
@@ -7287,6 +8766,16 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "motherwort",
+      "klip-dagga",
+      "leonotis-leonurus",
+      "siberian-motherwort"
+    ],
     "aliases": [
       "Leonurine",
       "general"
@@ -7317,6 +8806,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "leucopelargonidin",
       "general"
@@ -7353,6 +8849,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "elaeagnus-angustifolia"
+    ],
     "aliases": [
       "ligans",
       "general"
@@ -7385,6 +8888,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-julibrissin"
+    ],
     "aliases": [
       "lignan glycosides",
       "glycoside"
@@ -7413,6 +8923,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "zanthoxylum-zanthoxyloides"
+    ],
     "aliases": [
       "lignans",
       "lignan"
@@ -7459,6 +8976,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii",
+      "mentha-piperita",
+      "nepeta-cataria"
+    ],
     "aliases": [
       "limonene",
       "general"
@@ -7492,6 +9018,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "carapa-procera",
+      "trichilia-monadelpha"
+    ],
     "aliases": [
       "Limonoids",
       "general"
@@ -7543,6 +9077,16 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii",
+      "unnamed-herb",
+      "ocimum-sanctum",
+      "tilia-tomentosa"
+    ],
     "aliases": [
       "linalool",
       "general"
@@ -7575,6 +9119,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "salvia-sclarea"
+    ],
     "aliases": [
       "Linalyl acetate",
       "general"
@@ -7611,6 +9162,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "muira-puama",
+      "ptychopetalum-olacoides"
+    ],
     "aliases": [
       "long-chain fatty acids",
       "general"
@@ -7642,6 +9201,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "LSA (ergine)",
       "general"
@@ -7675,6 +9239,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "argyreia-nervosa"
+    ],
     "aliases": [
       "LSA (lysergic acid amide)",
       "general"
@@ -7705,6 +9276,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "herba-lucidum-fictus"
+    ],
     "aliases": [
       "Lucidine",
       "general"
@@ -7744,6 +9322,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata",
+      "albizia-lebbeck",
+      "tamarindus-indica"
+    ],
     "aliases": [
       "lupeol",
       "general"
@@ -7777,6 +9364,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "lupeol acetate",
       "general"
@@ -7806,6 +9400,14 @@
     "confidence": "low",
     "hasInteractionData": true,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck",
+      "alchemilla-vulgaris"
+    ],
     "aliases": [
       "Luteolin",
       "flavone"
@@ -7861,6 +9463,16 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "heimia-myrtifolia",
+      "heimia-salicifolia-sinicuichi",
+      "sinicuichi-heimia-myrtifolia",
+      "sinicuichi-heimia-salicifolia"
+    ],
     "aliases": [
       "lyfoline",
       "general"
@@ -7899,6 +9511,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "Lysergic acid amide (LSA)",
       "general"
@@ -7950,6 +9567,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "heimia-myrtifolia",
+      "heimia-salicifolia-sinicuichi",
+      "sinicuichi-heimia-salicifolia"
+    ],
     "aliases": [
       "lythrine",
       "general"
@@ -7984,6 +9610,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "passiflora-incarnata"
+    ],
     "aliases": [
       "maltol",
       "general"
@@ -8010,6 +9643,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aegle-marmelos"
+    ],
     "aliases": [
       "Marmelosin",
       "general"
@@ -8048,6 +9688,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "marrubium-vulgare",
+      "leonotis-leonurus"
+    ],
     "aliases": [
       "Marrubiin",
       "general"
@@ -8078,6 +9726,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "melanoxetin",
       "general"
@@ -8113,6 +9768,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "mentha-piperita"
+    ],
     "aliases": [
       "Menthol",
       "general"
@@ -8148,6 +9810,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "mentha-piperita"
+    ],
     "aliases": [
       "menthone",
       "general"
@@ -8183,6 +9852,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "mentha-piperita"
+    ],
     "aliases": [
       "menthyl acetate",
       "general"
@@ -8209,6 +9885,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "virola-theiodora"
+    ],
     "aliases": [
       "MeO",
       "general"
@@ -8241,6 +9924,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aconitum-napellus"
+    ],
     "aliases": [
       "mesaconitine",
       "general"
@@ -8275,6 +9965,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "echinopsis-pachanoi"
+    ],
     "aliases": [
       "Mescaline",
       "general"
@@ -8315,6 +10012,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "sceletium-tortuosum"
+    ],
     "aliases": [
       "mesembrenol",
       "general"
@@ -8355,6 +10059,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "sceletium-tortuosum"
+    ],
     "aliases": [
       "mesembrenone",
       "general"
@@ -8408,6 +10119,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "kanna",
+      "delosperma-bosseranum",
+      "sceletium-tortuosum"
+    ],
     "aliases": [
       "Mesembrine",
       "general"
@@ -8442,6 +10162,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "Mesembrine analogues (suspected)",
       "general"
@@ -8475,6 +10200,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "methaervine",
       "general"
@@ -8508,6 +10240,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
     "aliases": [
       "methyl eugenol",
       "general"
@@ -8541,6 +10280,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "methyl grevillate",
       "general"
@@ -8580,6 +10326,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "betula-lenta",
+      "sweet-violet"
+    ],
     "aliases": [
       "Methyl salicylate",
       "general"
@@ -8613,6 +10367,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "methylervine",
       "general"
@@ -8648,6 +10409,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "piper-methysticum"
+    ],
     "aliases": [
       "methysticin",
       "general"
@@ -8683,6 +10451,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "mitragyna-javanica"
+    ],
     "aliases": [
       "Mitragynine",
       "general"
@@ -8726,6 +10501,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-calamus"
+    ],
     "aliases": [
       "monoterpenes",
       "terpenoid"
@@ -8762,6 +10544,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "papaver-somniferum"
+    ],
     "aliases": [
       "Morphine",
       "general"
@@ -8798,6 +10587,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "muira-puama",
+      "ptychopetalum-olacoides"
+    ],
     "aliases": [
       "Muirapuamine",
       "general"
@@ -8842,6 +10639,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "erythrina-mulungu"
+    ],
     "aliases": [
       "mulunguine",
       "general"
@@ -8881,6 +10685,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "amanita-muscaria"
+    ],
     "aliases": [
       "Muscimol",
       "general"
@@ -8907,6 +10718,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acacia-nilotica"
+    ],
     "aliases": [
       "myricetin",
       "general"
@@ -8949,6 +10767,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "myristica-fragrans",
+      "myristica-fragrans-houtt"
+    ],
     "aliases": [
       "Myristicin",
       "general"
@@ -8981,6 +10807,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "psychotria-carthagenensis"
+    ],
     "aliases": [
       "N",
       "general"
@@ -9011,6 +10844,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "N-Dimethyltryptamine (DMT)",
       "general"
@@ -9046,6 +10884,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "N-methylcephaeline (alamarckine)",
       "general"
@@ -9081,6 +10926,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acacia-confusa"
+    ],
     "aliases": [
       "N-methyltryptamine",
       "general"
@@ -9113,6 +10965,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aconitum-napellus"
+    ],
     "aliases": [
       "napelline",
       "general"
@@ -9146,6 +11005,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nelumbo-nucifera"
+    ],
     "aliases": [
       "neferine",
       "general"
@@ -9178,6 +11044,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aconitum-napellus"
+    ],
     "aliases": [
       "neoline",
       "general"
@@ -9215,6 +11088,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "klip-dagga"
+    ],
     "aliases": [
       "nepetaefolin",
       "general"
@@ -9255,6 +11135,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "catnip",
+      "nepeta-cataria"
+    ],
     "aliases": [
       "Nepetalactone",
       "general"
@@ -9294,6 +11182,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "heimia-salicifolia-sinicuichi"
+    ],
     "aliases": [
       "nesodine",
       "general"
@@ -9327,6 +11222,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nicotiana-rustica",
+      "nicotiana-tabacum"
+    ],
     "aliases": [
       "Nicotine",
       "general"
@@ -9358,6 +11261,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "Nicotine (9–15%)",
       "general"
@@ -9391,6 +11299,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "Nicotine (up to 9%)",
       "general"
@@ -9432,6 +11345,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acacia-phlebophylla",
+      "acacia-confusa-merr",
+      "acacia-maidenii-f-muell"
+    ],
     "aliases": [
       "NMT",
       "general"
@@ -9467,6 +11389,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nicotiana-rustica"
+    ],
     "aliases": [
       "norharman",
       "general"
@@ -9505,6 +11434,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "tabernanthe-iboga"
+    ],
     "aliases": [
       "noribogaine",
       "general"
@@ -9544,6 +11480,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nicotiana-rustica",
+      "nicotiana-tabacum"
+    ],
     "aliases": [
       "nornicotine",
       "general"
@@ -9578,6 +11522,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "papaver-somniferum"
+    ],
     "aliases": [
       "noscapine",
       "general"
@@ -9630,6 +11581,16 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "blue-lotus",
+      "nelumbo-nucifera",
+      "nymphaea-caerulea",
+      "nymphaea-lotus"
+    ],
     "aliases": [
       "Nuciferine",
       "general"
@@ -9677,6 +11638,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nymphaea-caerulea",
+      "nymphaea-rubra"
+    ],
     "aliases": [
       "nupharidine",
       "general"
@@ -9724,6 +11693,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nymphaea-caerulea",
+      "nymphaea-rubra"
+    ],
     "aliases": [
       "Nupharine",
       "general"
@@ -9757,6 +11734,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
     "aliases": [
       "o-cymene",
       "general"
@@ -9787,6 +11771,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "okanine",
       "general"
@@ -9817,6 +11808,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "oleanolic acid",
       "general"
@@ -9850,6 +11848,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aesculus-hippocastanum"
+    ],
     "aliases": [
       "other saponins",
       "saponin"
@@ -9883,6 +11888,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "dysphania-ambrosioides"
+    ],
     "aliases": [
       "p",
       "general"
@@ -9919,6 +11931,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum",
+      "agrimonia-eupatoria"
+    ],
     "aliases": [
       "p-coumaric acid",
       "general"
@@ -9952,6 +11972,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "dysphania-ambrosioides"
+    ],
     "aliases": [
       "p-Cymene",
       "general"
@@ -9980,6 +12007,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum"
+    ],
     "aliases": [
       "p-hydroxybenzoic acid",
       "general"
@@ -10014,6 +12048,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "celastrus-paniculatus"
+    ],
     "aliases": [
       "Paniculatin",
       "general"
@@ -10050,6 +12091,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "papaver-somniferum"
+    ],
     "aliases": [
       "papaverine",
       "general"
@@ -10076,6 +12124,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "cissampelos-pareira"
+    ],
     "aliases": [
       "Pareirine",
       "general"
@@ -10106,6 +12161,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "cestrum-parqui"
+    ],
     "aliases": [
       "parquine",
       "general"
@@ -10139,6 +12201,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "pogostemon-cablin"
+    ],
     "aliases": [
       "Patchoulol",
       "general"
@@ -10165,6 +12234,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "zanthoxylum-clava-herculis"
+    ],
     "aliases": [
       "Pellitorine",
       "general"
@@ -10191,6 +12267,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "perilla-frutescens"
+    ],
     "aliases": [
       "Perillaldehyde",
       "general"
@@ -10224,6 +12307,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "persinol",
       "general"
@@ -10257,6 +12347,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "persinosides A",
       "general"
@@ -10290,6 +12387,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "persinosides B",
       "general"
@@ -10326,6 +12430,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "petasites-hybridus"
+    ],
     "aliases": [
       "Petasin",
       "general"
@@ -10362,6 +12473,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "agrimonia-eupatoria",
+      "rhynchosia-pyramidalis"
+    ],
     "aliases": [
       "phenolic acids",
       "phenolic compound"
@@ -10390,6 +12509,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "spathodea-campanulata"
+    ],
     "aliases": [
       "Phenolics",
       "general"
@@ -10416,6 +12542,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alchornea-castaneifolia"
+    ],
     "aliases": [
       "phenols",
       "phenolic compound"
@@ -10451,6 +12584,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "theobroma-cacao"
+    ],
     "aliases": [
       "phenylethylamine",
       "general"
@@ -10479,6 +12619,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum"
+    ],
     "aliases": [
       "phlorizin",
       "general"
@@ -10513,6 +12660,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alchemilla-vulgaris"
+    ],
     "aliases": [
       "phytosterols",
       "general"
@@ -10545,6 +12699,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aconitum-napellus"
+    ],
     "aliases": [
       "picraconitine",
       "general"
@@ -10575,6 +12736,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "pinitol",
       "general"
@@ -10613,6 +12781,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "turnera-diffusa"
+    ],
     "aliases": [
       "pinocembrin",
       "general"
@@ -10639,6 +12814,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acacia-nilotica"
+    ],
     "aliases": [
       "polysaccharides (arabinose, rhamnose)",
       "general"
@@ -10667,6 +12849,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "rhynchosia-pyramidalis"
+    ],
     "aliases": [
       "Prenylated isoflavonoids",
       "general"
@@ -10700,6 +12889,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "agrimonia-eupatoria"
+    ],
     "aliases": [
       "procyanidin oligomers",
       "general"
@@ -10736,6 +12932,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "sida-cordifolia"
+    ],
     "aliases": [
       "pseudoephedrine",
       "general"
@@ -10771,6 +12974,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "psychotrin",
       "general"
@@ -10809,6 +13019,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "desmodium-gangeticum"
+    ],
     "aliases": [
       "pterocarpans",
       "general"
@@ -10844,6 +13061,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "mentha-piperita"
+    ],
     "aliases": [
       "pulegone",
       "general"
@@ -10878,6 +13102,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "pyrrolizidine alkaloids (toxic)",
       "alkaloid"
@@ -10932,6 +13161,19 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acacia-nilotica",
+      "aerva-lanata",
+      "albizia-lebbeck",
+      "alchemilla-vulgaris",
+      "byrsonima-crassifolia",
+      "pimenta-dioica",
+      "tilia-tomentosa"
+    ],
     "aliases": [
       "quercetin",
       "general"
@@ -10965,6 +13207,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "agrimonia-eupatoria"
+    ],
     "aliases": [
       "quercetin derivatives",
       "general"
@@ -10997,6 +13246,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-julibrissin"
+    ],
     "aliases": [
       "quercitrin",
       "general"
@@ -11045,6 +13301,17 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "perilla-frutescens",
+      "salvia-apiana",
+      "salvia-nemorosa",
+      "nepeta-cataria",
+      "ocimum-sanctum"
+    ],
     "aliases": [
       "rosmarinic acid",
       "general"
@@ -11071,6 +13338,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "ruta-graveolens"
+    ],
     "aliases": [
       "Rutarin",
       "general"
@@ -11097,6 +13371,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "ruta-graveolens"
+    ],
     "aliases": [
       "Rutin",
       "general"
@@ -11145,6 +13426,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "mexican-pepperleaf",
+      "myristica-fragrans",
+      "myristica-fragrans-houtt"
+    ],
     "aliases": [
       "Safrole",
       "general"
@@ -11179,6 +13469,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alchemilla-vulgaris"
+    ],
     "aliases": [
       "salicylic acid derivatives",
       "general"
@@ -11214,6 +13511,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "salsoline",
       "general"
@@ -11240,6 +13544,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "zanthoxylum-clava-herculis"
+    ],
     "aliases": [
       "Sanshools",
       "general"
@@ -11329,6 +13640,25 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acacia-nilotica",
+      "albizia-julibrissin",
+      "alchornea-castaneifolia",
+      "mitchella-repens",
+      "entada-rheedii",
+      "calliandra-anomala",
+      "desfontainia-spinosa",
+      "trichilia-monadelpha",
+      "alchornea-cordifolia",
+      "entada-africana",
+      "paullinia-cupana",
+      "paullinia-yoco",
+      "silene-capensis"
+    ],
     "aliases": [
       "saponins",
       "saponin"
@@ -11359,6 +13689,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-lebbeck"
+    ],
     "aliases": [
       "saponins (lebbekanin A-H)",
       "saponin"
@@ -11391,6 +13728,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "salvia-sclarea"
+    ],
     "aliases": [
       "Sclareol",
       "general"
@@ -11449,6 +13793,19 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "datura-metel",
+      "brugmansia-sanguinea",
+      "brugmansia-suaveolens",
+      "datura-ferox",
+      "datura-stramonium",
+      "datura-wrightii",
+      "solandra-grandiflora"
+    ],
     "aliases": [
       "Scopolamine",
       "general"
@@ -11486,6 +13843,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "leonotis-leonurus"
+    ],
     "aliases": [
       "scopoletin",
       "general"
@@ -11522,6 +13886,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "scutellaria-lateriflora"
+    ],
     "aliases": [
       "scutellarein",
       "general"
@@ -11558,6 +13929,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "scutellaria-lateriflora"
+    ],
     "aliases": [
       "Scutellarin",
       "general"
@@ -11592,6 +13970,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "urtica-dioica"
+    ],
     "aliases": [
       "serotonin",
       "general"
@@ -11629,6 +14014,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "lactuca-virosa",
+      "vernonia-amygdalina"
+    ],
     "aliases": [
       "Sesquiterpene lactones",
       "terpenoid"
@@ -11681,6 +14074,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "calea-ternifolia",
+      "achillea-millefolium",
+      "valeriana-officinalis"
+    ],
     "aliases": [
       "sesquiterpenes",
       "terpenoid"
@@ -11711,6 +14113,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "cestrum-parqui"
+    ],
     "aliases": [
       "Solanine",
       "general"
@@ -11743,6 +14152,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aconitum-napellus"
+    ],
     "aliases": [
       "songoramine",
       "general"
@@ -11778,6 +14194,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "mitragyna-javanica"
+    ],
     "aliases": [
       "speciogynine",
       "general"
@@ -11816,6 +14239,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acmella-oleracea"
+    ],
     "aliases": [
       "Spilanthol",
       "general"
@@ -11842,6 +14272,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "motherwort"
+    ],
     "aliases": [
       "Stachydrine",
       "general"
@@ -11868,6 +14305,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alchornea-castaneifolia"
+    ],
     "aliases": [
       "steroids",
       "steroid"
@@ -11919,6 +14363,16 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "albizia-julibrissin",
+      "muira-puama",
+      "desmodium-gangeticum",
+      "ptychopetalum-olacoides"
+    ],
     "aliases": [
       "sterols",
       "steroid"
@@ -11947,6 +14401,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum"
+    ],
     "aliases": [
       "suberosol",
       "general"
@@ -11981,6 +14442,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "petiveria-alliacea"
+    ],
     "aliases": [
       "Sulfur compounds",
       "general"
@@ -12009,6 +14477,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum"
+    ],
     "aliases": [
       "syringic acid",
       "general"
@@ -12041,6 +14516,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "tabernaemontana-undulata"
+    ],
     "aliases": [
       "tabersonine",
       "general"
@@ -12074,6 +14556,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "tannic acid",
       "general"
@@ -12192,6 +14681,31 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "agrimonia-eupatoria",
+      "alchornea-castaneifolia",
+      "ficus-religiosa",
+      "acacia-confusa",
+      "acacia-maidenii",
+      "alchornea-floribunda",
+      "desmodium-gangeticum",
+      "elaeagnus-angustifolia",
+      "acacia-confusa-merr",
+      "acacia-maidenii-f-muell",
+      "achillea-millefolium",
+      "spathodea-campanulata",
+      "alchornea-cordifolia",
+      "calliandra-lucidum",
+      "nelumbo-nucifera",
+      "nymphaea-lotus",
+      "nymphaea-rubra",
+      "paullinia-cupana",
+      "paullinia-yoco"
+    ],
     "aliases": [
       "tannins",
       "tannin"
@@ -12218,6 +14732,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acacia-nilotica"
+    ],
     "aliases": [
       "tannins (gallic acid, ellagic acid, catechin)",
       "tannin"
@@ -12244,6 +14765,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "tamarindus-indica"
+    ],
     "aliases": [
       "Tartaric acid",
       "general"
@@ -12295,6 +14823,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "cannabis-sativa",
+      "myristica-fragrans-houtt",
+      "turnera-diffusa"
+    ],
     "aliases": [
       "terpenes",
       "terpenoid"
@@ -12328,6 +14865,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "carapa-procera",
+      "boswellia-dalzielii"
+    ],
     "aliases": [
       "terpenoids",
       "terpenoid"
@@ -12376,6 +14921,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "banisteriopsis-caapi",
+      "peganum-harmala"
+    ],
     "aliases": [
       "tetrahydroharmine",
       "general"
@@ -12414,6 +14967,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "tetrahydroharmine (beta-carbolines)",
       "beta-carboline alkaloid"
@@ -12440,6 +14998,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "corydalis-yanhusuo"
+    ],
     "aliases": [
       "Tetrahydropalmatine (THP)",
       "general"
@@ -12468,6 +15033,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum"
+    ],
     "aliases": [
       "thaliandiol",
       "general"
@@ -12496,6 +15068,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum"
+    ],
     "aliases": [
       "thalianol",
       "general"
@@ -12531,6 +15110,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "cannabis-sativa"
+    ],
     "aliases": [
       "THC",
       "cannabinoid"
@@ -12567,6 +15153,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "papaver-somniferum"
+    ],
     "aliases": [
       "thebaine",
       "general"
@@ -12620,6 +15213,16 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "yerba-mate",
+      "paullinia-cupana",
+      "paullinia-yoco",
+      "theobroma-cacao"
+    ],
     "aliases": [
       "theobromine",
       "general"
@@ -12657,6 +15260,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "paullinia-cupana"
+    ],
     "aliases": [
       "theophylline",
       "general"
@@ -12711,6 +15321,18 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "artemisia-abrotanum",
+      "artemisia-absinthium",
+      "artemisia-ludoviciana",
+      "artemisia-vulgaris",
+      "achillea-millefolium",
+      "salvia-officinalis"
+    ],
     "aliases": [
       "Thujone",
       "general"
@@ -12759,6 +15381,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "thymus-vulgaris",
+      "nepeta-cataria",
+      "turnera-diffusa"
+    ],
     "aliases": [
       "thymol",
       "general"
@@ -12794,6 +15425,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "agrimonia-eupatoria",
+      "rubus-idaeus"
+    ],
     "aliases": [
       "tiliroside",
       "general"
@@ -12827,6 +15466,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
     "aliases": [
       "trans-methylisoeugenol",
       "general"
@@ -12860,6 +15506,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "african-dream-root"
+    ],
     "aliases": [
       "triterpene saponins",
       "saponin"
@@ -12888,6 +15541,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "entada-africana"
+    ],
     "aliases": [
       "triterpenes",
       "terpenoid"
@@ -12921,6 +15581,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "silene-undulata"
+    ],
     "aliases": [
       "Triterpenoid saponins",
       "saponin"
@@ -12962,6 +15629,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "agrimonia-eupatoria",
+      "albizia-julibrissin",
+      "gymnosporia-senegalensis"
+    ],
     "aliases": [
       "triterpenoids",
       "general"
@@ -12996,6 +15672,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "triterpenoids (undisclosed alkaloids)",
       "alkaloid"
@@ -13030,6 +15711,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "petiveria-alliacea"
+    ],
     "aliases": [
       "trithiolanes",
       "general"
@@ -13073,6 +15761,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acacia-maidenii",
+      "desmanthus-illinoensis",
+      "acacia-maidenii-f-muell"
+    ],
     "aliases": [
       "tryptamines",
       "tryptamine alkaloid"
@@ -13099,6 +15796,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "tynanthus-panurensis"
+    ],
     "aliases": [
       "Tynanthin",
       "general"
@@ -13138,6 +15842,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum",
+      "justicia-pectoralis"
+    ],
     "aliases": [
       "umbelliferone",
       "general"
@@ -13164,6 +15876,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "justicia-pectoralis"
+    ],
     "aliases": [
       "Umelliferone",
       "general"
@@ -13198,6 +15917,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "zornia-latifolia"
+    ],
     "aliases": [
       "unverified cannabinoids",
       "cannabinoid"
@@ -13233,6 +15959,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "ocimum-sanctum"
+    ],
     "aliases": [
       "ursolic acid",
       "general"
@@ -13265,6 +15998,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "valeriana-jatamansi"
+    ],
     "aliases": [
       "Valeranon",
       "general"
@@ -13299,6 +16039,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "valeriana-officinalis"
+    ],
     "aliases": [
       "Valerenic acid",
       "general"
@@ -13327,6 +16074,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adenostoma-fasciculatum"
+    ],
     "aliases": [
       "vanillic acid",
       "general"
@@ -13360,6 +16114,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adhatoda-vasica",
+      "justicia-adhatoda"
+    ],
     "aliases": [
       "vasicine",
       "general"
@@ -13402,6 +16164,15 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "adhatoda-vasica",
+      "justicia-adhatoda",
+      "sida-cordifolia"
+    ],
     "aliases": [
       "vasicinone",
       "general"
@@ -13437,6 +16208,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alangium-salvifolium"
+    ],
     "aliases": [
       "venoterpine",
       "general"
@@ -13469,6 +16247,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aloysia-citrodora"
+    ],
     "aliases": [
       "Verbascoside",
       "general"
@@ -13495,6 +16280,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "verbena-officinalis"
+    ],
     "aliases": [
       "Verbenalin",
       "general"
@@ -13530,6 +16322,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "Vertine (cryogenine)",
       "general"
@@ -13564,6 +16361,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "sweet-violet"
+    ],
     "aliases": [
       "Violine",
       "general"
@@ -13607,6 +16411,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "ervatamia-coronaria",
+      "voacanga-africana"
+    ],
     "aliases": [
       "Voacamine",
       "general"
@@ -13649,6 +16461,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "tabernaemontana-undulata",
+      "voacanga-africana"
+    ],
     "aliases": [
       "voacangine",
       "general"
@@ -13686,6 +16506,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "voacanga-africana"
+    ],
     "aliases": [
       "voacristine",
       "general"
@@ -13731,6 +16558,16 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "agrimonia-eupatoria",
+      "rhododendron-anthopogon",
+      "tilia-tomentosa",
+      "asarum-canadense"
+    ],
     "aliases": [
       "volatile oils",
       "general"
@@ -13767,6 +16604,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "scutellaria-lateriflora"
+    ],
     "aliases": [
       "wogonin",
       "general"
@@ -13798,6 +16642,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "alchornea-castaneifolia",
+      "zanthoxylum-zanthoxyloides"
+    ],
     "aliases": [
       "xanthones",
       "xanthone"
@@ -13831,6 +16683,11 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
     "aliases": [
       "yangonin)",
       "general"
@@ -13863,6 +16720,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "pausinystalia-johimbe"
+    ],
     "aliases": [
       "Yohimbine",
       "general"
@@ -13897,6 +16761,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "casimiroa-edulis"
+    ],
     "aliases": [
       "Zapotin",
       "general"
@@ -13930,6 +16801,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
     "aliases": [
       "α-calacorene",
       "general"
@@ -13963,6 +16841,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
     "aliases": [
       "α-pinene",
       "general"
@@ -13996,6 +16881,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
     "aliases": [
       "α-terpinene",
       "general"
@@ -14029,6 +16921,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
     "aliases": [
       "α-terpineol",
       "general"
@@ -14070,6 +16969,14 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acacia-confusa",
+      "nicotiana-rustica"
+    ],
     "aliases": [
       "β-carbolines",
       "general"
@@ -14103,6 +17010,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
     "aliases": [
       "β-caryophyllene",
       "general"
@@ -14136,6 +17050,13 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "aerva-lanata"
+    ],
     "aliases": [
       "β-sitosteryl acetate",
       "general"

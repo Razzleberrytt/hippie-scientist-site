@@ -47,5 +47,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harmalol",
-  "summary": "Harmalol is a compound reported in peganum harmala. Available references are still early and incomplete."
+  "summary": "Harmalol is a compound reported in peganum harmala. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "peganum-harmala"
+  ]
 }

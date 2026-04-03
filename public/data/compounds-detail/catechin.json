@@ -43,5 +43,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "catechin",
-  "summary": "catechin appears in records as a compound reported in agrimonia eupatoria and alchemilla vulgaris. Current source coverage is limited and still developing."
+  "summary": "catechin appears in records as a compound reported in agrimonia eupatoria and alchemilla vulgaris. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "agrimonia-eupatoria",
+    "alchemilla-vulgaris"
+  ]
 }

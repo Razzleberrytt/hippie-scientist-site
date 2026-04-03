@@ -60,5 +60,17 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "thujone",
-  "summary": "Thujone appears in records as a compound reported in artemisia abrotanum, artemisia absinthium, and related herbs. Current source coverage is limited and still developing."
+  "summary": "Thujone appears in records as a compound reported in artemisia abrotanum, artemisia absinthium, and related herbs. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "artemisia-abrotanum",
+    "artemisia-absinthium",
+    "artemisia-ludoviciana",
+    "artemisia-vulgaris",
+    "achillea-millefolium",
+    "salvia-officinalis"
+  ]
 }

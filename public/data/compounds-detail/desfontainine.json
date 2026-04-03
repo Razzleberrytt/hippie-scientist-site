@@ -42,5 +42,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "desfontainine",
-  "summary": "Desfontainine appears in records as a compound reported in desfontainia spinosa. Current source coverage is limited and still developing."
+  "summary": "Desfontainine appears in records as a compound reported in desfontainia spinosa. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "desfontainia-spinosa"
+  ]
 }

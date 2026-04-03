@@ -47,5 +47,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "voacamine",
-  "summary": "Voacamine appears in records as a compound reported in ervatamia coronaria and voacanga africana. Current source coverage is limited and still developing."
+  "summary": "Voacamine appears in records as a compound reported in ervatamia coronaria and voacanga africana. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "ervatamia-coronaria",
+    "voacanga-africana"
+  ]
 }

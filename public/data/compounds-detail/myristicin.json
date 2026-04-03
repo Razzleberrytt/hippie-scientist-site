@@ -48,5 +48,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "myristicin",
-  "summary": "Myristicin appears in records as a compound reported in myristica fragrans and Myristica fragrans Houtt.. Current source coverage is limited and still developing."
+  "summary": "Myristicin appears in records as a compound reported in myristica fragrans and Myristica fragrans Houtt.. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "myristica-fragrans",
+    "myristica-fragrans-houtt"
+  ]
 }

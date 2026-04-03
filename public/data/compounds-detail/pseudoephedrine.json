@@ -40,5 +40,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "pseudoephedrine",
-  "summary": "pseudoephedrine is a compound reported in sida cordifolia. Available references are still early and incomplete."
+  "summary": "pseudoephedrine is a compound reported in sida cordifolia. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "sida-cordifolia"
+  ]
 }

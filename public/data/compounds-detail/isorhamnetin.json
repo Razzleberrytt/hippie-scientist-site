@@ -34,5 +34,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "isorhamnetin",
-  "summary": "isorhamnetin appears in records as a compound reported in aerva lanata. Current source coverage is limited and still developing."
+  "summary": "isorhamnetin appears in records as a compound reported in aerva lanata. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "aerva-lanata"
+  ]
 }

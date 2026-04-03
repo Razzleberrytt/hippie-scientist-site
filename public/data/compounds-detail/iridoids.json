@@ -57,5 +57,14 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "iridoids",
-  "summary": "Iridoids is an iridoid compound reported in mitchella repens, desfontainia spinosa, and related herbs. Current source coverage is limited and still developing."
+  "summary": "Iridoids is an iridoid compound reported in mitchella repens, desfontainia spinosa, and related herbs. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "mitchella-repens",
+    "desfontainia-spinosa",
+    "indian-warrior"
+  ]
 }

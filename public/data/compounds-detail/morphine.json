@@ -42,5 +42,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "morphine",
-  "summary": "Morphine is a compound reported in papaver somniferum. Available references are still early and incomplete."
+  "summary": "Morphine is a compound reported in papaver somniferum. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "papaver-somniferum"
+  ]
 }

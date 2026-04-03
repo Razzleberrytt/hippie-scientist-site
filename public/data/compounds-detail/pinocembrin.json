@@ -40,5 +40,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "pinocembrin",
-  "summary": "pinocembrin is a compound reported in turnera diffusa. Available references are still early and incomplete."
+  "summary": "pinocembrin is a compound reported in turnera diffusa. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "turnera-diffusa"
+  ]
 }

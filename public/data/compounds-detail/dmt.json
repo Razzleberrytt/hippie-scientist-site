@@ -83,5 +83,20 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "dmt",
-  "summary": "DMT appears in records as a compound reported in acacia maidenii, virola theiodora, and related herbs. Current source coverage is limited and still developing."
+  "summary": "DMT appears in records as a compound reported in acacia maidenii, virola theiodora, and related herbs. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "acacia-maidenii",
+    "virola-theiodora",
+    "acacia-confusa",
+    "acacia-phlebophylla",
+    "anadenanthera-peregrina",
+    "arundo-donax",
+    "acacia-confusa-merr",
+    "calliandra-lucidum",
+    "virola-calophylla"
+  ]
 }

@@ -36,5 +36,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "isopetasin",
-  "summary": "isopetasin appears in records as a compound reported in petasites hybridus. Current source coverage is limited and still developing."
+  "summary": "isopetasin appears in records as a compound reported in petasites hybridus. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "petasites-hybridus"
+  ]
 }

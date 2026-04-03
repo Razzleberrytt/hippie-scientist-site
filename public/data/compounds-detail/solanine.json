@@ -32,5 +32,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "solanine",
-  "summary": "Solanine appears in records as a compound reported in Cestrum parqui. Current source coverage is limited and still developing."
+  "summary": "Solanine appears in records as a compound reported in Cestrum parqui. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "cestrum-parqui"
+  ]
 }

@@ -37,5 +37,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "menthol",
-  "summary": "Menthol appears in records as a compound reported in mentha piperita. Current source coverage is limited and still developing."
+  "summary": "Menthol appears in records as a compound reported in mentha piperita. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "mentha-piperita"
+  ]
 }

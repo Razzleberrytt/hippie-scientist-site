@@ -62,5 +62,14 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "cryogenine",
-  "summary": "Cryogenine appears in records as a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Current source coverage is limited and still developi"
+  "summary": "Cryogenine appears in records as a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Current source coverage is limited and still developi",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "heimia-myrtifolia",
+    "heimia-salicifolia-sinicuichi",
+    "sinicuichi-heimia-myrtifolia"
+  ]
 }

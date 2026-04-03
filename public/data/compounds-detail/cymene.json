@@ -31,5 +31,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "cymene",
-  "summary": "Cymene appears in records as a compound reported in dysphania ambrosioides. Current source coverage is limited and still developing."
+  "summary": "Cymene appears in records as a compound reported in dysphania ambrosioides. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "dysphania-ambrosioides"
+  ]
 }

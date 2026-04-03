@@ -40,5 +40,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "norharman",
-  "summary": "norharman is a compound reported in nicotiana rustica. Available references are still early and incomplete."
+  "summary": "norharman is a compound reported in nicotiana rustica. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nicotiana-rustica"
+  ]
 }

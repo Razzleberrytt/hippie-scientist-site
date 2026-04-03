@@ -30,5 +30,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "ergotamine",
-  "summary": "Ergotamine appears in records as a compound reported in claviceps purpurea. Current source coverage is limited and still developing."
+  "summary": "Ergotamine appears in records as a compound reported in claviceps purpurea. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "claviceps-purpurea"
+  ]
 }

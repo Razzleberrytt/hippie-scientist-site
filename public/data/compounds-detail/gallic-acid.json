@@ -43,5 +43,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "gallic-acid",
-  "summary": "gallic acid appears in records as a compound reported in alchemilla vulgaris and combretum micranthum. Current source coverage is limited and still developing."
+  "summary": "gallic acid appears in records as a compound reported in alchemilla vulgaris and combretum micranthum. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "alchemilla-vulgaris",
+    "combretum-micranthum"
+  ]
 }

@@ -36,5 +36,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "other-saponins",
-  "summary": "other saponins is a saponin compound reported in aesculus hippocastanum. Current source coverage is limited and still developing."
+  "summary": "other saponins is a saponin compound reported in aesculus hippocastanum. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "aesculus-hippocastanum"
+  ]
 }

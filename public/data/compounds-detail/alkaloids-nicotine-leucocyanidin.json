@@ -31,5 +31,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "alkaloids-nicotine-leucocyanidin",
-  "summary": "alkaloids (nicotine, leucocyanidin) is an alkaloid compound reported in acacia nilotica. Current source coverage is limited and still developing."
+  "summary": "alkaloids (nicotine, leucocyanidin) is an alkaloid compound reported in acacia nilotica. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "acacia-nilotica"
+  ]
 }

@@ -40,5 +40,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "p-coumaric-acid",
-  "summary": "p-coumaric acid appears in records as a compound reported in adenostoma fasciculatum and agrimonia eupatoria. Current source coverage is limited and still developing."
+  "summary": "p-coumaric acid appears in records as a compound reported in adenostoma fasciculatum and agrimonia eupatoria. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "adenostoma-fasciculatum",
+    "agrimonia-eupatoria"
+  ]
 }

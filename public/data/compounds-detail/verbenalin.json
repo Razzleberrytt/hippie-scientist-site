@@ -27,5 +27,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "verbenalin",
-  "summary": "Verbenalin is a compound reported in verbena officinalis. Available references are still early and incomplete."
+  "summary": "Verbenalin is a compound reported in verbena officinalis. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "verbena-officinalis"
+  ]
 }

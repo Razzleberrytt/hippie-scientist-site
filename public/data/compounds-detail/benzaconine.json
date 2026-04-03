@@ -36,5 +36,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "benzaconine",
-  "summary": "benzaconine is a compound reported in aconitum napellus. Available references are still early and incomplete."
+  "summary": "benzaconine is a compound reported in aconitum napellus. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "aconitum-napellus"
+  ]
 }

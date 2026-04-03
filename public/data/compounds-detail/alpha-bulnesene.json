@@ -31,5 +31,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "alpha-bulnesene",
-  "summary": "Alpha-bulnesene is a compound reported in pogostemon cablin. Available references are still early and incomplete."
+  "summary": "Alpha-bulnesene is a compound reported in pogostemon cablin. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "pogostemon-cablin"
+  ]
 }

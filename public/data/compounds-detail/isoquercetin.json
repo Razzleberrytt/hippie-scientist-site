@@ -35,5 +35,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "isoquercetin",
-  "summary": "isoquercetin appears in records as a compound reported in agrimonia eupatoria. Current source coverage is limited and still developing."
+  "summary": "isoquercetin appears in records as a compound reported in agrimonia eupatoria. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "agrimonia-eupatoria"
+  ]
 }

@@ -30,5 +30,12 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "verbascoside",
-  "summary": "Verbascoside is a compound reported in aloysia citrodora. Available references are still early and incomplete."
+  "summary": "Verbascoside is a compound reported in aloysia citrodora. Available references are still early and incomplete.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "aloysia-citrodora"
+  ]
 }

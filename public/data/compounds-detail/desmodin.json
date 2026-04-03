@@ -47,5 +47,13 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "desmodin",
-  "summary": "Desmodin appears in records as a compound reported in desmodium adscendens and desmodium gangeticum. Current source coverage is limited and still developing."
+  "summary": "Desmodin appears in records as a compound reported in desmodium adscendens and desmodium gangeticum. Current source coverage is limited and still developing.",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "desmodium-adscendens",
+    "desmodium-gangeticum"
+  ]
 }
