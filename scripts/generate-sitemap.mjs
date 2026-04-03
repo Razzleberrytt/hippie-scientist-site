@@ -161,7 +161,13 @@ function buildSitemapXml() {
 function buildRobotsTxt() {
   const { disallowedRoutes } = getSharedRouteManifest()
   const sitemapUrl = toPublicUrl('/sitemap.xml')
-  const lines = ['User-agent: *', 'Allow: /']
+  const lines = [
+    'User-agent: *',
+    'Allow: /',
+    'Allow: /herbs',
+    'Allow: /herbs/',
+    'Allow: /best-herbs-for-',
+  ]
 
   for (const blocked of disallowedRoutes) {
     lines.push(`Disallow: ${blocked}`)

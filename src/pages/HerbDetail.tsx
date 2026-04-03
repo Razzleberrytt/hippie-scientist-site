@@ -342,6 +342,7 @@ export default function HerbDetail() {
   ].filter(group => group.items.length > 0)
 
   const herbDisplayName = herb.commonName || herb.common || herb.name || herb.slug
+  const primaryUse = String(therapeuticUses[0] || effects[0] || '').trim()
   const herbMetaDescriptionSource = (
     herb.summary ||
     herb.description ||
@@ -350,9 +351,13 @@ export default function HerbDetail() {
   ).trim()
   const baseHerbMetaDescription = formatMetaDescription(
     herbMetaDescriptionSource,
-    `${herbDisplayName} herb guide with effects, safety notes, and practical context.`,
+    primaryUse
+      ? `${herbDisplayName} herb guide for ${primaryUse.toLowerCase()} with effects, safety notes, and practical context.`
+      : `${herbDisplayName} herb guide with effects, safety notes, and practical context.`,
   )
-  const baseHerbMetaTitle = `${herbDisplayName} Herb Guide: Effects, Uses & Safety`
+  const baseHerbMetaTitle = primaryUse
+    ? `${herbDisplayName} for ${primaryUse} | Herb Benefits, Uses & Safety`
+    : `${herbDisplayName} Herb Guide: Effects, Uses & Safety`
 
   // Scalar fields already cleaned by normalization
   const description = herb.description || ''

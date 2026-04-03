@@ -15,6 +15,8 @@ type EntryPageConfig = {
   title: string
   intro: string
   rankingTerms: string[]
+  metaTitle: string
+  metaDescription: string
 }
 
 const ENTRY_PAGE_CONFIGS: Record<EntryIntent, EntryPageConfig> = {
@@ -25,6 +27,9 @@ const ENTRY_PAGE_CONFIGS: Record<EntryIntent, EntryPageConfig> = {
     intro:
       'These herbs are commonly used to reduce anxious tension and support calmer day-to-day functioning. Use this list to compare practical options, then review the full herb pages for interactions and contraindications.',
     rankingTerms: ['relaxation', 'mood'],
+    metaTitle: 'Best Herbs for Anxiety (Natural Options That Actually Help)',
+    metaDescription:
+      'Discover the most effective herbs for anxiety, how they work, and which ones to try first.',
   },
   sleep: {
     intent: 'sleep',
@@ -33,6 +38,9 @@ const ENTRY_PAGE_CONFIGS: Record<EntryIntent, EntryPageConfig> = {
     intro:
       'If your goal is falling asleep faster or winding down before bed, these herbs are a practical starting point. Compare quick summaries here, then check each herb profile for dosing context and safety details.',
     rankingTerms: ['sleep', 'relaxation'],
+    metaTitle: 'Best Herbs for Sleep (Natural Nighttime Support)',
+    metaDescription:
+      'Compare practical herbs for sleep support, how they are commonly used, and which options to test first.',
   },
   focus: {
     intent: 'focus',
@@ -41,6 +49,9 @@ const ENTRY_PAGE_CONFIGS: Record<EntryIntent, EntryPageConfig> = {
     intro:
       'Focus support can come from stimulation, stress reduction, or cognitive support. This page highlights herbs often used for sharper attention and cleaner concentration during work or study blocks.',
     rankingTerms: ['focus', 'energy'],
+    metaTitle: 'Best Herbs for Focus (Natural Clarity and Concentration)',
+    metaDescription:
+      'Explore herbs for focus and mental clarity, including practical use cases and where to start safely.',
   },
   stress: {
     intent: 'stress',
@@ -49,6 +60,9 @@ const ENTRY_PAGE_CONFIGS: Record<EntryIntent, EntryPageConfig> = {
     intro:
       'For daily stress load, these herbs are often used to soften physical and mental strain without overcomplicating routines. Start with one option, track response, and adjust conservatively.',
     rankingTerms: ['relaxation', 'mood'],
+    metaTitle: 'Best Herbs for Stress Relief (Calmer Daily Support)',
+    metaDescription:
+      'Find herbs commonly used for stress relief, how they may help, and which choices are easiest to begin with.',
   },
   energy: {
     intent: 'energy',
@@ -57,6 +71,9 @@ const ENTRY_PAGE_CONFIGS: Record<EntryIntent, EntryPageConfig> = {
     intro:
       'These herbs are commonly used for non-jittery energy, stamina, or daytime alertness. Use this page to shortlist options and click through for full evidence, interactions, and formulation notes.',
     rankingTerms: ['energy', 'focus'],
+    metaTitle: 'Best Herbs for Natural Energy (Steady, Non-Jittery Options)',
+    metaDescription:
+      'Review herbs for natural energy and stamina, compare practical options, and pick a simple starting point.',
   },
 }
 
@@ -120,8 +137,8 @@ export default function BestHerbsEntryPage() {
   return (
     <main className='container-page py-8'>
       <Meta
-        title={`${config.title} | The Hippie Scientist`}
-        description={config.intro}
+        title={`${config.metaTitle} | The Hippie Scientist`}
+        description={config.metaDescription}
         path={config.path}
       />
 
@@ -146,12 +163,14 @@ export default function BestHerbsEntryPage() {
             return (
               <li key={slug} className='rounded-xl border border-white/10 bg-white/5 p-4'>
                 <div className='flex items-center justify-between gap-3'>
-                  <Link
-                    to={`/herbs/${encodeURIComponent(slug)}`}
-                    className='text-base font-semibold text-white hover:text-cyan-200'
-                  >
-                    {herbName}
-                  </Link>
+                  <h3 className='text-base font-semibold text-white'>
+                    <Link
+                      to={`/herbs/${encodeURIComponent(slug)}`}
+                      className='hover:text-cyan-200'
+                    >
+                      {herbName}
+                    </Link>
+                  </h3>
                   <span className='text-xs text-white/65'>#{index + 1}</span>
                 </div>
 
