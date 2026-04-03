@@ -29,8 +29,7 @@ export const herbProducts: HerbProductEntry[] = [
         highlight: true,
         reasoning:
           'Prioritizes root-only standardization and routine-friendly dosing that matches the guidance.',
-        affiliateUrl:
-          'https://www.iherb.com/search?kw=organic%20ashwagandha%20root%20extract&rcode=HSITE01',
+        affiliateUrl: 'https://www.amazon.com/dp/B07N7S35N5?tag=razzleberry02-20',
       },
       {
         name: 'Ashwagandha Root Powder',
@@ -38,7 +37,8 @@ export const herbProducts: HerbProductEntry[] = [
         attributes: ['root powder', 'single-herb formula', 'clear serving scoop'],
         notes: 'Works well for tea or warm milk-style preparation when flavor is acceptable.',
         score: 84,
-        reasoning: 'Good whole-herb option when flexible preparation is preferred over extract precision.',
+        reasoning:
+          'Good whole-herb option when flexible preparation is preferred over extract precision.',
       },
     ],
   },
@@ -54,8 +54,7 @@ export const herbProducts: HerbProductEntry[] = [
         highlight: true,
         reasoning:
           'Keeps sourcing simple and supports consistent evening use with minimal preparation steps.',
-        affiliateUrl:
-          'https://www.iherb.com/search?kw=single-herb%20chamomile%20tea%20bags&rcode=HSITE01',
+        affiliateUrl: 'https://www.amazon.com/dp/B0009F3POO?tag=razzleberry02-20',
       },
       {
         name: 'Whole Chamomile Flowers',
@@ -73,14 +72,17 @@ export const herbProducts: HerbProductEntry[] = [
       {
         name: 'Rhodiola Rosea Standardized Extract',
         form: 'capsule',
-        attributes: ['rhodiola rosea species named', 'rosavin/salidroside listed', 'clear per-serving mg'],
+        attributes: [
+          'rhodiola rosea species named',
+          'rosavin/salidroside listed',
+          'clear per-serving mg',
+        ],
         notes: 'Most comparable format when choosing between extract products.',
         score: 91,
         highlight: true,
         reasoning:
           'Named species and marker compounds make cross-brand comparison more transparent and reliable.',
-        affiliateUrl:
-          'https://www.iherb.com/search?kw=rhodiola%20rosea%20standardized%20extract&rcode=HSITE01',
+        affiliateUrl: 'https://www.amazon.com/dp/B07PJ4M6JQ?tag=razzleberry02-20',
       },
     ],
   },

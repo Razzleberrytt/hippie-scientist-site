@@ -6,6 +6,7 @@ import {
   type CuratedProductEntityType,
   type CuratedProductRecommendation,
 } from '@/data/curatedProducts'
+import { normalizeAmazonAffiliateUrl } from '@/utils/affiliateUrls'
 
 type CuratedProductPageContext = {
   entityType: CuratedProductEntityType
@@ -40,18 +41,11 @@ function hasReviewApproval(product: CuratedProductRecommendation) {
   return product.researchStatus === 'approved' && hasTrimmedText(product.reviewedAt)
 }
 
-function supportsConfidence(product: CuratedProductRecommendation, pageConfidence: ConfidenceLevel) {
+function supportsConfidence(
+  product: CuratedProductRecommendation,
+  pageConfidence: ConfidenceLevel,
+) {
   return CONFIDENCE_RANK[pageConfidence] >= CONFIDENCE_RANK[product.confidenceTierRequired]
-}
-
-function appendAmazonTag(url: string, tag: string) {
-  try {
-    const parsed = new URL(url)
-    parsed.searchParams.set('tag', tag)
-    return parsed.toString()
-  } catch {
-    return ''
-  }
 }
 
 function parseDate(value: string): Date | null {
@@ -64,7 +58,10 @@ const REVIEW_GRACE_PERIOD_DAYS = 30
 
 export type ReviewRecencyState = 'fresh' | 'stale_grace' | 'stale_expired' | 'missing_reviewed_at'
 
-function getReviewAgeDays(product: CuratedProductRecommendation, now: Date = new Date()): number | null {
+function getReviewAgeDays(
+  product: CuratedProductRecommendation,
+  now: Date = new Date(),
+): number | null {
   const reviewedAt = parseDate(product.reviewedAt)
   if (!reviewedAt) return null
 
@@ -74,20 +71,20 @@ function getReviewAgeDays(product: CuratedProductRecommendation, now: Date = new
 
 export function getReviewRecencyState(
   product: CuratedProductRecommendation,
-  now: Date = new Date()
+  now: Date = new Date(),
 ): ReviewRecencyState {
   if (!CURATED_PRODUCT_STALE_REVIEW_DAYS || CURATED_PRODUCT_STALE_REVIEW_DAYS <= 0) return 'fresh'
   const elapsedDays = getReviewAgeDays(product, now)
   if (elapsedDays === null) return 'missing_reviewed_at'
   if (elapsedDays <= CURATED_PRODUCT_STALE_REVIEW_DAYS) return 'fresh'
-  if (elapsedDays <= CURATED_PRODUCT_STALE_REVIEW_DAYS + REVIEW_GRACE_PERIOD_DAYS) return 'stale_grace'
+  if (elapsedDays <= CURATED_PRODUCT_STALE_REVIEW_DAYS + REVIEW_GRACE_PERIOD_DAYS)
+    return 'stale_grace'
   return 'stale_expired'
 }
 
 export function resolveAffiliateUrl(product: CuratedProductRecommendation): string {
   if (!product.amazonUrl.trim()) return ''
-  if (product.affiliateTagStrategy === 'already_tagged') return product.amazonUrl
-  return appendAmazonTag(product.amazonUrl, DEFAULT_AMAZON_AFFILIATE_TAG)
+  return normalizeAmazonAffiliateUrl(product.amazonUrl, DEFAULT_AMAZON_AFFILIATE_TAG)
 }
 
 export function hasGenericAffiliateLink(url: string): boolean {
@@ -97,15 +94,11 @@ export function hasGenericAffiliateLink(url: string): boolean {
   return GENERIC_AFFILIATE_PATTERNS.some(pattern => pattern.test(trimmed))
 }
 
-function isAmazonDomain(hostname: string): boolean {
-  const normalized = hostname.toLowerCase()
-  return normalized === 'amazon.com' || normalized === 'www.amazon.com'
-}
-
 export function isMalformedAmazonProductUrl(url: string): boolean {
   try {
     const parsed = new URL(url)
-    if (!isAmazonDomain(parsed.hostname)) return true
+    const hostname = parsed.hostname.toLowerCase()
+    if (hostname !== 'amazon.com' && hostname !== 'www.amazon.com') return true
 
     const path = parsed.pathname.trim()
     if (!path || path === '/') return true
@@ -163,7 +156,8 @@ export function assessCuratedProductReadiness(params: {
   const { product, pageContext, now, duplicateProductMappingDetected = false } = params
   const affiliateUrl = resolveAffiliateUrl(product)
   const disclosurePresent = hasTrimmedText(product.affiliateDisclosure)
-  const rationalePresent = hasTrimmedText(product.rationaleShort) && hasTrimmedText(product.rationaleLong)
+  const rationalePresent =
+    hasTrimmedText(product.rationaleShort) && hasTrimmedText(product.rationaleLong)
   const researchedReviewedStatusPresent = hasTrimmedText(product.researchStatus)
   const reviewedAtPresent = hasTrimmedText(product.reviewedAt)
   const reviewRecencyState = getReviewRecencyState(product, now)
@@ -181,13 +175,20 @@ export function assessCuratedProductReadiness(params: {
   if (!researchedReviewedStatusPresent) failureReasons.push('missing_research_status')
   if (!reviewedAtPresent) failureReasons.push('missing_reviewed_at')
   if (!product.active) failureReasons.push('inactive')
-  if (product.entityType !== pageContext.entityType || product.entitySlug !== pageContext.entitySlug) {
+  if (
+    product.entityType !== pageContext.entityType ||
+    product.entitySlug !== pageContext.entitySlug
+  ) {
     failureReasons.push('entity_page_mismatch')
   }
-  if (!supportsConfidence(product, pageContext.confidence)) failureReasons.push('confidence_tier_not_met')
+  if (!supportsConfidence(product, pageContext.confidence))
+    failureReasons.push('confidence_tier_not_met')
   if (!hasReviewApproval(product)) {
     if (!failureReasons.includes('missing_reviewed_at')) failureReasons.push('missing_reviewed_at')
-    if (product.researchStatus !== 'approved' && !failureReasons.includes('missing_research_status')) {
+    if (
+      product.researchStatus !== 'approved' &&
+      !failureReasons.includes('missing_research_status')
+    ) {
       failureReasons.push('missing_research_status')
     }
   }
@@ -195,7 +196,8 @@ export function assessCuratedProductReadiness(params: {
   if (reviewRecencyState === 'stale_expired') failureReasons.push('stale_review_expired')
   if (genericLinkDetected) failureReasons.push('generic_affiliate_link')
   if (malformedUrlDetected) failureReasons.push('malformed_amazon_url')
-  if (!Array.isArray(product.bestFor) || product.bestFor.length === 0) failureReasons.push('missing_best_for')
+  if (!Array.isArray(product.bestFor) || product.bestFor.length === 0)
+    failureReasons.push('missing_best_for')
   if (duplicateProductMappingDetected) failureReasons.push('duplicate_product_mapping')
 
   const requiresManualReview =
@@ -234,12 +236,15 @@ export type RenderableCuratedProduct = CuratedProductRecommendation & {
 }
 
 export function getRenderableCuratedProducts(
-  context: CuratedProductPageContext
+  context: CuratedProductPageContext,
 ): RenderableCuratedProduct[] {
   if (context.sourceCount <= 0) return []
 
   return curatedProductRecommendations
-    .filter(product => product.entityType === context.entityType && product.entitySlug === context.entitySlug)
+    .filter(
+      product =>
+        product.entityType === context.entityType && product.entitySlug === context.entitySlug,
+    )
     .map(product => ({
       product,
       readiness: assessCuratedProductReadiness({ product, pageContext: context }),
