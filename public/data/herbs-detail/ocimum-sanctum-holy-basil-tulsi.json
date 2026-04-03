@@ -3,12 +3,28 @@
   "latin": "ocimum sanctum (holy basil / tulsi)",
   "class": "general",
   "intensity": "mild",
-  "mechanism": "",
-  "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "mechanism": "Constituents including eugenol and rosmarinic acid are reported to modulate inflammatory signaling and oxidative-stress pathways; adaptogenic effects are plausible but not fully resolved.",
+  "activeCompounds": [
+    "eugenol",
+    "rosmarinic acid",
+    "ursolic acid",
+    "ocimumosides",
+    "flavonoids"
+  ],
+  "effects": [
+    "possible reduction in perceived stress",
+    "possible mild glycemic support",
+    "possible anti-inflammatory support"
+  ],
+  "contraindications": [
+    "use caution during pregnancy due to limited concentrated-extract safety data",
+    "monitor in people using glucose-lowering therapy"
+  ],
+  "interactions": [
+    "may add to glucose-lowering effects of antidiabetic medications",
+    "may modestly increase antiplatelet effects with blood-thinning drugs"
+  ],
+  "safetyNotes": "Culinary use is typically well tolerated. Concentrated extracts may cause gastrointestinal upset in some users; monitor blood glucose and bleeding risk when used with related medications.",
   "sources": [
     {
       "title": "NCBI Taxonomy: ocimum sanctum (holy basil / tulsi)",
@@ -24,7 +40,9 @@
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [],
-  "traditionalUse": "; nan; nan",
+  "traditionalUse": [
+    "Ayurvedic herb traditionally used for respiratory, stress, and immune support"
+  ],
   "sideEffects": [],
   "slug": "ocimum-sanctum-holy-basil-tulsi",
   "identity": "",
