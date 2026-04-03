@@ -1,5 +1,7 @@
 import type { HerbProduct } from '@/data/herbProducts'
 import { DEFAULT_AMAZON_AFFILIATE_TAG } from '@/data/curatedProducts'
+import type { AffiliateUseCaseAnchor } from '@/lib/affiliateClickTracking'
+import { trackAffiliateLinkClick } from '@/lib/affiliateClickTracking'
 import { normalizeAmazonAffiliateUrl } from '@/utils/affiliateUrls'
 
 const bestForByForm: Record<string, string> = {
@@ -20,7 +22,23 @@ function getBestFor(form: string) {
   return bestForByForm[form] ?? 'label-first comparisons across similar options'
 }
 
-export default function HerbProductSection({ products }: { products: HerbProduct[] }) {
+function getHerbProductId(product: HerbProduct) {
+  return `${product.productTitle} ${product.form}`
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+export default function HerbProductSection({
+  herbSlug,
+  products,
+  useCaseAnchor,
+}: {
+  herbSlug: string
+  products: HerbProduct[]
+  useCaseAnchor?: AffiliateUseCaseAnchor
+}) {
   if (!products.length) return null
 
   const sortedProducts = [...products].sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
@@ -46,11 +64,13 @@ export default function HerbProductSection({ products }: { products: HerbProduct
         </div>
 
         <div className='mt-4 grid gap-3 md:grid-cols-2'>
-          {sortedProducts.map(product => {
+          {sortedProducts.map((product, index) => {
             const normalizedAffiliateUrl = normalizeAmazonAffiliateUrl(
               product.affiliateUrl,
               DEFAULT_AMAZON_AFFILIATE_TAG,
             )
+            const productId = getHerbProductId(product)
+            const position = product.highlight || index === 0 ? 'primary' : 'alternative'
 
             return (
               <article
@@ -102,6 +122,15 @@ export default function HerbProductSection({ products }: { products: HerbProduct
                     target='_blank'
                     rel='nofollow noopener noreferrer'
                     className='text-white/78 mt-3 inline-flex items-center rounded-md border border-white/20 bg-white/[0.03] px-3 py-1.5 text-xs font-medium'
+                    onClick={() =>
+                      trackAffiliateLinkClick({
+                        herbSlug,
+                        productId,
+                        position,
+                        useCaseAnchor,
+                        source: 'herb_product_section',
+                      })
+                    }
                   >
                     View Options
                   </a>
