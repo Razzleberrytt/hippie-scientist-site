@@ -727,13 +727,10 @@ export default function CompoundDetail() {
                     {linkedHerbCards.map(herb => (
                       <HerbCard
                         key={herb.slug}
-                        herb={{
-                          slug: herb.slug,
-                          common: herb.name,
-                          description: herb.descriptor,
-                        }}
-                        compact
-                        performanceMode
+                        name={herb.name}
+                        summary={herb.descriptor || 'Learn more about this herb and its potential uses.'}
+                        tags={extractPrimaryEffects(herb.effects, 2)}
+                        detailUrl={`/herbs/${encodeURIComponent(herb.slug)}`}
                       />
                     ))}
                   </div>

@@ -9,6 +9,10 @@ import { useHerbs } from '../hooks/useHerbs'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { herbName, splitField } from '../utils/herb'
 import Meta from '../components/Meta'
+import { buildCardSummary } from '@/lib/summary'
+import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
+import { hasVal } from '@/lib/pretty'
+import { slugify } from '@/lib/slug'
 
 type MotionH1Props = React.HTMLAttributes<HTMLHeadingElement> & MotionProps
 const MotionH1 = motion.h1 as React.ComponentType<MotionH1Props>
@@ -157,7 +161,25 @@ export default function HerbBlender() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
             >
-              <HerbCard herb={h} performanceMode />
+              <HerbCard
+                name={herbName(h)}
+                summary={
+                  buildCardSummary({
+                    effects: h.effects,
+                    mechanism: h.mechanism,
+                    description: h.description,
+                    activeCompounds: h.compounds,
+                    therapeuticUses: h.therapeuticUses,
+                    maxLen: 130,
+                  }) || 'Learn more about this herb and its potential uses.'
+                }
+                tags={extractPrimaryEffects(Array.isArray(h.effects) ? h.effects : [], 2)}
+                detailUrl={
+                  hasVal(h.slug)
+                    ? `/herbs/${encodeURIComponent(String(h.slug))}`
+                    : `/herbs/${encodeURIComponent(slugify(herbName(h)))}`
+                }
+              />
             </motion.div>
           ))}
         </AnimatePresence>
