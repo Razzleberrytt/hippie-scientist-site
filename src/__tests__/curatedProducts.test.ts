@@ -80,6 +80,84 @@ async function run() {
   assert.ok(candidateB)
 
   installAnalyticsWindow([
+    ...Array.from({ length: 4 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateA.productId,
+      position: 6,
+      dwellTimeMs: 1000,
+      timestamp: 1711950000000 + index,
+    })),
+    ...Array.from({ length: 4 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateB.productId,
+      position: 6,
+      dwellTimeMs: 12000,
+      timestamp: 1711950000100 + index,
+    })),
+  ])
+  const dwellWeightedRows = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(dwellWeightedRows[0]?.productId, candidateB.productId)
+
+  installAnalyticsWindow([
+    ...Array.from({ length: 3 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateA.productId,
+      position: 6,
+      dwellTimeMs: 12000,
+      timestamp: 1711960000000 + index,
+    })),
+    ...Array.from({ length: 6 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateB.productId,
+      position: 1,
+      dwellTimeMs: 1000,
+      timestamp: 1711960000100 + index,
+    })),
+  ])
+  const positionWeightedRows = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(positionWeightedRows[0]?.productId, candidateA.productId)
+
+  installAnalyticsWindow([
+    ...Array.from({ length: 5 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateA.productId,
+      position: 6,
+      dwellTimeMs: 8000,
+      timestamp: 1711970000000 + index,
+    })),
+    ...Array.from({ length: 5 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateB.productId,
+      position: 6,
+      dwellTimeMs: 1000,
+      timestamp: 1711970000100 + index,
+    })),
+  ])
+  const shortDwellPenaltyRows = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(shortDwellPenaltyRows[0]?.productId, candidateA.productId)
+
+  installAnalyticsWindow([
     { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateB.productId, timestamp: 1712000001000 },
     { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateB.productId, timestamp: 1712000000000 },
     { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateA.productId, timestamp: 1712000002000 },

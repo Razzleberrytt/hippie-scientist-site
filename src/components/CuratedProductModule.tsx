@@ -44,6 +44,7 @@ function trackProductClick(params: {
   entityType: CuratedProductEntityType
   entitySlug: string
   productId: string
+  position: number
   positionContext: string
   useCaseAnchor?: AffiliateUseCaseAnchor
   pageType?: string
@@ -54,6 +55,10 @@ function trackProductClick(params: {
     type: 'curated_product_click',
     slug: `${params.entityType}:${params.entitySlug}`,
     item: params.productId,
+    productId: params.productId,
+    herbSlug: params.entityType === 'herb' ? params.entitySlug : undefined,
+    position: params.position,
+    dwellTimeMs: null,
     context: params.positionContext,
     sourceType: 'detail',
     targetType: 'product',
@@ -176,6 +181,7 @@ export default function CuratedProductModule({
                   entityType,
                   entitySlug,
                   productId: product.productId,
+                  position: index + 1,
                   positionContext,
                   useCaseAnchor,
                   pageType,
