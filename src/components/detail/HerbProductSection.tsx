@@ -21,6 +21,8 @@ function getBestFor(form: string) {
 export default function HerbProductSection({ products }: { products: HerbProduct[] }) {
   if (!products.length) return null
 
+  const sortedProducts = [...products].sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
+
   return (
     <section className='border-white/8 mt-6 border-t pt-5'>
       <div className='rounded-2xl border border-white/12 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-4 md:p-5'>
@@ -34,22 +36,33 @@ export default function HerbProductSection({ products }: { products: HerbProduct
         </div>
 
         <div className='mt-4 grid gap-3 md:grid-cols-2'>
-          {products.map(product => (
+          {sortedProducts.map(product => (
             <article
               key={`${product.name}-${product.form}`}
-              className='rounded-xl border border-white/10 bg-white/[0.02] p-3'
+              className={`rounded-xl border p-3 ${
+                product.highlight
+                  ? 'border-emerald-200/30 bg-emerald-200/[0.04]'
+                  : 'border-white/10 bg-white/[0.02]'
+              }`}
             >
               <div className='flex items-start justify-between gap-3'>
                 <h3 className='text-sm font-semibold text-white/95'>{product.name}</h3>
-                <span className='shrink-0 rounded-full border border-emerald-200/25 bg-emerald-200/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.08em] text-emerald-100/85'>
-                  Aligned with guidance above
-                </span>
+                {product.highlight ? (
+                  <span className='shrink-0 rounded-full border border-emerald-200/30 bg-emerald-200/12 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.08em] text-emerald-100/90'>
+                    Top Pick
+                  </span>
+                ) : (
+                  <span className='shrink-0 rounded-full border border-emerald-200/25 bg-emerald-200/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.08em] text-emerald-100/85'>
+                    Aligned with guidance above
+                  </span>
+                )}
               </div>
               {product.brand && <p className='mt-1 text-xs text-white/65'>Brand: {product.brand}</p>}
               <p className='mt-2 text-xs uppercase tracking-[0.14em] text-white/55'>
                 Form: <span className='capitalize text-white/85'>{product.form}</span>
               </p>
               <p className='mt-2 text-xs text-white/78'>{getWhyThisFits(product.attributes)}</p>
+              {product.reasoning && <p className='mt-1 text-xs text-white/66'>{product.reasoning}</p>}
               <p className='mt-1 text-xs text-white/66'>
                 Best for: <span className='text-white/80'>{getBestFor(product.form)}</span>
               </p>
