@@ -6,12 +6,8 @@
   "mechanism": "Ephedrine and pseudoephedrine are mixed-acting sympathomimetics that increase noradrenergic signaling at alpha and beta receptors.",
   "activeCompounds": [],
   "effects": [
-    "Stimulant and decongestant",
-    "contains ephedrine alkaloids",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "stimulant",
+    "contains ephedrine alkaloids"
   ],
   "contraindications": [
     "heart conditions",

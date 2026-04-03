@@ -6,11 +6,9 @@
   "mechanism": "Anethole-rich essential oil and polyphenols provide carminative, antispasmodic, and mild anti-inflammatory effects in GI models.",
   "activeCompounds": [],
   "effects": [
-    "Carminative",
+    "carminative",
     "galactagogue",
-    "anti-inflammatory",
-    "anti",
-    "inflammatory"
+    "anti-inflammatory"
   ],
   "contraindications": [],
   "safetyNotes": "Generally well tolerated at food-level intake; concentrated preparations may cause allergic reactions or photosensitivity in sensitive individuals.",

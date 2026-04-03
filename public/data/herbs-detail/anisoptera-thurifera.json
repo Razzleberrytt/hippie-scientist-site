@@ -6,10 +6,8 @@
   "mechanism": "volatile terpenes | resins modulate inflammation and microbial load",
   "activeCompounds": [],
   "effects": [
-    "antibacterial",
-    "anti-inflammatory",
-    "anti",
-    "inflammatory"
+    "antimicrobial",
+    "anti-inflammatory"
   ],
   "contraindications": [],
   "interactions": [],
