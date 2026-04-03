@@ -88,7 +88,7 @@
     "verify:publishing": "node scripts/verify-publishing.mjs",
     "verify:enrichment-editorial": "node scripts/verify-enrichment-editorial.mjs",
     "verify:curated-affiliates": "tsx scripts/verify-curated-affiliates.ts",
-    "verify:affiliate-products": "tsx scripts/verify-curated-affiliates.ts",
+    "verify:affiliate-products": "tsx scripts/verify-curated-affiliates.ts && tsx scripts/verify-herb-affiliate-links.ts",
     "report:affiliate-inventory": "tsx scripts/report-affiliate-inventory.ts",
     "report:conversion-scorecard": "tsx scripts/report-conversion-scorecard.ts",
     "report:phase2-roadmap": "node scripts/report-phase2-roadmap.mjs",
@@ -167,7 +167,8 @@
     "enrichment:evidence": "node scripts/enrichment/run-evidence-pipeline.mjs",
     "enrichment:evidence:acquire": "node scripts/enrichment/evidence-acquisition-engine.mjs",
     "enrichment:evidence:report": "node scripts/enrichment/report-evidence-acquisition.mjs",
-    "enrichment:benchmark:mechanism": "node scripts/enrichment/run-mechanism-regression-harness.mjs"
+    "enrichment:benchmark:mechanism": "node scripts/enrichment/run-mechanism-regression-harness.mjs",
+    "verify:herb-affiliate-links": "tsx scripts/verify-herb-affiliate-links.ts"
   },
   "engines": {
     "node": ">=20 <21"
