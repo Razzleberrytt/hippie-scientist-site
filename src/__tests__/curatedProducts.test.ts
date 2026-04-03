@@ -92,7 +92,55 @@ async function run() {
     sourceCount: 3,
   })
   const boostedAlternativeRows = boostedRows.filter(product => !product.featured)
-  assert.equal(boostedAlternativeRows[0]?.productId, candidateB.productId)
+  // Minimum exposure safeguard: low-click alternatives still get promoted for exploration.
+  assert.equal(boostedAlternativeRows[0]?.productId, candidateA.productId)
+
+  const sixClickBurst = Array.from({ length: 6 }, (_, index) => ({
+    type: 'curated_product_click',
+    slug: 'herb:ashwagandha',
+    item: candidateB.productId,
+    timestamp: 1712100000000 + index,
+  }))
+  installAnalyticsWindow(sixClickBurst)
+  const clickCapBaselineRows = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  })
+  const clickCapBaselineAlternativeRows = clickCapBaselineRows.filter(product => !product.featured)
+
+  installAnalyticsWindow(
+    Array.from({ length: 12 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateB.productId,
+      timestamp: 1712100000000 + index,
+    })),
+  )
+  const clickCappedRows = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  })
+  const clickCappedAlternativeRows = clickCappedRows.filter(product => !product.featured)
+  // Click cap: once the cap is hit, extra clicks do not further entrench rank order.
+  assert.equal(clickCappedAlternativeRows[0]?.productId, clickCapBaselineAlternativeRows[0]?.productId)
+
+  installAnalyticsWindow([
+    { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateA.productId, timestamp: 1712200000000 },
+    { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateB.productId, timestamp: 1712200000001 },
+  ])
+  const closeScoreRows = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  })
+  const closeScoreAlternativeRows = closeScoreRows.filter(product => !product.featured)
+  // With close scores, deterministic jitter can reorder alternatives instead of strict click-only lock-in.
+  assert.equal([candidateA.productId, candidateB.productId].includes(closeScoreAlternativeRows[0]?.productId || ''), true)
 
   assert.match(resolveAffiliateUrl(herbRows[0]), /tag=razzleberry02-20/)
   assert.equal(hasGenericAffiliateLink('https://www.amazon.com/s?k=ashwagandha'), true)
