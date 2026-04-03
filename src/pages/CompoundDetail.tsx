@@ -10,7 +10,7 @@ import { getCompoundDataCompleteness } from '@/utils/getDataCompleteness'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { CompoundDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { mapRelatedHerbsForCompound } from '@/lib/compoundHerbRelations'
-import RelatedHerbCard from '@/components/RelatedHerbCard'
+import HerbCard from '@/components/HerbCard'
 import Collapse from '@/components/ui/Collapse'
 import {
   breadcrumbJsonLd,
@@ -725,7 +725,16 @@ export default function CompoundDetail() {
                 {linkedHerbCards.length > 0 && (
                   <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
                     {linkedHerbCards.map(herb => (
-                      <RelatedHerbCard key={herb.slug} herb={herb} />
+                      <HerbCard
+                        key={herb.slug}
+                        herb={{
+                          slug: herb.slug,
+                          common: herb.name,
+                          description: herb.descriptor,
+                        }}
+                        compact
+                        performanceMode
+                      />
                     ))}
                   </div>
                 )}

@@ -13,15 +13,21 @@ interface HerbCardProps {
   index?: number
   compact?: boolean
   performanceMode?: boolean
+  detailBasePath?: string
 }
 
-function HerbCard({ herb, index = 0, compact = false, performanceMode = false }: HerbCardProps) {
+function HerbCard({
+  herb,
+  index = 0,
+  compact = false,
+  performanceMode = false,
+  detailBasePath = '/herbs',
+}: HerbCardProps) {
   const scientific = String(herb.scientific ?? '').trim()
   const common = String(herb.common ?? '').trim()
   const hasCommon =
     Boolean(common) && (!scientific || common.toLowerCase() !== scientific.toLowerCase())
   const heading = hasCommon ? common : scientific || herb.name || 'Herb'
-  const subheading = hasCommon ? scientific : String(herb.name || '').trim()
   const effectsArray: string[] = Array.isArray(herb.effects) ? herb.effects : []
   const primaryEffects = extractPrimaryEffects(effectsArray, 2)
   const summary = buildCardSummary({
@@ -44,9 +50,9 @@ function HerbCard({ herb, index = 0, compact = false, performanceMode = false }:
     const slug = hasVal(herb.slug)
       ? String(herb.slug)
       : slugify(String(herb.common || herb.scientific || ''))
-    if (!slug) return '/herbs'
-    return `/herbs/${encodeURIComponent(slug)}`
-  }, [herb.common, herb.scientific, herb.slug])
+    if (!slug) return detailBasePath
+    return `${detailBasePath}/${encodeURIComponent(slug)}`
+  }, [detailBasePath, herb.common, herb.scientific, herb.slug])
 
   const resetTilt = (element: HTMLElement) => {
     element.style.setProperty('--rx', '0deg')
@@ -108,7 +114,6 @@ function HerbCard({ herb, index = 0, compact = false, performanceMode = false }:
           <h2 className={`${compact ? 'text-xl' : 'text-2xl'} font-semibold leading-tight text-lime-300`}>
             {heading}
           </h2>
-          {hasVal(subheading) && <p className='text-sm italic text-white/65'>{subheading}</p>}
         </header>
 
         <section className='space-y-3 text-white/80'>

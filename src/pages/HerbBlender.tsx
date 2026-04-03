@@ -2,7 +2,7 @@ import React from 'react'
 import { motion, AnimatePresence } from '@/lib/motion'
 import type { MotionProps } from '@/lib/motion'
 import BlendSummaryCard from '../components/BlendSummaryCard'
-import HerbCardAccordion from '../components/HerbCardAccordion'
+import HerbCard from '../components/HerbCard'
 import TagBadge from '../components/TagBadge'
 import { Button } from '@/components/ui/Button'
 import { useHerbs } from '../hooks/useHerbs'
@@ -157,7 +157,7 @@ export default function HerbBlender() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
             >
-              <HerbCardAccordion herb={h} />
+              <HerbCard herb={h} performanceMode />
             </motion.div>
           ))}
         </AnimatePresence>

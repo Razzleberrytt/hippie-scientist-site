@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { Listbox } from '@headlessui/react'
 import Meta from './Meta'
 import ErrorBoundary from './ErrorBoundary'
-import DatabaseHerbCard from './DatabaseHerbCard'
+import HerbCard from './HerbCard'
 import AdvancedSearch from './AdvancedSearch'
 import StatBadges from './StatBadges'
 import { pickRandomHerb } from '@/lib/discovery'
@@ -540,10 +540,11 @@ export default function EntityDatabasePage({
 
         <section className='ds-section grid gap-4 pb-8 md:grid-cols-2'>
           {filtered.map((item, index) => (
-            <DatabaseHerbCard
+            <HerbCard
               key={item.slug ?? item.id ?? `${kind}-${index}`}
               herb={item}
-              kind={kind}
+              detailBasePath={kind === 'compound' ? '/compounds' : '/herbs'}
+              performanceMode
             />
           ))}
           {!filtered.length && (

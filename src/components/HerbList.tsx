@@ -1,7 +1,7 @@
 import React from 'react'
 import { AnimatePresence, motion } from '@/lib/motion'
 import type { Herb } from '../types'
-import HerbCardAccordion from './HerbCardAccordion'
+import HerbCard from './HerbCard'
 
 const containerVariants = {
   hidden: {},
@@ -51,7 +51,7 @@ const HerbList: React.FC<Props> = ({
         <AnimatePresence>
           {herbs.slice(0, visible).map(h => (
             <motion.div key={h.id || h.name} variants={itemVariants} layout>
-              <HerbCardAccordion herb={h} />
+              <HerbCard herb={h} performanceMode />
             </motion.div>
           ))}
         </AnimatePresence>
