@@ -11,22 +11,7 @@
     "contains cardiac glycosides"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Toxic – regulated cardiac glycoside",
-    "Cardiac glycoside toxicity",
-    "nausea",
-    "vomiting",
-    "heart arrhythmias",
-    "potentially fatal",
-    "No direct toxicity data. Contextual inference: Cardiotonic",
-    "diuretic",
-    "contains cardiac glycosides. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Cardiotonic",
-    "contains cardiac glycosides. none."
-  ],
+  "safetyNotes": "Toxic – regulated cardiac glycoside; Cardiac glycoside toxicity; nausea; vomiting; heart arrhythmias; potentially fatal; No direct toxicity data. Contextual inference: Cardiotonic; diuretic; contains cardiac glycosides. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Cardiotonic; contains cardiac glycosides. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -38,10 +23,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Cardiotonic, diuretic; contains cardiac glycosides. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "Strictly regulated",
-    "cardiac uses"
-  ],
+  "dosage": "Strictly regulated; cardiac uses",
   "duration": "6–10 hours",
   "interactions": [],
   "legalStatus": "Controlled; regulated for cardiac use",

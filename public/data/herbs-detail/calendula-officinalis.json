@@ -16,19 +16,7 @@
   "contraindications": [
     "avoid if allergic to Asteraceae/Compositae plants"
   ],
-  "safetyNotes": [
-    "safe",
-    "Rare allergic skin reactions",
-    "generally well tolerated",
-    "No direct toxicity data. Contextual inference: Anti-inflammatory",
-    "wound healing",
-    "antifungal. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti-inflammatory",
-    "antifungal. none."
-  ],
+  "safetyNotes": "safe; Rare allergic skin reactions; generally well tolerated; No direct toxicity data. Contextual inference: Anti-inflammatory; wound healing; antifungal. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Anti-inflammatory; antifungal. none.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Calendula officinalis (TaxID 41496)",
@@ -43,9 +31,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Traditional topical herb used for minor skin inflammation and wound support; human evidence is limited and mostly adjunctive.",
-  "dosage": [
-    "Topical preparations are most common; product-specific dosing should follow labeling and clinical guidance."
-  ],
+  "dosage": "Topical preparations are most common; product-specific dosing should follow labeling and clinical guidance.",
   "duration": "3–6 hours",
   "interactions": [],
   "legalStatus": "Widely legal; approved for use in herbal products",

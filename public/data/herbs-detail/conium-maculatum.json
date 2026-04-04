@@ -10,20 +10,7 @@
     "historically used as sedative"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Toxic – avoid internal use",
-    "Extremely toxic",
-    "respiratory paralysis",
-    "tremors",
-    "death in high doses",
-    "No direct toxicity data. Contextual inference: Toxic alkaloid",
-    "historically used as sedative. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Toxic alkaloid",
-    "historically used as sedative. none."
-  ],
+  "safetyNotes": "Toxic – avoid internal use; Extremely toxic; respiratory paralysis; tremors; death in high doses; No direct toxicity data. Contextual inference: Toxic alkaloid; historically used as sedative. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Toxic alkaloid; historically used as sedative. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -35,10 +22,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Toxic alkaloid; historically used as sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "Toxic",
-    "homeopathic use only"
-  ],
+  "dosage": "Toxic; homeopathic use only",
   "duration": "4–8 hours",
   "interactions": [],
   "legalStatus": "Restricted or banned in most countries",

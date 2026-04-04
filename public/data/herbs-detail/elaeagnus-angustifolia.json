@@ -26,18 +26,7 @@
     "avoid during pregnancy and breastfeeding",
     "use caution with prescription medications and chronic medical conditions"
   ],
-  "safetyNotes": [
-    "Safe in small doses",
-    "None reported at normal doses",
-    "Low",
-    "No direct toxicity data. Contextual inference: Used traditionally to relieve pain",
-    "stress",
-    "and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain",
-    "and inflammation... Used traditionally to relieve pain",
-    "and inflammation.. No direct effects data. Contextual inference: Used traditionally to relieve pain",
-    "and inflammation.. Used traditionally to relieve pain",
-    "and inflammation."
-  ],
+  "safetyNotes": "Safe in small doses; None reported at normal doses; Low; No direct toxicity data. Contextual inference: Used traditionally to relieve pain; stress; and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain; and inflammation... Used traditionally to relieve pain; and inflammation.. No direct effects data. Contextual inference: Used traditionally to relieve pain; and inflammation.. Used traditionally to relieve pain; and inflammation.",
   "sources": [
     {
       "title": "Traditional Central Asian medicine"
@@ -45,16 +34,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Fruits and flowers traditionally used for calming effects and sleep support",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used traditionally to relieve pain",
-    "stress",
-    "and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain",
-    "and inflammation... Used traditionally to relieve pain",
-    "and inflammation.. No direct effects data. Contextual inference: Used traditionally to relieve pain",
-    "and inflammation.. Used traditionally to relieve pain",
-    "and inflammation.. No direct region data. Contextual inference: Used traditionally to relieve pain",
-    "and inflammation."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Used traditionally to relieve pain; stress; and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain; and inflammation... Used traditionally to relieve pain; and inflammation.. No direct effects data. Contextual inference: Used traditionally to relieve pain; and inflammation.. Used traditionally to relieve pain; and inflammation.. No direct region data. Contextual inference: Used traditionally to relieve pain; and inflammation.",
   "duration": "No direct duration data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... Used traditionally to relieve pain, stress, and inflammation.. No direct effects data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... Used traditionally to relieve pain, stress, and inflammation.. Used traditionally to relieve pain, stress, and inflammation.. No direct region data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... Used traditionally to relieve pain, stress, and inflammation.. No direct effects data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain, stress, and inflammation... Used traditionally to relieve pain, stress, and inflammation.. Used traditionally to relieve pain, stress, and inflammation.. Used traditionally to relieve pain, stress, and inflammation.. Used traditionally to relieve pain, stress, and inflammation.",
   "interactions": [
     "Sedatives",

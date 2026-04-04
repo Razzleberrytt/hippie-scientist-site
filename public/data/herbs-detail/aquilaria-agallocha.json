@@ -10,17 +10,7 @@
     "calming and antimicrobial effects"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Generally safe",
-    "mild sedative effect",
-    "No direct toxicity data. Contextual inference: Produces agarwood",
-    "calming and antimicrobial effects. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Produces agarwood",
-    "calming and antimicrobial effects. none."
-  ],
+  "safetyNotes": "Generally safe; mild sedative effect; No direct toxicity data. Contextual inference: Produces agarwood; calming and antimicrobial effects. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Produces agarwood; calming and antimicrobial effects. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -32,17 +22,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Produces agarwood; calming and antimicrobial effects. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Produces agarwood",
-    "calming and antimicrobial effects. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Produces agarwood",
-    "calming and antimicrobial effects. No direct region data. Contextual inference: Produces agarwood",
-    "calming and antimicrobial effects. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Produces agarwood; calming and antimicrobial effects. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Produces agarwood; calming and antimicrobial effects. No direct region data. Contextual inference: Produces agarwood; calming and antimicrobial effects. none.; nan.",
   "duration": "2–4 hours",
   "interactions": [],
   "legalStatus": "Trade regulated (CITES)",

@@ -21,21 +21,7 @@
     "May cause mild nausea or abdominal upset",
     "Pregnant or breastfeeding individuals should consult healthcare provider before use"
   ],
-  "safetyNotes": [
-    "Nausea",
-    "GI upset",
-    "dizziness",
-    "high doses can be toxic due to aescin",
-    "avoid raw seeds",
-    "No direct toxicity data. Contextual inference: Venotonic",
-    "anti-inflammatory",
-    "edema relief. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Venotonic",
-    "edema relief. none."
-  ],
+  "safetyNotes": "Nausea; GI upset; dizziness; high doses can be toxic due to aescin; avoid raw seeds; No direct toxicity data. Contextual inference: Venotonic; anti-inflammatory; edema relief. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Venotonic; edema relief. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -47,19 +33,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Venotonic, anti-inflammatory, edema relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Venotonic",
-    "anti",
-    "inflammatory",
-    "edema relief. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Venotonic",
-    "edema relief. No direct region data. Contextual inference: Venotonic",
-    "edema relief. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Venotonic; anti; inflammatory; edema relief. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Venotonic; edema relief. No direct region data. Contextual inference: Venotonic; edema relief. none.; nan.",
   "duration": "6–8 hours",
   "interactions": [],
   "legalStatus": "Approved in EU for venous insufficiency; regulated",

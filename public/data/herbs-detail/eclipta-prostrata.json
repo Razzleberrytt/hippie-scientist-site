@@ -13,19 +13,7 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Generally safe",
-    "rare GI discomfort or allergic reactions",
-    "No direct toxicity data. Contextual inference: Liver tonic",
-    "hair growth promoter",
-    "anti-inflammatory. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Liver tonic",
-    "anti-inflammatory. none."
-  ],
+  "safetyNotes": "safe; Generally safe; rare GI discomfort or allergic reactions; No direct toxicity data. Contextual inference: Liver tonic; hair growth promoter; anti-inflammatory. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Liver tonic; anti-inflammatory. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -37,11 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Liver tonic, hair growth promoter, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "1",
-    "2 g",
-    "day extract or infusion"
-  ],
+  "dosage": "1; 2 g; day extract or infusion",
   "duration": "4–8 hours",
   "interactions": [],
   "legalStatus": "Legal; used in Ayurveda and TCM",

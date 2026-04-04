@@ -19,22 +19,7 @@
     "mental illness",
     "pregnancy."
   ],
-  "safetyNotes": [
-    "Toxic – hallucinogen",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "gi upset",
-    "hallucinations.",
-    "No direct toxicity data. Contextual inference: Psychedelic effects due to mescaline",
-    "traditionally used in andean ceremonies. Contains mescaline",
-    "affects serotonin 5-ht2a receptors..",
-    "nan.. Contains mescaline",
-    "affects serotonin 5-HT2A receptors.. Psychedelic effects due to mescaline",
-    "traditionally used in Andean ceremonies."
-  ],
+  "safetyNotes": "Toxic – hallucinogen; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; gi upset; hallucinations.; No direct toxicity data. Contextual inference: Psychedelic effects due to mescaline; traditionally used in andean ceremonies. Contains mescaline; affects serotonin 5-ht2a receptors..; nan.. Contains mescaline; affects serotonin 5-HT2A receptors.. Psychedelic effects due to mescaline; traditionally used in Andean ceremonies.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -46,22 +31,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Psychedelic effects due to mescaline; traditionally used in andean ceremonies. Contains mescaline; affects serotonin 5-ht2a receptors.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:",
-    "No direct dosage data. Contextual inference: Psychedelic effects due to mescaline",
-    "traditionally used in andean ceremonies. Contains mescaline",
-    "affects serotonin 5",
-    "ht2a receptors..",
-    "nan.. Contains mescaline",
-    "HT2A receptors.. Psychedelic effects due to mescaline",
-    "traditionally used in Andean ceremonies. No direct region data. Contextual inference: Psychedelic effects due to mescaline",
-    "traditionally used in Andean ceremonies."
-  ],
+  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:; No direct dosage data. Contextual inference: Psychedelic effects due to mescaline; traditionally used in andean ceremonies. Contains mescaline; affects serotonin 5; ht2a receptors..; nan.. Contains mescaline; HT2A receptors.. Psychedelic effects due to mescaline; traditionally used in Andean ceremonies. No direct region data. Contextual inference: Psychedelic effects due to mescaline; traditionally used in Andean ceremonies.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "psychedelics",

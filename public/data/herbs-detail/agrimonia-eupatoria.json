@@ -28,20 +28,10 @@
     "anti",
     "inflammatory"
   ],
-  "contraindications": "Generally safe when used as tea; due to tannins may cause constipation or reduce absorption of minerals; avoid large doses during pregnancy.",
-  "safetyNotes": [
-    "safe",
-    "May cause constipation or dry mouth",
-    "rare allergic responses reported",
-    "No direct toxicity data. Contextual inference: Astringent",
-    "anti-inflammatory",
-    "digestive tonic. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Astringent",
-    "digestive tonic. none."
+  "contraindications": [
+    "Generally safe when used as tea; due to tannins may cause constipation or reduce absorption of minerals; avoid large doses during pregnancy."
   ],
+  "safetyNotes": "safe; May cause constipation or dry mouth; rare allergic responses reported; No direct toxicity data. Contextual inference: Astringent; anti-inflammatory; digestive tonic. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Astringent; digestive tonic. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -53,17 +43,15 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Astringent, anti-inflammatory, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "2",
-    "4 g",
-    "day herb infusion or 500 mg extract"
-  ],
+  "dosage": "2; 4 g; day herb infusion or 500 mg extract",
   "duration": "3–5 hours",
   "interactions": [],
   "legalStatus": "Legal and widely available in herbal products",
   "preparation": "Aerial parts dried and brewed as a tea or decocted for topical compresses",
   "region": "No direct region data. Contextual inference: Astringent, anti-inflammatory, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent, anti-inflammatory, digestive tonic. none. ; nan; nan",
-  "therapeuticUses": "Used traditionally for lung inflammation, diarrhea, liver disease, cholecystitis, intestinal atony, pyelonephritis, bleeding disorders, and skin defects【144749460136742†L69-L98】.",
+  "therapeuticUses": [
+    "Used traditionally for lung inflammation, diarrhea, liver disease, cholecystitis, intestinal atony, pyelonephritis, bleeding disorders, and skin defects【144749460136742†L69-L98】."
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
     "May cause constipation or dry mouth",

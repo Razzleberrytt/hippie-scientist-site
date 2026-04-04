@@ -9,15 +9,7 @@
     "Traditional use for pain and colds"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Limited data",
-    "may share effects with related species like allergic reactions or mild GI upset",
-    "No direct toxicity data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Traditional use for pain and colds. none."
-  ],
+  "safetyNotes": "Limited data; may share effects with related species like allergic reactions or mild GI upset; No direct toxicity data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Traditional use for pain and colds. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -29,15 +21,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Traditional use for pain and colds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Traditional use for pain and colds. No direct region data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Traditional use for pain and colds. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Traditional use for pain and colds. No direct region data. Contextual inference: Traditional use for pain and colds. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Traditional use for pain and colds. none.; nan.",
   "duration": "3–5 hours",
   "interactions": [],
   "legalStatus": "Unregulated; used in traditional contexts",

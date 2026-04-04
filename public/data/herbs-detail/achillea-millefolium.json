@@ -30,18 +30,7 @@
     "allergy to Asteraceae",
     "anticoagulant use"
   ],
-  "safetyNotes": [
-    "Generally safe in moderate amounts",
-    "monitor for allergic reactions",
-    "Allergic rash",
-    "dizziness",
-    "photosensitivity",
-    "Low",
-    "Not established",
-    "Generally safe",
-    "may cause skin irritation",
-    "Headache"
-  ],
+  "safetyNotes": "Generally safe in moderate amounts; monitor for allergic reactions; Allergic rash; dizziness; photosensitivity; Low; Not established; Generally safe; may cause skin irritation; Headache",
   "sources": [
     {
       "title": "PubMed"

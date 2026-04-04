@@ -14,14 +14,7 @@
   "contraindications": [
     "unsafe for human consumption. do not ingest or inhale powdered forms."
   ],
-  "safetyNotes": [
-    "Toxic – neurotoxic pesticide",
-    "nausea",
-    "vomiting",
-    "respiratory depression",
-    "muscle paralysis. long-term rotenone exposure linked to parkinson’s-like symptoms.",
-    "Very high. Rotenone has been used in rodenticides and insecticides."
-  ],
+  "safetyNotes": "Toxic – neurotoxic pesticide; nausea; vomiting; respiratory depression; muscle paralysis. long-term rotenone exposure linked to parkinson’s-like symptoms.; Very high. Rotenone has been used in rodenticides and insecticides.",
   "sources": [
     {
       "title": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1241859/"
@@ -33,10 +26,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "a tropical vine traditionally used as a natural fish poison. contains rotenone, a potent neurotoxin that disrupts mitochondrial respiration. used in agriculture but dangerous to humans in concentrated doses.",
-  "dosage": [
-    "Used as insecticide",
-    "not for internal use"
-  ],
+  "dosage": "Used as insecticide; not for internal use",
   "duration": "No direct duration data. Contextual inference: a tropical vine traditionally used as a natural fish poison. contains rotenone, a potent neurotoxin that disrupts mitochondrial respiration. used in agriculture but dangerous to humans in concentrated doses.. Rotenone inhibits NADH dehydrogenase in the electron transport chain, disrupting ATP production and causing cellular hypoxia.. Paralysis (insects/fish);Mild euphoria (folklore);Toxicity. southeast asia, pacific islands. ; nan; nan",
   "interactions": [
     "n/a – not used internally.",

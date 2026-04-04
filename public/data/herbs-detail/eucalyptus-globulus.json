@@ -13,21 +13,7 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Large doses may cause nausea",
-    "vomiting",
-    "CNS depression",
-    "topical irritation possible",
-    "No direct toxicity data. Contextual inference: Expectorant",
-    "antiseptic",
-    "anti-inflammatory. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Expectorant",
-    "anti-inflammatory. none."
-  ],
+  "safetyNotes": "safe; Large doses may cause nausea; vomiting; CNS depression; topical irritation possible; No direct toxicity data. Contextual inference: Expectorant; antiseptic; anti-inflammatory. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Expectorant; anti-inflammatory. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -39,11 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Expectorant, antiseptic, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "750 mg",
-    "day leaf extract or steam inhalation"
-  ],
+  "dosage": "250; 750 mg; day leaf extract or steam inhalation",
   "duration": "4–6 hours",
   "interactions": [],
   "legalStatus": "Legal worldwide",
