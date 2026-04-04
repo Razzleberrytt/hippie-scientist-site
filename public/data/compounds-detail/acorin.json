@@ -1,8 +1,6 @@
 {
   "name": "acorin",
-  "herbs": [
-    "nan"
-  ],
+  "herbs": [],
   "effects": [
     "Stimulation",
     "mental clarity",
@@ -11,8 +9,6 @@
     "beta-asarone rich)",
     "Mild sedative",
     "hallucinogenic in high doses",
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
     "dreaming or folk medicine.. Used in ritual",
     "dreaming or folk medicine. Used in ritual",
     "dreaming or folk medicine",
@@ -29,19 +25,19 @@
     "pregnancy",
     "cancer risk (β-asarone in some strains)."
   ],
-  "category": null,
+  "category": "phenylpropanoid",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "acorin",
   "id": "acorin",
   "displayName": "acorin",
-  "description": "acorin is a compound reported in nan. Available references are still early and incomplete.",
-  "summary": "acorin is a compound reported in nan. Available references are still early and incomplete.",
+  "description": "acorin is classified here as phenylpropanoid. This record is retained because it appears in psychoactive/traditional-use contexts, but supporting references and source-linked occurrence data are currently incomplete. Reported effects in existing notes include Stimulation, mental clarity, mild sedation (low dose).",
+  "summary": "acorin is tracked as aromatic ether in this dataset. Evidence in the current record is limited, so pharmacology details should be treated as provisional.",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
+  "categoryUseContext": "Natural occurrence context is currently under-documented in this record; botanical source attribution requires verification.",
+  "evidenceLevel": "limited",
   "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
-  ]
+  "linkedHerbs": [],
+  "type": "aromatic ether",
+  "mechanism": "Mechanism is uncertain in this dataset. Current notes suggest possible nervous-system activity, but no source-linked mechanism has been validated in this record yet."
 }

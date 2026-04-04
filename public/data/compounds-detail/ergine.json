@@ -1,16 +1,13 @@
 {
   "name": "ergine",
-  "herbs": [
-    "nan"
-  ],
+  "herbs": [],
   "effects": [
     "Closed-eye visuals",
     "sedation",
     "dream-like mental state",
     "Visual distortion",
     "introspection",
-    "altered perception of time and self",
-    "No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening."
+    "altered perception of time and self"
   ],
   "contraindications": [
     "Avoid with antidepressants",
@@ -19,19 +16,19 @@
     "cardiovascular disease",
     "MAOI use"
   ],
-  "category": null,
+  "category": "ergoline alkaloid",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "ergine",
   "id": "ergine",
   "displayName": "ergine",
-  "description": "ergine is a compound reported in nan. Available references are still early and incomplete.",
-  "summary": "ergine is a compound reported in nan. Available references are still early and incomplete.",
+  "description": "ergine is classified here as ergoline alkaloid. This record is retained because it appears in psychoactive/traditional-use contexts, but supporting references and source-linked occurrence data are currently incomplete. Reported effects in existing notes include Closed-eye visuals, sedation, dream-like mental state.",
+  "summary": "ergine is tracked as lysergamide in this dataset. Evidence in the current record is limited, so pharmacology details should be treated as provisional.",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
+  "categoryUseContext": "Natural occurrence context is currently under-documented in this record; botanical source attribution requires verification.",
+  "evidenceLevel": "limited",
   "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
-  ]
+  "linkedHerbs": [],
+  "type": "lysergamide",
+  "mechanism": "Mechanism is uncertain in this dataset. Current notes suggest possible nervous-system activity, but no source-linked mechanism has been validated in this record yet."
 }

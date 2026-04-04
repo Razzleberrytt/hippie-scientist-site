@@ -1,34 +1,28 @@
 {
   "name": "Asarone (alpha & beta)",
-  "herbs": [
-    "nan"
-  ],
+  "herbs": [],
   "effects": [
     "Mild stimulation",
     "focus",
-    "calm",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "calm"
   ],
   "contraindications": [
     "Similar risks to Acorus calamus",
     "avoid large doses"
   ],
-  "category": null,
+  "category": "phenylpropanoids",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "asarone-alpha-beta",
   "id": "asarone-alpha-beta",
   "displayName": "Asarone (alpha & beta)",
-  "description": "Asarone (alpha & beta) is a compound reported in nan. Available references are still early and incomplete.",
-  "summary": "Asarone (alpha & beta) is a compound reported in nan. Available references are still early and incomplete.",
+  "description": "Asarone (alpha & beta) is classified here as phenylpropanoids. This record is retained because it appears in psychoactive/traditional-use contexts, but supporting references and source-linked occurrence data are currently incomplete. Reported effects in existing notes include Mild stimulation, focus, calm.",
+  "summary": "Asarone (alpha & beta) is tracked as isomeric aromatic ethers in this dataset. Evidence in the current record is limited, so pharmacology details should be treated as provisional.",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
+  "categoryUseContext": "Natural occurrence context is currently under-documented in this record; botanical source attribution requires verification.",
+  "evidenceLevel": "limited",
   "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
-  ]
+  "linkedHerbs": [],
+  "type": "isomeric aromatic ethers",
+  "mechanism": "Mechanism is uncertain in this dataset. Current notes suggest possible nervous-system activity, but no source-linked mechanism has been validated in this record yet."
 }
