@@ -2,8 +2,10 @@
   "name": "ashwagandha",
   "latin": "ashwagandha",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanisms include withanolide-mediated modulation of stress-response signaling and neuroendocrine pathways. These mechanistic findings are preliminary and do not confirm broad clinical benefit across indications.",
+  "activeCompounds": [
+    "Withaferin A"
+  ],
   "effects": [
     "No direct effects data. Contextual inference:",
     "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -14,15 +16,36 @@
     "avoid during pregnancy and breastfeeding",
     "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
+  "safetyNotes": "Short-term use (up to about 3 months) is often tolerated, but drowsiness and GI effects occur. Rare clinically apparent liver injury has been reported with commercial ashwagandha products. Avoid in pregnancy and breastfeeding; use caution with thyroid, autoimmune, or planned surgery contexts.",
+  "sources": [
+    {
+      "title": "NCCIH: Ashwagandha — Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/ashwagandha"
+    },
+    {
+      "title": "NIH ODS: Ashwagandha Health Professional Fact Sheet",
+      "url": "https://ods.od.nih.gov/factsheets/Ashwagandha-HealthProfessional/"
+    },
+    {
+      "title": "LiverTox: Ashwagandha",
+      "url": "https://www.ncbi.nlm.nih.gov/books/n/livertox/Ashwagandha"
+    },
+    {
+      "title": "PubChem: Withaferin A",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/265237"
+    }
+  ],
   "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+  "description": "Ashwagandha (Withania somnifera) is an Ayurvedic shrub used mainly for stress/sleep-related goals. Human trials suggest some preparations may help stress and insomnia symptoms, but findings vary by extract and study quality.",
+  "dosage": "Clinical studies often use standardized extracts for roughly 2–4 months, but dosing is product-specific and not interchangeable across preparations.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "May interact with sedatives, immunosuppressants, thyroid hormone therapies, anti-seizure medicines, and some diabetes/blood-pressure medicines.",
+    "Use caution in people with hormone-sensitive prostate cancer because some preparations may raise testosterone."
+  ],
+  "legalStatus": null,
+  "preparation": "Commercial products commonly use root extract, root powder, or root/leaf extracts; clinical outcomes differ by extract standardization and dose.",
+  "region": "Native/established in parts of India, Africa, and the Middle East; widely used in South Asian traditional medicine.",
   "therapeuticUses": [
     "traditional support for mild digestive comfort"
   ],

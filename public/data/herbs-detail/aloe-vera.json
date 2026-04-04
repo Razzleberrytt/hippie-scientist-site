@@ -2,32 +2,38 @@
   "name": "aloe vera",
   "latin": "Aloe vera",
   "intensity": "No direct intensity data. Contextual inference: Laxative, wound healing, skin soother. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, wound healing, skin soother. No direct region data. Contextual inference: Laxative, wound healing, skin soother. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, wound healing, skin soother. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-  "activeCompounds": [],
+  "mechanism": "Topical aloe gel contains polysaccharides and related constituents that may support hydration and local wound-healing processes. Oral laxative effects are primarily linked to anthraquinone constituents in aloe latex (e.g., barbaloin/aloin derivatives).",
+  "activeCompounds": [
+    "Barbaloin (Aloin A)"
+  ],
   "effects": [
     "Laxative",
     "wound healing",
     "skin soother"
   ],
   "contraindications": [],
-  "safetyNotes": "safe; Abdominal cramps; diarrhea (latex); rare allergic skin reactions (topical); avoid during pregnancy internally; No direct toxicity data. Contextual inference: Laxative; wound healing; skin soother. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Laxative; skin soother. none.",
+  "safetyNotes": "Topical gel is usually well tolerated, but burning, itching, rash, or eczema can occur. Oral aloe latex can cause abdominal pain, cramping, and diarrhea. Oral aloe leaf extract has been associated with acute hepatitis in case reports, and non-decolorized whole-leaf extract has raised carcinogenicity concerns.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
+      "title": "NCCIH: Aloe Vera — Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/aloe-vera"
     },
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "PubChem: Barbaloin (Aloin A)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Barbaloin"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Laxative, wound healing, skin soother. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "0.5; 1 g; day gel or juice",
+  "description": "Aloe vera products are used topically (especially gel) and orally (gel or latex-containing products). Evidence is stronger for selected topical uses than for most oral indications.",
+  "dosage": "Product forms are not interchangeable. No universal evidence-based dose applies across topical gel, oral gel, and latex-containing products.",
   "duration": "Varies with form",
-  "interactions": [],
+  "interactions": [
+    "Oral aloe latex may increase adverse effects when combined with other stimulant laxatives.",
+    "Potential additive effects with glucose-lowering therapies if oral aloe products lower blood glucose."
+  ],
   "legalStatus": "Approved for external use; oral use regulated",
-  "preparation": "Fresh gel applied topically or taken internally (juice form); latex processed separately for laxative use",
-  "region": "No direct region data. Contextual inference: Laxative, wound healing, skin soother. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, wound healing, skin soother. none. ; nan; nan",
+  "preparation": "Topical use typically uses inner-leaf gel. Oral products vary substantially; latex-containing or whole-leaf extracts have different safety profiles from decolorized inner-leaf gel products.",
+  "region": "Native to the Arabian Peninsula and now cultivated widely in subtropical and tropical regions.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
