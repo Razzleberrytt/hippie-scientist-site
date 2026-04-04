@@ -15,14 +15,7 @@
     "Avoid during pregnancy because safety evidence is limited",
     "Use caution before driving or operating machinery due to drowsiness risk"
   ],
-  "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
-  ],
+  "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
   "sources": [
     {
       "title": "PubMed: Valerian sleep meta-analysis (PMID: 33086877)",
@@ -35,14 +28,7 @@
   ],
   "lastUpdated": "2026-04-03T00:00:00.000Z",
   "description": "Valerian root (Valeriana officinalis) is used for insomnia symptoms and restlessness, with mixed but sometimes favorable subjective sleep outcomes.",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
+  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "Potential additive CNS depression with benzodiazepines, opioids, and sedating antihistamines."

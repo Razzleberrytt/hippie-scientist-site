@@ -16,17 +16,7 @@
     "hormone",
     "sensitive conditions."
   ],
-  "safetyNotes": [
-    "irritability",
-    "insomnia.",
-    "No direct toxicity data. Contextual inference: Aphrodisiac",
-    "testosterone booster",
-    "and energy tonic. Boosts free testosterone",
-    "reduces cortisol..",
-    "nan.. Boosts free testosterone",
-    "reduces cortisol.. Aphrodisiac",
-    "and energy tonic."
-  ],
+  "safetyNotes": "irritability; insomnia.; No direct toxicity data. Contextual inference: Aphrodisiac; testosterone booster; and energy tonic. Boosts free testosterone; reduces cortisol..; nan.. Boosts free testosterone; reduces cortisol.. Aphrodisiac; and energy tonic.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -38,17 +28,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Aphrodisiac, testosterone booster, and energy tonic. Boosts free testosterone; reduces cortisol.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Aphrodisiac",
-    "testosterone booster",
-    "and energy tonic. Boosts free testosterone",
-    "reduces cortisol..",
-    "nan.. Boosts free testosterone",
-    "reduces cortisol.. Aphrodisiac",
-    "and energy tonic. No direct region data. Contextual inference: Aphrodisiac",
-    "and energy tonic.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Aphrodisiac; testosterone booster; and energy tonic. Boosts free testosterone; reduces cortisol..; nan.. Boosts free testosterone; reduces cortisol.. Aphrodisiac; and energy tonic. No direct region data. Contextual inference: Aphrodisiac; and energy tonic.; nan.",
   "duration": "6–8 hours",
   "interactions": [
     "stimulants",

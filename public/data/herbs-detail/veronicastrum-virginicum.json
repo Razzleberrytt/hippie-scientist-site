@@ -11,18 +11,7 @@
     "purgative"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "GI irritation in high doses",
-    "avoid in pregnancy",
-    "No direct toxicity data. Contextual inference: Bitter tonic",
-    "liver stimulant",
-    "purgative. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Bitter tonic",
-    "purgative. none."
-  ],
+  "safetyNotes": "GI irritation in high doses; avoid in pregnancy; No direct toxicity data. Contextual inference: Bitter tonic; liver stimulant; purgative. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Bitter tonic; purgative. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -34,18 +23,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Bitter tonic, liver stimulant, purgative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Bitter tonic",
-    "liver stimulant",
-    "purgative. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Bitter tonic",
-    "purgative. No direct region data. Contextual inference: Bitter tonic",
-    "purgative. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Bitter tonic; liver stimulant; purgative. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Bitter tonic; purgative. No direct region data. Contextual inference: Bitter tonic; purgative. none.; nan.",
   "duration": "6–10 hours",
   "interactions": [],
   "legalStatus": "Unregulated",

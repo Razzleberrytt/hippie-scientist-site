@@ -26,23 +26,7 @@
     "Use caution with stimulants and in uncontrolled hypertension or arrhythmia.",
     "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "safetyNotes": [
-    "Safe in moderate amounts",
-    "excess can cause overstimulation",
-    "Increased heart rate",
-    "anxiety (rare)",
-    "Low",
-    "LD50 (theobromine): ~1000 mg/kg (human est.)",
-    "No direct toxicity data. Contextual inference: Stimulant",
-    "antioxidant",
-    "mild euphoriant",
-    "contains theobromine and caffeine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Stimulant",
-    "contains theobromine and caffeine. none."
-  ],
+  "safetyNotes": "Safe in moderate amounts; excess can cause overstimulation; Increased heart rate; anxiety (rare); Low; LD50 (theobromine): ~1000 mg/kg (human est.); No direct toxicity data. Contextual inference: Stimulant; antioxidant; mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Stimulant; contains theobromine and caffeine. none.",
   "sources": [
     {
       "title": "Ethnobotanical sources"
@@ -60,19 +44,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Stimulant",
-    "antioxidant",
-    "mild euphoriant",
-    "contains theobromine and caffeine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Stimulant",
-    "contains theobromine and caffeine. No direct region data. Contextual inference: Stimulant",
-    "contains theobromine and caffeine. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Stimulant; antioxidant; mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Stimulant; contains theobromine and caffeine. No direct region data. Contextual inference: Stimulant; contains theobromine and caffeine. none.; nan.",
   "duration": "2–4 hours",
   "interactions": [
     "Stimulants",

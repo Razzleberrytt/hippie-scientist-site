@@ -15,13 +15,7 @@
     "pregnancy [9",
     "4]."
   ],
-  "safetyNotes": [
-    "headache",
-    "nausea",
-    "mild sedation [9",
-    "4].",
-    "Low toxicity at traditional doses [9"
-  ],
+  "safetyNotes": "headache; nausea; mild sedation [9; 4].; Low toxicity at traditional doses [9",
   "sources": [
     {
       "title": "Inferred from Unknown"
@@ -33,14 +27,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "south african succulent chewed to elevate mood and decrease tension.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: south african succulent chewed to elevate mood and decrease tension.. Selective serotonin reuptake inhibition (SSRI) and phosphodiesterase",
-    "4 (PDE4) inhibition [9",
-    "4].. Mood lift",
-    "empathy",
-    "sociability. 🌎 unknown",
-    "global."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: south african succulent chewed to elevate mood and decrease tension.. Selective serotonin reuptake inhibition (SSRI) and phosphodiesterase; 4 (PDE4) inhibition [9; 4].. Mood lift; empathy; sociability. 🌎 unknown; global.",
   "duration": "121.0",
   "interactions": [
     "ssris",

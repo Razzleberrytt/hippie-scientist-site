@@ -11,22 +11,7 @@
     "prolactin regulator"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "GI upset",
-    "dizziness",
-    "acne-like rash",
-    "affects hormonal balance",
-    "No direct toxicity data. Contextual inference: Hormonal modulator",
-    "pms relief",
-    "prolactin regulator. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Hormonal modulator",
-    "PMS relief",
-    "prolactin regulator. none."
-  ],
+  "safetyNotes": "safe; GI upset; dizziness; acne-like rash; affects hormonal balance; No direct toxicity data. Contextual inference: Hormonal modulator; pms relief; prolactin regulator. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Hormonal modulator; PMS relief; prolactin regulator. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -38,11 +23,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Hormonal modulator, pms relief, prolactin regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "150",
-    "500 mg",
-    "day extract"
-  ],
+  "dosage": "150; 500 mg; day extract",
   "duration": "Chronic",
   "interactions": [],
   "legalStatus": "Legal worldwide",

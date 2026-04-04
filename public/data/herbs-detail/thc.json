@@ -16,20 +16,7 @@
     "pregnancy",
     "heart disease."
   ],
-  "safetyNotes": [
-    "euphoria",
-    "anxiety",
-    "dry mouth",
-    "impaired cognition.",
-    "No direct toxicity data. Contextual inference: Psychoactive compound in cannabis",
-    "euphoric",
-    "analgesic",
-    "antiemetic. Agonist at cb1 receptors",
-    "modulates dopamine and gaba release..",
-    "nan.. Agonist at CB1 receptors",
-    "modulates dopamine and GABA release.. Psychoactive compound in cannabis",
-    "antiemetic."
-  ],
+  "safetyNotes": "euphoria; anxiety; dry mouth; impaired cognition.; No direct toxicity data. Contextual inference: Psychoactive compound in cannabis; euphoric; analgesic; antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release..; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; antiemetic.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -41,18 +28,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Psychoactive compound in cannabis",
-    "euphoric",
-    "analgesic",
-    "antiemetic. Agonist at cb1 receptors",
-    "modulates dopamine and gaba release..",
-    "nan.. Agonist at CB1 receptors",
-    "modulates dopamine and GABA release.. Psychoactive compound in cannabis",
-    "antiemetic. No direct region data. Contextual inference: Psychoactive compound in cannabis",
-    "antiemetic.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Psychoactive compound in cannabis; euphoric; analgesic; antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release..; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; antiemetic. No direct region data. Contextual inference: Psychoactive compound in cannabis; antiemetic.; nan.",
   "duration": "2–6 hours",
   "interactions": [
     "cns depressants",

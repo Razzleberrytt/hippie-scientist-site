@@ -13,18 +13,7 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Generally well tolerated",
-    "rare allergic or GI reactions",
-    "No direct toxicity data. Contextual inference: Antimicrobial",
-    "anti-inflammatory",
-    "immune stimulant. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antimicrobial",
-    "immune stimulant. none."
-  ],
+  "safetyNotes": "Generally well tolerated; rare allergic or GI reactions; No direct toxicity data. Contextual inference: Antimicrobial; anti-inflammatory; immune stimulant. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Antimicrobial; immune stimulant. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -36,19 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Antimicrobial, anti-inflammatory, immune stimulant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Antimicrobial",
-    "anti",
-    "inflammatory",
-    "immune stimulant. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antimicrobial",
-    "immune stimulant. No direct region data. Contextual inference: Antimicrobial",
-    "immune stimulant. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Antimicrobial; anti; inflammatory; immune stimulant. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Antimicrobial; immune stimulant. No direct region data. Contextual inference: Antimicrobial; immune stimulant. none.; nan.",
   "duration": "4–6 hours",
   "interactions": [],
   "legalStatus": "Legal in herbal commerce",

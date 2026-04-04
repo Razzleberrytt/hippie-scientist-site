@@ -13,18 +13,7 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Generally safe",
-    "high doses may cause stomach upset",
-    "No direct toxicity data. Contextual inference: Anti-inflammatory",
-    "digestive aid",
-    "used for arthritis. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti-inflammatory",
-    "used for arthritis. none."
-  ],
+  "safetyNotes": "Generally safe; high doses may cause stomach upset; No direct toxicity data. Contextual inference: Anti-inflammatory; digestive aid; used for arthritis. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Anti-inflammatory; used for arthritis. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -36,19 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Anti-inflammatory, digestive aid, used for arthritis. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Anti",
-    "inflammatory",
-    "digestive aid",
-    "used for arthritis. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti",
-    "used for arthritis. No direct region data. Contextual inference: Anti",
-    "used for arthritis. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Anti; inflammatory; digestive aid; used for arthritis. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Anti; used for arthritis. No direct region data. Contextual inference: Anti; used for arthritis. none.; nan.",
   "duration": "Chronic",
   "interactions": [],
   "legalStatus": "Legal globally",

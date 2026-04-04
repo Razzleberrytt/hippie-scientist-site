@@ -20,26 +20,7 @@
     "MAOIs",
     "SSRIs"
   ],
-  "safetyNotes": [
-    "Traditional use considered safe",
-    "overdose risks",
-    "Nausea",
-    "vasoconstriction",
-    "fatigue",
-    "Moderate",
-    "Not precisely known",
-    "Psychoactive seeds",
-    "nausea",
-    "hallucinations",
-    "not for regular use",
-    "No direct toxicity data. Contextual inference: Entheogenic",
-    "seeds contain lsa. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Entheogenic",
-    "seeds contain LSA. none."
-  ],
+  "safetyNotes": "Traditional use considered safe; overdose risks; Nausea; vasoconstriction; fatigue; Moderate; Not precisely known; Psychoactive seeds; nausea; hallucinations; not for regular use; No direct toxicity data. Contextual inference: Entheogenic; seeds contain lsa. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Entheogenic; seeds contain LSA. none.",
   "sources": [
     {
       "title": "Aztec use"
@@ -57,17 +38,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Entheogenic; seeds contain lsa. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Entheogenic",
-    "seeds contain lsa. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Entheogenic",
-    "seeds contain LSA. No direct region data. Contextual inference: Entheogenic",
-    "seeds contain LSA. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Entheogenic; seeds contain lsa. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Entheogenic; seeds contain LSA. No direct region data. Contextual inference: Entheogenic; seeds contain LSA. none.; nan.",
   "duration": "6–10 hours",
   "interactions": [
     "MAOIs",

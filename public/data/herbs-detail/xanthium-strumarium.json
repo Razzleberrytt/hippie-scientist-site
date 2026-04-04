@@ -13,21 +13,7 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Toxic in large doses",
-    "nausea",
-    "vomiting",
-    "hepatotoxicity",
-    "No direct toxicity data. Contextual inference: Nasal decongestant",
-    "anti-inflammatory",
-    "diuretic. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Nasal decongestant",
-    "diuretic. none."
-  ],
+  "safetyNotes": "safe; Toxic in large doses; nausea; vomiting; hepatotoxicity; No direct toxicity data. Contextual inference: Nasal decongestant; anti-inflammatory; diuretic. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Nasal decongestant; diuretic. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -39,12 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Nasal decongestant, anti-inflammatory, diuretic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "Low dose",
-    "100",
-    "250 mg",
-    "day"
-  ],
+  "dosage": "Low dose; 100; 250 mg; day",
   "duration": "4–6 hours",
   "interactions": [],
   "legalStatus": "Regulated in some regions",
