@@ -22633,7 +22633,7 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "description": null,
+    "description": "Description not available.",
     "dosage": "1-3g dried root",
     "duration": "4-8 hours",
     "interactions": [],
@@ -32559,44 +32559,6 @@
     "displayName": "uncaria tomentosa",
     "displayScientificName": "uncaria tomentosa",
     "scientificNormalized": "uncaria tomentosa"
-  },
-  {
-    "name": "unknown",
-    "latin": null,
-    "class": null,
-    "intensity": "No direct intensity data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct effects data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct region data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct effects data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: Description not available.",
-    "activeCompounds": [],
-    "effects": [
-      "No direct effects data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available."
-    ],
-    "contraindications": [
-      "avoid during pregnancy and breastfeeding unless advised by a clinician",
-      "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
-      "discontinue if hypersensitivity or allergic symptoms occur"
-    ],
-    "safetyNotes": "",
-    "sources": [],
-    "lastUpdated": "2026-03-21",
-    "therapeuticUses": [
-      "traditional support for mild digestive comfort",
-      "traditional stress resilience support"
-    ],
-    "dosage": "No direct dosage data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct effects data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct region data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct effects data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.",
-    "duration": "No direct duration data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct effects data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct region data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct effects data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.",
-    "region": "No direct region data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct effects data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.",
-    "preparation": "No direct preparation data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct effects data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct region data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.. No direct effects data. Contextual inference: Description not available.. No direct mechanismofaction data. Contextual inference: Description not available.",
-    "legalStatus": null,
-    "interactions": [],
-    "description": "Description not available.",
-    "sideEffects": [
-      "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-      "headache (more likely with higher intake)",
-      "allergic rash or itching in sensitive individuals"
-    ],
-    "slug": "unknown",
-    "id": "unknown",
-    "displayName": "unknown"
   },
   {
     "name": "urtica dioica",
