@@ -2,23 +2,27 @@
   "name": "brugmansia",
   "latin": "brugmansia",
   "intensity": "No direct intensity data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: unresolved from current repository sources; update when stronger human evidence is available.",
+  "activeCompounds": [
+    "Unresolved from current repository sources."
+  ],
   "effects": [
     "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use"
   ],
   "contraindications": [
     "All unsupervised use"
   ],
-  "safetyNotes": "Toxic – deliriant tropane alkaloids; No direct toxicity data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use",
+  "safetyNotes": "Safety not well characterized in current repository sources; avoid use in pregnancy/lactation and in people with major medical or psychiatric conditions without clinical supervision.",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "description": "Ritual use.",
-  "dosage": "No direct dosage data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
+  "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
   "duration": "No direct duration data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
-  "interactions": [],
-  "preparation": "No direct preparation data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
-  "region": "No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use",
+  "interactions": [
+    "Unresolved from current repository sources; screen for medication and condition interactions before use."
+  ],
+  "preparation": "Unresolved from current repository sources; preparation depends on plant part and traditional context.",
+  "region": "Unresolved from current repository sources.",
   "therapeuticUses": [
     "Historical use in asthma and pain (no modern safe use)"
   ],
@@ -32,5 +36,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "brugmansia entry normalized to baseline; key clinical and pharmacology fields are unresolved where repository evidence is limited."
 }

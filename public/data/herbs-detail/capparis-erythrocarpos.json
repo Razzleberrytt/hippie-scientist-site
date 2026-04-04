@@ -2,15 +2,17 @@
   "name": "capparis erythrocarpos",
   "latin": "Capparis erythrocarpos",
   "intensity": "No direct intensity data. Contextual inference: Traditional use as stimulant and anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional use as stimulant and anti-inflammatory. No direct region data. Contextual inference: Traditional use as stimulant and anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional use as stimulant and anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [
+    "Unresolved from current repository sources."
+  ],
   "effects": [
     "Traditional use as stimulant and anti-inflammatory",
     "Traditional use as stimulant and anti",
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": "Insufficient data; potentially mild GI effects based on related species; No direct toxicity data. Contextual inference: Traditional use as stimulant and anti-inflammatory. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Traditional use as stimulant and anti-inflammatory. none.",
+  "safetyNotes": "Safety not well characterized in current repository sources; avoid use in pregnancy/lactation and in people with major medical or psychiatric conditions without clinical supervision.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -21,13 +23,15 @@
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Traditional use as stimulant and anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Traditional use as stimulant and anti; inflammatory. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Traditional use as stimulant and anti; inflammatory. No direct region data. Contextual inference: Traditional use as stimulant and anti; inflammatory. none.; nan.",
+  "description": "capparis erythrocarpos is included in this dataset. Species-specific efficacy and clinical characterization remain unresolved from current repository evidence.",
+  "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
   "duration": "121.0",
-  "interactions": [],
+  "interactions": [
+    "Unresolved from current repository sources; screen for medication and condition interactions before use."
+  ],
   "legalStatus": "Unregulated; traditional use",
   "preparation": "Roots and leaves decocted in African traditional medicine; sometimes used in soups or herbal baths",
-  "region": "No direct region data. Contextual inference: Traditional use as stimulant and anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional use as stimulant and anti-inflammatory. none. ; nan; nan",
+  "region": "Unresolved from current repository sources.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -43,5 +47,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "capparis erythrocarpos entry normalized to baseline; key clinical and pharmacology fields are unresolved where repository evidence is limited."
 }

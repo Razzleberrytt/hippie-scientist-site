@@ -2,8 +2,10 @@
   "name": "alectra sessiliflora",
   "latin": "Alectra sessiliflora",
   "intensity": "Low to none.",
-  "mechanism": "Possibly modulates host-root absorption biochemistry.",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: Possibly modulates host-root absorption biochemistry.",
+  "activeCompounds": [
+    "Unresolved from current repository sources."
+  ],
   "effects": [
     "Not well-documented",
     "likely non-psychoactive.",
@@ -25,9 +27,11 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Parasitic herb in the Orobanchaceae family; possibly used in traditional African medicine.",
-  "dosage": "Not established.",
+  "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
   "duration": "Acute topical application.",
-  "interactions": [],
+  "interactions": [
+    "Unresolved from current repository sources; screen for medication and condition interactions before use."
+  ],
   "legalStatus": "Unregulated",
   "preparation": "Crushed leaves in poultice or decoction.",
   "region": "Sub-Saharan Africa",
@@ -46,5 +50,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "alectra sessiliflora entry normalized to baseline; key clinical and pharmacology fields are unresolved where repository evidence is limited."
 }

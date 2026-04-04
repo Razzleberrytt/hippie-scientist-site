@@ -3,7 +3,7 @@
   "latin": "Acacia confusa Merr.",
   "class": "Psychoactive",
   "intensity": "High (especially when used with MAOIs)",
-  "mechanism": "DMT acts as a 5-HT2A agonist; psychoactive effects enhanced by MAOIs",
+  "mechanism": "Proposed mechanism: DMT acts as a 5-HT2A agonist; psychoactive effects enhanced by MAOIs",
   "activeCompounds": [
     "DMT",
     "NMT",
@@ -21,7 +21,7 @@
     "Avoid in individuals with psychiatric disorders",
     "may potentiate MAOIs"
   ],
-  "safetyNotes": "High risk of psychological distress unsafe in uncontrolled use Nausea vomiting dissociation confusion anxiety Not well-studied primary risk is psychological or via MAOI combinations Not established DMT estimated oral LD50 > 50 mg/kg (in animals)",
+  "safetyNotes": "Safety not well characterized in current repository sources; avoid use in pregnancy/lactation and in people with major medical or psychiatric conditions without clinical supervision.",
   "sources": [
     {
       "title": "https://pubmed.ncbi.nlm.nih.gov/12345678"
@@ -68,5 +68,6 @@
     "tannins",
     "flavonoids",
     "alkaloids"
-  ]
+  ],
+  "summary": "Acacia confusa entry normalized to baseline; key clinical and pharmacology fields are unresolved where repository evidence is limited."
 }
