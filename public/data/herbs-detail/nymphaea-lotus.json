@@ -28,25 +28,7 @@
     "and alcohol",
     "caution during pregnancy"
   ],
-  "safetyNotes": [
-    "Low risk in moderate amounts",
-    "high doses may impair motor control or cause nausea",
-    "Dry mouth",
-    "dizziness",
-    "sedation",
-    "nausea (high doses)",
-    "Very low",
-    "no known fatal dose in humans",
-    "Not formally established",
-    "animal models show low acute toxicity",
-    "safe",
-    "No direct toxicity data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
-  ],
+  "safetyNotes": "Low risk in moderate amounts high doses may impair motor control or cause nausea Dry mouth dizziness sedation nausea (high doses) Very low no known fatal dose in humans Not formally established animal models show low acute toxicity safe No direct toxicity data. Contextual inference: Used in ritual dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual dreaming or folk medicine.. Used in ritual dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual dreaming or folk medicine. Used in ritual dreaming or folk medicine",
   "sources": [
     {
       "title": "Ethnobotanical texts"
@@ -63,15 +45,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "A water lily native to the Nile and East Africa, revered in ancient Egypt for spiritual and aphrodisiac uses. It contains alkaloids that produce sedative and mildly psychoactive effects.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine"
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Used in ritual dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual dreaming or folk medicine.. Used in ritual dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual dreaming or folk medicine. Used in ritual dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual dreaming or folk medicine",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "interactions": [
     "Potentiates effects of alcohol",

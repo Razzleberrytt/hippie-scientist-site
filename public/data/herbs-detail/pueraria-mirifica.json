@@ -10,18 +10,7 @@
     "menopausal support"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "caution",
-    "Estrogenic effects",
-    "avoid in hormone-sensitive conditions",
-    "No direct toxicity data. Contextual inference: Phytoestrogenic",
-    "menopausal support. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Phytoestrogenic",
-    "menopausal support. none."
-  ],
+  "safetyNotes": "caution Estrogenic effects avoid in hormone-sensitive conditions No direct toxicity data. Contextual inference: Phytoestrogenic menopausal support. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Phytoestrogenic menopausal support. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -33,11 +22,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Phytoestrogenic, menopausal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "20",
-    "50 mg",
-    "day extract (standardized)"
-  ],
+  "dosage": "20 50 mg day extract (standardized)",
   "duration": "Weeks to months",
   "interactions": [],
   "legalStatus": "Legal with restrictions in some countries",

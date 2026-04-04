@@ -14,14 +14,7 @@
     "heart disease",
     "pregnancy."
   ],
-  "safetyNotes": [
-    "Toxic – psychedelic",
-    "nausea",
-    "increased heart rate",
-    "dilated pupils.",
-    "Low physiological toxicity",
-    "psychological effects strong."
-  ],
+  "safetyNotes": "Toxic – psychedelic nausea increased heart rate dilated pupils. Low physiological toxicity psychological effects strong.",
   "sources": [
     {
       "title": "Inferred from 3"
@@ -41,10 +34,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "classic phenethylamine psychedelic from peyote and san pedro cacti.",
-  "dosage": [
-    "Active ~200",
-    "400 mg (psychoactive)"
-  ],
+  "dosage": "Active ~200 400 mg (psychoactive)",
   "duration": "No direct duration data. Contextual inference: classic phenethylamine psychedelic from peyote and san pedro cacti.. Phenethylamine psychedelic acting on 5-HT2A and dopamine receptors.. Color enhancement;empathy;spiritual visions. 🌎 americas. ; nan; nan",
   "interactions": [
     "maois and sympathomimetics may potentiate."

@@ -22,20 +22,7 @@
     "pregnancy",
     "cns depression."
   ],
-  "safetyNotes": [
-    "Generally regarded as safe",
-    "Drowsiness",
-    "Low",
-    "drowsiness",
-    "dry mouth.",
-    "No direct toxicity data. Contextual inference: Skeletal muscle relaxant",
-    "calming",
-    "used in smoking blends. May act on gaba receptors",
-    "muscle relaxant and sedative properties..",
-    "nan.. May act on GABA receptors",
-    "muscle relaxant and sedative properties.. Skeletal muscle relaxant",
-    "used in smoking blends."
-  ],
+  "safetyNotes": "Generally regarded as safe Drowsiness Low drowsiness dry mouth. No direct toxicity data. Contextual inference: Skeletal muscle relaxant calming used in smoking blends. May act on gaba receptors muscle relaxant and sedative properties.. nan.. May act on GABA receptors muscle relaxant and sedative properties.. Skeletal muscle relaxant used in smoking blends.",
   "sources": [
     {
       "title": "Western herbalism"
@@ -53,17 +40,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Skeletal muscle relaxant, calming; used in smoking blends. May act on gaba receptors; muscle relaxant and sedative properties.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Skeletal muscle relaxant",
-    "calming",
-    "used in smoking blends. May act on gaba receptors",
-    "muscle relaxant and sedative properties..",
-    "nan.. May act on GABA receptors",
-    "muscle relaxant and sedative properties.. Skeletal muscle relaxant",
-    "used in smoking blends. No direct region data. Contextual inference: Skeletal muscle relaxant",
-    "used in smoking blends.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Skeletal muscle relaxant calming used in smoking blends. May act on gaba receptors muscle relaxant and sedative properties.. nan.. May act on GABA receptors muscle relaxant and sedative properties.. Skeletal muscle relaxant used in smoking blends. No direct region data. Contextual inference: Skeletal muscle relaxant used in smoking blends. nan.",
   "duration": "4–6 hours",
   "interactions": [
     "Sedatives (theoretical)",

@@ -21,23 +21,7 @@
     "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
     "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "safetyNotes": [
-    "safe",
-    "irritability",
-    "dry mouth.",
-    "No direct toxicity data. Contextual inference: Adaptogen",
-    "mental performance enhancer",
-    "antidepressant. Inhibits monoamine oxidase",
-    "modulates cortisol and neurotransmitters..",
-    "nan.. Inhibits monoamine oxidase",
-    "modulates cortisol and neurotransmitters.. Adaptogen",
-    "antidepressant.",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
-  ],
+  "safetyNotes": "safe irritability dry mouth. No direct toxicity data. Contextual inference: Adaptogen mental performance enhancer antidepressant. Inhibits monoamine oxidase modulates cortisol and neurotransmitters.. nan.. Inhibits monoamine oxidase modulates cortisol and neurotransmitters.. Adaptogen antidepressant. No direct toxicity data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -49,17 +33,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.",
-  "dosage": [
-    "100",
-    "400 mg",
-    "day extract (standardized)",
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
+  "dosage": "100 400 mg day extract (standardized) No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "ssris",

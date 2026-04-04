@@ -25,24 +25,7 @@
     "Pregnancy",
     "heart conditions"
   ],
-  "safetyNotes": [
-    "Psychoactive dose causes nausea and dizziness",
-    "Nausea",
-    "sedation",
-    "body load",
-    "Moderate",
-    "Not well-documented",
-    "nausea",
-    "vasoconstriction",
-    "dizziness [0",
-    "4].",
-    "Mild",
-    "contains lysergic acid amide (LSA)",
-    "similar to LSD.",
-    "Low",
-    "moderate overdose risk [0",
-    "12]."
-  ],
+  "safetyNotes": "Psychoactive dose causes nausea and dizziness Nausea sedation body load Moderate Not well-documented nausea vasoconstriction dizziness [0 4]. Mild contains lysergic acid amide (LSA) similar to LSD. Low moderate overdose risk [0 12].",
   "sources": [
     {
       "title": "Shulgin"
@@ -63,10 +46,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Morning glory species used in Mesoamerican rituals.",
-  "dosage": [
-    "20",
-    "100 seeds traditionally ground into cold water infusion."
-  ],
+  "dosage": "20 100 seeds traditionally ground into cold water infusion.",
   "duration": "480",
   "interactions": [
     "Risk of serotonin syndrome",

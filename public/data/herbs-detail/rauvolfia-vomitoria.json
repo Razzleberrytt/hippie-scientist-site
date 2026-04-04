@@ -13,15 +13,7 @@
     "avoid during pregnancy and breastfeeding unless clinician-guided",
     "Use caution with sedatives, alcohol, or other CNS depressants."
   ],
-  "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Antihypertensive and sedative",
-    "contains reserpine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antihypertensive and sedative",
-    "contains reserpine. none."
-  ],
+  "safetyNotes": "No direct toxicity data. Contextual inference: Antihypertensive and sedative contains reserpine. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Antihypertensive and sedative contains reserpine. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -33,17 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Antihypertensive and sedative; contains reserpine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Antihypertensive and sedative",
-    "contains reserpine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antihypertensive and sedative",
-    "contains reserpine. No direct region data. Contextual inference: Antihypertensive and sedative",
-    "contains reserpine. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Antihypertensive and sedative contains reserpine. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Antihypertensive and sedative contains reserpine. No direct region data. Contextual inference: Antihypertensive and sedative contains reserpine. none. nan.",
   "duration": "8–12 hours",
   "interactions": [],
   "legalStatus": "Regulated in some countries",

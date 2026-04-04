@@ -26,19 +26,7 @@
     "hypertension",
     "pregnancy."
   ],
-  "safetyNotes": [
-    "Generally well tolerated at recommended doses",
-    "high doses may cause agitation",
-    "Generally recognized as safe at typical dosages",
-    "Insomnia",
-    "restlessness",
-    "increased heart rate (rare",
-    "dose-dependent)",
-    "May cause insomnia",
-    "restlessness at high doses",
-    "Very low toxicity reported",
-    "long-term use lacks sufficient study"
-  ],
+  "safetyNotes": "Generally well tolerated at recommended doses high doses may cause agitation Generally recognized as safe at typical dosages Insomnia restlessness increased heart rate (rare dose-dependent) May cause insomnia restlessness at high doses Very low toxicity reported long-term use lacks sufficient study",
   "sources": [
     {
       "note": "Inferred from scientific name:",
@@ -47,17 +35,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Aphrodisiac, stimulant, nerve tonic. May enhance dopamine activity and increase blood flow; adaptogenic.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Aphrodisiac",
-    "stimulant",
-    "nerve tonic. May enhance dopamine activity and increase blood flow",
-    "adaptogenic..",
-    "nan.. May enhance dopamine activity and increase blood flow",
-    "adaptogenic.. Aphrodisiac",
-    "nerve tonic. No direct region data. Contextual inference: Aphrodisiac",
-    "nerve tonic.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Aphrodisiac stimulant nerve tonic. May enhance dopamine activity and increase blood flow adaptogenic.. nan.. May enhance dopamine activity and increase blood flow adaptogenic.. Aphrodisiac nerve tonic. No direct region data. Contextual inference: Aphrodisiac nerve tonic. nan.",
   "duration": "4–6 hours",
   "interactions": [
     "May potentiate stimulants and antidepressants",

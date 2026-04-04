@@ -16,13 +16,7 @@
     "active infection",
     "or autoimmune conditions without supervision. toxic at high doses."
   ],
-  "safetyNotes": [
-    "Toxic – medical supervision required",
-    "injection-site inflammation",
-    "allergic reactions",
-    "or flu-like symptoms possible. oral use milder but requires caution.",
-    "Moderate–high (dose-dependent)"
-  ],
+  "safetyNotes": "Toxic – medical supervision required injection-site inflammation allergic reactions or flu-like symptoms possible. oral use milder but requires caution. Moderate–high (dose-dependent)",
   "sources": [
     {
       "title": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3201634/"
@@ -34,9 +28,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "a sacred plant in ancient druidic and european traditions, mistletoe has been used both ritually and medicinally for nervous disorders, cancer support, and hypertension. often associated with peace and protection.",
-  "dosage": [
-    "Subcutaneous injection in integrative cancer therapy"
-  ],
+  "dosage": "Subcutaneous injection in integrative cancer therapy",
   "duration": "Long-term under supervision",
   "interactions": [
     "may interfere with immunosuppressants or chemotherapeutics."

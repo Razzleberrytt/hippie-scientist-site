@@ -33,30 +33,7 @@
     "Use caution with sedatives, alcohol, or other CNS depressants.",
     "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "safetyNotes": [
-    "High risk if misused",
-    "addiction potential",
-    "Constipation",
-    "respiratory depression",
-    "dependence",
-    "High",
-    "~200 mg/kg (morphine",
-    "oral",
-    "human extrapolated)",
-    "restricted",
-    "No direct toxicity data. Contextual inference: Source of opiates",
-    "analgesic and sedative. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Source of opiates",
-    "analgesic and sedative. none.",
-    "High abuse potential",
-    "nausea",
-    "tolerance",
-    "overdose risk",
-    "Morphine LD50 in humans ~120–250 mg"
-  ],
+  "safetyNotes": "High risk if misused addiction potential Constipation respiratory depression dependence High ~200 mg/kg (morphine oral human extrapolated) restricted No direct toxicity data. Contextual inference: Source of opiates analgesic and sedative. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Source of opiates analgesic and sedative. none. High abuse potential nausea tolerance overdose risk Morphine LD50 in humans ~120–250 mg",
   "sources": [
     {
       "title": "PubMed"
@@ -89,9 +66,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "Pharmaceutical use only under regulation"
-  ],
+  "dosage": "Pharmaceutical use only under regulation",
   "duration": "4–6 hours (morphine); longer with raw opium",
   "interactions": [
     "CNS depressants",

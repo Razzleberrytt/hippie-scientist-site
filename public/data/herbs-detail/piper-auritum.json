@@ -13,18 +13,7 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Contains safrole",
-    "potential carcinogen in high amounts",
-    "No direct toxicity data. Contextual inference: Digestive aid",
-    "antimicrobial",
-    "anti-inflammatory. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Digestive aid",
-    "anti-inflammatory. none."
-  ],
+  "safetyNotes": "Contains safrole potential carcinogen in high amounts No direct toxicity data. Contextual inference: Digestive aid antimicrobial anti-inflammatory. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Digestive aid anti-inflammatory. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -36,19 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Digestive aid, antimicrobial, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Digestive aid",
-    "antimicrobial",
-    "anti",
-    "inflammatory. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Digestive aid",
-    "inflammatory. No direct region data. Contextual inference: Digestive aid",
-    "inflammatory. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Digestive aid antimicrobial anti inflammatory. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Digestive aid inflammatory. No direct region data. Contextual inference: Digestive aid inflammatory. none. nan.",
   "duration": "3–6 hours",
   "interactions": [],
   "legalStatus": "Restricted in some regions due to safrole",
