@@ -1,10 +1,12 @@
 {
   "name": "gymnema sylvestre",
   "latin": "gymnema sylvestre",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "Proposed mechanisms include gymnemic-acid-related effects on intestinal glucose handling and sweet taste modulation, with possible downstream effects on glucose and lipid markers. Mechanistic evidence is mixed and not fully translated to standardized clinical dosing.",
   "activeCompounds": [
-    "Gymnemic Acids"
+    "Gymnemic acids",
+    "Gymnemagenin"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -16,16 +18,35 @@
     "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
     "Do not use with known allergy to this plant or related species."
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
+  "safetyNotes": "Short-term supplementation is generally tolerated in available studies, but safety data are limited. Because glucose-lowering effects are possible, monitor for hypoglycemia risk when combined with antidiabetic medications.",
+  "sources": [
+    {
+      "title": "The effect of Gymnema sylvestre supplementation on glycemic control in type 2 diabetes patients: A systematic review and meta-analysis - PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34467577/"
+    },
+    {
+      "title": "The effects of Gymnema Sylvestre supplementation on lipid profile, glycemic control, blood pressure, and anthropometric indices in adults: A systematic review and meta-analysis - PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36580574/"
+    },
+    {
+      "title": "Effect of a deacyl gymnemic acid on glucose homeostasis & metabolic parameters in a rat model of metabolic syndrome - PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23852298/"
+    },
+    {
+      "title": "Gymnema sylvestre - NCBI Taxonomy Browser",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Gymnema+sylvestre"
+    }
+  ],
   "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+  "description": "Gymnema sylvestre leaves are used in Ayurvedic preparations and modern supplements for metabolic health. Human studies include adjunct use in type 2 diabetes and dyslipidemia, but formulations and trial quality are variable.",
+  "dosage": "No single standardized dose is established across trials; studies use different extracts and durations. Use product-specific standardization and clinical monitoring when used for glycemic outcomes.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
+  "interactions": [
+    "May enhance glucose-lowering effects of insulin or oral antidiabetic drugs (hypoglycemia risk)."
+  ],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Most clinical literature uses leaf extracts or standardized capsules/tablets rather than whole-leaf culinary use.",
+  "region": "Native range is tropical and subtropical Asia, including the Indian subcontinent and surrounding regions.",
   "therapeuticUses": [
     "Traditional supportive use; indication depends on species part and preparation.",
     "Evidence level varies; use only within established clinical or traditional context."
@@ -46,5 +67,6 @@
   "relatedEntities": [],
   "relatedCompounds": [
     "gymnemic-acids"
-  ]
+  ],
+  "summary": "Gymnema sylvestre is a traditional South Asian medicinal plant studied mainly for glycemic control and cardiometabolic markers. Meta-analyses suggest possible benefit, but study quality and heterogeneity limit certainty."
 }

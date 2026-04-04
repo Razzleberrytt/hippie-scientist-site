@@ -1,31 +1,51 @@
 {
   "name": "ilex vomitoria",
   "latin": "ilex vomitoria",
+  "class": null,
   "intensity": "moderate",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
+  "mechanism": "Likely stimulant effects are primarily caffeine-mediated adenosine receptor antagonism; phytochemical diversity (including chlorogenic-acid-type phenolics) may contribute antioxidant-related properties, but clinical outcome evidence is sparse.",
+  "activeCompounds": [
+    "Caffeine",
+    "Theobromine",
+    "Chlorogenic acids"
+  ],
   "effects": [
     "No direct effects data. Contextual inference:",
     "nan.. No direct mechanismofaction data. Contextual inference:",
     "nan..",
     "nan."
   ],
-  "contraindications": [
-    "Heart conditions, pregnancy, anxiety disorders"
+  "contraindications": "Heart conditions, pregnancy, anxiety disorders",
+  "safetyNotes": "Safety profile is expected to track caffeine exposure: possible insomnia, palpitations, anxiety, reflux, or tremor with higher intake. Use caution in pregnancy, arrhythmia risk, and alongside other stimulant sources.",
+  "sources": [
+    {
+      "title": "Ilex vomitoria Aiton | Plants of the World Online | Kew Science",
+      "url": "https://powo.science.kew.org/taxon/83863-1"
+    },
+    {
+      "title": "LC-MS Metabolomics and Chemotaxonomy of Caffeine-Containing Holly (Ilex) Species and Related Taxa in the Aquifoliaceae - PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31042034/"
+    },
+    {
+      "title": "Nitrogen fertilizer and gender effects on the secondary metabolism of yaupon, a caffeine-containing North American holly - PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17048011/"
+    },
+    {
+      "title": "Theobromine | CID 5429 - PubChem",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5429"
+    }
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
   "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+  "description": "Yaupon is an evergreen holly native to the southeastern United States and nearby regions. Leaves are roasted/toasted and infused as a tea-like beverage.",
+  "dosage": "No established therapeutic dosing standard. Intake is usually beverage-based and should be titrated by caffeine tolerance and total daily stimulant burden.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
-  "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [
-    "Native American ceremonial drink for stimulation and purification"
+  "interactions": [
+    "Additive stimulant/cardiovascular effects with caffeine-containing products or sympathomimetics."
   ],
+  "legalStatus": "legal",
+  "preparation": "Typically prepared as roasted or unroasted leaf infusion (yaupon tea); commercial products include loose-leaf and bagged teas.",
+  "region": "Native to the southeastern United States and adjoining regions of North America.",
+  "therapeuticUses": "Native American ceremonial drink for stimulation and purification",
   "traditionalUse": "; nan; nan",
   "slug": "ilex-vomitoria",
   "id": "ilex-vomitoria",
@@ -36,5 +56,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Ilex vomitoria (yaupon) is a North American holly traditionally brewed as a caffeinated beverage. Modern analyses confirm methylxanthines (notably caffeine) and polyphenolic constituents, while direct clinical trial data remain limited."
 }
