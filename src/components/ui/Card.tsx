@@ -7,5 +7,5 @@ export default function Card({
   children: ReactNode
   className?: string
 }) {
-  return <div className={`blur-panel card-shell shadow-soft ${className}`}>{children}</div>
+  return <div className={`ds-card blur-panel card-shell shadow-soft ${className}`}>{children}</div>
 }

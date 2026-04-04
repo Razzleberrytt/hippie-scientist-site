@@ -6,12 +6,17 @@ import {
   type CuratedProductEntityType,
   type CuratedProductRecommendation,
 } from '@/data/curatedProducts'
+import { normalizeAmazonAffiliateUrl } from '@/utils/affiliateUrls'
+import { readAnalyticsEvents, type StoredAnalyticsEvent } from '@/utils/analytics/eventStorage'
+import type { AffiliateUseCaseAnchor } from '@/lib/affiliateClickTracking'
+import { RANKING_CONFIG } from '@/lib/rankingConfig'
 
 type CuratedProductPageContext = {
   entityType: CuratedProductEntityType
   entitySlug: string
   confidence: ConfidenceLevel
   sourceCount: number
+  useCaseAnchor?: AffiliateUseCaseAnchor
 }
 
 const CONFIDENCE_RANK: Record<ConfidenceLevel, number> = {
@@ -40,18 +45,11 @@ function hasReviewApproval(product: CuratedProductRecommendation) {
   return product.researchStatus === 'approved' && hasTrimmedText(product.reviewedAt)
 }
 
-function supportsConfidence(product: CuratedProductRecommendation, pageConfidence: ConfidenceLevel) {
+function supportsConfidence(
+  product: CuratedProductRecommendation,
+  pageConfidence: ConfidenceLevel,
+) {
   return CONFIDENCE_RANK[pageConfidence] >= CONFIDENCE_RANK[product.confidenceTierRequired]
-}
-
-function appendAmazonTag(url: string, tag: string) {
-  try {
-    const parsed = new URL(url)
-    parsed.searchParams.set('tag', tag)
-    return parsed.toString()
-  } catch {
-    return ''
-  }
 }
 
 function parseDate(value: string): Date | null {
@@ -64,7 +62,10 @@ const REVIEW_GRACE_PERIOD_DAYS = 30
 
 export type ReviewRecencyState = 'fresh' | 'stale_grace' | 'stale_expired' | 'missing_reviewed_at'
 
-function getReviewAgeDays(product: CuratedProductRecommendation, now: Date = new Date()): number | null {
+function getReviewAgeDays(
+  product: CuratedProductRecommendation,
+  now: Date = new Date(),
+): number | null {
   const reviewedAt = parseDate(product.reviewedAt)
   if (!reviewedAt) return null
 
@@ -74,20 +75,20 @@ function getReviewAgeDays(product: CuratedProductRecommendation, now: Date = new
 
 export function getReviewRecencyState(
   product: CuratedProductRecommendation,
-  now: Date = new Date()
+  now: Date = new Date(),
 ): ReviewRecencyState {
   if (!CURATED_PRODUCT_STALE_REVIEW_DAYS || CURATED_PRODUCT_STALE_REVIEW_DAYS <= 0) return 'fresh'
   const elapsedDays = getReviewAgeDays(product, now)
   if (elapsedDays === null) return 'missing_reviewed_at'
   if (elapsedDays <= CURATED_PRODUCT_STALE_REVIEW_DAYS) return 'fresh'
-  if (elapsedDays <= CURATED_PRODUCT_STALE_REVIEW_DAYS + REVIEW_GRACE_PERIOD_DAYS) return 'stale_grace'
+  if (elapsedDays <= CURATED_PRODUCT_STALE_REVIEW_DAYS + REVIEW_GRACE_PERIOD_DAYS)
+    return 'stale_grace'
   return 'stale_expired'
 }
 
 export function resolveAffiliateUrl(product: CuratedProductRecommendation): string {
   if (!product.amazonUrl.trim()) return ''
-  if (product.affiliateTagStrategy === 'already_tagged') return product.amazonUrl
-  return appendAmazonTag(product.amazonUrl, DEFAULT_AMAZON_AFFILIATE_TAG)
+  return normalizeAmazonAffiliateUrl(product.amazonUrl, DEFAULT_AMAZON_AFFILIATE_TAG)
 }
 
 export function hasGenericAffiliateLink(url: string): boolean {
@@ -97,15 +98,11 @@ export function hasGenericAffiliateLink(url: string): boolean {
   return GENERIC_AFFILIATE_PATTERNS.some(pattern => pattern.test(trimmed))
 }
 
-function isAmazonDomain(hostname: string): boolean {
-  const normalized = hostname.toLowerCase()
-  return normalized === 'amazon.com' || normalized === 'www.amazon.com'
-}
-
 export function isMalformedAmazonProductUrl(url: string): boolean {
   try {
     const parsed = new URL(url)
-    if (!isAmazonDomain(parsed.hostname)) return true
+    const hostname = parsed.hostname.toLowerCase()
+    if (hostname !== 'amazon.com' && hostname !== 'www.amazon.com') return true
 
     const path = parsed.pathname.trim()
     if (!path || path === '/') return true
@@ -163,7 +160,8 @@ export function assessCuratedProductReadiness(params: {
   const { product, pageContext, now, duplicateProductMappingDetected = false } = params
   const affiliateUrl = resolveAffiliateUrl(product)
   const disclosurePresent = hasTrimmedText(product.affiliateDisclosure)
-  const rationalePresent = hasTrimmedText(product.rationaleShort) && hasTrimmedText(product.rationaleLong)
+  const rationalePresent =
+    hasTrimmedText(product.rationaleShort) && hasTrimmedText(product.rationaleLong)
   const researchedReviewedStatusPresent = hasTrimmedText(product.researchStatus)
   const reviewedAtPresent = hasTrimmedText(product.reviewedAt)
   const reviewRecencyState = getReviewRecencyState(product, now)
@@ -181,13 +179,20 @@ export function assessCuratedProductReadiness(params: {
   if (!researchedReviewedStatusPresent) failureReasons.push('missing_research_status')
   if (!reviewedAtPresent) failureReasons.push('missing_reviewed_at')
   if (!product.active) failureReasons.push('inactive')
-  if (product.entityType !== pageContext.entityType || product.entitySlug !== pageContext.entitySlug) {
+  if (
+    product.entityType !== pageContext.entityType ||
+    product.entitySlug !== pageContext.entitySlug
+  ) {
     failureReasons.push('entity_page_mismatch')
   }
-  if (!supportsConfidence(product, pageContext.confidence)) failureReasons.push('confidence_tier_not_met')
+  if (!supportsConfidence(product, pageContext.confidence))
+    failureReasons.push('confidence_tier_not_met')
   if (!hasReviewApproval(product)) {
     if (!failureReasons.includes('missing_reviewed_at')) failureReasons.push('missing_reviewed_at')
-    if (product.researchStatus !== 'approved' && !failureReasons.includes('missing_research_status')) {
+    if (
+      product.researchStatus !== 'approved' &&
+      !failureReasons.includes('missing_research_status')
+    ) {
       failureReasons.push('missing_research_status')
     }
   }
@@ -195,7 +200,8 @@ export function assessCuratedProductReadiness(params: {
   if (reviewRecencyState === 'stale_expired') failureReasons.push('stale_review_expired')
   if (genericLinkDetected) failureReasons.push('generic_affiliate_link')
   if (malformedUrlDetected) failureReasons.push('malformed_amazon_url')
-  if (!Array.isArray(product.bestFor) || product.bestFor.length === 0) failureReasons.push('missing_best_for')
+  if (!Array.isArray(product.bestFor) || product.bestFor.length === 0)
+    failureReasons.push('missing_best_for')
   if (duplicateProductMappingDetected) failureReasons.push('duplicate_product_mapping')
 
   const requiresManualReview =
@@ -233,13 +239,478 @@ export type RenderableCuratedProduct = CuratedProductRecommendation & {
   affiliateUrl: string
 }
 
-export function getRenderableCuratedProducts(
-  context: CuratedProductPageContext
-): RenderableCuratedProduct[] {
-  if (context.sourceCount <= 0) return []
+export type RenderableCuratedProductDebug = RenderableCuratedProduct & {
+  debug: CuratedProductRankingDebugInfo
+}
 
-  return curatedProductRecommendations
-    .filter(product => product.entityType === context.entityType && product.entitySlug === context.entitySlug)
+const CLICK_CAP = 6
+const MIN_EXPOSURE_CLICKS = 2
+const MIN_DATA_THRESHOLD = 4
+const COLD_START_BOOST_CAP = 0.65
+const HIGH_CONVERSION_PROTECTION_THRESHOLD = 0.75
+const MAX_CLICK_EVENT_AGE_MS = 60 * 24 * 60 * 60 * 1000
+
+function getHerbSlugFromAnalyticsEvent(event: { slug?: string; entitySlug?: string }): string | null {
+  const slug = String(event.slug || '').trim()
+  if (slug.startsWith('herb:')) return slug.slice('herb:'.length)
+  return null
+}
+
+type ProductClickMetrics = {
+  rawCount: number
+  decayedScore: number
+  timestampedEventCount: number
+  latestTimestamp?: number
+}
+type ClickMetricsByProductId = Record<string, ProductClickMetrics>
+type HerbClickMetricsByAnchor = Record<string, ClickMetricsByProductId>
+type HerbProductClickMetricsByAnchor = Record<string, HerbClickMetricsByAnchor>
+type ProductConversionScores = Record<string, number>
+type ProductConversionMetrics = {
+  score: number
+  rawCount: number
+  decayedCount: number
+  timestampedEventCount: number
+  latestTimestamp?: number
+}
+type ProductConversionMetricsById = Record<string, ProductConversionMetrics>
+type HerbConversionScoresByAnchor = Record<string, ProductConversionScores>
+type HerbProductConversionScoresByAnchor = Record<string, HerbConversionScoresByAnchor>
+type HerbConversionMetricsByAnchor = Record<string, ProductConversionMetricsById>
+type HerbProductConversionMetricsByAnchor = Record<string, HerbConversionMetricsByAnchor>
+
+function getPositionWeight(position: number): number {
+  if (position <= 2) return 0.6
+  if (position <= 5) return 0.8
+  return 1
+}
+
+function getDwellWeight(dwellTimeMs: number | null): number {
+  if (dwellTimeMs === null) return 1
+  if (dwellTimeMs < 3000) return 0.5
+  if (dwellTimeMs < 10000) return 1
+  return 1.5
+}
+
+function getDecayWeight(timestamp: number, halfLifeMs: number, nowMs: number): number {
+  const ageMs = Math.max(0, nowMs - timestamp)
+  return Math.exp(-ageMs / halfLifeMs)
+}
+
+export function getTimeDecayWeight(timestamp?: number, nowMs: number = Date.now()): number {
+  if (typeof timestamp !== 'number' || !Number.isFinite(timestamp)) return 1
+  return getDecayWeight(timestamp, RANKING_CONFIG.decay.clickHalfLifeMs, nowMs)
+}
+
+export function applyTimeDecay(
+  events: Array<{ timestamp?: number }>,
+  halfLifeMs: number,
+  nowMs: number = Date.now(),
+): number {
+  return events.reduce((sum, event) => {
+    if (typeof event.timestamp !== 'number' || !Number.isFinite(event.timestamp)) return sum
+    const weight = getDecayWeight(event.timestamp, halfLifeMs, nowMs)
+    return sum + weight
+  }, 0)
+}
+
+function shouldSkipByAge(timestamp?: number, nowMs: number = Date.now()): boolean {
+  if (typeof timestamp !== 'number' || !Number.isFinite(timestamp)) return false
+  const ageMs = Math.max(0, nowMs - timestamp)
+  return ageMs > MAX_CLICK_EVENT_AGE_MS
+}
+
+function hasWeightedSignal(event: StoredAnalyticsEvent): boolean {
+  return typeof event.position === 'number' || 'dwellTimeMs' in event
+}
+
+function getEventWeightedScore(event: StoredAnalyticsEvent): number {
+  const position = typeof event.position === 'number' && Number.isFinite(event.position) ? event.position : 6
+  const dwellTimeMs =
+    event.dwellTimeMs === null || (typeof event.dwellTimeMs === 'number' && Number.isFinite(event.dwellTimeMs))
+      ? event.dwellTimeMs
+      : null
+  return getPositionWeight(position) * getDwellWeight(dwellTimeMs)
+}
+
+export function getWeightedClickScore(events: StoredAnalyticsEvent[], nowMs: number = Date.now()): number {
+  return events.reduce((total, event) => {
+    if (shouldSkipByAge(event.timestamp, nowMs)) return total
+    return total + getEventWeightedScore(event)
+  }, 0)
+}
+
+function addClickEvent(
+  metrics: ClickMetricsByProductId,
+  productId: string,
+  event: StoredAnalyticsEvent,
+  nowMs: number,
+) {
+  if (shouldSkipByAge(event.timestamp, nowMs)) return
+
+  const next = (metrics[productId] ||= {
+    rawCount: 0,
+    decayedScore: 0,
+    timestampedEventCount: 0,
+  })
+
+  next.rawCount += 1
+  if (typeof event.timestamp === 'number' && Number.isFinite(event.timestamp)) {
+    const decayedWeight = applyTimeDecay([event], RANKING_CONFIG.decay.clickHalfLifeMs, nowMs)
+    const scoreUnit = hasWeightedSignal(event) ? getEventWeightedScore(event) : 1
+    next.decayedScore += decayedWeight * scoreUnit
+    next.timestampedEventCount += 1
+  }
+  next.latestTimestamp =
+    typeof event.timestamp === 'number' && Number.isFinite(event.timestamp)
+      ? Math.max(next.latestTimestamp ?? Number.NEGATIVE_INFINITY, event.timestamp)
+      : next.latestTimestamp
+}
+
+function getHerbProductClickCountsByAnchor(nowMs: number): HerbProductClickMetricsByAnchor {
+  const countsByHerb: HerbProductClickMetricsByAnchor = {}
+
+  const events = readAnalyticsEvents()
+  events.forEach(event => {
+    if (event.type !== 'curated_product_click') return
+    const herbSlug = getHerbSlugFromAnalyticsEvent(event)
+    if (!herbSlug) return
+    const productId = String(event.item || '').trim()
+    if (!productId) return
+
+    const herbCounts = (countsByHerb[herbSlug] ||= {})
+    const globalCounts = (herbCounts.__global ||= {})
+    addClickEvent(globalCounts, productId, event, nowMs)
+
+    const anchorKey = String(event.useCaseAnchor || '').trim()
+    if (!anchorKey) return
+    const anchorCounts = (herbCounts[anchorKey] ||= {})
+    addClickEvent(anchorCounts, productId, event, nowMs)
+  })
+
+  return countsByHerb
+}
+
+function getConversionEventScore(event: StoredAnalyticsEvent): number {
+  const valueWeight =
+    typeof event.valueUsd === 'number' && Number.isFinite(event.valueUsd) && event.valueUsd > 0
+      ? Math.log(1 + event.valueUsd)
+      : 1
+  return valueWeight
+}
+
+function addConversionEvent(
+  scores: ProductConversionScores,
+  productId: string,
+  event: StoredAnalyticsEvent,
+  nowMs: number,
+) {
+  if (shouldSkipByAge(event.timestamp, nowMs)) return
+  if (typeof event.timestamp !== 'number' || !Number.isFinite(event.timestamp)) {
+    scores[productId] = (scores[productId] || 0) + 1
+    return
+  }
+  const decayedWeight = applyTimeDecay([event], RANKING_CONFIG.decay.conversionHalfLifeMs, nowMs)
+  scores[productId] = (scores[productId] || 0) + getConversionEventScore(event) * decayedWeight
+}
+
+function addConversionMetricsEvent(
+  scores: ProductConversionMetricsById,
+  productId: string,
+  event: StoredAnalyticsEvent,
+  nowMs: number,
+) {
+  if (shouldSkipByAge(event.timestamp, nowMs)) return
+  const next = (scores[productId] ||= { score: 0, rawCount: 0, decayedCount: 0, timestampedEventCount: 0 })
+  if (typeof event.timestamp === 'number' && Number.isFinite(event.timestamp)) {
+    const decayedWeight = applyTimeDecay([event], RANKING_CONFIG.decay.conversionHalfLifeMs, nowMs)
+    next.score += getConversionEventScore(event) * decayedWeight
+    next.decayedCount += decayedWeight
+    next.timestampedEventCount += 1
+  } else {
+    next.score += 1
+    next.decayedCount += 1
+  }
+  next.rawCount += 1
+  if (typeof event.timestamp === 'number' && Number.isFinite(event.timestamp)) {
+    next.latestTimestamp = Math.max(next.latestTimestamp ?? Number.NEGATIVE_INFINITY, event.timestamp)
+  }
+}
+
+export function getHerbProductConversionScores(nowMs: number): HerbProductConversionScoresByAnchor {
+  const scoresByHerb: HerbProductConversionScoresByAnchor = {}
+  const events = readAnalyticsEvents()
+
+  events.forEach(event => {
+    if (event.type !== 'affiliate_conversion') return
+
+    const herbSlug = String(event.herbSlug || '').trim() || getHerbSlugFromAnalyticsEvent(event)
+    if (!herbSlug) return
+
+    const productId = String(event.productId || event.item || '').trim()
+    if (!productId) return
+
+    const herbScores = (scoresByHerb[herbSlug] ||= {})
+    const globalScores = (herbScores.__global ||= {})
+    addConversionEvent(globalScores, productId, event, nowMs)
+
+    const anchorKey = String(event.useCaseAnchor || '').trim()
+    if (!anchorKey) return
+    const anchorScores = (herbScores[anchorKey] ||= {})
+    addConversionEvent(anchorScores, productId, event, nowMs)
+  })
+
+  return scoresByHerb
+}
+
+function getHerbProductConversionMetrics(nowMs: number): HerbProductConversionMetricsByAnchor {
+  const metricsByHerb: HerbProductConversionMetricsByAnchor = {}
+  const events = readAnalyticsEvents()
+
+  events.forEach(event => {
+    if (event.type !== 'affiliate_conversion') return
+
+    const herbSlug = String(event.herbSlug || '').trim() || getHerbSlugFromAnalyticsEvent(event)
+    if (!herbSlug) return
+
+    const productId = String(event.productId || event.item || '').trim()
+    if (!productId) return
+
+    const herbMetrics = (metricsByHerb[herbSlug] ||= {})
+    const globalMetrics = (herbMetrics.__global ||= {})
+    addConversionMetricsEvent(globalMetrics, productId, event, nowMs)
+
+    const anchorKey = String(event.useCaseAnchor || '').trim()
+    if (!anchorKey) return
+    const anchorMetrics = (herbMetrics[anchorKey] ||= {})
+    addConversionMetricsEvent(anchorMetrics, productId, event, nowMs)
+  })
+
+  return metricsByHerb
+}
+
+function cappedClickScore(clickCount: number): number {
+  if (clickCount <= 0) return 0
+  return Math.log2(Math.min(clickCount, CLICK_CAP) + 1)
+}
+
+function exposureBoost(clickCount: number): number {
+  if (clickCount >= MIN_EXPOSURE_CLICKS) return 0
+  return (MIN_EXPOSURE_CLICKS - clickCount) * RANKING_CONFIG.boosts.exploration
+}
+
+function isColdStart(params: { totalClickScore: number; totalConversionScore: number }): boolean {
+  return params.totalClickScore < MIN_DATA_THRESHOLD && params.totalConversionScore === 0
+}
+
+function getColdStartBoost(product: CuratedProductRecommendation): number {
+  let prior = RANKING_CONFIG.boosts.coldStart
+
+  const typedProduct = product as CuratedProductRecommendation & {
+    rating?: number
+    reviewCount?: number
+    priceCompetitiveness?: number
+  }
+
+  if (typeof typedProduct.rating === 'number' && Number.isFinite(typedProduct.rating)) {
+    const normalizedRating = Math.max(0, Math.min(typedProduct.rating, 5)) / 5
+    prior += normalizedRating * 0.05
+  }
+  if (typeof typedProduct.reviewCount === 'number' && Number.isFinite(typedProduct.reviewCount)) {
+    prior += Math.min(typedProduct.reviewCount, 500) / 5000
+  }
+  if (
+    typeof typedProduct.priceCompetitiveness === 'number' &&
+    Number.isFinite(typedProduct.priceCompetitiveness)
+  ) {
+    prior += Math.max(-1, Math.min(typedProduct.priceCompetitiveness, 1)) * 0.05
+  }
+
+  return Math.max(0, Math.min(prior, COLD_START_BOOST_CAP))
+}
+
+function getColdStartScoreBoost(
+  product: CuratedProductRecommendation,
+  clickEvidenceScore: number,
+): number {
+  const decayedBoost = getColdStartBoost(product) * Math.exp(-clickEvidenceScore)
+  return Math.min(COLD_START_BOOST_CAP, decayedBoost)
+}
+
+function deterministicJitter(seed: string): number {
+  let hash = 0
+  for (let index = 0; index < seed.length; index += 1) {
+    hash = (hash * 31 + seed.charCodeAt(index)) >>> 0
+  }
+  return ((hash % 1000) / 1000) * RANKING_CONFIG.jitter.max
+}
+
+type RankingScoreComponents = {
+  baseScore: number
+  clickScore: number
+  conversionScore: number
+  coldStartBoost: number
+  explorationBoost: number
+  jitter: number
+}
+
+type RankingScoreMetadata = {
+  isColdStart: boolean
+  rawClicks: number
+  rawConversions: number
+  decayedClicks: number
+  decayedConversions: number
+  lastEventAgeMs: number | null
+}
+
+export type CuratedProductRankingDebugInfo = {
+  productId: string
+  finalScore: number
+  components: RankingScoreComponents
+  metadata: RankingScoreMetadata
+  configSnapshot: typeof RANKING_CONFIG
+}
+
+function getRankingDebugInfo(params: {
+  product: RenderableCuratedProduct
+  clickMetrics?: ProductClickMetrics
+  conversionMetrics?: ProductConversionMetrics
+  entitySlug: string
+  nowMs: number
+}): CuratedProductRankingDebugInfo {
+  const { product, clickMetrics, conversionMetrics, entitySlug, nowMs } = params
+  const clickEvidenceScore = clickMetrics?.rawCount || 0
+  const decayedClickScore =
+    clickMetrics && clickMetrics.timestampedEventCount > 0 ? clickMetrics.decayedScore : clickEvidenceScore
+  const conversionRawCount = conversionMetrics?.rawCount || 0
+  const decayedConversionScore =
+    conversionMetrics && conversionMetrics.timestampedEventCount > 0
+      ? conversionMetrics.score
+      : conversionRawCount
+  const coldStart = isColdStart({
+    totalClickScore: decayedClickScore,
+    totalConversionScore: decayedConversionScore,
+  })
+  const components: RankingScoreComponents = {
+    baseScore: 0,
+    clickScore: cappedClickScore(decayedClickScore) * RANKING_CONFIG.weights.click,
+    conversionScore: decayedConversionScore * RANKING_CONFIG.weights.conversion,
+    coldStartBoost: coldStart ? getColdStartScoreBoost(product, clickEvidenceScore) : 0,
+    explorationBoost: exposureBoost(decayedClickScore),
+    jitter: deterministicJitter(`${entitySlug}:${product.productId}`),
+  }
+  const latestTimestamp = Math.max(
+    clickMetrics?.latestTimestamp ?? Number.NEGATIVE_INFINITY,
+    conversionMetrics?.latestTimestamp ?? Number.NEGATIVE_INFINITY,
+  )
+  return {
+    productId: product.productId,
+    finalScore:
+      components.baseScore +
+      components.clickScore +
+      components.conversionScore +
+      components.coldStartBoost +
+      components.explorationBoost,
+    components,
+    metadata: {
+      isColdStart: coldStart,
+      rawClicks: clickEvidenceScore,
+      rawConversions: conversionRawCount,
+      decayedClicks: decayedClickScore,
+      decayedConversions: decayedConversionScore,
+      lastEventAgeMs: Number.isFinite(latestTimestamp) ? Math.max(0, nowMs - latestTimestamp) : null,
+    },
+    configSnapshot: RANKING_CONFIG,
+  }
+}
+
+function compareByDebugScore(a: CuratedProductRankingDebugInfo, b: CuratedProductRankingDebugInfo): number {
+  const conversionWeight = RANKING_CONFIG.weights.conversion
+  const aProtectedByConversion =
+    conversionWeight > 0 &&
+    a.components.conversionScore / conversionWeight >=
+    HIGH_CONVERSION_PROTECTION_THRESHOLD
+  const bProtectedByConversion =
+    conversionWeight > 0 &&
+    b.components.conversionScore / conversionWeight >=
+    HIGH_CONVERSION_PROTECTION_THRESHOLD
+  if (aProtectedByConversion !== bProtectedByConversion) {
+    return bProtectedByConversion ? 1 : -1
+  }
+
+  const scoreDelta = b.finalScore - a.finalScore
+  if (Math.abs(scoreDelta) > RANKING_CONFIG.thresholds.closeScore) return scoreDelta > 0 ? 1 : -1
+
+  const jitterDelta = b.components.jitter - a.components.jitter
+  if (Math.abs(jitterDelta) > Number.EPSILON) return jitterDelta > 0 ? 1 : -1
+
+  return 0
+}
+
+function toConversionMetrics(
+  score: number | undefined,
+  metric: ProductConversionMetrics | undefined,
+): ProductConversionMetrics | undefined {
+  if (metric) return metric
+  if (!score) return undefined
+  return { score, rawCount: 0, decayedCount: 0, timestampedEventCount: 0 }
+}
+
+export function getRenderableCuratedProducts(
+  context: CuratedProductPageContext,
+  options: { nowMs?: number; debug: true },
+): RenderableCuratedProductDebug[]
+export function getRenderableCuratedProducts(
+  context: CuratedProductPageContext,
+  options?: { nowMs?: number; debug?: false | undefined },
+): RenderableCuratedProduct[]
+export function getRenderableCuratedProducts(
+  context: CuratedProductPageContext,
+  options?: { nowMs?: number; debug?: boolean },
+): RenderableCuratedProduct[] | RenderableCuratedProductDebug[] {
+  if (context.sourceCount <= 0) return []
+  const nowMs = options?.nowMs ?? Date.now()
+  const herbClickCountsByAnchor =
+    context.entityType === 'herb'
+      ? getHerbProductClickCountsByAnchor(nowMs)[context.entitySlug]
+      : null
+  const herbConversionScoresByAnchor =
+    context.entityType === 'herb'
+      ? getHerbProductConversionScores(nowMs)[context.entitySlug]
+      : null
+  const herbConversionMetricsByAnchor =
+    context.entityType === 'herb'
+      ? getHerbProductConversionMetrics(nowMs)[context.entitySlug]
+      : null
+  const activeAnchorKey = String(context.useCaseAnchor || '').trim()
+  const anchorSpecificClickCounts =
+    activeAnchorKey && herbClickCountsByAnchor ? herbClickCountsByAnchor[activeAnchorKey] : undefined
+  const anchorSpecificConversionScores =
+    activeAnchorKey && herbConversionScoresByAnchor
+      ? herbConversionScoresByAnchor[activeAnchorKey]
+      : undefined
+  const resolvedClickCounts =
+    anchorSpecificClickCounts && Object.keys(anchorSpecificClickCounts).length > 0
+      ? anchorSpecificClickCounts
+      : herbClickCountsByAnchor?.__global
+  const resolvedConversionScores =
+    anchorSpecificConversionScores && Object.keys(anchorSpecificConversionScores).length > 0
+      ? anchorSpecificConversionScores
+      : herbConversionScoresByAnchor?.__global
+  const anchorSpecificConversionMetrics =
+    activeAnchorKey && herbConversionMetricsByAnchor
+      ? herbConversionMetricsByAnchor[activeAnchorKey]
+      : undefined
+  const resolvedConversionMetrics =
+    anchorSpecificConversionMetrics && Object.keys(anchorSpecificConversionMetrics).length > 0
+      ? anchorSpecificConversionMetrics
+      : herbConversionMetricsByAnchor?.__global
+
+  const rankedProducts = curatedProductRecommendations
+    .filter(
+      product =>
+        product.entityType === context.entityType && product.entitySlug === context.entitySlug,
+    )
     .map(product => ({
       product,
       readiness: assessCuratedProductReadiness({ product, pageContext: context }),
@@ -249,5 +720,57 @@ export function getRenderableCuratedProducts(
       ...product,
       affiliateUrl: resolveAffiliateUrl(product),
     }))
-    .sort((a, b) => Number(b.featured) - Number(a.featured) || a.sortOrder - b.sortOrder)
+    .sort((a, b) => {
+      const featuredRank = Number(b.featured) - Number(a.featured)
+      if (featuredRank !== 0) return featuredRank
+
+      const aDebug = getRankingDebugInfo({
+        product: a,
+        clickMetrics: resolvedClickCounts?.[a.productId],
+        conversionMetrics: toConversionMetrics(
+          resolvedConversionScores?.[a.productId],
+          resolvedConversionMetrics?.[a.productId],
+        ),
+        entitySlug: context.entitySlug,
+        nowMs,
+      })
+      const bDebug = getRankingDebugInfo({
+        product: b,
+        clickMetrics: resolvedClickCounts?.[b.productId],
+        conversionMetrics: toConversionMetrics(
+          resolvedConversionScores?.[b.productId],
+          resolvedConversionMetrics?.[b.productId],
+        ),
+        entitySlug: context.entitySlug,
+        nowMs,
+      })
+      const rankByDebugScore = compareByDebugScore(aDebug, bDebug)
+      if (rankByDebugScore !== 0) return rankByDebugScore
+      return a.sortOrder - b.sortOrder
+    })
+
+  if (!options?.debug) return rankedProducts
+
+  const debugRows = rankedProducts.map(product => ({
+    ...product,
+    debug: getRankingDebugInfo({
+      product,
+      clickMetrics: resolvedClickCounts?.[product.productId],
+      conversionMetrics: toConversionMetrics(
+        resolvedConversionScores?.[product.productId],
+        resolvedConversionMetrics?.[product.productId],
+      ),
+      entitySlug: context.entitySlug,
+      nowMs,
+    }),
+  }))
+
+  // Temporary debug visibility for ranking explainability.
+  // eslint-disable-next-line no-console
+  console.debug(
+    `[curated-products][debug] top-ranked ${context.entityType}:${context.entitySlug}`,
+    debugRows.slice(0, 5).map(entry => entry.debug),
+  )
+
+  return debugRows
 }

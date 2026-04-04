@@ -7,6 +7,12 @@ export type StoredAnalyticsEvent = {
   type: string
   slug?: string
   item?: string
+  productId?: string
+  herbSlug?: string
+  productPosition?: 'primary' | 'alternative'
+  position?: number
+  dwellTimeMs?: number | null
+  useCaseAnchor?: 'sleep' | 'anxiety' | 'focus'
   comboId?: string
   context?: string
   sourceType?: string
@@ -25,6 +31,7 @@ export type StoredAnalyticsEvent = {
   ctaType?: string
   ctaPosition?: string
   variantId?: string
+  valueUsd?: number
   timestamp: number
 }
 
@@ -46,6 +53,15 @@ function normalizeStoredEvent(event: StoredAnalyticsEvent): StoredAnalyticsEvent
 
   if (event.slug) normalized.slug = event.slug
   if (event.item) normalized.item = event.item
+  if (event.productId) normalized.productId = event.productId
+  if (event.herbSlug) normalized.herbSlug = event.herbSlug
+  if (event.productPosition) normalized.productPosition = event.productPosition
+  if (typeof event.position === 'number' && Number.isFinite(event.position))
+    normalized.position = event.position
+  if (event.dwellTimeMs === null || (typeof event.dwellTimeMs === 'number' && Number.isFinite(event.dwellTimeMs))) {
+    normalized.dwellTimeMs = event.dwellTimeMs
+  }
+  if (event.useCaseAnchor) normalized.useCaseAnchor = event.useCaseAnchor
   if (event.comboId) normalized.comboId = event.comboId
   if (event.context) normalized.context = event.context
   if (event.sourceType) normalized.sourceType = event.sourceType
@@ -64,6 +80,9 @@ function normalizeStoredEvent(event: StoredAnalyticsEvent): StoredAnalyticsEvent
   if (event.ctaType) normalized.ctaType = event.ctaType
   if (event.ctaPosition) normalized.ctaPosition = event.ctaPosition
   if (event.variantId) normalized.variantId = event.variantId
+  if (typeof event.valueUsd === 'number' && Number.isFinite(event.valueUsd) && event.valueUsd >= 0) {
+    normalized.valueUsd = event.valueUsd
+  }
 
   return normalized
 }
@@ -114,6 +133,12 @@ function isRapidDuplicate(previous: StoredAnalyticsEvent | undefined, next: Stor
     previous.type === next.type &&
     previous.slug === next.slug &&
     previous.item === next.item &&
+    previous.productId === next.productId &&
+    previous.herbSlug === next.herbSlug &&
+    previous.productPosition === next.productPosition &&
+    previous.position === next.position &&
+    previous.dwellTimeMs === next.dwellTimeMs &&
+    previous.useCaseAnchor === next.useCaseAnchor &&
     previous.comboId === next.comboId &&
     previous.context === next.context &&
     previous.sourceType === next.sourceType &&
@@ -131,7 +156,8 @@ function isRapidDuplicate(previous: StoredAnalyticsEvent | undefined, next: Stor
     previous.freshnessState === next.freshnessState &&
     previous.ctaType === next.ctaType &&
     previous.ctaPosition === next.ctaPosition &&
-    previous.variantId === next.variantId
+    previous.variantId === next.variantId &&
+    previous.valueUsd === next.valueUsd
 
   if (!sameCoreIdentity) return false
 

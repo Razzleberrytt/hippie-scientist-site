@@ -50,6 +50,39 @@ const CORE_ROUTE_META = new Map([
   ['/build', { title: 'Build Blend | The Hippie Scientist', description: 'Build and evaluate herb stacks with safety-first interaction context.' }],
 ])
 
+const ENTRY_ROUTES = [
+  {
+    route: '/best-herbs-for-anxiety',
+    title: 'Best Herbs for Anxiety (Natural Options That Actually Help) | The Hippie Scientist',
+    description:
+      'Discover the most effective herbs for anxiety, how they work, and which ones to try first.',
+  },
+  {
+    route: '/best-herbs-for-sleep',
+    title: 'Best Herbs for Sleep (Natural Nighttime Support) | The Hippie Scientist',
+    description:
+      'Compare practical herbs for sleep support, how they are commonly used, and which options to test first.',
+  },
+  {
+    route: '/best-herbs-for-focus',
+    title: 'Best Herbs for Focus (Natural Clarity and Concentration) | The Hippie Scientist',
+    description:
+      'Explore herbs for focus and mental clarity, including practical use cases and where to start safely.',
+  },
+  {
+    route: '/best-herbs-for-stress',
+    title: 'Best Herbs for Stress Relief (Calmer Daily Support) | The Hippie Scientist',
+    description:
+      'Find herbs commonly used for stress relief, how they may help, and which choices are easiest to begin with.',
+  },
+  {
+    route: '/best-herbs-for-energy',
+    title: 'Best Herbs for Natural Energy (Steady, Non-Jittery Options) | The Hippie Scientist',
+    description:
+      'Review herbs for natural energy and stamina, compare practical options, and pick a simple starting point.',
+  },
+]
+
 const CORE_SITEMAP_META = new Map([
   ['/', { priority: 1.0, changefreq: 'weekly' }],
   ['/blog', { priority: 0.8, changefreq: 'daily' }],
@@ -570,6 +603,11 @@ export function getSharedRouteManifest() {
     putSitemapMeta(route, { priority: 0.7, changefreq: 'weekly' })
   })
 
+  ENTRY_ROUTES.forEach(entry => {
+    putRouteMeta(entry.route, entry.title, entry.description)
+    putSitemapMeta(entry.route, { priority: 0.7, changefreq: 'weekly' })
+  })
+
   const collectionQuality = auditCollectionRoutes({
     herbs: readJson('public/data/herbs.json'),
     compounds: readJson('public/data/compounds.json'),
@@ -745,6 +783,7 @@ export function getSharedRouteManifest() {
   const approvedRoutes = dedupe([
     ...CORE_STATIC_ROUTES,
     ...goalRoutes,
+    ...ENTRY_ROUTES.map(entry => entry.route),
     ...collectionRoutes,
     ...paginatedBlogRoutes,
     ...blogEntries.map(entry => entry.route),

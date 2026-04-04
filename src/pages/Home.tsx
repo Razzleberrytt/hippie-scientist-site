@@ -92,9 +92,9 @@ export default function Home() {
 
       <Hero />
 
-      <section className='container mx-auto max-w-4xl px-4 pt-2 sm:px-6'>
-        <div className='grid gap-3 sm:grid-cols-2'>
-          <div className='ds-card p-4'>
+      <section className='ds-section container mx-auto max-w-4xl px-4 pt-2 sm:px-6'>
+        <div className='ds-card-grid sm:grid-cols-2'>
+          <div className='ds-card h-full'>
             <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/60'>
               Start here
             </p>
@@ -106,12 +106,12 @@ export default function Home() {
               Open Effect Search
             </a>
           </div>
-          <div className='ds-card p-4'>
+          <div className='ds-card h-full'>
             <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/60'>
-              Quick actions
+              Primary actions
             </p>
-            <h2 className='mt-2 text-lg font-semibold text-white'>Pick your next tool</h2>
-            <div className='mt-3 flex flex-wrap gap-2'>
+            <h2 className='mt-2 text-lg font-semibold text-white'>Choose your next step</h2>
+            <div className='ds-action-row mt-3'>
               <Link
                 to='/herbs'
                 className='btn-secondary'
@@ -132,6 +132,28 @@ export default function Home() {
                 Blend Builder
               </Link>
             </div>
+            <p className='mt-3 text-xs text-white/65'>Most people start with one tool, then compare details.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+        <div className='ds-card'>
+          <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/60'>
+            Popular guides
+          </p>
+          <h2 className='mt-2 text-lg font-semibold text-white'>Best herbs by goal</h2>
+          <p className='mt-1 text-sm text-white/75'>Landing pages for common outcomes.</p>
+          <div className='ds-action-row mt-3'>
+            <Link to='/best-herbs-for-anxiety' className='btn-primary'>
+              Best herbs for anxiety
+            </Link>
+            <Link to='/best-herbs-for-sleep' className='btn-secondary'>
+              Best herbs for sleep
+            </Link>
+            <Link to='/best-herbs-for-focus' className='btn-secondary'>
+              Best herbs for focus
+            </Link>
           </div>
         </div>
       </section>
@@ -146,13 +168,13 @@ export default function Home() {
           <h2 className='mt-2 text-2xl font-semibold text-white'>
             Educational research, safety-first
           </h2>
-            <div className='mt-3 grid gap-2 sm:grid-cols-3'>
-              {homepageData.trustBadges.map(badge => (
-                <p key={badge} className='ds-card p-3 text-xs text-white/80'>
-                  {badge}
-                </p>
-              ))}
-            </div>
+          <div className='mt-3 grid gap-2 sm:grid-cols-3'>
+            {homepageData.trustBadges.map(badge => (
+              <p key={badge} className='ds-card p-3 text-xs text-white/80'>
+                {badge}
+              </p>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -188,9 +210,9 @@ export default function Home() {
                 </a>
               ))}
             </div>
-            <div className='grid gap-3 sm:grid-cols-3'>
+            <div className='ds-card-grid sm:grid-cols-3'>
               {curated.map(item => (
-                <article key={`starter-${item.kind}-${item.slug}`} className='ds-card p-4'>
+                <article key={`starter-${item.kind}-${item.slug}`} className='ds-card h-full'>
                   <p className='text-xs uppercase tracking-[0.12em] text-white/55'>
                     starter profile
                   </p>
@@ -213,7 +235,7 @@ export default function Home() {
                 </article>
               ))}
             </div>
-            <div className='flex flex-wrap gap-2'>
+            <div className='ds-action-row'>
               <Link to='/learning' className='btn-secondary'>
                 Beginner learning paths
               </Link>
@@ -221,40 +243,6 @@ export default function Home() {
                 Full herb index
               </Link>
             </div>
-          </div>
-        </Collapse>
-      </section>
-
-      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
-        <Collapse title='Core tools'>
-          <div className='grid gap-3 sm:grid-cols-3'>
-            <article className='ds-card p-4'>
-              <h3 className='text-sm font-semibold text-white'>Effect Search</h3>
-              <p className='mt-2 text-xs text-white/75'>
-                Start with an outcome and get ranked herb matches with confidence context.
-              </p>
-              <a href='#effect-search' className='mt-3 inline-flex text-xs text-violet-200'>
-                Open tool →
-              </a>
-            </article>
-            <article className='ds-card p-4'>
-              <h3 className='text-sm font-semibold text-white'>Interaction Checker</h3>
-              <p className='mt-2 text-xs text-white/75'>
-                Compare a stack and surface potential interaction signals before use.
-              </p>
-              <Link to='/interactions' className='mt-3 inline-flex text-xs text-violet-200'>
-                Check interactions →
-              </Link>
-            </article>
-            <article className='ds-card p-4'>
-              <h3 className='text-sm font-semibold text-white'>Blend Builder</h3>
-              <p className='mt-2 text-xs text-white/75'>
-                Build a draft blend with mechanism notes and safety reminders.
-              </p>
-              <Link to='/build' className='mt-3 inline-flex text-xs text-violet-200'>
-                Build a blend →
-              </Link>
-            </article>
           </div>
         </Collapse>
       </section>
@@ -305,7 +293,7 @@ export default function Home() {
       </section>
 
       {dailyDiscovery && (
-        <section className='container mx-auto max-w-4xl px-4 pt-5 sm:px-6'>
+        <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
           <div className='ds-card-lg border-emerald-200/20 bg-emerald-400/5'>
             <p className='text-xs font-semibold uppercase tracking-[0.24em] text-emerald-100/80'>
               Today&apos;s discovery
@@ -350,9 +338,9 @@ export default function Home() {
               Saved items
             </p>
             <h2 className='ds-heading'>Pick up where you left off</h2>
-            <div className='grid gap-3 sm:grid-cols-2'>
+            <div className='ds-card-grid sm:grid-cols-2'>
               {items.slice(0, 4).map(item => (
-                <Link key={item.id} to={item.href} className='ds-card p-4'>
+                <Link key={item.id} to={item.href} className='ds-card h-full'>
                   <p className='text-xs uppercase tracking-[0.14em] text-white/55'>{item.type}</p>
                   <p className='mt-1 text-sm font-semibold text-white'>{item.title}</p>
                 </Link>
@@ -400,12 +388,12 @@ export default function Home() {
       {homepageData.governedHighlights.length > 0 && (
         <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
           <Collapse title='Reviewed research highlights'>
-            <div className='grid gap-3 sm:grid-cols-2'>
+            <div className='ds-card-grid sm:grid-cols-2'>
               {homepageData.governedHighlights.slice(0, 4).map(item => (
                 <Link
                   key={`reviewed-${item.kind}-${item.slug}`}
                   to={item.kind === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`}
-                  className='ds-card p-4 transition hover:border-white/25'
+                  className='ds-card h-full transition hover:border-white/25'
                 >
                   <p className='text-xs uppercase tracking-[0.14em] text-emerald-200/80'>
                     {item.kind} · enriched + reviewed
@@ -426,8 +414,8 @@ export default function Home() {
       {(recent.length > 0 || recentBlends.length > 0 || recentChecks.length > 0) && (
         <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
           <Collapse title='Recent activity'>
-            <div className='grid gap-4 sm:grid-cols-3'>
-              <div className='ds-card p-4'>
+            <div className='ds-card-grid sm:grid-cols-3'>
+              <div className='ds-card h-full'>
                 <p className='text-xs uppercase tracking-[0.14em] text-white/55'>Viewed herbs</p>
                 <div className='mt-2 grid gap-2'>
                   {recent
@@ -444,7 +432,7 @@ export default function Home() {
                     ))}
                 </div>
               </div>
-              <div className='ds-card p-4'>
+              <div className='ds-card h-full'>
                 <p className='text-xs uppercase tracking-[0.14em] text-white/55'>Recent blends</p>
                 <div className='mt-2 grid gap-2'>
                   {recentBlends.slice(0, 3).map(item => (
@@ -454,7 +442,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <div className='ds-card p-4'>
+              <div className='ds-card h-full'>
                 <p className='text-xs uppercase tracking-[0.14em] text-white/55'>
                   Interaction checks
                 </p>

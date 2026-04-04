@@ -367,6 +367,20 @@ function renderRouteContent(route) {
     return `<main id="main" class="container-page py-8 text-white"><article><h1>${name}</h1><p>${routeDescription || description}</p><p>${description}</p><p>This prerendered route preserves canonical publication metadata and a static narrative snapshot for indexing while interactive analysis tools load after hydration.</p><section><h2>Tracked effects</h2>${makeCardList(effects, 'Effect data pending while this compound remains under active evidence review.')}</section><section><h2>Interaction notes</h2>${makeCardList(interactions, 'No interactions listed in the source dataset yet; verify with primary references before use decisions.')}</section></article></main>`
   }
 
+  if (route.startsWith('/best-herbs-for-')) {
+    const intentName = route.replace('/best-herbs-for-', '').replace(/-/g, ' ')
+    const herbCards = indexableHerbCards.slice(0, 10).map(item => {
+      const slug = escapeHtml(item.slug)
+      const name = escapeHtml(textFrom(item.herb?.common, item.herb?.commonName, item.herb?.name, slug))
+      const description = escapeHtml(textFrom(item.herb?.summary, item.herb?.description, 'Evidence-aware herb profile'))
+      return `<li><article><h3><a href="/herbs/${slug}">${name}</a></h3><p>${description}</p></article></li>`
+    })
+
+    return `<main id="main" class="container-page py-8 text-white"><article><h1>${heading}</h1><p>This entry page is designed for readers searching for the best herbs for ${escapeHtml(
+      intentName
+    )}. It provides a fast shortlist of commonly compared options and links to full herb profiles with interactions, contraindications, and evidence context.</p><section><h2>How to use this page</h2><p>Start with one herb that fits your routine, read the detailed safety notes, and avoid stacking multiple new products at once. These summaries are educational and should be paired with conservative decision-making.</p></section><section><h2>Herbs to compare first</h2>${makeCardList(herbCards, 'No herb profiles currently satisfy publication thresholds for this entry page.')}</section></article></main>`
+  }
+
   if (route.startsWith('/herbs-for-')) {
     const goalName = route.replace('/herbs-for-', '').replace(/-/g, ' ')
     const herbCards = indexableHerbCards.slice(0, 10).map(item => {

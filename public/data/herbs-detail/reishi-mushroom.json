@@ -17,19 +17,28 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.006Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "description": "Reishi is typically chosen for long-horizon wellness routines where users want a non-stimulant mushroom option available in extract, capsule, or tea forms.",
+  "dosage": "Use products with clear fruiting-body and extract details; dose comparisons should stay within similar extract types.",
+  "duration": "Usually framed as a consistency herb used over weeks rather than immediate-effect expectations.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Capsules and extracts are common for consistency; tea supports lower-intensity ritual use.",
   "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [],
+  "therapeuticUses": [
+    "Daily adaptogen-style mushroom routines",
+    "Evening-friendly non-stimulant wellness support",
+    "Mushroom product comparisons emphasizing extract transparency"
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],
   "slug": "reishi-mushroom",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Often compared for evening-friendly adaptogen routines and immune-wellness positioning in mushroom categories.",
+  "evidenceLevel": "Early-to-moderate human evidence depending on endpoint; extract quality and mushroom material disclosure are critical.",
+  "relatedEntities": [
+    "lion-s-mane",
+    "turmeric",
+    "ashwagandha",
+    "silybum-marianum"
+  ],
   "relatedCompounds": []
 }

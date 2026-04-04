@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Allow: /herbs
+Allow: /herbs/
+Allow: /best-herbs-for-
 Disallow: /analytics
 Disallow: /data-fix
 Disallow: /graph

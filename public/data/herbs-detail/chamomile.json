@@ -20,19 +20,28 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.895Z",
-  "description": "Chamomile (Matricaria chamomilla/recutita) is widely used as tea and extract for calming and gastrointestinal comfort, with modern trials focused on anxiety outcomes.",
-  "dosage": "Evidence is formulation-specific (tea vs extract); no single universal dosage applies across products.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "description": "Chamomile is frequently used as a tea-first herb for gentle evening calming routines and bedtime wind-down habits.",
+  "dosage": "Tea and extract labels vary widely; compare by flower amount per serving and keep preparations consistent before adjusting.",
+  "duration": "Often used situationally or nightly in short-to-medium routines depending on tolerance and sleep goals.",
   "legalStatus": "legal",
-  "preparation": "Usually prepared as infusion (tea) or standardized extract in capsules/liquids.",
+  "preparation": "Tea bags and loose flower infusions are common first-line formats; tinctures are used when lower-volume servings are preferred.",
   "region": "Native to Europe and Western Asia; now cultivated globally.",
-  "therapeuticUses": [],
+  "therapeuticUses": [
+    "Evening wind-down tea rituals",
+    "Mild stress-tension support in non-daytime-critical settings",
+    "Simple herb-only relaxation beverage routines"
+  ],
   "traditionalUse": "Traditional use includes digestive and calming applications across European and Middle Eastern herbal traditions.",
   "sideEffects": [],
   "slug": "chamomile",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Best known for tea-based calming use, light digestive comfort pairing, and low-friction nightly routines.",
+  "evidenceLevel": "Moderate traditional and limited modern clinical support for calming use contexts; strongest confidence is around practical tolerability and routine fit.",
+  "relatedEntities": [
+    "lemon-balm",
+    "passionflower",
+    "valerian-root",
+    "peppermint"
+  ],
   "relatedCompounds": []
 }
