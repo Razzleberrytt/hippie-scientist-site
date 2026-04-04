@@ -19,16 +19,7 @@
     "liver",
     "kidney issues"
   ],
-  "safetyNotes": [
-    "nausea",
-    "vasoconstriction",
-    "headache [0",
-    "5].",
-    "Mild",
-    "GI discomfort from seed coatings.",
-    "Low",
-    "rodent LD50 ~200–300 mg/kg [0"
-  ],
+  "safetyNotes": "nausea; vasoconstriction; headache [0; 5].; Mild; GI discomfort from seed coatings.; Low; rodent LD50 ~200–300 mg/kg [0",
   "sources": [
     {
       "title": "Inferred from Unknown"
@@ -40,10 +31,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Ornamental morning glory whose seeds contain LSA.",
-  "dosage": [
-    "100",
-    "300 seeds ground and soaked."
-  ],
+  "dosage": "100; 300 seeds ground and soaked.",
   "duration": "121.0",
   "interactions": [
     "ssris/maois [0",

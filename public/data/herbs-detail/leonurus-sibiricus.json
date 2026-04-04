@@ -22,25 +22,7 @@
     "pregnancy",
     "hypotension."
   ],
-  "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine",
-    "mild sedation",
-    "low blood pressure.",
-    "No direct toxicity data. Contextual inference: Mild sedative",
-    "uterine tonic",
-    "and relaxant",
-    "used in traditional chinese medicine. Contains leonurine",
-    "acts as a mild gaba modulator and muscle relaxant..",
-    "nan.. Contains leonurine",
-    "acts as a mild GABA modulator and muscle relaxant.. Mild sedative",
-    "used in traditional Chinese medicine."
-  ],
+  "safetyNotes": "safe; No direct toxicity data. Contextual inference: Used in ritual; dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual; dreaming or folk medicine.. Used in ritual; dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual; dreaming or folk medicine. Used in ritual; dreaming or folk medicine; mild sedation; low blood pressure.; No direct toxicity data. Contextual inference: Mild sedative; uterine tonic; and relaxant; used in traditional chinese medicine. Contains leonurine; acts as a mild gaba modulator and muscle relaxant..; nan.. Contains leonurine; acts as a mild GABA modulator and muscle relaxant.. Mild sedative; used in traditional Chinese medicine.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -52,25 +34,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Mild sedative, uterine tonic, and relaxant; used in traditional chinese medicine. Contains leonurine; acts as a mild gaba modulator and muscle relaxant.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine",
-    "No direct dosage data. Contextual inference: Mild sedative",
-    "uterine tonic",
-    "and relaxant",
-    "used in traditional chinese medicine. Contains leonurine",
-    "acts as a mild gaba modulator and muscle relaxant..",
-    "nan.. Contains leonurine",
-    "acts as a mild GABA modulator and muscle relaxant.. Mild sedative",
-    "used in traditional Chinese medicine. No direct region data. Contextual inference: Mild sedative",
-    "used in traditional Chinese medicine.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Used in ritual; dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual; dreaming or folk medicine.. Used in ritual; dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual; dreaming or folk medicine. Used in ritual; dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual; dreaming or folk medicine; No direct dosage data. Contextual inference: Mild sedative; uterine tonic; and relaxant; used in traditional chinese medicine. Contains leonurine; acts as a mild gaba modulator and muscle relaxant..; nan.. Contains leonurine; acts as a mild GABA modulator and muscle relaxant.. Mild sedative; used in traditional Chinese medicine. No direct region data. Contextual inference: Mild sedative; used in traditional Chinese medicine.; nan.",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "interactions": [
     "sedatives",

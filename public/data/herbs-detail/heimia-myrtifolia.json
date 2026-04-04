@@ -28,23 +28,7 @@
     "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
     "Do not use with known allergy to this plant or related species."
   ],
-  "safetyNotes": [
-    "Mild effects",
-    "few known adverse reports",
-    "Lethargy",
-    "slight motor coordination loss",
-    "Low",
-    "Unknown in humans",
-    "Generally regarded as safe in moderate doses",
-    "Mild dizziness or dry mouth with large doses",
-    "Not established",
-    "caution",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
-  ],
+  "safetyNotes": "Mild effects; few known adverse reports; Lethargy; slight motor coordination loss; Low; Unknown in humans; Generally regarded as safe in moderate doses; Mild dizziness or dry mouth with large doses; Not established; caution; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
   "sources": [
     {
       "title": "Traditional Mexican use"
@@ -58,14 +42,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Rare cousin of Sinicuichi used for mild auditory alterations and calm dream states",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
+  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "CNS depressants may amplify effects"

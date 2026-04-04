@@ -19,11 +19,7 @@
     "children",
     "pregnancy"
   ],
-  "safetyNotes": [
-    "not well documented",
-    "Contains tropane alkaloids (hyoscyamine",
-    "scopolamine) – highly toxic."
-  ],
+  "safetyNotes": "not well documented; Contains tropane alkaloids (hyoscyamine; scopolamine) – highly toxic.",
   "sources": [
     {
       "title": "Inferred from Unknown"
@@ -35,10 +31,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "A toxic plant used historically as an anesthetic, sedative, and hallucinogen.",
-  "dosage": [
-    "Not recommended",
-    "very narrow therapeutic window."
-  ],
+  "dosage": "Not recommended; very narrow therapeutic window.",
   "duration": "121.0",
   "interactions": [
     "not well documented",
