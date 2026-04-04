@@ -1,59 +1,55 @@
 # Data Audit Report
 
-- Generated: 2026-04-04T02:26:52.826Z
-- Herb list records: 699
-- Herb detail records: 677
+- Generated: 2026-04-04T02:38:41.986Z
+- Herb list records: 698
+- Herb detail records: 676
 - Compound records: 390
-- Errors: 3351
-- Warnings: 6332
-- Herb hard-required gaps: 7
-- Herb recommended gaps: 4194
-- Herb research-backlog gaps: 2138
+- Errors: 3333
+- Warnings: 6324
+- Herb hard-required gaps: 0
+- Herb recommended gaps: 4190
+- Herb research-backlog gaps: 2134
 
 ## Dataset coverage
 
-- `public/data/herbs.json`: 699 records
-- `public/data/herbs-detail/*.json`: 677 files
+- `public/data/herbs.json`: 698 records
+- `public/data/herbs-detail/*.json`: 676 files
 - `public/data/compounds.json`: 390 records
 
 ## Issue counts by code
 
-- missing-recommended-field: 4194
-- missing-research-backlog-field: 2138
+- missing-recommended-field: 4190
+- missing-research-backlog-field: 2134
 - missing-required-field: 1671
-- invalid-field-type: 1604
-- placeholder-value: 30
+- invalid-field-type: 1597
+- placeholder-value: 26
 - herb-list-detail-mismatch: 23
 - unresolved-active-compound-reference: 10
-- missing-hard-required-field: 7
 - duplicate-name: 4
 - duplicate-slug: 2
 
 ## Issue counts by dataset
 
 - compound: 2061
-- herb-detail: 3820
-- herb-list: 3802
+- herb-detail: 3808
+- herb-list: 3788
 
 ## Herb missing-field tiers
 
-- HARD_REQUIRED: 7
-- RECOMMENDED: 4194
-- RESEARCH_BACKLOG: 2138
+- HARD_REQUIRED: 0
+- RECOMMENDED: 4190
+- RESEARCH_BACKLOG: 2134
 
 ### HARD_REQUIRED
-- slug: 2
-- name: 2
-- latin: 2
-- description: 1
+- No gaps.
 
 ### RECOMMENDED
-- sources: 3772
+- sources: 3768
 - contraindications: 422
 
 ### RESEARCH_BACKLOG
-- class: 1110
-- activeCompounds: 1028
+- class: 1108
+- activeCompounds: 1026
 
 ## Tier rationale (from completeness + recoverability triage)
 
@@ -66,9 +62,9 @@
 
 ## Before/after missing-field comparison
 
-- Previous model missing-required-field count (legacy herb required set): 3058
-- Current model hard-required gap count: 7
-- Reduction in hard-fail missing-field load: 3051
+- Previous model missing-required-field count (legacy herb required set): 3045
+- Current model hard-required gap count: 0
+- Reduction in hard-fail missing-field load: 3045
 
 ## Sample findings
 

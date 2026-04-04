@@ -1,28 +1,28 @@
 {
-  "generatedAt": "2026-04-04T02:26:52.826Z",
+  "generatedAt": "2026-04-04T02:38:41.986Z",
   "files": {
-    "herbsJsonCount": 699,
-    "herbDetailFileCount": 677,
+    "herbsJsonCount": 698,
+    "herbDetailFileCount": 676,
     "compoundsJsonCount": 390
   },
   "totals": {
-    "herbListRecords": 699,
-    "herbDetailRecords": 677,
+    "herbListRecords": 698,
+    "herbDetailRecords": 676,
     "compoundRecords": 390
   },
   "issueSummary": {
     "bySeverity": {
-      "error": 3351,
-      "warning": 6332
+      "error": 3333,
+      "warning": 6324
     },
     "byCode": [
       {
         "code": "missing-recommended-field",
-        "count": 4194
+        "count": 4190
       },
       {
         "code": "missing-research-backlog-field",
-        "count": 2138
+        "count": 2134
       },
       {
         "code": "missing-required-field",
@@ -30,11 +30,11 @@
       },
       {
         "code": "invalid-field-type",
-        "count": 1604
+        "count": 1597
       },
       {
         "code": "placeholder-value",
-        "count": 30
+        "count": 26
       },
       {
         "code": "herb-list-detail-mismatch",
@@ -43,10 +43,6 @@
       {
         "code": "unresolved-active-compound-reference",
         "count": 10
-      },
-      {
-        "code": "missing-hard-required-field",
-        "count": 7
       },
       {
         "code": "duplicate-name",
@@ -64,48 +60,31 @@
       },
       {
         "dataset": "herb-detail",
-        "count": 3820
+        "count": 3808
       },
       {
         "dataset": "herb-list",
-        "count": 3802
+        "count": 3788
       }
     ]
   },
   "tierSummary": {
     "totalsByTier": {
-      "HARD_REQUIRED": 7,
-      "RECOMMENDED": 4194,
-      "RESEARCH_BACKLOG": 2138
+      "HARD_REQUIRED": 0,
+      "RECOMMENDED": 4190,
+      "RESEARCH_BACKLOG": 2134
     },
     "fieldsByTier": [
       {
         "tier": "HARD_REQUIRED",
-        "fields": [
-          {
-            "field": "slug",
-            "count": 2
-          },
-          {
-            "field": "name",
-            "count": 2
-          },
-          {
-            "field": "latin",
-            "count": 2
-          },
-          {
-            "field": "description",
-            "count": 1
-          }
-        ]
+        "fields": []
       },
       {
         "tier": "RECOMMENDED",
         "fields": [
           {
             "field": "sources",
-            "count": 3772
+            "count": 3768
           },
           {
             "field": "contraindications",
@@ -118,20 +97,20 @@
         "fields": [
           {
             "field": "class",
-            "count": 1110
+            "count": 1108
           },
           {
             "field": "activeCompounds",
-            "count": 1028
+            "count": 1026
           }
         ]
       }
     ]
   },
   "legacyComparison": {
-    "previousMissingRequiredFieldCount": 3058,
-    "hardRequiredGapCount": 7,
-    "reducedBy": 3051
+    "previousMissingRequiredFieldCount": 3045,
+    "hardRequiredGapCount": 0,
+    "reducedBy": 3045
   },
   "triageEvidence": {
     "recoverability": {
@@ -26992,32 +26971,11 @@
     },
     {
       "severity": "error",
-      "code": "missing-hard-required-field",
-      "dataset": "herb-list",
-      "recordId": "nan",
-      "message": "Missing hard_required field 'description'.",
-      "field": "description",
-      "tier": "HARD_REQUIRED"
-    },
-    {
-      "severity": "error",
       "code": "invalid-field-type",
       "dataset": "herb-list",
       "recordId": "nan",
       "message": "Field 'mechanism' must be a string, received null.",
       "field": "mechanism",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "nan",
-      "message": "Field 'description' must be a string, received null.",
-      "field": "description",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -39333,121 +39291,6 @@
       "code": "missing-recommended-field",
       "dataset": "herb-list",
       "recordId": "uncaria-tomentosa",
-      "message": "Field 'sources' must not be empty.",
-      "field": "sources",
-      "tier": "RECOMMENDED"
-    },
-    {
-      "severity": "error",
-      "code": "missing-hard-required-field",
-      "dataset": "herb-list",
-      "recordId": "unknown",
-      "message": "Missing hard_required field 'slug'.",
-      "field": "slug",
-      "tier": "HARD_REQUIRED"
-    },
-    {
-      "severity": "error",
-      "code": "missing-hard-required-field",
-      "dataset": "herb-list",
-      "recordId": "unknown",
-      "message": "Missing hard_required field 'name'.",
-      "field": "name",
-      "tier": "HARD_REQUIRED"
-    },
-    {
-      "severity": "error",
-      "code": "missing-hard-required-field",
-      "dataset": "herb-list",
-      "recordId": "unknown",
-      "message": "Missing hard_required field 'latin'.",
-      "field": "latin",
-      "tier": "HARD_REQUIRED"
-    },
-    {
-      "severity": "warning",
-      "code": "missing-recommended-field",
-      "dataset": "herb-list",
-      "recordId": "unknown",
-      "message": "Missing recommended field 'sources'.",
-      "field": "sources",
-      "tier": "RECOMMENDED"
-    },
-    {
-      "severity": "warning",
-      "code": "missing-research-backlog-field",
-      "dataset": "herb-list",
-      "recordId": "unknown",
-      "message": "Missing research_backlog field 'class'.",
-      "field": "class",
-      "tier": "RESEARCH_BACKLOG"
-    },
-    {
-      "severity": "warning",
-      "code": "missing-research-backlog-field",
-      "dataset": "herb-list",
-      "recordId": "unknown",
-      "message": "Missing research_backlog field 'activeCompounds'.",
-      "field": "activeCompounds",
-      "tier": "RESEARCH_BACKLOG"
-    },
-    {
-      "severity": "error",
-      "code": "placeholder-value",
-      "dataset": "herb-list",
-      "recordId": "unknown",
-      "message": "Field 'name' contains a placeholder value.",
-      "field": "name"
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "unknown",
-      "message": "Field 'latin' must be a string, received null.",
-      "field": "latin",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "unknown",
-      "message": "Field 'class' must be a string, received null.",
-      "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "unknown",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "placeholder-value",
-      "dataset": "herb-list",
-      "recordId": "unknown",
-      "message": "Field 'slug' contains a placeholder value.",
-      "field": "slug"
-    },
-    {
-      "severity": "warning",
-      "code": "missing-recommended-field",
-      "dataset": "herb-list",
-      "recordId": "unknown",
       "message": "Field 'sources' must not be empty.",
       "field": "sources",
       "tier": "RECOMMENDED"
@@ -80882,121 +80725,6 @@
       "tier": "RECOMMENDED"
     },
     {
-      "severity": "error",
-      "code": "missing-hard-required-field",
-      "dataset": "herb-detail",
-      "recordId": "unknown",
-      "message": "Missing hard_required field 'slug'.",
-      "field": "slug",
-      "tier": "HARD_REQUIRED"
-    },
-    {
-      "severity": "error",
-      "code": "missing-hard-required-field",
-      "dataset": "herb-detail",
-      "recordId": "unknown",
-      "message": "Missing hard_required field 'name'.",
-      "field": "name",
-      "tier": "HARD_REQUIRED"
-    },
-    {
-      "severity": "error",
-      "code": "missing-hard-required-field",
-      "dataset": "herb-detail",
-      "recordId": "unknown",
-      "message": "Missing hard_required field 'latin'.",
-      "field": "latin",
-      "tier": "HARD_REQUIRED"
-    },
-    {
-      "severity": "warning",
-      "code": "missing-recommended-field",
-      "dataset": "herb-detail",
-      "recordId": "unknown",
-      "message": "Missing recommended field 'sources'.",
-      "field": "sources",
-      "tier": "RECOMMENDED"
-    },
-    {
-      "severity": "warning",
-      "code": "missing-research-backlog-field",
-      "dataset": "herb-detail",
-      "recordId": "unknown",
-      "message": "Missing research_backlog field 'class'.",
-      "field": "class",
-      "tier": "RESEARCH_BACKLOG"
-    },
-    {
-      "severity": "warning",
-      "code": "missing-research-backlog-field",
-      "dataset": "herb-detail",
-      "recordId": "unknown",
-      "message": "Missing research_backlog field 'activeCompounds'.",
-      "field": "activeCompounds",
-      "tier": "RESEARCH_BACKLOG"
-    },
-    {
-      "severity": "error",
-      "code": "placeholder-value",
-      "dataset": "herb-detail",
-      "recordId": "unknown",
-      "message": "Field 'name' contains a placeholder value.",
-      "field": "name"
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "unknown",
-      "message": "Field 'latin' must be a string, received null.",
-      "field": "latin",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "unknown",
-      "message": "Field 'class' must be a string, received null.",
-      "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "unknown",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "placeholder-value",
-      "dataset": "herb-detail",
-      "recordId": "unknown",
-      "message": "Field 'slug' contains a placeholder value.",
-      "field": "slug"
-    },
-    {
-      "severity": "warning",
-      "code": "missing-recommended-field",
-      "dataset": "herb-detail",
-      "recordId": "unknown",
-      "message": "Field 'sources' must not be empty.",
-      "field": "sources",
-      "tier": "RECOMMENDED"
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -102794,7 +102522,7 @@
       "message": "Field 'description' does not match the herb list record.",
       "field": "description",
       "details": {
-        "herbList": null,
+        "herbList": "Description not available.",
         "herbDetail": "Acacia confusa is a tree native to Southeast Asia used traditionally for spiritual and healing purposes. It contains psychoactive tryptamines like DMT."
       }
     },
