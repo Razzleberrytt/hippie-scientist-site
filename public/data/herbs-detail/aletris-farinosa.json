@@ -9,7 +9,7 @@
     "bitter digestive"
   ],
   "contraindications": [],
-  "safetyNotes": "Potential for uterine stimulation; avoid during pregnancy; nausea at high doses; No direct toxicity data. Contextual inference: Uterine tonic; bitter digestive. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Uterine tonic; bitter digestive. none.",
+  "safetyNotes": "High-risk profile. Avoid self-experimentation or unsupervised use. Contraindicated in pregnancy/lactation and in people with cardiovascular, neurologic, hepatic, or psychiatric vulnerability unless specialist oversight exists.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -19,14 +19,17 @@
       "url": ""
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Uterine tonic, bitter digestive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Uterine tonic; bitter digestive. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Uterine tonic; bitter digestive. No direct region data. Contextual inference: Uterine tonic; bitter digestive. none.; nan.",
+  "lastUpdated": "2026-04-04",
+  "description": "aletris farinosa record normalized to schema-consistent baseline. Traditional use is documented, but indication-specific clinical evidence remains limited or mixed.",
+  "dosage": "Unresolved: no high-quality, standardized human dosing protocol is established in current repository sources.",
   "duration": "4–6 hours",
-  "interactions": [],
+  "interactions": [
+    "Unresolved: interaction profile is not adequately characterized in current repository sources.",
+    "Use medication review caution, especially with CNS-active, cardiovascular, anticoagulant, and hepatically metabolized drugs."
+  ],
   "legalStatus": "Used in traditional medicine; limited regulatory recognition",
   "preparation": "Rhizome decocted for internal use; typically dried and powdered",
-  "region": "No direct region data. Contextual inference: Uterine tonic, bitter digestive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Uterine tonic, bitter digestive. none. ; nan; nan",
+  "region": "Regional native/cultivation details remain unresolved in current repository sources.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -43,5 +46,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "aletris farinosa baseline updated; key clinical fields remain unresolved where high-quality human evidence is limited."
 }

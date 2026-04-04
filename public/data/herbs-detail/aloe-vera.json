@@ -23,7 +23,7 @@
       "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Barbaloin"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-04",
   "description": "Aloe vera products are used topically (especially gel) and orally (gel or latex-containing products). Evidence is stronger for selected topical uses than for most oral indications.",
   "dosage": "Product forms are not interchangeable. No universal evidence-based dose applies across topical gel, oral gel, and latex-containing products.",
   "duration": "Varies with form",
@@ -51,5 +51,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "aloe vera baseline updated; key clinical fields remain unresolved where high-quality human evidence is limited."
 }
