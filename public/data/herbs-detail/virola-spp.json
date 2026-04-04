@@ -3,7 +3,7 @@
   "latin": "Virola spp.",
   "class": "ethnobotanical / rare",
   "intensity": "High",
-  "mechanism": "contains dmt | 5-meo-dmt | and beta-carbolines",
+  "mechanism": "Contains dmt ,  5-meo-dmt ,  and beta-carbolines.",
   "activeCompounds": [],
   "effects": [
     "psychedelic"
@@ -14,12 +14,12 @@
     "may interact with maois"
   ],
   "interactions": [
-    "dangerous with ssris",
-    "maois",
-    "and other serotonergic substances."
+    "Dangerous with SSRIs",
+    "MAOIs",
+    "And other serotonergic substances"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance, lower dose or stop if nausea, vomiting, or gi upset occurs, nausea, intense hallucinations, elevated heart rate or may interact with maois. Avoid with unstable mental health conditions; Avoid with heart issues.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Virola spp.",
@@ -28,12 +28,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.032Z",
-  "description": "amazonian trees producing dmt-rich resins for shamanic snuffs.",
-  "dosage": "0.1,1 g snuff or oral admixture",
+  "description": "Amazonian trees producing dmt-rich resins for shamanic snuffs.",
+  "dosage": "0. 1-1 g snuff or oral admixture.",
   "duration": "Occasional ceremonial use only",
   "legalStatus": "Restricted / Controlled",
-  "preparation": "smoked",
-  "region": "🇲🇽 latin america",
+  "preparation": "Smoked.",
+  "region": "🇲🇽 latin america.",
   "therapeuticUses": [
     "used in amazonian shamanic healing rituals",
     "possible antidepressant potential."

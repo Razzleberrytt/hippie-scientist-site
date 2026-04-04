@@ -3,7 +3,7 @@
   "latin": "Nymphaea rubra",
   "class": "Nootropic, Sedative, Traditional",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity; Alkaloid constituents can modulate neuronal signaling pathways",
+  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity; Alkaloid constituents can modulate neuronal signaling pathways.",
   "activeCompounds": [
     "nupharine",
     "nupharidine",
@@ -25,11 +25,11 @@
   ],
   "interactions": [
     "Sedatives",
-    "alcohol",
+    "Alcohol",
     "CNS depressants"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, alcohol or or other cns depressants. Avoid combining with sedatives; Avoid in pregnancy; Avoid with sedative sensitivity; Avoid in liver disease.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nymphaea rubra (TaxID 307976)",
@@ -49,11 +49,11 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Nymphaea rubra is a medicinal herb traditionally used for relaxation and mild euphoria.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Unregulated in most regions",
-  "preparation": "smoked",
-  "region": "south asia",
+  "preparation": "Smoked.",
+  "region": "South asia.",
   "therapeuticUses": [
     "Anxiety",
     "insomnia",

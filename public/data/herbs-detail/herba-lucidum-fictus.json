@@ -20,7 +20,7 @@
   "interactions": [
     "Caution with: limited interaction data"
   ],
-  "safetyNotes": "Generally regarded as safe in moderate doses,Mild drowsiness,vivid dreams,Low,>2000 mg/kg (estimated)",
+  "safetyNotes": "Generally regarded as safe in moderate doses, Mild drowsiness, vivid dreams, Low, >2000 mg/kg (estimated).",
   "sources": [
     {
       "title": "NCBI Taxonomy: Herba lucidum fictus",
@@ -33,8 +33,8 @@
   "dosage": "1–2 grams dried leaves",
   "duration": "4-6 hours",
   "legalStatus": "Unregulated",
-  "preparation": "smoked",
-  "region": "Central Africa",
+  "preparation": "Smoked.",
+  "region": "Central Africa.",
   "therapeuticUses": [
     "Dream enhancement",
     "relaxation"

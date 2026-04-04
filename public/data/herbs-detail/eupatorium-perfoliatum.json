@@ -3,7 +3,7 @@
   "latin": "Eupatorium perfoliatum",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Diaphoretic, immune stimulant, cold/flu relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diaphoretic, immune stimulant, cold/flu relief. No direct region data. Contextual inference: Diaphoretic, immune stimulant, cold/flu relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diaphoretic, immune stimulant, cold/flu relief. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "stimulation",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "caution,May cause allergic skin rash or hepatotoxicity,avoid long-term use,No direct toxicity data. Contextual inference: Diaphoretic,immune stimulant,cold/flu relief. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diaphoretic,cold/flu relief. none.",
+  "safetyNotes": "May cause allergic skin rash or hepatotoxicity; Avoid long-term use; Diaphoretic; Cold/flu relief; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Diaphoretic.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Eupatorium perfoliatum (TaxID 102777)",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.935Z",
-  "description": "Diaphoretic, immune stimulant, cold/flu relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "1,2 g,day infusion or 300,500 mg extract",
+  "description": "Diaphoretic, immune stimulant, cold/flu relief.;.",
+  "dosage": "1-2 g/day infusion or 300-500 mg extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal; used in traditional Western herbalism",
-  "preparation": "tea",
+  "preparation": "Tea.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

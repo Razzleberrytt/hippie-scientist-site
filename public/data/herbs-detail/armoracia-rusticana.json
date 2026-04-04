@@ -3,7 +3,7 @@
   "latin": "Armoracia rusticana",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Stimulant, expectorant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, expectorant, antimicrobial. No direct region data. Contextual inference: Stimulant, expectorant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, expectorant, antimicrobial. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "stimulation",
@@ -12,7 +12,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "May cause GI irritation,sweating,or allergic skin reactions,high doses can irritate mucous membranes,No direct toxicity data. Contextual inference: Stimulant,expectorant,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant,antimicrobial. none.",
+  "safetyNotes": "May cause GI irritation; Sweating; Or allergic skin reactions; High doses can irritate mucous membranes; Expectorant; Antimicrobial; Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Armoracia rusticana (TaxID 3704)",
@@ -21,11 +21,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.852Z",
-  "description": "Stimulant, expectorant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Stimulant,expectorant,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant,antimicrobial. No direct region data. Contextual inference: Stimulant,antimicrobial. none.,nan.",
+  "description": "Stimulant, expectorant, antimicrobial.;.",
+  "dosage": "",
   "duration": "2–4 hours",
   "legalStatus": "Legal as food and traditional remedy",
-  "preparation": "tincture",
+  "preparation": "Tincture.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

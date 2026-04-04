@@ -3,7 +3,7 @@
   "latin": "Anisomeles indica",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antiviral, anti-inflammatory, febrifuge in ayurveda and tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiviral, anti-inflammatory, febrifuge in Ayurveda and TCM. No direct region data. Contextual inference: Antiviral, anti-inflammatory, febrifuge in ayurveda and tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiviral, anti-inflammatory, febrifuge in Ayurveda and TCM. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "May cause mild sedation or GI discomfort,avoid in hypotension or sedation-sensitive patients,No direct toxicity data. Contextual inference: Antiviral,anti-inflammatory,febrifuge in ayurveda and tcm. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiviral,febrifuge in Ayurveda and TCM. none.",
+  "safetyNotes": "May cause mild sedation or GI discomfort; Avoid in hypotension or sedation-sensitive patients; Antiviral; Febrifuge in ayurveda and tcm; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Antiviral.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Anisomeles indica (TaxID 516069)",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.848Z",
-  "description": "Antiviral, anti-inflammatory, febrifuge in ayurveda and tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Antiviral,anti,inflammatory,febrifuge in ayurveda and tcm. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiviral,febrifuge in Ayurveda and TCM. No direct region data. Contextual inference: Antiviral,febrifuge in Ayurveda and TCM. none.,nan.",
+  "description": "Antiviral, anti-inflammatory, febrifuge in ayurveda and tcm.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated; traditional use",
-  "preparation": "tea",
+  "preparation": "Tea.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

@@ -3,7 +3,7 @@
   "latin": "Podophyllum peltatum",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Cytotoxic, used topically for warts. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cytotoxic, used topically for warts. No direct region data. Contextual inference: Cytotoxic, used topically for warts. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cytotoxic, used topically for warts. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "antioxidant"
@@ -11,7 +11,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Lower dose or stop if nausea, vomiting, or GI upset occurs.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. lower dose or stop if nausea, vomiting, or gi upset occurs, highly toxic internally, nausea or organ failure.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Podophyllum peltatum (TaxID 35933)",
@@ -21,10 +21,10 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.998Z",
   "description": "Podophyllum peltatum is a medicinal herb traditionally used for cytotoxic and used topically for warts.",
-  "dosage": "No direct dosage data. Contextual inference: Cytotoxic,used topically for warts. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Cytotoxic,used topically for warts. No direct region data. Contextual inference: Cytotoxic,used topically for warts. none.,nan.",
+  "dosage": "",
   "duration": "Hours to days",
   "legalStatus": "Regulated due to toxicity",
-  "preparation": "extract",
+  "preparation": "Extract.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

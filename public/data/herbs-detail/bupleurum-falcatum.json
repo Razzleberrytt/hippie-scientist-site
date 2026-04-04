@@ -3,7 +3,7 @@
   "latin": "Bupleurum falcatum",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Liver tonic, anti-inflammatory, immunomodulatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver tonic, anti-inflammatory, immunomodulatory. No direct region data. Contextual inference: Liver tonic, anti-inflammatory, immunomodulatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver tonic, anti-inflammatory, immunomodulatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Occasional nausea,dizziness,rare liver toxicity with long-term use,No direct toxicity data. Contextual inference: Liver tonic,anti-inflammatory,immunomodulatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Liver tonic,immunomodulatory. none.",
+  "safetyNotes": "Occasional nausea; Dizziness; Rare liver toxicity with long-term use; Liver tonic; Immunomodulatory; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Liver tonic.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Bupleurum falcatum (TaxID 46367)",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.875Z",
-  "description": "Liver tonic, anti-inflammatory, immunomodulatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Liver tonic,anti,inflammatory,immunomodulatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Liver tonic,immunomodulatory. No direct region data. Contextual inference: Liver tonic,immunomodulatory. none.,nan.",
+  "description": "Liver tonic, anti-inflammatory, immunomodulatory.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal in TCM and supplements",
-  "preparation": "extract",
+  "preparation": "Extract.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

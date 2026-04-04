@@ -3,7 +3,7 @@
   "latin": "Scutellaria lateriflora",
   "class": "Nervine, Anxiolytic",
   "intensity": "No direct intensity data. Contextual inference: Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. Flavonoids modulate gaba receptors; offers calming and anxiolytic effects.. ; nan; nan.. Flavonoids modulate GABA receptors; offers calming and anxiolytic effects.. Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. No direct region data. Contextual inference: Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. Flavonoids modulate gaba receptors; offers calming and anxiolytic effects.. ; nan; nan.. Flavonoids modulate GABA receptors; offers calming and anxiolytic effects.. Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. ; nan; nan. ; nan; nan",
-  "mechanism": "used by native american tribes for anxiety and insomnia",
+  "mechanism": "Used by native american tribes for anxiety and insomnia.",
   "activeCompounds": [
     "baicalin",
     "scutellarein",
@@ -24,12 +24,10 @@
   ],
   "interactions": [
     "CNS depressants",
-    "alcohol",
-    "cns depressants",
-    "alcohol."
+    "Alcohol"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, alcohol, or other cns depressants, drowsiness or mild gi upset. Avoid combining with sedatives; Avoid in pregnancy; Avoid with caution with sedatives; Avoid with sedative sensitivity.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Scutellaria lateriflora (TaxID 233893)",
@@ -38,12 +36,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.019Z",
-  "description": "Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. Flavonoids modulate gaba receptors; offers calming and anxiolytic effects.. ; nan; nan.",
+  "description": "Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety.",
   "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. No direct region data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.",
   "legalStatus": "Legal globally",
-  "preparation": "tincture",
-  "region": "north america",
+  "preparation": "Tincture.",
+  "region": "North america.",
   "therapeuticUses": [
     "Nervous tension",
     "insomnia",

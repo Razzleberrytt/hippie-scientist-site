@@ -3,7 +3,7 @@
   "latin": "Nepeta cataria",
   "class": "Traditional, Sedative, Recreational",
   "intensity": "Mild in typical tea-level use; stronger effects are uncommon.",
-  "mechanism": "Volatile terpenoids may contribute smooth-muscle, antimicrobial, or sensory effects",
+  "mechanism": "Volatile terpenoids may contribute smooth-muscle, antimicrobial, or sensory effects.",
   "activeCompounds": [
     "nepetalactone",
     "thymol",
@@ -24,7 +24,7 @@
     "CNS depressants"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, alcohol, or other cns depressants or drowsiness. Avoid combining with sedatives; Avoid in pregnancy due to uterine stimulation; Avoid in pregnancy; Avoid with sedation-sensitive individuals.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nepeta cataria (TaxID 39347)",
@@ -44,11 +44,11 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Nepeta cataria is a medicinal herb traditionally used for mild sedation and relaxation.",
-  "dosage": "250,500 mg,day aerial parts",
+  "dosage": "250-500 mg/day aerial parts.",
   "duration": "1–3 hours",
   "legalStatus": "Legal worldwide",
-  "preparation": "tincture",
-  "region": "Cultivated in Europe, North America",
+  "preparation": "Tincture.",
+  "region": "Cultivated in Europe, North America.",
   "therapeuticUses": [
     "Anxiety",
     "insomnia",

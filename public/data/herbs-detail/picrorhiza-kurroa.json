@@ -3,7 +3,7 @@
   "latin": "Picrorhiza kurroa",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Hepatoprotective, anti-inflammatory, and antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hepatoprotective, anti-inflammatory, and antioxidant. No direct region data. Contextual inference: Hepatoprotective, anti-inflammatory, and antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hepatoprotective, anti-inflammatory, and antioxidant. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -22,7 +22,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.994Z",
   "description": "Picrorhiza kurroa is a medicinal herb traditionally used for hepatoprotective and anti-inflammatory-inflammatory.",
-  "dosage": "250,500 mg,day root or extract",
+  "dosage": "250-500 mg/day root or extract.",
   "duration": "6–8 hours",
   "legalStatus": "Legal globally",
   "preparation": "",

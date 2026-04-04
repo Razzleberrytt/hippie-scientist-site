@@ -3,12 +3,12 @@
   "latin": "Cordyline fruticosa",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Traditional hawaiian use for fever and spiritual cleansing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional Hawaiian use for fever and spiritual cleansing. No direct region data. Contextual inference: Traditional hawaiian use for fever and spiritual cleansing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional Hawaiian use for fever and spiritual cleansing. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Traditional hawaiian use for fever and spiritual cleansing. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional Hawaiian use for fever and spiritual cleansing. none.",
+  "safetyNotes": "Traditional hawaiian use for fever and spiritual cleansing; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Traditional Hawaiian use for fever and spiritual cleansing.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Cordyline fruticosa (TaxID 39501)",
@@ -17,8 +17,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.908Z",
-  "description": "Traditional hawaiian use for fever and spiritual cleansing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Traditional hawaiian use for fever and spiritual cleansing. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional Hawaiian use for fever and spiritual cleansing. No direct region data. Contextual inference: Traditional hawaiian use for fever and spiritual cleansing. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional Hawaiian use for fever and spiritual cleansing. none.,nan.",
+  "description": "Traditional hawaiian use for fever and spiritual cleansing.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
   "preparation": "",

@@ -19,7 +19,7 @@
   "interactions": [
     "May potentiate: May potentiate stimulant effects when combined with sympathomimetic agents"
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with gastrointestinal disorders",
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with gastrointestinal disorders.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Asarum canadense (TaxID 28498)",
@@ -39,11 +39,11 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Wild Ginger has been used by Native American tribes as a ceremonial herb and stimulant, as well as a seasoning substitute.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "legal",
-  "preparation": "tea",
-  "region": "eastern north america",
+  "preparation": "Tea.",
+  "region": "Eastern north america.",
   "therapeuticUses": [
     "Digestive stimulant",
     "cold remedy"

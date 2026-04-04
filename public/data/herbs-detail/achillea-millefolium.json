@@ -32,7 +32,7 @@
     "Caution with: NSAIDs",
     "Caution with: diuretics"
   ],
-  "safetyNotes": "Avoid with allergies to asteraceae; Increase bleeding risk; Avoid with allergy to asteraceae",
+  "safetyNotes": "Avoid with allergies to asteraceae; Increase bleeding risk; Avoid with allergy to asteraceae.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Achillea millefolium L.",
@@ -55,8 +55,8 @@
   "dosage": "Tea: 1–2g dried herb per cup, 1–3 times daily",
   "duration": "Several hours depending on use",
   "legalStatus": "Legal worldwide",
-  "preparation": "tincture",
-  "region": "Europe, North America",
+  "preparation": "Tincture.",
+  "region": "Europe, North America.",
   "therapeuticUses": [
     "Wound care",
     "digestive disorders",

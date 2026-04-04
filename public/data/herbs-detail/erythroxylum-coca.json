@@ -18,7 +18,7 @@
     "Avoid with: Stimulants",
     "Avoid with: MAOIs"
   ],
-  "safetyNotes": "Avoid with heart issues; Avoid with stimulant sensitivity",
+  "safetyNotes": "Avoid with heart issues; Avoid with stimulant sensitivity.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Erythroxylum coca (TaxID 289672)",
@@ -37,12 +37,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Traditional Andean leaf chewed for energy and altitude adaptation",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "description": "Traditional Andean leaf chewed for energy and altitude adaptation.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Illegal in many countries; permitted for traditional use in Andes",
-  "preparation": "tea",
-  "region": "andean south america",
+  "preparation": "Tea.",
+  "region": "Andean south america.",
   "therapeuticUses": [
     "Altitude sickness",
     "fatigue",

@@ -3,14 +3,14 @@
   "latin": "Erythroxylum novogranatense",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Source of cocaine alkaloid; stimulant and topical anesthetic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of cocaine alkaloid; stimulant and topical anesthetic. No direct region data. Contextual inference: Source of cocaine alkaloid; stimulant and topical anesthetic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of cocaine alkaloid; stimulant and topical anesthetic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "stimulation"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Source of cocaine alkaloid,stimulant and topical anesthetic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Source of cocaine alkaloid,stimulant and topical anesthetic. none.",
+  "safetyNotes": "Source of cocaine alkaloid; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Source of cocaine alkaloid.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Erythroxylum novogranatense (TaxID 1862640)",
@@ -19,8 +19,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.935Z",
-  "description": "Source of cocaine alkaloid; stimulant and topical anesthetic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Source of cocaine alkaloid,stimulant and topical anesthetic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Source of cocaine alkaloid,stimulant and topical anesthetic. No direct region data. Contextual inference: Source of cocaine alkaloid,stimulant and topical anesthetic. none.,nan.",
+  "description": "Source of cocaine alkaloid; stimulant and topical anesthetic.;.",
+  "dosage": "",
   "duration": "2–4 hours",
   "legalStatus": "Highly regulated",
   "preparation": "",

@@ -3,7 +3,7 @@
   "latin": "Rhizophora mangle",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Astringent and antiseptic; used for ulcers and wounds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent and antiseptic; used for ulcers and wounds. No direct region data. Contextual inference: Astringent and antiseptic; used for ulcers and wounds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent and antiseptic; used for ulcers and wounds. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "digestive support",
@@ -22,7 +22,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.006Z",
   "description": "Rhizophora mangle is a medicinal herb traditionally used for astringent and antiseptic and ulcers and wounds.",
-  "dosage": "No direct dosage data. Contextual inference: Astringent and antiseptic,used for ulcers and wounds. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Astringent and antiseptic,used for ulcers and wounds. No direct region data. Contextual inference: Astringent and antiseptic,used for ulcers and wounds. none.,nan.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",
   "preparation": "",

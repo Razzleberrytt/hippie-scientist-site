@@ -3,7 +3,7 @@
   "latin": "Aspidosperma quebracho-blanco",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Bronchodilator, stimulant, expectorant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bronchodilator, stimulant, expectorant. No direct region data. Contextual inference: Bronchodilator, stimulant, expectorant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bronchodilator, stimulant, expectorant. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "stimulation",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "May cause nausea,dizziness,hypotension,toxic in large doses due to alkaloids,No direct toxicity data. Contextual inference: Bronchodilator,stimulant,expectorant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Bronchodilator,expectorant. none.",
+  "safetyNotes": "May cause nausea; Dizziness; Hypotension; Toxic in large doses due to alkaloids; Bronchodilator; Expectorant; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Bronchodilator.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Aspidosperma quebracho-blanco (TaxID 141536)",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.861Z",
-  "description": "Bronchodilator, stimulant, expectorant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Bronchodilator,stimulant,expectorant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Bronchodilator,expectorant. No direct region data. Contextual inference: Bronchodilator,expectorant. none.,nan.",
+  "description": "Bronchodilator, stimulant, expectorant.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated; used in South American medicine",
-  "preparation": "tincture",
+  "preparation": "Tincture.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

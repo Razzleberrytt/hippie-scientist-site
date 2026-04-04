@@ -3,7 +3,7 @@
   "latin": "Cynodon dactylon",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Diuretic, anti-inflammatory, used in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, anti-inflammatory, used in Ayurveda. No direct region data. Contextual inference: Diuretic, anti-inflammatory, used in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, anti-inflammatory, used in Ayurveda. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Generally safe,excessive use may cause stomach upset,No direct toxicity data. Contextual inference: Diuretic,anti-inflammatory,used in ayurveda. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diuretic,used in Ayurveda. none.",
+  "safetyNotes": "Generally safe; Excessive use may cause stomach upset; Diuretic; Used in ayurveda; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Diuretic.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Cynodon dactylon (TaxID 28909)",
@@ -20,8 +20,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.912Z",
-  "description": "Diuretic, anti-inflammatory, used in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Diuretic,anti,inflammatory,used in ayurveda. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diuretic,used in Ayurveda. No direct region data. Contextual inference: Diuretic,used in Ayurveda. none.,nan.",
+  "description": "Diuretic, anti-inflammatory, used in ayurveda.;.",
+  "dosage": "",
   "duration": "3–6 hours",
   "legalStatus": "Unregulated",
   "preparation": "",

@@ -3,12 +3,12 @@
   "latin": "Elaeagnus umbellata",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Rich in lycopene and antioxidants; used for cardiovascular and skin health. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Rich in lycopene and antioxidants; used for cardiovascular and skin health. No direct region data. Contextual inference: Rich in lycopene and antioxidants; used for cardiovascular and skin health. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Rich in lycopene and antioxidants; used for cardiovascular and skin health. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Rich in lycopene and antioxidants,used for cardiovascular and skin health. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Rich in lycopene and antioxidants,used for cardiovascular and skin health. none.",
+  "safetyNotes": "Rich in lycopene and antioxidants; Used for cardiovascular and skin health; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Rich in lycopene and antioxidants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Elaeagnus umbellata (TaxID 43233)",
@@ -17,8 +17,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.924Z",
-  "description": "Rich in lycopene and antioxidants; used for cardiovascular and skin health. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Rich in lycopene and antioxidants,used for cardiovascular and skin health. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Rich in lycopene and antioxidants,used for cardiovascular and skin health. No direct region data. Contextual inference: Rich in lycopene and antioxidants,used for cardiovascular and skin health. none.,nan.",
+  "description": "Rich in lycopene and antioxidants; used for cardiovascular and skin health.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",
   "preparation": "",

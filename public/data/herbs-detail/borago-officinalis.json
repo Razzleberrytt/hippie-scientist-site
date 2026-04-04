@@ -3,7 +3,7 @@
   "latin": "Borago officinalis",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, adrenal support, skin and respiratory support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, adrenal support, skin and respiratory support. No direct region data. Contextual inference: Anti-inflammatory, adrenal support, skin and respiratory support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, adrenal support, skin and respiratory support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Contains pyrrolizidine alkaloids,long-term use may lead to liver damage,skin rash possible,No direct toxicity data. Contextual inference: Anti-inflammatory,adrenal support,skin and respiratory support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,skin and respiratory support. none.",
+  "safetyNotes": "Contains pyrrolizidine alkaloids; Long-term use may lead to liver damage; Skin rash possible; Adrenal support; Skin and respiratory support; Antioxidant effects; Or enzyme inhibition; Long.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Borago officinalis (TaxID 13363)",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.870Z",
-  "description": "Anti-inflammatory, adrenal support, skin and respiratory support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Anti,inflammatory,adrenal support,skin and respiratory support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti,skin and respiratory support. No direct region data. Contextual inference: Anti,skin and respiratory support. none.,nan.",
+  "description": "Anti-inflammatory, adrenal support, skin and respiratory support.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal with caution for internal use",
-  "preparation": "tea",
+  "preparation": "Tea.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

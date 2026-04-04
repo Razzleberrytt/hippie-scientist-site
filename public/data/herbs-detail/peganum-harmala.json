@@ -3,7 +3,7 @@
   "latin": "Peganum harmala",
   "class": "MAOI, Psychoactive, Entheogen",
   "intensity": "No direct intensity data. Contextual inference: Mao inhibitor, antispasmodic, psychoactive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. MAO inhibitor, antispasmodic, psychoactive. No direct region data. Contextual inference: Mao inhibitor, antispasmodic, psychoactive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. MAO inhibitor, antispasmodic, psychoactive. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [
     "harmaline",
     "harmine",
@@ -30,13 +30,13 @@
   "interactions": [
     "Dangerous with many drugs (serotonin syndrome risk)",
     "MAOIs",
-    "psychedelics",
+    "Psychedelics",
     "SSRIs",
-    "tyramine-rich foods",
-    "antidepressants"
+    "Tyramine-rich foods",
+    "Antidepressants"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or maois without medical guidance, toxic in high doses, hallucinations, liver issues, may interact with ssris or may interact with maois. Avoid with stimulants; Avoid with tyramine-rich foods; Avoid with antidepressants; Avoid in pregnancy; Avoid in liver disease.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Peganum harmala (TaxID 43879)",
@@ -46,11 +46,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.991Z",
   "description": "Peganum harmala is a medicinal herb traditionally used for altered perception and dream intensification.",
-  "dosage": "0.5,1.5 g seed (with caution)",
+  "dosage": "0. 5, 1. 5 g seed (with caution).",
   "duration": "4–6 hours",
   "legalStatus": "Controlled in some countries",
-  "preparation": "tincture",
-  "region": "middle east, north africa",
+  "preparation": "Tincture.",
+  "region": "Middle east, north africa.",
   "therapeuticUses": [
     "Spiritual rituals",
     "depression (experimental)",

@@ -3,7 +3,7 @@
   "latin": "Zanthoxylum zanthoxyloides",
   "class": "Anthelmintic, Analgesic",
   "intensity": "Moderate to strong",
-  "mechanism": "neural desensitization and antihelminthic disruption",
+  "mechanism": "Neural desensitization and antihelminthic disruption.",
   "activeCompounds": [
     "alkaloids",
     "lignans",
@@ -19,7 +19,7 @@
     "May potentiate antiparasitic drugs"
   ],
   "safetyLevel": "caution",
-  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid use during pregnancy unless advised by a clinician.",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid use during pregnancy unless advised by a clinician; Avoid in pregnancy.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Zanthoxylum zanthoxyloides (TaxID 2099548)",
@@ -28,12 +28,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.974Z",
-  "description": "Traditional remedy for toothache, worms, and infections",
-  "dosage": "Chewed root bark or decoction",
+  "description": "Traditional remedy for toothache, worms, and infections.",
+  "dosage": "Chewed root bark or decoction.",
   "duration": "300",
   "legalStatus": "Not regulated",
-  "preparation": "extract",
-  "region": "West and Central Africa",
+  "preparation": "Extract.",
+  "region": "West and Central Africa.",
   "therapeuticUses": [
     "Toothache",
     "intestinal worms"

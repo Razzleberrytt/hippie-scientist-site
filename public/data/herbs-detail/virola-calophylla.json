@@ -3,7 +3,7 @@
   "latin": "Virola calophylla",
   "class": "Tryptamine-rich, Entheogen",
   "intensity": "No direct intensity data. Contextual inference: Source of dmt-rich resin; entheogenic in amazonian use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of DMT-rich resin; entheogenic in Amazonian use. No direct region data. Contextual inference: Source of dmt-rich resin; entheogenic in amazonian use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of DMT-rich resin; entheogenic in Amazonian use. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [
     "dmt",
     "5-meo-dmt",
@@ -22,7 +22,7 @@
     "Do not combine with MAOIs or psychedelics"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance, lower dose or stop if nausea, vomiting, or gi upset occurs, psychoactive, hallucinations or nausea. Avoid with strongly visionary; Avoid with not for casual use.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Virola calophylla (TaxID 1421007)",
@@ -31,11 +31,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.031Z",
-  "description": "Source of dmt-rich resin; entheogenic in amazonian use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Source of dmt-rich resin; entheogenic in amazonian use.",
   "dosage": "",
   "duration": "1–2 hours",
   "legalStatus": "Controlled in many countries",
-  "preparation": "smoked",
+  "preparation": "Smoked.",
   "region": "",
   "therapeuticUses": [
     "Spiritual revelation",

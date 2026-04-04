@@ -3,7 +3,7 @@
   "latin": "Urtica dioica",
   "class": "Nutritional Tonic, Mild Stimulant",
   "intensity": "Very mild",
-  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity",
+  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity.",
   "activeCompounds": [
     "histamine",
     "serotonin",
@@ -20,10 +20,10 @@
   ],
   "interactions": [
     "Diuretics",
-    "antihypertensives"
+    "Antihypertensives"
   ],
   "safetyLevel": "caution",
-  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid use during pregnancy unless advised by a clinician.",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid use during pregnancy unless advised by a clinician; Avoid in pregnancy; Avoid with diuretics.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Urtica dioica (TaxID 3501)",
@@ -42,12 +42,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Nutritive herb with minor stimulant and revitalizing effects when fresh",
+  "description": "Nutritive herb with minor stimulant and revitalizing effects when fresh.",
   "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Legal",
-  "preparation": "tea",
-  "region": "europe, north america",
+  "preparation": "Tea.",
+  "region": "Europe, north america.",
   "therapeuticUses": [
     "Fatigue",
     "anemia",

@@ -21,12 +21,12 @@
   ],
   "interactions": [
     "Potentiated by SSRIs",
-    "dangerous with CNS depressants",
-    "opioids",
-    "antidepressants."
+    "Dangerous with CNS depressants",
+    "Opioids",
+    "Antidepressants"
   ],
   "safetyLevel": "high",
-  "safetyNotes": "High risk: serious toxicity or overdose harm is possible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
+  "safetyNotes": "May cause high risk: serious toxicity or overdose harm is possible. do not combine with serotonergic drugs or maois without medical guidance, lower dose or stop if nausea, vomiting, or gi upset occurs, nausea, heart arrhythmia or hallucinations. Avoid with serious cardiac risk; Avoid with heart conditions or psychiatric disorders; Avoid with heart disease; Avoid with psychiatric disorders.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Tabernanthe iboga (TaxID 141617)",
@@ -35,12 +35,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.024Z",
-  "description": "Powerful psychedelic and anti-addiction; long visionary experience. Ibogaine affects nmda, opioid, and serotonergic receptors.. ; nan; nan.",
+  "description": "Powerful psychedelic and anti-addiction; long visionary experience.",
   "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Restricted or illegal in some countries; Schedule I (US)",
-  "preparation": "extract",
-  "region": "central africa",
+  "preparation": "Extract.",
+  "region": "Central africa.",
   "therapeuticUses": [
     "Addiction interruption",
     "PTSD therapy",

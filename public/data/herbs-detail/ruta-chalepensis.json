@@ -3,7 +3,7 @@
   "latin": "Ruta chalepensis",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Emmenagogue, antispasmodic, and insect repellent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emmenagogue, antispasmodic, and insect repellent. No direct region data. Contextual inference: Emmenagogue, antispasmodic, and insect repellent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emmenagogue, antispasmodic, and insect repellent. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "relaxation"
@@ -21,7 +21,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.016Z",
   "description": "Ruta chalepensis is a medicinal herb traditionally used for emmenagogue and antispasmodic.",
-  "dosage": "No direct dosage data. Contextual inference: Emmenagogue,antispasmodic,and insect repellent. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Emmenagogue,and insect repellent. No direct region data. Contextual inference: Emmenagogue,and insect repellent. none.,nan.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
   "preparation": "",

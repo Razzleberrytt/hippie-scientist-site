@@ -3,7 +3,7 @@
   "latin": "Paullinia yoco",
   "class": "Stimulant, Traditional Amazonian",
   "intensity": "Mild to moderate",
-  "mechanism": "Saponins may contribute membrane and immune-modulating effects",
+  "mechanism": "Saponins may contribute membrane and immune-modulating effects.",
   "activeCompounds": [
     "caffeine",
     "theobromine",
@@ -21,11 +21,11 @@
   ],
   "interactions": [
     "CNS stimulants",
-    "caffeine",
+    "Caffeine",
     "MAOIs"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance. Avoid with hypertension; Avoid with heart disease; Avoid with anxiety disorders.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Paullinia yoco",
@@ -45,11 +45,11 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Paullinia yoco is a medicinal herb traditionally used for mental stimulation and increased alertness.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Not controlled",
-  "preparation": "extract",
-  "region": "amazon rainforest",
+  "preparation": "Extract.",
+  "region": "Amazon rainforest.",
   "therapeuticUses": [
     "Fatigue",
     "low energy"

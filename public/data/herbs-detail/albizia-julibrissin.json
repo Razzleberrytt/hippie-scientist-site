@@ -20,7 +20,7 @@
     "avoid in pregnancy"
   ],
   "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Avoid with limited safety data; Avoid with potentiate sedative or antidepressant drugs; Avoid in pregnancy.",
   "sources": [
     {
       "title": "NCBI Taxonomy: albizia julibrissin (TaxID 3813)",
@@ -29,12 +29,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.843Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "description": "",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "legal",
-  "preparation": "tincture",
-  "region": "native to asia, cultivated elsewhere",
+  "preparation": "Tincture.",
+  "region": "Native to asia, cultivated elsewhere.",
   "therapeuticUses": [
     "Traditional antidepressant and anxiolytic",
     "used to relieve stress",

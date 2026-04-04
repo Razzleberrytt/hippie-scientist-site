@@ -3,7 +3,7 @@
   "latin": "Angelica archangelica",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Carminative, digestive aid, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, digestive aid, mild sedative. No direct region data. Contextual inference: Carminative, digestive aid, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, digestive aid, mild sedative. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "relaxation",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "caution,Photosensitivity,possible GI upset,avoid in pregnancy due to uterine stimulation,No direct toxicity data. Contextual inference: Carminative,digestive aid,mild sedative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Carminative,mild sedative. none.",
+  "safetyNotes": "Photosensitivity; Possible GI upset; Avoid in pregnancy due to uterine stimulation; Mild sedative; Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Angelica archangelica (TaxID 40949)",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.848Z",
-  "description": "Carminative, digestive aid, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "250,500 mg,day root or extract",
+  "description": "Carminative, digestive aid, mild sedative.;.",
+  "dosage": "250-500 mg/day root or extract",
   "duration": "2–4 hours",
   "legalStatus": "Legal; common in traditional European herbalism",
-  "preparation": "tincture",
+  "preparation": "Tincture.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

@@ -3,16 +3,19 @@
   "latin": "Thevetia peruviana",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Cardiac glycoside; highly toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cardiac glycoside; highly toxic. No direct region data. Contextual inference: Cardiac glycoside; highly toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cardiac glycoside; highly toxic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
   "interactions": [
-    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
-    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+    "Insufficient direct interaction data for this herb",
+    "Consult a clinician before combining with prescription medications",
+    "Use extra caution with anticoagulants",
+    "Sedatives",
+    "And serotonergic drugs until herb-specific interaction evidence is established"
   ],
   "safetyLevel": "high",
-  "safetyNotes": "High risk: serious toxicity or overdose harm is possible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause high risk: serious toxicity or overdose harm is possible. do not combine with serotonergic drugs or maois without medical guidance, highly toxic, contains cardiac glycosides or can be fatal.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Thevetia peruviana (TaxID 52862)",
@@ -21,7 +24,7 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.026Z",
-  "description": "Cardiac glycoside; highly toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Cardiac glycoside; highly toxic.",
   "dosage": "",
   "duration": "8+ hours",
   "legalStatus": "Restricted/banned due to toxicity",

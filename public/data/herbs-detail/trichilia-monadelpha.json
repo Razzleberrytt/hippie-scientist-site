@@ -3,7 +3,7 @@
   "latin": "Trichilia monadelpha",
   "class": "Antimalarial, Antioxidant",
   "intensity": "Moderate",
-  "mechanism": "disruption of plasmodium parasite lifecycle via limonoids",
+  "mechanism": "Disruption of plasmodium parasite lifecycle via limonoids.",
   "activeCompounds": [
     "limonoids",
     "saponins"
@@ -16,7 +16,7 @@
     "May interact with antimalarial pharmaceuticals"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, lower dose or stop if nausea, vomiting or or gi upset occurs. Avoid in pregnancy.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Trichilia monadelpha (TaxID 1640473)",
@@ -25,12 +25,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.973Z",
-  "description": "West African medicinal plant used for malaria and inflammation",
-  "dosage": "Decoction of bark or leaves, 1–2x daily",
+  "description": "West African medicinal plant used for malaria and inflammation.",
+  "dosage": "Decoction of bark or leaves, 1–2x daily.",
   "duration": "480",
   "legalStatus": "Not regulated",
-  "preparation": "tea",
-  "region": "West Africa",
+  "preparation": "Tea.",
+  "region": "West Africa.",
   "therapeuticUses": [
     "Malaria",
     "inflammation",

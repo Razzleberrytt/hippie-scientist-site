@@ -26,7 +26,7 @@
     "Avoid with: SSRIs",
     "Avoid with: CNS depressants"
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with unstable mental health conditions; May interact with maois",
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with unstable mental health conditions; May interact with maois.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Acacia confusa (TaxID 3809)",
@@ -46,11 +46,11 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "A perennial tree native to Southeast Asia and the Pacific, traditionally used in spiritual practices. Its root bark contains alkaloids used in entheogenic brews.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Varies; restricted in some countries due to DMT content",
-  "preparation": "extract",
-  "region": "taiwan, philippines",
+  "preparation": "Extract.",
+  "region": "Taiwan, philippines.",
   "therapeuticUses": [
     "Spiritual use",
     "anecdotal trauma integration"

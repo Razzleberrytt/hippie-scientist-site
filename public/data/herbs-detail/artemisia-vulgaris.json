@@ -3,7 +3,7 @@
   "latin": "Artemisia vulgaris",
   "class": "Oneirogen, Digestive Tonic",
   "intensity": "No direct intensity data. Contextual inference: Digestive aid, menstrual regulator, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, menstrual regulator, mild sedative. No direct region data. Contextual inference: Digestive aid, menstrual regulator, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, menstrual regulator, mild sedative. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [
     "thujone",
     "cineole",
@@ -24,7 +24,7 @@
     "Avoid with: Avoid with alcohol",
     "Avoid with: CNS stimulants"
   ],
-  "safetyNotes": "Safe in small doses,avoid high thujone exposure,Headache,nausea with excess,Mild (thujone content),Not clearly established,caution,Allergic reactions,especially in individuals sensitive to ragweed,potential uterine stimulation,No direct toxicity data. Contextual inference: Digestive aid,menstrual regulator,mild sedative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Digestive aid,mild sedative. none.",
+  "safetyNotes": "Safe in small doses; Avoid high thujone exposure; Headache; Nausea with excess; Mild (thujone content); Not clearly established; Allergic reactions; Especially in individuals sensitive to ragweed; Potential uterine stimulation; Menstrual regulator; Mild sedative; Antioxidant effects; Or enzyme inhibition; Avoid in pregnancy; Avoid with epilepsy; Avoid with thujone sensitivity.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Artemisia vulgaris (TaxID 4220)",
@@ -33,12 +33,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.856Z",
-  "description": "Digestive aid, menstrual regulator, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "0.5,1.5 g,day dried herb or extract",
+  "description": "Digestive aid, menstrual regulator, mild sedative.;.",
+  "dosage": "0.5-1.5 g/day dried herb or extract",
   "duration": "2–5 hours",
   "legalStatus": "Legal; traditional herbal use",
-  "preparation": "tincture",
-  "region": "europe, north america",
+  "preparation": "Tincture.",
+  "region": "Europe, north america.",
   "therapeuticUses": [
     "Digestive aid",
     "dream enhancement"

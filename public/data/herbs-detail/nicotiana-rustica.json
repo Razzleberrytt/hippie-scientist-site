@@ -3,7 +3,7 @@
   "latin": "Nicotiana rustica L.",
   "class": "Psychoactive, Ritualistic, Medicinal",
   "intensity": "Strong; significantly more intense than common tobacco",
-  "mechanism": "used in shamanic rituals for grounding and spirit communication",
+  "mechanism": "Used in shamanic rituals for grounding and spirit communication.",
   "activeCompounds": [
     "harman",
     "norharman",
@@ -31,15 +31,15 @@
   ],
   "interactions": [
     "MAOIs",
-    "stimulants",
-    "sedatives",
-    "antipsychotics",
-    "other nicotinic agonists and mao inhibitors.",
+    "Stimulants",
+    "Sedatives",
+    "Antipsychotics",
+    "Other nicotinic agonists and mao inhibitors",
     "May interact dangerously with MAOIs and stimulants",
-    "avoid combining with other psychoactives"
+    "Avoid combining with other psychoactives"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or maois without medical guidance, nausea, tachycardia, vomiting, dizziness at high doses [1, 0] or may interact with maois. Avoid with cardiac issues; Avoid in pregnancy; Avoid with CNS stimulants; Avoid with cardiovascular disease; Avoid with hypertension; Avoid with psychiatric conditions.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nicotiana rustica L.",
@@ -59,11 +59,11 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Nicotiana rustica is a medicinal herb traditionally used for intense stimulation and purging.",
-  "dosage": "No direct dosage data. Contextual inference: potent nicotiana rustica tobacco burned in ritual for focus and protection.. Nicotine agonizes nicotinic acetylcholine receptors,contains β,carbolines (harmala alkaloids) acting as reversible MAO inhibitors [1,0,1,9].. Potent tobacco,used in Amazonian rituals for purification and divination. 🇲🇽 latin america. Used in ritual,dreaming or folk medicine,No direct dosage data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. No direct region data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. No direct region data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.",
   "legalStatus": "Legal in most countries; regulated as tobacco in some regions",
-  "preparation": "smoked",
-  "region": "south america and worldwide cultivation",
+  "preparation": "Smoked.",
+  "region": "South america and worldwide cultivation.",
   "therapeuticUses": [
     "Spiritual cleansing",
     "nausea relief",

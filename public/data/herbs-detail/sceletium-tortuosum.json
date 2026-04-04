@@ -3,7 +3,7 @@
   "latin": "Sceletium tortuosum",
   "class": "Euphoriant, Anxiolytic",
   "intensity": "No direct intensity data. Contextual inference: Anxiolytic, mood enhancer, mild stimulant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anxiolytic, mood enhancer, mild stimulant. No direct region data. Contextual inference: Anxiolytic, mood enhancer, mild stimulant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anxiolytic, mood enhancer, mild stimulant. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [
     "mesembrine",
     "mesembrenone",
@@ -24,12 +24,12 @@
   "interactions": [
     "SSRIs",
     "MAOIs",
-    "stimulants",
-    "antidepressants",
-    "alcohol."
+    "Stimulants",
+    "Antidepressants",
+    "Alcohol"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or maois without medical guidance, mild nausea, sedation, headache, may interact with maois or may interact with ssris. Avoid with antidepressants; Avoid in pregnancy; Avoid with bipolar disorder.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Sceletium tortuosum",
@@ -38,12 +38,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.018Z",
-  "description": "Anxiolytic, mood enhancer, mild stimulant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Anxiolytic, mood enhancer, mild stimulant.",
   "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated in most areas",
-  "preparation": "extract",
-  "region": "south africa, namibia",
+  "preparation": "Extract.",
+  "region": "South africa, namibia.",
   "therapeuticUses": [
     "Anxiety",
     "depression",

@@ -29,22 +29,8 @@
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Stimulant and decongestant; contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and cns activity.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Stimulant and decongestant",
-    "contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors",
-    "raises heart rate and cns activity..",
-    "nan.. Ephedrine stimulates alpha and beta adrenergic receptors",
-    "raises heart rate and CNS activity.. Stimulant and decongestant",
-    "contains ephedrine alkaloids. No direct region data. Contextual inference: Stimulant and decongestant",
-    "contains ephedrine alkaloids.",
-    "nan.",
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan. No direct region data. Contextual inference:"
-  ],
+  "description": "Stimulant and decongestant; contains ephedrine alkaloids. Ephedrine stimulates alpha and beta adrenergic receptors; raises heart rate and cns activity.;.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "Avoid with: Strong additive toxicity with caffeine and other stimulants (tachycardia",
@@ -54,8 +40,8 @@
     "May potentiate: Can oppose antihypertensive therapy and increase cardiovascular event risk"
   ],
   "legalStatus": "Regulated globally",
-  "preparation": "tea",
-  "region": "china and central asia",
+  "preparation": "Tea.",
+  "region": "China and central asia.",
   "therapeuticUses": [
     "decongestant",
     "stimulant",

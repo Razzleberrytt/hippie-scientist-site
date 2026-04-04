@@ -29,7 +29,7 @@
     "avoid with limited safety data"
   ],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Traditional uses include skin and respiratory conditions,contains tannins. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional uses include skin and respiratory conditions,contains tannins. none.",
+  "safetyNotes": "Traditional uses include skin and respiratory conditions; Contains tannins; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Traditional uses include skin and respiratory conditions; Avoid with limited safety data.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Adenostoma fasciculatum (TaxID 140993)",
@@ -38,8 +38,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.841Z",
-  "description": "Traditional uses include skin and respiratory conditions; contains tannins. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Traditional uses include skin and respiratory conditions,contains tannins. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional uses include skin and respiratory conditions,contains tannins. No direct region data. Contextual inference: Traditional uses include skin and respiratory conditions,contains tannins. none.,nan.",
+  "description": "Traditional uses include skin and respiratory conditions; contains tannins..",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
   "preparation": "",

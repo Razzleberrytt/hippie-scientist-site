@@ -3,7 +3,7 @@
   "latin": "Cnidium monnieri",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Aphrodisiac, antipruritic, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, antipruritic, antifungal. No direct region data. Contextual inference: Aphrodisiac, antipruritic, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, antipruritic, antifungal. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "antimicrobial",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "caution,Possible skin irritation,avoid during pregnancy due to uterine stimulation,No direct toxicity data. Contextual inference: Aphrodisiac,antipruritic,antifungal. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Aphrodisiac,antifungal. none.",
+  "safetyNotes": "Possible skin irritation; Avoid during pregnancy due to uterine stimulation; Antipruritic; Antifungal; Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Cnidium monnieri (TaxID 94007)",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.901Z",
-  "description": "Aphrodisiac, antipruritic, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "500,1000 mg,day seed extract",
+  "description": "Aphrodisiac, antipruritic, antifungal.;.",
+  "dosage": "500-1000 mg/day seed extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal in traditional medicine; not widely regulated",
-  "preparation": "extract",
+  "preparation": "Extract.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

@@ -3,7 +3,7 @@
   "latin": "Capraria biflora",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory and antimicrobial; used for gastrointestinal issues in folk medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; used for gastrointestinal issues in folk medicine. No direct region data. Contextual inference: Anti-inflammatory and antimicrobial; used for gastrointestinal issues in folk medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; used for gastrointestinal issues in folk medicine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Anti-inflammatory and antimicrobial,used for gastrointestinal issues in folk medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory and antimicrobial,used for gastrointestinal issues in folk medicine. none.",
+  "safetyNotes": "Used for gastrointestinal issues in; Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Capraria biflora (TaxID 255867)",
@@ -20,8 +20,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.887Z",
-  "description": "Anti-inflammatory and antimicrobial; used for gastrointestinal issues in folk medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Anti,inflammatory and antimicrobial,used for gastrointestinal issues in folk medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti,used for gastrointestinal issues in folk medicine. No direct region data. Contextual inference: Anti,used for gastrointestinal issues in folk medicine. none.,nan.",
+  "description": "Anti-inflammatory and antimicrobial; used for gastrointestinal issues in.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
   "preparation": "",

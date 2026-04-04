@@ -23,7 +23,7 @@
     "Avoid with: Interacts with CNS depressants",
     "Avoid with: anticholinergic drugs"
   ],
-  "safetyNotes": "dry mouth,confusion,hallucinations,elevated heart rate.,High,contains atropine,scopolamine,hyoscyamine.,Highly toxic in moderate doses.",
+  "safetyNotes": "Dry mouth, confusion, hallucinations, elevated heart rate., High, contains atropine, scopolamine, hyoscyamine., Highly toxic in moderate doses.",
   "sources": [
     {
       "title": "NCBI Taxonomy: mandrake root",
@@ -33,11 +33,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.958Z",
   "description": "Mandrake root is a medicinal herb traditionally used for hallucinations and stupor.",
-  "dosage": "Extremely risky,used historically in small root slices.",
+  "dosage": "Extremely risky, used historically in small root slices.",
   "duration": "121.0",
   "legalStatus": "Controlled / Toxic",
-  "preparation": "tincture",
-  "region": "Mediterranean and Middle East",
+  "preparation": "Tincture.",
+  "region": "Mediterranean and Middle East.",
   "therapeuticUses": [
     "historically used as anesthetic",
     "antispasmodic",

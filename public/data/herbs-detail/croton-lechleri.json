@@ -3,14 +3,14 @@
   "latin": "Croton lechleri",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. No direct region data. Contextual inference: Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "antimicrobial"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference: Source of dragon’s blood,anti-diarrheal,antiviral,and wound healing. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Source of dragon’s blood,and wound healing. none.",
+  "safetyNotes": "Source of dragon’s blood; Anti-diarrheal; Antiviral; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Source of dragon’s blood.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Croton lechleri (TaxID 323063)",
@@ -19,8 +19,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.911Z",
-  "description": "Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "300,600 mg,day sap or extract",
+  "description": "Source of dragon’s blood; anti-diarrheal, antiviral, and wound healing.;.",
+  "dosage": "300-600 mg/day sap or extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",
   "preparation": "",

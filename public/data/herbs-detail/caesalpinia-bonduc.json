@@ -3,14 +3,14 @@
   "latin": "Caesalpinia bonduc",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antipyretic, antimalarial, aphrodisiac. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antipyretic, antimalarial, aphrodisiac. No direct region data. Contextual inference: Antipyretic, antimalarial, aphrodisiac. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antipyretic, antimalarial, aphrodisiac. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "libido enhancer"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,GI upset,constipation,or irritation at high doses,avoid during pregnancy,No direct toxicity data. Contextual inference: Antipyretic,antimalarial,aphrodisiac. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antipyretic,aphrodisiac. none.",
+  "safetyNotes": "GI upset; Constipation; Or irritation at high doses; Avoid during pregnancy; Antipyretic; Antimalarial; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Antipyretic.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Caesalpinia bonduc",
@@ -19,11 +19,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.877Z",
-  "description": "Antipyretic, antimalarial, aphrodisiac. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "250,500 mg,day seed extract",
+  "description": "Antipyretic, antimalarial, aphrodisiac.;.",
+  "dosage": "250-500 mg/day seed extract",
   "duration": "4–8 hours",
   "legalStatus": "Traditional use permitted; not widely regulated",
-  "preparation": "extract",
+  "preparation": "Extract.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

@@ -3,7 +3,7 @@
   "latin": "Ocimum tenuiflorum",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. Adaptogenic, immunomodulatory, stress-relieving; used in Ayurvedic medicine. No direct region data. Contextual inference: Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. Adaptogenic, immunomodulatory, stress-relieving; used in Ayurvedic medicine. ; nan; nan. ; nan; nan",
-  "mechanism": "acts as an adaptogen | modulates cortisol and inflammatory pathways",
+  "mechanism": "Acts as an adaptogen ,  modulates cortisol and inflammatory pathways.",
   "activeCompounds": [],
   "effects": [
     "anxiety relief",
@@ -14,11 +14,11 @@
     "increase bleeding risk"
   ],
   "interactions": [
-    "blood thinners",
-    "sedatives."
+    "Blood thinners",
+    "Sedatives"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, alcohol, or other cns depressants, rare nausea, drowsiness or increase bleeding risk. Avoid combining with sedatives; Avoid in pregnancy.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Ocimum tenuiflorum (TaxID 204149)",
@@ -27,12 +27,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.028Z",
-  "description": "Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.",
+  "description": "Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine.",
   "dosage": "Compare by leaf amount per serving and keep format consistent (tea vs capsule vs tincture) before changing dose.",
   "duration": "Often used as a daily baseline herb over medium-length routines.",
   "legalStatus": "Legal globally",
-  "preparation": "tincture",
-  "region": "unknown",
+  "preparation": "Tincture.",
+  "region": "",
   "therapeuticUses": [
     "Daily tea-based stress support",
     "Adaptogen baseline routines paired with sleep or focus herbs",

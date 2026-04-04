@@ -19,7 +19,6 @@
   ],
   "interactions": [
     "Avoid with: Sedatives (theoretical)",
-    "Avoid with: sedatives",
     "Caution with: depressants"
   ],
   "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
@@ -31,12 +30,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.949Z",
-  "description": "Skeletal muscle relaxant, calming; used in smoking blends. May act on gaba receptors; muscle relaxant and sedative properties.. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Skeletal muscle relaxant,calming,used in smoking blends. May act on gaba receptors,muscle relaxant and sedative properties..,nan.. May act on GABA receptors,muscle relaxant and sedative properties.. Skeletal muscle relaxant,used in smoking blends. No direct region data. Contextual inference: Skeletal muscle relaxant,used in smoking blends.,nan.",
+  "description": "Skeletal muscle relaxant, calming; used in smoking blends. May act on gaba receptors; muscle relaxant and sedative properties.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
-  "preparation": "smoked",
-  "region": "unknown",
+  "preparation": "Smoked.",
+  "region": "Unknown.",
   "therapeuticUses": [
     "Muscle tension",
     "pain",

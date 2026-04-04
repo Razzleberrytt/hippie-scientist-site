@@ -31,7 +31,7 @@
     "avoid in pregnancy"
   ],
   "interactions": [],
-  "safetyNotes": "safe,May cause constipation or dry mouth,rare allergic responses reported,No direct toxicity data. Contextual inference: Astringent,anti-inflammatory,digestive tonic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Astringent,digestive tonic. none.",
+  "safetyNotes": "May cause constipation or dry mouth; Rare allergic responses reported; Astringent; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Astringent; Avoid with generally safe when used as tea; Avoid with due to tannins cause constipation or reduce absorption of minerals; Avoid in pregnancy.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Agrimonia eupatoria (TaxID 57912)",
@@ -40,11 +40,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.843Z",
-  "description": "Astringent, anti-inflammatory, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "2,4 g,day herb infusion or 500 mg extract",
+  "description": "Astringent, anti-inflammatory, digestive tonic..",
+  "dosage": "2-4 g/day herb infusion or 500 mg extract",
   "duration": "3–5 hours",
   "legalStatus": "Legal and widely available in herbal products",
-  "preparation": "tea",
+  "preparation": "Tea.",
   "region": "",
   "therapeuticUses": [
     "Used traditionally for lung inflammation",

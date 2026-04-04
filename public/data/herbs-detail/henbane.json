@@ -22,7 +22,7 @@
     "Avoid with: Enhances effects of anticholinergics",
     "Avoid with: sedatives"
   ],
-  "safetyNotes": "not well documented,Contains tropane alkaloids (hyoscyamine,scopolamine) – highly toxic.",
+  "safetyNotes": "Not well documented, Contains tropane alkaloids (hyoscyamine, scopolamine) – highly toxic.",
   "sources": [
     {
       "title": "NCBI Taxonomy: henbane",
@@ -32,11 +32,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.941Z",
   "description": "A toxic plant used historically as an anesthetic, sedative, and hallucinogen.",
-  "dosage": "Not recommended,very narrow therapeutic window.",
+  "dosage": "Not recommended, very narrow therapeutic window.",
   "duration": "121.0",
   "legalStatus": "Controlled / Toxic",
-  "preparation": "smoked",
-  "region": "Eurasia",
+  "preparation": "Smoked.",
+  "region": "Eurasia.",
   "therapeuticUses": [
     "not well documented"
   ],

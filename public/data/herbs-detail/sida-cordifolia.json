@@ -3,7 +3,7 @@
   "latin": "Sida cordifolia",
   "class": "Stimulant, Traditional Medicine",
   "intensity": "No direct intensity data. Contextual inference: Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. No direct region data. Contextual inference: Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [
     "ephedrine",
     "pseudoephedrine",
@@ -26,10 +26,10 @@
   "interactions": [
     "Stimulants",
     "MAOIs",
-    "antihypertensives"
+    "Antihypertensives"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or maois without medical guidance, contains ephedrine, like alkaloids, increases bp, stroke risk or may interact with maois. Avoid with hypertension; Avoid with cardiac conditions; Avoid with heart conditions; Avoid in pregnancy.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Sida cordifolia (TaxID 108362)",
@@ -38,11 +38,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.020Z",
-  "description": "Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "100,300 mg,day aerial extract (restricted in some regions)",
+  "description": "Stimulant, anti-inflammatory, traditionally used for asthma and weight loss.",
+  "dosage": "100-300 mg/day aerial extract (restricted in some regions).",
   "duration": "4–6 hours",
   "legalStatus": "Regulated in some countries (ephedrine content)",
-  "preparation": "tincture",
+  "preparation": "Tincture.",
   "region": "",
   "therapeuticUses": [
     "Fatigue",

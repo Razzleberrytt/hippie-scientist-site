@@ -25,7 +25,7 @@
     "May potentiate: Risk of serotonin syndrome",
     "Caution with: hepatotoxic drugs"
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid high doses; May interact with maois",
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid high doses; May interact with maois.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Myristica fragrans (TaxID 51089)",
@@ -45,11 +45,11 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Myristica fragrans is a medicinal herb traditionally used for euphoria and hallucinations.",
-  "dosage": "No direct dosage data. Contextual inference: Used in spice blends,aphrodisiacs,and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends,and as a psychoactive in folk rituals... Used in spice blends,and as a psychoactive in folk rituals.. No direct effects data. Contextual inference: Used in spice blends,and as a psychoactive in folk rituals.. Used in spice blends,and as a psychoactive in folk rituals.. No direct region data. Contextual inference: Used in spice blends,and as a psychoactive in folk rituals.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. No direct effects data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. No direct region data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. No direct effects data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.",
   "legalStatus": "Legal, unscheduled",
   "preparation": "",
-  "region": "indonesia",
+  "region": "Indonesia.",
   "therapeuticUses": [
     "Digestive aid",
     "anti-inflammatory (culinary use)"

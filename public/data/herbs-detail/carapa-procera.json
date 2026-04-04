@@ -17,7 +17,7 @@
   "interactions": [
     "Caution with: limited interaction data"
   ],
-  "safetyNotes": "Safe when used topically in diluted form,Possible irritation if undiluted,Low topical toxicity,Unknown orally",
+  "safetyNotes": "Safe when used topically in diluted form, Possible irritation if undiluted, Low topical toxicity, Unknown orally.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Carapa procera (TaxID 587564)",
@@ -26,12 +26,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.973Z",
-  "description": "Used topically to treat skin infections and inflammation",
+  "description": "Used topically to treat skin infections and inflammation.",
   "dosage": "Oil applied topically 1–2 times/day",
   "duration": "Varies by condition",
   "legalStatus": "Unregulated",
-  "preparation": "extract",
-  "region": "Tropical Africa",
+  "preparation": "Extract.",
+  "region": "Tropical Africa.",
   "therapeuticUses": [
     "Eczema",
     "ringworm",

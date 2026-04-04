@@ -16,10 +16,10 @@
   ],
   "contraindications": [],
   "interactions": [
-    "May increase sedation when combined with CNS depressants."
+    "May increase sedation when combined with CNS depressants"
   ],
   "safetyLevel": "caution",
-  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid combining with sedatives, alcohol, or other CNS depressants.",
+  "safetyNotes": "May cause alcohol or or other cns depressants. Caution: safety evidence is limited or inconsistent. Avoid combining with sedatives.",
   "sources": [
     {
       "title": "NCBI Taxonomy: valerian root",
@@ -42,8 +42,8 @@
   "dosage": "Common use for sleep is 300-600 mg standardized extract 30-120 minutes before bedtime.",
   "duration": "Commonly used in short sleep-support blocks or intermittent bedtime use based on next-day grogginess tolerance.",
   "legalStatus": "legal",
-  "preparation": "tincture",
-  "region": "europe, north america",
+  "preparation": "Tincture.",
+  "region": "Europe, north america.",
   "therapeuticUses": [
     "Bedtime transition support",
     "Sleep routine escalation after tea-first strategies feel too light",

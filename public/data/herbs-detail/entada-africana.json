@@ -19,7 +19,7 @@
   "interactions": [
     "May potentiate: May enhance effects of NSAIDs"
   ],
-  "safetyNotes": "Safe in moderate doses,Possible mild GI upset,Low,Not well established",
+  "safetyNotes": "Safe in moderate doses, Possible mild GI upset, Low, Not well established.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Entada africana (TaxID 2005481)",
@@ -28,12 +28,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.974Z",
-  "description": "Used in traditional medicine for inflammation, liver support, and pain",
+  "description": "Used in traditional medicine for inflammation, liver support, and pain.",
   "dosage": "Leaf or bark decoction taken 1–2 times daily",
   "duration": "360",
   "legalStatus": "Unregulated",
-  "preparation": "tea",
-  "region": "West and Central Africa",
+  "preparation": "Tea.",
+  "region": "West and Central Africa.",
   "therapeuticUses": [
     "Hepatitis",
     "inflammation",

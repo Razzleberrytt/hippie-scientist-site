@@ -29,12 +29,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.954Z",
-  "description": "Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways; anxiolytic and sedative.. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:,No direct dosage data. Contextual inference: Anxiolytic,sedative,anti,inflammatory,used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways,anxiolytic and sedative..,nan.. Linalool modulates GABA and serotonin pathways,anxiolytic and sedative.. Anxiolytic,used in aromatherapy and teas. No direct region data. Contextual inference: Anxiolytic,used in aromatherapy and teas.",
+  "description": "Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways; anxiolytic and sedative.;.",
+  "dosage": "Anxiolytic, sedative, anti, inflammatory, used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways, anxiolytic and sedative.. Linalool modulates GABA and serotonin pathways, anxiolytic and sedative. Anxiolytic, used in aromatherapy and teas. Anxiolytic, used in aromatherapy and teas.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Legal globally",
-  "preparation": "tea",
-  "region": "mediterranean",
+  "preparation": "Tea.",
+  "region": "Mediterranean.",
   "therapeuticUses": [
     "anxiety relief",
     "sleep aid",

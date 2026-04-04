@@ -3,7 +3,7 @@
   "latin": "Nymphaea lotus L.",
   "class": "Ethnobotanical, Psychoactive, Relaxant",
   "intensity": "Mild",
-  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity",
+  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity.",
   "activeCompounds": [
     "nuciferine",
     "aporphine",
@@ -24,12 +24,12 @@
   ],
   "interactions": [
     "Potentiates effects of alcohol",
-    "opioids",
-    "and sedatives",
-    "may interact with dopamine pathways"
+    "Opioids",
+    "And sedatives",
+    "May interact with dopamine pathways"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, alcohol or or other cns depressants. Avoid combining with sedatives; Avoid use with CNS depressants; Avoid with sedatives; Avoid with and alcohol; Avoid in pregnancy.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nymphaea lotus L.",
@@ -49,11 +49,11 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Nymphaea lotus is a medicinal herb traditionally used for relaxation and mild euphoria.",
-  "dosage": "No direct dosage data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual,dreaming or folk medicine",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "Legal in most countries; restricted in some US states (e.g., Louisiana)",
-  "preparation": "tea",
-  "region": "africa and southeast asia",
+  "preparation": "Tea.",
+  "region": "Africa and southeast asia.",
   "therapeuticUses": [
     "Anxiety relief",
     "sleep aid",

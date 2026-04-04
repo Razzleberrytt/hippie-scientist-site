@@ -9,7 +9,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "high",
-  "safetyNotes": "High risk: serious toxicity or overdose harm is possible. Avoid unsupervised use and seek clinical guidance before use.",
+  "safetyNotes": "May cause high risk: serious toxicity or overdose harm is possible. avoid unsupervised use and seek clinical guidance before use.",
   "sources": [
     {
       "title": "NCBI Taxonomy: pausinystalia yohimbe",
@@ -19,11 +19,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.989Z",
   "description": "Pausinystalia yohimbe is a medicinal herb traditionally used for general wellness support.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "restricted",
-  "preparation": "extract",
-  "region": "africa",
+  "preparation": "Extract.",
+  "region": "Africa.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],

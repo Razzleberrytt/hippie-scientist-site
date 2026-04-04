@@ -3,7 +3,7 @@
   "latin": "Myroxylon balsamum",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used in perfumery and cough remedies; antiseptic properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in perfumery and cough remedies; antiseptic properties. No direct region data. Contextual inference: Used in perfumery and cough remedies; antiseptic properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in perfumery and cough remedies; antiseptic properties. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "respiratory support",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Used in perfumery and cough remedies,antiseptic properties. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in perfumery and cough remedies,antiseptic properties. none.",
+  "safetyNotes": "Used in perfumery and cough remedies; Antiseptic properties; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Used in perfumery and cough remedies.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Myroxylon balsamum (TaxID 53906)",
@@ -21,7 +21,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.969Z",
   "description": "Myroxylon balsamum is a medicinal herb traditionally used for perfumery and cough remedies and antiseptic properties.",
-  "dosage": "No direct dosage data. Contextual inference: Used in perfumery and cough remedies,antiseptic properties. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in perfumery and cough remedies,antiseptic properties. No direct region data. Contextual inference: Used in perfumery and cough remedies,antiseptic properties. none.,nan.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",
   "preparation": "",

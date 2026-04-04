@@ -3,14 +3,14 @@
   "latin": "Fagraea berteroana",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used in polynesian traditional medicine as analgesic and anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Polynesian traditional medicine as analgesic and anti-inflammatory. No direct region data. Contextual inference: Used in polynesian traditional medicine as analgesic and anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Polynesian traditional medicine as analgesic and anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Used in polynesian traditional medicine as analgesic and anti-inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in Polynesian traditional medicine as analgesic and anti-inflammatory. none.",
+  "safetyNotes": "Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Fagraea berteroana (TaxID 84940)",
@@ -19,8 +19,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.935Z",
-  "description": "Used in polynesian traditional medicine as analgesic and anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Used in polynesian traditional medicine as analgesic and anti,inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in Polynesian traditional medicine as analgesic and anti,inflammatory. No direct region data. Contextual inference: Used in polynesian traditional medicine as analgesic and anti,inflammatory. none.,nan.",
+  "description": "Used in polynesian traditional medicine as analgesic and anti-inflammatory.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
   "preparation": "",

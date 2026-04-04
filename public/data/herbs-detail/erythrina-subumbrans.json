@@ -3,14 +3,14 @@
   "latin": "Erythrina subumbrans",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Sedative and anxiolytic; used in thai traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative and anxiolytic; used in Thai traditional medicine. No direct region data. Contextual inference: Sedative and anxiolytic; used in thai traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative and anxiolytic; used in Thai traditional medicine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "relaxation"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Sedative and anxiolytic,used in thai traditional medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Sedative and anxiolytic,used in Thai traditional medicine. none.",
+  "safetyNotes": "Sedative and anxiolytic; Used in thai traditional medicine; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Sedative and anxiolytic.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Erythrina subumbrans (TaxID 1288014)",
@@ -19,8 +19,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.934Z",
-  "description": "Sedative and anxiolytic; used in thai traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Sedative and anxiolytic,used in thai traditional medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Sedative and anxiolytic,used in Thai traditional medicine. No direct region data. Contextual inference: Sedative and anxiolytic,used in Thai traditional medicine. none.,nan.",
+  "description": "Sedative and anxiolytic; used in thai traditional medicine.;.",
+  "dosage": "",
   "duration": "4–8 hours",
   "legalStatus": "Unregulated",
   "preparation": "",

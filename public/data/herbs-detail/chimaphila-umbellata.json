@@ -3,7 +3,7 @@
   "latin": "Chimaphila umbellata",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Diuretic, urinary antiseptic, traditionally used for bladder infections. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, urinary antiseptic, traditionally used for bladder infections. No direct region data. Contextual inference: Diuretic, urinary antiseptic, traditionally used for bladder infections. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, urinary antiseptic, traditionally used for bladder infections. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "antimicrobial",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,Rare GI upset,allergic reactions in sensitive individuals,No direct toxicity data. Contextual inference: Diuretic,urinary antiseptic,traditionally used for bladder infections. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diuretic,traditionally used for bladder infections. none.",
+  "safetyNotes": "Rare GI upset; Allergic reactions in sensitive individuals; Diuretic; Urinary antiseptic; Traditionally used for bladder infections; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Diuretic.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Chimaphila umbellata (TaxID 93815)",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.896Z",
-  "description": "Diuretic, urinary antiseptic, traditionally used for bladder infections. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "250,750 mg,day leaf extract",
+  "description": "Diuretic, urinary antiseptic, traditionally used for bladder infections.;.",
+  "dosage": "250-750 mg/day leaf extract",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
-  "preparation": "tea",
+  "preparation": "Tea.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

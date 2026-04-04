@@ -23,7 +23,7 @@
     "Avoid with: SSRIs",
     "Avoid with: psychedelics"
   ],
-  "safetyNotes": "May interact with ssris; Avoid with psychiatric disorders; May interact with maois",
+  "safetyNotes": "May interact with ssris; Avoid with psychiatric disorders; May interact with maois.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Banisteriopsis caapi (TaxID 577683)",
@@ -42,12 +42,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Amazonian vine used in ayahuasca brew for vision and healing",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "description": "Amazonian vine used in ayahuasca brew for vision and healing.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Restricted in some countries",
-  "preparation": "extract",
-  "region": "amazon basin: peru, brazil",
+  "preparation": "Extract.",
+  "region": "Amazon basin: peru, brazil.",
   "therapeuticUses": [
     "PTSD",
     "depression (investigational)"

@@ -28,12 +28,8 @@
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Laxative, wound healing, skin soother. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "0.5",
-    "1 g",
-    "day gel or juice"
-  ],
+  "description": "Laxative, wound healing, skin soother..",
+  "dosage": "0.5-1 g/day gel or juice",
   "duration": "Varies with form",
   "interactions": [
     "May potentiate: Latex may increase potassium loss with loop or thiazide diuretics and can raise digoxin toxicity risk",
@@ -41,7 +37,7 @@
     "May potentiate: Latex laxative effect may alter absorption of oral medicines if taken at the same time"
   ],
   "legalStatus": "Approved for external use; oral use regulated",
-  "preparation": "raw",
+  "preparation": "Raw.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

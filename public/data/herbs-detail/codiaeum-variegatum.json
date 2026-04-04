@@ -3,12 +3,12 @@
   "latin": "Codiaeum variegatum",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used in folk medicine for digestive and skin conditions. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in folk medicine for digestive and skin conditions. No direct region data. Contextual inference: Used in folk medicine for digestive and skin conditions. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in folk medicine for digestive and skin conditions. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Used in folk medicine for digestive and skin conditions. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in folk medicine for digestive and skin conditions. none.",
+  "safetyNotes": "Used in for digestive and skin conditions; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Used in for digestive and skin conditions.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Codiaeum variegatum (TaxID 138558)",
@@ -17,8 +17,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.901Z",
-  "description": "Used in folk medicine for digestive and skin conditions. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Used in folk medicine for digestive and skin conditions. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in folk medicine for digestive and skin conditions. No direct region data. Contextual inference: Used in folk medicine for digestive and skin conditions. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in folk medicine for digestive and skin conditions. none.,nan.",
+  "description": "Used in for digestive and skin conditions.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Ornamental; not regulated as a medicine",
   "preparation": "",

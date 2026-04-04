@@ -3,7 +3,7 @@
   "latin": "Poria cocos",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Diuretic, calming, spleen tonic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, calming, spleen tonic in TCM. No direct region data. Contextual inference: Diuretic, calming, spleen tonic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, calming, spleen tonic in TCM. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "relaxation",
@@ -12,7 +12,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "low",
-  "safetyNotes": "Low risk at typical doses for most adults. Use standard doses and stop if adverse effects appear.",
+  "safetyNotes": "Generally well tolerated. May cause mild gi effects in some.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Poria cocos",
@@ -22,7 +22,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.000Z",
   "description": "Poria cocos is a medicinal herb traditionally used for diuretic and calming.",
-  "dosage": "No direct dosage data. Contextual inference: Diuretic,calming,spleen tonic in tcm. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diuretic,spleen tonic in TCM. No direct region data. Contextual inference: Diuretic,spleen tonic in TCM. none.,nan.",
+  "dosage": "",
   "duration": "4–8 hours",
   "legalStatus": "Legal globally",
   "preparation": "",

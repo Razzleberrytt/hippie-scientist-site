@@ -18,7 +18,7 @@
   "interactions": [
     "May potentiate: Additive effect with NSAIDs"
   ],
-  "safetyNotes": "Safe at traditional doses,Rare headache or GI upset,Low to moderate",
+  "safetyNotes": "Safe at traditional doses, Rare headache or GI upset, Low to moderate.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Gymnosporia senegalensis (TaxID 256095)",
@@ -27,12 +27,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.974Z",
-  "description": "Shrub used traditionally to treat pain and joint issues",
+  "description": "Shrub used traditionally to treat pain and joint issues.",
   "dosage": "Bark decoction or root infusion",
   "duration": "360",
   "legalStatus": "Not controlled",
-  "preparation": "tea",
-  "region": "East and West Africa",
+  "preparation": "Tea.",
+  "region": "East and West Africa.",
   "therapeuticUses": [
     "Arthritis",
     "rheumatic pain"

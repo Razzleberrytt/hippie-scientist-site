@@ -3,7 +3,7 @@
   "latin": "Pimenta racemosa",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antiseptic and aromatic; used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic and aromatic; used in Bay Rum for skin and scalp. No direct region data. Contextual inference: Antiseptic and aromatic; used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic and aromatic; used in Bay Rum for skin and scalp. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "antimicrobial"
@@ -21,7 +21,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.995Z",
   "description": "Pimenta racemosa is a medicinal herb traditionally used for antiseptic and aromatic and bay rum for skin and scalp.",
-  "dosage": "No direct dosage data. Contextual inference: Antiseptic and aromatic,used in bay rum for skin and scalp. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiseptic and aromatic,used in Bay Rum for skin and scalp. No direct region data. Contextual inference: Antiseptic and aromatic,used in Bay Rum for skin and scalp. none.,nan.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",
   "preparation": "",

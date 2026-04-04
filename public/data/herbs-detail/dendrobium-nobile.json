@@ -3,14 +3,14 @@
   "latin": "Dendrobium nobile",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Tonic, immune support, adaptogen in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic, immune support, adaptogen in TCM. No direct region data. Contextual inference: Tonic, immune support, adaptogen in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic, immune support, adaptogen in TCM. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "immune support"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Well tolerated,high doses may cause dry mouth or dizziness,No direct toxicity data. Contextual inference: Tonic,immune support,adaptogen in tcm. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Tonic,adaptogen in TCM. none.",
+  "safetyNotes": "Well tolerated; High doses may cause dry mouth or dizziness; Immune support; Adaptogen in tcm; Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Dendrobium nobile (TaxID 94219)",
@@ -19,8 +19,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.917Z",
-  "description": "Tonic, immune support, adaptogen in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Tonic,immune support,adaptogen in tcm. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Tonic,adaptogen in TCM. No direct region data. Contextual inference: Tonic,adaptogen in TCM. none.,nan.",
+  "description": "Tonic, immune support, adaptogen in tcm.;.",
+  "dosage": "",
   "duration": "6–8 hours",
   "legalStatus": "Legal in most herbal systems",
   "preparation": "",

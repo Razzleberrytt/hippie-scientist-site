@@ -31,7 +31,7 @@
     "Avoid with: other tryptamines",
     "Avoid with: stimulants"
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with asthma; May interact with maois",
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with asthma; May interact with maois.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Anadenanthera peregrina (TaxID 148672)",
@@ -50,12 +50,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "South American snuff prepared from seeds, used for intense visionary states",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "description": "South American snuff prepared from seeds, used for intense visionary states.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Unregulated; some tryptamines controlled",
-  "preparation": "extract",
-  "region": "venezuela, brazil",
+  "preparation": "Extract.",
+  "region": "Venezuela, brazil.",
   "therapeuticUses": [
     "Spiritual insight",
     "ceremonial use",

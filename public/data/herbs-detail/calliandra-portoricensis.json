@@ -3,7 +3,7 @@
   "latin": "Calliandra portoricensis",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used in traditional african medicine as anti-inflammatory and analgesic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in traditional African medicine as anti-inflammatory and analgesic. No direct region data. Contextual inference: Used in traditional african medicine as anti-inflammatory and analgesic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in traditional African medicine as anti-inflammatory and analgesic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "pain relief",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Used in traditional african medicine as anti-inflammatory and analgesic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in traditional African medicine as anti-inflammatory and analgesic. none.",
+  "safetyNotes": "Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Calliandra portoricensis",
@@ -20,8 +20,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.882Z",
-  "description": "Used in traditional african medicine as anti-inflammatory and analgesic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Used in traditional african medicine as anti,inflammatory and analgesic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in traditional African medicine as anti,inflammatory and analgesic. No direct region data. Contextual inference: Used in traditional african medicine as anti,inflammatory and analgesic. none.,nan.",
+  "description": "Used in traditional african medicine as anti-inflammatory and analgesic.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
   "preparation": "",

@@ -3,7 +3,7 @@
   "latin": "Panax quinquefolius",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, immune modulator, energy support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, immune modulator, energy support. No direct region data. Contextual inference: Adaptogen, immune modulator, energy support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, immune modulator, energy support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "stimulation",
@@ -12,7 +12,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "caution",
-  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
+  "safetyNotes": "May cause similar to panax ginseng or may cause bleeding risk. Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Panax quinquefolius (TaxID 44588)",
@@ -22,10 +22,10 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.986Z",
   "description": "Panax quinquefolius is a medicinal herb traditionally used for adaptogen and immune modulator.",
-  "dosage": "250,1000 mg,day root extract",
+  "dosage": "250-1000 mg/day root extract.",
   "duration": "4–8 hours",
   "legalStatus": "Legal; widely available in North America",
-  "preparation": "tea",
+  "preparation": "Tea.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

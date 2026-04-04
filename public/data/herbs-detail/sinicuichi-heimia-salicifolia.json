@@ -3,7 +3,7 @@
   "latin": "Sinicuichi (Heimia salicifolia)",
   "class": "Psychoactive, auditory hallucinogen",
   "intensity": "Mild to moderate",
-  "mechanism": "contains alkaloids that act on cholinergic pathways and gaba receptors",
+  "mechanism": "Contains alkaloids that act on cholinergic pathways and gaba receptors.",
   "activeCompounds": [
     "lyfoline",
     "lythrine"
@@ -20,12 +20,12 @@
     "avoid with concurrent cns depressants"
   ],
   "interactions": [
-    "May increase sedation when combined with CNS depressants.",
-    "Use caution with serotonergic or psychoactive medications due to possible CNS interaction.",
-    "Use caution with hepatotoxic medications."
+    "May increase sedation when combined with CNS depressants",
+    "Use caution with serotonergic or psychoactive medications due to possible CNS interaction",
+    "Use caution with hepatotoxic medications"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician or do not combine with serotonergic drugs or maois without medical guidance. Avoid in pregnancy; Avoid in liver disease; Avoid with concurrent CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Sinicuichi (Heimia salicifolia)",
@@ -44,12 +44,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Sinicuichi is a traditional Mexican herb used for inducing auditory distortions, mild sedation, and dream enhancement. It has historical use in spiritual and shamanic practices.",
-  "dosage": "20–50g dried leaves brewed into tea",
+  "description": "Sinicuichi is a traditional Mexican herb used for inducing auditory distortions, mild sedation, and dream enhancement.",
+  "dosage": "20–50g dried leaves brewed into tea.",
   "duration": "4–6 hours",
   "legalStatus": "",
-  "preparation": "tea",
-  "region": "Mexico, Central America",
+  "preparation": "Tea.",
+  "region": "Mexico, Central America.",
   "therapeuticUses": [
     "Used traditionally for memory enhancement and relaxation"
   ],

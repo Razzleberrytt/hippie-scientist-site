@@ -19,7 +19,7 @@
   "interactions": [
     "May potentiate: likely potentiates CNS effects"
   ],
-  "safetyNotes": "Dangerous,Vomiting,delirium,convulsions,High,~40 mg/kg (mice)",
+  "safetyNotes": "Dangerous, Vomiting, delirium, convulsions, High, ~40 mg/kg (mice).",
   "sources": [
     {
       "title": "NCBI Taxonomy: Cestrum parqui (TaxID 142762)",
@@ -28,12 +28,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.975Z",
-  "description": "Toxic ornamental shrub sometimes misused for psychoactive effects",
+  "description": "Toxic ornamental shrub sometimes misused for psychoactive effects.",
   "dosage": "Not recommended; toxic at low doses",
   "duration": "Varies (toxic effects last hours)",
   "legalStatus": "Legal but toxic",
   "preparation": "",
-  "region": "South America",
+  "region": "South America.",
   "therapeuticUses": [
     "None safe"
   ],

@@ -3,7 +3,7 @@
   "latin": "Chelidonium majus",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antispasmodic, cholagogue, liver support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antispasmodic, cholagogue, liver support. No direct region data. Contextual inference: Antispasmodic, cholagogue, liver support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antispasmodic, cholagogue, liver support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "relaxation",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "caution,Liver toxicity in high doses or long-term use,GI upset,drowsiness,No direct toxicity data. Contextual inference: Antispasmodic,cholagogue,liver support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antispasmodic,liver support. none.",
+  "safetyNotes": "Liver toxicity in high doses or long-term use; GI upset; Drowsiness; Cholagogue; Liver support; Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Chelidonium majus (TaxID 71251)",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.896Z",
-  "description": "Antispasmodic, cholagogue, liver support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "Caution,100,300 mg,day under supervision",
+  "description": "Antispasmodic, cholagogue, liver support.;.",
+  "dosage": "Caution, 100-300 mg/day under supervision",
   "duration": "4–6 hours",
   "legalStatus": "Legal but restricted in some countries",
-  "preparation": "tincture",
+  "preparation": "Tincture.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

@@ -3,12 +3,12 @@
   "latin": "Alyxia stellata",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Traditional hawaiian use as tonic and for childbirth. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional Hawaiian use as tonic and for childbirth. No direct region data. Contextual inference: Traditional hawaiian use as tonic and for childbirth. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional Hawaiian use as tonic and for childbirth. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Limited data,may cause nausea or dizziness in high doses or sensitive individuals,No direct toxicity data. Contextual inference: Traditional hawaiian use as tonic and for childbirth. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional Hawaiian use as tonic and for childbirth. none.",
+  "safetyNotes": "Limited data; May cause nausea or dizziness in high doses or sensitive individuals; Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Alyxia stellata (TaxID 1619821)",
@@ -17,8 +17,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.846Z",
-  "description": "Traditional hawaiian use as tonic and for childbirth. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Traditional hawaiian use as tonic and for childbirth. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional Hawaiian use as tonic and for childbirth. No direct region data. Contextual inference: Traditional hawaiian use as tonic and for childbirth. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional Hawaiian use as tonic and for childbirth. none.,nan.",
+  "description": "Traditional hawaiian use as tonic and for childbirth.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated; used in Hawaiian folk medicine",
   "preparation": "",

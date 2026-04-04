@@ -16,11 +16,11 @@
     "avoid with hypotension"
   ],
   "interactions": [
-    "sedatives",
-    "antihypertensives."
+    "Sedatives",
+    "Antihypertensives"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, alcohol, or other cns depressants or mild sedation. Avoid combining with sedatives; Avoid in pregnancy; Avoid with hypotension.",
   "sources": [
     {
       "title": "NCBI Taxonomy: leonurus sibiricus",
@@ -29,12 +29,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.020Z",
-  "description": "Mild sedative, uterine tonic, and relaxant; used in traditional chinese medicine. Contains leonurine; acts as a mild gaba modulator and muscle relaxant.. ; nan; nan.",
+  "description": "Mild sedative, uterine tonic, and relaxant; used in traditional chinese medicine.",
   "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "Legal globally",
   "preparation": "",
-  "region": "unknown",
+  "region": "",
   "therapeuticUses": [
     "anxiety relief",
     "heart health",

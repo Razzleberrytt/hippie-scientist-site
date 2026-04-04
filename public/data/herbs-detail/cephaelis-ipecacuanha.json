@@ -3,7 +3,7 @@
   "latin": "Cephaelis ipecacuanha",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Emetic, expectorant, used for bronchial issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emetic, expectorant, used for bronchial issues. No direct region data. Contextual inference: Emetic, expectorant, used for bronchial issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emetic, expectorant, used for bronchial issues. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "digestive support",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "caution,Nausea,vomiting,cardiotoxicity in overdose due to emetine content,No direct toxicity data. Contextual inference: Emetic,expectorant,used for bronchial issues. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Emetic,used for bronchial issues. none.",
+  "safetyNotes": "Nausea; Vomiting; Cardiotoxicity in overdose due to emetine content; Emetic; Expectorant; Used for bronchial issues; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Emetic.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Cephaelis ipecacuanha",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.894Z",
-  "description": "Emetic, expectorant, used for bronchial issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "50,100 mg,day extract (emetic use rarely needed today)",
+  "description": "Emetic, expectorant, used for bronchial issues.;.",
+  "dosage": "50-100 mg/day extract (emetic use rarely needed today)",
   "duration": "2–4 hours",
   "legalStatus": "Controlled; rarely used today",
-  "preparation": "extract",
+  "preparation": "Extract.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

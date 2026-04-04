@@ -3,14 +3,14 @@
   "latin": "Macaranga tanarius",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as anti-inflammatory and for wound healing. No direct region data. Contextual inference: Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as anti-inflammatory and for wound healing. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditionally used as anti-inflammatory and for wound healing. none.",
+  "safetyNotes": "Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Macaranga tanarius (TaxID 109849)",
@@ -20,7 +20,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.957Z",
   "description": "Macaranga tanarius is a medicinal herb traditionally used for anti-inflammatory-inflammatory and for wound healing and anti-inflammatory.",
-  "dosage": "No direct dosage data. Contextual inference: Traditionally used as anti,inflammatory and for wound healing. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditionally used as anti,inflammatory and for wound healing. No direct region data. Contextual inference: Traditionally used as anti,inflammatory and for wound healing. none.,nan.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
   "preparation": "",

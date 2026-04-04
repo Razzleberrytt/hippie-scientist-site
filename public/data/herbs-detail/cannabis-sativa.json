@@ -3,7 +3,7 @@
   "latin": "Cannabis sativa",
   "class": "Psychoactive, Euphoriant",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "THC is a partial CB1/CB2 agonist and CBD modulates endocannabinoid signaling with additional receptor-level effects; clinical effects vary by THC:CBD ratio and route.",
+  "mechanism": "THC is a partial CB1/CB2 agonist and CBD modulates endocannabinoid signaling with additional receptor-level effects; clinical effects vary by THC: CBD ratio and route.",
   "activeCompounds": [
     "THC",
     "CBD",
@@ -37,15 +37,8 @@
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Globally known psychoactive plant used medicinally and recreationally",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
+  "description": "Globally known psychoactive plant used medicinally and recreationally.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "Avoid with: Additive sedation and psychomotor impairment with alcohol",
@@ -57,8 +50,8 @@
     "May potentiate: May increase tachycardia risk with sympathomimetic agents"
   ],
   "legalStatus": "Legal/regulated/illegal depending on region",
-  "preparation": "smoked",
-  "region": "cultivated worldwide",
+  "preparation": "Smoked.",
+  "region": "Cultivated worldwide.",
   "therapeuticUses": [
     "Pain relief",
     "nausea",

@@ -15,10 +15,11 @@
   ],
   "contraindications": [],
   "interactions": [
-    "Potential additive sedation with CNS depressants; monitor with thyroid medications."
+    "Potential additive sedation with CNS depressants",
+    "Monitor with thyroid medications"
   ],
   "safetyLevel": "caution",
-  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid combining with sedatives, alcohol, or other CNS depressants.",
+  "safetyNotes": "May cause alcohol or or other cns depressants. Caution: safety evidence is limited or inconsistent. Avoid combining with sedatives.",
   "sources": [
     {
       "title": "NCBI Taxonomy: withania somnifera (ashwagandha)",
@@ -27,12 +28,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.033Z",
-  "description": "; nan; nan.",
+  "description": "",
   "dosage": "Common adult use is 300-600 mg/day of root extract standardized to withanolides.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "legal",
-  "preparation": "tea",
-  "region": "🇮🇳 india",
+  "preparation": "Tea.",
+  "region": "🇮🇳 india.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],

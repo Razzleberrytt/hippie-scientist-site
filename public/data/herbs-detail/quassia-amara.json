@@ -20,11 +20,11 @@
     "avoid in active peptic ulcer or severe gastritis"
   ],
   "interactions": [
-    "may increase gastrointestinal irritation when combined with NSAIDs or other gastric irritants",
-    "use caution with other strongly bitter digestive stimulants"
+    "May increase gastrointestinal irritation when combined with NSAIDs or other gastric irritants",
+    "Use caution with other strongly bitter digestive stimulants"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with other stimulants.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, bitter compounds may cause nausea or gi discomfort. Avoid combining with other stimulants; Avoid during pregnancy because concentrated bitter principles may increase uterine activity risk; Avoid in active peptic ulcer or severe gastritis.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Quassia amara (TaxID 43725)",
@@ -34,7 +34,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.004Z",
   "description": "Quassia amara is a medicinal herb traditionally used for bitter tonic and digestive stimulant.",
-  "dosage": "250,500 mg,day wood or extract",
+  "dosage": "250-500 mg/day wood or extract.",
   "duration": "2–4 hours",
   "legalStatus": "Legal in herbal medicine",
   "preparation": "",

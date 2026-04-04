@@ -31,7 +31,7 @@
     "avoid with handling requires caution"
   ],
   "interactions": [],
-  "safetyNotes": "Toxic – avoid oral use,No direct toxicity data. Contextual inference: Potent analgesic and anti-inflammatory,extremely toxic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Potent analgesic and anti-inflammatory,extremely toxic. none.",
+  "safetyNotes": "Toxic – avoid oral use; Extremely toxic; Antioxidant effects; Or enzyme inhibition; Avoid with highly toxic; Avoid with ingestion can cause severe arrhythmias; Avoid with paralysis and death; Avoid internal use; Avoid with handling requires caution.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Aconitum napellus (TaxID 112591)",
@@ -40,8 +40,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.836Z",
-  "description": "Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "Toxic,used in homeopathy only",
+  "description": "Potent analgesic and anti-inflammatory; extremely toxic..",
+  "dosage": "Toxic, used in homeopathy only",
   "duration": "4–8 hours",
   "legalStatus": "Restricted or banned in many countries",
   "preparation": "",

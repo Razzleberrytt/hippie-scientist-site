@@ -3,7 +3,7 @@
   "latin": "tamarindus indica",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. No direct region data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.",
-  "mechanism": "used in traditional medicine and cuisine for digestive support",
+  "mechanism": "Used in traditional medicine and cuisine for digestive support.",
   "activeCompounds": [
     "tartaric acid",
     "lupeol"
@@ -13,11 +13,14 @@
   ],
   "contraindications": [],
   "interactions": [
-    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
-    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+    "Insufficient direct interaction data for this herb",
+    "Consult a clinician before combining with prescription medications",
+    "Use extra caution with anticoagulants",
+    "Sedatives",
+    "And serotonergic drugs until herb-specific interaction evidence is established"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: tamarindus indica (TaxID 58860)",
@@ -36,12 +39,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Used in traditional medicine and cuisine for digestive support..",
+  "description": "Used in traditional medicine and cuisine for digestive support.",
   "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. No direct region data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.",
   "legalStatus": "",
   "preparation": "",
-  "region": "africa, south asia",
+  "region": "Africa, south asia.",
   "therapeuticUses": [],
   "traditionalUse": "Used in traditional medicine and cuisine for digestive support.",
   "sideEffects": [],

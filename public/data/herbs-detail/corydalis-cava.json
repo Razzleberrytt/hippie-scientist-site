@@ -3,7 +3,7 @@
   "latin": "Corydalis cava",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Analgesic, sedative, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic, sedative, antispasmodic. No direct region data. Contextual inference: Analgesic, sedative, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic, sedative, antispasmodic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "relaxation",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "May cause sedation,nausea,and dizziness,avoid in pregnancy and with sedatives,No direct toxicity data. Contextual inference: Analgesic,sedative,antispasmodic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Analgesic,antispasmodic. none.",
+  "safetyNotes": "May cause sedation; Nausea; And dizziness; Avoid in pregnancy and with sedatives; Analgesic; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Analgesic.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Corydalis cava (TaxID 581246)",
@@ -20,8 +20,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.909Z",
-  "description": "Analgesic, sedative, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Analgesic,sedative,antispasmodic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Analgesic,antispasmodic. No direct region data. Contextual inference: Analgesic,antispasmodic. none.,nan.",
+  "description": "Analgesic, sedative, antispasmodic.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated; traditionally used in Europe",
   "preparation": "",

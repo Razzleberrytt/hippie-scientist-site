@@ -3,7 +3,7 @@
   "latin": "Rauvolfia serpentina",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antihypertensive, sedative, tranquilizer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antihypertensive, sedative, tranquilizer. No direct region data. Contextual inference: Antihypertensive, sedative, tranquilizer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antihypertensive, sedative, tranquilizer. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "relaxation",
@@ -12,7 +12,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with sedatives, alcohol, or other CNS depressants.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid combining with sedatives, alcohol, or other cns depressants, sedation, depression or nasal congestion. Avoid in depression.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rauvolfia serpentina (TaxID 4060)",
@@ -22,10 +22,10 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.005Z",
   "description": "Rauvolfia serpentina is a medicinal herb traditionally used for antihypertensive and sedative.",
-  "dosage": "No direct dosage data. Contextual inference: Antihypertensive,sedative,tranquilizer. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antihypertensive,tranquilizer. No direct region data. Contextual inference: Antihypertensive,tranquilizer. none.,nan.",
+  "dosage": "",
   "duration": "6–12 hours",
   "legalStatus": "Controlled or restricted in some regions",
-  "preparation": "tea",
+  "preparation": "Tea.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

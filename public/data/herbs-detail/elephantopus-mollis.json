@@ -3,7 +3,7 @@
   "latin": "Elephantopus mollis",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antipyretic, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antipyretic, antimicrobial. No direct region data. Contextual inference: Anti-inflammatory, antipyretic, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antipyretic, antimicrobial. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Insufficient safety data,use with caution,possible GI effects,No direct toxicity data. Contextual inference: Anti-inflammatory,antipyretic,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,antimicrobial. none.",
+  "safetyNotes": "Insufficient safety data; Use with caution; Possible GI effects; Antipyretic; Antimicrobial; Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Elephantopus mollis (TaxID 318057)",
@@ -20,8 +20,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.925Z",
-  "description": "Anti-inflammatory, antipyretic, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Anti,inflammatory,antipyretic,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti,antimicrobial. No direct region data. Contextual inference: Anti,antimicrobial. none.,nan.",
+  "description": "Anti-inflammatory, antipyretic, antimicrobial.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated; folk use",
   "preparation": "",

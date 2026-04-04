@@ -3,7 +3,7 @@
   "latin": "Boswellia serrata",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, analgesic, arthritic support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, arthritic support. No direct region data. Contextual inference: Anti-inflammatory, analgesic, arthritic support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, arthritic support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "pain relief",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,Mild GI symptoms like nausea or diarrhea,rare allergic reactions,No direct toxicity data. Contextual inference: Anti-inflammatory,analgesic,arthritic support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,arthritic support. none.",
+  "safetyNotes": "Mild GI symptoms like nausea or diarrhea; Rare allergic reactions; Analgesic; Arthritic support; Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Boswellia serrata (TaxID 613112)",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.871Z",
-  "description": "Anti-inflammatory, analgesic, arthritic support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "300,600 mg,day extract (standardized)",
+  "description": "Anti-inflammatory, analgesic, arthritic support.;.",
+  "dosage": "300-600 mg/day extract (standardized)",
   "duration": "6–8 hours",
   "legalStatus": "Widely legal; used in supplements and Ayurvedic medicine",
-  "preparation": "smoked",
+  "preparation": "Smoked.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

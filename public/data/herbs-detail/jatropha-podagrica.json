@@ -14,7 +14,7 @@
   "interactions": [
     "Avoid with: avoid with protein synthesis inhibitors"
   ],
-  "safetyNotes": "Toxic if ingested,severe vomiting,diarrhea,respiratory failure,High,contains curcin and phorbol esters.",
+  "safetyNotes": "Toxic if ingested, severe vomiting, diarrhea, respiratory failure, High, contains curcin and phorbol esters.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Jatropha podagrica (TaxID 454933)",
@@ -24,11 +24,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.950Z",
   "description": "Ornamental and medicinal plant with thick stem and red flowers.",
-  "dosage": "Not safe for ingestion,used externally in traditional remedies.",
+  "dosage": "Not safe for ingestion, used externally in traditional remedies.",
   "duration": "Topical effects within hours; no systemic duration due to toxicity.",
   "legalStatus": "Toxic plant; not approved for medical use",
-  "preparation": "extract",
-  "region": "Central America",
+  "preparation": "Extract.",
+  "region": "Central America.",
   "therapeuticUses": [],
   "traditionalUse": "Used externally for joint pain and inflammation in folk medicine.",
   "sideEffects": [

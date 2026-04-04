@@ -3,7 +3,7 @@
   "latin": "Ptychopetalum olacoides Benth.",
   "class": "Nootropic, Aphrodisiac, Adaptogen",
   "intensity": "Mild to moderate",
-  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity; Alkaloid constituents can modulate neuronal signaling pathways",
+  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity; Alkaloid constituents can modulate neuronal signaling pathways.",
   "activeCompounds": [
     "sterols",
     "alkaloids",
@@ -27,13 +27,12 @@
   "interactions": [
     "Stimulants",
     "MAOIs",
-    "stimulants",
-    "antidepressants.",
+    "Antidepressants",
     "May potentiate stimulants and antidepressants",
-    "avoid combining with MAOIs"
+    "Avoid combining with MAOIs"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician or do not combine with serotonergic drugs or maois without medical guidance. Avoid with high blood pressure; Avoid with hypertension; Avoid in pregnancy; Avoid in patients with hypertension or cardiac issues.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Ptychopetalum olacoides Benth.",
@@ -53,11 +52,11 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Ptychopetalum olacoides is a medicinal herb traditionally used for mental clarity and energy boost.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Legal and widely sold in supplements globally",
-  "preparation": "tincture",
-  "region": "amazon",
+  "preparation": "Tincture.",
+  "region": "Amazon.",
   "therapeuticUses": [
     "Memory",
     "fatigue",

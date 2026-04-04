@@ -3,7 +3,7 @@
   "latin": "Trifolium pratense",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Phytoestrogenic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Phytoestrogenic, blood purifier, anti-inflammatory. No direct region data. Contextual inference: Phytoestrogenic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Phytoestrogenic, blood purifier, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -12,11 +12,14 @@
   ],
   "contraindications": [],
   "interactions": [
-    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
-    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+    "Insufficient direct interaction data for this herb",
+    "Consult a clinician before combining with prescription medications",
+    "Use extra caution with anticoagulants",
+    "Sedatives",
+    "And serotonergic drugs until herb-specific interaction evidence is established"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance, mild estrogenic effects or sensitive conditions. Avoid in hormone.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Trifolium pratense (TaxID 57577)",
@@ -25,11 +28,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.027Z",
-  "description": "Phytoestrogenic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "40,80 mg,day extract (standardized)",
+  "description": "Phytoestrogenic, blood purifier, anti-inflammatory.",
+  "dosage": "40-80 mg/day extract (standardized).",
   "duration": "Weeks to months",
   "legalStatus": "Legal globally",
-  "preparation": "tincture",
+  "preparation": "Tincture.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

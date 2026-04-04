@@ -3,14 +3,14 @@
   "latin": "Equisetum arvense",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Diuretic, wound healing, remineralizing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, wound healing, remineralizing. No direct region data. Contextual inference: Diuretic, wound healing, remineralizing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, wound healing, remineralizing. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "detoxification"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,May cause thiamine deficiency or GI upset with prolonged use,No direct toxicity data. Contextual inference: Diuretic,wound healing,remineralizing. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diuretic,remineralizing. none.",
+  "safetyNotes": "May cause thiamine deficiency or GI upset with prolonged use; Diuretic; Remineralizing; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Diuretic.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Equisetum arvense (TaxID 3258)",
@@ -19,8 +19,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.933Z",
-  "description": "Diuretic, wound healing, remineralizing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "2,4 g,day dried herb or 250,500 mg extract",
+  "description": "Diuretic, wound healing, remineralizing.;.",
+  "dosage": "2-4 g/day dried herb or 250-500 mg extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal; widely used in herbalism",
   "preparation": "",

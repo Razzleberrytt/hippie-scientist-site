@@ -3,7 +3,7 @@
   "latin": "Spathodea campanulata",
   "class": "Antibacterial, Hemostatic",
   "intensity": "Mild",
-  "mechanism": "tannin-mediated astringency and antimicrobial activity",
+  "mechanism": "Tannin-mediated astringency and antimicrobial activity.",
   "activeCompounds": [
     "phenolics",
     "flavonoids",
@@ -19,7 +19,7 @@
     "May interfere with anticoagulants"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Use caution with anticoagulants or antiplatelet drugs; Stop use if rash or allergic symptoms occur.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. use caution with anticoagulants or antiplatelet drugs or stop use if rash or allergic symptoms occur. Avoid with potential allergenicity with long-term use.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Spathodea campanulata (TaxID 211926)",
@@ -28,12 +28,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.973Z",
-  "description": "Used for wound healing, infections, and inflammation in ethnobotany",
-  "dosage": "Topical application or tea, 2–3x daily",
+  "description": "Used for wound healing, infections, and inflammation in ethnobotany.",
+  "dosage": "Topical application or tea, 2–3x daily.",
   "duration": "300",
   "legalStatus": "Widely unregulated",
-  "preparation": "tea",
-  "region": "Tropical Africa, Asia",
+  "preparation": "Tea.",
+  "region": "Tropical Africa, Asia.",
   "therapeuticUses": [
     "Cuts",
     "ulcers",

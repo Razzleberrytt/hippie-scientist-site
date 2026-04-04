@@ -3,7 +3,7 @@
   "latin": "Cordyceps sinensis",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, immune modulator, energy booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, immune modulator, energy booster. No direct region data. Contextual inference: Adaptogen, immune modulator, energy booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, immune modulator, energy booster. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "stimulation",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Generally well tolerated,occasional dry mouth,nausea,or diarrhea,No direct toxicity data. Contextual inference: Adaptogen,immune modulator,energy booster. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Adaptogen,energy booster. none.",
+  "safetyNotes": "Generally well tolerated; Occasional dry mouth; Nausea; Or diarrhea; Adaptogen; Immune modulator; Energy booster; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Adaptogen.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Cordyceps sinensis",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.908Z",
-  "description": "Adaptogen, immune modulator, energy booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Adaptogen,immune modulator,energy booster. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Adaptogen,energy booster. No direct region data. Contextual inference: Adaptogen,energy booster. none.,nan.",
+  "description": "Adaptogen, immune modulator, energy booster.;.",
+  "dosage": "",
   "duration": "6–8 hours",
   "legalStatus": "Legal; widely used in supplements",
-  "preparation": "tea",
+  "preparation": "Tea.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

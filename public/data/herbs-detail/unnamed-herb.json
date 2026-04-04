@@ -21,11 +21,11 @@
     "avoid with none known"
   ],
   "interactions": [
-    "May increase sedation when combined with CNS depressants.",
-    "Use caution with serotonergic or psychoactive medications due to possible CNS interaction."
+    "May increase sedation when combined with CNS depressants",
+    "Use caution with serotonergic or psychoactive medications due to possible CNS interaction"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician or do not combine with serotonergic drugs or maois without medical guidance. Avoid in pregnancy; Avoid with high doses; Avoid with known.",
   "sources": [
     {
       "title": "NCBI Taxonomy: unnamed herb",
@@ -45,11 +45,11 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Description not available.",
-  "dosage": "1-3g dried root",
+  "dosage": "1-3g dried root.",
   "duration": "4-8 hours",
   "legalStatus": "",
-  "preparation": "tea",
-  "region": "Asia, Europe",
+  "preparation": "Tea.",
+  "region": "Asia, Europe.",
   "therapeuticUses": [],
   "traditionalUse": "",
   "sideEffects": [],

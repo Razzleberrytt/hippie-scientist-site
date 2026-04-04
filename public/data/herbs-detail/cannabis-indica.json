@@ -3,7 +3,7 @@
   "latin": "Cannabis indica",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Psychoactive, sedative, analgesic; high thc content. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychoactive, sedative, analgesic; high THC content. No direct region data. Contextual inference: Psychoactive, sedative, analgesic; high thc content. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychoactive, sedative, analgesic; high THC content. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "relaxation",
@@ -12,7 +12,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Psychoactive,sedative,analgesic,high thc content. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Psychoactive,high THC content. none.",
+  "safetyNotes": "Psychoactive; Sedative; Analgesic; High thc content; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Psychoactive.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Cannabis indica",
@@ -21,8 +21,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.885Z",
-  "description": "Psychoactive, sedative, analgesic; high thc content. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Psychoactive,sedative,analgesic,high thc content. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Psychoactive,high THC content. No direct region data. Contextual inference: Psychoactive,high THC content. none.,nan.",
+  "description": "Psychoactive, sedative, analgesic; high thc content.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Regulated depending on jurisdiction",
   "preparation": "",

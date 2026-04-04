@@ -3,7 +3,7 @@
   "latin": "Tagetes lucida",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Mild euphoric, digestive aid, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild euphoric, digestive aid, calming. No direct region data. Contextual inference: Mild euphoric, digestive aid, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild euphoric, digestive aid, calming. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "relaxation",
@@ -12,11 +12,14 @@
   ],
   "contraindications": [],
   "interactions": [
-    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
-    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+    "Insufficient direct interaction data for this herb",
+    "Consult a clinician before combining with prescription medications",
+    "Use extra caution with anticoagulants",
+    "Sedatives",
+    "And serotonergic drugs until herb-specific interaction evidence is established"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Stop use if rash or allergic symptoms occur.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance, stop use if rash or allergic symptoms occur, photosensitivity or mild allergic reactions.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Tagetes lucida (TaxID 169606)",
@@ -25,12 +28,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.024Z",
-  "description": "Mild euphoric, digestive aid, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Mild euphoric, digestive aid, calming.",
   "dosage": "",
   "duration": "3–5 hours",
   "legalStatus": "Legal globally",
-  "preparation": "tincture",
-  "region": "mexico, central america",
+  "preparation": "Tincture.",
+  "region": "Mexico, central america.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

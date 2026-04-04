@@ -3,14 +3,14 @@
   "latin": "Clematis vitalba",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Traditional homeopathic use for inflammation, ulcers. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional homeopathic use for inflammation, ulcers. No direct region data. Contextual inference: Traditional homeopathic use for inflammation, ulcers. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional homeopathic use for inflammation, ulcers. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "digestive support"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Toxic – avoid unprocessed,Irritant to skin and mucosa,toxic if ingested in large quantities,causes GI and neurological effects,No direct toxicity data. Contextual inference: Traditional homeopathic use for inflammation,ulcers. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional homeopathic use for inflammation,ulcers. none.",
+  "safetyNotes": "Toxic – avoid unprocessed; Irritant to skin and mucosa; Toxic if ingested in large quantities; Causes GI and neurological effects; Traditional homeopathic use for inflammation; Ulcers; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Traditional homeopathic use for inflammation.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Clematis vitalba (TaxID 37490)",
@@ -19,11 +19,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.899Z",
-  "description": "Traditional homeopathic use for inflammation, ulcers. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "Homeopathic dilutions,raw plant toxic",
+  "description": "Traditional homeopathic use for inflammation, ulcers.;.",
+  "dosage": "Homeopathic dilutions, raw plant toxic",
   "duration": "Varies",
   "legalStatus": "Homeopathic use legal",
-  "preparation": "raw",
+  "preparation": "Raw.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

@@ -3,7 +3,7 @@
   "latin": "Inonotus obliquus",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Immunomodulatory, antioxidant; traditionally used in russia and asia. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immunomodulatory, antioxidant; traditionally used in Russia and Asia. No direct region data. Contextual inference: Immunomodulatory, antioxidant; traditionally used in russia and asia. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immunomodulatory, antioxidant; traditionally used in Russia and Asia. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "immune support",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Immunomodulatory,antioxidant,traditionally used in russia and asia. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Immunomodulatory,traditionally used in Russia and Asia. none.",
+  "safetyNotes": "Immunomodulatory; Antioxidant; Traditionally used in russia and asia; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Immunomodulatory.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Inonotus obliquus (TaxID 167356)",
@@ -20,8 +20,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.895Z",
-  "description": "Immunomodulatory, antioxidant; traditionally used in russia and asia. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Immunomodulatory,antioxidant,traditionally used in russia and asia. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Immunomodulatory,traditionally used in Russia and Asia. No direct region data. Contextual inference: Immunomodulatory,traditionally used in Russia and Asia. none.,nan.",
+  "description": "Immunomodulatory, antioxidant; traditionally used in russia and asia.;.",
+  "dosage": "",
   "duration": "6–8 hours",
   "legalStatus": "Legal globally",
   "preparation": "",

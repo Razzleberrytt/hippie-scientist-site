@@ -16,7 +16,7 @@
     "Avoid with: alcohol",
     "Caution with: psychoactive substances"
   ],
-  "safetyNotes": "High poisoning risk with unpredictable alkaloid content.,Potential for severe neuropsychiatric and autonomic adverse effects.",
+  "safetyNotes": "High poisoning risk with unpredictable alkaloid content., Potential for severe neuropsychiatric and autonomic adverse effects.",
   "sources": [
     {
       "title": "src_doi-10-1016-j-jphotobiol-2016-04-028",
@@ -32,8 +32,8 @@
   "dosage": "No reliable safe oral self-dosing range is established in available governed evidence.",
   "duration": "No direct duration data. Contextual inference: a notorious nightshade plant used historically in european witchcraft, sedatives, and flying ointments. contains powerful tropane alkaloids that can induce delirium, amnesia, and visionary states.. Scopolamine, hyoscyamine, and atropine block muscarinic acetylcholine receptors (anticholinergic), disrupting sensory and cognitive processing.. Hallucinations;Disorientation;Sedation;Dryness;Trance. europe, north africa, asia. ; nan; nan",
   "legalStatus": "Legal in some countries, restricted elsewhere",
-  "preparation": "smoked",
-  "region": "europe, north africa",
+  "preparation": "Smoked.",
+  "region": "Europe, north africa.",
   "therapeuticUses": [
     "used in minute doses for pain",
     "asthma",

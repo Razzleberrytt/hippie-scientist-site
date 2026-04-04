@@ -3,14 +3,14 @@
   "latin": "Malva sylvestris",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Soothing demulcent, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Soothing demulcent, anti-inflammatory. No direct region data. Contextual inference: Soothing demulcent, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Soothing demulcent, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,Generally safe,rare allergic reactions,No direct toxicity data. Contextual inference: Soothing demulcent,anti-inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Soothing demulcent,anti-inflammatory. none.",
+  "safetyNotes": "Generally safe; Rare allergic reactions; Soothing demulcent; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Soothing demulcent.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Malva sylvestris (TaxID 145754)",
@@ -20,10 +20,10 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.957Z",
   "description": "Malva sylvestris is a medicinal herb traditionally used for soothing demulcent and anti-inflammatory-inflammatory.",
-  "dosage": "1,3 g,day flower infusion or 250,500 mg extract",
+  "dosage": "1-3 g/day flower infusion or 250-500 mg extract",
   "duration": "2–4 hours",
   "legalStatus": "Legal and commonly used",
-  "preparation": "tea",
+  "preparation": "Tea.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

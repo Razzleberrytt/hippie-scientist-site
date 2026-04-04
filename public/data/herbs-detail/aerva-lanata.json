@@ -36,7 +36,7 @@
     "avoid in pregnancy"
   ],
   "interactions": [],
-  "safetyNotes": "Rarely associated with side effects,may cause diuresis or mild GI upset in sensitive individuals,No direct toxicity data. Contextual inference: Diuretic,anti-inflammatory,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diuretic,antimicrobial. none.",
+  "safetyNotes": "Rarely associated with side effects; May cause diuresis or mild GI upset in sensitive individuals; Diuretic; Antimicrobial; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Diuretic; Avoid with limited safety data some alkaloids be toxic at high doses; Avoid in pregnancy.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Aerva lanata",
@@ -45,11 +45,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.842Z",
-  "description": "Diuretic, anti-inflammatory, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Diuretic,anti,inflammatory,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diuretic,antimicrobial. No direct region data. Contextual inference: Diuretic,antimicrobial. none.,nan.",
+  "description": "Diuretic, anti-inflammatory, antimicrobial..",
+  "dosage": "",
   "duration": "3–5 hours",
   "legalStatus": "Traditional medicine use; not formally regulated",
-  "preparation": "tea",
+  "preparation": "Tea.",
   "region": "",
   "therapeuticUses": [
     "Treatment of cough and respiratory disorders",

@@ -3,7 +3,7 @@
   "latin": "Baptisia tinctoria",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Immune stimulant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immune stimulant, antimicrobial. No direct region data. Contextual inference: Immune stimulant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immune stimulant, antimicrobial. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "stimulation",
@@ -12,7 +12,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "caution,Nausea,vomiting,hypotension at high doses,hepatotoxicity possible with prolonged use,No direct toxicity data. Contextual inference: Immune stimulant,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Immune stimulant,antimicrobial. none.",
+  "safetyNotes": "Nausea; Vomiting; Hypotension at high doses; Hepatotoxicity possible with prolonged use; Antimicrobial; Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Baptisia tinctoria (TaxID 49797)",
@@ -21,11 +21,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.864Z",
-  "description": "Immune stimulant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "250,500 mg,day root extract (short,term)",
+  "description": "Immune stimulant, antimicrobial.;.",
+  "dosage": "250-500 mg/day root extract (short, term)",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated but used under supervision",
-  "preparation": "tincture",
+  "preparation": "Tincture.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

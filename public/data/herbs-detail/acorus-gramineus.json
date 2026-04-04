@@ -19,7 +19,7 @@
   "interactions": [
     "Caution with: limited interaction data"
   ],
-  "safetyNotes": "Avoid with similar risks to acorus calamus; Avoid large doses",
+  "safetyNotes": "Avoid with similar risks to acorus calamus; Avoid large doses.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Acorus gramineus (TaxID 55184)",
@@ -38,12 +38,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Fragrant root used in traditional medicine for clarity and calm",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "description": "Fragrant root used in traditional medicine for clarity and calm.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Legal",
-  "preparation": "tea",
-  "region": "🇨🇳 east asia",
+  "preparation": "Tea.",
+  "region": "🇨🇳 east asia.",
   "therapeuticUses": [
     "Cognition support",
     "digestion aid"

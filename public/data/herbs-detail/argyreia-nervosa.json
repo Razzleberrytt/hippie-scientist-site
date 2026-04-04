@@ -23,7 +23,7 @@
   "interactions": [
     "May potentiate: Serotonin syndrome risk with other psychoactives"
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with antidepressants; Avoid with antipsychotics",
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with antidepressants; Avoid with antipsychotics.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Argyreia nervosa",
@@ -42,12 +42,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Used in ayurvedic and polynesian traditions for mind-opening..",
-  "dosage": "No direct dosage data. Contextual inference: Used in ayurvedic and polynesian traditions for mind,opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind,opening... Used in Ayurvedic and Polynesian traditions for mind,opening.. No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind,opening.. Used in Ayurvedic and Polynesian traditions for mind,opening.. No direct region data. Contextual inference: Used in ayurvedic and polynesian traditions for mind,opening.",
+  "description": "Used in ayurvedic and polynesian traditions for mind-opening.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.. No direct region data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.",
   "legalStatus": "Legal in many places; regulated in some",
-  "preparation": "extract",
-  "region": "india, hawaii",
+  "preparation": "Extract.",
+  "region": "India, hawaii.",
   "therapeuticUses": [
     "Spiritual exploration",
     "Introspection",

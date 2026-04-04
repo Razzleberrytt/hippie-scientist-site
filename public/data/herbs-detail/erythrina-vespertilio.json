@@ -3,14 +3,14 @@
   "latin": "Erythrina vespertilio",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used for sedation and muscle relaxation in aboriginal medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for sedation and muscle relaxation in Aboriginal medicine. No direct region data. Contextual inference: Used for sedation and muscle relaxation in aboriginal medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for sedation and muscle relaxation in Aboriginal medicine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "relaxation"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Mild sedative,potential dizziness or drowsiness,No direct toxicity data. Contextual inference: Used for sedation and muscle relaxation in aboriginal medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used for sedation and muscle relaxation in Aboriginal medicine. none.",
+  "safetyNotes": "Mild sedative; Potential dizziness or drowsiness; Used for sedation and muscle relaxation in aboriginal medicine; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Used for sedation and muscle relaxation in Aboriginal medicine.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Erythrina vespertilio (TaxID 1234622)",
@@ -19,8 +19,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.934Z",
-  "description": "Used for sedation and muscle relaxation in aboriginal medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Used for sedation and muscle relaxation in aboriginal medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used for sedation and muscle relaxation in Aboriginal medicine. No direct region data. Contextual inference: Used for sedation and muscle relaxation in aboriginal medicine. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used for sedation and muscle relaxation in Aboriginal medicine. none.,nan.",
+  "description": "Used for sedation and muscle relaxation in aboriginal medicine.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
   "preparation": "",

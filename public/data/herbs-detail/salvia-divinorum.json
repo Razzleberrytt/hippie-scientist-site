@@ -3,7 +3,7 @@
   "latin": "Salvia divinorum",
   "class": "dissociative / sedative",
   "intensity": "No direct intensity data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. No direct region data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. ; nan; nan. ; nan; nan",
-  "mechanism": "salvinorin a is a kappa-opioid agonist | dissociative hallucinogen",
+  "mechanism": "Salvinorin a is a kappa-opioid agonist ,  dissociative hallucinogen.",
   "activeCompounds": [
     "salvinorin A"
   ],
@@ -21,15 +21,15 @@
     "avoid in pregnancy"
   ],
   "interactions": [
-    "opioids",
-    "depressants.",
-    "cns depressants may potentiate sedative effects",
-    "caution when coadministered [3",
-    "3].",
+    "Opioids",
+    "Depressants",
+    "Cns depressants may potentiate sedative effects",
+    "Caution when coadministered [3",
+    "3]",
     "May intensify effects of sedatives and dissociatives"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, alcohol, or other cns depressants, dysphoria, confusion, tiredness, dizziness, amnesia, potential for transient psychosis in vulnerable individuals [3 or 2]. Avoid combining with sedatives; Avoid with unstable mental health conditions; Avoid with psychiatric disorders; Avoid with cardiovascular instability; Avoid with 2]; Avoid with schizophrenia; Avoid in pregnancy.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Salvia divinorum (TaxID 28513)",
@@ -38,12 +38,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.017Z",
-  "description": "Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.",
+  "description": "Intense dissociative hallucinogen; short-acting visionary states.",
   "dosage": "",
   "duration": "5–30 minutes (smoked), 1–2 hours (oral)",
   "legalStatus": "Controlled or restricted in many countries",
-  "preparation": "smoked",
-  "region": "🇲🇽 latin america",
+  "preparation": "Smoked.",
+  "region": "🇲🇽 latin america.",
   "therapeuticUses": [
     "shamanic rituals",
     "research on consciousness.",

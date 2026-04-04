@@ -3,14 +3,14 @@
   "latin": "Cornus officinalis",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Astringent, kidney and liver tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent, kidney and liver tonic, antioxidant. No direct region data. Contextual inference: Astringent, kidney and liver tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent, kidney and liver tonic, antioxidant. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "antioxidant"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Generally safe,may cause mild GI upset or dizziness in sensitive individuals,No direct toxicity data. Contextual inference: Astringent,kidney and liver tonic,antioxidant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Astringent,antioxidant. none.",
+  "safetyNotes": "Generally safe; May cause mild GI upset or dizziness in sensitive individuals; Astringent; Kidney and liver tonic; Antioxidant; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Astringent.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Cornus officinalis (TaxID 16906)",
@@ -19,8 +19,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.909Z",
-  "description": "Astringent, kidney and liver tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Astringent,kidney and liver tonic,antioxidant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Astringent,antioxidant. No direct region data. Contextual inference: Astringent,antioxidant. none.,nan.",
+  "description": "Astringent, kidney and liver tonic, antioxidant.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal; used in TCM",
   "preparation": "",

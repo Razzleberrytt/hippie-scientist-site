@@ -3,7 +3,7 @@
   "latin": "Rivea corymbosa",
   "class": "Entheogen, Tryptamine-based hallucinogen",
   "intensity": "Moderate to strong",
-  "mechanism": "lsa interacts with serotonin receptors",
+  "mechanism": "Lsa interacts with serotonin receptors.",
   "activeCompounds": [
     "isoergine"
   ],
@@ -24,14 +24,14 @@
   ],
   "interactions": [
     "Risk of serotonin syndrome",
-    "serotonergic medications [0",
-    "12].",
+    "Serotonergic medications [0",
+    "12]",
     "May interact with SSRIs",
     "MAOIs",
-    "hallucinogens"
+    "Hallucinogens"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or maois without medical guidance, nausea, vasoconstriction, dizziness [0, 4], may interact with maois or may interact with ssris. Avoid with psychiatric conditions; Avoid with cardiovascular disease; Avoid in pregnancy; Avoid with 4]; Avoid with heart conditions.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rivea corymbosa",
@@ -41,11 +41,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.009Z",
   "description": "Rivea corymbosa is a medicinal herb traditionally used for visual hallucinations and euphoria.",
-  "dosage": "20,100 seeds traditionally ground into cold water infusion.",
+  "dosage": "20, 100 seeds traditionally ground into cold water infusion.",
   "duration": "480",
   "legalStatus": "Regulated in some countries; seeds often legal",
   "preparation": "",
-  "region": "Mexico, Central America",
+  "region": "Mexico, Central America.",
   "therapeuticUses": [
     "Spiritual use",
     "ethnobotanical studies",

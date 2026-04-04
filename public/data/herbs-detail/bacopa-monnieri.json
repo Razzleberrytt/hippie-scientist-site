@@ -12,7 +12,7 @@
   "interactions": [
     "May potentiate: May potentiate stimulant effects when combined with sympathomimetic agents"
   ],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "",
   "sources": [
     {
       "title": "NCBI Taxonomy: bacopa monnieri (TaxID 263974)",
@@ -35,8 +35,8 @@
   "dosage": "Choose products with bacoside standardization and clear serving amounts for easier cross-brand comparison.",
   "duration": "Often evaluated over several weeks before deciding whether the routine is useful.",
   "legalStatus": "legal",
-  "preparation": "extract",
-  "region": "🇮🇳 india",
+  "preparation": "Extract.",
+  "region": "🇮🇳 india.",
   "therapeuticUses": [
     "Gradual cognitive-support routines",
     "Non-stimulant focus stack building",

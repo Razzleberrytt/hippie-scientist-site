@@ -19,7 +19,6 @@
     "Avoid with: stimulants",
     "Avoid with: maois",
     "Caution with: beta blockers",
-    "Caution with: beta",
     "Caution with: blockers"
   ],
   "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
@@ -31,12 +30,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.944Z",
-  "description": "Stimulant; rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Stimulant,rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant,rich in caffeine and theobromine (yerba mate). No direct region data. Contextual inference: Stimulant,rich in caffeine and theobromine (yerba mate). none.,nan.,cognitive enhancer,mood booster. Contains caffeine,theobromine,acts as cns stimulant by blocking adenosine receptors..,nan.. Contains caffeine,acts as CNS stimulant by blocking adenosine receptors.. Stimulant,mood booster. No direct region data. Contextual inference: Stimulant,mood booster.",
+  "description": "Stimulant; rich in caffeine and theobromine (yerba mate).;.",
+  "dosage": "",
   "duration": "2–4 hours",
   "legalStatus": "Widely legal; commonly consumed in South America and globally",
-  "preparation": "smoked",
-  "region": "argentina, brazil",
+  "preparation": "Smoked.",
+  "region": "Argentina, brazil.",
   "therapeuticUses": [
     "mental alertness",
     "energy",

@@ -27,7 +27,7 @@
     "Caution with: caution with CNS depressants",
     "Caution with: Unknown avoid combining with CNS depressants"
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with toxic; Avoid with traditional use only",
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with toxic; Avoid with traditional use only.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Desfontainia spinosa (TaxID 34247)",
@@ -46,12 +46,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "South American shrub used ceremonially for vivid hallucinations and trance states",
-  "dosage": "No direct dosage data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. No direct effects data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies.. No direct region data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. No direct effects data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies.",
+  "description": "South American shrub used ceremonially for vivid hallucinations and trance states.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. No direct effects data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies.. No direct region data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. No direct effects data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies.",
   "legalStatus": "Unregulated",
-  "preparation": "smoked",
-  "region": "chile, colombia",
+  "preparation": "Smoked.",
+  "region": "Chile, colombia.",
   "therapeuticUses": [
     "Shamanic vision rituals",
     "Ceremonial only",

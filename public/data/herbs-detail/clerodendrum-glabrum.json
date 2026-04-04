@@ -3,7 +3,7 @@
   "latin": "Clerodendrum glabrum",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antimalarial, antibacterial, and anti-inflammatory in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimalarial, antibacterial, and anti-inflammatory in traditional medicine. No direct region data. Contextual inference: Antimalarial, antibacterial, and anti-inflammatory in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimalarial, antibacterial, and anti-inflammatory in traditional medicine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Antimalarial,antibacterial,and anti-inflammatory in traditional medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antimalarial,and anti-inflammatory in traditional medicine. none.",
+  "safetyNotes": "Antimalarial; Antibacterial; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Antimalarial.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Clerodendrum glabrum",
@@ -20,8 +20,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.899Z",
-  "description": "Antimalarial, antibacterial, and anti-inflammatory in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Antimalarial,antibacterial,and anti,inflammatory in traditional medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antimalarial,inflammatory in traditional medicine. No direct region data. Contextual inference: Antimalarial,inflammatory in traditional medicine. none.,nan.",
+  "description": "Antimalarial, antibacterial, and anti-inflammatory in traditional medicine.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
   "preparation": "",

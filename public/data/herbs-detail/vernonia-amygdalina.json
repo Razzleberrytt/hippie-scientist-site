@@ -3,7 +3,7 @@
   "latin": "Vernonia amygdalina",
   "class": "Antidiabetic, Anticancer",
   "intensity": "Moderate to strong",
-  "mechanism": "insulin-sensitization and inhibition of tumor proliferation",
+  "mechanism": "Insulin-sensitization and inhibition of tumor proliferation.",
   "activeCompounds": [
     "sesquiterpene lactones",
     "flavonoids",
@@ -20,7 +20,7 @@
     "Enhances effect of antidiabetic and chemotherapeutic drugs"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, lower dose or stop if nausea, vomiting or or gi upset occurs. Avoid in pregnancy.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Vernonia amygdalina",
@@ -29,12 +29,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.975Z",
-  "description": "Widely used in West Africa for malaria, diabetes, and cancer adjunct therapy",
-  "dosage": "Leaf juice or infusion, 100–200 ml daily",
+  "description": "Widely used in West Africa for malaria, diabetes, and cancer adjunct therapy.",
+  "dosage": "Leaf juice or infusion, 100–200 ml daily.",
   "duration": "420",
   "legalStatus": "Unregulated",
-  "preparation": "tea",
-  "region": "Tropical Africa",
+  "preparation": "Tea.",
+  "region": "Tropical Africa.",
   "therapeuticUses": [
     "Type 2 diabetes",
     "cancer support"

@@ -3,14 +3,14 @@
   "latin": "Aristolochia grandiflora",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Historically used as anti-inflammatory; toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Historically used as anti-inflammatory; toxic. No direct region data. Contextual inference: Historically used as anti-inflammatory; toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Historically used as anti-inflammatory; toxic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Highly toxic,contains aristolochic acid linked to nephrotoxicity and cancer,banned in many countries,No direct toxicity data. Contextual inference: Historically used as anti-inflammatory,toxic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Historically used as anti-inflammatory,toxic. none.",
+  "safetyNotes": "Highly toxic; Contains aristolochic acid linked to nephrotoxicity and cancer; Banned in many countries; Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Aristolochia grandiflora (TaxID 145283)",
@@ -19,8 +19,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.851Z",
-  "description": "Historically used as anti-inflammatory; toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Historically used as anti,inflammatory,toxic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Historically used as anti,toxic. No direct region data. Contextual inference: Historically used as anti,toxic. none.,nan.",
+  "description": "Historically used as anti-inflammatory; toxic.;.",
+  "dosage": "",
   "duration": "Varies",
   "legalStatus": "Banned or restricted in many countries",
   "preparation": "",

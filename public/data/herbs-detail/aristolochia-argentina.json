@@ -3,12 +3,12 @@
   "latin": "Aristolochia argentina",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Traditionally used for snakebite and inflammation; contains aristolochic acids (nephrotoxic). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used for snakebite and inflammation; contains aristolochic acids (nephrotoxic). No direct region data. Contextual inference: Traditionally used for snakebite and inflammation; contains aristolochic acids (nephrotoxic). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used for snakebite and inflammation; contains aristolochic acids (nephrotoxic). none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Traditionally used for snakebite and inflammation,contains aristolochic acids (nephrotoxic). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditionally used for snakebite and inflammation,contains aristolochic acids (nephrotoxic). none.",
+  "safetyNotes": "Traditionally used for snakebite and inflammation; Contains aristolochic acids (nephrotoxic); Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Traditionally used for snakebite and inflammation.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Aristolochia argentina (TaxID 158534)",
@@ -17,8 +17,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.851Z",
-  "description": "Traditionally used for snakebite and inflammation; contains aristolochic acids (nephrotoxic). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Traditionally used for snakebite and inflammation,contains aristolochic acids (nephrotoxic). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditionally used for snakebite and inflammation,contains aristolochic acids (nephrotoxic). No direct region data. Contextual inference: Traditionally used for snakebite and inflammation,contains aristolochic acids (nephrotoxic). none.,nan.",
+  "description": "Traditionally used for snakebite and inflammation; contains aristolochic acids (nephrotoxic).;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Restricted or banned in many countries",
   "preparation": "",

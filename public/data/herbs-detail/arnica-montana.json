@@ -24,27 +24,15 @@
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Anti-inflammatory, analgesic, wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Anti",
-    "inflammatory",
-    "analgesic",
-    "wound healing. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti",
-    "wound healing. No direct region data. Contextual inference: Anti",
-    "wound healing. none.",
-    "nan."
-  ],
+  "description": "Anti-inflammatory, analgesic, wound healing.;.",
+  "dosage": "",
   "duration": "Up to 6 hours",
   "interactions": [
     "May potentiate: Oral use may increase bleeding risk when combined with anticoagulants or antiplatelet drugs",
     "Caution with: Topical products can irritate skin and may worsen dermatitis when used with other irritants"
   ],
   "legalStatus": "Topical approved; internal restricted",
-  "preparation": "tincture",
+  "preparation": "Tincture.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

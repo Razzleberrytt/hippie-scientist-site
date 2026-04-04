@@ -3,7 +3,7 @@
   "latin": "Coptis chinensis",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Rich in berberine; antimicrobial, anti-diabetic, and digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Rich in berberine; antimicrobial, anti-diabetic, and digestive tonic. No direct region data. Contextual inference: Rich in berberine; antimicrobial, anti-diabetic, and digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Rich in berberine; antimicrobial, anti-diabetic, and digestive tonic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "digestive support",
@@ -12,7 +12,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference: Rich in berberine,antimicrobial,anti-diabetic,and digestive tonic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Rich in berberine,and digestive tonic. none.",
+  "safetyNotes": "Rich in berberine; Antimicrobial; Anti-diabetic; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Rich in berberine.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Coptis chinensis (TaxID 261450)",
@@ -21,8 +21,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.908Z",
-  "description": "Rich in berberine; antimicrobial, anti-diabetic, and digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "250,1000 mg,day root extract",
+  "description": "Rich in berberine; antimicrobial, anti-diabetic, and digestive tonic.;.",
+  "dosage": "250-1000 mg/day root extract",
   "duration": "6–8 hours",
   "legalStatus": "Legal globally",
   "preparation": "",

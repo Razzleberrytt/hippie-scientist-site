@@ -3,7 +3,7 @@
   "latin": "Origanum vulgare",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antibacterial, antifungal, antioxidant, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antibacterial, antifungal, antioxidant, digestive aid. No direct region data. Contextual inference: Antibacterial, antifungal, antioxidant, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antibacterial, antifungal, antioxidant, digestive aid. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "digestive support",
@@ -13,7 +13,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Stop use if rash or allergic symptoms occur.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. stop use if rash or allergic symptoms occur, allergic reactions (esp. to lamiaceae) or gi irritation.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Origanum vulgare (TaxID 39352)",
@@ -23,10 +23,10 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.985Z",
   "description": "Origanum vulgare is a medicinal herb traditionally used for antibacterial and antifungal.",
-  "dosage": "250,750 mg,day extract or 1,2 g infusion",
+  "dosage": "250-750 mg/day extract or 1-2 g infusion.",
   "duration": "2–4 hours",
   "legalStatus": "Legal and widely used",
-  "preparation": "tincture",
+  "preparation": "Tincture.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

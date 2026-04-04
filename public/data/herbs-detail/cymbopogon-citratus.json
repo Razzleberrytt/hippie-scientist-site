@@ -3,7 +3,7 @@
   "latin": "Cymbopogon citratus",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Calming, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, antimicrobial, digestive aid. No direct region data. Contextual inference: Calming, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, antimicrobial, digestive aid. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "relaxation",
@@ -12,7 +12,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,Generally well tolerated,rare allergic skin reactions or mild GI irritation,No direct toxicity data. Contextual inference: Calming,antimicrobial,digestive aid. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Calming,digestive aid. none.",
+  "safetyNotes": "Generally well tolerated; Rare allergic skin reactions or mild GI irritation; Antimicrobial; Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Cymbopogon citratus (TaxID 66014)",
@@ -21,11 +21,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.911Z",
-  "description": "Calming, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "1,2 g,day dried leaf infusion",
+  "description": "Calming, antimicrobial, digestive aid.;.",
+  "dosage": "1-2 g/day dried leaf infusion",
   "duration": "2–4 hours",
   "legalStatus": "Legal worldwide",
-  "preparation": "tea",
+  "preparation": "Tea.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

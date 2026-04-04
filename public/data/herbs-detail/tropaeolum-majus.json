@@ -3,7 +3,7 @@
   "latin": "tropaeolum majus",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.. No direct region data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.",
-  "mechanism": "used in andean herbalism to clear lungs and improve alertness",
+  "mechanism": "Used in andean herbalism to clear lungs and improve alertness.",
   "activeCompounds": [
     "benzyl isothiocyanate"
   ],
@@ -12,11 +12,14 @@
   ],
   "contraindications": [],
   "interactions": [
-    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
-    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+    "Insufficient direct interaction data for this herb",
+    "Consult a clinician before combining with prescription medications",
+    "Use extra caution with anticoagulants",
+    "Sedatives",
+    "And serotonergic drugs until herb-specific interaction evidence is established"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: tropaeolum majus (TaxID 4020)",
@@ -35,12 +38,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Used in andean herbalism to clear lungs and improve alertness..",
+  "description": "Used in andean herbalism to clear lungs and improve alertness.",
   "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.. No direct region data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness.",
   "legalStatus": "",
   "preparation": "",
-  "region": "south america (peru, andes)",
+  "region": "South america (peru, andes).",
   "therapeuticUses": [],
   "traditionalUse": "Used in Andean herbalism to clear lungs and improve alertness.",
   "sideEffects": [],

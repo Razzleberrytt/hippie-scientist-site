@@ -3,7 +3,7 @@
   "latin": "Pausinystalia johimbe",
   "class": "Stimulant, Aphrodisiac",
   "intensity": "Moderate to strong",
-  "mechanism": "alpha-2 adrenergic receptor antagonist | increases norepinephrine",
+  "mechanism": "Alpha-2 adrenergic receptor antagonist ,  increases norepinephrine.",
   "activeCompounds": [
     "yohimbine",
     "indole alkaloids",
@@ -21,11 +21,11 @@
   ],
   "interactions": [
     "Antidepressants",
-    "stimulants",
+    "Stimulants",
     "MAOIs"
   ],
   "safetyLevel": "high",
-  "safetyNotes": "High risk: serious toxicity or overdose harm is possible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause high risk: serious toxicity or overdose harm is possible. do not combine with serotonergic drugs or maois without medical guidance. Avoid with heart disease; Avoid with anxiety; Avoid with hypertension; Avoid with psychiatric conditions.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Pausinystalia johimbe",
@@ -35,11 +35,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.972Z",
   "description": "Pausinystalia johimbe is a medicinal herb traditionally used for stimulation and increased blood flow.",
-  "dosage": "5–10 mg yohimbine HCl; bark extract ~250–500 mg",
+  "dosage": "5–10 mg yohimbine HCl; bark extract ~250–500 mg.",
   "duration": "2–4 hours",
   "legalStatus": "Controlled in some countries; supplement in others",
-  "preparation": "tea",
-  "region": "West and Central Africa",
+  "preparation": "Tea.",
+  "region": "West and Central Africa.",
   "therapeuticUses": [
     "Erectile dysfunction",
     "fatigue"

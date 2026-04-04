@@ -3,7 +3,7 @@
   "latin": "Papaver somniferum L.",
   "class": "Analgesic, Sedative, Psychoactive",
   "intensity": "High and dose-dependent due to opioid alkaloid content.",
-  "mechanism": "sedative | and respiratory effects",
+  "mechanism": "Sedative ,  and respiratory effects.",
   "activeCompounds": [
     "morphine",
     "codeine",
@@ -28,13 +28,13 @@
   ],
   "interactions": [
     "CNS depressants",
-    "alcohol",
+    "Alcohol",
     "MAOIs",
     "SSRIs",
-    "anticoagulants"
+    "Anticoagulants"
   ],
   "safetyLevel": "high",
-  "safetyNotes": "High risk: serious toxicity or overdose harm is possible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause high risk: serious toxicity or overdose harm is possible. avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or maois without medical guidance or may interact with maois. Avoid with respiratory issues; Avoid in liver disease; Avoid in pregnancy; Avoid with opioid use; Avoid with respiratory disorders; Avoid with addiction history.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Papaver somniferum L.",
@@ -54,7 +54,7 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Papaver somniferum is a medicinal herb traditionally used for euphoria and analgesia.",
-  "dosage": "Pharmaceutical use only under regulation",
+  "dosage": "Pharmaceutical use only under regulation.",
   "duration": "4–6 hours (morphine); longer with raw opium",
   "legalStatus": "Strictly regulated; illegal to grow for opium in most countries",
   "preparation": "",

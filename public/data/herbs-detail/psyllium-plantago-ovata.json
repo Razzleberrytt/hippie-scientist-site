@@ -3,7 +3,7 @@
   "latin": "Plantago ovata",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Laxative, bulking fiber, cholesterol reduction. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, bulking fiber, cholesterol reduction. No direct region data. Contextual inference: Laxative, bulking fiber, cholesterol reduction. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, bulking fiber, cholesterol reduction. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "digestive support",
@@ -12,7 +12,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "caution",
-  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
+  "safetyNotes": "May cause bloating, gas or potential choking if not taken with water. Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Plantago ovata (TaxID 185002)",
@@ -22,10 +22,10 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.003Z",
   "description": "Psyllium (plantago ovata) is a medicinal herb traditionally used for laxative and bulking fiber.",
-  "dosage": "No direct dosage data. Contextual inference: Laxative,bulking fiber,cholesterol reduction. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Laxative,cholesterol reduction. No direct region data. Contextual inference: Laxative,cholesterol reduction. none.,nan.",
+  "dosage": "",
   "duration": "Daily use",
   "legalStatus": "Legal globally",
-  "preparation": "extract",
+  "preparation": "Extract.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

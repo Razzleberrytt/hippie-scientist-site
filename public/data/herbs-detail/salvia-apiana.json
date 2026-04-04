@@ -3,7 +3,7 @@
   "latin": "Salvia apiana",
   "class": "Mild Psychoactive, Purifier",
   "intensity": "No direct intensity data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. No direct region data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.",
-  "mechanism": "used in smudging rituals for purification and clarity",
+  "mechanism": "Used in smudging rituals for purification and clarity.",
   "activeCompounds": [
     "eucalyptol",
     "camphor",
@@ -21,10 +21,10 @@
     "avoid with neurotoxic in high doses"
   ],
   "interactions": [
-    "None significant"
+    "Significant"
   ],
   "safetyLevel": "caution",
-  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid use during pregnancy unless advised by a clinician.",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid use during pregnancy unless advised by a clinician; Avoid in pregnancy; Avoid with neurotoxic in high doses.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Salvia apiana (TaxID 392646)",
@@ -43,12 +43,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Sacred Native American plant burned or brewed for clarity and ritual cleansing",
+  "description": "Sacred Native American plant burned or brewed for clarity and ritual cleansing.",
   "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. No direct region data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.",
   "legalStatus": "Legal",
-  "preparation": "smoked",
-  "region": "southwestern us",
+  "preparation": "Smoked.",
+  "region": "Southwestern us.",
   "therapeuticUses": [
     "Purification",
     "anxiety",

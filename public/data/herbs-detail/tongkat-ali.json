@@ -3,7 +3,7 @@
   "latin": "Eurycoma longifolia",
   "class": "general",
   "intensity": "moderate",
-  "mechanism": "boosts free testosterone | reduces cortisol",
+  "mechanism": "Boosts free testosterone ,  reduces cortisol.",
   "activeCompounds": [],
   "effects": [
     "stimulation",
@@ -16,11 +16,11 @@
     "avoid with sensitive conditions"
   ],
   "interactions": [
-    "stimulants",
-    "steroids."
+    "Stimulants",
+    "Steroids"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with other stimulants.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid combining with other stimulants, irritability or insomnia. Avoid with heart disease; Avoid with hormone-sensitive conditions; Avoid with hormone; Avoid with sensitive conditions.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Eurycoma longifolia (TaxID 458531)",
@@ -29,12 +29,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.026Z",
-  "description": "Aphrodisiac, testosterone booster, and energy tonic. Boosts free testosterone; reduces cortisol.. ; nan; nan.",
+  "description": "Aphrodisiac, testosterone booster, and energy tonic.",
   "dosage": "",
   "duration": "6–8 hours",
   "legalStatus": "Legal globally",
   "preparation": "",
-  "region": "unknown",
+  "region": "",
   "therapeuticUses": [
     "libido",
     "muscle mass",

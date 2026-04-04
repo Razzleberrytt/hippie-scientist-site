@@ -13,12 +13,12 @@
     "avoid in pregnancy"
   ],
   "interactions": [
-    "ssris",
-    "maois",
-    "stimulants."
+    "SSRIs",
+    "MAOIs",
+    "Stimulants"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or maois without medical guidance, irritability or dry mouth. Avoid with bipolar disorder; Avoid in pregnancy.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rhodiola rosea (TaxID 203015)",
@@ -31,7 +31,7 @@
   "dosage": "Prioritize products that disclose rosavin/salidroside profile and per-serving milligrams; avoid opaque blends.",
   "duration": "Commonly used in structured blocks with periodic reassessment rather than indefinite escalation.",
   "legalStatus": "Legal globally",
-  "preparation": "tincture",
+  "preparation": "Tincture.",
   "region": "",
   "therapeuticUses": [
     "Demand-heavy workday resilience support",

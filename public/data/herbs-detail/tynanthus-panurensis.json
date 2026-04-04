@@ -3,7 +3,7 @@
   "latin": "tynanthus panurensis",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. No direct region data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.",
-  "mechanism": "used in amazonian herbalism for sexual energy and digestion",
+  "mechanism": "Used in amazonian herbalism for sexual energy and digestion.",
   "activeCompounds": [
     "eugenol",
     "tynanthin"
@@ -14,10 +14,10 @@
   ],
   "contraindications": [],
   "interactions": [
-    "May potentiate stimulant effects when combined with sympathomimetic agents."
+    "May potentiate stimulant effects when combined with sympathomimetic agents"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with other stimulants.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid combining with other stimulants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: tynanthus panurensis (TaxID 354063)",
@@ -36,12 +36,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Used in amazonian herbalism for sexual energy and digestion..",
+  "description": "Used in amazonian herbalism for sexual energy and digestion.",
   "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. No direct region data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.",
   "legalStatus": "",
   "preparation": "",
-  "region": "amazon rainforest",
+  "region": "Amazon rainforest.",
   "therapeuticUses": [],
   "traditionalUse": "Used in Amazonian herbalism for sexual energy and digestion.",
   "sideEffects": [],

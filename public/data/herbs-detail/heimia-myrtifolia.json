@@ -21,7 +21,7 @@
   "interactions": [
     "May potentiate: CNS depressants may amplify effects"
   ],
-  "safetyNotes": "Avoid with cns depressants; May interact with maois",
+  "safetyNotes": "Avoid with cns depressants; May interact with maois.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Heimia myrtifolia (TaxID 135798)",
@@ -40,12 +40,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Rare cousin of Sinicuichi used for mild auditory alterations and calm dream states",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "description": "Rare cousin of Sinicuichi used for mild auditory alterations and calm dream states.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Legal",
-  "preparation": "tea",
-  "region": "mexico",
+  "preparation": "Tea.",
+  "region": "Mexico.",
   "therapeuticUses": [
     "Insomnia",
     "dream enhancement",

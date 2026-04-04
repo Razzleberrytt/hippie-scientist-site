@@ -27,7 +27,7 @@
     "Caution with: calcium channel blockers",
     "Caution with: CYP450 substrates"
   ],
-  "safetyNotes": "Avoid with gerd; Avoid with gallbladder disorders; Avoid with infants (menthol sensitivity)",
+  "safetyNotes": "Avoid with gerd; Avoid with gallbladder disorders; Avoid with infants (menthol sensitivity).",
   "sources": [
     {
       "title": "NCBI Taxonomy: Mentha piperita",
@@ -47,11 +47,11 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Mentha piperita is a medicinal herb traditionally used for soothes gi tract and reduces bloating.",
-  "dosage": "250,750 mg,day extract or 1,3 g infusion",
+  "dosage": "250-750 mg/day extract or 1-3 g infusion",
   "duration": "4–8 hours (oral/enteric-coated oil)",
   "legalStatus": "Unregulated; approved in supplements and food",
-  "preparation": "tincture",
-  "region": "global cultivation",
+  "preparation": "Tincture.",
+  "region": "Global cultivation.",
   "therapeuticUses": [
     "IBS",
     "nausea",

@@ -21,7 +21,7 @@
     "Avoid with: maois",
     "Caution with: vasodilators"
   ],
-  "safetyNotes": "Toxic – CNS stimulant,nausea,dizziness,hypertension,or toxicity at high doses. dependence may develop with regular use.,Moderate. Nor-nicotine more toxic than nicotine in some strains.,No direct toxicity data. Contextual inference: Stimulant due to nicotine and nor-nicotine alkaloids,traditional aboriginal use. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant due to nicotine and nor-nicotine alkaloids,traditional Aboriginal use. none.",
+  "safetyNotes": "Toxic – CNS stimulant; Nausea; Dizziness; Hypertension; Or toxicity at high doses. dependence may develop with regular use; Moderate. Nor-nicotine more toxic than nicotine in some strains; Traditional aboriginal use; Antioxidant effects; Or enzyme inhibition; Avoid in heart conditions; Avoid in pregnancy; Avoid with or with other stimulants or nicotine products.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Duboisia hopwoodii (TaxID 540800)",
@@ -30,12 +30,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.921Z",
-  "description": "Stimulant due to nicotine and nor-nicotine alkaloids; traditional aboriginal use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "Chewed traditionally in pituri,No direct dosage data. Contextual inference: Stimulant due to nicotine and nor,nicotine alkaloids,traditional aboriginal use. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant due to nicotine and nor,traditional Aboriginal use. No direct region data. Contextual inference: Stimulant due to nicotine and nor,traditional Aboriginal use. none.,nan.",
+  "description": "Stimulant due to nicotine and nor-nicotine alkaloids; traditional aboriginal use.;.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: an indigenous australian shrub whose dried leaves are used as a traditional stimulant. pituri contains nicotine and nor-nicotine alkaloids, and is chewed with ash for enhanced absorption.. Alkaloids bind to nicotinic acetylcholine receptors, stimulating the CNS, suppressing hunger, and inducing focus.. Stimulation;Alertness;Appetite suppression;Euphoria (mild). australia (central and northern deserts). ; nan; nan",
   "legalStatus": "Legal in Australia (cultural protection); restricted elsewhere due to alkaloid content",
-  "preparation": "extract",
-  "region": "australia (central and northern deserts)",
+  "preparation": "Extract.",
+  "region": "Australia (central and northern deserts).",
   "therapeuticUses": [
     "traditionally used by aboriginal groups for endurance",
     "ritual",

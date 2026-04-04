@@ -3,7 +3,7 @@
   "latin": "Nicotiana spp. (Polynesian)",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Stimulant effects due to nicotine; ceremonial use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant effects due to nicotine; ceremonial use. No direct region data. Contextual inference: Stimulant effects due to nicotine; ceremonial use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant effects due to nicotine; ceremonial use. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "stimulation"
@@ -11,7 +11,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with other stimulants.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid combining with other stimulants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nicotiana spp. (Polynesian)",
@@ -20,8 +20,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.999Z",
-  "description": "Polynesian nicotiana spp. is a medicinal herb traditionally used for stimulant effects due to nicotine and ceremonial use.",
-  "dosage": "No direct dosage data. Contextual inference: Stimulant effects due to nicotine,ceremonial use. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant effects due to nicotine,ceremonial use. No direct region data. Contextual inference: Stimulant effects due to nicotine,ceremonial use. none.,nan.",
+  "description": "Polynesian nicotiana spp.",
+  "dosage": "",
   "duration": "1–3 hours",
   "legalStatus": "Regulated in some regions",
   "preparation": "",

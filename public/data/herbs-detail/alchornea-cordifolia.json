@@ -18,7 +18,7 @@
   "interactions": [
     "May potentiate: Additive with antibiotics or anti inflammatories"
   ],
-  "safetyNotes": "Topically safe,monitor systemic use,Possible skin irritation,Low to moderate depending on form,Unknown in clinical models",
+  "safetyNotes": "Topically safe, monitor systemic use, Possible skin irritation, Low to moderate depending on form, Unknown in clinical models.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Alchornea cordifolia (TaxID 316697)",
@@ -27,12 +27,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.974Z",
-  "description": "Broad-spectrum African medicinal plant used for infections and wounds",
+  "description": "Broad-spectrum African medicinal plant used for infections and wounds.",
   "dosage": "Topical paste or internal decoction 2x/day",
   "duration": "360",
   "legalStatus": "Uncontrolled herb",
-  "preparation": "extract",
-  "region": "Central and West Africa",
+  "preparation": "Extract.",
+  "region": "Central and West Africa.",
   "therapeuticUses": [
     "Ulcers",
     "skin infections",

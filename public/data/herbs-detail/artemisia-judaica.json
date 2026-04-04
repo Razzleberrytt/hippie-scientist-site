@@ -3,7 +3,7 @@
   "latin": "Artemisia judaica",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used for diabetes, digestive, and parasitic infections. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for diabetes, digestive, and parasitic infections. No direct region data. Contextual inference: Used for diabetes, digestive, and parasitic infections. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used for diabetes, digestive, and parasitic infections. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "digestive support",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Used for diabetes,digestive,and parasitic infections. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used for diabetes,and parasitic infections. none.",
+  "safetyNotes": "Used for diabetes; Digestive; And parasitic infections; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Used for diabetes.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Artemisia judaica (TaxID 205369)",
@@ -20,8 +20,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.855Z",
-  "description": "Used for diabetes, digestive, and parasitic infections. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Used for diabetes,digestive,and parasitic infections. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used for diabetes,and parasitic infections. No direct region data. Contextual inference: Used for diabetes,and parasitic infections. none.,nan.",
+  "description": "Used for diabetes, digestive, and parasitic infections.;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
   "preparation": "",

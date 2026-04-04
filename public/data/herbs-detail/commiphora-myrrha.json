@@ -3,7 +3,7 @@
   "latin": "Commiphora myrrha",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antiseptic, anti-inflammatory, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, anti-inflammatory, antimicrobial. No direct region data. Contextual inference: Antiseptic, anti-inflammatory, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, anti-inflammatory, antimicrobial. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,Possible skin rash,GI irritation in large amounts,avoid in pregnancy,No direct toxicity data. Contextual inference: Antiseptic,anti-inflammatory,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiseptic,antimicrobial. none.",
+  "safetyNotes": "Possible skin rash; GI irritation in large amounts; Avoid in pregnancy; Antiseptic; Antimicrobial; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Antiseptic.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Commiphora myrrha (TaxID 318982)",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.905Z",
-  "description": "Antiseptic, anti-inflammatory, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "250,500 mg,day gum resin or tincture",
+  "description": "Antiseptic, anti-inflammatory, antimicrobial.;.",
+  "dosage": "250-500 mg/day gum resin or tincture",
   "duration": "3–6 hours",
   "legalStatus": "Widely legal; used in traditional and modern applications",
-  "preparation": "smoked",
+  "preparation": "Smoked.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

@@ -3,7 +3,7 @@
   "latin": "Theobroma cacao",
   "class": "Stimulant, Mood Enhancer",
   "intensity": "No direct intensity data. Contextual inference: Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. No direct region data. Contextual inference: Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [
     "theobromine",
     "caffeine",
@@ -24,7 +24,7 @@
     "MAOIs"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance. Avoid with heart conditions; Avoid with stimulant sensitivity.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Theobroma cacao (TaxID 3641)",
@@ -33,7 +33,7 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.026Z",
-  "description": "Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine.",
   "dosage": "",
   "duration": "2–4 hours",
   "legalStatus": "Legal globally",

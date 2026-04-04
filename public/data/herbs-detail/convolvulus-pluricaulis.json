@@ -3,7 +3,7 @@
   "latin": "Convolvulus pluricaulis",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Nootropic, anxiolytic, and anti-inflammatory (ayurveda). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Nootropic, anxiolytic, and anti-inflammatory (Ayurveda). No direct region data. Contextual inference: Nootropic, anxiolytic, and anti-inflammatory (ayurveda). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Nootropic, anxiolytic, and anti-inflammatory (Ayurveda). none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "relaxation",
@@ -12,7 +12,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Nootropic,anxiolytic,and anti-inflammatory (ayurveda). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Nootropic,and anti-inflammatory (Ayurveda). none.",
+  "safetyNotes": "Nootropic; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Nootropic.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Convolvulus pluricaulis",
@@ -21,12 +21,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.906Z",
-  "description": "Nootropic, anxiolytic, and anti-inflammatory (ayurveda). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Nootropic,anxiolytic,and anti,inflammatory (ayurveda). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Nootropic,inflammatory (Ayurveda). No direct region data. Contextual inference: Nootropic,inflammatory (Ayurveda). none.,nan.",
+  "description": "Nootropic, anxiolytic, and anti-inflammatory (ayurveda).;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",
-  "preparation": "tea",
-  "region": "india, nepal",
+  "preparation": "Tea.",
+  "region": "India, nepal.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],

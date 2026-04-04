@@ -3,12 +3,12 @@
   "latin": "Ferula communis",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Traditionally used as digestive aid; some forms toxic (ferulosis). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as digestive aid; some forms toxic (ferulosis). No direct region data. Contextual inference: Traditionally used as digestive aid; some forms toxic (ferulosis). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as digestive aid; some forms toxic (ferulosis). none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Traditionally used as digestive aid,some forms toxic (ferulosis). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditionally used as digestive aid,some forms toxic (ferulosis). none.",
+  "safetyNotes": "Some forms toxic (ferulosis); Antioxidant effects; Or enzyme inhibition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Ferula communis (TaxID 54829)",
@@ -17,8 +17,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.936Z",
-  "description": "Traditionally used as digestive aid; some forms toxic (ferulosis). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Traditionally used as digestive aid,some forms toxic (ferulosis). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditionally used as digestive aid,some forms toxic (ferulosis). No direct region data. Contextual inference: Traditionally used as digestive aid,some forms toxic (ferulosis). none.,nan.",
+  "description": "Traditionally used as digestive aid; some forms toxic (ferulosis).;.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
   "preparation": "",

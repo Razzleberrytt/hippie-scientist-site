@@ -28,7 +28,7 @@
     "Caution with: inhibits MAO enzymes",
     "May potentiate: interacts with liver enzymes"
   ],
-  "safetyNotes": "Toxic in large amounts,high doses may cause liver damage,delirium,or seizures,Nausea,vomiting,dry mouth,palpitations,hallucinations,confusion,liver toxicity,Hepatotoxic at high doses,myristicin is neurotoxic in excess,Myristicin LD50 in rats: ~400–700 mg/kg oral,human toxic dose ~5g+",
+  "safetyNotes": "Toxic in large amounts, high doses may cause liver damage, delirium, or seizures, Nausea, vomiting, dry mouth, palpitations, hallucinations, confusion, liver toxicity, Hepatotoxic at high doses, myristicin is neurotoxic in excess, Myristicin LD50 in rats: ~400–700 mg/kg oral, human toxic dose ~5g+",
   "sources": [
     {
       "title": "NCBI Taxonomy: Myristica fragrans Houtt.",
@@ -41,8 +41,8 @@
   "dosage": "Culinary: 0.1–0.5g; psychoactive: 5–15g (not recommended)",
   "duration": "8–24 hours (psychoactive dose)",
   "legalStatus": "Legal globally; psychoactive use discouraged or regulated in prisons/schools",
-  "preparation": "tea",
-  "region": "Native to Indonesia",
+  "preparation": "Tea.",
+  "region": "Native to Indonesia.",
   "therapeuticUses": [
     "Digestion",
     "anti-inflammatory",

@@ -3,7 +3,7 @@
   "latin": "Rhynchosia pyramidalis",
   "class": "Anti-inflammatory, Antibacterial",
   "intensity": "Moderate",
-  "mechanism": "inhibition of pro-inflammatory cytokines via flavonoids",
+  "mechanism": "Inhibition of pro-inflammatory cytokines via flavonoids.",
   "activeCompounds": [
     "prenylated isoflavonoids",
     "flavonoids",
@@ -21,7 +21,7 @@
     "May potentiate NSAIDs and immunosuppressants"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, lower dose or stop if nausea, vomiting or or gi upset occurs. Avoid in pregnancy; Avoid with hormone-sensitive conditions.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rhynchosia pyramidalis (TaxID 1179171)",
@@ -31,11 +31,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.972Z",
   "description": "Rhynchosia pyramidalis is a medicinal herb traditionally used for pain relief and immune modulation.",
-  "dosage": "Infusion or decoction, 2–3 cups per day",
+  "dosage": "Infusion or decoction, 2–3 cups per /day.",
   "duration": "360",
   "legalStatus": "Unregulated",
-  "preparation": "tea",
-  "region": "Sub-Saharan Africa",
+  "preparation": "Tea.",
+  "region": "Sub-Saharan Africa.",
   "therapeuticUses": [
     "Analgesic",
     "antipyretic",

@@ -3,7 +3,7 @@
   "latin": "Datura ferox",
   "class": "Deliriant, anticholinergic",
   "intensity": "No direct intensity data. Contextual inference: Anticholinergic, hallucinogenic; contains scopolamine and atropine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anticholinergic, hallucinogenic; contains scopolamine and atropine. No direct region data. Contextual inference: Anticholinergic, hallucinogenic; contains scopolamine and atropine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anticholinergic, hallucinogenic; contains scopolamine and atropine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [
     "scopolamine",
     "atropine",
@@ -19,7 +19,7 @@
     "avoid with glaucoma"
   ],
   "interactions": [],
-  "safetyNotes": "Highly dangerous,often leads to poisoning or fatality,Tachycardia,confusion,potentially fatal toxicity,High,Atropine: ~453 mg/kg (rat,oral),No direct toxicity data. Contextual inference: Anticholinergic,hallucinogenic,contains scopolamine and atropine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anticholinergic,contains scopolamine and atropine. none.",
+  "safetyNotes": "Highly dangerous; Often leads to poisoning or fatality; Tachycardia; Confusion; Potentially fatal toxicity; Atropine: ~453 mg/kg (rat; Oral); Anticholinergic; Hallucinogenic; Contains scopolamine and atropine; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Anticholinergic; Avoid with heart conditions; Avoid in pregnancy; Avoid with glaucoma.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Datura ferox (TaxID 169103)",
@@ -28,8 +28,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.914Z",
-  "description": "Anticholinergic, hallucinogenic; contains scopolamine and atropine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Anticholinergic,hallucinogenic,contains scopolamine and atropine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anticholinergic,contains scopolamine and atropine. No direct region data. Contextual inference: Anticholinergic,contains scopolamine and atropine. none.,nan.",
+  "description": "Anticholinergic, hallucinogenic; contains scopolamine and atropine.;.",
+  "dosage": "",
   "duration": "6–24 hours",
   "legalStatus": "Restricted or banned in many regions",
   "preparation": "",

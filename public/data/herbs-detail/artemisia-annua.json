@@ -24,12 +24,8 @@
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Antimalarial, antiviral, immune modulating. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "500",
-    "1500 mg",
-    "day extract"
-  ],
+  "description": "Antimalarial, antiviral, immune modulating.;.",
+  "dosage": "500-1500 mg/day extract",
   "duration": "4–8 hours",
   "interactions": [
     "May potentiate: Artemisinin derivatives are metabolized by CYP enzymes",
@@ -37,7 +33,7 @@
     "May potentiate: Combination with other QT prolonging drugs may increase arrhythmia risk for susceptible patients"
   ],
   "legalStatus": "Legal in many regions; artemisinin regulated",
-  "preparation": "tea",
+  "preparation": "Tea.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

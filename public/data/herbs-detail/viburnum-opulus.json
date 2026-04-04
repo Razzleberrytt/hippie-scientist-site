@@ -3,7 +3,7 @@
   "latin": "Viburnum opulus",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antispasmodic, uterine relaxant, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antispasmodic, uterine relaxant, sedative. No direct region data. Contextual inference: Antispasmodic, uterine relaxant, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antispasmodic, uterine relaxant, sedative. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "relaxation",
@@ -11,11 +11,14 @@
   ],
   "contraindications": [],
   "interactions": [
-    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
-    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+    "Insufficient direct interaction data for this herb",
+    "Consult a clinician before combining with prescription medications",
+    "Use extra caution with anticoagulants",
+    "Sedatives",
+    "And serotonergic drugs until herb-specific interaction evidence is established"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Stop use if rash or allergic symptoms occur.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance, stop use if rash or allergic symptoms occur or may cause skin rash or stomach upset in sensitive individuals.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Viburnum opulus (TaxID 85293)",
@@ -24,12 +27,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.031Z",
-  "description": "Antispasmodic, uterine relaxant, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "250,500 mg,day extract or 1,2 g bark",
+  "description": "Antispasmodic, uterine relaxant, sedative.",
+  "dosage": "250-500 mg/day extract or 1-2 g bark.",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",
-  "preparation": "tincture",
-  "region": "europe, north america",
+  "preparation": "Tincture.",
+  "region": "Europe, north america.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

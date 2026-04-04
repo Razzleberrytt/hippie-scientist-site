@@ -3,7 +3,7 @@
   "latin": "Nymphaea caerulea",
   "class": "Sedative, Psychoactive",
   "intensity": "No direct intensity data. Contextual inference: Mild sedative, mood enhancement, possible aphrodisiac. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, mood enhancement, possible aphrodisiac. No direct region data. Contextual inference: Mild sedative, mood enhancement, possible aphrodisiac. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, mood enhancement, possible aphrodisiac. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [
     "aporphine",
     "nuciferine",
@@ -26,14 +26,14 @@
   ],
   "interactions": [
     "Potentiates sedatives",
-    "avoid with alcohol",
+    "Avoid with alcohol",
     "CNS depressants",
-    "alcohol",
+    "Alcohol",
     "Sedatives",
     "MAOIs"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or maois without medical guidance, sedative effects, dizziness in high amounts or may interact with maois. Avoid in pregnancy; Avoid in liver disease; Avoid with concurrent CNS depressants; Avoid with driving or operating machinery.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nymphaea caerulea",
@@ -43,11 +43,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.982Z",
   "description": "Nymphaea caerulea is a medicinal herb traditionally used for euphoria and relaxation.",
-  "dosage": "No direct dosage data. Contextual inference: Mild sedative,mood enhancement,possible aphrodisiac. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Mild sedative,possible aphrodisiac. No direct region data. Contextual inference: Mild sedative,possible aphrodisiac. none.,nan.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Regulated in some regions (e.g., Louisiana)",
-  "preparation": "smoked",
-  "region": "nile valley, india",
+  "preparation": "Smoked.",
+  "region": "Nile valley, india.",
   "therapeuticUses": [
     "Anxiety",
     "sleep aid",

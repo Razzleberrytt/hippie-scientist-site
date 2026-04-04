@@ -3,7 +3,7 @@
   "latin": "Silene capensis",
   "class": "Oneirogen, Psychoactive",
   "intensity": "Mild",
-  "mechanism": "Saponins may contribute membrane and immune-modulating effects",
+  "mechanism": "Saponins may contribute membrane and immune-modulating effects.",
   "activeCompounds": [
     "saponins"
   ],
@@ -15,11 +15,11 @@
     "avoid in pregnancy"
   ],
   "interactions": [
-    "None documented",
-    "avoid CNS drugs"
+    "Documented",
+    "Avoid CNS drugs"
   ],
   "safetyLevel": "caution",
-  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid use during pregnancy unless advised by a clinician.",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid use during pregnancy unless advised by a clinician; Avoid in pregnancy.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Silene capensis",
@@ -38,12 +38,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Sacred Xhosa dream herb used to enhance lucid dreaming",
+  "description": "Sacred Xhosa dream herb used to enhance lucid dreaming.",
   "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "Unregulated",
-  "preparation": "extract",
-  "region": "south africa",
+  "preparation": "Extract.",
+  "region": "South africa.",
   "therapeuticUses": [
     "Sleep enhancement",
     "lucid dream induction"

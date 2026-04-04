@@ -3,7 +3,7 @@
   "latin": "Paullinia pinnata",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Aphrodisiac, tonic, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, tonic, anti-inflammatory. No direct region data. Contextual inference: Aphrodisiac, tonic, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, tonic, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -12,7 +12,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "caution",
-  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
+  "safetyNotes": "May cause limited data, may cause nervousness or insomnia. Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Paullinia pinnata (TaxID 290984)",
@@ -22,7 +22,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.989Z",
   "description": "Paullinia pinnata is a medicinal herb traditionally used for aphrodisiac and tonic.",
-  "dosage": "No direct dosage data. Contextual inference: Aphrodisiac,tonic,anti,inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Aphrodisiac,inflammatory. No direct region data. Contextual inference: Aphrodisiac,inflammatory. none.,nan.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Folk use; unregulated in many regions",
   "preparation": "",

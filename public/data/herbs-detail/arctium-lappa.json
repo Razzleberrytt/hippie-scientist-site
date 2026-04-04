@@ -3,7 +3,7 @@
   "latin": "Arctium lappa",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Diuretic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, blood purifier, anti-inflammatory. No direct region data. Contextual inference: Diuretic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, blood purifier, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,Generally well tolerated,rare allergic reactions,possible diuretic effects,No direct toxicity data. Contextual inference: Diuretic,blood purifier,anti-inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Diuretic,anti-inflammatory. none.",
+  "safetyNotes": "Generally well tolerated; Rare allergic reactions; Possible diuretic effects; Blood purifier; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Diuretic.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Arctium lappa (TaxID 4217)",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.849Z",
-  "description": "Diuretic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "500,1000 mg,day root or 1,2 g dried powder",
+  "description": "Diuretic, blood purifier, anti-inflammatory.;.",
+  "dosage": "500-1000 mg/day root or 1-2 g dried powder",
   "duration": "4–6 hours",
   "legalStatus": "Legal; common in traditional herbal medicine",
-  "preparation": "tincture",
+  "preparation": "Tincture.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

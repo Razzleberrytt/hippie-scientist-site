@@ -18,7 +18,7 @@
     "Avoid with: MAOIs",
     "Avoid with: SSRIs"
   ],
-  "safetyNotes": "Avoid with psychoactivity not fully studied",
+  "safetyNotes": "Avoid with psychoactivity not fully studied.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Desmanthus illinoensis (TaxID 196648)",
@@ -37,12 +37,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "U.S. native legume with root bark containing DMT; used in analog ayahuasca",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "description": "U.S. native legume with root bark containing DMT; used in analog ayahuasca.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Plant legal; DMT controlled",
-  "preparation": "tea",
-  "region": "central and southern united states",
+  "preparation": "Tea.",
+  "region": "Central and southern united states.",
   "therapeuticUses": [
     "Experimental inner work"
   ],

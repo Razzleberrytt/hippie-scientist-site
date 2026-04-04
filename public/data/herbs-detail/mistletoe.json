@@ -17,7 +17,7 @@
   "interactions": [
     "May potentiate: may interfere with immunosuppressants or chemotherapeutics"
   ],
-  "safetyNotes": "Toxic – medical supervision required,injection-site inflammation,allergic reactions,or flu-like symptoms possible. oral use milder but requires caution.,Moderate–high (dose-dependent)",
+  "safetyNotes": "Toxic – medical supervision required, injection-site inflammation, allergic reactions, or flu-like symptoms possible. oral use milder but requires caution., Moderate–high (dose-dependent).",
   "sources": [
     {
       "title": "NCBI Taxonomy: Viscum album (TaxID 3972)",
@@ -30,8 +30,8 @@
   "dosage": "Subcutaneous injection in integrative cancer therapy",
   "duration": "Long-term under supervision",
   "legalStatus": "Legal but regulated in some countries",
-  "preparation": "tincture",
-  "region": "europe, western asia",
+  "preparation": "Tincture.",
+  "region": "Europe, western asia.",
   "therapeuticUses": [
     "used for anxiety",
     "epilepsy",

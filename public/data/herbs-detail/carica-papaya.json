@@ -8,7 +8,7 @@
   "effects": [],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "",
   "sources": [
     {
       "title": "NCBI Taxonomy: carica papaya (TaxID 3649)",
@@ -17,12 +17,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.888Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "description": "",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "legal",
-  "preparation": "tea",
-  "region": "tropics worldwide",
+  "preparation": "Tea.",
+  "region": "Tropics worldwide.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],

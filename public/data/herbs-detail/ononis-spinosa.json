@@ -3,7 +3,7 @@
   "latin": "Ononis spinosa",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Diuretic, anti-inflammatory, used in urinary tract support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, anti-inflammatory, used in urinary tract support. No direct region data. Contextual inference: Diuretic, anti-inflammatory, used in urinary tract support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, anti-inflammatory, used in urinary tract support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -12,7 +12,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "moderate",
-  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Lower dose or stop if nausea, vomiting, or GI upset occurs.",
+  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. lower dose or stop if nausea, vomiting, or gi upset occurs, diuretic effect or possible nausea or skin irritation.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Ononis spinosa (TaxID 58890)",
@@ -22,10 +22,10 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.985Z",
   "description": "Ononis spinosa is a medicinal herb traditionally used for diuretic and anti-inflammatory-inflammatory.",
-  "dosage": "250,500 mg,day root extract",
+  "dosage": "250-500 mg/day root extract.",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
-  "preparation": "tincture",
+  "preparation": "Tincture.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

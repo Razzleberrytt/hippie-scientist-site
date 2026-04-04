@@ -3,7 +3,7 @@
   "latin": "Cynara scolymus",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Liver support, cholesterol reduction, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver support, cholesterol reduction, digestive aid. No direct region data. Contextual inference: Liver support, cholesterol reduction, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver support, cholesterol reduction, digestive aid. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "digestive support",
@@ -11,7 +11,7 @@
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,Occasional allergic reactions,may worsen gallstones or bile duct obstruction,No direct toxicity data. Contextual inference: Liver support,cholesterol reduction,digestive aid. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Liver support,digestive aid. none.",
+  "safetyNotes": "Occasional allergic reactions; May worsen gallstones or bile duct obstruction; Liver support; Cholesterol reduction; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Liver support.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Cynara scolymus",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.912Z",
-  "description": "Liver support, cholesterol reduction, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "300,1000 mg,day leaf extract",
+  "description": "Liver support, cholesterol reduction, digestive aid.;.",
+  "dosage": "300-1000 mg/day leaf extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",
-  "preparation": "tincture",
+  "preparation": "Tincture.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

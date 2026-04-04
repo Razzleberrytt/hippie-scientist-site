@@ -3,14 +3,14 @@
   "latin": "Erythrina flabelliformis",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Sedative and muscle relaxant; used by native american tribes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative and muscle relaxant; used by Native American tribes. No direct region data. Contextual inference: Sedative and muscle relaxant; used by native american tribes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative and muscle relaxant; used by Native American tribes. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "relaxation"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Sedative and muscle relaxant,used by native american tribes. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Sedative and muscle relaxant,used by Native American tribes. none.",
+  "safetyNotes": "Sedative and muscle relaxant; Used by native american tribes; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Sedative and muscle relaxant.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Erythrina flabelliformis (TaxID 1853060)",
@@ -19,8 +19,8 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.933Z",
-  "description": "Sedative and muscle relaxant; used by native american tribes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Sedative and muscle relaxant,used by native american tribes. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Sedative and muscle relaxant,used by Native American tribes. No direct region data. Contextual inference: Sedative and muscle relaxant,used by Native American tribes. none.,nan.",
+  "description": "Sedative and muscle relaxant; used by native american tribes.;.",
+  "dosage": "",
   "duration": "6–8 hours",
   "legalStatus": "Unregulated",
   "preparation": "",
