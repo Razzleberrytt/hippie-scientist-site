@@ -1,0 +1,56 @@
+{
+  "name": "Omega-3 Fatty Acids (EPA/DHA)",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Supports triglyceride reduction at higher doses",
+    "Supports membrane lipid biology"
+  ],
+  "contraindications": [
+    "Use caution with bleeding-risk conditions",
+    "Quality/purity varies among supplements"
+  ],
+  "category": "nutrient",
+  "sources": [
+    {
+      "title": "Omega-3 Fatty Acids Fact Sheet for Health Professionals (NIH ODS)",
+      "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"
+    },
+    {
+      "title": "FDA prescription omega-3 product labeling context",
+      "url": "https://www.fda.gov/"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "slug": "omega-3-fatty-acids",
+  "id": "omega-3-fatty-acids",
+  "displayName": "Omega-3 Fatty Acids (EPA/DHA)",
+  "description": "Marine EPA/DHA differ from ALA; prescription ethyl-ester products for hypertriglyceridemia are distinct from OTC fish oils.",
+  "summary": "EPA/DHA omega-3s lower triglycerides at higher doses; supplement and prescription products are not interchangeable.",
+  "mechanism": "Incorporate into membranes and affect inflammatory/triglyceride pathways; cardiovascular outcomes are mixed across trials.",
+  "safetyNotes": [
+    "Generally tolerated; fishy GI effects can occur.",
+    "High doses may increase bleeding risk."
+  ],
+  "interactions": [
+    "May potentiate antiplatelet/anticoagulant effects."
+  ],
+  "dosage": [
+    "Dietary guidance often ~250–500 mg/day EPA+DHA; Rx regimens ~2–4 g/day."
+  ],
+  "preparation": "Fish/algal oils in triglyceride or ethyl-ester forms.",
+  "regulatoryStatus": "Dietary supplements exist; specific high-dose products are FDA-approved prescriptions.",
+  "sourceType": "Essential fatty acids",
+  "activeCompounds": [
+    "Eicosapentaenoic acid (EPA)",
+    "Docosahexaenoic acid (DHA)"
+  ],
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nan"
+  ]
+}

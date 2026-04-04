@@ -5,12 +5,11 @@
   ],
   "effects": [
     "Supports amino-acid metabolism",
-    "Supports neurotransmitter synthesis",
-    "Prevents vitamin B6 deficiency manifestations"
+    "Supports neurotransmitter synthesis"
   ],
   "contraindications": [
-    "Avoid prolonged high-dose self-supplementation due to neuropathy risk",
-    "Use medication review when combined with anticonvulsants or levodopa regimens"
+    "Avoid prolonged high-dose self-supplementation",
+    "Review use with levodopa/anticonvulsants"
   ],
   "category": "nutrient",
   "sources": [
@@ -23,25 +22,22 @@
   "slug": "pyridoxine",
   "id": "pyridoxine",
   "displayName": "Pyridoxine (Vitamin B6)",
-  "description": "Vitamin B6 includes pyridoxine, pyridoxal, pyridoxamine, and phosphate forms. The active coenzyme form is pyridoxal-5'-phosphate, and adult intake guidance is centered on low mg/day RDA levels.",
-  "summary": "Vitamin B6 (including pyridoxine) is an essential cofactor nutrient for amino-acid and neurotransmitter metabolism; supplementation is mainly for adequacy/deficiency contexts, with caution at high chronic doses.",
-  "mechanism": "Established with proposed extensions: B6-dependent enzymes support transamination/decarboxylation and neurotransmitter synthesis (including serotonin and GABA pathways); symptom-specific benefits outside deficiency correction remain mixed.",
+  "description": "Vitamin B6 forms support amino-acid and neurotransmitter metabolism; RDA is low mg/day range.",
+  "summary": "Essential B6 cofactor nutrient; prolonged high-dose supplementation can cause neuropathy.",
+  "mechanism": "B6 enzymes support transamination/decarboxylation and neurotransmitter pathways; non-deficiency benefits are mixed.",
   "safetyNotes": [
-    "RDA-level intake is generally well tolerated.",
-    "Chronic high supplemental intake (commonly >100 mg/day) can cause sensory peripheral neuropathy; improvement may occur after stopping."
+    "RDA-level intake is well tolerated.",
+    "Chronic high doses can cause sensory neuropathy."
   ],
   "interactions": [
-    "High-dose B6 can affect certain anticonvulsants (for example phenytoin).",
-    "Can alter levodopa response when levodopa is not co-administered with a decarboxylase inhibitor."
+    "High-dose B6 may affect phenytoin and levodopa response."
   ],
   "dosage": [
-    "RDA framework (adults): about 1.3\u20131.7 mg/day.",
-    "Supplement studies often use 50\u2013100 mg/day in selected contexts, but prolonged high dosing increases neuropathy risk.",
-    "Adult upper intake level context: about 100 mg/day."
+    "Adult RDA about 1.3–1.7 mg/day; common supplemental studies use 50–100 mg/day."
   ],
-  "preparation": "Commonly available as pyridoxine hydrochloride in single-ingredient and B-complex products.",
-  "regulatoryStatus": "Essential vitamin with established dietary reference intakes; marketed as a dietary supplement ingredient.",
-  "sourceType": "Essential vitamin (cofactor)",
+  "preparation": "Pyridoxine HCl tablets/capsules, often in B-complex products.",
+  "regulatoryStatus": "Essential vitamin with dietary reference intakes.",
+  "sourceType": "Essential vitamin",
   "activeCompounds": [
     "Pyridoxine",
     "Pyridoxal-5'-phosphate"

@@ -1,0 +1,51 @@
+{
+  "name": "Resveratrol",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Antioxidant activity in laboratory models",
+    "Human clinical outcome benefits remain uncertain"
+  ],
+  "contraindications": [
+    "High doses may cause GI effects",
+    "Use caution with anticoagulants and CYP-sensitive medicines"
+  ],
+  "category": "compound",
+  "sources": [
+    {
+      "title": "PubMed review literature on resveratrol",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "slug": "resveratrol",
+  "id": "resveratrol",
+  "displayName": "Resveratrol",
+  "description": "Trans-resveratrol is the main supplemental isomer; human outcome evidence is inconsistent.",
+  "summary": "Grape-derived polyphenol with speculative anti-aging/cardiometabolic claims and low bioavailability.",
+  "mechanism": "Proposed SIRT1-related and vascular/oxidative signaling effects; clinical significance is uncertain.",
+  "safetyNotes": [
+    "Generally tolerated in short-term studies.",
+    "GI upset increases at higher doses."
+  ],
+  "interactions": [
+    "May affect CYP2C9/CYP3A4 metabolism and anticoagulant-sensitive contexts."
+  ],
+  "dosage": [
+    "No RDA; trial doses commonly ~150–1000 mg/day."
+  ],
+  "preparation": "Oral capsules; specialized formulations aim to improve absorption.",
+  "regulatoryStatus": "Sold as dietary supplement; no drug approval.",
+  "sourceType": "Plant polyphenol",
+  "activeCompounds": [
+    "Trans-resveratrol"
+  ],
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nan"
+  ]
+}

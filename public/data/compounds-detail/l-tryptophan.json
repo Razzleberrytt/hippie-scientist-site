@@ -1,0 +1,51 @@
+{
+  "name": "L-Tryptophan",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Supports serotonin and melatonin precursor pathways",
+    "Supports essential amino-acid adequacy"
+  ],
+  "contraindications": [
+    "EMS history linked to contaminated products; purity matters",
+    "Use caution with serotonergic drugs"
+  ],
+  "category": "nutrient",
+  "sources": [
+    {
+      "title": "Nutrients Involved in Serotonin and Melatonin Synthesis (NIH/PMC article)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "slug": "l-tryptophan",
+  "id": "l-tryptophan",
+  "displayName": "L-Tryptophan",
+  "description": "Dietary amino acid metabolized toward serotonin and melatonin pathways; supplement benefits are limited and context-dependent.",
+  "summary": "Essential amino acid precursor to serotonin/melatonin and vitamin B3; supplement efficacy for mood/sleep remains uncertain.",
+  "mechanism": "Proposed: precursor loading may modestly increase serotonin/melatonin signaling, but human efficacy evidence is weak.",
+  "safetyNotes": [
+    "Generally safe at dietary levels.",
+    "Historical EMS outbreaks were linked to impurities."
+  ],
+  "interactions": [
+    "Potential additive serotonergic effects with SSRIs/SNRIs/MAOIs."
+  ],
+  "dosage": [
+    "No standard therapeutic dose established; older reports used ~1–6 g/day."
+  ],
+  "preparation": "Capsules/powders; also present in protein foods.",
+  "regulatoryStatus": "Dietary supplement ingredient in the US; FDA import restriction lifted in 2001.",
+  "sourceType": "Nutritional amino acid",
+  "activeCompounds": [
+    "L-tryptophan"
+  ],
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nan"
+  ]
+}

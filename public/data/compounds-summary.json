@@ -2,9 +2,9 @@
   {
     "id": "syringaresnol-4-o-d-apiofuranosyl-1-2-d-glucopyranoside",
     "slug": "syringaresnol-4-o-d-apiofuranosyl-1-2-d-glucopyranoside",
-    "name": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1\u21922)-D-glucopyranoside",
-    "summaryShort": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1\u21922)-D-glucopyranoside appears in records as a compound reported in albizia julibrissin. Current source coverage is limited and still develop",
-    "description": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1\u21922)-D-glucopyranoside appears in records as a compound reported in albizia julibrissin. Current source coverage is limited and still developing.",
+    "name": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside",
+    "summaryShort": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside appears in records as a compound reported in albizia julibrissin. Current source coverage is limited and still develop",
+    "description": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside appears in records as a compound reported in albizia julibrissin. Current source coverage is limited and still developing.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -34,7 +34,7 @@
       "albizia-julibrissin"
     ],
     "aliases": [
-      "(-)-syringaresnol-4-O-D-apiofuranosyl-(1\u21922)-D-glucopyranoside"
+      "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside"
     ]
   },
   {
@@ -249,9 +249,9 @@
   {
     "id": "7-hydroxybaruol",
     "slug": "7-hydroxybaruol",
-    "name": "7\u03b1-hydroxybaruol",
-    "summaryShort": "7\u03b1-hydroxybaruol appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
-    "description": "7\u03b1-hydroxybaruol appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
+    "name": "7α-hydroxybaruol",
+    "summaryShort": "7α-hydroxybaruol appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
+    "description": "7α-hydroxybaruol appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -277,7 +277,7 @@
       "adenostoma-fasciculatum"
     ],
     "aliases": [
-      "7\u03b1-hydroxybaruol"
+      "7α-hydroxybaruol"
     ]
   },
   {
@@ -420,7 +420,7 @@
       "dreaming or folk medicine",
       "digestive aid",
       "and purported hallucinogen",
-      "contains \u03b2-asarone"
+      "contains β-asarone"
     ],
     "primaryEffects": [
       "Stimulation",
@@ -971,9 +971,9 @@
   {
     "id": "albiziasaponins-a-e",
     "slug": "albiziasaponins-a-e",
-    "name": "albiziasaponins A\u2013E",
-    "summaryShort": "albiziasaponins A\u2013E is a compound reported in albizia lebbeck. Available references are still early and incomplete.",
-    "description": "albiziasaponins A\u2013E is a compound reported in albizia lebbeck. Available references are still early and incomplete.",
+    "name": "albiziasaponins A–E",
+    "summaryShort": "albiziasaponins A–E is a compound reported in albizia lebbeck. Available references are still early and incomplete.",
+    "description": "albiziasaponins A–E is a compound reported in albizia lebbeck. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -1001,7 +1001,7 @@
       "albizia-lebbeck"
     ],
     "aliases": [
-      "albiziasaponins A\u2013E"
+      "albiziasaponins A–E"
     ]
   },
   {
@@ -1381,8 +1381,8 @@
     "id": "alpha-asarone",
     "slug": "alpha-asarone",
     "name": "Alpha-asarone",
-    "summaryShort": "Alpha-asarone is a compound reported in acorus americanus, nan, and related herbs. Available references are still early and incomplete.",
-    "description": "Alpha-asarone is a compound reported in acorus americanus, nan, and related herbs. Available references are still early and incomplete.",
+    "summaryShort": "Alpha-asarone is a compound reported in acorus americanus and nan. Available references are still early and incomplete.",
+    "description": "Alpha-asarone is a compound reported in acorus americanus and nan. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -1405,12 +1405,7 @@
       "dreaming or folk medicine",
       "digestive aid",
       "and purported hallucinogen",
-      "contains \u03b2-asarone",
-      "CNS stimulant",
-      "memory aid",
-      "and anti-epileptic in TCM",
-      "and anti",
-      "epileptic in TCM"
+      "contains β-asarone"
     ],
     "primaryEffects": [
       "No direct effects data. Contextual inference:",
@@ -1420,8 +1415,7 @@
     ],
     "herbs": [
       "acorus americanus",
-      "nan",
-      "acorus tatarinowii"
+      "nan"
     ],
     "confidence": "low",
     "hasInteractionData": false,
@@ -1432,8 +1426,7 @@
     "relatedEntities": [],
     "linkedHerbs": [
       "acorus-americanus",
-      "nan",
-      "acorus-tatarinowii"
+      "nan"
     ],
     "aliases": [
       "Alpha-asarone"
@@ -1779,67 +1772,6 @@
     ],
     "aliases": [
       "arbutin"
-    ]
-  },
-  {
-    "id": "asarone",
-    "slug": "asarone",
-    "name": "asarone",
-    "summaryShort": "asarone appears in records as a compound reported in acorus americanus, acorus calamus var. angustatus, and related herbs. Current source coverage is limited and still developing.",
-    "description": "asarone appears in records as a compound reported in acorus americanus, acorus calamus var. angustatus, and related herbs. Current source coverage is limited and still developing.",
-    "className": "",
-    "category": "",
-    "mechanism": "",
-    "effects": [
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan.",
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine",
-      "Stimulation",
-      "mental clarity",
-      "mild sedation (low dose)",
-      "hallucinations (high dose",
-      "beta-asarone rich)",
-      "Mild sedative",
-      "hallucinogenic in high doses",
-      "digestive aid",
-      "and purported hallucinogen",
-      "contains \u03b2-asarone",
-      "Mild stimulation",
-      "warming sensation",
-      "Anxiolytic",
-      "relaxing"
-    ],
-    "primaryEffects": [
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan."
-    ],
-    "herbs": [
-      "acorus americanus",
-      "acorus calamus var. angustatus",
-      "nan"
-    ],
-    "confidence": "low",
-    "hasInteractionData": false,
-    "hasEvidenceNotes": true,
-    "identity": "",
-    "categoryUseContext": "",
-    "evidenceLevel": "",
-    "relatedEntities": [],
-    "linkedHerbs": [
-      "acorus-americanus",
-      "acorus-calamus-var-angustatus",
-      "nan"
-    ],
-    "aliases": [
-      "asarone"
     ]
   },
   {
@@ -2320,7 +2252,7 @@
       "hallucinogenic in high doses",
       "digestive aid",
       "and purported hallucinogen",
-      "contains \u03b2-asarone",
+      "contains β-asarone",
       "CNS stimulant",
       "memory aid",
       "and anti-epileptic in TCM",
@@ -3867,9 +3799,9 @@
   {
     "id": "cocaine-alkaloids-0-2-1",
     "slug": "cocaine-alkaloids-0-2-1",
-    "name": "Cocaine alkaloids (0.2\u20131%)",
-    "summaryShort": "Cocaine alkaloids (0.2\u20131%) is a compound reported in nan. Available references are still early and incomplete.",
-    "description": "Cocaine alkaloids (0.2\u20131%) is a compound reported in nan. Available references are still early and incomplete.",
+    "name": "Cocaine alkaloids (0.2–1%)",
+    "summaryShort": "Cocaine alkaloids (0.2–1%) is a compound reported in nan. Available references are still early and incomplete.",
+    "description": "Cocaine alkaloids (0.2–1%) is a compound reported in nan. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -3902,7 +3834,7 @@
       "nan"
     ],
     "aliases": [
-      "Cocaine alkaloids (0.2\u20131%)"
+      "Cocaine alkaloids (0.2–1%)"
     ]
   },
   {
@@ -4802,9 +4734,9 @@
   {
     "id": "dmt-0-3-0-7",
     "slug": "dmt-0-3-0-7",
-    "name": "DMT (0.3\u20130.7%)",
-    "summaryShort": "DMT (0.3\u20130.7%) is a compound reported in nan. Available references are still early and incomplete.",
-    "description": "DMT (0.3\u20130.7%) is a compound reported in nan. Available references are still early and incomplete.",
+    "name": "DMT (0.3–0.7%)",
+    "summaryShort": "DMT (0.3–0.7%) is a compound reported in nan. Available references are still early and incomplete.",
+    "description": "DMT (0.3–0.7%) is a compound reported in nan. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -4834,7 +4766,7 @@
       "nan"
     ],
     "aliases": [
-      "DMT (0.3\u20130.7%)"
+      "DMT (0.3–0.7%)"
     ]
   },
   {
@@ -5806,7 +5738,7 @@
       "dreaming or folk medicine",
       "digestive aid",
       "and purported hallucinogen",
-      "contains \u03b2-asarone",
+      "contains β-asarone",
       "Stress relief",
       "respiratory support",
       "antioxidant",
@@ -6867,35 +6799,17 @@
     "category": "",
     "mechanism": "",
     "effects": [
-      "Altered perception",
-      "dream intensification",
-      "nausea",
-      "Mild euphoria",
-      "altered perception",
-      "potentiation of DMT",
-      "MAOI activity",
-      "altered consciousness",
-      "dream enhancement",
-      "MAO inhibitor",
-      "antispasmodic",
-      "psychoactive",
-      "Dreamlike visions",
-      "introspection",
-      "emotional release",
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan.",
       "Intense stimulation",
+      "nausea",
       "dizziness",
       "spiritual visions",
       "relaxation"
     ],
     "primaryEffects": [
-      "Altered perception",
-      "dream intensification",
+      "Intense stimulation",
       "nausea",
-      "Mild euphoria"
+      "dizziness",
+      "spiritual visions"
     ],
     "herbs": [
       "nan"
@@ -8384,6 +8298,40 @@
     ]
   },
   {
+    "id": "l-tryptophan",
+    "slug": "l-tryptophan",
+    "name": "L-Tryptophan",
+    "summaryShort": "Essential amino acid precursor to serotonin/melatonin and vitamin B3; supplement efficacy for mood/sleep remains uncertain.",
+    "description": "Dietary amino acid metabolized toward serotonin and melatonin pathways; supplement benefits are limited and context-dependent.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Proposed: precursor loading may modestly increase serotonin/melatonin signaling, but human efficacy evidence is weak.",
+    "effects": [
+      "Supports serotonin and melatonin precursor pathways",
+      "Supports essential amino-acid adequacy"
+    ],
+    "primaryEffects": [
+      "Supports serotonin and melatonin precursor pathways",
+      "Supports essential amino-acid adequacy"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "L-Tryptophan"
+    ]
+  },
+  {
     "id": "lactucin",
     "slug": "lactucin",
     "name": "Lactucin",
@@ -9439,6 +9387,40 @@
     ]
   },
   {
+    "id": "magnesium",
+    "slug": "magnesium",
+    "name": "Magnesium",
+    "summaryShort": "Essential mineral for 300+ enzymatic reactions; supplementation mainly addresses adequacy and intake targets.",
+    "description": "Mg2+ from foods/supplements; major body stores are in bone and soft tissue.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Cofactor in ATP-linked reactions and ion transport; migraine benefits remain context-dependent.",
+    "effects": [
+      "Supports muscle and nerve function",
+      "Supports energy metabolism"
+    ],
+    "primaryEffects": [
+      "Supports muscle and nerve function",
+      "Supports energy metabolism"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Magnesium"
+    ]
+  },
+  {
     "id": "maltol",
     "slug": "maltol",
     "name": "maltol",
@@ -9589,6 +9571,40 @@
     ],
     "aliases": [
       "melanoxetin"
+    ]
+  },
+  {
+    "id": "melatonin",
+    "slug": "melatonin",
+    "name": "Melatonin",
+    "summaryShort": "Endogenous circadian hormone used for sleep and jet lag with modest short-term benefits and neuroactive caution.",
+    "description": "Night-time hormone available as OTC supplement in many US products (often 0.5–5 mg).",
+    "className": "supplement",
+    "category": "supplement",
+    "mechanism": "Acts at MT1/MT2 receptors to shift circadian phase and support sleep onset.",
+    "effects": [
+      "Supports circadian sleep timing",
+      "May reduce jet-lag symptoms"
+    ],
+    "primaryEffects": [
+      "Supports circadian sleep timing",
+      "May reduce jet-lag symptoms"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Melatonin"
     ]
   },
   {
@@ -10325,7 +10341,7 @@
       "dreaming or folk medicine",
       "digestive aid",
       "and purported hallucinogen",
-      "contains \u03b2-asarone"
+      "contains β-asarone"
     ],
     "primaryEffects": [
       "Stimulation",
@@ -11024,6 +11040,40 @@
     ]
   },
   {
+    "id": "niacin",
+    "slug": "niacin",
+    "name": "Niacin (Vitamin B3)",
+    "summaryShort": "Essential vitamin B3 nutrient with drug-like high-dose lipid effects; formulation and dose strongly affect safety.",
+    "description": "Nicotinic acid is a nutrient precursor for NAD/NADP and also used pharmacologically for dyslipidemia at high doses.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Nutritional role: NAD/NADP precursor. Pharmacologic role: GPR109A-related lipolysis/lipid effects.",
+    "effects": [
+      "Supports NAD/NADP energy metabolism",
+      "Prevents niacin deficiency"
+    ],
+    "primaryEffects": [
+      "Supports NAD/NADP energy metabolism",
+      "Prevents niacin deficiency"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Niacin (Vitamin B3)"
+    ]
+  },
+  {
     "id": "nicotine",
     "slug": "nicotine",
     "name": "Nicotine",
@@ -11066,9 +11116,9 @@
   {
     "id": "nicotine-9-15",
     "slug": "nicotine-9-15",
-    "name": "Nicotine (9\u201315%)",
-    "summaryShort": "Nicotine (9\u201315%) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
-    "description": "Nicotine (9\u201315%) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+    "name": "Nicotine (9–15%)",
+    "summaryShort": "Nicotine (9–15%) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+    "description": "Nicotine (9–15%) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -11099,7 +11149,7 @@
       "nan"
     ],
     "aliases": [
-      "Nicotine (9\u201315%)"
+      "Nicotine (9–15%)"
     ]
   },
   {
@@ -11629,6 +11679,40 @@
     ],
     "aliases": [
       "oleanolic acid"
+    ]
+  },
+  {
+    "id": "omega-3-fatty-acids",
+    "slug": "omega-3-fatty-acids",
+    "name": "Omega-3 Fatty Acids (EPA/DHA)",
+    "summaryShort": "EPA/DHA omega-3s lower triglycerides at higher doses; supplement and prescription products are not interchangeable.",
+    "description": "Marine EPA/DHA differ from ALA; prescription ethyl-ester products for hypertriglyceridemia are distinct from OTC fish oils.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Incorporate into membranes and affect inflammatory/triglyceride pathways; cardiovascular outcomes are mixed across trials.",
+    "effects": [
+      "Supports triglyceride reduction at higher doses",
+      "Supports membrane lipid biology"
+    ],
+    "primaryEffects": [
+      "Supports triglyceride reduction at higher doses",
+      "Supports membrane lipid biology"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Omega-3 Fatty Acids (EPA/DHA)"
     ]
   },
   {
@@ -12648,6 +12732,40 @@
     ]
   },
   {
+    "id": "probiotics",
+    "slug": "probiotics",
+    "name": "Probiotics",
+    "summaryShort": "Live microbial products with strain-specific effects; avoid broad universal claims.",
+    "description": "Lactobacillus, Bifidobacterium, Saccharomyces boulardii and others show indication- and strain-specific outcomes.",
+    "className": "supplement",
+    "category": "supplement",
+    "mechanism": "Proposed mechanisms include microbiome modulation, barrier effects, and immune signaling changes.",
+    "effects": [
+      "May reduce antibiotic-associated diarrhea in some strains",
+      "May modestly improve some IBS symptoms (strain dependent)"
+    ],
+    "primaryEffects": [
+      "May reduce antibiotic-associated diarrhea in some strains",
+      "May modestly improve some IBS symptoms (strain dependent)"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Probiotics"
+    ]
+  },
+  {
     "id": "procyanidin-oligomers",
     "slug": "procyanidin-oligomers",
     "name": "procyanidin oligomers",
@@ -12855,6 +12973,40 @@
     ]
   },
   {
+    "id": "pyridoxine",
+    "slug": "pyridoxine",
+    "name": "Pyridoxine (Vitamin B6)",
+    "summaryShort": "Essential B6 cofactor nutrient; prolonged high-dose supplementation can cause neuropathy.",
+    "description": "Vitamin B6 forms support amino-acid and neurotransmitter metabolism; RDA is low mg/day range.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "B6 enzymes support transamination/decarboxylation and neurotransmitter pathways; non-deficiency benefits are mixed.",
+    "effects": [
+      "Supports amino-acid metabolism",
+      "Supports neurotransmitter synthesis"
+    ],
+    "primaryEffects": [
+      "Supports amino-acid metabolism",
+      "Supports neurotransmitter synthesis"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Pyridoxine (Vitamin B6)"
+    ]
+  },
+  {
     "id": "pyrrolizidine-alkaloids-toxic",
     "slug": "pyrrolizidine-alkaloids-toxic",
     "name": "pyrrolizidine alkaloids (toxic)",
@@ -12899,69 +13051,35 @@
   {
     "id": "quercetin",
     "slug": "quercetin",
-    "name": "quercetin",
-    "summaryShort": "quercetin is a compound reported in acacia nilotica, aerva lanata, and related herbs. Available references are still early and incomplete.",
-    "description": "quercetin is a compound reported in acacia nilotica, aerva lanata, and related herbs. Available references are still early and incomplete.",
-    "className": "",
-    "category": "",
-    "mechanism": "",
+    "name": "Quercetin",
+    "summaryShort": "Plant flavonoid supplement with limited clinical efficacy and bioavailability constraints.",
+    "description": "Non-essential phytochemical found in foods; supplement forms include aglycone and modified delivery products.",
+    "className": "compound",
+    "category": "compound",
+    "mechanism": "Proposed anti-inflammatory/mast-cell effects; translation of in vitro antioxidant findings to human outcomes remains uncertain.",
     "effects": [
-      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine",
-      "Diuretic",
-      "anti-inflammatory",
-      "antimicrobial",
-      "anti",
-      "inflammatory",
-      "Used in Ayurveda for asthma",
-      "allergies",
-      "and anxiety",
-      "Uterine tonic",
-      "astringent",
-      "regulates menstruation and bleeding.",
-      "No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.",
-      "No direct effects data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.",
-      "Anxiolytic",
-      "relaxing",
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan."
+      "Shows antioxidant activity in lab models",
+      "Clinical efficacy remains uncertain"
     ],
     "primaryEffects": [
-      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine",
-      "Diuretic",
-      "anti-inflammatory",
-      "antimicrobial"
+      "Shows antioxidant activity in lab models",
+      "Clinical efficacy remains uncertain"
     ],
     "herbs": [
-      "acacia nilotica",
-      "aerva lanata",
-      "albizia lebbeck",
-      "alchemilla vulgaris",
-      "byrsonima crassifolia",
-      "pimenta dioica",
-      "Silver Linden",
-      "tilia tomentosa"
+      "nan"
     ],
     "confidence": "low",
-    "hasInteractionData": false,
+    "hasInteractionData": true,
     "hasEvidenceNotes": true,
     "identity": "",
     "categoryUseContext": "",
     "evidenceLevel": "",
     "relatedEntities": [],
     "linkedHerbs": [
-      "acacia-nilotica",
-      "aerva-lanata",
-      "albizia-lebbeck",
-      "alchemilla-vulgaris",
-      "byrsonima-crassifolia",
-      "pimenta-dioica",
-      "silver-linden",
-      "tilia-tomentosa"
+      "nan"
     ],
     "aliases": [
-      "quercetin"
+      "Quercetin"
     ]
   },
   {
@@ -13039,6 +13157,74 @@
     ],
     "aliases": [
       "quercitrin"
+    ]
+  },
+  {
+    "id": "resveratrol",
+    "slug": "resveratrol",
+    "name": "Resveratrol",
+    "summaryShort": "Grape-derived polyphenol with speculative anti-aging/cardiometabolic claims and low bioavailability.",
+    "description": "Trans-resveratrol is the main supplemental isomer; human outcome evidence is inconsistent.",
+    "className": "compound",
+    "category": "compound",
+    "mechanism": "Proposed SIRT1-related and vascular/oxidative signaling effects; clinical significance is uncertain.",
+    "effects": [
+      "Antioxidant activity in laboratory models",
+      "Human clinical outcome benefits remain uncertain"
+    ],
+    "primaryEffects": [
+      "Antioxidant activity in laboratory models",
+      "Human clinical outcome benefits remain uncertain"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "low",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Resveratrol"
+    ]
+  },
+  {
+    "id": "riboflavin",
+    "slug": "riboflavin",
+    "name": "Riboflavin (Vitamin B2)",
+    "summaryShort": "Essential B2 vitamin for FMN/FAD coenzymes; high-dose migraine use is distinct from nutrition dosing.",
+    "description": "Required to prevent ariboflavinosis; migraine studies use pharmacologic doses higher than RDA intake.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Supports redox enzymes via FMN/FAD; migraine benefit is a proposed mitochondrial-energy mechanism.",
+    "effects": [
+      "Supports energy metabolism via FMN/FAD",
+      "Prevents riboflavin deficiency"
+    ],
+    "primaryEffects": [
+      "Supports energy metabolism via FMN/FAD",
+      "Prevents riboflavin deficiency"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Riboflavin (Vitamin B2)"
     ]
   },
   {
@@ -13157,6 +13343,40 @@
     ],
     "aliases": [
       "Rutin"
+    ]
+  },
+  {
+    "id": "s-adenosyl-l-methionine",
+    "slug": "s-adenosyl-l-methionine",
+    "name": "S-Adenosyl-L-Methionine (SAMe)",
+    "summaryShort": "Endogenous methyl-donor supplement with moderate evidence for mood/joint indications and neuropsychiatric caution.",
+    "description": "SAMe is synthesized from methionine and ATP; oral products are often enteric-coated for stability.",
+    "className": "compound",
+    "category": "compound",
+    "mechanism": "Proposed methyl-donor effects on neurotransmitter turnover and related pathways.",
+    "effects": [
+      "May improve depressive symptoms in some studies",
+      "May reduce osteoarthritis pain in some trials"
+    ],
+    "primaryEffects": [
+      "May improve depressive symptoms in some studies",
+      "May reduce osteoarthritis pain in some trials"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "S-Adenosyl-L-Methionine (SAMe)"
     ]
   },
   {
@@ -13680,6 +13900,40 @@
     ],
     "aliases": [
       "Scutellarin"
+    ]
+  },
+  {
+    "id": "selenium",
+    "slug": "selenium",
+    "name": "Selenium",
+    "summaryShort": "Essential trace mineral for antioxidant and thyroid enzymes; high-dose non-deficiency use is uncertain.",
+    "description": "Selenium enters selenoproteins; required intake is microgram range and chronic excess can be toxic.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Supports glutathione peroxidase/deiodinase selenoproteins including T4→T3 conversion.",
+    "effects": [
+      "Supports antioxidant selenoprotein activity",
+      "Supports thyroid hormone metabolism"
+    ],
+    "primaryEffects": [
+      "Supports antioxidant selenoprotein activity",
+      "Supports thyroid hormone metabolism"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Selenium"
     ]
   },
   {
@@ -16014,6 +16268,40 @@
     ]
   },
   {
+    "id": "vitamin-d",
+    "slug": "vitamin-d",
+    "name": "Vitamin D (Calciferols)",
+    "summaryShort": "Essential prohormone nutrient for calcium/bone health; both deficiency and chronic excess are clinically important.",
+    "description": "Vitamin D2/D3 from skin, diet, and supplements are converted to active metabolites.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Increases calcium/phosphorus absorption and supports bone mineralization via vitamin D receptor signaling.",
+    "effects": [
+      "Supports calcium/phosphorus homeostasis",
+      "Supports bone mineralization"
+    ],
+    "primaryEffects": [
+      "Supports calcium/phosphorus homeostasis",
+      "Supports bone mineralization"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Vitamin D (Calciferols)"
+    ]
+  },
+  {
     "id": "voacamine",
     "slug": "voacamine",
     "name": "Voacamine",
@@ -16411,9 +16699,9 @@
   {
     "id": "calacorene",
     "slug": "calacorene",
-    "name": "\u03b1-calacorene",
-    "summaryShort": "\u03b1-calacorene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
-    "description": "\u03b1-calacorene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
+    "name": "α-calacorene",
+    "summaryShort": "α-calacorene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
+    "description": "α-calacorene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -16444,93 +16732,15 @@
       "acorus-tatarinowii"
     ],
     "aliases": [
-      "\u03b1-calacorene"
-    ]
-  },
-  {
-    "id": "pinene",
-    "slug": "pinene",
-    "name": "\u03b1-pinene",
-    "summaryShort": "\u03b1-pinene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
-    "description": "\u03b1-pinene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
-    "className": "",
-    "category": "",
-    "mechanism": "",
-    "effects": [
-      "CNS stimulant",
-      "memory aid",
-      "and anti-epileptic in TCM",
-      "and anti",
-      "epileptic in TCM"
-    ],
-    "primaryEffects": [
-      "CNS stimulant",
-      "memory aid",
-      "and anti-epileptic in TCM",
-      "and anti"
-    ],
-    "herbs": [
-      "acorus tatarinowii"
-    ],
-    "confidence": "low",
-    "hasInteractionData": false,
-    "hasEvidenceNotes": true,
-    "identity": "",
-    "categoryUseContext": "",
-    "evidenceLevel": "",
-    "relatedEntities": [],
-    "linkedHerbs": [
-      "acorus-tatarinowii"
-    ],
-    "aliases": [
-      "\u03b1-pinene"
-    ]
-  },
-  {
-    "id": "terpinene",
-    "slug": "terpinene",
-    "name": "\u03b1-terpinene",
-    "summaryShort": "\u03b1-terpinene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
-    "description": "\u03b1-terpinene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
-    "className": "",
-    "category": "",
-    "mechanism": "",
-    "effects": [
-      "CNS stimulant",
-      "memory aid",
-      "and anti-epileptic in TCM",
-      "and anti",
-      "epileptic in TCM"
-    ],
-    "primaryEffects": [
-      "CNS stimulant",
-      "memory aid",
-      "and anti-epileptic in TCM",
-      "and anti"
-    ],
-    "herbs": [
-      "acorus tatarinowii"
-    ],
-    "confidence": "low",
-    "hasInteractionData": false,
-    "hasEvidenceNotes": true,
-    "identity": "",
-    "categoryUseContext": "",
-    "evidenceLevel": "",
-    "relatedEntities": [],
-    "linkedHerbs": [
-      "acorus-tatarinowii"
-    ],
-    "aliases": [
-      "\u03b1-terpinene"
+      "α-calacorene"
     ]
   },
   {
     "id": "terpineol",
     "slug": "terpineol",
-    "name": "\u03b1-terpineol",
-    "summaryShort": "\u03b1-terpineol is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
-    "description": "\u03b1-terpineol is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "name": "α-terpineol",
+    "summaryShort": "α-terpineol is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "description": "α-terpineol is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -16561,15 +16771,15 @@
       "acorus-tatarinowii"
     ],
     "aliases": [
-      "\u03b1-terpineol"
+      "α-terpineol"
     ]
   },
   {
     "id": "caryophyllene",
     "slug": "caryophyllene",
-    "name": "\u03b2-caryophyllene",
-    "summaryShort": "\u03b2-caryophyllene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
-    "description": "\u03b2-caryophyllene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "name": "β-caryophyllene",
+    "summaryShort": "β-caryophyllene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "description": "β-caryophyllene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -16600,15 +16810,54 @@
       "acorus-tatarinowii"
     ],
     "aliases": [
-      "\u03b2-caryophyllene"
+      "β-caryophyllene"
+    ]
+  },
+  {
+    "id": "pinene",
+    "slug": "pinene",
+    "name": "β-pinene",
+    "summaryShort": "β-pinene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "description": "β-pinene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "className": "",
+    "category": "",
+    "mechanism": "",
+    "effects": [
+      "CNS stimulant",
+      "memory aid",
+      "and anti-epileptic in TCM",
+      "and anti",
+      "epileptic in TCM"
+    ],
+    "primaryEffects": [
+      "CNS stimulant",
+      "memory aid",
+      "and anti-epileptic in TCM",
+      "and anti"
+    ],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
+    "confidence": "low",
+    "hasInteractionData": false,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "acorus-tatarinowii"
+    ],
+    "aliases": [
+      "β-pinene"
     ]
   },
   {
     "id": "sitosteryl-acetate",
     "slug": "sitosteryl-acetate",
-    "name": "\u03b2-sitosteryl acetate",
-    "summaryShort": "\u03b2-sitosteryl acetate is a compound reported in aerva lanata. Available references are still early and incomplete.",
-    "description": "\u03b2-sitosteryl acetate is a compound reported in aerva lanata. Available references are still early and incomplete.",
+    "name": "β-sitosteryl acetate",
+    "summaryShort": "β-sitosteryl acetate is a compound reported in aerva lanata. Available references are still early and incomplete.",
+    "description": "β-sitosteryl acetate is a compound reported in aerva lanata. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -16639,187 +16888,46 @@
       "aerva-lanata"
     ],
     "aliases": [
-      "\u03b2-sitosteryl acetate"
+      "β-sitosteryl acetate"
     ]
   },
   {
-    "id": "magnesium",
-    "slug": "magnesium",
-    "name": "Magnesium",
-    "summaryShort": "Magnesium is an essential mineral involved in 300+ enzymatic reactions related to energy metabolism and muscle/nerve function; supplementation is primarily framed around adequacy and intake targets.",
-    "description": "Magnesium (Mg2+) is supplied by foods and supplements (for example citrate, oxide, chloride, and aspartate forms). About half of body magnesium is in bone, with the remainder in muscle and other soft tissues.",
-    "className": "nutrient",
-    "category": "nutrient",
-    "mechanism": "Established with proposed extensions: magnesium is a cofactor in ATP-linked enzymatic reactions and helps regulate calcium/potassium transport affecting neuromuscular excitability; migraine-related benefits remain proposed/context dependent.",
+    "id": "terpinene",
+    "slug": "terpinene",
+    "name": "γ-terpinene",
+    "summaryShort": "γ-terpinene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "description": "γ-terpinene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "className": "",
+    "category": "",
+    "mechanism": "",
     "effects": [
-      "Supports normal muscle and nerve function",
-      "Supports energy metabolism",
-      "Supports bone and cardiovascular physiology"
+      "CNS stimulant",
+      "memory aid",
+      "and anti-epileptic in TCM",
+      "and anti",
+      "epileptic in TCM"
     ],
     "primaryEffects": [
-      "Supports normal muscle and nerve function",
-      "Supports energy metabolism",
-      "Supports bone and cardiovascular physiology"
+      "CNS stimulant",
+      "memory aid",
+      "and anti-epileptic in TCM",
+      "and anti"
     ],
     "herbs": [
-      "nan"
+      "acorus tatarinowii"
     ],
-    "confidence": "medium",
-    "hasInteractionData": true,
+    "confidence": "low",
+    "hasInteractionData": false,
     "hasEvidenceNotes": true,
     "identity": "",
     "categoryUseContext": "",
     "evidenceLevel": "",
     "relatedEntities": [],
     "linkedHerbs": [
-      "nan"
+      "acorus-tatarinowii"
     ],
     "aliases": [
-      "Magnesium"
-    ]
-  },
-  {
-    "id": "pyridoxine",
-    "slug": "pyridoxine",
-    "name": "Pyridoxine (Vitamin B6)",
-    "summaryShort": "Vitamin B6 (including pyridoxine) is an essential cofactor nutrient for amino-acid and neurotransmitter metabolism; supplementation is mainly for adequacy/deficiency contexts, with caution at high chronic doses.",
-    "description": "Vitamin B6 includes pyridoxine, pyridoxal, pyridoxamine, and phosphate forms. The active coenzyme form is pyridoxal-5'-phosphate, and adult intake guidance is centered on low mg/day RDA levels.",
-    "className": "nutrient",
-    "category": "nutrient",
-    "mechanism": "Established with proposed extensions: B6-dependent enzymes support transamination/decarboxylation and neurotransmitter synthesis (including serotonin and GABA pathways); symptom-specific benefits outside deficiency correction remain mixed.",
-    "effects": [
-      "Supports amino-acid metabolism",
-      "Supports neurotransmitter synthesis",
-      "Prevents vitamin B6 deficiency manifestations"
-    ],
-    "primaryEffects": [
-      "Supports amino-acid metabolism",
-      "Supports neurotransmitter synthesis",
-      "Prevents vitamin B6 deficiency manifestations"
-    ],
-    "herbs": [
-      "nan"
-    ],
-    "confidence": "medium",
-    "hasInteractionData": true,
-    "hasEvidenceNotes": true,
-    "identity": "",
-    "categoryUseContext": "",
-    "evidenceLevel": "",
-    "relatedEntities": [],
-    "linkedHerbs": [
-      "nan"
-    ],
-    "aliases": [
-      "Pyridoxine (Vitamin B6)"
-    ]
-  },
-  {
-    "id": "riboflavin",
-    "slug": "riboflavin",
-    "name": "Riboflavin (Vitamin B2)",
-    "summaryShort": "Riboflavin (vitamin B2) is an essential vitamin required for FMN/FAD coenzymes in energy and redox metabolism; it has a strong safety profile, while migraine protocols use much higher doses than nutritional intake.",
-    "description": "Riboflavin supports formation of FMN and FAD and is required at low intake levels to prevent deficiency (ariboflavinosis). Migraine studies typically evaluate pharmacologic-dose supplementation rather than dietary-level intake.",
-    "className": "nutrient",
-    "category": "nutrient",
-    "mechanism": "Established with proposed extensions: riboflavin supports redox enzymes via FMN/FAD (including antioxidant pathways such as glutathione reductase), while migraine benefit is linked to a proposed mitochondrial-energy mechanism.",
-    "effects": [
-      "Supports cellular energy metabolism",
-      "Supports antioxidant enzyme systems",
-      "Prevents ariboflavinosis (B2 deficiency)"
-    ],
-    "primaryEffects": [
-      "Supports cellular energy metabolism",
-      "Supports antioxidant enzyme systems",
-      "Prevents ariboflavinosis (B2 deficiency)"
-    ],
-    "herbs": [
-      "nan"
-    ],
-    "confidence": "medium",
-    "hasInteractionData": true,
-    "hasEvidenceNotes": true,
-    "identity": "",
-    "categoryUseContext": "",
-    "evidenceLevel": "",
-    "relatedEntities": [],
-    "linkedHerbs": [
-      "nan"
-    ],
-    "aliases": [
-      "Riboflavin (Vitamin B2)"
-    ]
-  },
-  {
-    "id": "selenium",
-    "slug": "selenium",
-    "name": "Selenium",
-    "summaryShort": "Selenium is an essential trace mineral for antioxidant and thyroid-related selenoproteins; adequacy is important, while chronic excess can cause selenosis.",
-    "description": "Selenium is incorporated into selenoproteins involved in oxidative defense and thyroid hormone metabolism. Adult intake guidance is centered on microgram-scale intake, and higher chronic intake raises toxicity risk.",
-    "className": "nutrient",
-    "category": "nutrient",
-    "mechanism": "Established with proposed extensions: selenium functions through selenoproteins (including glutathione peroxidase and deiodinase enzymes), supporting oxidative balance and T4-to-T3 conversion.",
-    "effects": [
-      "Supports antioxidant selenoprotein activity",
-      "Supports thyroid hormone metabolism",
-      "Prevents selenium deficiency states"
-    ],
-    "primaryEffects": [
-      "Supports antioxidant selenoprotein activity",
-      "Supports thyroid hormone metabolism",
-      "Prevents selenium deficiency states"
-    ],
-    "herbs": [
-      "nan"
-    ],
-    "confidence": "medium",
-    "hasInteractionData": true,
-    "hasEvidenceNotes": true,
-    "identity": "",
-    "categoryUseContext": "",
-    "evidenceLevel": "",
-    "relatedEntities": [],
-    "linkedHerbs": [
-      "nan"
-    ],
-    "aliases": [
-      "Selenium"
-    ]
-  },
-  {
-    "id": "vitamin-d",
-    "slug": "vitamin-d",
-    "name": "Vitamin D (Calciferols)",
-    "summaryShort": "Vitamin D (D2/D3) is an essential nutrient-prohormone for calcium homeostasis and bone health; deficiency and chronic excess are both clinically important.",
-    "description": "Vitamin D is produced in skin (primarily D3) and obtained from diet/supplements (D2 and D3), then converted to active metabolites. Core evidence supports deficiency prevention and bone-health roles, while many non-skeletal claims remain under investigation.",
-    "className": "nutrient",
-    "category": "nutrient",
-    "mechanism": "Established with proposed extensions: vitamin D increases intestinal calcium/phosphorus absorption and supports bone mineralization through vitamin D receptor signaling; broader immune/cardiometabolic effects remain tentative.",
-    "effects": [
-      "Supports calcium and phosphorus homeostasis",
-      "Supports bone mineralization",
-      "Prevents vitamin D deficiency bone disease"
-    ],
-    "primaryEffects": [
-      "Supports calcium and phosphorus homeostasis",
-      "Supports bone mineralization",
-      "Prevents vitamin D deficiency bone disease"
-    ],
-    "herbs": [
-      "nan"
-    ],
-    "confidence": "medium",
-    "hasInteractionData": true,
-    "hasEvidenceNotes": true,
-    "identity": "",
-    "categoryUseContext": "",
-    "evidenceLevel": "",
-    "relatedEntities": [],
-    "linkedHerbs": [
-      "nan"
-    ],
-    "aliases": [
-      "Vitamin D (Calciferols)"
+      "γ-terpinene"
     ]
   }
 ]

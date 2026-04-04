@@ -1,0 +1,56 @@
+{
+  "name": "Niacin (Vitamin B3)",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Supports NAD/NADP energy metabolism",
+    "Prevents niacin deficiency"
+  ],
+  "contraindications": [
+    "High-dose use needs medical supervision",
+    "Extended/sustained-release formulations increase hepatotoxicity concern"
+  ],
+  "category": "nutrient",
+  "sources": [
+    {
+      "title": "Niacin Fact Sheet for Health Professionals (NIH ODS)",
+      "url": "https://ods.od.nih.gov/factsheets/Niacin-HealthProfessional/"
+    },
+    {
+      "title": "FDA niacin safety communications (formulation-dependent risk context)",
+      "url": "https://www.fda.gov/"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "slug": "niacin",
+  "id": "niacin",
+  "displayName": "Niacin (Vitamin B3)",
+  "description": "Nicotinic acid is a nutrient precursor for NAD/NADP and also used pharmacologically for dyslipidemia at high doses.",
+  "summary": "Essential vitamin B3 nutrient with drug-like high-dose lipid effects; formulation and dose strongly affect safety.",
+  "mechanism": "Nutritional role: NAD/NADP precursor. Pharmacologic role: GPR109A-related lipolysis/lipid effects.",
+  "safetyNotes": [
+    "Nutrient-range doses are usually safe.",
+    "1–3 g/day can cause flushing, GI effects, and hepatotoxicity."
+  ],
+  "interactions": [
+    "Can increase myopathy risk with statins at pharmacologic doses."
+  ],
+  "dosage": [
+    "Adult RDA ~14–16 mg/day; pharmacologic dyslipidemia regimens ~1–3 g/day."
+  ],
+  "preparation": "Immediate-, extended-, and sustained-release products differ in risk profile.",
+  "regulatoryStatus": "Essential nutrient; also FDA-approved in prescription lipid indications.",
+  "sourceType": "Vitamin nutrient and pharmacologic lipid agent",
+  "activeCompounds": [
+    "Niacin (nicotinic acid)",
+    "Nicotinamide"
+  ],
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nan"
+  ]
+}

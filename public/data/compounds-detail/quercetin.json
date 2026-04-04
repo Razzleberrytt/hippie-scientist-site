@@ -1,77 +1,52 @@
 {
-  "name": "quercetin",
+  "name": "Quercetin",
   "herbs": [
-    "acacia nilotica",
-    "aerva lanata",
-    "albizia lebbeck",
-    "alchemilla vulgaris",
-    "byrsonima crassifolia",
-    "pimenta dioica",
-    "Silver Linden",
-    "tilia tomentosa"
+    "nan"
   ],
   "effects": [
-    "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine",
-    "Diuretic",
-    "anti-inflammatory",
-    "antimicrobial",
-    "anti",
-    "inflammatory",
-    "Used in Ayurveda for asthma",
-    "allergies",
-    "and anxiety",
-    "Uterine tonic",
-    "astringent",
-    "regulates menstruation and bleeding.",
-    "No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.",
-    "No direct effects data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.",
-    "Anxiolytic",
-    "relaxing",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "Shows antioxidant activity in lab models",
+    "Clinical efficacy remains uncertain"
   ],
   "contraindications": [
-    "High doses of bark decoction can irritate the digestive tract and cause constipation or nausea",
-    "Avoid during pregnancy or lactation due to potential anti-fertility effects",
-    "Not recommended for children under 12",
-    "Limited safety data; some alkaloids may be toxic at high doses",
-    "Pregnant women should use cautiously",
-    "No well‑documented contraindications",
-    "due to saponins and alkaloids",
-    "excessive intake may cause gastrointestinal irritation or interact with medications.",
-    "Excessive internal use may cause constipation or dry mucous membranes",
-    "caution in pregnancy or lactation",
-    "may interact with blood thinners due to tannin content【859641390196180†L297",
-    "L313】.",
-    "None known"
+    "Long-term high-dose safety is not well established",
+    "Potential CYP/P-glycoprotein interactions are mostly theoretical"
   ],
-  "category": null,
+  "category": "compound",
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "PubMed review literature on quercetin",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-04",
   "slug": "quercetin",
   "id": "quercetin",
-  "displayName": "quercetin",
-  "description": "quercetin is a compound reported in acacia nilotica, aerva lanata, and related herbs. Available references are still early and incomplete.",
-  "summary": "quercetin is a compound reported in acacia nilotica, aerva lanata, and related herbs. Available references are still early and incomplete.",
+  "displayName": "Quercetin",
+  "description": "Non-essential phytochemical found in foods; supplement forms include aglycone and modified delivery products.",
+  "summary": "Plant flavonoid supplement with limited clinical efficacy and bioavailability constraints.",
+  "mechanism": "Proposed anti-inflammatory/mast-cell effects; translation of in vitro antioxidant findings to human outcomes remains uncertain.",
+  "safetyNotes": [
+    "Generally safe at dietary intake levels.",
+    "Short-term studies around 500 mg/day show limited toxicity."
+  ],
+  "interactions": [
+    "Potential CYP3A4/P-gp effects are theorized."
+  ],
+  "dosage": [
+    "Typical supplement studies use ~250–500 mg/day."
+  ],
+  "preparation": "Capsules/tablets, sometimes co-formulated for absorption.",
+  "regulatoryStatus": "Marketed as dietary supplement; no approved drug indication.",
+  "sourceType": "Plant-derived flavonoid",
+  "activeCompounds": [
+    "Quercetin",
+    "Quercetin-3-glucoside"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "acacia-nilotica",
-    "aerva-lanata",
-    "albizia-lebbeck",
-    "alchemilla-vulgaris",
-    "byrsonima-crassifolia",
-    "pimenta-dioica",
-    "silver-linden",
-    "tilia-tomentosa"
+    "nan"
   ]
 }

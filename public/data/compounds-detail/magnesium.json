@@ -4,13 +4,12 @@
     "nan"
   ],
   "effects": [
-    "Supports normal muscle and nerve function",
-    "Supports energy metabolism",
-    "Supports bone and cardiovascular physiology"
+    "Supports muscle and nerve function",
+    "Supports energy metabolism"
   ],
   "contraindications": [
-    "Use caution with renal impairment due to higher hypermagnesemia risk",
-    "High supplemental doses can cause gastrointestinal adverse effects"
+    "Use caution in renal impairment",
+    "High supplemental doses can cause GI effects"
   ],
   "category": "nutrient",
   "sources": [
@@ -23,26 +22,22 @@
   "slug": "magnesium",
   "id": "magnesium",
   "displayName": "Magnesium",
-  "description": "Magnesium (Mg2+) is supplied by foods and supplements (for example citrate, oxide, chloride, and aspartate forms). About half of body magnesium is in bone, with the remainder in muscle and other soft tissues.",
-  "summary": "Magnesium is an essential mineral involved in 300+ enzymatic reactions related to energy metabolism and muscle/nerve function; supplementation is primarily framed around adequacy and intake targets.",
-  "mechanism": "Established with proposed extensions: magnesium is a cofactor in ATP-linked enzymatic reactions and helps regulate calcium/potassium transport affecting neuromuscular excitability; migraine-related benefits remain proposed/context dependent.",
+  "description": "Mg2+ from foods/supplements; major body stores are in bone and soft tissue.",
+  "summary": "Essential mineral for 300+ enzymatic reactions; supplementation mainly addresses adequacy and intake targets.",
+  "mechanism": "Cofactor in ATP-linked reactions and ion transport; migraine benefits remain context-dependent.",
   "safetyNotes": [
-    "Generally safe at dietary intake levels.",
-    "Higher supplemental doses can cause diarrhea and other gastrointestinal effects (often formulation dependent).",
-    "Overdose can cause hypermagnesemia, with higher risk in renal impairment."
+    "Generally safe at dietary levels.",
+    "Higher supplemental doses can cause diarrhea."
   ],
   "interactions": [
-    "Can reduce absorption of bisphosphonates and some oral antibiotics (including tetracyclines and fluoroquinolones); dose separation is commonly advised.",
-    "May potentiate neuromuscular blockers in medical contexts."
+    "Can reduce absorption of some antibiotics and bisphosphonates."
   ],
   "dosage": [
-    "RDA framework (adults): about 310\u2013420 mg/day from total intake.",
-    "Supplement products commonly provide about 100\u2013400 mg elemental magnesium/day.",
-    "Medical IV dosing (for example magnesium sulfate in eclampsia) is separate from routine supplement use."
+    "Adult RDA about 310–420 mg/day; supplements often 100–400 mg elemental/day."
   ],
-  "preparation": "Common supplemental forms include oxide, citrate, chloride, and aspartate salts; food sources include nuts, leafy greens, and whole grains.",
-  "regulatoryStatus": "Essential nutrient with established dietary reference intakes; sold as a dietary supplement and used in prescription products in specific medical settings.",
-  "sourceType": "Essential nutrient / mineral",
+  "preparation": "Oxide/citrate/chloride/aspartate salts; food sources include nuts/greens.",
+  "regulatoryStatus": "Essential nutrient with dietary reference intakes.",
+  "sourceType": "Essential mineral",
   "activeCompounds": [
     "Mg2+ (magnesium ion)"
   ],
