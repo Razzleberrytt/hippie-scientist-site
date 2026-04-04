@@ -3,6 +3,7 @@ import path from 'node:path'
 
 type Severity = 'error' | 'warning'
 type DatasetType = 'herb-list' | 'herb-detail' | 'compound'
+type HerbFieldTier = 'HARD_REQUIRED' | 'RECOMMENDED' | 'RESEARCH_BACKLOG'
 
 type AuditIssue = {
   severity: Severity
@@ -12,6 +13,7 @@ type AuditIssue = {
   field?: string
   message: string
   details?: Record<string, unknown>
+  tier?: HerbFieldTier
 }
 
 type SourceRecord = {
@@ -28,6 +30,17 @@ type LoadedDetailRecord = {
   data: GenericRecord
 }
 
+type TriageEvidence = {
+  recoverability?: {
+    totalMissingRequired: number
+    genuinelyMissing: number
+    recoverable: number
+  }
+  completeness?: {
+    topMissingByWeightedImpact: Array<{ field: string; missingCount: number; genuinelyAbsentCount: number }>
+  }
+}
+
 const ROOT_DIR = process.cwd()
 const DATA_DIR = path.join(ROOT_DIR, 'public', 'data')
 const HERBS_PATH = path.join(DATA_DIR, 'herbs.json')
@@ -36,6 +49,8 @@ const COMPOUNDS_PATH = path.join(DATA_DIR, 'compounds.json')
 const REPORT_DIR = path.join(ROOT_DIR, 'reports')
 const JSON_REPORT_PATH = path.join(REPORT_DIR, 'data-audit-report.json')
 const MARKDOWN_REPORT_PATH = path.join(REPORT_DIR, 'data-audit-report.md')
+const COMPLETENESS_TRIAGE_PATH = path.join(REPORT_DIR, 'herb-completeness-triage.json')
+const RECOVERABILITY_TRIAGE_PATH = path.join(REPORT_DIR, 'missing-field-recoverability-triage.json')
 
 const PLACEHOLDER_VALUES = new Set(['', 'n/a', 'na', 'null', 'none', 'unknown', 'tbd', 'todo'])
 
@@ -63,7 +78,7 @@ const HERB_SHARED_ARRAY_FIELDS = [
   'sideEffects',
 ]
 
-const HERB_LIST_REQUIRED_FIELDS = [
+const LEGACY_HERB_REQUIRED_FIELDS = [
   'slug',
   'name',
   'latin',
@@ -74,9 +89,13 @@ const HERB_LIST_REQUIRED_FIELDS = [
   'contraindications',
   'sources',
   'lastUpdated',
-]
+] as const
 
-const HERB_DETAIL_REQUIRED_FIELDS = [...HERB_LIST_REQUIRED_FIELDS]
+const HERB_FIELD_TIERS: Record<HerbFieldTier, readonly string[]> = {
+  HARD_REQUIRED: ['slug', 'name', 'latin', 'description', 'effects', 'lastUpdated'],
+  RECOMMENDED: ['contraindications', 'sources'],
+  RESEARCH_BACKLOG: ['class', 'activeCompounds'],
+}
 
 const COMPOUND_REQUIRED_FIELDS = [
   'slug',
@@ -185,13 +204,49 @@ async function readJsonFile(filePath: string): Promise<unknown> {
   return JSON.parse(await readFile(filePath, 'utf8'))
 }
 
+async function loadTriageEvidence(): Promise<TriageEvidence> {
+  const evidence: TriageEvidence = {}
+
+  try {
+    const recoverability = (await readJsonFile(RECOVERABILITY_TRIAGE_PATH)) as {
+      totals?: { remainingMissingRequiredFieldCount?: number; genuinelyMissingCount?: number; recoverableCount?: number }
+    }
+    evidence.recoverability = {
+      totalMissingRequired: recoverability.totals?.remainingMissingRequiredFieldCount ?? 0,
+      genuinelyMissing: recoverability.totals?.genuinelyMissingCount ?? 0,
+      recoverable: recoverability.totals?.recoverableCount ?? 0,
+    }
+  } catch {
+    // Optional evidence file; keep report generation resilient.
+  }
+
+  try {
+    const completeness = (await readJsonFile(COMPLETENESS_TRIAGE_PATH)) as {
+      topMissingByWeightedImpact?: Array<{ field?: string; missingCount?: number; genuinelyAbsentMissing?: number }>
+    }
+    evidence.completeness = {
+      topMissingByWeightedImpact: (completeness.topMissingByWeightedImpact ?? [])
+        .slice(0, 5)
+        .map(item => ({
+          field: item.field ?? 'unknown',
+          missingCount: item.missingCount ?? 0,
+          genuinelyAbsentCount: item.genuinelyAbsentMissing ?? 0,
+        })),
+    }
+  } catch {
+    // Optional evidence file; keep report generation resilient.
+  }
+
+  return evidence
+}
+
 function issue(
   severity: Severity,
   code: string,
   dataset: DatasetType,
   recordId: string,
   message: string,
-  extras: Partial<Pick<AuditIssue, 'field' | 'details'>> = {},
+  extras: Partial<Pick<AuditIssue, 'field' | 'details' | 'tier'>> = {},
 ): AuditIssue {
   return {
     severity,
@@ -203,20 +258,42 @@ function issue(
   }
 }
 
+function validateTieredHerbFields(
+  record: GenericRecord,
+  dataset: DatasetType,
+  recordId: string,
+  tierFields: Record<HerbFieldTier, readonly string[]>,
+): AuditIssue[] {
+  return (Object.entries(tierFields) as Array<[HerbFieldTier, readonly string[]]>).flatMap(([tier, fields]) =>
+    fields.flatMap(field => {
+      const value = record[field]
+      if (!isMissingValue(value)) return []
+      const severity: Severity = tier === 'HARD_REQUIRED' ? 'error' : 'warning'
+      const codeByTier: Record<HerbFieldTier, string> = {
+        HARD_REQUIRED: 'missing-hard-required-field',
+        RECOMMENDED: 'missing-recommended-field',
+        RESEARCH_BACKLOG: 'missing-research-backlog-field',
+      }
+      return [
+        issue(severity, codeByTier[tier], dataset, recordId, `Missing ${tier.toLowerCase()} field '${field}'.`, {
+          field,
+          tier,
+        }),
+      ]
+    }),
+  )
+}
+
 function validateRequiredFields(
   record: GenericRecord,
   dataset: DatasetType,
   recordId: string,
-  requiredFields: string[],
+  requiredFields: readonly string[],
 ): AuditIssue[] {
   return requiredFields.flatMap(field => {
     const value = record[field]
     if (!isMissingValue(value)) return []
-    return [
-      issue('error', 'missing-required-field', dataset, recordId, `Missing required field '${field}'.`, {
-        field,
-      }),
-    ]
+    return [issue('error', 'missing-required-field', dataset, recordId, `Missing required field '${field}'.`, { field })]
   })
 }
 
@@ -310,8 +387,11 @@ function validateSourcesField(
   value: unknown,
   dataset: DatasetType,
   recordId: string,
-  required = false,
+  options: { required?: boolean; severity?: Severity; code?: string; tier?: HerbFieldTier } = {},
 ): AuditIssue[] {
+  const required = options.required ?? false
+  const severity = options.severity ?? 'error'
+  const code = options.code ?? 'missing-required-field'
   const findings: AuditIssue[] = []
   if (!Array.isArray(value)) {
     findings.push(
@@ -325,8 +405,9 @@ function validateSourcesField(
 
   if (required && value.length === 0) {
     findings.push(
-      issue('error', 'missing-required-field', dataset, recordId, "Field 'sources' must not be empty.", {
+      issue(severity, code, dataset, recordId, "Field 'sources' must not be empty.", {
         field: 'sources',
+        tier: options.tier,
       }),
     )
   }
@@ -345,17 +426,19 @@ function validateSourcesField(
     const source = entry as SourceRecord
     if (typeof source.title !== 'string' || isMissingValue(source.title)) {
       findings.push(
-        issue('error', 'missing-required-field', dataset, recordId, `Source entry ${index} is missing a title.`, {
+        issue(severity, code, dataset, recordId, `Source entry ${index} is missing a title.`, {
           field: 'sources',
-          details: { index },
+          details: { index, field: 'sources.title' },
+          tier: options.tier,
         }),
       )
     }
     if (typeof source.url !== 'string' || isMissingValue(source.url)) {
       findings.push(
-        issue('error', 'missing-required-field', dataset, recordId, `Source entry ${index} is missing a url.`, {
+        issue(severity, code, dataset, recordId, `Source entry ${index} is missing a url.`, {
           field: 'sources',
-          details: { index },
+          details: { index, field: 'sources.url' },
+          tier: options.tier,
         }),
       )
     }
@@ -395,19 +478,26 @@ function validateHerbRecordShape(
   record: GenericRecord,
   dataset: DatasetType,
   recordId: string,
-  requiredFields: string[],
 ): AuditIssue[] {
-  const findings = validateRequiredFields(record, dataset, recordId, requiredFields)
-  const requiredSet = new Set(requiredFields)
+  const findings = validateTieredHerbFields(record, dataset, recordId, HERB_FIELD_TIERS)
+  const hardRequiredSet = new Set(HERB_FIELD_TIERS.HARD_REQUIRED)
+  const recommendedSet = new Set(HERB_FIELD_TIERS.RECOMMENDED)
 
   for (const field of HERB_STRING_FIELDS) {
-    findings.push(...validateStringField(record[field], dataset, recordId, field, requiredSet.has(field)))
+    findings.push(...validateStringField(record[field], dataset, recordId, field, hardRequiredSet.has(field)))
   }
   for (const field of HERB_ARRAY_FIELDS) {
     if (field === 'sources') {
-      findings.push(...validateSourcesField(record[field], dataset, recordId, requiredSet.has(field)))
+      findings.push(
+        ...validateSourcesField(record[field], dataset, recordId, {
+          required: recommendedSet.has(field),
+          severity: 'warning',
+          code: 'missing-recommended-field',
+          tier: 'RECOMMENDED',
+        }),
+      )
     } else {
-      findings.push(...validateStringArrayField(record[field], dataset, recordId, field, requiredSet.has(field)))
+      findings.push(...validateStringArrayField(record[field], dataset, recordId, field, hardRequiredSet.has(field)))
     }
   }
 
@@ -423,7 +513,9 @@ function validateCompoundRecordShape(record: GenericRecord, recordId: string): A
   }
   for (const field of COMPOUND_ARRAY_FIELDS) {
     if (field === 'sources') {
-      findings.push(...validateSourcesField(record[field], 'compound', recordId, requiredSet.has(field)))
+      findings.push(
+        ...validateSourcesField(record[field], 'compound', recordId, { required: requiredSet.has(field) }),
+      )
     } else {
       findings.push(...validateStringArrayField(record[field], 'compound', recordId, field, requiredSet.has(field)))
     }
@@ -558,11 +650,48 @@ function summarizeIssues(issues: AuditIssue[]) {
   }
 }
 
+function summarizeHerbTierGaps(issues: AuditIssue[]) {
+  const fieldsByTier: Record<HerbFieldTier, Map<string, number>> = {
+    HARD_REQUIRED: new Map(),
+    RECOMMENDED: new Map(),
+    RESEARCH_BACKLOG: new Map(),
+  }
+  const totalsByTier: Record<HerbFieldTier, number> = {
+    HARD_REQUIRED: 0,
+    RECOMMENDED: 0,
+    RESEARCH_BACKLOG: 0,
+  }
+
+  for (const current of issues) {
+    if (current.dataset !== 'herb-list' && current.dataset !== 'herb-detail') continue
+    if (!current.tier || !current.field) continue
+    totalsByTier[current.tier] += 1
+    fieldsByTier[current.tier].set(current.field, (fieldsByTier[current.tier].get(current.field) ?? 0) + 1)
+  }
+
+  return {
+    totalsByTier,
+    fieldsByTier: (Object.entries(fieldsByTier) as Array<[HerbFieldTier, Map<string, number>]>).map(([tier, counts]) => ({
+      tier,
+      fields: Array.from(counts.entries())
+        .sort((a, b) => b[1] - a[1])
+        .map(([field, count]) => ({ field, count })),
+    })),
+  }
+}
+
 function toMarkdownReport(summary: {
   generatedAt: string
   files: Record<string, number>
   totals: Record<string, number>
   issueSummary: ReturnType<typeof summarizeIssues>
+  tierSummary: ReturnType<typeof summarizeHerbTierGaps>
+  legacyComparison: {
+    previousMissingRequiredFieldCount: number
+    hardRequiredGapCount: number
+    reducedBy: number
+  }
+  triageEvidence: TriageEvidence
   issues: AuditIssue[]
 }): string {
   const topIssues = summary.issues.slice(0, 40)
@@ -575,6 +704,9 @@ function toMarkdownReport(summary: {
     `- Compound records: ${summary.totals.compoundRecords}`,
     `- Errors: ${summary.issueSummary.bySeverity.error}`,
     `- Warnings: ${summary.issueSummary.bySeverity.warning}`,
+    `- Herb hard-required gaps: ${summary.tierSummary.totalsByTier.HARD_REQUIRED}`,
+    `- Herb recommended gaps: ${summary.tierSummary.totalsByTier.RECOMMENDED}`,
+    `- Herb research-backlog gaps: ${summary.tierSummary.totalsByTier.RESEARCH_BACKLOG}`,
     '',
     '## Dataset coverage',
     '',
@@ -589,6 +721,42 @@ function toMarkdownReport(summary: {
     '## Issue counts by dataset',
     '',
     ...summary.issueSummary.byDataset.map(item => `- ${item.dataset}: ${item.count}`),
+    '',
+    '## Herb missing-field tiers',
+    '',
+    `- HARD_REQUIRED: ${summary.tierSummary.totalsByTier.HARD_REQUIRED}`,
+    `- RECOMMENDED: ${summary.tierSummary.totalsByTier.RECOMMENDED}`,
+    `- RESEARCH_BACKLOG: ${summary.tierSummary.totalsByTier.RESEARCH_BACKLOG}`,
+    '',
+    ...summary.tierSummary.fieldsByTier.flatMap(group => [
+      `### ${group.tier}`,
+      ...(group.fields.length > 0 ? group.fields.map(item => `- ${item.field}: ${item.count}`) : ['- No gaps.']),
+      '',
+    ]),
+    '## Tier rationale (from completeness + recoverability triage)',
+    '',
+    ...(summary.triageEvidence.recoverability
+      ? [
+          `- Recoverability evidence snapshot: ${summary.triageEvidence.recoverability.totalMissingRequired} prior missing-required issues, with ${summary.triageEvidence.recoverability.genuinelyMissing} genuinely missing and ${summary.triageEvidence.recoverability.recoverable} recoverable.`,
+        ]
+      : ['- Recoverability evidence snapshot: not found (`reports/missing-field-recoverability-triage.json`).']),
+    ...(summary.triageEvidence.completeness?.topMissingByWeightedImpact?.length
+      ? [
+          `- Completeness evidence snapshot (top weighted missing fields): ${summary.triageEvidence.completeness.topMissingByWeightedImpact
+            .map(item => `${item.field} (missing ${item.missingCount}, genuinely absent ${item.genuinelyAbsentCount})`)
+            .join('; ')}.`,
+        ]
+      : ['- Completeness evidence snapshot: not found (`reports/herb-completeness-triage.json`).']),
+    "- Moved to **HARD_REQUIRED**: `slug`, `name`, `latin`, `description`, `effects`, `lastUpdated` because they anchor identity integrity, baseline end-user usefulness, and stable rendering contracts.",
+    "- Moved to **RECOMMENDED**: `contraindications`, `sources` (+ `sources.title` / `sources.url` subfield checks) because these are high user-value trust/safety fields that should stay visible without failing the full dataset.",
+    "- Moved to **RESEARCH_BACKLOG**: `class`, `activeCompounds` because triage shows these are predominantly genuinely absent and not reliably recoverable from internal data.",
+    '- Future cleanup phases should prioritize RECOMMENDED gaps on high-traffic/core herbs first, while tracking RESEARCH_BACKLOG as explicit editorial/research debt.',
+    '',
+    '## Before/after missing-field comparison',
+    '',
+    `- Previous model missing-required-field count (legacy herb required set): ${summary.legacyComparison.previousMissingRequiredFieldCount}`,
+    `- Current model hard-required gap count: ${summary.legacyComparison.hardRequiredGapCount}`,
+    `- Reduction in hard-fail missing-field load: ${summary.legacyComparison.reducedBy}`,
     '',
     '## Sample findings',
     '',
@@ -631,6 +799,7 @@ async function main() {
   const herbsData = await readJsonFile(HERBS_PATH)
   const compoundsData = await readJsonFile(COMPOUNDS_PATH)
   const herbDetailRecords = await loadHerbDetailRecords()
+  const triageEvidence = await loadTriageEvidence()
 
   if (!Array.isArray(herbsData)) {
     throw new Error(`Expected ${HERBS_PATH} to contain an array.`)
@@ -648,12 +817,12 @@ async function main() {
 
   herbList.forEach((record, index) => {
     const slug = getHerbListSlug(record, index)
-    issues.push(...validateHerbRecordShape(record, 'herb-list', slug, HERB_LIST_REQUIRED_FIELDS))
+    issues.push(...validateHerbRecordShape(record, 'herb-list', slug))
   })
 
   herbDetailRecords.forEach((detail, index) => {
     const detailSlug = typeof detail.data.slug === 'string' ? detail.data.slug : `detail-${index}`
-    issues.push(...validateHerbRecordShape(detail.data, 'herb-detail', detailSlug, HERB_DETAIL_REQUIRED_FIELDS))
+    issues.push(...validateHerbRecordShape(detail.data, 'herb-detail', detailSlug))
 
     const expectedSlug = path.basename(detail.filename, '.json')
     if (detail.data.slug !== expectedSlug) {
@@ -823,8 +992,35 @@ async function main() {
       compoundRecords: compounds.length,
     },
     issueSummary: summarizeIssues(dedupedIssues),
+    tierSummary: summarizeHerbTierGaps(dedupedIssues),
+    legacyComparison: {
+      previousMissingRequiredFieldCount: 0,
+      hardRequiredGapCount: dedupedIssues.filter(
+        issueItem => issueItem.code === 'missing-hard-required-field',
+      ).length,
+      reducedBy: 0,
+    },
+    triageEvidence,
     issues: dedupedIssues,
   }
+
+  const previousMissingRequiredFieldCount = [
+    ...herbList.flatMap((record, index) =>
+      validateRequiredFields(record, 'herb-list', getHerbListSlug(record, index), LEGACY_HERB_REQUIRED_FIELDS),
+    ),
+    ...herbDetailRecords.flatMap((detail, index) =>
+      validateRequiredFields(
+        detail.data,
+        'herb-detail',
+        typeof detail.data.slug === 'string' ? detail.data.slug : `detail-${index}`,
+        LEGACY_HERB_REQUIRED_FIELDS,
+      ),
+    ),
+  ].length
+
+  summary.legacyComparison.previousMissingRequiredFieldCount = previousMissingRequiredFieldCount
+  summary.legacyComparison.reducedBy =
+    previousMissingRequiredFieldCount - summary.legacyComparison.hardRequiredGapCount
 
   await mkdir(REPORT_DIR, { recursive: true })
   await writeFile(JSON_REPORT_PATH, `${JSON.stringify(summary, null, 2)}\n`)
