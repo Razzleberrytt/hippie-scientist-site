@@ -64,6 +64,7 @@ const HERB_SHARED_ARRAY_FIELDS = [
 ]
 
 const HERB_LIST_REQUIRED_FIELDS = [
+  'slug',
   'name',
   'latin',
   'class',
@@ -78,6 +79,7 @@ const HERB_LIST_REQUIRED_FIELDS = [
 const HERB_DETAIL_REQUIRED_FIELDS = [...HERB_LIST_REQUIRED_FIELDS]
 
 const COMPOUND_REQUIRED_FIELDS = [
+  'slug',
   'name',
   'category',
   'description',
@@ -106,6 +108,7 @@ const HERB_ARRAY_FIELDS = new Set([
 ])
 
 const COMPOUND_STRING_FIELDS = new Set([
+  'slug',
   'name',
   'category',
   'description',
@@ -429,6 +432,33 @@ function validateCompoundRecordShape(record: GenericRecord, recordId: string): A
   return findings
 }
 
+function validateDatasetArrayRecords(
+  records: unknown[],
+  dataset: DatasetType,
+  sourceName: string,
+): AuditIssue[] {
+  const findings: AuditIssue[] = []
+  records.forEach((record, index) => {
+    if (isObject(record)) return
+    findings.push(
+      issue(
+        'error',
+        'invalid-record-type',
+        dataset,
+        `${sourceName}[${index}]`,
+        'Dataset entry must be an object record.',
+        {
+          details: {
+            expected: 'object',
+            actual: record === null ? 'null' : Array.isArray(record) ? 'array' : typeof record,
+          },
+        },
+      ),
+    )
+  })
+  return findings
+}
+
 function compareSharedHerbFields(listRecord: GenericRecord, detailRecord: GenericRecord, slug: string): AuditIssue[] {
   const findings: AuditIssue[] = []
 
@@ -609,9 +639,12 @@ async function main() {
     throw new Error(`Expected ${COMPOUNDS_PATH} to contain an array.`)
   }
 
+  const issues: AuditIssue[] = []
+  issues.push(...validateDatasetArrayRecords(herbsData, 'herb-list', 'herbs.json'))
+  issues.push(...validateDatasetArrayRecords(compoundsData, 'compound', 'compounds.json'))
+
   const herbList = herbsData.filter(isObject)
   const compounds = compoundsData.filter(isObject)
-  const issues: AuditIssue[] = []
 
   herbList.forEach((record, index) => {
     const slug = getHerbListSlug(record, index)
