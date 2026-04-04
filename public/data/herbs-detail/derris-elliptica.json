@@ -31,7 +31,7 @@
   "dosage": "Used as insecticide,not for internal use",
   "duration": "No direct duration data. Contextual inference: a tropical vine traditionally used as a natural fish poison. contains rotenone, a potent neurotoxin that disrupts mitochondrial respiration. used in agriculture but dangerous to humans in concentrated doses.. Rotenone inhibits NADH dehydrogenase in the electron transport chain, disrupting ATP production and causing cellular hypoxia.. Paralysis (insects/fish);Mild euphoria (folklore);Toxicity. southeast asia, pacific islands. ; nan; nan",
   "legalStatus": "Restricted or banned in many regions",
-  "preparation": "Crushed root used to stun fish in streams (traditional method). Modern rotenone extracts banned in some countries.",
+  "preparation": "extract",
   "region": "southeast asia, pacific islands",
   "therapeuticUses": [
     "no modern internal medical uses. occasionally used externally in veterinary or agricultural settings."

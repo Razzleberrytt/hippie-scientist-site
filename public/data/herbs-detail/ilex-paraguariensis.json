@@ -36,8 +36,8 @@
   "dosage": "No direct dosage data. Contextual inference: Stimulant,rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant,rich in caffeine and theobromine (yerba mate). No direct region data. Contextual inference: Stimulant,rich in caffeine and theobromine (yerba mate). none.,nan.,cognitive enhancer,mood booster. Contains caffeine,theobromine,acts as cns stimulant by blocking adenosine receptors..,nan.. Contains caffeine,acts as CNS stimulant by blocking adenosine receptors.. Stimulant,mood booster. No direct region data. Contextual inference: Stimulant,mood booster.",
   "duration": "2–4 hours",
   "legalStatus": "Widely legal; commonly consumed in South America and globally",
-  "preparation": "Leaves are dried, often smoked or toasted, then steeped in hot water as a tea (infusion)",
-  "region": "No direct region data. Contextual inference: Stimulant; rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; rich in caffeine and theobromine (yerba mate). none. ; nan; nan",
+  "preparation": "smoked",
+  "region": "argentina, brazil",
   "therapeuticUses": [
     "mental alertness",
     "energy",

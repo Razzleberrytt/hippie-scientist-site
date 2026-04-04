@@ -31,8 +31,8 @@
   "dosage": "Match form to use-case: tea serving counts differ from concentrated capsule/oil products.",
   "duration": "Often used as-needed around meals or in short daily routines.",
   "legalStatus": "legal",
-  "preparation": "Tea and loose leaf are the easiest entry formats; enteric-coated capsules are compared for more targeted delivery contexts.",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [
     "Post-meal comfort tea use",
     "Low-friction single-herb daily beverage routines",

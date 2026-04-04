@@ -34,8 +34,8 @@
   "dosage": "Compare by leaf amount per serving and keep format consistent (tea vs capsule vs tincture) before changing dose.",
   "duration": "Often used as a daily baseline herb over medium-length routines.",
   "legalStatus": "Legal globally",
-  "preparation": "Tea is the most common entry format, with capsules and tinctures for convenience.",
-  "region": "No direct region data. Contextual inference: Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. Adaptogenic, immunomodulatory, stress-relieving; used in Ayurvedic medicine. ; nan; nan",
+  "preparation": "tincture",
+  "region": "unknown",
   "therapeuticUses": [
     "Daily tea-based stress support",
     "Adaptogen baseline routines paired with sleep or focus herbs",
