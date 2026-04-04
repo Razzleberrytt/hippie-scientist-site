@@ -1,6 +1,6 @@
 [
   {
-    "name": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside",
+    "name": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1\u21922)-D-glucopyranoside",
     "herbs": [
       "albizia julibrissin"
     ],
@@ -33,7 +33,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -131,7 +131,7 @@
     "slug": "7-hydroxymitragynine"
   },
   {
-    "name": "7α-hydroxybaruol",
+    "name": "7\u03b1-hydroxybaruol",
     "herbs": [
       "adenostoma fasciculatum"
     ],
@@ -277,7 +277,7 @@
       "dreaming or folk medicine",
       "digestive aid",
       "and purported hallucinogen",
-      "contains β-asarone"
+      "contains \u03b2-asarone"
     ],
     "contraindications": [
       "Pregnancy",
@@ -286,7 +286,7 @@
       "children",
       "high doses",
       "pregnancy",
-      "cancer risk (β-asarone in some strains)."
+      "cancer risk (\u03b2-asarone in some strains)."
     ],
     "category": null,
     "sources": [],
@@ -659,7 +659,7 @@
     "slug": "alangiside"
   },
   {
-    "name": "albiziasaponins A–E",
+    "name": "albiziasaponins A\u2013E",
     "herbs": [
       "albizia lebbeck"
     ],
@@ -669,7 +669,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -834,7 +834,7 @@
       "traditional use only",
       "Cardiovascular issues",
       "psychiatric disorders",
-      "Unknown — caution advised",
+      "Unknown \u2014 caution advised",
       "Avoid in pregnancy or heart issues",
       "MAOIs",
       "SSRIs",
@@ -924,7 +924,7 @@
       "traditional use only",
       "Cardiovascular issues",
       "psychiatric disorders",
-      "Unknown — caution advised"
+      "Unknown \u2014 caution advised"
     ],
     "category": null,
     "sources": [],
@@ -1008,7 +1008,7 @@
       "dreaming or folk medicine",
       "digestive aid",
       "and purported hallucinogen",
-      "contains β-asarone"
+      "contains \u03b2-asarone"
     ],
     "contraindications": [
       "Pregnancy",
@@ -1017,7 +1017,7 @@
       "children",
       "high doses",
       "pregnancy",
-      "cancer risk (β-asarone in some strains)."
+      "cancer risk (\u03b2-asarone in some strains)."
     ],
     "category": null,
     "sources": [],
@@ -1123,8 +1123,8 @@
     "contraindications": [
       "Excessive internal use may cause constipation or dry mucous membranes",
       "caution in pregnancy or lactation",
-      "may interact with blood thinners due to tannin content【859641390196180†L297",
-      "L313】.",
+      "may interact with blood thinners due to tannin content\u3010859641390196180\u2020L297",
+      "L313\u3011.",
       "Avoid in bipolar disorder and pregnancy",
       "Pregnancy",
       "hormone-sensitive conditions"
@@ -1269,7 +1269,7 @@
       "hallucinogenic in high doses",
       "digestive aid",
       "and purported hallucinogen",
-      "contains β-asarone",
+      "contains \u03b2-asarone",
       "Mild stimulation",
       "warming sensation",
       "Anxiolytic",
@@ -1282,7 +1282,7 @@
       "children",
       "high doses",
       "pregnancy",
-      "cancer risk (β-asarone in some strains).",
+      "cancer risk (\u03b2-asarone in some strains).",
       "gastrointestinal disorders",
       "None known"
     ],
@@ -1577,7 +1577,7 @@
       "hallucinogenic in high doses",
       "digestive aid",
       "and purported hallucinogen",
-      "contains β-asarone"
+      "contains \u03b2-asarone"
     ],
     "contraindications": [
       "Pregnancy",
@@ -1586,7 +1586,7 @@
       "children",
       "high doses",
       "pregnancy",
-      "cancer risk (β-asarone in some strains)."
+      "cancer risk (\u03b2-asarone in some strains)."
     ],
     "category": null,
     "sources": [],
@@ -1663,7 +1663,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -1708,7 +1708,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -1833,8 +1833,8 @@
     "contraindications": [
       "Excessive internal use may cause constipation or dry mucous membranes",
       "caution in pregnancy or lactation",
-      "may interact with blood thinners due to tannin content【859641390196180†L297",
-      "L313】."
+      "may interact with blood thinners due to tannin content\u3010859641390196180\u2020L297",
+      "L313\u3011."
     ],
     "category": null,
     "sources": [
@@ -2072,7 +2072,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -2120,7 +2120,7 @@
       "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -2206,8 +2206,8 @@
       "avoid large doses during pregnancy.",
       "Excessive internal use may cause constipation or dry mucous membranes",
       "caution in pregnancy or lactation",
-      "may interact with blood thinners due to tannin content【859641390196180†L297",
-      "L313】."
+      "may interact with blood thinners due to tannin content\u3010859641390196180\u2020L297",
+      "L313\u3011."
     ],
     "category": null,
     "sources": [
@@ -2254,7 +2254,7 @@
       "nan."
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications.",
       "Anxiety",
@@ -2461,7 +2461,7 @@
       "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -2524,7 +2524,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -2582,7 +2582,7 @@
     "slug": "citral"
   },
   {
-    "name": "Cocaine alkaloids (0.2–1%)",
+    "name": "Cocaine alkaloids (0.2\u20131%)",
     "herbs": [
       "nan"
     ],
@@ -3030,7 +3030,7 @@
       "traditional use only",
       "Cardiovascular issues",
       "psychiatric disorders",
-      "Unknown — caution advised"
+      "Unknown \u2014 caution advised"
     ],
     "category": null,
     "sources": [],
@@ -3059,7 +3059,7 @@
       "traditional use only",
       "Cardiovascular issues",
       "psychiatric disorders",
-      "Unknown — caution advised"
+      "Unknown \u2014 caution advised"
     ],
     "category": null,
     "sources": [],
@@ -3203,7 +3203,7 @@
     "slug": "dmt"
   },
   {
-    "name": "DMT (0.3–0.7%)",
+    "name": "DMT (0.3\u20130.7%)",
     "herbs": [
       "nan"
     ],
@@ -3255,7 +3255,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -3366,8 +3366,8 @@
     "contraindications": [
       "Excessive internal use may cause constipation or dry mucous membranes",
       "caution in pregnancy or lactation",
-      "may interact with blood thinners due to tannin content【859641390196180†L297",
-      "L313】."
+      "may interact with blood thinners due to tannin content\u3010859641390196180\u2020L297",
+      "L313\u3011."
     ],
     "category": null,
     "sources": [
@@ -3819,7 +3819,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -3884,7 +3884,7 @@
       "dreaming or folk medicine",
       "digestive aid",
       "and purported hallucinogen",
-      "contains β-asarone",
+      "contains \u03b2-asarone",
       "Stress relief",
       "respiratory support",
       "antioxidant",
@@ -3915,7 +3915,7 @@
       "children",
       "high doses",
       "pregnancy",
-      "cancer risk (β-asarone in some strains).",
+      "cancer risk (\u03b2-asarone in some strains).",
       "Pregnancy (high doses)",
       "blood clotting disorders",
       "Avoid high doses",
@@ -4418,8 +4418,8 @@
     "contraindications": [
       "Excessive internal use may cause constipation or dry mucous membranes",
       "caution in pregnancy or lactation",
-      "may interact with blood thinners due to tannin content【859641390196180†L297",
-      "L313】.",
+      "may interact with blood thinners due to tannin content\u3010859641390196180\u2020L297",
+      "L313\u3011.",
       "Avoid during pregnancy due to uterine stimulation potential"
     ],
     "category": null,
@@ -4443,7 +4443,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -5284,7 +5284,7 @@
       "traditional use only",
       "Cardiovascular issues",
       "psychiatric disorders",
-      "Unknown — caution advised",
+      "Unknown \u2014 caution advised",
       "None well established",
       "pregnancy",
       "cns depression."
@@ -5374,7 +5374,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -5590,13 +5590,13 @@
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously",
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications.",
       "Excessive internal use may cause constipation or dry mucous membranes",
       "caution in pregnancy or lactation",
-      "may interact with blood thinners due to tannin content【859641390196180†L297",
-      "L313】."
+      "may interact with blood thinners due to tannin content\u3010859641390196180\u2020L297",
+      "L313\u3011."
     ],
     "category": null,
     "sources": [
@@ -5749,7 +5749,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -5774,7 +5774,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -5799,7 +5799,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -5876,7 +5876,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -5976,7 +5976,7 @@
       "cooling"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -6048,7 +6048,7 @@
       "nan."
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -6198,7 +6198,7 @@
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously",
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -6256,13 +6256,13 @@
       "inflammatory"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications.",
       "Excessive internal use may cause constipation or dry mucous membranes",
       "caution in pregnancy or lactation",
-      "may interact with blood thinners due to tannin content【859641390196180†L297",
-      "L313】."
+      "may interact with blood thinners due to tannin content\u3010859641390196180\u2020L297",
+      "L313\u3011."
     ],
     "category": null,
     "sources": [
@@ -6484,7 +6484,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -6829,7 +6829,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -6990,7 +6990,7 @@
       "dreaming or folk medicine",
       "digestive aid",
       "and purported hallucinogen",
-      "contains β-asarone"
+      "contains \u03b2-asarone"
     ],
     "contraindications": [
       "Pregnancy",
@@ -6999,7 +6999,7 @@
       "children",
       "high doses",
       "pregnancy",
-      "cancer risk (β-asarone in some strains)."
+      "cancer risk (\u03b2-asarone in some strains)."
     ],
     "category": null,
     "sources": [],
@@ -7467,7 +7467,7 @@
     "slug": "nicotine"
   },
   {
-    "name": "Nicotine (9–15%)",
+    "name": "Nicotine (9\u201315%)",
     "herbs": [
       "nan"
     ],
@@ -7797,7 +7797,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -7825,7 +7825,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -7850,7 +7850,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -8342,8 +8342,8 @@
     "contraindications": [
       "Excessive internal use may cause constipation or dry mucous membranes",
       "caution in pregnancy or lactation",
-      "may interact with blood thinners due to tannin content【859641390196180†L297",
-      "L313】."
+      "may interact with blood thinners due to tannin content\u3010859641390196180\u2020L297",
+      "L313\u3011."
     ],
     "category": null,
     "sources": [
@@ -8394,7 +8394,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -8668,13 +8668,13 @@
       "Not recommended for children under 12",
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously",
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications.",
       "Excessive internal use may cause constipation or dry mucous membranes",
       "caution in pregnancy or lactation",
-      "may interact with blood thinners due to tannin content【859641390196180†L297",
-      "L313】.",
+      "may interact with blood thinners due to tannin content\u3010859641390196180\u2020L297",
+      "L313\u3011.",
       "None known"
     ],
     "category": null,
@@ -8874,8 +8874,8 @@
     "contraindications": [
       "Excessive internal use may cause constipation or dry mucous membranes",
       "caution in pregnancy or lactation",
-      "may interact with blood thinners due to tannin content【859641390196180†L297",
-      "L313】."
+      "may interact with blood thinners due to tannin content\u3010859641390196180\u2020L297",
+      "L313\u3011."
     ],
     "category": null,
     "sources": [
@@ -9018,7 +9018,7 @@
       "traditional use only",
       "Cardiovascular issues",
       "psychiatric disorders",
-      "Unknown — caution advised",
+      "Unknown \u2014 caution advised",
       "Avoid in pregnancy",
       "limited data",
       "Not recommended with CNS depressants"
@@ -9039,7 +9039,7 @@
       "and anxiety"
     ],
     "contraindications": [
-      "No well‑documented contraindications",
+      "No well\u2011documented contraindications",
       "due to saponins and alkaloids",
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
@@ -10215,7 +10215,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -11006,7 +11006,7 @@
     "slug": "zapotin"
   },
   {
-    "name": "α-asarone",
+    "name": "\u03b1-asarone",
     "herbs": [
       "acorus tatarinowii"
     ],
@@ -11018,7 +11018,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -11036,7 +11036,7 @@
     "slug": "asarone"
   },
   {
-    "name": "α-calacorene",
+    "name": "\u03b1-calacorene",
     "herbs": [
       "acorus tatarinowii"
     ],
@@ -11048,7 +11048,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -11066,7 +11066,7 @@
     "slug": "calacorene"
   },
   {
-    "name": "α-pinene",
+    "name": "\u03b1-pinene",
     "herbs": [
       "acorus tatarinowii"
     ],
@@ -11078,7 +11078,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -11096,7 +11096,7 @@
     "slug": "pinene"
   },
   {
-    "name": "α-terpinene",
+    "name": "\u03b1-terpinene",
     "herbs": [
       "acorus tatarinowii"
     ],
@@ -11108,7 +11108,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -11126,7 +11126,7 @@
     "slug": "terpinene"
   },
   {
-    "name": "α-terpineol",
+    "name": "\u03b1-terpineol",
     "herbs": [
       "acorus tatarinowii"
     ],
@@ -11138,7 +11138,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -11156,7 +11156,7 @@
     "slug": "terpineol"
   },
   {
-    "name": "β-asarone",
+    "name": "\u03b2-asarone",
     "herbs": [
       "acorus tatarinowii"
     ],
@@ -11168,7 +11168,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -11186,7 +11186,7 @@
     "slug": "asarone"
   },
   {
-    "name": "β-carbolines",
+    "name": "\u03b2-carbolines",
     "herbs": [
       "nan"
     ],
@@ -11219,7 +11219,7 @@
     "slug": "carbolines"
   },
   {
-    "name": "β-caryophyllene",
+    "name": "\u03b2-caryophyllene",
     "herbs": [
       "acorus tatarinowii"
     ],
@@ -11231,7 +11231,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -11249,7 +11249,7 @@
     "slug": "caryophyllene"
   },
   {
-    "name": "β-pinene",
+    "name": "\u03b2-pinene",
     "herbs": [
       "acorus tatarinowii"
     ],
@@ -11261,7 +11261,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -11279,7 +11279,7 @@
     "slug": "pinene"
   },
   {
-    "name": "β-sitosteryl acetate",
+    "name": "\u03b2-sitosteryl acetate",
     "herbs": [
       "aerva lanata"
     ],
@@ -11305,7 +11305,7 @@
     "slug": "sitosteryl-acetate"
   },
   {
-    "name": "γ-terpinene",
+    "name": "\u03b3-terpinene",
     "herbs": [
       "acorus tatarinowii"
     ],
@@ -11317,7 +11317,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
-      "β",
+      "\u03b2",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -11404,6 +11404,10 @@
       {
         "title": "Riboflavin Fact Sheet for Health Professionals (NIH ODS)",
         "url": "https://ods.od.nih.gov/factsheets/Riboflavin-HealthProfessional/"
+      },
+      {
+        "title": "Migraine prophylaxis guidelines (NIH/NCCIH)",
+        "url": "https://www.nccih.nih.gov/health/headaches-in-depth"
       }
     ],
     "lastUpdated": "2026-04-04",
@@ -11429,6 +11433,10 @@
       {
         "title": "Selenium Fact Sheet for Health Professionals (NIH ODS)",
         "url": "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional/"
+      },
+      {
+        "title": "NIH Cohort Study on Se and Diabetes",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/"
       }
     ],
     "lastUpdated": "2026-04-04",
@@ -11454,6 +11462,10 @@
       {
         "title": "Vitamin D Fact Sheet for Health Professionals (NIH ODS)",
         "url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"
+      },
+      {
+        "title": "Institute of Medicine vitamin D report (2011)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21118827/"
       }
     ],
     "lastUpdated": "2026-04-04",

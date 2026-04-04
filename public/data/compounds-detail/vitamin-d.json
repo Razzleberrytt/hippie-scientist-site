@@ -16,32 +16,36 @@
     {
       "title": "Vitamin D Fact Sheet for Health Professionals (NIH ODS)",
       "url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"
+    },
+    {
+      "title": "Institute of Medicine vitamin D report (2011)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21118827/"
     }
   ],
   "lastUpdated": "2026-04-04",
   "slug": "vitamin-d",
   "id": "vitamin-d",
   "displayName": "Vitamin D (Calciferols)",
-  "description": "Vitamin D is obtained from skin synthesis (primarily D3) and diet/supplements (D2 and D3), then converted to active hormonal metabolites. The source corpus supports bone-health deficiency prevention while keeping non-skeletal benefit claims cautious.",
-  "summary": "Vitamin D (D2/D3) is an essential nutrient-hormone precursor for calcium balance and bone health; deficiency and excess are both clinically relevant.",
-  "mechanism": "Proposed/established mix: vitamin D increases intestinal calcium/phosphorus absorption and supports bone mineralization through vitamin D receptor signaling; broader immune and cardiometabolic effects remain under active investigation.",
+  "description": "Vitamin D is produced in skin (primarily D3) and obtained from diet/supplements (D2 and D3), then converted to active metabolites. Core evidence supports deficiency prevention and bone-health roles, while many non-skeletal claims remain under investigation.",
+  "summary": "Vitamin D (D2/D3) is an essential nutrient-prohormone for calcium homeostasis and bone health; deficiency and chronic excess are both clinically important.",
+  "mechanism": "Established with proposed extensions: vitamin D increases intestinal calcium/phosphorus absorption and supports bone mineralization through vitamin D receptor signaling; broader immune/cardiometabolic effects remain tentative.",
   "safetyNotes": [
-    "Deficiency is associated with rickets/osteomalacia risk.",
-    "Chronic excessive intake can cause hypercalcemia, with symptoms including nausea, weakness, nephrolithiasis risk, and renal complications.",
-    "UL context is approximately 4,000 IU/day for adults unless medically supervised."
+    "Deficiency is associated with rickets and osteomalacia risk.",
+    "Chronic excessive intake can cause hypercalcemia with symptoms such as nausea, weakness, and kidney stone/renal complications.",
+    "Adult upper intake level context: about 4,000 IU/day unless medically supervised."
   ],
   "interactions": [
     "Can increase hypercalcemia risk when combined with thiazide diuretics.",
-    "Glucocorticoids may reduce vitamin D activity and calcium balance effects."
+    "Glucocorticoids can reduce vitamin D action and calcium-balance effects."
   ],
   "dosage": [
-    "RDA framework: roughly 600–800 IU/day depending on age/life stage.",
-    "Supplement practice often uses 1,000–2,000 IU/day in clinical monitoring contexts, but needs are individualized.",
-    "UL context: approximately 4,000 IU/day for adults without specialist supervision."
+    "RDA framework: about 600\u2013800 IU/day depending on age/life stage.",
+    "Higher supplemental intakes are sometimes used to reach serum 25(OH)D targets, but individualized monitoring is often needed.",
+    "Adult upper intake level context: about 4,000 IU/day without specialist supervision."
   ],
-  "preparation": "Available as vitamin D3 (cholecalciferol) and vitamin D2 (ergocalciferol), as single agents or combined calcium/vitamin D products.",
-  "regulatoryStatus": "Essential nutrient with established dietary reference intakes; OTC supplement forms are standard, with some high-dose prescription regimens used for deficiency treatment.",
-  "sourceType": "Essential vitamin / prohormone precursor",
+  "preparation": "Available as vitamin D3 (cholecalciferol) and vitamin D2 (ergocalciferol), including single-ingredient and calcium+vitamin D products.",
+  "regulatoryStatus": "Essential nutrient with established dietary reference intakes; OTC supplement forms are common, and high-dose prescription calciferol regimens are used in deficiency care.",
+  "sourceType": "Essential vitamin (hormone precursor)",
   "activeCompounds": [
     "Ergocalciferol (Vitamin D2)",
     "Cholecalciferol (Vitamin D3)",

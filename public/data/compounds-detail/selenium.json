@@ -18,7 +18,7 @@
       "url": "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional/"
     },
     {
-      "title": "NIH cohort literature referenced in compound-research.pdf for selenium and diabetes risk context",
+      "title": "NIH Cohort Study on Se and Diabetes",
       "url": "https://pubmed.ncbi.nlm.nih.gov/"
     }
   ],
@@ -26,30 +26,29 @@
   "slug": "selenium",
   "id": "selenium",
   "displayName": "Selenium",
-  "description": "Selenium is incorporated into selenoproteins involved in antioxidant biology and thyroid hormone metabolism. The corpus emphasizes established intake guidance and cautions against high-dose supplementation in non-deficient populations.",
-  "summary": "Selenium is an essential trace mineral used in antioxidant and thyroid-related selenoproteins; adequacy is important, while chronic excess can cause selenosis.",
-  "mechanism": "Proposed/established mix: selenium functions via selenoproteins (including glutathione peroxidase and deiodinase systems) supporting oxidative balance and thyroid hormone conversion pathways.",
+  "description": "Selenium is incorporated into selenoproteins involved in oxidative defense and thyroid hormone metabolism. Adult intake guidance is centered on microgram-scale intake, and higher chronic intake raises toxicity risk.",
+  "summary": "Selenium is an essential trace mineral for antioxidant and thyroid-related selenoproteins; adequacy is important, while chronic excess can cause selenosis.",
+  "mechanism": "Established with proposed extensions: selenium functions through selenoproteins (including glutathione peroxidase and deiodinase enzymes), supporting oxidative balance and T4-to-T3 conversion.",
   "safetyNotes": [
-    "Deficiency can contribute to clinically significant problems in low-selenium contexts.",
-    "Chronic excess intake can cause selenosis, including hair/nail changes, gastrointestinal symptoms, neuropathy, and characteristic breath odor.",
-    "UL context is approximately 400 micrograms/day for adults."
+    "Deficiency can contribute to clinically significant problems in low-selenium settings.",
+    "Chronic excess intake can cause selenosis (for example garlic breath, hair/nail changes, gastrointestinal symptoms, and neuropathy).",
+    "Adult upper intake level context: about 400 micrograms/day."
   ],
   "interactions": [
-    "Potential interaction considerations include anticoagulant contexts and medication-level nutrient interactions requiring individualized review."
+    "May interact with anticoagulant contexts; potential heavy-metal interaction claims are formulation/context dependent and not a routine supplementation rationale."
   ],
   "dosage": [
-    "RDA framework (adults): approximately 55 micrograms/day.",
-    "Some studies evaluated 200 micrograms/day, but this is not a universal routine recommendation.",
-    "UL context: approximately 400 micrograms/day for adults."
+    "RDA framework (adults): about 55 micrograms/day.",
+    "Some studies evaluated 200 micrograms/day, but routine use above adequacy targets is not generally established.",
+    "Adult upper intake level context: about 400 micrograms/day."
   ],
-  "preparation": "Common supplemental forms include selenomethionine, selenium-enriched yeast, and inorganic salts such as selenite/selenate.",
+  "preparation": "Common supplemental forms include selenomethionine and inorganic forms such as selenite.",
   "regulatoryStatus": "Essential trace nutrient with established dietary reference intakes; permitted in dietary supplement products.",
-  "sourceType": "Essential micronutrient / trace mineral",
+  "sourceType": "Essential micronutrient (trace mineral)",
   "activeCompounds": [
     "Selenomethionine",
     "Selenocysteine",
-    "Sodium selenite",
-    "Sodium selenate"
+    "Sodium selenite"
   ],
   "identity": "",
   "categoryUseContext": "",
