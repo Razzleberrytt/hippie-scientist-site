@@ -2,8 +2,10 @@
   "name": "ginger",
   "latin": "ginger",
   "intensity": "No direct intensity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanisms include effects of gingerols/shogaols on gastrointestinal motility and nausea signaling pathways. These mechanisms are plausible but do not establish uniform clinical benefit across all uses.",
+  "activeCompounds": [
+    "6-Gingerol"
+  ],
   "effects": [
     "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
   ],
@@ -11,15 +13,26 @@
     "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
     "Do not use with known allergy to this plant or related species."
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-  "sources": [],
+  "safetyNotes": "Ginger has been used safely in many oral studies. GI upset can occur, and people using prescription medicines should check for potential herb-drug interactions before routine use.",
+  "sources": [
+    {
+      "title": "NCCIH: Ginger — Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/ginger"
+    },
+    {
+      "title": "PubChem: 6-Gingerol",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442793"
+    }
+  ],
   "lastUpdated": "2026-03-21",
-  "description": "Folk medicine.",
-  "dosage": "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+  "description": "Ginger rhizome is used as food and as an oral supplement. NCCIH notes substantial clinical research, but study quality varies by indication and product type.",
+  "dosage": "No single standardized dose is established across indications; clinical trials use product-specific regimens.",
   "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "interactions": [],
-  "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
+  "interactions": [
+    "Potential pharmacologic interaction risk with some medicines; review use with a clinician or pharmacist if taking chronic medications."
+  ],
+  "preparation": "Common forms include fresh or dried rhizome, teas, powders, capsules, and standardized extracts.",
+  "region": "Widely cultivated globally; the species is traditionally associated with South and Southeast Asia.",
   "therapeuticUses": [
     "Traditional supportive use; indication depends on species part and preparation.",
     "Evidence level varies; use only within established clinical or traditional context."
@@ -38,5 +51,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Ginger (Zingiber officinale) is commonly used for nausea-related symptoms. Evidence is strongest for pregnancy-related nausea; findings are mixed for chemotherapy- or surgery-related nausea."
 }

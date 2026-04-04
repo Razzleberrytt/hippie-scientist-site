@@ -2,8 +2,10 @@
   "name": "ginkgo biloba",
   "latin": "ginkgo biloba",
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
+  "mechanism": "Proposed actions include platelet-activating factor antagonism and vascular/neurochemical effects from terpene lactones and flavonoids. These mechanistic hypotheses do not confirm clinical efficacy for major indications.",
+  "activeCompounds": [
+    "Ginkgolide B"
+  ],
   "effects": [
     "No direct effects data. Contextual inference:",
     "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -13,16 +15,28 @@
   "contraindications": [
     "Bleeding disorders, anticoagulant use"
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
+  "safetyNotes": "For most adults, ginkgo leaf extract appears reasonably safe in moderate oral amounts. It may increase bleeding risk (especially with anticoagulants) and may be unsafe during pregnancy.",
+  "sources": [
+    {
+      "title": "NCCIH: Ginkgo — Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/ginkgo"
+    },
+    {
+      "title": "PubChem: Ginkgolide B",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9804"
+    }
+  ],
   "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+  "description": "Ginkgo biloba leaf extracts are marketed for memory and circulation-related goals, but clinical findings are inconsistent across populations and outcomes.",
+  "dosage": "Dose depends on extract standardization and indication; trial doses are not interchangeable across products.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
+  "interactions": [
+    "May increase bleeding risk when combined with anticoagulants such as warfarin.",
+    "Can interact with other medicines; medication review is recommended before use."
+  ],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Most products use standardized leaf extracts; teas and non-standardized preparations are less comparable to trial products.",
+  "region": "Ginkgo is native to China and now cultivated in multiple temperate regions.",
   "therapeuticUses": [
     "Used for memory loss, dementia, and circulatory issues"
   ],
@@ -36,5 +50,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Ginkgo has been extensively studied, but NCCIH reports no conclusive evidence that it is helpful for any specific health condition."
 }
