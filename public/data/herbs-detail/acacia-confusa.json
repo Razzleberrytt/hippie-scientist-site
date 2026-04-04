@@ -3,7 +3,7 @@
   "latin": "Acacia confusa",
   "class": "Psychoactive, Traditional, Medicinal",
   "intensity": "High (with MAOI); mild otherwise",
-  "mechanism": "",
+  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity",
   "activeCompounds": [
     "dmt",
     "n-methyltryptamine",
@@ -12,9 +12,8 @@
     "tannins"
   ],
   "effects": [
-    "psychedelic visuals",
-    "introspection",
-    "altered consciousness"
+    "psychedelic",
+    "dissociation"
   ],
   "contraindications": [
     "avoid with unstable mental health conditions",
@@ -23,25 +22,35 @@
     "avoid in liver disease"
   ],
   "interactions": [
-    "Strong interactions with MAOIs",
-    "SSRIs",
-    "CNS depressants"
+    "Avoid with: MAOIs",
+    "Avoid with: SSRIs",
+    "Avoid with: CNS depressants"
   ],
-  "safetyNotes": "Caution required,psychological risks and drug interactions,Nausea,vomiting,anxiety,confusion,dissociation,Low physical toxicity,high psychological variability,Not established in humans,caution,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with unstable mental health conditions; May interact with maois",
   "sources": [
     {
       "title": "NCBI Taxonomy: Acacia confusa (TaxID 3809)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3809&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Acacia confusa",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Acacia+confusa",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Acacia confusa",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Acacia+confusa",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.827Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "A perennial tree native to Southeast Asia and the Pacific, traditionally used in spiritual practices. Its root bark contains alkaloids used in entheogenic brews.",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Varies; restricted in some countries due to DMT content",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "extract",
+  "region": "taiwan, philippines",
   "therapeuticUses": [
     "Spiritual use",
     "anecdotal trauma integration"

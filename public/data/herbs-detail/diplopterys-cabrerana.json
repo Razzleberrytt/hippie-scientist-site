@@ -6,11 +6,7 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "entheogen",
-    "mao-inhibitor",
-    "dmt source",
-    "mao",
-    "inhibitor"
+    "psychedelic"
   ],
   "contraindications": [],
   "interactions": [],
@@ -27,8 +23,8 @@
   "dosage": "No direct dosage data. Contextual inference: Entheogen,mao,inhibitor,dmt source. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Entheogen,MAO,DMT source. No direct region data. Contextual inference: Entheogen,DMT source. none.,nan.",
   "duration": "4–6 hours",
   "legalStatus": "Controlled in many countries due to DMT",
-  "preparation": "Leaves prepared in ayahuasca brews; always combined with MAO inhibitors; traditional Amazonian ritual use",
-  "region": "No direct region data. Contextual inference: Entheogen, mao-inhibitor, dmt source. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Entheogen, MAO-inhibitor, DMT source. none. ; nan; nan",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

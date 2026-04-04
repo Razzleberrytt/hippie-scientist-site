@@ -6,11 +6,7 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "sedative",
-    "anticonvulsant",
-    "and muscle relaxant in traditional medicine",
-    "sedative and muscle relaxant",
-    "traditional polynesian use"
+    "relaxation"
   ],
   "contraindications": [
     "avoid with hormone-sensitive conditions",
@@ -18,8 +14,8 @@
     "avoid with sensitive conditions"
   ],
   "interactions": [
-    "hormonal medications",
-    "stimulants."
+    "Caution with: hormonal medications",
+    "Avoid with: stimulants"
   ],
   "safetyNotes": "No direct toxicity data. Contextual inference: Sedative,anticonvulsant,and muscle relaxant in traditional medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Sedative,and muscle relaxant in traditional medicine. none.,mild gi upset (rare).,No direct toxicity data. Contextual inference: Sedative and muscle relaxant,traditional polynesian use. Possibly androgenic and adaptogenic,exact moa unclear..,nan.. Possibly androgenic and adaptogenic,exact MOA unclear.. Sedative and muscle relaxant,traditional Polynesian use.",
   "sources": [
@@ -34,8 +30,8 @@
   "dosage": "No direct dosage data. Contextual inference: Sedative,anticonvulsant,and muscle relaxant in traditional medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Sedative,and muscle relaxant in traditional medicine. No direct region data. Contextual inference: Sedative,and muscle relaxant in traditional medicine. none.,nan.,No direct dosage data. Contextual inference: Sedative and muscle relaxant,traditional polynesian use. Possibly androgenic and adaptogenic,exact moa unclear..,nan.. Possibly androgenic and adaptogenic,exact MOA unclear.. Sedative and muscle relaxant,traditional Polynesian use. No direct region data. Contextual inference: Sedative and muscle relaxant,traditional Polynesian use.",
   "duration": "6–8 hours",
   "legalStatus": "Unregulated",
-  "preparation": "No direct preparation data. Contextual inference: Sedative, anticonvulsant, and muscle relaxant in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anticonvulsant, and muscle relaxant in traditional medicine. No direct region data. Contextual inference: Sedative, anticonvulsant, and muscle relaxant in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anticonvulsant, and muscle relaxant in traditional medicine. none. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Sedative, anticonvulsant, and muscle relaxant in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anticonvulsant, and muscle relaxant in traditional medicine. none. ; nan; nan",
+  "preparation": "",
+  "region": "",
   "therapeuticUses": [
     "libido",
     "stamina",

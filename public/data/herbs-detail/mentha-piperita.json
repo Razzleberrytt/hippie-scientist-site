@@ -3,7 +3,7 @@
   "latin": "Mentha piperita",
   "class": "Digestive Aid, Antispasmodic, Aromatic",
   "intensity": "Mild to moderate, preparation-dependent.",
-  "mechanism": "",
+  "mechanism": "Volatile terpenoids may contribute smooth-muscle, antimicrobial, or sensory effects",
   "activeCompounds": [
     "menthol",
     "menthone",
@@ -13,13 +13,9 @@
     "menthyl acetate"
   ],
   "effects": [
-    "soothes gi tract",
-    "reduces bloating",
-    "cools skin and mucosa",
-    "mild analgesic",
-    "digestive aid",
-    "antispasmodic",
-    "cooling"
+    "relaxation",
+    "pain relief",
+    "digestive support"
   ],
   "contraindications": [
     "avoid with gerd",
@@ -27,25 +23,35 @@
     "avoid with infants (menthol sensitivity)"
   ],
   "interactions": [
-    "Antacids",
-    "calcium channel blockers",
-    "CYP450 substrates"
+    "Caution with: Antacids",
+    "Caution with: calcium channel blockers",
+    "Caution with: CYP450 substrates"
   ],
-  "safetyNotes": "High,when used appropriately,Heartburn,allergic reactions,perianal burning (oil),Low,caution with concentrated oil,~3500 mg/kg (rat,oral),safe,nausea,allergic reactions in sensitive individuals,Use caution in reflux-sensitive individuals and with concentrated essential oil products.,antispasmodic,cooling. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Digestive aid,cooling. none.",
+  "safetyNotes": "Avoid with gerd; Avoid with gallbladder disorders; Avoid with infants (menthol sensitivity)",
   "sources": [
     {
       "title": "NCBI Taxonomy: Mentha piperita",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Mentha%20piperita&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: Mentha piperita",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Mentha+piperita",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Mentha piperita",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Mentha+piperita",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.960Z",
-  "description": "A hybrid mint (Mentha aquatica × Mentha spicata) widely used for digestive support, flavoring, and aromatherapy; possesses antispasmodic, carminative, and cooling properties.",
+  "lastUpdated": "2026-04-03T23:27:42Z",
+  "description": "Mentha piperita is a medicinal herb traditionally used for soothes gi tract and reduces bloating.",
   "dosage": "250,750 mg,day extract or 1,3 g infusion",
   "duration": "4–8 hours (oral/enteric-coated oil)",
   "legalStatus": "Unregulated; approved in supplements and food",
-  "preparation": "Leaves dried or fresh for teas, tinctures, and essential oil distillation; widely used for digestion and headaches",
-  "region": "Widely cultivated and used globally in culinary, medicinal, and aromatic preparations.",
+  "preparation": "tincture",
+  "region": "global cultivation",
   "therapeuticUses": [
     "IBS",
     "nausea",

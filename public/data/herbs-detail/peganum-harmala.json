@@ -11,17 +11,12 @@
     "tetrahydroharmine"
   ],
   "effects": [
-    "altered perception",
-    "dream intensification",
-    "nausea",
-    "mild euphoria",
-    "potentiation of dmt",
-    "maoi activity",
-    "altered consciousness",
-    "dream enhancement",
-    "mao inhibitor",
-    "antispasmodic",
-    "psychoactive"
+    "relaxation",
+    "mood",
+    "digestive support",
+    "psychedelic",
+    "visionary",
+    "dissociation"
   ],
   "contraindications": [
     "may interact with ssris",
@@ -40,7 +35,8 @@
     "tyramine-rich foods",
     "antidepressants"
   ],
-  "safetyNotes": "Toxic in high doses,caution needed,Nausea,tremors,hallucinations,Moderate,~1200 mg/kg in rats,risk increases with combination substances,vomiting,dizziness,Low to moderate,400 mg/kg (mice,harmaline),Use with caution,risk of serotonin syndrome,headache,Moderate at high doses,Toxic – psychoactive and potent,liver issues,No direct toxicity data. Contextual inference: Mao inhibitor,antispasmodic,psychoactive. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. MAO inhibitor,psychoactive. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Peganum harmala (TaxID 43879)",
@@ -49,12 +45,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.991Z",
-  "description": "Mao inhibitor, antispasmodic, psychoactive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Peganum harmala is a medicinal herb traditionally used for altered perception and dream intensification.",
   "dosage": "0.5,1.5 g seed (with caution)",
   "duration": "4–6 hours",
   "legalStatus": "Controlled in some countries",
-  "preparation": "Seeds used in tinctures or decoctions in very small doses; psychoactive and MAOI properties—use cautiously",
-  "region": "No direct region data. Contextual inference: Mao inhibitor, antispasmodic, psychoactive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. MAO inhibitor, antispasmodic, psychoactive. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "middle east, north africa",
   "therapeuticUses": [
     "Spiritual rituals",
     "depression (experimental)",

@@ -1,0 +1,709 @@
+{
+  "generatedAt": "2026-04-03T18:19:26.424Z",
+  "dataSnapshot": {
+    "herbsPath": "public/data/herbs.json",
+    "compoundsPath": "public/data/compounds.json",
+    "herbCount": 698,
+    "compoundCount": 390
+  },
+  "tiers": {
+    "herb": {
+      "tierA": [
+        "name",
+        "slug",
+        "description",
+        "effects",
+        "sources",
+        "activeCompounds"
+      ],
+      "tierB": [
+        "mechanism",
+        "therapeuticUses",
+        "contraindications",
+        "interactions",
+        "safetyNotes",
+        "legalStatus"
+      ],
+      "tierC": [
+        "dosage",
+        "preparation",
+        "duration",
+        "region",
+        "sideEffects",
+        "traditionalUse",
+        "class",
+        "lastUpdated",
+        "latin",
+        "intensity"
+      ]
+    },
+    "compound": {
+      "tierA": [
+        "name",
+        "slug",
+        "description",
+        "effects",
+        "sources",
+        "herbs"
+      ],
+      "tierB": [
+        "category",
+        "therapeuticUses",
+        "contraindications",
+        "interactions",
+        "legalStatus"
+      ],
+      "tierC": [
+        "dosage",
+        "preparation",
+        "duration",
+        "region",
+        "sideEffects",
+        "lastUpdated",
+        "activeCompounds"
+      ]
+    }
+  },
+  "herbs": {
+    "totalRecords": 698,
+    "fields": [
+      {
+        "field": "activeCompounds",
+        "presentCount": 698,
+        "missingCount": 519,
+        "nullLikeOrPlaceholderCount": 519
+      },
+      {
+        "field": "class",
+        "presentCount": 698,
+        "missingCount": 0,
+        "nullLikeOrPlaceholderCount": 0
+      },
+      {
+        "field": "contraindications",
+        "presentCount": 698,
+        "missingCount": 528,
+        "nullLikeOrPlaceholderCount": 528
+      },
+      {
+        "field": "description",
+        "presentCount": 698,
+        "missingCount": 1,
+        "nullLikeOrPlaceholderCount": 1
+      },
+      {
+        "field": "dosage",
+        "presentCount": 698,
+        "missingCount": 1,
+        "nullLikeOrPlaceholderCount": 1
+      },
+      {
+        "field": "duration",
+        "presentCount": 698,
+        "missingCount": 0,
+        "nullLikeOrPlaceholderCount": 0
+      },
+      {
+        "field": "effects",
+        "presentCount": 698,
+        "missingCount": 174,
+        "nullLikeOrPlaceholderCount": 175
+      },
+      {
+        "field": "intensity",
+        "presentCount": 698,
+        "missingCount": 1,
+        "nullLikeOrPlaceholderCount": 1
+      },
+      {
+        "field": "interactions",
+        "presentCount": 698,
+        "missingCount": 547,
+        "nullLikeOrPlaceholderCount": 547
+      },
+      {
+        "field": "lastUpdated",
+        "presentCount": 698,
+        "missingCount": 0,
+        "nullLikeOrPlaceholderCount": 0
+      },
+      {
+        "field": "latin",
+        "presentCount": 698,
+        "missingCount": 0,
+        "nullLikeOrPlaceholderCount": 0
+      },
+      {
+        "field": "legalStatus",
+        "presentCount": 698,
+        "missingCount": 48,
+        "nullLikeOrPlaceholderCount": 48
+      },
+      {
+        "field": "mechanism",
+        "presentCount": 698,
+        "missingCount": 230,
+        "nullLikeOrPlaceholderCount": 230
+      },
+      {
+        "field": "name",
+        "presentCount": 698,
+        "missingCount": 0,
+        "nullLikeOrPlaceholderCount": 0
+      },
+      {
+        "field": "preparation",
+        "presentCount": 698,
+        "missingCount": 0,
+        "nullLikeOrPlaceholderCount": 0
+      },
+      {
+        "field": "region",
+        "presentCount": 698,
+        "missingCount": 0,
+        "nullLikeOrPlaceholderCount": 0
+      },
+      {
+        "field": "safetyNotes",
+        "presentCount": 698,
+        "missingCount": 25,
+        "nullLikeOrPlaceholderCount": 25
+      },
+      {
+        "field": "sideEffects",
+        "presentCount": 698,
+        "missingCount": 405,
+        "nullLikeOrPlaceholderCount": 405
+      },
+      {
+        "field": "sources",
+        "presentCount": 698,
+        "missingCount": 0,
+        "nullLikeOrPlaceholderCount": 0
+      },
+      {
+        "field": "therapeuticUses",
+        "presentCount": 698,
+        "missingCount": 543,
+        "nullLikeOrPlaceholderCount": 543
+      },
+      {
+        "field": "traditionalUse",
+        "presentCount": 698,
+        "missingCount": 21,
+        "nullLikeOrPlaceholderCount": 21
+      }
+    ],
+    "missingSourcesCount": 0,
+    "missingSourcesSample": [],
+    "missingRelatedEntityLinksCount": 7,
+    "missingRelatedEntityLinksSample": [
+      {
+        "name": "acorus americanus",
+        "slug": "acorus-americanus",
+        "missingLinks": [
+          "asarone"
+        ]
+      },
+      {
+        "name": "acorus calamus",
+        "slug": "acorus-calamus",
+        "missingLinks": [
+          "asarone"
+        ]
+      },
+      {
+        "name": "acorus calamus var. angustatus",
+        "slug": "acorus-calamus-var-angustatus",
+        "missingLinks": [
+          "asarone"
+        ]
+      },
+      {
+        "name": "acorus tatarinowii",
+        "slug": "acorus-tatarinowii",
+        "missingLinks": [
+          "asarone"
+        ]
+      },
+      {
+        "name": "asarum canadense",
+        "slug": "asarum-canadense",
+        "missingLinks": [
+          "asarone"
+        ]
+      },
+      {
+        "name": "unnamed herb",
+        "slug": "unnamed-herb",
+        "missingLinks": [
+          "asarone"
+        ]
+      },
+      {
+        "name": "virola theiodora",
+        "slug": "virola-theiodora",
+        "missingLinks": [
+          "5"
+        ]
+      }
+    ],
+    "slugAudit": {
+      "missingSlugFieldCount": 698,
+      "invalidSlugCount": 0,
+      "invalidSlugSample": [],
+      "duplicateSlugCount": 1,
+      "duplicateSlugs": [
+        {
+          "slug": "lion-s-mane",
+          "count": 2
+        }
+      ]
+    },
+    "tierGapSummary": {
+      "tierA": [
+        {
+          "field": "name",
+          "missingCount": 0,
+          "nullLikeOrPlaceholderCount": 0
+        },
+        {
+          "field": "slug",
+          "missingCount": null,
+          "nullLikeOrPlaceholderCount": null
+        },
+        {
+          "field": "description",
+          "missingCount": 1,
+          "nullLikeOrPlaceholderCount": 1
+        },
+        {
+          "field": "effects",
+          "missingCount": 174,
+          "nullLikeOrPlaceholderCount": 175
+        },
+        {
+          "field": "sources",
+          "missingCount": 0,
+          "nullLikeOrPlaceholderCount": 0
+        },
+        {
+          "field": "activeCompounds",
+          "missingCount": 519,
+          "nullLikeOrPlaceholderCount": 519
+        }
+      ],
+      "tierB": [
+        {
+          "field": "mechanism",
+          "missingCount": 230,
+          "nullLikeOrPlaceholderCount": 230
+        },
+        {
+          "field": "therapeuticUses",
+          "missingCount": 543,
+          "nullLikeOrPlaceholderCount": 543
+        },
+        {
+          "field": "contraindications",
+          "missingCount": 528,
+          "nullLikeOrPlaceholderCount": 528
+        },
+        {
+          "field": "interactions",
+          "missingCount": 547,
+          "nullLikeOrPlaceholderCount": 547
+        },
+        {
+          "field": "safetyNotes",
+          "missingCount": 25,
+          "nullLikeOrPlaceholderCount": 25
+        },
+        {
+          "field": "legalStatus",
+          "missingCount": 48,
+          "nullLikeOrPlaceholderCount": 48
+        }
+      ],
+      "tierC": [
+        {
+          "field": "dosage",
+          "missingCount": 1,
+          "nullLikeOrPlaceholderCount": 1
+        },
+        {
+          "field": "preparation",
+          "missingCount": 0,
+          "nullLikeOrPlaceholderCount": 0
+        },
+        {
+          "field": "duration",
+          "missingCount": 0,
+          "nullLikeOrPlaceholderCount": 0
+        },
+        {
+          "field": "region",
+          "missingCount": 0,
+          "nullLikeOrPlaceholderCount": 0
+        },
+        {
+          "field": "sideEffects",
+          "missingCount": 405,
+          "nullLikeOrPlaceholderCount": 405
+        },
+        {
+          "field": "traditionalUse",
+          "missingCount": 21,
+          "nullLikeOrPlaceholderCount": 21
+        },
+        {
+          "field": "class",
+          "missingCount": 0,
+          "nullLikeOrPlaceholderCount": 0
+        },
+        {
+          "field": "lastUpdated",
+          "missingCount": 0,
+          "nullLikeOrPlaceholderCount": 0
+        },
+        {
+          "field": "latin",
+          "missingCount": 0,
+          "nullLikeOrPlaceholderCount": 0
+        },
+        {
+          "field": "intensity",
+          "missingCount": 1,
+          "nullLikeOrPlaceholderCount": 1
+        }
+      ]
+    }
+  },
+  "compounds": {
+    "totalRecords": 390,
+    "fields": [
+      {
+        "field": "activeCompounds",
+        "presentCount": 390,
+        "missingCount": 390,
+        "nullLikeOrPlaceholderCount": 390
+      },
+      {
+        "field": "category",
+        "presentCount": 390,
+        "missingCount": 0,
+        "nullLikeOrPlaceholderCount": 0
+      },
+      {
+        "field": "contraindications",
+        "presentCount": 390,
+        "missingCount": 60,
+        "nullLikeOrPlaceholderCount": 60
+      },
+      {
+        "field": "description",
+        "presentCount": 390,
+        "missingCount": 380,
+        "nullLikeOrPlaceholderCount": 380
+      },
+      {
+        "field": "dosage",
+        "presentCount": 390,
+        "missingCount": 390,
+        "nullLikeOrPlaceholderCount": 390
+      },
+      {
+        "field": "duration",
+        "presentCount": 390,
+        "missingCount": 390,
+        "nullLikeOrPlaceholderCount": 390
+      },
+      {
+        "field": "effects",
+        "presentCount": 390,
+        "missingCount": 0,
+        "nullLikeOrPlaceholderCount": 0
+      },
+      {
+        "field": "herbs",
+        "presentCount": 390,
+        "missingCount": 26,
+        "nullLikeOrPlaceholderCount": 26
+      },
+      {
+        "field": "interactions",
+        "presentCount": 390,
+        "missingCount": 380,
+        "nullLikeOrPlaceholderCount": 380
+      },
+      {
+        "field": "lastUpdated",
+        "presentCount": 390,
+        "missingCount": 0,
+        "nullLikeOrPlaceholderCount": 0
+      },
+      {
+        "field": "legalStatus",
+        "presentCount": 390,
+        "missingCount": 390,
+        "nullLikeOrPlaceholderCount": 390
+      },
+      {
+        "field": "name",
+        "presentCount": 390,
+        "missingCount": 1,
+        "nullLikeOrPlaceholderCount": 1
+      },
+      {
+        "field": "preparation",
+        "presentCount": 390,
+        "missingCount": 390,
+        "nullLikeOrPlaceholderCount": 390
+      },
+      {
+        "field": "region",
+        "presentCount": 390,
+        "missingCount": 390,
+        "nullLikeOrPlaceholderCount": 390
+      },
+      {
+        "field": "sideEffects",
+        "presentCount": 390,
+        "missingCount": 390,
+        "nullLikeOrPlaceholderCount": 390
+      },
+      {
+        "field": "sources",
+        "presentCount": 390,
+        "missingCount": 0,
+        "nullLikeOrPlaceholderCount": 0
+      },
+      {
+        "field": "therapeuticUses",
+        "presentCount": 390,
+        "missingCount": 390,
+        "nullLikeOrPlaceholderCount": 390
+      }
+    ],
+    "missingSourcesCount": 0,
+    "missingSourcesSample": [],
+    "missingRelatedEntityLinksCount": 0,
+    "missingRelatedEntityLinksSample": [],
+    "slugAudit": {
+      "missingSlugFieldCount": 390,
+      "invalidSlugCount": 0,
+      "invalidSlugSample": [],
+      "duplicateSlugCount": 2,
+      "duplicateSlugs": [
+        {
+          "slug": "pinene",
+          "count": 2
+        },
+        {
+          "slug": "terpinene",
+          "count": 2
+        }
+      ]
+    },
+    "tierGapSummary": {
+      "tierA": [
+        {
+          "field": "name",
+          "missingCount": 1,
+          "nullLikeOrPlaceholderCount": 1
+        },
+        {
+          "field": "slug",
+          "missingCount": null,
+          "nullLikeOrPlaceholderCount": null
+        },
+        {
+          "field": "description",
+          "missingCount": 380,
+          "nullLikeOrPlaceholderCount": 380
+        },
+        {
+          "field": "effects",
+          "missingCount": 0,
+          "nullLikeOrPlaceholderCount": 0
+        },
+        {
+          "field": "sources",
+          "missingCount": 0,
+          "nullLikeOrPlaceholderCount": 0
+        },
+        {
+          "field": "herbs",
+          "missingCount": 26,
+          "nullLikeOrPlaceholderCount": 26
+        }
+      ],
+      "tierB": [
+        {
+          "field": "category",
+          "missingCount": 0,
+          "nullLikeOrPlaceholderCount": 0
+        },
+        {
+          "field": "therapeuticUses",
+          "missingCount": 390,
+          "nullLikeOrPlaceholderCount": 390
+        },
+        {
+          "field": "contraindications",
+          "missingCount": 60,
+          "nullLikeOrPlaceholderCount": 60
+        },
+        {
+          "field": "interactions",
+          "missingCount": 380,
+          "nullLikeOrPlaceholderCount": 380
+        },
+        {
+          "field": "legalStatus",
+          "missingCount": 390,
+          "nullLikeOrPlaceholderCount": 390
+        }
+      ],
+      "tierC": [
+        {
+          "field": "dosage",
+          "missingCount": 390,
+          "nullLikeOrPlaceholderCount": 390
+        },
+        {
+          "field": "preparation",
+          "missingCount": 390,
+          "nullLikeOrPlaceholderCount": 390
+        },
+        {
+          "field": "duration",
+          "missingCount": 390,
+          "nullLikeOrPlaceholderCount": 390
+        },
+        {
+          "field": "region",
+          "missingCount": 390,
+          "nullLikeOrPlaceholderCount": 390
+        },
+        {
+          "field": "sideEffects",
+          "missingCount": 390,
+          "nullLikeOrPlaceholderCount": 390
+        },
+        {
+          "field": "lastUpdated",
+          "missingCount": 0,
+          "nullLikeOrPlaceholderCount": 0
+        },
+        {
+          "field": "activeCompounds",
+          "missingCount": 390,
+          "nullLikeOrPlaceholderCount": 390
+        }
+      ]
+    }
+  },
+  "top10MostImportantGaps": [
+    {
+      "entityType": "herb",
+      "field": "interactions",
+      "presentCount": 698,
+      "missingCount": 547,
+      "nullLikeOrPlaceholderCount": 547
+    },
+    {
+      "entityType": "herb",
+      "field": "therapeuticUses",
+      "presentCount": 698,
+      "missingCount": 543,
+      "nullLikeOrPlaceholderCount": 543
+    },
+    {
+      "entityType": "herb",
+      "field": "contraindications",
+      "presentCount": 698,
+      "missingCount": 528,
+      "nullLikeOrPlaceholderCount": 528
+    },
+    {
+      "entityType": "herb",
+      "field": "activeCompounds",
+      "presentCount": 698,
+      "missingCount": 519,
+      "nullLikeOrPlaceholderCount": 519
+    },
+    {
+      "entityType": "herb",
+      "field": "sideEffects",
+      "presentCount": 698,
+      "missingCount": 405,
+      "nullLikeOrPlaceholderCount": 405
+    },
+    {
+      "entityType": "compound",
+      "field": "activeCompounds",
+      "presentCount": 390,
+      "missingCount": 390,
+      "nullLikeOrPlaceholderCount": 390
+    },
+    {
+      "entityType": "compound",
+      "field": "dosage",
+      "presentCount": 390,
+      "missingCount": 390,
+      "nullLikeOrPlaceholderCount": 390
+    },
+    {
+      "entityType": "compound",
+      "field": "duration",
+      "presentCount": 390,
+      "missingCount": 390,
+      "nullLikeOrPlaceholderCount": 390
+    },
+    {
+      "entityType": "compound",
+      "field": "legalStatus",
+      "presentCount": 390,
+      "missingCount": 390,
+      "nullLikeOrPlaceholderCount": 390
+    },
+    {
+      "entityType": "compound",
+      "field": "preparation",
+      "presentCount": 390,
+      "missingCount": 390,
+      "nullLikeOrPlaceholderCount": 390
+    }
+  ],
+  "prioritizedBacklog": {
+    "firstFixRecommendations": [
+      "Backfill explicit slug fields and enforce slug uniqueness checks for both herbs and compounds.",
+      "Enforce required source presence for every record; block records with missing or placeholder source arrays.",
+      "Repair cross-link integrity: herb.activeCompounds should resolve to canonical compounds and compound.herbs should resolve to canonical herbs.",
+      "Prioritize Tier A narrative and safety baseline completion (description, effects, contraindications/interactions where applicable).",
+      "Normalize placeholder values (unknown/tbd/n/a/none) into true missing states before enrichment passes."
+    ],
+    "worseShapeAssessment": {
+      "worseEntityType": "herb",
+      "scoringBasis": {
+        "herb": {
+          "missingSlugFieldCount": 698,
+          "missingSourcesCount": 0,
+          "missingRelatedEntityLinksCount": 7
+        },
+        "compound": {
+          "missingSlugFieldCount": 390,
+          "missingSourcesCount": 0,
+          "missingRelatedEntityLinksCount": 0
+        }
+      }
+    },
+    "immediateValidationRules": [
+      "Require non-empty Tier A fields: name, slug, description, effects, sources, and required relation field (herb.activeCompounds or compound.herbs).",
+      "Reject null-like placeholders in Tier A fields (unknown, tbd, n/a, none, null, undefined, placeholder, coming soon).",
+      "Require canonical slug formatting and uniqueness across each entity collection.",
+      "Require all related-entity links to resolve to existing entity slugs."
+    ]
+  }
+}

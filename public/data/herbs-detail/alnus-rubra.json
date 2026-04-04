@@ -6,11 +6,7 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "anti-inflammatory",
-    "astringent",
-    "febrifuge",
-    "anti",
-    "inflammatory"
+    "anti-inflammatory"
   ],
   "contraindications": [],
   "interactions": [],
@@ -27,8 +23,8 @@
   "dosage": "No direct dosage data. Contextual inference: Anti,inflammatory,astringent,febrifuge. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti,febrifuge. No direct region data. Contextual inference: Anti,febrifuge. none.,nan.",
   "duration": "2–4 hours",
   "legalStatus": "Not restricted; used in North American herbalism",
-  "preparation": "Inner bark dried and decocted for teas or used externally for skin and wound care",
-  "region": "No direct region data. Contextual inference: Anti-inflammatory, astringent, febrifuge. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, astringent, febrifuge. none. ; nan; nan",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

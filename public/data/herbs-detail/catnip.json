@@ -8,13 +8,14 @@
     "nepetalactone"
   ],
   "effects": [
-    "traditional-use records describe calming and digestive-soothing applications"
+    "relaxation",
+    "digestive support"
   ],
   "contraindications": [
     "avoid in pregnancy"
   ],
   "interactions": [
-    "Potential additive sedation with sedative medications or alcohol is plausible but not well quantified."
+    "Caution with: Potential additive sedation with sedative medications or alcohol is plausible but not well quantified"
   ],
   "safetyNotes": "Human safety data are limited and product composition can vary substantially by preparation.",
   "sources": [
@@ -22,15 +23,25 @@
       "title": "NCBI Taxonomy: catnip",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=catnip&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: catnip",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=catnip",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: catnip",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=catnip",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.890Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Catnip (Nepeta cataria) is a Nepeta genus herb used in traditional preparations, with modern literature emphasizing phytochemistry and preclinical pharmacology.",
   "dosage": "No standardized evidence-based adult therapeutic dosing was established in the promoted source.",
   "duration": "No direct duration data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.. No direct region data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.",
   "legalStatus": "legal",
-  "preparation": "Most common forms are dried-leaf infusions and tinctures with variable constituent strength.",
-  "region": "Native to parts of Europe and Asia and now naturalized widely, including North America.",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "Traditional preparations include tea use for restlessness, digestive discomfort, and mild cold-related symptoms.",
   "sideEffects": [],

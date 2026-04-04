@@ -6,15 +6,18 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "antimicrobial",
+    "stimulation",
     "anti-inflammatory",
-    "immune stimulant",
-    "anti",
-    "inflammatory"
+    "immune support",
+    "antimicrobial"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Generally well tolerated,rare allergic or GI reactions,No direct toxicity data. Contextual inference: Antimicrobial,anti-inflammatory,immune stimulant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antimicrobial,immune stimulant. none.",
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Stop use if rash or allergic symptoms occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Tabebuia impetiginosa",
@@ -24,11 +27,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.023Z",
   "description": "Antimicrobial, anti-inflammatory, immune stimulant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Antimicrobial,anti,inflammatory,immune stimulant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antimicrobial,immune stimulant. No direct region data. Contextual inference: Antimicrobial,immune stimulant. none.,nan.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal in herbal commerce",
-  "preparation": "Inner bark decocted or tinctured; used in traditional South American medicine as immune stimulant (pau d’arco)",
-  "region": "No direct region data. Contextual inference: Antimicrobial, anti-inflammatory, immune stimulant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, anti-inflammatory, immune stimulant. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

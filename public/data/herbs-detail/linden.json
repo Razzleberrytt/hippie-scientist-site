@@ -3,34 +3,45 @@
   "latin": "linden",
   "class": "general",
   "intensity": "mild",
-  "mechanism": "",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [
     "farnesol",
     "kaempferol"
   ],
   "effects": [
-    "used as a calming tea for sleep",
-    "anxiety",
-    "and tension used as a calming tea for sleep",
-    "and tension"
+    "relaxation",
+    "sleep",
+    "anxiety relief"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference: Used as a calming tea for sleep,anxiety,and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep,and tension... Used as a calming tea for sleep,and tension.. No direct effects data. Contextual inference: Used as a calming tea for sleep,and tension.. Used as a calming tea for sleep,and tension.",
+  "interactions": [
+    "May potentiate: May increase sedation when combined with CNS depressants"
+  ],
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: linden",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=linden&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: linden",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=linden",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: linden",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=linden",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.955Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Used as a calming tea for sleep, anxiety, and tension..",
   "dosage": "No direct dosage data. Contextual inference: Used as a calming tea for sleep,anxiety,and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep,and tension... Used as a calming tea for sleep,and tension.. No direct effects data. Contextual inference: Used as a calming tea for sleep,and tension.. Used as a calming tea for sleep,and tension.. No direct region data. Contextual inference: Used as a calming tea for sleep,and tension.",
   "duration": "No direct duration data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. No direct effects data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.. No direct region data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. No direct effects data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. No direct effects data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.. No direct region data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. No direct effects data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.",
-  "region": "No direct region data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. No direct effects data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "Used as a calming tea for sleep, anxiety, and tension.",
   "sideEffects": [],

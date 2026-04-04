@@ -10,9 +10,8 @@
     "hyoscyamine"
   ],
   "effects": [
-    "visual and auditory hallucinations",
-    "confusion",
-    "amnesia"
+    "psychedelic",
+    "dissociation"
   ],
   "contraindications": [
     "avoid with cardiac conditions",
@@ -24,7 +23,8 @@
     "MAOIs",
     "CNS depressants"
   ],
-  "safetyNotes": "Highly toxic,traditional use only,Severe delirium,tachycardia,death (in overdose),High,Not well studied in humans",
+  "safetyLevel": "high",
+  "safetyNotes": "High risk: serious toxicity or overdose harm is possible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Solandra grandiflora (TaxID 33123)",
@@ -37,7 +37,7 @@
   "dosage": "Extremely variable and dangerous",
   "duration": "8–12 hours",
   "legalStatus": "Regulated in some regions",
-  "preparation": "Infusion of flowers or roots (extreme caution)",
+  "preparation": "tea",
   "region": "Mexico, Central America",
   "therapeuticUses": [
     "Vision quests (ritual only)"

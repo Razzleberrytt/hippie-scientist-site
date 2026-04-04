@@ -12,13 +12,10 @@
     "alkaloids"
   ],
   "effects": [
-    "improved libido",
-    "enhanced cognition",
-    "mood elevation",
-    "anti-fatigue",
-    "aphrodisiac",
-    "stimulant",
-    "nerve tonic"
+    "stimulation",
+    "focus",
+    "mood",
+    "libido enhancer"
   ],
   "contraindications": [
     "avoid in patients with hypertension or cardiac issues",
@@ -26,10 +23,10 @@
     "avoid with hypertension"
   ],
   "interactions": [
-    "May potentiate stimulants and antidepressants",
-    "avoid combining with MAOIs",
-    "stimulants",
-    "antidepressants."
+    "May potentiate: May potentiate stimulants and antidepressants",
+    "Avoid with: avoid combining with MAOIs",
+    "Avoid with: stimulants",
+    "Avoid with: antidepressants"
   ],
   "safetyNotes": "Generally well tolerated at recommended doses,high doses may cause agitation,Generally recognized as safe at typical dosages,Insomnia,restlessness,increased heart rate (rare,dose-dependent),May cause insomnia,restlessness at high doses,Very low toxicity reported,long-term use lacks sufficient study",
   "sources": [
@@ -40,12 +37,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.968Z",
-  "description": "Aphrodisiac, stimulant, nerve tonic. May enhance dopamine activity and increase blood flow; adaptogenic.. ; nan; nan.",
+  "description": "Muira Puama is a medicinal herb traditionally used for improved libido and enhanced cognition.",
   "dosage": "No direct dosage data. Contextual inference: Aphrodisiac,stimulant,nerve tonic. May enhance dopamine activity and increase blood flow,adaptogenic..,nan.. May enhance dopamine activity and increase blood flow,adaptogenic.. Aphrodisiac,nerve tonic. No direct region data. Contextual inference: Aphrodisiac,nerve tonic.,nan.",
   "duration": "4–6 hours",
   "legalStatus": "Legal and widely sold in supplements globally",
-  "preparation": "Decoction from root bark; also used in tinctures or powdered extract",
-  "region": "Amazon rainforest (Brazil, Guyana, parts of Peru)",
+  "preparation": "tincture",
+  "region": "Amazon rainforest (Brazil, Guyana",
   "therapeuticUses": [
     "Libido enhancement",
     "cognitive support",

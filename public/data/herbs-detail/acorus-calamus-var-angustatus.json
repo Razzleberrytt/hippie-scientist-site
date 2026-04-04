@@ -14,7 +14,8 @@
     "avoid in pregnancy"
   ],
   "interactions": [
-    "Potential interactions are insufficiently characterized; use caution with CNS-active co-exposures until stronger data are available."
+    "Caution with: Potential interactions are insufficiently characterized",
+    "Caution with: use caution with CNS active co exposures until stronger data are available"
   ],
   "safetyNotes": "Beta-asarone exposure and product variability are recurring safety concerns in modern reviews.,Use should be framed cautiously because toxicology risk can vary by chemotype and preparation.",
   "sources": [
@@ -29,8 +30,8 @@
   "dosage": "No validated therapeutic dose range was established in the promoted source; dosing remains formulation-dependent and uncertain.",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "",
-  "preparation": "Traditional preparations include rhizome-based decoctions and powders; review literature emphasizes chemotype-dependent safety differences.",
-  "region": "Acorus species are described across South and East Asian traditional systems and in broader wetland habitats.",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "Traditional use is described in regional materia medica records, but those records are distinct from modern clinical efficacy evidence.",
   "sideEffects": [],

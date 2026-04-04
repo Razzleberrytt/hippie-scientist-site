@@ -3,17 +3,17 @@
   "latin": "Mitragyna javanica / Mitragyna hirsuta",
   "class": "empathogen / euphoriant",
   "intensity": "Moderate",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "mildly stimulating and relaxing",
-    "kratom analog weaker effects"
+    "relaxation",
+    "stimulation"
   ],
   "contraindications": [
     "avoid with not well documented"
   ],
   "interactions": [
-    "not well documented"
+    "Caution with: limited interaction data"
   ],
   "safetyNotes": "not well documented",
   "sources": [
@@ -28,8 +28,8 @@
   "dosage": "No direct dosage data. Contextual inference: southeast asian tree related to kratom with stimulating leaves.. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. Mildly stimulating and relaxing,kratom analog with weaker effects. 🌎 unknown,global.",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
-  "preparation": "Capsule or tea",
-  "region": "🌎 unknown / global",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [
     "not well documented"
   ],

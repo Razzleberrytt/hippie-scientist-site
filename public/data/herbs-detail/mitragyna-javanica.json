@@ -10,13 +10,10 @@
     "7-hydroxymitragynine"
   ],
   "effects": [
+    "relaxation",
     "stimulation",
-    "mild euphoria",
-    "analgesia",
-    "mild stimulation",
-    "mood lift",
-    "mild sedative",
-    "analgesic (less potent than m speciosa)"
+    "mood",
+    "pain relief"
   ],
   "contraindications": [
     "avoid with none well documented",
@@ -25,10 +22,10 @@
     "avoid in liver disease"
   ],
   "interactions": [
-    "Opioids",
-    "CNS depressants",
-    "MAOIs",
-    "sedatives"
+    "Avoid with: Opioids",
+    "Avoid with: CNS depressants",
+    "Avoid with: MAOIs",
+    "Avoid with: sedatives"
   ],
   "safetyNotes": "Considered safer than M. speciosa,Drowsiness,nausea,Low,Not determined,Generally well-tolerated in low doses,Nausea,dizziness,constipation,May cause dizziness,similar risks to kratom at high doses,No direct toxicity data. Contextual inference: Mild sedative,analgesic (less potent than m. speciosa). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Mild sedative,analgesic (less potent than M. speciosa). none.",
   "sources": [
@@ -39,12 +36,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.964Z",
-  "description": "Mild sedative, analgesic (less potent than m. speciosa). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Mitragyna javanica is a medicinal herb traditionally used for stimulation and mild euphoria.",
   "dosage": "No direct dosage data. Contextual inference: Mild sedative,analgesic (less potent than m. speciosa). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Mild sedative,analgesic (less potent than M. speciosa). No direct region data. Contextual inference: Mild sedative,analgesic (less potent than M. speciosa). none.,nan.",
   "duration": "2–4 hours",
   "legalStatus": "Unregulated in most countries",
-  "preparation": "Leaves dried and smoked or brewed as tea; mild stimulant and analgesic effects (less potent than kratom)",
-  "region": "No direct region data. Contextual inference: Mild sedative, analgesic (less potent than m. speciosa). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, analgesic (less potent than M. speciosa). none. ; nan; nan",
+  "preparation": "smoked",
+  "region": "",
   "therapeuticUses": [
     "Pain relief",
     "mood enhancement",

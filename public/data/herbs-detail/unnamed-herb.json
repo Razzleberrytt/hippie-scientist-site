@@ -11,32 +11,44 @@
     "linalool"
   ],
   "effects": [
-    "mild sedative",
-    "hallucinogenic in high doses",
-    "anxiolytic",
-    "relaxing",
-    "description not available"
+    "relaxation",
+    "anxiety relief",
+    "psychedelic"
   ],
   "contraindications": [
     "avoid in pregnancy",
     "avoid with high doses",
     "avoid with none known"
   ],
-  "interactions": [],
-  "safetyNotes": "Toxic in large amounts,Not well documented,Low toxicity,Not established",
+  "interactions": [
+    "May increase sedation when combined with CNS depressants.",
+    "Use caution with serotonergic or psychoactive medications due to possible CNS interaction."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: unnamed herb",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=unnamed%20herb&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: unnamed herb",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=unnamed+herb",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: unnamed herb",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=unnamed+herb",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.978Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Description not available.",
   "dosage": "1-3g dried root",
   "duration": "4-8 hours",
   "legalStatus": "",
-  "preparation": "Root chewed, boiled as tea",
+  "preparation": "tea",
   "region": "Asia, Europe",
   "therapeuticUses": [],
   "traditionalUse": "",

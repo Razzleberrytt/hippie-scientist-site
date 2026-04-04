@@ -5,10 +5,7 @@
   "intensity": "No direct intensity data. Contextual inference: Source of scopolamine and hyoscyamine; used pharmaceutically. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of scopolamine and hyoscyamine; used pharmaceutically. No direct region data. Contextual inference: Source of scopolamine and hyoscyamine; used pharmaceutically. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of scopolamine and hyoscyamine; used pharmaceutically. none. ; nan; nan. ; nan; nan",
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
-  "effects": [
-    "source of scopolamine and hyoscyamine",
-    "used pharmaceutically"
-  ],
+  "effects": [],
   "contraindications": [],
   "interactions": [],
   "safetyNotes": "Dry mouth,blurred vision,confusion,toxic at high doses,No direct toxicity data. Contextual inference: Source of scopolamine and hyoscyamine,used pharmaceutically. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Source of scopolamine and hyoscyamine,used pharmaceutically. none.",
@@ -24,8 +21,8 @@
   "dosage": "No direct dosage data. Contextual inference: Source of scopolamine and hyoscyamine,used pharmaceutically. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Source of scopolamine and hyoscyamine,used pharmaceutically. No direct region data. Contextual inference: Source of scopolamine and hyoscyamine,used pharmaceutically. none.,nan.",
   "duration": "6–12 hours",
   "legalStatus": "Regulated in pharmaceuticals",
-  "preparation": "Leaves used in pharmaceutical alkaloid extraction (scopolamine, hyoscine); not commonly used by herbalists",
-  "region": "No direct region data. Contextual inference: Source of scopolamine and hyoscyamine; used pharmaceutically. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of scopolamine and hyoscyamine; used pharmaceutically. none. ; nan; nan",
+  "preparation": "extract",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

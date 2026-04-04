@@ -8,30 +8,41 @@
     "n"
   ],
   "effects": [
-    "closed-eye visuals",
-    "altered cognition",
-    "spiritual insight (when used maoi)",
-    "ritual use ritual use ritual use"
+    "focus",
+    "psychedelic"
   ],
   "contraindications": [
     "may interact with ssris"
   ],
-  "interactions": [],
-  "safetyNotes": "Use only in ceremonial context under experienced supervision,Nausea,confusion if not used with MAOI,Low (but use with MAOIs requires caution),Unknown for full extract,DMT LD50 in rats: ~110 mg/kg,safe,No direct toxicity data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use",
+  "interactions": [
+    "Use caution with serotonergic or psychoactive medications due to possible CNS interaction."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Psychotria carthagenensis (TaxID 189150)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=189150&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Psychotria carthagenensis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Psychotria+carthagenensis",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Psychotria carthagenensis",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Psychotria+carthagenensis",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.002Z",
-  "description": "Psychotria carthagenensis contains DMT and is traditionally used as an admixture in ayahuasca preparations by South American tribes.",
+  "lastUpdated": "2026-04-03T23:27:42Z",
+  "description": "Psychotria carthagenensis is a medicinal herb traditionally used for closed-eye visuals and altered cognition.",
   "dosage": "No direct dosage data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
   "duration": "No direct duration data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
   "legalStatus": "restricted",
-  "preparation": "No direct preparation data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
-  "region": "No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use",
+  "preparation": "tea",
+  "region": "amazon basin",
   "therapeuticUses": [
     "Shamanic healing",
     "spiritual exploration"

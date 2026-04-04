@@ -6,12 +6,8 @@
   "mechanism": "contains tylophorine alkaloids with immunosuppressive | anti-inflammatory | and antiallergic properties",
   "activeCompounds": [],
   "effects": [
-    "asthma relief",
-    "anti-allergy",
-    "immunoregulation",
-    "expectorant",
-    "anti",
-    "allergy"
+    "respiratory support",
+    "immune support"
   ],
   "contraindications": [
     "avoid in pregnancy",
@@ -26,7 +22,8 @@
     "steroids",
     "or antihistamines."
   ],
-  "safetyNotes": "caution,nausea and vomiting in higher doses. gi discomfort is common early in treatment.,Moderate in high doses. Emetic effects limit overuse.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Tylophora indica",
@@ -39,8 +36,8 @@
   "dosage": "200,400 mg,day extract or 1,2 g dried leaf",
   "duration": "Short-term (up to 2 weeks)",
   "legalStatus": "Legal in India; regulated in some countries due to emetic effects",
-  "preparation": "Leaves chewed raw, powdered for capsules, or used in low-dose decoctions. Often combined with other expectorants.",
-  "region": "india, sri lanka, southeast asia",
+  "preparation": "tea",
+  "region": "india, sri lanka",
   "therapeuticUses": [
     "used for asthma",
     "allergies",

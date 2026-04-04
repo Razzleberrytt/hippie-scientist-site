@@ -7,14 +7,15 @@
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
-    "antihypertensive",
-    "used in tcm",
-    "anti",
-    "inflammatory"
+    "cardiovascular"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Nephrotoxic at high doses,dizziness,GI effects,No direct toxicity data. Contextual inference: Anti-inflammatory,antihypertensive,used in tcm. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,used in TCM. none.",
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Stephania tetrandra (TaxID 425106)",
@@ -24,11 +25,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.022Z",
   "description": "Anti-inflammatory, antihypertensive, used in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Anti,inflammatory,antihypertensive,used in tcm. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti,used in TCM. No direct region data. Contextual inference: Anti,used in TCM. none.,nan.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal in Chinese and Western herbal practices",
-  "preparation": "Root decocted in TCM (Han Fang Ji); used for edema, inflammation, and hypertension",
-  "region": "No direct region data. Contextual inference: Anti-inflammatory, antihypertensive, used in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antihypertensive, used in TCM. none. ; nan; nan",
+  "preparation": "",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

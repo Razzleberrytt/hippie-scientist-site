@@ -6,10 +6,8 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "analgesic and anti-inflammatory properties",
-    "used in ayurveda",
-    "analgesic and anti",
-    "inflammatory properties"
+    "pain relief",
+    "anti-inflammatory"
   ],
   "contraindications": [],
   "interactions": [],
@@ -22,12 +20,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.964Z",
-  "description": "Analgesic and anti-inflammatory properties; used in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Mitragyna parvifolia is a medicinal herb traditionally used for analgesic and anti-inflammatory-inflammatory properties and ayurveda.",
   "dosage": "No direct dosage data. Contextual inference: Analgesic and anti,inflammatory properties,used in ayurveda. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Analgesic and anti,used in Ayurveda. No direct region data. Contextual inference: Analgesic and anti,used in Ayurveda. none.,nan.",
   "duration": "4–8 hours",
   "legalStatus": "Unregulated",
-  "preparation": "Bark and leaves used in decoctions in Ayurvedic and tribal medicine; mild analgesic and hepatoprotective effects",
-  "region": "No direct region data. Contextual inference: Analgesic and anti-inflammatory properties; used in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic and anti-inflammatory properties; used in Ayurveda. none. ; nan; nan",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

@@ -9,20 +9,17 @@
     "alkaloids"
   ],
   "effects": [
-    "mood elevation",
-    "dream enhancement",
-    "introspection",
-    "mild entheogen",
-    "possible adaptogen",
-    "little data available"
+    "mood",
+    "psychedelic",
+    "visionary"
   ],
   "contraindications": [
     "may interact with ssris",
     "avoid in pregnancy"
   ],
   "interactions": [
-    "Antidepressants",
-    "MAOIs"
+    "Avoid with: Antidepressants",
+    "Avoid with: MAOIs"
   ],
   "safetyNotes": "Considered safe at moderate doses,Dry mouth,agitation,Low,Not determined,use caution,mild sedation,no toxicological studies,Not established,Unverified – used in research and ethnobotany,Limited data,possible skin irritation,avoid during pregnancy,No direct toxicity data. Contextual inference: Mild entheogen,possible adaptogen,little data available. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Mild entheogen,little data available. none.",
   "sources": [
@@ -37,8 +34,8 @@
   "dosage": "Very low,psychoactive interest",
   "duration": "3–6 hours",
   "legalStatus": "Unregulated; niche ethnobotanical use",
-  "preparation": "Rare ethnobotanical; when used, aerial parts dried or smoked; limited clinical or traditional preparation guidance",
-  "region": "No direct region data. Contextual inference: Mild entheogen, possible adaptogen; little data available. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild entheogen, possible adaptogen; little data available. none. ; nan; nan",
+  "preparation": "smoked",
+  "region": "",
   "therapeuticUses": [
     "Depression support (anecdotal)",
     "Mood stabilization",

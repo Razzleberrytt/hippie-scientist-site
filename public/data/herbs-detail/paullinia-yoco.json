@@ -3,7 +3,7 @@
   "latin": "Paullinia yoco",
   "class": "Stimulant, Traditional Amazonian",
   "intensity": "Mild to moderate",
-  "mechanism": "",
+  "mechanism": "Saponins may contribute membrane and immune-modulating effects",
   "activeCompounds": [
     "caffeine",
     "theobromine",
@@ -11,9 +11,8 @@
     "tannins"
   ],
   "effects": [
-    "mental stimulation",
-    "increased alertness",
-    "mild diuretic"
+    "stimulation",
+    "detoxification"
   ],
   "contraindications": [
     "avoid with hypertension",
@@ -25,21 +24,32 @@
     "caffeine",
     "MAOIs"
   ],
-  "safetyNotes": "Generally safe in traditional use,Insomnia,restlessness,palpitations (high dose),Low (unless excessive caffeine exposure),~192 mg/kg (caffeine oral,human extrapolated),safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Paullinia yoco",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Paullinia%20yoco&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: Paullinia yoco",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Paullinia+yoco",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Paullinia yoco",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Paullinia+yoco",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.989Z",
-  "description": "Amazonian vine used by indigenous tribes as a stimulant tea; contains caffeine; culturally significant in morning rituals.",
+  "lastUpdated": "2026-04-03T23:27:42Z",
+  "description": "Paullinia yoco is a medicinal herb traditionally used for mental stimulation and increased alertness.",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Not controlled",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "extract",
+  "region": "amazon rainforest",
   "therapeuticUses": [
     "Fatigue",
     "low energy"

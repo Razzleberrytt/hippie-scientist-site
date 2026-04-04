@@ -9,9 +9,8 @@
     "lyfoline"
   ],
   "effects": [
-    "mild auditory hallucinations",
-    "warmth",
-    "euphoria"
+    "mood",
+    "psychedelic"
   ],
   "contraindications": [
     "avoid with antidepressants",
@@ -21,7 +20,8 @@
     "CNS depressants",
     "antidepressants"
   ],
-  "safetyNotes": "Safe in small traditional doses,Dry mouth,lethargy,Low,Not recorded",
+  "safetyLevel": "caution",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Sinicuichi (Heimia myrtifolia)",
@@ -34,7 +34,7 @@
   "dosage": "1–3 g dried leaves (infusion or smoked)",
   "duration": "2–5 hours",
   "legalStatus": "Legal",
-  "preparation": "Sun-fermented tea or smoke",
+  "preparation": "smoked",
   "region": "Mexico, Central America",
   "therapeuticUses": [
     "Mild anxiety relief",

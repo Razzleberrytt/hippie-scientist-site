@@ -17,6 +17,10 @@ import { buildEffectIndex } from '@/utils/effectSearch'
 import EffectExplorer from '@/components/EffectExplorer'
 import type { EnrichmentFilter } from '@/types/enrichmentDiscovery'
 import { trackGovernedEvent } from '@/lib/governedAnalytics'
+import { buildCardSummary } from '@/lib/summary'
+import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
+import { hasVal } from '@/lib/pretty'
+import { slugify } from '@/lib/slug'
 
 const ENRICHMENT_FILTER_OPTIONS: Array<{ value: EnrichmentFilter; label: string }> = [
   { value: 'all', label: 'All research states' },
@@ -44,8 +48,6 @@ export default function HerbsPage() {
   const filtered = useMemo(() => filterHerbs(decoratedHerbs, filters), [decoratedHerbs, filters])
   const visibleHerbs = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount])
   const hasMore = filtered.length > visibleCount
-  const performanceMode = filtered.length > 24
-
   useEffect(() => {
     setVisibleCount(INITIAL_RESULTS)
   }, [filters])
@@ -86,21 +88,21 @@ export default function HerbsPage() {
   const clearAll = () => setFilters(DEFAULT_FILTER_STATE)
 
   return (
-    <main className='container mx-auto max-w-6xl px-4 py-8 text-white'>
+    <main className='container mx-auto max-w-6xl px-4 py-8 sm:py-10 text-white'>
       <Meta
         title='Herb Knowledge Database | The Hippie Scientist'
         description='Search effects, classification, confidence, and safety context across the herb library.'
         path='/herbs'
       />
 
-      <header className='ds-card-lg mb-6'>
+      <header className='ds-card-lg mb-8'>
         <h1 className='text-3xl font-semibold sm:text-4xl'>Herb Knowledge Database</h1>
         <p className='mt-3 max-w-3xl text-white/80'>
           Search and filter herbs by effect tags, confidence, and class to quickly compare entries.
         </p>
       </header>
 
-      <section className='mb-4 rounded-2xl border border-violet-300/25 bg-violet-500/10 p-4'>
+      <section className='mb-6 rounded-2xl border border-violet-300/25 bg-violet-500/10 p-4 sm:p-5'>
         <div className='flex flex-wrap items-center justify-between gap-3'>
           <div>
             <h2 className='text-lg font-semibold text-violet-100'>Effect Explorer</h2>
@@ -120,7 +122,7 @@ export default function HerbsPage() {
         {showEffectExplorer && <EffectExplorer herbs={decoratedHerbs} />}
       </section>
 
-      <section className='mb-4 space-y-3'>
+      <section className='mb-6 space-y-4'>
         <SearchBar
           value={filters.query}
           onChange={value => {
@@ -237,7 +239,7 @@ export default function HerbsPage() {
         />
       </section>
 
-      <p className='mb-4 text-sm text-white/70'>
+      <p className='mb-6 text-sm text-white/70'>
         {filtered.length} results · {effectIndex.size} indexed effects
       </p>
 
@@ -246,13 +248,29 @@ export default function HerbsPage() {
           No herbs match your current filters.
         </div>
       ) : (
-        <section className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+        <section className='grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3'>
           {visibleHerbs.map((herb, index) => (
             <HerbCard
               key={herb.slug || herb.id || `${herb.common}-${index}`}
-              herb={herb}
-              index={index}
-              performanceMode={performanceMode}
+              name={String(herb.common || herb.scientific || herb.name || 'Herb')}
+              summary={
+                buildCardSummary({
+                  effects: herb.effects,
+                  mechanism: herb.mechanism,
+                  description: herb.description,
+                  activeCompounds: herb.compounds,
+                  therapeuticUses: herb.therapeuticUses,
+                  maxLen: 130,
+                }) || 'Learn more about this herb and its potential uses.'
+              }
+              tags={extractPrimaryEffects(Array.isArray(herb.effects) ? herb.effects : [], 2)}
+              detailUrl={
+                hasVal(herb.slug)
+                  ? `/herbs/${encodeURIComponent(String(herb.slug))}`
+                  : `/herbs/${encodeURIComponent(
+                      slugify(String(herb.common || herb.scientific || herb.name || ''))
+                    )}`
+              }
             />
           ))}
         </section>

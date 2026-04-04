@@ -6,10 +6,9 @@
   "mechanism": "lsa affects 5-ht2a serotonin receptors",
   "activeCompounds": [],
   "effects": [
-    "altered states",
-    "euphoria",
-    "introspection",
-    "visual distortions"
+    "mood",
+    "psychedelic",
+    "dissociation"
   ],
   "contraindications": [
     "avoid with cardiovascular disorders",
@@ -20,9 +19,9 @@
     "avoid in kidney disease"
   ],
   "interactions": [
-    "ssris/maois [0",
-    "5].",
-    "May potentiate serotonergic substances"
+    "Avoid with: ssris/maois [0",
+    "Caution with: 5]",
+    "May potentiate: May potentiate serotonergic substances"
   ],
   "safetyNotes": "nausea,vasoconstriction,headache [0,5].,Mild,GI discomfort from seed coatings.,Low,rodent LD50 ~200–300 mg/kg [0",
   "sources": [
@@ -37,7 +36,7 @@
   "dosage": "100,300 seeds ground and soaked.",
   "duration": "121.0",
   "legalStatus": "Restricted in some countries",
-  "preparation": "Cold water extraction of crushed seeds.",
+  "preparation": "extract",
   "region": "Central America",
   "therapeuticUses": [
     "visionary experiences",

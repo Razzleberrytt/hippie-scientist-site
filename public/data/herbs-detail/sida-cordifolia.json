@@ -10,16 +10,11 @@
     "vasicinone"
   ],
   "effects": [
-    "increased energy",
+    "stimulation",
     "focus",
-    "thermogenesis",
-    "alertness",
-    "bronchodilation",
-    "stimulant",
     "anti-inflammatory",
-    "traditionally used for asthma and weight loss",
-    "anti",
-    "inflammatory"
+    "respiratory support",
+    "metabolism enhancer"
   ],
   "contraindications": [
     "avoid with hypertension",
@@ -33,7 +28,8 @@
     "MAOIs",
     "antihypertensives"
   ],
-  "safetyNotes": "Moderate risk,contraindications important,Insomnia,anxiety,elevated heart rate,Moderate,~2000 mg/kg (rats,ephedrine),Use with caution under supervision,Palpitations,insomnia in high doses,Moderate (dose dependent),Ephedrine approx. 50–75 mg/kg (rat),caution,Contains ephedrine-like alkaloids,increases BP,stroke risk,No direct toxicity data. Contextual inference: Stimulant,anti-inflammatory,traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant,traditionally used for asthma and weight loss. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Sida cordifolia (TaxID 108362)",
@@ -46,8 +42,8 @@
   "dosage": "100,300 mg,day aerial extract (restricted in some regions)",
   "duration": "4–6 hours",
   "legalStatus": "Regulated in some countries (ephedrine content)",
-  "preparation": "Aerial parts and roots decocted or tinctured; Ayurvedic herb known for stimulant and anti-inflammatory actions",
-  "region": "No direct region data. Contextual inference: Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [
     "Fatigue",
     "respiratory issues",

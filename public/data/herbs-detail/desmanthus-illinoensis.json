@@ -8,31 +8,41 @@
     "tryptamines"
   ],
   "effects": [
-    "psychedelic visuals",
-    "emotional shifts ( maoi)"
+    "mood",
+    "psychedelic"
   ],
   "contraindications": [
     "avoid with psychoactivity not fully studied"
   ],
   "interactions": [
-    "MAOIs",
-    "SSRIs"
+    "Avoid with: MAOIs",
+    "Avoid with: SSRIs"
   ],
-  "safetyNotes": "Not well researched,caution advised,Nausea,psychological discomfort,Not established,caution,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Avoid with psychoactivity not fully studied",
   "sources": [
     {
       "title": "NCBI Taxonomy: Desmanthus illinoensis (TaxID 196648)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=196648&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Desmanthus illinoensis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Desmanthus+illinoensis",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Desmanthus illinoensis",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Desmanthus+illinoensis",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.918Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "U.S. native legume with root bark containing DMT; used in analog ayahuasca",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Plant legal; DMT controlled",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "tea",
+  "region": "central and southern united states",
   "therapeuticUses": [
     "Experimental inner work"
   ],

@@ -6,14 +6,13 @@
   "mechanism": "hypothesized mechanisms include serotonergic modulation and antioxidant/anti-inflammatory signaling | mechanistic certainty remains incomplete",
   "activeCompounds": [],
   "effects": [
-    "meta-analysis of randomized trials reports symptom improvements versus controls in depression/anxiety contexts",
-    "magnitude and certainty vary by extract standardization comparator and trial quality"
+    "relaxation"
   ],
   "contraindications": [
     "avoid in pregnancy"
   ],
   "interactions": [
-    "Potential interactions with serotonergic or CNS-active medicines require medication-level review."
+    "May potentiate: Potential interactions with serotonergic or CNS active medicines require medication level review"
   ],
   "safetyNotes": "Short-term controlled use is often tolerated, but concentrated extracts can differ from culinary exposure.",
   "sources": [
@@ -28,8 +27,8 @@
   "dosage": "Dose-response depends on standardized extract and indication; no single cross-product dose is appropriate.",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "legal",
-  "preparation": "Used as culinary stigma material and as standardized oral extracts in clinical research.",
-  "region": "Cultivated historically in Iran and the Mediterranean, now distributed globally.",
+  "preparation": "extract",
+  "region": "iran, india (kashmir)",
   "therapeuticUses": [],
   "traditionalUse": "Traditional Persian and Mediterranean medical systems include saffron for mood and general vitality support.",
   "sideEffects": [],

@@ -6,11 +6,9 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "immune",
     "anti-inflammatory",
-    "antioxidant",
-    "anti",
-    "inflammatory"
+    "immune support",
+    "antioxidant"
   ],
   "contraindications": [],
   "interactions": [],
@@ -23,12 +21,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.966Z",
-  "description": "Immune support, anti-inflammatory, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Morinda citrifolia is a medicinal herb traditionally used for immune and anti-inflammatory-inflammatory.",
   "dosage": "500,1000 mg,day fruit juice or extract",
   "duration": "Chronic",
   "legalStatus": "Legal in most countries",
-  "preparation": "Fruit juice fermented or taken fresh; commonly called noni; used in Polynesian medicine",
-  "region": "No direct region data. Contextual inference: Immune support, anti-inflammatory, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immune support, anti-inflammatory, antioxidant. none. ; nan; nan",
+  "preparation": "raw",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

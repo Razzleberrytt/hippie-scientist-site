@@ -5,15 +5,13 @@
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "mechanism": "cbd engages multiple receptor and enzyme pathways | mechanistic complexity and formulation variability limit simple efficacy extrapolation across products",
   "activeCompounds": [],
-  "effects": [
-    "adverse event and interaction monitoring remains central to risk management"
-  ],
+  "effects": [],
   "contraindications": [
     "avoid with use caution in significant hepatic impairment without clinician oversight",
     "avoid unsupported replacement of prescribed therapy with non-standardized cbd products"
   ],
   "interactions": [
-    "Potential interaction with CYP-metabolized medications including antiseizure agents and other narrow-therapeutic-index drugs."
+    "May potentiate: Potential interaction with CYP metabolized medications including antiseizure agents and other narrow therapeutic index drugs"
   ],
   "safetyNotes": "Monitor for liver enzyme elevations in higher-risk populations and polypharmacy contexts.,Sedation, gastrointestinal effects, and drug-drug interactions are key counseling points.",
   "sources": [
@@ -35,8 +33,8 @@
   "dosage": "Dose context is product- and indication-specific; use approved labeling or clinician guidance rather than generic self-dosing ranges.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "",
-  "preparation": "Prepared as purified pharmaceutical oral solutions, oils, capsules, and other extracts with large quality differences across markets.",
-  "region": "Global commercial availability varies by jurisdiction and product class.",
+  "preparation": "extract",
+  "region": "unknown",
   "therapeuticUses": [],
   "traditionalUse": "Cannabis-related traditional use exists in multiple cultures, but modern CBD claims should rely on product-specific clinical and regulatory evidence.",
   "sideEffects": [],

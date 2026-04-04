@@ -23,6 +23,14 @@ const legalLinks = [
   { href: '/sitemap', label: 'Sitemap' },
 ]
 
+function formatBuildDate(isoDate: string) {
+  const timestamp = Date.parse(isoDate)
+  if (Number.isNaN(timestamp)) {
+    return null
+  }
+  return new Date(timestamp).toISOString().slice(0, 10)
+}
+
 export default function Footer() {
   const [open, setOpen] = useState(false)
   const availableLegalLinks = isAnalyticsRouteEnabled()
@@ -30,6 +38,12 @@ export default function Footer() {
     : legalLinks
 
   useEffect(() => onOpenConsent(() => setOpen(true)), [])
+
+  const buildDate = formatBuildDate(__BUILD_DATE__)
+  const versionStampParts = [`v${__APP_VERSION__}`, __COMMIT_HASH__]
+  if (buildDate) {
+    versionStampParts.push(buildDate)
+  }
 
   return (
     <footer className='relative mx-auto mt-8 w-full max-w-screen-lg px-4 pb-8 pt-4'>
@@ -85,6 +99,7 @@ export default function Footer() {
         <div className='mt-6 border-t border-white/10 pt-3 text-xs text-white/55'>
           © 2026 The Hippie Scientist — Educational use only · Not medical advice
         </div>
+        <div className='mt-1 text-[11px] text-white/35'>Build {versionStampParts.join(' · ')}</div>
       </div>
       <ConsentManager open={open} onClose={() => setOpen(false)} />
     </footer>

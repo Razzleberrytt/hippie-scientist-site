@@ -6,10 +6,8 @@
   "mechanism": "antagonist at muscarinic acetylcholine receptors",
   "activeCompounds": [],
   "effects": [
-    "hallucinations",
-    "dry mouth",
-    "blurred vision",
-    "delirium"
+    "psychedelic",
+    "dissociation"
   ],
   "contraindications": [
     "avoid with not well documented",
@@ -20,9 +18,9 @@
     "avoid in pregnancy"
   ],
   "interactions": [
-    "not well documented",
-    "Enhances effects of anticholinergics",
-    "sedatives"
+    "Caution with: limited interaction data",
+    "Avoid with: Enhances effects of anticholinergics",
+    "Avoid with: sedatives"
   ],
   "safetyNotes": "not well documented,Contains tropane alkaloids (hyoscyamine,scopolamine) – highly toxic.",
   "sources": [
@@ -37,7 +35,7 @@
   "dosage": "Not recommended,very narrow therapeutic window.",
   "duration": "121.0",
   "legalStatus": "Controlled / Toxic",
-  "preparation": "Smoked, made into salves or extracts; extremely dangerous.",
+  "preparation": "smoked",
   "region": "Eurasia",
   "therapeuticUses": [
     "not well documented"

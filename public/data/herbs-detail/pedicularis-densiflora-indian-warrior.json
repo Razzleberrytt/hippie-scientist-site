@@ -6,8 +6,7 @@
   "mechanism": "muscle relaxant potential via gabaergic modulation [2 | 0]",
   "activeCompounds": [],
   "effects": [
-    "muscle relaxation",
-    "mild body high"
+    "relaxation"
   ],
   "contraindications": [
     "avoid in pregnancy",
@@ -18,7 +17,8 @@
     "additive effects with cns depressants [2",
     "0]."
   ],
-  "safetyNotes": "drowsiness,dizziness [2,0].,Low,limited data on long-term use [2",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: pedicularis densiflora (indian warrior)",
@@ -27,11 +27,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.990Z",
-  "description": "north american wildflower smoked for muscle relaxation.",
+  "description": "Pedicularis densiflora (indian warrior) is a medicinal herb traditionally used for muscle relaxation and mild body high.",
   "dosage": "No direct dosage data. Contextual inference: north american wildflower smoked for muscle relaxation.. Muscle relaxant potential via GABAergic modulation [2,0].. Muscle relaxation,mild body high. 🌍 africa,🇮🇳 india.",
   "duration": "121.0",
   "legalStatus": "Legal / Unregulated",
-  "preparation": "Smoked or tea",
+  "preparation": "smoked",
   "region": "🌍 africa, 🇮🇳 india",
   "therapeuticUses": [
     "muscle tension",

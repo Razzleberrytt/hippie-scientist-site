@@ -6,14 +6,14 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "antibacterial",
-    "antifungal",
-    "antioxidant",
-    "digestive aid"
+    "digestive support",
+    "antimicrobial",
+    "antioxidant"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,Allergic reactions (esp. to Lamiaceae),GI irritation,No direct toxicity data. Contextual inference: Antibacterial,antifungal,antioxidant,digestive aid. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antibacterial,digestive aid. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Stop use if rash or allergic symptoms occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Origanum vulgare (TaxID 39352)",
@@ -22,12 +22,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.985Z",
-  "description": "Antibacterial, antifungal, antioxidant, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Origanum vulgare is a medicinal herb traditionally used for antibacterial and antifungal.",
   "dosage": "250,750 mg,day extract or 1,2 g infusion",
   "duration": "2–4 hours",
   "legalStatus": "Legal and widely used",
-  "preparation": "Leaves dried and used in teas, tinctures, or as essential oil; antimicrobial and digestive support",
-  "region": "No direct region data. Contextual inference: Antibacterial, antifungal, antioxidant, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antibacterial, antifungal, antioxidant, digestive aid. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

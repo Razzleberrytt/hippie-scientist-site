@@ -6,11 +6,8 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "purgative",
-    "anti-inflammatory (homeopathic use)",
-    "toxic in crude form",
-    "anti",
-    "inflammatory (homeopathic use)"
+    "anti-inflammatory",
+    "digestive support"
   ],
   "contraindications": [],
   "interactions": [],
@@ -27,8 +24,8 @@
   "dosage": "Toxic,homeopathic only",
   "duration": "6–8 hours",
   "legalStatus": "Restricted for internal use; used in homeopathy",
-  "preparation": "Roots dried and tinctured; use is very limited due to toxic glycosides",
-  "region": "No direct region data. Contextual inference: Purgative, anti-inflammatory (homeopathic use); toxic in crude form. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Purgative, anti-inflammatory (homeopathic use); toxic in crude form. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

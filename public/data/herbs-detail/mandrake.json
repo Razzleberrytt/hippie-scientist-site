@@ -5,16 +5,14 @@
   "intensity": "very strong",
   "mechanism": "available mechanistic data are preclinical and do not establish therapeutic efficacy",
   "activeCompounds": [],
-  "effects": [
-    "anticholinergic toxicity patterns are documented in clinical toxicology literature",
-    "preclinical chemistry work tropane-alkaloid biosynthesis variability across mandragora species"
-  ],
+  "effects": [],
   "contraindications": [
     "avoid in pregnancy"
   ],
   "interactions": [
-    "Potential additive anticholinergic burden with other anticholinergic medicines.",
-    "Potential additive CNS effects with sedatives or alcohol; toxicity risk may increase."
+    "May potentiate: Potential additive anticholinergic burden with other anticholinergic medicines",
+    "May potentiate: Potential additive CNS effects with sedatives or alcohol",
+    "May potentiate: toxicity risk may increase"
   ],
   "safetyNotes": "Risk of delirium, tachycardia, dry mouth, urinary retention, and confusion from anticholinergic exposure.,Toxicity management requires medical supervision; non-clinical ingestion is high risk.",
   "sources": [
@@ -32,12 +30,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.958Z",
-  "description": "Mandrake is a Solanaceae plant historically documented in Mediterranean and Middle Eastern materia medica and ritual contexts. Modern publications focus on tropane alkaloid chemistry and poisoning management concerns.",
+  "description": "Mandrake is a medicinal herb traditionally used for anticholinergic toxicity patterns are documented in clinical toxicology literature.",
   "dosage": "No safe self-care dosage is established in reviewed sources; toxicology-focused literature should guide cautionary copy only.",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "restricted",
-  "preparation": "Traditional preparations include roots in decoctions or topical folkloric preparations, but modern safety literature does not support unsupervised internal use.",
-  "region": "Mediterranean basin and parts of Western/Central Asia in traditional records.",
+  "preparation": "tea",
+  "region": "mediterranean",
   "therapeuticUses": [],
   "traditionalUse": "Traditional records describe sedative, ritual, and analgesic uses; these historical uses should not be interpreted as evidence of modern clinical efficacy.",
   "sideEffects": [],

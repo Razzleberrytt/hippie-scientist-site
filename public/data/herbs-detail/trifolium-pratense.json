@@ -6,15 +6,17 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "phytoestrogenic",
-    "blood purifier",
     "anti-inflammatory",
-    "anti",
-    "inflammatory"
+    "hormonal tonic",
+    "detoxification"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,Mild estrogenic effects,avoid in hormone-sensitive conditions,No direct toxicity data. Contextual inference: Phytoestrogenic,blood purifier,anti-inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Phytoestrogenic,anti-inflammatory. none.",
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Trifolium pratense (TaxID 57577)",
@@ -27,8 +29,8 @@
   "dosage": "40,80 mg,day extract (standardized)",
   "duration": "Weeks to months",
   "legalStatus": "Legal globally",
-  "preparation": "Flower heads infused or tinctured; used as phytoestrogenic support and lymphatic tonic",
-  "region": "No direct region data. Contextual inference: Phytoestrogenic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Phytoestrogenic, blood purifier, anti-inflammatory. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

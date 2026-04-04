@@ -5,10 +5,7 @@
   "intensity": "No direct intensity data. Contextual inference: Toxic alkaloid; historically used as sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Toxic alkaloid; historically used as sedative. No direct region data. Contextual inference: Toxic alkaloid; historically used as sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Toxic alkaloid; historically used as sedative. none. ; nan; nan. ; nan; nan",
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
-  "effects": [
-    "toxic alkaloid",
-    "historically used as sedative"
-  ],
+  "effects": [],
   "contraindications": [],
   "interactions": [],
   "safetyNotes": "Toxic – avoid internal use,Extremely toxic,respiratory paralysis,tremors,death in high doses,No direct toxicity data. Contextual inference: Toxic alkaloid,historically used as sedative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Toxic alkaloid,historically used as sedative. none.",
@@ -24,8 +21,8 @@
   "dosage": "Toxic,homeopathic use only",
   "duration": "4–8 hours",
   "legalStatus": "Restricted or banned in most countries",
-  "preparation": "Highly toxic; formerly used in minuscule amounts; now avoided in modern herbalism",
-  "region": "No direct region data. Contextual inference: Toxic alkaloid; historically used as sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Toxic alkaloid; historically used as sedative. none. ; nan; nan",
+  "preparation": "",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

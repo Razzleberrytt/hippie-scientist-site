@@ -3,16 +3,23 @@
   "latin": "Inula helenium",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Expectorant, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Expectorant, antimicrobial, digestive aid. No direct region data. Contextual inference: Expectorant, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Expectorant, antimicrobial, digestive aid. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "expectorant",
-    "antimicrobial",
-    "digestive aid"
+    "digestive support",
+    "respiratory support",
+    "antimicrobial"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,Allergic skin reactions,nausea in sensitive individuals,No direct toxicity data. Contextual inference: Expectorant,antimicrobial,digestive aid. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Expectorant,digestive aid. none.",
+  "interactions": [
+    "Caution with: Interaction evidence is limited",
+    "Caution with: use caution with prescription medicines",
+    "Caution with: especially CNS active",
+    "Avoid with: anticoagulant",
+    "Caution with: hepatotoxic",
+    "Caution with: blood pressure/glucose lowering drugs"
+  ],
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Inula helenium (TaxID 55635)",
@@ -25,8 +32,8 @@
   "dosage": "500,1000 mg,day root extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal in most countries",
-  "preparation": "Roots dried and decocted or tinctured; used for coughs and lung health",
-  "region": "No direct region data. Contextual inference: Expectorant, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Expectorant, antimicrobial, digestive aid. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

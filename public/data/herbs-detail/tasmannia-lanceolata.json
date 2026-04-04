@@ -7,12 +7,15 @@
   "activeCompounds": [],
   "effects": [
     "antimicrobial",
-    "antioxidant",
-    "flavoring agent"
+    "antioxidant"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,Generally safe in culinary doses,high amounts may cause GI upset,No direct toxicity data. Contextual inference: Antimicrobial,antioxidant,flavoring agent. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antimicrobial,flavoring agent. none.",
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Tasmannia lanceolata",
@@ -25,8 +28,8 @@
   "dosage": "0.5,1.5 g,day leaf or extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal in Australia and globally",
-  "preparation": "Leaves and berries used as spice; traditionally infused in teas or decoctions for antimicrobial effects",
-  "region": "No direct region data. Contextual inference: Antimicrobial, antioxidant, flavoring agent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antioxidant, flavoring agent. none. ; nan; nan",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

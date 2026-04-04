@@ -3,18 +3,22 @@
   "latin": "Glycyrrhiza glabra",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, expectorant, adrenal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, expectorant, adrenal support. No direct region data. Contextual inference: Anti-inflammatory, expectorant, adrenal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, expectorant, adrenal support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
-    "expectorant",
-    "adrenal",
-    "anti",
-    "inflammatory"
+    "respiratory support"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,Hypertension,hypokalemia,edema with chronic or high-dose use,No direct toxicity data. Contextual inference: Anti-inflammatory,expectorant,adrenal support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,adrenal support. none.",
+  "interactions": [
+    "Caution with: Interaction evidence is limited",
+    "Caution with: use caution with prescription medicines",
+    "Caution with: especially CNS active",
+    "Avoid with: anticoagulant",
+    "Caution with: hepatotoxic",
+    "Caution with: blood pressure/glucose lowering drugs"
+  ],
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Glycyrrhiza glabra (TaxID 49827)",
@@ -27,8 +31,8 @@
   "dosage": "250,1000 mg,day root extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal with warnings for chronic use",
-  "preparation": "Roots dried and decocted or powdered; commonly used in teas, extracts, and tablets",
-  "region": "No direct region data. Contextual inference: Anti-inflammatory, expectorant, adrenal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, expectorant, adrenal support. none. ; nan; nan",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

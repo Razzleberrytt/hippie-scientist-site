@@ -1,34 +1,51 @@
 {
   "name": "arnica montana",
   "latin": "Arnica montana",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, analgesic, wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, wound healing. No direct region data. Contextual inference: Anti-inflammatory, analgesic, wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, wound healing. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Sesquiterpene lactones (for example helenalin derivatives) inhibit NF-kB-related inflammatory signaling; topical use is the primary supported route.",
   "activeCompounds": [],
   "effects": [
-    "anti-inflammatory",
-    "analgesic",
-    "wound healing",
-    "anti",
-    "inflammatory"
+    "pain relief",
+    "anti-inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Skin irritation,eczema with topical use,ingestion can cause dizziness,heart irregularities,coma in large doses,No direct toxicity data. Contextual inference: Anti-inflammatory,analgesic,wound healing. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,wound healing. none.",
+  "safetyNotes": "Use externally on intact skin only; oral arnica is potentially toxic and can cause serious cardiovascular and neurologic adverse effects. Avoid in pregnancy and in Asteraceae allergy.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Arnica montana (TaxID 436207)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=436207&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Arnica montana for pain and inflammation: systematic review (Rheumatol Int. 2014)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24487994/",
+      "note": "Clinical evidence for topical use and limits of efficacy."
+    },
+    {
+      "title": "Arnica - MedlinePlus Supplements",
+      "url": "https://medlineplus.gov/druginfo/natural/721.html",
+      "note": "Safety, toxicity, and interaction cautions."
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.852Z",
+  "lastUpdated": "2026-03-21",
   "description": "Anti-inflammatory, analgesic, wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Anti,inflammatory,analgesic,wound healing. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti,wound healing. No direct region data. Contextual inference: Anti,wound healing. none.,nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Anti",
+    "inflammatory",
+    "analgesic",
+    "wound healing. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anti",
+    "wound healing. No direct region data. Contextual inference: Anti",
+    "wound healing. none.",
+    "nan."
+  ],
   "duration": "Up to 6 hours",
+  "interactions": [
+    "May potentiate: Oral use may increase bleeding risk when combined with anticoagulants or antiplatelet drugs",
+    "Caution with: Topical products can irritate skin and may worsen dermatitis when used with other irritants"
+  ],
   "legalStatus": "Topical approved; internal restricted",
-  "preparation": "Flowers infused in oil or tinctured for topical use only; not taken internally",
-  "region": "No direct region data. Contextual inference: Anti-inflammatory, analgesic, wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, wound healing. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -39,6 +56,10 @@
     "coma in large doses"
   ],
   "slug": "arnica-montana",
+  "id": "arnica-montana",
+  "displayName": "arnica montana",
+  "displayScientificName": "Arnica montana",
+  "scientificNormalized": "arnica montana",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

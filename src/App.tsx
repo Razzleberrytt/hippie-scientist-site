@@ -37,6 +37,7 @@ const StarterPackSuccess = lazy(() => import('./pages/StarterPackSuccess'))
 const Downloads = lazy(() => import('./pages/Downloads'))
 const LearningPaths = lazy(() => import('./pages/LearningPaths'))
 const HerbGoalPage = lazy(() => import('./pages/HerbGoalPage'))
+const BestHerbsEntryPage = lazy(() => import('./pages/BestHerbsEntryPage'))
 const Methodology = lazy(() => import('./pages/Methodology'))
 const InteractionsPage = lazy(() => import('./pages/InteractionsPage'))
 const CollectionPage = lazy(() => import('./pages/CollectionPage'))
@@ -44,6 +45,9 @@ const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage'))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
 const DisclaimerPage = lazy(() => import('./pages/DisclaimerPage'))
 const UnknownCompoundSurvivalGuide = lazy(() => import('./pages/UnknownCompoundSurvivalGuide'))
+const DevAnalyticsViewer = import.meta.env.DEV
+  ? lazy(() => import('@/dev/AnalyticsViewer'))
+  : null
 import { useTrippy } from '@/lib/trippy'
 import { useGrowthTracking } from '@/lib/growth'
 import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
@@ -104,6 +108,7 @@ export default function App() {
                   />
                   <Route path='/learning' element={<LearningPaths />} />
                   <Route path='/herbs-for-:goal' element={<HerbGoalPage />} />
+                  <Route path='/best-herbs-for-:intent' element={<BestHerbsEntryPage />} />
                   <Route path='/favorites' element={<Favorites />} />
                   <Route path='/newsletter' element={<Newsletter />} />
                   <Route path='/contact' element={<Contact />} />
@@ -203,6 +208,11 @@ function RootLayout() {
       <Footer />
       <ConsentBanner />
       <AppToaster />
+      {DevAnalyticsViewer ? (
+        <Suspense fallback={null}>
+          <DevAnalyticsViewer />
+        </Suspense>
+      ) : null}
     </div>
   )
 }

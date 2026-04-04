@@ -6,10 +6,9 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "psychoactive",
-    "sedative",
-    "analgesic",
-    "high thc content"
+    "relaxation",
+    "pain relief",
+    "psychedelic"
   ],
   "contraindications": [],
   "interactions": [],
@@ -26,8 +25,8 @@
   "dosage": "No direct dosage data. Contextual inference: Psychoactive,sedative,analgesic,high thc content. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Psychoactive,high THC content. No direct region data. Contextual inference: Psychoactive,high THC content. none.,nan.",
   "duration": "4–6 hours",
   "legalStatus": "Regulated depending on jurisdiction",
-  "preparation": "No direct preparation data. Contextual inference: Psychoactive, sedative, analgesic; high thc content. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychoactive, sedative, analgesic; high THC content. No direct region data. Contextual inference: Psychoactive, sedative, analgesic; high thc content. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychoactive, sedative, analgesic; high THC content. none. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Psychoactive, sedative, analgesic; high thc content. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychoactive, sedative, analgesic; high THC content. none. ; nan; nan",
+  "preparation": "",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],

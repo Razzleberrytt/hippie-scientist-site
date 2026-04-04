@@ -10,14 +10,13 @@
     "flavonoids"
   ],
   "effects": [
-    "anti-infective",
-    "wound healing"
+    "antimicrobial"
   ],
   "contraindications": [
     "increase bleeding risk"
   ],
   "interactions": [
-    "Additive with antibiotics or anti-inflammatories"
+    "May potentiate: Additive with antibiotics or anti inflammatories"
   ],
   "safetyNotes": "Topically safe,monitor systemic use,Possible skin irritation,Low to moderate depending on form,Unknown in clinical models",
   "sources": [
@@ -32,7 +31,7 @@
   "dosage": "Topical paste or internal decoction 2x/day",
   "duration": "360",
   "legalStatus": "Uncontrolled herb",
-  "preparation": "Boiled bark or leaf extract",
+  "preparation": "extract",
   "region": "Central and West Africa",
   "therapeuticUses": [
     "Ulcers",

@@ -6,9 +6,8 @@
   "mechanism": "converted to psilocin which acts as 5-ht2a agonist",
   "activeCompounds": [],
   "effects": [
-    "visual patterns",
-    "mystical insight",
-    "emotional release"
+    "mood",
+    "psychedelic"
   ],
   "contraindications": [
     "avoid with unstable mental health conditions",
@@ -18,7 +17,8 @@
     "ssris may reduce effects",
     "avoid maois."
   ],
-  "safetyNotes": "Toxic – controlled psychedelic,nausea,anxiety,transient increase in heart rate.,Low toxicity,wide margin of safety.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Psilocybin",
@@ -27,12 +27,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.001Z",
-  "description": "active compound in psychedelic mushrooms producing profound perceptual changes.",
+  "description": "Psilocybin is a medicinal herb traditionally used for visual patterns and mystical insight.",
   "dosage": "10,25 mg pure or ~1,5 g dried mushrooms",
   "duration": "No direct duration data. Contextual inference: active compound in psychedelic mushrooms producing profound perceptual changes.. Converted to psilocin which acts as 5-HT2A agonist.. Visual patterns;mystical insight;emotional release. 🌎 global. ; nan; nan",
   "legalStatus": "Controlled in many countries",
-  "preparation": "Consumed as dried mushrooms or extract",
-  "region": "🌎 global",
+  "preparation": "extract",
+  "region": "global",
   "therapeuticUses": [
     "promising treatment for depression",
     "addiction",

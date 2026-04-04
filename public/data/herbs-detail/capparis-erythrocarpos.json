@@ -6,9 +6,8 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "traditional use as stimulant and anti-inflammatory",
-    "traditional use as stimulant and anti",
-    "inflammatory"
+    "stimulation",
+    "anti-inflammatory"
   ],
   "contraindications": [],
   "interactions": [],
@@ -25,8 +24,8 @@
   "dosage": "No direct dosage data. Contextual inference: Traditional use as stimulant and anti,inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Traditional use as stimulant and anti,inflammatory. No direct region data. Contextual inference: Traditional use as stimulant and anti,inflammatory. none.,nan.",
   "duration": "121.0",
   "legalStatus": "Unregulated; traditional use",
-  "preparation": "Roots and leaves decocted in African traditional medicine; sometimes used in soups or herbal baths",
-  "region": "No direct region data. Contextual inference: Traditional use as stimulant and anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional use as stimulant and anti-inflammatory. none. ; nan; nan",
+  "preparation": "",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

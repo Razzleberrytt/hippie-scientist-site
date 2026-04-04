@@ -6,11 +6,8 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "antiseptic",
     "anti-inflammatory",
-    "antimicrobial",
-    "anti",
-    "inflammatory"
+    "antimicrobial"
   ],
   "contraindications": [],
   "interactions": [],
@@ -27,8 +24,8 @@
   "dosage": "250,500 mg,day gum resin or tincture",
   "duration": "3–6 hours",
   "legalStatus": "Widely legal; used in traditional and modern applications",
-  "preparation": "Resin extracted and powdered or tinctured; used in oral rinses, capsules, and incense",
-  "region": "No direct region data. Contextual inference: Antiseptic, anti-inflammatory, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, anti-inflammatory, antimicrobial. none. ; nan; nan",
+  "preparation": "smoked",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

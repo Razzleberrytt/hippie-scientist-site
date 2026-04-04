@@ -1,281 +1,55 @@
-import { memo, useMemo, useState } from 'react'
+/**
+ * CANONICAL HERB CARD
+ *
+ * This is the ONLY allowed herb card component.
+ * Do NOT create variants.
+ * Extend via props only.
+ */
+import { memo } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from '@/lib/motion'
 import Card from './ui/Card'
-import { cleanLine, hasVal, titleCase } from '../lib/pretty'
-import { chipClassFor } from '../lib/tags'
-import { slugify } from '../lib/slug'
-import { buildCardSummary, sanitizeSurfaceText } from '@/lib/summary'
-import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
-import type { ConfidenceLevel } from '@/utils/calculateConfidence'
 import './HerbCard.css'
 
 interface HerbCardProps {
-  herb: Record<string, any>
-  index?: number
-  compact?: boolean
-  performanceMode?: boolean
+  name: string
+  summary: string
+  tags?: string[]
+  detailUrl: string
 }
 
-function confidenceBadgeClass(level: ConfidenceLevel) {
-  if (level === 'high')
-    return 'border-emerald-300/50 bg-emerald-500/15 text-emerald-100 shadow-[0_0_18px_rgba(16,185,129,0.35)]'
-  if (level === 'medium')
-    return 'border-amber-300/45 bg-amber-500/15 text-amber-100 shadow-[0_0_18px_rgba(245,158,11,0.35)]'
-  return 'border-rose-300/50 bg-rose-500/15 text-rose-100 shadow-[0_0_18px_rgba(244,63,94,0.35)]'
-}
-
-function HerbCard({ herb, index = 0, compact = false, performanceMode = false }: HerbCardProps) {
-  const [expanded, setExpanded] = useState(false)
-
-  const scientific = String(herb.scientific ?? '').trim()
-  const common = String(herb.common ?? '').trim()
-  const hasCommon =
-    Boolean(common) && (!scientific || common.toLowerCase() !== scientific.toLowerCase())
-  const heading = hasCommon ? common : scientific || herb.name || 'Herb'
-  const subheading = hasCommon ? scientific : ''
-
-  const intensityLevel = String(herb.intensityLevel || '').toLowerCase()
-  const intensityLabel = hasVal(herb.intensityLabel)
-    ? String(herb.intensityLabel)
-    : intensityLevel
-      ? titleCase(intensityLevel)
-      : ''
-  const intensityTone = intensityLevel.includes('strong')
-    ? 'bg-rose-500/20 text-rose-100 ring-1 ring-rose-300/40'
-    : intensityLevel.includes('moderate')
-      ? 'bg-amber-500/20 text-amber-100 ring-1 ring-amber-300/40'
-      : intensityLevel.includes('mild')
-        ? 'bg-emerald-500/20 text-emerald-100 ring-1 ring-emerald-300/40'
-        : intensityLevel.includes('variable')
-          ? 'bg-sky-500/20 text-sky-100 ring-1 ring-sky-300/40'
-          : 'bg-white/6 text-white/90 ring-1 ring-white/15'
-  // benefits field is often empty or duplicates effects — only show if meaningfully distinct
-  const rawBenefits = sanitizeSurfaceText(
-    cleanLine(herb.benefits || (herb as Record<string, unknown>).benefit)
-  )
-  // Suppress if it's too short, all-caps junk, or just repeats the herb name
-  const benefits = rawBenefits.length > 8 && !/^[A-Z\s]+$/.test(rawBenefits) ? rawBenefits : ''
-  const confidence: ConfidenceLevel =
-    herb.confidence === 'high' || herb.confidence === 'medium' || herb.confidence === 'low'
-      ? herb.confidence
-      : 'low'
-  const effectsArray: string[] = Array.isArray(herb.effects) ? herb.effects : []
-  const primaryEffects = extractPrimaryEffects(effectsArray, 3)
-
-  const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 3) : []
-  const enrichmentSummary =
-    herb.researchEnrichmentSummary && typeof herb.researchEnrichmentSummary === 'object'
-      ? herb.researchEnrichmentSummary
-      : null
-  const tagLimit = compact ? 3 : 6
-  const tags = Array.isArray(herb.tags) ? herb.tags.slice(0, tagLimit) : []
-  const showLegal = !compact && hasVal(herb.legalstatus)
-  const showCompounds = !compact && compounds.length > 0
-  const hasSummaryContent =
-    effectsArray.length > 0 || hasVal(herb.description) || hasVal(herb.mechanism)
-  const showShowMore = !compact && hasSummaryContent
-  const surfaceSummary = buildCardSummary({
-    effects: effectsArray,
-    mechanism: herb.mechanism,
-    description: herb.description,
-    activeCompounds: herb.compounds,
-    therapeuticUses: herb.therapeuticUses,
-    maxLen: expanded ? 240 : 150,
-  })
-
-  const detailHref = useMemo(() => {
-    const slug = hasVal(herb.slug)
-      ? String(herb.slug)
-      : slugify(String(herb.common || herb.scientific || ''))
-    if (!slug) return '/herbs'
-    return `/herbs/${encodeURIComponent(slug)}`
-  }, [herb.common, herb.scientific, herb.slug])
-
-  const resetTilt = (element: HTMLElement) => {
-    element.style.setProperty('--rx', '0deg')
-    element.style.setProperty('--ry', '0deg')
-    element.style.setProperty('--glowX', '50%')
-    element.style.setProperty('--glowY', '50%')
-    element.style.transform =
-      'perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))'
-  }
-
-  const cardContent = (
-    <div
-      onPointerMove={
-        performanceMode
-          ? undefined
-          : event => {
-              const element = event.currentTarget as HTMLElement
-              const rect = element.getBoundingClientRect()
-              const percentX = ((event.clientX - rect.left) / rect.width) * 100
-              const percentY = ((event.clientY - rect.top) / rect.height) * 100
-              const tiltX = ((percentY - 50) / -12).toFixed(2)
-              const tiltY = ((percentX - 50) / 12).toFixed(2)
-              element.style.setProperty('--rx', `${tiltX}deg`)
-              element.style.setProperty('--ry', `${tiltY}deg`)
-              element.style.setProperty('--glowX', `${percentX.toFixed(2)}%`)
-              element.style.setProperty('--glowY', `${percentY.toFixed(2)}%`)
-            }
-      }
-      onPointerLeave={
-        performanceMode
-          ? undefined
-          : event => {
-              resetTilt(event.currentTarget as HTMLElement)
-            }
-      }
-      onPointerUp={
-        performanceMode
-          ? undefined
-          : event => {
-              resetTilt(event.currentTarget as HTMLElement)
-            }
-      }
-      onPointerCancel={
-        performanceMode
-          ? undefined
-          : event => {
-              resetTilt(event.currentTarget as HTMLElement)
-            }
-      }
-      className={`group relative h-full transition-transform duration-200 ${performanceMode ? '' : 'HerbCardTilt'}`}
-    >
-      {!performanceMode && (
-        <div className='HerbCardGlow pointer-events-none absolute inset-0 rounded-[1.25rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100' />
-      )}
-      <Card
-        className={`relative flex h-full flex-col ${compact ? 'mini-card gap-3' : 'gap-4'} card-pad hover:shadow-glow transition-shadow duration-200`}
-      >
-        <header className='stack relative pr-20'>
-          <span
-            className={`absolute right-0 top-0 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
-          >
-            {confidence}
-          </span>
-          {compact ? (
-            <h3 className='font-semibold text-lime-300'>{heading}</h3>
-          ) : (
-            <h2 className='h2 text-lime-300'>{heading}</h2>
-          )}
-          {hasVal(subheading) && <p className='small italic text-white/65'>{subheading}</p>}
-          <div className='flex flex-wrap gap-2'>
-            {hasVal(intensityLabel) && (
-              <span className={`pill ${intensityTone} text-[12px]`}>
-                <span className='text-[11px] font-semibold uppercase tracking-wide text-white/80'>
-                  INTENSITY:
-                </span>
-                &nbsp;{intensityLabel}
-              </span>
-            )}
-            {hasVal(benefits) && <span className='pill text-[12px]'>{benefits}</span>}
-          </div>
+function HerbCard({ name, summary, tags = [], detailUrl }: HerbCardProps) {
+  return (
+    <div className='group relative h-full transition-transform duration-200 ease-out HerbCardTilt hover:scale-[1.01]'>
+      <div className='HerbCardGlow pointer-events-none absolute inset-0 rounded-[1.25rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100' />
+      <Card className='card-pad relative flex h-full flex-col gap-5 border-white/12 bg-white/[0.05] p-5 transition duration-200 ease-out group-hover:border-white/20 group-hover:bg-white/[0.07]'>
+        <header className='space-y-2'>
+          <h2 className='text-[1.35rem] font-semibold leading-tight text-lime-200 sm:text-2xl'>{name}</h2>
         </header>
 
-        <section className='stack text-white/80'>
-          {hasSummaryContent && (
-            <p className={`small text-white/85 ${expanded ? '' : 'line-clamp-3'}`}>
-              {surfaceSummary}
-            </p>
-          )}
-          {showLegal && (
-            <p className='small text-white/60'>
-              <span className='text-white/75'>Legal:</span> {cleanLine(herb.legalstatus)}
-            </p>
-          )}
-          {primaryEffects.length > 0 && (
-            <div className='flex flex-wrap gap-1.5'>
-              {primaryEffects.map(effect => (
-                <span
-                  key={effect}
-                  className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100 shadow-[0_0_14px_rgba(139,92,246,0.3)]'
-                >
-                  {effect}
-                </span>
-              ))}
-            </div>
-          )}
-          {enrichmentSummary && (
-            <div className='flex flex-wrap gap-1.5'>
-              <span className='rounded-full border border-cyan-300/40 bg-cyan-500/15 px-2.5 py-1 text-[11px] text-cyan-100'>
-                {enrichmentSummary.evidenceLabelTitle}
+        <section className='space-y-4 text-white/80'>
+          <p className='line-clamp-3 text-sm leading-6 text-white/70'>{summary}</p>
+          <div className='flex flex-wrap gap-2'>
+            {tags.map(tag => (
+              <span
+                key={tag}
+                className='rounded-full border border-white/15 bg-white/[0.03] px-2.5 py-1 text-xs font-medium text-white/70'
+              >
+                {tag}
               </span>
-              {enrichmentSummary.safetyCautionsPresent && (
-                <span className='rounded-full border border-amber-300/40 bg-amber-500/15 px-2.5 py-1 text-[11px] text-amber-100'>
-                  Safety cautions noted
-                </span>
-              )}
-              {enrichmentSummary.conflictingEvidence && (
-                <span className='rounded-full border border-rose-300/40 bg-rose-500/15 px-2.5 py-1 text-[11px] text-rose-100'>
-                  Conflicting evidence
-                </span>
-              )}
-              {enrichmentSummary.traditionalUseOnly && (
-                <span className='rounded-full border border-yellow-300/40 bg-yellow-500/15 px-2.5 py-1 text-[11px] text-yellow-100'>
-                  Traditional-use context
-                </span>
-              )}
-            </div>
-          )}
-          {confidence === 'low' && (
-            <p className='small rounded-lg border border-amber-300/35 bg-amber-500/10 px-2.5 py-1.5 text-amber-100'>
-              ⚠️ This entry is incomplete. Data is still being verified.
-            </p>
-          )}
-          {tags.length > 0 && (
-            <div className='cluster'>
-              {tags.map((t: string, i: number) => (
-                <span key={i} className={`${chipClassFor(t)} text-[12px]`}>
-                  {t}
-                </span>
-              ))}
-            </div>
-          )}
-          {showCompounds && (
-            <p className='small text-cyan-200'>Active Compounds: {compounds.join(', ')}</p>
-          )}
+            ))}
+          </div>
         </section>
 
-        <footer
-          className={`mt-auto flex items-center justify-between text-sm ${compact ? 'pt-1' : ''}`}
-        >
-          {showShowMore && (
-            <button
-              type='button'
-              className='text-white/55 underline decoration-dotted underline-offset-4 transition hover:text-white/85'
-              onClick={() => setExpanded(value => !value)}
-              aria-expanded={expanded}
-            >
-              {expanded ? 'Show less' : 'Show more'}
-            </button>
-          )}
+        <footer className='mt-auto flex items-center justify-end pt-2 text-sm'>
           <Link
-            to={detailHref}
-            className='text-white/55 underline underline-offset-4 transition hover:text-white/85'
+            to={detailUrl}
+            className='inline-flex min-h-10 items-center rounded-lg border border-white/20 bg-white/[0.06] px-3 py-2 text-sm font-medium text-white/85 transition duration-200 ease-out hover:border-white/35 hover:bg-white/[0.12] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300'
           >
             View details
           </Link>
         </footer>
       </Card>
     </div>
-  )
-
-  if (performanceMode) {
-    return <div className='h-full'>{cardContent}</div>
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 16, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ type: 'spring', stiffness: 250, damping: 15, delay: index * 0.02 }}
-      whileHover={{ scale: 1.015, y: -2 }}
-      whileTap={{ scale: 0.985 }}
-      className='h-full'
-    >
-      {cardContent}
-    </motion.div>
   )
 }
 

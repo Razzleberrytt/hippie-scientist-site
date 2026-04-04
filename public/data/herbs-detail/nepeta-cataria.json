@@ -3,7 +3,7 @@
   "latin": "Nepeta cataria",
   "class": "Traditional, Sedative, Recreational",
   "intensity": "Mild in typical tea-level use; stronger effects are uncommon.",
-  "mechanism": "",
+  "mechanism": "Volatile terpenoids may contribute smooth-muscle, antimicrobial, or sensory effects",
   "activeCompounds": [
     "nepetalactone",
     "thymol",
@@ -12,11 +12,8 @@
     "rosmarinic acid"
   ],
   "effects": [
-    "mild sedation",
     "relaxation",
-    "antispasmodic",
-    "mild sedative",
-    "carminative"
+    "digestive support"
   ],
   "contraindications": [
     "avoid in pregnancy",
@@ -26,21 +23,32 @@
     "Sedatives",
     "CNS depressants"
   ],
-  "safetyNotes": "Generally safe in moderate doses,Drowsiness,nausea (high doses),Low,Limited pregnancy/lactation safety evidence supports conservative use.,safe,avoid in pregnancy due to uterine stimulation,Avoid combining with sedatives without clinical guidance.,antispasmodic,carminative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Mild sedative,carminative. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nepeta cataria (TaxID 39347)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=39347&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Nepeta cataria",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Nepeta+cataria",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Nepeta cataria",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Nepeta+cataria",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.979Z",
-  "description": "A member of the mint family known for its euphoric effects on cats and mild sedative properties in humans. Traditionally used for colds, anxiety, and cramps.",
+  "lastUpdated": "2026-04-03T23:27:42Z",
+  "description": "Nepeta cataria is a medicinal herb traditionally used for mild sedation and relaxation.",
   "dosage": "250,500 mg,day aerial parts",
   "duration": "1–3 hours",
   "legalStatus": "Legal worldwide",
-  "preparation": "Leaves and flowers dried for tea or tincture; calming and digestive herb (catnip)",
-  "region": "Cultivated in Europe, North America, and other temperate regions.",
+  "preparation": "tincture",
+  "region": "Cultivated in Europe, North America",
   "therapeuticUses": [
     "Anxiety",
     "insomnia",

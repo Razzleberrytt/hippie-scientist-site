@@ -6,13 +6,15 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "antiviral",
-    "immune stimulant",
-    "respiratory"
+    "stimulation",
+    "respiratory support",
+    "immune support",
+    "antimicrobial"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,GI discomfort,allergic reactions,rare liver toxicity,No direct toxicity data. Contextual inference: Antiviral,immune stimulant,respiratory support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiviral,respiratory support. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with other stimulants; Stop use if rash or allergic symptoms occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Pelargonium sidoides (TaxID 1417791)",
@@ -21,12 +23,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.991Z",
-  "description": "Antiviral, immune stimulant, respiratory support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Pelargonium sidoides is a medicinal herb traditionally used for antiviral and immune stimulant.",
   "dosage": "30,90 mg,day root extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal in most countries; available in supplements",
-  "preparation": "Root used in standardized extracts or decoctions; popular in respiratory support (umckaloabo)",
-  "region": "No direct region data. Contextual inference: Antiviral, immune stimulant, respiratory support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiviral, immune stimulant, respiratory support. none. ; nan; nan",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

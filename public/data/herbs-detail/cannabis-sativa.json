@@ -3,50 +3,86 @@
   "latin": "Cannabis sativa",
   "class": "Psychoactive, Euphoriant",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "THC is a partial CB1/CB2 agonist and CBD modulates endocannabinoid signaling with additional receptor-level effects; clinical effects vary by THC:CBD ratio and route.",
   "activeCompounds": [
-    "thc",
-    "cbd",
-    "cbn",
+    "THC",
+    "CBD",
+    "CBN",
     "terpenes"
   ],
   "effects": [
-    "euphoria",
-    "altered perception",
-    "sedation or stimulation"
+    "relaxation",
+    "stimulation",
+    "mood",
+    "dissociation"
   ],
   "contraindications": [
-    "avoid with unstable mental health conditions",
-    "avoid with schizophrenia",
-    "avoid in pregnancy"
+    "Psychosis",
+    "schizophrenia",
+    "pregnancy",
+    "avoid during pregnancy and breastfeeding",
+    "avoid in psychotic disorders, severe anxiety, or unsupervised psychoactive use"
   ],
-  "interactions": [
-    "Potentiates other CNS depressants"
-  ],
-  "safetyNotes": "Generally safe,dependency and psychosis risk in vulnerable users,Dry mouth,anxiety,memory disruption,Low,>1000 mg/kg (est.),safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Common adverse effects include dizziness, cognitive slowing, anxiety, and dry mouth; high-THC products can precipitate panic or psychosis in vulnerable individuals. Avoid use during pregnancy and adolescence when possible.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Cannabis sativa (TaxID 3483)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3483&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "The health effects of cannabis and cannabinoids (National Academies, 2017)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK423845/",
+      "note": "Comprehensive evidence review of efficacy and harms."
+    },
+    {
+      "title": "Cannabis (Marijuana) and Cannabinoids - NCCIH",
+      "url": "https://www.nccih.nih.gov/health/cannabis-marijuana-and-cannabinoids-what-you-need-to-know",
+      "note": "Clinical safety and interaction summary."
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.886Z",
+  "lastUpdated": "2026-03-21",
   "description": "Globally known psychoactive plant used medicinally and recreationally",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "Avoid with: Additive sedation and psychomotor impairment with alcohol",
+    "Avoid with: opioids",
+    "Avoid with: benzodiazepines",
+    "Avoid with: sedative hypnotics",
+    "May potentiate: THC/CBD can interact with CYP3A4 and CYP2C9 substrates/inhibitors",
+    "Caution with: potentially changing drug exposure",
+    "May potentiate: May increase tachycardia risk with sympathomimetic agents"
+  ],
   "legalStatus": "Legal/regulated/illegal depending on region",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "smoked",
+  "region": "cultivated worldwide",
   "therapeuticUses": [
     "Pain relief",
     "nausea",
     "appetite",
-    "sleep"
+    "sleep",
+    "traditional support for mild digestive comfort",
+    "traditional ceremonial or ritual context use"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "cannabis-sativa",
+  "sideEffects": [
+    "nausea, confusion, or anxiety with higher intake",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "cannabis sativa",
+  "displayScientificName": "Cannabis sativa",
+  "scientificNormalized": "cannabis sativa",
+  "id": "cannabis-sativa",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

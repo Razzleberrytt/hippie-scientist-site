@@ -6,15 +6,16 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "antidiabetic",
     "antioxidant",
-    "lipid-lowering",
-    "lipid",
-    "lowering"
+    "metabolism enhancer"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "GI upset,flatulence,may lower blood sugar,No direct toxicity data. Contextual inference: Antidiabetic,antioxidant,lipid-lowering. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antidiabetic,lipid-lowering. none.",
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Salacia reticulata (TaxID 1565083)",
@@ -24,11 +25,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.016Z",
   "description": "Antidiabetic, antioxidant, lipid-lowering. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Antidiabetic,antioxidant,lipid,lowering. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antidiabetic,lowering. No direct region data. Contextual inference: Antidiabetic,lowering. none.,nan.",
+  "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal; available in supplements",
-  "preparation": "Root and stems decocted; used in Ayurvedic medicine for glucose regulation and metabolic support",
-  "region": "No direct region data. Contextual inference: Antidiabetic, antioxidant, lipid-lowering. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antidiabetic, antioxidant, lipid-lowering. none. ; nan; nan",
+  "preparation": "",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

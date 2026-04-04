@@ -6,7 +6,8 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "immune stimulant",
+    "stimulation",
+    "immune support",
     "antimicrobial"
   ],
   "contraindications": [],
@@ -24,8 +25,8 @@
   "dosage": "250,500 mg,day root extract (short,term)",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated but used under supervision",
-  "preparation": "Root tinctured or decocted; used in very small doses due to potential toxicity",
-  "region": "No direct region data. Contextual inference: Immune stimulant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immune stimulant, antimicrobial. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

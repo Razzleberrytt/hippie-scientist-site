@@ -3,19 +3,24 @@
   "latin": "Kaempferia galanga",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Stimulant, expectorant, anti-inflammatory, and aphrodisiac in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, expectorant, anti-inflammatory, and aphrodisiac in traditional medicine. No direct region data. Contextual inference: Stimulant, expectorant, anti-inflammatory, and aphrodisiac in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, expectorant, anti-inflammatory, and aphrodisiac in traditional medicine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "stimulant",
-    "expectorant",
+    "stimulation",
     "anti-inflammatory",
-    "and aphrodisiac in traditional medicine",
-    "anti",
-    "inflammatory"
+    "respiratory support",
+    "libido enhancer"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,Generally safe,GI irritation at high doses,No direct toxicity data. Contextual inference: Stimulant,expectorant,anti-inflammatory,and aphrodisiac in traditional medicine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant,and aphrodisiac in traditional medicine. none.",
+  "interactions": [
+    "Caution with: Interaction evidence is limited",
+    "Caution with: use caution with prescription medicines",
+    "Caution with: especially CNS active",
+    "Avoid with: anticoagulant",
+    "Caution with: hepatotoxic",
+    "Caution with: blood pressure/glucose lowering drugs"
+  ],
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Kaempferia galanga (TaxID 97750)",
@@ -28,8 +33,8 @@
   "dosage": "250,750 mg,day rhizome extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",
-  "preparation": "Rhizome dried and powdered or decocted; used in Southeast Asian and Ayurvedic medicine as stimulant and carminative",
-  "region": "No direct region data. Contextual inference: Stimulant, expectorant, anti-inflammatory, and aphrodisiac in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, expectorant, anti-inflammatory, and aphrodisiac in traditional medicine. none. ; nan; nan",
+  "preparation": "extract",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

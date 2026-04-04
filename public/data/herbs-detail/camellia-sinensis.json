@@ -3,48 +3,77 @@
   "latin": "Camellia sinensis",
   "class": "Stimulant, Nootropic",
   "intensity": "Mild to moderate",
-  "mechanism": "",
+  "mechanism": "Catechins (especially EGCG) and methylxanthines modulate adenosine signaling, catechol metabolism, endothelial function, and oxidative stress pathways.",
   "activeCompounds": [
-    "caffeine",
-    "l-theanine",
+    "Caffeine",
+    "L-theanine",
     "catechins"
   ],
   "effects": [
-    "alertness",
-    "calm focus",
-    "mood lift"
+    "relaxation",
+    "stimulation",
+    "mood"
   ],
   "contraindications": [
-    "avoid with insomnia",
-    "avoid with anxiety",
-    "avoid with heart issues"
+    "Insomnia",
+    "anxiety",
+    "heart issues",
+    "avoid during pregnancy and breastfeeding",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "interactions": [
-    "Stimulants",
-    "blood thinners"
-  ],
-  "safetyNotes": "Safe in moderation,Jitters,insomnia,stomach upset,Low,LD50 (caffeine): ~190 mg/kg (human est.),safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Moderate intake is generally safe; concentrated extracts have been linked to rare hepatotoxicity. Excess caffeine may worsen insomnia, anxiety, palpitations, or reflux.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Camellia sinensis (TaxID 4442)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4442&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Green tea extract-associated hepatotoxicity: systematic review (Arch Toxicol. 2018)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29450769/",
+      "note": "Best available synthesis of hepatic safety signals."
+    },
+    {
+      "title": "Green Tea - NCCIH",
+      "url": "https://www.nccih.nih.gov/health/green-tea",
+      "note": "Safety and interaction overview including concentrated extracts."
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.884Z",
+  "lastUpdated": "2026-03-21",
   "description": "World’s most consumed psychoactive beverage, valued for stimulation and focus",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "May potentiate: Caffeine containing products can add sympathomimetic effects with other stimulants",
+    "May potentiate: May reduce warfarin effect when vitamin K intake from green tea is high and variable",
+    "May potentiate: Can reduce absorption of non heme iron and may affect some beta blocker exposures"
+  ],
   "legalStatus": "Legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "",
+  "region": "china, india",
   "therapeuticUses": [
     "Mental alertness",
-    "antioxidant support"
+    "antioxidant support",
+    "traditional support for mild digestive comfort"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "camellia-sinensis",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "camellia sinensis",
+  "displayScientificName": "Camellia sinensis",
+  "scientificNormalized": "camellia sinensis",
+  "id": "camellia-sinensis",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

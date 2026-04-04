@@ -6,12 +6,11 @@
   "mechanism": "mechanism discussions focus on caffeine | theobromine | and polyphenol antioxidant pathways from leaf infusions",
   "activeCompounds": [],
   "effects": [
-    "human-use narratives describe alertness effects consistent methylxanthine content",
-    "direct controlled clinical efficacy data remain limited in the current source set"
+    "stimulation"
   ],
   "contraindications": [],
   "interactions": [
-    "Potential additive stimulant burden with other caffeine-containing products or sympathomimetic drugs."
+    "May potentiate: Potential additive stimulant burden with other caffeine containing products or sympathomimetic drugs"
   ],
   "safetyNotes": "Critical reviews report a documented history of beverage use, but product standardization and caffeine load still determine risk.",
   "sources": [
@@ -26,8 +25,8 @@
   "dosage": "No universally accepted therapeutic dosing standard is available; caffeine-equivalent intake context is necessary.",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "legal",
-  "preparation": "Commonly prepared as a brewed leaf infusion rather than concentrated pharmaceutical extracts.",
-  "region": "Native use is concentrated in Ecuadorian and broader Amazonian regions.",
+  "preparation": "tea",
+  "region": "ecuador, peru",
   "therapeuticUses": [],
   "traditionalUse": "Traditional Amazonian communities use guayusa infusions in social and early-morning ritual contexts.",
   "sideEffects": [],

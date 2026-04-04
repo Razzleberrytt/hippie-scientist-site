@@ -6,15 +6,17 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "nasal decongestant",
     "anti-inflammatory",
-    "diuretic",
-    "anti",
-    "inflammatory"
+    "respiratory support",
+    "detoxification"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,Toxic in large doses,nausea,vomiting,hepatotoxicity,No direct toxicity data. Contextual inference: Nasal decongestant,anti-inflammatory,diuretic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Nasal decongestant,diuretic. none.",
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Xanthium strumarium (TaxID 318068)",
@@ -27,8 +29,8 @@
   "dosage": "Low dose,100,250 mg,day",
   "duration": "4–6 hours",
   "legalStatus": "Regulated in some regions",
-  "preparation": "Fruits used in TCM (Cang Er Zi); dried and decocted; caution due to potential toxicity of raw parts",
-  "region": "No direct region data. Contextual inference: Nasal decongestant, anti-inflammatory, diuretic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Nasal decongestant, anti-inflammatory, diuretic. none. ; nan; nan",
+  "preparation": "raw",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

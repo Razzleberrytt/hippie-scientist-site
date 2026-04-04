@@ -1,31 +1,46 @@
 {
   "name": "fucus vesiculosus",
   "latin": "Fucus vesiculosus",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Thyroid stimulant (iodine source), metabolism booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Thyroid stimulant (iodine source), metabolism booster. No direct region data. Contextual inference: Thyroid stimulant (iodine source), metabolism booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Thyroid stimulant (iodine source), metabolism booster. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Provides high iodine and sulfated polysaccharides (for example fucoidan), which may influence thyroid hormone synthesis and inflammatory pathways.",
   "activeCompounds": [],
   "effects": [
-    "thyroid stimulant (iodine source)",
-    "metabolism booster"
+    "stimulation",
+    "metabolism enhancer"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "caution,May affect thyroid function,GI upset or iodine sensitivity reactions possible,No direct toxicity data. Contextual inference: Thyroid stimulant (iodine source),metabolism booster. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Thyroid stimulant (iodine source),metabolism booster. none.",
+  "safetyNotes": "Main risk is iodine excess or contamination-related toxicity; avoid in hyperthyroidism and monitor thyroid function with prolonged use.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Fucus vesiculosus (TaxID 49266)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=49266&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Bladderwrack (Fucus vesiculosus) review (Mar Drugs. 2015)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26184231/",
+      "note": "Composition, mechanisms, and safety concerns including iodine exposure."
+    },
+    {
+      "title": "Bladderwrack - Memorial Sloan Kettering",
+      "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/bladderwrack",
+      "note": "Clinical interaction cautions and thyroid-focused safety summary."
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.936Z",
+  "lastUpdated": "2026-03-21",
   "description": "Thyroid stimulant (iodine source), metabolism booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "500,1500 mg,day extract or 1,2 g dried algae",
+  "dosage": [
+    "500",
+    "1500 mg",
+    "day extract or 1",
+    "2 g dried algae"
+  ],
   "duration": "4–6 hours",
+  "interactions": [
+    "May potentiate: Can potentiate thyroid dysfunction when combined with levothyroxine",
+    "Caution with: antithyroid drugs",
+    "Caution with: excess iodine intake",
+    "May potentiate: May increase bleeding risk when used with anticoagulant or antiplatelet therapy (fucoidan related concern)"
+  ],
   "legalStatus": "Legal in herbal commerce",
-  "preparation": "Whole thallus dried and decocted or powdered; used in tinctures and supplements for thyroid support",
-  "region": "No direct region data. Contextual inference: Thyroid stimulant (iodine source), metabolism booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Thyroid stimulant (iodine source), metabolism booster. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -33,6 +48,10 @@
     "GI upset or iodine sensitivity reactions possible"
   ],
   "slug": "fucus-vesiculosus",
+  "id": "fucus-vesiculosus",
+  "displayName": "fucus vesiculosus",
+  "displayScientificName": "Fucus vesiculosus",
+  "scientificNormalized": "fucus vesiculosus",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

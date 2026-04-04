@@ -6,9 +6,9 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "carminative",
-    "antimicrobial",
-    "circulatory stimulant"
+    "stimulation",
+    "digestive support",
+    "antimicrobial"
   ],
   "contraindications": [],
   "interactions": [],
@@ -25,8 +25,8 @@
   "dosage": "1,3 g,day bark or 250,500 mg extract",
   "duration": "3–6 hours",
   "legalStatus": "Legal globally",
-  "preparation": "Bark dried and powdered; infused, decocted, or used as a spice; essential oil extracted for topical and aromatic uses",
-  "region": "No direct region data. Contextual inference: Carminative, antimicrobial, circulatory stimulant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, antimicrobial, circulatory stimulant. none. ; nan; nan",
+  "preparation": "extract",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

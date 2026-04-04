@@ -9,14 +9,13 @@
     "terpenoids"
   ],
   "effects": [
-    "skin healing",
-    "antiparasitic action"
+    "antimicrobial"
   ],
   "contraindications": [
     "avoid with cause allergic dermatitis"
   ],
   "interactions": [
-    "None well documented"
+    "Caution with: limited interaction data"
   ],
   "safetyNotes": "Safe when used topically in diluted form,Possible irritation if undiluted,Low topical toxicity,Unknown orally",
   "sources": [
@@ -31,7 +30,7 @@
   "dosage": "Oil applied topically 1–2 times/day",
   "duration": "Varies by condition",
   "legalStatus": "Unregulated",
-  "preparation": "Seed oil extraction for topical use",
+  "preparation": "extract",
   "region": "Tropical Africa",
   "therapeuticUses": [
     "Eczema",

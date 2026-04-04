@@ -6,9 +6,9 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "antiseptic",
-    "digestive",
-    "calming"
+    "relaxation",
+    "digestive support",
+    "antimicrobial"
   ],
   "contraindications": [],
   "interactions": [],
@@ -21,12 +21,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.966Z",
-  "description": "Antiseptic, digestive, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Monarda fistulosa is a medicinal herb traditionally used for antiseptic and digestive.",
   "dosage": "1,2 g,day infusion or 250,500 mg extract",
   "duration": "2–4 hours",
   "legalStatus": "Unregulated",
-  "preparation": "Leaves and flowers infused as tea or tinctured; also used in poultices for topical antimicrobial use",
-  "region": "No direct region data. Contextual inference: Antiseptic, digestive, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, digestive, calming. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

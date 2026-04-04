@@ -9,17 +9,16 @@
     "tannins"
   ],
   "effects": [
-    "visual hallucinations",
-    "euphoria",
-    "introspection"
+    "mood",
+    "psychedelic"
   ],
   "contraindications": [
     "may interact with maois",
     "avoid with hypertension"
   ],
   "interactions": [
-    "MAOIs",
-    "SSRIs"
+    "Avoid with: MAOIs",
+    "Avoid with: SSRIs"
   ],
   "safetyNotes": "Moderate caution advised with MAOIs,Nausea,disorientation,Low",
   "sources": [
@@ -34,7 +33,7 @@
   "dosage": "1–2 grams bark extract",
   "duration": "6–8 hours",
   "legalStatus": "Restricted in some countries",
-  "preparation": "Boiled as part of traditional brew",
+  "preparation": "tea",
   "region": "Amazon Basin",
   "therapeuticUses": [
     "Spiritual healing",

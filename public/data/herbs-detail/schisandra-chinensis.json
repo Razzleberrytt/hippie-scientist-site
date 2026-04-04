@@ -4,15 +4,22 @@
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, liver tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, liver tonic, antioxidant. No direct region data. Contextual inference: Adaptogen, liver tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, liver tonic, antioxidant. none. ; nan; nan. ; nan; nan",
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "schisandrin",
+    "schisandrin B",
+    "gomisin A"
+  ],
   "effects": [
-    "adaptogen",
-    "liver tonic",
-    "antioxidant"
+    "antioxidant",
+    "detoxification"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,GI upset,heartburn,may affect liver enzymes,No direct toxicity data. Contextual inference: Adaptogen,liver tonic,antioxidant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Adaptogen,antioxidant. none.",
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Schisandra chinensis (TaxID 50507)",
@@ -22,11 +29,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.018Z",
   "description": "Adaptogen, liver tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "500,1500 mg,day extract or 1,3 g berries",
+  "dosage": "Typical adult use is about 1.5-6 g dried fruit daily or equivalent extract.",
   "duration": "Chronic",
   "legalStatus": "Legal globally",
-  "preparation": "Berries dried and decocted, infused, or tinctured; adaptogenic tonic in TCM for vitality and liver support",
-  "region": "No direct region data. Contextual inference: Adaptogen, liver tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, liver tonic, antioxidant. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

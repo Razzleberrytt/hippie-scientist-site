@@ -3,16 +3,16 @@
   "latin": "Ipomoea tricolor",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. No direct region data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "mechanistic literature alkaloid-related psychoactive potential and plant defense roles"
+    "psychedelic"
   ],
   "contraindications": [
     "avoid in pregnancy"
   ],
   "interactions": [
-    "Potential additive effects with serotonergic or other psychoactive substances."
+    "May potentiate: Potential additive effects with serotonergic or other psychoactive substances"
   ],
   "safetyNotes": "Ergoline-associated exposure can be unpredictable and may carry significant neuropsychiatric risk.",
   "sources": [
@@ -23,15 +23,25 @@
     {
       "title": "src_doi-10-1055-a-0577-8049",
       "url": "https://pubmed.ncbi.nlm.nih.gov/29499587/"
+    },
+    {
+      "title": "PubMed search: Ipomoea tricolor",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Ipomoea+tricolor",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Ipomoea tricolor",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Ipomoea+tricolor",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.949Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Ipomoea tricolor (morning glory) is discussed in ethnobotanical and plant-symbiosis literature, including ergoline-associated chemistry.",
   "dosage": "No validated therapeutic dosage recommendation is supported by promoted sources.",
   "duration": "6–10 hours",
   "legalStatus": "Restricted in some countries",
-  "preparation": "Historical ritual contexts involve seed use; modern self-experimentation is not supported by safety evidence.",
-  "region": "Native to Mesoamerica and cultivated widely as an ornamental species.",
+  "preparation": "extract",
+  "region": "mexico, central america",
   "therapeuticUses": [],
   "traditionalUse": "Historical Mesoamerican ritual use is described in ethnobotanical records and should be treated as traditional-use context.",
   "sideEffects": [],

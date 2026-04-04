@@ -3,13 +3,12 @@
   "latin": "Ilex paraguariensis",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Stimulant; rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; rich in caffeine and theobromine (yerba mate). No direct region data. Contextual inference: Stimulant; rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; rich in caffeine and theobromine (yerba mate). none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "stimulant",
-    "rich in caffeine and theobromine (yerba mate)",
-    "cognitive enhancer",
-    "mood booster"
+    "stimulation",
+    "focus",
+    "mood"
   ],
   "contraindications": [
     "avoid with heart conditions",
@@ -17,13 +16,13 @@
     "avoid in pregnancy"
   ],
   "interactions": [
-    "stimulants",
-    "maois",
-    "beta-blockers.",
-    "beta",
-    "blockers."
+    "Avoid with: stimulants",
+    "Avoid with: maois",
+    "Caution with: beta blockers",
+    "Caution with: beta",
+    "Caution with: blockers"
   ],
-  "safetyNotes": "Caffeine-related side effects: insomnia,anxiety,tachycardia,No direct toxicity data. Contextual inference: Stimulant,rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant,rich in caffeine and theobromine (yerba mate). none.,insomnia,jitteriness,increased heart rate.,cognitive enhancer,mood booster. Contains caffeine,theobromine,acts as cns stimulant by blocking adenosine receptors..,nan.. Contains caffeine,acts as CNS stimulant by blocking adenosine receptors.. Stimulant,mood booster.",
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Ilex paraguariensis (TaxID 185542)",
@@ -36,8 +35,8 @@
   "dosage": "No direct dosage data. Contextual inference: Stimulant,rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant,rich in caffeine and theobromine (yerba mate). No direct region data. Contextual inference: Stimulant,rich in caffeine and theobromine (yerba mate). none.,nan.,cognitive enhancer,mood booster. Contains caffeine,theobromine,acts as cns stimulant by blocking adenosine receptors..,nan.. Contains caffeine,acts as CNS stimulant by blocking adenosine receptors.. Stimulant,mood booster. No direct region data. Contextual inference: Stimulant,mood booster.",
   "duration": "2–4 hours",
   "legalStatus": "Widely legal; commonly consumed in South America and globally",
-  "preparation": "Leaves are dried, often smoked or toasted, then steeped in hot water as a tea (infusion)",
-  "region": "No direct region data. Contextual inference: Stimulant; rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; rich in caffeine and theobromine (yerba mate). none. ; nan; nan",
+  "preparation": "smoked",
+  "region": "argentina, brazil",
   "therapeuticUses": [
     "mental alertness",
     "energy",

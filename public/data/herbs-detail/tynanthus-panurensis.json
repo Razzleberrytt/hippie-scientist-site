@@ -8,24 +8,40 @@
     "eugenol",
     "tynanthin"
   ],
-  "effects": [],
+  "effects": [
+    "stimulation",
+    "digestive support"
+  ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.",
+  "interactions": [
+    "May potentiate stimulant effects when combined with sympathomimetic agents."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with other stimulants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: tynanthus panurensis (TaxID 354063)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=354063&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: tynanthus panurensis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=tynanthus+panurensis",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: tynanthus panurensis",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=tynanthus+panurensis",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.029Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Used in amazonian herbalism for sexual energy and digestion..",
-  "dosage": "No direct dosage data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. No direct region data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. No direct region data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.",
   "legalStatus": "",
-  "preparation": "No direct preparation data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. No direct region data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.",
-  "region": "No direct region data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion.",
+  "preparation": "",
+  "region": "amazon rainforest",
   "therapeuticUses": [],
   "traditionalUse": "Used in Amazonian herbalism for sexual energy and digestion.",
   "sideEffects": [],

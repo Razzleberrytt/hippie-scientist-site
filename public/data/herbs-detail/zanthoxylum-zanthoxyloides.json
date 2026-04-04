@@ -10,8 +10,7 @@
     "xanthones"
   ],
   "effects": [
-    "pain relief",
-    "worm expulsion"
+    "pain relief"
   ],
   "contraindications": [
     "avoid in pregnancy"
@@ -19,7 +18,8 @@
   "interactions": [
     "May potentiate antiparasitic drugs"
   ],
-  "safetyNotes": "Used traditionally,avoid overdose,Mouth numbness,GI irritation,Moderate in excess,Animal LD50 varies",
+  "safetyLevel": "caution",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid use during pregnancy unless advised by a clinician.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Zanthoxylum zanthoxyloides (TaxID 2099548)",
@@ -32,7 +32,7 @@
   "dosage": "Chewed root bark or decoction",
   "duration": "300",
   "legalStatus": "Not regulated",
-  "preparation": "Chewed or boiled bark",
+  "preparation": "extract",
   "region": "West and Central Africa",
   "therapeuticUses": [
     "Toothache",

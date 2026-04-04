@@ -6,8 +6,8 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "stimulant",
-    "expectorant",
+    "stimulation",
+    "respiratory support",
     "antimicrobial"
   ],
   "contraindications": [],
@@ -25,8 +25,8 @@
   "dosage": "No direct dosage data. Contextual inference: Stimulant,expectorant,antimicrobial. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant,antimicrobial. No direct region data. Contextual inference: Stimulant,antimicrobial. none.,nan.",
   "duration": "2–4 hours",
   "legalStatus": "Legal as food and traditional remedy",
-  "preparation": "Fresh root grated for food use; infused in vinegar or tinctured medicinally",
-  "region": "No direct region data. Contextual inference: Stimulant, expectorant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, expectorant, antimicrobial. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

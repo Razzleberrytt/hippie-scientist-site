@@ -6,12 +6,8 @@
   "mechanism": "acts as an adaptogen | modulates cortisol and inflammatory pathways",
   "activeCompounds": [],
   "effects": [
-    "adaptogenic",
-    "immunomodulatory",
-    "stress-relieving",
-    "used in ayurvedic medicine",
-    "stress",
-    "relieving"
+    "anxiety relief",
+    "immune support"
   ],
   "contraindications": [
     "avoid in pregnancy",
@@ -21,7 +17,8 @@
     "blood thinners",
     "sedatives."
   ],
-  "safetyNotes": "rare nausea,drowsiness.,No direct toxicity data. Contextual inference: Adaptogenic,immunomodulatory,stress-relieving,used in ayurvedic medicine. Acts as an adaptogen,modulates cortisol and inflammatory pathways..,nan.. Acts as an adaptogen,modulates cortisol and inflammatory pathways.. Adaptogenic,used in Ayurvedic medicine.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Ocimum tenuiflorum (TaxID 204149)",
@@ -31,15 +28,15 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.028Z",
   "description": "Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Adaptogenic,immunomodulatory,stress,relieving,used in ayurvedic medicine. Acts as an adaptogen,modulates cortisol and inflammatory pathways..,nan.. Acts as an adaptogen,modulates cortisol and inflammatory pathways.. Adaptogenic,used in Ayurvedic medicine. No direct region data. Contextual inference: Adaptogenic,used in Ayurvedic medicine.,nan.",
-  "duration": "4–6 hours",
+  "dosage": "Compare by leaf amount per serving and keep format consistent (tea vs capsule vs tincture) before changing dose.",
+  "duration": "Often used as a daily baseline herb over medium-length routines.",
   "legalStatus": "Legal globally",
-  "preparation": "No direct preparation data. Contextual inference: Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. Adaptogenic, immunomodulatory, stress-relieving; used in Ayurvedic medicine. No direct region data. Contextual inference: Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. Adaptogenic, immunomodulatory, stress-relieving; used in Ayurvedic medicine. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. Adaptogenic, immunomodulatory, stress-relieving; used in Ayurvedic medicine. ; nan; nan",
+  "preparation": "tincture",
+  "region": "unknown",
   "therapeuticUses": [
-    "stress relief",
-    "immune support",
-    "cognitive clarity."
+    "Daily tea-based stress support",
+    "Adaptogen baseline routines paired with sleep or focus herbs",
+    "Low-friction calm support for daytime use"
   ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -48,8 +45,13 @@
   ],
   "slug": "tulsi",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Frequently chosen as a tea-first adaptogen for daily stress routines and gentle all-day calm support.",
+  "evidenceLevel": "Early-to-moderate human evidence; practical value is often strongest in adherence and low-friction daily use.",
+  "relatedEntities": [
+    "ashwagandha",
+    "rhodiola-rosea",
+    "lemon-balm",
+    "sambucus-nigra"
+  ],
   "relatedCompounds": []
 }

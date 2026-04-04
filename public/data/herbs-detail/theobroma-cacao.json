@@ -11,13 +11,9 @@
     "flavonoids"
   ],
   "effects": [
-    "euphoria",
-    "alertness",
-    "heart opening",
-    "stimulant",
-    "antioxidant",
-    "mild euphoriant",
-    "contains theobromine and caffeine"
+    "stimulation",
+    "mood",
+    "antioxidant"
   ],
   "contraindications": [
     "avoid with heart conditions",
@@ -27,7 +23,8 @@
     "Stimulants",
     "MAOIs"
   ],
-  "safetyNotes": "Safe in moderate amounts,excess can cause overstimulation,Increased heart rate,anxiety (rare),Low,LD50 (theobromine): ~1000 mg/kg (human est.),No direct toxicity data. Contextual inference: Stimulant,antioxidant,mild euphoriant,contains theobromine and caffeine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant,contains theobromine and caffeine. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Theobroma cacao (TaxID 3641)",
@@ -37,11 +34,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.026Z",
   "description": "Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Stimulant,antioxidant,mild euphoriant,contains theobromine and caffeine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant,contains theobromine and caffeine. No direct region data. Contextual inference: Stimulant,contains theobromine and caffeine. none.,nan.",
+  "dosage": "",
   "duration": "2–4 hours",
   "legalStatus": "Legal globally",
-  "preparation": "No direct preparation data. Contextual inference: Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. No direct region data. Contextual inference: Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. none. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. none. ; nan; nan",
+  "preparation": "",
+  "region": "",
   "therapeuticUses": [
     "Mood enhancement",
     "antioxidant support"

@@ -8,11 +8,10 @@
     "isoergine"
   ],
   "effects": [
-    "visual hallucinations",
-    "euphoria",
-    "dream-like state",
-    "psychedelic",
-    "induces visual and cognitive alterations"
+    "focus",
+    "mood",
+    "sleep",
+    "psychedelic"
   ],
   "contraindications": [
     "avoid with psychiatric conditions",
@@ -31,7 +30,8 @@
     "MAOIs",
     "hallucinogens"
   ],
-  "safetyNotes": "Psychoactive dose causes nausea and dizziness,Nausea,sedation,body load,Moderate,Not well-documented,nausea,vasoconstriction,dizziness [0,4].,Mild,contains lysergic acid amide (LSA),similar to LSD.,Low,moderate overdose risk [0,12].",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rivea corymbosa",
@@ -40,11 +40,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.009Z",
-  "description": "Morning glory species used in Mesoamerican rituals.",
+  "description": "Rivea corymbosa is a medicinal herb traditionally used for visual hallucinations and euphoria.",
   "dosage": "20,100 seeds traditionally ground into cold water infusion.",
   "duration": "480",
   "legalStatus": "Regulated in some countries; seeds often legal",
-  "preparation": "Ground seeds soaked in water; consumed ceremonially.",
+  "preparation": "",
   "region": "Mexico, Central America",
   "therapeuticUses": [
     "Spiritual use",

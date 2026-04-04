@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect } from 'react'
+import { type ReactNode, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import InfoTooltip from '@/components/InfoTooltip'
@@ -32,6 +32,8 @@ import GovernedReviewFreshnessPanel from '@/components/detail/GovernedReviewFres
 import EnrichmentRecommendationBlocks from '@/components/detail/EnrichmentRecommendationBlocks'
 import GovernedQuickCompareBlock from '@/components/detail/GovernedQuickCompareBlock'
 import PremiumDataSection from '@/components/detail/PremiumDataSection'
+import HerbBuyerGuidanceSection from '@/components/detail/HerbBuyerGuidanceSection'
+import HerbProductSection from '@/components/detail/HerbProductSection'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
@@ -44,6 +46,7 @@ import { buildFallbackHerbIntro, buildGovernedDetailIntro } from '@/lib/governed
 import { resolveGovernedCtaDecision } from '@/lib/governedCta'
 import { buildGovernedReviewFreshness } from '@/lib/governedReviewFreshness'
 import { getHerbRecommendation } from '@/lib/herbRecommendations'
+import { getHerbProducts } from '@/lib/herbProducts'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -51,6 +54,7 @@ import {
   trackDetailRelatedEntityClick,
 } from '@/lib/contentJourneyTracking'
 import { trackGovernedEvent } from '@/lib/governedAnalytics'
+import type { AffiliateUseCaseAnchor } from '@/lib/affiliateClickTracking'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -88,36 +92,6 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   )
 }
 
-function TagList({
-  items,
-  variant = 'default',
-}: {
-  items: string[]
-  variant?: 'default' | 'warning' | 'accent'
-}) {
-  if (!items.length) return null
-  const cls =
-    variant === 'warning'
-      ? 'rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-2 text-rose-100'
-      : variant === 'accent'
-        ? 'rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
-        : 'ds-pill'
-  return (
-    <div className='flex flex-wrap gap-2'>
-      {items.map(item => (
-        <span key={item} className={cls}>
-          {variant === 'warning' && (
-            <span aria-hidden='true' className='mr-1'>
-              ⚠
-            </span>
-          )}
-          {item}
-        </span>
-      ))}
-    </div>
-  )
-}
-
 function ListSection({ items }: { items: string[] }) {
   if (!items.length) return null
   return (
@@ -134,8 +108,47 @@ type RelatedLinkItem = {
   to: string
 }
 
+type UseCaseAnchor = {
+  key: 'sleep' | 'anxiety' | 'focus'
+  question: string
+  guidance: string
+  keywords: string[]
+}
+
+type UseCaseRelatedHerbLink = {
+  leadIn: 'See also' | 'Compare with'
+  label: string
+  to: string
+}
+
+const USE_CASE_ANCHORS: UseCaseAnchor[] = [
+  {
+    key: 'sleep',
+    question: 'Best for sleep?',
+    guidance: 'Prioritize lower-friction evening formats and avoid stacking multiple sedating products.',
+    keywords: ['sleep', 'bedtime', 'evening wind-down', 'wind-down', 'night'],
+  },
+  {
+    key: 'anxiety',
+    question: 'Best for anxiety?',
+    guidance: 'Look for steadier daily formats first, then only adjust form if tolerability or routine fit is poor.',
+    keywords: ['anxiety', 'calm', 'stress', 'tension', 'gentle support', 'relax'],
+  },
+  {
+    key: 'focus',
+    question: 'Best for focus?',
+    guidance: 'Use labels and form consistency to compare options rather than relying on broad performance claims.',
+    keywords: ['focus', 'clarity', 'cognitive', 'daytime', 'alertness', 'concentration'],
+  },
+]
+
 function normalizeKey(value: string) {
   return value.trim().toLowerCase()
+}
+
+function matchesUseCaseTag(bestForTag: string, keywords: string[]) {
+  const normalizedTag = normalizeKey(bestForTag)
+  return keywords.some(keyword => normalizedTag.includes(normalizeKey(keyword)))
 }
 
 function buildInteractionsLink(tokens: string[]) {
@@ -155,12 +168,39 @@ function dedupeRelatedLinks(items: Array<RelatedLinkItem | null | undefined>) {
   return Array.from(unique.values()).sort((a, b) => a.label.localeCompare(b.label))
 }
 
+function dedupeStrings(items: Array<string | null | undefined>) {
+  const seen = new Set<string>()
+  const values: string[] = []
+  items.forEach(item => {
+    const normalized = String(item || '').trim()
+    if (!normalized) return
+    const key = normalizeKey(normalized)
+    if (seen.has(key)) return
+    seen.add(key)
+    values.push(normalized)
+  })
+  return values
+}
+
+function buildShortSummary(therapeuticUses: string[]) {
+  const conciseUses = therapeuticUses
+    .map(item => String(item || '').trim())
+    .filter(Boolean)
+    .slice(0, 2)
+  if (!conciseUses.length) return ''
+  if (conciseUses.length === 1) return conciseUses[0]
+  return `${conciseUses[0]}. ${conciseUses[1]}`
+}
+
 export default function HerbDetail() {
   const { slug = '' } = useParams()
   const { herb, isLoading } = useHerbDetailState(slug)
   const { herbs } = useHerbDataState()
   const { compounds } = useCompoundDataState()
   const { toggle, isSaved } = useSavedItems()
+  const [activeUseCaseAnchor, setActiveUseCaseAnchor] = useState<AffiliateUseCaseAnchor | undefined>(
+    undefined,
+  )
 
   useEffect(() => {
     if (!herb?.slug) return
@@ -282,6 +322,8 @@ export default function HerbDetail() {
   ].filter(group => group.items.length > 0)
 
   const herbDisplayName = herb.commonName || herb.common || herb.name || herb.slug
+  const primaryUse = String(therapeuticUses[0] || effects[0] || '').trim()
+  const shortSummary = buildShortSummary(therapeuticUses)
   const herbMetaDescriptionSource = (
     herb.summary ||
     herb.description ||
@@ -290,9 +332,13 @@ export default function HerbDetail() {
   ).trim()
   const baseHerbMetaDescription = formatMetaDescription(
     herbMetaDescriptionSource,
-    `${herbDisplayName} herb guide with effects, safety notes, and practical context.`,
+    primaryUse
+      ? `${herbDisplayName} herb guide for ${primaryUse.toLowerCase()} with effects, safety notes, and practical context.`
+      : `${herbDisplayName} herb guide with effects, safety notes, and practical context.`,
   )
-  const baseHerbMetaTitle = `${herbDisplayName} Herb Guide: Effects, Uses & Safety`
+  const baseHerbMetaTitle = primaryUse
+    ? `${herbDisplayName} for ${primaryUse} | Herb Benefits, Uses & Safety`
+    : `${herbDisplayName} Herb Guide: Effects, Uses & Safety`
 
   // Scalar fields already cleaned by normalization
   const description = herb.description || ''
@@ -347,6 +393,11 @@ export default function HerbDetail() {
   )
   const missingFieldCount = 6 - renderableKeys.length
   const shouldShowContributionCta = renderableKeys.length < 5
+  const practicalInfo = [
+    dosage ? `Dosage: ${dosage}` : '',
+    duration ? `Duration: ${duration}` : '',
+    preparation ? `Preparation: ${preparation}` : '',
+  ].filter(Boolean)
   const herbToken = encodeURIComponent(`herb:${herb.slug}`)
   const herbCheckerHref = buildInteractionsLink([herbToken])
   const relatedCollections = SEO_COLLECTIONS.filter(collection => collection.itemType === 'herb')
@@ -367,7 +418,53 @@ export default function HerbDetail() {
     entitySlug: herb.slug,
     confidence,
     sourceCount,
+    useCaseAnchor: activeUseCaseAnchor,
   })
+  const useCaseAnchors = USE_CASE_ANCHORS.map(anchor => {
+    const matchedProducts = curatedProducts.filter(product =>
+      product.bestFor.some(tag => matchesUseCaseTag(tag, anchor.keywords)),
+    )
+    const relatedHerbLinks: UseCaseRelatedHerbLink[] = herbs
+      .filter(candidate => candidate.slug && candidate.slug !== herb.slug)
+      .map(candidate => {
+        const candidateProducts = getHerbProducts(candidate.slug)
+        const matchedTagCount = candidateProducts.reduce((count, product) => {
+          const hasMatch = product.bestFor.some(tag => matchesUseCaseTag(tag, anchor.keywords))
+          return hasMatch ? count + 1 : count
+        }, 0)
+        const label = String(
+          candidate.common || candidate.commonName || candidate.name || candidate.slug,
+        ).trim()
+        return {
+          slug: candidate.slug,
+          label,
+          matchedTagCount,
+        }
+      })
+      .filter(candidate => candidate.matchedTagCount > 0 && candidate.label)
+      .sort(
+        (a, b) => b.matchedTagCount - a.matchedTagCount || a.label.localeCompare(b.label),
+      )
+      .slice(0, 2)
+      .map((candidate, index) => ({
+        leadIn: index === 0 ? 'See also' : 'Compare with',
+        label: candidate.label,
+        to: `/herbs/${encodeURIComponent(candidate.slug)}`,
+      }))
+
+    return {
+      ...anchor,
+      matchedProducts,
+      relatedHerbLinks,
+      matchedTags: Array.from(
+        new Set(
+          matchedProducts.flatMap(product =>
+            product.bestFor.filter(tag => matchesUseCaseTag(tag, anchor.keywords)),
+          ),
+        ),
+      ),
+    }
+  }).filter(anchor => anchor.matchedProducts.length > 0)
   const ctaExperiment = resolveCtaVariant({
     pageType: 'herb_detail',
     entityType: 'herb',
@@ -438,6 +535,20 @@ export default function HerbDetail() {
   const enrichmentRecommendations = buildEnrichmentRecommendations('herb', herb.slug)
   const quickCompareSection = buildGovernedQuickCompareSection('herb', herb.slug)
   const herbRecommendation = getHerbRecommendation(herb.slug)
+  const herbProducts = getHerbProducts(herb.slug)
+  const whyPeopleChooseBullets = dedupeStrings([
+    herb.categoryUseContext,
+    herbRecommendation
+      ? `Common buyer formats: ${herbRecommendation.recommendedForms.slice(0, 3).join(', ')}.`
+      : null,
+    herbRecommendation ? `Quality checks buyers use: ${herbRecommendation.preferredAttributes[0]}.` : null,
+    relatedHerbLinks.length > 0
+      ? `Related alternatives: ${relatedHerbLinks
+          .slice(0, 3)
+          .map(item => item.label)
+          .join(', ')}.`
+      : null,
+  ]).slice(0, 4)
   const recommendationNames = {
     herb: new Map(herbs.map(item => [item.slug, item.common || item.name || item.slug])),
     compound: new Map(compounds.map(item => [item.slug, item.name || item.slug])),
@@ -492,7 +603,7 @@ export default function HerbDetail() {
       </Link>
       <button
         type='button'
-        className='ml-2 inline-flex rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
+        className='ml-2 inline-flex rounded-full border border-white/20 px-3 py-1 text-sm text-white/85 transition hover:border-white/35 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300'
         onClick={() =>
           toggle({
             type: 'herb',
@@ -716,6 +827,7 @@ export default function HerbDetail() {
                   variantId={ctaVariantId}
                   ctaPosition='detail_affiliate_module'
                   preDisclosureGuidance={governedCta.copy.affiliateLeadIn}
+                  useCaseAnchor={activeUseCaseAnchor}
                 />
               ),
             }}
@@ -736,23 +848,34 @@ export default function HerbDetail() {
           </div>
         )}
 
+        {shortSummary && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <p className='max-w-3xl text-base leading-relaxed text-white/88'>{shortSummary}</p>
+          </section>
+        )}
+
+        {therapeuticUses.length > 0 && (
+          <Section title='What it’s used for'>
+            <ListSection items={therapeuticUses} />
+          </Section>
+        )}
+
+        {contraindications.length > 0 && (
+          <Section title='Who should be careful'>
+            <ListSection items={contraindications} />
+          </Section>
+        )}
+
+        {sideEffects.length > 0 && (
+          <Section title='Possible side effects'>
+            <ListSection items={sideEffects} />
+          </Section>
+        )}
+
         <PremiumDataSection
           details={premiumDetails}
           relationGroups={relationGroups}
         />
-
-        {governedResearch && governedFaq && governedRelatedQuestions && (
-          <GovernedResearchSections
-            enrichment={governedResearch}
-            governedFaq={governedFaq}
-            relatedQuestions={governedRelatedQuestions}
-            analyticsContext={{
-              pageType: 'herb_detail',
-              entityType: 'herb',
-              entitySlug: herb.slug,
-            }}
-          />
-        )}
 
         {/* Core content */}
         {description && (
@@ -765,6 +888,46 @@ export default function HerbDetail() {
             ) : null}
             {description}
           </Section>
+        )}
+
+        {(whyPeopleChooseBullets.length > 0 || useCaseAnchors.length > 0) && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <div className='rounded-2xl border border-white/12 bg-white/[0.03] p-4'>
+              <h2 className='text-xs font-semibold uppercase tracking-[0.18em] text-white/55'>
+                Why it matters and how to choose
+              </h2>
+              {whyPeopleChooseBullets.length > 0 && (
+                <ul className='mt-3 list-disc space-y-1.5 pl-5 text-sm text-white/85'>
+                  {whyPeopleChooseBullets.map(item => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {useCaseAnchors.length > 0 && (
+                <div className='mt-4 space-y-2'>
+                  {useCaseAnchors.map(anchor => (
+                    <article
+                      key={anchor.key}
+                      className='rounded-xl border border-white/12 bg-white/[0.02] p-3 text-sm text-white/85'
+                      onClick={() => setActiveUseCaseAnchor(anchor.key)}
+                    >
+                      <p className='text-sm font-semibold text-white'>{anchor.question}</p>
+                      <p className='mt-1 text-xs text-white/70'>{anchor.guidance}</p>
+                    </article>
+                  ))}
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {herbRecommendation && <HerbBuyerGuidanceSection recommendation={herbRecommendation} />}
+        {herbProducts.length > 0 && (
+          <HerbProductSection
+            herbSlug={herb.slug}
+            products={herbProducts}
+            useCaseAnchor={activeUseCaseAnchor}
+          />
         )}
 
         {herbClass && <Section title='Class'>{herbClass}</Section>}
@@ -874,58 +1037,41 @@ export default function HerbDetail() {
           </section>
         )}
 
+        {governedResearch && governedFaq && governedRelatedQuestions && (
+          <GovernedResearchSections
+            enrichment={governedResearch}
+            governedFaq={governedFaq}
+            relatedQuestions={governedRelatedQuestions}
+            analyticsContext={{
+              pageType: 'herb_detail',
+              entityType: 'herb',
+              entitySlug: herb.slug,
+            }}
+          />
+        )}
+
         {effects.length > 0 && (
           <Section title='Effects'>
             <ListSection items={effects} />
           </Section>
         )}
 
-        {therapeuticUses.length > 0 && (
+        {interactions.length > 0 && (
           <section className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='Traditional & Therapeutic Use'>
+            <Collapse title='Drug interactions'>
               <div className='text-sm leading-relaxed text-white/85'>
-                <ListSection items={therapeuticUses} />
+                <ListSection items={interactions} />
               </div>
             </Collapse>
           </section>
         )}
 
-        {/* Safety — always prominent if present */}
-        {contraindications.length > 0 && (
-          <Section title='Contraindications'>
-            <TagList items={contraindications} variant='warning' />
+        {/* Practical info — merged for faster scanning */}
+        {practicalInfo.length > 0 && (
+          <Section title='How to use'>
+            <ListSection items={practicalInfo} />
           </Section>
         )}
-
-        {(interactions.length > 0 || sideEffects.length > 0) && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='Additional Safety Notes'>
-              <div className='space-y-4 text-sm leading-relaxed text-white/85'>
-                {interactions.length > 0 && (
-                  <div>
-                    <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
-                      Drug Interactions
-                    </h3>
-                    <ListSection items={interactions} />
-                  </div>
-                )}
-                {sideEffects.length > 0 && (
-                  <div>
-                    <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
-                      Side Effects
-                    </h3>
-                    <ListSection items={sideEffects} />
-                  </div>
-                )}
-              </div>
-            </Collapse>
-          </section>
-        )}
-
-        {/* Practical info — only render if value exists */}
-        {dosage && <Section title='Dosage'>{dosage}</Section>}
-        {duration && <Section title='Duration'>{duration}</Section>}
-        {preparation && <Section title='Preparation'>{preparation}</Section>}
         {region && <Section title='Region'>{region}</Section>}
         {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
 
@@ -977,12 +1123,6 @@ export default function HerbDetail() {
             : 'All core evidence fields present for this profile.'}
           <InfoTooltip text='Values with published studies should be cross-checked against the Sources section.' />
         </div>
-        {herbRecommendation && (
-          <div className='mt-3 text-xs text-white/45'>
-            Shopping guidance criteria are available for this herb and ready for a future
-            recommendation module.
-          </div>
-        )}
       </article>
     </main>
   )

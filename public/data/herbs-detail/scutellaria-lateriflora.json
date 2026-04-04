@@ -11,15 +11,11 @@
     "scutellarin"
   ],
   "effects": [
-    "mild sedation",
-    "calm mood",
+    "relaxation",
+    "mood",
+    "sleep",
     "anxiety relief",
-    "nervine",
-    "anxiolytic",
-    "anti-inflammatory",
-    "used for insomnia and anxiety",
-    "anti",
-    "inflammatory"
+    "anti-inflammatory"
   ],
   "contraindications": [
     "avoid in pregnancy",
@@ -32,7 +28,8 @@
     "cns depressants",
     "alcohol."
   ],
-  "safetyNotes": "Safe when not adulterated,historically confused with toxic Teucrium,Drowsiness,dizziness,Low,Not clearly established,safe,No direct toxicity data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.,drowsiness,mild gi upset.,No direct toxicity data. Contextual inference: Nervine,anxiolytic,anti-inflammatory,used for insomnia and anxiety. Flavonoids modulate gaba receptors,offers calming and anxiolytic effects..,nan.. Flavonoids modulate GABA receptors,offers calming and anxiolytic effects.. Nervine,used for insomnia and anxiety.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Scutellaria lateriflora (TaxID 233893)",
@@ -42,11 +39,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.019Z",
   "description": "Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. Flavonoids modulate gaba receptors; offers calming and anxiolytic effects.. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. No direct region data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.,No direct dosage data. Contextual inference: Nervine,anxiolytic,anti,inflammatory,used for insomnia and anxiety. Flavonoids modulate gaba receptors,offers calming and anxiolytic effects..,nan.. Flavonoids modulate GABA receptors,offers calming and anxiolytic effects.. Nervine,used for insomnia and anxiety. No direct region data. Contextual inference: Nervine,used for insomnia and anxiety.,nan.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. No direct region data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.",
   "legalStatus": "Legal globally",
-  "preparation": "No direct preparation data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. No direct region data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.",
-  "region": "No direct region data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.",
+  "preparation": "tincture",
+  "region": "north america",
   "therapeuticUses": [
     "Nervous tension",
     "insomnia",

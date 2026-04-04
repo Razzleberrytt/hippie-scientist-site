@@ -6,9 +6,7 @@
   "mechanism": "contains dmt | 5-meo-dmt | and beta-carbolines",
   "activeCompounds": [],
   "effects": [
-    "dmt-containing tree resin",
-    "dmt",
-    "containing tree resin"
+    "psychedelic"
   ],
   "contraindications": [
     "avoid with unstable mental health conditions",
@@ -20,7 +18,8 @@
     "maois",
     "and other serotonergic substances."
   ],
-  "safetyNotes": "Toxic – psychoactive and ceremonial,nausea,intense hallucinations,elevated heart rate.,Can be overwhelming,physical toxicity low but psychological risks high.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Virola spp.",
@@ -33,7 +32,7 @@
   "dosage": "0.1,1 g snuff or oral admixture",
   "duration": "Occasional ceremonial use only",
   "legalStatus": "Restricted / Controlled",
-  "preparation": "Used in Amazonian snuffs",
+  "preparation": "smoked",
   "region": "🇲🇽 latin america",
   "therapeuticUses": [
     "used in amazonian shamanic healing rituals",

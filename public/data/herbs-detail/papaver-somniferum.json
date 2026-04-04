@@ -12,13 +12,10 @@
     "thebaine"
   ],
   "effects": [
-    "euphoria",
-    "analgesia",
-    "sedation",
-    "cough suppression",
-    "source of opiates",
-    "analgesic and sedative",
-    "pain relief"
+    "relaxation",
+    "mood",
+    "pain relief",
+    "respiratory support"
   ],
   "contraindications": [
     "avoid with respiratory issues",
@@ -36,21 +33,32 @@
     "SSRIs",
     "anticoagulants"
   ],
-  "safetyNotes": "High risk if misused,addiction potential,Constipation,respiratory depression,dependence,High,~200 mg/kg (morphine,oral,human extrapolated),restricted,High-risk profile includes dependence, overdose, and respiratory depression potential.,analgesic and sedative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Source of opiates,analgesic and sedative. none.,High abuse potential,nausea,tolerance,overdose risk,Morphine LD50 in humans ~120–250 mg",
+  "safetyLevel": "high",
+  "safetyNotes": "High risk: serious toxicity or overdose harm is possible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Papaver somniferum L.",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Papaver%20somniferum%20L.&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: Papaver somniferum L.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Papaver+somniferum+L.",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Papaver somniferum L.",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Papaver+somniferum+L.",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.987Z",
-  "description": "Papaver somniferum is the botanical source of opiate alkaloids associated with analgesic and sedative pharmacology and substantial dependence risk.",
+  "lastUpdated": "2026-04-03T23:27:42Z",
+  "description": "Papaver somniferum is a medicinal herb traditionally used for euphoria and analgesia.",
   "dosage": "Pharmaceutical use only under regulation",
   "duration": "4–6 hours (morphine); longer with raw opium",
   "legalStatus": "Strictly regulated; illegal to grow for opium in most countries",
-  "preparation": "Preparation and legal status vary widely; concentrated or unregulated products materially increase harm risk.",
-  "region": "Originally from the Mediterranean and western Asia, now cultivated in multiple regulated regions.",
+  "preparation": "",
+  "region": "",
   "therapeuticUses": [
     "Pain",
     "severe cough",

@@ -6,15 +6,13 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "hepatoprotective",
     "anti-inflammatory",
-    "and antioxidant",
-    "anti",
-    "inflammatory"
+    "antioxidant"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference: Hepatoprotective,anti-inflammatory,and antioxidant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Hepatoprotective,and antioxidant. none.",
+  "safetyLevel": "caution",
+  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Picrorhiza kurroa",
@@ -23,12 +21,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.994Z",
-  "description": "Hepatoprotective, anti-inflammatory, and antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Picrorhiza kurroa is a medicinal herb traditionally used for hepatoprotective and anti-inflammatory-inflammatory.",
   "dosage": "250,500 mg,day root or extract",
   "duration": "6–8 hours",
   "legalStatus": "Legal globally",
-  "preparation": "No direct preparation data. Contextual inference: Hepatoprotective, anti-inflammatory, and antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hepatoprotective, anti-inflammatory, and antioxidant. No direct region data. Contextual inference: Hepatoprotective, anti-inflammatory, and antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hepatoprotective, anti-inflammatory, and antioxidant. none. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Hepatoprotective, anti-inflammatory, and antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hepatoprotective, anti-inflammatory, and antioxidant. none. ; nan; nan",
+  "preparation": "",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],

@@ -6,15 +6,13 @@
   "mechanism": "curcin inhibits protein synthesis",
   "activeCompounds": [],
   "effects": [
-    "antibacterial",
-    "antifungal",
-    "seeds are toxic"
+    "antimicrobial"
   ],
   "contraindications": [
     "avoid with oral use contraindicated due to toxicity"
   ],
   "interactions": [
-    "avoid with protein synthesis inhibitors"
+    "Avoid with: avoid with protein synthesis inhibitors"
   ],
   "safetyNotes": "Toxic if ingested,severe vomiting,diarrhea,respiratory failure,High,contains curcin and phorbol esters.",
   "sources": [
@@ -29,7 +27,7 @@
   "dosage": "Not safe for ingestion,used externally in traditional remedies.",
   "duration": "Topical effects within hours; no systemic duration due to toxicity.",
   "legalStatus": "Toxic plant; not approved for medical use",
-  "preparation": "Topical poultices or latex extracts.",
+  "preparation": "extract",
   "region": "Central America",
   "therapeuticUses": [],
   "traditionalUse": "Used externally for joint pain and inflammation in folk medicine.",

@@ -11,18 +11,13 @@
     "coumarins"
   ],
   "effects": [
-    "local anesthesia",
-    "salivation",
-    "antimicrobial",
-    "immune stimulation",
-    "oral tingling",
-    "mild euphoria",
-    "muscle relaxation",
-    "analgesic",
-    "sialagogue",
+    "relaxation",
+    "stimulation",
+    "mood",
+    "pain relief",
     "anti-inflammatory",
-    "anti",
-    "inflammatory"
+    "immune support",
+    "antimicrobial"
   ],
   "contraindications": [
     "avoid in pregnancy",
@@ -32,8 +27,8 @@
     "avoid overuse on broken skin"
   ],
   "interactions": [
-    "May enhance effects of anesthetics",
-    "limited data"
+    "May potentiate: May enhance effects of anesthetics",
+    "Caution with: limited data"
   ],
   "safetyNotes": "Generally safe topically,avoid in pregnancy,Tingling,irritation (rare),excessive salivation,Low,Not established,Excessive salivation,numbness,allergic reactions (rare),Very low,Greater than 2000 mg/kg (rat oral),Mild tingling,increased salivation,rare allergic reactions possible,No direct toxicity data. Contextual inference: Analgesic,sialagogue,anti-inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Analgesic,anti-inflammatory. none.",
   "sources": [
@@ -48,8 +43,8 @@
   "dosage": "No direct dosage data. Contextual inference: Analgesic,sialagogue,anti,inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Analgesic,inflammatory. No direct region data. Contextual inference: Analgesic,inflammatory. none.,nan.",
   "duration": "1–2 hours",
   "legalStatus": "Legal and used in foods and herbal preparations",
-  "preparation": "Fresh flowers or leaves are chewed; also extracted in tinctures for oral or topical use",
-  "region": "No direct region data. Contextual inference: Analgesic, sialagogue, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic, sialagogue, anti-inflammatory. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "south america, widely cultivated",
   "therapeuticUses": [
     "Toothache",
     "mouth ulcers",

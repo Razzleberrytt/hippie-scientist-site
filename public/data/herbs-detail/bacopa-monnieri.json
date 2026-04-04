@@ -9,30 +9,51 @@
   ],
   "effects": [],
   "contraindications": [],
-  "interactions": [],
+  "interactions": [
+    "May potentiate: May potentiate stimulant effects when combined with sympathomimetic agents"
+  ],
   "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
   "sources": [
     {
       "title": "NCBI Taxonomy: bacopa monnieri (TaxID 263974)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=263974&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: bacopa monnieri",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=bacopa+monnieri",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: bacopa monnieri",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=bacopa+monnieri",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.864Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "lastUpdated": "2026-04-03T23:27:42Z",
+  "description": "Bacopa monnieri is commonly selected for long-horizon cognitive routines where users prefer a non-stimulant, standardized daily herb.",
+  "dosage": "Choose products with bacoside standardization and clear serving amounts for easier cross-brand comparison.",
+  "duration": "Often evaluated over several weeks before deciding whether the routine is useful.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [],
+  "preparation": "extract",
+  "region": "🇮🇳 india",
+  "therapeuticUses": [
+    "Gradual cognitive-support routines",
+    "Non-stimulant focus stack building",
+    "Long-horizon daily supplement protocols"
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],
   "slug": "bacopa-monnieri",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Used for memory/focus support plans, especially when buyers want consistent capsule-based daily intake.",
+  "evidenceLevel": "Moderate evidence for select cognitive endpoints with standardized extracts; effects are typically gradual, not immediate.",
+  "relatedEntities": [
+    "rhodiola-rosea",
+    "lion-s-mane",
+    "ashwagandha",
+    "tulsi"
+  ],
   "relatedCompounds": [
     "bacosides-a-and-b"
   ]

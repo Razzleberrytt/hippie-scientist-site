@@ -6,15 +6,16 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "mild stimulant",
-    "antioxidant",
-    "nutrient-dense seed",
-    "nutrient",
-    "dense seed"
+    "stimulation",
+    "antioxidant"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Similar to cacao,contains caffeine-like stimulants,No direct toxicity data. Contextual inference: Mild stimulant,antioxidant,nutrient-dense seed. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Mild stimulant,nutrient-dense seed. none.",
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Theobroma bicolor (TaxID 108878)",
@@ -24,11 +25,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.025Z",
   "description": "Mild stimulant, antioxidant, nutrient-dense seed. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Mild stimulant,antioxidant,nutrient,dense seed. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Mild stimulant,dense seed. No direct region data. Contextual inference: Mild stimulant,dense seed. none.,nan.",
+  "dosage": "",
   "duration": "3–6 hours",
   "legalStatus": "Legal globally",
-  "preparation": "Seeds roasted or fermented similarly to cacao; used in beverages and traditional Central American preparations",
-  "region": "No direct region data. Contextual inference: Mild stimulant, antioxidant, nutrient-dense seed. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild stimulant, antioxidant, nutrient-dense seed. none. ; nan; nan",
+  "preparation": "",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

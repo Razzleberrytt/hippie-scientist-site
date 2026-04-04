@@ -4,11 +4,14 @@
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. No direct region data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. ; nan; nan. ; nan; nan",
   "mechanism": "modulates cortisol | dopamine | and serotonin",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "eugenol",
+    "ursolic acid",
+    "rosmarinic acid"
+  ],
   "effects": [
-    "adaptogen",
-    "stress reducer",
-    "immune modulator"
+    "anxiety relief",
+    "immune support"
   ],
   "contraindications": [
     "avoid in pregnancy",
@@ -18,7 +21,8 @@
     "sedatives",
     "anticoagulants."
   ],
-  "safetyNotes": "dry mouth,mild sedation.,No direct toxicity data. Contextual inference: Adaptogen,stress reducer,immune modulator. Modulates cortisol,dopamine,and serotonin,adaptogenic and anxiolytic..,nan.. Modulates cortisol,adaptogenic and anxiolytic.. Adaptogen,immune modulator.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Ocimum tenuiflorum (Tulsi)",
@@ -28,11 +32,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.016Z",
   "description": "Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Adaptogen,stress reducer,immune modulator. Modulates cortisol,dopamine,and serotonin,adaptogenic and anxiolytic..,nan.. Modulates cortisol,adaptogenic and anxiolytic.. Adaptogen,immune modulator. No direct region data. Contextual inference: Adaptogen,immune modulator.,nan.",
+  "dosage": "As tea: about 2-3 g dried leaf per cup, up to 2-3 times daily.",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",
-  "preparation": "No direct preparation data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. No direct region data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. ; nan; nan",
+  "preparation": "",
+  "region": "unknown",
   "therapeuticUses": [
     "stress relief",
     "mood balance",

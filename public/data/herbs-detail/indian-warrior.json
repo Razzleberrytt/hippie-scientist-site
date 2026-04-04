@@ -9,12 +9,8 @@
     "flavonoids"
   ],
   "effects": [
-    "muscle relaxation",
-    "mild sedation",
-    "euphoria",
-    "skeletal muscle relaxant",
-    "calming",
-    "used in smoking blends"
+    "relaxation",
+    "mood"
   ],
   "contraindications": [
     "avoid with none well established",
@@ -22,11 +18,11 @@
     "avoid with cns depression"
   ],
   "interactions": [
-    "Sedatives (theoretical)",
-    "sedatives",
-    "depressants."
+    "Avoid with: Sedatives (theoretical)",
+    "Avoid with: sedatives",
+    "Caution with: depressants"
   ],
-  "safetyNotes": "Generally regarded as safe,Drowsiness,Low,drowsiness,dry mouth.,No direct toxicity data. Contextual inference: Skeletal muscle relaxant,calming,used in smoking blends. May act on gaba receptors,muscle relaxant and sedative properties..,nan.. May act on GABA receptors,muscle relaxant and sedative properties.. Skeletal muscle relaxant,used in smoking blends.",
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Pedicularis densiflora (TaxID 1392144)",
@@ -39,8 +35,8 @@
   "dosage": "No direct dosage data. Contextual inference: Skeletal muscle relaxant,calming,used in smoking blends. May act on gaba receptors,muscle relaxant and sedative properties..,nan.. May act on GABA receptors,muscle relaxant and sedative properties.. Skeletal muscle relaxant,used in smoking blends. No direct region data. Contextual inference: Skeletal muscle relaxant,used in smoking blends.,nan.",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
-  "preparation": "No direct preparation data. Contextual inference: Skeletal muscle relaxant, calming; used in smoking blends. May act on gaba receptors; muscle relaxant and sedative properties.. ; nan; nan.. May act on GABA receptors; muscle relaxant and sedative properties.. Skeletal muscle relaxant, calming; used in smoking blends. No direct region data. Contextual inference: Skeletal muscle relaxant, calming; used in smoking blends. May act on gaba receptors; muscle relaxant and sedative properties.. ; nan; nan.. May act on GABA receptors; muscle relaxant and sedative properties.. Skeletal muscle relaxant, calming; used in smoking blends. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Skeletal muscle relaxant, calming; used in smoking blends. May act on gaba receptors; muscle relaxant and sedative properties.. ; nan; nan.. May act on GABA receptors; muscle relaxant and sedative properties.. Skeletal muscle relaxant, calming; used in smoking blends. ; nan; nan",
+  "preparation": "smoked",
+  "region": "unknown",
   "therapeuticUses": [
     "Muscle tension",
     "pain",

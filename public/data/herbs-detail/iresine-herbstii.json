@@ -6,13 +6,18 @@
   "mechanism": "polyphenols and anthocyanins be active",
   "activeCompounds": [],
   "effects": [
-    "antioxidant",
     "anti-inflammatory",
-    "anti",
-    "inflammatory"
+    "antioxidant"
   ],
   "contraindications": [],
-  "interactions": [],
+  "interactions": [
+    "Caution with: Interaction evidence is limited",
+    "Caution with: use caution with prescription medicines",
+    "Caution with: especially CNS active",
+    "Avoid with: anticoagulant",
+    "Caution with: hepatotoxic",
+    "Caution with: blood pressure/glucose lowering drugs"
+  ],
   "safetyNotes": "Low.",
   "sources": [
     {
@@ -26,7 +31,7 @@
   "dosage": "Mild teas or poultices.",
   "duration": "Mild; effects last a few hours.",
   "legalStatus": "Unregulated",
-  "preparation": "Decoction or crushed leaves.",
+  "preparation": "tea",
   "region": "South and Central America",
   "therapeuticUses": [],
   "traditionalUse": "Folk use for fever, wounds, and vitality.",

@@ -3,16 +3,24 @@
   "latin": "Lomatium dissectum",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antiviral, immune stimulant, respiratory support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiviral, immune stimulant, respiratory support. No direct region data. Contextual inference: Antiviral, immune stimulant, respiratory support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiviral, immune stimulant, respiratory support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "antiviral",
-    "immune stimulant",
-    "respiratory"
+    "stimulation",
+    "respiratory support",
+    "immune support",
+    "antimicrobial"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,Skin rash (lomatium dermatitis) common,GI upset,No direct toxicity data. Contextual inference: Antiviral,immune stimulant,respiratory support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiviral,respiratory support. none.",
+  "interactions": [
+    "Caution with: Interaction evidence is limited",
+    "Caution with: use caution with prescription medicines",
+    "Caution with: especially CNS active",
+    "Avoid with: anticoagulant",
+    "Caution with: hepatotoxic",
+    "Caution with: blood pressure/glucose lowering drugs"
+  ],
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Lomatium dissectum (TaxID 63635)",
@@ -25,8 +33,8 @@
   "dosage": "250,500 mg,day root extract or tincture",
   "duration": "4–8 hours",
   "legalStatus": "Unregulated in most regions",
-  "preparation": "Root decocted or tinctured in small doses; strong antiviral properties; use cautiously due to sensitivity potential",
-  "region": "No direct region data. Contextual inference: Antiviral, immune stimulant, respiratory support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiviral, immune stimulant, respiratory support. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

@@ -10,12 +10,8 @@
     "hyoscyamine"
   ],
   "effects": [
-    "delirium",
-    "visual hallucinations",
-    "amnesia",
-    "hallucinogenic",
-    "anticholinergic",
-    "historically used in rituals"
+    "psychedelic",
+    "dissociation"
   ],
   "contraindications": [
     "avoid with cardiac issues",
@@ -23,9 +19,9 @@
     "avoid with glaucoma"
   ],
   "interactions": [
-    "MAOIs",
-    "CNS depressants",
-    "alcohol"
+    "Avoid with: MAOIs",
+    "Avoid with: CNS depressants",
+    "Avoid with: alcohol"
   ],
   "safetyNotes": "Extremely dangerous outside traditional context,Tachycardia,dry mouth,disorientation,coma,Very high,Not well studied in humans,Highly toxic,hallucinations,tachycardia,paralysis,fatal in high doses,No direct toxicity data. Contextual inference: Hallucinogenic,anticholinergic,historically used in rituals. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Hallucinogenic,historically used in rituals. none.",
   "sources": [
@@ -40,8 +36,8 @@
   "dosage": "No direct dosage data. Contextual inference: Hallucinogenic,anticholinergic,historically used in rituals. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Hallucinogenic,historically used in rituals. No direct region data. Contextual inference: Hallucinogenic,historically used in rituals. none.,nan.",
   "duration": "6–12 hours",
   "legalStatus": "Restricted or controlled in many regions",
-  "preparation": "Not recommended for internal use due to high toxicity; historically smoked or brewed with caution",
-  "region": "No direct region data. Contextual inference: Hallucinogenic, anticholinergic; historically used in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hallucinogenic, anticholinergic; historically used in rituals. none. ; nan; nan",
+  "preparation": "smoked",
+  "region": "",
   "therapeuticUses": [
     "Visionary states in traditional healing"
   ],

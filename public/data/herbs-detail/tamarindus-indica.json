@@ -8,24 +8,40 @@
     "tartaric acid",
     "lupeol"
   ],
-  "effects": [],
+  "effects": [
+    "digestive support"
+  ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.",
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: tamarindus indica (TaxID 58860)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=58860&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: tamarindus indica",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=tamarindus+indica",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: tamarindus indica",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=tamarindus+indica",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.024Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Used in traditional medicine and cuisine for digestive support..",
-  "dosage": "No direct dosage data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. No direct region data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. No direct region data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.",
   "legalStatus": "",
-  "preparation": "No direct preparation data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. No direct region data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.",
-  "region": "No direct region data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support.",
+  "preparation": "",
+  "region": "africa, south asia",
   "therapeuticUses": [],
   "traditionalUse": "Used in traditional medicine and cuisine for digestive support.",
   "sideEffects": [],

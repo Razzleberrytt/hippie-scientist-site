@@ -9,9 +9,9 @@
     "essential oils"
   ],
   "effects": [
-    "subtle clarity",
-    "mild stimulation",
-    "relaxation"
+    "relaxation",
+    "stimulation",
+    "focus"
   ],
   "contraindications": [
     "avoid high doses of essential oil"
@@ -19,7 +19,8 @@
   "interactions": [
     "None well known"
   ],
-  "safetyNotes": "Considered safe in culinary amounts,Rare,possibly dry mouth or GI upset,Low,Not established",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Salvia nemorosa (TaxID 49215)",
@@ -32,7 +33,7 @@
   "dosage": "Infusion: 1–3 g dried leaves",
   "duration": "180",
   "legalStatus": "Legal",
-  "preparation": "Dried leaf tea or tincture",
+  "preparation": "tincture",
   "region": "Europe, West Asia",
   "therapeuticUses": [
     "Cognition support",

@@ -9,27 +9,40 @@
     "lactucopicrin"
   ],
   "effects": [
-    "used in 19th",
-    "century medicine for pain and insomnia used in 19th",
-    "century medicine for pain and insomnia"
+    "sleep",
+    "pain relief"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: wild lettuce",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=wild%20lettuce&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: wild lettuce",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=wild+lettuce",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: wild lettuce",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=wild+lettuce",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.033Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Used in 19th-century medicine for pain and insomnia..",
-  "dosage": "No direct dosage data. Contextual inference: Used in 19th,century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th,century medicine for pain and insomnia... Used in 19th,century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th,century medicine for pain and insomnia.. Used in 19th,century medicine for pain and insomnia.. No direct region data. Contextual inference: Used in 19th,century medicine for pain and insomnia.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. No direct region data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. No direct region data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",
-  "region": "No direct region data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",
+  "preparation": "smoked",
+  "region": "europe, north america",
   "therapeuticUses": [],
   "traditionalUse": "Used in 19th-century medicine for pain and insomnia.",
   "sideEffects": [],

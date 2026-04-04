@@ -9,31 +9,46 @@
     "lythrine"
   ],
   "effects": [
-    "auditory hallucinations",
     "relaxation",
-    "memory alterations",
-    "vivid dreams"
+    "focus",
+    "psychedelic",
+    "visionary"
   ],
   "contraindications": [
     "avoid in pregnancy",
     "avoid in liver disease",
     "avoid with concurrent cns depressants"
   ],
-  "interactions": [],
-  "safetyNotes": "Generally considered safe in small doses,Dry mouth,muscle weakness,dizziness,Low,Not well-established,traditional use considered safe in moderate doses",
+  "interactions": [
+    "May increase sedation when combined with CNS depressants.",
+    "Use caution with serotonergic or psychoactive medications due to possible CNS interaction.",
+    "Use caution with hepatotoxic medications."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Sinicuichi (Heimia salicifolia)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Sinicuichi%20(Heimia%20salicifolia)&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: Sinicuichi (Heimia salicifolia)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Sinicuichi+%28Heimia+salicifolia%29",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Sinicuichi (Heimia salicifolia)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Sinicuichi+%28Heimia+salicifolia%29",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.977Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Sinicuichi is a traditional Mexican herb used for inducing auditory distortions, mild sedation, and dream enhancement. It has historical use in spiritual and shamanic practices.",
   "dosage": "20–50g dried leaves brewed into tea",
   "duration": "4–6 hours",
   "legalStatus": "",
-  "preparation": "Leaves sun-fermented in water or brewed fresh as tea",
+  "preparation": "tea",
   "region": "Mexico, Central America",
   "therapeuticUses": [
     "Used traditionally for memory enhancement and relaxation"

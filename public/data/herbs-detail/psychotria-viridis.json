@@ -6,13 +6,12 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "source of dmt",
-    "hallucinogenic",
-    "used in ayahuasca"
+    "psychedelic"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "restricted,Contains DMT,side effects include nausea,disorientation,psychological distress,No direct toxicity data. Contextual inference: Source of dmt,hallucinogenic,used in ayahuasca. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Source of DMT,used in ayahuasca. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Psychotria viridis (TaxID 189196)",
@@ -21,12 +20,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.002Z",
-  "description": "Source of dmt; hallucinogenic; used in ayahuasca. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Psychotria viridis is a medicinal herb traditionally used for source of dmt and hallucinogenic.",
   "dosage": "Traditionally used in Ayahuasca brews",
   "duration": "2–6 hours",
   "legalStatus": "Controlled in many jurisdictions",
-  "preparation": "Leaves traditionally decocted with Banisteriopsis caapi in Ayahuasca; contains DMT; ceremonial use only",
-  "region": "No direct region data. Contextual inference: Source of dmt; hallucinogenic; used in ayahuasca. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of DMT; hallucinogenic; used in ayahuasca. none. ; nan; nan",
+  "preparation": "smoked",
+  "region": "amazon basin (peru, brazil",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

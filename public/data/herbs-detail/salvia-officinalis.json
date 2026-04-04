@@ -11,12 +11,10 @@
     "flavonoids"
   ],
   "effects": [
-    "mental clarity",
-    "mood boost",
-    "mild stimulation",
-    "antimicrobial",
-    "astringent",
-    "memory enhancer"
+    "stimulation",
+    "focus",
+    "mood",
+    "antimicrobial"
   ],
   "contraindications": [
     "avoid in high doses",
@@ -27,7 +25,8 @@
     "Potentiates CNS stimulants",
     "caution with GABAergic meds"
   ],
-  "safetyNotes": "Safe in culinary doses,toxic in excess,Dizziness,dry mouth,seizures (high dose),Moderate in excess,Thujone ~45 mg/kg (oral,rats),caution,Neurotoxic in high doses,dizziness,No direct toxicity data. Contextual inference: Antimicrobial,astringent,memory enhancer. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antimicrobial,memory enhancer. none.",
+  "safetyLevel": "high",
+  "safetyNotes": "High risk: serious toxicity or overdose harm is possible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with other stimulants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Salvia officinalis (TaxID 38868)",
@@ -40,8 +39,8 @@
   "dosage": "250,500 mg,day leaf extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal worldwide",
-  "preparation": "Leaves dried or fresh in teas, infusions, or tinctures; used for throat, digestion, and antimicrobial effects",
-  "region": "No direct region data. Contextual inference: Antimicrobial, astringent, memory enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, astringent, memory enhancer. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [
     "Cognitive support",
     "menopausal symptoms",

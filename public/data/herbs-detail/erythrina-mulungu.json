@@ -15,19 +15,7 @@
   ],
   "effects": [
     "relaxation",
-    "improved sleep",
-    "reduced stress",
-    "calmness",
-    "reduced anxiety",
-    "sedation",
-    "muscle relaxation",
-    "anxiety reduction",
-    "used in ritual",
-    "dreaming or folk medicine used in ritual",
-    "dreaming or folk medicine",
-    "sedative",
-    "anxiolytic",
-    "used for sleep and stress in south america"
+    "anxiety relief"
   ],
   "contraindications": [
     "avoid with sedatives",
@@ -39,12 +27,12 @@
     "avoid with sedative use"
   ],
   "interactions": [
-    "CNS depressants",
-    "benzodiazepines",
-    "Benzodiazepines",
-    "alcohol",
-    "antihypertensives",
-    "depressants."
+    "Avoid with: CNS depressants",
+    "Avoid with: benzodiazepines",
+    "Avoid with: Benzodiazepines",
+    "Avoid with: alcohol",
+    "Caution with: antihypertensives",
+    "Caution with: depressants"
   ],
   "safetyNotes": "Low toxicity,traditionally safe,Drowsiness,dizziness,Low,Generally safe at moderate doses,hypotension,Not well established,Generally considered safe in traditional doses,Low at recommended doses,safe,No direct toxicity data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine,drowsiness,hypotension.,No direct toxicity data. Contextual inference: Sedative,anxiolytic,used for sleep and stress in south america. Sedative alkaloids may bind gaba and serotonin receptors..,nan.. Sedative alkaloids may bind GABA and serotonin receptors.. Sedative,used for sleep and stress in South America.",
   "sources": [
@@ -59,8 +47,8 @@
   "dosage": "No direct dosage data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual,dreaming or folk medicine,No direct dosage data. Contextual inference: Sedative,anxiolytic,used for sleep and stress in south america. Sedative alkaloids may bind gaba and serotonin receptors..,nan.. Sedative alkaloids may bind GABA and serotonin receptors.. Sedative,used for sleep and stress in South America. No direct region data. Contextual inference: Sedative,used for sleep and stress in South America.,nan.",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "Unregulated",
-  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "preparation": "tincture",
+  "region": "brazil and neighboring countries",
   "therapeuticUses": [
     "Insomnia",
     "stress",

@@ -6,14 +6,15 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "wound healing",
-    "anti-inflammatory (topical only)",
-    "anti",
-    "inflammatory (topical only)"
+    "anti-inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "caution,Hepatotoxic alkaloids,only safe topically,No direct toxicity data. Contextual inference: Wound healing,anti-inflammatory (topical only). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Wound healing,anti-inflammatory (topical only). none.",
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Symphytum officinale (TaxID 278672)",
@@ -26,8 +27,8 @@
   "dosage": "Topical only,PA,free standardized extract",
   "duration": "4–6 hours",
   "legalStatus": "Internal use banned in some regions; topical allowed",
-  "preparation": "Leaves or roots used in poultices, ointments, or brief decoctions; internal use discouraged due to pyrrolizidine alkaloids",
-  "region": "No direct region data. Contextual inference: Wound healing, anti-inflammatory (topical only). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Wound healing, anti-inflammatory (topical only). none. ; nan; nan",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

@@ -6,10 +6,8 @@
   "mechanism": "volatile terpenes | resins modulate inflammation and microbial load",
   "activeCompounds": [],
   "effects": [
-    "antibacterial",
     "anti-inflammatory",
-    "anti",
-    "inflammatory"
+    "antimicrobial"
   ],
   "contraindications": [],
   "interactions": [],
@@ -19,15 +17,25 @@
       "title": "NCBI Taxonomy: Anisoptera thurifera (TaxID 2028324)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2028324&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Anisoptera thurifera",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Anisoptera+thurifera",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Anisoptera thurifera",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Anisoptera+thurifera",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.848Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Dipterocarpaceae tree native to Southeast Asia; known for aromatic resin.",
   "dosage": "Small amounts used topically or as incense.",
   "duration": "Short-acting.",
   "legalStatus": "Unregulated; used locally",
-  "preparation": "Resinous exudate burned, inhaled, or applied.",
-  "region": "Malaysia, Indonesia, Philippines",
+  "preparation": "",
+  "region": "Malaysia, Indonesia",
   "therapeuticUses": [],
   "traditionalUse": "Resin used for incense, wounds, and bronchial issues.",
   "sideEffects": [

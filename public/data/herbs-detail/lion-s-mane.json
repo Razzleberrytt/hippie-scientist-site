@@ -3,33 +3,54 @@
   "latin": "lion's mane",
   "class": "general",
   "intensity": "mild",
-  "mechanism": "",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "interactions": [
+    "May potentiate: May potentiate stimulant effects when combined with sympathomimetic agents"
+  ],
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: lion's mane",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=lion's%20mane&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: lion's mane",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=lion%27s+mane",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: lion's mane",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=lion%27s+mane",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.955Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "lastUpdated": "2026-04-03T23:27:42Z",
+  "description": "Lion’s mane is commonly chosen for cognitive-support routines where users prefer mushroom-based daily formats over stimulant-heavy products.",
+  "dosage": "Compare fruiting-body disclosure and per-serving extract amounts rather than relying on front-label mushroom claims.",
+  "duration": "Typically evaluated across multi-week routines to judge consistency and tolerability.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [],
+  "preparation": "extract",
+  "region": "🇨🇳 east asia",
+  "therapeuticUses": [
+    "Daily cognitive-support routines",
+    "Non-caffeine focus stacks",
+    "Mushroom extract comparisons centered on label transparency"
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],
   "slug": "lion-s-mane",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Compared for focus and mental-clarity support in daytime routines, usually as capsules or powdered extracts.",
+  "evidenceLevel": "Early-to-moderate human evidence with stronger preclinical interest; product sourcing and extract quality vary widely.",
+  "relatedEntities": [
+    "rhodiola-rosea",
+    "bacopa-monnieri",
+    "reishi-mushroom",
+    "ashwagandha"
+  ],
   "relatedCompounds": []
 }

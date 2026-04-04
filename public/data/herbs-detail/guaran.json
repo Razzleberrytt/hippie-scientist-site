@@ -3,15 +3,16 @@
   "latin": "guaraná",
   "class": "general",
   "intensity": "moderate",
-  "mechanism": "",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "meta-analysis reports modest improvements in selected cognitive-performance domains",
-    "clinical effects are context-dependent and should not be generalized to all formulations"
+    "focus"
   ],
   "contraindications": [],
   "interactions": [
-    "Potential additive stimulation with caffeine-containing products, sympathomimetics, and other CNS stimulants."
+    "May potentiate: Potential additive stimulation with caffeine containing products",
+    "Caution with: sympathomimetics",
+    "Avoid with: other CNS stimulants"
   ],
   "safetyNotes": "Caffeine-related adverse effects (for example insomnia, palpitations, anxiety) remain a practical safety concern.",
   "sources": [
@@ -26,8 +27,8 @@
   "dosage": "Clinical dosing varies by caffeine-equivalent content and standardized extract composition.",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "legal",
-  "preparation": "Prepared as seeds/powder in traditional beverages and as standardized extracts in supplements.",
-  "region": "Indigenous to the Amazon basin, especially Brazil, with global commercial distribution.",
+  "preparation": "extract",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "Traditional Amazonian use includes stimulant and endurance contexts.",
   "sideEffects": [],

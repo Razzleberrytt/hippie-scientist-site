@@ -12,12 +12,10 @@
     "terpenes"
   ],
   "effects": [
-    "euphoria",
-    "hallucinations",
-    "nausea",
-    "dry mouth",
-    "sedation",
-    "altered perception"
+    "mood",
+    "digestive support",
+    "psychedelic",
+    "dissociation"
   ],
   "contraindications": [
     "avoid in pregnancy",
@@ -26,9 +24,9 @@
     "avoid with hepatotoxic in large doses"
   ],
   "interactions": [
-    "Increases effects of sedatives and antidepressants",
-    "inhibits MAO enzymes",
-    "interacts with liver enzymes"
+    "Avoid with: Increases effects of sedatives and antidepressants",
+    "Caution with: inhibits MAO enzymes",
+    "May potentiate: interacts with liver enzymes"
   ],
   "safetyNotes": "Toxic in large amounts,high doses may cause liver damage,delirium,or seizures,Nausea,vomiting,dry mouth,palpitations,hallucinations,confusion,liver toxicity,Hepatotoxic at high doses,myristicin is neurotoxic in excess,Myristicin LD50 in rats: ~400–700 mg/kg oral,human toxic dose ~5g+",
   "sources": [
@@ -39,12 +37,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.971Z",
-  "description": "Myristica fragrans is an evergreen tree native to the Moluccas (Indonesia), known for its seeds (nutmeg) and aril (mace). In large amounts, nutmeg acts as a weak hallucinogen due to compounds like myristicin.",
+  "description": "Myristica fragrans Houtt. is a medicinal herb traditionally used for euphoria and hallucinations.",
   "dosage": "Culinary: 0.1–0.5g; psychoactive: 5–15g (not recommended)",
   "duration": "8–24 hours (psychoactive dose)",
   "legalStatus": "Legal globally; psychoactive use discouraged or regulated in prisons/schools",
-  "preparation": "Ground seed used in spice, tea, or (rarely) capsules for medicinal/ritual use",
-  "region": "Native to Indonesia; cultivated in India, Sri Lanka, Grenada, Caribbean",
+  "preparation": "tea",
+  "region": "Native to Indonesia",
   "therapeuticUses": [
     "Digestion",
     "anti-inflammatory",

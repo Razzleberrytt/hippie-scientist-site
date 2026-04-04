@@ -3,18 +3,15 @@
   "latin": "Heimia myrtifolia",
   "class": "Oneirogen, Sedative",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [
     "cryogenine",
     "lyfoline",
     "lythrine"
   ],
   "effects": [
-    "auditory shifts",
-    "relaxed dreamlike state",
-    "mild auditory and visual alterations",
     "relaxation",
-    "dream enhancement"
+    "visionary"
   ],
   "contraindications": [
     "avoid with cns depressants",
@@ -22,23 +19,33 @@
     "may interact with maois"
   ],
   "interactions": [
-    "CNS depressants may amplify effects"
+    "May potentiate: CNS depressants may amplify effects"
   ],
-  "safetyNotes": "Mild effects,few known adverse reports,Lethargy,slight motor coordination loss,Low,Unknown in humans,Generally regarded as safe in moderate doses,Mild dizziness or dry mouth with large doses,Not established,caution,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Avoid with cns depressants; May interact with maois",
   "sources": [
     {
       "title": "NCBI Taxonomy: Heimia myrtifolia (TaxID 135798)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=135798&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Heimia myrtifolia",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Heimia+myrtifolia",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Heimia myrtifolia",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Heimia+myrtifolia",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.940Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Rare cousin of Sinicuichi used for mild auditory alterations and calm dream states",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "tea",
+  "region": "mexico",
   "therapeuticUses": [
     "Insomnia",
     "dream enhancement",

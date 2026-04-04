@@ -8,17 +8,15 @@
     "limonoids",
     "saponins"
   ],
-  "effects": [
-    "fever reduction",
-    "parasite suppression"
-  ],
+  "effects": [],
   "contraindications": [
     "avoid in pregnancy"
   ],
   "interactions": [
     "May interact with antimalarial pharmaceuticals"
   ],
-  "safetyNotes": "Considered safe in traditional doses,Mild nausea,dizziness,Low,Not well documented",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Trichilia monadelpha (TaxID 1640473)",
@@ -31,7 +29,7 @@
   "dosage": "Decoction of bark or leaves, 1–2x daily",
   "duration": "480",
   "legalStatus": "Not regulated",
-  "preparation": "Leaf/bark decoction in water",
+  "preparation": "tea",
   "region": "West Africa",
   "therapeuticUses": [
     "Malaria",

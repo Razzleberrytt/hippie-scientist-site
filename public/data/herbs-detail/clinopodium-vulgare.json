@@ -6,11 +6,9 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "antimicrobial",
     "anti-inflammatory",
-    "digestive tonic",
-    "anti",
-    "inflammatory"
+    "digestive support",
+    "antimicrobial"
   ],
   "contraindications": [],
   "interactions": [],
@@ -27,8 +25,8 @@
   "dosage": "1,3 g,day infusion or 250,500 mg extract",
   "duration": "3–5 hours",
   "legalStatus": "Unregulated",
-  "preparation": "Aerial parts dried and brewed into infusions or decoctions for colds and digestive issues",
-  "region": "No direct region data. Contextual inference: Antimicrobial, anti-inflammatory, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, anti-inflammatory, digestive tonic. none. ; nan; nan",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

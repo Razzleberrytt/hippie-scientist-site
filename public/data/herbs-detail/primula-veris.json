@@ -6,15 +6,14 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "expectorant",
+    "relaxation",
     "anti-inflammatory",
-    "sedative",
-    "anti",
-    "inflammatory"
+    "respiratory support"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "Allergic reactions,contact dermatitis,No direct toxicity data. Contextual inference: Expectorant,anti-inflammatory,sedative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Expectorant,sedative. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with sedatives, alcohol, or other CNS depressants; Stop use if rash or allergic symptoms occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Primula veris (TaxID 170927)",
@@ -23,12 +22,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.000Z",
-  "description": "Expectorant, anti-inflammatory, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Primula veris is a medicinal herb traditionally used for expectorant and anti-inflammatory-inflammatory.",
   "dosage": "No direct dosage data. Contextual inference: Expectorant,anti,inflammatory,sedative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Expectorant,sedative. No direct region data. Contextual inference: Expectorant,sedative. none.,nan.",
   "duration": "3–5 hours",
   "legalStatus": "Legal",
-  "preparation": "Flowers and roots dried and infused for teas or syrup; traditionally used for coughs and expectorant effects",
-  "region": "No direct region data. Contextual inference: Expectorant, anti-inflammatory, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Expectorant, anti-inflammatory, sedative. none. ; nan; nan",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

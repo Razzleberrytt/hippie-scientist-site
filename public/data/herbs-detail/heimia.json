@@ -6,18 +6,18 @@
   "mechanism": "affect auditory processing and memory | unknown alkaloid moa",
   "activeCompounds": [],
   "effects": [
-    "mildly sedative and euphoric",
-    "traditional use in mexico and south america"
+    "relaxation",
+    "mood"
   ],
   "contraindications": [
     "avoid in pregnancy",
     "avoid with psychiatric disorders"
   ],
   "interactions": [
-    "cns depressants",
-    "alcohol."
+    "Avoid with: cns depressants",
+    "Avoid with: alcohol"
   ],
-  "safetyNotes": "caution,drowsiness,dizziness.,No direct toxicity data. Contextual inference: Mildly sedative and euphoric,traditional use in mexico and south america. May affect auditory processing and memory,unknown alkaloid moa..,nan.. May affect auditory processing and memory,unknown alkaloid MOA.. Mildly sedative and euphoric,traditional use in Mexico and South America.",
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Heimia spp.",
@@ -30,8 +30,8 @@
   "dosage": "1,2 g,day infusion (traditional use)",
   "duration": "4–6 hours",
   "legalStatus": "Unregulated",
-  "preparation": "No direct preparation data. Contextual inference: Mildly sedative and euphoric; traditional use in mexico and south america. May affect auditory processing and memory; unknown alkaloid moa.. ; nan; nan.. May affect auditory processing and memory; unknown alkaloid MOA.. Mildly sedative and euphoric; traditional use in Mexico and South America. No direct region data. Contextual inference: Mildly sedative and euphoric; traditional use in mexico and south america. May affect auditory processing and memory; unknown alkaloid moa.. ; nan; nan.. May affect auditory processing and memory; unknown alkaloid MOA.. Mildly sedative and euphoric; traditional use in Mexico and South America. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Mildly sedative and euphoric; traditional use in mexico and south america. May affect auditory processing and memory; unknown alkaloid moa.. ; nan; nan.. May affect auditory processing and memory; unknown alkaloid MOA.. Mildly sedative and euphoric; traditional use in Mexico and South America. ; nan; nan",
+  "preparation": "",
+  "region": "unknown",
   "therapeuticUses": [
     "auditory shifts",
     "relaxation",

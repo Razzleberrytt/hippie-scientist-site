@@ -3,37 +3,47 @@
   "latin": "Acorus gramineus",
   "class": "Aromatic, Tonic",
   "intensity": "Very mild",
-  "mechanism": "",
+  "mechanism": "Volatile terpenoids may contribute smooth-muscle, antimicrobial, or sensory effects",
   "activeCompounds": [
     "essential oils"
   ],
   "effects": [
-    "mild stimulation",
-    "focus",
-    "calm"
+    "relaxation",
+    "stimulation",
+    "focus"
   ],
   "contraindications": [
     "avoid with similar risks to acorus calamus",
     "avoid large doses"
   ],
   "interactions": [
-    "Minimal known"
+    "Caution with: limited interaction data"
   ],
-  "safetyNotes": "Safe in traditional use,Mild nausea at high doses,Low,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "Avoid with similar risks to acorus calamus; Avoid large doses",
   "sources": [
     {
       "title": "NCBI Taxonomy: Acorus gramineus (TaxID 55184)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=55184&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Acorus gramineus",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Acorus+gramineus",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Acorus gramineus",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Acorus+gramineus",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.840Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Fragrant root used in traditional medicine for clarity and calm",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "tea",
+  "region": "🇨🇳 east asia",
   "therapeuticUses": [
     "Cognition support",
     "digestion aid"

@@ -6,10 +6,8 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "diaphoretic",
-    "immune stimulant",
-    "cold",
-    "flu relief"
+    "stimulation",
+    "immune support"
   ],
   "contraindications": [],
   "interactions": [],
@@ -26,8 +24,8 @@
   "dosage": "1,2 g,day infusion or 300,500 mg extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal; used in traditional Western herbalism",
-  "preparation": "Aerial parts dried and used in hot infusions or decoctions; known as 'boneset' for fever support",
-  "region": "No direct region data. Contextual inference: Diaphoretic, immune stimulant, cold/flu relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diaphoretic, immune stimulant, cold/flu relief. none. ; nan; nan",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

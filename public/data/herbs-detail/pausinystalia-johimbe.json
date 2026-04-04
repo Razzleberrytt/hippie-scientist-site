@@ -11,9 +11,7 @@
   ],
   "effects": [
     "stimulation",
-    "increased blood flow",
-    "heightened alertness",
-    "sexual arousal"
+    "libido enhancer"
   ],
   "contraindications": [
     "avoid with heart disease",
@@ -26,7 +24,8 @@
     "stimulants",
     "MAOIs"
   ],
-  "safetyNotes": "Moderate risk,side effects common,Anxiety,hypertension,agitation,insomnia,Moderate,~43 mg/kg (yohimbine,oral,rat)",
+  "safetyLevel": "high",
+  "safetyNotes": "High risk: serious toxicity or overdose harm is possible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Pausinystalia johimbe",
@@ -35,11 +34,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.972Z",
-  "description": "West African tree bark traditionally used as an aphrodisiac and stimulant, especially for male sexual dysfunction.",
+  "description": "Pausinystalia johimbe is a medicinal herb traditionally used for stimulation and increased blood flow.",
   "dosage": "5–10 mg yohimbine HCl; bark extract ~250–500 mg",
   "duration": "2–4 hours",
   "legalStatus": "Controlled in some countries; supplement in others",
-  "preparation": "Bark infusion, extract capsules, tablets",
+  "preparation": "tea",
   "region": "West and Central Africa",
   "therapeuticUses": [
     "Erectile dysfunction",

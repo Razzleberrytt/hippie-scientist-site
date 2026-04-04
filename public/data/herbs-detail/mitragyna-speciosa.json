@@ -6,9 +6,8 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "stimulant at low doses",
-    "sedative at high doses",
-    "contains mitragynine"
+    "relaxation",
+    "stimulation"
   ],
   "contraindications": [],
   "interactions": [],
@@ -21,12 +20,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.965Z",
-  "description": "Stimulant at low doses, sedative at high doses; contains mitragynine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Mitragyna speciosa is a medicinal herb traditionally used for stimulant at low doses and sedative at high doses.",
   "dosage": "No direct dosage data. Contextual inference: Stimulant at low doses,sedative at high doses,contains mitragynine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Stimulant at low doses,contains mitragynine. No direct region data. Contextual inference: Stimulant at low doses,contains mitragynine. none.,nan.",
   "duration": "2–6 hours",
   "legalStatus": "Varies globally; restricted in some countries",
-  "preparation": "No direct preparation data. Contextual inference: Stimulant at low doses, sedative at high doses; contains mitragynine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant at low doses, sedative at high doses; contains mitragynine. No direct region data. Contextual inference: Stimulant at low doses, sedative at high doses; contains mitragynine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant at low doses, sedative at high doses; contains mitragynine. none. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Stimulant at low doses, sedative at high doses; contains mitragynine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant at low doses, sedative at high doses; contains mitragynine. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "thailand, indonesia",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],

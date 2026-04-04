@@ -1,7 +1,11 @@
 import React from 'react'
 import { AnimatePresence, motion } from '@/lib/motion'
 import type { Herb } from '../types'
-import HerbCardAccordion from './HerbCardAccordion'
+import HerbCard from './HerbCard'
+import { buildCardSummary } from '@/lib/summary'
+import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
+import { hasVal } from '@/lib/pretty'
+import { slugify } from '@/lib/slug'
 
 const containerVariants = {
   hidden: {},
@@ -44,14 +48,32 @@ const HerbList: React.FC<Props> = ({
         viewport={{ once: true, amount: 0.2 }}
         className={
           view === 'grid'
-            ? 'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
-            : 'flex flex-col gap-4'
+            ? 'grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3'
+            : 'flex flex-col gap-5'
         }
       >
         <AnimatePresence>
           {herbs.slice(0, visible).map(h => (
             <motion.div key={h.id || h.name} variants={itemVariants} layout>
-              <HerbCardAccordion herb={h} />
+              <HerbCard
+                name={String(h.common || h.scientific || h.name || 'Herb')}
+                summary={
+                  buildCardSummary({
+                    effects: h.effects,
+                    mechanism: h.mechanism,
+                    description: h.description,
+                    activeCompounds: h.compounds,
+                    therapeuticUses: h.therapeuticUses,
+                    maxLen: 130,
+                  }) || 'Learn more about this herb and its potential uses.'
+                }
+                tags={extractPrimaryEffects(Array.isArray(h.effects) ? h.effects : [], 2)}
+                detailUrl={
+                  hasVal(h.slug)
+                    ? `/herbs/${encodeURIComponent(String(h.slug))}`
+                    : `/herbs/${encodeURIComponent(slugify(String(h.common || h.scientific || h.name || '')))}`
+                }
+              />
             </motion.div>
           ))}
         </AnimatePresence>

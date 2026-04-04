@@ -3,18 +3,23 @@
   "latin": "Gardenia jasminoides",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antioxidant, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, calming. No direct region data. Contextual inference: Anti-inflammatory, antioxidant, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, calming. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
+    "relaxation",
     "anti-inflammatory",
-    "antioxidant",
-    "calming",
-    "anti",
-    "inflammatory"
+    "antioxidant"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,Generally safe,rare allergic reactions or mild digestive discomfort,No direct toxicity data. Contextual inference: Anti-inflammatory,antioxidant,calming. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Anti-inflammatory,calming. none.",
+  "interactions": [
+    "Caution with: Interaction evidence is limited",
+    "Caution with: use caution with prescription medicines",
+    "Caution with: especially CNS active",
+    "Avoid with: anticoagulant",
+    "Caution with: hepatotoxic",
+    "Caution with: blood pressure/glucose lowering drugs"
+  ],
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Gardenia jasminoides (TaxID 114476)",
@@ -27,8 +32,8 @@
   "dosage": "250,750 mg,day fruit extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal in TCM and herbal systems",
-  "preparation": "Fruit (Zhi Zi) used in decoctions in Traditional Chinese Medicine; sometimes added to herbal pastes",
-  "region": "No direct region data. Contextual inference: Anti-inflammatory, antioxidant, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, calming. none. ; nan; nan",
+  "preparation": "tea",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

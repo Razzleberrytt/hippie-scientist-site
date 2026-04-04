@@ -10,7 +10,7 @@ import { getCompoundDataCompleteness } from '@/utils/getDataCompleteness'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { CompoundDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { mapRelatedHerbsForCompound } from '@/lib/compoundHerbRelations'
-import RelatedHerbCard from '@/components/RelatedHerbCard'
+import HerbCard from '@/components/HerbCard'
 import Collapse from '@/components/ui/Collapse'
 import {
   breadcrumbJsonLd,
@@ -618,19 +618,6 @@ export default function CompoundDetail() {
           relationGroups={relationGroups}
         />
 
-        {governedResearch && governedFaq && governedRelatedQuestions && (
-          <GovernedResearchSections
-            enrichment={governedResearch}
-            governedFaq={governedFaq}
-            relatedQuestions={governedRelatedQuestions}
-            analyticsContext={{
-              pageType: 'compound_detail',
-              entityType: 'compound',
-              entitySlug: compound.slug,
-            }}
-          />
-        )}
-
         {/* Core fields — only render when value is present */}
         {compound.description && (
           <Section title='Overview'>
@@ -738,7 +725,13 @@ export default function CompoundDetail() {
                 {linkedHerbCards.length > 0 && (
                   <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
                     {linkedHerbCards.map(herb => (
-                      <RelatedHerbCard key={herb.slug} herb={herb} />
+                      <HerbCard
+                        key={herb.slug}
+                        name={herb.name}
+                        summary={herb.descriptor || 'Learn more about this herb and its potential uses.'}
+                        tags={extractPrimaryEffects(herb.effects, 2)}
+                        detailUrl={`/herbs/${encodeURIComponent(herb.slug)}`}
+                      />
                     ))}
                   </div>
                 )}
@@ -793,6 +786,19 @@ export default function CompoundDetail() {
               </div>
             </Collapse>
           </section>
+        )}
+
+        {governedResearch && governedFaq && governedRelatedQuestions && (
+          <GovernedResearchSections
+            enrichment={governedResearch}
+            governedFaq={governedFaq}
+            relatedQuestions={governedRelatedQuestions}
+            analyticsContext={{
+              pageType: 'compound_detail',
+              entityType: 'compound',
+              entitySlug: compound.slug,
+            }}
+          />
         )}
 
         <section id='governed-compare-links'>

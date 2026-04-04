@@ -6,11 +6,9 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
+    "relaxation",
     "anti-inflammatory",
-    "diuretic",
-    "mild sedative",
-    "anti",
-    "inflammatory"
+    "detoxification"
   ],
   "contraindications": [],
   "interactions": [],
@@ -27,8 +25,8 @@
   "dosage": "500,1500 mg,day seed or extract",
   "duration": "2–4 hours",
   "legalStatus": "Legal globally",
-  "preparation": "Seeds and aerial parts used in decoctions or tinctures; consumed as juice or raw",
-  "region": "No direct region data. Contextual inference: Anti-inflammatory, diuretic, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, diuretic, mild sedative. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

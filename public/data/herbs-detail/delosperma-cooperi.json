@@ -6,14 +6,14 @@
   "mechanism": "contains phenolic compounds",
   "activeCompounds": [],
   "effects": [
-    "antioxidant",
-    "antimicrobial"
+    "antimicrobial",
+    "antioxidant"
   ],
   "contraindications": [
     "avoid with none known"
   ],
   "interactions": [
-    "None documented"
+    "Caution with: limited interaction data"
   ],
   "safetyNotes": "Generally non-toxic,rare allergic reaction in sensitive individuals,Non-toxic,edible flowers.",
   "sources": [
@@ -28,7 +28,7 @@
   "dosage": "Not typically dosed,used ornamentally.",
   "duration": "Short-acting; external application only.",
   "legalStatus": "Unregulated",
-  "preparation": "Occasionally juiced or crushed for skin.",
+  "preparation": "",
   "region": "South Africa",
   "therapeuticUses": [],
   "traditionalUse": "Minimal; some use in skin treatments.",

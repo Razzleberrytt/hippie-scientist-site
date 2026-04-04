@@ -6,10 +6,9 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "antioxidant and anti-inflammatory",
-    "used for hypertension and digestion",
-    "antioxidant and anti",
-    "inflammatory"
+    "anti-inflammatory",
+    "digestive support",
+    "antioxidant"
   ],
   "contraindications": [],
   "interactions": [],
@@ -26,8 +25,8 @@
   "dosage": "No direct dosage data. Contextual inference: Antioxidant and anti,inflammatory,used for hypertension and digestion. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antioxidant and anti,used for hypertension and digestion. No direct region data. Contextual inference: Antioxidant and anti,used for hypertension and digestion. none.,nan.",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",
-  "preparation": "No direct preparation data. Contextual inference: Antioxidant and anti-inflammatory; used for hypertension and digestion. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-inflammatory; used for hypertension and digestion. No direct region data. Contextual inference: Antioxidant and anti-inflammatory; used for hypertension and digestion. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-inflammatory; used for hypertension and digestion. none. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Antioxidant and anti-inflammatory; used for hypertension and digestion. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-inflammatory; used for hypertension and digestion. none. ; nan; nan",
+  "preparation": "",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],

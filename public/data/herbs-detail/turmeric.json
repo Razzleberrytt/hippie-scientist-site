@@ -4,32 +4,61 @@
   "class": "general",
   "intensity": "mild",
   "mechanism": "",
-  "activeCompounds": [],
-  "effects": [],
+  "activeCompounds": [
+    "curcumin",
+    "demethoxycurcumin",
+    "bisdemethoxycurcumin"
+  ],
+  "effects": [
+    "pain relief",
+    "anti-inflammatory"
+  ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "interactions": [
+    "Potential additive bleeding risk with anticoagulant or antiplatelet medicines."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Use caution with anticoagulants or antiplatelet drugs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: turmeric",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=turmeric&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: turmeric",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=turmeric",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: turmeric",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=turmeric",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.028Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "lastUpdated": "2026-04-03T23:27:42Z",
+  "description": "Turmeric is typically selected for daily wellness routines where users want a familiar food-compatible herb with standardized extract options available.",
+  "dosage": "Common oral use is about 1-3 g dried rhizome daily or standardized curcumin extracts per label.",
+  "duration": "Usually framed as a daily consistency herb; reassess tolerance and medication context during longer use periods.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [],
+  "preparation": "extract",
+  "region": "unknown",
+  "therapeuticUses": [
+    "Daily food-plus-supplement wellness routines",
+    "Standardized curcumin capsule comparisons for consistency",
+    "Long-horizon routines where convenience and adherence matter"
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],
   "slug": "turmeric",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Frequently compared for long-term daily use, food-first routines, and extract-based convenience formats.",
+  "evidenceLevel": "Moderate evidence for selected inflammatory-context outcomes in standardized curcumin products; culinary turmeric and extracts are not equivalent.",
+  "relatedEntities": [
+    "ginger",
+    "silybum-marianum",
+    "reishi-mushroom",
+    "tulsi"
+  ],
   "relatedCompounds": []
 }

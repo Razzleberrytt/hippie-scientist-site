@@ -6,11 +6,9 @@
   "mechanism": "anticholinergic activity",
   "activeCompounds": [],
   "effects": [
-    "hallucinations",
-    "stupor",
-    "anti-spasmodic",
-    "anti",
-    "spasmodic"
+    "relaxation",
+    "psychedelic",
+    "dissociation"
   ],
   "contraindications": [
     "avoid in pregnancy",
@@ -20,10 +18,10 @@
     "avoid with cardiovascular issues"
   ],
   "interactions": [
-    "potentiates other anticholinergics",
-    "cns depressants.",
-    "Interacts with CNS depressants",
-    "anticholinergic drugs"
+    "Avoid with: potentiates other anticholinergics",
+    "Avoid with: cns depressants",
+    "Avoid with: Interacts with CNS depressants",
+    "Avoid with: anticholinergic drugs"
   ],
   "safetyNotes": "dry mouth,confusion,hallucinations,elevated heart rate.,High,contains atropine,scopolamine,hyoscyamine.,Highly toxic in moderate doses.",
   "sources": [
@@ -34,11 +32,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.958Z",
-  "description": "A legendary plant with anthropomorphic root; used as sedative and aphrodisiac.",
+  "description": "Mandrake root is a medicinal herb traditionally used for hallucinations and stupor.",
   "dosage": "Extremely risky,used historically in small root slices.",
   "duration": "121.0",
   "legalStatus": "Controlled / Toxic",
-  "preparation": "Decoction, salve, wine tincture.",
+  "preparation": "tincture",
   "region": "Mediterranean and Middle East",
   "therapeuticUses": [
     "historically used as anesthetic",

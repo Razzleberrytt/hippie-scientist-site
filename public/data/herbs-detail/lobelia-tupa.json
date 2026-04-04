@@ -3,15 +3,22 @@
   "latin": "Lobelia tupa",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Mild hallucinogenic; muscle relaxant and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild hallucinogenic; muscle relaxant and sedative. No direct region data. Contextual inference: Mild hallucinogenic; muscle relaxant and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild hallucinogenic; muscle relaxant and sedative. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "mild hallucinogenic",
-    "muscle relaxant and sedative"
+    "relaxation",
+    "psychedelic"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "caution,Respiratory stimulation,nausea,toxicity in high doses,No direct toxicity data. Contextual inference: Mild hallucinogenic,muscle relaxant and sedative. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Mild hallucinogenic,muscle relaxant and sedative. none.",
+  "interactions": [
+    "Caution with: Interaction evidence is limited",
+    "Caution with: use caution with prescription medicines",
+    "Caution with: especially CNS active",
+    "Avoid with: anticoagulant",
+    "Caution with: hepatotoxic",
+    "Caution with: blood pressure/glucose lowering drugs"
+  ],
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Lobelia tupa (TaxID 104598)",
@@ -24,8 +31,8 @@
   "dosage": "Very low,traditionally used",
   "duration": "3–6 hours",
   "legalStatus": "Unregulated",
-  "preparation": "Leaves dried and smoked or infused; contains lobeline alkaloids; used traditionally in South America; strong effects",
-  "region": "No direct region data. Contextual inference: Mild hallucinogenic; muscle relaxant and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild hallucinogenic; muscle relaxant and sedative. none. ; nan; nan",
+  "preparation": "smoked",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

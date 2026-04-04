@@ -6,9 +6,8 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "cardiotonic",
-    "diuretic",
-    "contains cardiac glycosides"
+    "cardiovascular",
+    "detoxification"
   ],
   "contraindications": [],
   "interactions": [],
@@ -25,8 +24,8 @@
   "dosage": "Strictly regulated,cardiac uses",
   "duration": "6–10 hours",
   "legalStatus": "Controlled; regulated for cardiac use",
-  "preparation": "Dried leaves or flowers decocted or tinctured; use with extreme caution due to cardiac glycosides",
-  "region": "No direct region data. Contextual inference: Cardiotonic, diuretic; contains cardiac glycosides. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cardiotonic, diuretic; contains cardiac glycosides. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

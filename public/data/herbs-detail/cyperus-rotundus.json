@@ -6,11 +6,9 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "digestive",
     "anti-inflammatory",
-    "hormone balancing",
-    "anti",
-    "inflammatory"
+    "digestive support",
+    "hormonal tonic"
   ],
   "contraindications": [],
   "interactions": [],
@@ -27,8 +25,8 @@
   "dosage": "250,750 mg,day rhizome extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal in most countries",
-  "preparation": "Rhizomes dried, powdered, or decocted; widely used in Ayurveda and TCM for digestion and menstruation regulation",
-  "region": "No direct region data. Contextual inference: Digestive, anti-inflammatory, hormone balancing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive, anti-inflammatory, hormone balancing. none. ; nan; nan",
+  "preparation": "extract",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

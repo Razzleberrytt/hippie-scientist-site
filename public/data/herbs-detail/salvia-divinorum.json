@@ -4,15 +4,13 @@
   "class": "dissociative / sedative",
   "intensity": "No direct intensity data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. No direct region data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. ; nan; nan. ; nan; nan",
   "mechanism": "salvinorin a is a kappa-opioid agonist | dissociative hallucinogen",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "salvinorin A"
+  ],
   "effects": [
-    "intense dissociative hallucinogen",
-    "short-acting visionary states",
-    "visual hallucinations",
-    "altered sense of reality",
-    "dissociation",
-    "short",
-    "acting visionary states"
+    "psychedelic",
+    "visionary",
+    "dissociation"
   ],
   "contraindications": [
     "avoid with unstable mental health conditions",
@@ -30,7 +28,8 @@
     "3].",
     "May intensify effects of sedatives and dissociatives"
   ],
-  "safetyNotes": "dysphoria,confusion.,No direct toxicity data. Contextual inference: Intense dissociative hallucinogen,short-acting visionary states. Salvinorin a is a kappa-opioid agonist,dissociative hallucinogen..,nan.. Salvinorin A is a kappa-opioid agonist,dissociative hallucinogen.. Intense dissociative hallucinogen,short-acting visionary states.,tiredness,dizziness,amnesia,potential for transient psychosis in vulnerable individuals [3,2].,Low physiological toxicity,intense psychological effects.,Low toxicity,animal studies show minimal organ damage even at high doses [3,3].",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Avoid combining with sedatives, alcohol, or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Salvia divinorum (TaxID 28513)",
@@ -40,11 +39,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.017Z",
   "description": "Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Intense dissociative hallucinogen,short,acting visionary states. Salvinorin a is a kappa,opioid agonist,dissociative hallucinogen..,nan.. Salvinorin A is a kappa,dissociative hallucinogen.. Intense dissociative hallucinogen,acting visionary states. No direct region data. Contextual inference: Intense dissociative hallucinogen,acting visionary states.,nan.,200,500 mcg salvinorin A for effects,varies based on method.",
+  "dosage": "",
   "duration": "5–30 minutes (smoked), 1–2 hours (oral)",
   "legalStatus": "Controlled or restricted in many countries",
-  "preparation": "No direct preparation data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. No direct region data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. ; nan; nan",
+  "preparation": "smoked",
+  "region": "🇲🇽 latin america",
   "therapeuticUses": [
     "shamanic rituals",
     "research on consciousness.",

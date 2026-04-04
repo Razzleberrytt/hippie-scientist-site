@@ -10,8 +10,8 @@
     "alkaloids"
   ],
   "effects": [
-    "blood sugar regulation",
-    "cytotoxic effects on cancer cells"
+    "antioxidant",
+    "metabolism enhancer"
   ],
   "contraindications": [
     "avoid in pregnancy"
@@ -19,7 +19,8 @@
   "interactions": [
     "Enhances effect of antidiabetic and chemotherapeutic drugs"
   ],
-  "safetyNotes": "Generally regarded as safe in traditional use,Bitterness may cause nausea,Low to moderate,Approx. 1500 mg/kg in rodents",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Vernonia amygdalina",
@@ -32,7 +33,7 @@
   "dosage": "Leaf juice or infusion, 100–200 ml daily",
   "duration": "420",
   "legalStatus": "Unregulated",
-  "preparation": "Crushed fresh leaves or boiled infusion",
+  "preparation": "tea",
   "region": "Tropical Africa",
   "therapeuticUses": [
     "Type 2 diabetes",

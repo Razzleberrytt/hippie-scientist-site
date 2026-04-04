@@ -6,9 +6,7 @@
   "mechanism": "",
   "activeCompounds": [],
   "effects": [
-    "adaptogen",
-    "mental performance enhancer",
-    "antidepressant"
+    "focus"
   ],
   "contraindications": [
     "avoid with bipolar disorder",
@@ -19,7 +17,8 @@
     "maois",
     "stimulants."
   ],
-  "safetyNotes": "safe,irritability,dry mouth.,No direct toxicity data. Contextual inference: Adaptogen,mental performance enhancer,antidepressant. Inhibits monoamine oxidase,modulates cortisol and neurotransmitters..,nan.. Inhibits monoamine oxidase,modulates cortisol and neurotransmitters.. Adaptogen,antidepressant.,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rhodiola rosea (TaxID 203015)",
@@ -28,16 +27,16 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.007Z",
-  "description": "Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.",
-  "dosage": "100,400 mg,day extract (standardized),No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "description": "Rhodiola rosea is a medicinal herb traditionally used for adaptogen and mental performance enhancer.",
+  "dosage": "Prioritize products that disclose rosavin/salidroside profile and per-serving milligrams; avoid opaque blends.",
+  "duration": "Commonly used in structured blocks with periodic reassessment rather than indefinite escalation.",
   "legalStatus": "Legal globally",
-  "preparation": "No direct preparation data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [
-    "fatigue",
-    "depression",
-    "cognitive support."
+    "Demand-heavy workday resilience support",
+    "Non-stimulant adaptogen comparison alongside ashwagandha",
+    "Daytime mental stamina routines with label-first product selection"
   ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -46,8 +45,13 @@
   ],
   "slug": "rhodiola-rosea",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Often chosen for daytime stress-load management and cognitive-demand periods where non-caffeine support is desired.",
+  "evidenceLevel": "Moderate evidence for fatigue/stress-related outcomes in selected extract studies; quality and standardization remain key purchase filters.",
+  "relatedEntities": [
+    "ashwagandha",
+    "bacopa-monnieri",
+    "lion-s-mane",
+    "tulsi"
+  ],
   "relatedCompounds": []
 }

@@ -10,13 +10,13 @@
   ],
   "effects": [
     "pain relief",
-    "reduced inflammation"
+    "anti-inflammatory"
   ],
   "contraindications": [
     "avoid in renal disease due to limited safety profile"
   ],
   "interactions": [
-    "Additive effect with NSAIDs"
+    "May potentiate: Additive effect with NSAIDs"
   ],
   "safetyNotes": "Safe at traditional doses,Rare headache or GI upset,Low to moderate",
   "sources": [
@@ -31,7 +31,7 @@
   "dosage": "Bark decoction or root infusion",
   "duration": "360",
   "legalStatus": "Not controlled",
-  "preparation": "Boiled bark tea or macerated root",
+  "preparation": "tea",
   "region": "East and West Africa",
   "therapeuticUses": [
     "Arthritis",

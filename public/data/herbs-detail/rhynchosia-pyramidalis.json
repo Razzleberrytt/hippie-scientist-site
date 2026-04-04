@@ -11,7 +11,7 @@
   ],
   "effects": [
     "pain relief",
-    "immune modulation"
+    "immune support"
   ],
   "contraindications": [
     "avoid in pregnancy",
@@ -20,7 +20,8 @@
   "interactions": [
     "May potentiate NSAIDs and immunosuppressants"
   ],
-  "safetyNotes": "Generally safe with traditional dosage,Mild gastrointestinal discomfort,Low toxicity,Not determined in humans",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rhynchosia pyramidalis (TaxID 1179171)",
@@ -29,11 +30,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.972Z",
-  "description": "Traditional African medicinal herb with analgesic and anti-inflammatory use",
+  "description": "Rhynchosia pyramidalis is a medicinal herb traditionally used for pain relief and immune modulation.",
   "dosage": "Infusion or decoction, 2–3 cups per day",
   "duration": "360",
   "legalStatus": "Unregulated",
-  "preparation": "Dried root decoction or tea",
+  "preparation": "tea",
   "region": "Sub-Saharan Africa",
   "therapeuticUses": [
     "Analgesic",

@@ -6,9 +6,8 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "expectorant",
-    "antispasmodic",
-    "used for respiratory issues"
+    "relaxation",
+    "respiratory support"
   ],
   "contraindications": [],
   "interactions": [],
@@ -25,8 +24,8 @@
   "dosage": "250,500 mg,day root",
   "duration": "3–6 hours",
   "legalStatus": "Used in herbalism; unregulated",
-  "preparation": "Roots decocted and used traditionally as an expectorant; not commonly used fresh",
-  "region": "No direct region data. Contextual inference: Expectorant, antispasmodic, used for respiratory issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Expectorant, antispasmodic, used for respiratory issues. none. ; nan; nan",
+  "preparation": "raw",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

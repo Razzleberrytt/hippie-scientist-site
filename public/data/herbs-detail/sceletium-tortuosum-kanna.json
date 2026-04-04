@@ -4,11 +4,14 @@
   "class": "empathogen / euphoriant",
   "intensity": "Moderate",
   "mechanism": "selective serotonin reuptake inhibition (ssri) and phosphodiesterase-4 (pde4) inhibition [9 | 4]",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "mesembrine",
+    "mesembrenone",
+    "mesembrenol",
+    "tortuosamine"
+  ],
   "effects": [
-    "mood lift",
-    "empathy",
-    "sociability"
+    "mood"
   ],
   "contraindications": [
     "avoid with do not combine with other serotonergic substances",
@@ -21,7 +24,8 @@
     "stimulants [9",
     "4]."
   ],
-  "safetyNotes": "headache,nausea,mild sedation [9,4].,Low toxicity at traditional doses [9",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid use during pregnancy unless advised by a clinician; Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: sceletium tortuosum (kanna)",
@@ -31,11 +35,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.018Z",
   "description": "south african succulent chewed to elevate mood and decrease tension.",
-  "dosage": "No direct dosage data. Contextual inference: south african succulent chewed to elevate mood and decrease tension.. Selective serotonin reuptake inhibition (SSRI) and phosphodiesterase,4 (PDE4) inhibition [9,4].. Mood lift,empathy,sociability. 🌎 unknown,global.",
+  "dosage": "Extract products vary; follow labeled serving sizes and avoid combining with serotonergic drugs.",
   "duration": "121.0",
   "legalStatus": "Legal, sometimes restricted",
-  "preparation": "Chew, snuff, extract",
-  "region": "🌎 unknown / global",
+  "preparation": "smoked",
+  "region": "",
   "therapeuticUses": [
     "mood enhancement",
     "anti-anxiety",

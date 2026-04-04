@@ -6,15 +6,14 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "antioxidant",
     "anti-inflammatory",
-    "immune",
-    "anti",
-    "inflammatory"
+    "immune support",
+    "antioxidant"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,Generally safe,high doses may cause nausea,diarrhea,No direct toxicity data. Contextual inference: Antioxidant,anti-inflammatory,immune support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antioxidant,immune support. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rosa canina (TaxID 74635)",
@@ -23,12 +22,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.010Z",
-  "description": "Antioxidant, anti-inflammatory, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Rosa canina is a medicinal herb traditionally used for antioxidant and anti-inflammatory-inflammatory.",
   "dosage": "500,1000 mg,day fruit or extract",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",
-  "preparation": "Hips dried for teas, syrups, or tinctures; rich in vitamin C and anti-inflammatory compounds",
-  "region": "No direct region data. Contextual inference: Antioxidant, anti-inflammatory, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant, anti-inflammatory, immune support. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

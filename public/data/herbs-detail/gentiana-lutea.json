@@ -3,16 +3,22 @@
   "latin": "Gentiana lutea",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Bitter tonic, appetite stimulant, digestive support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, appetite stimulant, digestive support. No direct region data. Contextual inference: Bitter tonic, appetite stimulant, digestive support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, appetite stimulant, digestive support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "bitter tonic",
-    "appetite stimulant",
-    "digestive"
+    "stimulation",
+    "digestive support"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,GI irritation,nausea,headache,avoid in gastric ulcers,No direct toxicity data. Contextual inference: Bitter tonic,appetite stimulant,digestive support. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Bitter tonic,digestive support. none.",
+  "interactions": [
+    "Caution with: Interaction evidence is limited",
+    "Caution with: use caution with prescription medicines",
+    "Caution with: especially CNS active",
+    "Avoid with: anticoagulant",
+    "Caution with: hepatotoxic",
+    "Caution with: blood pressure/glucose lowering drugs"
+  ],
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Gentiana lutea (TaxID 38851)",
@@ -25,8 +31,8 @@
   "dosage": "500,1000 mg,day root extract or 1,2 g infusion",
   "duration": "2–4 hours",
   "legalStatus": "Legal globally",
-  "preparation": "Roots dried and tinctured or decocted; used as a bitter tonic for digestion",
-  "region": "No direct region data. Contextual inference: Bitter tonic, appetite stimulant, digestive support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, appetite stimulant, digestive support. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

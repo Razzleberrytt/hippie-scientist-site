@@ -3,32 +3,44 @@
   "latin": "silene undulata",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct region data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.",
-  "mechanism": "",
+  "mechanism": "Saponins may contribute membrane and immune-modulating effects",
   "activeCompounds": [
     "triterpenoid saponins"
   ],
   "effects": [
-    "used by xhosa shamans to induce vivid",
-    "meaningful dreams used by xhosa shamans to induce vivid",
-    "meaningful dreams"
+    "visionary"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Used by xhosa shamans to induce vivid,meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid,meaningful dreams... Used by Xhosa shamans to induce vivid,meaningful dreams.. No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid,meaningful dreams.. Used by Xhosa shamans to induce vivid,meaningful dreams.",
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: silene undulata (TaxID 1857566)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1857566&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: silene undulata",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=silene+undulata",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: silene undulata",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=silene+undulata",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.021Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Used by xhosa shamans to induce vivid, meaningful dreams..",
-  "dosage": "No direct dosage data. Contextual inference: Used by xhosa shamans to induce vivid,meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid,meaningful dreams... Used by Xhosa shamans to induce vivid,meaningful dreams.. No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid,meaningful dreams.. Used by Xhosa shamans to induce vivid,meaningful dreams.. No direct region data. Contextual inference: Used by xhosa shamans to induce vivid,meaningful dreams.",
+  "dosage": "",
   "duration": "No direct duration data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct region data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.",
   "legalStatus": "",
-  "preparation": "No direct preparation data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct region data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.",
-  "region": "No direct region data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid, meaningful dreams... Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.. Used by Xhosa shamans to induce vivid, meaningful dreams.",
+  "preparation": "",
+  "region": "south africa",
   "therapeuticUses": [],
   "traditionalUse": "Used by Xhosa shamans to induce vivid, meaningful dreams.",
   "sideEffects": [],

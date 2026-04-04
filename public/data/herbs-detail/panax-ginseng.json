@@ -6,13 +6,13 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "adaptogen",
-    "energy booster",
-    "cognitive enhancer"
+    "stimulation",
+    "focus"
   ],
   "contraindications": [],
   "interactions": [],
-  "safetyNotes": "safe,Insomnia,nervousness,GI upset,avoid with stimulants,No direct toxicity data. Contextual inference: Adaptogen,energy booster,cognitive enhancer. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Adaptogen,cognitive enhancer. none.",
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with other stimulants; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Panax ginseng (TaxID 4054)",
@@ -21,12 +21,12 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.986Z",
-  "description": "Adaptogen, energy booster, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Panax ginseng is a medicinal herb traditionally used for adaptogen and energy booster.",
   "dosage": "250,1000 mg,day root extract",
   "duration": "4–8 hours",
   "legalStatus": "Legal globally; traditional and supplement use",
-  "preparation": "Roots dried and decocted, tinctured, or powdered; tonic and adaptogen for energy and vitality",
-  "region": "No direct region data. Contextual inference: Adaptogen, energy booster, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, energy booster, cognitive enhancer. none. ; nan; nan",
+  "preparation": "tincture",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

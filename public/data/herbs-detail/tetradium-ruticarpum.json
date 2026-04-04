@@ -6,15 +6,17 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "analgesic",
-    "anti-inflammatory",
-    "stimulant (tcm use)",
-    "anti",
-    "inflammatory"
+    "stimulation",
+    "pain relief",
+    "anti-inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "GI upset,dizziness,contains evodiamine which may be toxic in excess,No direct toxicity data. Contextual inference: Analgesic,anti-inflammatory,stimulant (tcm use). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Analgesic,stimulant (TCM use). none.",
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Do not combine with serotonergic drugs or MAOIs without medical guidance; Lower dose or stop if nausea, vomiting, or GI upset occurs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Tetradium ruticarpum (TaxID 354523)",
@@ -24,11 +26,11 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.025Z",
   "description": "Analgesic, anti-inflammatory, stimulant (tcm use). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Analgesic,anti,inflammatory,stimulant (tcm use). Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Analgesic,stimulant (TCM use). No direct region data. Contextual inference: Analgesic,stimulant (TCM use). none.,nan.",
+  "dosage": "",
   "duration": "6–8 hours",
   "legalStatus": "Legal in traditional medicine contexts",
-  "preparation": "Fruits decocted in TCM (Wu Zhu Yu); used for warming digestion and pain relief",
-  "region": "No direct region data. Contextual inference: Analgesic, anti-inflammatory, stimulant (tcm use). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic, anti-inflammatory, stimulant (TCM use). none. ; nan; nan",
+  "preparation": "",
+  "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

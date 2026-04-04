@@ -3,16 +3,15 @@
   "latin": "Banisteriopsis caapi",
   "class": "MAOI, Entheogen",
   "intensity": "moderate",
-  "mechanism": "",
+  "mechanism": "Alkaloid constituents can modulate neuronal signaling pathways",
   "activeCompounds": [
     "harmine",
     "harmaline",
     "tetrahydroharmine"
   ],
   "effects": [
-    "dreamlike visions",
-    "introspection",
-    "emotional release"
+    "mood",
+    "visionary"
   ],
   "contraindications": [
     "may interact with ssris",
@@ -20,25 +19,35 @@
     "may interact with maois"
   ],
   "interactions": [
-    "MAOIs",
-    "SSRIs",
-    "psychedelics"
+    "Avoid with: MAOIs",
+    "Avoid with: SSRIs",
+    "Avoid with: psychedelics"
   ],
-  "safetyNotes": "Traditional use considered safe with proper guidance,Vomiting (purge),dizziness,emotional intensity,Moderate,Not well established,caution,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "safetyNotes": "May interact with ssris; Avoid with psychiatric disorders; May interact with maois",
   "sources": [
     {
       "title": "NCBI Taxonomy: Banisteriopsis caapi (TaxID 577683)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=577683&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-id)"
+    },
+    {
+      "title": "PubMed search: Banisteriopsis caapi",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Banisteriopsis+caapi",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: Banisteriopsis caapi",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Banisteriopsis+caapi",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.864Z",
+  "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Amazonian vine used in ayahuasca brew for vision and healing",
   "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Restricted in some countries",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "extract",
+  "region": "amazon basin: peru, brazil",
   "therapeuticUses": [
     "PTSD",
     "depression (investigational)"

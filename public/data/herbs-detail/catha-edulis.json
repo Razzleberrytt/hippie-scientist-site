@@ -5,14 +5,14 @@
   "intensity": "moderate",
   "mechanism": "primary psychoactive effects are attributed to cathinone/cathine stimulant activity on monoaminergic pathways",
   "activeCompounds": [],
-  "effects": [
-    "evidence synthesis emphasizes burden and risk outcomes rather than validated therapeutic indication"
-  ],
+  "effects": [],
   "contraindications": [
     "avoid with unstable mental health conditions"
   ],
   "interactions": [
-    "Potentially hazardous additive stimulation with sympathomimetics, caffeine-heavy products, or other psychoactive substances."
+    "May potentiate: Potentially hazardous additive stimulation with sympathomimetics",
+    "Caution with: caffeine heavy products",
+    "Caution with: other psychoactive substances"
   ],
   "safetyNotes": "Systematic-review literature associates frequent use with cardiovascular, psychiatric, sleep, and oral-health concerns.",
   "sources": [
@@ -27,8 +27,8 @@
   "dosage": "No safe therapeutic dosing framework is established for self-care use.",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "legalStatus": "legal",
-  "preparation": "Use is most commonly fresh-leaf chewing rather than standardized medicinal dosing forms.",
-  "region": "Most strongly documented in the Horn of Africa and the Arabian Peninsula, with diaspora use globally.",
+  "preparation": "extract",
+  "region": "yemen, ethiopia",
   "therapeuticUses": [],
   "traditionalUse": "Traditional social use (leaf chewing) is documented in East African and Arabian contexts and should remain separate from medical efficacy claims.",
   "sideEffects": [],

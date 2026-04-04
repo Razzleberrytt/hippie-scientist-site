@@ -11,15 +11,9 @@
     "nepetaefolin"
   ],
   "effects": [
-    "mild euphoria",
-    "sedation",
-    "calm",
-    "euphoria",
     "relaxation",
     "stimulation",
-    "mild sedation",
-    "mild euphoric and sedative",
-    "used in traditional african and caribbean medicine"
+    "mood"
   ],
   "contraindications": [
     "avoid in pregnancy",
@@ -27,11 +21,11 @@
     "avoid with psychiatric disorders"
   ],
   "interactions": [
-    "CNS depressants",
-    "cannabis",
-    "cns depressants."
+    "Avoid with: CNS depressants",
+    "Caution with: cannabis",
+    "Avoid with: cns depressants"
   ],
-  "safetyNotes": "Generally regarded as low risk,Drowsiness,dry mouth,Low,Not known,Low risk profile,Mild nausea or lethargy when overused,Not established,sedation,dry mouth.,No direct toxicity data. Contextual inference: Mild euphoric and sedative,used in traditional african and caribbean medicine. Similar to wild dagga,interacts with cannabinoid receptors..,nan.. Similar to Wild Dagga,interacts with cannabinoid receptors.. Mild euphoric and sedative,used in traditional African and Caribbean medicine.",
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Leonotis nepetifolia (TaxID 483799)",
@@ -44,8 +38,8 @@
   "dosage": "No direct dosage data. Contextual inference: Mild euphoric and sedative,used in traditional african and caribbean medicine. Similar to wild dagga,interacts with cannabinoid receptors..,nan.. Similar to Wild Dagga,interacts with cannabinoid receptors.. Mild euphoric and sedative,used in traditional African and Caribbean medicine. No direct region data. Contextual inference: Mild euphoric and sedative,used in traditional African and Caribbean medicine.,nan.",
   "duration": "1–2 hours",
   "legalStatus": "Unregulated",
-  "preparation": "No direct preparation data. Contextual inference: Mild euphoric and sedative; used in traditional african and caribbean medicine. Similar to wild dagga; interacts with cannabinoid receptors.. ; nan; nan.. Similar to Wild Dagga; interacts with cannabinoid receptors.. Mild euphoric and sedative; used in traditional African and Caribbean medicine. No direct region data. Contextual inference: Mild euphoric and sedative; used in traditional african and caribbean medicine. Similar to wild dagga; interacts with cannabinoid receptors.. ; nan; nan.. Similar to Wild Dagga; interacts with cannabinoid receptors.. Mild euphoric and sedative; used in traditional African and Caribbean medicine. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Mild euphoric and sedative; used in traditional african and caribbean medicine. Similar to wild dagga; interacts with cannabinoid receptors.. ; nan; nan.. Similar to Wild Dagga; interacts with cannabinoid receptors.. Mild euphoric and sedative; used in traditional African and Caribbean medicine. ; nan; nan",
+  "preparation": "",
+  "region": "unknown",
   "therapeuticUses": [
     "Stress relief",
     "mild pain",

@@ -7,29 +7,51 @@
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "interactions": [
+    "May potentiate stimulant effects when combined with sympathomimetic agents."
+  ],
+  "safetyLevel": "moderate",
+  "safetyNotes": "Moderate risk: side effects or medication interactions are plausible. Avoid combining with other stimulants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: reishi mushroom",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=reishi%20mushroom&mode=Info",
       "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+    },
+    {
+      "title": "PubMed search: reishi mushroom",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=reishi+mushroom",
+      "note": "Literature index for pharmacology and safety evidence"
+    },
+    {
+      "title": "PubChem search: reishi mushroom",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=reishi+mushroom",
+      "note": "Chemical and bioactivity reference index"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.006Z",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "lastUpdated": "2026-04-03T23:27:42Z",
+  "description": "Reishi mushroom is a medicinal herb traditionally used for daily adaptogen-style mushroom routines and evening-friendly non-stimulant wellness support.",
+  "dosage": "Use products with clear fruiting-body and extract details; dose comparisons should stay within similar extract types.",
+  "duration": "Usually framed as a consistency herb used over weeks rather than immediate-effect expectations.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [],
+  "preparation": "tea",
+  "region": "🇨🇳 east asia",
+  "therapeuticUses": [
+    "Daily adaptogen-style mushroom routines",
+    "Evening-friendly non-stimulant wellness support",
+    "Mushroom product comparisons emphasizing extract transparency"
+  ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [],
   "slug": "reishi-mushroom",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
+  "categoryUseContext": "Often compared for evening-friendly adaptogen routines and immune-wellness positioning in mushroom categories.",
+  "evidenceLevel": "Early-to-moderate human evidence depending on endpoint; extract quality and mushroom material disclosure are critical.",
+  "relatedEntities": [
+    "lion-s-mane",
+    "turmeric",
+    "ashwagandha",
+    "silybum-marianum"
+  ],
   "relatedCompounds": []
 }
