@@ -2,8 +2,11 @@
   "name": "hypericum perforatum",
   "latin": "hypericum perforatum",
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
+  "mechanism": "Likely pharmacologic activity is multifactorial (including effects on monoamine signaling and drug-metabolizing enzymes). Interaction liability is well established and clinically important.",
+  "activeCompounds": [
+    "Hyperforin",
+    "Hypericin"
+  ],
   "effects": [
     "No direct effects data. Contextual inference:",
     "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -13,16 +16,32 @@
   "contraindications": [
     "Use with SSRIs, pregnancy, strong sunlight exposure"
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
+  "safetyNotes": "St. John's wort can cause clinically significant herb-drug interactions and should not be self-combined with prescription antidepressants. Use in pregnancy is generally avoided because of potential fetal risk signals.",
+  "sources": [
+    {
+      "title": "NCCIH: St. John's Wort and Depression — In Depth",
+      "url": "https://www.nccih.nih.gov/health/st-johns-wort"
+    },
+    {
+      "title": "PubChem: Hyperforin",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5271805"
+    },
+    {
+      "title": "PubChem: Hypericin",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281051"
+    }
+  ],
   "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+  "description": "Hypericum perforatum preparations vary substantially by extract profile. Clinical outcomes are indication- and product-dependent.",
+  "dosage": "Clinical studies are mostly short term (often up to about 12 weeks) with standardized extracts; dosing varies by product.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
+  "interactions": [
+    "Can reduce effectiveness of many medicines (including some antidepressants, oral contraceptives, warfarin, immunosuppressants, seizure medicines, HIV therapies, and some cancer therapies).",
+    "Combining with serotonergic medicines can increase risk of serotonin-related adverse effects."
+  ],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Commercial use is primarily oral extracts from flowering aerial parts.",
+  "region": "Native to Europe and parts of Asia; now naturalized in many temperate regions.",
   "therapeuticUses": [
     "Mild to moderate depression, anxiety, sleep issues"
   ],
@@ -36,5 +55,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "St. John's wort is most studied for depression symptoms; evidence suggests possible benefit for mild to moderate depression, with uncertainty for severe depression or long-term use."
 }
