@@ -3,11 +3,11 @@
   "latin": "Camellia sinensis",
   "class": "Stimulant, Nootropic",
   "intensity": "Mild to moderate",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "Caffeine antagonizes adenosine receptors and increases alertness. Catechins (including EGCG) have antioxidant and signaling effects in vitro and in vivo; clinical outcomes are plausible but depend on dose, matrix, and population.",
   "activeCompounds": [
     "Caffeine",
-    "L-theanine",
-    "catechins"
+    "Epigallocatechin gallate (EGCG)",
+    "L-theanine"
   ],
   "effects": [
     "Alertness",
@@ -25,26 +25,37 @@
     "avoid during pregnancy and breastfeeding",
     "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "safetyNotes": "Safe in moderation; Jitters; insomnia; stomach upset; Low; LD50 (caffeine): ~190 mg/kg (human est.); safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+  "safetyNotes": "Brewed tea is generally safe for most adults in moderate intake, but excess caffeine can cause insomnia, palpitations, anxiety, and GI symptoms. Concentrated green tea extracts have been linked to rare but potentially serious liver injury; stop use and seek care for jaundice, dark urine, or persistent abdominal symptoms.",
   "sources": [
     {
-      "title": "Scientific research"
+      "title": "NCCIH: Green Tea",
+      "url": "https://www.nccih.nih.gov/health/green-tea"
     },
     {
-      "title": "tea pharmacology"
+      "title": "LiverTox: Green Tea",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK547925/"
+    },
+    {
+      "title": "PubChem: Caffeine",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2519"
+    },
+    {
+      "title": "PubChem: Epigallocatechin gallate (EGCG)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/65064"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "World’s most consumed psychoactive beverage, valued for stimulation and focus",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+  "description": "Green, black, and oolong teas all derive from Camellia sinensis and differ mainly by processing. Human evidence supports short-term alertness effects from caffeine and potential cardiometabolic benefits from long-term tea intake patterns, but effect sizes vary and supplement extracts are not equivalent to brewed tea.",
+  "dosage": "No single universal dose for all uses. Moderate brewed tea intake is the best-studied pattern; high-dose extract products require cautious use and label adherence.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
-    "Stimulants",
-    "blood thinners"
+    "Caffeine-containing tea products can interact with stimulant and cardiovascular medications, and may alter exposure to selected drugs.",
+    "NCCIH specifically notes interaction concerns between green tea and nadolol, and possible interactions with atorvastatin and raloxifene.",
+    "Separate high-dose extracts from complex medication regimens unless reviewed by a clinician."
   ],
   "legalStatus": "Legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Prepared mainly as brewed leaf tea; supplements include concentrated extracts and decaffeinated catechin products with different safety profiles.",
+  "region": "Native to East and South Asia; now cultivated globally in tropical and subtropical tea-growing regions.",
   "therapeuticUses": [
     "Mental alertness",
     "antioxidant support",
@@ -74,5 +85,6 @@
     "caffeine",
     "l-theanine",
     "catechins"
-  ]
+  ],
+  "summary": "Camellia sinensis (tea plant) provides caffeine and catechins; tea consumption is widely used for alertness and cardiometabolic support, while concentrated extracts require greater safety caution."
 }

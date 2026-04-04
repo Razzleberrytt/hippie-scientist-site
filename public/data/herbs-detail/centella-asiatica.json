@@ -1,9 +1,14 @@
 {
   "name": "centella asiatica",
   "latin": "centella asiatica",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. Boosts collagen synthesis, modulates gaba and blood flow.. ; nan; nan.. Boosts collagen synthesis, modulates GABA and blood flow.. Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. No direct region data. Contextual inference: Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. Boosts collagen synthesis, modulates gaba and blood flow.. ; nan; nan.. Boosts collagen synthesis, modulates GABA and blood flow.. Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine",
-  "activeCompounds": [],
+  "mechanism": "Triterpenes (for example asiaticoside and madecassoside derivatives) are associated with collagen-related signaling, microcirculatory effects, and anti-inflammatory pathways in preclinical work. Clinical mechanism confirmation remains incomplete.",
+  "activeCompounds": [
+    "Asiaticoside",
+    "Madecassoside",
+    "Asiatic acid"
+  ],
   "effects": [
     "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine",
     "Cognitive enhancer",
@@ -15,27 +20,36 @@
     "liver conditions",
     "pregnancy."
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine; drowsiness; skin rash.; No direct toxicity data. Contextual inference: Cognitive enhancer; anxiolytic; wound healing; triterpenes improve circulation. Boosts collagen synthesis; modulates gaba and blood flow..; nan.. Boosts collagen synthesis; modulates GABA and blood flow.. Cognitive enhancer; triterpenes improve circulation.",
+  "safetyNotes": "Usually tolerated in short-term use, but headache, GI upset, and sedation can occur. Rare hepatotoxicity cases have been reported with some gotu kola products; discontinue and seek medical assessment if liver-injury symptoms develop.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
+      "title": "PubMed: Centella asiatica in cosmetology",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29224370/"
     },
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "LiverTox: Gotu Kola",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK589461/"
+    },
+    {
+      "title": "PubChem: Asiaticoside",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/119034"
+    },
+    {
+      "title": "NCBI Taxonomy: Centella asiatica",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4052"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. Boosts collagen synthesis, modulates gaba and blood flow.. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine; No direct dosage data. Contextual inference: Cognitive enhancer; anxiolytic; wound healing; triterpenes improve circulation. Boosts collagen synthesis; modulates gaba and blood flow..; nan.. Boosts collagen synthesis; modulates GABA and blood flow.. Cognitive enhancer; triterpenes improve circulation. No direct region data. Contextual inference: Cognitive enhancer; triterpenes improve circulation.; nan.",
+  "description": "Centella asiatica is used traditionally for skin healing and as a tonic. Modern studies most often examine triterpene-rich preparations for wound-related outcomes or chronic venous insufficiency symptoms; some positive findings exist, but many studies are small or use heterogeneous products.",
+  "dosage": "No broadly accepted single dose across indications. Prefer standardized products used in clinical studies and avoid prolonged unsupervised high-dose use.",
   "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
   "interactions": [
-    "sedatives",
-    "hepatotoxic drugs."
+    "Potential additive sedation with CNS depressants is plausible; monitor for drowsiness.",
+    "Given rare liver-injury reports, use caution with hepatotoxic drugs and avoid multi-ingredient products of unclear quality."
   ],
   "legalStatus": "Legal globally",
-  "preparation": "No direct preparation data. Contextual inference: Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. Boosts collagen synthesis, modulates gaba and blood flow.. ; nan; nan.. Boosts collagen synthesis, modulates GABA and blood flow.. Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. No direct region data. Contextual inference: Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. Boosts collagen synthesis, modulates gaba and blood flow.. ; nan; nan.. Boosts collagen synthesis, modulates GABA and blood flow.. Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. Boosts collagen synthesis, modulates gaba and blood flow.. ; nan; nan.. Boosts collagen synthesis, modulates GABA and blood flow.. Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. ; nan; nan",
+  "preparation": "Used as dried herb infusion, topical formulations, and standardized oral triterpene extracts. Evidence is formulation-specific.",
+  "region": "Native to tropical and subtropical Asia, with distribution in parts of Africa and Oceania; cultivated widely for medicinal use.",
   "therapeuticUses": [
     "cognition",
     "wound healing",
@@ -62,5 +76,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Centella asiatica (gotu kola) is used for wound and venous-support indications; evidence suggests possible benefit in selected preparations, but overall certainty remains limited."
 }
