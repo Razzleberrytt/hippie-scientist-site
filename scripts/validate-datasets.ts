@@ -393,6 +393,16 @@ function validateSourcesField(
   const severity = options.severity ?? 'error'
   const code = options.code ?? 'missing-required-field'
   const findings: AuditIssue[] = []
+  if (value === undefined) {
+    if (!required) return findings
+    findings.push(
+      issue(severity, code, dataset, recordId, "Field 'sources' must not be empty.", {
+        field: 'sources',
+        tier: options.tier,
+      }),
+    )
+    return findings
+  }
   if (!Array.isArray(value)) {
     findings.push(
       issue('error', 'invalid-field-type', dataset, recordId, "Field 'sources' must be an array of source objects.", {
@@ -680,6 +690,19 @@ function summarizeHerbTierGaps(issues: AuditIssue[]) {
   }
 }
 
+function summarizeGateDecision(issues: AuditIssue[]) {
+  const hardStructuralErrorCount = issues.filter(issueItem => issueItem.severity === 'error').length
+  const recommendedGapCount = issues.filter(issueItem => issueItem.code === 'missing-recommended-field').length
+  const researchBacklogGapCount = issues.filter(issueItem => issueItem.code === 'missing-research-backlog-field').length
+
+  return {
+    hardStructuralErrorCount,
+    recommendedGapCount,
+    researchBacklogGapCount,
+    shouldFailValidate: hardStructuralErrorCount > 0,
+  }
+}
+
 function toMarkdownReport(summary: {
   generatedAt: string
   files: Record<string, number>
@@ -751,6 +774,7 @@ function toMarkdownReport(summary: {
     "- Moved to **RECOMMENDED**: `contraindications`, `sources` (+ `sources.title` / `sources.url` subfield checks) because these are high user-value trust/safety fields that should stay visible without failing the full dataset.",
     "- Moved to **RESEARCH_BACKLOG**: `class`, `activeCompounds` because triage shows these are predominantly genuinely absent and not reliably recoverable from internal data.",
     '- Future cleanup phases should prioritize RECOMMENDED gaps on high-traffic/core herbs first, while tracking RESEARCH_BACKLOG as explicit editorial/research debt.',
+    '- `validate:data` gates only on hard/structural validator failures (error severity). RECOMMENDED and RESEARCH_BACKLOG gaps are reported but do not fail validation.',
     '',
     '## Before/after missing-field comparison',
     '',
@@ -1003,6 +1027,7 @@ async function main() {
     triageEvidence,
     issues: dedupedIssues,
   }
+  const gateDecision = summarizeGateDecision(dedupedIssues)
 
   const previousMissingRequiredFieldCount = [
     ...herbList.flatMap((record, index) =>
@@ -1030,8 +1055,18 @@ async function main() {
   console.log(`Markdown report: ${path.relative(ROOT_DIR, MARKDOWN_REPORT_PATH)}`)
   console.log(`Errors: ${summary.issueSummary.bySeverity.error}`)
   console.log(`Warnings: ${summary.issueSummary.bySeverity.warning}`)
+  console.log(`Hard/structural errors: ${gateDecision.hardStructuralErrorCount}`)
+  console.log(`Recommended gaps: ${gateDecision.recommendedGapCount}`)
+  console.log(`Research backlog gaps: ${gateDecision.researchBacklogGapCount}`)
+  console.log(
+    `validate:data gate decision: ${
+      gateDecision.shouldFailValidate
+        ? 'FAIL (hard/structural validator failures detected)'
+        : 'PASS (no hard/structural validator failures)'
+    }`,
+  )
 
-  if (failOnError && summary.issueSummary.bySeverity.error > 0) {
+  if (failOnError && gateDecision.shouldFailValidate) {
     process.exitCode = 1
   }
 }
