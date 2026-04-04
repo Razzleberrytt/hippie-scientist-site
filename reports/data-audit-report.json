@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-04T02:43:38.329Z",
+  "generatedAt": "2026-04-04T02:56:22.091Z",
   "files": {
     "herbsJsonCount": 698,
     "herbDetailFileCount": 676,
@@ -12,7 +12,7 @@
   },
   "issueSummary": {
     "bySeverity": {
-      "error": 3333,
+      "error": 3234,
       "warning": 6324
     },
     "byCode": [
@@ -30,7 +30,7 @@
       },
       {
         "code": "invalid-field-type",
-        "count": 1597
+        "count": 1498
       },
       {
         "code": "placeholder-value",
@@ -60,11 +60,11 @@
       },
       {
         "dataset": "herb-detail",
-        "count": 3808
+        "count": 3759
       },
       {
         "dataset": "herb-list",
-        "count": 3788
+        "count": 3738
       }
     ]
   },
@@ -510,18 +510,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "acorus-americanus",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -633,18 +621,6 @@
       "recordId": "acorus-calamus-var-angustatus",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "acorus-calamus-var-angustatus",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -1724,18 +1700,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "aloysia-citrodora",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -2201,18 +2165,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "amorpha-fruticosa",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -4008,18 +3960,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "artemisia-abrotanum",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -4455,18 +4395,6 @@
       "recordId": "artemisia-ludoviciana",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "artemisia-ludoviciana",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -4912,18 +4840,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "ashwagandha",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -5449,18 +5365,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "ayahuasca",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -5581,18 +5485,6 @@
       "recordId": "bacopa",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "bacopa",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -5859,18 +5751,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "baybean",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -6045,18 +5925,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "betel-nut",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -6096,18 +5964,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "betula-lenta",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -6564,18 +6420,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "boldo",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -6969,18 +6813,6 @@
       "recordId": "brugmansia",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "brugmansia",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -7468,18 +7300,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "byrsonima-crassifolia",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -7522,18 +7342,6 @@
       "recordId": "caapi",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "caapi",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -7708,18 +7516,6 @@
       "recordId": "calamus",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "calamus",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -9083,18 +8879,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "carolina-jessamine",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -9128,18 +8912,6 @@
       "recordId": "casimiroa-edulis",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "casimiroa-edulis",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -9461,18 +9233,6 @@
       "recordId": "cbd",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "cbd",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -11367,18 +11127,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "coca-leaf",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -12215,18 +11963,6 @@
       "recordId": "convolvulus-arvensis",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "convolvulus-arvensis",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -13951,18 +13687,6 @@
       "recordId": "datura-metel",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "datura-metel",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -14553,18 +14277,6 @@
       "recordId": "desmodium-adscendens",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "desmodium-adscendens",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -15200,18 +14912,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "dysphania-ambrosioides",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -15687,18 +15387,6 @@
       "recordId": "elsholtzia-ciliata",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "elsholtzia-ciliata",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -17302,18 +16990,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "ficus-religiosa",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -17473,18 +17149,6 @@
       "recordId": "flame-lily",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "flame-lily",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -18469,18 +18133,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "giant-reed",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -18523,18 +18175,6 @@
       "recordId": "ginger",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "ginger",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -21830,18 +21470,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "justicia-adhatoda",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -25729,18 +25357,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "mitchella-repens",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -26635,18 +26251,6 @@
       "tier": "RECOMMENDED"
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "muira-puama",
-      "message": "Field 'traditionalUse' must be a string, received null.",
-      "field": "traditionalUse",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -26829,18 +26433,6 @@
       "tier": "RECOMMENDED"
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "nan",
-      "message": "Field 'traditionalUse' must be a string, received null.",
-      "field": "traditionalUse",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -26891,18 +26483,6 @@
         "field": "sources.url"
       },
       "tier": "RECOMMENDED"
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "achillea-millefolium",
-      "message": "Field 'traditionalUse' must be a string, received null.",
-      "field": "traditionalUse",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
     },
     {
       "severity": "warning",
@@ -26968,18 +26548,6 @@
         "field": "sources.url"
       },
       "tier": "RECOMMENDED"
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "nan",
-      "message": "Field 'mechanism' must be a string, received null.",
-      "field": "mechanism",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
     },
     {
       "severity": "warning",
@@ -29362,18 +28930,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "perilla-frutescens",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -29539,18 +29095,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "peumus-boldus",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -29791,18 +29335,6 @@
       "recordId": "pimenta-dioica",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "pimenta-dioica",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -30492,18 +30024,6 @@
       "recordId": "pogostemon-cablin",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "pogostemon-cablin",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -32282,18 +31802,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "rhododendron-anthopogon",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -32792,18 +32300,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "rubus-idaeus",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -32906,18 +32402,6 @@
       "recordId": "ruta-graveolens",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "ruta-graveolens",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -33564,18 +33048,6 @@
       "recordId": "salvia-sclarea",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "salvia-sclarea",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -35198,18 +34670,6 @@
       "recordId": "silene-undulata",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "silene-undulata",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -37059,18 +36519,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "tamarindus-indica",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -38042,18 +37490,6 @@
       "tier": "RECOMMENDED"
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "tilia-tomentosa",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-list",
@@ -38633,18 +38069,6 @@
       "recordId": "tropaeolum-majus",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "tropaeolum-majus",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -38874,18 +38298,6 @@
       "recordId": "turnera-diffusa-var-aphrodisiaca",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "turnera-diffusa-var-aphrodisiaca",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -39173,18 +38585,6 @@
       "recordId": "tynanthus-panurensis",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-list",
-      "recordId": "tynanthus-panurensis",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -41724,18 +41124,6 @@
         "field": "sources.url"
       },
       "tier": "RECOMMENDED"
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "achillea-millefolium",
-      "message": "Field 'traditionalUse' must be a string, received null.",
-      "field": "traditionalUse",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
     },
     {
       "severity": "warning",
@@ -42028,18 +41416,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "acorus-americanus",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -42073,18 +41449,6 @@
       "recordId": "acorus-calamus-var-angustatus",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "acorus-calamus-var-angustatus",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -43242,18 +42606,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "aloysia-citrodora",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -43719,18 +43071,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "amorpha-fruticosa",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -45526,18 +44866,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "artemisia-abrotanum",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -45973,18 +45301,6 @@
       "recordId": "artemisia-ludoviciana",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "artemisia-ludoviciana",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -46430,18 +45746,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "ashwagandha",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -46967,18 +46271,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "ayahuasca",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -47138,18 +46430,6 @@
       "recordId": "bacopa",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "bacopa",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -47377,18 +46657,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "baybean",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -47563,18 +46831,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "betel-nut",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -47608,18 +46864,6 @@
       "recordId": "betula-lenta",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "betula-lenta",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -48076,18 +47320,6 @@
       "recordId": "boldo",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "boldo",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -48584,18 +47816,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "brugmansia",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -48986,18 +48206,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "byrsonima-crassifolia",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -49040,18 +48248,6 @@
       "recordId": "caapi",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "caapi",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -49226,18 +48422,6 @@
       "recordId": "calamus",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "calamus",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -50601,18 +49785,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "carolina-jessamine",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -50646,18 +49818,6 @@
       "recordId": "casimiroa-edulis",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "casimiroa-edulis",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -50979,18 +50139,6 @@
       "recordId": "cbd",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "cbd",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -52837,18 +51985,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "coca-leaf",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -53733,18 +52869,6 @@
       "recordId": "convolvulus-arvensis",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "convolvulus-arvensis",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -55469,18 +54593,6 @@
       "recordId": "datura-metel",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "datura-metel",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -56071,18 +55183,6 @@
       "recordId": "desmodium-adscendens",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "desmodium-adscendens",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -56718,18 +55818,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "dysphania-ambrosioides",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -57205,18 +56293,6 @@
       "recordId": "elsholtzia-ciliata",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "elsholtzia-ciliata",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -58820,18 +57896,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "ficus-religiosa",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -58991,18 +58055,6 @@
       "recordId": "flame-lily",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "flame-lily",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -59987,18 +59039,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "giant-reed",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -60041,18 +59081,6 @@
       "recordId": "ginger",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "ginger",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -63283,18 +62311,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "justicia-adhatoda",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -67242,18 +66258,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "mitchella-repens",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -68148,18 +67152,6 @@
       "tier": "RECOMMENDED"
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "muira-puama",
-      "message": "Field 'traditionalUse' must be a string, received null.",
-      "field": "traditionalUse",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -68340,18 +67332,6 @@
         "field": "sources.url"
       },
       "tier": "RECOMMENDED"
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "nan",
-      "message": "Field 'traditionalUse' must be a string, received null.",
-      "field": "traditionalUse",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
     },
     {
       "severity": "warning",
@@ -70851,18 +69831,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "perilla-frutescens",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -71028,18 +69996,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "peumus-boldus",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -71280,18 +70236,6 @@
       "recordId": "pimenta-dioica",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "pimenta-dioica",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -71981,18 +70925,6 @@
       "recordId": "pogostemon-cablin",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "pogostemon-cablin",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -73771,18 +72703,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "rhododendron-anthopogon",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -74281,18 +73201,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "rubus-idaeus",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -74395,18 +73303,6 @@
       "recordId": "ruta-graveolens",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "ruta-graveolens",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -75053,18 +73949,6 @@
       "recordId": "salvia-sclarea",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "salvia-sclarea",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -76627,18 +75511,6 @@
       "recordId": "silene-undulata",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "silene-undulata",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -78488,18 +77360,6 @@
       }
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "tamarindus-indica",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -79471,18 +78331,6 @@
       "tier": "RECOMMENDED"
     },
     {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "tilia-tomentosa",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
       "severity": "warning",
       "code": "missing-recommended-field",
       "dataset": "herb-detail",
@@ -80062,18 +78910,6 @@
       "recordId": "tropaeolum-majus",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "tropaeolum-majus",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -80277,18 +79113,6 @@
       "recordId": "turnera-diffusa-var-aphrodisiaca",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "turnera-diffusa-var-aphrodisiaca",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -80602,18 +79426,6 @@
       "recordId": "tynanthus-panurensis",
       "message": "Field 'class' must be a string, received null.",
       "field": "class",
-      "details": {
-        "expected": "string",
-        "actual": "null"
-      }
-    },
-    {
-      "severity": "error",
-      "code": "invalid-field-type",
-      "dataset": "herb-detail",
-      "recordId": "tynanthus-panurensis",
-      "message": "Field 'legalStatus' must be a string, received null.",
-      "field": "legalStatus",
       "details": {
         "expected": "string",
         "actual": "null"
@@ -102510,7 +101322,6 @@
       "message": "Field 'mechanism' does not match the herb list record.",
       "field": "mechanism",
       "details": {
-        "herbList": null,
         "herbDetail": "DMT acts as a 5-HT2A agonist; psychoactive effects enhanced by MAOIs"
       }
     },
