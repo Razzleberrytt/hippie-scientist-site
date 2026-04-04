@@ -1,0 +1,54 @@
+{
+  "name": "Riboflavin (Vitamin B2)",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Supports cellular energy metabolism",
+    "Supports antioxidant enzyme systems",
+    "Prevents ariboflavinosis (B2 deficiency)"
+  ],
+  "contraindications": [
+    "No major contraindications at nutritional intakes were highlighted in this source set"
+  ],
+  "category": "nutrient",
+  "sources": [
+    {
+      "title": "Riboflavin Fact Sheet for Health Professionals (NIH ODS)",
+      "url": "https://ods.od.nih.gov/factsheets/Riboflavin-HealthProfessional/"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "slug": "riboflavin",
+  "id": "riboflavin",
+  "displayName": "Riboflavin (Vitamin B2)",
+  "description": "Riboflavin is required to form FMN and FAD coenzymes used in energy and antioxidant pathways. The corpus distinguishes deficiency prevention at low intake levels from higher-dose migraine prophylaxis protocols studied in selected trials.",
+  "summary": "Riboflavin (vitamin B2) is an essential vitamin cofactor for cellular redox metabolism with a strong safety profile; migraine protocols use pharmacologic doses that are distinct from dietary intake levels.",
+  "mechanism": "Proposed/established mix: riboflavin supports redox reactions through FMN/FAD and may improve mitochondrial energy handling in migraine contexts; migraine-specific mechanisms remain proposed rather than definitive.",
+  "safetyNotes": [
+    "Riboflavin is generally very well tolerated, including at high supplemental doses in published protocols.",
+    "Bright yellow urine discoloration is common and typically benign."
+  ],
+  "interactions": [
+    "No major clinically significant drug interactions are emphasized in the source corpus."
+  ],
+  "dosage": [
+    "RDA framework (adults): approximately 1.1–1.3 mg/day.",
+    "Migraine research protocols commonly use 400 mg/day, which is a pharmacologic dose rather than a dietary-intake target."
+  ],
+  "preparation": "Available as stand-alone tablets/capsules and in B-complex products; formulations are typically kept light-protected.",
+  "regulatoryStatus": "Essential vitamin with established dietary reference intakes; marketed as a standard dietary supplement ingredient.",
+  "sourceType": "Essential vitamin (B2 coenzyme precursor)",
+  "activeCompounds": [
+    "Riboflavin",
+    "Flavin mononucleotide (FMN)",
+    "Flavin adenine dinucleotide (FAD)"
+  ],
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nan"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Selenium",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Supports antioxidant selenoprotein activity",
+    "Supports thyroid hormone metabolism",
+    "Prevents selenium deficiency states"
+  ],
+  "contraindications": [
+    "Avoid chronic high-dose intake above established upper limit due to selenosis risk"
+  ],
+  "category": "nutrient",
+  "sources": [
+    {
+      "title": "Selenium Fact Sheet for Health Professionals (NIH ODS)",
+      "url": "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional/"
+    },
+    {
+      "title": "NIH cohort literature referenced in compound-research.pdf for selenium and diabetes risk context",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "slug": "selenium",
+  "id": "selenium",
+  "displayName": "Selenium",
+  "description": "Selenium is incorporated into selenoproteins involved in antioxidant biology and thyroid hormone metabolism. The corpus emphasizes established intake guidance and cautions against high-dose supplementation in non-deficient populations.",
+  "summary": "Selenium is an essential trace mineral used in antioxidant and thyroid-related selenoproteins; adequacy is important, while chronic excess can cause selenosis.",
+  "mechanism": "Proposed/established mix: selenium functions via selenoproteins (including glutathione peroxidase and deiodinase systems) supporting oxidative balance and thyroid hormone conversion pathways.",
+  "safetyNotes": [
+    "Deficiency can contribute to clinically significant problems in low-selenium contexts.",
+    "Chronic excess intake can cause selenosis, including hair/nail changes, gastrointestinal symptoms, neuropathy, and characteristic breath odor.",
+    "UL context is approximately 400 micrograms/day for adults."
+  ],
+  "interactions": [
+    "Potential interaction considerations include anticoagulant contexts and medication-level nutrient interactions requiring individualized review."
+  ],
+  "dosage": [
+    "RDA framework (adults): approximately 55 micrograms/day.",
+    "Some studies evaluated 200 micrograms/day, but this is not a universal routine recommendation.",
+    "UL context: approximately 400 micrograms/day for adults."
+  ],
+  "preparation": "Common supplemental forms include selenomethionine, selenium-enriched yeast, and inorganic salts such as selenite/selenate.",
+  "regulatoryStatus": "Essential trace nutrient with established dietary reference intakes; permitted in dietary supplement products.",
+  "sourceType": "Essential micronutrient / trace mineral",
+  "activeCompounds": [
+    "Selenomethionine",
+    "Selenocysteine",
+    "Sodium selenite",
+    "Sodium selenate"
+  ],
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nan"
+  ]
+}

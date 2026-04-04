@@ -1,0 +1,56 @@
+{
+  "name": "Pyridoxine (Vitamin B6)",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Supports amino-acid metabolism",
+    "Supports neurotransmitter synthesis",
+    "Prevents vitamin B6 deficiency manifestations"
+  ],
+  "contraindications": [
+    "Avoid prolonged high-dose self-supplementation due to neuropathy risk",
+    "Use medication review when combined with anticonvulsants or levodopa regimens"
+  ],
+  "category": "nutrient",
+  "sources": [
+    {
+      "title": "Vitamin B6 Fact Sheet for Health Professionals (NIH ODS)",
+      "url": "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "slug": "pyridoxine",
+  "id": "pyridoxine",
+  "displayName": "Pyridoxine (Vitamin B6)",
+  "description": "Vitamin B6 includes pyridoxine, pyridoxal, pyridoxamine, and phosphorylated forms, with pyridoxal-5-phosphate as the active coenzyme form in many reactions. The research corpus frames supplementation around adequacy, deficiency prevention, and selected investigational use cases with mixed outcomes.",
+  "summary": "Pyridoxine (vitamin B6) is an essential cofactor nutrient used primarily to maintain adequacy and prevent deficiency, with cautious supplemental use because chronic high doses can cause neuropathy.",
+  "mechanism": "Proposed/established mix: B6-dependent enzymes support amino-acid metabolism and neurotransmitter synthesis pathways (including serotonin and GABA-related pathways). Proposed symptomatic benefits outside deficiency correction remain condition specific and not definitive.",
+  "safetyNotes": [
+    "RDA-level intake is generally well tolerated.",
+    "Chronic high supplemental intake (commonly above 100 mg/day) is associated with sensory peripheral neuropathy; symptoms can improve after discontinuation."
+  ],
+  "interactions": [
+    "High-dose pyridoxine can alter response to certain anticonvulsants (for example phenytoin).",
+    "Can affect levodopa metabolism when levodopa is not protected with a decarboxylase inhibitor."
+  ],
+  "dosage": [
+    "RDA framework (adults): approximately 1.3–1.7 mg/day.",
+    "Supplement use in the literature often spans 50–100 mg/day, but higher chronic dosing increases neuropathy risk.",
+    "UL context: approximately 100 mg/day for adults."
+  ],
+  "preparation": "Widely available as pyridoxine hydrochloride in single-ingredient products and B-complex formulations.",
+  "regulatoryStatus": "Essential vitamin with established dietary reference intakes; broadly available as a dietary supplement ingredient.",
+  "sourceType": "Essential vitamin (B6 cofactor family)",
+  "activeCompounds": [
+    "Pyridoxine",
+    "Pyridoxal-5-phosphate"
+  ],
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nan"
+  ]
+}

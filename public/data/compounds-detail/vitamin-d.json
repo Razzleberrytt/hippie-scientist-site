@@ -1,0 +1,57 @@
+{
+  "name": "Vitamin D (Calciferols)",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Supports calcium and phosphorus homeostasis",
+    "Supports bone mineralization",
+    "Prevents vitamin D deficiency bone disease"
+  ],
+  "contraindications": [
+    "Avoid chronic high-dose unsupervised use because of hypercalcemia risk"
+  ],
+  "category": "nutrient",
+  "sources": [
+    {
+      "title": "Vitamin D Fact Sheet for Health Professionals (NIH ODS)",
+      "url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "slug": "vitamin-d",
+  "id": "vitamin-d",
+  "displayName": "Vitamin D (Calciferols)",
+  "description": "Vitamin D is obtained from skin synthesis (primarily D3) and diet/supplements (D2 and D3), then converted to active hormonal metabolites. The source corpus supports bone-health deficiency prevention while keeping non-skeletal benefit claims cautious.",
+  "summary": "Vitamin D (D2/D3) is an essential nutrient-hormone precursor for calcium balance and bone health; deficiency and excess are both clinically relevant.",
+  "mechanism": "Proposed/established mix: vitamin D increases intestinal calcium/phosphorus absorption and supports bone mineralization through vitamin D receptor signaling; broader immune and cardiometabolic effects remain under active investigation.",
+  "safetyNotes": [
+    "Deficiency is associated with rickets/osteomalacia risk.",
+    "Chronic excessive intake can cause hypercalcemia, with symptoms including nausea, weakness, nephrolithiasis risk, and renal complications.",
+    "UL context is approximately 4,000 IU/day for adults unless medically supervised."
+  ],
+  "interactions": [
+    "Can increase hypercalcemia risk when combined with thiazide diuretics.",
+    "Glucocorticoids may reduce vitamin D activity and calcium balance effects."
+  ],
+  "dosage": [
+    "RDA framework: roughly 600–800 IU/day depending on age/life stage.",
+    "Supplement practice often uses 1,000–2,000 IU/day in clinical monitoring contexts, but needs are individualized.",
+    "UL context: approximately 4,000 IU/day for adults without specialist supervision."
+  ],
+  "preparation": "Available as vitamin D3 (cholecalciferol) and vitamin D2 (ergocalciferol), as single agents or combined calcium/vitamin D products.",
+  "regulatoryStatus": "Essential nutrient with established dietary reference intakes; OTC supplement forms are standard, with some high-dose prescription regimens used for deficiency treatment.",
+  "sourceType": "Essential vitamin / prohormone precursor",
+  "activeCompounds": [
+    "Ergocalciferol (Vitamin D2)",
+    "Cholecalciferol (Vitamin D3)",
+    "Calcitriol (active metabolite)"
+  ],
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nan"
+  ]
+}

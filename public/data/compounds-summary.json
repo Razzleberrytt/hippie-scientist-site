@@ -16641,5 +16641,185 @@
     "aliases": [
       "β-sitosteryl acetate"
     ]
+  },
+  {
+    "id": "magnesium",
+    "slug": "magnesium",
+    "name": "Magnesium",
+    "summaryShort": "Magnesium is an essential mineral cofactor in hundreds of enzymatic reactions supporting neuromuscular and metabolic function; supplementation is mainly framed around deficiency correction and established intake targets.",
+    "description": "Magnesium is an essential mineral present as Mg2+ in food and supplements (for example citrate, oxide, chloride, and aspartate salts). About half of total body magnesium is stored in bone, with the remainder in soft tissue. Research in this corpus emphasizes established nutrition roles and RDA/UL guidance rather than broad therapeutic claims.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Proposed/established mix: magnesium serves as a cofactor in ATP-dependent reactions and helps regulate calcium and potassium transport relevant to neuromuscular excitability. Proposed benefit mechanisms in migraine and muscle complaints remain context dependent.",
+    "effects": [
+      "Supports normal muscle and nerve function",
+      "Supports energy metabolism",
+      "Supports bone and cardiovascular physiology"
+    ],
+    "primaryEffects": [
+      "Supports normal muscle and nerve function",
+      "Supports energy metabolism",
+      "Supports bone and cardiovascular physiology"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Magnesium"
+    ]
+  },
+  {
+    "id": "pyridoxine",
+    "slug": "pyridoxine",
+    "name": "Pyridoxine (Vitamin B6)",
+    "summaryShort": "Pyridoxine (vitamin B6) is an essential cofactor nutrient used primarily to maintain adequacy and prevent deficiency, with cautious supplemental use because chronic high doses can cause neuropathy.",
+    "description": "Vitamin B6 includes pyridoxine, pyridoxal, pyridoxamine, and phosphorylated forms, with pyridoxal-5-phosphate as the active coenzyme form in many reactions. The research corpus frames supplementation around adequacy, deficiency prevention, and selected investigational use cases with mixed outcomes.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Proposed/established mix: B6-dependent enzymes support amino-acid metabolism and neurotransmitter synthesis pathways (including serotonin and GABA-related pathways). Proposed symptomatic benefits outside deficiency correction remain condition specific and not definitive.",
+    "effects": [
+      "Supports amino-acid metabolism",
+      "Supports neurotransmitter synthesis",
+      "Prevents vitamin B6 deficiency manifestations"
+    ],
+    "primaryEffects": [
+      "Supports amino-acid metabolism",
+      "Supports neurotransmitter synthesis",
+      "Prevents vitamin B6 deficiency manifestations"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Pyridoxine (Vitamin B6)"
+    ]
+  },
+  {
+    "id": "riboflavin",
+    "slug": "riboflavin",
+    "name": "Riboflavin (Vitamin B2)",
+    "summaryShort": "Riboflavin (vitamin B2) is an essential vitamin cofactor for cellular redox metabolism with a strong safety profile; migraine protocols use pharmacologic doses that are distinct from dietary intake levels.",
+    "description": "Riboflavin is required to form FMN and FAD coenzymes used in energy and antioxidant pathways. The corpus distinguishes deficiency prevention at low intake levels from higher-dose migraine prophylaxis protocols studied in selected trials.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Proposed/established mix: riboflavin supports redox reactions through FMN/FAD and may improve mitochondrial energy handling in migraine contexts; migraine-specific mechanisms remain proposed rather than definitive.",
+    "effects": [
+      "Supports cellular energy metabolism",
+      "Supports antioxidant enzyme systems",
+      "Prevents ariboflavinosis (B2 deficiency)"
+    ],
+    "primaryEffects": [
+      "Supports cellular energy metabolism",
+      "Supports antioxidant enzyme systems",
+      "Prevents ariboflavinosis (B2 deficiency)"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Riboflavin (Vitamin B2)"
+    ]
+  },
+  {
+    "id": "selenium",
+    "slug": "selenium",
+    "name": "Selenium",
+    "summaryShort": "Selenium is an essential trace mineral used in antioxidant and thyroid-related selenoproteins; adequacy is important, while chronic excess can cause selenosis.",
+    "description": "Selenium is incorporated into selenoproteins involved in antioxidant biology and thyroid hormone metabolism. The corpus emphasizes established intake guidance and cautions against high-dose supplementation in non-deficient populations.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Proposed/established mix: selenium functions via selenoproteins (including glutathione peroxidase and deiodinase systems) supporting oxidative balance and thyroid hormone conversion pathways.",
+    "effects": [
+      "Supports antioxidant selenoprotein activity",
+      "Supports thyroid hormone metabolism",
+      "Prevents selenium deficiency states"
+    ],
+    "primaryEffects": [
+      "Supports antioxidant selenoprotein activity",
+      "Supports thyroid hormone metabolism",
+      "Prevents selenium deficiency states"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Selenium"
+    ]
+  },
+  {
+    "id": "vitamin-d",
+    "slug": "vitamin-d",
+    "name": "Vitamin D (Calciferols)",
+    "summaryShort": "Vitamin D (D2/D3) is an essential nutrient-hormone precursor for calcium balance and bone health; deficiency and excess are both clinically relevant.",
+    "description": "Vitamin D is obtained from skin synthesis (primarily D3) and diet/supplements (D2 and D3), then converted to active hormonal metabolites. The source corpus supports bone-health deficiency prevention while keeping non-skeletal benefit claims cautious.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Proposed/established mix: vitamin D increases intestinal calcium/phosphorus absorption and supports bone mineralization through vitamin D receptor signaling; broader immune and cardiometabolic effects remain under active investigation.",
+    "effects": [
+      "Supports calcium and phosphorus homeostasis",
+      "Supports bone mineralization",
+      "Prevents vitamin D deficiency bone disease"
+    ],
+    "primaryEffects": [
+      "Supports calcium and phosphorus homeostasis",
+      "Supports bone mineralization",
+      "Prevents vitamin D deficiency bone disease"
+    ],
+    "herbs": [
+      "nan"
+    ],
+    "confidence": "medium",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [
+      "nan"
+    ],
+    "aliases": [
+      "Vitamin D (Calciferols)"
+    ]
   }
 ]
