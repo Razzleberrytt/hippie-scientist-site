@@ -24,26 +24,7 @@
     "MAOI use",
     "liver conditions"
   ],
-  "safetyNotes": [
-    "Considered safer than M. speciosa",
-    "Drowsiness",
-    "nausea",
-    "Low",
-    "Not determined",
-    "Generally well-tolerated in low doses",
-    "Nausea",
-    "dizziness",
-    "constipation",
-    "May cause dizziness",
-    "similar risks to kratom at high doses",
-    "No direct toxicity data. Contextual inference: Mild sedative",
-    "analgesic (less potent than m. speciosa). Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Mild sedative",
-    "analgesic (less potent than M. speciosa). none."
-  ],
+  "safetyNotes": "Considered safer than M. speciosa Drowsiness nausea Low Not determined Generally well-tolerated in low doses Nausea dizziness constipation May cause dizziness similar risks to kratom at high doses No direct toxicity data. Contextual inference: Mild sedative analgesic (less potent than m. speciosa). Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Mild sedative analgesic (less potent than M. speciosa). none.",
   "sources": [
     {
       "title": "Ethnobotanical reports"
@@ -64,17 +45,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Mild sedative, analgesic (less potent than m. speciosa). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Mild sedative",
-    "analgesic (less potent than m. speciosa). Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Mild sedative",
-    "analgesic (less potent than M. speciosa). No direct region data. Contextual inference: Mild sedative",
-    "analgesic (less potent than M. speciosa). none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Mild sedative analgesic (less potent than m. speciosa). Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Mild sedative analgesic (less potent than M. speciosa). No direct region data. Contextual inference: Mild sedative analgesic (less potent than M. speciosa). none. nan.",
   "duration": "2–4 hours",
   "interactions": [
     "Opioids",

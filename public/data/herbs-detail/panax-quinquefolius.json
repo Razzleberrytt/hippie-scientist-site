@@ -11,19 +11,7 @@
     "energy support"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Similar to Panax ginseng",
-    "may cause bleeding risk",
-    "No direct toxicity data. Contextual inference: Adaptogen",
-    "immune modulator",
-    "energy support. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Adaptogen",
-    "energy support. none."
-  ],
+  "safetyNotes": "safe Similar to Panax ginseng may cause bleeding risk No direct toxicity data. Contextual inference: Adaptogen immune modulator energy support. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Adaptogen energy support. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -35,11 +23,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Adaptogen, immune modulator, energy support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "1000 mg",
-    "day root extract"
-  ],
+  "dosage": "250 1000 mg day root extract",
   "duration": "4–8 hours",
   "interactions": [],
   "legalStatus": "Legal; widely available in North America",

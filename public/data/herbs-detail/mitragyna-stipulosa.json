@@ -13,15 +13,7 @@
     "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
     "Do not use with known allergy to this plant or related species."
   ],
-  "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Analgesic and antimalarial",
-    "related to kratom species. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Analgesic and antimalarial",
-    "related to kratom species. none."
-  ],
+  "safetyNotes": "No direct toxicity data. Contextual inference: Analgesic and antimalarial related to kratom species. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Analgesic and antimalarial related to kratom species. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -33,17 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Analgesic and antimalarial; related to kratom species. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Analgesic and antimalarial",
-    "related to kratom species. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Analgesic and antimalarial",
-    "related to kratom species. No direct region data. Contextual inference: Analgesic and antimalarial",
-    "related to kratom species. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Analgesic and antimalarial related to kratom species. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Analgesic and antimalarial related to kratom species. No direct region data. Contextual inference: Analgesic and antimalarial related to kratom species. none. nan.",
   "duration": "2–4 hours",
   "interactions": [],
   "legalStatus": "Unregulated",

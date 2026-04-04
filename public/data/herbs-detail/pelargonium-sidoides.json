@@ -11,20 +11,7 @@
     "respiratory support"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "GI discomfort",
-    "allergic reactions",
-    "rare liver toxicity",
-    "No direct toxicity data. Contextual inference: Antiviral",
-    "immune stimulant",
-    "respiratory support. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antiviral",
-    "respiratory support. none."
-  ],
+  "safetyNotes": "safe GI discomfort allergic reactions rare liver toxicity No direct toxicity data. Contextual inference: Antiviral immune stimulant respiratory support. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Antiviral respiratory support. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -36,11 +23,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Antiviral, immune stimulant, respiratory support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "30",
-    "90 mg",
-    "day root extract"
-  ],
+  "dosage": "30 90 mg day root extract",
   "duration": "4–6 hours",
   "interactions": [],
   "legalStatus": "Legal in most countries; available in supplements",

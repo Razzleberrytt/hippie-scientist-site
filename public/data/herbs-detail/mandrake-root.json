@@ -20,17 +20,7 @@
     "mental health disorders",
     "cardiovascular issues"
   ],
-  "safetyNotes": [
-    "dry mouth",
-    "confusion",
-    "hallucinations",
-    "elevated heart rate.",
-    "High",
-    "contains atropine",
-    "scopolamine",
-    "hyoscyamine.",
-    "Highly toxic in moderate doses."
-  ],
+  "safetyNotes": "dry mouth confusion hallucinations elevated heart rate. High contains atropine scopolamine hyoscyamine. Highly toxic in moderate doses.",
   "sources": [
     {
       "title": "Inferred from Unknown"
@@ -42,10 +32,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "A legendary plant with anthropomorphic root; used as sedative and aphrodisiac.",
-  "dosage": [
-    "Extremely risky",
-    "used historically in small root slices."
-  ],
+  "dosage": "Extremely risky used historically in small root slices.",
   "duration": "121.0",
   "interactions": [
     "potentiates other anticholinergics",

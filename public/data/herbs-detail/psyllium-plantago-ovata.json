@@ -11,19 +11,7 @@
     "cholesterol reduction"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Bloating",
-    "gas",
-    "potential choking if not taken with water",
-    "No direct toxicity data. Contextual inference: Laxative",
-    "bulking fiber",
-    "cholesterol reduction. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Laxative",
-    "cholesterol reduction. none."
-  ],
+  "safetyNotes": "Bloating gas potential choking if not taken with water No direct toxicity data. Contextual inference: Laxative bulking fiber cholesterol reduction. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Laxative cholesterol reduction. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -35,18 +23,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Laxative, bulking fiber, cholesterol reduction. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Laxative",
-    "bulking fiber",
-    "cholesterol reduction. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Laxative",
-    "cholesterol reduction. No direct region data. Contextual inference: Laxative",
-    "cholesterol reduction. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Laxative bulking fiber cholesterol reduction. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Laxative cholesterol reduction. No direct region data. Contextual inference: Laxative cholesterol reduction. none. nan.",
   "duration": "Daily use",
   "interactions": [],
   "legalStatus": "Legal globally",

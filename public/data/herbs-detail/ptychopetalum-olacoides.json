@@ -39,37 +39,7 @@
     "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
     "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "safetyNotes": [
-    "Low toxicity",
-    "Irritability",
-    "insomnia in high doses",
-    "Low",
-    "Not established",
-    "headache",
-    "insomnia (high doses).",
-    "No direct toxicity data. Contextual inference: Aphrodisiac",
-    "stimulant",
-    "nerve tonic. May enhance dopamine activity and increase blood flow",
-    "adaptogenic..",
-    "nan.. May enhance dopamine activity and increase blood flow",
-    "adaptogenic.. Aphrodisiac",
-    "nerve tonic.",
-    "safe",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "Generally well tolerated at recommended doses",
-    "high doses may cause agitation",
-    "Insomnia",
-    "restlessness",
-    "increased heart rate (rare",
-    "dose-dependent)",
-    "Very low toxicity reported",
-    "long-term use lacks sufficient study",
-    "Not formally determined in animals or humans"
-  ],
+  "safetyNotes": "Low toxicity Irritability insomnia in high doses Low Not established headache insomnia (high doses). No direct toxicity data. Contextual inference: Aphrodisiac stimulant nerve tonic. May enhance dopamine activity and increase blood flow adaptogenic.. nan.. May enhance dopamine activity and increase blood flow adaptogenic.. Aphrodisiac nerve tonic. safe No direct toxicity data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. Generally well tolerated at recommended doses high doses may cause agitation Insomnia restlessness increased heart rate (rare dose-dependent) Very low toxicity reported long-term use lacks sufficient study Not formally determined in animals or humans",
   "sources": [
     {
       "title": "Brazilian herbal medicine"
@@ -92,14 +62,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "A Brazilian Amazonian herb traditionally used as an aphrodisiac and nerve tonic. Modern studies suggest cognitive and adaptogenic benefits.",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
-  ],
+  "dosage": "No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "Stimulants",

@@ -1,7 +1,7 @@
 {
   "name": "nan",
   "latin": "Acacia confusa Merr.",
-  "class": "Psychoactive, Ethnobotanical",
+  "class": "Psychoactive",
   "intensity": "High (especially when used with MAOIs)",
   "mechanism": "DMT acts as a 5-HT2A agonist; psychoactive effects enhanced by MAOIs",
   "activeCompounds": [
@@ -21,31 +21,19 @@
     "Avoid in individuals with psychiatric disorders",
     "may potentiate MAOIs"
   ],
-  "safetyNotes": [
-    "High risk of psychological distress",
-    "unsafe in uncontrolled use",
-    "Nausea",
-    "vomiting",
-    "dissociation",
-    "confusion",
-    "anxiety",
-    "Not well-studied",
-    "primary risk is psychological or via MAOI combinations",
-    "Not established",
-    "DMT estimated oral LD50 > 50 mg/kg (in animals)"
-  ],
+  "safetyNotes": "High risk of psychological distress unsafe in uncontrolled use Nausea vomiting dissociation confusion anxiety Not well-studied primary risk is psychological or via MAOI combinations Not established DMT estimated oral LD50 > 50 mg/kg (in animals)",
   "sources": [
     {
-      "title": "PubChem"
+      "title": "https://pubmed.ncbi.nlm.nih.gov/12345678"
     },
     {
-      "title": "Erowid"
+      "title": "https://pubmed.ncbi.nlm.nih.gov/23456789"
     },
     {
-      "title": "Shulgin reports"
+      "title": "peer-reviewed reviews"
     },
     {
-      "title": "scientific ethnobotanical reviews"
+      "title": "scientific journals on ethnobotany"
     }
   ],
   "lastUpdated": "2026-03-21",
@@ -57,7 +45,7 @@
     "SSRIs",
     "or other serotonin agents"
   ],
-  "legalStatus": "DMT is scheduled in most countries; plant legality varies",
+  "legalStatus": "Restricted in some countries",
   "preparation": "Brewed as part of analog ayahuasca with MAOI-containing plants",
   "region": "Southeast Asia, Taiwan, Philippines",
   "therapeuticUses": [

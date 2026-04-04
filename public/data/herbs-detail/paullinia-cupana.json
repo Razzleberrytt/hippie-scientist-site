@@ -31,34 +31,7 @@
     "Pregnancy",
     "anxiety disorders"
   ],
-  "safetyNotes": [
-    "Safe in moderate doses",
-    "monitor for overstimulation",
-    "Insomnia",
-    "jitteriness",
-    "increased heart rate",
-    "GI upset",
-    "Moderate (caffeine-related)",
-    "Caffeine LD50 ~190mg/kg (oral",
-    "human extrapolated)",
-    "Safe at recommended doses",
-    "overstimulation possible at high doses",
-    "anxiety",
-    "Moderate at high doses",
-    "Caffeine ~190 mg/kg (rat",
-    "oral)",
-    "safe",
-    "Caffeine effects: insomnia",
-    "rapid heart rate",
-    "No direct toxicity data. Contextual inference: Stimulant",
-    "cognitive enhancer",
-    "antioxidant. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Stimulant",
-    "antioxidant. none."
-  ],
+  "safetyNotes": "Safe in moderate doses monitor for overstimulation Insomnia jitteriness increased heart rate GI upset Moderate (caffeine-related) Caffeine LD50 ~190mg/kg (oral human extrapolated) Safe at recommended doses overstimulation possible at high doses anxiety Moderate at high doses Caffeine ~190 mg/kg (rat oral) safe Caffeine effects: insomnia rapid heart rate No direct toxicity data. Contextual inference: Stimulant cognitive enhancer antioxidant. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Stimulant antioxidant. none.",
   "sources": [
     {
       "title": "PubMed"
@@ -79,11 +52,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Stimulant, cognitive enhancer, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "1000 mg",
-    "day seed extract"
-  ],
+  "dosage": "250 1000 mg day seed extract",
   "duration": "4–6 hours",
   "interactions": [
     "Stimulants",

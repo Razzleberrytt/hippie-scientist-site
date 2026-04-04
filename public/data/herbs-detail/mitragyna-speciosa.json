@@ -10,17 +10,10 @@
     "sedative at high doses",
     "contains mitragynine"
   ],
-  "contraindications": "Pregnancy, liver disease, with other opioids",
-  "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Stimulant at low doses",
-    "sedative at high doses",
-    "contains mitragynine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Stimulant at low doses",
-    "contains mitragynine. none."
+  "contraindications": [
+    "Pregnancy, liver disease, with other opioids"
   ],
+  "safetyNotes": "No direct toxicity data. Contextual inference: Stimulant at low doses sedative at high doses contains mitragynine. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Stimulant at low doses contains mitragynine. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -32,24 +25,15 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Stimulant at low doses, sedative at high doses; contains mitragynine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Stimulant at low doses",
-    "sedative at high doses",
-    "contains mitragynine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Stimulant at low doses",
-    "contains mitragynine. No direct region data. Contextual inference: Stimulant at low doses",
-    "contains mitragynine. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Stimulant at low doses sedative at high doses contains mitragynine. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Stimulant at low doses contains mitragynine. No direct region data. Contextual inference: Stimulant at low doses contains mitragynine. none. nan.",
   "duration": "2–6 hours",
   "interactions": [],
   "legalStatus": "Varies globally; restricted in some countries",
   "preparation": "No direct preparation data. Contextual inference: Stimulant at low doses, sedative at high doses; contains mitragynine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant at low doses, sedative at high doses; contains mitragynine. No direct region data. Contextual inference: Stimulant at low doses, sedative at high doses; contains mitragynine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant at low doses, sedative at high doses; contains mitragynine. none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Stimulant at low doses, sedative at high doses; contains mitragynine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant at low doses, sedative at high doses; contains mitragynine. none. ; nan; nan",
-  "therapeuticUses": "Traditional laborer's stimulant, pain management, opioid withdrawal",
+  "therapeuticUses": [
+    "Traditional laborer's stimulant, pain management, opioid withdrawal"
+  ],
   "traditionalUse": "; nan; nan",
   "slug": "mitragyna-speciosa",
   "id": "mitragyna-speciosa",
