@@ -1,0 +1,67 @@
+{
+  "patch_id": "patch_01KND6VX75458K9VQ3GWFA1BQV",
+  "producer": "evidence-acquisition-engine@v1",
+  "lane": "B",
+  "created_at": "2026-04-04T21:37:28.805Z",
+  "operations": [
+    {
+      "op": "set",
+      "task": "link_integrity",
+      "entity_type": "herb",
+      "entity_id": "apium-graveolens",
+      "field": "/activeCompounds",
+      "value": [
+        "apigenin",
+        "luteolin"
+      ]
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "apium-graveolens",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KND6VX75PCG2XGF5KY6TC56Z",
+        "claim": "[contraindications] adverse-effect signal; pregnancy caution",
+        "source_ids": [
+          "src_01KND6VX75VTJ5RN1YABMJDB82"
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "apium-graveolens",
+      "field": "/_provenance",
+      "value": {
+        "run_id": "run_01KND6S8Z4N385W8W2AWH625G0",
+        "sources": [
+          {
+            "id": "src_01KND6VX753WJFB90EGWTRA144",
+            "title": "Phytochemical Profiling and Anti-Inflammatory Effects of Aerial and Underground Parts of Apium graveolens var. rapaceum (Celeriac): Potential Health Benefits of Discarded Aerial Parts.",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12491856/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KND6VX75VTJ5RN1YABMJDB82",
+            "title": "Efficacy and Safety of Boswellia serrata and Apium graveolens L. Extract Against Knee Osteoarthritis and Cartilage Degeneration: A Randomized, Double-blind, Multicenter, Placebo-Controlled Clinical Trial.",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11880083/",
+            "evidenceClass": "human-clinical"
+          }
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "apium-graveolens",
+      "field": "/_review",
+      "value": {
+        "status": "approved"
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "patch_id": "patch_01KND6TSK09NZ6G5H9Q9KBV6Q4",
+  "producer": "evidence-acquisition-engine@v1",
+  "lane": "B",
+  "created_at": "2026-04-04T21:36:52.321Z",
+  "operations": [
+    {
+      "op": "set",
+      "task": "link_integrity",
+      "entity_type": "herb",
+      "entity_id": "althaea-officinalis",
+      "field": "/activeCompounds",
+      "value": [
+        "mucilage polysaccharides",
+        "flavonoids"
+      ]
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "althaea-officinalis",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KND6TSK1W2TB4D6GNXAYN673",
+        "claim": "[contraindications] toxicity concern",
+        "source_ids": [
+          "src_01KND6TSK1J4GCRW2G2GHEXJM9"
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "althaea-officinalis",
+      "field": "/_provenance",
+      "value": {
+        "run_id": "run_01KND6S8Z4N385W8W2AWH625G0",
+        "sources": [
+          {
+            "id": "src_01KND6TSK192M787N4P3N62801",
+            "title": "Gastro-Protective and Anti-Oxidant Potential of Althaea officinalis and Solanum nigrum on Pyloric Ligation/Indomethacin-Induced Ulceration in Rats.",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6912529/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KND6TSK1J4GCRW2G2GHEXJM9",
+            "title": "Green Synthesis of Zinc Oxide Nanoparticles from Althaea officinalis Flower Extract Coated with Chitosan for Potential Healing Effects on Diabetic Wounds by Inhibiting TNF-α and IL-6/IL-1β Signaling Pathways.",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10981898/",
+            "evidenceClass": "human-clinical"
+          }
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "althaea-officinalis",
+      "field": "/_review",
+      "value": {
+        "status": "approved"
+      }
+    }
+  ]
+}

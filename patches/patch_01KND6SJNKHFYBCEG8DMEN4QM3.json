@@ -1,0 +1,67 @@
+{
+  "patch_id": "patch_01KND6SJNKHFYBCEG8DMEN4QM3",
+  "producer": "evidence-acquisition-engine@v1",
+  "lane": "B",
+  "created_at": "2026-04-04T21:36:12.467Z",
+  "operations": [
+    {
+      "op": "set",
+      "task": "link_integrity",
+      "entity_type": "herb",
+      "entity_id": "allium-sativum",
+      "field": "/activeCompounds",
+      "value": [
+        "allicin",
+        "ajoene"
+      ]
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "allium-sativum",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KND6SJNKE2HDBY5YWN48QF62",
+        "claim": "[contraindications] toxicity concern; pregnancy caution",
+        "source_ids": [
+          "src_01KND6SJNK298EJRAFD71FKBJ5"
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "allium-sativum",
+      "field": "/_provenance",
+      "value": {
+        "run_id": "run_01KND6S8Z4N385W8W2AWH625G0",
+        "sources": [
+          {
+            "id": "src_01KND6SJNKNE082C2CQZ6R19P4",
+            "title": "Traditional uses, phytochemistry, pharmacology and toxicology of garlic (Allium sativum), a storehouse of diverse phytochemicals: A review of research from the last decade focusing on health and nutritional implications.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/36386956/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KND6SJNK298EJRAFD71FKBJ5",
+            "title": "Therapeutic effects of garlic (Allium sativum) on female reproductive system: A systematic review.",
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10709373/",
+            "evidenceClass": "human-clinical"
+          }
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "allium-sativum",
+      "field": "/_review",
+      "value": {
+        "status": "approved"
+      }
+    }
+  ]
+}
