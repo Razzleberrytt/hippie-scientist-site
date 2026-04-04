@@ -27348,8 +27348,10 @@
     "name": "salix alba",
     "latin": "Salix alba",
     "intensity": "No direct intensity data. Contextual inference: Analgesic, antipyretic, anti-inflammatory (salicin). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic, antipyretic, anti-inflammatory (salicin). No direct region data. Contextual inference: Analgesic, antipyretic, anti-inflammatory (salicin). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic, antipyretic, anti-inflammatory (salicin). none. ; nan; nan. ; nan; nan",
-    "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "mechanism": "Salicin contributes salicylate-like pharmacology associated with analgesic and anti-inflammatory effects.",
+    "activeCompounds": [
+      "salicin"
+    ],
     "effects": [
       "Analgesic",
       "antipyretic",
@@ -27357,8 +27359,13 @@
       "anti",
       "inflammatory (salicin)"
     ],
-    "contraindications": [],
-    "safetyNotes": "safe; Similar to aspirin; stomach irritation; allergic reactions; No direct toxicity data. Contextual inference: Analgesic; antipyretic; anti-inflammatory (salicin). Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Analgesic; anti-inflammatory (salicin). none.",
+    "contraindications": [
+      "avoid in aspirin/salicylate allergy",
+      "avoid in children and adolescents due to Reye syndrome risk",
+      "avoid during pregnancy and breastfeeding unless clinician-directed",
+      "use caution with bleeding risk disorders"
+    ],
+    "safetyNotes": "Adult trial ranges around 120-240 mg salicin/day (up to 8 weeks) reported no major serious adverse events, but GI symptoms, allergy, and bleeding-related concerns remain relevant.",
     "sources": [
       {
         "title": "Inferred from scientific name:"
@@ -27368,26 +27375,33 @@
         "url": ""
       }
     ],
-    "lastUpdated": "2026-03-21",
-    "description": "Analgesic, antipyretic, anti-inflammatory (salicin). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-    "dosage": "250; 500 mg; day bark extract",
+    "lastUpdated": "2026-04-04",
+    "description": "Willow bark contains salicin, historically relevant to aspirin development; clinical evidence remains limited for chronic musculoskeletal pain.",
+    "dosage": "120-240 mg salicin per day in adult trial contexts for up to 8 weeks.",
     "duration": "4–6 hours",
-    "interactions": [],
+    "interactions": [
+      "Concomitant use with salicylate-containing medications may increase adverse-effect risk, including bleeding concerns."
+    ],
     "legalStatus": "Legal in most countries",
-    "preparation": "Bark dried and decocted or tinctured; used for its salicin content (willow bark, natural pain reliever)",
+    "preparation": "Bark extracts and decoctions standardized by salicin content.",
     "region": "No direct region data. Contextual inference: Analgesic, antipyretic, anti-inflammatory (salicin). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic, antipyretic, anti-inflammatory (salicin). none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "traditional support for mild pain",
+      "traditional support for inflammatory discomfort",
+      "traditional support for headache"
+    ],
     "traditionalUse": "; nan; nan",
     "sideEffects": [
-      "Similar to aspirin",
-      "stomach irritation",
-      "allergic reactions"
+      "gastrointestinal irritation",
+      "allergic reactions",
+      "increased bleeding tendency"
     ],
     "slug": "salix-alba",
     "id": "salix-alba",
     "displayName": "salix alba",
     "displayScientificName": "Salix alba",
-    "scientificNormalized": "salix alba"
+    "scientificNormalized": "salix alba",
+    "summary": "White willow bark (Salix alba) has traditional analgesic/anti-inflammatory use, but modern evidence is mixed and condition-dependent."
   },
   {
     "name": "salvia apiana",
@@ -33552,8 +33566,11 @@
     "name": "withania somnifera",
     "latin": "Withania somnifera",
     "intensity": "No direct intensity data. Contextual inference: Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-anxiety, cognitive enhancer. No direct region data. Contextual inference: Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-anxiety, cognitive enhancer. none. ; nan; nan. ; nan; nan",
-    "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism is unclear; withanolides are candidate bioactive constituents, and product adulteration/mislabelling can confound observed effects.",
+    "activeCompounds": [
+      "withanolides",
+      "withaferin A"
+    ],
     "effects": [
       "Adaptogen",
       "anti-anxiety",
@@ -33561,8 +33578,12 @@
       "anti",
       "anxiety"
     ],
-    "contraindications": [],
-    "safetyNotes": "safe; Drowsiness; GI upset; avoid in hyperthyroidism; No direct toxicity data. Contextual inference: Adaptogen; anti-anxiety; cognitive enhancer. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Adaptogen; cognitive enhancer. none.",
+    "contraindications": [
+      "avoid use in advanced chronic liver disease or cirrhosis",
+      "stop use and seek care if jaundice, dark urine, or persistent abdominal pain occur",
+      "avoid use during pregnancy unless clinician-directed"
+    ],
+    "safetyNotes": "Rare cholestatic or mixed-pattern liver injury has been reported, often within 2-12 weeks of initiation; most cases resolve after stopping but severe outcomes are possible. GI upset (nausea, vomiting, diarrhea) can occur at higher doses.",
     "sources": [
       {
         "title": "Inferred from scientific name:"
@@ -33572,26 +33593,33 @@
         "url": ""
       }
     ],
-    "lastUpdated": "2026-03-21",
-    "description": "Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-    "dosage": "250; 1000 mg; day root extract",
+    "lastUpdated": "2026-04-04",
+    "description": "Root extracts of Withania somnifera are sold in capsules and tablets with variable concentrations; product variability complicates efficacy and safety interpretation.",
+    "dosage": "Typical commercial extracts are 150-600 mg per dose, taken 1-3 times daily depending on product standardization.",
     "duration": "Chronic",
-    "interactions": [],
+    "interactions": [
+      "No specific high-confidence interaction pair was confirmed in this research pass; use caution with concurrent hepatotoxic medicines."
+    ],
     "legalStatus": "Legal globally",
-    "preparation": "Roots dried, powdered, decocted, or tinctured (Ashwagandha); Ayurvedic adaptogen",
-    "region": "No direct region data. Contextual inference: Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-anxiety, cognitive enhancer. none. ; nan; nan",
-    "therapeuticUses": [],
+    "preparation": "Typically used as root extract capsules or tablets.",
+    "region": "Native range reported from southern Europe through central Asia to parts of Africa.",
+    "therapeuticUses": [
+      "traditional stress resilience support",
+      "traditional sleep and anxiety support"
+    ],
     "traditionalUse": "; nan; nan",
     "sideEffects": [
-      "Drowsiness",
-      "GI upset",
-      "avoid in hyperthyroidism"
+      "nausea",
+      "vomiting",
+      "diarrhea",
+      "rare liver injury"
     ],
     "slug": "withania-somnifera",
     "id": "withania-somnifera",
     "displayName": "withania somnifera",
     "displayScientificName": "Withania somnifera",
-    "scientificNormalized": "withania somnifera"
+    "scientificNormalized": "withania somnifera",
+    "summary": "Ashwagandha (Withania somnifera) is widely used as an Ayurvedic tonic; most users tolerate it, but rare clinically apparent liver injury has been reported."
   },
   {
     "name": "withania somnifera (ashwagandha)",
@@ -33648,9 +33676,9 @@
   },
   {
     "name": "wormwood",
-    "latin": "wormwood",
+    "latin": "Artemisia absinthium",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+    "mechanism": "Proposed digestive benefit is linked to bitter-taste stimulation of gastrointestinal activity; confirmatory human efficacy evidence is limited.",
     "activeCompounds": [],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
@@ -33660,35 +33688,37 @@
       "dreaming or folk medicine"
     ],
     "contraindications": [
-      "avoid during pregnancy and breastfeeding unless advised by a clinician",
-      "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
-      "discontinue if hypersensitivity or allergic symptoms occur"
+      "avoid with Asteraceae hypersensitivity",
+      "avoid in bile duct obstruction or cholangitis",
+      "avoid in liver disease",
+      "adult use only unless clinician-directed"
     ],
-    "safetyNotes": "Toxic – neurotoxic at high doses; No direct toxicity data. Contextual inference: Used in ritual; dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual; dreaming or folk medicine.. Used in ritual; dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual; dreaming or folk medicine. Used in ritual; dreaming or folk medicine",
+    "safetyNotes": "EU traditional-use materials reported no established side effects for covered preparations, but contraindications include liver and biliary disorders.",
     "sources": [],
-    "lastUpdated": "2026-03-21",
-    "description": "Used in ritual, dreaming or folk medicine.",
-    "dosage": "No direct dosage data. Contextual inference: Used in ritual; dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual; dreaming or folk medicine.. Used in ritual; dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual; dreaming or folk medicine. Used in ritual; dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual; dreaming or folk medicine",
+    "lastUpdated": "2026-04-04",
+    "description": "Preparations include dried leaves/leafy flowering tops for teas, powders, juices, and ethanolic extracts in oral liquid or solid forms.",
+    "dosage": "Not standardized in this dataset; monograph-specific dosing depends on preparation type.",
     "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "interactions": [],
+    "interactions": [
+      "Specific interaction pairs were not confirmed in this research pass."
+    ],
     "legalStatus": "restricted",
-    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+    "preparation": "Herbal tea, powders, expressed juice, and ethanolic extracts from leaves or leafy flowering tops.",
+    "region": "Native range spans Europe to Siberia and the western Himalaya, plus North Africa.",
     "therapeuticUses": [
-      "traditional support for mild digestive comfort",
-      "traditional stress resilience support"
+      "traditional support for temporary appetite loss",
+      "traditional support for mild dyspeptic discomfort"
     ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
     "slug": "wormwood",
     "sideEffects": [
-      "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-      "headache (more likely with higher intake)",
-      "allergic rash or itching in sensitive individuals"
+      "possible GI intolerance in sensitive individuals"
     ],
     "id": "wormwood",
     "displayName": "wormwood",
     "displayScientificName": "wormwood",
-    "scientificNormalized": "wormwood"
+    "scientificNormalized": "wormwood",
+    "summary": "Wormwood (Artemisia absinthium) has EU traditional-use recognition for temporary appetite loss and mild dyspeptic complaints, based on longstanding use."
   },
   {
     "name": "xanthium strumarium",
@@ -33870,10 +33900,12 @@
   },
   {
     "name": "yohimbe",
-    "latin": "yohimbe",
+    "latin": "Corynanthe johimbe",
     "intensity": "moderate",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Yohimbine acts as an alpha-2 adrenergic receptor antagonist; pharmacologic rationale does not equal consistent supplement efficacy.",
+    "activeCompounds": [
+      "yohimbine"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -33881,35 +33913,41 @@
       "nan."
     ],
     "contraindications": [
-      "avoid during pregnancy and breastfeeding unless advised by a clinician",
-      "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
-      "discontinue if hypersensitivity or allergic symptoms occur"
+      "avoid during pregnancy and breastfeeding",
+      "avoid in cardiovascular disease or uncontrolled blood pressure",
+      "do not combine with MAO inhibitors",
+      "do not combine with tricyclic antidepressants"
     ],
-    "safetyNotes": "caution; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "Associated adverse events include arrhythmias, blood pressure instability, seizures, and other severe reactions; supplement mislabeling increases risk uncertainty.",
     "sources": [],
-    "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "lastUpdated": "2026-04-04",
+    "description": "The bark contains yohimbine; supplement products are highly variable in labeled versus actual yohimbine content.",
+    "dosage": "For purified yohimbine (not equivalent to bark supplements): 5-10 mg three times daily has been cited in clinical references.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Contraindicated with MAO inhibitors.",
+      "Contraindicated with tricyclic antidepressants."
+    ],
     "legalStatus": "restricted",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Bark extract supplements with variable alkaloid content.",
+    "region": "Native to west-central tropical Africa (including Nigeria, Cameroon, Gabon, Congo, DR Congo, and Equatorial Guinea).",
     "therapeuticUses": [
-      "traditional support for mild digestive comfort",
-      "traditional stress resilience support"
+      "historical use as an aphrodisiac"
     ],
     "traditionalUse": "; nan; nan",
     "slug": "yohimbe",
     "sideEffects": [
-      "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-      "headache (more likely with higher intake)",
-      "allergic rash or itching in sensitive individuals"
+      "tachycardia",
+      "hypertension or hypotension",
+      "anxiety",
+      "insomnia",
+      "seizure risk"
     ],
     "id": "yohimbe",
     "displayName": "yohimbe",
     "displayScientificName": "yohimbe",
-    "scientificNormalized": "yohimbe"
+    "scientificNormalized": "yohimbe",
+    "summary": "Yohimbe bark supplements have limited efficacy evidence and substantial safety concerns, especially cardiovascular and neurologic adverse events."
   },
   {
     "name": "yopo",
@@ -34097,7 +34135,7 @@
     "name": "zingiber officinale",
     "latin": "Zingiber officinale",
     "intensity": "No direct intensity data. Contextual inference: Digestive stimulant, anti-nausea, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive stimulant, anti-nausea, anti-inflammatory. No direct region data. Contextual inference: Digestive stimulant, anti-nausea, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive stimulant, anti-nausea, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-    "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+    "mechanism": "Multiple pathways are proposed (including GI motility and anti-inflammatory signaling), but this dataset treats mechanism detail as provisional.",
     "activeCompounds": [],
     "effects": [
       "Digestive stimulant",
@@ -34107,8 +34145,12 @@
       "nausea",
       "inflammatory"
     ],
-    "contraindications": [],
-    "safetyNotes": "safe; Heartburn; GI discomfort; avoid large doses in bleeding disorders; No direct toxicity data. Contextual inference: Digestive stimulant; anti-nausea; anti-inflammatory. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Digestive stimulant; anti-inflammatory. none.",
+    "contraindications": [
+      "use caution with bleeding disorders",
+      "consult a clinician during pregnancy",
+      "avoid high-dose use with anticoagulant therapy unless medically supervised"
+    ],
+    "safetyNotes": "Generally well tolerated in studies; possible adverse effects include heartburn, abdominal discomfort, diarrhea, and oral/throat irritation.",
     "sources": [
       {
         "title": "Inferred from scientific name:"
@@ -34118,26 +34160,34 @@
         "url": ""
       }
     ],
-    "lastUpdated": "2026-03-21",
-    "description": "Digestive stimulant, anti-nausea, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-    "dosage": "250; 2000 mg; day rhizome",
+    "lastUpdated": "2026-04-04",
+    "description": "Rhizome preparations are used as foods and supplements for nausea, menstrual pain, and osteoarthritis symptom support.",
+    "dosage": "Common supplemental ranges vary by product; no single standardized dose was confirmed in this research pass.",
     "duration": "2–4 hours",
-    "interactions": [],
+    "interactions": [
+      "Potential interaction caution with anticoagulant or antiplatelet medicines; discuss use with a clinician."
+    ],
     "legalStatus": "Legal worldwide",
-    "preparation": "Rhizome dried, powdered, or used fresh in decoctions, infusions, capsules, or tinctures; digestive and anti-inflammatory support",
-    "region": "No direct region data. Contextual inference: Digestive stimulant, anti-nausea, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive stimulant, anti-nausea, anti-inflammatory. none. ; nan; nan",
-    "therapeuticUses": [],
+    "preparation": "Fresh or dried rhizome as food, tea, powder, capsules, or extracts.",
+    "region": "Native range includes the eastern Himalaya to south-central China, with broad cultivation and introduction elsewhere.",
+    "therapeuticUses": [
+      "support for pregnancy-associated nausea",
+      "support for dyspepsia and mild nausea",
+      "support for menstrual cramp discomfort"
+    ],
     "traditionalUse": "; nan; nan",
     "sideEffects": [
-      "Heartburn",
-      "GI discomfort",
-      "avoid large doses in bleeding disorders"
+      "heartburn",
+      "abdominal discomfort",
+      "diarrhea",
+      "mouth or throat irritation"
     ],
     "slug": "zingiber-officinale",
     "id": "zingiber-officinale",
     "displayName": "zingiber officinale",
     "displayScientificName": "Zingiber officinale",
-    "scientificNormalized": "zingiber officinale"
+    "scientificNormalized": "zingiber officinale",
+    "summary": "Ginger (Zingiber officinale) is widely used for nausea and digestive complaints; evidence is strongest for pregnancy-associated nausea, with mixed data in other indications."
   },
   {
     "name": "zornia latifolia",
