@@ -1,9 +1,12 @@
 {
   "name": "eucalyptus globulus",
   "latin": "Eucalyptus globulus",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Expectorant, antiseptic, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Expectorant, antiseptic, anti-inflammatory. No direct region data. Contextual inference: Expectorant, antiseptic, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Expectorant, antiseptic, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-  "activeCompounds": [],
+  "mechanism": "Mechanistic claims in clinical settings are limited. Eucalyptus leaf preparations contain volatile terpenes (notably 1,8-cineole/eucalyptol) associated with secretolytic/expectorant and airway-symptom support in pharmacologic literature; EMA categorizes leaf use as traditional-use based.",
+  "activeCompounds": [
+    "1,8-Cineole (eucalyptol)"
+  ],
   "effects": [
     "Expectorant",
     "antiseptic",
@@ -12,24 +15,31 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": "safe; Large doses may cause nausea; vomiting; CNS depression; topical irritation possible; No direct toxicity data. Contextual inference: Expectorant; antiseptic; anti-inflammatory. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Expectorant; anti-inflammatory. none.",
+  "safetyNotes": "Per EMA monograph, avoid cineole-containing preparations in children under 2 years (laryngospasm risk). Use in pregnancy/lactation is not recommended due to insufficient safety data. Seek medical review for dyspnea, fever, or purulent sputum.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
+      "title": "EMA HMPC monograph: Eucalyptus globulus Labill., folium",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/draft-community-herbal-monograph-eucalyptus-globulus-labill-folium_en.pdf"
     },
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Kew POWO: Eucalyptus globulus (accepted name and distribution)",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A592965-1/general-information"
+    },
+    {
+      "title": "PubChem: Eucalyptol (1,8-cineole)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Eucalyptol"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Expectorant, antiseptic, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "250; 750 mg; day leaf extract or steam inhalation",
+  "description": "Eucalyptus globulus (Tasmanian blue gum) is an Australian species used medicinally primarily via leaf preparations and essential oil constituents. Traditional use focuses on upper-respiratory symptom relief.",
+  "dosage": "EMA traditional posology (adults): tea infusion 1.5-3 g leaf in 150 mL boiling water up to 4 times daily; inhalation infusion 2-3 g in 150 mL up to 3 times daily. If symptoms persist beyond 1 week, consult a clinician.",
   "duration": "4–6 hours",
-  "interactions": [],
+  "interactions": [
+    "EMA monograph reports no interactions for the traditional leaf preparations described."
+  ],
   "legalStatus": "Legal worldwide",
-  "preparation": "Leaves dried and steam-distilled for essential oil; also used in teas or decoctions for respiratory issues",
-  "region": "No direct region data. Contextual inference: Expectorant, antiseptic, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Expectorant, antiseptic, anti-inflammatory. none. ; nan; nan",
+  "preparation": "EMA describes comminuted leaf as herbal tea for oral use or infusion for inhalation, and tincture preparations for oral use.",
+  "region": "Native range is Australia; the species is now cultivated in multiple regions globally.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -47,5 +57,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Eucalyptus globulus leaf is used in traditional herbal medicine for symptomatic relief of common-cold cough symptoms, with oral infusion and inhalation preparations described in EMA monographs."
 }
