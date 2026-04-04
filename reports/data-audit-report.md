@@ -1,10 +1,10 @@
 # Data Audit Report
 
-- Generated: 2026-04-04T02:43:38.329Z
+- Generated: 2026-04-04T02:56:22.091Z
 - Herb list records: 698
 - Herb detail records: 676
 - Compound records: 390
-- Errors: 3333
+- Errors: 3234
 - Warnings: 6324
 - Herb hard-required gaps: 0
 - Herb recommended gaps: 4190
@@ -21,7 +21,7 @@
 - missing-recommended-field: 4190
 - missing-research-backlog-field: 2134
 - missing-required-field: 1671
-- invalid-field-type: 1597
+- invalid-field-type: 1498
 - placeholder-value: 26
 - herb-list-detail-mismatch: 23
 - unresolved-active-compound-reference: 10
@@ -31,8 +31,8 @@
 ## Issue counts by dataset
 
 - compound: 2061
-- herb-detail: 3808
-- herb-list: 3788
+- herb-detail: 3759
+- herb-list: 3738
 
 ## Herb missing-field tiers
 
@@ -99,7 +99,6 @@
 - [warning] herb-list acorus-americanus (sources): Missing recommended field 'sources'.
 - [warning] herb-list acorus-americanus (class): Missing research_backlog field 'class'.
 - [error] herb-list acorus-americanus (class): Field 'class' must be a string, received null.
-- [error] herb-list acorus-americanus (legalStatus): Field 'legalStatus' must be a string, received null.
 - [warning] herb-list acorus-americanus (sources): Field 'sources' must not be empty.
 - [warning] herb-list acorus-calamus (sources): Source entry 0 is missing a url.
 - [warning] herb-list acorus-calamus (sources): Source entry 1 is missing a url.
@@ -109,3 +108,4 @@
 - [warning] herb-list acorus-calamus (sources): Source entry 4 is missing a url.
 - [warning] herb-list acorus-calamus-var-angustatus (sources): Missing recommended field 'sources'.
 - [warning] herb-list acorus-calamus-var-angustatus (class): Missing research_backlog field 'class'.
+- [error] herb-list acorus-calamus-var-angustatus (class): Field 'class' must be a string, received null.
