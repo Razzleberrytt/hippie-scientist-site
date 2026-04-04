@@ -1,0 +1,813 @@
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
+import path from 'node:path'
+
+type Severity = 'error' | 'warning'
+type DatasetType = 'herb-list' | 'herb-detail' | 'compound'
+
+type AuditIssue = {
+  severity: Severity
+  code: string
+  dataset: DatasetType
+  recordId: string
+  field?: string
+  message: string
+  details?: Record<string, unknown>
+}
+
+type SourceRecord = {
+  title?: unknown
+  url?: unknown
+  note?: unknown
+}
+
+type GenericRecord = Record<string, unknown>
+
+type LoadedDetailRecord = {
+  filename: string
+  filepath: string
+  data: GenericRecord
+}
+
+const ROOT_DIR = process.cwd()
+const DATA_DIR = path.join(ROOT_DIR, 'public', 'data')
+const HERBS_PATH = path.join(DATA_DIR, 'herbs.json')
+const HERB_DETAILS_DIR = path.join(DATA_DIR, 'herbs-detail')
+const COMPOUNDS_PATH = path.join(DATA_DIR, 'compounds.json')
+const REPORT_DIR = path.join(ROOT_DIR, 'reports')
+const JSON_REPORT_PATH = path.join(REPORT_DIR, 'data-audit-report.json')
+const MARKDOWN_REPORT_PATH = path.join(REPORT_DIR, 'data-audit-report.md')
+
+const PLACEHOLDER_VALUES = new Set(['', 'n/a', 'na', 'null', 'none', 'unknown', 'tbd', 'todo'])
+
+const HERB_SHARED_STRING_FIELDS = [
+  'name',
+  'latin',
+  'class',
+  'intensity',
+  'mechanism',
+  'description',
+  'dosage',
+  'duration',
+  'legalStatus',
+  'preparation',
+  'region',
+  'traditionalUse',
+]
+
+const HERB_SHARED_ARRAY_FIELDS = [
+  'activeCompounds',
+  'effects',
+  'contraindications',
+  'interactions',
+  'therapeuticUses',
+  'sideEffects',
+]
+
+const HERB_LIST_REQUIRED_FIELDS = [
+  'name',
+  'latin',
+  'class',
+  'description',
+  'effects',
+  'activeCompounds',
+  'contraindications',
+  'sources',
+  'lastUpdated',
+]
+
+const HERB_DETAIL_REQUIRED_FIELDS = [...HERB_LIST_REQUIRED_FIELDS]
+
+const COMPOUND_REQUIRED_FIELDS = [
+  'name',
+  'category',
+  'description',
+  'effects',
+  'contraindications',
+  'herbs',
+  'sources',
+  'lastUpdated',
+]
+
+const HERB_STRING_FIELDS = new Set([
+  ...HERB_SHARED_STRING_FIELDS,
+  'slug',
+  'safetyNotes',
+  'identity',
+  'categoryUseContext',
+  'evidenceLevel',
+  'lastUpdated',
+])
+
+const HERB_ARRAY_FIELDS = new Set([
+  ...HERB_SHARED_ARRAY_FIELDS,
+  'sources',
+  'relatedEntities',
+  'relatedCompounds',
+])
+
+const COMPOUND_STRING_FIELDS = new Set([
+  'name',
+  'category',
+  'description',
+  'dosage',
+  'duration',
+  'region',
+  'preparation',
+  'legalStatus',
+  'lastUpdated',
+])
+
+const COMPOUND_ARRAY_FIELDS = new Set([
+  'herbs',
+  'effects',
+  'contraindications',
+  'interactions',
+  'therapeuticUses',
+  'activeCompounds',
+  'sideEffects',
+  'sources',
+])
+
+function isObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+function isPlaceholderString(value: string): boolean {
+  const normalized = value.trim().toLowerCase()
+  return PLACEHOLDER_VALUES.has(normalized)
+}
+
+function isMissingValue(value: unknown): boolean {
+  if (value == null) return true
+  if (typeof value === 'string') return value.trim().length === 0 || isPlaceholderString(value)
+  if (Array.isArray(value)) return value.length === 0
+  return false
+}
+
+function normalizeText(value: unknown): string {
+  return String(value ?? '')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-zA-Z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .toLowerCase()
+}
+
+function normalizeDisplayText(value: unknown): string {
+  return String(value ?? '').trim().replace(/\s+/g, ' ').toLowerCase()
+}
+
+function normalizeArrayValue(value: unknown): string[] {
+  if (!Array.isArray(value)) return []
+  return value
+    .map(item => normalizeDisplayText(item))
+    .filter(Boolean)
+    .sort()
+}
+
+function getHerbListSlug(record: GenericRecord, index: number): string {
+  if (typeof record.slug === 'string' && record.slug.trim()) {
+    return normalizeText(record.slug)
+  }
+  if (typeof record.name === 'string' && record.name.trim()) {
+    return normalizeText(record.name)
+  }
+  if (typeof record.latin === 'string' && record.latin.trim()) {
+    return normalizeText(record.latin)
+  }
+  return `row-${index}`
+}
+
+async function readJsonFile(filePath: string): Promise<unknown> {
+  return JSON.parse(await readFile(filePath, 'utf8'))
+}
+
+function issue(
+  severity: Severity,
+  code: string,
+  dataset: DatasetType,
+  recordId: string,
+  message: string,
+  extras: Partial<Pick<AuditIssue, 'field' | 'details'>> = {},
+): AuditIssue {
+  return {
+    severity,
+    code,
+    dataset,
+    recordId,
+    message,
+    ...extras,
+  }
+}
+
+function validateRequiredFields(
+  record: GenericRecord,
+  dataset: DatasetType,
+  recordId: string,
+  requiredFields: string[],
+): AuditIssue[] {
+  return requiredFields.flatMap(field => {
+    const value = record[field]
+    if (!isMissingValue(value)) return []
+    return [
+      issue('error', 'missing-required-field', dataset, recordId, `Missing required field '${field}'.`, {
+        field,
+      }),
+    ]
+  })
+}
+
+function validateStringField(
+  value: unknown,
+  dataset: DatasetType,
+  recordId: string,
+  field: string,
+  required = false,
+): AuditIssue[] {
+  if (value === undefined) return []
+  if (value === null) {
+    return [
+      issue('error', 'invalid-field-type', dataset, recordId, `Field '${field}' must be a string, received null.`, {
+        field,
+        details: { expected: 'string', actual: 'null' },
+      }),
+    ]
+  }
+  if (typeof value !== 'string') {
+    return [
+      issue('error', 'invalid-field-type', dataset, recordId, `Field '${field}' must be a string.`, {
+        field,
+        details: { expected: 'string', actual: Array.isArray(value) ? 'array' : typeof value },
+      }),
+    ]
+  }
+  if (required && isPlaceholderString(value)) {
+    return [
+      issue('error', 'placeholder-value', dataset, recordId, `Field '${field}' contains a placeholder value.`, {
+        field,
+      }),
+    ]
+  }
+  return []
+}
+
+function validateStringArrayField(
+  value: unknown,
+  dataset: DatasetType,
+  recordId: string,
+  field: string,
+  required = false,
+): AuditIssue[] {
+  if (value === undefined) return []
+  if (!Array.isArray(value)) {
+    const code = field === 'effects' ? 'invalid-effects-shape' : 'invalid-field-type'
+    return [
+      issue('error', code, dataset, recordId, `Field '${field}' must be an array of strings.`, {
+        field,
+        details: { expected: 'string[]', actual: value === null ? 'null' : typeof value },
+      }),
+    ]
+  }
+
+  const findings: AuditIssue[] = []
+  if (required && value.length === 0) {
+    findings.push(
+      issue('error', 'missing-required-field', dataset, recordId, `Field '${field}' must not be empty.`, { field }),
+    )
+  }
+
+  value.forEach((entry, index) => {
+    if (typeof entry !== 'string') {
+      findings.push(
+        issue('error', 'invalid-field-type', dataset, recordId, `Field '${field}' entry ${index} must be a string.`, {
+          field,
+          details: { index, expected: 'string', actual: entry === null ? 'null' : typeof entry },
+        }),
+      )
+      return
+    }
+    if (entry.trim().length === 0 || isPlaceholderString(entry)) {
+      findings.push(
+        issue(
+          'error',
+          field === 'effects' ? 'invalid-effects-shape' : 'placeholder-value',
+          dataset,
+          recordId,
+          `Field '${field}' entry ${index} is empty or placeholder content.`,
+          { field, details: { index } },
+        ),
+      )
+    }
+  })
+
+  return findings
+}
+
+function validateSourcesField(
+  value: unknown,
+  dataset: DatasetType,
+  recordId: string,
+  required = false,
+): AuditIssue[] {
+  const findings: AuditIssue[] = []
+  if (!Array.isArray(value)) {
+    findings.push(
+      issue('error', 'invalid-field-type', dataset, recordId, "Field 'sources' must be an array of source objects.", {
+        field: 'sources',
+        details: { expected: 'Source[]', actual: value === null ? 'null' : typeof value },
+      }),
+    )
+    return findings
+  }
+
+  if (required && value.length === 0) {
+    findings.push(
+      issue('error', 'missing-required-field', dataset, recordId, "Field 'sources' must not be empty.", {
+        field: 'sources',
+      }),
+    )
+  }
+
+  value.forEach((entry, index) => {
+    if (!isObject(entry)) {
+      findings.push(
+        issue('error', 'invalid-field-type', dataset, recordId, `Source entry ${index} must be an object.`, {
+          field: 'sources',
+          details: { index, expected: 'object', actual: entry === null ? 'null' : typeof entry },
+        }),
+      )
+      return
+    }
+
+    const source = entry as SourceRecord
+    if (typeof source.title !== 'string' || isMissingValue(source.title)) {
+      findings.push(
+        issue('error', 'missing-required-field', dataset, recordId, `Source entry ${index} is missing a title.`, {
+          field: 'sources',
+          details: { index },
+        }),
+      )
+    }
+    if (typeof source.url !== 'string' || isMissingValue(source.url)) {
+      findings.push(
+        issue('error', 'missing-required-field', dataset, recordId, `Source entry ${index} is missing a url.`, {
+          field: 'sources',
+          details: { index },
+        }),
+      )
+    }
+  })
+
+  return findings
+}
+
+function collectDuplicateIssues(
+  records: Array<{ dataset: DatasetType; recordId: string; key: string }>,
+  code: string,
+  messagePrefix: string,
+): AuditIssue[] {
+  const groups = new Map<string, Array<{ dataset: DatasetType; recordId: string }>>()
+  for (const record of records) {
+    if (!record.key) continue
+    const group = groups.get(record.key) ?? []
+    group.push({ dataset: record.dataset, recordId: record.recordId })
+    groups.set(record.key, group)
+  }
+
+  const findings: AuditIssue[] = []
+  for (const [key, group] of groups.entries()) {
+    if (group.length < 2) continue
+    for (const item of group) {
+      findings.push(
+        issue('error', code, item.dataset, item.recordId, `${messagePrefix} '${key}' appears multiple times.`, {
+          details: { duplicates: group.map(entry => entry.recordId) },
+        }),
+      )
+    }
+  }
+  return findings
+}
+
+function validateHerbRecordShape(
+  record: GenericRecord,
+  dataset: DatasetType,
+  recordId: string,
+  requiredFields: string[],
+): AuditIssue[] {
+  const findings = validateRequiredFields(record, dataset, recordId, requiredFields)
+  const requiredSet = new Set(requiredFields)
+
+  for (const field of HERB_STRING_FIELDS) {
+    findings.push(...validateStringField(record[field], dataset, recordId, field, requiredSet.has(field)))
+  }
+  for (const field of HERB_ARRAY_FIELDS) {
+    if (field === 'sources') {
+      findings.push(...validateSourcesField(record[field], dataset, recordId, requiredSet.has(field)))
+    } else {
+      findings.push(...validateStringArrayField(record[field], dataset, recordId, field, requiredSet.has(field)))
+    }
+  }
+
+  return findings
+}
+
+function validateCompoundRecordShape(record: GenericRecord, recordId: string): AuditIssue[] {
+  const findings = validateRequiredFields(record, 'compound', recordId, COMPOUND_REQUIRED_FIELDS)
+  const requiredSet = new Set(COMPOUND_REQUIRED_FIELDS)
+
+  for (const field of COMPOUND_STRING_FIELDS) {
+    findings.push(...validateStringField(record[field], 'compound', recordId, field, requiredSet.has(field)))
+  }
+  for (const field of COMPOUND_ARRAY_FIELDS) {
+    if (field === 'sources') {
+      findings.push(...validateSourcesField(record[field], 'compound', recordId, requiredSet.has(field)))
+    } else {
+      findings.push(...validateStringArrayField(record[field], 'compound', recordId, field, requiredSet.has(field)))
+    }
+  }
+
+  return findings
+}
+
+function compareSharedHerbFields(listRecord: GenericRecord, detailRecord: GenericRecord, slug: string): AuditIssue[] {
+  const findings: AuditIssue[] = []
+
+  for (const field of HERB_SHARED_STRING_FIELDS) {
+    const listValue = normalizeDisplayText(listRecord[field])
+    const detailValue = normalizeDisplayText(detailRecord[field])
+    if (listValue !== detailValue) {
+      findings.push(
+        issue(
+          'error',
+          'herb-list-detail-mismatch',
+          'herb-detail',
+          slug,
+          `Field '${field}' does not match the herb list record.`,
+          { field, details: { herbList: listRecord[field], herbDetail: detailRecord[field] } },
+        ),
+      )
+    }
+  }
+
+  for (const field of HERB_SHARED_ARRAY_FIELDS) {
+    const listValue = normalizeArrayValue(listRecord[field])
+    const detailValue = normalizeArrayValue(detailRecord[field])
+    if (JSON.stringify(listValue) !== JSON.stringify(detailValue)) {
+      findings.push(
+        issue(
+          'error',
+          'herb-list-detail-mismatch',
+          'herb-detail',
+          slug,
+          `Field '${field}' does not match the herb list record.`,
+          { field, details: { herbList: listRecord[field], herbDetail: detailRecord[field] } },
+        ),
+      )
+    }
+  }
+
+  return findings
+}
+
+function buildCompoundLookup(compounds: GenericRecord[]): Set<string> {
+  const lookup = new Set<string>()
+  compounds.forEach(record => {
+    const name = typeof record.name === 'string' ? record.name : ''
+    if (!name.trim()) return
+    lookup.add(normalizeText(name))
+    lookup.add(normalizeText(name.replace(/β/gi, 'beta').replace(/α/gi, 'alpha')))
+  })
+  return lookup
+}
+
+function validateActiveCompoundReferences(
+  dataset: DatasetType,
+  recordId: string,
+  value: unknown,
+  compoundLookup: Set<string>,
+): AuditIssue[] {
+  if (!Array.isArray(value)) return []
+
+  return value.flatMap((entry, index) => {
+    if (typeof entry !== 'string' || !entry.trim()) return []
+    const normalized = normalizeText(entry)
+    if (!normalized || compoundLookup.has(normalized)) return []
+
+    return [
+      issue(
+        'error',
+        'unresolved-active-compound-reference',
+        dataset,
+        recordId,
+        `Active compound reference '${entry}' does not resolve to a compound record.`,
+        { field: 'activeCompounds', details: { index, value: entry } },
+      ),
+    ]
+  })
+}
+
+function summarizeIssues(issues: AuditIssue[]) {
+  const bySeverity = { error: 0, warning: 0 }
+  const byCode = new Map<string, number>()
+  const byDataset = new Map<DatasetType, number>()
+
+  for (const current of issues) {
+    bySeverity[current.severity] += 1
+    byCode.set(current.code, (byCode.get(current.code) ?? 0) + 1)
+    byDataset.set(current.dataset, (byDataset.get(current.dataset) ?? 0) + 1)
+  }
+
+  return {
+    bySeverity,
+    byCode: Array.from(byCode.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([code, count]) => ({ code, count })),
+    byDataset: Array.from(byDataset.entries())
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([dataset, count]) => ({ dataset, count })),
+  }
+}
+
+function toMarkdownReport(summary: {
+  generatedAt: string
+  files: Record<string, number>
+  totals: Record<string, number>
+  issueSummary: ReturnType<typeof summarizeIssues>
+  issues: AuditIssue[]
+}): string {
+  const topIssues = summary.issues.slice(0, 40)
+  const lines: string[] = [
+    '# Data Audit Report',
+    '',
+    `- Generated: ${summary.generatedAt}`,
+    `- Herb list records: ${summary.totals.herbListRecords}`,
+    `- Herb detail records: ${summary.totals.herbDetailRecords}`,
+    `- Compound records: ${summary.totals.compoundRecords}`,
+    `- Errors: ${summary.issueSummary.bySeverity.error}`,
+    `- Warnings: ${summary.issueSummary.bySeverity.warning}`,
+    '',
+    '## Dataset coverage',
+    '',
+    `- \`public/data/herbs.json\`: ${summary.files.herbsJsonCount} records`,
+    `- \`public/data/herbs-detail/*.json\`: ${summary.files.herbDetailFileCount} files`,
+    `- \`public/data/compounds.json\`: ${summary.files.compoundsJsonCount} records`,
+    '',
+    '## Issue counts by code',
+    '',
+    ...summary.issueSummary.byCode.map(item => `- ${item.code}: ${item.count}`),
+    '',
+    '## Issue counts by dataset',
+    '',
+    ...summary.issueSummary.byDataset.map(item => `- ${item.dataset}: ${item.count}`),
+    '',
+    '## Sample findings',
+    '',
+  ]
+
+  if (topIssues.length === 0) {
+    lines.push('- No findings.')
+  } else {
+    for (const finding of topIssues) {
+      const fieldSuffix = finding.field ? ` (${finding.field})` : ''
+      lines.push(
+        `- [${finding.severity}] ${finding.dataset} ${finding.recordId}${fieldSuffix}: ${finding.message}`,
+      )
+    }
+  }
+
+  return `${lines.join('\n')}\n`
+}
+
+async function loadHerbDetailRecords(): Promise<LoadedDetailRecord[]> {
+  const filenames = (await readdir(HERB_DETAILS_DIR)).filter(name => name.endsWith('.json')).sort()
+  const records: LoadedDetailRecord[] = []
+
+  for (const filename of filenames) {
+    const filepath = path.join(HERB_DETAILS_DIR, filename)
+    const data = await readJsonFile(filepath)
+    records.push({
+      filename,
+      filepath,
+      data: isObject(data) ? data : {},
+    })
+  }
+
+  return records
+}
+
+async function main() {
+  const failOnError = process.argv.includes('--fail-on-error')
+
+  const herbsData = await readJsonFile(HERBS_PATH)
+  const compoundsData = await readJsonFile(COMPOUNDS_PATH)
+  const herbDetailRecords = await loadHerbDetailRecords()
+
+  if (!Array.isArray(herbsData)) {
+    throw new Error(`Expected ${HERBS_PATH} to contain an array.`)
+  }
+  if (!Array.isArray(compoundsData)) {
+    throw new Error(`Expected ${COMPOUNDS_PATH} to contain an array.`)
+  }
+
+  const herbList = herbsData.filter(isObject)
+  const compounds = compoundsData.filter(isObject)
+  const issues: AuditIssue[] = []
+
+  herbList.forEach((record, index) => {
+    const slug = getHerbListSlug(record, index)
+    issues.push(...validateHerbRecordShape(record, 'herb-list', slug, HERB_LIST_REQUIRED_FIELDS))
+  })
+
+  herbDetailRecords.forEach((detail, index) => {
+    const detailSlug = typeof detail.data.slug === 'string' ? detail.data.slug : `detail-${index}`
+    issues.push(...validateHerbRecordShape(detail.data, 'herb-detail', detailSlug, HERB_DETAIL_REQUIRED_FIELDS))
+
+    const expectedSlug = path.basename(detail.filename, '.json')
+    if (detail.data.slug !== expectedSlug) {
+      issues.push(
+        issue(
+          'error',
+          'detail-filename-slug-mismatch',
+          'herb-detail',
+          detailSlug,
+          'Herb detail filename does not match its slug.',
+          { field: 'slug', details: { filename: detail.filename, slug: detail.data.slug } },
+        ),
+      )
+    }
+  })
+
+  compounds.forEach((record, index) => {
+    const name = typeof record.name === 'string' && record.name.trim() ? record.name : `compound-${index}`
+    issues.push(...validateCompoundRecordShape(record, name))
+  })
+
+  issues.push(
+    ...collectDuplicateIssues(
+      herbList.map((record, index) => ({
+        dataset: 'herb-list' as const,
+        recordId: getHerbListSlug(record, index),
+        key: getHerbListSlug(record, index),
+      })),
+      'duplicate-slug',
+      'Slug',
+    ),
+  )
+
+  issues.push(
+    ...collectDuplicateIssues(
+      herbDetailRecords.map((detail, index) => ({
+        dataset: 'herb-detail' as const,
+        recordId: typeof detail.data.slug === 'string' ? detail.data.slug : `detail-${index}`,
+        key: typeof detail.data.slug === 'string' ? normalizeText(detail.data.slug) : '',
+      })),
+      'duplicate-slug',
+      'Slug',
+    ),
+  )
+
+  issues.push(
+    ...collectDuplicateIssues(
+      herbList.map((record, index) => ({
+        dataset: 'herb-list' as const,
+        recordId: getHerbListSlug(record, index),
+        key: typeof record.name === 'string' ? normalizeDisplayText(record.name) : '',
+      })),
+      'duplicate-name',
+      'Name',
+    ),
+  )
+
+  issues.push(
+    ...collectDuplicateIssues(
+      herbDetailRecords.map((detail, index) => ({
+        dataset: 'herb-detail' as const,
+        recordId: typeof detail.data.slug === 'string' ? detail.data.slug : `detail-${index}`,
+        key: typeof detail.data.name === 'string' ? normalizeDisplayText(detail.data.name) : '',
+      })),
+      'duplicate-name',
+      'Name',
+    ),
+  )
+
+  issues.push(
+    ...collectDuplicateIssues(
+      compounds.map((record, index) => ({
+        dataset: 'compound' as const,
+        recordId: typeof record.name === 'string' && record.name.trim() ? record.name : `compound-${index}`,
+        key: typeof record.name === 'string' ? normalizeDisplayText(record.name) : '',
+      })),
+      'duplicate-name',
+      'Name',
+    ),
+  )
+
+  const compoundLookup = buildCompoundLookup(compounds)
+
+  herbList.forEach((record, index) => {
+    const recordId = getHerbListSlug(record, index)
+    issues.push(...validateActiveCompoundReferences('herb-list', recordId, record.activeCompounds, compoundLookup))
+  })
+
+  herbDetailRecords.forEach((detail, index) => {
+    const recordId = typeof detail.data.slug === 'string' ? detail.data.slug : `detail-${index}`
+    issues.push(
+      ...validateActiveCompoundReferences('herb-detail', recordId, detail.data.activeCompounds, compoundLookup),
+    )
+  })
+
+  const herbListBySlug = new Map<string, GenericRecord>()
+  herbList.forEach((record, index) => {
+    herbListBySlug.set(getHerbListSlug(record, index), record)
+  })
+
+  herbDetailRecords.forEach(detail => {
+    const slug = typeof detail.data.slug === 'string' ? detail.data.slug : ''
+    if (!slug) return
+    const listRecord = herbListBySlug.get(slug)
+    if (!listRecord) {
+      issues.push(
+        issue(
+          'warning',
+          'missing-herb-list-record',
+          'herb-detail',
+          slug,
+          'No matching herb list record was found for this herb detail record.',
+        ),
+      )
+      return
+    }
+    issues.push(...compareSharedHerbFields(listRecord, detail.data, slug))
+  })
+
+  herbList.forEach((record, index) => {
+    const slug = getHerbListSlug(record, index)
+    const hasDetail = herbDetailRecords.some(detail => detail.data.slug === slug)
+    if (!hasDetail) {
+      issues.push(
+        issue(
+          'warning',
+          'missing-herb-detail-record',
+          'herb-list',
+          slug,
+          'No matching herb detail record was found for this herb list record.',
+        ),
+      )
+    }
+  })
+
+  const dedupedIssues = issues.filter((current, index, all) => {
+    const key = JSON.stringify([
+      current.severity,
+      current.code,
+      current.dataset,
+      current.recordId,
+      current.field ?? '',
+      current.message,
+    ])
+    return all.findIndex(item =>
+      JSON.stringify([
+        item.severity,
+        item.code,
+        item.dataset,
+        item.recordId,
+        item.field ?? '',
+        item.message,
+      ]) === key,
+    ) === index
+  })
+
+  const summary = {
+    generatedAt: new Date().toISOString(),
+    files: {
+      herbsJsonCount: herbList.length,
+      herbDetailFileCount: herbDetailRecords.length,
+      compoundsJsonCount: compounds.length,
+    },
+    totals: {
+      herbListRecords: herbList.length,
+      herbDetailRecords: herbDetailRecords.length,
+      compoundRecords: compounds.length,
+    },
+    issueSummary: summarizeIssues(dedupedIssues),
+    issues: dedupedIssues,
+  }
+
+  await mkdir(REPORT_DIR, { recursive: true })
+  await writeFile(JSON_REPORT_PATH, `${JSON.stringify(summary, null, 2)}\n`)
+  await writeFile(MARKDOWN_REPORT_PATH, toMarkdownReport(summary))
+
+  console.log(`JSON report: ${path.relative(ROOT_DIR, JSON_REPORT_PATH)}`)
+  console.log(`Markdown report: ${path.relative(ROOT_DIR, MARKDOWN_REPORT_PATH)}`)
+  console.log(`Errors: ${summary.issueSummary.bySeverity.error}`)
+  console.log(`Warnings: ${summary.issueSummary.bySeverity.warning}`)
+
+  if (failOnError && summary.issueSummary.bySeverity.error > 0) {
+    process.exitCode = 1
+  }
+}
+
+main().catch(error => {
+  console.error(error)
+  process.exit(1)
+})
