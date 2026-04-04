@@ -16,20 +16,7 @@
     "liver conditions",
     "pregnancy."
   ],
-  "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "drowsiness",
-    "skin rash.",
-    "No direct toxicity data. Contextual inference: Cognitive enhancer",
-    "anxiolytic",
-    "wound healing",
-    "triterpenes improve circulation. Boosts collagen synthesis",
-    "modulates gaba and blood flow..",
-    "nan.. Boosts collagen synthesis",
-    "modulates GABA and blood flow.. Cognitive enhancer",
-    "triterpenes improve circulation."
-  ],
+  "safetyNotes": "safe; No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine; drowsiness; skin rash.; No direct toxicity data. Contextual inference: Cognitive enhancer; anxiolytic; wound healing; triterpenes improve circulation. Boosts collagen synthesis; modulates gaba and blood flow..; nan.. Boosts collagen synthesis; modulates GABA and blood flow.. Cognitive enhancer; triterpenes improve circulation.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -41,19 +28,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. Boosts collagen synthesis, modulates gaba and blood flow.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-    "No direct dosage data. Contextual inference: Cognitive enhancer",
-    "anxiolytic",
-    "wound healing",
-    "triterpenes improve circulation. Boosts collagen synthesis",
-    "modulates gaba and blood flow..",
-    "nan.. Boosts collagen synthesis",
-    "modulates GABA and blood flow.. Cognitive enhancer",
-    "triterpenes improve circulation. No direct region data. Contextual inference: Cognitive enhancer",
-    "triterpenes improve circulation.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine; No direct dosage data. Contextual inference: Cognitive enhancer; anxiolytic; wound healing; triterpenes improve circulation. Boosts collagen synthesis; modulates gaba and blood flow..; nan.. Boosts collagen synthesis; modulates GABA and blood flow.. Cognitive enhancer; triterpenes improve circulation. No direct region data. Contextual inference: Cognitive enhancer; triterpenes improve circulation.; nan.",
   "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
   "interactions": [
     "sedatives",

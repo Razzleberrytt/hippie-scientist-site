@@ -21,15 +21,7 @@
   "contraindications": [
     "Not recommended with CNS depressants"
   ],
-  "safetyNotes": [
-    "Generally safe in moderate doses",
-    "Drowsiness",
-    "dry mouth",
-    "Low",
-    "Limited data",
-    "may cause mild GI upset or allergic reactions",
-    "edible flowers in some regions."
-  ],
+  "safetyNotes": "Generally safe in moderate doses; Drowsiness; dry mouth; Low; Limited data; may cause mild GI upset or allergic reactions; edible flowers in some regions.",
   "sources": [
     {
       "title": "Ethnobotanical fieldwork"
@@ -47,9 +39,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Shrubby Fabaceae species with bright pink flowers; limited pharmacological research.",
-  "dosage": [
-    "Mild infusions or topical use."
-  ],
+  "dosage": "Mild infusions or topical use.",
   "duration": "2–3 hours.",
   "interactions": [],
   "legalStatus": "Unregulated; used in folk medicine",

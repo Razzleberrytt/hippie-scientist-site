@@ -12,12 +12,7 @@
     "inflammatory."
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Very limited data",
-    "possible allergenic or irritant resin effects similar to Dipterocarpaceae relatives",
-    "Low",
-    "resin sometimes inhaled or used externally."
-  ],
+  "safetyNotes": "Very limited data; possible allergenic or irritant resin effects similar to Dipterocarpaceae relatives; Low; resin sometimes inhaled or used externally.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -29,9 +24,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Dipterocarpaceae tree native to Southeast Asia; known for aromatic resin.",
-  "dosage": [
-    "Small amounts used topically or as incense."
-  ],
+  "dosage": "Small amounts used topically or as incense.",
   "duration": "Short-acting.",
   "interactions": [],
   "legalStatus": "Unregulated; used locally",

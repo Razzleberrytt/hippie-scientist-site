@@ -19,29 +19,11 @@
     "avoid during pregnancy and breastfeeding",
     "avoid combining with sedatives, sleep medications, or alcohol"
   ],
-  "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference: Used in folk medicine for relaxation",
-    "colds",
-    "and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation",
-    "and digestive issues... Used in folk medicine for relaxation",
-    "and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation",
-    "and digestive issues.. Used in folk medicine for relaxation",
-    "and digestive issues."
-  ],
+  "safetyNotes": "safe; No direct toxicity data. Contextual inference: Used in folk medicine for relaxation; colds; and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation; and digestive issues... Used in folk medicine for relaxation; and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation; and digestive issues.. Used in folk medicine for relaxation; and digestive issues.",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "description": "Used in folk medicine for relaxation, colds, and digestive issues..",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used in folk medicine for relaxation",
-    "colds",
-    "and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation",
-    "and digestive issues... Used in folk medicine for relaxation",
-    "and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation",
-    "and digestive issues.. Used in folk medicine for relaxation",
-    "and digestive issues.. No direct region data. Contextual inference: Used in folk medicine for relaxation",
-    "and digestive issues."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Used in folk medicine for relaxation; colds; and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation; and digestive issues... Used in folk medicine for relaxation; and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation; and digestive issues.. Used in folk medicine for relaxation; and digestive issues.. No direct region data. Contextual inference: Used in folk medicine for relaxation; and digestive issues.",
   "duration": "No direct duration data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.. No direct region data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.",
   "interactions": [],
   "legalStatus": "legal",

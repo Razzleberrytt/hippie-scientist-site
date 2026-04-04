@@ -20,29 +20,11 @@
     "avoid during pregnancy and breastfeeding",
     "use caution with prescription medications and chronic medical conditions"
   ],
-  "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference: Used in ayurveda for cognition",
-    "focus",
-    "and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition",
-    "and learning... Used in Ayurveda for cognition",
-    "and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition",
-    "and learning.. Used in Ayurveda for cognition",
-    "and learning."
-  ],
+  "safetyNotes": "safe; No direct toxicity data. Contextual inference: Used in ayurveda for cognition; focus; and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition; and learning... Used in Ayurveda for cognition; and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition; and learning.. Used in Ayurveda for cognition; and learning.",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "description": "Used in ayurveda for cognition, focus, and learning..",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used in ayurveda for cognition",
-    "focus",
-    "and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition",
-    "and learning... Used in Ayurveda for cognition",
-    "and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition",
-    "and learning.. Used in Ayurveda for cognition",
-    "and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition",
-    "and learning."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Used in ayurveda for cognition; focus; and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition; and learning... Used in Ayurveda for cognition; and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition; and learning.. Used in Ayurveda for cognition; and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition; and learning.",
   "duration": "No direct duration data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.",
   "interactions": [],
   "legalStatus": "legal",

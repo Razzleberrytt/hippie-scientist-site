@@ -11,20 +11,7 @@
     "mild sedative"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "caution",
-    "Photosensitivity",
-    "possible GI upset",
-    "avoid in pregnancy due to uterine stimulation",
-    "No direct toxicity data. Contextual inference: Carminative",
-    "digestive aid",
-    "mild sedative. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Carminative",
-    "mild sedative. none."
-  ],
+  "safetyNotes": "caution; Photosensitivity; possible GI upset; avoid in pregnancy due to uterine stimulation; No direct toxicity data. Contextual inference: Carminative; digestive aid; mild sedative. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Carminative; mild sedative. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -36,11 +23,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Carminative, digestive aid, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "500 mg",
-    "day root or extract"
-  ],
+  "dosage": "250; 500 mg; day root or extract",
   "duration": "2–4 hours",
   "interactions": [],
   "legalStatus": "Legal; common in traditional European herbalism",

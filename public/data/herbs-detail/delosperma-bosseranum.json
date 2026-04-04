@@ -24,29 +24,7 @@
     "Pregnancy",
     "concurrent SSRI use"
   ],
-  "safetyNotes": [
-    "Considered safe at moderate doses",
-    "Dry mouth",
-    "agitation",
-    "Low",
-    "Not determined",
-    "use caution",
-    "mild sedation",
-    "no toxicological studies",
-    "Not established",
-    "Unverified – used in research and ethnobotany",
-    "Limited data",
-    "possible skin irritation",
-    "avoid during pregnancy",
-    "No direct toxicity data. Contextual inference: Mild entheogen",
-    "possible adaptogen",
-    "little data available. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Mild entheogen",
-    "little data available. none."
-  ],
+  "safetyNotes": "Considered safe at moderate doses; Dry mouth; agitation; Low; Not determined; use caution; mild sedation; no toxicological studies; Not established; Unverified – used in research and ethnobotany; Limited data; possible skin irritation; avoid during pregnancy; No direct toxicity data. Contextual inference: Mild entheogen; possible adaptogen; little data available. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Mild entheogen; little data available. none.",
   "sources": [
     {
       "title": "Ethnobotanical reports"
@@ -67,10 +45,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Mild entheogen, possible adaptogen; little data available. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "Very low",
-    "psychoactive interest"
-  ],
+  "dosage": "Very low; psychoactive interest",
   "duration": "3–6 hours",
   "interactions": [
     "Antidepressants",

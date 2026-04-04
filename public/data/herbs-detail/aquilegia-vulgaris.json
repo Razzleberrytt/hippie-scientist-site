@@ -13,15 +13,7 @@
     "Pregnancy",
     "ingestion discouraged"
   ],
-  "safetyNotes": [
-    "caution",
-    "Contains toxic alkaloids",
-    "may cause gastrointestinal distress",
-    "drowsiness",
-    "or heart irregularities if ingested in large amounts",
-    "Moderate",
-    "contains cyanogenic glycosides."
-  ],
+  "safetyNotes": "caution; Contains toxic alkaloids; may cause gastrointestinal distress; drowsiness; or heart irregularities if ingested in large amounts; Moderate; contains cyanogenic glycosides.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -33,10 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Decorative European herb; historically used medicinally despite toxicity.",
-  "dosage": [
-    "Rarely used internally now",
-    "small dried flower doses (<1 g)."
-  ],
+  "dosage": "Rarely used internally now; small dried flower doses (<1 g).",
   "duration": "Brief – 1–2 hours if taken.",
   "interactions": [
     "May potentiate glycosides or cyanogenic effects if combined"

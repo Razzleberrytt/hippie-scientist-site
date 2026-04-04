@@ -10,20 +10,7 @@
     "cardiac glycoside effects"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Highly toxic",
-    "contains cardiac glycosides",
-    "may cause nausea",
-    "vomiting",
-    "arrhythmia",
-    "No direct toxicity data. Contextual inference: Highly toxic",
-    "cardiac glycoside effects. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Highly toxic",
-    "cardiac glycoside effects. none."
-  ],
+  "safetyNotes": "Highly toxic; contains cardiac glycosides; may cause nausea; vomiting; arrhythmia; No direct toxicity data. Contextual inference: Highly toxic; cardiac glycoside effects. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Highly toxic; cardiac glycoside effects. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -35,17 +22,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Highly toxic; cardiac glycoside effects. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Highly toxic",
-    "cardiac glycoside effects. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Highly toxic",
-    "cardiac glycoside effects. No direct region data. Contextual inference: Highly toxic",
-    "cardiac glycoside effects. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Highly toxic; cardiac glycoside effects. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Highly toxic; cardiac glycoside effects. No direct region data. Contextual inference: Highly toxic; cardiac glycoside effects. none.; nan.",
   "duration": "Varies; potentially fatal if ingested",
   "interactions": [],
   "legalStatus": "Ornamental use legal; internal use prohibited or restricted",

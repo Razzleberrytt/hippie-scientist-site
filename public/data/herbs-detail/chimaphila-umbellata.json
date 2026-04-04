@@ -11,19 +11,7 @@
     "traditionally used for bladder infections"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Rare GI upset",
-    "allergic reactions in sensitive individuals",
-    "No direct toxicity data. Contextual inference: Diuretic",
-    "urinary antiseptic",
-    "traditionally used for bladder infections. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Diuretic",
-    "traditionally used for bladder infections. none."
-  ],
+  "safetyNotes": "safe; Rare GI upset; allergic reactions in sensitive individuals; No direct toxicity data. Contextual inference: Diuretic; urinary antiseptic; traditionally used for bladder infections. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Diuretic; traditionally used for bladder infections. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -35,11 +23,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Diuretic, urinary antiseptic, traditionally used for bladder infections. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "750 mg",
-    "day leaf extract"
-  ],
+  "dosage": "250; 750 mg; day leaf extract",
   "duration": "4–6 hours",
   "interactions": [],
   "legalStatus": "Unregulated",

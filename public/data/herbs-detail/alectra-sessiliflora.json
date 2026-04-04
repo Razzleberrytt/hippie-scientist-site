@@ -14,11 +14,7 @@
     "psychoactive."
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Limited data",
-    "no common adverse effects reported",
-    "presumed low due to traditional use."
-  ],
+  "safetyNotes": "Limited data; no common adverse effects reported; presumed low due to traditional use.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -30,9 +26,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Parasitic herb in the Orobanchaceae family; possibly used in traditional African medicine.",
-  "dosage": [
-    "Not established."
-  ],
+  "dosage": "Not established.",
   "duration": "Acute topical application.",
   "interactions": [],
   "legalStatus": "Unregulated",

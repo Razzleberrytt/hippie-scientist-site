@@ -11,19 +11,7 @@
     "adaptogen"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "May cause diuresis",
-    "generally safe but monitor renal function with prolonged use",
-    "No direct toxicity data. Contextual inference: Diuretic",
-    "hepatoprotective",
-    "adaptogen. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Diuretic",
-    "adaptogen. none."
-  ],
+  "safetyNotes": "safe; May cause diuresis; generally safe but monitor renal function with prolonged use; No direct toxicity data. Contextual inference: Diuretic; hepatoprotective; adaptogen. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Diuretic; adaptogen. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -35,11 +23,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Diuretic, hepatoprotective, adaptogen. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "500",
-    "1000 mg",
-    "day root extract"
-  ],
+  "dosage": "500; 1000 mg; day root extract",
   "duration": "6–8 hours",
   "interactions": [],
   "legalStatus": "Legal in Ayurveda and herbal markets",

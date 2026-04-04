@@ -9,15 +9,7 @@
     "Used for sedation and muscle relaxation in Aboriginal medicine"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Mild sedative",
-    "potential dizziness or drowsiness",
-    "No direct toxicity data. Contextual inference: Used for sedation and muscle relaxation in aboriginal medicine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Used for sedation and muscle relaxation in Aboriginal medicine. none."
-  ],
+  "safetyNotes": "Mild sedative; potential dizziness or drowsiness; No direct toxicity data. Contextual inference: Used for sedation and muscle relaxation in aboriginal medicine. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Used for sedation and muscle relaxation in Aboriginal medicine. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -29,15 +21,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Used for sedation and muscle relaxation in aboriginal medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Used for sedation and muscle relaxation in aboriginal medicine. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Used for sedation and muscle relaxation in Aboriginal medicine. No direct region data. Contextual inference: Used for sedation and muscle relaxation in aboriginal medicine. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Used for sedation and muscle relaxation in Aboriginal medicine. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Used for sedation and muscle relaxation in aboriginal medicine. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Used for sedation and muscle relaxation in Aboriginal medicine. No direct region data. Contextual inference: Used for sedation and muscle relaxation in aboriginal medicine. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Used for sedation and muscle relaxation in Aboriginal medicine. none.; nan.",
   "duration": "4–6 hours",
   "interactions": [],
   "legalStatus": "Unregulated",

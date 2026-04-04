@@ -11,19 +11,7 @@
     "antifungal"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "caution",
-    "Possible skin irritation",
-    "avoid during pregnancy due to uterine stimulation",
-    "No direct toxicity data. Contextual inference: Aphrodisiac",
-    "antipruritic",
-    "antifungal. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Aphrodisiac",
-    "antifungal. none."
-  ],
+  "safetyNotes": "caution; Possible skin irritation; avoid during pregnancy due to uterine stimulation; No direct toxicity data. Contextual inference: Aphrodisiac; antipruritic; antifungal. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Aphrodisiac; antifungal. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -35,11 +23,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Aphrodisiac, antipruritic, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "500",
-    "1000 mg",
-    "day seed extract"
-  ],
+  "dosage": "500; 1000 mg; day seed extract",
   "duration": "4–6 hours",
   "interactions": [],
   "legalStatus": "Legal in traditional medicine; not widely regulated",

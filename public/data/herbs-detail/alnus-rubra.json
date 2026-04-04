@@ -13,18 +13,7 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Rare allergic reactions",
-    "excessive use may cause nausea or dizziness",
-    "No direct toxicity data. Contextual inference: Anti-inflammatory",
-    "astringent",
-    "febrifuge. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti-inflammatory",
-    "febrifuge. none."
-  ],
+  "safetyNotes": "Rare allergic reactions; excessive use may cause nausea or dizziness; No direct toxicity data. Contextual inference: Anti-inflammatory; astringent; febrifuge. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Anti-inflammatory; febrifuge. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -36,19 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Anti-inflammatory, astringent, febrifuge. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Anti",
-    "inflammatory",
-    "astringent",
-    "febrifuge. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Anti",
-    "febrifuge. No direct region data. Contextual inference: Anti",
-    "febrifuge. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Anti; inflammatory; astringent; febrifuge. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Anti; febrifuge. No direct region data. Contextual inference: Anti; febrifuge. none.; nan.",
   "duration": "2–4 hours",
   "interactions": [],
   "legalStatus": "Not restricted; used in North American herbalism",

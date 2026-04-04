@@ -15,17 +15,7 @@
     "discontinue if hypersensitivity or allergic symptoms occur",
     "avoid use in uncontrolled hypertension or significant arrhythmia"
   ],
-  "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference: Psychoactive",
-    "appetite stimulant",
-    "analgesic. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Psychoactive",
-    "analgesic. none."
-  ],
+  "safetyNotes": "safe; No direct toxicity data. Contextual inference: Psychoactive; appetite stimulant; analgesic. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Psychoactive; analgesic. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -37,12 +27,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Psychoactive, appetite stimulant, analgesic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "Varies",
-    "5",
-    "25 mg",
-    "day cannabinoids"
-  ],
+  "dosage": "Varies; 5; 25 mg; day cannabinoids",
   "duration": "4–6 hours",
   "interactions": [],
   "legalStatus": "Varies by country",
