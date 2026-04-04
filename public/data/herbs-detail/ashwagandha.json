@@ -2,7 +2,7 @@
   "name": "ashwagandha",
   "latin": "ashwagandha",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "Proposed mechanisms include withanolide-mediated modulation of stress-response signaling and neuroendocrine pathways. These mechanistic findings are preliminary and do not confirm broad clinical benefit across indications.",
+  "mechanism": "Proposed mechanism: Proposed mechanisms include withanolide-mediated modulation of stress-response signaling and neuroendocrine pathways. These mechanistic findings are preliminary and do not confirm broad clinical benefit across indications.",
   "activeCompounds": [
     "Withaferin A"
   ],
@@ -63,5 +63,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "ashwagandha entry normalized to baseline; key clinical and pharmacology fields are unresolved where repository evidence is limited."
 }
