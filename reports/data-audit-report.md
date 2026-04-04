@@ -1,6 +1,6 @@
 # Data Audit Report
 
-- Generated: 2026-04-04T02:38:41.986Z
+- Generated: 2026-04-04T02:43:38.329Z
 - Herb list records: 698
 - Herb detail records: 676
 - Compound records: 390
@@ -59,6 +59,7 @@
 - Moved to **RECOMMENDED**: `contraindications`, `sources` (+ `sources.title` / `sources.url` subfield checks) because these are high user-value trust/safety fields that should stay visible without failing the full dataset.
 - Moved to **RESEARCH_BACKLOG**: `class`, `activeCompounds` because triage shows these are predominantly genuinely absent and not reliably recoverable from internal data.
 - Future cleanup phases should prioritize RECOMMENDED gaps on high-traffic/core herbs first, while tracking RESEARCH_BACKLOG as explicit editorial/research debt.
+- `validate:data` gates only on hard/structural validator failures (error severity). RECOMMENDED and RESEARCH_BACKLOG gaps are reported but do not fail validation.
 
 ## Before/after missing-field comparison
 
