@@ -11333,5 +11333,132 @@
     ],
     "lastUpdated": "2026-03-21",
     "slug": "terpinene"
+  },
+  {
+    "name": "Magnesium",
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Supports normal muscle and nerve function",
+      "Supports energy metabolism",
+      "Supports bone and cardiovascular physiology"
+    ],
+    "contraindications": [
+      "Use caution with renal impairment due to higher hypermagnesemia risk",
+      "High supplemental doses can cause gastrointestinal adverse effects"
+    ],
+    "category": "nutrient",
+    "sources": [
+      {
+        "title": "Magnesium Fact Sheet for Health Professionals (NIH ODS)",
+        "url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"
+      }
+    ],
+    "lastUpdated": "2026-04-04",
+    "slug": "magnesium",
+    "id": "magnesium",
+    "displayName": "Magnesium"
+  },
+  {
+    "name": "Pyridoxine (Vitamin B6)",
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Supports amino-acid metabolism",
+      "Supports neurotransmitter synthesis",
+      "Prevents vitamin B6 deficiency manifestations"
+    ],
+    "contraindications": [
+      "Avoid prolonged high-dose self-supplementation due to neuropathy risk",
+      "Use medication review when combined with anticonvulsants or levodopa regimens"
+    ],
+    "category": "nutrient",
+    "sources": [
+      {
+        "title": "Vitamin B6 Fact Sheet for Health Professionals (NIH ODS)",
+        "url": "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/"
+      }
+    ],
+    "lastUpdated": "2026-04-04",
+    "slug": "pyridoxine",
+    "id": "pyridoxine",
+    "displayName": "Pyridoxine (Vitamin B6)"
+  },
+  {
+    "name": "Riboflavin (Vitamin B2)",
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Supports cellular energy metabolism",
+      "Supports antioxidant enzyme systems",
+      "Prevents ariboflavinosis (B2 deficiency)"
+    ],
+    "contraindications": [
+      "No major contraindications at nutritional intakes were highlighted in this source set"
+    ],
+    "category": "nutrient",
+    "sources": [
+      {
+        "title": "Riboflavin Fact Sheet for Health Professionals (NIH ODS)",
+        "url": "https://ods.od.nih.gov/factsheets/Riboflavin-HealthProfessional/"
+      }
+    ],
+    "lastUpdated": "2026-04-04",
+    "slug": "riboflavin",
+    "id": "riboflavin",
+    "displayName": "Riboflavin (Vitamin B2)"
+  },
+  {
+    "name": "Selenium",
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Supports antioxidant selenoprotein activity",
+      "Supports thyroid hormone metabolism",
+      "Prevents selenium deficiency states"
+    ],
+    "contraindications": [
+      "Avoid chronic high-dose intake above established upper limit due to selenosis risk"
+    ],
+    "category": "nutrient",
+    "sources": [
+      {
+        "title": "Selenium Fact Sheet for Health Professionals (NIH ODS)",
+        "url": "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional/"
+      }
+    ],
+    "lastUpdated": "2026-04-04",
+    "slug": "selenium",
+    "id": "selenium",
+    "displayName": "Selenium"
+  },
+  {
+    "name": "Vitamin D (Calciferols)",
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Supports calcium and phosphorus homeostasis",
+      "Supports bone mineralization",
+      "Prevents vitamin D deficiency bone disease"
+    ],
+    "contraindications": [
+      "Avoid chronic high-dose unsupervised use because of hypercalcemia risk"
+    ],
+    "category": "nutrient",
+    "sources": [
+      {
+        "title": "Vitamin D Fact Sheet for Health Professionals (NIH ODS)",
+        "url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"
+      }
+    ],
+    "lastUpdated": "2026-04-04",
+    "slug": "vitamin-d",
+    "id": "vitamin-d",
+    "displayName": "Vitamin D (Calciferols)"
   }
 ]

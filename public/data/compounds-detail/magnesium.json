@@ -1,0 +1,54 @@
+{
+  "name": "Magnesium",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Supports normal muscle and nerve function",
+    "Supports energy metabolism",
+    "Supports bone and cardiovascular physiology"
+  ],
+  "contraindications": [
+    "Use caution with renal impairment due to higher hypermagnesemia risk",
+    "High supplemental doses can cause gastrointestinal adverse effects"
+  ],
+  "category": "nutrient",
+  "sources": [
+    {
+      "title": "Magnesium Fact Sheet for Health Professionals (NIH ODS)",
+      "url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "slug": "magnesium",
+  "id": "magnesium",
+  "displayName": "Magnesium",
+  "description": "Magnesium is an essential mineral present as Mg2+ in food and supplements (for example citrate, oxide, chloride, and aspartate salts). About half of total body magnesium is stored in bone, with the remainder in soft tissue. Research in this corpus emphasizes established nutrition roles and RDA/UL guidance rather than broad therapeutic claims.",
+  "summary": "Magnesium is an essential mineral cofactor in hundreds of enzymatic reactions supporting neuromuscular and metabolic function; supplementation is mainly framed around deficiency correction and established intake targets.",
+  "mechanism": "Proposed/established mix: magnesium serves as a cofactor in ATP-dependent reactions and helps regulate calcium and potassium transport relevant to neuromuscular excitability. Proposed benefit mechanisms in migraine and muscle complaints remain context dependent.",
+  "safetyNotes": [
+    "Generally safe at dietary intakes. Supplemental magnesium can cause dose-related diarrhea, nausea, and abdominal cramping. Excessive intake can cause hypermagnesemia, with higher risk in renal impairment."
+  ],
+  "interactions": [
+    "May reduce absorption of bisphosphonates and some oral antibiotics (including tetracyclines and fluoroquinolones); dose separation is commonly recommended.",
+    "Can interact with medications that alter magnesium handling, including some diuretics and chronic proton-pump inhibitor exposure contexts."
+  ],
+  "dosage": [
+    "RDA framework (adults): approximately 310–420 mg/day from all sources.",
+    "Supplemental products commonly provide 100–400 mg elemental magnesium/day.",
+    "UL context: 350 mg/day applies to magnesium from supplements/medications (not food magnesium)."
+  ],
+  "preparation": "Common forms include magnesium citrate, oxide, chloride, and aspartate; labels should be interpreted as elemental magnesium delivered per dose.",
+  "regulatoryStatus": "Essential nutrient with established dietary reference intakes; marketed as a dietary supplement ingredient in standard oral forms.",
+  "sourceType": "Essential nutrient / mineral",
+  "activeCompounds": [
+    "Mg2+ (magnesium ion)"
+  ],
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nan"
+  ]
+}
