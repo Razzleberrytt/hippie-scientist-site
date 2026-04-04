@@ -2,9 +2,9 @@
   {
     "id": "syringaresnol-4-o-d-apiofuranosyl-1-2-d-glucopyranoside",
     "slug": "syringaresnol-4-o-d-apiofuranosyl-1-2-d-glucopyranoside",
-    "name": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside",
-    "summaryShort": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside appears in records as a compound reported in albizia julibrissin. Current source coverage is limited and still develop",
-    "description": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside appears in records as a compound reported in albizia julibrissin. Current source coverage is limited and still developing.",
+    "name": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1\u21922)-D-glucopyranoside",
+    "summaryShort": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1\u21922)-D-glucopyranoside appears in records as a compound reported in albizia julibrissin. Current source coverage is limited and still develop",
+    "description": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1\u21922)-D-glucopyranoside appears in records as a compound reported in albizia julibrissin. Current source coverage is limited and still developing.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -34,7 +34,7 @@
       "albizia-julibrissin"
     ],
     "aliases": [
-      "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside"
+      "(-)-syringaresnol-4-O-D-apiofuranosyl-(1\u21922)-D-glucopyranoside"
     ]
   },
   {
@@ -249,9 +249,9 @@
   {
     "id": "7-hydroxybaruol",
     "slug": "7-hydroxybaruol",
-    "name": "7α-hydroxybaruol",
-    "summaryShort": "7α-hydroxybaruol appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
-    "description": "7α-hydroxybaruol appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
+    "name": "7\u03b1-hydroxybaruol",
+    "summaryShort": "7\u03b1-hydroxybaruol appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
+    "description": "7\u03b1-hydroxybaruol appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -277,7 +277,7 @@
       "adenostoma-fasciculatum"
     ],
     "aliases": [
-      "7α-hydroxybaruol"
+      "7\u03b1-hydroxybaruol"
     ]
   },
   {
@@ -420,7 +420,7 @@
       "dreaming or folk medicine",
       "digestive aid",
       "and purported hallucinogen",
-      "contains β-asarone"
+      "contains \u03b2-asarone"
     ],
     "primaryEffects": [
       "Stimulation",
@@ -971,9 +971,9 @@
   {
     "id": "albiziasaponins-a-e",
     "slug": "albiziasaponins-a-e",
-    "name": "albiziasaponins A–E",
-    "summaryShort": "albiziasaponins A–E is a compound reported in albizia lebbeck. Available references are still early and incomplete.",
-    "description": "albiziasaponins A–E is a compound reported in albizia lebbeck. Available references are still early and incomplete.",
+    "name": "albiziasaponins A\u2013E",
+    "summaryShort": "albiziasaponins A\u2013E is a compound reported in albizia lebbeck. Available references are still early and incomplete.",
+    "description": "albiziasaponins A\u2013E is a compound reported in albizia lebbeck. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -1001,7 +1001,7 @@
       "albizia-lebbeck"
     ],
     "aliases": [
-      "albiziasaponins A–E"
+      "albiziasaponins A\u2013E"
     ]
   },
   {
@@ -1405,7 +1405,7 @@
       "dreaming or folk medicine",
       "digestive aid",
       "and purported hallucinogen",
-      "contains β-asarone",
+      "contains \u03b2-asarone",
       "CNS stimulant",
       "memory aid",
       "and anti-epileptic in TCM",
@@ -1809,7 +1809,7 @@
       "hallucinogenic in high doses",
       "digestive aid",
       "and purported hallucinogen",
-      "contains β-asarone",
+      "contains \u03b2-asarone",
       "Mild stimulation",
       "warming sensation",
       "Anxiolytic",
@@ -2320,7 +2320,7 @@
       "hallucinogenic in high doses",
       "digestive aid",
       "and purported hallucinogen",
-      "contains β-asarone",
+      "contains \u03b2-asarone",
       "CNS stimulant",
       "memory aid",
       "and anti-epileptic in TCM",
@@ -3867,9 +3867,9 @@
   {
     "id": "cocaine-alkaloids-0-2-1",
     "slug": "cocaine-alkaloids-0-2-1",
-    "name": "Cocaine alkaloids (0.2–1%)",
-    "summaryShort": "Cocaine alkaloids (0.2–1%) is a compound reported in nan. Available references are still early and incomplete.",
-    "description": "Cocaine alkaloids (0.2–1%) is a compound reported in nan. Available references are still early and incomplete.",
+    "name": "Cocaine alkaloids (0.2\u20131%)",
+    "summaryShort": "Cocaine alkaloids (0.2\u20131%) is a compound reported in nan. Available references are still early and incomplete.",
+    "description": "Cocaine alkaloids (0.2\u20131%) is a compound reported in nan. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -3902,7 +3902,7 @@
       "nan"
     ],
     "aliases": [
-      "Cocaine alkaloids (0.2–1%)"
+      "Cocaine alkaloids (0.2\u20131%)"
     ]
   },
   {
@@ -4802,9 +4802,9 @@
   {
     "id": "dmt-0-3-0-7",
     "slug": "dmt-0-3-0-7",
-    "name": "DMT (0.3–0.7%)",
-    "summaryShort": "DMT (0.3–0.7%) is a compound reported in nan. Available references are still early and incomplete.",
-    "description": "DMT (0.3–0.7%) is a compound reported in nan. Available references are still early and incomplete.",
+    "name": "DMT (0.3\u20130.7%)",
+    "summaryShort": "DMT (0.3\u20130.7%) is a compound reported in nan. Available references are still early and incomplete.",
+    "description": "DMT (0.3\u20130.7%) is a compound reported in nan. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -4834,7 +4834,7 @@
       "nan"
     ],
     "aliases": [
-      "DMT (0.3–0.7%)"
+      "DMT (0.3\u20130.7%)"
     ]
   },
   {
@@ -5806,7 +5806,7 @@
       "dreaming or folk medicine",
       "digestive aid",
       "and purported hallucinogen",
-      "contains β-asarone",
+      "contains \u03b2-asarone",
       "Stress relief",
       "respiratory support",
       "antioxidant",
@@ -10325,7 +10325,7 @@
       "dreaming or folk medicine",
       "digestive aid",
       "and purported hallucinogen",
-      "contains β-asarone"
+      "contains \u03b2-asarone"
     ],
     "primaryEffects": [
       "Stimulation",
@@ -11066,9 +11066,9 @@
   {
     "id": "nicotine-9-15",
     "slug": "nicotine-9-15",
-    "name": "Nicotine (9–15%)",
-    "summaryShort": "Nicotine (9–15%) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
-    "description": "Nicotine (9–15%) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+    "name": "Nicotine (9\u201315%)",
+    "summaryShort": "Nicotine (9\u201315%) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+    "description": "Nicotine (9\u201315%) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -11099,7 +11099,7 @@
       "nan"
     ],
     "aliases": [
-      "Nicotine (9–15%)"
+      "Nicotine (9\u201315%)"
     ]
   },
   {
@@ -16411,9 +16411,9 @@
   {
     "id": "calacorene",
     "slug": "calacorene",
-    "name": "α-calacorene",
-    "summaryShort": "α-calacorene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
-    "description": "α-calacorene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
+    "name": "\u03b1-calacorene",
+    "summaryShort": "\u03b1-calacorene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
+    "description": "\u03b1-calacorene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -16444,15 +16444,15 @@
       "acorus-tatarinowii"
     ],
     "aliases": [
-      "α-calacorene"
+      "\u03b1-calacorene"
     ]
   },
   {
     "id": "pinene",
     "slug": "pinene",
-    "name": "α-pinene",
-    "summaryShort": "α-pinene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
-    "description": "α-pinene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
+    "name": "\u03b1-pinene",
+    "summaryShort": "\u03b1-pinene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
+    "description": "\u03b1-pinene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -16483,15 +16483,15 @@
       "acorus-tatarinowii"
     ],
     "aliases": [
-      "α-pinene"
+      "\u03b1-pinene"
     ]
   },
   {
     "id": "terpinene",
     "slug": "terpinene",
-    "name": "α-terpinene",
-    "summaryShort": "α-terpinene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
-    "description": "α-terpinene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "name": "\u03b1-terpinene",
+    "summaryShort": "\u03b1-terpinene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "description": "\u03b1-terpinene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -16522,15 +16522,15 @@
       "acorus-tatarinowii"
     ],
     "aliases": [
-      "α-terpinene"
+      "\u03b1-terpinene"
     ]
   },
   {
     "id": "terpineol",
     "slug": "terpineol",
-    "name": "α-terpineol",
-    "summaryShort": "α-terpineol is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
-    "description": "α-terpineol is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "name": "\u03b1-terpineol",
+    "summaryShort": "\u03b1-terpineol is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "description": "\u03b1-terpineol is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -16561,15 +16561,15 @@
       "acorus-tatarinowii"
     ],
     "aliases": [
-      "α-terpineol"
+      "\u03b1-terpineol"
     ]
   },
   {
     "id": "caryophyllene",
     "slug": "caryophyllene",
-    "name": "β-caryophyllene",
-    "summaryShort": "β-caryophyllene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
-    "description": "β-caryophyllene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "name": "\u03b2-caryophyllene",
+    "summaryShort": "\u03b2-caryophyllene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+    "description": "\u03b2-caryophyllene is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -16600,15 +16600,15 @@
       "acorus-tatarinowii"
     ],
     "aliases": [
-      "β-caryophyllene"
+      "\u03b2-caryophyllene"
     ]
   },
   {
     "id": "sitosteryl-acetate",
     "slug": "sitosteryl-acetate",
-    "name": "β-sitosteryl acetate",
-    "summaryShort": "β-sitosteryl acetate is a compound reported in aerva lanata. Available references are still early and incomplete.",
-    "description": "β-sitosteryl acetate is a compound reported in aerva lanata. Available references are still early and incomplete.",
+    "name": "\u03b2-sitosteryl acetate",
+    "summaryShort": "\u03b2-sitosteryl acetate is a compound reported in aerva lanata. Available references are still early and incomplete.",
+    "description": "\u03b2-sitosteryl acetate is a compound reported in aerva lanata. Available references are still early and incomplete.",
     "className": "",
     "category": "",
     "mechanism": "",
@@ -16639,18 +16639,18 @@
       "aerva-lanata"
     ],
     "aliases": [
-      "β-sitosteryl acetate"
+      "\u03b2-sitosteryl acetate"
     ]
   },
   {
     "id": "magnesium",
     "slug": "magnesium",
     "name": "Magnesium",
-    "summaryShort": "Magnesium is an essential mineral cofactor in hundreds of enzymatic reactions supporting neuromuscular and metabolic function; supplementation is mainly framed around deficiency correction and established intake targets.",
-    "description": "Magnesium is an essential mineral present as Mg2+ in food and supplements (for example citrate, oxide, chloride, and aspartate salts). About half of total body magnesium is stored in bone, with the remainder in soft tissue. Research in this corpus emphasizes established nutrition roles and RDA/UL guidance rather than broad therapeutic claims.",
+    "summaryShort": "Magnesium is an essential mineral involved in 300+ enzymatic reactions related to energy metabolism and muscle/nerve function; supplementation is primarily framed around adequacy and intake targets.",
+    "description": "Magnesium (Mg2+) is supplied by foods and supplements (for example citrate, oxide, chloride, and aspartate forms). About half of body magnesium is in bone, with the remainder in muscle and other soft tissues.",
     "className": "nutrient",
     "category": "nutrient",
-    "mechanism": "Proposed/established mix: magnesium serves as a cofactor in ATP-dependent reactions and helps regulate calcium and potassium transport relevant to neuromuscular excitability. Proposed benefit mechanisms in migraine and muscle complaints remain context dependent.",
+    "mechanism": "Established with proposed extensions: magnesium is a cofactor in ATP-linked enzymatic reactions and helps regulate calcium/potassium transport affecting neuromuscular excitability; migraine-related benefits remain proposed/context dependent.",
     "effects": [
       "Supports normal muscle and nerve function",
       "Supports energy metabolism",
@@ -16682,11 +16682,11 @@
     "id": "pyridoxine",
     "slug": "pyridoxine",
     "name": "Pyridoxine (Vitamin B6)",
-    "summaryShort": "Pyridoxine (vitamin B6) is an essential cofactor nutrient used primarily to maintain adequacy and prevent deficiency, with cautious supplemental use because chronic high doses can cause neuropathy.",
-    "description": "Vitamin B6 includes pyridoxine, pyridoxal, pyridoxamine, and phosphorylated forms, with pyridoxal-5-phosphate as the active coenzyme form in many reactions. The research corpus frames supplementation around adequacy, deficiency prevention, and selected investigational use cases with mixed outcomes.",
+    "summaryShort": "Vitamin B6 (including pyridoxine) is an essential cofactor nutrient for amino-acid and neurotransmitter metabolism; supplementation is mainly for adequacy/deficiency contexts, with caution at high chronic doses.",
+    "description": "Vitamin B6 includes pyridoxine, pyridoxal, pyridoxamine, and phosphate forms. The active coenzyme form is pyridoxal-5'-phosphate, and adult intake guidance is centered on low mg/day RDA levels.",
     "className": "nutrient",
     "category": "nutrient",
-    "mechanism": "Proposed/established mix: B6-dependent enzymes support amino-acid metabolism and neurotransmitter synthesis pathways (including serotonin and GABA-related pathways). Proposed symptomatic benefits outside deficiency correction remain condition specific and not definitive.",
+    "mechanism": "Established with proposed extensions: B6-dependent enzymes support transamination/decarboxylation and neurotransmitter synthesis (including serotonin and GABA pathways); symptom-specific benefits outside deficiency correction remain mixed.",
     "effects": [
       "Supports amino-acid metabolism",
       "Supports neurotransmitter synthesis",
@@ -16718,11 +16718,11 @@
     "id": "riboflavin",
     "slug": "riboflavin",
     "name": "Riboflavin (Vitamin B2)",
-    "summaryShort": "Riboflavin (vitamin B2) is an essential vitamin cofactor for cellular redox metabolism with a strong safety profile; migraine protocols use pharmacologic doses that are distinct from dietary intake levels.",
-    "description": "Riboflavin is required to form FMN and FAD coenzymes used in energy and antioxidant pathways. The corpus distinguishes deficiency prevention at low intake levels from higher-dose migraine prophylaxis protocols studied in selected trials.",
+    "summaryShort": "Riboflavin (vitamin B2) is an essential vitamin required for FMN/FAD coenzymes in energy and redox metabolism; it has a strong safety profile, while migraine protocols use much higher doses than nutritional intake.",
+    "description": "Riboflavin supports formation of FMN and FAD and is required at low intake levels to prevent deficiency (ariboflavinosis). Migraine studies typically evaluate pharmacologic-dose supplementation rather than dietary-level intake.",
     "className": "nutrient",
     "category": "nutrient",
-    "mechanism": "Proposed/established mix: riboflavin supports redox reactions through FMN/FAD and may improve mitochondrial energy handling in migraine contexts; migraine-specific mechanisms remain proposed rather than definitive.",
+    "mechanism": "Established with proposed extensions: riboflavin supports redox enzymes via FMN/FAD (including antioxidant pathways such as glutathione reductase), while migraine benefit is linked to a proposed mitochondrial-energy mechanism.",
     "effects": [
       "Supports cellular energy metabolism",
       "Supports antioxidant enzyme systems",
@@ -16754,11 +16754,11 @@
     "id": "selenium",
     "slug": "selenium",
     "name": "Selenium",
-    "summaryShort": "Selenium is an essential trace mineral used in antioxidant and thyroid-related selenoproteins; adequacy is important, while chronic excess can cause selenosis.",
-    "description": "Selenium is incorporated into selenoproteins involved in antioxidant biology and thyroid hormone metabolism. The corpus emphasizes established intake guidance and cautions against high-dose supplementation in non-deficient populations.",
+    "summaryShort": "Selenium is an essential trace mineral for antioxidant and thyroid-related selenoproteins; adequacy is important, while chronic excess can cause selenosis.",
+    "description": "Selenium is incorporated into selenoproteins involved in oxidative defense and thyroid hormone metabolism. Adult intake guidance is centered on microgram-scale intake, and higher chronic intake raises toxicity risk.",
     "className": "nutrient",
     "category": "nutrient",
-    "mechanism": "Proposed/established mix: selenium functions via selenoproteins (including glutathione peroxidase and deiodinase systems) supporting oxidative balance and thyroid hormone conversion pathways.",
+    "mechanism": "Established with proposed extensions: selenium functions through selenoproteins (including glutathione peroxidase and deiodinase enzymes), supporting oxidative balance and T4-to-T3 conversion.",
     "effects": [
       "Supports antioxidant selenoprotein activity",
       "Supports thyroid hormone metabolism",
@@ -16790,11 +16790,11 @@
     "id": "vitamin-d",
     "slug": "vitamin-d",
     "name": "Vitamin D (Calciferols)",
-    "summaryShort": "Vitamin D (D2/D3) is an essential nutrient-hormone precursor for calcium balance and bone health; deficiency and excess are both clinically relevant.",
-    "description": "Vitamin D is obtained from skin synthesis (primarily D3) and diet/supplements (D2 and D3), then converted to active hormonal metabolites. The source corpus supports bone-health deficiency prevention while keeping non-skeletal benefit claims cautious.",
+    "summaryShort": "Vitamin D (D2/D3) is an essential nutrient-prohormone for calcium homeostasis and bone health; deficiency and chronic excess are both clinically important.",
+    "description": "Vitamin D is produced in skin (primarily D3) and obtained from diet/supplements (D2 and D3), then converted to active metabolites. Core evidence supports deficiency prevention and bone-health roles, while many non-skeletal claims remain under investigation.",
     "className": "nutrient",
     "category": "nutrient",
-    "mechanism": "Proposed/established mix: vitamin D increases intestinal calcium/phosphorus absorption and supports bone mineralization through vitamin D receptor signaling; broader immune and cardiometabolic effects remain under active investigation.",
+    "mechanism": "Established with proposed extensions: vitamin D increases intestinal calcium/phosphorus absorption and supports bone mineralization through vitamin D receptor signaling; broader immune/cardiometabolic effects remain tentative.",
     "effects": [
       "Supports calcium and phosphorus homeostasis",
       "Supports bone mineralization",
