@@ -1,37 +1,34 @@
 {
-  "name": "Aconitine",
-  "category": "diterpenoid alkaloid",
-  "description": "Aconitine is a highly toxic diterpenoid alkaloid from Aconitum species and is primarily characterized by poisoning literature rather than therapeutic trials.",
+  "name": "aconitine",
   "herbs": [
     "aconitum napellus"
   ],
   "effects": [
-    "Human poisoning reports consistently describe severe cardiotoxic and neurotoxic presentations.",
-    "Forensic and toxicology literature supports high acute toxicity risk."
+    "Potent analgesic and anti-inflammatory",
+    "extremely toxic",
+    "Potent analgesic and anti",
+    "inflammatory"
   ],
   "contraindications": [
-    "Contraindicated for unsupervised internal use due to risk of life-threatening arrhythmia and neurologic toxicity."
+    "Highly toxic",
+    "ingestion can cause severe arrhythmias",
+    "paralysis and death",
+    "avoid internal use",
+    "handling requires caution."
   ],
-  "interactions": [
-    "Likely dangerous with other agents that alter cardiac conduction or depress respiration/CNS function."
-  ],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "Research progress of aconitine toxicity and forensic analysis of aconitine poisoning.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32490307/"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.038Z",
+  "lastUpdated": "2026-03-21",
   "slug": "aconitine",
-  "summary": "Aconitine is a highly toxic diterpenoid alkaloid from Aconitum species and is primarily characterized by poisoning literature rather than therapeutic trials.",
+  "id": "aconitine",
+  "displayName": "aconitine",
+  "description": "aconitine is a compound reported in aconitum napellus. Available references are still early and incomplete.",
+  "summary": "aconitine is a compound reported in aconitum napellus. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

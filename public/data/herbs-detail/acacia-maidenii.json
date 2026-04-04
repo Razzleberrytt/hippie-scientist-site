@@ -3,56 +3,92 @@
   "latin": "Acacia maidenii",
   "class": "Traditional, Psychoactive",
   "intensity": "Strong (psychoactive extract)",
-  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
-    "dmt",
+    "DMT",
     "tryptamines",
     "tannins",
     "flavonoids"
   ],
   "effects": [
-    "psychedelic"
+    "Psychoactive (when extracted)",
+    "vision alteration",
+    "introspection",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "may interact with maois",
-    "avoid with unverified internal use"
+    "Use with MAOIs",
+    "unverified internal use",
+    "avoid during pregnancy and breastfeeding",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "interactions": [
-    "Caution with: MAO inhibitors",
-    "Caution with: serotonergic drugs"
+  "safetyNotes": [
+    "Unsafe without controlled setting",
+    "Hallucinations",
+    "nausea",
+    "confusion",
+    "High (in extract misuse)",
+    "Not established",
+    "caution",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyNotes": "May interact with maois; Avoid with unverified internal use.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Acacia maidenii (TaxID 795978)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=795978&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "PubMed"
     },
     {
-      "title": "PubMed search: Acacia maidenii",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Acacia+maidenii",
-      "note": "Literature index for pharmacology and safety evidence"
+      "title": "Erowid"
     },
     {
-      "title": "PubChem search: Acacia maidenii",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Acacia+maidenii",
-      "note": "Chemical and bioactivity reference index"
+      "title": "Australian Botanical Database"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
+  "lastUpdated": "2026-03-21",
   "description": "Australian native tree known for its DMT-rich bark, traditionally used by indigenous people for tools and spiritual use.",
-  "dosage": "",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "MAO inhibitors",
+    "serotonergic drugs"
+  ],
   "legalStatus": "Regulated in many countries due to DMT content",
-  "preparation": "Smoked.",
-  "region": "Native to eastern australia.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "None established",
-    "spiritual exploration in some traditions"
+    "spiritual exploration in some traditions",
+    "traditional support for mild digestive comfort"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "acacia-maidenii",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "acacia maidenii",
+  "displayScientificName": "Acacia maidenii",
+  "scientificNormalized": "acacia maidenii",
+  "id": "acacia-maidenii",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

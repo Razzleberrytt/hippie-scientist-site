@@ -1,32 +1,58 @@
 {
   "name": "coffea arabica",
   "latin": "Coffea arabica",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Stimulant, cognitive enhancer, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, cognitive enhancer, antioxidant. No direct region data. Contextual inference: Stimulant, cognitive enhancer, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, cognitive enhancer, antioxidant. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "stimulation",
-    "focus",
+    "Stimulant",
+    "cognitive enhancer",
     "antioxidant"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Insomnia; Anxiety; Tachycardia due to caffeine content; GI upset in large doses; Antioxidant; Antioxidant effects; Or enzyme inhibition.",
+  "safetyNotes": [
+    "Insomnia",
+    "anxiety",
+    "tachycardia due to caffeine content",
+    "GI upset in large doses",
+    "No direct toxicity data. Contextual inference: Stimulant",
+    "cognitive enhancer",
+    "antioxidant. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Stimulant",
+    "antioxidant. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Coffea arabica (TaxID 13443)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=13443&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.902Z",
-  "description": "Stimulant, cognitive enhancer, antioxidant..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Stimulant, cognitive enhancer, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Stimulant",
+    "cognitive enhancer",
+    "antioxidant. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Stimulant",
+    "antioxidant. No direct region data. Contextual inference: Stimulant",
+    "antioxidant. none.",
+    "nan."
+  ],
   "duration": "2–6 hours",
+  "interactions": [],
   "legalStatus": "Widely legal and consumed",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "Roasted seeds (coffee beans) brewed as a beverage; green coffee extract also used",
+  "region": "No direct region data. Contextual inference: Stimulant, cognitive enhancer, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, cognitive enhancer, antioxidant. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -36,6 +62,10 @@
     "GI upset in large doses"
   ],
   "slug": "coffea-arabica",
+  "id": "coffea-arabica",
+  "displayName": "coffea arabica",
+  "displayScientificName": "Coffea arabica",
+  "scientificNormalized": "coffea arabica",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

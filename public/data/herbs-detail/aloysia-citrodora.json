@@ -1,35 +1,61 @@
 {
   "name": "aloysia citrodora",
   "latin": "aloysia citrodora",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
-    "citral",
-    "verbascoside"
+    "Citral",
+    "Verbascoside"
   ],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: aloysia citrodora",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=aloysia%20citrodora&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
-  "lastUpdated": "2026-04-01T18:55:37.846Z",
-  "description": "",
-  "dosage": "",
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
+  ],
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "legalStatus": "",
-  "preparation": "",
-  "region": "South america.",
-  "therapeuticUses": [],
+  "interactions": [],
+  "legalStatus": null,
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": [
+    "traditional support for mild digestive comfort",
+    "non-specific traditional tonic use"
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "aloysia-citrodora",
+  "sideEffects": [
+    "dry mouth",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "aloysia-citrodora",
+  "displayName": "aloysia citrodora",
+  "displayScientificName": "aloysia citrodora",
+  "scientificNormalized": "aloysia citrodora",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

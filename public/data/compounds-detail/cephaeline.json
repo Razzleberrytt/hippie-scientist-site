@@ -1,7 +1,5 @@
 {
   "name": "cephaeline",
-  "category": "general",
-  "description": "cephaeline is a compound reported in alangium salvifolium. Available references are still early and incomplete.",
   "herbs": [
     "alangium salvifolium"
   ],
@@ -19,24 +17,18 @@
     "can be toxic",
     "use with caution and avoid during pregnancy or without medical supervision."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: cephaeline (CID 442195)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442195",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "lastUpdated": "2026-03-21",
   "slug": "cephaeline",
+  "id": "cephaeline",
+  "displayName": "cephaeline",
+  "description": "cephaeline is a compound reported in alangium salvifolium. Available references are still early and incomplete.",
   "summary": "cephaeline is a compound reported in alangium salvifolium. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

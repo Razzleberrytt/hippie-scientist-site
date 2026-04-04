@@ -1,7 +1,5 @@
 {
   "name": "Alpha",
-  "category": "general",
-  "description": "Alpha is a compound reported in acorus americanus and pogostemon cablin. Available references are still early and incomplete.",
   "herbs": [
     "acorus americanus",
     "pogostemon cablin"
@@ -18,24 +16,13 @@
     "dreaming or folk medicine"
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Alpha (CID 14647596)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/14647596",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "alpha",
+  "id": "alpha",
+  "displayName": "Alpha",
+  "description": "Alpha is a compound reported in acorus americanus and pogostemon cablin. Available references are still early and incomplete.",
   "summary": "Alpha is a compound reported in acorus americanus and pogostemon cablin. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

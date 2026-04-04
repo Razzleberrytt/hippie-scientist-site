@@ -1,9 +1,7 @@
 {
   "name": "Boswellic acids",
-  "category": "general",
-  "description": "Boswellic acids is a compound reported in Boswellia dalzielii. Available references are still early and incomplete.",
   "herbs": [
-    "Boswellia dalzielii"
+    "nan"
   ],
   "effects": [
     "Joint pain relief",
@@ -12,30 +10,19 @@
   "contraindications": [
     "Avoid use in bleeding disorders"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Boswellic acids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/boswellic-acids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "boswellic-acids",
-  "summary": "Boswellic acids is a compound reported in Boswellia dalzielii. Available references are still early and incomplete.",
+  "id": "boswellic-acids",
+  "displayName": "Boswellic acids",
+  "description": "Boswellic acids is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Boswellic acids is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "boswellia-dalzielii"
+    "nan"
   ]
 }

@@ -1,35 +1,50 @@
 {
   "name": "datura metel",
   "latin": "datura metel",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. No direct region data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
-  "mechanism": "used in rituals but also associated with danger and toxicity",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.",
   "activeCompounds": [
-    "scopolamine",
-    "atropine"
+    "Scopolamine",
+    "Atropine"
   ],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Toxic – CNS-active alkaloids; Used in rituals but also associated with danger and toxicity. Used in rituals but also associated with danger and toxicity. Used in rituals but also associated with danger and toxicity. Used in rituals but also associated with danger and toxicity. Used in rituals but also associated with danger and toxicity. Used in rituals but also associated with danger and toxicity. Used in rituals but also associated with danger and toxicity. Used in rituals but also associated with danger and toxicity.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: datura metel (TaxID 35625)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=35625&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity."
   ],
-  "lastUpdated": "2026-04-01T18:55:37.914Z",
-  "description": "Used in rituals but also associated with danger and toxicity.",
-  "dosage": "",
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding",
+    "avoid in psychotic disorders, severe anxiety, or unsupervised psychoactive use"
+  ],
+  "safetyNotes": [
+    "Toxic – CNS-active alkaloids",
+    "No direct toxicity data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity."
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used in rituals but also associated with danger and toxicity..",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. No direct region data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity."
+  ],
   "duration": "No direct duration data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. No direct region data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
-  "legalStatus": "",
-  "preparation": "",
-  "region": "Asia, africa.",
-  "therapeuticUses": [],
+  "interactions": [],
+  "legalStatus": null,
+  "preparation": "No direct preparation data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. No direct region data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
+  "region": "No direct region data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
+  "therapeuticUses": [
+    "traditional support for mild digestive comfort",
+    "traditional ceremonial or ritual context use"
+  ],
   "traditionalUse": "Used in rituals but also associated with danger and toxicity.",
-  "sideEffects": [],
   "slug": "datura-metel",
+  "sideEffects": [
+    "nausea, confusion, or anxiety with higher intake",
+    "dry mouth, blurred vision, and rapid heartbeat",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "datura-metel",
+  "displayName": "datura metel",
+  "displayScientificName": "datura metel",
+  "scientificNormalized": "datura metel",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

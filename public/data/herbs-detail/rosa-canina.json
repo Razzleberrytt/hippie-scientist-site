@@ -1,33 +1,53 @@
 {
   "name": "rosa canina",
   "latin": "Rosa canina",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antioxidant, anti-inflammatory, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant, anti-inflammatory, immune support. No direct region data. Contextual inference: Antioxidant, anti-inflammatory, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant, anti-inflammatory, immune support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
+    "Antioxidant",
     "anti-inflammatory",
     "immune support",
-    "antioxidant"
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause generally safe, high doses may cause nausea or diarrhea.",
+  "safetyNotes": [
+    "safe",
+    "Generally safe",
+    "high doses may cause nausea",
+    "diarrhea",
+    "No direct toxicity data. Contextual inference: Antioxidant",
+    "anti-inflammatory",
+    "immune support. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antioxidant",
+    "immune support. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Rosa canina (TaxID 74635)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=74635&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.010Z",
-  "description": "Antioxidant, anti-inflammatory, immune support.",
-  "dosage": "500-1000 mg/day fruit or extract.",
+  "lastUpdated": "2026-03-21",
+  "description": "Antioxidant, anti-inflammatory, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "500",
+    "1000 mg",
+    "day fruit or extract"
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Hips dried for teas, syrups, or tinctures; rich in vitamin C and anti-inflammatory compounds",
+  "region": "No direct region data. Contextual inference: Antioxidant, anti-inflammatory, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant, anti-inflammatory, immune support. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -36,6 +56,10 @@
     "diarrhea"
   ],
   "slug": "rosa-canina",
+  "id": "rosa-canina",
+  "displayName": "rosa canina",
+  "displayScientificName": "Rosa canina",
+  "scientificNormalized": "rosa canina",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -1,10 +1,8 @@
 {
   "name": "phenolic acids",
-  "category": "phenolic compound",
-  "description": "phenolic acids is a phenolic compound compound reported in agrimonia eupatoria and Rhynchosia pyramidalis. Available references are still early and incomplete.",
   "herbs": [
     "agrimonia eupatoria",
-    "Rhynchosia pyramidalis"
+    "nan"
   ],
   "effects": [
     "Astringent",
@@ -22,31 +20,25 @@
     "Pregnancy",
     "hormone-sensitive conditions"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: phenolic acids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/phenolic-acids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "lastUpdated": "2026-03-21",
   "slug": "phenolic-acids",
-  "summary": "phenolic acids is a phenolic compound compound reported in agrimonia eupatoria and Rhynchosia pyramidalis. Available references are still early and incomplete.",
+  "id": "phenolic-acids",
+  "displayName": "phenolic acids",
+  "description": "phenolic acids is a compound reported in agrimonia eupatoria and nan. Available references are still early and incomplete.",
+  "summary": "phenolic acids is a compound reported in agrimonia eupatoria and nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "agrimonia-eupatoria",
-    "rhynchosia-pyramidalis"
+    "nan"
   ]
 }

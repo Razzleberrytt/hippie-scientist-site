@@ -3,46 +3,83 @@
   "latin": "Ocimum sanctum",
   "class": "Adaptogen, Immunomodulator, Traditional",
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, anti-stress, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-stress, immune support. No direct region data. Contextual inference: Adaptogen, anti-stress, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-stress, immune support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [
-    "eugenol",
+    "Eugenol",
     "ursolic acid",
     "rosmarinic acid",
     "linalool",
     "carvacrol"
   ],
   "effects": [
-    "stimulation",
-    "anxiety relief",
+    "Stress relief",
     "respiratory support",
+    "antioxidant",
+    "mild energy boost",
+    "Adaptogen",
+    "anti-stress",
     "immune support",
-    "antioxidant"
+    "anti",
+    "stress"
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with blood clotting disorders"
+    "Pregnancy (high doses)",
+    "blood clotting disorders"
   ],
-  "interactions": [
-    "Anticoagulants",
-    "Antidiabetic medications",
-    "Immunomodulators"
+  "safetyNotes": [
+    "Generally safe in normal doses",
+    "Mild GI upset",
+    "dizziness (rare)",
+    "Low",
+    "~5000 mg/kg (rat",
+    "oral)",
+    "safe",
+    "Mild GI issues",
+    "drowsiness",
+    "caution with anticoagulants",
+    "No direct toxicity data. Contextual inference: Adaptogen",
+    "anti-stress",
+    "immune support. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Adaptogen",
+    "immune support. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause mild gi issues or drowsiness. Avoid in pregnancy; Avoid with blood clotting disorders; Avoid combining with sedatives, generally well tolerated; Use caution with anticoagulants; Avoid use during pregnancy unless advised by a clinician, alcohol, or other CNS depressants, mild GI issues or drowsiness; Avoid combining with sedatives.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Ocimum sanctum",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Ocimum%20sanctum&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "PubMed"
+    },
+    {
+      "title": "WHO monographs"
+    },
+    {
+      "title": "Ayurvedic pharmacopoeia"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.984Z",
-  "description": "Adaptogen, anti-stress, immune support.",
-  "dosage": "250-750 mg/day leaf extract.",
+  "lastUpdated": "2026-03-21",
+  "description": "Adaptogen, anti-stress, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "750 mg",
+    "day leaf extract"
+  ],
   "duration": "6–8 hours (adaptogenic action)",
+  "interactions": [
+    "Anticoagulants",
+    "hypoglycemics",
+    "immunomodulators"
+  ],
   "legalStatus": "Unregulated; widely available",
-  "preparation": "Tincture.",
-  "region": "India, southeast asia.",
+  "preparation": "Leaves used fresh or dried in teas, decoctions, tinctures; sacred basil with adaptogenic effects",
+  "region": "No direct region data. Contextual inference: Adaptogen, anti-stress, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-stress, immune support. none. ; nan; nan",
   "therapeuticUses": [
     "Stress",
     "colds",
@@ -50,12 +87,22 @@
     "inflammation"
   ],
   "traditionalUse": "; nan; nan",
+  "slug": "ocimum-sanctum",
   "sideEffects": [
     "Mild GI issues",
     "drowsiness",
     "caution with anticoagulants"
   ],
-  "slug": "ocimum-sanctum",
+  "displayName": "ocimum sanctum",
+  "displayScientificName": "Ocimum sanctum",
+  "scientificNormalized": "ocimum sanctum",
+  "id": "ocimum-sanctum",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

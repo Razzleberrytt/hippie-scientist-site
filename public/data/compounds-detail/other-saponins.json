@@ -1,7 +1,5 @@
 {
   "name": "other saponins",
-  "category": "saponin",
-  "description": "other saponins is a saponin compound reported in aesculus hippocastanum. Current source coverage is limited and still developing.",
   "herbs": [
     "aesculus hippocastanum"
   ],
@@ -18,25 +16,19 @@
     "May cause mild nausea or abdominal upset",
     "Pregnant or breastfeeding individuals should consult healthcare provider before use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: other saponins",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/other-saponins",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "lastUpdated": "2026-03-21",
   "slug": "other-saponins",
-  "summary": "other saponins is a saponin compound reported in aesculus hippocastanum. Current source coverage is limited and still developing.",
+  "id": "other-saponins",
+  "displayName": "other saponins",
+  "description": "other saponins appears in records as a compound reported in aesculus hippocastanum. Current source coverage is limited and still developing.",
+  "summary": "other saponins appears in records as a compound reported in aesculus hippocastanum. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

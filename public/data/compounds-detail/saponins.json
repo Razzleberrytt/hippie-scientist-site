@@ -1,21 +1,12 @@
 {
   "name": "saponins",
-  "category": "saponin",
-  "description": "saponins is a saponin compound reported in acacia nilotica, albizia julibrissin, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "acacia nilotica",
     "albizia julibrissin",
     "alchornea castaneifolia",
     "mitchella repens",
-    "entada rheedii",
-    "calliandra anomala",
-    "desfontainia spinosa",
-    "Trichilia monadelpha",
-    "Alchornea cordifolia",
-    "Entada africana",
-    "paullinia cupana",
-    "paullinia yoco",
-    "silene capensis"
+    "nan",
+    "entada rheedii"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine",
@@ -100,25 +91,14 @@
     "limited data",
     "Not recommended with CNS depressants"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: saponins (CID 6540709)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6540709",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "saponins",
-  "summary": "saponins is a saponin compound reported in acacia nilotica, albizia julibrissin, and related herbs. Current source coverage is limited and still developing.",
+  "id": "saponins",
+  "displayName": "saponins",
+  "description": "saponins appears in records as a compound reported in acacia nilotica, albizia julibrissin, and related herbs. Current source coverage is limited and still developing.",
+  "summary": "saponins appears in records as a compound reported in acacia nilotica, albizia julibrissin, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
@@ -128,14 +108,7 @@
     "albizia-julibrissin",
     "alchornea-castaneifolia",
     "mitchella-repens",
-    "entada-rheedii",
-    "calliandra-anomala",
-    "desfontainia-spinosa",
-    "trichilia-monadelpha",
-    "alchornea-cordifolia",
-    "entada-africana",
-    "paullinia-cupana",
-    "paullinia-yoco",
-    "silene-capensis"
+    "nan",
+    "entada-rheedii"
   ]
 }

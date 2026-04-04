@@ -1,35 +1,49 @@
 {
   "name": "motherwort",
   "latin": "motherwort",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "used in traditional herbalism for anxiety and female reproductive support",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.",
   "activeCompounds": [
-    "leonurine",
-    "stachydrine"
+    "Leonurine",
+    "Stachydrine"
   ],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Used in traditional herbalism for anxiety and female reproductive support. Used in traditional herbalism for anxiety and female reproductive support. Used in traditional herbalism for anxiety and female reproductive support. Used in traditional herbalism for anxiety and female reproductive support. Used in traditional herbalism for anxiety and female reproductive support. Used in traditional herbalism for anxiety and female reproductive support. Used in traditional herbalism for anxiety and female reproductive support. Used in traditional herbalism for anxiety and female reproductive support.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: motherwort",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=motherwort&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support."
   ],
-  "lastUpdated": "2026-04-01T18:55:37.967Z",
-  "description": "Motherwort is a medicinal herb traditionally used for traditional herbalism for anxiety and female reproductive support.",
-  "dosage": "",
+  "contraindications": [
+    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+    "Do not use with known allergy to this plant or related species."
+  ],
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support."
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used in traditional herbalism for anxiety and female reproductive support..",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. No direct region data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support."
+  ],
   "duration": "No direct duration data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. No direct region data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "",
-  "region": "",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. No direct region data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.",
+  "region": "No direct region data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.",
+  "therapeuticUses": [
+    "Traditional supportive use; indication depends on species part and preparation.",
+    "Evidence level varies; use only within established clinical or traditional context."
+  ],
   "traditionalUse": "Used in traditional herbalism for anxiety and female reproductive support.",
-  "sideEffects": [],
   "slug": "motherwort",
+  "sideEffects": [
+    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  ],
+  "id": "motherwort",
+  "displayName": "motherwort",
+  "displayScientificName": "motherwort",
+  "scientificNormalized": "motherwort",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

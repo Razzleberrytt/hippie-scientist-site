@@ -1,9 +1,7 @@
 {
   "name": "Chamazulene",
-  "category": "general",
-  "description": "Chamazulene appears in records as a compound reported in achillea millefolium. Current source coverage is limited and still developing.",
   "herbs": [
-    "achillea millefolium"
+    "nan"
   ],
   "effects": [
     "Anti-inflammatory",
@@ -16,30 +14,19 @@
     "allergies to Asteraceae",
     "bleeding disorders"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Chamazulene (CID 10719)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10719",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "chamazulene",
-  "summary": "Chamazulene appears in records as a compound reported in achillea millefolium. Current source coverage is limited and still developing.",
+  "id": "chamazulene",
+  "displayName": "Chamazulene",
+  "description": "Chamazulene appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "Chamazulene appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "achillea-millefolium"
+    "nan"
   ]
 }

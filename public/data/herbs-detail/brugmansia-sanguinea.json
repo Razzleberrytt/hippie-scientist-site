@@ -3,45 +3,87 @@
   "latin": "Brugmansia sanguinea",
   "class": "Deliriant, Visionary",
   "intensity": "No direct intensity data. Contextual inference: Hallucinogenic, anticholinergic; historically used in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hallucinogenic, anticholinergic; historically used in rituals. No direct region data. Contextual inference: Hallucinogenic, anticholinergic; historically used in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hallucinogenic, anticholinergic; historically used in rituals. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [
-    "scopolamine",
+    "Scopolamine",
     "atropine",
     "hyoscyamine"
   ],
   "effects": [
-    "psychedelic",
-    "dissociation"
+    "Delirium",
+    "visual hallucinations",
+    "amnesia",
+    "Hallucinogenic",
+    "anticholinergic",
+    "historically used in rituals"
   ],
   "contraindications": [
-    "avoid with cardiac issues",
-    "avoid with mental illness",
-    "avoid with glaucoma"
+    "Cardiac issues",
+    "mental illness",
+    "glaucoma"
   ],
-  "interactions": [
-    "Avoid with: MAOIs",
-    "Avoid with: CNS depressants",
-    "Avoid with: alcohol"
+  "safetyNotes": [
+    "Extremely dangerous outside traditional context",
+    "Tachycardia",
+    "dry mouth",
+    "disorientation",
+    "coma",
+    "Very high",
+    "Not well studied in humans",
+    "Highly toxic",
+    "hallucinations",
+    "tachycardia",
+    "paralysis",
+    "fatal in high doses",
+    "No direct toxicity data. Contextual inference: Hallucinogenic",
+    "anticholinergic",
+    "historically used in rituals. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Hallucinogenic",
+    "historically used in rituals. none."
   ],
-  "safetyNotes": "Extremely dangerous outside traditional context; Tachycardia; Dry mouth; Disorientation; Coma; Very high; Not well studied in humans; Highly toxic; Hallucinations; Paralysis; Fatal in high doses; Hallucinogenic; Anticholinergic; Historically used in rituals; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Hallucinogenic; Avoid with cardiac issues; Avoid with mental illness; Avoid with glaucoma.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Brugmansia sanguinea (TaxID 540794)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=540794&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Andean shamanism"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.872Z",
-  "description": "Hallucinogenic, anticholinergic; historically used in rituals..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Hallucinogenic, anticholinergic; historically used in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Hallucinogenic",
+    "anticholinergic",
+    "historically used in rituals. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Hallucinogenic",
+    "historically used in rituals. No direct region data. Contextual inference: Hallucinogenic",
+    "historically used in rituals. none.",
+    "nan."
+  ],
   "duration": "6–12 hours",
+  "interactions": [
+    "MAOIs",
+    "CNS depressants",
+    "alcohol"
+  ],
   "legalStatus": "Restricted or controlled in many regions",
-  "preparation": "Smoked.",
-  "region": "",
+  "preparation": "Not recommended for internal use due to high toxicity; historically smoked or brewed with caution",
+  "region": "No direct region data. Contextual inference: Hallucinogenic, anticholinergic; historically used in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hallucinogenic, anticholinergic; historically used in rituals. none. ; nan; nan",
   "therapeuticUses": [
     "Visionary states in traditional healing"
   ],
   "traditionalUse": "; nan; nan",
+  "slug": "brugmansia-sanguinea",
   "sideEffects": [
     "Highly toxic",
     "hallucinations",
@@ -50,7 +92,16 @@
     "paralysis",
     "fatal in high doses"
   ],
-  "slug": "brugmansia-sanguinea",
+  "displayName": "brugmansia sanguinea",
+  "displayScientificName": "Brugmansia sanguinea",
+  "scientificNormalized": "brugmansia sanguinea",
+  "id": "brugmansia-sanguinea",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

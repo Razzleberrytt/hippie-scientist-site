@@ -1,31 +1,56 @@
 {
   "name": "mitragyna parvifolia",
   "latin": "Mitragyna parvifolia",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Analgesic and anti-inflammatory properties; used in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic and anti-inflammatory properties; used in Ayurveda. No direct region data. Contextual inference: Analgesic and anti-inflammatory properties; used in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic and anti-inflammatory properties; used in Ayurveda. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "pain relief",
-    "anti-inflammatory"
+    "Analgesic and anti-inflammatory properties",
+    "used in Ayurveda",
+    "Analgesic and anti",
+    "inflammatory properties"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Mild sedation; Limited data on side effects; Used in ayurveda; Antioxidant effects; Or enzyme inhibition.",
+  "safetyNotes": [
+    "Mild sedation",
+    "limited data on side effects",
+    "No direct toxicity data. Contextual inference: Analgesic and anti-inflammatory properties",
+    "used in ayurveda. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Analgesic and anti-inflammatory properties",
+    "used in Ayurveda. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Mitragyna parvifolia (TaxID 1288021)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1288021&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.964Z",
-  "description": "Mitragyna parvifolia is a medicinal herb traditionally used for analgesic and anti-inflammatory-inflammatory properties and ayurveda.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Analgesic and anti-inflammatory properties; used in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Analgesic and anti",
+    "inflammatory properties",
+    "used in ayurveda. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Analgesic and anti",
+    "used in Ayurveda. No direct region data. Contextual inference: Analgesic and anti",
+    "used in Ayurveda. none.",
+    "nan."
+  ],
   "duration": "4–8 hours",
+  "interactions": [],
   "legalStatus": "Unregulated",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "Bark and leaves used in decoctions in Ayurvedic and tribal medicine; mild analgesic and hepatoprotective effects",
+  "region": "No direct region data. Contextual inference: Analgesic and anti-inflammatory properties; used in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic and anti-inflammatory properties; used in Ayurveda. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -33,6 +58,10 @@
     "limited data on side effects"
   ],
   "slug": "mitragyna-parvifolia",
+  "id": "mitragyna-parvifolia",
+  "displayName": "mitragyna parvifolia",
+  "displayScientificName": "Mitragyna parvifolia",
+  "scientificNormalized": "mitragyna parvifolia",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

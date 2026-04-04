@@ -3,39 +3,52 @@
   "latin": "Curcuma longa",
   "class": null,
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, liver protective. No direct region data. Contextual inference: Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, liver protective. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Curcuminoids modulate NF-kB, COX-2, and cytokine signaling; bioavailability is low without formulation enhancement (for example piperine or phospholipid complexes).",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "anti-inflammatory",
+    "Anti-inflammatory",
     "antioxidant",
-    "detoxification"
+    "liver protective",
+    "Anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": "Usually well tolerated at culinary intake; supplemental doses may cause dyspepsia or diarrhea. Use caution with anticoagulation and gallbladder disease.",
+  "safetyNotes": [
+    "safe",
+    "High doses may cause GI upset",
+    "nausea",
+    "or diarrhea",
+    "gallbladder stimulation noted",
+    "No direct toxicity data. Contextual inference: Anti-inflammatory",
+    "antioxidant",
+    "liver protective. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anti-inflammatory",
+    "liver protective. none."
+  ],
   "sources": [
     {
-      "title": "Curcumin: a review of anti-inflammatory mechanisms (Adv Exp Med Biol. 2007)",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/17569207/",
-      "note": "Core mechanism review."
+      "title": "Inferred from scientific name:"
     },
     {
-      "title": "Turmeric - NCCIH",
-      "url": "https://www.nccih.nih.gov/health/turmeric",
-      "note": "Clinical safety and evidence-oriented consumer summary."
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Anti-inflammatory, antioxidant, liver protective..",
-  "dosage": "500-2000 mg/day standardized extract",
-  "duration": "6–8 hours",
-  "interactions": [
-    "May potentiate: May increase bleeding risk with anticoagulants or antiplatelet drugs",
-    "May potentiate: Can increase exposure of some drugs when combined with piperine containing products",
-    "Caution with: May worsen biliary colic in patients with active gallbladder obstruction"
+  "description": "Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "500",
+    "2000 mg",
+    "day standardized extract"
   ],
+  "duration": "6–8 hours",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "Extract.",
-  "region": "India, southeast asia.",
+  "preparation": "Rhizome dried and powdered (turmeric); also decocted or extracted in oil or alcohol-based preparations",
+  "region": "No direct region data. Contextual inference: Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, liver protective. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

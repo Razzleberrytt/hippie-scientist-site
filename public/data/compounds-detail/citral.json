@@ -1,10 +1,8 @@
 {
   "name": "Citral",
-  "category": "general",
-  "description": "Citral appears in records as a compound reported in aloysia citrodora and nepeta cataria. Current source coverage is limited and still developing.",
   "herbs": [
     "aloysia citrodora",
-    "nepeta cataria"
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -21,31 +19,20 @@
     "Pregnancy",
     "sedation-sensitive individuals"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Citral (CID 638011)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/638011",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "citral",
-  "summary": "Citral appears in records as a compound reported in aloysia citrodora and nepeta cataria. Current source coverage is limited and still developing.",
+  "id": "citral",
+  "displayName": "Citral",
+  "description": "Citral appears in records as a compound reported in aloysia citrodora and nan. Current source coverage is limited and still developing.",
+  "summary": "Citral appears in records as a compound reported in aloysia citrodora and nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "aloysia-citrodora",
-    "nepeta-cataria"
+    "nan"
   ]
 }

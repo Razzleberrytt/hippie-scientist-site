@@ -1,7 +1,5 @@
 {
   "name": "isoquercetin",
-  "category": "general",
-  "description": "isoquercetin appears in records as a compound reported in agrimonia eupatoria. Current source coverage is limited and still developing.",
   "herbs": [
     "agrimonia eupatoria"
   ],
@@ -17,24 +15,18 @@
     "due to tannins may cause constipation or reduce absorption of minerals",
     "avoid large doses during pregnancy."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: isoquercetin (CID 5280804)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280804",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "lastUpdated": "2026-03-21",
   "slug": "isoquercetin",
+  "id": "isoquercetin",
+  "displayName": "isoquercetin",
+  "description": "isoquercetin appears in records as a compound reported in agrimonia eupatoria. Current source coverage is limited and still developing.",
   "summary": "isoquercetin appears in records as a compound reported in agrimonia eupatoria. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

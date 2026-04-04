@@ -1,9 +1,7 @@
 {
   "name": "Erythravine",
-  "category": "general",
-  "description": "Erythravine appears in records as a compound reported in erythrina mulungu. Current source coverage is limited and still developing.",
   "herbs": [
-    "erythrina mulungu"
+    "nan"
   ],
   "effects": [
     "Relaxation",
@@ -33,30 +31,19 @@
     "low blood pressure",
     "sedative use."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Erythravine (CID 11231853)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/11231853",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "erythravine",
-  "summary": "Erythravine appears in records as a compound reported in erythrina mulungu. Current source coverage is limited and still developing.",
+  "id": "erythravine",
+  "displayName": "Erythravine",
+  "description": "Erythravine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "Erythravine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "erythrina-mulungu"
+    "nan"
   ]
 }

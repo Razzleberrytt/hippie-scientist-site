@@ -1,8 +1,8 @@
 {
   "name": "Cytisine (nicotinic agonist)",
-  "category": "general",
-  "description": "Cytisine (nicotinic agonist) is listed as a compound in this profile. Available references are still early and incomplete.",
-  "herbs": [],
+  "herbs": [
+    "nan"
+  ],
   "effects": [
     "Delirium",
     "nausea",
@@ -17,28 +17,19 @@
     "Highly toxic",
     "ceremonial use only"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Cytisine (nicotinic agonist)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/cytisine-nicotinic-agonist",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "cytisine-nicotinic-agonist",
-  "summary": "Cytisine (nicotinic agonist) is listed as a compound in this profile. Available references are still early and incomplete.",
+  "id": "cytisine-nicotinic-agonist",
+  "displayName": "Cytisine (nicotinic agonist)",
+  "description": "Cytisine (nicotinic agonist) is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Cytisine (nicotinic agonist) is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "linkedHerbs": []
+  "linkedHerbs": [
+    "nan"
+  ]
 }

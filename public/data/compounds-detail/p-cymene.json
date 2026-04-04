@@ -1,7 +1,5 @@
 {
   "name": "p-Cymene",
-  "category": "general",
-  "description": "p-Cymene is a compound reported in dysphania ambrosioides. Available references are still early and incomplete.",
   "herbs": [
     "dysphania ambrosioides"
   ],
@@ -13,24 +11,13 @@
     "dreaming or folk medicine"
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: p-Cymene (CID 7463)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/7463",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "p-cymene",
+  "id": "p-cymene",
+  "displayName": "p-Cymene",
+  "description": "p-Cymene is a compound reported in dysphania ambrosioides. Available references are still early and incomplete.",
   "summary": "p-Cymene is a compound reported in dysphania ambrosioides. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

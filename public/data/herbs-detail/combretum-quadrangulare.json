@@ -1,35 +1,48 @@
 {
   "name": "combretum quadrangulare",
   "latin": "combretum quadrangulare",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "used as a kratom alternative in southeast asian cultures",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.",
   "activeCompounds": [
-    "combretol",
-    "combretin"
+    "Combretol",
+    "Combretin"
   ],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Used as a kratom alternative in southeast asian cultures. Used as a kratom alternative in southeast asian cultures. Used as a kratom alternative in Southeast Asian cultures. Used as a kratom alternative in southeast asian cultures. Used as a kratom alternative in southeast asian cultures. Used as a kratom alternative in Southeast Asian cultures. Used as a kratom alternative in Southeast Asian cultures. Used as a kratom alternative in Southeast Asian cultures.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: combretum quadrangulare (TaxID 2998934)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2998934&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures."
   ],
-  "lastUpdated": "2026-04-01T18:55:37.905Z",
-  "description": "Used as a kratom alternative in southeast asian cultures.",
-  "dosage": "",
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
+  ],
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures."
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used as a kratom alternative in southeast asian cultures..",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.. No direct region data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures."
+  ],
   "duration": "No direct duration data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.. No direct region data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Smoked.",
-  "region": "Laos, cambodia.",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.. No direct region data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.",
+  "region": "No direct region data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures.",
+  "therapeuticUses": [
+    "traditional support for mild digestive comfort"
+  ],
   "traditionalUse": "Used as a kratom alternative in Southeast Asian cultures.",
-  "sideEffects": [],
   "slug": "combretum-quadrangulare",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "combretum-quadrangulare",
+  "displayName": "combretum quadrangulare",
+  "displayScientificName": "combretum quadrangulare",
+  "scientificNormalized": "combretum quadrangulare",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

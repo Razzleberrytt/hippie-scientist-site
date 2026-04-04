@@ -1,32 +1,36 @@
 {
   "name": "mimosa pudica",
   "latin": "mimosa pudica",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine",
   "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: mimosa pudica (TaxID 76306)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=76306&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
   ],
-  "lastUpdated": "2026-04-01T18:55:37.963Z",
-  "description": "Mimosa pudica is a medicinal herb traditionally used for minor wound care and digestive support in.",
-  "dosage": "",
+  "contraindications": "Pregnancy and breastfeeding without medical guidance",
+  "safetyNotes": [
+    "caution",
+    "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Folk medicine.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine"
+  ],
   "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Tincture.",
-  "region": "South america, southeast asia.",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+  "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
+  "therapeuticUses": "Anxiety relief, wound healing, insomnia",
   "traditionalUse": "Folk medicine",
-  "sideEffects": [],
   "slug": "mimosa-pudica",
+  "id": "mimosa-pudica",
+  "displayName": "mimosa pudica",
+  "displayScientificName": "mimosa pudica",
+  "scientificNormalized": "mimosa pudica",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

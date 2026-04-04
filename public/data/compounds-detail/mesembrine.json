@@ -1,11 +1,8 @@
 {
   "name": "Mesembrine",
-  "category": "general",
-  "description": "Mesembrine appears in records as a compound reported in kanna, delosperma bosseranum, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "kanna",
-    "delosperma bosseranum",
-    "sceletium tortuosum"
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -43,32 +40,20 @@
     "Pregnancy",
     "concurrent SSRI use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Mesembrine (CID 394162)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/394162",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "mesembrine",
-  "summary": "Mesembrine appears in records as a compound reported in kanna, delosperma bosseranum, and related herbs. Current source coverage is limited and still developing.",
+  "id": "mesembrine",
+  "displayName": "Mesembrine",
+  "description": "Mesembrine appears in records as a compound reported in kanna and nan. Current source coverage is limited and still developing.",
+  "summary": "Mesembrine appears in records as a compound reported in kanna and nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "kanna",
-    "delosperma-bosseranum",
-    "sceletium-tortuosum"
+    "nan"
   ]
 }

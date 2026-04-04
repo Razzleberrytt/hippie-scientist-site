@@ -1,30 +1,52 @@
 {
   "name": "eclipta prostrata",
   "latin": "Eclipta prostrata",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Liver tonic, hair growth promoter, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver tonic, hair growth promoter, anti-inflammatory. No direct region data. Contextual inference: Liver tonic, hair growth promoter, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver tonic, hair growth promoter, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "anti-inflammatory"
+    "Liver tonic",
+    "hair growth promoter",
+    "anti-inflammatory",
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Generally safe; Rare GI discomfort or allergic reactions; Liver tonic; Hair growth promoter; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Liver tonic.",
+  "safetyNotes": [
+    "safe",
+    "Generally safe",
+    "rare GI discomfort or allergic reactions",
+    "No direct toxicity data. Contextual inference: Liver tonic",
+    "hair growth promoter",
+    "anti-inflammatory. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Liver tonic",
+    "anti-inflammatory. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Eclipta prostrata (TaxID 53719)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=53719&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.923Z",
-  "description": "Liver tonic, hair growth promoter, anti-inflammatory..",
-  "dosage": "1-2 g/day extract or infusion",
+  "lastUpdated": "2026-03-21",
+  "description": "Liver tonic, hair growth promoter, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "1",
+    "2 g",
+    "day extract or infusion"
+  ],
   "duration": "4–8 hours",
+  "interactions": [],
   "legalStatus": "Legal; used in Ayurveda and TCM",
-  "preparation": "Extract.",
-  "region": "",
+  "preparation": "Whole plant dried and decocted, juiced, or infused in oil; known in Ayurveda as Bhringraj",
+  "region": "No direct region data. Contextual inference: Liver tonic, hair growth promoter, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver tonic, hair growth promoter, anti-inflammatory. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -32,6 +54,10 @@
     "rare GI discomfort or allergic reactions"
   ],
   "slug": "eclipta-prostrata",
+  "id": "eclipta-prostrata",
+  "displayName": "eclipta prostrata",
+  "displayScientificName": "Eclipta prostrata",
+  "scientificNormalized": "eclipta prostrata",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

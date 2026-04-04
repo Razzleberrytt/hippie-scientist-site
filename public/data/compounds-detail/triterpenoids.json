@@ -1,11 +1,9 @@
 {
   "name": "triterpenoids",
-  "category": "general",
-  "description": "triterpenoids is a compound reported in agrimonia eupatoria, albizia julibrissin, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "agrimonia eupatoria",
     "albizia julibrissin",
-    "Gymnosporia senegalensis"
+    "nan"
   ],
   "effects": [
     "Astringent",
@@ -29,24 +27,18 @@
     "avoid in pregnancy or lactation unless supervised.",
     "Avoid in renal disease due to limited safety profile"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: triterpenoids (CID 71597391)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/71597391",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "lastUpdated": "2026-03-21",
   "slug": "triterpenoids",
+  "id": "triterpenoids",
+  "displayName": "triterpenoids",
+  "description": "triterpenoids is a compound reported in agrimonia eupatoria, albizia julibrissin, and related herbs. Available references are still early and incomplete.",
   "summary": "triterpenoids is a compound reported in agrimonia eupatoria, albizia julibrissin, and related herbs. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
@@ -55,6 +47,6 @@
   "linkedHerbs": [
     "agrimonia-eupatoria",
     "albizia-julibrissin",
-    "gymnosporia-senegalensis"
+    "nan"
   ]
 }

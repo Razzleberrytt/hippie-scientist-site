@@ -1,34 +1,68 @@
 {
   "name": "mitragyna stipulosa",
   "latin": "Mitragyna stipulosa",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Analgesic and antimalarial; related to kratom species. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic and antimalarial; related to kratom species. No direct region data. Contextual inference: Analgesic and antimalarial; related to kratom species. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic and antimalarial; related to kratom species. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "pain relief"
+    "Analgesic and antimalarial",
+    "related to kratom species"
   ],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Analgesic and antimalarial; Related to kratom species; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Analgesic and antimalarial.",
+  "contraindications": [
+    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+    "Do not use with known allergy to this plant or related species."
+  ],
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference: Analgesic and antimalarial",
+    "related to kratom species. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Analgesic and antimalarial",
+    "related to kratom species. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Mitragyna stipulosa",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Mitragyna%20stipulosa&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.965Z",
-  "description": "Mitragyna stipulosa is a medicinal herb traditionally used for analgesic and antimalarial and related to kratom species.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Analgesic and antimalarial; related to kratom species. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Analgesic and antimalarial",
+    "related to kratom species. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Analgesic and antimalarial",
+    "related to kratom species. No direct region data. Contextual inference: Analgesic and antimalarial",
+    "related to kratom species. none.",
+    "nan."
+  ],
   "duration": "2–4 hours",
+  "interactions": [],
   "legalStatus": "Unregulated",
-  "preparation": "",
-  "region": "",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Analgesic and antimalarial; related to kratom species. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic and antimalarial; related to kratom species. No direct region data. Contextual inference: Analgesic and antimalarial; related to kratom species. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic and antimalarial; related to kratom species. none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Analgesic and antimalarial; related to kratom species. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic and antimalarial; related to kratom species. none. ; nan; nan",
+  "therapeuticUses": [
+    "Traditional supportive use; indication depends on species part and preparation.",
+    "Evidence level varies; use only within established clinical or traditional context."
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "mitragyna-stipulosa",
+  "sideEffects": [
+    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  ],
+  "id": "mitragyna-stipulosa",
+  "displayName": "mitragyna stipulosa",
+  "displayScientificName": "Mitragyna stipulosa",
+  "scientificNormalized": "mitragyna stipulosa",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

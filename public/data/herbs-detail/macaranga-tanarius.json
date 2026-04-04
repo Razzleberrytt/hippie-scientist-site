@@ -1,34 +1,67 @@
 {
   "name": "macaranga tanarius",
   "latin": "Macaranga tanarius",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as anti-inflammatory and for wound healing. No direct region data. Contextual inference: Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as anti-inflammatory and for wound healing. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "anti-inflammatory"
+    "Traditionally used as anti-inflammatory and for wound healing",
+    "Traditionally used as anti",
+    "inflammatory and for wound healing"
   ],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Antioxidant effects; Or enzyme inhibition.",
+  "contraindications": [
+    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+    "Do not use with known allergy to this plant or related species."
+  ],
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference: Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Traditionally used as anti-inflammatory and for wound healing. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Macaranga tanarius (TaxID 109849)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=109849&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.957Z",
-  "description": "Macaranga tanarius is a medicinal herb traditionally used for anti-inflammatory-inflammatory and for wound healing and anti-inflammatory.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Traditionally used as anti",
+    "inflammatory and for wound healing. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Traditionally used as anti",
+    "inflammatory and for wound healing. No direct region data. Contextual inference: Traditionally used as anti",
+    "inflammatory and for wound healing. none.",
+    "nan."
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Unregulated",
-  "preparation": "",
-  "region": "",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as anti-inflammatory and for wound healing. No direct region data. Contextual inference: Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as anti-inflammatory and for wound healing. none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as anti-inflammatory and for wound healing. none. ; nan; nan",
+  "therapeuticUses": [
+    "Traditional supportive use; indication depends on species part and preparation.",
+    "Evidence level varies; use only within established clinical or traditional context."
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "macaranga-tanarius",
+  "sideEffects": [
+    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  ],
+  "id": "macaranga-tanarius",
+  "displayName": "macaranga tanarius",
+  "displayScientificName": "Macaranga tanarius",
+  "scientificNormalized": "macaranga tanarius",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

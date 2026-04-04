@@ -1,36 +1,46 @@
 {
   "name": "sanango",
   "latin": "sanango",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
-  "mechanism": "Ritual use.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use",
   "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "effects": [
+    "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use"
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: sanango (TaxID 49437)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=49437&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding unless clinician-guided",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "lastUpdated": "2026-04-01T18:55:38.018Z",
+  "safetyNotes": [
+    "caution",
+    "No direct toxicity data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "description": "Ritual use.",
-  "dosage": "",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use"
+  ],
   "duration": "No direct duration data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Tea.",
-  "region": "Amazon.",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
+  "region": "No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use",
+  "therapeuticUses": [
+    "digestive support (bloating, gas, mild cramping)",
+    "historical use for symptom relief in regional folk medicine"
+  ],
   "traditionalUse": "Ritual use",
-  "sideEffects": [],
   "slug": "sanango",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "sanango",
+  "displayName": "sanango",
+  "displayScientificName": "sanango",
+  "scientificNormalized": "sanango",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

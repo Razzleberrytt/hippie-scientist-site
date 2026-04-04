@@ -1,7 +1,5 @@
 {
   "name": "lupeol acetate",
-  "category": "general",
-  "description": "lupeol acetate is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "herbs": [
     "aerva lanata"
   ],
@@ -16,24 +14,18 @@
     "Limited safety data; some alkaloids may be toxic at high doses",
     "Pregnant women should use cautiously"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: lupeol acetate (CID 92157)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/92157",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "lastUpdated": "2026-03-21",
   "slug": "lupeol-acetate",
+  "id": "lupeol-acetate",
+  "displayName": "lupeol acetate",
+  "description": "lupeol acetate is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "summary": "lupeol acetate is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

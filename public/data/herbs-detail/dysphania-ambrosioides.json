@@ -1,37 +1,68 @@
 {
   "name": "dysphania ambrosioides",
   "latin": "dysphania ambrosioides",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
   "activeCompounds": [
-    "ascaridole",
-    "p-cymene",
+    "Ascaridole",
+    "p-Cymene",
     "p",
-    "cymene"
+    "Cymene"
   ],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Used in ritual; Dreaming or. Used in ritual; Dreaming or Used in ritual.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: dysphania ambrosioides (TaxID 330163)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=330163&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
   ],
-  "lastUpdated": "2026-04-01T18:55:37.922Z",
-  "description": "Used in ritual, dreaming or.",
-  "dosage": "",
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding",
+    "avoid combining with sedatives, sleep medications, or alcohol",
+    "avoid in psychotic disorders, severe anxiety, or unsupervised psychoactive use"
+  ],
+  "safetyNotes": [
+    "caution",
+    "No direct toxicity data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used in ritual, dreaming or folk medicine.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine"
+  ],
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "legalStatus": "",
-  "preparation": "",
-  "region": "Mexico.",
-  "therapeuticUses": [],
+  "interactions": [],
+  "legalStatus": null,
+  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "therapeuticUses": [
+    "traditional support for relaxation and sleep quality",
+    "traditional ceremonial or ritual context use"
+  ],
   "traditionalUse": "Used in ritual, dreaming or folk medicine",
-  "sideEffects": [],
   "slug": "dysphania-ambrosioides",
+  "sideEffects": [
+    "drowsiness, dizziness, or slowed reaction time",
+    "nausea, confusion, or anxiety with higher intake",
+    "allergic reaction in sensitive individuals"
+  ],
+  "id": "dysphania-ambrosioides",
+  "displayName": "dysphania ambrosioides",
+  "displayScientificName": "dysphania ambrosioides",
+  "scientificNormalized": "dysphania ambrosioides",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

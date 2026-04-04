@@ -1,9 +1,7 @@
 {
   "name": "Bufotenin",
-  "category": "general",
-  "description": "Bufotenin is a compound reported in anadenanthera peregrina. Available references are still early and incomplete.",
   "herbs": [
-    "anadenanthera peregrina"
+    "nan"
   ],
   "effects": [
     "Visuals",
@@ -25,30 +23,19 @@
     "SSRIs",
     "schizophrenia"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Bufotenin (CID 10257)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10257",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "bufotenin",
-  "summary": "Bufotenin is a compound reported in anadenanthera peregrina. Available references are still early and incomplete.",
+  "id": "bufotenin",
+  "displayName": "Bufotenin",
+  "description": "Bufotenin is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Bufotenin is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "anadenanthera-peregrina"
+    "nan"
   ]
 }

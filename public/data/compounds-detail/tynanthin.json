@@ -1,7 +1,5 @@
 {
   "name": "Tynanthin",
-  "category": "general",
-  "description": "Tynanthin appears in records as a compound reported in tynanthus panurensis. Current source coverage is limited and still developing.",
   "herbs": [
     "tynanthus panurensis"
   ],
@@ -9,24 +7,13 @@
     "No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Tynanthin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tynanthin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "tynanthin",
+  "id": "tynanthin",
+  "displayName": "Tynanthin",
+  "description": "Tynanthin appears in records as a compound reported in tynanthus panurensis. Current source coverage is limited and still developing.",
   "summary": "Tynanthin appears in records as a compound reported in tynanthus panurensis. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

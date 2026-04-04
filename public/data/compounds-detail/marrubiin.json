@@ -1,10 +1,8 @@
 {
   "name": "Marrubiin",
-  "category": "general",
-  "description": "Marrubiin appears in records as a compound reported in marrubium vulgare and leonotis leonurus. Current source coverage is limited and still developing.",
   "herbs": [
     "marrubium vulgare",
-    "leonotis leonurus"
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -22,31 +20,20 @@
     "pregnancy",
     "psychiatric conditions."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Marrubiin (CID 73401)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/73401",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "marrubiin",
-  "summary": "Marrubiin appears in records as a compound reported in marrubium vulgare and leonotis leonurus. Current source coverage is limited and still developing.",
+  "id": "marrubiin",
+  "displayName": "Marrubiin",
+  "description": "Marrubiin appears in records as a compound reported in marrubium vulgare and nan. Current source coverage is limited and still developing.",
+  "summary": "Marrubiin appears in records as a compound reported in marrubium vulgare and nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "marrubium-vulgare",
-    "leonotis-leonurus"
+    "nan"
   ]
 }

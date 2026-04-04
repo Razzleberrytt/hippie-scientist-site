@@ -1,9 +1,7 @@
 {
   "name": "indole alkaloids",
-  "category": "alkaloid",
-  "description": "indole alkaloids is an alkaloid compound reported in Pausinystalia johimbe. Current source coverage is limited and still developing.",
   "herbs": [
-    "Pausinystalia johimbe"
+    "nan"
   ],
   "effects": [
     "Stimulation",
@@ -17,30 +15,19 @@
     "hypertension",
     "psychiatric conditions"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: indole alkaloids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/indole-alkaloids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "indole-alkaloids",
-  "summary": "indole alkaloids is an alkaloid compound reported in Pausinystalia johimbe. Current source coverage is limited and still developing.",
+  "id": "indole-alkaloids",
+  "displayName": "indole alkaloids",
+  "description": "indole alkaloids appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "indole alkaloids appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "pausinystalia-johimbe"
+    "nan"
   ]
 }

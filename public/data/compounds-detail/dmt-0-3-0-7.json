@@ -1,8 +1,8 @@
 {
   "name": "DMT (0.3–0.7%)",
-  "category": "general",
-  "description": "DMT (0.3–0.7%) is listed as a compound in this profile. Available references are still early and incomplete.",
-  "herbs": [],
+  "herbs": [
+    "nan"
+  ],
   "effects": [
     "Psychedelic visions",
     "auditory changes",
@@ -14,28 +14,19 @@
     "antidepressants",
     "or in mental health conditions"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: DMT (0.3–0.7%)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/dmt-0-3-0-7",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "dmt-0-3-0-7",
-  "summary": "DMT (0.3–0.7%) is listed as a compound in this profile. Available references are still early and incomplete.",
+  "id": "dmt-0-3-0-7",
+  "displayName": "DMT (0.3–0.7%)",
+  "description": "DMT (0.3–0.7%) is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "DMT (0.3–0.7%) is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "linkedHerbs": []
+  "linkedHerbs": [
+    "nan"
+  ]
 }

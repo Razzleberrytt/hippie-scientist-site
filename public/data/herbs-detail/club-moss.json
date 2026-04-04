@@ -1,32 +1,63 @@
 {
   "name": "club moss",
   "latin": "club moss",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
   "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Used in ritual; Dreaming or. Used in ritual; Dreaming or Used in ritual.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: club moss",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=club%20moss&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
   ],
-  "lastUpdated": "2026-04-01T18:55:37.900Z",
-  "description": "Used in ritual, dreaming or.",
-  "dosage": "",
+  "contraindications": [
+    "discontinue if hypersensitivity or allergic symptoms occur",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "use caution before driving or operating machinery if sedation occurs"
+  ],
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used in ritual, dreaming or folk medicine.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine"
+  ],
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "",
-  "region": "",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "therapeuticUses": [
+    "limited traditional use in guided ritual contexts",
+    "traditional stress resilience support"
+  ],
   "traditionalUse": "Used in ritual, dreaming or folk medicine",
-  "sideEffects": [],
   "slug": "club-moss",
+  "sideEffects": [
+    "headache (more likely with higher intake)",
+    "dry mouth",
+    "light dizziness"
+  ],
+  "id": "club-moss",
+  "displayName": "club moss",
+  "displayScientificName": "club moss",
+  "scientificNormalized": "club moss",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

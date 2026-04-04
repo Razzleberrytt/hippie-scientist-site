@@ -1,9 +1,7 @@
 {
   "name": "triterpenes",
-  "category": "terpenoid",
-  "description": "triterpenes is a terpenoid compound reported in Entada africana. Current source coverage is limited and still developing.",
   "herbs": [
-    "Entada africana"
+    "nan"
   ],
   "effects": [
     "Anti-inflammatory",
@@ -12,30 +10,19 @@
   "contraindications": [
     "Avoid in patients with liver dysfunction"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: triterpenes (CID 451674)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/451674",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "triterpenes",
-  "summary": "triterpenes is a terpenoid compound reported in Entada africana. Current source coverage is limited and still developing.",
+  "id": "triterpenes",
+  "displayName": "triterpenes",
+  "description": "triterpenes appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "triterpenes appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "entada-africana"
+    "nan"
   ]
 }

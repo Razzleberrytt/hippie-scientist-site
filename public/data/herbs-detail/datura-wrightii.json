@@ -3,44 +3,95 @@
   "latin": "Datura wrightii",
   "class": "Deliriant, Tropane alkaloid",
   "intensity": "No direct intensity data. Contextual inference: Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. No direct region data. Contextual inference: Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [
-    "scopolamine",
+    "Scopolamine",
     "atropine",
     "hyoscyamine"
   ],
   "effects": [
-    "psychedelic",
-    "dissociation"
+    "Intense hallucinations",
+    "amnesia",
+    "delirium",
+    "Strong anticholinergic and hallucinogenic effects",
+    "toxic",
+    "traditionally used in shamanic contexts."
   ],
   "contraindications": [
-    "avoid with extremely dangerous",
-    "avoid with fatal at high doses"
+    "Extremely dangerous",
+    "fatal at high doses",
+    "avoid during pregnancy and breastfeeding",
+    "avoid in psychotic disorders, severe anxiety, or unsupervised psychoactive use"
   ],
-  "interactions": [
-    "Avoid with: sedatives or alcohol"
+  "safetyNotes": [
+    "Very unsafe",
+    "Tachycardia",
+    "overheating",
+    "psychosis",
+    "Extremely high",
+    "~50 mg/kg (rats)",
+    "Toxic – deliriant and anticholinergic",
+    "No direct toxicity data. Contextual inference: Strong anticholinergic and hallucinogenic effects",
+    "toxic",
+    "traditionally used in shamanic contexts.. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Strong anticholinergic and hallucinogenic effects",
+    "traditionally used in shamanic contexts.. none."
   ],
-  "safetyNotes": "Very unsafe; Tachycardia; Overheating; Psychosis; Extremely high; ~50 mg/kg (rats); Toxic – deliriant and anticholinergic; Strong anticholinergic and hallucinogenic effects; Traditionally used in shamanic contexts; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Strong anticholinergic and hallucinogenic effects; Avoid with extremely dangerous; Avoid with fatal at high doses.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Datura wrightii (TaxID 434267)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=434267&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Ethnobotany"
+    },
+    {
+      "title": "toxicology reports"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.915Z",
-  "description": "Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts..",
-  "dosage": "Extremely low, 0.05-0.2 g dried leaf, toxic",
+  "lastUpdated": "2026-03-21",
+  "description": "Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "Extremely low",
+    "0.05",
+    "0.2 g dried leaf",
+    "toxic"
+  ],
   "duration": "No direct duration data. Contextual inference: Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. No direct region data. Contextual inference: Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. none. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "Deadly with sedatives or alcohol"
+  ],
   "legalStatus": "Legal in many areas but discouraged",
-  "preparation": "",
-  "region": "",
+  "preparation": "No direct preparation data. Contextual inference: Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. No direct region data. Contextual inference: Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Strong anticholinergic and hallucinogenic effects; toxic; traditionally used in shamanic contexts.. none. ; nan; nan",
   "therapeuticUses": [
-    "Traditional shamanic use"
+    "Traditional shamanic use",
+    "traditional support for mild digestive comfort",
+    "traditional ceremonial or ritual context use"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "datura-wrightii",
+  "sideEffects": [
+    "nausea, confusion, or anxiety with higher intake",
+    "dry mouth, blurred vision, and rapid heartbeat",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "datura wrightii",
+  "displayScientificName": "Datura wrightii",
+  "scientificNormalized": "datura wrightii",
+  "id": "datura-wrightii",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

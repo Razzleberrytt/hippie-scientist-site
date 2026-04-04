@@ -1,13 +1,9 @@
 {
   "name": "rosmarinic acid",
-  "category": "general",
-  "description": "rosmarinic acid is a compound reported in perilla frutescens, salvia apiana, and related herbs. Available references are still early and incomplete.",
   "herbs": [
+    "nan",
     "perilla frutescens",
-    "salvia apiana",
-    "Salvia nemorosa",
-    "nepeta cataria",
-    "ocimum sanctum"
+    "salvia apiana"
   ],
   "effects": [
     "Mild sedation",
@@ -34,34 +30,38 @@
     "blood clotting disorders",
     "Avoid high doses of essential oil"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: rosmarinic acid (CID 5281792)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281792",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "title": "PubChem compound: Rosmarinic acid (CID 5281792)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281792"
+    },
+    {
+      "title": "Wikipedia: Rosmarinic acid",
+      "url": "https://en.wikipedia.org/wiki/Rosmarinic_acid"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "lastUpdated": "2026-04-03T00:00:00.000Z",
   "slug": "rosmarinic-acid",
-  "summary": "rosmarinic acid is a compound reported in perilla frutescens, salvia apiana, and related herbs. Available references are still early and incomplete.",
+  "description": "Rosmarinic acid is a caffeic-acid ester in many Lamiaceae herbs, studied for antioxidant and anti-inflammatory effects.",
+  "sideEffects": [
+    "Occasional gastrointestinal discomfort",
+    "Headache",
+    "Allergic reaction in sensitive users"
+  ],
+  "interactions": [
+    "May add to antiplatelet effects when combined with anticoagulant or antiplatelet drugs."
+  ],
+  "id": "rosmarinic-acid",
+  "displayName": "rosmarinic acid",
+  "summary": "Rosmarinic acid is a caffeic-acid ester in many Lamiaceae herbs, studied for antioxidant and anti-inflammatory effects.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "perilla-frutescens",
-    "salvia-apiana",
-    "salvia-nemorosa",
-    "nepeta-cataria",
-    "ocimum-sanctum"
+    "salvia-apiana"
   ]
 }

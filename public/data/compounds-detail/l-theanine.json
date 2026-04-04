@@ -1,9 +1,7 @@
 {
   "name": "L-theanine",
-  "category": "general",
-  "description": "L-theanine appears in records as a compound reported in camellia sinensis. Current source coverage is limited and still developing.",
   "herbs": [
-    "camellia sinensis"
+    "nan"
   ],
   "effects": [
     "Alertness",
@@ -19,30 +17,19 @@
     "anxiety",
     "heart issues"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: L-theanine (CID 439378)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/439378",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "l-theanine",
-  "summary": "L-theanine appears in records as a compound reported in camellia sinensis. Current source coverage is limited and still developing.",
+  "id": "l-theanine",
+  "displayName": "L-theanine",
+  "description": "L-theanine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "L-theanine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "camellia-sinensis"
+    "nan"
   ]
 }

@@ -1,9 +1,7 @@
 {
   "name": "tabersonine",
-  "category": "general",
-  "description": "tabersonine is a compound reported in tabernaemontana undulata. Available references are still early and incomplete.",
   "herbs": [
-    "tabernaemontana undulata"
+    "nan"
   ],
   "effects": [
     "Inner visions",
@@ -15,30 +13,19 @@
     "Heart conditions",
     "psychiatric illness"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: tabersonine (CID 20485)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/20485",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "tabersonine",
-  "summary": "tabersonine is a compound reported in tabernaemontana undulata. Available references are still early and incomplete.",
+  "id": "tabersonine",
+  "displayName": "tabersonine",
+  "description": "tabersonine is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "tabersonine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "tabernaemontana-undulata"
+    "nan"
   ]
 }

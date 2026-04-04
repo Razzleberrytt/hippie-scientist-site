@@ -1,42 +1,65 @@
 {
   "name": "kratom hybrids",
   "latin": "kratom hybrids",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
-  "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [
-    "Caution with: Interaction evidence is limited",
-    "Caution with: use caution with prescription medicines",
-    "Caution with: especially CNS active",
-    "Avoid with: anticoagulant",
-    "Caution with: hepatotoxic",
-    "Caution with: blood pressure/glucose lowering drugs"
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "activeCompounds": [
+    "[object Object]"
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: kratom hybrids",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=kratom%20hybrids&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
-  "lastUpdated": "2026-04-01T18:55:37.952Z",
-  "description": "",
-  "dosage": "",
+  "contraindications": [
+    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+    "Do not use with known allergy to this plant or related species."
+  ],
+  "safetyNotes": [
+    "caution",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "varies",
-  "preparation": "Tea.",
-  "region": "Cultivated southeast asia.",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": [
+    "Traditional supportive use; indication depends on species part and preparation.",
+    "Evidence level varies; use only within established clinical or traditional context."
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "kratom-hybrids",
+  "sideEffects": [
+    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  ],
+  "id": "kratom-hybrids",
+  "displayName": "kratom hybrids",
+  "displayScientificName": "kratom hybrids",
+  "scientificNormalized": "kratom hybrids",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [
+    "object-object"
+  ]
 }

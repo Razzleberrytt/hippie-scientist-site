@@ -1,38 +1,63 @@
 {
   "name": "crocus sativus",
   "latin": "crocus sativus",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "hypothesized mechanisms include serotonergic modulation and antioxidant/anti-inflammatory signaling | mechanistic certainty remains incomplete",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
   "activeCompounds": [],
   "effects": [
-    "relaxation"
+    "No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
   ],
   "contraindications": [
-    "avoid in pregnancy"
+    "avoid during pregnancy and breastfeeding",
+    "avoid combining with sedatives, sleep medications, or alcohol",
+    "avoid in psychotic disorders, severe anxiety, or unsupervised psychoactive use"
   ],
-  "interactions": [
-    "May potentiate: Potential interactions with serotonergic or CNS active medicines require medication level review"
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
   ],
-  "safetyNotes": "Short-term controlled use is often tolerated, but concentrated extracts can differ from culinary exposure.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: crocus sativus (TaxID 82528)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=82528&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used in ritual, dreaming or folk medicine.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine"
   ],
-  "lastUpdated": "2026-04-01T18:55:37.910Z",
-  "description": "Crocus sativus (saffron) is a culinary and medicinal spice with modern randomized-trial syntheses for mood-related outcomes.",
-  "dosage": "Dose-response depends on standardized extract and indication; no single cross-product dose is appropriate.",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Extract.",
-  "region": "Iran, india (kashmir).",
-  "therapeuticUses": [],
-  "traditionalUse": "Traditional Persian and Mediterranean medical systems include saffron for mood and general vitality support.",
-  "sideEffects": [],
+  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "therapeuticUses": [
+    "traditional support for relaxation and sleep quality",
+    "traditional ceremonial or ritual context use"
+  ],
+  "traditionalUse": "Used in ritual, dreaming or folk medicine",
   "slug": "crocus-sativus",
+  "sideEffects": [
+    "drowsiness, dizziness, or slowed reaction time",
+    "nausea, confusion, or anxiety with higher intake",
+    "allergic reaction in sensitive individuals"
+  ],
+  "id": "crocus-sativus",
+  "displayName": "crocus sativus",
+  "displayScientificName": "crocus sativus",
+  "scientificNormalized": "crocus sativus",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

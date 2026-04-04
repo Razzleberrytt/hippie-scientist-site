@@ -1,11 +1,8 @@
 {
   "name": "Aporphine",
-  "category": "general",
-  "description": "Aporphine is a compound reported in blue lotus, nymphaea caerulea, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "blue lotus",
-    "nymphaea caerulea",
-    "nymphaea lotus"
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement.",
@@ -36,32 +33,20 @@
     "concurrent CNS depressants",
     "driving or operating machinery"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Aporphine (CID 114911)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/114911",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "aporphine",
-  "summary": "Aporphine is a compound reported in blue lotus, nymphaea caerulea, and related herbs. Available references are still early and incomplete.",
+  "id": "aporphine",
+  "displayName": "Aporphine",
+  "description": "Aporphine is a compound reported in blue lotus and nan. Available references are still early and incomplete.",
+  "summary": "Aporphine is a compound reported in blue lotus and nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "blue-lotus",
-    "nymphaea-caerulea",
-    "nymphaea-lotus"
+    "nan"
   ]
 }

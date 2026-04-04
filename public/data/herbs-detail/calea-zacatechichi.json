@@ -3,53 +3,78 @@
   "latin": "Calea zacatechichi",
   "class": "Oneirogen, Psychoactive",
   "intensity": "Mild to moderate",
-  "mechanism": "used by chontal shamans to induce vivid dreams and visions",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.",
   "activeCompounds": [
-    "germacranolides",
-    "calein a and b"
+    "Germacranolides",
+    "calein A and B"
   ],
   "effects": [
-    "visionary"
+    "Vivid and lucid dreams",
+    "dream recall",
+    "No direct effects data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions."
   ],
   "contraindications": [
-    "avoid in pregnancy"
+    "Avoid in pregnancy and with CNS depressants",
+    "avoid during pregnancy and breastfeeding",
+    "avoid combining with sedatives, sleep medications, or alcohol",
+    "avoid in psychotic disorders, severe anxiety, or unsupervised psychoactive use"
   ],
-  "interactions": [
-    "May potentiate: May potentiate other oneirogens"
+  "safetyNotes": [
+    "Considered safe with occasional use",
+    "Bitterness",
+    "nausea",
+    "sleep disruption",
+    "Low",
+    "safe",
+    "No direct toxicity data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. No direct effects data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions."
   ],
-  "safetyNotes": "Considered safe with occasional use; Bitterness; Nausea; Sleep disruption; Used by chontal shamans to induce vivid dreams and visions. Used by chontal shamans to induce vivid dreams and visions. Used by Chontal shamans to induce vivid dreams and visions. Used by chontal shamans to induce vivid dreams and visions. Used by chontal shamans to induce vivid dreams and visions. Used by Chontal shamans to induce vivid dreams and visions. Used by Chontal shamans to induce vivid dreams and visions. Used by Chontal shamans to induce vivid dreams and visions; Avoid in pregnancy.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Calea zacatechichi",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Calea%20zacatechichi&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Ethnobotanical literature"
     },
     {
-      "title": "PubMed search: Calea zacatechichi",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Calea+zacatechichi",
-      "note": "Literature index for pharmacology and safety evidence"
+      "title": "Erowid"
     },
     {
-      "title": "PubChem search: Calea zacatechichi",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Calea+zacatechichi",
-      "note": "Chemical and bioactivity reference index"
+      "title": "NIH"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Used in Mexican shamanic traditions to enhance dreams and lucidity.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Used in Mexican shamanic traditions to enhance dreams and lucidity",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. No direct effects data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.. No direct region data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. No direct effects data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions."
+  ],
   "duration": "No direct duration data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. No direct effects data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.. No direct region data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. No direct effects data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.",
+  "interactions": [
+    "May potentiate other oneirogens"
+  ],
   "legalStatus": "Unregulated in most countries",
-  "preparation": "Smoked.",
-  "region": "Mexico, central america.",
+  "preparation": "No direct preparation data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. No direct effects data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.. No direct region data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. No direct effects data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.",
+  "region": "No direct region data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. No direct effects data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.",
   "therapeuticUses": [
     "Lucid dreaming",
     "introspection",
-    "sleep study"
+    "sleep study",
+    "traditional support for relaxation and sleep quality",
+    "traditional ceremonial or ritual context use"
   ],
   "traditionalUse": "Used by Chontal shamans to induce vivid dreams and visions.",
-  "sideEffects": [],
   "slug": "calea-zacatechichi",
+  "sideEffects": [
+    "drowsiness, dizziness, or slowed reaction time",
+    "nausea, confusion, or anxiety with higher intake",
+    "allergic reaction in sensitive individuals"
+  ],
+  "displayName": "calea zacatechichi",
+  "displayScientificName": "Calea zacatechichi",
+  "scientificNormalized": "calea zacatechichi",
+  "id": "calea-zacatechichi",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

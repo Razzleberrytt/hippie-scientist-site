@@ -1,61 +1,49 @@
 {
   "name": "ginger",
   "latin": "ginger",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine",
   "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [
-    "Caution with: Interaction evidence is limited",
-    "Caution with: use caution with prescription medicines",
-    "Caution with: especially CNS active",
-    "Avoid with: anticoagulant",
-    "Caution with: hepatotoxic",
-    "Caution with: blood pressure/glucose lowering drugs"
+  "effects": [
+    "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: ginger",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=ginger&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    },
-    {
-      "title": "PubMed search: ginger",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=ginger",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: ginger",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=ginger",
-      "note": "Chemical and bioactivity reference index"
-    }
+  "contraindications": [
+    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+    "Do not use with known allergy to this plant or related species."
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Ginger is a high-utility herb commonly chosen for digestive comfort and food-integrated daily routines.",
-  "dosage": "Food-use amounts and concentrated supplement servings differ; follow product-specific labels for capsules/extracts.",
-  "duration": "Used both as-needed and in recurring daily routines depending on goal and tolerance.",
-  "legalStatus": "",
-  "preparation": "Tea.",
-  "region": "Unknown.",
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Folk medicine.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine"
+  ],
+  "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+  "interactions": [],
+  "legalStatus": null,
+  "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+  "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
   "therapeuticUses": [
-    "Post-meal digestive comfort support",
-    "Food-first daily herb routines",
-    "Simple foundational herb stacking with turmeric or peppermint"
+    "Traditional supportive use; indication depends on species part and preparation.",
+    "Evidence level varies; use only within established clinical or traditional context."
   ],
   "traditionalUse": "Folk medicine",
-  "sideEffects": [],
   "slug": "ginger",
-  "identity": "",
-  "categoryUseContext": "Most often used for digestive support, post-meal comfort, and practical kitchen-to-supplement crossover use.",
-  "evidenceLevel": "Moderate evidence in selected digestive and nausea-related contexts; form and concentration differences matter.",
-  "relatedEntities": [
-    "turmeric",
-    "peppermint",
-    "chamomile",
-    "echinacea-purpurea"
+  "sideEffects": [
+    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
   ],
+  "id": "ginger",
+  "displayName": "ginger",
+  "displayScientificName": "ginger",
+  "scientificNormalized": "ginger",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
   "relatedCompounds": []
 }

@@ -1,7 +1,5 @@
 {
   "name": "salicylic acid derivatives",
-  "category": "general",
-  "description": "salicylic acid derivatives is a compound reported in alchemilla vulgaris. Available references are still early and incomplete.",
   "herbs": [
     "alchemilla vulgaris"
   ],
@@ -19,24 +17,18 @@
     "may interact with blood thinners due to tannin content【859641390196180†L297",
     "L313】."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: salicylic acid derivatives",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/salicylic-acid-derivatives",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "lastUpdated": "2026-03-21",
   "slug": "salicylic-acid-derivatives",
+  "id": "salicylic-acid-derivatives",
+  "displayName": "salicylic acid derivatives",
+  "description": "salicylic acid derivatives is a compound reported in alchemilla vulgaris. Available references are still early and incomplete.",
   "summary": "salicylic acid derivatives is a compound reported in alchemilla vulgaris. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

@@ -1,47 +1,97 @@
 {
   "name": "erythrina variegata",
   "latin": "Erythrina variegata",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Sedative, anticonvulsant, and muscle relaxant in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anticonvulsant, and muscle relaxant in traditional medicine. No direct region data. Contextual inference: Sedative, anticonvulsant, and muscle relaxant in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anticonvulsant, and muscle relaxant in traditional medicine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "relaxation"
+    "Sedative",
+    "anticonvulsant",
+    "and muscle relaxant in traditional medicine",
+    "Sedative and muscle relaxant",
+    "traditional Polynesian use"
   ],
   "contraindications": [
-    "avoid with hormone-sensitive conditions",
-    "avoid with hormone",
-    "avoid with sensitive conditions"
+    "hormone-sensitive conditions.",
+    "hormone",
+    "sensitive conditions."
   ],
-  "interactions": [
-    "Caution with: hormonal medications",
-    "Avoid with: stimulants"
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference: Sedative",
+    "anticonvulsant",
+    "and muscle relaxant in traditional medicine. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Sedative",
+    "and muscle relaxant in traditional medicine. none.",
+    "mild gi upset (rare).",
+    "No direct toxicity data. Contextual inference: Sedative and muscle relaxant",
+    "traditional polynesian use. Possibly androgenic and adaptogenic",
+    "exact moa unclear..",
+    "nan.. Possibly androgenic and adaptogenic",
+    "exact MOA unclear.. Sedative and muscle relaxant",
+    "traditional Polynesian use."
   ],
-  "safetyNotes": "Sedative; Anticonvulsant; And muscle relaxant in traditional medicine; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Sedative; Mild gi upset (rare); Sedative and muscle relaxant; Exact moa unclear; Exact MOA unclear. Sedative and muscle relaxant; Traditional Polynesian use; Avoid with hormone-sensitive conditions; Avoid with sensitive conditions.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Erythrina variegata (TaxID 3845)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3845&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.934Z",
-  "description": "Sedative, anticonvulsant, and muscle relaxant in traditional medicine..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Sedative, anticonvulsant, and muscle relaxant in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Sedative",
+    "anticonvulsant",
+    "and muscle relaxant in traditional medicine. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Sedative",
+    "and muscle relaxant in traditional medicine. No direct region data. Contextual inference: Sedative",
+    "and muscle relaxant in traditional medicine. none.",
+    "nan.",
+    "No direct dosage data. Contextual inference: Sedative and muscle relaxant",
+    "traditional polynesian use. Possibly androgenic and adaptogenic",
+    "exact moa unclear..",
+    "nan.. Possibly androgenic and adaptogenic",
+    "exact MOA unclear.. Sedative and muscle relaxant",
+    "traditional Polynesian use. No direct region data. Contextual inference: Sedative and muscle relaxant",
+    "traditional Polynesian use."
+  ],
   "duration": "6–8 hours",
+  "interactions": [
+    "hormonal medications",
+    "stimulants."
+  ],
   "legalStatus": "Unregulated",
-  "preparation": "",
-  "region": "",
+  "preparation": "No direct preparation data. Contextual inference: Sedative, anticonvulsant, and muscle relaxant in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anticonvulsant, and muscle relaxant in traditional medicine. No direct region data. Contextual inference: Sedative, anticonvulsant, and muscle relaxant in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anticonvulsant, and muscle relaxant in traditional medicine. none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Sedative, anticonvulsant, and muscle relaxant in traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anticonvulsant, and muscle relaxant in traditional medicine. none. ; nan; nan",
   "therapeuticUses": [
     "libido",
     "stamina",
     "traditional tonic."
   ],
   "traditionalUse": "; nan; nan",
+  "slug": "erythrina-variegata",
   "sideEffects": [
     "mild gi upset (rare)."
   ],
-  "slug": "erythrina-variegata",
+  "displayName": "erythrina variegata",
+  "displayScientificName": "Erythrina variegata",
+  "scientificNormalized": "erythrina variegata",
+  "id": "erythrina-variegata",
+  "aliases": [
+    "tonga root"
+  ],
+  "slugAliases": [
+    "tonga-root"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

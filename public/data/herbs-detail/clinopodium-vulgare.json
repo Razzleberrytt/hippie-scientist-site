@@ -1,32 +1,53 @@
 {
   "name": "clinopodium vulgare",
   "latin": "Clinopodium vulgare",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, anti-inflammatory, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, anti-inflammatory, digestive tonic. No direct region data. Contextual inference: Antimicrobial, anti-inflammatory, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, anti-inflammatory, digestive tonic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
+    "Antimicrobial",
     "anti-inflammatory",
-    "digestive support",
-    "antimicrobial"
+    "digestive tonic",
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Generally considered safe; May cause mild digestive discomfort in sensitive individuals; Antimicrobial; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Antimicrobial.",
+  "safetyNotes": [
+    "safe",
+    "Generally considered safe",
+    "may cause mild digestive discomfort in sensitive individuals",
+    "No direct toxicity data. Contextual inference: Antimicrobial",
+    "anti-inflammatory",
+    "digestive tonic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antimicrobial",
+    "digestive tonic. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Clinopodium vulgare (TaxID 204222)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=204222&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.900Z",
-  "description": "Antimicrobial, anti-inflammatory, digestive tonic..",
-  "dosage": "1-3 g/day infusion or 250-500 mg extract",
+  "lastUpdated": "2026-03-21",
+  "description": "Antimicrobial, anti-inflammatory, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "1",
+    "3 g",
+    "day infusion or 250",
+    "500 mg extract"
+  ],
   "duration": "3–5 hours",
+  "interactions": [],
   "legalStatus": "Unregulated",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "Aerial parts dried and brewed into infusions or decoctions for colds and digestive issues",
+  "region": "No direct region data. Contextual inference: Antimicrobial, anti-inflammatory, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, anti-inflammatory, digestive tonic. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -34,6 +55,10 @@
     "may cause mild digestive discomfort in sensitive individuals"
   ],
   "slug": "clinopodium-vulgare",
+  "id": "clinopodium-vulgare",
+  "displayName": "clinopodium vulgare",
+  "displayScientificName": "Clinopodium vulgare",
+  "scientificNormalized": "clinopodium vulgare",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

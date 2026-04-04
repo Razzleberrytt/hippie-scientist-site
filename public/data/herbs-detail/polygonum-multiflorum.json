@@ -1,32 +1,53 @@
 {
   "name": "polygonum multiflorum",
   "latin": "Polygonum multiflorum",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Liver tonic, hair growth, anti-aging. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver tonic, hair growth, anti-aging. No direct region data. Contextual inference: Liver tonic, hair growth, anti-aging. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver tonic, hair growth, anti-aging. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "antioxidant",
-    "detoxification"
+    "Liver tonic",
+    "hair growth",
+    "anti-aging",
+    "anti",
+    "aging"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause hepatotoxicity risk, gi upset or diarrhea.",
+  "safetyNotes": [
+    "caution",
+    "Hepatotoxicity risk",
+    "GI upset",
+    "diarrhea",
+    "No direct toxicity data. Contextual inference: Liver tonic",
+    "hair growth",
+    "anti-aging. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Liver tonic",
+    "anti-aging. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Polygonum multiflorum",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Polygonum%20multiflorum&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.999Z",
-  "description": "Polygonum multiflorum is a medicinal herb traditionally used for liver tonic and hair growth.",
-  "dosage": "250-1000 mg/day processed root.",
+  "lastUpdated": "2026-03-21",
+  "description": "Liver tonic, hair growth, anti-aging. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "1000 mg",
+    "day processed root"
+  ],
   "duration": "Sustained with continued use",
+  "interactions": [],
   "legalStatus": "Legal with advisories in some countries",
-  "preparation": "Root dried and decocted, sometimes processed (“Zhi He Shou Wu”) to reduce toxicity in Traditional Chinese Medicine.",
-  "region": "",
+  "preparation": "Root dried and decocted, sometimes processed (“Zhi He Shou Wu”) to reduce toxicity in Traditional Chinese Medicine",
+  "region": "No direct region data. Contextual inference: Liver tonic, hair growth, anti-aging. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver tonic, hair growth, anti-aging. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -35,6 +56,10 @@
     "diarrhea"
   ],
   "slug": "polygonum-multiflorum",
+  "id": "polygonum-multiflorum",
+  "displayName": "polygonum multiflorum",
+  "displayScientificName": "Polygonum multiflorum",
+  "scientificNormalized": "polygonum multiflorum",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

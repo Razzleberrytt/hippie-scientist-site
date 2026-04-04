@@ -3,60 +3,99 @@
   "latin": "Piper methysticum",
   "class": "Anxiolytic, Sedative",
   "intensity": "Moderate",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
-    "methysticin"
+    "Kavalactones (kavain",
+    "methysticin",
+    "yangonin)"
   ],
   "effects": [
-    "relaxation",
-    "mood"
+    "Euphoria",
+    "calmness",
+    "muscle relaxation",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "avoid in liver disease",
-    "avoid with concurrent alcohol use"
+    "Liver conditions",
+    "concurrent alcohol use",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
+  "safetyNotes": [
+    "Safe with proper preparation",
+    "hepatotoxicity risk with extracts",
+    "Nausea",
+    "drowsiness",
+    "liver toxicity with overuse",
+    "Low to moderate",
+    "Not precisely known",
+    "caution",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
+  "sources": [
+    {
+      "title": "Pacific ethnobotany"
+    },
+    {
+      "title": "WHO reports"
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Traditional Polynesian root beverage known for relaxation and social bonding",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "Potentiates CNS depressants and sedatives"
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Avoid in liver disease; Avoid with concurrent alcohol use; Avoid in liver disease, may cause safe with proper preparation, hepatotoxicity risk with extracts, nausea, drowsiness or liver toxicity with overuse or not precisely known; Avoid combining with sedatives, alcohol or or other CNS depressants.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: Piper methysticum (TaxID 130404)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=130404&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    },
-    {
-      "title": "PubMed search: Piper methysticum",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Piper+methysticum",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: Piper methysticum",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Piper+methysticum",
-      "note": "Chemical and bioactivity reference index"
-    }
-  ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Piper methysticum is a medicinal herb traditionally used for euphoria and calmness.",
-  "dosage": "",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Regulated or restricted in some countries",
-  "preparation": "",
-  "region": "Pacific islands.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "Anxiety",
     "stress",
-    "social lubrication"
+    "social lubrication",
+    "traditional support for mild digestive comfort",
+    "traditional stress resilience support"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "piper-methysticum",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "piper methysticum",
+  "displayScientificName": "Piper methysticum",
+  "scientificNormalized": "piper methysticum",
+  "id": "piper-methysticum",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
-    "methysticin"
+    "kavalactones-kavain",
+    "methysticin",
+    "yangonin"
   ]
 }

@@ -1,35 +1,66 @@
 {
   "name": "artemisia abrotanum",
   "latin": "artemisia abrotanum",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
   "activeCompounds": [
-    "camphor",
-    "thujone"
+    "Camphor",
+    "Thujone"
   ],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Used in ritual; Dreaming or. Used in ritual; Dreaming or Used in ritual.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: artemisia abrotanum (TaxID 86306)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=86306&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
   ],
-  "lastUpdated": "2026-04-01T18:55:37.853Z",
-  "description": "Used in ritual, dreaming or.",
-  "dosage": "",
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "use caution with chronic medical conditions and prescription medications",
+    "use caution before driving or operating machinery if sedation occurs"
+  ],
+  "safetyNotes": [
+    "caution",
+    "No direct toxicity data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used in ritual, dreaming or folk medicine.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine"
+  ],
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "legalStatus": "",
-  "preparation": "",
-  "region": "Mediterranean, europe.",
-  "therapeuticUses": [],
+  "interactions": [],
+  "legalStatus": null,
+  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "therapeuticUses": [
+    "ceremonial use in traditional spiritual practices",
+    "non-specific traditional tonic use"
+  ],
   "traditionalUse": "Used in ritual, dreaming or folk medicine",
-  "sideEffects": [],
   "slug": "artemisia-abrotanum",
+  "sideEffects": [
+    "headache",
+    "dry mouth",
+    "light dizziness"
+  ],
+  "id": "artemisia-abrotanum",
+  "displayName": "artemisia abrotanum",
+  "displayScientificName": "artemisia abrotanum",
+  "scientificNormalized": "artemisia abrotanum",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

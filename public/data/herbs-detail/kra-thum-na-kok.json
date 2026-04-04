@@ -3,33 +3,43 @@
   "latin": "Mitragyna javanica / Mitragyna hirsuta",
   "class": "empathogen / euphoriant",
   "intensity": "Moderate",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "relaxation",
-    "stimulation"
+    "Mildly stimulating and relaxing",
+    "kratom analog with weaker effects"
   ],
   "contraindications": [
-    "avoid with not well documented"
+    "not well documented"
   ],
-  "interactions": [
-    "Caution with: limited interaction data"
+  "safetyNotes": [
+    "not well documented"
   ],
-  "safetyNotes": "Not well documented.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Mitragyna javanica / Mitragyna hirsuta",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Mitragyna%20javanica%20%2F%20Mitragyna%20hirsuta&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.952Z",
-  "description": "Southeast asian tree related to kratom with stimulating leaves.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "southeast asian tree related to kratom with stimulating leaves.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: southeast asian tree related to kratom with stimulating leaves.. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. Mildly stimulating and relaxing",
+    "kratom analog with weaker effects. 🌎 unknown",
+    "global."
+  ],
   "duration": "4–6 hours",
+  "interactions": [
+    "not well documented"
+  ],
   "legalStatus": "Unregulated",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "Capsule or tea",
+  "region": "🌎 unknown / global",
   "therapeuticUses": [
     "not well documented"
   ],
@@ -38,6 +48,10 @@
     "not well documented"
   ],
   "slug": "kra-thum-na-kok",
+  "id": "kra-thum-na-kok",
+  "displayName": "kra thum na / kok",
+  "displayScientificName": "Mitragyna javanica / Mitragyna hirsuta",
+  "scientificNormalized": "mitragyna javanica / mitragyna hirsuta",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

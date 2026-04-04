@@ -3,16 +3,20 @@
   "latin": "Camellia sinensis",
   "class": "Stimulant, Nootropic",
   "intensity": "Mild to moderate",
-  "mechanism": "Catechins (especially EGCG) and methylxanthines modulate adenosine signaling, catechol metabolism, endothelial function, and oxidative stress pathways.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
     "Caffeine",
     "L-theanine",
     "catechins"
   ],
   "effects": [
-    "relaxation",
-    "stimulation",
-    "mood"
+    "Alertness",
+    "calm focus",
+    "mood lift",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
     "Insomnia",
@@ -21,31 +25,46 @@
     "avoid during pregnancy and breastfeeding",
     "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "safetyNotes": "Moderate intake is generally safe; concentrated extracts have been linked to rare hepatotoxicity. Excess caffeine may worsen insomnia, anxiety, palpitations, or reflux.",
+  "safetyNotes": [
+    "Safe in moderation",
+    "Jitters",
+    "insomnia",
+    "stomach upset",
+    "Low",
+    "LD50 (caffeine): ~190 mg/kg (human est.)",
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
   "sources": [
     {
-      "title": "Green tea extract-associated hepatotoxicity: systematic review (Arch Toxicol. 2018)",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29450769/",
-      "note": "Best available synthesis of hepatic safety signals."
+      "title": "Scientific research"
     },
     {
-      "title": "Green Tea - NCCIH",
-      "url": "https://www.nccih.nih.gov/health/green-tea",
-      "note": "Safety and interaction overview including concentrated extracts."
+      "title": "tea pharmacology"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "World’s most consumed psychoactive beverage, valued for stimulation and focus.",
-  "dosage": "",
+  "description": "World’s most consumed psychoactive beverage, valued for stimulation and focus",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
-    "May potentiate: Caffeine containing products can add sympathomimetic effects with other stimulants",
-    "May potentiate: May reduce warfarin effect when vitamin K intake from green tea is high and variable",
-    "May potentiate: Can reduce absorption of non heme iron and may affect some beta blocker exposures"
+    "Stimulants",
+    "blood thinners"
   ],
   "legalStatus": "Legal",
-  "preparation": "",
-  "region": "China, india.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "Mental alertness",
     "antioxidant support",

@@ -1,36 +1,59 @@
 {
   "name": "viola odorata",
   "latin": "Viola odorata",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Expectorant, anti-inflammatory, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Expectorant, anti-inflammatory, mild sedative. No direct region data. Contextual inference: Expectorant, anti-inflammatory, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Expectorant, anti-inflammatory, mild sedative. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "relaxation",
+    "Expectorant",
     "anti-inflammatory",
-    "respiratory support"
+    "mild sedative",
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "Mild",
+    "may cause nausea or vomiting in large doses",
+    "No direct toxicity data. Contextual inference: Expectorant",
+    "anti-inflammatory",
+    "mild sedative. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Expectorant",
+    "mild sedative. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause mild or may cause nausea or vomiting in large doses.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Viola odorata (TaxID 97441)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=97441&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.031Z",
-  "description": "Expectorant, anti-inflammatory, mild sedative.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Expectorant, anti-inflammatory, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Expectorant",
+    "anti",
+    "inflammatory",
+    "mild sedative. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Expectorant",
+    "mild sedative. No direct region data. Contextual inference: Expectorant",
+    "mild sedative. none.",
+    "nan."
+  ],
   "duration": "3–6 hours",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "Tea.",
-  "region": "Europe, western asia.",
+  "preparation": "Leaves and flowers used in infusions, syrups, or poultices; respiratory and skin soothing herb",
+  "region": "No direct region data. Contextual inference: Expectorant, anti-inflammatory, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Expectorant, anti-inflammatory, mild sedative. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -38,6 +61,10 @@
     "may cause nausea or vomiting in large doses"
   ],
   "slug": "viola-odorata",
+  "id": "viola-odorata",
+  "displayName": "viola odorata",
+  "displayScientificName": "Viola odorata",
+  "scientificNormalized": "viola odorata",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

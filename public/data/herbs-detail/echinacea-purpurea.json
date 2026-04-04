@@ -3,38 +3,42 @@
   "latin": "echinacea purpurea",
   "class": null,
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "Alkamides, caffeic acid derivatives, and polysaccharides can modulate innate immune signaling (including cytokine and cannabinoid-receptor-linked pathways).",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [],
-  "effects": [],
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
   "contraindications": [
     "avoid during pregnancy and breastfeeding",
     "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "safetyNotes": "Short-term use is generally tolerated; rash or hypersensitivity can occur, especially in people with Asteraceae allergy or atopic disease.",
-  "sources": [
-    {
-      "title": "Echinacea for preventing and treating the common cold (Cochrane Review)",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/24554461/",
-      "note": "Best-known clinical synthesis and heterogeneity assessment."
-    },
-    {
-      "title": "Echinacea - NCCIH",
-      "url": "https://www.nccih.nih.gov/health/echinacea",
-      "note": "Safety profile and evidence summary."
-    }
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
+  "sources": [],
   "lastUpdated": "2026-03-21",
-  "description": "",
-  "dosage": "",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Caution with: May counter immunosuppressive therapy effects",
-    "Caution with: use caution in transplant or autoimmune settings",
-    "May potentiate: Potential CYP interaction risk appears modest but should be considered for narrow therapeutic index drugs"
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
   ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Tincture.",
-  "region": "North america.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "traditional support for mild digestive comfort"
   ],

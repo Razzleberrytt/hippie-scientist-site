@@ -1,8 +1,7 @@
 {
   "name": "Cytisine",
-  "category": "general",
-  "description": "Cytisine is a compound reported in sophora secundiflora. Available references are still early and incomplete.",
   "herbs": [
+    "nan",
     "sophora secundiflora"
   ],
   "effects": [
@@ -19,30 +18,20 @@
     "Highly toxic",
     "ceremonial use only"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Cytisine (CID 10235)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10235",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "cytisine",
-  "summary": "Cytisine is a compound reported in sophora secundiflora. Available references are still early and incomplete.",
+  "id": "cytisine",
+  "displayName": "Cytisine",
+  "description": "Cytisine is a compound reported in nan and sophora secundiflora. Available references are still early and incomplete.",
+  "summary": "Cytisine is a compound reported in nan and sophora secundiflora. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "sophora-secundiflora"
   ]
 }

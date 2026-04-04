@@ -1,34 +1,73 @@
 {
   "name": "areca catechu",
   "latin": "Areca catechu",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Stimulant; contains arecoline, traditionally chewed as betel nut. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; contains arecoline, traditionally chewed as betel nut. No direct region data. Contextual inference: Stimulant; contains arecoline, traditionally chewed as betel nut. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; contains arecoline, traditionally chewed as betel nut. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "stimulation"
+    "Stimulant",
+    "contains arecoline",
+    "traditionally chewed as betel nut"
   ],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Contains arecoline; Traditionally chewed as betel nut; Antioxidant effects; Or enzyme inhibition.",
+  "contraindications": [
+    "Use caution with stimulants and in uncontrolled hypertension or arrhythmia.",
+    "discontinue if hypersensitivity or allergic symptoms occur",
+    "use caution with stimulant medications or high caffeine intake"
+  ],
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference: Stimulant",
+    "contains arecoline",
+    "traditionally chewed as betel nut. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Stimulant",
+    "traditionally chewed as betel nut. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Areca catechu (TaxID 184783)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=184783&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.849Z",
-  "description": "Stimulant; contains arecoline, traditionally chewed as betel nut..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Stimulant; contains arecoline, traditionally chewed as betel nut. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Stimulant",
+    "contains arecoline",
+    "traditionally chewed as betel nut. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Stimulant",
+    "traditionally chewed as betel nut. No direct region data. Contextual inference: Stimulant",
+    "traditionally chewed as betel nut. none.",
+    "nan."
+  ],
   "duration": "2–4 hours",
+  "interactions": [],
   "legalStatus": "Restricted or regulated in many countries",
-  "preparation": "Raw.",
-  "region": "",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Stimulant; contains arecoline, traditionally chewed as betel nut. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; contains arecoline, traditionally chewed as betel nut. No direct region data. Contextual inference: Stimulant; contains arecoline, traditionally chewed as betel nut. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; contains arecoline, traditionally chewed as betel nut. none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Stimulant; contains arecoline, traditionally chewed as betel nut. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; contains arecoline, traditionally chewed as betel nut. none. ; nan; nan",
+  "therapeuticUses": [
+    "temporary support for focus during fatigue",
+    "mental alertness and fatigue support"
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "areca-catechu",
+  "sideEffects": [
+    "dry mouth",
+    "allergic rash or itching in sensitive individuals",
+    "restlessness"
+  ],
+  "id": "areca-catechu",
+  "displayName": "areca catechu",
+  "displayScientificName": "Areca catechu",
+  "scientificNormalized": "areca catechu",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

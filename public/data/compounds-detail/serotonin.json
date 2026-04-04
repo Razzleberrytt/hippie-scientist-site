@@ -1,9 +1,7 @@
 {
   "name": "serotonin",
-  "category": "general",
-  "description": "serotonin appears in records as a compound reported in urtica dioica. Current source coverage is limited and still developing.",
   "herbs": [
-    "urtica dioica"
+    "nan"
   ],
   "effects": [
     "Mild stimulation",
@@ -17,30 +15,19 @@
     "Pregnancy (caution)",
     "diuretics"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: serotonin (CID 5202)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5202",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "serotonin",
-  "summary": "serotonin appears in records as a compound reported in urtica dioica. Current source coverage is limited and still developing.",
+  "id": "serotonin",
+  "displayName": "serotonin",
+  "description": "serotonin appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "serotonin appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "urtica-dioica"
+    "nan"
   ]
 }

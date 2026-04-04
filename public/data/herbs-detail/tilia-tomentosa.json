@@ -3,47 +3,77 @@
   "latin": "Tilia tomentosa",
   "class": "Calming",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
-    "farnesol",
-    "linalool",
-    "quercetin",
-    "volatile oils"
+    "Farnesol",
+    "Linalool",
+    "Quercetin",
+    "Volatile oils"
   ],
   "effects": [
-    "relaxation",
-    "anxiety relief"
+    "Anxiolytic",
+    "relaxing",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "avoid with none known"
+    "None known",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "Generally recognized as safe",
+    "None commonly reported",
+    "Low toxicity",
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. Avoid with none known; Avoid with known.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: Tilia tomentosa (TaxID 121718)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=121718&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
   ],
-  "lastUpdated": "2026-04-01T18:55:38.026Z",
-  "description": "",
-  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "legalStatus": "",
-  "preparation": "",
-  "region": "Europe.",
+  "interactions": [],
+  "legalStatus": null,
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "Stress relief",
-    "sleep aid"
+    "sleep aid",
+    "traditional support for mild digestive comfort",
+    "traditional stress resilience support"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "tilia-tomentosa",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "tilia tomentosa",
+  "displayScientificName": "Tilia tomentosa",
+  "scientificNormalized": "tilia tomentosa",
+  "id": "tilia-tomentosa",
+  "aliases": [
+    "Silver Linden"
+  ],
+  "slugAliases": [
+    "silver-linden"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -3,50 +3,92 @@
   "latin": "Alchornea floribunda",
   "class": "Stimulant, Entheogen",
   "intensity": "No direct intensity data. Contextual inference: Aphrodisiac and stimulant; used as a hunting drug in africa. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac and stimulant; used as a hunting drug in Africa. No direct region data. Contextual inference: Aphrodisiac and stimulant; used as a hunting drug in africa. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac and stimulant; used as a hunting drug in Africa. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [
-    "alchorneine",
+    "Alchorneine",
     "alkaloids",
     "tannins"
   ],
   "effects": [
-    "stimulation",
-    "mood",
-    "visionary",
-    "libido enhancer"
+    "Increased alertness",
+    "minor euphoria",
+    "divinatory visions",
+    "Aphrodisiac and stimulant",
+    "used as a hunting drug in Africa"
   ],
   "contraindications": [
-    "avoid in pregnancy"
+    "Avoid in pregnancy or heart issues"
   ],
-  "interactions": [
-    "May potentiate: May potentiate stimulants or MAOIs"
+  "safetyNotes": [
+    "avoid overuse",
+    "Possible headache",
+    "nausea",
+    "agitation",
+    "Not established",
+    "Stimulant effects",
+    "potential hypertension",
+    "limited data",
+    "No direct toxicity data. Contextual inference: Aphrodisiac and stimulant",
+    "used as a hunting drug in africa. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Aphrodisiac and stimulant",
+    "used as a hunting drug in Africa. none."
   ],
-  "safetyNotes": "Avoid overuse; Possible headache; Nausea; Agitation; Potential hypertension; Limited data; Used as a hunting drug in africa; Antioxidant effects; Or enzyme inhibition; Avoid in pregnancy.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Alchornea floribunda (TaxID 1487781)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1487781&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Ethnobotanical records"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.845Z",
-  "description": "Aphrodisiac and stimulant; used as a hunting drug in africa.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Aphrodisiac and stimulant; used as a hunting drug in africa. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Aphrodisiac and stimulant",
+    "used as a hunting drug in africa. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Aphrodisiac and stimulant",
+    "used as a hunting drug in Africa. No direct region data. Contextual inference: Aphrodisiac and stimulant",
+    "used as a hunting drug in Africa. none.",
+    "nan."
+  ],
   "duration": "4–8 hours",
+  "interactions": [
+    "May potentiate stimulants or MAOIs"
+  ],
   "legalStatus": "Not controlled",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "Root bark used in decoctions or chewed in traditional West African medicine; stimulant and aphrodisiac effects",
+  "region": "No direct region data. Contextual inference: Aphrodisiac and stimulant; used as a hunting drug in africa. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac and stimulant; used as a hunting drug in Africa. none. ; nan; nan",
   "therapeuticUses": [
     "Traditional healing",
     "energy enhancement"
   ],
   "traditionalUse": "; nan; nan",
+  "slug": "alchornea-floribunda",
   "sideEffects": [
     "Stimulant effects",
     "potential hypertension",
     "limited data"
   ],
-  "slug": "alchornea-floribunda",
+  "displayName": "alchornea floribunda",
+  "displayScientificName": "Alchornea floribunda",
+  "scientificNormalized": "alchornea floribunda",
+  "id": "alchornea-floribunda",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

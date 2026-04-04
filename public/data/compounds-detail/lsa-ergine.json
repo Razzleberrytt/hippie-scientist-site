@@ -1,8 +1,8 @@
 {
   "name": "LSA (ergine)",
-  "category": "general",
-  "description": "LSA (ergine) is currently cataloged as a compound entry. Current source coverage is limited and still developing.",
-  "herbs": [],
+  "herbs": [
+    "nan"
+  ],
   "effects": [
     "Closed-eye visuals",
     "emotional introspection",
@@ -15,28 +15,19 @@
     "MAOIs",
     "SSRIs"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: LSA (ergine)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lsa-ergine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "lsa-ergine",
-  "summary": "LSA (ergine) is currently cataloged as a compound entry. Current source coverage is limited and still developing.",
+  "id": "lsa-ergine",
+  "displayName": "LSA (ergine)",
+  "description": "LSA (ergine) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "LSA (ergine) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "linkedHerbs": []
+  "linkedHerbs": [
+    "nan"
+  ]
 }

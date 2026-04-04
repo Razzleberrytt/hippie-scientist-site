@@ -1,7 +1,5 @@
 {
   "name": "Graveoline",
-  "category": "general",
-  "description": "Graveoline is a compound reported in ruta graveolens. Available references are still early and incomplete.",
   "herbs": [
     "ruta graveolens"
   ],
@@ -9,24 +7,13 @@
     "No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Graveoline (CID 353825)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/353825",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "graveoline",
+  "id": "graveoline",
+  "displayName": "Graveoline",
+  "description": "Graveoline is a compound reported in ruta graveolens. Available references are still early and incomplete.",
   "summary": "Graveoline is a compound reported in ruta graveolens. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

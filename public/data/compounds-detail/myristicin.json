@@ -1,10 +1,8 @@
 {
   "name": "Myristicin",
-  "category": "general",
-  "description": "Myristicin appears in records as a compound reported in myristica fragrans and Myristica fragrans Houtt.. Current source coverage is limited and still developing.",
   "herbs": [
-    "myristica fragrans",
-    "Myristica fragrans Houtt."
+    "nan",
+    "myristica fragrans"
   ],
   "effects": [
     "Euphoria",
@@ -30,31 +28,20 @@
     "dangerous interactions with MAOIs",
     "SSRIs"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Myristicin (CID 4276)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4276",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "myristicin",
-  "summary": "Myristicin appears in records as a compound reported in myristica fragrans and Myristica fragrans Houtt.. Current source coverage is limited and still developing.",
+  "id": "myristicin",
+  "displayName": "Myristicin",
+  "description": "Myristicin appears in records as a compound reported in nan and myristica fragrans. Current source coverage is limited and still developing.",
+  "summary": "Myristicin appears in records as a compound reported in nan and myristica fragrans. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "myristica-fragrans",
-    "myristica-fragrans-houtt"
+    "nan",
+    "myristica-fragrans"
   ]
 }

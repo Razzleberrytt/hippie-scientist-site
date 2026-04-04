@@ -1,33 +1,58 @@
 {
   "name": "psychotria carthaginensis",
   "latin": "psychotria carthaginensis",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "caution",
-  "safetyNotes": "Generally well tolerated. Avoid combining with prescription drugs without guidance.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: psychotria carthaginensis",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=psychotria%20carthaginensis&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
-  "lastUpdated": "2026-04-01T18:55:38.002Z",
-  "description": "Psychotria carthaginensis is a medicinal herb traditionally used for general wellness support.",
-  "dosage": "",
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding unless clinician-guided",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
+  ],
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Tea.",
-  "region": "South america.",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": [
+    "digestive support (bloating, gas, mild cramping)",
+    "historical use for symptom relief in regional folk medicine"
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "psychotria-carthaginensis",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "psychotria-carthaginensis",
+  "displayName": "psychotria carthaginensis",
+  "displayScientificName": "psychotria carthaginensis",
+  "scientificNormalized": "psychotria carthaginensis",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

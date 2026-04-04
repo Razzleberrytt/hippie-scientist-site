@@ -1,32 +1,58 @@
 {
   "name": "rauvolfia serpentina",
   "latin": "Rauvolfia serpentina",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antihypertensive, sedative, tranquilizer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antihypertensive, sedative, tranquilizer. No direct region data. Contextual inference: Antihypertensive, sedative, tranquilizer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antihypertensive, sedative, tranquilizer. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "relaxation",
-    "cardiovascular"
+    "Antihypertensive",
+    "sedative",
+    "tranquilizer"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause sedation, depression or nasal congestion. Avoid in depression, may cause sedation, depression, nasal congestion, sedative, tranquilizer; Avoid in depression; Avoid combining with sedatives, alcohol, or other CNS depressants, sedation, depression or nasal congestion.",
+  "safetyNotes": [
+    "Sedation",
+    "depression",
+    "nasal congestion",
+    "avoid in depression",
+    "No direct toxicity data. Contextual inference: Antihypertensive",
+    "sedative",
+    "tranquilizer. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antihypertensive",
+    "tranquilizer. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Rauvolfia serpentina (TaxID 4060)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4060&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.005Z",
-  "description": "Antihypertensive, sedative, tranquilizer.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Antihypertensive, sedative, tranquilizer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Antihypertensive",
+    "sedative",
+    "tranquilizer. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antihypertensive",
+    "tranquilizer. No direct region data. Contextual inference: Antihypertensive",
+    "tranquilizer. none.",
+    "nan."
+  ],
   "duration": "6–12 hours",
+  "interactions": [],
   "legalStatus": "Controlled or restricted in some regions",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "Root dried and used in decoctions or standardized extracts; contains reserpine; used with caution due to alkaloid potency",
+  "region": "No direct region data. Contextual inference: Antihypertensive, sedative, tranquilizer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antihypertensive, sedative, tranquilizer. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -36,6 +62,10 @@
     "avoid in depression"
   ],
   "slug": "rauvolfia-serpentina",
+  "id": "rauvolfia-serpentina",
+  "displayName": "rauvolfia serpentina",
+  "displayScientificName": "Rauvolfia serpentina",
+  "scientificNormalized": "rauvolfia serpentina",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

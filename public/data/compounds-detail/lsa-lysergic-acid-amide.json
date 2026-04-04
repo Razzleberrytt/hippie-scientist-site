@@ -1,7 +1,5 @@
 {
   "name": "LSA (lysergic acid amide)",
-  "category": "general",
-  "description": "LSA (lysergic acid amide) is a compound reported in argyreia nervosa. Available references are still early and incomplete.",
   "herbs": [
     "argyreia nervosa"
   ],
@@ -13,24 +11,13 @@
     "opening."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: LSA (lysergic acid amide)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lsa-lysergic-acid-amide",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "lsa-lysergic-acid-amide",
+  "id": "lsa-lysergic-acid-amide",
+  "displayName": "LSA (lysergic acid amide)",
+  "description": "LSA (lysergic acid amide) is a compound reported in argyreia nervosa. Available references are still early and incomplete.",
   "summary": "LSA (lysergic acid amide) is a compound reported in argyreia nervosa. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

@@ -3,33 +3,38 @@
   "latin": "acacia nilotica",
   "class": "Tree",
   "intensity": "mild",
-  "mechanism": "high tannin content gives potent astringent properties | flavonoids and tannins provide antioxidant and anti-inflammatory effects | polysaccharide-rich gum arabic have immunomodulatory benefits",
+  "mechanism": "High tannin content gives potent astringent properties; flavonoids and tannins provide antioxidant and anti-inflammatory effects; polysaccharide-rich gum arabic may have immunomodulatory benefits.",
   "activeCompounds": [
+    "tannins (gallic acid, ellagic acid, catechin)",
     "quercetin",
     "myricetin",
-    "saponins"
+    "saponins",
+    "alkaloids (nicotine, leucocyanidin)",
+    "polysaccharides (arabinose, rhamnose)"
   ],
-  "effects": [],
+  "effects": [
+    "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
+  ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with not recommended for children under 12"
+    "High doses of bark decoction can irritate the digestive tract and cause constipation or nausea",
+    "Avoid during pregnancy or lactation due to potential anti-fertility effects",
+    "Not recommended for children under 12"
   ],
-  "interactions": [],
-  "safetyNotes": "Avoid in pregnancy; Avoid with not recommended for children under 12",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: acacia nilotica",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=acacia%20nilotica&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    }
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
   ],
-  "lastUpdated": "2026-04-01T18:55:37.830Z",
-  "description": "",
-  "dosage": "",
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Folk medicine.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine"
+  ],
   "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "",
-  "region": "",
+  "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+  "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
   "therapeuticUses": [
     "Oral health (reducing plaque and gingival inflammation)",
     "Gastrointestinal disorders such as diarrhea and dysentery",
@@ -40,15 +45,21 @@
     "Immune support"
   ],
   "traditionalUse": "Folk medicine",
-  "sideEffects": [],
   "slug": "acacia-nilotica",
+  "id": "acacia-nilotica",
+  "displayName": "acacia nilotica",
+  "displayScientificName": "acacia nilotica",
+  "scientificNormalized": "acacia nilotica",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
+    "tannins-gallic-acid-ellagic-acid-catechin",
     "quercetin",
     "myricetin",
-    "saponins"
+    "saponins",
+    "alkaloids-nicotine-leucocyanidin",
+    "polysaccharides-arabinose-rhamnose"
   ]
 }

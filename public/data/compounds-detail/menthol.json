@@ -1,9 +1,7 @@
 {
   "name": "Menthol",
-  "category": "general",
-  "description": "Menthol appears in records as a compound reported in mentha piperita. Current source coverage is limited and still developing.",
   "herbs": [
-    "mentha piperita"
+    "nan"
   ],
   "effects": [
     "Soothes GI tract",
@@ -19,30 +17,36 @@
     "gallbladder disorders",
     "infants (menthol sensitivity)"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
       "title": "PubChem compound: Menthol (CID 1254)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1254",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1254"
+    },
+    {
+      "title": "Wikipedia: Menthol",
+      "url": "https://en.wikipedia.org/wiki/Menthol"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "lastUpdated": "2026-04-03T00:00:00.000Z",
   "slug": "menthol",
-  "summary": "Menthol appears in records as a compound reported in mentha piperita. Current source coverage is limited and still developing.",
+  "description": "Menthol is a monoterpene alcohol from mint oils that activates TRPM8 cold receptors and is used in topical cooling and GI antispasmodic products.",
+  "sideEffects": [
+    "Heartburn or reflux",
+    "Mucosal irritation",
+    "Nausea at higher oral doses"
+  ],
+  "interactions": [
+    "May have additive sedative effects with other CNS depressants in sensitive users."
+  ],
+  "id": "menthol",
+  "displayName": "Menthol",
+  "summary": "Menthol is a monoterpene alcohol from mint oils that activates TRPM8 cold receptors and is used in topical cooling and GI antispasmodic products.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "mentha-piperita"
+    "nan"
   ]
 }

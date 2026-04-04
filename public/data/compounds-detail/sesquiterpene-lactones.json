@@ -1,10 +1,7 @@
 {
   "name": "Sesquiterpene lactones",
-  "category": "terpenoid",
-  "description": "Sesquiterpene lactones is a terpenoid compound reported in lactuca virosa and Vernonia amygdalina. Available references are still early and incomplete.",
   "herbs": [
-    "lactuca virosa",
-    "Vernonia amygdalina"
+    "nan"
   ],
   "effects": [
     "Blood sugar regulation",
@@ -20,31 +17,19 @@
     "Pregnant women should avoid high doses",
     "Not recommended during pregnancy or with sedatives"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Sesquiterpene lactones",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/sesquiterpene-lactones",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "sesquiterpene-lactones",
-  "summary": "Sesquiterpene lactones is a terpenoid compound reported in lactuca virosa and Vernonia amygdalina. Available references are still early and incomplete.",
+  "id": "sesquiterpene-lactones",
+  "displayName": "Sesquiterpene lactones",
+  "description": "Sesquiterpene lactones is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Sesquiterpene lactones is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "lactuca-virosa",
-    "vernonia-amygdalina"
+    "nan"
   ]
 }

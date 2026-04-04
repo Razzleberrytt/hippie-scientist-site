@@ -1,45 +1,36 @@
 {
-  "name": "7-Hydroxymitragynine",
-  "category": "indole alkaloid",
-  "description": "7-Hydroxymitragynine is a kratom-associated indole alkaloid with high opioid-receptor potency relative to parent mitragynine. Recent reviews frame it as a safety-critical constituent with abuse and toxicity concerns.",
+  "name": "7-hydroxymitragynine",
   "herbs": [
-    "mitragyna speciosa",
-    "mitragyna javanica"
+    "nan"
   ],
   "effects": [
-    "Discussed as a potent kratom alkaloid with opioid-receptor-mediated analgesic and dependence-related risk signals.",
-    "Public-health reviews emphasize toxicity and misuse concerns."
+    "Stimulation",
+    "mild euphoria",
+    "analgesia",
+    "Mild stimulation",
+    "mood lift",
+    "Mild sedative",
+    "analgesic (less potent than M. speciosa)"
   ],
   "contraindications": [
-    "Avoid in pregnancy and in people with substance-use vulnerability due to dependence and withdrawal concerns.",
-    "Avoid combination with respiratory depressants."
+    "None well documented",
+    "Pregnancy",
+    "MAOI use",
+    "liver conditions"
   ],
-  "interactions": [
-    "Likely additive CNS/respiratory depression with opioids, alcohol, or sedative-hypnotics."
-  ],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "From kratom to 7-hydroxymitragynine: evolution of a natural remedy into a public-health threat.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41275505/"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.038Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "7-hydroxymitragynine",
-  "summary": "7-Hydroxymitragynine is a kratom-associated indole alkaloid with high opioid-receptor potency relative to parent mitragynine. Recent reviews frame it as a safety-critical constitue",
+  "id": "7-hydroxymitragynine",
+  "displayName": "7-hydroxymitragynine",
+  "description": "7-hydroxymitragynine is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "7-hydroxymitragynine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "mitragyna-speciosa",
-    "mitragyna-javanica"
+    "nan"
   ]
 }

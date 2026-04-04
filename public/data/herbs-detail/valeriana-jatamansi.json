@@ -1,38 +1,62 @@
 {
   "name": "valeriana jatamansi",
   "latin": "valeriana jatamansi",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
-    "valeranon"
+    "Valeranon"
   ],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: valeriana jatamansi (TaxID 59170)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=59170&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "lastUpdated": "2026-04-01T18:55:38.030Z",
-  "description": "",
-  "dosage": "",
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Tea.",
-  "region": "India.",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": [
+    "traditional support for mild digestive comfort",
+    "traditional stress resilience support"
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "valeriana-jatamansi",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "valeriana-jatamansi",
+  "displayName": "valeriana jatamansi",
+  "displayScientificName": "valeriana jatamansi",
+  "scientificNormalized": "valeriana jatamansi",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

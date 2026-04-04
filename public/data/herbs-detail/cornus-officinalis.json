@@ -1,30 +1,56 @@
 {
   "name": "cornus officinalis",
   "latin": "Cornus officinalis",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Astringent, kidney and liver tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent, kidney and liver tonic, antioxidant. No direct region data. Contextual inference: Astringent, kidney and liver tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent, kidney and liver tonic, antioxidant. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
+    "Astringent",
+    "kidney and liver tonic",
     "antioxidant"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Generally safe; May cause mild GI upset or dizziness in sensitive individuals; Astringent; Kidney and liver tonic; Antioxidant; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Astringent.",
+  "safetyNotes": [
+    "Generally safe",
+    "may cause mild GI upset or dizziness in sensitive individuals",
+    "No direct toxicity data. Contextual inference: Astringent",
+    "kidney and liver tonic",
+    "antioxidant. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Astringent",
+    "antioxidant. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Cornus officinalis (TaxID 16906)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=16906&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.909Z",
-  "description": "Astringent, kidney and liver tonic, antioxidant..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Astringent, kidney and liver tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Astringent",
+    "kidney and liver tonic",
+    "antioxidant. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Astringent",
+    "antioxidant. No direct region data. Contextual inference: Astringent",
+    "antioxidant. none.",
+    "nan."
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Legal; used in TCM",
-  "preparation": "",
-  "region": "",
+  "preparation": "Fruit decocted or dried and consumed in Traditional Chinese Medicine (Shan Zhu Yu); often paired with tonic herbs",
+  "region": "No direct region data. Contextual inference: Astringent, kidney and liver tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent, kidney and liver tonic, antioxidant. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -32,6 +58,10 @@
     "may cause mild GI upset or dizziness in sensitive individuals"
   ],
   "slug": "cornus-officinalis",
+  "id": "cornus-officinalis",
+  "displayName": "cornus officinalis",
+  "displayScientificName": "Cornus officinalis",
+  "scientificNormalized": "cornus officinalis",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

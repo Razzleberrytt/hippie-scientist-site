@@ -3,7 +3,7 @@
   "latin": "Acorus tatarinowii",
   "class": "Herb",
   "intensity": "No direct intensity data. Contextual inference: Cns stimulant, memory aid, and anti-epileptic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. CNS stimulant, memory aid, and anti-epileptic in TCM. No direct region data. Contextual inference: Cns stimulant, memory aid, and anti-epileptic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. CNS stimulant, memory aid, and anti-epileptic in TCM. none. ; nan; nan. ; nan; nan",
-  "mechanism": "volatile oils dominated by β-asarone (≈95%) and α-asarone modulate neurological function | β-asarone exhibits antispasmodic and sedative properties but is hepatotoxic | other terpenoids contribute to antimicrobial and anti-inflammatory activities【165634396553563†l445-l520】",
+  "mechanism": "Volatile oils dominated by β-asarone (≈95%) and α-asarone modulate neurological function; β-asarone exhibits antispasmodic and sedative properties but is hepatotoxic; other terpenoids contribute to antimicrobial and anti-inflammatory activities【165634396553563†L445-L520】.",
   "activeCompounds": [
     "β-asarone",
     "α-asarone",
@@ -23,44 +23,64 @@
     "methyl eugenol",
     "cis-methylisoeugenol",
     "trans-methylisoeugenol",
-    "2 4 5-trimethoxybenzaldehyde",
+    "2,4,5-trimethoxybenzaldehyde",
     "α-calacorene",
     "β-caryophyllene"
   ],
   "effects": [
-    "stimulation",
-    "focus"
+    "CNS stimulant",
+    "memory aid",
+    "and anti-epileptic in TCM",
+    "and anti",
+    "epileptic in TCM"
   ],
-  "contraindications": [
-    "avoid with β-asarone is carcinogenic",
-    "avoid long-term or high-dose use",
-    "avoid in pregnancy"
+  "contraindications": "β-asarone is potentially carcinogenic; avoid long-term or high-dose use; contraindicated in pregnancy and children.",
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference: Cns stimulant",
+    "memory aid",
+    "and anti-epileptic in tcm. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. CNS stimulant",
+    "and anti-epileptic in TCM. none."
   ],
-  "interactions": [],
-  "safetyNotes": "Cns stimulant; Memory aid; And anti-epileptic in tcm; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. CNS stimulant; Avoid with β-asarone is carcinogenic; Avoid long-term or high-dose use; Avoid in pregnancy.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Acorus tatarinowii (TaxID 123564)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=123564&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.840Z",
-  "description": "Cns stimulant, memory aid, and anti-epileptic in tcm.",
-  "dosage": "",
-  "duration": "4–6 hours",
-  "legalStatus": "Restricted in some countries",
-  "preparation": "",
-  "region": "",
-  "therapeuticUses": [
-    "Used in traditional Chinese medicine for treating phlegm",
-    "epilepsy",
-    "mental disorders",
-    "and digestive problems."
+  "lastUpdated": "2026-03-21",
+  "description": "Cns stimulant, memory aid, and anti-epileptic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Cns stimulant",
+    "memory aid",
+    "and anti",
+    "epileptic in tcm. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. CNS stimulant",
+    "epileptic in TCM. No direct region data. Contextual inference: Cns stimulant",
+    "epileptic in TCM. none.",
+    "nan."
   ],
+  "duration": "4–6 hours",
+  "interactions": [],
+  "legalStatus": "Restricted in some countries",
+  "preparation": "No direct preparation data. Contextual inference: Cns stimulant, memory aid, and anti-epileptic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. CNS stimulant, memory aid, and anti-epileptic in TCM. No direct region data. Contextual inference: Cns stimulant, memory aid, and anti-epileptic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. CNS stimulant, memory aid, and anti-epileptic in TCM. none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Cns stimulant, memory aid, and anti-epileptic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. CNS stimulant, memory aid, and anti-epileptic in TCM. none. ; nan; nan",
+  "therapeuticUses": "Used in traditional Chinese medicine for treating phlegm, epilepsy, mental disorders, and digestive problems.",
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "acorus-tatarinowii",
+  "id": "acorus-tatarinowii",
+  "displayName": "acorus tatarinowii",
+  "displayScientificName": "Acorus tatarinowii",
+  "scientificNormalized": "acorus tatarinowii",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

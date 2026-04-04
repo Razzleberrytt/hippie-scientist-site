@@ -1,11 +1,7 @@
 {
   "name": "lythrine",
-  "category": "general",
-  "description": "lythrine appears in records as a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
-    "heimia myrtifolia",
-    "heimia salicifolia (sinicuichi)",
-    "Sinicuichi (Heimia salicifolia)"
+    "nan"
   ],
   "effects": [
     "Auditory distortion",
@@ -44,32 +40,19 @@
     "liver conditions",
     "concurrent CNS depressants"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: lythrine (CID 6441299)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6441299",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "lythrine",
-  "summary": "lythrine appears in records as a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Current source coverage is limited and still developing",
+  "id": "lythrine",
+  "displayName": "lythrine",
+  "description": "lythrine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "lythrine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "heimia-myrtifolia",
-    "heimia-salicifolia-sinicuichi",
-    "sinicuichi-heimia-salicifolia"
+    "nan"
   ]
 }

@@ -1,9 +1,7 @@
 {
   "name": "pseudoephedrine",
-  "category": "general",
-  "description": "pseudoephedrine is a compound reported in sida cordifolia. Available references are still early and incomplete.",
   "herbs": [
-    "sida cordifolia"
+    "nan"
   ],
   "effects": [
     "Increased energy",
@@ -22,30 +20,19 @@
     "heart conditions",
     "pregnancy"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: pseudoephedrine (CID 7028)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/7028",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "pseudoephedrine",
-  "summary": "pseudoephedrine is a compound reported in sida cordifolia. Available references are still early and incomplete.",
+  "id": "pseudoephedrine",
+  "displayName": "pseudoephedrine",
+  "description": "pseudoephedrine is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "pseudoephedrine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "sida-cordifolia"
+    "nan"
   ]
 }

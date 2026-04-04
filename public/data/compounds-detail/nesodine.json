@@ -1,9 +1,7 @@
 {
   "name": "nesodine",
-  "category": "general",
-  "description": "nesodine appears in records as a compound reported in heimia salicifolia (sinicuichi). Current source coverage is limited and still developing.",
   "herbs": [
-    "heimia salicifolia (sinicuichi)"
+    "nan"
   ],
   "effects": [
     "Auditory distortion",
@@ -27,30 +25,19 @@
     "pregnancy [9",
     "4]."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: nesodine (CID 6475455)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6475455",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "nesodine",
-  "summary": "nesodine appears in records as a compound reported in heimia salicifolia (sinicuichi). Current source coverage is limited and still developing.",
+  "id": "nesodine",
+  "displayName": "nesodine",
+  "description": "nesodine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "nesodine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "heimia-salicifolia-sinicuichi"
+    "nan"
   ]
 }

@@ -1,42 +1,64 @@
 {
   "name": "sacred basil",
   "latin": "Ocimum tenuiflorum (Tulsi)",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. No direct region data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. ; nan; nan. ; nan; nan",
-  "mechanism": "Modulates cortisol, dopamine, and serotonin.",
-  "activeCompounds": [
-    "eugenol",
-    "ursolic acid",
-    "rosmarinic acid"
-  ],
+  "mechanism": "Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.",
+  "activeCompounds": [],
   "effects": [
-    "anxiety relief",
-    "immune support"
+    "Adaptogen",
+    "stress reducer",
+    "immune modulator"
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with thyroid issues"
+    "pregnancy (high doses)",
+    "thyroid issues."
   ],
-  "interactions": [
-    "Sedatives",
-    "Anticoagulants"
+  "safetyNotes": [
+    "dry mouth",
+    "mild sedation.",
+    "No direct toxicity data. Contextual inference: Adaptogen",
+    "stress reducer",
+    "immune modulator. Modulates cortisol",
+    "dopamine",
+    "and serotonin",
+    "adaptogenic and anxiolytic..",
+    "nan.. Modulates cortisol",
+    "adaptogenic and anxiolytic.. Adaptogen",
+    "immune modulator."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause dry mouth or mild sedation. Avoid in pregnancy; Avoid with thyroid issues; Avoid in pregnancy, may cause dry mouth, mild sedation, stress reducer, dopamine or dry mouth; Avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or MAOIs without medical guidance, dry mouth or mild sedation.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Ocimum tenuiflorum (Tulsi)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Ocimum%20tenuiflorum%20(Tulsi)&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.016Z",
-  "description": "Adaptogen, stress reducer, immune modulator.",
-  "dosage": "As tea: about 2-3 g dried leaf per cup, up to 2-3 times daily.",
+  "lastUpdated": "2026-03-21",
+  "description": "Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Adaptogen",
+    "stress reducer",
+    "immune modulator. Modulates cortisol",
+    "dopamine",
+    "and serotonin",
+    "adaptogenic and anxiolytic..",
+    "nan.. Modulates cortisol",
+    "adaptogenic and anxiolytic.. Adaptogen",
+    "immune modulator. No direct region data. Contextual inference: Adaptogen",
+    "immune modulator.",
+    "nan."
+  ],
   "duration": "4–6 hours",
+  "interactions": [
+    "sedatives",
+    "anticoagulants."
+  ],
   "legalStatus": "Legal globally",
-  "preparation": "",
-  "region": "",
+  "preparation": "No direct preparation data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. No direct region data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. ; nan; nan",
   "therapeuticUses": [
     "stress relief",
     "mood balance",
@@ -48,6 +70,10 @@
     "mild sedation."
   ],
   "slug": "sacred-basil",
+  "id": "sacred-basil",
+  "displayName": "sacred basil",
+  "displayScientificName": "Ocimum tenuiflorum (Tulsi)",
+  "scientificNormalized": "ocimum tenuiflorum tulsi",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

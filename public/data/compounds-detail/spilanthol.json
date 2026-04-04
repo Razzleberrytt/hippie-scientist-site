@@ -1,9 +1,7 @@
 {
   "name": "Spilanthol",
-  "category": "general",
-  "description": "Spilanthol is a compound reported in acmella oleracea. Available references are still early and incomplete.",
   "herbs": [
-    "acmella oleracea"
+    "nan"
   ],
   "effects": [
     "Local anesthesia",
@@ -24,30 +22,19 @@
     "None established",
     "avoid overuse on broken skin"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Spilanthol (CID 5353001)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5353001",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "spilanthol",
-  "summary": "Spilanthol is a compound reported in acmella oleracea. Available references are still early and incomplete.",
+  "id": "spilanthol",
+  "displayName": "Spilanthol",
+  "description": "Spilanthol is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Spilanthol is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "acmella-oleracea"
+    "nan"
   ]
 }

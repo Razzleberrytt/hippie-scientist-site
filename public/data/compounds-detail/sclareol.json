@@ -1,7 +1,5 @@
 {
   "name": "Sclareol",
-  "category": "general",
-  "description": "Sclareol appears in records as a compound reported in salvia sclarea. Current source coverage is limited and still developing.",
   "herbs": [
     "salvia sclarea"
   ],
@@ -12,24 +10,13 @@
     "nan."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Sclareol (CID 163263)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/163263",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "sclareol",
+  "id": "sclareol",
+  "displayName": "Sclareol",
+  "description": "Sclareol appears in records as a compound reported in salvia sclarea. Current source coverage is limited and still developing.",
   "summary": "Sclareol appears in records as a compound reported in salvia sclarea. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

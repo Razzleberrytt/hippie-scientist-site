@@ -1,12 +1,8 @@
 {
   "name": "lyfoline",
-  "category": "general",
-  "description": "lyfoline is a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Available references are still early and incomplete.",
   "herbs": [
-    "heimia myrtifolia",
-    "heimia salicifolia (sinicuichi)",
-    "Sinicuichi (Heimia myrtifolia)",
-    "Sinicuichi (Heimia salicifolia)"
+    "nan",
+    "heimia salicifolia"
   ],
   "effects": [
     "Auditory distortion",
@@ -49,33 +45,20 @@
     "liver conditions",
     "concurrent CNS depressants"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: lyfoline (CID 6436825)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6436825",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "lyfoline",
-  "summary": "lyfoline is a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Available references are still early and incomplete.",
+  "id": "lyfoline",
+  "displayName": "lyfoline",
+  "description": "lyfoline is a compound reported in nan and heimia salicifolia. Available references are still early and incomplete.",
+  "summary": "lyfoline is a compound reported in nan and heimia salicifolia. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "heimia-myrtifolia",
-    "heimia-salicifolia-sinicuichi",
-    "sinicuichi-heimia-myrtifolia",
-    "sinicuichi-heimia-salicifolia"
+    "nan",
+    "heimia-salicifolia"
   ]
 }

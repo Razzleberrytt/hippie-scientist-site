@@ -1,37 +1,36 @@
 {
-  "name": "2,4,5-Trimethoxybenzaldehyde",
-  "category": "aromatic aldehyde",
-  "description": "2,4,5-Trimethoxybenzaldehyde is an aromatic aldehyde reported in Acorus phytochemistry. Direct clinical evidence for efficacy or safety is sparse, so interpretation is largely mechanistic/contextual.",
+  "name": "2,4,5-trimethoxybenzaldehyde",
   "herbs": [
     "acorus tatarinowii"
   ],
   "effects": [
-    "Identified as an aromatic constituent in Acorus-related phytochemical profiles.",
-    "Direct human pharmacology evidence remains limited."
+    "CNS stimulant",
+    "memory aid",
+    "and anti-epileptic in TCM",
+    "and anti",
+    "epileptic in TCM"
   ],
   "contraindications": [
-    "Insufficient direct clinical safety evidence; avoid high-dose supplemental use."
+    "β",
+    "asarone is potentially carcinogenic",
+    "avoid long",
+    "term or high",
+    "dose use",
+    "contraindicated in pregnancy and children."
   ],
-  "interactions": [
-    "No compound-specific interaction trials identified; uncertainty remains high."
-  ],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "Alpha- and beta-asarone toxicology, interaction potential, and human safety context: a systematic review.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34401729/"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.037Z",
+  "lastUpdated": "2026-03-21",
   "slug": "2-4-5-trimethoxybenzaldehyde",
-  "summary": "2,4,5-Trimethoxybenzaldehyde is an aromatic aldehyde reported in Acorus phytochemistry. Direct clinical evidence for efficacy or safety is sparse, so interpretation is largely mech",
+  "id": "2-4-5-trimethoxybenzaldehyde",
+  "displayName": "2,4,5-trimethoxybenzaldehyde",
+  "description": "2,4,5-trimethoxybenzaldehyde is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
+  "summary": "2,4,5-trimethoxybenzaldehyde is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

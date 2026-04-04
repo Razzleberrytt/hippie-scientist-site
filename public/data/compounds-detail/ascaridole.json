@@ -1,7 +1,5 @@
 {
   "name": "Ascaridole",
-  "category": "general",
-  "description": "Ascaridole appears in records as a compound reported in dysphania ambrosioides and peumus boldus. Current source coverage is limited and still developing.",
   "herbs": [
     "dysphania ambrosioides",
     "peumus boldus"
@@ -18,24 +16,13 @@
     "nan."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Ascaridole (CID 10545)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10545",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "ascaridole",
+  "id": "ascaridole",
+  "displayName": "Ascaridole",
+  "description": "Ascaridole appears in records as a compound reported in dysphania ambrosioides and peumus boldus. Current source coverage is limited and still developing.",
   "summary": "Ascaridole appears in records as a compound reported in dysphania ambrosioides and peumus boldus. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

@@ -1,37 +1,67 @@
 {
   "name": "lepidium meyenii",
   "latin": "Lepidium meyenii",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, fertility enhancer, energizer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, fertility enhancer, energizer. No direct region data. Contextual inference: Adaptogen, fertility enhancer, energizer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, fertility enhancer, energizer. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "stimulation",
+    "Adaptogen",
+    "fertility enhancer",
+    "energizer",
+    "energy booster",
     "libido enhancer"
   ],
   "contraindications": [
-    "avoid with hormone-sensitive conditions",
-    "avoid with hormone",
-    "avoid with sensitive conditions"
+    "hormone-sensitive conditions.",
+    "hormone",
+    "sensitive conditions."
   ],
-  "interactions": [
-    "Caution with: hormonal therapies"
+  "safetyNotes": [
+    "safe",
+    "Generally safe",
+    "high doses may cause insomnia or jitteriness",
+    "No direct toxicity data. Contextual inference: Adaptogen",
+    "fertility enhancer",
+    "energizer. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Adaptogen",
+    "energizer. none.",
+    "gi upset",
+    "jitteriness (rare).",
+    "energy booster",
+    "libido enhancer. Alkaloids modulate endocrine function and energy metabolism..",
+    "nan.. Alkaloids modulate endocrine function and energy metabolism.. Adaptogen",
+    "libido enhancer."
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Lepidium meyenii (TaxID 153348)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=153348&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.954Z",
-  "description": "Adaptogen, fertility enhancer, energizer..",
-  "dosage": "1-5 g/day root powder or 500-1000 mg extract, 3 g/day powder or 500",
+  "lastUpdated": "2026-03-21",
+  "description": "Adaptogen, fertility enhancer, energizer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "1",
+    "5 g",
+    "day root powder or 500",
+    "1000 mg extract",
+    "3 g",
+    "day powder or 500"
+  ],
   "duration": "Chronic use",
+  "interactions": [
+    "hormonal therapies."
+  ],
   "legalStatus": "Legal globally",
-  "preparation": "Extract.",
-  "region": "Peru, andes mountains.",
+  "preparation": "No direct preparation data. Contextual inference: Adaptogen, energy booster, libido enhancer. Alkaloids modulate endocrine function and energy metabolism.. ; nan; nan.. Alkaloids modulate endocrine function and energy metabolism.. Adaptogen, energy booster, libido enhancer. No direct region data. Contextual inference: Adaptogen, energy booster, libido enhancer. Alkaloids modulate endocrine function and energy metabolism.. ; nan; nan.. Alkaloids modulate endocrine function and energy metabolism.. Adaptogen, energy booster, libido enhancer. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Adaptogen, fertility enhancer, energizer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, fertility enhancer, energizer. none. ; nan; nan",
   "therapeuticUses": [
     "energy",
     "fertility",
@@ -45,6 +75,16 @@
     "jitteriness (rare)."
   ],
   "slug": "lepidium-meyenii",
+  "displayName": "lepidium meyenii",
+  "displayScientificName": "Lepidium meyenii",
+  "scientificNormalized": "lepidium meyenii",
+  "id": "lepidium-meyenii",
+  "aliases": [
+    "maca root"
+  ],
+  "slugAliases": [
+    "maca-root"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

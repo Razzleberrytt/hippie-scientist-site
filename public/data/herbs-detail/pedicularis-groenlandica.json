@@ -3,36 +3,49 @@
   "latin": "pedicularis groenlandica",
   "class": "dissociative / sedative",
   "intensity": "Mild to moderate.",
-  "mechanism": "Modulate gaba receptors.",
+  "mechanism": "May modulate GABA receptors.",
   "activeCompounds": [],
   "effects": [
-    "anxiety relief"
+    "Relieves tension",
+    "anxiety",
+    "and spasms."
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid during breastfeeding",
-    "avoid with 7]"
+    "pregnancy",
+    "lactation [0",
+    "7]."
   ],
-  "interactions": [
-    "Additive with CNS depressants [0",
-    "7]"
+  "safetyNotes": [
+    "rare",
+    "possible gi upset [0",
+    "7].",
+    "Low.",
+    "Low",
+    "no significant toxicity reported [0"
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause rare, possible gi upset [0 or 7]. Avoid in pregnancy; Avoid during breastfeeding; Avoid with 7]; Avoid combining with sedatives, may cause rare, possible GI upset [0, 7] or no significant toxicity reported [0; Avoid in pregnancy or 7]; Avoid use during pregnancy unless advised by a clinician, alcohol, or other CNS depressants, rare, possible GI upset [0 or 7]; Avoid combining with sedatives.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: pedicularis groenlandica (TaxID 262426)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=262426&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from Unknown"
+    },
+    {
+      "note": "Inferred from Unknown",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.990Z",
-  "description": "Pedicularis groenlandica is a medicinal herb traditionally used for relieves tension and anxiety.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "High-altitude flowering plant known for CNS and muscle relaxation.",
+  "dosage": [
+    "Similar to P. densiflora",
+    "tea or tincture."
+  ],
   "duration": "1–3 hours when taken as tea or tincture.",
+  "interactions": [
+    "additive with cns depressants [0",
+    "7]."
+  ],
   "legalStatus": "Legal / Unregulated",
-  "preparation": "Tincture.",
-  "region": "Rocky Mountains and western North America.",
+  "preparation": "Dried flower infusions or tinctures.",
+  "region": "Rocky Mountains and western North America",
   "therapeuticUses": [
     "muscle relaxant",
     "antioxidant",
@@ -47,6 +60,10 @@
     "7]."
   ],
   "slug": "pedicularis-groenlandica",
+  "id": "pedicularis-groenlandica",
+  "displayName": "pedicularis groenlandica",
+  "displayScientificName": "pedicularis groenlandica",
+  "scientificNormalized": "pedicularis groenlandica",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

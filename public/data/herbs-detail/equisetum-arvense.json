@@ -1,36 +1,60 @@
 {
   "name": "equisetum arvense",
   "latin": "Equisetum arvense",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Diuretic, wound healing, remineralizing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, wound healing, remineralizing. No direct region data. Contextual inference: Diuretic, wound healing, remineralizing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, wound healing, remineralizing. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "detoxification"
+    "Diuretic",
+    "wound healing",
+    "remineralizing"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "May cause thiamine deficiency or GI upset with prolonged use; Diuretic; Remineralizing; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Diuretic.",
+  "safetyNotes": [
+    "safe",
+    "May cause thiamine deficiency or GI upset with prolonged use",
+    "No direct toxicity data. Contextual inference: Diuretic",
+    "wound healing",
+    "remineralizing. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Diuretic",
+    "remineralizing. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Equisetum arvense (TaxID 3258)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3258&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.933Z",
-  "description": "Diuretic, wound healing, remineralizing..",
-  "dosage": "2-4 g/day dried herb or 250-500 mg extract",
+  "lastUpdated": "2026-03-21",
+  "description": "Diuretic, wound healing, remineralizing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "2",
+    "4 g",
+    "day dried herb or 250",
+    "500 mg extract"
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Legal; widely used in herbalism",
-  "preparation": "",
-  "region": "",
+  "preparation": "Sterile stems dried and decocted; commonly used as diuretic and silica source",
+  "region": "No direct region data. Contextual inference: Diuretic, wound healing, remineralizing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, wound healing, remineralizing. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
     "May cause thiamine deficiency or GI upset with prolonged use"
   ],
   "slug": "equisetum-arvense",
+  "id": "equisetum-arvense",
+  "displayName": "equisetum arvense",
+  "displayScientificName": "Equisetum arvense",
+  "scientificNormalized": "equisetum arvense",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

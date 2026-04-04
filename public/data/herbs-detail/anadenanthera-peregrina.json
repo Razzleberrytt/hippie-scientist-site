@@ -3,68 +3,115 @@
   "latin": "Anadenanthera peregrina",
   "class": "Tryptamine Entheogen",
   "intensity": "Strong",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
-    "bufotenine",
-    "dmt",
-    "5-meo-dmt",
-    "bufotenin"
+    "Bufotenine",
+    "DMT",
+    "5-MeO-DMT",
+    "Bufotenin"
   ],
   "effects": [
+    "Visuals",
+    "nausea",
+    "euphoria",
+    "altered states",
     "stimulation",
-    "mood",
-    "digestive support",
-    "psychedelic",
-    "dissociation"
+    "altered perception",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "avoid with asthma",
-    "may interact with maois",
-    "avoid with psychiatric conditions",
-    "avoid with heart conditions",
-    "may interact with ssris",
-    "avoid with schizophrenia"
+    "Asthma",
+    "MAOIs",
+    "psychiatric conditions",
+    "Heart conditions",
+    "SSRIs",
+    "schizophrenia",
+    "avoid during pregnancy and breastfeeding",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "interactions": [
-    "Avoid with: MAOIs",
-    "Avoid with: SSRIs",
-    "Avoid with: other tryptamines",
-    "Avoid with: stimulants"
+  "safetyNotes": [
+    "Intense effects",
+    "used in tribal contexts",
+    "Disorientation",
+    "nausea",
+    "tremors",
+    "Moderate",
+    "Not clearly documented",
+    "Use with caution",
+    "intense psychoactive profile",
+    "Nausea",
+    "vomiting",
+    "anxiety",
+    "respiratory irritation",
+    "Potentially high in overdose",
+    "Not clearly established",
+    "Toxic – oneirogenic and emetic effects",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with asthma; May interact with maois.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Anadenanthera peregrina (TaxID 148672)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=148672&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Shamanic snuff literature"
     },
     {
-      "title": "PubMed search: Anadenanthera peregrina",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Anadenanthera+peregrina",
-      "note": "Literature index for pharmacology and safety evidence"
+      "title": "ethnobotanical records"
     },
     {
-      "title": "PubChem search: Anadenanthera peregrina",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Anadenanthera+peregrina",
-      "note": "Chemical and bioactivity reference index"
+      "title": "Shamanic records"
+    },
+    {
+      "title": "pharmacological studies"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "South American snuff prepared from seeds, used for intense visionary states.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "South American snuff prepared from seeds, used for intense visionary states",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "MAOIs",
+    "SSRIs",
+    "other tryptamines",
+    "stimulants"
+  ],
   "legalStatus": "Unregulated; some tryptamines controlled",
-  "preparation": "Extract.",
-  "region": "Venezuela, brazil.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "Spiritual insight",
     "ceremonial use",
     "Vision quests",
-    "psycho-spiritual exploration"
+    "psycho-spiritual exploration",
+    "traditional support for mild digestive comfort"
   ],
   "traditionalUse": "Used as snuff by tribes in Venezuela and Amazon basin",
-  "sideEffects": [],
   "slug": "anadenanthera-peregrina",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "anadenanthera peregrina",
+  "displayScientificName": "Anadenanthera peregrina",
+  "scientificNormalized": "anadenanthera peregrina",
+  "id": "anadenanthera-peregrina",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

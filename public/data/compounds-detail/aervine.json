@@ -1,7 +1,5 @@
 {
   "name": "aervine",
-  "category": "general",
-  "description": "aervine is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "herbs": [
     "aerva lanata"
   ],
@@ -16,24 +14,18 @@
     "Limited safety data; some alkaloids may be toxic at high doses",
     "Pregnant women should use cautiously"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: aervine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/aervine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.038Z",
+  "lastUpdated": "2026-03-21",
   "slug": "aervine",
+  "id": "aervine",
+  "displayName": "aervine",
+  "description": "aervine is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "summary": "aervine is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

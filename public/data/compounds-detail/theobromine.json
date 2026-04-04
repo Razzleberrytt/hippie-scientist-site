@@ -1,12 +1,8 @@
 {
   "name": "theobromine",
-  "category": "general",
-  "description": "theobromine is a compound reported in yerba mate, paullinia cupana, and related herbs. Available references are still early and incomplete.",
   "herbs": [
-    "yerba mate",
-    "paullinia cupana",
-    "paullinia yoco",
-    "theobroma cacao"
+    "nan",
+    "yerba mate"
   ],
   "effects": [
     "Mental alertness",
@@ -44,33 +40,20 @@
     "Heart conditions",
     "stimulant sensitivity"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: theobromine (CID 5429)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5429",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "theobromine",
-  "summary": "theobromine is a compound reported in yerba mate, paullinia cupana, and related herbs. Available references are still early and incomplete.",
+  "id": "theobromine",
+  "displayName": "theobromine",
+  "description": "theobromine is a compound reported in nan and yerba mate. Available references are still early and incomplete.",
+  "summary": "theobromine is a compound reported in nan and yerba mate. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "yerba-mate",
-    "paullinia-cupana",
-    "paullinia-yoco",
-    "theobroma-cacao"
+    "nan",
+    "yerba-mate"
   ]
 }

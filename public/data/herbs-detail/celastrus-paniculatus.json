@@ -1,39 +1,66 @@
 {
   "name": "celastrus paniculatus",
   "latin": "celastrus paniculatus",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "preclinical studies describe antioxidant | anti-inflammatory | cholinergic",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.",
   "activeCompounds": [
-    "celastrine",
-    "paniculatin"
+    "Celastrine",
+    "Paniculatin"
   ],
-  "effects": [],
+  "effects": [
+    "No direct effects data. Contextual inference: Used in ayurveda for cognition",
+    "focus",
+    "and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition",
+    "and learning... Used in Ayurveda for cognition",
+    "and learning.. Used in Ayurveda for cognition",
+    "and learning."
+  ],
   "contraindications": [
-    "avoid in pregnancy"
+    "avoid during pregnancy and breastfeeding",
+    "use caution with prescription medications and chronic medical conditions"
   ],
-  "interactions": [
-    "Caution with: Potential CNS active interactions are plausible but insufficiently quantified"
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference: Used in ayurveda for cognition",
+    "focus",
+    "and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition",
+    "and learning... Used in Ayurveda for cognition",
+    "and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition",
+    "and learning.. Used in Ayurveda for cognition",
+    "and learning."
   ],
-  "safetyNotes": "Human dose-finding and long-term safety data are limited in modern controlled settings.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: celastrus paniculatus (TaxID 994668)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=994668&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used in ayurveda for cognition, focus, and learning..",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in ayurveda for cognition",
+    "focus",
+    "and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition",
+    "and learning... Used in Ayurveda for cognition",
+    "and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition",
+    "and learning.. Used in Ayurveda for cognition",
+    "and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition",
+    "and learning."
   ],
-  "lastUpdated": "2026-04-01T18:55:37.892Z",
-  "description": "Celastrus paniculatus is an Ayurvedic medicinal seed plant often discussed for memory-related traditional use and modern neuroprotection research.",
-  "dosage": "No validated, product-agnostic therapeutic dosing standard was identified in the promoted review source.",
   "duration": "No direct duration data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Extract.",
-  "region": "India, sri lanka.",
-  "therapeuticUses": [],
-  "traditionalUse": "Traditional South Asian medicine describes seed oil use for memory and cognition support.",
-  "sideEffects": [],
+  "preparation": "No direct preparation data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.",
+  "region": "No direct region data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.",
+  "therapeuticUses": [
+    "traditional support for focus and memory"
+  ],
+  "traditionalUse": "Used in Ayurveda for cognition, focus, and learning.",
   "slug": "celastrus-paniculatus",
+  "sideEffects": [
+    "mild gastrointestinal upset",
+    "allergic reaction in sensitive individuals"
+  ],
+  "id": "celastrus-paniculatus",
+  "displayName": "celastrus paniculatus",
+  "displayScientificName": "celastrus paniculatus",
+  "scientificNormalized": "celastrus paniculatus",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

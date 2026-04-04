@@ -1,31 +1,58 @@
 {
   "name": "aspidosperma quebracho-blanco",
   "latin": "Aspidosperma quebracho-blanco",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Bronchodilator, stimulant, expectorant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bronchodilator, stimulant, expectorant. No direct region data. Contextual inference: Bronchodilator, stimulant, expectorant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bronchodilator, stimulant, expectorant. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "stimulation",
-    "respiratory support"
+    "Bronchodilator",
+    "stimulant",
+    "expectorant"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "May cause nausea; Dizziness; Hypotension; Toxic in large doses due to alkaloids; Bronchodilator; Expectorant; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Bronchodilator.",
+  "safetyNotes": [
+    "May cause nausea",
+    "dizziness",
+    "hypotension",
+    "toxic in large doses due to alkaloids",
+    "No direct toxicity data. Contextual inference: Bronchodilator",
+    "stimulant",
+    "expectorant. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Bronchodilator",
+    "expectorant. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Aspidosperma quebracho-blanco (TaxID 141536)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=141536&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.861Z",
-  "description": "Bronchodilator, stimulant, expectorant..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Bronchodilator, stimulant, expectorant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Bronchodilator",
+    "stimulant",
+    "expectorant. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Bronchodilator",
+    "expectorant. No direct region data. Contextual inference: Bronchodilator",
+    "expectorant. none.",
+    "nan."
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Unregulated; used in South American medicine",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Bark decocted or tinctured; use monitored due to alkaloid potency",
+  "region": "No direct region data. Contextual inference: Bronchodilator, stimulant, expectorant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bronchodilator, stimulant, expectorant. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -35,6 +62,10 @@
     "toxic in large doses due to alkaloids"
   ],
   "slug": "aspidosperma-quebracho-blanco",
+  "id": "aspidosperma-quebracho-blanco",
+  "displayName": "aspidosperma quebracho-blanco",
+  "displayScientificName": "Aspidosperma quebracho-blanco",
+  "scientificNormalized": "aspidosperma quebracho-blanco",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

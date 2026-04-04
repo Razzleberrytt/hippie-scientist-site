@@ -1,7 +1,5 @@
 {
   "name": "cis-methylisoeugenol",
-  "category": "general",
-  "description": "cis-methylisoeugenol appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
   "herbs": [
     "acorus tatarinowii"
   ],
@@ -20,24 +18,18 @@
     "dose use",
     "contraindicated in pregnancy and children."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: cis-methylisoeugenol (CID 1549045)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1549045",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "lastUpdated": "2026-03-21",
   "slug": "cis-methylisoeugenol",
+  "id": "cis-methylisoeugenol",
+  "displayName": "cis-methylisoeugenol",
+  "description": "cis-methylisoeugenol appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
   "summary": "cis-methylisoeugenol appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

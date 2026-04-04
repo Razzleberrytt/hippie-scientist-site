@@ -3,41 +3,59 @@
   "latin": "Tylophora indica",
   "class": "respiratory / immunomodulator / ayurvedic",
   "intensity": "Moderate",
-  "mechanism": "Contains tylophorine alkaloids with immunosuppressive, anti-inflammatory, and antiallergic properties.",
+  "mechanism": "Contains tylophorine alkaloids with immunosuppressive, anti-inflammatory, and antiallergic properties. Reduces histamine release and cytokine activity.",
   "activeCompounds": [],
   "effects": [
-    "respiratory support",
-    "immune support"
+    "Asthma relief",
+    "Anti-allergy",
+    "Immunoregulation",
+    "Expectorant",
+    "Anti",
+    "allergy"
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with with immunosuppressants",
-    "avoid with or in emaciated individuals not for long-term high-dose use",
-    "avoid with or in emaciated individuals not for long",
-    "avoid with term high",
-    "avoid with dose use"
+    "avoid during pregnancy",
+    "with immunosuppressants",
+    "or in emaciated individuals. not for long-term high-dose use.",
+    "or in emaciated individuals. not for long",
+    "term high",
+    "dose use."
   ],
-  "interactions": [
-    "May interfere with immune therapies",
-    "Steroids",
-    "Or antihistamines"
+  "safetyNotes": [
+    "caution",
+    "nausea and vomiting in higher doses. gi discomfort is common early in treatment.",
+    "Moderate in high doses. Emetic effects limit overuse."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause nausea and vomiting in higher doses. gi discomfort is common early in treatment. Avoid in pregnancy; Avoid with with immunosuppressants; Avoid with or in emaciated individuals not for long-term high-dose use; Avoid with or in emaciated individuals not for long; Avoid with term high; Avoid with dose use; Avoid in pregnancy, may cause nausea and vomiting in higher doses; Avoid use during pregnancy unless advised by a clinician, lower dose or stop if nausea, vomiting, or GI upset occurs or nausea and vomiting in higher doses.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Tylophora indica",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Tylophora%20indica&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3887322/"
+    },
+    {
+      "note": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3887322/;Ayurvedic Pharmacopoeia of India;Journal of Ethnopharmacology",
+      "url": ""
+    },
+    {
+      "note": "2004",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.029Z",
-  "description": "An ayurvedic herb used for bronchial conditions, immune regulation, and allergic responses.",
-  "dosage": "200-400 mg/day extract or 1-2 g dried leaf.",
+  "lastUpdated": "2026-03-21",
+  "description": "an ayurvedic herb used for bronchial conditions, immune regulation, and allergic responses. known as indian ipecac for its traditional role in treating asthma and respiratory issues.",
+  "dosage": [
+    "200",
+    "400 mg",
+    "day extract or 1",
+    "2 g dried leaf"
+  ],
   "duration": "Short-term (up to 2 weeks)",
+  "interactions": [
+    "may interfere with immune therapies",
+    "steroids",
+    "or antihistamines."
+  ],
   "legalStatus": "Legal in India; regulated in some countries due to emetic effects",
-  "preparation": "Tea.",
-  "region": "India, sri lanka.",
+  "preparation": "Leaves chewed raw, powdered for capsules, or used in low-dose decoctions. Often combined with other expectorants.",
+  "region": "india, sri lanka, southeast asia",
   "therapeuticUses": [
     "used for asthma",
     "allergies",
@@ -52,6 +70,10 @@
     "nausea and vomiting in higher doses. gi discomfort is common early in treatment."
   ],
   "slug": "tylophora-indica",
+  "id": "tylophora-indica",
+  "displayName": "tylophora indica",
+  "displayScientificName": "Tylophora indica",
+  "scientificNormalized": "tylophora indica",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

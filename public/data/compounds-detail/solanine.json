@@ -1,9 +1,7 @@
 {
   "name": "Solanine",
-  "category": "general",
-  "description": "Solanine appears in records as a compound reported in Cestrum parqui. Current source coverage is limited and still developing.",
   "herbs": [
-    "Cestrum parqui"
+    "nan"
   ],
   "effects": [
     "Delirium",
@@ -14,30 +12,19 @@
     "Highly toxic",
     "not for human use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Solanine (CID 30185)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/30185",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "solanine",
-  "summary": "Solanine appears in records as a compound reported in Cestrum parqui. Current source coverage is limited and still developing.",
+  "id": "solanine",
+  "displayName": "Solanine",
+  "description": "Solanine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "Solanine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "cestrum-parqui"
+    "nan"
   ]
 }

@@ -1,40 +1,61 @@
 {
   "name": "syrian rue",
   "latin": "syrian rue",
-  "class": "general",
+  "class": null,
   "intensity": "moderate",
-  "mechanism": "",
-  "activeCompounds": [
-    "harmine",
-    "harmaline",
-    "tetrahydroharmine"
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "activeCompounds": [],
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "contraindications": [
+    "contains MAO-inhibiting alkaloids; avoid with SSRIs/SNRIs and many medications",
+    "avoid tyramine-rich diets when used in concentrated preparations",
+    "avoid during pregnancy and breastfeeding"
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: syrian rue",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=syrian%20rue&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    }
+  "safetyNotes": [
+    "Toxic – MAOI",
+    "potentiates other substances",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "lastUpdated": "2026-04-01T18:55:38.023Z",
-  "description": "",
-  "dosage": "",
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "restricted",
-  "preparation": "Tea.",
-  "region": "Middle east, central asia.",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": [
+    "traditional ceremonial use as a psychoactive admixture",
+    "traditional use for ritual fumigation"
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "syrian-rue",
+  "sideEffects": [
+    "nausea, vomiting, and dizziness",
+    "headache or blood pressure changes",
+    "agitation or serotonin-toxicity risk with drug interactions"
+  ],
+  "id": "syrian-rue",
+  "displayName": "syrian rue",
+  "displayScientificName": "syrian rue",
+  "scientificNormalized": "syrian rue",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

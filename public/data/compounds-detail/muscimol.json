@@ -1,8 +1,7 @@
 {
   "name": "Muscimol",
-  "category": "general",
-  "description": "Muscimol appears in records as a compound reported in amanita muscaria. Current source coverage is limited and still developing.",
   "herbs": [
+    "nan",
     "amanita muscaria"
   ],
   "effects": [
@@ -22,30 +21,20 @@
     "Toxic if misused",
     "dangerous with alcohol or sedatives"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Muscimol (CID 4266)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4266",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "muscimol",
-  "summary": "Muscimol appears in records as a compound reported in amanita muscaria. Current source coverage is limited and still developing.",
+  "id": "muscimol",
+  "displayName": "Muscimol",
+  "description": "Muscimol appears in records as a compound reported in nan and amanita muscaria. Current source coverage is limited and still developing.",
+  "summary": "Muscimol appears in records as a compound reported in nan and amanita muscaria. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "amanita-muscaria"
   ]
 }

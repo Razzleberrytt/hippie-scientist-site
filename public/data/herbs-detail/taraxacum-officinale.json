@@ -1,39 +1,51 @@
 {
   "name": "taraxacum officinale",
   "latin": "Taraxacum officinale",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Diuretic, liver support, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, liver support, digestive tonic. No direct region data. Contextual inference: Diuretic, liver support, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, liver support, digestive tonic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
-  "activeCompounds": [
-    "taraxasterol",
-    "sesquiterpene lactones",
-    "inulin"
-  ],
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
   "effects": [
-    "digestive support",
-    "detoxification"
+    "Diuretic",
+    "liver support",
+    "digestive tonic"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "safe",
+    "GI discomfort",
+    "allergic skin reactions",
+    "avoid in bile duct obstruction",
+    "No direct toxicity data. Contextual inference: Diuretic",
+    "liver support",
+    "digestive tonic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Diuretic",
+    "digestive tonic. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause gi discomfort or allergic skin reactions. Avoid in bile duct obstruction, generally well tolerated; Avoid in bile duct obstruction or GI discomfort; Avoid in bile duct obstruction.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Taraxacum officinale (TaxID 50225)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=50225&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.025Z",
-  "description": "Diuretic, liver support, digestive tonic.",
-  "dosage": "500-1500 mg/day root or leaf extract.",
+  "lastUpdated": "2026-03-21",
+  "description": "Diuretic, liver support, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "500",
+    "1500 mg",
+    "day root or leaf extract"
+  ],
   "duration": "4–8 hours",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Roots and leaves decocted, fresh-pressed, or tinctured; digestive, diuretic, and liver support",
+  "region": "No direct region data. Contextual inference: Diuretic, liver support, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, liver support, digestive tonic. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -42,6 +54,10 @@
     "avoid in bile duct obstruction"
   ],
   "slug": "taraxacum-officinale",
+  "id": "taraxacum-officinale",
+  "displayName": "taraxacum officinale",
+  "displayScientificName": "Taraxacum officinale",
+  "scientificNormalized": "taraxacum officinale",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

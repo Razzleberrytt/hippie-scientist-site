@@ -1,36 +1,48 @@
 {
   "name": "rhododendron anthopogon",
   "latin": "rhododendron anthopogon",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct region data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.",
-  "mechanism": "Burned in tibetan buddhist rituals and used in himalayan medicine.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.",
   "activeCompounds": [
-    "flavonoids",
-    "volatile oils"
+    "Flavonoids",
+    "Volatile oils"
   ],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "caution",
-  "safetyNotes": "Avoid combining with prescription drugs without guidance.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: rhododendron anthopogon (TaxID 49619)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=49619&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine."
   ],
-  "lastUpdated": "2026-04-01T18:55:38.007Z",
-  "description": "Rhododendron anthopogon is a medicinal herb traditionally used for burned in tibetan buddhist rituals and himalayan medicine.",
-  "dosage": "",
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding unless clinician-guided",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
+  ],
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine."
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Burned in tibetan buddhist rituals and used in himalayan medicine..",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct region data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine."
+  ],
   "duration": "No direct duration data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct region data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.",
-  "legalStatus": "",
-  "preparation": "",
-  "region": "",
-  "therapeuticUses": [],
+  "interactions": [],
+  "legalStatus": null,
+  "preparation": "No direct preparation data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct region data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.",
+  "region": "No direct region data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.",
+  "therapeuticUses": [
+    "digestive support (bloating, gas, mild cramping)",
+    "historical use for symptom relief in regional folk medicine"
+  ],
   "traditionalUse": "Burned in Tibetan Buddhist rituals and used in Himalayan medicine.",
-  "sideEffects": [],
   "slug": "rhododendron-anthopogon",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "rhododendron-anthopogon",
+  "displayName": "rhododendron anthopogon",
+  "displayScientificName": "rhododendron anthopogon",
+  "scientificNormalized": "rhododendron anthopogon",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

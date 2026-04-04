@@ -1,43 +1,70 @@
 {
   "name": "withania somnifera (ashwagandha)",
   "latin": "withania somnifera (ashwagandha)",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
   "mechanism": "Human evidence suggests modulation of hypothalamic-pituitary-adrenal stress signaling and inflammatory mediators.",
-  "activeCompounds": [
-    "withanolides",
-    "withaferin A",
-    "sitoindosides"
-  ],
+  "activeCompounds": [],
   "effects": [
-    "sleep",
-    "anxiety relief"
+    "May reduce perceived stress scores",
+    "May improve anxiety symptom scales in randomized trials",
+    "May improve sleep quality in stressed adults"
   ],
-  "contraindications": [],
-  "interactions": [
-    "Potential additive sedation with CNS depressants",
-    "Monitor with thyroid medications"
+  "contraindications": [
+    "Avoid in pregnancy",
+    "Use caution with thyroid-active therapy",
+    "Use caution in autoimmune disease or with immunosuppressive therapy"
   ],
-  "safetyLevel": "caution",
-  "safetyNotes": "Generally well tolerated. May cause somnolence, gastrointestinal upset or headache. Avoid in pregnancy; Use caution with thyroid-active therapy; Use caution in autoimmune disease or with immunosuppressive therapy; Avoid combining with sedatives, generally well tolerated; Avoid in pregnancy, somnolence, gastrointestinal upset or headache; Avoid combining with sedatives.",
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: withania somnifera (ashwagandha)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=withania%20somnifera%20(ashwagandha)&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "PubMed: Ashwagandha stress/anxiety meta-analysis (PMID: 36017529)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36017529/"
+    },
+    {
+      "title": "Wikipedia: Withania somnifera",
+      "url": "https://en.wikipedia.org/wiki/Withania_somnifera"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.033Z",
+  "lastUpdated": "2026-04-03T00:00:00.000Z",
   "description": "Withania somnifera (ashwagandha) is an adaptogenic herb studied mainly for stress and anxiety symptom reduction in standardized extracts.",
-  "dosage": "Common adult use is 300-600 mg/day of root extract standardized to withanolides.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "Potential additive sedation with CNS depressants; monitor with thyroid medications."
+  ],
   "legalStatus": "legal",
-  "preparation": "Tea.",
-  "region": "🇮🇳 india.",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": [
+    "traditional support for mild digestive comfort",
+    "traditional stress resilience support"
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "withania-somnifera-ashwagandha",
+  "sideEffects": [
+    "Somnolence",
+    "Gastrointestinal upset",
+    "Headache"
+  ],
+  "id": "withania-somnifera-ashwagandha",
+  "displayName": "withania somnifera (ashwagandha)",
+  "displayScientificName": "withania somnifera (ashwagandha)",
+  "scientificNormalized": "withania somnifera ashwagandha",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

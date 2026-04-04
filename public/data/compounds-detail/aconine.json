@@ -1,37 +1,34 @@
 {
-  "name": "Aconine",
-  "category": "diterpenoid alkaloid",
-  "description": "Aconine is an Aconitum-related diterpenoid alkaloid generally discussed within aconitum toxicology rather than therapeutic pharmacology. Direct human evidence is limited.",
+  "name": "aconine",
   "herbs": [
     "aconitum napellus"
   ],
   "effects": [
-    "Aconine is a hydrolysis-related aconitum alkaloid discussed mainly in toxicity context.",
-    "Compared with aconitine, available evidence remains sparse and largely non-clinical."
+    "Potent analgesic and anti-inflammatory",
+    "extremely toxic",
+    "Potent analgesic and anti",
+    "inflammatory"
   ],
   "contraindications": [
-    "Avoid self-administration of aconitum-derived concentrates due to narrow safety margins across related alkaloids."
+    "Highly toxic",
+    "ingestion can cause severe arrhythmias",
+    "paralysis and death",
+    "avoid internal use",
+    "handling requires caution."
   ],
-  "interactions": [
-    "Compound-specific interaction evidence is limited; class-based cardiotoxic risk warrants caution with antiarrhythmic-active drugs."
-  ],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "Research progress of aconitine toxicity and forensic analysis of aconitine poisoning.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32490307/"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.038Z",
+  "lastUpdated": "2026-03-21",
   "slug": "aconine",
-  "summary": "Aconine is an Aconitum-related diterpenoid alkaloid generally discussed within aconitum toxicology rather than therapeutic pharmacology. Direct human evidence is limited.",
+  "id": "aconine",
+  "displayName": "aconine",
+  "description": "aconine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing.",
+  "summary": "aconine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

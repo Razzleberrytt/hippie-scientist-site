@@ -1,30 +1,54 @@
 {
   "name": "aletris farinosa",
   "latin": "Aletris farinosa",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Uterine tonic, bitter digestive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Uterine tonic, bitter digestive. No direct region data. Contextual inference: Uterine tonic, bitter digestive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Uterine tonic, bitter digestive. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "digestive support"
+    "Uterine tonic",
+    "bitter digestive"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Potential for uterine stimulation; Avoid during pregnancy; Nausea at high doses; Bitter digestive; Antioxidant effects; Or enzyme inhibition.",
+  "safetyNotes": [
+    "Potential for uterine stimulation",
+    "avoid during pregnancy",
+    "nausea at high doses",
+    "No direct toxicity data. Contextual inference: Uterine tonic",
+    "bitter digestive. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Uterine tonic",
+    "bitter digestive. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Aletris farinosa (TaxID 167569)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=167569&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.845Z",
-  "description": "Uterine tonic, bitter digestive.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Uterine tonic, bitter digestive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Uterine tonic",
+    "bitter digestive. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Uterine tonic",
+    "bitter digestive. No direct region data. Contextual inference: Uterine tonic",
+    "bitter digestive. none.",
+    "nan."
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Used in traditional medicine; limited regulatory recognition",
-  "preparation": "Extract.",
-  "region": "",
+  "preparation": "Rhizome decocted for internal use; typically dried and powdered",
+  "region": "No direct region data. Contextual inference: Uterine tonic, bitter digestive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Uterine tonic, bitter digestive. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -33,6 +57,10 @@
     "nausea at high doses"
   ],
   "slug": "aletris-farinosa",
+  "id": "aletris-farinosa",
+  "displayName": "aletris farinosa",
+  "displayScientificName": "Aletris farinosa",
+  "scientificNormalized": "aletris farinosa",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

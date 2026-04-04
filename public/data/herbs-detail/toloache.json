@@ -1,36 +1,64 @@
 {
   "name": "toloache",
   "latin": "toloache",
-  "class": "general",
+  "class": null,
   "intensity": "strong",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
   "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "effects": [
+    "No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
   ],
-  "safetyLevel": "high",
-  "safetyNotes": "",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: toloache",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=toloache&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    }
+  "contraindications": [
+    "contains tropane alkaloids; high toxicity risk",
+    "avoid in glaucoma, urinary retention, and heart disease",
+    "avoid with anticholinergic medications and alcohol"
   ],
-  "lastUpdated": "2026-04-01T18:55:38.026Z",
+  "safetyNotes": [
+    "Toxic – anticholinergic",
+    "deliriant",
+    "No direct toxicity data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "description": "Used in ritual, dreaming or folk medicine.",
-  "dosage": "",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine"
+  ],
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Smoked.",
-  "region": "Americas, mediterranean.",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "therapeuticUses": [
+    "historical ceremonial use for altered states",
+    "traditional external use for localized pain in folk practice"
+  ],
   "traditionalUse": "Used in ritual, dreaming or folk medicine",
-  "sideEffects": [],
   "slug": "toloache",
+  "sideEffects": [
+    "dry mouth and blurred vision",
+    "confusion, delirium, and hallucinations",
+    "rapid heart rate and dangerous poisoning"
+  ],
+  "id": "toloache",
+  "displayName": "toloache",
+  "displayScientificName": "toloache",
+  "scientificNormalized": "toloache",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

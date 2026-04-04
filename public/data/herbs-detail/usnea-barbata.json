@@ -1,35 +1,56 @@
 {
   "name": "usnea barbata",
   "latin": "Usnea barbata",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, antifungal, immune tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antifungal, immune tonic. No direct region data. Contextual inference: Antimicrobial, antifungal, immune tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antifungal, immune tonic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "immune support",
-    "antimicrobial"
+    "Antimicrobial",
+    "antifungal",
+    "immune tonic"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "Possible GI discomfort",
+    "liver concerns with extracts",
+    "No direct toxicity data. Contextual inference: Antimicrobial",
+    "antifungal",
+    "immune tonic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antimicrobial",
+    "immune tonic. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause possible gi discomfort or liver concerns with extracts.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Usnea barbata (TaxID 192174)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=192174&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.030Z",
-  "description": "Antimicrobial, antifungal, immune tonic.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Antimicrobial, antifungal, immune tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Antimicrobial",
+    "antifungal",
+    "immune tonic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antimicrobial",
+    "immune tonic. No direct region data. Contextual inference: Antimicrobial",
+    "immune tonic. none.",
+    "nan."
+  ],
   "duration": "4–8 hours",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Lichen dried and used in tinctures or infusions; antimicrobial and used externally or in small internal doses",
+  "region": "No direct region data. Contextual inference: Antimicrobial, antifungal, immune tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antifungal, immune tonic. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -37,6 +58,10 @@
     "liver concerns with extracts"
   ],
   "slug": "usnea-barbata",
+  "id": "usnea-barbata",
+  "displayName": "usnea barbata",
+  "displayScientificName": "Usnea barbata",
+  "scientificNormalized": "usnea barbata",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

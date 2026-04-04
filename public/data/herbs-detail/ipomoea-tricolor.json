@@ -1,51 +1,68 @@
 {
   "name": "ipomoea tricolor",
   "latin": "Ipomoea tricolor",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. No direct region data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "psychedelic"
+    "Psychedelic effects from ergoline alkaloids",
+    "traditional use in rituals"
   ],
   "contraindications": [
-    "avoid in pregnancy"
+    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+    "Do not use with known allergy to this plant or related species."
   ],
-  "interactions": [
-    "May potentiate: Potential additive effects with serotonergic or other psychoactive substances"
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference: Psychedelic effects from ergoline alkaloids",
+    "traditional use in rituals. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Psychedelic effects from ergoline alkaloids",
+    "traditional use in rituals. none."
   ],
-  "safetyNotes": "Ergoline-associated exposure can be unpredictable and may carry significant neuropsychiatric risk.",
   "sources": [
     {
-      "title": "src_doi-10-1080-00275514-2025-2483634",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40261263/"
+      "title": "Inferred from scientific name:"
     },
     {
-      "title": "src_doi-10-1055-a-0577-8049",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29499587/"
-    },
-    {
-      "title": "PubMed search: Ipomoea tricolor",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Ipomoea+tricolor",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: Ipomoea tricolor",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Ipomoea+tricolor",
-      "note": "Chemical and bioactivity reference index"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Ipomoea tricolor (morning glory) is discussed in ethnobotanical and plant-symbiosis literature, including ergoline-associated chemistry.",
-  "dosage": "No validated therapeutic dosage recommendation is supported by promoted sources.",
+  "lastUpdated": "2026-03-21",
+  "description": "Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Psychedelic effects from ergoline alkaloids",
+    "traditional use in rituals. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Psychedelic effects from ergoline alkaloids",
+    "traditional use in rituals. No direct region data. Contextual inference: Psychedelic effects from ergoline alkaloids",
+    "traditional use in rituals. none.",
+    "nan."
+  ],
   "duration": "6–10 hours",
+  "interactions": [],
   "legalStatus": "Restricted in some countries",
-  "preparation": "Extract.",
-  "region": "Mexico, central america.",
-  "therapeuticUses": [],
-  "traditionalUse": "Historical Mesoamerican ritual use is described in ethnobotanical records and should be treated as traditional-use context.",
-  "sideEffects": [],
+  "preparation": "No direct preparation data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. No direct region data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. none. ; nan; nan",
+  "therapeuticUses": [
+    "Traditional supportive use; indication depends on species part and preparation.",
+    "Evidence level varies; use only within established clinical or traditional context."
+  ],
+  "traditionalUse": "; nan; nan",
   "slug": "ipomoea-tricolor",
+  "sideEffects": [
+    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  ],
+  "id": "ipomoea-tricolor",
+  "displayName": "ipomoea tricolor",
+  "displayScientificName": "Ipomoea tricolor",
+  "scientificNormalized": "ipomoea tricolor",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

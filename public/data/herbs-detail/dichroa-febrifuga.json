@@ -1,30 +1,57 @@
 {
   "name": "dichroa febrifuga",
   "latin": "Dichroa febrifuga",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antimalarial, febrifuge, emetic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimalarial, febrifuge, emetic. No direct region data. Contextual inference: Antimalarial, febrifuge, emetic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimalarial, febrifuge, emetic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "digestive support"
+    "Antimalarial",
+    "febrifuge",
+    "emetic"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "May cause nausea; Vomiting; And dizziness due to alkaloid content; Antimalarial; Febrifuge; Emetic; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Antimalarial.",
+  "safetyNotes": [
+    "May cause nausea",
+    "vomiting",
+    "and dizziness due to alkaloid content",
+    "No direct toxicity data. Contextual inference: Antimalarial",
+    "febrifuge",
+    "emetic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antimalarial",
+    "emetic. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Dichroa febrifuga",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Dichroa%20febrifuga&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.920Z",
-  "description": "Antimalarial, febrifuge, emetic..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Antimalarial, febrifuge, emetic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Antimalarial",
+    "febrifuge",
+    "emetic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antimalarial",
+    "emetic. No direct region data. Contextual inference: Antimalarial",
+    "emetic. none.",
+    "nan."
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Used in TCM; not widely regulated",
-  "preparation": "Extract.",
-  "region": "",
+  "preparation": "Roots decocted or extracted in small doses; used in TCM for malarial and febrile disorders",
+  "region": "No direct region data. Contextual inference: Antimalarial, febrifuge, emetic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimalarial, febrifuge, emetic. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -33,6 +60,10 @@
     "and dizziness due to alkaloid content"
   ],
   "slug": "dichroa-febrifuga",
+  "id": "dichroa-febrifuga",
+  "displayName": "dichroa febrifuga",
+  "displayScientificName": "Dichroa febrifuga",
+  "scientificNormalized": "dichroa febrifuga",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

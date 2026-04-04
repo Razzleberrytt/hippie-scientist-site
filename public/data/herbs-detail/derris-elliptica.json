@@ -3,33 +3,50 @@
   "latin": "Derris elliptica",
   "class": "insecticide / ethnobotanical / toxic",
   "intensity": "Severe (if ingested)",
-  "mechanism": "rotenone inhibits nadh dehydrogenase in the electron transport chain | disrupting atp production and causing cellular hypoxia",
+  "mechanism": "Rotenone inhibits NADH dehydrogenase in the electron transport chain, disrupting ATP production and causing cellular hypoxia.",
   "activeCompounds": [],
   "effects": [
-    "mood",
-    "dissociation"
+    "Paralysis (insects",
+    "fish)",
+    "Mild euphoria (folklore)",
+    "Toxicity"
   ],
-  "contraindications": [],
-  "interactions": [
-    "Caution with: n/a not used internally",
-    "Caution with: a",
-    "Caution with: not used internally"
+  "contraindications": [
+    "unsafe for human consumption. do not ingest or inhale powdered forms."
   ],
-  "safetyNotes": "Toxic – neurotoxic pesticide, nausea, vomiting, respiratory depression, muscle paralysis. long-term rotenone exposure linked to parkinson’s-like symptoms., Very high. Rotenone has been used in rodenticides and insecticides.",
+  "safetyNotes": [
+    "Toxic – neurotoxic pesticide",
+    "nausea",
+    "vomiting",
+    "respiratory depression",
+    "muscle paralysis. long-term rotenone exposure linked to parkinson’s-like symptoms.",
+    "Very high. Rotenone has been used in rodenticides and insecticides."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Derris elliptica (TaxID 56063)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=56063&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1241859/"
+    },
+    {
+      "note": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1241859/;WHO Pesticide Evaluation Report – Rotenone;Traditional Plant Lore of Southeast Asia – 2010",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.917Z",
-  "description": "A tropical vine traditionally used as a natural fish poison. contains rotenone, a potent neurotoxin that disrupts mitochondrial respiration. used in agriculture but dangerous to humans in concentrated doses.",
-  "dosage": "Used as insecticide, not for internal use",
+  "lastUpdated": "2026-03-21",
+  "description": "a tropical vine traditionally used as a natural fish poison. contains rotenone, a potent neurotoxin that disrupts mitochondrial respiration. used in agriculture but dangerous to humans in concentrated doses.",
+  "dosage": [
+    "Used as insecticide",
+    "not for internal use"
+  ],
   "duration": "No direct duration data. Contextual inference: a tropical vine traditionally used as a natural fish poison. contains rotenone, a potent neurotoxin that disrupts mitochondrial respiration. used in agriculture but dangerous to humans in concentrated doses.. Rotenone inhibits NADH dehydrogenase in the electron transport chain, disrupting ATP production and causing cellular hypoxia.. Paralysis (insects/fish);Mild euphoria (folklore);Toxicity. southeast asia, pacific islands. ; nan; nan",
+  "interactions": [
+    "n/a – not used internally.",
+    "n",
+    "a",
+    "not used internally."
+  ],
   "legalStatus": "Restricted or banned in many regions",
-  "preparation": "Extract.",
-  "region": "Southeast asia, pacific islands.",
+  "preparation": "Crushed root used to stun fish in streams (traditional method). Modern rotenone extracts banned in some countries.",
+  "region": "southeast asia, pacific islands",
   "therapeuticUses": [
     "no modern internal medical uses. occasionally used externally in veterinary or agricultural settings."
   ],
@@ -43,6 +60,10 @@
     "like symptoms."
   ],
   "slug": "derris-elliptica",
+  "id": "derris-elliptica",
+  "displayName": "derris elliptica",
+  "displayScientificName": "Derris elliptica",
+  "scientificNormalized": "derris elliptica",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

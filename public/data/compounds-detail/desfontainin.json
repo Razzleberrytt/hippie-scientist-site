@@ -1,8 +1,7 @@
 {
   "name": "Desfontainin",
-  "category": "general",
-  "description": "Desfontainin is a compound reported in desfontainia spinosa. Available references are still early and incomplete.",
   "herbs": [
+    "nan",
     "desfontainia spinosa"
   ],
   "effects": [
@@ -24,30 +23,20 @@
     "psychiatric disorders",
     "Unknown — caution advised"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Desfontainin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/desfontainin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "desfontainin",
-  "summary": "Desfontainin is a compound reported in desfontainia spinosa. Available references are still early and incomplete.",
+  "id": "desfontainin",
+  "displayName": "Desfontainin",
+  "description": "Desfontainin is a compound reported in nan and desfontainia spinosa. Available references are still early and incomplete.",
+  "summary": "Desfontainin is a compound reported in nan and desfontainia spinosa. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "desfontainia-spinosa"
   ]
 }

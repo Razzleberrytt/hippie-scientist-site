@@ -1,7 +1,5 @@
 {
   "name": "persinosides B",
-  "category": "general",
-  "description": "persinosides B is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "herbs": [
     "aerva lanata"
   ],
@@ -16,24 +14,18 @@
     "Limited safety data; some alkaloids may be toxic at high doses",
     "Pregnant women should use cautiously"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: persinosides B",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/persinosides-b",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "lastUpdated": "2026-03-21",
   "slug": "persinosides-b",
+  "id": "persinosides-b",
+  "displayName": "persinosides B",
+  "description": "persinosides B is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "summary": "persinosides B is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

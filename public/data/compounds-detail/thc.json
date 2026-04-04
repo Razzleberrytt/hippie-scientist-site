@@ -1,8 +1,7 @@
 {
   "name": "THC",
-  "category": "cannabinoid",
-  "description": "THC is a cannabinoid compound reported in cannabis sativa. Current source coverage is limited and still developing.",
   "herbs": [
+    "nan",
     "cannabis sativa"
   ],
   "effects": [
@@ -19,30 +18,20 @@
     "schizophrenia",
     "pregnancy"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: THC (CID 16078)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/16078",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "thc",
-  "summary": "THC is a cannabinoid compound reported in cannabis sativa. Current source coverage is limited and still developing.",
+  "id": "thc",
+  "displayName": "THC",
+  "description": "THC appears in records as a compound reported in nan and cannabis sativa. Current source coverage is limited and still developing.",
+  "summary": "THC appears in records as a compound reported in nan and cannabis sativa. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "cannabis-sativa"
   ]
 }

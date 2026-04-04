@@ -1,27 +1,10 @@
 {
   "name": "tannins",
-  "category": "tannin",
-  "description": "tannins is a tannin compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "agrimonia eupatoria",
     "alchornea castaneifolia",
     "ficus religiosa",
-    "acacia confusa",
-    "acacia maidenii",
-    "alchornea floribunda",
-    "desmodium gangeticum",
-    "elaeagnus angustifolia",
-    "Acacia confusa Merr.",
-    "Acacia maidenii F. Muell.",
-    "achillea millefolium",
-    "Spathodea campanulata",
-    "Alchornea cordifolia",
-    "Calliandra lucidum",
-    "nelumbo nucifera",
-    "nymphaea lotus",
-    "nymphaea rubra",
-    "paullinia cupana",
-    "paullinia yoco"
+    "nan"
   ],
   "effects": [
     "Astringent",
@@ -143,25 +126,19 @@
     "caution with sedatives",
     "None known in moderate doses"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: tannins",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tannins",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "lastUpdated": "2026-03-21",
   "slug": "tannins",
-  "summary": "tannins is a tannin compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Current source coverage is limited and still developing.",
+  "id": "tannins",
+  "displayName": "tannins",
+  "description": "tannins appears in records as a compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Current source coverage is limited and still developing.",
+  "summary": "tannins appears in records as a compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
@@ -170,21 +147,6 @@
     "agrimonia-eupatoria",
     "alchornea-castaneifolia",
     "ficus-religiosa",
-    "acacia-confusa",
-    "acacia-maidenii",
-    "alchornea-floribunda",
-    "desmodium-gangeticum",
-    "elaeagnus-angustifolia",
-    "acacia-confusa-merr",
-    "acacia-maidenii-f-muell",
-    "achillea-millefolium",
-    "spathodea-campanulata",
-    "alchornea-cordifolia",
-    "calliandra-lucidum",
-    "nelumbo-nucifera",
-    "nymphaea-lotus",
-    "nymphaea-rubra",
-    "paullinia-cupana",
-    "paullinia-yoco"
+    "nan"
   ]
 }

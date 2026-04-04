@@ -1,9 +1,7 @@
 {
   "name": "Histamine",
-  "category": "general",
-  "description": "Histamine is a compound reported in urtica dioica. Available references are still early and incomplete.",
   "herbs": [
-    "urtica dioica"
+    "nan"
   ],
   "effects": [
     "Mild stimulation",
@@ -17,30 +15,19 @@
     "Pregnancy (caution)",
     "diuretics"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Histamine (CID 774)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/774",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "histamine",
-  "summary": "Histamine is a compound reported in urtica dioica. Available references are still early and incomplete.",
+  "id": "histamine",
+  "displayName": "Histamine",
+  "description": "Histamine is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Histamine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "urtica-dioica"
+    "nan"
   ]
 }

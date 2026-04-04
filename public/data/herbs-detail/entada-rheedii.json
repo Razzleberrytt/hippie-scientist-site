@@ -3,59 +3,93 @@
   "latin": "Entada rheedii",
   "class": "Dream herb, Oneirogen",
   "intensity": "Mild to moderate",
-  "mechanism": "Saponins may contribute membrane and immune-modulating effects",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
   "activeCompounds": [
-    "saponins"
+    "Saponins",
+    "flavonoids (exact psychoactive agent unknown)"
   ],
   "effects": [
-    "relaxation",
-    "focus",
-    "visionary"
+    "Enhanced dreams",
+    "altered awareness",
+    "calm",
+    "No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with limited data"
+    "Avoid in pregnancy",
+    "limited data",
+    "avoid during pregnancy and breastfeeding",
+    "avoid combining with sedatives, sleep medications, or alcohol",
+    "avoid in psychotic disorders, severe anxiety, or unsupervised psychoactive use"
   ],
-  "interactions": [
-    "May potentiate: May increase sedation when combined with CNS depressants"
+  "safetyNotes": [
+    "Likely safe in traditional use",
+    "None reported",
+    "Low",
+    "Not reported",
+    "No direct toxicity data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
   ],
-  "safetyNotes": "Avoid with limited data.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Entada rheedii",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Entada%20rheedii&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Traditional African medicine"
     },
     {
-      "title": "PubMed search: Entada rheedii",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Entada+rheedii",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: Entada rheedii",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Entada+rheedii",
-      "note": "Chemical and bioactivity reference index"
+      "title": "ethnobotany"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Large seed traditionally used for lucid dreaming and spiritual insight.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Large seed traditionally used for lucid dreaming and spiritual insight",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine"
+  ],
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "interactions": [],
   "legalStatus": "Legal",
-  "preparation": "Extract.",
-  "region": "🇲🇽 latin america.",
+  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "therapeuticUses": [
     "Lucid dreaming",
-    "ritual use"
+    "ritual use",
+    "traditional support for relaxation and sleep quality",
+    "traditional ceremonial or ritual context use"
   ],
   "traditionalUse": "Used in ritual, dreaming or folk medicine",
-  "sideEffects": [],
   "slug": "entada-rheedii",
+  "sideEffects": [
+    "drowsiness, dizziness, or slowed reaction time",
+    "nausea, confusion, or anxiety with higher intake",
+    "allergic reaction in sensitive individuals"
+  ],
+  "displayName": "entada rheedii",
+  "displayScientificName": "Entada rheedii",
+  "scientificNormalized": "entada rheedii",
+  "id": "entada-rheedii",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
-    "saponins"
+    "saponins",
+    "flavonoids-exact-psychoactive-agent-unknown"
   ]
 }

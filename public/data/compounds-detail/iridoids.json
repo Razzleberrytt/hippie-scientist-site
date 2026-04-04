@@ -1,11 +1,8 @@
 {
   "name": "Iridoids",
-  "category": "iridoid",
-  "description": "Iridoids is an iridoid compound reported in mitchella repens, desfontainia spinosa, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "mitchella repens",
-    "desfontainia spinosa",
-    "indian warrior"
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -39,32 +36,20 @@
     "pregnancy",
     "cns depression."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Iridoids (CID 453214)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/453214",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "iridoids",
-  "summary": "Iridoids is an iridoid compound reported in mitchella repens, desfontainia spinosa, and related herbs. Current source coverage is limited and still developing.",
+  "id": "iridoids",
+  "displayName": "Iridoids",
+  "description": "Iridoids appears in records as a compound reported in mitchella repens and nan. Current source coverage is limited and still developing.",
+  "summary": "Iridoids appears in records as a compound reported in mitchella repens and nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "mitchella-repens",
-    "desfontainia-spinosa",
-    "indian-warrior"
+    "nan"
   ]
 }

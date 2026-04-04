@@ -1,8 +1,8 @@
 {
   "name": "DMT (in root bark)",
-  "category": "general",
-  "description": "DMT (in root bark) is currently cataloged as a compound entry. Current source coverage is limited and still developing.",
-  "herbs": [],
+  "herbs": [
+    "nan"
+  ],
   "effects": [
     "Psychedelic visuals",
     "emotional shifts (with MAOI)",
@@ -14,28 +14,19 @@
   "contraindications": [
     "psychoactivity not fully studied"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: DMT (in root bark)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/dmt-in-root-bark",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "dmt-in-root-bark",
-  "summary": "DMT (in root bark) is currently cataloged as a compound entry. Current source coverage is limited and still developing.",
+  "id": "dmt-in-root-bark",
+  "displayName": "DMT (in root bark)",
+  "description": "DMT (in root bark) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "DMT (in root bark) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "linkedHerbs": []
+  "linkedHerbs": [
+    "nan"
+  ]
 }

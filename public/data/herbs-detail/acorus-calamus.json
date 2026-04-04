@@ -3,54 +3,131 @@
   "latin": "Acorus calamus",
   "class": "Traditional, Aromatic, Cognitive Enhancer",
   "intensity": "No direct intensity data. Contextual inference: Mild sedative, digestive aid, and purported hallucinogen; contains β-asarone. Possible gabaergic and dopaminergic effects; unclear active compound mechanism.. ; nan; nan.. Possible GABAergic and dopaminergic effects; unclear active compound mechanism.. Mild sedative, digestive aid, and purported hallucinogen; contains β-asarone. No direct region data. Contextual inference: Mild sedative, digestive aid, and purported hallucinogen; contains β-asarone. Possible gabaergic and dopaminergic effects; unclear active compound mechanism.. ; nan; nan.. Possible GABAergic and dopaminergic effects; unclear active compound mechanism.. Mild sedative, digestive aid, and purported hallucinogen; contains β-asarone. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
   "activeCompounds": [
-    "beta-asarone",
+    "Beta-asarone",
     "alpha-asarone",
     "eugenol",
     "acorin",
     "monoterpenes",
-    "asarone"
+    "Asarone",
+    "Eugenol"
   ],
   "effects": [
-    "relaxation",
-    "stimulation",
-    "focus",
-    "digestive support",
-    "psychedelic"
+    "Stimulation",
+    "mental clarity",
+    "mild sedation (low dose)",
+    "hallucinations (high dose",
+    "beta-asarone rich)",
+    "Mild sedative",
+    "hallucinogenic in high doses",
+    "No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine",
+    "digestive aid",
+    "and purported hallucinogen",
+    "contains β-asarone",
+    "contains β",
+    "asarone"
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with seizures",
-    "avoid in liver disease",
-    "avoid with children",
-    "avoid with high doses",
-    "avoid with cancer risk (β-asarone in some strains)",
-    "avoid with cancer risk (β",
-    "avoid with asarone in some strains)"
+    "Pregnancy",
+    "seizures",
+    "liver disease",
+    "children",
+    "high doses",
+    "pregnancy",
+    "cancer risk (β-asarone in some strains).",
+    "avoid during pregnancy and breastfeeding",
+    "avoid combining with sedatives, sleep medications, or alcohol",
+    "avoid in psychotic disorders, severe anxiety, or unsupervised psychoactive use",
+    "cancer risk (β",
+    "asarone in some strains)."
   ],
-  "interactions": [
-    "Avoid with: Sedatives",
-    "Caution with: antiepileptics",
-    "Avoid with: CNS stimulants",
-    "Avoid with: cns depressants",
-    "Avoid with: antiarrhythmics"
+  "safetyNotes": [
+    "Moderate",
+    "varies by chemotype",
+    "Nausea",
+    "dizziness",
+    "hallucinations (high dose)",
+    "Dose-dependent hepatotoxicity and carcinogenicity",
+    "~2000 mg/kg (rat",
+    "oral)",
+    "Use cautiously",
+    "Nausea at high doses",
+    "Toxic in large amounts",
+    "Toxic – β-asarone content varies by variety",
+    "No direct toxicity data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine",
+    "nausea",
+    "headache",
+    "potential carcinogenicity.",
+    "No direct toxicity data. Contextual inference: Mild sedative",
+    "digestive aid",
+    "and purported hallucinogen",
+    "contains β-asarone. Possible gabaergic and dopaminergic effects",
+    "unclear active compound mechanism..",
+    "nan.. Possible GABAergic and dopaminergic effects",
+    "unclear active compound mechanism.. Mild sedative",
+    "contains β-asarone."
   ],
-  "safetyNotes": "Moderate; Varies by chemotype; Nausea; Dizziness; Hallucinations (high dose); Dose-dependent hepatotoxicity and carcinogenicity; ~2000 mg/kg (rat; Oral); Use cautiously; Nausea at high doses; Toxic in large amounts; Toxic – β-asarone content varies by variety; Used in ritual; Dreaming or. Used in ritual; Dreaming or Used in ritual; Headache; Potential carcinogenicity; Mild sedative; And purported hallucinogen; Contains β-asarone. Possible gabaergic and dopaminergic effects; Unclear active compound mechanism; Unclear active compound mechanism. Mild sedative; Avoid in pregnancy; Avoid with seizures; Avoid in liver disease; Avoid with children; Avoid with high doses; Avoid with cancer risk (β-asarone in some strains); Avoid with asarone in some strains).",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Acorus calamus (TaxID 4465)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4465&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "PubMed"
+    },
+    {
+      "title": "NIH Database"
+    },
+    {
+      "title": "Pharmacognosy monographs"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.839Z",
-  "description": "Mild sedative, digestive aid, and purported hallucinogen; contains β-asarone. Possible gabaergic and dopaminergic effects; unclear active compound mechanism.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Mild sedative, digestive aid, and purported hallucinogen; contains β-asarone. Possible gabaergic and dopaminergic effects; unclear active compound mechanism.. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine",
+    "No direct dosage data. Contextual inference: Mild sedative",
+    "digestive aid",
+    "and purported hallucinogen",
+    "contains β",
+    "asarone. Possible gabaergic and dopaminergic effects",
+    "unclear active compound mechanism..",
+    "nan.. Possible GABAergic and dopaminergic effects",
+    "unclear active compound mechanism.. Mild sedative",
+    "asarone. No direct region data. Contextual inference: Mild sedative",
+    "asarone.",
+    "nan."
+  ],
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "interactions": [
+    "Sedatives",
+    "antiepileptics",
+    "CNS stimulants",
+    "cns depressants",
+    "antiarrhythmics."
+  ],
   "legalStatus": "Restricted in USA (beta-asarone concerns)",
-  "preparation": "Tea.",
-  "region": "Europe, asia.",
+  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
   "therapeuticUses": [
     "Dyspepsia",
     "memory enhancement",
@@ -58,15 +135,32 @@
     "Anxiety",
     "digestion",
     "cognition",
-    "mild hallucination (in high doses)."
+    "mild hallucination (in high doses).",
+    "traditional support for relaxation and sleep quality",
+    "traditional ceremonial or ritual context use"
   ],
   "traditionalUse": "Used in ritual, dreaming or folk medicine",
+  "slug": "acorus-calamus",
   "sideEffects": [
+    "drowsiness, dizziness, or slowed reaction time",
+    "nausea, confusion, or anxiety with higher intake",
+    "allergic reaction in sensitive individuals",
     "nausea",
     "headache",
     "potential carcinogenicity."
   ],
-  "slug": "acorus-calamus",
+  "displayName": "acorus calamus",
+  "displayScientificName": "Acorus calamus",
+  "scientificNormalized": "acorus calamus",
+  "id": "acorus-calamus",
+  "aliases": [
+    "nan",
+    "sweet flag"
+  ],
+  "slugAliases": [
+    "sweet-flag",
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

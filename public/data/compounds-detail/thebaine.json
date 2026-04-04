@@ -1,9 +1,7 @@
 {
   "name": "thebaine",
-  "category": "general",
-  "description": "thebaine is a compound reported in papaver somniferum. Available references are still early and incomplete.",
   "herbs": [
-    "papaver somniferum"
+    "nan"
   ],
   "effects": [
     "Pain relief",
@@ -24,30 +22,19 @@
     "liver impairment",
     "opioid use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: thebaine (CID 5324289)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5324289",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "thebaine",
-  "summary": "thebaine is a compound reported in papaver somniferum. Available references are still early and incomplete.",
+  "id": "thebaine",
+  "displayName": "thebaine",
+  "description": "thebaine is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "thebaine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "papaver-somniferum"
+    "nan"
   ]
 }

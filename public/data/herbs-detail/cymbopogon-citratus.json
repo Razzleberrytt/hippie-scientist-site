@@ -1,32 +1,50 @@
 {
   "name": "cymbopogon citratus",
   "latin": "Cymbopogon citratus",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Calming, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, antimicrobial, digestive aid. No direct region data. Contextual inference: Calming, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, antimicrobial, digestive aid. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "relaxation",
-    "digestive support",
-    "antimicrobial"
+    "Calming",
+    "antimicrobial",
+    "digestive aid"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Generally well tolerated; Rare allergic skin reactions or mild GI irritation; Antimicrobial; Antioxidant effects; Or enzyme inhibition.",
+  "safetyNotes": [
+    "safe",
+    "Generally well tolerated",
+    "rare allergic skin reactions or mild GI irritation",
+    "No direct toxicity data. Contextual inference: Calming",
+    "antimicrobial",
+    "digestive aid. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Calming",
+    "digestive aid. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Cymbopogon citratus (TaxID 66014)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=66014&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.911Z",
-  "description": "Calming, antimicrobial, digestive aid..",
-  "dosage": "1-2 g/day dried leaf infusion",
+  "lastUpdated": "2026-03-21",
+  "description": "Calming, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "1",
+    "2 g",
+    "day dried leaf infusion"
+  ],
   "duration": "2–4 hours",
+  "interactions": [],
   "legalStatus": "Legal worldwide",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "Leaves used fresh or dried in teas and infusions; also distilled for lemongrass oil",
+  "region": "No direct region data. Contextual inference: Calming, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, antimicrobial, digestive aid. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -34,6 +52,10 @@
     "rare allergic skin reactions or mild GI irritation"
   ],
   "slug": "cymbopogon-citratus",
+  "id": "cymbopogon-citratus",
+  "displayName": "cymbopogon citratus",
+  "displayScientificName": "Cymbopogon citratus",
+  "scientificNormalized": "cymbopogon citratus",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

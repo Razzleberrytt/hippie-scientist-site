@@ -1,37 +1,53 @@
 {
   "name": "heimia",
   "latin": "Heimia spp.",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Mildly sedative and euphoric; traditional use in mexico and south america. May affect auditory processing and memory; unknown alkaloid moa.. ; nan; nan.. May affect auditory processing and memory; unknown alkaloid MOA.. Mildly sedative and euphoric; traditional use in Mexico and South America. No direct region data. Contextual inference: Mildly sedative and euphoric; traditional use in mexico and south america. May affect auditory processing and memory; unknown alkaloid moa.. ; nan; nan.. May affect auditory processing and memory; unknown alkaloid MOA.. Mildly sedative and euphoric; traditional use in Mexico and South America. ; nan; nan. ; nan; nan",
-  "mechanism": "affect auditory processing and memory | unknown alkaloid moa",
+  "mechanism": "May affect auditory processing and memory; unknown alkaloid MOA.",
   "activeCompounds": [],
   "effects": [
-    "relaxation",
-    "mood"
+    "Mildly sedative and euphoric",
+    "traditional use in Mexico and South America"
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with psychiatric disorders"
+    "pregnancy",
+    "psychiatric disorders."
   ],
-  "interactions": [
-    "Avoid with: cns depressants",
-    "Avoid with: alcohol"
+  "safetyNotes": [
+    "caution",
+    "drowsiness",
+    "dizziness.",
+    "No direct toxicity data. Contextual inference: Mildly sedative and euphoric",
+    "traditional use in mexico and south america. May affect auditory processing and memory",
+    "unknown alkaloid moa..",
+    "nan.. May affect auditory processing and memory",
+    "unknown alkaloid MOA.. Mildly sedative and euphoric",
+    "traditional use in Mexico and South America."
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Heimia spp.",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Heimia%20spp.&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.940Z",
-  "description": "Mildly sedative and euphoric; traditional use in mexico and south america. May affect auditory processing and memory; unknown alkaloid moa..",
-  "dosage": "1-2 g/day infusion (traditional use)",
+  "lastUpdated": "2026-03-21",
+  "description": "Mildly sedative and euphoric; traditional use in mexico and south america. May affect auditory processing and memory; unknown alkaloid moa.. ; nan; nan.",
+  "dosage": [
+    "1",
+    "2 g",
+    "day infusion (traditional use)"
+  ],
   "duration": "4–6 hours",
+  "interactions": [
+    "cns depressants",
+    "alcohol."
+  ],
   "legalStatus": "Unregulated",
-  "preparation": "",
-  "region": "Unknown.",
+  "preparation": "No direct preparation data. Contextual inference: Mildly sedative and euphoric; traditional use in mexico and south america. May affect auditory processing and memory; unknown alkaloid moa.. ; nan; nan.. May affect auditory processing and memory; unknown alkaloid MOA.. Mildly sedative and euphoric; traditional use in Mexico and South America. No direct region data. Contextual inference: Mildly sedative and euphoric; traditional use in mexico and south america. May affect auditory processing and memory; unknown alkaloid moa.. ; nan; nan.. May affect auditory processing and memory; unknown alkaloid MOA.. Mildly sedative and euphoric; traditional use in Mexico and South America. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Mildly sedative and euphoric; traditional use in mexico and south america. May affect auditory processing and memory; unknown alkaloid moa.. ; nan; nan.. May affect auditory processing and memory; unknown alkaloid MOA.. Mildly sedative and euphoric; traditional use in Mexico and South America. ; nan; nan",
   "therapeuticUses": [
     "auditory shifts",
     "relaxation",
@@ -43,6 +59,10 @@
     "dizziness."
   ],
   "slug": "heimia",
+  "id": "heimia",
+  "displayName": "heimia",
+  "displayScientificName": "Heimia spp.",
+  "scientificNormalized": "heimia spp",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

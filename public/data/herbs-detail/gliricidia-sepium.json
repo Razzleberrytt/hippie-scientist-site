@@ -1,39 +1,46 @@
 {
   "name": "gliricidia sepium",
   "latin": "gliricidia sepium",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine",
   "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [
-    "Caution with: Interaction evidence is limited",
-    "Caution with: use caution with prescription medicines",
-    "Caution with: especially CNS active",
-    "Avoid with: anticoagulant",
-    "Caution with: hepatotoxic",
-    "Caution with: blood pressure/glucose lowering drugs"
+  "effects": [
+    "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: gliricidia sepium (TaxID 167663)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=167663&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "contraindications": [
+    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+    "Do not use with known allergy to this plant or related species."
   ],
-  "lastUpdated": "2026-04-01T18:55:37.938Z",
-  "description": "",
-  "dosage": "",
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Folk medicine.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine"
+  ],
   "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Tea.",
-  "region": "Central america, philippines.",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+  "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
+  "therapeuticUses": [
+    "Traditional supportive use; indication depends on species part and preparation.",
+    "Evidence level varies; use only within established clinical or traditional context."
+  ],
   "traditionalUse": "Folk medicine",
-  "sideEffects": [],
   "slug": "gliricidia-sepium",
+  "sideEffects": [
+    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  ],
+  "id": "gliricidia-sepium",
+  "displayName": "gliricidia sepium",
+  "displayScientificName": "gliricidia sepium",
+  "scientificNormalized": "gliricidia sepium",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

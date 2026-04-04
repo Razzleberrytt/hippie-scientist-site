@@ -1,33 +1,53 @@
 {
   "name": "origanum vulgare",
   "latin": "Origanum vulgare",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antibacterial, antifungal, antioxidant, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antibacterial, antifungal, antioxidant, digestive aid. No direct region data. Contextual inference: Antibacterial, antifungal, antioxidant, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antibacterial, antifungal, antioxidant, digestive aid. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "digestive support",
-    "antimicrobial",
-    "antioxidant"
+    "Antibacterial",
+    "antifungal",
+    "antioxidant",
+    "digestive aid"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause allergic reactions (esp. to lamiaceae) or gi irritation.",
+  "safetyNotes": [
+    "safe",
+    "Allergic reactions (esp. to Lamiaceae)",
+    "GI irritation",
+    "No direct toxicity data. Contextual inference: Antibacterial",
+    "antifungal",
+    "antioxidant",
+    "digestive aid. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antibacterial",
+    "digestive aid. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Origanum vulgare (TaxID 39352)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=39352&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.985Z",
-  "description": "Antibacterial, antifungal, antioxidant, digestive aid.",
-  "dosage": "250-750 mg/day extract or 1-2 g infusion.",
+  "lastUpdated": "2026-03-21",
+  "description": "Antibacterial, antifungal, antioxidant, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "750 mg",
+    "day extract or 1",
+    "2 g infusion"
+  ],
   "duration": "2–4 hours",
+  "interactions": [],
   "legalStatus": "Legal and widely used",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Leaves dried and used in teas, tinctures, or as essential oil; antimicrobial and digestive support",
+  "region": "No direct region data. Contextual inference: Antibacterial, antifungal, antioxidant, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antibacterial, antifungal, antioxidant, digestive aid. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -35,6 +55,10 @@
     "GI irritation"
   ],
   "slug": "origanum-vulgare",
+  "id": "origanum-vulgare",
+  "displayName": "origanum vulgare",
+  "displayScientificName": "Origanum vulgare",
+  "scientificNormalized": "origanum vulgare",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

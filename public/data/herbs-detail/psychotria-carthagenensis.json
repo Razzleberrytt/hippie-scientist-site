@@ -3,58 +3,82 @@
   "latin": "Psychotria carthagenensis",
   "class": "Entheogen, MAOI admixture",
   "intensity": "Moderate to strong (with MAOI)",
-  "mechanism": "Ritual use.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use",
   "activeCompounds": [
-    "n"
+    "N",
+    "N-Dimethyltryptamine (DMT)",
+    "beta-carbolines (trace)"
   ],
   "effects": [
-    "focus",
-    "psychedelic"
+    "Closed-eye visuals",
+    "altered cognition",
+    "spiritual insight (when used with MAOI)",
+    "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use"
   ],
   "contraindications": [
-    "may interact with ssris"
+    "Use with SSRIs or MAOIs without supervision",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "interactions": [
-    "Use caution with serotonergic or psychoactive medications due to possible CNS interaction"
+  "safetyNotes": [
+    "Use only in ceremonial context under experienced supervision",
+    "Nausea",
+    "confusion if not used with MAOI",
+    "Low (but use with MAOIs requires caution)",
+    "Unknown for full extract",
+    "DMT LD50 in rats: ~110 mg/kg",
+    "safe",
+    "No direct toxicity data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use"
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May interact with SSRIs.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Psychotria carthagenensis (TaxID 189150)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=189150&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Ayahuasca literature"
     },
     {
-      "title": "PubMed search: Psychotria carthagenensis",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Psychotria+carthagenensis",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: Psychotria carthagenensis",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Psychotria+carthagenensis",
-      "note": "Chemical and bioactivity reference index"
+      "title": "pharmacology reviews"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Psychotria carthagenensis is a medicinal herb traditionally used for closed-eye visuals and altered cognition.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Psychotria carthagenensis contains DMT and is traditionally used as an admixture in ayahuasca preparations by South American tribes.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use"
+  ],
   "duration": "No direct duration data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
+  "interactions": [],
   "legalStatus": "restricted",
-  "preparation": "Tea.",
-  "region": "Amazon basin.",
+  "preparation": "No direct preparation data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use. Ritual use",
+  "region": "No direct region data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use. Ritual use",
   "therapeuticUses": [
     "Shamanic healing",
-    "spiritual exploration"
+    "spiritual exploration",
+    "traditional support for mild digestive comfort",
+    "traditional stress resilience support"
   ],
   "traditionalUse": "Used in indigenous ayahuasca brews",
-  "sideEffects": [],
   "slug": "psychotria-carthagenensis",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "psychotria carthagenensis",
+  "displayScientificName": "Psychotria carthagenensis",
+  "scientificNormalized": "psychotria carthagenensis",
+  "id": "psychotria-carthagenensis",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
-    "n"
+    "n",
+    "n-dimethyltryptamine-dmt",
+    "beta-carbolines-trace"
   ]
 }

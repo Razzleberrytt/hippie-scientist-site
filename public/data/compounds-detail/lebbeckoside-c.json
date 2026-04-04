@@ -1,7 +1,5 @@
 {
   "name": "lebbeckoside C",
-  "category": "general",
-  "description": "lebbeckoside C appears in records as a compound reported in albizia lebbeck. Current source coverage is limited and still developing.",
   "herbs": [
     "albizia lebbeck"
   ],
@@ -15,24 +13,18 @@
     "due to saponins and alkaloids",
     "excessive intake may cause gastrointestinal irritation or interact with medications."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: lebbeckoside C",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lebbeckoside-c",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "lastUpdated": "2026-03-21",
   "slug": "lebbeckoside-c",
+  "id": "lebbeckoside-c",
+  "displayName": "lebbeckoside C",
+  "description": "lebbeckoside C appears in records as a compound reported in albizia lebbeck. Current source coverage is limited and still developing.",
   "summary": "lebbeckoside C appears in records as a compound reported in albizia lebbeck. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

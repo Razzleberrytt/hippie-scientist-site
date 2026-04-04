@@ -1,8 +1,8 @@
 {
   "name": "Cocaine alkaloids (0.2–1%)",
-  "category": "alkaloid",
-  "description": "Cocaine alkaloids (0.2–1%) is an alkaloid compound. Available references are still early and incomplete.",
-  "herbs": [],
+  "herbs": [
+    "nan"
+  ],
   "effects": [
     "Mild stimulation",
     "hunger suppression",
@@ -16,28 +16,19 @@
     "Heart issues",
     "stimulant sensitivity"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Cocaine alkaloids (0.2–1%)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/cocaine-alkaloids-0-2-1",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "cocaine-alkaloids-0-2-1",
-  "summary": "Cocaine alkaloids (0.2–1%) is an alkaloid compound. Available references are still early and incomplete.",
+  "id": "cocaine-alkaloids-0-2-1",
+  "displayName": "Cocaine alkaloids (0.2–1%)",
+  "description": "Cocaine alkaloids (0.2–1%) is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Cocaine alkaloids (0.2–1%) is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "linkedHerbs": []
+  "linkedHerbs": [
+    "nan"
+  ]
 }

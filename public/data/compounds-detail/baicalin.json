@@ -1,8 +1,7 @@
 {
   "name": "Baicalin",
-  "category": "general",
-  "description": "Baicalin appears in records as a compound reported in scutellaria lateriflora. Current source coverage is limited and still developing.",
   "herbs": [
+    "nan",
     "scutellaria lateriflora"
   ],
   "effects": [
@@ -21,30 +20,20 @@
     "pregnancy",
     "sedative sensitivity."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Baicalin (CID 64982)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/64982",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "baicalin",
-  "summary": "Baicalin appears in records as a compound reported in scutellaria lateriflora. Current source coverage is limited and still developing.",
+  "id": "baicalin",
+  "displayName": "Baicalin",
+  "description": "Baicalin appears in records as a compound reported in nan and scutellaria lateriflora. Current source coverage is limited and still developing.",
+  "summary": "Baicalin appears in records as a compound reported in nan and scutellaria lateriflora. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "scutellaria-lateriflora"
   ]
 }

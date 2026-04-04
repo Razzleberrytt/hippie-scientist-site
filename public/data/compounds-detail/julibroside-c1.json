@@ -1,7 +1,5 @@
 {
   "name": "julibroside C1",
-  "category": "general",
-  "description": "julibroside C1 is a compound reported in albizia julibrissin. Available references are still early and incomplete.",
   "herbs": [
     "albizia julibrissin"
   ],
@@ -16,24 +14,13 @@
     "may potentiate sedative or antidepressant drugs",
     "avoid in pregnancy or lactation unless supervised."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: julibroside C1 (CID 177825618)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/177825618",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "julibroside-c1",
+  "id": "julibroside-c1",
+  "displayName": "julibroside C1",
+  "description": "julibroside C1 is a compound reported in albizia julibrissin. Available references are still early and incomplete.",
   "summary": "julibroside C1 is a compound reported in albizia julibrissin. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

@@ -1,8 +1,8 @@
 {
   "name": "alkaloids (undetermined)",
-  "category": "alkaloid",
-  "description": "alkaloids (undetermined) is an alkaloid compound. Current source coverage is limited and still developing.",
-  "herbs": [],
+  "herbs": [
+    "nan"
+  ],
   "effects": [
     "Color vision changes",
     "detachment",
@@ -22,28 +22,19 @@
     "psychiatric disorders",
     "Unknown — caution advised"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: alkaloids (undetermined)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alkaloids-undetermined",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "alkaloids-undetermined",
-  "summary": "alkaloids (undetermined) is an alkaloid compound. Current source coverage is limited and still developing.",
+  "id": "alkaloids-undetermined",
+  "displayName": "alkaloids (undetermined)",
+  "description": "alkaloids (undetermined) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "alkaloids (undetermined) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "linkedHerbs": []
+  "linkedHerbs": [
+    "nan"
+  ]
 }

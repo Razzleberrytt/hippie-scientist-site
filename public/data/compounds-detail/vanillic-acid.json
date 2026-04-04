@@ -1,7 +1,5 @@
 {
   "name": "vanillic acid",
-  "category": "general",
-  "description": "vanillic acid appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
   "herbs": [
     "adenostoma fasciculatum"
   ],
@@ -13,24 +11,18 @@
     "Limited safety data",
     "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: vanillic acid (CID 8468)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8468",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "lastUpdated": "2026-03-21",
   "slug": "vanillic-acid",
+  "id": "vanillic-acid",
+  "displayName": "vanillic acid",
+  "description": "vanillic acid appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
   "summary": "vanillic acid appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

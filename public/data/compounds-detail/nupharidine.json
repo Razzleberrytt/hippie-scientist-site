@@ -1,10 +1,7 @@
 {
   "name": "nupharidine",
-  "category": "general",
-  "description": "nupharidine appears in records as a compound reported in nymphaea caerulea and nymphaea rubra. Current source coverage is limited and still developing.",
   "herbs": [
-    "nymphaea caerulea",
-    "nymphaea rubra"
+    "nan"
   ],
   "effects": [
     "Relaxation",
@@ -35,31 +32,19 @@
     "concurrent CNS depressants",
     "driving or operating machinery"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: nupharidine (CID 9548786)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9548786",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "nupharidine",
-  "summary": "nupharidine appears in records as a compound reported in nymphaea caerulea and nymphaea rubra. Current source coverage is limited and still developing.",
+  "id": "nupharidine",
+  "displayName": "nupharidine",
+  "description": "nupharidine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "nupharidine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "nymphaea-caerulea",
-    "nymphaea-rubra"
+    "nan"
   ]
 }

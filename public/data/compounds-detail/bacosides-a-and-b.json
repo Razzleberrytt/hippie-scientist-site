@@ -1,7 +1,5 @@
 {
   "name": "Bacosides A and B",
-  "category": "general",
-  "description": "Bacosides A and B appears in records as a compound reported in bacopa monnieri. Current source coverage is limited and still developing.",
   "herbs": [
     "bacopa monnieri"
   ],
@@ -12,24 +10,13 @@
     "nan."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Bacosides A and B",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/bacosides-a-and-b",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "bacosides-a-and-b",
+  "id": "bacosides-a-and-b",
+  "displayName": "Bacosides A and B",
+  "description": "Bacosides A and B appears in records as a compound reported in bacopa monnieri. Current source coverage is limited and still developing.",
   "summary": "Bacosides A and B appears in records as a compound reported in bacopa monnieri. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

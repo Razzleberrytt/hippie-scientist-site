@@ -1,42 +1,31 @@
 {
-  "name": "Anabasine",
-  "category": "pyridine alkaloid",
-  "description": "Anabasine is a minor tobacco alkaloid with nicotinic pharmacology and recognized use as an exposure biomarker. Evidence is strongest for toxicology and exposure characterization rather than therapeutic benefit.",
+  "name": "anabasine",
   "herbs": [
-    "nicotiana tabacum"
+    "nan"
   ],
   "effects": [
-    "Human exposure studies use anabasine as a minor tobacco alkaloid biomarker.",
-    "Nicotine-like pharmacology implies stimulant and dependence-related risk context."
+    "Stimulation",
+    "mood elevation",
+    "alertness"
   ],
   "contraindications": [
-    "Avoid use during pregnancy and in patients with unstable cardiovascular disease."
+    "Heart disease",
+    "pregnancy",
+    "epilepsy"
   ],
-  "interactions": [
-    "Potential additive sympathomimetic effects with nicotine or other stimulants."
-  ],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "Assessment of the Exposure to Tobacco-Specific Nitrosamines and Minor Tobacco Alkaloids in Users of Various Tobacco/Nicotine Products.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35298128/"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "anabasine",
-  "summary": "Anabasine is a minor tobacco alkaloid with nicotinic pharmacology and recognized use as an exposure biomarker. Evidence is strongest for toxicology and exposure characterization ra",
+  "id": "anabasine",
+  "displayName": "anabasine",
+  "description": "anabasine is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "anabasine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "nicotiana-tabacum"
+    "nan"
   ]
 }

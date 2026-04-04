@@ -1,41 +1,60 @@
 {
   "name": "viburnum opulus",
   "latin": "Viburnum opulus",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antispasmodic, uterine relaxant, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antispasmodic, uterine relaxant, sedative. No direct region data. Contextual inference: Antispasmodic, uterine relaxant, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antispasmodic, uterine relaxant, sedative. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "relaxation",
-    "hormonal tonic"
+    "Antispasmodic",
+    "uterine relaxant",
+    "sedative"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "safe",
+    "May cause skin rash or stomach upset in sensitive individuals",
+    "No direct toxicity data. Contextual inference: Antispasmodic",
+    "uterine relaxant",
+    "sedative. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antispasmodic",
+    "sedative. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause may cause skin rash or stomach upset in sensitive individuals.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Viburnum opulus (TaxID 85293)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=85293&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.031Z",
-  "description": "Antispasmodic, uterine relaxant, sedative.",
-  "dosage": "250-500 mg/day extract or 1-2 g bark.",
+  "lastUpdated": "2026-03-21",
+  "description": "Antispasmodic, uterine relaxant, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "500 mg",
+    "day extract or 1",
+    "2 g bark"
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "Tincture.",
-  "region": "Europe, north america.",
+  "preparation": "Bark decocted or tinctured (Cramp Bark); used for menstrual cramps and smooth muscle relaxation",
+  "region": "No direct region data. Contextual inference: Antispasmodic, uterine relaxant, sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antispasmodic, uterine relaxant, sedative. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
     "May cause skin rash or stomach upset in sensitive individuals"
   ],
   "slug": "viburnum-opulus",
+  "id": "viburnum-opulus",
+  "displayName": "viburnum opulus",
+  "displayScientificName": "Viburnum opulus",
+  "scientificNormalized": "viburnum opulus",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

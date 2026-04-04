@@ -1,7 +1,5 @@
 {
   "name": "methyl grevillate",
-  "category": "general",
-  "description": "methyl grevillate is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "herbs": [
     "aerva lanata"
   ],
@@ -16,24 +14,18 @@
     "Limited safety data; some alkaloids may be toxic at high doses",
     "Pregnant women should use cautiously"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: methyl grevillate (CID 5353609)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5353609",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "lastUpdated": "2026-03-21",
   "slug": "methyl-grevillate",
+  "id": "methyl-grevillate",
+  "displayName": "methyl grevillate",
+  "description": "methyl grevillate is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "summary": "methyl grevillate is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

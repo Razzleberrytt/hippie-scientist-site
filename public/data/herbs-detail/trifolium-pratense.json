@@ -1,36 +1,52 @@
 {
   "name": "trifolium pratense",
   "latin": "Trifolium pratense",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Phytoestrogenic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Phytoestrogenic, blood purifier, anti-inflammatory. No direct region data. Contextual inference: Phytoestrogenic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Phytoestrogenic, blood purifier, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
+    "Phytoestrogenic",
+    "blood purifier",
     "anti-inflammatory",
-    "hormonal tonic",
-    "detoxification"
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "safe",
+    "Mild estrogenic effects",
+    "avoid in hormone-sensitive conditions",
+    "No direct toxicity data. Contextual inference: Phytoestrogenic",
+    "blood purifier",
+    "anti-inflammatory. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Phytoestrogenic",
+    "anti-inflammatory. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause mild estrogenic effects or sensitive conditions. Avoid in hormone, generally well tolerated; Avoid in hormone-sensitive conditions, mild estrogenic effects or sensitive conditions; Avoid in hormone; Avoid in hormone-sensitive conditions.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Trifolium pratense (TaxID 57577)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=57577&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.027Z",
-  "description": "Phytoestrogenic, blood purifier, anti-inflammatory.",
-  "dosage": "40-80 mg/day extract (standardized).",
+  "lastUpdated": "2026-03-21",
+  "description": "Phytoestrogenic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "40",
+    "80 mg",
+    "day extract (standardized)"
+  ],
   "duration": "Weeks to months",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Flower heads infused or tinctured; used as phytoestrogenic support and lymphatic tonic",
+  "region": "No direct region data. Contextual inference: Phytoestrogenic, blood purifier, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Phytoestrogenic, blood purifier, anti-inflammatory. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -39,6 +55,10 @@
     "sensitive conditions"
   ],
   "slug": "trifolium-pratense",
+  "id": "trifolium-pratense",
+  "displayName": "trifolium pratense",
+  "displayScientificName": "Trifolium pratense",
+  "scientificNormalized": "trifolium pratense",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

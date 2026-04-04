@@ -3,60 +3,100 @@
   "latin": "Sophora secundiflora",
   "class": "Deliriant, Hallucinogen",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
-    "cytisine"
+    "Cytisine (nicotinic agonist)",
+    "Cytisine"
   ],
   "effects": [
-    "digestive support",
-    "visionary",
-    "dissociation"
+    "Delirium",
+    "nausea",
+    "visionary trance",
+    "paralysis",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "avoid with highly toxic",
-    "avoid with ceremonial use only"
+    "Highly toxic",
+    "ceremonial use only",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
+  "safetyNotes": [
+    "Highly toxic",
+    "not for casual use",
+    "Nausea",
+    "vomiting",
+    "confusion",
+    "seizures",
+    "Very high",
+    "~2.5 mg/kg (mice",
+    "oral)",
+    "Toxic – neuroactive",
+    "toxic seeds",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
+  "sources": [
+    {
+      "title": "Ethnobotany references"
+    },
+    {
+      "title": "toxicology databases"
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Red beans used by Native Americans in vision quests; contains cytisine",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "Potentiation with other nicotinic agonists"
   ],
-  "safetyLevel": "caution",
-  "safetyNotes": "Avoid with highly toxic; Avoid with ceremonial use only; Avoid combining with prescription drugs without guidance.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: Sophora secundiflora",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Sophora%20secundiflora&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    },
-    {
-      "title": "PubMed search: Sophora secundiflora",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Sophora+secundiflora",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: Sophora secundiflora",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Sophora+secundiflora",
-      "note": "Chemical and bioactivity reference index"
-    }
-  ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Red beans used by Native Americans in vision quests; contains cytisine.",
-  "dosage": "",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Seeds legal in most regions, not for consumption",
-  "preparation": "",
-  "region": "Southwestern us, mexico.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "None officially",
-    "traditional shamanic use"
+    "traditional shamanic use",
+    "traditional support for mild digestive comfort",
+    "traditional stress resilience support"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "sophora-secundiflora",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "sophora secundiflora",
+  "displayScientificName": "Sophora secundiflora",
+  "scientificNormalized": "sophora secundiflora",
+  "id": "sophora-secundiflora",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
+    "cytisine-nicotinic-agonist",
     "cytisine"
   ]
 }

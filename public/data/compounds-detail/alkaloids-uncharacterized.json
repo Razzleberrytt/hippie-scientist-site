@@ -1,8 +1,8 @@
 {
   "name": "alkaloids (uncharacterized)",
-  "category": "alkaloid",
-  "description": "alkaloids (uncharacterized) is an alkaloid compound. Current source coverage is limited and still developing.",
-  "herbs": [],
+  "herbs": [
+    "nan"
+  ],
   "effects": [
     "Muscle relaxation",
     "mild sedation",
@@ -16,28 +16,19 @@
     "pregnancy",
     "cns depression."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: alkaloids (uncharacterized)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alkaloids-uncharacterized",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "alkaloids-uncharacterized",
-  "summary": "alkaloids (uncharacterized) is an alkaloid compound. Current source coverage is limited and still developing.",
+  "id": "alkaloids-uncharacterized",
+  "displayName": "alkaloids (uncharacterized)",
+  "description": "alkaloids (uncharacterized) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "alkaloids (uncharacterized) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "linkedHerbs": []
+  "linkedHerbs": [
+    "nan"
+  ]
 }

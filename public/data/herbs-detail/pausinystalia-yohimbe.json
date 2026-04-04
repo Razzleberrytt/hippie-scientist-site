@@ -1,33 +1,60 @@
 {
   "name": "pausinystalia yohimbe",
   "latin": "pausinystalia yohimbe",
-  "class": "general",
+  "class": null,
   "intensity": "moderate",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "high",
-  "safetyNotes": "Avoid unsupervised use and seek clinical guidance before use.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: pausinystalia yohimbe",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=pausinystalia%20yohimbe&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
-  "lastUpdated": "2026-04-01T18:55:37.989Z",
-  "description": "Pausinystalia yohimbe is a medicinal herb traditionally used for general wellness support.",
-  "dosage": "",
+  "contraindications": [
+    "avoid in anxiety disorders, hypertension, and cardiovascular disease",
+    "avoid with antidepressants, stimulants, and MAO-active substances",
+    "avoid during pregnancy and breastfeeding"
+  ],
+  "safetyNotes": [
+    "caution",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "restricted",
-  "preparation": "Extract.",
-  "region": "Africa.",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": [
+    "traditional use for male sexual dysfunction",
+    "traditional stimulant and aphrodisiac use"
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "pausinystalia-yohimbe",
+  "sideEffects": [
+    "anxiety, tremor, or insomnia",
+    "elevated heart rate and blood pressure",
+    "headache, nausea, or dizziness"
+  ],
+  "id": "pausinystalia-yohimbe",
+  "displayName": "pausinystalia yohimbe",
+  "displayScientificName": "pausinystalia yohimbe",
+  "scientificNormalized": "pausinystalia yohimbe",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

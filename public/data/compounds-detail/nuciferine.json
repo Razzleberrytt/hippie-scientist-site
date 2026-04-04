@@ -1,12 +1,9 @@
 {
   "name": "Nuciferine",
-  "category": "general",
-  "description": "Nuciferine is a compound reported in blue lotus, nelumbo nucifera, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "blue lotus",
-    "nelumbo nucifera",
-    "nymphaea caerulea",
-    "nymphaea lotus"
+    "nan",
+    "nelumbo nucifera"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement.",
@@ -44,33 +41,21 @@
     "concurrent CNS depressants",
     "driving or operating machinery"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Nuciferine (CID 10146)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10146",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "nuciferine",
-  "summary": "Nuciferine is a compound reported in blue lotus, nelumbo nucifera, and related herbs. Available references are still early and incomplete.",
+  "id": "nuciferine",
+  "displayName": "Nuciferine",
+  "description": "Nuciferine is a compound reported in blue lotus, nan, and related herbs. Available references are still early and incomplete.",
+  "summary": "Nuciferine is a compound reported in blue lotus, nan, and related herbs. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "blue-lotus",
-    "nelumbo-nucifera",
-    "nymphaea-caerulea",
-    "nymphaea-lotus"
+    "nan",
+    "nelumbo-nucifera"
   ]
 }

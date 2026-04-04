@@ -1,10 +1,8 @@
 {
   "name": "voacangine",
-  "category": "general",
-  "description": "voacangine appears in records as a compound reported in tabernaemontana undulata and voacanga africana. Current source coverage is limited and still developing.",
   "herbs": [
-    "tabernaemontana undulata",
-    "voacanga africana"
+    "nan",
+    "tabernaemontana undulata"
   ],
   "effects": [
     "Inner visions",
@@ -28,31 +26,20 @@
     "cardiovascular conditions",
     "MAOI use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: voacangine (CID 73255)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/73255",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "voacangine",
-  "summary": "voacangine appears in records as a compound reported in tabernaemontana undulata and voacanga africana. Current source coverage is limited and still developing.",
+  "id": "voacangine",
+  "displayName": "voacangine",
+  "description": "voacangine appears in records as a compound reported in nan and tabernaemontana undulata. Current source coverage is limited and still developing.",
+  "summary": "voacangine appears in records as a compound reported in nan and tabernaemontana undulata. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "tabernaemontana-undulata",
-    "voacanga-africana"
+    "nan",
+    "tabernaemontana-undulata"
   ]
 }

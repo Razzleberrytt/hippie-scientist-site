@@ -1,12 +1,9 @@
 {
   "name": "linalool",
-  "category": "general",
-  "description": "linalool is a compound reported in acorus tatarinowii, unnamed herb, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "acorus tatarinowii",
-    "unnamed herb",
-    "ocimum sanctum",
-    "tilia tomentosa"
+    "nan",
+    "Silver Linden"
   ],
   "effects": [
     "CNS stimulant",
@@ -43,33 +40,26 @@
     "high doses",
     "None known"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: linalool (CID 6549)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6549",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "lastUpdated": "2026-03-21",
   "slug": "linalool",
-  "summary": "linalool is a compound reported in acorus tatarinowii, unnamed herb, and related herbs. Available references are still early and incomplete.",
+  "id": "linalool",
+  "displayName": "linalool",
+  "description": "linalool is a compound reported in acorus tatarinowii, nan, and related herbs. Available references are still early and incomplete.",
+  "summary": "linalool is a compound reported in acorus tatarinowii, nan, and related herbs. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "acorus-tatarinowii",
-    "unnamed-herb",
-    "ocimum-sanctum",
-    "tilia-tomentosa"
+    "nan",
+    "silver-linden"
   ]
 }

@@ -1,39 +1,48 @@
 {
   "name": "lagochilus inebrians",
   "latin": "lagochilus inebrians",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [
-    "Caution with: Interaction evidence is limited",
-    "Caution with: use caution with prescription medicines",
-    "Caution with: especially CNS active",
-    "Avoid with: anticoagulant",
-    "Caution with: hepatotoxic",
-    "Caution with: blood pressure/glucose lowering drugs"
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: lagochilus inebrians (TaxID 2039840)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2039840&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "contraindications": "None documented but caution when operating machinery",
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "lastUpdated": "2026-04-01T18:55:37.953Z",
-  "description": "",
-  "dosage": "",
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Smoked.",
-  "region": "Central asia.",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": "Folk remedy in Uzbekistan and Kazakhstan for tension and insomnia",
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "lagochilus-inebrians",
+  "id": "lagochilus-inebrians",
+  "displayName": "lagochilus inebrians",
+  "displayScientificName": "lagochilus inebrians",
+  "scientificNormalized": "lagochilus inebrians",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

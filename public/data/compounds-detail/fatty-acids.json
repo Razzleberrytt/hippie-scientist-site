@@ -1,9 +1,7 @@
 {
   "name": "fatty acids",
-  "category": "general",
-  "description": "fatty acids is a compound reported in ptychopetalum olacoides. Available references are still early and incomplete.",
   "herbs": [
-    "ptychopetalum olacoides"
+    "nan"
   ],
   "effects": [
     "Mental clarity",
@@ -22,30 +20,19 @@
     "hypertension",
     "pregnancy."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: fatty acids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/fatty-acids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.042Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "fatty-acids",
-  "summary": "fatty acids is a compound reported in ptychopetalum olacoides. Available references are still early and incomplete.",
+  "id": "fatty-acids",
+  "displayName": "fatty acids",
+  "description": "fatty acids is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "fatty acids is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "ptychopetalum-olacoides"
+    "nan"
   ]
 }

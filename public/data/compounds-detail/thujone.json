@@ -1,14 +1,10 @@
 {
   "name": "Thujone",
-  "category": "general",
-  "description": "Thujone appears in records as a compound reported in artemisia abrotanum, artemisia absinthium, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "artemisia abrotanum",
     "artemisia absinthium",
     "artemisia ludoviciana",
-    "artemisia vulgaris",
-    "achillea millefolium",
-    "salvia officinalis"
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in ritual",
@@ -42,24 +38,13 @@
     "or during pregnancy",
     "thujone sensitivity"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Thujone (CID 261491)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/261491",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "thujone",
+  "id": "thujone",
+  "displayName": "Thujone",
+  "description": "Thujone appears in records as a compound reported in artemisia abrotanum, artemisia absinthium, and related herbs. Current source coverage is limited and still developing.",
   "summary": "Thujone appears in records as a compound reported in artemisia abrotanum, artemisia absinthium, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
@@ -69,8 +54,6 @@
     "artemisia-abrotanum",
     "artemisia-absinthium",
     "artemisia-ludoviciana",
-    "artemisia-vulgaris",
-    "achillea-millefolium",
-    "salvia-officinalis"
+    "nan"
   ]
 }

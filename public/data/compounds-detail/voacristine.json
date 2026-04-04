@@ -1,9 +1,7 @@
 {
   "name": "voacristine",
-  "category": "general",
-  "description": "voacristine appears in records as a compound reported in voacanga africana. Current source coverage is limited and still developing.",
   "herbs": [
-    "voacanga africana"
+    "nan"
   ],
   "effects": [
     "Altered perception",
@@ -21,30 +19,19 @@
     "cardiovascular conditions",
     "MAOI use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: voacristine (CID 44566752)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/44566752",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "voacristine",
-  "summary": "voacristine appears in records as a compound reported in voacanga africana. Current source coverage is limited and still developing.",
+  "id": "voacristine",
+  "displayName": "voacristine",
+  "description": "voacristine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "voacristine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "voacanga-africana"
+    "nan"
   ]
 }

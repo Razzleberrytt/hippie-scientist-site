@@ -1,38 +1,50 @@
 {
   "name": "hydrastis canadensis",
   "latin": "Hydrastis canadensis",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, digestive tonic, mucous membrane support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, digestive tonic, mucous membrane support. No direct region data. Contextual inference: Antimicrobial, digestive tonic, mucous membrane support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, digestive tonic, mucous membrane support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "digestive support",
-    "antimicrobial"
+    "Antimicrobial",
+    "digestive tonic",
+    "mucous membrane support"
   ],
   "contraindications": [],
-  "interactions": [
-    "Caution with: Interaction evidence is limited",
-    "Caution with: use caution with prescription medicines",
-    "Caution with: especially CNS active",
-    "Avoid with: anticoagulant",
-    "Caution with: hepatotoxic",
-    "Caution with: blood pressure/glucose lowering drugs"
+  "safetyNotes": [
+    "caution",
+    "GI irritation",
+    "potential liver toxicity with long use",
+    "No direct toxicity data. Contextual inference: Antimicrobial",
+    "digestive tonic",
+    "mucous membrane support. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antimicrobial",
+    "mucous membrane support. none."
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Hydrastis canadensis (TaxID 13569)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=13569&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.943Z",
-  "description": "Antimicrobial, digestive tonic, mucous membrane support..",
-  "dosage": "250-500 mg/day rhizome extract",
+  "lastUpdated": "2026-03-21",
+  "description": "Antimicrobial, digestive tonic, mucous membrane support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "500 mg",
+    "day rhizome extract"
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Legal; regulated as supplement",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Rhizome dried and powdered or tinctured; potent bitter and antimicrobial herb",
+  "region": "No direct region data. Contextual inference: Antimicrobial, digestive tonic, mucous membrane support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, digestive tonic, mucous membrane support. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -40,6 +52,10 @@
     "potential liver toxicity with long use"
   ],
   "slug": "hydrastis-canadensis",
+  "id": "hydrastis-canadensis",
+  "displayName": "hydrastis canadensis",
+  "displayScientificName": "Hydrastis canadensis",
+  "scientificNormalized": "hydrastis canadensis",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

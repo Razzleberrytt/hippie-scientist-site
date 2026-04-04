@@ -1,37 +1,45 @@
 {
   "name": "senna alexandrina",
   "latin": "Senna alexandrina",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Stimulant laxative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant laxative. No direct region data. Contextual inference: Stimulant laxative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant laxative. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
-  "activeCompounds": [
-    "sennosides"
-  ],
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
   "effects": [
-    "stimulation",
-    "digestive support"
+    "Stimulant laxative"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "safe",
+    "Cramping",
+    "dependence with prolonged use",
+    "No direct toxicity data. Contextual inference: Stimulant laxative. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Stimulant laxative. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause cramping or dependence with prolonged use.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Senna alexandrina (TaxID 72402)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=72402&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.020Z",
-  "description": "Stimulant laxative.",
-  "dosage": "10-30 mg/day sennosides (leaves or pods).",
+  "lastUpdated": "2026-03-21",
+  "description": "Stimulant laxative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "10",
+    "30 mg",
+    "day sennosides (leaves or pods)"
+  ],
   "duration": "1 bowel movement",
+  "interactions": [],
   "legalStatus": "Legal in over-the-counter laxatives",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "Dried leaf or pods used as infusions, decoctions, or tablets for laxative effects; short-term use recommended",
+  "region": "No direct region data. Contextual inference: Stimulant laxative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant laxative. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -39,6 +47,10 @@
     "dependence with prolonged use"
   ],
   "slug": "senna-alexandrina",
+  "id": "senna-alexandrina",
+  "displayName": "senna alexandrina",
+  "displayScientificName": "Senna alexandrina",
+  "scientificNormalized": "senna alexandrina",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

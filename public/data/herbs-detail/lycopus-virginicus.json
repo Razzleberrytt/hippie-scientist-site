@@ -1,37 +1,50 @@
 {
   "name": "lycopus virginicus",
   "latin": "Lycopus virginicus",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Thyroid modulator, sedative, astringent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Thyroid modulator, sedative, astringent. No direct region data. Contextual inference: Thyroid modulator, sedative, astringent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Thyroid modulator, sedative, astringent. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "relaxation"
+    "Thyroid modulator",
+    "sedative",
+    "astringent"
   ],
   "contraindications": [],
-  "interactions": [
-    "Caution with: Interaction evidence is limited",
-    "Caution with: use caution with prescription medicines",
-    "Caution with: especially CNS active",
-    "Avoid with: anticoagulant",
-    "Caution with: hepatotoxic",
-    "Caution with: blood pressure/glucose lowering drugs"
+  "safetyNotes": [
+    "safe",
+    "May affect thyroid",
+    "avoid in hypothyroidism or pregnancy",
+    "No direct toxicity data. Contextual inference: Thyroid modulator",
+    "sedative",
+    "astringent. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Thyroid modulator",
+    "astringent. none."
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Lycopus virginicus (TaxID 1620142)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1620142&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.957Z",
-  "description": "Thyroid modulator, sedative, astringent..",
-  "dosage": "250-500 mg/day aerial parts extract",
+  "lastUpdated": "2026-03-21",
+  "description": "Thyroid modulator, sedative, astringent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "500 mg",
+    "day aerial parts extract"
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Legal in Western herbal medicine",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Aerial parts used fresh or dried in infusions or tinctures; traditionally used for thyroid and heart conditions",
+  "region": "No direct region data. Contextual inference: Thyroid modulator, sedative, astringent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Thyroid modulator, sedative, astringent. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -39,6 +52,10 @@
     "avoid in hypothyroidism or pregnancy"
   ],
   "slug": "lycopus-virginicus",
+  "id": "lycopus-virginicus",
+  "displayName": "lycopus virginicus",
+  "displayScientificName": "Lycopus virginicus",
+  "scientificNormalized": "lycopus virginicus",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

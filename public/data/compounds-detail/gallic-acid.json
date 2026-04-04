@@ -1,10 +1,8 @@
 {
   "name": "gallic acid",
-  "category": "general",
-  "description": "gallic acid appears in records as a compound reported in alchemilla vulgaris and combretum micranthum. Current source coverage is limited and still developing.",
   "herbs": [
     "alchemilla vulgaris",
-    "combretum micranthum"
+    "nan"
   ],
   "effects": [
     "Uterine tonic",
@@ -25,31 +23,25 @@
     "L313】.",
     "Avoid during pregnancy due to uterine stimulation potential"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: gallic acid (CID 370)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/370",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "lastUpdated": "2026-03-21",
   "slug": "gallic-acid",
-  "summary": "gallic acid appears in records as a compound reported in alchemilla vulgaris and combretum micranthum. Current source coverage is limited and still developing.",
+  "id": "gallic-acid",
+  "displayName": "gallic acid",
+  "description": "gallic acid appears in records as a compound reported in alchemilla vulgaris and nan. Current source coverage is limited and still developing.",
+  "summary": "gallic acid appears in records as a compound reported in alchemilla vulgaris and nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "alchemilla-vulgaris",
-    "combretum-micranthum"
+    "nan"
   ]
 }

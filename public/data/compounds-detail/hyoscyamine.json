@@ -1,14 +1,7 @@
 {
   "name": "hyoscyamine",
-  "category": "general",
-  "description": "hyoscyamine appears in records as a compound reported in brugmansia sanguinea, brugmansia suaveolens, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
-    "brugmansia sanguinea",
-    "brugmansia suaveolens",
-    "datura ferox",
-    "datura stramonium",
-    "datura wrightii",
-    "Solandra grandiflora"
+    "nan"
   ],
   "effects": [
     "Complete dissociation",
@@ -47,35 +40,19 @@
     "mental illness",
     "Heart conditions"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: hyoscyamine (CID 154417)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/154417",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "hyoscyamine",
-  "summary": "hyoscyamine appears in records as a compound reported in brugmansia sanguinea, brugmansia suaveolens, and related herbs. Current source coverage is limited and still developing.",
+  "id": "hyoscyamine",
+  "displayName": "hyoscyamine",
+  "description": "hyoscyamine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "hyoscyamine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "brugmansia-sanguinea",
-    "brugmansia-suaveolens",
-    "datura-ferox",
-    "datura-stramonium",
-    "datura-wrightii",
-    "solandra-grandiflora"
+    "nan"
   ]
 }

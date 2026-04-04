@@ -1,11 +1,8 @@
 {
   "name": "limonene",
-  "category": "general",
-  "description": "limonene appears in records as a compound reported in acorus tatarinowii, mentha piperita, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "acorus tatarinowii",
-    "mentha piperita",
-    "nepeta cataria"
+    "nan"
   ],
   "effects": [
     "CNS stimulant",
@@ -38,32 +35,25 @@
     "gallbladder disorders",
     "infants (menthol sensitivity)"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: limonene (CID 22311)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/22311",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "lastUpdated": "2026-03-21",
   "slug": "limonene",
-  "summary": "limonene appears in records as a compound reported in acorus tatarinowii, mentha piperita, and related herbs. Current source coverage is limited and still developing.",
+  "id": "limonene",
+  "displayName": "limonene",
+  "description": "limonene appears in records as a compound reported in acorus tatarinowii and nan. Current source coverage is limited and still developing.",
+  "summary": "limonene appears in records as a compound reported in acorus tatarinowii and nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "acorus-tatarinowii",
-    "mentha-piperita",
-    "nepeta-cataria"
+    "nan"
   ]
 }

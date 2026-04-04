@@ -1,8 +1,8 @@
 {
   "name": "Lysergic acid amide (LSA)",
-  "category": "general",
-  "description": "Lysergic acid amide (LSA) is listed as a compound in this profile. Available references are still early and incomplete.",
-  "herbs": [],
+  "herbs": [
+    "nan"
+  ],
   "effects": [
     "Visual hallucinations",
     "euphoria",
@@ -29,28 +29,19 @@
     "Pregnancy",
     "MAOI use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Lysergic acid amide (LSA)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lysergic-acid-amide-lsa",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "lysergic-acid-amide-lsa",
-  "summary": "Lysergic acid amide (LSA) is listed as a compound in this profile. Available references are still early and incomplete.",
+  "id": "lysergic-acid-amide-lsa",
+  "displayName": "Lysergic acid amide (LSA)",
+  "description": "Lysergic acid amide (LSA) is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Lysergic acid amide (LSA) is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "linkedHerbs": []
+  "linkedHerbs": [
+    "nan"
+  ]
 }

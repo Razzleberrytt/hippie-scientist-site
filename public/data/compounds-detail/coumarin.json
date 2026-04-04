@@ -1,8 +1,7 @@
 {
   "name": "Coumarin",
-  "category": "coumarin",
-  "description": "Coumarin is a coumarin compound reported in justicia pectoralis. Available references are still early and incomplete.",
   "herbs": [
+    "nan",
     "justicia pectoralis"
   ],
   "effects": [
@@ -21,30 +20,20 @@
     "Pregnancy",
     "anticoagulant therapy due to coumarin content"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Coumarin (CID 323)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/323",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "coumarin",
-  "summary": "Coumarin is a coumarin compound reported in justicia pectoralis. Available references are still early and incomplete.",
+  "id": "coumarin",
+  "displayName": "Coumarin",
+  "description": "Coumarin is a compound reported in nan and justicia pectoralis. Available references are still early and incomplete.",
+  "summary": "Coumarin is a compound reported in nan and justicia pectoralis. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "justicia-pectoralis"
   ]
 }

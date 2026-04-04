@@ -1,10 +1,8 @@
 {
   "name": "long-chain fatty acids",
-  "category": "general",
-  "description": "long-chain fatty acids is a compound reported in Muira Puama and ptychopetalum olacoides. Available references are still early and incomplete.",
   "herbs": [
     "Muira Puama",
-    "ptychopetalum olacoides"
+    "nan"
   ],
   "effects": [
     "Improved libido",
@@ -21,31 +19,25 @@
     "hypertension",
     "pregnancy."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: long-chain fatty acids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/long-chain-fatty-acids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "lastUpdated": "2026-03-21",
   "slug": "long-chain-fatty-acids",
-  "summary": "long-chain fatty acids is a compound reported in Muira Puama and ptychopetalum olacoides. Available references are still early and incomplete.",
+  "id": "long-chain-fatty-acids",
+  "displayName": "long-chain fatty acids",
+  "description": "long-chain fatty acids is a compound reported in Muira Puama and nan. Available references are still early and incomplete.",
+  "summary": "long-chain fatty acids is a compound reported in Muira Puama and nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "muira-puama",
-    "ptychopetalum-olacoides"
+    "nan"
   ]
 }

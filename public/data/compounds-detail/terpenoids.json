@@ -1,10 +1,7 @@
 {
   "name": "terpenoids",
-  "category": "terpenoid",
-  "description": "terpenoids is a terpenoid compound reported in Carapa procera and Boswellia dalzielii. Current source coverage is limited and still developing.",
   "herbs": [
-    "Carapa procera",
-    "Boswellia dalzielii"
+    "nan"
   ],
   "effects": [
     "Skin healing",
@@ -16,31 +13,19 @@
     "May cause allergic dermatitis",
     "Avoid use in bleeding disorders"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: terpenoids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/terpenoids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "terpenoids",
-  "summary": "terpenoids is a terpenoid compound reported in Carapa procera and Boswellia dalzielii. Current source coverage is limited and still developing.",
+  "id": "terpenoids",
+  "displayName": "terpenoids",
+  "description": "terpenoids appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "terpenoids appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "carapa-procera",
-    "boswellia-dalzielii"
+    "nan"
   ]
 }

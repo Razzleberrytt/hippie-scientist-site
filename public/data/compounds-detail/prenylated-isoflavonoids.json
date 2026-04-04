@@ -1,9 +1,7 @@
 {
   "name": "Prenylated isoflavonoids",
-  "category": "general",
-  "description": "Prenylated isoflavonoids is a compound reported in Rhynchosia pyramidalis. Available references are still early and incomplete.",
   "herbs": [
-    "Rhynchosia pyramidalis"
+    "nan"
   ],
   "effects": [
     "Pain relief",
@@ -13,30 +11,19 @@
     "Pregnancy",
     "hormone-sensitive conditions"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Prenylated isoflavonoids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/prenylated-isoflavonoids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "prenylated-isoflavonoids",
-  "summary": "Prenylated isoflavonoids is a compound reported in Rhynchosia pyramidalis. Available references are still early and incomplete.",
+  "id": "prenylated-isoflavonoids",
+  "displayName": "Prenylated isoflavonoids",
+  "description": "Prenylated isoflavonoids is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Prenylated isoflavonoids is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "rhynchosia-pyramidalis"
+    "nan"
   ]
 }

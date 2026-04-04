@@ -1,12 +1,9 @@
 {
   "name": "sterols",
-  "category": "steroid",
-  "description": "sterols is a steroid compound reported in albizia julibrissin, Muira Puama, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "albizia julibrissin",
     "Muira Puama",
-    "desmodium gangeticum",
-    "ptychopetalum olacoides"
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -43,25 +40,19 @@
     "None known in moderate doses",
     "High blood pressure"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: sterols (CID 1107)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1107",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "lastUpdated": "2026-03-21",
   "slug": "sterols",
-  "summary": "sterols is a steroid compound reported in albizia julibrissin, Muira Puama, and related herbs. Available references are still early and incomplete.",
+  "id": "sterols",
+  "displayName": "sterols",
+  "description": "sterols is a compound reported in albizia julibrissin, Muira Puama, and related herbs. Available references are still early and incomplete.",
+  "summary": "sterols is a compound reported in albizia julibrissin, Muira Puama, and related herbs. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
@@ -69,7 +60,6 @@
   "linkedHerbs": [
     "albizia-julibrissin",
     "muira-puama",
-    "desmodium-gangeticum",
-    "ptychopetalum-olacoides"
+    "nan"
   ]
 }

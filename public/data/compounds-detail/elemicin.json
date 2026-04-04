@@ -1,10 +1,8 @@
 {
   "name": "elemicin",
-  "category": "general",
-  "description": "elemicin is a compound reported in myristica fragrans and Myristica fragrans Houtt.. Available references are still early and incomplete.",
   "herbs": [
-    "myristica fragrans",
-    "Myristica fragrans Houtt."
+    "nan",
+    "myristica fragrans"
   ],
   "effects": [
     "Euphoria",
@@ -30,31 +28,20 @@
     "dangerous interactions with MAOIs",
     "SSRIs"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: elemicin (CID 10248)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10248",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "elemicin",
-  "summary": "elemicin is a compound reported in myristica fragrans and Myristica fragrans Houtt.. Available references are still early and incomplete.",
+  "id": "elemicin",
+  "displayName": "elemicin",
+  "description": "elemicin is a compound reported in nan and myristica fragrans. Available references are still early and incomplete.",
+  "summary": "elemicin is a compound reported in nan and myristica fragrans. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "myristica-fragrans",
-    "myristica-fragrans-houtt"
+    "nan",
+    "myristica-fragrans"
   ]
 }

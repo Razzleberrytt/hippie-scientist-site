@@ -1,15 +1,8 @@
 {
   "name": "Atropine",
-  "category": "general",
-  "description": "Atropine is a compound reported in datura metel, brugmansia sanguinea, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "datura metel",
-    "brugmansia sanguinea",
-    "brugmansia suaveolens",
-    "datura ferox",
-    "datura stramonium",
-    "datura wrightii",
-    "Solandra grandiflora"
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
@@ -49,36 +42,20 @@
     "mental illness",
     "Heart conditions"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Atropine (CID 174174)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/174174",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "atropine",
-  "summary": "Atropine is a compound reported in datura metel, brugmansia sanguinea, and related herbs. Available references are still early and incomplete.",
+  "id": "atropine",
+  "displayName": "Atropine",
+  "description": "Atropine is a compound reported in datura metel and nan. Available references are still early and incomplete.",
+  "summary": "Atropine is a compound reported in datura metel and nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "datura-metel",
-    "brugmansia-sanguinea",
-    "brugmansia-suaveolens",
-    "datura-ferox",
-    "datura-stramonium",
-    "datura-wrightii",
-    "solandra-grandiflora"
+    "nan"
   ]
 }

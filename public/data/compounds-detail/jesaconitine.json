@@ -1,7 +1,5 @@
 {
   "name": "jesaconitine",
-  "category": "general",
-  "description": "jesaconitine is a compound reported in aconitum napellus. Available references are still early and incomplete.",
   "herbs": [
     "aconitum napellus"
   ],
@@ -18,24 +16,18 @@
     "avoid internal use",
     "handling requires caution."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: jesaconitine (CID 76963334)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/76963334",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "lastUpdated": "2026-03-21",
   "slug": "jesaconitine",
+  "id": "jesaconitine",
+  "displayName": "jesaconitine",
+  "description": "jesaconitine is a compound reported in aconitum napellus. Available references are still early and incomplete.",
   "summary": "jesaconitine is a compound reported in aconitum napellus. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

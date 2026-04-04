@@ -1,7 +1,5 @@
 {
   "name": "Paniculatin",
-  "category": "general",
-  "description": "Paniculatin is a compound reported in celastrus paniculatus. Available references are still early and incomplete.",
   "herbs": [
     "celastrus paniculatus"
   ],
@@ -14,24 +12,13 @@
     "and learning."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Paniculatin (CID 169419)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/169419",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "paniculatin",
+  "id": "paniculatin",
+  "displayName": "Paniculatin",
+  "description": "Paniculatin is a compound reported in celastrus paniculatus. Available references are still early and incomplete.",
   "summary": "Paniculatin is a compound reported in celastrus paniculatus. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

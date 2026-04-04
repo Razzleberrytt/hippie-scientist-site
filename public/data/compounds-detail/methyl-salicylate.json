@@ -1,7 +1,5 @@
 {
   "name": "Methyl salicylate",
-  "category": "general",
-  "description": "Methyl salicylate is a compound reported in betula lenta and sweet violet. Available references are still early and incomplete.",
   "herbs": [
     "betula lenta",
     "sweet violet"
@@ -19,24 +17,13 @@
     "and gentle mood support."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Methyl salicylate (CID 4133)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4133",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "methyl-salicylate",
+  "id": "methyl-salicylate",
+  "displayName": "Methyl salicylate",
+  "description": "Methyl salicylate is a compound reported in betula lenta and sweet violet. Available references are still early and incomplete.",
   "summary": "Methyl salicylate is a compound reported in betula lenta and sweet violet. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

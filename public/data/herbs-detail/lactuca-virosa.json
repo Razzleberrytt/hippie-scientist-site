@@ -3,49 +3,92 @@
   "latin": "Lactuca virosa",
   "class": "Sedative, Analgesic, Nervine",
   "intensity": "No direct intensity data. Contextual inference: Sedative, analgesic, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, analgesic, antispasmodic. No direct region data. Contextual inference: Sedative, analgesic, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, analgesic, antispasmodic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [
-    "lactucin",
+    "Lactucin",
     "lactucopicrin",
     "sesquiterpene lactones"
   ],
   "effects": [
-    "relaxation",
-    "pain relief"
+    "Sedation",
+    "analgesia",
+    "calming",
+    "Sedative",
+    "analgesic",
+    "antispasmodic"
   ],
   "contraindications": [
-    "avoid in pregnancy"
+    "Not recommended during pregnancy or with sedatives"
   ],
-  "interactions": [
-    "May potentiate: May enhance sedative drugs"
+  "safetyNotes": [
+    "Low toxicity at normal doses",
+    "Nausea",
+    "dizziness",
+    "Low",
+    "Not reported",
+    "safe",
+    "Drowsiness",
+    "allergic reactions in sensitive individuals",
+    "No direct toxicity data. Contextual inference: Sedative",
+    "analgesic",
+    "antispasmodic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Sedative",
+    "antispasmodic. none."
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Lactuca virosa (TaxID 75947)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=75947&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Herbal Safety Compendium"
+    },
+    {
+      "title": "PubChem"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.953Z",
-  "description": "Sedative, analgesic, antispasmodic..",
-  "dosage": "250-750 mg/day leaf extract",
+  "lastUpdated": "2026-03-21",
+  "description": "Sedative, analgesic, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "750 mg",
+    "day leaf extract"
+  ],
   "duration": "4–8 hours",
+  "interactions": [
+    "May enhance sedative drugs"
+  ],
   "legalStatus": "Unregulated; used in herbal sleep aids",
-  "preparation": "Tincture.",
-  "region": "Europe, north america.",
+  "preparation": "Aerial parts dried and tinctured or decocted; “wild lettuce” used historically as sedative and pain reliever",
+  "region": "No direct region data. Contextual inference: Sedative, analgesic, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, analgesic, antispasmodic. none. ; nan; nan",
   "therapeuticUses": [
     "Pain relief",
     "insomnia",
     "nervousness"
   ],
   "traditionalUse": "; nan; nan",
+  "slug": "lactuca-virosa",
   "sideEffects": [
     "Drowsiness",
     "dizziness",
     "allergic reactions in sensitive individuals"
   ],
-  "slug": "lactuca-virosa",
+  "displayName": "lactuca virosa",
+  "displayScientificName": "Lactuca virosa",
+  "scientificNormalized": "lactuca virosa",
+  "id": "lactuca-virosa",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

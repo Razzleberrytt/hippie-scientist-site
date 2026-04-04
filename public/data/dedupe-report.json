@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-27T18:03:12.488Z",
+  "generatedAt": "2026-04-04T00:23:32.452Z",
   "summary": {
     "herbs": {
       "before": 812,
@@ -9,616 +9,855 @@
     },
     "compounds": {
       "before": 394,
-      "after": 393,
-      "duplicatesConsolidated": 1,
-      "duplicateGroups": 1
+      "after": 390,
+      "duplicatesConsolidated": 4,
+      "duplicateGroups": 4
     }
   },
   "merges": [
     {
       "type": "herbs",
       "canonicalSlug": "centella-asiatica",
-      "mergedSlugs": ["gotu-kola"],
+      "mergedSlugs": [
+        "gotu-kola"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "duboisia-hopwoodii",
-      "mergedSlugs": ["pituri"],
+      "mergedSlugs": [
+        "pituri"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "echinopsis-pachanoi",
-      "mergedSlugs": ["san-pedro"],
+      "mergedSlugs": [
+        "san-pedro"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "ephedra-sinica",
-      "mergedSlugs": ["ephedra-sinica"],
+      "mergedSlugs": [
+        "ephedra-sinica"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "erythrina-variegata",
-      "mergedSlugs": ["tonga-root"],
+      "mergedSlugs": [
+        "tonga-root"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "guarana",
-      "mergedSlugs": ["guarana"],
+      "mergedSlugs": [
+        "guarana"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "humulus-lupulus",
-      "mergedSlugs": ["humulus-lupulus"],
+      "mergedSlugs": [
+        "humulus-lupulus"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "ilex-paraguariensis",
-      "mergedSlugs": ["yerba-mate"],
+      "mergedSlugs": [
+        "yerba-mat"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "lavandula-angustifolia",
-      "mergedSlugs": ["lavender"],
+      "mergedSlugs": [
+        "lavender"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "rhododendron-tomentosum",
-      "mergedSlugs": ["rhododendron-tomentosum"],
+      "mergedSlugs": [
+        "rhododendron-tomentosum"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "leonurus-sibiricus",
-      "mergedSlugs": ["siberian-motherwort"],
+      "mergedSlugs": [
+        "siberian-motherwort"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "lepidium-meyenii",
-      "mergedSlugs": ["maca-root"],
+      "mergedSlugs": [
+        "maca-root"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "lophophora-williamsii",
-      "mergedSlugs": ["peyote"],
+      "mergedSlugs": [
+        "peyote"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "ptychopetalum-olacoides",
-      "mergedSlugs": ["nan", "ptychopetalum-olacoides"],
+      "mergedSlugs": [
+        "nan",
+        "ptychopetalum-olacoides"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "nicotiana-rustica",
-      "mergedSlugs": ["nan", "mapacho", "nicotiana-rustica"],
+      "mergedSlugs": [
+        "nan",
+        "mapacho",
+        "nicotiana-rustica"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "nymphaea-lotus",
-      "mergedSlugs": ["nymphaea-lotus"],
+      "mergedSlugs": [
+        "nymphaea-lotus"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "achillea-millefolium",
-      "mergedSlugs": ["nan"],
+      "mergedSlugs": [
+        "nan"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "nicotiana-tabacum",
-      "mergedSlugs": ["nicotiana-tabacum"],
+      "mergedSlugs": [
+        "nicotiana-tabacum"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "papaver-somniferum",
-      "mergedSlugs": ["nan", "papaver-somniferum"],
+      "mergedSlugs": [
+        "nan",
+        "papaver-somniferum"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "acacia-confusa",
-      "mergedSlugs": ["acacia-confusa"],
+      "mergedSlugs": [
+        "acacia-confusa"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "nepeta-cataria",
-      "mergedSlugs": ["nepeta-cataria"],
+      "mergedSlugs": [
+        "nepeta-cataria"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "passiflora-incarnata",
-      "mergedSlugs": ["passiflora-incarnata"],
+      "mergedSlugs": [
+        "passiflora-incarnata"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "acmella-oleracea",
-      "mergedSlugs": ["acmella-oleracea"],
+      "mergedSlugs": [
+        "acmella-oleracea"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "nelumbo-nucifera",
-      "mergedSlugs": ["nelumbo-nucifera"],
+      "mergedSlugs": [
+        "nelumbo-nucifera"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "paullinia-cupana",
-      "mergedSlugs": ["paullinia-cupana"],
+      "mergedSlugs": [
+        "paullinia-cupana"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "acacia-maidenii",
-      "mergedSlugs": ["acacia-maidenii"],
+      "mergedSlugs": [
+        "acacia-maidenii"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "acorus-calamus",
-      "mergedSlugs": ["acorus-calamus", "sweet-flag"],
+      "mergedSlugs": [
+        "acorus-calamus",
+        "sweet-flag"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "paullinia-yoco",
-      "mergedSlugs": ["paullinia-yoco"],
+      "mergedSlugs": [
+        "paullinia-yoco"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "ocimum-sanctum",
-      "mergedSlugs": ["ocimum-sanctum"],
+      "mergedSlugs": [
+        "ocimum-sanctum"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "nymphaea-rubra",
-      "mergedSlugs": ["nymphaea-rubra"],
+      "mergedSlugs": [
+        "nymphaea-rubra"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "mentha-piperita",
-      "mergedSlugs": ["mentha-piperita"],
+      "mergedSlugs": [
+        "mentha-piperita"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "leonotis-leonurus",
-      "mergedSlugs": ["leonotis-leonurus", "lion-s-tail"],
+      "mergedSlugs": [
+        "leonotis-leonurus",
+        "lion-s-tail"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "nymphaea-caerulea",
-      "mergedSlugs": ["nymphaea-caerulea"],
+      "mergedSlugs": [
+        "nymphaea-caerulea"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "combretum-micranthum",
-      "mergedSlugs": ["combretum-micranthum"],
+      "mergedSlugs": [
+        "combretum-micranthum"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "heimia-salicifolia",
-      "mergedSlugs": ["heimia-salicifolia", "heimia-salicifolia-sinicuichi"],
+      "mergedSlugs": [
+        "heimia-salicifolia",
+        "heimia-salicifolia-sinicuichi"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "silene-capensis",
-      "mergedSlugs": ["silene-capensis"],
+      "mergedSlugs": [
+        "silene-capensis"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "turnera-diffusa",
-      "mergedSlugs": ["turnera-diffusa"],
+      "mergedSlugs": [
+        "turnera-diffusa"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "valeriana-officinalis",
-      "mergedSlugs": ["valeriana-officinalis"],
+      "mergedSlugs": [
+        "valeriana-officinalis"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "calea-zacatechichi",
-      "mergedSlugs": ["calea-zacatechichi"],
+      "mergedSlugs": [
+        "calea-zacatechichi"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "lactuca-virosa",
-      "mergedSlugs": ["lactuca-virosa"],
+      "mergedSlugs": [
+        "lactuca-virosa"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "salvia-officinalis",
-      "mergedSlugs": ["salvia-officinalis"],
+      "mergedSlugs": [
+        "salvia-officinalis"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "peganum-harmala",
-      "mergedSlugs": ["peganum-harmala"],
+      "mergedSlugs": [
+        "peganum-harmala"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "justicia-pectoralis",
-      "mergedSlugs": ["justicia-pectoralis"],
+      "mergedSlugs": [
+        "justicia-pectoralis"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "myristica-fragrans",
-      "mergedSlugs": ["myristica-fragrans"],
+      "mergedSlugs": [
+        "myristica-fragrans"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "rivea-corymbosa",
-      "mergedSlugs": ["rivea-corymbosa"],
+      "mergedSlugs": [
+        "rivea-corymbosa"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "virola-theiodora",
-      "mergedSlugs": ["virola-theiodora"],
+      "mergedSlugs": [
+        "virola-theiodora"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "desfontainia-spinosa",
-      "mergedSlugs": ["desfontainia-spinosa"],
+      "mergedSlugs": [
+        "desfontainia-spinosa"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "argyreia-nervosa",
-      "mergedSlugs": ["argyreia-nervosa"],
+      "mergedSlugs": [
+        "argyreia-nervosa"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "tabernanthe-iboga",
-      "mergedSlugs": ["iboga", "tabernanthe-iboga"],
+      "mergedSlugs": [
+        "iboga",
+        "tabernanthe-iboga"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "sophora-secundiflora",
-      "mergedSlugs": ["sophora-secundiflora"],
+      "mergedSlugs": [
+        "sophora-secundiflora"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "brugmansia-suaveolens",
-      "mergedSlugs": ["brugmansia-suaveolens"],
+      "mergedSlugs": [
+        "brugmansia-suaveolens"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "petasites-hybridus",
-      "mergedSlugs": ["petasites-hybridus"],
+      "mergedSlugs": [
+        "petasites-hybridus"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "amanita-muscaria",
-      "mergedSlugs": ["amanita-muscaria", "fly-agaric"],
+      "mergedSlugs": [
+        "amanita-muscaria",
+        "fly-agaric"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "alchornea-floribunda",
-      "mergedSlugs": ["alchornea-floribunda"],
+      "mergedSlugs": [
+        "alchornea-floribunda"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "datura-wrightii",
-      "mergedSlugs": ["datura-wrightii"],
+      "mergedSlugs": [
+        "datura-wrightii"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "acorus-gramineus",
-      "mergedSlugs": ["acorus-gramineus"],
+      "mergedSlugs": [
+        "acorus-gramineus"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "entada-rheedii",
-      "mergedSlugs": ["entada-rheedii"],
+      "mergedSlugs": [
+        "entada-rheedii"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "virola-calophylla",
-      "mergedSlugs": ["virola-calophylla"],
+      "mergedSlugs": [
+        "virola-calophylla"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "piper-methysticum",
-      "mergedSlugs": ["piper-methysticum"],
+      "mergedSlugs": [
+        "piper-methysticum"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "artemisia-vulgaris",
-      "mergedSlugs": ["artemisia-vulgaris"],
+      "mergedSlugs": [
+        "artemisia-vulgaris"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "cannabis-sativa",
-      "mergedSlugs": ["cannabis-sativa"],
+      "mergedSlugs": [
+        "cannabis-sativa"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "scutellaria-lateriflora",
-      "mergedSlugs": ["scutellaria-lateriflora", "skullcap"],
+      "mergedSlugs": [
+        "scutellaria-lateriflora",
+        "skullcap"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "urtica-dioica",
-      "mergedSlugs": ["urtica-dioica"],
+      "mergedSlugs": [
+        "nan"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "camellia-sinensis",
-      "mergedSlugs": ["camellia-sinensis"],
+      "mergedSlugs": [
+        "camellia-sinensis"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "banisteriopsis-caapi",
-      "mergedSlugs": ["banisteriopsis-caapi"],
+      "mergedSlugs": [
+        "banisteriopsis-caapi"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "theobroma-cacao",
-      "mergedSlugs": ["theobroma-cacao"],
+      "mergedSlugs": [
+        "theobroma-cacao"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "pedicularis-densiflora",
-      "mergedSlugs": ["indian-warrior"],
+      "mergedSlugs": [
+        "indian-warrior"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "galbulimima-belgraveana",
-      "mergedSlugs": ["galbulimima-belgraveana"],
+      "mergedSlugs": [
+        "galbulimima-belgraveana"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "erythroxylum-coca",
-      "mergedSlugs": ["erythroxylum-coca"],
+      "mergedSlugs": [
+        "erythroxylum-coca"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "anadenanthera-peregrina",
-      "mergedSlugs": ["anadenanthera-peregrina"],
+      "mergedSlugs": [
+        "anadenanthera-peregrina"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "desmanthus-illinoensis",
-      "mergedSlugs": ["desmanthus-illinoensis"],
+      "mergedSlugs": [
+        "desmanthus-illinoensis"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "calea-ternifolia",
-      "mergedSlugs": ["calea-ternifolia", "dream-herb"],
+      "mergedSlugs": [
+        "calea-ternifolia",
+        "dream-herb"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "turbina-corymbosa",
-      "mergedSlugs": ["turbina-corymbosa"],
+      "mergedSlugs": [
+        "turbina-corymbosa"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "elaeagnus-angustifolia",
-      "mergedSlugs": ["elaeagnus-angustifolia"],
+      "mergedSlugs": [
+        "elaeagnus-angustifolia"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "sceletium-tortuosum",
-      "mergedSlugs": ["kana", "sceletium-tortuosum"],
+      "mergedSlugs": [
+        "kana",
+        "sceletium-tortuosum"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "zornia-latifolia",
-      "mergedSlugs": ["zornia-latifolia"],
+      "mergedSlugs": [
+        "zornia-latifolia"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "desmodium-gangeticum",
-      "mergedSlugs": ["desmodium-gangeticum"],
+      "mergedSlugs": [
+        "desmodium-gangeticum"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "salvia-apiana",
-      "mergedSlugs": ["salvia-apiana"],
+      "mergedSlugs": [
+        "salvia-apiana"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "heimia-myrtifolia",
-      "mergedSlugs": ["heimia-myrtifolia"],
+      "mergedSlugs": [
+        "heimia-myrtifolia"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "datura-stramonium",
-      "mergedSlugs": ["datura-stramonium"],
+      "mergedSlugs": [
+        "datura-stramonium"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "leonotis-nepetifolia",
-      "mergedSlugs": ["klip-dagga"],
+      "mergedSlugs": [
+        "klip-dagga"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "sida-cordifolia",
-      "mergedSlugs": ["sida-cordifolia"],
+      "mergedSlugs": [
+        "sida-cordifolia"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "petiveria-alliacea",
-      "mergedSlugs": ["petiveria-alliacea"],
+      "mergedSlugs": [
+        "petiveria-alliacea"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "erythrina-mulungu",
-      "mergedSlugs": ["erythrina-mulungu", "mulungu"],
+      "mergedSlugs": [
+        "erythrina-mulungu",
+        "mulungu"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "tabernaemontana-undulata",
-      "mergedSlugs": ["tabernaemontana-undulata"],
+      "mergedSlugs": [
+        "tabernaemontana-undulata"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "mitragyna-javanica",
-      "mergedSlugs": ["mitragyna-javanica"],
+      "mergedSlugs": [
+        "mitragyna-javanica"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "brugmansia-sanguinea",
-      "mergedSlugs": ["brugmansia-sanguinea"],
+      "mergedSlugs": [
+        "brugmansia-sanguinea"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "delosperma-bosseranum",
-      "mergedSlugs": ["delosperma-bosseranum"],
+      "mergedSlugs": [
+        "delosperma-bosseranum"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "ervatamia-coronaria",
-      "mergedSlugs": ["ervatamia-coronaria"],
+      "mergedSlugs": [
+        "ervatamia-coronaria"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "arundo-donax",
-      "mergedSlugs": ["arundo-donax"],
+      "mergedSlugs": [
+        "arundo-donax"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "calliandra-anomala",
-      "mergedSlugs": ["calliandra-anomala"],
+      "mergedSlugs": [
+        "calliandra-anomala"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "asarum-canadense",
-      "mergedSlugs": ["asarum-canadense"],
+      "mergedSlugs": [
+        "asarum-canadense"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "datura-ferox",
-      "mergedSlugs": ["datura-ferox"],
+      "mergedSlugs": [
+        "datura-ferox"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "psychotria-carthagenensis",
-      "mergedSlugs": ["psychotria-carthagenensis"],
+      "mergedSlugs": [
+        "psychotria-carthagenensis"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "voacanga-africana",
-      "mergedSlugs": ["voacanga-africana"],
+      "mergedSlugs": [
+        "voacanga-africana"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "acacia-phlebophylla",
-      "mergedSlugs": ["acacia-phlebophylla"],
+      "mergedSlugs": [
+        "acacia-phlebophylla"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "rhodiola-rosea",
-      "mergedSlugs": ["rhodiola-rosea"],
+      "mergedSlugs": [
+        "rhodiola-rosea"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "salvia-divinorum",
-      "mergedSlugs": ["salvia-divinorum"],
+      "mergedSlugs": [
+        "salvia-divinorum"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "tabernaemontana-sananho",
-      "mergedSlugs": ["tabernaemontana-sananho"],
+      "mergedSlugs": [
+        "tabernaemontana-sananho"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "herbs",
       "canonicalSlug": "tilia-tomentosa",
-      "mergedSlugs": ["tilia-tomentosa"],
+      "mergedSlugs": [
+        "tilia-tomentosa"
+      ],
       "mergeReason": "scientific-name-normalization-and-author-suffix-trim"
     },
     {
       "type": "compounds",
+      "canonicalSlug": "alpha-asarone",
+      "mergedSlugs": [
+        "asarone"
+      ],
+      "mergeReason": "name-normalization"
+    },
+    {
+      "type": "compounds",
+      "canonicalSlug": "beta-asarone",
+      "mergedSlugs": [
+        "asarone"
+      ],
+      "mergeReason": "name-normalization"
+    },
+    {
+      "type": "compounds",
+      "canonicalSlug": "beta-carbolines",
+      "mergedSlugs": [
+        "beta-carbolines"
+      ],
+      "mergeReason": "name-normalization"
+    },
+    {
+      "type": "compounds",
       "canonicalSlug": "harmaline",
-      "mergedSlugs": ["harmaline"],
+      "mergedSlugs": [
+        "harmaline"
+      ],
       "mergeReason": "name-normalization"
     }
   ]

@@ -1,41 +1,84 @@
 {
   "name": "ilex paraguariensis",
   "latin": "Ilex paraguariensis",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Stimulant; rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; rich in caffeine and theobromine (yerba mate). No direct region data. Contextual inference: Stimulant; rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; rich in caffeine and theobromine (yerba mate). none. ; nan; nan. ; nan; nan",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "stimulation",
-    "focus",
-    "mood"
+    "Stimulant",
+    "rich in caffeine and theobromine (yerba mate)",
+    "cognitive enhancer",
+    "mood booster"
   ],
   "contraindications": [
-    "avoid with heart conditions",
-    "avoid with anxiety",
-    "avoid in pregnancy"
+    "heart conditions",
+    "anxiety",
+    "pregnancy (high doses)."
   ],
-  "interactions": [
-    "Avoid with: stimulants",
-    "Avoid with: maois",
-    "Caution with: beta blockers",
-    "Caution with: blockers"
+  "safetyNotes": [
+    "Caffeine-related side effects: insomnia",
+    "anxiety",
+    "tachycardia",
+    "No direct toxicity data. Contextual inference: Stimulant",
+    "rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Stimulant",
+    "rich in caffeine and theobromine (yerba mate). none.",
+    "insomnia",
+    "jitteriness",
+    "increased heart rate.",
+    "cognitive enhancer",
+    "mood booster. Contains caffeine",
+    "theobromine",
+    "acts as cns stimulant by blocking adenosine receptors..",
+    "nan.. Contains caffeine",
+    "acts as CNS stimulant by blocking adenosine receptors.. Stimulant",
+    "mood booster."
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Ilex paraguariensis (TaxID 185542)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=185542&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.944Z",
-  "description": "Stimulant; rich in caffeine and theobromine (yerba mate)..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Stimulant; rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Stimulant",
+    "rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Stimulant",
+    "rich in caffeine and theobromine (yerba mate). No direct region data. Contextual inference: Stimulant",
+    "rich in caffeine and theobromine (yerba mate). none.",
+    "nan.",
+    "cognitive enhancer",
+    "mood booster. Contains caffeine",
+    "theobromine",
+    "acts as cns stimulant by blocking adenosine receptors..",
+    "nan.. Contains caffeine",
+    "acts as CNS stimulant by blocking adenosine receptors.. Stimulant",
+    "mood booster. No direct region data. Contextual inference: Stimulant",
+    "mood booster."
+  ],
   "duration": "2–4 hours",
+  "interactions": [
+    "stimulants",
+    "maois",
+    "beta-blockers.",
+    "beta",
+    "blockers."
+  ],
   "legalStatus": "Widely legal; commonly consumed in South America and globally",
-  "preparation": "Smoked.",
-  "region": "Argentina, brazil.",
+  "preparation": "Leaves are dried, often smoked or toasted, then steeped in hot water as a tea (infusion)",
+  "region": "No direct region data. Contextual inference: Stimulant; rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; rich in caffeine and theobromine (yerba mate). none. ; nan; nan",
   "therapeuticUses": [
     "mental alertness",
     "energy",
@@ -52,6 +95,16 @@
     "increased heart rate."
   ],
   "slug": "ilex-paraguariensis",
+  "displayName": "ilex paraguariensis",
+  "displayScientificName": "Ilex paraguariensis",
+  "scientificNormalized": "ilex paraguariensis",
+  "id": "ilex-paraguariensis",
+  "aliases": [
+    "yerba maté"
+  ],
+  "slugAliases": [
+    "yerba-mat"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

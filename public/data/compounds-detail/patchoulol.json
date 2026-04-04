@@ -1,7 +1,5 @@
 {
   "name": "Patchoulol",
-  "category": "general",
-  "description": "Patchoulol appears in records as a compound reported in pogostemon cablin. Current source coverage is limited and still developing.",
   "herbs": [
     "pogostemon cablin"
   ],
@@ -13,24 +11,13 @@
     "dreaming or folk medicine"
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Patchoulol (CID 10955174)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10955174",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "patchoulol",
+  "id": "patchoulol",
+  "displayName": "Patchoulol",
+  "description": "Patchoulol appears in records as a compound reported in pogostemon cablin. Current source coverage is limited and still developing.",
   "summary": "Patchoulol appears in records as a compound reported in pogostemon cablin. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

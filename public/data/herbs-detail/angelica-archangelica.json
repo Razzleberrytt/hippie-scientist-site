@@ -1,31 +1,51 @@
 {
   "name": "angelica archangelica",
   "latin": "Angelica archangelica",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Carminative, digestive aid, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, digestive aid, mild sedative. No direct region data. Contextual inference: Carminative, digestive aid, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, digestive aid, mild sedative. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "relaxation",
-    "digestive support"
+    "Carminative",
+    "digestive aid",
+    "mild sedative"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Photosensitivity; Possible GI upset; Avoid in pregnancy due to uterine stimulation; Mild sedative; Antioxidant effects; Or enzyme inhibition.",
+  "safetyNotes": [
+    "caution",
+    "Photosensitivity",
+    "possible GI upset",
+    "avoid in pregnancy due to uterine stimulation",
+    "No direct toxicity data. Contextual inference: Carminative",
+    "digestive aid",
+    "mild sedative. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Carminative",
+    "mild sedative. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Angelica archangelica (TaxID 40949)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=40949&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.848Z",
-  "description": "Carminative, digestive aid, mild sedative..",
-  "dosage": "250-500 mg/day root or extract",
+  "lastUpdated": "2026-03-21",
+  "description": "Carminative, digestive aid, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "500 mg",
+    "day root or extract"
+  ],
   "duration": "2–4 hours",
+  "interactions": [],
   "legalStatus": "Legal; common in traditional European herbalism",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Roots and seeds decocted, used in tinctures, or added to liquors and tonics",
+  "region": "No direct region data. Contextual inference: Carminative, digestive aid, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, digestive aid, mild sedative. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -34,6 +54,10 @@
     "avoid in pregnancy due to uterine stimulation"
   ],
   "slug": "angelica-archangelica",
+  "id": "angelica-archangelica",
+  "displayName": "angelica archangelica",
+  "displayScientificName": "Angelica archangelica",
+  "scientificNormalized": "angelica archangelica",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -3,43 +3,86 @@
   "latin": "Acacia phlebophylla",
   "class": "Entheogen, Psychoactive plant",
   "intensity": "No direct intensity data. Contextual inference: Contains dmt; rare species with entheogenic potential. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Contains DMT; rare species with entheogenic potential. No direct region data. Contextual inference: Contains dmt; rare species with entheogenic potential. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Contains DMT; rare species with entheogenic potential. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [
-    "dmt",
-    "nmt"
+    "DMT",
+    "NMT"
   ],
   "effects": [
-    "psychedelic",
-    "dissociation"
+    "Visual hallucinations",
+    "altered perception",
+    "introspection",
+    "Contains DMT",
+    "rare species with entheogenic potential"
   ],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Nausea; Anxiety; Confusion at high doses; Presumed low in traditional use levels; Contains DMT; Hallucinations; Rare species with entheogenic potential; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Contains DMT.",
+  "contraindications": [
+    "Not recommended for those with psychotic disorders or serotonin syndrome risk"
+  ],
+  "safetyNotes": [
+    "Nausea",
+    "anxiety",
+    "confusion at high doses",
+    "presumed low in traditional use levels",
+    "Not established",
+    "Contains DMT",
+    "hallucinations",
+    "nausea",
+    "No direct toxicity data. Contextual inference: Contains dmt",
+    "rare species with entheogenic potential. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Contains DMT",
+    "rare species with entheogenic potential. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Acacia phlebophylla (TaxID 866006)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=866006&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.830Z",
-  "description": "Contains dmt; rare species with entheogenic potential.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Contains dmt; rare species with entheogenic potential. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Contains dmt",
+    "rare species with entheogenic potential. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Contains DMT",
+    "rare species with entheogenic potential. No direct region data. Contextual inference: Contains dmt",
+    "rare species with entheogenic potential. none.",
+    "nan."
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Restricted in many countries due to DMT content",
-  "preparation": "",
-  "region": "",
+  "preparation": "Leaves contain DMT; not typically used in herbal medicine due to psychoactive compounds and endangered status",
+  "region": "No direct region data. Contextual inference: Contains dmt; rare species with entheogenic potential. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Contains DMT; rare species with entheogenic potential. none. ; nan; nan",
   "therapeuticUses": [
     "Spiritual insight",
     "meditation aid"
   ],
   "traditionalUse": "Used by indigenous people in rituals",
+  "slug": "acacia-phlebophylla",
   "sideEffects": [
     "Contains DMT",
     "hallucinations",
     "nausea"
   ],
-  "slug": "acacia-phlebophylla",
+  "displayName": "acacia phlebophylla",
+  "displayScientificName": "Acacia phlebophylla",
+  "scientificNormalized": "acacia phlebophylla",
+  "id": "acacia-phlebophylla",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -1,50 +1,48 @@
 {
   "name": "ocimum sanctum (holy basil / tulsi)",
   "latin": "ocimum sanctum (holy basil / tulsi)",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "Constituents including eugenol and rosmarinic acid are reported to modulate inflammatory signaling and oxidative-stress pathways; adaptogenic effects are plausible but not fully resolved.",
-  "activeCompounds": [
-    "eugenol",
-    "rosmarinic acid",
-    "ursolic acid",
-    "ocimumosides",
-    "flavonoids"
-  ],
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "activeCompounds": [],
   "effects": [
-    "anxiety relief",
-    "anti-inflammatory"
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
-  "contraindications": [
-    "use caution during pregnancy due to limited concentrated-extract safety data",
-    "monitor in people using glucose-lowering therapy"
+  "contraindications": "Pregnancy, diabetes medication.",
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "interactions": [
-    "May add to glucose-lowering effects of antidiabetic medications",
-    "May modestly increase antiplatelet effects with blood-thinning drugs"
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause may lower blood sugar, mild sedation or mild nausea. Use caution during pregnancy due to limited concentrated-extract safety data; Monitor in people using glucose-lowering therapy; Pregnancy; Diabetes medication; Avoid use during pregnancy unless advised by a clinician, lower dose or stop if nausea, vomiting, or GI upset occurs or monitor in people using glucose-lowering therapy.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: ocimum sanctum (holy basil / tulsi)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=ocimum%20sanctum%20(holy%20basil%20%2F%20tulsi)&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:37.984Z",
-  "description": "Ocimum sanctum (holy basil / tulsi) is a medicinal herb traditionally used for reduction in perceived stress and mild glycemic support.",
-  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Smoked.",
-  "region": "🇮🇳 india.",
-  "therapeuticUses": [],
-  "traditionalUse": [
-    "Ayurvedic herb traditionally used for respiratory, stress, and immune support"
-  ],
-  "sideEffects": [],
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": "Adaptogen, anxiety, spiritual focus, blood sugar balance.",
+  "traditionalUse": "; nan; nan",
   "slug": "ocimum-sanctum-holy-basil-tulsi",
+  "id": "ocimum-sanctum-holy-basil-tulsi",
+  "displayName": "ocimum sanctum (holy basil / tulsi)",
+  "displayScientificName": "ocimum sanctum (holy basil / tulsi)",
+  "scientificNormalized": "ocimum sanctum holy basil / tulsi",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

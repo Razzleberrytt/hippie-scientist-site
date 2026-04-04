@@ -1,52 +1,67 @@
 {
   "name": "sweet violet",
   "latin": "sweet violet",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "And gentle mood support.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.",
   "activeCompounds": [
-    "violine",
-    "methyl salicylate"
+    "Violine",
+    "Methyl salicylate"
   ],
   "effects": [
-    "mood",
-    "sleep",
-    "respiratory support"
+    "No direct effects data. Contextual inference: Used for sleep",
+    "coughs",
+    "and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep",
+    "and gentle mood support... Used for sleep",
+    "and gentle mood support.. Used for sleep",
+    "and gentle mood support."
   ],
-  "contraindications": [],
-  "interactions": [
-    "May increase sedation when combined with CNS depressants"
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding unless clinician-guided",
+    "Use caution with sedatives, alcohol, or other CNS depressants."
   ],
-  "safetyLevel": "caution",
-  "safetyNotes": "Generally well tolerated. Avoid combining with sedatives, generally well tolerated; Avoid combining with sedatives.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: sweet violet",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=sweet%20violet&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    },
-    {
-      "title": "PubMed search: sweet violet",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=sweet+violet",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: sweet violet",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=sweet+violet",
-      "note": "Chemical and bioactivity reference index"
-    }
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference: Used for sleep",
+    "coughs",
+    "and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep",
+    "and gentle mood support... Used for sleep",
+    "and gentle mood support.. No direct effects data. Contextual inference: Used for sleep",
+    "and gentle mood support.. Used for sleep",
+    "and gentle mood support."
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Used for sleep, coughs, and gentle mood support.",
-  "dosage": "",
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used for sleep, coughs, and gentle mood support..",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used for sleep",
+    "coughs",
+    "and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep",
+    "and gentle mood support... Used for sleep",
+    "and gentle mood support.. No direct effects data. Contextual inference: Used for sleep",
+    "and gentle mood support.. Used for sleep",
+    "and gentle mood support.. No direct region data. Contextual inference: Used for sleep",
+    "and gentle mood support."
+  ],
   "duration": "No direct duration data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. No direct effects data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.. No direct region data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. No direct effects data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "",
-  "region": "",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. No direct effects data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.. No direct region data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. No direct effects data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.",
+  "region": "No direct region data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. No direct effects data. Contextual inference: Used for sleep, coughs, and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep, coughs, and gentle mood support... Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.. Used for sleep, coughs, and gentle mood support.",
+  "therapeuticUses": [
+    "mild anxiolytic support",
+    "historical use for symptom relief in regional folk medicine"
+  ],
   "traditionalUse": "Used for sleep, coughs, and gentle mood support.",
-  "sideEffects": [],
   "slug": "sweet-violet",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "sweet-violet",
+  "displayName": "sweet violet",
+  "displayScientificName": "sweet violet",
+  "scientificNormalized": "sweet violet",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

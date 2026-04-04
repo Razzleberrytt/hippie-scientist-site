@@ -1,36 +1,96 @@
 {
   "name": "rhododendron tomentosum",
   "latin": "Rhododendron tomentosum",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, antiseptic; once used as beer spice (toxic in high doses). No direct region data. Contextual inference: Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, antiseptic; once used as beer spice (toxic in high doses). none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "relaxation",
-    "antimicrobial"
+    "Sedative",
+    "antiseptic",
+    "once used as beer spice (toxic in high doses)",
+    "Same as Ledum palustre",
+    "sedative and antimicrobial"
   ],
-  "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Avoid combining with sedatives, alcohol or or other CNS depressants.",
+  "contraindications": [
+    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+    "Do not use with known allergy to this plant or related species.",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with sedatives, alcohol, or other CNS depressants.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
+  ],
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference: Sedative",
+    "antiseptic",
+    "once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Sedative",
+    "once used as beer spice (toxic in high doses). none.",
+    "No direct toxicity data. Contextual inference: Same as ledum palustre",
+    "sedative and antimicrobial. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Same as Ledum palustre",
+    "sedative and antimicrobial. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Rhododendron tomentosum (TaxID 49170)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=49170&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.008Z",
-  "description": "Sedative, antiseptic; once used as beer spice (toxic in high doses).",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Sedative",
+    "antiseptic",
+    "once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Sedative",
+    "once used as beer spice (toxic in high doses). No direct region data. Contextual inference: Sedative",
+    "once used as beer spice (toxic in high doses). none.",
+    "nan.",
+    "No direct dosage data. Contextual inference: Same as ledum palustre",
+    "sedative and antimicrobial. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Same as Ledum palustre",
+    "sedative and antimicrobial. No direct region data. Contextual inference: Same as ledum palustre",
+    "sedative and antimicrobial. none."
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Restricted in some countries",
-  "preparation": "",
-  "region": "",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, antiseptic; once used as beer spice (toxic in high doses). No direct region data. Contextual inference: Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, antiseptic; once used as beer spice (toxic in high doses). none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, antiseptic; once used as beer spice (toxic in high doses). none. ; nan; nan",
+  "therapeuticUses": [
+    "Traditional supportive use; indication depends on species part and preparation.",
+    "Evidence level varies; use only within established clinical or traditional context.",
+    "mild anxiolytic support",
+    "sleep onset support"
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "rhododendron-tomentosum",
+  "sideEffects": [
+    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+    "Possible headache, dizziness, or allergic skin reaction in sensitive users.",
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "rhododendron tomentosum",
+  "displayScientificName": "Rhododendron tomentosum",
+  "scientificNormalized": "rhododendron tomentosum",
+  "id": "rhododendron-tomentosum",
+  "aliases": [
+    "ledum palustre"
+  ],
+  "slugAliases": [
+    "ledum-palustre"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

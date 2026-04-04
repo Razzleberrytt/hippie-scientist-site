@@ -1,10 +1,7 @@
 {
   "name": "Limonoids",
-  "category": "general",
-  "description": "Limonoids is a compound reported in Carapa procera and Trichilia monadelpha. Available references are still early and incomplete.",
   "herbs": [
-    "Carapa procera",
-    "Trichilia monadelpha"
+    "nan"
   ],
   "effects": [
     "Skin healing",
@@ -16,31 +13,19 @@
     "May cause allergic dermatitis",
     "Use in pregnancy not recommended due to limited data"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Limonoids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/limonoids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "limonoids",
-  "summary": "Limonoids is a compound reported in Carapa procera and Trichilia monadelpha. Available references are still early and incomplete.",
+  "id": "limonoids",
+  "displayName": "Limonoids",
+  "description": "Limonoids is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Limonoids is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "carapa-procera",
-    "trichilia-monadelpha"
+    "nan"
   ]
 }

@@ -1,42 +1,70 @@
 {
   "name": "tulsi",
   "latin": "Ocimum tenuiflorum",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. Adaptogenic, immunomodulatory, stress-relieving; used in Ayurvedic medicine. No direct region data. Contextual inference: Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. Adaptogenic, immunomodulatory, stress-relieving; used in Ayurvedic medicine. ; nan; nan. ; nan; nan",
-  "mechanism": "Acts as an adaptogen, modulates cortisol and inflammatory pathways.",
+  "mechanism": "Acts as an adaptogen; modulates cortisol and inflammatory pathways.",
   "activeCompounds": [],
   "effects": [
-    "anxiety relief",
-    "immune support"
+    "Adaptogenic",
+    "immunomodulatory",
+    "stress-relieving",
+    "used in Ayurvedic medicine",
+    "stress",
+    "relieving"
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "increase bleeding risk"
+    "pregnancy",
+    "anticoagulant use."
   ],
-  "interactions": [
-    "Blood thinners",
-    "Sedatives"
+  "safetyNotes": [
+    "rare nausea",
+    "drowsiness.",
+    "No direct toxicity data. Contextual inference: Adaptogenic",
+    "immunomodulatory",
+    "stress-relieving",
+    "used in ayurvedic medicine. Acts as an adaptogen",
+    "modulates cortisol and inflammatory pathways..",
+    "nan.. Acts as an adaptogen",
+    "modulates cortisol and inflammatory pathways.. Adaptogenic",
+    "used in Ayurvedic medicine."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause rare nausea or drowsiness. Avoid in pregnancy; Increase bleeding risk; Avoid combining with sedatives, may cause rare nausea, drowsiness, immunomodulatory, stress-relieving, used in ayurvedic medicine or increase bleeding risk; Avoid in pregnancy or increase bleeding risk; Avoid use during pregnancy unless advised by a clinician, alcohol, or other CNS depressants, rare nausea, drowsiness or increase bleeding risk; Avoid combining with sedatives.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Ocimum tenuiflorum (TaxID 204149)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=204149&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.028Z",
-  "description": "Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine.",
-  "dosage": "",
-  "duration": "Often used as a daily baseline herb over medium-length routines.",
+  "lastUpdated": "2026-03-21",
+  "description": "Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Adaptogenic",
+    "immunomodulatory",
+    "stress",
+    "relieving",
+    "used in ayurvedic medicine. Acts as an adaptogen",
+    "modulates cortisol and inflammatory pathways..",
+    "nan.. Acts as an adaptogen",
+    "modulates cortisol and inflammatory pathways.. Adaptogenic",
+    "used in Ayurvedic medicine. No direct region data. Contextual inference: Adaptogenic",
+    "used in Ayurvedic medicine.",
+    "nan."
+  ],
+  "duration": "4–6 hours",
+  "interactions": [
+    "blood thinners",
+    "sedatives."
+  ],
   "legalStatus": "Legal globally",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "No direct preparation data. Contextual inference: Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. Adaptogenic, immunomodulatory, stress-relieving; used in Ayurvedic medicine. No direct region data. Contextual inference: Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. Adaptogenic, immunomodulatory, stress-relieving; used in Ayurvedic medicine. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. Adaptogenic, immunomodulatory, stress-relieving; used in Ayurvedic medicine. ; nan; nan",
   "therapeuticUses": [
-    "Daily tea-based stress support",
-    "Adaptogen baseline routines paired with sleep or focus herbs",
-    "Low-friction calm support for daytime use"
+    "stress relief",
+    "immune support",
+    "cognitive clarity."
   ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -44,14 +72,13 @@
     "drowsiness."
   ],
   "slug": "tulsi",
+  "id": "tulsi",
+  "displayName": "tulsi",
+  "displayScientificName": "Ocimum tenuiflorum",
+  "scientificNormalized": "ocimum tenuiflorum",
   "identity": "",
-  "categoryUseContext": "Frequently chosen as a tea-first adaptogen for daily stress routines and gentle all-day calm support.",
-  "evidenceLevel": "Early-to-moderate human evidence; practical value is often strongest in adherence and low-friction daily use.",
-  "relatedEntities": [
-    "ashwagandha",
-    "rhodiola-rosea",
-    "lemon-balm",
-    "sambucus-nigra"
-  ],
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
   "relatedCompounds": []
 }

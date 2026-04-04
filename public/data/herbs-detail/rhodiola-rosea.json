@@ -1,57 +1,103 @@
 {
   "name": "rhodiola rosea",
   "latin": "Rhodiola rosea",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan. ; nan; nan",
-  "mechanism": "Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [],
   "effects": [
-    "focus"
+    "Adaptogen",
+    "mental performance enhancer",
+    "antidepressant",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "avoid with bipolar disorder",
-    "avoid in pregnancy"
+    "bipolar disorder",
+    "pregnancy.",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "interactions": [
-    "SSRIs",
-    "MAOIs",
-    "Stimulants"
+  "safetyNotes": [
+    "safe",
+    "irritability",
+    "dry mouth.",
+    "No direct toxicity data. Contextual inference: Adaptogen",
+    "mental performance enhancer",
+    "antidepressant. Inhibits monoamine oxidase",
+    "modulates cortisol and neurotransmitters..",
+    "nan.. Inhibits monoamine oxidase",
+    "modulates cortisol and neurotransmitters.. Adaptogen",
+    "antidepressant.",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause irritability or dry mouth. Avoid with bipolar disorder; Avoid in pregnancy; Avoid with bipolar disorder, generally well tolerated; Avoid with bipolar disorder, irritability or dry mouth; Avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or MAOIs without medical guidance, irritability or dry mouth.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Rhodiola rosea (TaxID 203015)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=203015&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.007Z",
-  "description": "Adaptogen, mental performance enhancer, antidepressant.",
-  "dosage": "",
-  "duration": "Commonly used in structured blocks with periodic reassessment rather than indefinite escalation.",
+  "lastUpdated": "2026-03-21",
+  "description": "Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.",
+  "dosage": [
+    "100",
+    "400 mg",
+    "day extract (standardized)",
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "ssris",
+    "maois",
+    "stimulants."
+  ],
   "legalStatus": "Legal globally",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "No direct preparation data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan",
   "therapeuticUses": [
-    "Demand-heavy workday resilience support",
-    "Non-stimulant adaptogen comparison alongside ashwagandha",
-    "Daytime mental stamina routines with label-first product selection"
+    "fatigue",
+    "depression",
+    "cognitive support.",
+    "traditional support for mild digestive comfort",
+    "traditional stress resilience support"
   ],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
     "irritability",
-    "dry mouth."
+    "dry mouth.",
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
   ],
   "slug": "rhodiola-rosea",
-  "identity": "",
-  "categoryUseContext": "Often chosen for daytime stress-load management and cognitive-demand periods where non-caffeine support is desired.",
-  "evidenceLevel": "Moderate evidence for fatigue/stress-related outcomes in selected extract studies; quality and standardization remain key purchase filters.",
-  "relatedEntities": [
-    "ashwagandha",
-    "bacopa-monnieri",
-    "lion-s-mane",
-    "tulsi"
+  "displayName": "rhodiola rosea",
+  "displayScientificName": "Rhodiola rosea",
+  "scientificNormalized": "rhodiola rosea",
+  "id": "rhodiola-rosea",
+  "aliases": [
+    "rhodiola"
   ],
+  "slugAliases": [
+    "rhodiola"
+  ],
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
   "relatedCompounds": []
 }

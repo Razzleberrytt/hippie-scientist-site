@@ -1,57 +1,73 @@
 {
   "name": "peppermint",
   "latin": "peppermint",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
   "mechanism": "Menthol-rich peppermint oil can relax gastrointestinal smooth muscle via calcium-channel effects and TRPM8 signaling.",
   "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [
-    "Monitor with acid-suppressing therapy because enteric-coated capsule release can be altered"
+  "effects": [
+    "May reduce IBS abdominal pain and global symptom burden",
+    "Antispasmodic support for functional GI discomfort",
+    "Cooling sensation in oral and topical preparations"
   ],
-  "safetyLevel": "caution",
-  "safetyNotes": "Generally well tolerated. May cause heartburn or reflux, nausea or mouth or perianal burning with some formulations. Avoid concentrated oil in infants and young children; Use caution with severe GERD because reflux can worsen; Use caution with gallbladder disease unless advised by a clinician; Avoid concentrated oil in infants and young children, heartburn or reflux, nausea or mouth or perianal burning with some formulations; Avoid combining with prescription drugs without guidance.",
+  "contraindications": [
+    "Avoid concentrated oil in infants and young children",
+    "Use caution with severe GERD because reflux can worsen",
+    "Use caution with gallbladder disease unless advised by a clinician"
+  ],
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: peppermint",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=peppermint&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "PubMed: Peppermint oil in IBS meta-analysis (PMID: 35942669)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35942669/"
     },
     {
-      "title": "PubMed search: peppermint",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=peppermint",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: peppermint",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=peppermint",
-      "note": "Chemical and bioactivity reference index"
+      "title": "Wikipedia: Peppermint",
+      "url": "https://en.wikipedia.org/wiki/Peppermint"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Peppermint is a medicinal herb traditionally used for post-meal comfort tea use and low-friction single-herb daily beverage routines.",
-  "dosage": "",
-  "duration": "Often used as-needed around meals or in short daily routines.",
+  "lastUpdated": "2026-04-03T00:00:00.000Z",
+  "description": "Peppermint (Mentha × piperita) is used for functional gastrointestinal symptoms, with best evidence for enteric-coated oil in irritable bowel syndrome.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "Monitor with acid-suppressing therapy because enteric-coated capsule release can be altered."
+  ],
   "legalStatus": "legal",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
-    "Post-meal comfort tea use",
-    "Low-friction single-herb daily beverage routines",
-    "Digestive-focused herb stack comparisons"
+    "support for bloating and functional dyspepsia",
+    "traditional soothing herb for mild tension headache"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "peppermint",
-  "identity": "",
-  "categoryUseContext": "Common in digestive comfort plans, post-meal tea habits, and simple single-herb beverage routines.",
-  "evidenceLevel": "Moderate traditional use support with selected clinical evidence depending on form (tea vs oil/capsule).",
-  "relatedEntities": [
-    "ginger",
-    "chamomile",
-    "lemon-balm",
-    "turmeric"
+  "sideEffects": [
+    "Heartburn or reflux",
+    "Nausea",
+    "Mouth or perianal burning with some formulations"
   ],
+  "id": "peppermint",
+  "displayName": "peppermint",
+  "displayScientificName": "peppermint",
+  "scientificNormalized": "peppermint",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
   "relatedCompounds": []
 }

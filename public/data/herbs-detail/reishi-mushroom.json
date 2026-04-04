@@ -1,57 +1,61 @@
 {
   "name": "reishi mushroom",
   "latin": "reishi mushroom",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [
-    "May potentiate stimulant effects when combined with sympathomimetic agents"
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. Avoid combining with other stimulants.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: reishi mushroom",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=reishi%20mushroom&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    },
-    {
-      "title": "PubMed search: reishi mushroom",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=reishi+mushroom",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: reishi mushroom",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=reishi+mushroom",
-      "note": "Chemical and bioactivity reference index"
-    }
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding unless clinician-guided",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Reishi mushroom is a medicinal herb traditionally used for daily adaptogen-style mushroom routines and evening-friendly non-stimulant wellness support.",
-  "dosage": "",
-  "duration": "Usually framed as a consistency herb used over weeks rather than immediate-effect expectations.",
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Tea.",
-  "region": "🇨🇳 east asia.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
-    "Daily adaptogen-style mushroom routines",
-    "Evening-friendly non-stimulant wellness support",
-    "Mushroom product comparisons emphasizing extract transparency"
+    "digestive support (bloating, gas, mild cramping)",
+    "historical use for symptom relief in regional folk medicine"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "reishi-mushroom",
-  "identity": "",
-  "categoryUseContext": "Often compared for evening-friendly adaptogen routines and immune-wellness positioning in mushroom categories.",
-  "evidenceLevel": "Early-to-moderate human evidence depending on endpoint; extract quality and mushroom material disclosure are critical.",
-  "relatedEntities": [
-    "lion-s-mane",
-    "turmeric",
-    "ashwagandha",
-    "silybum-marianum"
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
   ],
+  "id": "reishi-mushroom",
+  "displayName": "reishi mushroom",
+  "displayScientificName": "reishi mushroom",
+  "scientificNormalized": "reishi mushroom",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
   "relatedCompounds": []
 }

@@ -1,31 +1,58 @@
 {
   "name": "cordyceps sinensis",
   "latin": "Cordyceps sinensis",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, immune modulator, energy booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, immune modulator, energy booster. No direct region data. Contextual inference: Adaptogen, immune modulator, energy booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, immune modulator, energy booster. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "stimulation",
-    "immune support"
+    "Adaptogen",
+    "immune modulator",
+    "energy booster"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Generally well tolerated; Occasional dry mouth; Nausea; Or diarrhea; Adaptogen; Immune modulator; Energy booster; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Adaptogen.",
+  "safetyNotes": [
+    "Generally well tolerated",
+    "occasional dry mouth",
+    "nausea",
+    "or diarrhea",
+    "No direct toxicity data. Contextual inference: Adaptogen",
+    "immune modulator",
+    "energy booster. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Adaptogen",
+    "energy booster. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Cordyceps sinensis",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Cordyceps%20sinensis&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.908Z",
-  "description": "Adaptogen, immune modulator, energy booster..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Adaptogen, immune modulator, energy booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Adaptogen",
+    "immune modulator",
+    "energy booster. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Adaptogen",
+    "energy booster. No direct region data. Contextual inference: Adaptogen",
+    "energy booster. none.",
+    "nan."
+  ],
   "duration": "6–8 hours",
+  "interactions": [],
   "legalStatus": "Legal; widely used in supplements",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "Fungi dried and powdered; used in capsules, decoctions, or tonics in Traditional Chinese Medicine",
+  "region": "No direct region data. Contextual inference: Adaptogen, immune modulator, energy booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, immune modulator, energy booster. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -35,6 +62,10 @@
     "or diarrhea"
   ],
   "slug": "cordyceps-sinensis",
+  "id": "cordyceps-sinensis",
+  "displayName": "cordyceps sinensis",
+  "displayScientificName": "Cordyceps sinensis",
+  "scientificNormalized": "cordyceps sinensis",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

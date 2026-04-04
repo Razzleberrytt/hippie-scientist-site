@@ -1,8 +1,8 @@
 {
   "name": "N-Dimethyltryptamine (DMT)",
-  "category": "general",
-  "description": "N-Dimethyltryptamine (DMT) is listed as a compound in this profile. Available references are still early and incomplete.",
-  "herbs": [],
+  "herbs": [
+    "nan"
+  ],
   "effects": [
     "Closed-eye visuals",
     "altered cognition",
@@ -12,28 +12,19 @@
   "contraindications": [
     "Use with SSRIs or MAOIs without supervision"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: N-Dimethyltryptamine (DMT)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/n-dimethyltryptamine-dmt",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "n-dimethyltryptamine-dmt",
-  "summary": "N-Dimethyltryptamine (DMT) is listed as a compound in this profile. Available references are still early and incomplete.",
+  "id": "n-dimethyltryptamine-dmt",
+  "displayName": "N-Dimethyltryptamine (DMT)",
+  "description": "N-Dimethyltryptamine (DMT) is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "N-Dimethyltryptamine (DMT) is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "linkedHerbs": []
+  "linkedHerbs": [
+    "nan"
+  ]
 }

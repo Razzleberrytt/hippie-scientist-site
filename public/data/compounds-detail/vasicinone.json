@@ -1,11 +1,9 @@
 {
   "name": "vasicinone",
-  "category": "general",
-  "description": "vasicinone appears in records as a compound reported in adhatoda vasica, justicia adhatoda, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "adhatoda vasica",
     "justicia adhatoda",
-    "sida cordifolia"
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -31,24 +29,13 @@
     "heart conditions",
     "pregnancy"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: vasicinone (CID 442935)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442935",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "vasicinone",
+  "id": "vasicinone",
+  "displayName": "vasicinone",
+  "description": "vasicinone appears in records as a compound reported in adhatoda vasica, justicia adhatoda, and related herbs. Current source coverage is limited and still developing.",
   "summary": "vasicinone appears in records as a compound reported in adhatoda vasica, justicia adhatoda, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
@@ -57,6 +44,6 @@
   "linkedHerbs": [
     "adhatoda-vasica",
     "justicia-adhatoda",
-    "sida-cordifolia"
+    "nan"
   ]
 }

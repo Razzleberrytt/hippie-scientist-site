@@ -1,7 +1,5 @@
 {
   "name": "Elaeagnin",
-  "category": "general",
-  "description": "Elaeagnin is a compound reported in elaeagnus angustifolia. Available references are still early and incomplete.",
   "herbs": [
     "elaeagnus angustifolia"
   ],
@@ -14,24 +12,13 @@
     "and inflammation."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Elaeagnin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/elaeagnin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "elaeagnin",
+  "id": "elaeagnin",
+  "displayName": "Elaeagnin",
+  "description": "Elaeagnin is a compound reported in elaeagnus angustifolia. Available references are still early and incomplete.",
   "summary": "Elaeagnin is a compound reported in elaeagnus angustifolia. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

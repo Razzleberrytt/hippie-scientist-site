@@ -1,10 +1,8 @@
 {
   "name": "umbelliferone",
-  "category": "general",
-  "description": "umbelliferone appears in records as a compound reported in adenostoma fasciculatum and justicia pectoralis. Current source coverage is limited and still developing.",
   "herbs": [
     "adenostoma fasciculatum",
-    "justicia pectoralis"
+    "nan"
   ],
   "effects": [
     "Traditional uses include skin and respiratory conditions",
@@ -26,31 +24,25 @@
     "Pregnancy",
     "anticoagulant therapy due to coumarin content"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: umbelliferone (CID 5281426)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281426",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "lastUpdated": "2026-03-21",
   "slug": "umbelliferone",
-  "summary": "umbelliferone appears in records as a compound reported in adenostoma fasciculatum and justicia pectoralis. Current source coverage is limited and still developing.",
+  "id": "umbelliferone",
+  "displayName": "umbelliferone",
+  "description": "umbelliferone appears in records as a compound reported in adenostoma fasciculatum and nan. Current source coverage is limited and still developing.",
+  "summary": "umbelliferone appears in records as a compound reported in adenostoma fasciculatum and nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "adenostoma-fasciculatum",
-    "justicia-pectoralis"
+    "nan"
   ]
 }

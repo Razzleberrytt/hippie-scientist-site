@@ -1,44 +1,60 @@
 {
   "name": "laurus nobilis",
   "latin": "Laurus nobilis",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Digestive aid, carminative, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, carminative, antimicrobial. No direct region data. Contextual inference: Digestive aid, carminative, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, carminative, antimicrobial. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "digestive support",
+    "Digestive aid",
+    "carminative",
     "antimicrobial"
   ],
   "contraindications": [],
-  "interactions": [
-    "Caution with: Interaction evidence is limited",
-    "Caution with: use caution with prescription medicines",
-    "Caution with: especially CNS active",
-    "Avoid with: anticoagulant",
-    "Caution with: hepatotoxic",
-    "Caution with: blood pressure/glucose lowering drugs"
+  "safetyNotes": [
+    "safe",
+    "Allergic skin reaction or GI upset in large amounts",
+    "No direct toxicity data. Contextual inference: Digestive aid",
+    "carminative",
+    "antimicrobial. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Digestive aid",
+    "antimicrobial. none."
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Laurus nobilis (TaxID 85223)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=85223&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.953Z",
-  "description": "Digestive aid, carminative, antimicrobial..",
-  "dosage": "1-2 g/day leaves or 250-500 mg extract",
+  "lastUpdated": "2026-03-21",
+  "description": "Digestive aid, carminative, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "1",
+    "2 g",
+    "day leaves or 250",
+    "500 mg extract"
+  ],
   "duration": "3–5 hours",
+  "interactions": [],
   "legalStatus": "Legal worldwide",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Leaves used dried in infusions or cooking; occasionally tinctured for digestive aid",
+  "region": "No direct region data. Contextual inference: Digestive aid, carminative, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, carminative, antimicrobial. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
     "Allergic skin reaction or GI upset in large amounts"
   ],
   "slug": "laurus-nobilis",
+  "id": "laurus-nobilis",
+  "displayName": "laurus nobilis",
+  "displayScientificName": "Laurus nobilis",
+  "scientificNormalized": "laurus nobilis",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

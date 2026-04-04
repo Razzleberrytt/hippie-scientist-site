@@ -1,36 +1,55 @@
 {
   "name": "xanthium strumarium",
   "latin": "Xanthium strumarium",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Nasal decongestant, anti-inflammatory, diuretic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Nasal decongestant, anti-inflammatory, diuretic. No direct region data. Contextual inference: Nasal decongestant, anti-inflammatory, diuretic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Nasal decongestant, anti-inflammatory, diuretic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
+    "Nasal decongestant",
     "anti-inflammatory",
-    "respiratory support",
-    "detoxification"
+    "diuretic",
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "safe",
+    "Toxic in large doses",
+    "nausea",
+    "vomiting",
+    "hepatotoxicity",
+    "No direct toxicity data. Contextual inference: Nasal decongestant",
+    "anti-inflammatory",
+    "diuretic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Nasal decongestant",
+    "diuretic. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause toxic in large doses, nausea, vomiting or hepatotoxicity.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Xanthium strumarium (TaxID 318068)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=318068&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.033Z",
-  "description": "Nasal decongestant, anti-inflammatory, diuretic.",
-  "dosage": "Low dose, 100-250 mg/day.",
+  "lastUpdated": "2026-03-21",
+  "description": "Nasal decongestant, anti-inflammatory, diuretic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "Low dose",
+    "100",
+    "250 mg",
+    "day"
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Regulated in some regions",
-  "preparation": "Fruits used in TCM (Cang Er Zi); dried and decocted; caution due to potential toxicity of raw parts.",
-  "region": "",
+  "preparation": "Fruits used in TCM (Cang Er Zi); dried and decocted; caution due to potential toxicity of raw parts",
+  "region": "No direct region data. Contextual inference: Nasal decongestant, anti-inflammatory, diuretic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Nasal decongestant, anti-inflammatory, diuretic. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -40,6 +59,10 @@
     "hepatotoxicity"
   ],
   "slug": "xanthium-strumarium",
+  "id": "xanthium-strumarium",
+  "displayName": "xanthium strumarium",
+  "displayScientificName": "Xanthium strumarium",
+  "scientificNormalized": "xanthium strumarium",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

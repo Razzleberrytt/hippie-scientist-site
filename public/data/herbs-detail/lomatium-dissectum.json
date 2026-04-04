@@ -1,40 +1,50 @@
 {
   "name": "lomatium dissectum",
   "latin": "Lomatium dissectum",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antiviral, immune stimulant, respiratory support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiviral, immune stimulant, respiratory support. No direct region data. Contextual inference: Antiviral, immune stimulant, respiratory support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiviral, immune stimulant, respiratory support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "stimulation",
-    "respiratory support",
-    "immune support",
-    "antimicrobial"
+    "Antiviral",
+    "immune stimulant",
+    "respiratory support"
   ],
   "contraindications": [],
-  "interactions": [
-    "Caution with: Interaction evidence is limited",
-    "Caution with: use caution with prescription medicines",
-    "Caution with: especially CNS active",
-    "Avoid with: anticoagulant",
-    "Caution with: hepatotoxic",
-    "Caution with: blood pressure/glucose lowering drugs"
+  "safetyNotes": [
+    "safe",
+    "Skin rash (lomatium dermatitis) common",
+    "GI upset",
+    "No direct toxicity data. Contextual inference: Antiviral",
+    "immune stimulant",
+    "respiratory support. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antiviral",
+    "respiratory support. none."
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Lomatium dissectum (TaxID 63635)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=63635&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.956Z",
-  "description": "Antiviral, immune stimulant, respiratory support..",
-  "dosage": "250-500 mg/day root extract or tincture",
+  "lastUpdated": "2026-03-21",
+  "description": "Antiviral, immune stimulant, respiratory support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "500 mg",
+    "day root extract or tincture"
+  ],
   "duration": "4–8 hours",
+  "interactions": [],
   "legalStatus": "Unregulated in most regions",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Root decocted or tinctured in small doses; strong antiviral properties; use cautiously due to sensitivity potential",
+  "region": "No direct region data. Contextual inference: Antiviral, immune stimulant, respiratory support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiviral, immune stimulant, respiratory support. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -42,6 +52,10 @@
     "GI upset"
   ],
   "slug": "lomatium-dissectum",
+  "id": "lomatium-dissectum",
+  "displayName": "lomatium dissectum",
+  "displayScientificName": "Lomatium dissectum",
+  "scientificNormalized": "lomatium dissectum",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

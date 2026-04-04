@@ -1,9 +1,7 @@
 {
   "name": "wogonin",
-  "category": "general",
-  "description": "wogonin appears in records as a compound reported in scutellaria lateriflora. Current source coverage is limited and still developing.",
   "herbs": [
-    "scutellaria lateriflora"
+    "nan"
   ],
   "effects": [
     "Mild sedation",
@@ -21,30 +19,19 @@
     "pregnancy",
     "sedative sensitivity."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: wogonin (CID 5281703)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281703",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "wogonin",
-  "summary": "wogonin appears in records as a compound reported in scutellaria lateriflora. Current source coverage is limited and still developing.",
+  "id": "wogonin",
+  "displayName": "wogonin",
+  "description": "wogonin appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "wogonin appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "scutellaria-lateriflora"
+    "nan"
   ]
 }

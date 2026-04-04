@@ -3,43 +3,54 @@
   "latin": "sceletium tortuosum (kanna)",
   "class": "empathogen / euphoriant",
   "intensity": "Moderate",
-  "mechanism": "Selective serotonin reuptake inhibition (ssri) and phosphodiesterase-4 (pde4) inhibition [9, 4].",
-  "activeCompounds": [
-    "mesembrine",
-    "mesembrenone",
-    "mesembrenol",
-    "tortuosamine"
-  ],
+  "mechanism": "Selective serotonin reuptake inhibition (SSRI) and phosphodiesterase-4 (PDE4) inhibition [9, 4].",
+  "activeCompounds": [],
   "effects": [
-    "mood"
+    "Mood lift",
+    "empathy",
+    "sociability"
   ],
   "contraindications": [
-    "avoid with do not combine with other serotonergic substances",
-    "avoid in pregnancy",
-    "avoid with 4]"
+    "do not combine with other serotonergic substances",
+    "pregnancy [9",
+    "4]."
   ],
-  "interactions": [
-    "SSRIs",
-    "MAOIs",
-    "Stimulants [9",
-    "4]"
+  "safetyNotes": [
+    "headache",
+    "nausea",
+    "mild sedation [9",
+    "4].",
+    "Low toxicity at traditional doses [9"
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause headache, nausea, mild sedation [9 or 4]. Avoid with do not combine with other serotonergic substances; Avoid in pregnancy; Avoid with 4]; Avoid with do not combine with other serotonergic substances, may cause headache, mild sedation [9 or 4]; Avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or MAOIs without medical guidance, headache, nausea, mild sedation [9 or 4].",
   "sources": [
     {
-      "title": "NCBI Taxonomy: sceletium tortuosum (kanna)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=sceletium%20tortuosum%20(kanna)&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Inferred from Unknown"
+    },
+    {
+      "note": "Inferred from Unknown",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.018Z",
-  "description": "South african succulent chewed to elevate mood and decrease tension.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "south african succulent chewed to elevate mood and decrease tension.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: south african succulent chewed to elevate mood and decrease tension.. Selective serotonin reuptake inhibition (SSRI) and phosphodiesterase",
+    "4 (PDE4) inhibition [9",
+    "4].. Mood lift",
+    "empathy",
+    "sociability. 🌎 unknown",
+    "global."
+  ],
   "duration": "121.0",
+  "interactions": [
+    "ssris",
+    "maois",
+    "stimulants [9",
+    "4]."
+  ],
   "legalStatus": "Legal, sometimes restricted",
-  "preparation": "Smoked.",
-  "region": "",
+  "preparation": "Chew, snuff, extract",
+  "region": "🌎 unknown / global",
   "therapeuticUses": [
     "mood enhancement",
     "anti-anxiety",
@@ -56,6 +67,10 @@
     "4]."
   ],
   "slug": "sceletium-tortuosum-kanna",
+  "id": "sceletium-tortuosum-kanna",
+  "displayName": "sceletium tortuosum (kanna)",
+  "displayScientificName": "sceletium tortuosum (kanna)",
+  "scientificNormalized": "sceletium tortuosum kanna",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

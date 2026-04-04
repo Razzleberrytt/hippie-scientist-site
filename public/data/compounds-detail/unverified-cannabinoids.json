@@ -1,9 +1,7 @@
 {
   "name": "unverified cannabinoids",
-  "category": "cannabinoid",
-  "description": "unverified cannabinoids is a cannabinoid compound reported in zornia latifolia. Available references are still early and incomplete.",
   "herbs": [
-    "zornia latifolia"
+    "nan"
   ],
   "effects": [
     "Calmness",
@@ -14,30 +12,19 @@
     "used in dreamwork"
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: unverified cannabinoids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/unverified-cannabinoids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "unverified-cannabinoids",
-  "summary": "unverified cannabinoids is a cannabinoid compound reported in zornia latifolia. Available references are still early and incomplete.",
+  "id": "unverified-cannabinoids",
+  "displayName": "unverified cannabinoids",
+  "description": "unverified cannabinoids is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "unverified cannabinoids is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "zornia-latifolia"
+    "nan"
   ]
 }

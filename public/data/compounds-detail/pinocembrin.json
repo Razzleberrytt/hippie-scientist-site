@@ -1,9 +1,7 @@
 {
   "name": "pinocembrin",
-  "category": "general",
-  "description": "pinocembrin is a compound reported in turnera diffusa. Available references are still early and incomplete.",
   "herbs": [
-    "turnera diffusa"
+    "nan"
   ],
   "effects": [
     "Mood lift",
@@ -22,30 +20,19 @@
     "Pregnancy",
     "hormone-sensitive conditions"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: pinocembrin (CID 68071)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/68071",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "pinocembrin",
-  "summary": "pinocembrin is a compound reported in turnera diffusa. Available references are still early and incomplete.",
+  "id": "pinocembrin",
+  "displayName": "pinocembrin",
+  "description": "pinocembrin is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "pinocembrin is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "turnera-diffusa"
+    "nan"
   ]
 }

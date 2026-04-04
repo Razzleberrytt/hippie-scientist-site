@@ -1,10 +1,8 @@
 {
   "name": "Germacranolides",
-  "category": "general",
-  "description": "Germacranolides is a compound reported in calea zacatechichi and calea ternifolia. Available references are still early and incomplete.",
   "herbs": [
-    "calea zacatechichi",
-    "calea ternifolia"
+    "nan",
+    "calea zacatechichi"
   ],
   "effects": [
     "Vivid and lucid dreams",
@@ -32,31 +30,20 @@
     "pregnancy",
     "epilepsy."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Germacranolides",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/germacranolides",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "germacranolides",
-  "summary": "Germacranolides is a compound reported in calea zacatechichi and calea ternifolia. Available references are still early and incomplete.",
+  "id": "germacranolides",
+  "displayName": "Germacranolides",
+  "description": "Germacranolides is a compound reported in nan and calea zacatechichi. Available references are still early and incomplete.",
+  "summary": "Germacranolides is a compound reported in nan and calea zacatechichi. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "calea-zacatechichi",
-    "calea-ternifolia"
+    "nan",
+    "calea-zacatechichi"
   ]
 }

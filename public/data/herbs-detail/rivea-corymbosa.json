@@ -3,49 +3,82 @@
   "latin": "Rivea corymbosa",
   "class": "Entheogen, Tryptamine-based hallucinogen",
   "intensity": "Moderate to strong",
-  "mechanism": "Lsa interacts with serotonin receptors.",
+  "mechanism": "LSA interacts with serotonin receptors.",
   "activeCompounds": [
+    "Lysergic acid amide (LSA)",
     "isoergine"
   ],
   "effects": [
-    "focus",
-    "mood",
-    "sleep",
-    "psychedelic"
+    "Visual hallucinations",
+    "euphoria",
+    "dream-like state",
+    "Psychedelic",
+    "induces visual and cognitive alterations."
   ],
   "contraindications": [
-    "avoid with psychiatric conditions",
-    "may interact with maois",
-    "may interact with ssris",
-    "avoid with cardiovascular disease",
-    "avoid in pregnancy",
-    "avoid with 4]",
-    "avoid with heart conditions"
-  ],
-  "interactions": [
-    "Risk of serotonin syndrome",
-    "Serotonergic medications [0",
-    "12]",
-    "May interact with SSRIs",
+    "Avoid with psychiatric conditions",
     "MAOIs",
-    "Hallucinogens"
+    "SSRIs",
+    "cardiovascular disease",
+    "pregnancy [0",
+    "4].",
+    "Pregnancy",
+    "heart conditions"
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause nausea, vasoconstriction, dizziness [0 or 4]. Avoid with psychiatric conditions; May interact with MAOIs; May interact with SSRIs; Avoid with cardiovascular disease; Avoid in pregnancy; Avoid with 4]; Avoid with heart conditions; Avoid with psychiatric conditions, may cause psychoactive dose causes nausea and dizziness, sedation, body load, moderate, not well-documented, mild, contains lysergic acid amide (lsa), similar to lsd, moderate overdose risk [0, 12], may interact with MAOIs or may interact with SSRIs; Avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or MAOIs without medical guidance, nausea, vasoconstriction, dizziness [0, 4], may interact with MAOIs or may interact with SSRIs.",
+  "safetyNotes": [
+    "Psychoactive dose causes nausea and dizziness",
+    "Nausea",
+    "sedation",
+    "body load",
+    "Moderate",
+    "Not well-documented",
+    "nausea",
+    "vasoconstriction",
+    "dizziness [0",
+    "4].",
+    "Mild",
+    "contains lysergic acid amide (LSA)",
+    "similar to LSD.",
+    "Low",
+    "moderate overdose risk [0",
+    "12]."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Rivea corymbosa",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Rivea%20corymbosa&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Shulgin"
+    },
+    {
+      "title": "Erowid"
+    },
+    {
+      "title": "Aztec ethnobotany"
+    },
+    {
+      "title": "Inferred from Unknown"
+    },
+    {
+      "note": "Inferred from Unknown",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.009Z",
-  "description": "Rivea corymbosa is a medicinal herb traditionally used for visual hallucinations and euphoria.",
-  "dosage": "20, 100 seeds traditionally ground into cold water infusion.",
+  "lastUpdated": "2026-03-21",
+  "description": "Morning glory species used in Mesoamerican rituals.",
+  "dosage": [
+    "20",
+    "100 seeds traditionally ground into cold water infusion."
+  ],
   "duration": "480",
+  "interactions": [
+    "Risk of serotonin syndrome",
+    "serotonergic medications [0",
+    "12].",
+    "May interact with SSRIs",
+    "MAOIs",
+    "hallucinogens"
+  ],
   "legalStatus": "Regulated in some countries; seeds often legal",
   "preparation": "Ground seeds soaked in water; consumed ceremonially.",
-  "region": "Mexico, Central America.",
+  "region": "Mexico, Central America",
   "therapeuticUses": [
     "Spiritual use",
     "ethnobotanical studies",
@@ -53,18 +86,29 @@
     "4]."
   ],
   "traditionalUse": "Sacred plant for healing, prophecy, and communion with spirits.",
+  "slug": "rivea-corymbosa",
   "sideEffects": [
     "nausea",
     "vasoconstriction",
     "dizziness [0",
     "4]."
   ],
-  "slug": "rivea-corymbosa",
+  "displayName": "rivea corymbosa",
+  "displayScientificName": "Rivea corymbosa",
+  "scientificNormalized": "rivea corymbosa",
+  "id": "rivea-corymbosa",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
+    "lysergic-acid-amide-lsa",
     "isoergine"
   ]
 }

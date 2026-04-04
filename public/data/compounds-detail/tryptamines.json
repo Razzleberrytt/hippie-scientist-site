@@ -1,11 +1,7 @@
 {
   "name": "tryptamines",
-  "category": "tryptamine alkaloid",
-  "description": "tryptamines is a tryptamine alkaloid compound reported in acacia maidenii, desmanthus illinoensis, and related herbs. Available references are still early and incomplete.",
   "herbs": [
-    "acacia maidenii",
-    "desmanthus illinoensis",
-    "Acacia maidenii F. Muell."
+    "nan"
   ],
   "effects": [
     "Psychedelic visions",
@@ -30,32 +26,19 @@
     "unverified internal use",
     "psychoactivity not fully studied"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: tryptamines",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tryptamines",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "tryptamines",
-  "summary": "tryptamines is a tryptamine alkaloid compound reported in acacia maidenii, desmanthus illinoensis, and related herbs. Available references are still early and incomplete.",
+  "id": "tryptamines",
+  "displayName": "tryptamines",
+  "description": "tryptamines is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "tryptamines is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "acacia-maidenii",
-    "desmanthus-illinoensis",
-    "acacia-maidenii-f-muell"
+    "nan"
   ]
 }

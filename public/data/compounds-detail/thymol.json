@@ -1,11 +1,8 @@
 {
   "name": "thymol",
-  "category": "general",
-  "description": "thymol appears in records as a compound reported in thymus vulgaris, nepeta cataria, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
-    "thymus vulgaris",
-    "nepeta cataria",
-    "turnera diffusa"
+    "nan",
+    "thymus vulgaris"
   ],
   "effects": [
     "Mild sedation",
@@ -33,32 +30,20 @@
     "Avoid in bipolar disorder and pregnancy",
     "hormone-sensitive conditions"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: thymol (CID 6989)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6989",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "thymol",
-  "summary": "thymol appears in records as a compound reported in thymus vulgaris, nepeta cataria, and related herbs. Current source coverage is limited and still developing.",
+  "id": "thymol",
+  "displayName": "thymol",
+  "description": "thymol appears in records as a compound reported in nan and thymus vulgaris. Current source coverage is limited and still developing.",
+  "summary": "thymol appears in records as a compound reported in nan and thymus vulgaris. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "thymus-vulgaris",
-    "nepeta-cataria",
-    "turnera-diffusa"
+    "nan",
+    "thymus-vulgaris"
   ]
 }

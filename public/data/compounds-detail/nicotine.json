@@ -1,10 +1,8 @@
 {
   "name": "Nicotine",
-  "category": "general",
-  "description": "Nicotine appears in records as a compound reported in nicotiana rustica and nicotiana tabacum. Current source coverage is limited and still developing.",
   "herbs": [
-    "nicotiana rustica",
-    "nicotiana tabacum"
+    "nan",
+    "nicotiana rustica"
   ],
   "effects": [
     "Stimulation",
@@ -17,31 +15,20 @@
     "pregnancy",
     "epilepsy"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Nicotine (CID 89594)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/89594",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "nicotine",
-  "summary": "Nicotine appears in records as a compound reported in nicotiana rustica and nicotiana tabacum. Current source coverage is limited and still developing.",
+  "id": "nicotine",
+  "displayName": "Nicotine",
+  "description": "Nicotine appears in records as a compound reported in nan and nicotiana rustica. Current source coverage is limited and still developing.",
+  "summary": "Nicotine appears in records as a compound reported in nan and nicotiana rustica. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "nicotiana-rustica",
-    "nicotiana-tabacum"
+    "nan",
+    "nicotiana-rustica"
   ]
 }

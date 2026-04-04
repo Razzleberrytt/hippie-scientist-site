@@ -1,9 +1,7 @@
 {
   "name": "ligans",
-  "category": "general",
-  "description": "ligans is a compound reported in elaeagnus angustifolia. Available references are still early and incomplete.",
   "herbs": [
-    "elaeagnus angustifolia"
+    "nan"
   ],
   "effects": [
     "Mild sedation",
@@ -18,30 +16,19 @@
   "contraindications": [
     "caution in pregnancy"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: ligans",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ligans",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "ligans",
-  "summary": "ligans is a compound reported in elaeagnus angustifolia. Available references are still early and incomplete.",
+  "id": "ligans",
+  "displayName": "ligans",
+  "description": "ligans is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "ligans is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "elaeagnus-angustifolia"
+    "nan"
   ]
 }

@@ -1,9 +1,7 @@
 {
   "name": "Yohimbine",
-  "category": "general",
-  "description": "Yohimbine is a compound reported in Pausinystalia johimbe. Available references are still early and incomplete.",
   "herbs": [
-    "Pausinystalia johimbe"
+    "nan"
   ],
   "effects": [
     "Stimulation",
@@ -17,30 +15,19 @@
     "hypertension",
     "psychiatric conditions"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Yohimbine (CID 8969)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8969",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "yohimbine",
-  "summary": "Yohimbine is a compound reported in Pausinystalia johimbe. Available references are still early and incomplete.",
+  "id": "yohimbine",
+  "displayName": "Yohimbine",
+  "description": "Yohimbine is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Yohimbine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "pausinystalia-johimbe"
+    "nan"
   ]
 }

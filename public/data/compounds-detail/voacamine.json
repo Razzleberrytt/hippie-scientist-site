@@ -1,10 +1,7 @@
 {
   "name": "Voacamine",
-  "category": "general",
-  "description": "Voacamine appears in records as a compound reported in ervatamia coronaria and voacanga africana. Current source coverage is limited and still developing.",
   "herbs": [
-    "ervatamia coronaria",
-    "voacanga africana"
+    "nan"
   ],
   "effects": [
     "Tranquility",
@@ -29,31 +26,19 @@
     "cardiovascular conditions",
     "MAOI use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Voacamine (CID 11953931)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/11953931",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "voacamine",
-  "summary": "Voacamine appears in records as a compound reported in ervatamia coronaria and voacanga africana. Current source coverage is limited and still developing.",
+  "id": "voacamine",
+  "displayName": "Voacamine",
+  "description": "Voacamine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "Voacamine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "ervatamia-coronaria",
-    "voacanga-africana"
+    "nan"
   ]
 }

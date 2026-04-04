@@ -1,31 +1,56 @@
 {
   "name": "rhynchosia phaseoloides",
   "latin": "Rhynchosia phaseoloides",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Forage crop; traditional use as anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Forage crop; traditional use as anti-inflammatory. No direct region data. Contextual inference: Forage crop; traditional use as anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Forage crop; traditional use as anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "anti-inflammatory"
+    "Forage crop",
+    "traditional use as anti-inflammatory",
+    "traditional use as anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "caution",
-  "safetyNotes": "May cause limited data or potential gi discomfort. Avoid combining with prescription drugs without guidance, may cause limited data, potential GI discomfort or herbs often act via neurotransmitter modulation, limited data or potential GI discomfort; Avoid combining with prescription drugs without guidance.",
+  "safetyNotes": [
+    "Limited data",
+    "potential GI discomfort",
+    "No direct toxicity data. Contextual inference: Forage crop",
+    "traditional use as anti-inflammatory. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Forage crop",
+    "traditional use as anti-inflammatory. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Rhynchosia phaseoloides (TaxID 2730134)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2730134&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.008Z",
-  "description": "Forage crop; traditional use as anti-inflammatory.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Forage crop; traditional use as anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Forage crop",
+    "traditional use as anti",
+    "inflammatory. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Forage crop",
+    "inflammatory. No direct region data. Contextual inference: Forage crop",
+    "inflammatory. none.",
+    "nan."
+  ],
   "duration": "121.0",
+  "interactions": [],
   "legalStatus": "Not regulated; traditional use",
-  "preparation": "Leaves sometimes decocted or used in forage blends; limited direct herbal usage.",
-  "region": "",
+  "preparation": "Leaves sometimes decocted or used in forage blends; limited direct herbal usage",
+  "region": "No direct region data. Contextual inference: Forage crop; traditional use as anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Forage crop; traditional use as anti-inflammatory. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -33,6 +58,10 @@
     "potential GI discomfort"
   ],
   "slug": "rhynchosia-phaseoloides",
+  "id": "rhynchosia-phaseoloides",
+  "displayName": "rhynchosia phaseoloides",
+  "displayScientificName": "Rhynchosia phaseoloides",
+  "scientificNormalized": "rhynchosia phaseoloides",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -1,10 +1,8 @@
 {
   "name": "Nepetalactone",
-  "category": "general",
-  "description": "Nepetalactone appears in records as a compound reported in catnip and nepeta cataria. Current source coverage is limited and still developing.",
   "herbs": [
     "catnip",
-    "nepeta cataria"
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in folk medicine for relaxation",
@@ -23,31 +21,20 @@
     "Pregnancy",
     "sedation-sensitive individuals"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Nepetalactone (CID 92770)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/92770",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "nepetalactone",
-  "summary": "Nepetalactone appears in records as a compound reported in catnip and nepeta cataria. Current source coverage is limited and still developing.",
+  "id": "nepetalactone",
+  "displayName": "Nepetalactone",
+  "description": "Nepetalactone appears in records as a compound reported in catnip and nan. Current source coverage is limited and still developing.",
+  "summary": "Nepetalactone appears in records as a compound reported in catnip and nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "catnip",
-    "nepeta-cataria"
+    "nan"
   ]
 }

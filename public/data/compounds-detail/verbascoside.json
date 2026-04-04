@@ -1,7 +1,5 @@
 {
   "name": "Verbascoside",
-  "category": "general",
-  "description": "Verbascoside is a compound reported in aloysia citrodora. Available references are still early and incomplete.",
   "herbs": [
     "aloysia citrodora"
   ],
@@ -12,24 +10,13 @@
     "nan."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Verbascoside (CID 5281800)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281800",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "verbascoside",
+  "id": "verbascoside",
+  "displayName": "Verbascoside",
+  "description": "Verbascoside is a compound reported in aloysia citrodora. Available references are still early and incomplete.",
   "summary": "Verbascoside is a compound reported in aloysia citrodora. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

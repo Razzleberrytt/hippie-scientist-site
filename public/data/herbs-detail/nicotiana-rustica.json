@@ -3,67 +3,126 @@
   "latin": "Nicotiana rustica L.",
   "class": "Psychoactive, Ritualistic, Medicinal",
   "intensity": "Strong; significantly more intense than common tobacco",
-  "mechanism": "Used in shamanic rituals for grounding and spirit communication.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.",
   "activeCompounds": [
+    "Nicotine (up to 9%)",
     "harman",
     "norharman",
     "nornicotine",
+    "Nicotine (9–15%)",
+    "harmala alkaloids (harmine",
+    "harmaline)",
     "β-carbolines",
-    "nicotine",
-    "harmala alkaloids"
+    "Nicotine",
+    "Harmala alkaloids"
   ],
   "effects": [
-    "relaxation",
-    "stimulation",
-    "focus",
-    "digestive support",
-    "visionary",
-    "dissociation"
+    "Intense stimulation",
+    "purging",
+    "altered consciousness",
+    "clarity",
+    "Potent tobacco",
+    "used in Amazonian rituals for purification and divination",
+    "No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.",
+    "nausea",
+    "dizziness",
+    "spiritual visions",
+    "relaxation"
   ],
   "contraindications": [
-    "avoid with cardiac issues",
-    "avoid in pregnancy",
-    "may interact with maois",
-    "avoid with cns stimulants",
-    "avoid with cardiovascular disease",
-    "avoid with hypertension",
-    "avoid with psychiatric conditions"
-  ],
-  "interactions": [
+    "Cardiac issues",
+    "pregnancy",
     "MAOIs",
-    "Stimulants",
-    "Sedatives",
-    "Antipsychotics",
-    "Other nicotinic agonists and mao inhibitors",
-    "May interact dangerously with MAOIs and stimulants",
-    "Avoid combining with other psychoactives"
+    "CNS stimulants",
+    "cardiovascular disease",
+    "pregnancy.",
+    "Cardiovascular disease",
+    "hypertension",
+    "psychiatric conditions",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause nausea, tachycardia, vomiting, dizziness at high doses [1 or 0]. Avoid with cardiac issues; Avoid in pregnancy; May interact with MAOIs; Avoid with CNS stimulants; Avoid with cardiovascular disease; Avoid with hypertension; Avoid with psychiatric conditions; Avoid with cardiac issues, may cause traditional supervision often required, dizziness, hypertension, high (dose-dependent nicotine exposure), estimated 30–50 mg nicotine in adults, 0], high risk of nicotine overdose, very toxic, toxic – high nicotine, high nicotine levels can be toxic, overdose possible, especially in children or non-users, hallucinations, bradycardia, moderate to high, ~50 mg total dose can be fatal or may interact with MAOIs; Avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or MAOIs without medical guidance, nausea, tachycardia, vomiting, dizziness at high doses [1, 0] or may interact with MAOIs.",
+  "safetyNotes": [
+    "Caution advised due to high potency",
+    "traditional supervision often required",
+    "Nausea",
+    "vomiting",
+    "dizziness",
+    "hypertension",
+    "High (dose-dependent nicotine exposure)",
+    "Estimated 30–50 mg nicotine in adults",
+    "nausea",
+    "tachycardia",
+    "dizziness at high doses [1",
+    "0].",
+    "High risk of nicotine overdose",
+    "very toxic.",
+    "Toxic – high nicotine",
+    "No direct toxicity data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.",
+    "High nicotine levels can be toxic",
+    "overdose possible",
+    "especially in children or non-users",
+    "hallucinations",
+    "bradycardia",
+    "Moderate to high",
+    "nicotine LD50 (oral): ~1 mg/kg in humans",
+    "Nicotine ~1 mg/kg oral in humans",
+    "~50 mg total dose can be fatal"
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Nicotiana rustica L.",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Nicotiana%20rustica%20L.&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "PubMed"
     },
     {
-      "title": "PubMed search: Nicotiana rustica L.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Nicotiana+rustica+L.",
-      "note": "Literature index for pharmacology and safety evidence"
+      "title": "Ethnobotany Archives"
     },
     {
-      "title": "PubChem search: Nicotiana rustica L.",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Nicotiana+rustica+L.",
-      "note": "Chemical and bioactivity reference index"
+      "title": "Tobacco Research Reports"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "title": "EMCDDA"
+    },
+    {
+      "title": "ethnobotanical databases"
+    },
+    {
+      "title": "traditional Amazonian texts"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Nicotiana rustica is a medicinal herb traditionally used for intense stimulation and purging.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "A highly potent tobacco species used in South American rituals. Contains much higher nicotine levels than common tobacco and is smoked, snuffed, or brewed in ceremonial settings.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: potent nicotiana rustica tobacco burned in ritual for focus and protection.. Nicotine agonizes nicotinic acetylcholine receptors",
+    "contains β",
+    "carbolines (harmala alkaloids) acting as reversible MAO inhibitors [1",
+    "0",
+    "1",
+    "9].. Potent tobacco",
+    "used in Amazonian rituals for purification and divination. 🇲🇽 latin america. Used in ritual",
+    "dreaming or folk medicine",
+    "No direct dosage data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. No direct region data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
+  ],
   "duration": "No direct duration data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. No direct region data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.",
+  "interactions": [
+    "MAOIs",
+    "stimulants",
+    "sedatives",
+    "antipsychotics",
+    "other nicotinic agonists and mao inhibitors.",
+    "May interact dangerously with MAOIs and stimulants",
+    "avoid combining with other psychoactives"
+  ],
   "legalStatus": "Legal in most countries; regulated as tobacco in some regions",
-  "preparation": "Smoked.",
-  "region": "South america and worldwide cultivation.",
+  "preparation": "No direct preparation data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. No direct region data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.",
+  "region": "No direct region data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication.",
   "therapeuticUses": [
     "Spiritual cleansing",
     "nausea relief",
@@ -73,25 +132,47 @@
     "Ceremonial cleansing",
     "spiritual focus",
     "energy stimulation",
-    "insect repellent"
+    "insect repellent",
+    "traditional support for mild digestive comfort",
+    "traditional stress resilience support"
   ],
   "traditionalUse": "Used in ritual, dreaming or folk medicine",
+  "slug": "nicotiana-rustica",
+  "displayName": "nicotiana rustica",
+  "displayScientificName": "Nicotiana rustica L.",
+  "scientificNormalized": "nicotiana rustica",
   "sideEffects": [
     "nausea",
     "tachycardia",
     "vomiting",
     "dizziness at high doses [1",
-    "0]."
+    "0].",
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
   ],
-  "slug": "nicotiana-rustica",
+  "id": "nicotiana-rustica",
+  "aliases": [
+    "nan",
+    "mapacho",
+    "Nicotiana rustica"
+  ],
+  "slugAliases": [
+    "nan",
+    "mapacho"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
+    "nicotine-up-to-9",
     "harman",
     "norharman",
     "nornicotine",
+    "nicotine-9-15",
+    "harmala-alkaloids-harmine",
+    "harmaline",
     "carbolines",
     "nicotine",
     "harmala-alkaloids"

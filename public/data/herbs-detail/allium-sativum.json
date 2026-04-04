@@ -3,48 +3,59 @@
   "latin": "Allium sativum",
   "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. No direct region data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Organosulfur compounds (including allicin-derived metabolites) modulate platelet aggregation, endothelial nitric oxide signaling, and inflammatory pathways.",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "stimulation",
-    "immune support",
-    "antimicrobial",
+    "Antimicrobial",
+    "hypotensive",
+    "cholesterol-lowering",
     "antioxidant",
-    "cardiovascular"
+    "immune-stimulating effects.",
+    "cholesterol",
+    "lowering",
+    "immune",
+    "stimulating effects."
   ],
   "contraindications": [],
-  "safetyNotes": "Common effects are GI upset and odor; supplemental garlic can increase perioperative bleeding risk. Stop high-dose supplements before surgery unless clinician-directed.",
+  "safetyNotes": [
+    "safe",
+    "GI discomfort",
+    "bad breath",
+    "body odor",
+    "may cause bleeding in high doses (anticoagulant effect)",
+    "No direct toxicity data. Contextual inference: Antimicrobial",
+    "hypotensive",
+    "cholesterol-lowering",
+    "antioxidant",
+    "immune-stimulating effects.. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antimicrobial",
+    "immune-stimulating effects.. none."
+  ],
   "sources": [
     {
-      "title": "Garlic - LiverTox (NCBI Bookshelf)",
-      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548561/",
-      "note": "Clinical safety and hepatotoxicity perspective."
+      "title": "Inferred from scientific name:"
     },
     {
-      "title": "Effects of garlic on cardiovascular disorders: a review (Nutr J. 2006)",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/16545108/",
-      "note": "Mechanistic and clinical cardiovascular evidence."
-    },
-    {
-      "title": "Garlic and drug interactions: focus on saquinavir (Clin Infect Dis. 2002)",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/12173176/",
-      "note": "Documented pharmacokinetic interaction example."
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.",
-  "dosage": "300-900 mg/day extract or 1, 2 cloves",
-  "duration": "Daily use safe, long-term",
-  "interactions": [
-    "May potentiate: May increase bleeding risk when combined with warfarin",
-    "Avoid with: antiplatelet agents",
-    "Caution with: high dose NSAIDs",
-    "May potentiate: Can reduce saquinavir exposure and may alter metabolism/transport of some drugs",
-    "May potentiate: May add to blood pressure lowering effects with antihypertensives"
+  "description": "Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "300",
+    "900 mg",
+    "day extract or 1",
+    "2 cloves"
   ],
+  "duration": "Daily use safe, long-term",
+  "interactions": [],
   "legalStatus": "Widely approved as food and supplement globally (GRAS).",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Cloves consumed raw, cooked, or in capsules; also tinctured or oil extracted",
+  "region": "No direct region data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

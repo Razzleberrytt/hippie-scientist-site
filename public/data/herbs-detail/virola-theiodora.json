@@ -3,58 +3,85 @@
   "latin": "Virola theiodora",
   "class": "Entheogen, Tryptamine-rich snuff",
   "intensity": "Strong",
-  "mechanism": "Used by amazonian tribes as a snuff for spiritual rituals.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.",
   "activeCompounds": [
-    "dmt",
-    "5-meo-dmt",
+    "DMT",
+    "5-MeO-DMT",
     "bufotenine",
     "5",
-    "meo"
+    "MeO",
+    "Bufotenine"
   ],
   "effects": [
-    "psychedelic",
-    "dissociation"
+    "Intense visuals",
+    "spiritual experiences",
+    "ego dissolution",
+    "No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals."
   ],
   "contraindications": [
-    "may interact with ssris",
-    "avoid with potent psychoactive"
+    "Avoid with MAOIs or SSRIs",
+    "potent psychoactive",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
+  "safetyNotes": [
+    "Requires caution",
+    "high potency",
+    "Vomiting",
+    "tremors",
+    "intense emotional states",
+    "High at excessive doses",
+    "Unknown (assumed low due to DMT)",
+    "Toxic – hallucinogenic use only",
+    "No direct toxicity data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals."
+  ],
+  "sources": [
+    {
+      "title": "Ethnobotanical sources"
+    },
+    {
+      "title": "MAPS"
+    },
+    {
+      "title": "Tocris"
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Amazonian tree bark used in powerful psychedelic snuff by shamans",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. No direct region data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals."
+  ],
+  "duration": "No direct duration data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. No direct region data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.",
   "interactions": [
     "MAOIs potentiate effects significantly"
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May interact with SSRIs; Avoid with potent psychoactive; Avoid with potent psychoactive or may interact with SSRIs.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: Virola theiodora",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Virola%20theiodora&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    },
-    {
-      "title": "PubMed search: Virola theiodora",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Virola+theiodora",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: Virola theiodora",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Virola+theiodora",
-      "note": "Chemical and bioactivity reference index"
-    }
-  ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Amazonian tree bark used in powerful psychedelic snuff by shamans.",
-  "dosage": "",
-  "duration": "No direct duration data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. No direct region data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.",
   "legalStatus": "Illegal in some countries (due to DMT)",
-  "preparation": "Smoked.",
-  "region": "Amazon (brazil, venezuela).",
+  "preparation": "No direct preparation data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. No direct region data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.",
+  "region": "No direct region data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.",
   "therapeuticUses": [
     "Shamanic healing",
-    "spiritual ceremonies"
+    "spiritual ceremonies",
+    "traditional support for mild digestive comfort",
+    "traditional stress resilience support"
   ],
   "traditionalUse": "Used by Amazonian tribes as a snuff for spiritual rituals.",
-  "sideEffects": [],
   "slug": "virola-theiodora",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "virola theiodora",
+  "displayScientificName": "Virola theiodora",
+  "scientificNormalized": "virola theiodora",
+  "id": "virola-theiodora",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

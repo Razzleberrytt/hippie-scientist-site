@@ -1,35 +1,59 @@
 {
   "name": "theobroma bicolor",
   "latin": "Theobroma bicolor",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Mild stimulant, antioxidant, nutrient-dense seed. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild stimulant, antioxidant, nutrient-dense seed. No direct region data. Contextual inference: Mild stimulant, antioxidant, nutrient-dense seed. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild stimulant, antioxidant, nutrient-dense seed. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "stimulation",
-    "antioxidant"
+    "Mild stimulant",
+    "antioxidant",
+    "nutrient-dense seed",
+    "nutrient",
+    "dense seed"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "Similar to cacao",
+    "contains caffeine-like stimulants",
+    "No direct toxicity data. Contextual inference: Mild stimulant",
+    "antioxidant",
+    "nutrient-dense seed. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Mild stimulant",
+    "nutrient-dense seed. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause similar to cacao, contains caffeine or like stimulants.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Theobroma bicolor (TaxID 108878)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=108878&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.025Z",
-  "description": "Mild stimulant, antioxidant, nutrient-dense seed.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Mild stimulant, antioxidant, nutrient-dense seed. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Mild stimulant",
+    "antioxidant",
+    "nutrient",
+    "dense seed. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Mild stimulant",
+    "dense seed. No direct region data. Contextual inference: Mild stimulant",
+    "dense seed. none.",
+    "nan."
+  ],
   "duration": "3–6 hours",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "Seeds roasted or fermented similarly to cacao; used in beverages and traditional Central American preparations.",
-  "region": "",
+  "preparation": "Seeds roasted or fermented similarly to cacao; used in beverages and traditional Central American preparations",
+  "region": "No direct region data. Contextual inference: Mild stimulant, antioxidant, nutrient-dense seed. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild stimulant, antioxidant, nutrient-dense seed. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -38,6 +62,10 @@
     "like stimulants"
   ],
   "slug": "theobroma-bicolor",
+  "id": "theobroma-bicolor",
+  "displayName": "theobroma bicolor",
+  "displayScientificName": "Theobroma bicolor",
+  "scientificNormalized": "theobroma bicolor",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

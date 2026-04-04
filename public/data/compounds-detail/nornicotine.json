@@ -1,10 +1,7 @@
 {
   "name": "nornicotine",
-  "category": "general",
-  "description": "nornicotine is a compound reported in nicotiana rustica and nicotiana tabacum. Available references are still early and incomplete.",
   "herbs": [
-    "nicotiana rustica",
-    "nicotiana tabacum"
+    "nan"
   ],
   "effects": [
     "Stimulation",
@@ -28,31 +25,19 @@
     "cardiovascular disease",
     "pregnancy."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: nornicotine (CID 91462)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/91462",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "nornicotine",
-  "summary": "nornicotine is a compound reported in nicotiana rustica and nicotiana tabacum. Available references are still early and incomplete.",
+  "id": "nornicotine",
+  "displayName": "nornicotine",
+  "description": "nornicotine is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "nornicotine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "nicotiana-rustica",
-    "nicotiana-tabacum"
+    "nan"
   ]
 }

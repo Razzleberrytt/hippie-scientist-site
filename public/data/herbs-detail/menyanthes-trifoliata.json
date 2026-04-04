@@ -1,31 +1,49 @@
 {
   "name": "menyanthes trifoliata",
   "latin": "Menyanthes trifoliata",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Bitter tonic, appetite stimulant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, appetite stimulant. No direct region data. Contextual inference: Bitter tonic, appetite stimulant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, appetite stimulant. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "stimulation",
-    "digestive support"
+    "Bitter tonic",
+    "appetite stimulant"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "GI discomfort; Vomiting; Dizziness in excess; Antioxidant effects; Or enzyme inhibition.",
+  "safetyNotes": [
+    "safe",
+    "GI discomfort",
+    "vomiting",
+    "dizziness in excess",
+    "No direct toxicity data. Contextual inference: Bitter tonic",
+    "appetite stimulant. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Bitter tonic",
+    "appetite stimulant. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Menyanthes trifoliata (TaxID 28525)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=28525&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.961Z",
-  "description": "Menyanthes trifoliata is a medicinal herb traditionally used for bitter tonic and appetite stimulant.",
-  "dosage": "250-500 mg/day leaf or root extract",
+  "lastUpdated": "2026-03-21",
+  "description": "Bitter tonic, appetite stimulant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "500 mg",
+    "day leaf or root extract"
+  ],
   "duration": "3–5 hours",
+  "interactions": [],
   "legalStatus": "Legal; folk and European herbal use",
-  "preparation": "",
-  "region": "",
+  "preparation": "Leaves dried and decocted or infused; used as a bitter tonic in traditional European herbalism",
+  "region": "No direct region data. Contextual inference: Bitter tonic, appetite stimulant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, appetite stimulant. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -34,6 +52,10 @@
     "dizziness in excess"
   ],
   "slug": "menyanthes-trifoliata",
+  "id": "menyanthes-trifoliata",
+  "displayName": "menyanthes trifoliata",
+  "displayScientificName": "Menyanthes trifoliata",
+  "scientificNormalized": "menyanthes trifoliata",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

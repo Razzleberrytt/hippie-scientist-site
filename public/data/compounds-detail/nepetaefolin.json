@@ -1,9 +1,7 @@
 {
   "name": "nepetaefolin",
-  "category": "general",
-  "description": "nepetaefolin is a compound reported in klip dagga. Available references are still early and incomplete.",
   "herbs": [
-    "klip dagga"
+    "nan"
   ],
   "effects": [
     "Mild euphoria",
@@ -23,30 +21,19 @@
     "pregnancy",
     "psychiatric disorders."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: nepetaefolin (CID 99893)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/99893",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "nepetaefolin",
-  "summary": "nepetaefolin is a compound reported in klip dagga. Available references are still early and incomplete.",
+  "id": "nepetaefolin",
+  "displayName": "nepetaefolin",
+  "description": "nepetaefolin is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "nepetaefolin is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "klip-dagga"
+    "nan"
   ]
 }

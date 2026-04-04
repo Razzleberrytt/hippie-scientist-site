@@ -1,36 +1,59 @@
 {
   "name": "tragia involucrata",
   "latin": "Tragia involucrata",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, anti-inflammatory, diuretic (ayurvedic use). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, anti-inflammatory, diuretic (Ayurvedic use). No direct region data. Contextual inference: Antimicrobial, anti-inflammatory, diuretic (ayurvedic use). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, anti-inflammatory, diuretic (Ayurvedic use). none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
+    "Antimicrobial",
     "anti-inflammatory",
-    "antimicrobial",
-    "detoxification"
+    "diuretic (Ayurvedic use)",
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "Skin and mucous membrane irritant",
+    "avoid direct contact",
+    "No direct toxicity data. Contextual inference: Antimicrobial",
+    "anti-inflammatory",
+    "diuretic (ayurvedic use). Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antimicrobial",
+    "diuretic (Ayurvedic use). none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause skin and mucous membrane irritant. Avoid direct contact or skin and mucous membrane irritant; Avoid direct contact.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Tragia involucrata (TaxID 1378009)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1378009&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.027Z",
-  "description": "Antimicrobial, anti-inflammatory, diuretic (ayurvedic use).",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Antimicrobial, anti-inflammatory, diuretic (ayurvedic use). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Antimicrobial",
+    "anti",
+    "inflammatory",
+    "diuretic (ayurvedic use). Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antimicrobial",
+    "diuretic (Ayurvedic use). No direct region data. Contextual inference: Antimicrobial",
+    "diuretic (Ayurvedic use). none.",
+    "nan."
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Unregulated",
-  "preparation": "Leaves and roots decocted or infused in Ayurvedic and Siddha systems for skin and anti-inflammatory use.",
-  "region": "",
+  "preparation": "Leaves and roots decocted or infused in Ayurvedic and Siddha systems for skin and anti-inflammatory use",
+  "region": "No direct region data. Contextual inference: Antimicrobial, anti-inflammatory, diuretic (ayurvedic use). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, anti-inflammatory, diuretic (Ayurvedic use). none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -38,6 +61,10 @@
     "avoid direct contact"
   ],
   "slug": "tragia-involucrata",
+  "id": "tragia-involucrata",
+  "displayName": "tragia involucrata",
+  "displayScientificName": "Tragia involucrata",
+  "scientificNormalized": "tragia involucrata",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

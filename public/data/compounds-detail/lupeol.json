@@ -1,7 +1,5 @@
 {
   "name": "lupeol",
-  "category": "general",
-  "description": "lupeol appears in records as a compound reported in aerva lanata, albizia lebbeck, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "aerva lanata",
     "albizia lebbeck",
@@ -25,24 +23,18 @@
     "due to saponins and alkaloids",
     "excessive intake may cause gastrointestinal irritation or interact with medications."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: lupeol (CID 259846)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/259846",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "lastUpdated": "2026-03-21",
   "slug": "lupeol",
+  "id": "lupeol",
+  "displayName": "lupeol",
+  "description": "lupeol appears in records as a compound reported in aerva lanata, albizia lebbeck, and related herbs. Current source coverage is limited and still developing.",
   "summary": "lupeol appears in records as a compound reported in aerva lanata, albizia lebbeck, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

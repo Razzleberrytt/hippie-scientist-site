@@ -1,7 +1,5 @@
 {
   "name": "catechin",
-  "category": "general",
-  "description": "catechin appears in records as a compound reported in agrimonia eupatoria and alchemilla vulgaris. Current source coverage is limited and still developing.",
   "herbs": [
     "agrimonia eupatoria",
     "alchemilla vulgaris"
@@ -25,24 +23,18 @@
     "may interact with blood thinners due to tannin content【859641390196180†L297",
     "L313】."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: catechin (CID 9064)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9064",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "lastUpdated": "2026-03-21",
   "slug": "catechin",
+  "id": "catechin",
+  "displayName": "catechin",
+  "description": "catechin appears in records as a compound reported in agrimonia eupatoria and alchemilla vulgaris. Current source coverage is limited and still developing.",
   "summary": "catechin appears in records as a compound reported in agrimonia eupatoria and alchemilla vulgaris. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

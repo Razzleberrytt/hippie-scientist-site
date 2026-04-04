@@ -1,7 +1,5 @@
 {
   "name": "vasicine",
-  "category": "general",
-  "description": "vasicine is a compound reported in adhatoda vasica and justicia adhatoda. Available references are still early and incomplete.",
   "herbs": [
     "adhatoda vasica",
     "justicia adhatoda"
@@ -17,24 +15,13 @@
     "Not recommended during pregnancy or lactation without medical guidance",
     "Use cautiously in individuals with bleeding disorders or on anticoagulant medications"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: vasicine (CID 667496)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/667496",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "vasicine",
+  "id": "vasicine",
+  "displayName": "vasicine",
+  "description": "vasicine is a compound reported in adhatoda vasica and justicia adhatoda. Available references are still early and incomplete.",
   "summary": "vasicine is a compound reported in adhatoda vasica and justicia adhatoda. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

@@ -1,9 +1,7 @@
 {
   "name": "acetylcholine",
-  "category": "general",
-  "description": "acetylcholine is a compound reported in urtica dioica. Available references are still early and incomplete.",
   "herbs": [
-    "urtica dioica"
+    "nan"
   ],
   "effects": [
     "Mild stimulation",
@@ -17,30 +15,19 @@
     "Pregnancy (caution)",
     "diuretics"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: acetylcholine (CID 187)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/187",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.038Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "acetylcholine",
-  "summary": "acetylcholine is a compound reported in urtica dioica. Available references are still early and incomplete.",
+  "id": "acetylcholine",
+  "displayName": "acetylcholine",
+  "description": "acetylcholine is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "acetylcholine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "urtica-dioica"
+    "nan"
   ]
 }

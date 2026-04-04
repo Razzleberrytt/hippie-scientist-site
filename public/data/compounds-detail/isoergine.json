@@ -1,11 +1,7 @@
 {
   "name": "isoergine",
-  "category": "general",
-  "description": "isoergine appears in records as a compound reported in argyreia nervosa, rivea corymbosa, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
-    "argyreia nervosa",
-    "rivea corymbosa",
-    "turbina corymbosa"
+    "nan"
   ],
   "effects": [
     "Visual hallucinations",
@@ -37,32 +33,19 @@
     "Pregnancy",
     "MAOI use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: isoergine (CID 12309749)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/12309749",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "isoergine",
-  "summary": "isoergine appears in records as a compound reported in argyreia nervosa, rivea corymbosa, and related herbs. Current source coverage is limited and still developing.",
+  "id": "isoergine",
+  "displayName": "isoergine",
+  "description": "isoergine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "isoergine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "argyreia-nervosa",
-    "rivea-corymbosa",
-    "turbina-corymbosa"
+    "nan"
   ]
 }

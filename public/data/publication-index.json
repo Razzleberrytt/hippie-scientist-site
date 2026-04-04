@@ -1,127 +1,4269 @@
 {
-  "generatedAt": "2026-04-02T22:14:29.676Z",
+  "generatedAt": "2026-04-04T00:23:32.592Z",
   "source": "public/data/publication-manifest.json",
   "counts": {
-    "herbs": 16,
-    "compounds": 0,
-    "entities": 16,
-    "herbRoutes": 16,
-    "compoundRoutes": 0,
-    "routes": 16
+    "herbs": 465,
+    "compounds": 378,
+    "entities": 843,
+    "herbRoutes": 465,
+    "compoundRoutes": 378,
+    "routes": 843
   },
   "routes": {
     "herbs": [
-      "/herbs/rivea-corymbosa",
+      "/herbs/erythrina-mulungu",
+      "/herbs/heimia-salicifolia",
+      "/herbs/nymphaea-caerulea",
+      "/herbs/peganum-harmala",
+      "/herbs/urtica-dioica",
+      "/herbs/nicotiana-rustica",
+      "/herbs/desfontainia-spinosa",
+      "/herbs/sceletium-tortuosum",
+      "/herbs/calea-ternifolia",
+      "/herbs/ptychopetalum-olacoides",
+      "/herbs/acorus-calamus",
+      "/herbs/delosperma-bosseranum",
+      "/herbs/mitragyna-javanica",
+      "/herbs/nymphaea-lotus",
+      "/herbs/acmella-oleracea",
+      "/herbs/amanita-muscaria",
+      "/herbs/anadenanthera-peregrina",
       "/herbs/calliandra-anomala",
+      "/herbs/leonotis-nepetifolia",
+      "/herbs/ocimum-sanctum",
+      "/herbs/scutellaria-lateriflora",
+      "/herbs/peppermint",
+      "/herbs/turmeric",
+      "/herbs/valerian-root",
+      "/herbs/withania-somnifera-ashwagandha",
+      "/herbs/calendula-officinalis",
+      "/herbs/datura-ferox",
+      "/herbs/datura-stramonium",
+      "/herbs/sida-cordifolia",
+      "/herbs/theobroma-cacao",
+      "/herbs/virola-calophylla",
+      "/herbs/artemisia-vulgaris",
+      "/herbs/desmodium-gangeticum",
+      "/herbs/pedicularis-densiflora",
+      "/herbs/mentha-piperita",
+      "/herbs/passiflora-incarnata",
+      "/herbs/paullinia-cupana",
+      "/herbs/salvia-officinalis",
+      "/herbs/valeriana-officinalis",
+      "/herbs/heimia-myrtifolia",
+      "/herbs/papaver-somniferum",
+      "/herbs/petiveria-alliacea",
+      "/herbs/tabernanthe-iboga",
+      "/herbs/combretum-micranthum",
+      "/herbs/justicia-pectoralis",
+      "/herbs/nepeta-cataria",
+      "/herbs/nymphaea-rubra",
+      "/herbs/rivea-corymbosa",
+      "/herbs/voacanga-africana",
+      "/herbs/argyreia-nervosa",
+      "/herbs/brugmansia-sanguinea",
+      "/herbs/datura-wrightii",
+      "/herbs/lactuca-virosa",
+      "/herbs/silene-capensis",
+      "/herbs/turnera-diffusa",
+      "/herbs/alchornea-floribunda",
+      "/herbs/allium-sativum",
+      "/herbs/duboisia-hopwoodii",
+      "/herbs/ervatamia-coronaria",
+      "/herbs/leonotis-leonurus",
       "/herbs/tylophora-indica",
+      "/herbs/zornia-latifolia",
       "/herbs/alectra-sessiliflora",
+      "/herbs/hyoscyamus-niger",
       "/herbs/mandrake-root",
+      "/herbs/nelumbo-nucifera",
+      "/herbs/salvia-divinorum",
+      "/herbs/leonurus-sibiricus",
+      "/herbs/sophora-secundiflora",
+      "/herbs/acacia-confusa",
+      "/herbs/alangium-salvifolium",
+      "/herbs/anemarrhena-asphodeloides",
+      "/herbs/boesenbergia-rotunda",
+      "/herbs/brugmansia-suaveolens",
+      "/herbs/camellia-sinensis",
+      "/herbs/coptis-chinensis",
+      "/herbs/derris-elliptica",
+      "/herbs/elaeagnus-angustifolia",
+      "/herbs/entada-rheedii",
+      "/herbs/erythroxylum-coca",
       "/herbs/henbane",
+      "/herbs/humulus-lupulus",
       "/herbs/ipomoea-tricolor-heavenly-blue",
-      "/herbs/mistletoe",
-      "/herbs/anisoptera-thurifera",
       "/herbs/iresine-herbstii",
+      "/herbs/lavandula-angustifolia",
+      "/herbs/linum-usitatissimum",
+      "/herbs/mistletoe",
+      "/herbs/moringa-oleifera",
+      "/herbs/paullinia-yoco",
+      "/herbs/peperomia-pellucida",
+      "/herbs/petasites-hybridus",
+      "/herbs/psychotria-carthagenensis",
+      "/herbs/tabernaemontana-sananho",
+      "/herbs/tulsi",
+      "/herbs/acacia-phlebophylla",
+      "/herbs/aerva-lanata",
+      "/herbs/aesculus-hippocastanum",
+      "/herbs/alchemilla-vulgaris",
+      "/herbs/anisoptera-thurifera",
+      "/herbs/artemisia-gmelinii",
+      "/herbs/artemisia-herba-alba",
+      "/herbs/arundo-donax",
+      "/herbs/asarum-canadense",
+      "/herbs/calotropis-procera",
+      "/herbs/cannabis-ruderalis",
+      "/herbs/clerodendrum-glabrum",
+      "/herbs/convolvulus-pluricaulis",
+      "/herbs/croton-lechleri",
+      "/herbs/dactylorhiza-hatagirea",
+      "/herbs/erythrina-variegata",
       "/herbs/jatropha-podagrica",
+      "/herbs/kaempferia-galanga",
+      "/herbs/lepidium-meyenii",
+      "/herbs/lsd",
+      "/herbs/mescaline",
+      "/herbs/myristica-fragrans",
       "/herbs/pedicularis-groenlandica",
+      "/herbs/picrorhiza-kurroa",
+      "/herbs/psilocybin",
+      "/herbs/rhododendron-tomentosum",
       "/herbs/sceletium-tortuosum-kanna",
+      "/herbs/solanum-nigrum",
+      "/herbs/turbina-corymbosa",
+      "/herbs/vitex-trifolia",
+      "/herbs/zingiber-officinale",
+      "/herbs/acorus-tatarinowii",
+      "/herbs/agrimonia-eupatoria",
+      "/herbs/alnus-rubra",
+      "/herbs/althaea-officinalis",
+      "/herbs/amphipterygium-adstringens",
+      "/herbs/anisomeles-indica",
+      "/herbs/apium-graveolens",
+      "/herbs/arctium-lappa",
+      "/herbs/arnica-montana",
+      "/herbs/bidens-pilosa",
+      "/herbs/borago-officinalis",
+      "/herbs/boswellia-sacra",
+      "/herbs/boswellia-serrata",
+      "/herbs/bryonia-alba",
+      "/herbs/bupleurum-falcatum",
+      "/herbs/cannabis-indica",
+      "/herbs/capparis-spinosa",
+      "/herbs/capraria-biflora",
+      "/herbs/cassia-occidentalis",
+      "/herbs/centella-asiatica",
+      "/herbs/clinopodium-vulgare",
+      "/herbs/commiphora-myrrha",
+      "/herbs/copaifera-officinalis",
+      "/herbs/curcuma-longa",
+      "/herbs/cynodon-dactylon",
+      "/herbs/cyperus-rotundus",
       "/herbs/delosperma-cooperi",
+      "/herbs/diplopterys-cabrerana",
+      "/herbs/dodonaea-viscosa",
+      "/herbs/dracocephalum-moldavica",
+      "/herbs/eclipta-prostrata",
+      "/herbs/elephantopus-mollis",
+      "/herbs/eremophila-longifolia",
+      "/herbs/eryngium-foetidum",
+      "/herbs/eucalyptus-globulus",
+      "/herbs/european-mandrake",
+      "/herbs/ferula-assa-foetida",
+      "/herbs/foeniculum-vulgare",
+      "/herbs/gardenia-jasminoides",
+      "/herbs/glechoma-hederacea",
+      "/herbs/glycyrrhiza-glabra",
+      "/herbs/griffonia-simplicifolia",
+      "/herbs/grindelia-robusta",
+      "/herbs/hamamelis-virginiana",
+      "/herbs/harpagophytum-procumbens",
+      "/herbs/heliotropium-indicum",
+      "/herbs/hibiscus-tiliaceus",
+      "/herbs/ilex-paraguariensis",
+      "/herbs/juniperus-sibirica",
       "/herbs/kra-thum-na-kok",
-      "/herbs/pedicularis-densiflora-indian-warrior"
+      "/herbs/lilium-candidum",
+      "/herbs/lonicera-japonica",
+      "/herbs/matricaria-chamomilla",
+      "/herbs/morinda-citrifolia",
+      "/herbs/muira-puama",
+      "/herbs/nigella-sativa",
+      "/herbs/oenothera-biennis",
+      "/herbs/ononis-spinosa",
+      "/herbs/paullinia-pinnata",
+      "/herbs/pedicularis-densiflora-indian-warrior",
+      "/herbs/phellodendron-amurense",
+      "/herbs/piper-auritum",
+      "/herbs/plantago-major",
+      "/herbs/polygonum-multiflorum",
+      "/herbs/primula-veris",
+      "/herbs/prunella-vulgaris",
+      "/herbs/punica-granatum",
+      "/herbs/rosa-canina",
+      "/herbs/salacia-reticulata",
+      "/herbs/salix-alba",
+      "/herbs/salvia-miltiorrhiza",
+      "/herbs/sambucus-nigra",
+      "/herbs/sceletium-expansum",
+      "/herbs/scoparia-dulcis",
+      "/herbs/scutellaria-baicalensis",
+      "/herbs/selaginella-tamariscina",
+      "/herbs/solidago-virgaurea",
+      "/herbs/stachytarpheta-cayennensis",
+      "/herbs/stephania-tetrandra",
+      "/herbs/tabebuia-impetiginosa",
+      "/herbs/tetradium-ruticarpum",
+      "/herbs/tetrapterys-methystica",
+      "/herbs/thc",
+      "/herbs/theobroma-bicolor",
+      "/herbs/tragia-involucrata",
+      "/herbs/trifolium-pratense",
+      "/herbs/tussilago-farfara",
+      "/herbs/verbascum-thapsus",
+      "/herbs/viola-odorata",
+      "/herbs/withania-somnifera",
+      "/herbs/xanthium-strumarium",
+      "/herbs/yucca-schidigera",
+      "/herbs/zanthoxylum-capense",
+      "/herbs/acacia-maidenii",
+      "/herbs/aconitum-napellus",
+      "/herbs/acorus-gramineus",
+      "/herbs/anacardium-occidentale",
+      "/herbs/areca-catechu",
+      "/herbs/aristolochia-grandiflora",
+      "/herbs/artemisia-judaica",
+      "/herbs/azadirachta-indica",
+      "/herbs/banisteriopsis-caapi",
+      "/herbs/calliandra-portoricensis",
+      "/herbs/cannabis-sativa",
+      "/herbs/cannabis-sativa-african-varieties",
+      "/herbs/cecropia-peltata",
+      "/herbs/chaga-inonotus-obliquus",
+      "/herbs/eupatorium-perfoliatum",
+      "/herbs/fagraea-berteroana",
+      "/herbs/galbulimima-belgraveana",
+      "/herbs/horny-goat-weed",
+      "/herbs/ligusticum-chuanxiong",
+      "/herbs/lophophora-williamsii",
+      "/herbs/macaranga-tanarius",
+      "/herbs/malva-sylvestris",
+      "/herbs/micromelum-minutum",
+      "/herbs/mitragyna-parvifolia",
+      "/herbs/nicotiana-tabacum",
+      "/herbs/origanum-vulgare",
+      "/herbs/pandanus-tectorius",
+      "/herbs/piper-methysticum",
+      "/herbs/rhodiola-rosea",
+      "/herbs/rhynchosia-phaseoloides",
+      "/herbs/ricinus-communis",
+      "/herbs/ruta-chalepensis",
+      "/herbs/sacred-basil",
+      "/herbs/salvia-apiana",
+      "/herbs/sophora-flavescens",
+      "/herbs/symphytum-officinale",
+      "/herbs/tabernaemontana-divaricata",
+      "/herbs/tabernaemontana-undulata",
+      "/herbs/tongkat-ali",
+      "/herbs/trichilia-emetica",
+      "/herbs/virola-sebifera",
+      "/herbs/virola-theiodora",
+      "/herbs/african-dream-root",
+      "/herbs/agastache-foeniculum",
+      "/herbs/albizia-lebbeck",
+      "/herbs/aloe-vera",
+      "/herbs/angelica-archangelica",
+      "/herbs/angelica-sinensis",
+      "/herbs/annona-muricata",
+      "/herbs/aquilegia-vulgaris",
+      "/herbs/aristolochia-argentina",
+      "/herbs/aristolochia-indica",
+      "/herbs/armoracia-rusticana",
+      "/herbs/artemisia-annua",
+      "/herbs/asclepias-tuberosa",
+      "/herbs/asparagus-racemosus",
+      "/herbs/aspidosperma-quebracho-blanco",
+      "/herbs/astragalus-membranaceus",
+      "/herbs/atropa-belladonna",
+      "/herbs/berberis-vulgaris",
+      "/herbs/boerhavia-diffusa",
+      "/herbs/brunfelsia-americana",
+      "/herbs/caesalpinia-bonduc",
+      "/herbs/calea-zacatechichi",
+      "/herbs/capparis-erythrocarpos",
+      "/herbs/capsella-bursa-pastoris",
+      "/herbs/cassia-alata",
+      "/herbs/ceanothus-integerrimus",
+      "/herbs/centaurium-erythraea",
+      "/herbs/cephaelis-ipecacuanha",
+      "/herbs/chelidonium-majus",
+      "/herbs/chimaphila-umbellata",
+      "/herbs/cinnamomum-verum",
+      "/herbs/citrus-aurantium",
+      "/herbs/citrus-limon",
+      "/herbs/cnidium-monnieri",
+      "/herbs/cocculus-hirsutus",
+      "/herbs/coffea-arabica",
+      "/herbs/convallaria-majalis",
+      "/herbs/cordyceps-sinensis",
+      "/herbs/cornus-officinalis",
+      "/herbs/corydalis-cava",
+      "/herbs/cymbopogon-citratus",
+      "/herbs/cynara-scolymus",
+      "/herbs/dendrobium-nobile",
+      "/herbs/desmanthus-illinoensis",
+      "/herbs/dichroa-febrifuga",
+      "/herbs/echinopsis-pachanoi",
+      "/herbs/elaeagnus-umbellata",
+      "/herbs/ephedra-sinica",
+      "/herbs/equisetum-arvense",
+      "/herbs/erigeron-canadensis",
+      "/herbs/erythrina-flabelliformis",
+      "/herbs/erythrina-subumbrans",
+      "/herbs/erythroxylum-novogranatense",
+      "/herbs/ferula-communis",
+      "/herbs/galium-aparine",
+      "/herbs/gentiana-lutea",
+      "/herbs/geranium-robertianum",
+      "/herbs/hedera-helix",
+      "/herbs/heimia",
+      "/herbs/hydrastis-canadensis",
+      "/herbs/ilex-guayusa",
+      "/herbs/inula-helenium",
+      "/herbs/ipomoea-tricolor",
+      "/herbs/iris-germanica",
+      "/herbs/juglans-nigra",
+      "/herbs/juniperus-communis",
+      "/herbs/justicia-secunda",
+      "/herbs/laminaria-digitata",
+      "/herbs/laurus-nobilis",
+      "/herbs/leonurus-cardiaca",
+      "/herbs/leonurus-japonicus",
+      "/herbs/leptospermum-scoparium",
+      "/herbs/lippia-alba",
+      "/herbs/lomatium-dissectum",
+      "/herbs/lycopus-virginicus",
+      "/herbs/malouetia-tamaquarina",
+      "/herbs/melaleuca-alternifolia",
+      "/herbs/melissa-officinalis",
+      "/herbs/mitragyna-speciosa",
+      "/herbs/mitragyna-stipulosa",
+      "/herbs/momordica-charantia",
+      "/herbs/monarda-fistulosa",
+      "/herbs/myroxylon-balsamum",
+      "/herbs/nardostachys-jatamansi",
+      "/herbs/nerium-oleander",
+      "/herbs/panax-ginseng",
+      "/herbs/panax-quinquefolius",
+      "/herbs/pelargonium-sidoides",
+      "/herbs/phalaris-arundinacea",
+      "/herbs/pimenta-racemosa",
+      "/herbs/pimpinella-anisum",
+      "/herbs/poria-cocos",
+      "/herbs/psilocybe-mexicana",
+      "/herbs/psychotria-viridis",
+      "/herbs/psyllium-plantago-ovata",
+      "/herbs/quassia-amara",
+      "/herbs/rauvolfia-serpentina",
+      "/herbs/rauvolfia-vomitoria",
+      "/herbs/rheum-palmatum",
+      "/herbs/rhizophora-mangle",
+      "/herbs/rosmarinus-officinalis",
+      "/herbs/salvia-dorrii",
+      "/herbs/schisandra-chinensis",
+      "/herbs/scopolia-carniolica",
+      "/herbs/smilax-ornata",
+      "/herbs/syzygium-aromaticum",
+      "/herbs/tabernaemontana-africana",
+      "/herbs/tagetes-lucida",
+      "/herbs/tanaecium-nocturnum",
+      "/herbs/taraxacum-officinale",
+      "/herbs/tasmannia-lanceolata",
+      "/herbs/tetrapleura-tetraptera",
+      "/herbs/trichocereus-bridgesii",
+      "/herbs/usnea-barbata",
+      "/herbs/veronicastrum-virginicum",
+      "/herbs/viburnum-opulus",
+      "/herbs/vinca-minor",
+      "/herbs/virola-elongata",
+      "/herbs/vitex-agnus-castus",
+      "/herbs/aconitum-ferox",
+      "/herbs/adenium-obesum",
+      "/herbs/adenostoma-fasciculatum",
+      "/herbs/aletris-farinosa",
+      "/herbs/aquilaria-agallocha",
+      "/herbs/artemisia-glacialis",
+      "/herbs/atractylodes-macrocephala",
+      "/herbs/baptisia-tinctoria",
+      "/herbs/barringtonia-asiatica",
+      "/herbs/boophone-disticha",
+      "/herbs/bursera-graveolens",
+      "/herbs/casimiroa-edulis",
+      "/herbs/catnip",
+      "/herbs/celastrus-paniculatus",
+      "/herbs/clematis-vitalba",
+      "/herbs/codiaeum-variegatum",
+      "/herbs/conium-maculatum",
+      "/herbs/cordyline-fruticosa",
+      "/herbs/corymbia-terminalis",
+      "/herbs/desmodium-adscendens",
+      "/herbs/duboisia-myoporoides",
+      "/herbs/ficus-tinctoria",
+      "/herbs/fucus-vesiculosus",
+      "/herbs/garcinia-cambogia",
+      "/herbs/helinus-integrifolius",
+      "/herbs/linden",
+      "/herbs/lobelia-tupa",
+      "/herbs/lycopodium-clavatum",
+      "/herbs/macropiper-excelsum",
+      "/herbs/menyanthes-trifoliata",
+      "/herbs/nymphaea-nouchali",
+      "/herbs/piptadenia-peregrina",
+      "/herbs/pipturus-albidus",
+      "/herbs/podophyllum-peltatum",
+      "/herbs/prestonia-amazonica",
+      "/herbs/pueraria-mirifica",
+      "/herbs/rhizophora-stylosa",
+      "/herbs/sanguinaria-canadensis",
+      "/herbs/scaevola-taccada",
+      "/herbs/serenoa-repens",
+      "/herbs/solandra-maxima",
+      "/herbs/stephania-cepharantha",
+      "/herbs/sweet-violet",
+      "/herbs/synaptolepis-kirkii",
+      "/herbs/teucrium-chamaedrys",
+      "/herbs/thevetia-peruviana",
+      "/herbs/trichilia-catigua",
+      "/herbs/acorus-calamus-var-angustatus",
+      "/herbs/alyxia-stellata",
+      "/herbs/anadenanthera-colubrina",
+      "/herbs/aniseia-martinicensis",
+      "/herbs/artemisia-abrotanum",
+      "/herbs/artemisia-ludoviciana",
+      "/herbs/artemisia-tilesii",
+      "/herbs/calliandra-haematocephala",
+      "/herbs/delphinium-brunonianum",
+      "/herbs/dysphania-ambrosioides",
+      "/herbs/erythrina-vespertilio",
+      "/herbs/maerua-angolensis",
+      "/herbs/mexican-pepperleaf",
+      "/herbs/pogostemon-cablin",
+      "/herbs/selinum-tenuifolium",
+      "/herbs/senna-alexandrina",
+      "/herbs/silene-undulata",
+      "/herbs/wild-lettuce",
+      "/herbs/alchornea-castaneifolia",
+      "/herbs/artemisia-absinthium",
+      "/herbs/blue-lotus",
+      "/herbs/byrsonima-crassifolia",
+      "/herbs/cissampelos-pareira",
+      "/herbs/combretum-quadrangulare",
+      "/herbs/corydalis-yanhusuo",
+      "/herbs/datura-metel",
+      "/herbs/elsholtzia-ciliata",
+      "/herbs/ficus-religiosa",
+      "/herbs/motherwort",
+      "/herbs/pimenta-dioica",
+      "/herbs/rhododendron-anthopogon",
+      "/herbs/rubus-idaeus",
+      "/herbs/ruta-graveolens",
+      "/herbs/tamarindus-indica",
+      "/herbs/tropaeolum-majus",
+      "/herbs/tynanthus-panurensis",
+      "/herbs/verbena-officinalis",
+      "/herbs/yerba-mate",
+      "/herbs/zanthoxylum-clava-herculis"
     ],
-    "compounds": []
+    "compounds": [
+      "/compounds/flavonoids",
+      "/compounds/alkaloids",
+      "/compounds/tannins",
+      "/compounds/saponins",
+      "/compounds/dmt",
+      "/compounds/nuciferine",
+      "/compounds/atropine",
+      "/compounds/harmaline",
+      "/compounds/hyoscyamine",
+      "/compounds/lyfoline",
+      "/compounds/scopolamine",
+      "/compounds/cineole",
+      "/compounds/cryogenine",
+      "/compounds/lythrine",
+      "/compounds/eugenol",
+      "/compounds/caffeine",
+      "/compounds/aporphine",
+      "/compounds/mesembrine",
+      "/compounds/iridoids",
+      "/compounds/nupharidine",
+      "/compounds/nupharine",
+      "/compounds/sesquiterpenes",
+      "/compounds/sterols",
+      "/compounds/5-meo-dmt",
+      "/compounds/bufotenine",
+      "/compounds/catechins",
+      "/compounds/theobromine",
+      "/compounds/thujone",
+      "/compounds/cryogenine-vertine",
+      "/compounds/harmine",
+      "/compounds/leonurine",
+      "/compounds/tetrahydroharmine",
+      "/compounds/erythravine",
+      "/compounds/erythrinan-alkaloids",
+      "/compounds/erythrinian-alkaloids",
+      "/compounds/erythrinine",
+      "/compounds/hypaphorine",
+      "/compounds/mulunguine",
+      "/compounds/camphor",
+      "/compounds/nesodine",
+      "/compounds/phenolic-acids",
+      "/compounds/essential-oils",
+      "/compounds/asarone",
+      "/compounds/germacranolides",
+      "/compounds/harmalol",
+      "/compounds/isoergine",
+      "/compounds/nornicotine",
+      "/compounds/tetrahydroharmine-beta-carbolines",
+      "/compounds/limonene",
+      "/compounds/linalool",
+      "/compounds/alkaloids-undetermined",
+      "/compounds/alpha-asarone",
+      "/compounds/beta-asarone",
+      "/compounds/desfontainin",
+      "/compounds/desfontainine",
+      "/compounds/glycosides",
+      "/compounds/mesembrenol",
+      "/compounds/mesembrenone",
+      "/compounds/voacamine",
+      "/compounds/acetylcholine",
+      "/compounds/caleicines",
+      "/compounds/calein-a",
+      "/compounds/flavones",
+      "/compounds/histamine",
+      "/compounds/serotonin",
+      "/compounds/terpenes",
+      "/compounds/thymol",
+      "/compounds/triterpenoids",
+      "/compounds/apigenin",
+      "/compounds/beta-carbolines",
+      "/compounds/diterpenoids",
+      "/compounds/harman",
+      "/compounds/nicotine",
+      "/compounds/norharman",
+      "/compounds/harmala-alkaloids-harmine",
+      "/compounds/lysergic-acid-amide-lsa",
+      "/compounds/mesembrine-analogues-suspected",
+      "/compounds/rosmarinic-acid",
+      "/compounds/7-hydroxymitragynine",
+      "/compounds/acorin",
+      "/compounds/desmodin",
+      "/compounds/long-chain-fatty-acids",
+      "/compounds/mitragynine",
+      "/compounds/monoterpenes",
+      "/compounds/muirapuamine",
+      "/compounds/speciogynine",
+      "/compounds/voacangine",
+      "/compounds/bufotenin",
+      "/compounds/ephedrine",
+      "/compounds/fatty-acids",
+      "/compounds/ibotenic-acid",
+      "/compounds/muscimol",
+      "/compounds/nepetaefolin",
+      "/compounds/umbelliferone",
+      "/compounds/volatile-oils",
+      "/compounds/arbutin",
+      "/compounds/alkylamides",
+      "/compounds/baicalin",
+      "/compounds/carvacrol",
+      "/compounds/coumarins",
+      "/compounds/gallic-acid",
+      "/compounds/phenylethylamine",
+      "/compounds/scutellarein",
+      "/compounds/scutellarin",
+      "/compounds/spilanthol",
+      "/compounds/ursolic-acid",
+      "/compounds/wogonin",
+      "/compounds/alkaloids-uncharacterized",
+      "/compounds/flavonoids-vitexin",
+      "/compounds/harman-alkaloids",
+      "/compounds/isovaleric-acid",
+      "/compounds/isovitexin",
+      "/compounds/lactucin",
+      "/compounds/lactucopicrin",
+      "/compounds/maltol",
+      "/compounds/nepetalactone",
+      "/compounds/pterocarpans",
+      "/compounds/theophylline",
+      "/compounds/tryptamines",
+      "/compounds/codeine",
+      "/compounds/kaempferol",
+      "/compounds/morphine",
+      "/compounds/nmt",
+      "/compounds/papaverine",
+      "/compounds/pseudoephedrine",
+      "/compounds/safrole",
+      "/compounds/sesquiterpene-lactones",
+      "/compounds/thebaine",
+      "/compounds/vasicinone",
+      "/compounds/vertine-cryogenine",
+      "/compounds/coronaridine",
+      "/compounds/coumarin",
+      "/compounds/ibogaine-related-alkaloids",
+      "/compounds/menthol",
+      "/compounds/menthone",
+      "/compounds/menthyl-acetate",
+      "/compounds/pulegone",
+      "/compounds/voacristine",
+      "/compounds/caffeine-like-alkaloids",
+      "/compounds/caffeine-like-compounds",
+      "/compounds/damianin",
+      "/compounds/ibogaine",
+      "/compounds/noribogaine",
+      "/compounds/noscapine",
+      "/compounds/pinocembrin",
+      "/compounds/quercetin",
+      "/compounds/sulfur-compounds",
+      "/compounds/triterpenoids-undisclosed-alkaloids",
+      "/compounds/trithiolanes",
+      "/compounds/valerenic-acid",
+      "/compounds/alchorneine",
+      "/compounds/citral",
+      "/compounds/elemicin",
+      "/compounds/ibogamine",
+      "/compounds/marrubiin",
+      "/compounds/myristicin",
+      "/compounds/scopoletin",
+      "/compounds/unverified-cannabinoids",
+      "/compounds/cytisine",
+      "/compounds/cytisine-nicotinic-agonist",
+      "/compounds/harmala-alkaloids",
+      "/compounds/neferine",
+      "/compounds/beta-carbolines-trace",
+      "/compounds/cinnamic-acid-derivatives",
+      "/compounds/ergine",
+      "/compounds/isopetasin",
+      "/compounds/l-theanine",
+      "/compounds/ligans",
+      "/compounds/n-dimethyltryptamine-dmt",
+      "/compounds/n-methyltryptamine",
+      "/compounds/petasin",
+      "/compounds/pyrrolizidine-alkaloids-toxic",
+      "/compounds/farnesol",
+      "/compounds/gramine",
+      "/compounds/lsa-ergine",
+      "/compounds/luteolin",
+      "/compounds/catechin",
+      "/compounds/lupeol",
+      "/compounds/alamarckine",
+      "/compounds/alamaridine",
+      "/compounds/alamarine",
+      "/compounds/alangamide",
+      "/compounds/alangimaridine",
+      "/compounds/alangimarin",
+      "/compounds/alangimarine",
+      "/compounds/alangiside",
+      "/compounds/anabasine",
+      "/compounds/cbd",
+      "/compounds/cbn",
+      "/compounds/cephaeline",
+      "/compounds/deoxytubulosine",
+      "/compounds/emetin",
+      "/compounds/eucalyptol",
+      "/compounds/himandrine",
+      "/compounds/himbacine-alkaloids",
+      "/compounds/iboga-alkaloids",
+      "/compounds/isocephaeline",
+      "/compounds/kavalactones-kavain",
+      "/compounds/methysticin",
+      "/compounds/n-methylcephaeline-alamarckine",
+      "/compounds/p-coumaric-acid",
+      "/compounds/psychotrin",
+      "/compounds/salsoline",
+      "/compounds/tabersonine",
+      "/compounds/thc",
+      "/compounds/venoterpine",
+      "/compounds/yangonin",
+      "/compounds/caffeic-acid",
+      "/compounds/calein-a-and-b",
+      "/compounds/dmt-in-root-bark",
+      "/compounds/ellagitannins",
+      "/compounds/phytosterols",
+      "/compounds/salicylic-acid-derivatives",
+      "/compounds/2-4-5-trimethoxybenzaldehyde",
+      "/compounds/aervine",
+      "/compounds/aervolanine",
+      "/compounds/aervoside",
+      "/compounds/aescin-escin",
+      "/compounds/agrimoniin",
+      "/compounds/apigenin-glycosides",
+      "/compounds/azulene",
+      "/compounds/benzoic-acid",
+      "/compounds/borneol",
+      "/compounds/camphene",
+      "/compounds/chamazulene",
+      "/compounds/cis-methylisoeugenol",
+      "/compounds/corynanthine",
+      "/compounds/ellagic-acid",
+      "/compounds/ervine",
+      "/compounds/ervolanine",
+      "/compounds/ervoside",
+      "/compounds/estragole",
+      "/compounds/indole-alkaloids",
+      "/compounds/isoquercetin",
+      "/compounds/isorhamnetin",
+      "/compounds/kaempferol-glycosides",
+      "/compounds/limonoids",
+      "/compounds/lupeol-acetate",
+      "/compounds/methaervine",
+      "/compounds/methyl-eugenol",
+      "/compounds/methyl-grevillate",
+      "/compounds/methylervine",
+      "/compounds/o-cymene",
+      "/compounds/other-saponins",
+      "/compounds/persinol",
+      "/compounds/persinosides-a",
+      "/compounds/persinosides-b",
+      "/compounds/procyanidin-oligomers",
+      "/compounds/quercetin-derivatives",
+      "/compounds/tannic-acid",
+      "/compounds/terpenoids",
+      "/compounds/tiliroside",
+      "/compounds/trans-methylisoeugenol",
+      "/compounds/yohimbine",
+      "/compounds/calacorene",
+      "/compounds/pinene",
+      "/compounds/terpinene",
+      "/compounds/terpineol",
+      "/compounds/caryophyllene",
+      "/compounds/beta-pinene",
+      "/compounds/sitosteryl-acetate",
+      "/compounds/gamma-terpinene",
+      "/compounds/aconine",
+      "/compounds/aconitine",
+      "/compounds/benzaconine",
+      "/compounds/deoxyaconitine",
+      "/compounds/hypaconitine",
+      "/compounds/indaconitine",
+      "/compounds/jesaconitine",
+      "/compounds/lucidine",
+      "/compounds/mesaconitine",
+      "/compounds/napelline",
+      "/compounds/neoline",
+      "/compounds/parquine",
+      "/compounds/picraconitine",
+      "/compounds/solanine",
+      "/compounds/songoramine",
+      "/compounds/boswellic-acids",
+      "/compounds/budmunchiamines-l1-l6",
+      "/compounds/echinocystic-acid-acacic-acid",
+      "/compounds/elaeagnin",
+      "/compounds/geraldone",
+      "/compounds/isookanin",
+      "/compounds/lebbeckalysin",
+      "/compounds/lebbeckoside-c",
+      "/compounds/lebbeckosides-a-and-b",
+      "/compounds/leucopelargonidin",
+      "/compounds/lignans",
+      "/compounds/melanoxetin",
+      "/compounds/okanine",
+      "/compounds/oleanolic-acid",
+      "/compounds/phenolics",
+      "/compounds/pinitol",
+      "/compounds/prenylated-isoflavonoids",
+      "/compounds/saponins-lebbekanin-a-h",
+      "/compounds/triterpenes",
+      "/compounds/xanthones",
+      "/compounds/7-hydroxybaruol",
+      "/compounds/campesterol",
+      "/compounds/ferulic-acid",
+      "/compounds/geranial",
+      "/compounds/glutinol",
+      "/compounds/hydroquinone",
+      "/compounds/lsa-lysergic-acid-amide",
+      "/compounds/p-hydroxybenzoic-acid",
+      "/compounds/phlorizin",
+      "/compounds/suberosol",
+      "/compounds/syringic-acid",
+      "/compounds/thaliandiol",
+      "/compounds/thalianol",
+      "/compounds/umelliferone",
+      "/compounds/vanillic-acid",
+      "/compounds/astragalin",
+      "/compounds/casimiroin",
+      "/compounds/celastrine",
+      "/compounds/mescaline",
+      "/compounds/paniculatin",
+      "/compounds/triterpene-saponins",
+      "/compounds/violine",
+      "/compounds/zapotin",
+      "/compounds/alpha-bulnesene",
+      "/compounds/ascaridole",
+      "/compounds/beta",
+      "/compounds/bulnesene",
+      "/compounds/cymene",
+      "/compounds/galbulimimine",
+      "/compounds/himbacine",
+      "/compounds/meo",
+      "/compounds/p-cymene",
+      "/compounds/patchoulol",
+      "/compounds/triterpenoid-saponins",
+      "/compounds/methyl-salicylate",
+      "/compounds/alkaloids-nicotine-leucocyanidin",
+      "/compounds/alpha",
+      "/compounds/flavonols",
+      "/compounds/julibroside-c1",
+      "/compounds/lignan-glycosides",
+      "/compounds/myricetin",
+      "/compounds/phenols",
+      "/compounds/polysaccharides-arabinose-rhamnose",
+      "/compounds/quercitrin",
+      "/compounds/steroids",
+      "/compounds/tannins-gallic-acid-ellagic-acid-catechin",
+      "/compounds/vasicine",
+      "/compounds/benzyl-isothiocyanate",
+      "/compounds/catuabine",
+      "/compounds/chlorogenic-acid",
+      "/compounds/cissamine",
+      "/compounds/combretin",
+      "/compounds/combretol",
+      "/compounds/elsholtzia-ketone",
+      "/compounds/fragarine",
+      "/compounds/furanocoumarins",
+      "/compounds/graveoline",
+      "/compounds/huperzine-a",
+      "/compounds/marmelosin",
+      "/compounds/pareirine",
+      "/compounds/pellitorine",
+      "/compounds/perillaldehyde",
+      "/compounds/rutarin",
+      "/compounds/rutin",
+      "/compounds/sanshools",
+      "/compounds/stachydrine",
+      "/compounds/tartaric-acid",
+      "/compounds/tetrahydropalmatine-thp",
+      "/compounds/tynanthin",
+      "/compounds/verbenalin",
+      "/compounds/amorphigenin",
+      "/compounds/anthocyanins",
+      "/compounds/bacosides-a-and-b",
+      "/compounds/boldine",
+      "/compounds/ergoline-alkaloids-trace",
+      "/compounds/ergotamine",
+      "/compounds/gymnemic-acids",
+      "/compounds/linalyl-acetate",
+      "/compounds/sclareol",
+      "/compounds/valeranon",
+      "/compounds/verbascoside"
+    ]
   },
   "entities": {
     "herbs": [
       {
-        "slug": "rivea-corymbosa",
-        "route": "/herbs/rivea-corymbosa"
+        "slug": "erythrina-mulungu",
+        "route": "/herbs/erythrina-mulungu"
+      },
+      {
+        "slug": "heimia-salicifolia",
+        "route": "/herbs/heimia-salicifolia"
+      },
+      {
+        "slug": "nymphaea-caerulea",
+        "route": "/herbs/nymphaea-caerulea"
+      },
+      {
+        "slug": "peganum-harmala",
+        "route": "/herbs/peganum-harmala"
+      },
+      {
+        "slug": "urtica-dioica",
+        "route": "/herbs/urtica-dioica"
+      },
+      {
+        "slug": "nicotiana-rustica",
+        "route": "/herbs/nicotiana-rustica"
+      },
+      {
+        "slug": "desfontainia-spinosa",
+        "route": "/herbs/desfontainia-spinosa"
+      },
+      {
+        "slug": "sceletium-tortuosum",
+        "route": "/herbs/sceletium-tortuosum"
+      },
+      {
+        "slug": "calea-ternifolia",
+        "route": "/herbs/calea-ternifolia"
+      },
+      {
+        "slug": "ptychopetalum-olacoides",
+        "route": "/herbs/ptychopetalum-olacoides"
+      },
+      {
+        "slug": "acorus-calamus",
+        "route": "/herbs/acorus-calamus"
+      },
+      {
+        "slug": "delosperma-bosseranum",
+        "route": "/herbs/delosperma-bosseranum"
+      },
+      {
+        "slug": "mitragyna-javanica",
+        "route": "/herbs/mitragyna-javanica"
+      },
+      {
+        "slug": "nymphaea-lotus",
+        "route": "/herbs/nymphaea-lotus"
+      },
+      {
+        "slug": "acmella-oleracea",
+        "route": "/herbs/acmella-oleracea"
+      },
+      {
+        "slug": "amanita-muscaria",
+        "route": "/herbs/amanita-muscaria"
+      },
+      {
+        "slug": "anadenanthera-peregrina",
+        "route": "/herbs/anadenanthera-peregrina"
       },
       {
         "slug": "calliandra-anomala",
         "route": "/herbs/calliandra-anomala"
       },
       {
+        "slug": "leonotis-nepetifolia",
+        "route": "/herbs/leonotis-nepetifolia"
+      },
+      {
+        "slug": "ocimum-sanctum",
+        "route": "/herbs/ocimum-sanctum"
+      },
+      {
+        "slug": "scutellaria-lateriflora",
+        "route": "/herbs/scutellaria-lateriflora"
+      },
+      {
+        "slug": "peppermint",
+        "route": "/herbs/peppermint"
+      },
+      {
+        "slug": "turmeric",
+        "route": "/herbs/turmeric"
+      },
+      {
+        "slug": "valerian-root",
+        "route": "/herbs/valerian-root"
+      },
+      {
+        "slug": "withania-somnifera-ashwagandha",
+        "route": "/herbs/withania-somnifera-ashwagandha"
+      },
+      {
+        "slug": "calendula-officinalis",
+        "route": "/herbs/calendula-officinalis"
+      },
+      {
+        "slug": "datura-ferox",
+        "route": "/herbs/datura-ferox"
+      },
+      {
+        "slug": "datura-stramonium",
+        "route": "/herbs/datura-stramonium"
+      },
+      {
+        "slug": "sida-cordifolia",
+        "route": "/herbs/sida-cordifolia"
+      },
+      {
+        "slug": "theobroma-cacao",
+        "route": "/herbs/theobroma-cacao"
+      },
+      {
+        "slug": "virola-calophylla",
+        "route": "/herbs/virola-calophylla"
+      },
+      {
+        "slug": "artemisia-vulgaris",
+        "route": "/herbs/artemisia-vulgaris"
+      },
+      {
+        "slug": "desmodium-gangeticum",
+        "route": "/herbs/desmodium-gangeticum"
+      },
+      {
+        "slug": "pedicularis-densiflora",
+        "route": "/herbs/pedicularis-densiflora"
+      },
+      {
+        "slug": "mentha-piperita",
+        "route": "/herbs/mentha-piperita"
+      },
+      {
+        "slug": "passiflora-incarnata",
+        "route": "/herbs/passiflora-incarnata"
+      },
+      {
+        "slug": "paullinia-cupana",
+        "route": "/herbs/paullinia-cupana"
+      },
+      {
+        "slug": "salvia-officinalis",
+        "route": "/herbs/salvia-officinalis"
+      },
+      {
+        "slug": "valeriana-officinalis",
+        "route": "/herbs/valeriana-officinalis"
+      },
+      {
+        "slug": "heimia-myrtifolia",
+        "route": "/herbs/heimia-myrtifolia"
+      },
+      {
+        "slug": "papaver-somniferum",
+        "route": "/herbs/papaver-somniferum"
+      },
+      {
+        "slug": "petiveria-alliacea",
+        "route": "/herbs/petiveria-alliacea"
+      },
+      {
+        "slug": "tabernanthe-iboga",
+        "route": "/herbs/tabernanthe-iboga"
+      },
+      {
+        "slug": "combretum-micranthum",
+        "route": "/herbs/combretum-micranthum"
+      },
+      {
+        "slug": "justicia-pectoralis",
+        "route": "/herbs/justicia-pectoralis"
+      },
+      {
+        "slug": "nepeta-cataria",
+        "route": "/herbs/nepeta-cataria"
+      },
+      {
+        "slug": "nymphaea-rubra",
+        "route": "/herbs/nymphaea-rubra"
+      },
+      {
+        "slug": "rivea-corymbosa",
+        "route": "/herbs/rivea-corymbosa"
+      },
+      {
+        "slug": "voacanga-africana",
+        "route": "/herbs/voacanga-africana"
+      },
+      {
+        "slug": "argyreia-nervosa",
+        "route": "/herbs/argyreia-nervosa"
+      },
+      {
+        "slug": "brugmansia-sanguinea",
+        "route": "/herbs/brugmansia-sanguinea"
+      },
+      {
+        "slug": "datura-wrightii",
+        "route": "/herbs/datura-wrightii"
+      },
+      {
+        "slug": "lactuca-virosa",
+        "route": "/herbs/lactuca-virosa"
+      },
+      {
+        "slug": "silene-capensis",
+        "route": "/herbs/silene-capensis"
+      },
+      {
+        "slug": "turnera-diffusa",
+        "route": "/herbs/turnera-diffusa"
+      },
+      {
+        "slug": "alchornea-floribunda",
+        "route": "/herbs/alchornea-floribunda"
+      },
+      {
+        "slug": "allium-sativum",
+        "route": "/herbs/allium-sativum"
+      },
+      {
+        "slug": "duboisia-hopwoodii",
+        "route": "/herbs/duboisia-hopwoodii"
+      },
+      {
+        "slug": "ervatamia-coronaria",
+        "route": "/herbs/ervatamia-coronaria"
+      },
+      {
+        "slug": "leonotis-leonurus",
+        "route": "/herbs/leonotis-leonurus"
+      },
+      {
         "slug": "tylophora-indica",
         "route": "/herbs/tylophora-indica"
+      },
+      {
+        "slug": "zornia-latifolia",
+        "route": "/herbs/zornia-latifolia"
       },
       {
         "slug": "alectra-sessiliflora",
         "route": "/herbs/alectra-sessiliflora"
       },
       {
+        "slug": "hyoscyamus-niger",
+        "route": "/herbs/hyoscyamus-niger"
+      },
+      {
         "slug": "mandrake-root",
         "route": "/herbs/mandrake-root"
+      },
+      {
+        "slug": "nelumbo-nucifera",
+        "route": "/herbs/nelumbo-nucifera"
+      },
+      {
+        "slug": "salvia-divinorum",
+        "route": "/herbs/salvia-divinorum"
+      },
+      {
+        "slug": "leonurus-sibiricus",
+        "route": "/herbs/leonurus-sibiricus"
+      },
+      {
+        "slug": "sophora-secundiflora",
+        "route": "/herbs/sophora-secundiflora"
+      },
+      {
+        "slug": "acacia-confusa",
+        "route": "/herbs/acacia-confusa"
+      },
+      {
+        "slug": "alangium-salvifolium",
+        "route": "/herbs/alangium-salvifolium"
+      },
+      {
+        "slug": "anemarrhena-asphodeloides",
+        "route": "/herbs/anemarrhena-asphodeloides"
+      },
+      {
+        "slug": "boesenbergia-rotunda",
+        "route": "/herbs/boesenbergia-rotunda"
+      },
+      {
+        "slug": "brugmansia-suaveolens",
+        "route": "/herbs/brugmansia-suaveolens"
+      },
+      {
+        "slug": "camellia-sinensis",
+        "route": "/herbs/camellia-sinensis"
+      },
+      {
+        "slug": "coptis-chinensis",
+        "route": "/herbs/coptis-chinensis"
+      },
+      {
+        "slug": "derris-elliptica",
+        "route": "/herbs/derris-elliptica"
+      },
+      {
+        "slug": "elaeagnus-angustifolia",
+        "route": "/herbs/elaeagnus-angustifolia"
+      },
+      {
+        "slug": "entada-rheedii",
+        "route": "/herbs/entada-rheedii"
+      },
+      {
+        "slug": "erythroxylum-coca",
+        "route": "/herbs/erythroxylum-coca"
       },
       {
         "slug": "henbane",
         "route": "/herbs/henbane"
       },
       {
+        "slug": "humulus-lupulus",
+        "route": "/herbs/humulus-lupulus"
+      },
+      {
         "slug": "ipomoea-tricolor-heavenly-blue",
         "route": "/herbs/ipomoea-tricolor-heavenly-blue"
-      },
-      {
-        "slug": "mistletoe",
-        "route": "/herbs/mistletoe"
-      },
-      {
-        "slug": "anisoptera-thurifera",
-        "route": "/herbs/anisoptera-thurifera"
       },
       {
         "slug": "iresine-herbstii",
         "route": "/herbs/iresine-herbstii"
       },
       {
+        "slug": "lavandula-angustifolia",
+        "route": "/herbs/lavandula-angustifolia"
+      },
+      {
+        "slug": "linum-usitatissimum",
+        "route": "/herbs/linum-usitatissimum"
+      },
+      {
+        "slug": "mistletoe",
+        "route": "/herbs/mistletoe"
+      },
+      {
+        "slug": "moringa-oleifera",
+        "route": "/herbs/moringa-oleifera"
+      },
+      {
+        "slug": "paullinia-yoco",
+        "route": "/herbs/paullinia-yoco"
+      },
+      {
+        "slug": "peperomia-pellucida",
+        "route": "/herbs/peperomia-pellucida"
+      },
+      {
+        "slug": "petasites-hybridus",
+        "route": "/herbs/petasites-hybridus"
+      },
+      {
+        "slug": "psychotria-carthagenensis",
+        "route": "/herbs/psychotria-carthagenensis"
+      },
+      {
+        "slug": "tabernaemontana-sananho",
+        "route": "/herbs/tabernaemontana-sananho"
+      },
+      {
+        "slug": "tulsi",
+        "route": "/herbs/tulsi"
+      },
+      {
+        "slug": "acacia-phlebophylla",
+        "route": "/herbs/acacia-phlebophylla"
+      },
+      {
+        "slug": "aerva-lanata",
+        "route": "/herbs/aerva-lanata"
+      },
+      {
+        "slug": "aesculus-hippocastanum",
+        "route": "/herbs/aesculus-hippocastanum"
+      },
+      {
+        "slug": "alchemilla-vulgaris",
+        "route": "/herbs/alchemilla-vulgaris"
+      },
+      {
+        "slug": "anisoptera-thurifera",
+        "route": "/herbs/anisoptera-thurifera"
+      },
+      {
+        "slug": "artemisia-gmelinii",
+        "route": "/herbs/artemisia-gmelinii"
+      },
+      {
+        "slug": "artemisia-herba-alba",
+        "route": "/herbs/artemisia-herba-alba"
+      },
+      {
+        "slug": "arundo-donax",
+        "route": "/herbs/arundo-donax"
+      },
+      {
+        "slug": "asarum-canadense",
+        "route": "/herbs/asarum-canadense"
+      },
+      {
+        "slug": "calotropis-procera",
+        "route": "/herbs/calotropis-procera"
+      },
+      {
+        "slug": "cannabis-ruderalis",
+        "route": "/herbs/cannabis-ruderalis"
+      },
+      {
+        "slug": "clerodendrum-glabrum",
+        "route": "/herbs/clerodendrum-glabrum"
+      },
+      {
+        "slug": "convolvulus-pluricaulis",
+        "route": "/herbs/convolvulus-pluricaulis"
+      },
+      {
+        "slug": "croton-lechleri",
+        "route": "/herbs/croton-lechleri"
+      },
+      {
+        "slug": "dactylorhiza-hatagirea",
+        "route": "/herbs/dactylorhiza-hatagirea"
+      },
+      {
+        "slug": "erythrina-variegata",
+        "route": "/herbs/erythrina-variegata"
+      },
+      {
         "slug": "jatropha-podagrica",
         "route": "/herbs/jatropha-podagrica"
+      },
+      {
+        "slug": "kaempferia-galanga",
+        "route": "/herbs/kaempferia-galanga"
+      },
+      {
+        "slug": "lepidium-meyenii",
+        "route": "/herbs/lepidium-meyenii"
+      },
+      {
+        "slug": "lsd",
+        "route": "/herbs/lsd"
+      },
+      {
+        "slug": "mescaline",
+        "route": "/herbs/mescaline"
+      },
+      {
+        "slug": "myristica-fragrans",
+        "route": "/herbs/myristica-fragrans"
       },
       {
         "slug": "pedicularis-groenlandica",
         "route": "/herbs/pedicularis-groenlandica"
       },
       {
+        "slug": "picrorhiza-kurroa",
+        "route": "/herbs/picrorhiza-kurroa"
+      },
+      {
+        "slug": "psilocybin",
+        "route": "/herbs/psilocybin"
+      },
+      {
+        "slug": "rhododendron-tomentosum",
+        "route": "/herbs/rhododendron-tomentosum"
+      },
+      {
         "slug": "sceletium-tortuosum-kanna",
         "route": "/herbs/sceletium-tortuosum-kanna"
+      },
+      {
+        "slug": "solanum-nigrum",
+        "route": "/herbs/solanum-nigrum"
+      },
+      {
+        "slug": "turbina-corymbosa",
+        "route": "/herbs/turbina-corymbosa"
+      },
+      {
+        "slug": "vitex-trifolia",
+        "route": "/herbs/vitex-trifolia"
+      },
+      {
+        "slug": "zingiber-officinale",
+        "route": "/herbs/zingiber-officinale"
+      },
+      {
+        "slug": "acorus-tatarinowii",
+        "route": "/herbs/acorus-tatarinowii"
+      },
+      {
+        "slug": "agrimonia-eupatoria",
+        "route": "/herbs/agrimonia-eupatoria"
+      },
+      {
+        "slug": "alnus-rubra",
+        "route": "/herbs/alnus-rubra"
+      },
+      {
+        "slug": "althaea-officinalis",
+        "route": "/herbs/althaea-officinalis"
+      },
+      {
+        "slug": "amphipterygium-adstringens",
+        "route": "/herbs/amphipterygium-adstringens"
+      },
+      {
+        "slug": "anisomeles-indica",
+        "route": "/herbs/anisomeles-indica"
+      },
+      {
+        "slug": "apium-graveolens",
+        "route": "/herbs/apium-graveolens"
+      },
+      {
+        "slug": "arctium-lappa",
+        "route": "/herbs/arctium-lappa"
+      },
+      {
+        "slug": "arnica-montana",
+        "route": "/herbs/arnica-montana"
+      },
+      {
+        "slug": "bidens-pilosa",
+        "route": "/herbs/bidens-pilosa"
+      },
+      {
+        "slug": "borago-officinalis",
+        "route": "/herbs/borago-officinalis"
+      },
+      {
+        "slug": "boswellia-sacra",
+        "route": "/herbs/boswellia-sacra"
+      },
+      {
+        "slug": "boswellia-serrata",
+        "route": "/herbs/boswellia-serrata"
+      },
+      {
+        "slug": "bryonia-alba",
+        "route": "/herbs/bryonia-alba"
+      },
+      {
+        "slug": "bupleurum-falcatum",
+        "route": "/herbs/bupleurum-falcatum"
+      },
+      {
+        "slug": "cannabis-indica",
+        "route": "/herbs/cannabis-indica"
+      },
+      {
+        "slug": "capparis-spinosa",
+        "route": "/herbs/capparis-spinosa"
+      },
+      {
+        "slug": "capraria-biflora",
+        "route": "/herbs/capraria-biflora"
+      },
+      {
+        "slug": "cassia-occidentalis",
+        "route": "/herbs/cassia-occidentalis"
+      },
+      {
+        "slug": "centella-asiatica",
+        "route": "/herbs/centella-asiatica"
+      },
+      {
+        "slug": "clinopodium-vulgare",
+        "route": "/herbs/clinopodium-vulgare"
+      },
+      {
+        "slug": "commiphora-myrrha",
+        "route": "/herbs/commiphora-myrrha"
+      },
+      {
+        "slug": "copaifera-officinalis",
+        "route": "/herbs/copaifera-officinalis"
+      },
+      {
+        "slug": "curcuma-longa",
+        "route": "/herbs/curcuma-longa"
+      },
+      {
+        "slug": "cynodon-dactylon",
+        "route": "/herbs/cynodon-dactylon"
+      },
+      {
+        "slug": "cyperus-rotundus",
+        "route": "/herbs/cyperus-rotundus"
       },
       {
         "slug": "delosperma-cooperi",
         "route": "/herbs/delosperma-cooperi"
       },
       {
+        "slug": "diplopterys-cabrerana",
+        "route": "/herbs/diplopterys-cabrerana"
+      },
+      {
+        "slug": "dodonaea-viscosa",
+        "route": "/herbs/dodonaea-viscosa"
+      },
+      {
+        "slug": "dracocephalum-moldavica",
+        "route": "/herbs/dracocephalum-moldavica"
+      },
+      {
+        "slug": "eclipta-prostrata",
+        "route": "/herbs/eclipta-prostrata"
+      },
+      {
+        "slug": "elephantopus-mollis",
+        "route": "/herbs/elephantopus-mollis"
+      },
+      {
+        "slug": "eremophila-longifolia",
+        "route": "/herbs/eremophila-longifolia"
+      },
+      {
+        "slug": "eryngium-foetidum",
+        "route": "/herbs/eryngium-foetidum"
+      },
+      {
+        "slug": "eucalyptus-globulus",
+        "route": "/herbs/eucalyptus-globulus"
+      },
+      {
+        "slug": "european-mandrake",
+        "route": "/herbs/european-mandrake"
+      },
+      {
+        "slug": "ferula-assa-foetida",
+        "route": "/herbs/ferula-assa-foetida"
+      },
+      {
+        "slug": "foeniculum-vulgare",
+        "route": "/herbs/foeniculum-vulgare"
+      },
+      {
+        "slug": "gardenia-jasminoides",
+        "route": "/herbs/gardenia-jasminoides"
+      },
+      {
+        "slug": "glechoma-hederacea",
+        "route": "/herbs/glechoma-hederacea"
+      },
+      {
+        "slug": "glycyrrhiza-glabra",
+        "route": "/herbs/glycyrrhiza-glabra"
+      },
+      {
+        "slug": "griffonia-simplicifolia",
+        "route": "/herbs/griffonia-simplicifolia"
+      },
+      {
+        "slug": "grindelia-robusta",
+        "route": "/herbs/grindelia-robusta"
+      },
+      {
+        "slug": "hamamelis-virginiana",
+        "route": "/herbs/hamamelis-virginiana"
+      },
+      {
+        "slug": "harpagophytum-procumbens",
+        "route": "/herbs/harpagophytum-procumbens"
+      },
+      {
+        "slug": "heliotropium-indicum",
+        "route": "/herbs/heliotropium-indicum"
+      },
+      {
+        "slug": "hibiscus-tiliaceus",
+        "route": "/herbs/hibiscus-tiliaceus"
+      },
+      {
+        "slug": "ilex-paraguariensis",
+        "route": "/herbs/ilex-paraguariensis"
+      },
+      {
+        "slug": "juniperus-sibirica",
+        "route": "/herbs/juniperus-sibirica"
+      },
+      {
         "slug": "kra-thum-na-kok",
         "route": "/herbs/kra-thum-na-kok"
       },
       {
+        "slug": "lilium-candidum",
+        "route": "/herbs/lilium-candidum"
+      },
+      {
+        "slug": "lonicera-japonica",
+        "route": "/herbs/lonicera-japonica"
+      },
+      {
+        "slug": "matricaria-chamomilla",
+        "route": "/herbs/matricaria-chamomilla"
+      },
+      {
+        "slug": "morinda-citrifolia",
+        "route": "/herbs/morinda-citrifolia"
+      },
+      {
+        "slug": "muira-puama",
+        "route": "/herbs/muira-puama"
+      },
+      {
+        "slug": "nigella-sativa",
+        "route": "/herbs/nigella-sativa"
+      },
+      {
+        "slug": "oenothera-biennis",
+        "route": "/herbs/oenothera-biennis"
+      },
+      {
+        "slug": "ononis-spinosa",
+        "route": "/herbs/ononis-spinosa"
+      },
+      {
+        "slug": "paullinia-pinnata",
+        "route": "/herbs/paullinia-pinnata"
+      },
+      {
         "slug": "pedicularis-densiflora-indian-warrior",
         "route": "/herbs/pedicularis-densiflora-indian-warrior"
+      },
+      {
+        "slug": "phellodendron-amurense",
+        "route": "/herbs/phellodendron-amurense"
+      },
+      {
+        "slug": "piper-auritum",
+        "route": "/herbs/piper-auritum"
+      },
+      {
+        "slug": "plantago-major",
+        "route": "/herbs/plantago-major"
+      },
+      {
+        "slug": "polygonum-multiflorum",
+        "route": "/herbs/polygonum-multiflorum"
+      },
+      {
+        "slug": "primula-veris",
+        "route": "/herbs/primula-veris"
+      },
+      {
+        "slug": "prunella-vulgaris",
+        "route": "/herbs/prunella-vulgaris"
+      },
+      {
+        "slug": "punica-granatum",
+        "route": "/herbs/punica-granatum"
+      },
+      {
+        "slug": "rosa-canina",
+        "route": "/herbs/rosa-canina"
+      },
+      {
+        "slug": "salacia-reticulata",
+        "route": "/herbs/salacia-reticulata"
+      },
+      {
+        "slug": "salix-alba",
+        "route": "/herbs/salix-alba"
+      },
+      {
+        "slug": "salvia-miltiorrhiza",
+        "route": "/herbs/salvia-miltiorrhiza"
+      },
+      {
+        "slug": "sambucus-nigra",
+        "route": "/herbs/sambucus-nigra"
+      },
+      {
+        "slug": "sceletium-expansum",
+        "route": "/herbs/sceletium-expansum"
+      },
+      {
+        "slug": "scoparia-dulcis",
+        "route": "/herbs/scoparia-dulcis"
+      },
+      {
+        "slug": "scutellaria-baicalensis",
+        "route": "/herbs/scutellaria-baicalensis"
+      },
+      {
+        "slug": "selaginella-tamariscina",
+        "route": "/herbs/selaginella-tamariscina"
+      },
+      {
+        "slug": "solidago-virgaurea",
+        "route": "/herbs/solidago-virgaurea"
+      },
+      {
+        "slug": "stachytarpheta-cayennensis",
+        "route": "/herbs/stachytarpheta-cayennensis"
+      },
+      {
+        "slug": "stephania-tetrandra",
+        "route": "/herbs/stephania-tetrandra"
+      },
+      {
+        "slug": "tabebuia-impetiginosa",
+        "route": "/herbs/tabebuia-impetiginosa"
+      },
+      {
+        "slug": "tetradium-ruticarpum",
+        "route": "/herbs/tetradium-ruticarpum"
+      },
+      {
+        "slug": "tetrapterys-methystica",
+        "route": "/herbs/tetrapterys-methystica"
+      },
+      {
+        "slug": "thc",
+        "route": "/herbs/thc"
+      },
+      {
+        "slug": "theobroma-bicolor",
+        "route": "/herbs/theobroma-bicolor"
+      },
+      {
+        "slug": "tragia-involucrata",
+        "route": "/herbs/tragia-involucrata"
+      },
+      {
+        "slug": "trifolium-pratense",
+        "route": "/herbs/trifolium-pratense"
+      },
+      {
+        "slug": "tussilago-farfara",
+        "route": "/herbs/tussilago-farfara"
+      },
+      {
+        "slug": "verbascum-thapsus",
+        "route": "/herbs/verbascum-thapsus"
+      },
+      {
+        "slug": "viola-odorata",
+        "route": "/herbs/viola-odorata"
+      },
+      {
+        "slug": "withania-somnifera",
+        "route": "/herbs/withania-somnifera"
+      },
+      {
+        "slug": "xanthium-strumarium",
+        "route": "/herbs/xanthium-strumarium"
+      },
+      {
+        "slug": "yucca-schidigera",
+        "route": "/herbs/yucca-schidigera"
+      },
+      {
+        "slug": "zanthoxylum-capense",
+        "route": "/herbs/zanthoxylum-capense"
+      },
+      {
+        "slug": "acacia-maidenii",
+        "route": "/herbs/acacia-maidenii"
+      },
+      {
+        "slug": "aconitum-napellus",
+        "route": "/herbs/aconitum-napellus"
+      },
+      {
+        "slug": "acorus-gramineus",
+        "route": "/herbs/acorus-gramineus"
+      },
+      {
+        "slug": "anacardium-occidentale",
+        "route": "/herbs/anacardium-occidentale"
+      },
+      {
+        "slug": "areca-catechu",
+        "route": "/herbs/areca-catechu"
+      },
+      {
+        "slug": "aristolochia-grandiflora",
+        "route": "/herbs/aristolochia-grandiflora"
+      },
+      {
+        "slug": "artemisia-judaica",
+        "route": "/herbs/artemisia-judaica"
+      },
+      {
+        "slug": "azadirachta-indica",
+        "route": "/herbs/azadirachta-indica"
+      },
+      {
+        "slug": "banisteriopsis-caapi",
+        "route": "/herbs/banisteriopsis-caapi"
+      },
+      {
+        "slug": "calliandra-portoricensis",
+        "route": "/herbs/calliandra-portoricensis"
+      },
+      {
+        "slug": "cannabis-sativa",
+        "route": "/herbs/cannabis-sativa"
+      },
+      {
+        "slug": "cannabis-sativa-african-varieties",
+        "route": "/herbs/cannabis-sativa-african-varieties"
+      },
+      {
+        "slug": "cecropia-peltata",
+        "route": "/herbs/cecropia-peltata"
+      },
+      {
+        "slug": "chaga-inonotus-obliquus",
+        "route": "/herbs/chaga-inonotus-obliquus"
+      },
+      {
+        "slug": "eupatorium-perfoliatum",
+        "route": "/herbs/eupatorium-perfoliatum"
+      },
+      {
+        "slug": "fagraea-berteroana",
+        "route": "/herbs/fagraea-berteroana"
+      },
+      {
+        "slug": "galbulimima-belgraveana",
+        "route": "/herbs/galbulimima-belgraveana"
+      },
+      {
+        "slug": "horny-goat-weed",
+        "route": "/herbs/horny-goat-weed"
+      },
+      {
+        "slug": "ligusticum-chuanxiong",
+        "route": "/herbs/ligusticum-chuanxiong"
+      },
+      {
+        "slug": "lophophora-williamsii",
+        "route": "/herbs/lophophora-williamsii"
+      },
+      {
+        "slug": "macaranga-tanarius",
+        "route": "/herbs/macaranga-tanarius"
+      },
+      {
+        "slug": "malva-sylvestris",
+        "route": "/herbs/malva-sylvestris"
+      },
+      {
+        "slug": "micromelum-minutum",
+        "route": "/herbs/micromelum-minutum"
+      },
+      {
+        "slug": "mitragyna-parvifolia",
+        "route": "/herbs/mitragyna-parvifolia"
+      },
+      {
+        "slug": "nicotiana-tabacum",
+        "route": "/herbs/nicotiana-tabacum"
+      },
+      {
+        "slug": "origanum-vulgare",
+        "route": "/herbs/origanum-vulgare"
+      },
+      {
+        "slug": "pandanus-tectorius",
+        "route": "/herbs/pandanus-tectorius"
+      },
+      {
+        "slug": "piper-methysticum",
+        "route": "/herbs/piper-methysticum"
+      },
+      {
+        "slug": "rhodiola-rosea",
+        "route": "/herbs/rhodiola-rosea"
+      },
+      {
+        "slug": "rhynchosia-phaseoloides",
+        "route": "/herbs/rhynchosia-phaseoloides"
+      },
+      {
+        "slug": "ricinus-communis",
+        "route": "/herbs/ricinus-communis"
+      },
+      {
+        "slug": "ruta-chalepensis",
+        "route": "/herbs/ruta-chalepensis"
+      },
+      {
+        "slug": "sacred-basil",
+        "route": "/herbs/sacred-basil"
+      },
+      {
+        "slug": "salvia-apiana",
+        "route": "/herbs/salvia-apiana"
+      },
+      {
+        "slug": "sophora-flavescens",
+        "route": "/herbs/sophora-flavescens"
+      },
+      {
+        "slug": "symphytum-officinale",
+        "route": "/herbs/symphytum-officinale"
+      },
+      {
+        "slug": "tabernaemontana-divaricata",
+        "route": "/herbs/tabernaemontana-divaricata"
+      },
+      {
+        "slug": "tabernaemontana-undulata",
+        "route": "/herbs/tabernaemontana-undulata"
+      },
+      {
+        "slug": "tongkat-ali",
+        "route": "/herbs/tongkat-ali"
+      },
+      {
+        "slug": "trichilia-emetica",
+        "route": "/herbs/trichilia-emetica"
+      },
+      {
+        "slug": "virola-sebifera",
+        "route": "/herbs/virola-sebifera"
+      },
+      {
+        "slug": "virola-theiodora",
+        "route": "/herbs/virola-theiodora"
+      },
+      {
+        "slug": "african-dream-root",
+        "route": "/herbs/african-dream-root"
+      },
+      {
+        "slug": "agastache-foeniculum",
+        "route": "/herbs/agastache-foeniculum"
+      },
+      {
+        "slug": "albizia-lebbeck",
+        "route": "/herbs/albizia-lebbeck"
+      },
+      {
+        "slug": "aloe-vera",
+        "route": "/herbs/aloe-vera"
+      },
+      {
+        "slug": "angelica-archangelica",
+        "route": "/herbs/angelica-archangelica"
+      },
+      {
+        "slug": "angelica-sinensis",
+        "route": "/herbs/angelica-sinensis"
+      },
+      {
+        "slug": "annona-muricata",
+        "route": "/herbs/annona-muricata"
+      },
+      {
+        "slug": "aquilegia-vulgaris",
+        "route": "/herbs/aquilegia-vulgaris"
+      },
+      {
+        "slug": "aristolochia-argentina",
+        "route": "/herbs/aristolochia-argentina"
+      },
+      {
+        "slug": "aristolochia-indica",
+        "route": "/herbs/aristolochia-indica"
+      },
+      {
+        "slug": "armoracia-rusticana",
+        "route": "/herbs/armoracia-rusticana"
+      },
+      {
+        "slug": "artemisia-annua",
+        "route": "/herbs/artemisia-annua"
+      },
+      {
+        "slug": "asclepias-tuberosa",
+        "route": "/herbs/asclepias-tuberosa"
+      },
+      {
+        "slug": "asparagus-racemosus",
+        "route": "/herbs/asparagus-racemosus"
+      },
+      {
+        "slug": "aspidosperma-quebracho-blanco",
+        "route": "/herbs/aspidosperma-quebracho-blanco"
+      },
+      {
+        "slug": "astragalus-membranaceus",
+        "route": "/herbs/astragalus-membranaceus"
+      },
+      {
+        "slug": "atropa-belladonna",
+        "route": "/herbs/atropa-belladonna"
+      },
+      {
+        "slug": "berberis-vulgaris",
+        "route": "/herbs/berberis-vulgaris"
+      },
+      {
+        "slug": "boerhavia-diffusa",
+        "route": "/herbs/boerhavia-diffusa"
+      },
+      {
+        "slug": "brunfelsia-americana",
+        "route": "/herbs/brunfelsia-americana"
+      },
+      {
+        "slug": "caesalpinia-bonduc",
+        "route": "/herbs/caesalpinia-bonduc"
+      },
+      {
+        "slug": "calea-zacatechichi",
+        "route": "/herbs/calea-zacatechichi"
+      },
+      {
+        "slug": "capparis-erythrocarpos",
+        "route": "/herbs/capparis-erythrocarpos"
+      },
+      {
+        "slug": "capsella-bursa-pastoris",
+        "route": "/herbs/capsella-bursa-pastoris"
+      },
+      {
+        "slug": "cassia-alata",
+        "route": "/herbs/cassia-alata"
+      },
+      {
+        "slug": "ceanothus-integerrimus",
+        "route": "/herbs/ceanothus-integerrimus"
+      },
+      {
+        "slug": "centaurium-erythraea",
+        "route": "/herbs/centaurium-erythraea"
+      },
+      {
+        "slug": "cephaelis-ipecacuanha",
+        "route": "/herbs/cephaelis-ipecacuanha"
+      },
+      {
+        "slug": "chelidonium-majus",
+        "route": "/herbs/chelidonium-majus"
+      },
+      {
+        "slug": "chimaphila-umbellata",
+        "route": "/herbs/chimaphila-umbellata"
+      },
+      {
+        "slug": "cinnamomum-verum",
+        "route": "/herbs/cinnamomum-verum"
+      },
+      {
+        "slug": "citrus-aurantium",
+        "route": "/herbs/citrus-aurantium"
+      },
+      {
+        "slug": "citrus-limon",
+        "route": "/herbs/citrus-limon"
+      },
+      {
+        "slug": "cnidium-monnieri",
+        "route": "/herbs/cnidium-monnieri"
+      },
+      {
+        "slug": "cocculus-hirsutus",
+        "route": "/herbs/cocculus-hirsutus"
+      },
+      {
+        "slug": "coffea-arabica",
+        "route": "/herbs/coffea-arabica"
+      },
+      {
+        "slug": "convallaria-majalis",
+        "route": "/herbs/convallaria-majalis"
+      },
+      {
+        "slug": "cordyceps-sinensis",
+        "route": "/herbs/cordyceps-sinensis"
+      },
+      {
+        "slug": "cornus-officinalis",
+        "route": "/herbs/cornus-officinalis"
+      },
+      {
+        "slug": "corydalis-cava",
+        "route": "/herbs/corydalis-cava"
+      },
+      {
+        "slug": "cymbopogon-citratus",
+        "route": "/herbs/cymbopogon-citratus"
+      },
+      {
+        "slug": "cynara-scolymus",
+        "route": "/herbs/cynara-scolymus"
+      },
+      {
+        "slug": "dendrobium-nobile",
+        "route": "/herbs/dendrobium-nobile"
+      },
+      {
+        "slug": "desmanthus-illinoensis",
+        "route": "/herbs/desmanthus-illinoensis"
+      },
+      {
+        "slug": "dichroa-febrifuga",
+        "route": "/herbs/dichroa-febrifuga"
+      },
+      {
+        "slug": "echinopsis-pachanoi",
+        "route": "/herbs/echinopsis-pachanoi"
+      },
+      {
+        "slug": "elaeagnus-umbellata",
+        "route": "/herbs/elaeagnus-umbellata"
+      },
+      {
+        "slug": "ephedra-sinica",
+        "route": "/herbs/ephedra-sinica"
+      },
+      {
+        "slug": "equisetum-arvense",
+        "route": "/herbs/equisetum-arvense"
+      },
+      {
+        "slug": "erigeron-canadensis",
+        "route": "/herbs/erigeron-canadensis"
+      },
+      {
+        "slug": "erythrina-flabelliformis",
+        "route": "/herbs/erythrina-flabelliformis"
+      },
+      {
+        "slug": "erythrina-subumbrans",
+        "route": "/herbs/erythrina-subumbrans"
+      },
+      {
+        "slug": "erythroxylum-novogranatense",
+        "route": "/herbs/erythroxylum-novogranatense"
+      },
+      {
+        "slug": "ferula-communis",
+        "route": "/herbs/ferula-communis"
+      },
+      {
+        "slug": "galium-aparine",
+        "route": "/herbs/galium-aparine"
+      },
+      {
+        "slug": "gentiana-lutea",
+        "route": "/herbs/gentiana-lutea"
+      },
+      {
+        "slug": "geranium-robertianum",
+        "route": "/herbs/geranium-robertianum"
+      },
+      {
+        "slug": "hedera-helix",
+        "route": "/herbs/hedera-helix"
+      },
+      {
+        "slug": "heimia",
+        "route": "/herbs/heimia"
+      },
+      {
+        "slug": "hydrastis-canadensis",
+        "route": "/herbs/hydrastis-canadensis"
+      },
+      {
+        "slug": "ilex-guayusa",
+        "route": "/herbs/ilex-guayusa"
+      },
+      {
+        "slug": "inula-helenium",
+        "route": "/herbs/inula-helenium"
+      },
+      {
+        "slug": "ipomoea-tricolor",
+        "route": "/herbs/ipomoea-tricolor"
+      },
+      {
+        "slug": "iris-germanica",
+        "route": "/herbs/iris-germanica"
+      },
+      {
+        "slug": "juglans-nigra",
+        "route": "/herbs/juglans-nigra"
+      },
+      {
+        "slug": "juniperus-communis",
+        "route": "/herbs/juniperus-communis"
+      },
+      {
+        "slug": "justicia-secunda",
+        "route": "/herbs/justicia-secunda"
+      },
+      {
+        "slug": "laminaria-digitata",
+        "route": "/herbs/laminaria-digitata"
+      },
+      {
+        "slug": "laurus-nobilis",
+        "route": "/herbs/laurus-nobilis"
+      },
+      {
+        "slug": "leonurus-cardiaca",
+        "route": "/herbs/leonurus-cardiaca"
+      },
+      {
+        "slug": "leonurus-japonicus",
+        "route": "/herbs/leonurus-japonicus"
+      },
+      {
+        "slug": "leptospermum-scoparium",
+        "route": "/herbs/leptospermum-scoparium"
+      },
+      {
+        "slug": "lippia-alba",
+        "route": "/herbs/lippia-alba"
+      },
+      {
+        "slug": "lomatium-dissectum",
+        "route": "/herbs/lomatium-dissectum"
+      },
+      {
+        "slug": "lycopus-virginicus",
+        "route": "/herbs/lycopus-virginicus"
+      },
+      {
+        "slug": "malouetia-tamaquarina",
+        "route": "/herbs/malouetia-tamaquarina"
+      },
+      {
+        "slug": "melaleuca-alternifolia",
+        "route": "/herbs/melaleuca-alternifolia"
+      },
+      {
+        "slug": "melissa-officinalis",
+        "route": "/herbs/melissa-officinalis"
+      },
+      {
+        "slug": "mitragyna-speciosa",
+        "route": "/herbs/mitragyna-speciosa"
+      },
+      {
+        "slug": "mitragyna-stipulosa",
+        "route": "/herbs/mitragyna-stipulosa"
+      },
+      {
+        "slug": "momordica-charantia",
+        "route": "/herbs/momordica-charantia"
+      },
+      {
+        "slug": "monarda-fistulosa",
+        "route": "/herbs/monarda-fistulosa"
+      },
+      {
+        "slug": "myroxylon-balsamum",
+        "route": "/herbs/myroxylon-balsamum"
+      },
+      {
+        "slug": "nardostachys-jatamansi",
+        "route": "/herbs/nardostachys-jatamansi"
+      },
+      {
+        "slug": "nerium-oleander",
+        "route": "/herbs/nerium-oleander"
+      },
+      {
+        "slug": "panax-ginseng",
+        "route": "/herbs/panax-ginseng"
+      },
+      {
+        "slug": "panax-quinquefolius",
+        "route": "/herbs/panax-quinquefolius"
+      },
+      {
+        "slug": "pelargonium-sidoides",
+        "route": "/herbs/pelargonium-sidoides"
+      },
+      {
+        "slug": "phalaris-arundinacea",
+        "route": "/herbs/phalaris-arundinacea"
+      },
+      {
+        "slug": "pimenta-racemosa",
+        "route": "/herbs/pimenta-racemosa"
+      },
+      {
+        "slug": "pimpinella-anisum",
+        "route": "/herbs/pimpinella-anisum"
+      },
+      {
+        "slug": "poria-cocos",
+        "route": "/herbs/poria-cocos"
+      },
+      {
+        "slug": "psilocybe-mexicana",
+        "route": "/herbs/psilocybe-mexicana"
+      },
+      {
+        "slug": "psychotria-viridis",
+        "route": "/herbs/psychotria-viridis"
+      },
+      {
+        "slug": "psyllium-plantago-ovata",
+        "route": "/herbs/psyllium-plantago-ovata"
+      },
+      {
+        "slug": "quassia-amara",
+        "route": "/herbs/quassia-amara"
+      },
+      {
+        "slug": "rauvolfia-serpentina",
+        "route": "/herbs/rauvolfia-serpentina"
+      },
+      {
+        "slug": "rauvolfia-vomitoria",
+        "route": "/herbs/rauvolfia-vomitoria"
+      },
+      {
+        "slug": "rheum-palmatum",
+        "route": "/herbs/rheum-palmatum"
+      },
+      {
+        "slug": "rhizophora-mangle",
+        "route": "/herbs/rhizophora-mangle"
+      },
+      {
+        "slug": "rosmarinus-officinalis",
+        "route": "/herbs/rosmarinus-officinalis"
+      },
+      {
+        "slug": "salvia-dorrii",
+        "route": "/herbs/salvia-dorrii"
+      },
+      {
+        "slug": "schisandra-chinensis",
+        "route": "/herbs/schisandra-chinensis"
+      },
+      {
+        "slug": "scopolia-carniolica",
+        "route": "/herbs/scopolia-carniolica"
+      },
+      {
+        "slug": "smilax-ornata",
+        "route": "/herbs/smilax-ornata"
+      },
+      {
+        "slug": "syzygium-aromaticum",
+        "route": "/herbs/syzygium-aromaticum"
+      },
+      {
+        "slug": "tabernaemontana-africana",
+        "route": "/herbs/tabernaemontana-africana"
+      },
+      {
+        "slug": "tagetes-lucida",
+        "route": "/herbs/tagetes-lucida"
+      },
+      {
+        "slug": "tanaecium-nocturnum",
+        "route": "/herbs/tanaecium-nocturnum"
+      },
+      {
+        "slug": "taraxacum-officinale",
+        "route": "/herbs/taraxacum-officinale"
+      },
+      {
+        "slug": "tasmannia-lanceolata",
+        "route": "/herbs/tasmannia-lanceolata"
+      },
+      {
+        "slug": "tetrapleura-tetraptera",
+        "route": "/herbs/tetrapleura-tetraptera"
+      },
+      {
+        "slug": "trichocereus-bridgesii",
+        "route": "/herbs/trichocereus-bridgesii"
+      },
+      {
+        "slug": "usnea-barbata",
+        "route": "/herbs/usnea-barbata"
+      },
+      {
+        "slug": "veronicastrum-virginicum",
+        "route": "/herbs/veronicastrum-virginicum"
+      },
+      {
+        "slug": "viburnum-opulus",
+        "route": "/herbs/viburnum-opulus"
+      },
+      {
+        "slug": "vinca-minor",
+        "route": "/herbs/vinca-minor"
+      },
+      {
+        "slug": "virola-elongata",
+        "route": "/herbs/virola-elongata"
+      },
+      {
+        "slug": "vitex-agnus-castus",
+        "route": "/herbs/vitex-agnus-castus"
+      },
+      {
+        "slug": "aconitum-ferox",
+        "route": "/herbs/aconitum-ferox"
+      },
+      {
+        "slug": "adenium-obesum",
+        "route": "/herbs/adenium-obesum"
+      },
+      {
+        "slug": "adenostoma-fasciculatum",
+        "route": "/herbs/adenostoma-fasciculatum"
+      },
+      {
+        "slug": "aletris-farinosa",
+        "route": "/herbs/aletris-farinosa"
+      },
+      {
+        "slug": "aquilaria-agallocha",
+        "route": "/herbs/aquilaria-agallocha"
+      },
+      {
+        "slug": "artemisia-glacialis",
+        "route": "/herbs/artemisia-glacialis"
+      },
+      {
+        "slug": "atractylodes-macrocephala",
+        "route": "/herbs/atractylodes-macrocephala"
+      },
+      {
+        "slug": "baptisia-tinctoria",
+        "route": "/herbs/baptisia-tinctoria"
+      },
+      {
+        "slug": "barringtonia-asiatica",
+        "route": "/herbs/barringtonia-asiatica"
+      },
+      {
+        "slug": "boophone-disticha",
+        "route": "/herbs/boophone-disticha"
+      },
+      {
+        "slug": "bursera-graveolens",
+        "route": "/herbs/bursera-graveolens"
+      },
+      {
+        "slug": "casimiroa-edulis",
+        "route": "/herbs/casimiroa-edulis"
+      },
+      {
+        "slug": "catnip",
+        "route": "/herbs/catnip"
+      },
+      {
+        "slug": "celastrus-paniculatus",
+        "route": "/herbs/celastrus-paniculatus"
+      },
+      {
+        "slug": "clematis-vitalba",
+        "route": "/herbs/clematis-vitalba"
+      },
+      {
+        "slug": "codiaeum-variegatum",
+        "route": "/herbs/codiaeum-variegatum"
+      },
+      {
+        "slug": "conium-maculatum",
+        "route": "/herbs/conium-maculatum"
+      },
+      {
+        "slug": "cordyline-fruticosa",
+        "route": "/herbs/cordyline-fruticosa"
+      },
+      {
+        "slug": "corymbia-terminalis",
+        "route": "/herbs/corymbia-terminalis"
+      },
+      {
+        "slug": "desmodium-adscendens",
+        "route": "/herbs/desmodium-adscendens"
+      },
+      {
+        "slug": "duboisia-myoporoides",
+        "route": "/herbs/duboisia-myoporoides"
+      },
+      {
+        "slug": "ficus-tinctoria",
+        "route": "/herbs/ficus-tinctoria"
+      },
+      {
+        "slug": "fucus-vesiculosus",
+        "route": "/herbs/fucus-vesiculosus"
+      },
+      {
+        "slug": "garcinia-cambogia",
+        "route": "/herbs/garcinia-cambogia"
+      },
+      {
+        "slug": "helinus-integrifolius",
+        "route": "/herbs/helinus-integrifolius"
+      },
+      {
+        "slug": "linden",
+        "route": "/herbs/linden"
+      },
+      {
+        "slug": "lobelia-tupa",
+        "route": "/herbs/lobelia-tupa"
+      },
+      {
+        "slug": "lycopodium-clavatum",
+        "route": "/herbs/lycopodium-clavatum"
+      },
+      {
+        "slug": "macropiper-excelsum",
+        "route": "/herbs/macropiper-excelsum"
+      },
+      {
+        "slug": "menyanthes-trifoliata",
+        "route": "/herbs/menyanthes-trifoliata"
+      },
+      {
+        "slug": "nymphaea-nouchali",
+        "route": "/herbs/nymphaea-nouchali"
+      },
+      {
+        "slug": "piptadenia-peregrina",
+        "route": "/herbs/piptadenia-peregrina"
+      },
+      {
+        "slug": "pipturus-albidus",
+        "route": "/herbs/pipturus-albidus"
+      },
+      {
+        "slug": "podophyllum-peltatum",
+        "route": "/herbs/podophyllum-peltatum"
+      },
+      {
+        "slug": "prestonia-amazonica",
+        "route": "/herbs/prestonia-amazonica"
+      },
+      {
+        "slug": "pueraria-mirifica",
+        "route": "/herbs/pueraria-mirifica"
+      },
+      {
+        "slug": "rhizophora-stylosa",
+        "route": "/herbs/rhizophora-stylosa"
+      },
+      {
+        "slug": "sanguinaria-canadensis",
+        "route": "/herbs/sanguinaria-canadensis"
+      },
+      {
+        "slug": "scaevola-taccada",
+        "route": "/herbs/scaevola-taccada"
+      },
+      {
+        "slug": "serenoa-repens",
+        "route": "/herbs/serenoa-repens"
+      },
+      {
+        "slug": "solandra-maxima",
+        "route": "/herbs/solandra-maxima"
+      },
+      {
+        "slug": "stephania-cepharantha",
+        "route": "/herbs/stephania-cepharantha"
+      },
+      {
+        "slug": "sweet-violet",
+        "route": "/herbs/sweet-violet"
+      },
+      {
+        "slug": "synaptolepis-kirkii",
+        "route": "/herbs/synaptolepis-kirkii"
+      },
+      {
+        "slug": "teucrium-chamaedrys",
+        "route": "/herbs/teucrium-chamaedrys"
+      },
+      {
+        "slug": "thevetia-peruviana",
+        "route": "/herbs/thevetia-peruviana"
+      },
+      {
+        "slug": "trichilia-catigua",
+        "route": "/herbs/trichilia-catigua"
+      },
+      {
+        "slug": "acorus-calamus-var-angustatus",
+        "route": "/herbs/acorus-calamus-var-angustatus"
+      },
+      {
+        "slug": "alyxia-stellata",
+        "route": "/herbs/alyxia-stellata"
+      },
+      {
+        "slug": "anadenanthera-colubrina",
+        "route": "/herbs/anadenanthera-colubrina"
+      },
+      {
+        "slug": "aniseia-martinicensis",
+        "route": "/herbs/aniseia-martinicensis"
+      },
+      {
+        "slug": "artemisia-abrotanum",
+        "route": "/herbs/artemisia-abrotanum"
+      },
+      {
+        "slug": "artemisia-ludoviciana",
+        "route": "/herbs/artemisia-ludoviciana"
+      },
+      {
+        "slug": "artemisia-tilesii",
+        "route": "/herbs/artemisia-tilesii"
+      },
+      {
+        "slug": "calliandra-haematocephala",
+        "route": "/herbs/calliandra-haematocephala"
+      },
+      {
+        "slug": "delphinium-brunonianum",
+        "route": "/herbs/delphinium-brunonianum"
+      },
+      {
+        "slug": "dysphania-ambrosioides",
+        "route": "/herbs/dysphania-ambrosioides"
+      },
+      {
+        "slug": "erythrina-vespertilio",
+        "route": "/herbs/erythrina-vespertilio"
+      },
+      {
+        "slug": "maerua-angolensis",
+        "route": "/herbs/maerua-angolensis"
+      },
+      {
+        "slug": "mexican-pepperleaf",
+        "route": "/herbs/mexican-pepperleaf"
+      },
+      {
+        "slug": "pogostemon-cablin",
+        "route": "/herbs/pogostemon-cablin"
+      },
+      {
+        "slug": "selinum-tenuifolium",
+        "route": "/herbs/selinum-tenuifolium"
+      },
+      {
+        "slug": "senna-alexandrina",
+        "route": "/herbs/senna-alexandrina"
+      },
+      {
+        "slug": "silene-undulata",
+        "route": "/herbs/silene-undulata"
+      },
+      {
+        "slug": "wild-lettuce",
+        "route": "/herbs/wild-lettuce"
+      },
+      {
+        "slug": "alchornea-castaneifolia",
+        "route": "/herbs/alchornea-castaneifolia"
+      },
+      {
+        "slug": "artemisia-absinthium",
+        "route": "/herbs/artemisia-absinthium"
+      },
+      {
+        "slug": "blue-lotus",
+        "route": "/herbs/blue-lotus"
+      },
+      {
+        "slug": "byrsonima-crassifolia",
+        "route": "/herbs/byrsonima-crassifolia"
+      },
+      {
+        "slug": "cissampelos-pareira",
+        "route": "/herbs/cissampelos-pareira"
+      },
+      {
+        "slug": "combretum-quadrangulare",
+        "route": "/herbs/combretum-quadrangulare"
+      },
+      {
+        "slug": "corydalis-yanhusuo",
+        "route": "/herbs/corydalis-yanhusuo"
+      },
+      {
+        "slug": "datura-metel",
+        "route": "/herbs/datura-metel"
+      },
+      {
+        "slug": "elsholtzia-ciliata",
+        "route": "/herbs/elsholtzia-ciliata"
+      },
+      {
+        "slug": "ficus-religiosa",
+        "route": "/herbs/ficus-religiosa"
+      },
+      {
+        "slug": "motherwort",
+        "route": "/herbs/motherwort"
+      },
+      {
+        "slug": "pimenta-dioica",
+        "route": "/herbs/pimenta-dioica"
+      },
+      {
+        "slug": "rhododendron-anthopogon",
+        "route": "/herbs/rhododendron-anthopogon"
+      },
+      {
+        "slug": "rubus-idaeus",
+        "route": "/herbs/rubus-idaeus"
+      },
+      {
+        "slug": "ruta-graveolens",
+        "route": "/herbs/ruta-graveolens"
+      },
+      {
+        "slug": "tamarindus-indica",
+        "route": "/herbs/tamarindus-indica"
+      },
+      {
+        "slug": "tropaeolum-majus",
+        "route": "/herbs/tropaeolum-majus"
+      },
+      {
+        "slug": "tynanthus-panurensis",
+        "route": "/herbs/tynanthus-panurensis"
+      },
+      {
+        "slug": "verbena-officinalis",
+        "route": "/herbs/verbena-officinalis"
+      },
+      {
+        "slug": "yerba-mate",
+        "route": "/herbs/yerba-mate"
+      },
+      {
+        "slug": "zanthoxylum-clava-herculis",
+        "route": "/herbs/zanthoxylum-clava-herculis"
       }
     ],
-    "compounds": []
+    "compounds": [
+      {
+        "slug": "flavonoids",
+        "route": "/compounds/flavonoids"
+      },
+      {
+        "slug": "alkaloids",
+        "route": "/compounds/alkaloids"
+      },
+      {
+        "slug": "tannins",
+        "route": "/compounds/tannins"
+      },
+      {
+        "slug": "saponins",
+        "route": "/compounds/saponins"
+      },
+      {
+        "slug": "dmt",
+        "route": "/compounds/dmt"
+      },
+      {
+        "slug": "nuciferine",
+        "route": "/compounds/nuciferine"
+      },
+      {
+        "slug": "atropine",
+        "route": "/compounds/atropine"
+      },
+      {
+        "slug": "harmaline",
+        "route": "/compounds/harmaline"
+      },
+      {
+        "slug": "hyoscyamine",
+        "route": "/compounds/hyoscyamine"
+      },
+      {
+        "slug": "lyfoline",
+        "route": "/compounds/lyfoline"
+      },
+      {
+        "slug": "scopolamine",
+        "route": "/compounds/scopolamine"
+      },
+      {
+        "slug": "cineole",
+        "route": "/compounds/cineole"
+      },
+      {
+        "slug": "cryogenine",
+        "route": "/compounds/cryogenine"
+      },
+      {
+        "slug": "lythrine",
+        "route": "/compounds/lythrine"
+      },
+      {
+        "slug": "eugenol",
+        "route": "/compounds/eugenol"
+      },
+      {
+        "slug": "caffeine",
+        "route": "/compounds/caffeine"
+      },
+      {
+        "slug": "aporphine",
+        "route": "/compounds/aporphine"
+      },
+      {
+        "slug": "mesembrine",
+        "route": "/compounds/mesembrine"
+      },
+      {
+        "slug": "iridoids",
+        "route": "/compounds/iridoids"
+      },
+      {
+        "slug": "nupharidine",
+        "route": "/compounds/nupharidine"
+      },
+      {
+        "slug": "nupharine",
+        "route": "/compounds/nupharine"
+      },
+      {
+        "slug": "sesquiterpenes",
+        "route": "/compounds/sesquiterpenes"
+      },
+      {
+        "slug": "sterols",
+        "route": "/compounds/sterols"
+      },
+      {
+        "slug": "5-meo-dmt",
+        "route": "/compounds/5-meo-dmt"
+      },
+      {
+        "slug": "bufotenine",
+        "route": "/compounds/bufotenine"
+      },
+      {
+        "slug": "catechins",
+        "route": "/compounds/catechins"
+      },
+      {
+        "slug": "theobromine",
+        "route": "/compounds/theobromine"
+      },
+      {
+        "slug": "thujone",
+        "route": "/compounds/thujone"
+      },
+      {
+        "slug": "cryogenine-vertine",
+        "route": "/compounds/cryogenine-vertine"
+      },
+      {
+        "slug": "harmine",
+        "route": "/compounds/harmine"
+      },
+      {
+        "slug": "leonurine",
+        "route": "/compounds/leonurine"
+      },
+      {
+        "slug": "tetrahydroharmine",
+        "route": "/compounds/tetrahydroharmine"
+      },
+      {
+        "slug": "erythravine",
+        "route": "/compounds/erythravine"
+      },
+      {
+        "slug": "erythrinan-alkaloids",
+        "route": "/compounds/erythrinan-alkaloids"
+      },
+      {
+        "slug": "erythrinian-alkaloids",
+        "route": "/compounds/erythrinian-alkaloids"
+      },
+      {
+        "slug": "erythrinine",
+        "route": "/compounds/erythrinine"
+      },
+      {
+        "slug": "hypaphorine",
+        "route": "/compounds/hypaphorine"
+      },
+      {
+        "slug": "mulunguine",
+        "route": "/compounds/mulunguine"
+      },
+      {
+        "slug": "camphor",
+        "route": "/compounds/camphor"
+      },
+      {
+        "slug": "nesodine",
+        "route": "/compounds/nesodine"
+      },
+      {
+        "slug": "phenolic-acids",
+        "route": "/compounds/phenolic-acids"
+      },
+      {
+        "slug": "essential-oils",
+        "route": "/compounds/essential-oils"
+      },
+      {
+        "slug": "asarone",
+        "route": "/compounds/asarone"
+      },
+      {
+        "slug": "germacranolides",
+        "route": "/compounds/germacranolides"
+      },
+      {
+        "slug": "harmalol",
+        "route": "/compounds/harmalol"
+      },
+      {
+        "slug": "isoergine",
+        "route": "/compounds/isoergine"
+      },
+      {
+        "slug": "nornicotine",
+        "route": "/compounds/nornicotine"
+      },
+      {
+        "slug": "tetrahydroharmine-beta-carbolines",
+        "route": "/compounds/tetrahydroharmine-beta-carbolines"
+      },
+      {
+        "slug": "limonene",
+        "route": "/compounds/limonene"
+      },
+      {
+        "slug": "linalool",
+        "route": "/compounds/linalool"
+      },
+      {
+        "slug": "alkaloids-undetermined",
+        "route": "/compounds/alkaloids-undetermined"
+      },
+      {
+        "slug": "alpha-asarone",
+        "route": "/compounds/alpha-asarone"
+      },
+      {
+        "slug": "beta-asarone",
+        "route": "/compounds/beta-asarone"
+      },
+      {
+        "slug": "desfontainin",
+        "route": "/compounds/desfontainin"
+      },
+      {
+        "slug": "desfontainine",
+        "route": "/compounds/desfontainine"
+      },
+      {
+        "slug": "glycosides",
+        "route": "/compounds/glycosides"
+      },
+      {
+        "slug": "mesembrenol",
+        "route": "/compounds/mesembrenol"
+      },
+      {
+        "slug": "mesembrenone",
+        "route": "/compounds/mesembrenone"
+      },
+      {
+        "slug": "voacamine",
+        "route": "/compounds/voacamine"
+      },
+      {
+        "slug": "acetylcholine",
+        "route": "/compounds/acetylcholine"
+      },
+      {
+        "slug": "caleicines",
+        "route": "/compounds/caleicines"
+      },
+      {
+        "slug": "calein-a",
+        "route": "/compounds/calein-a"
+      },
+      {
+        "slug": "flavones",
+        "route": "/compounds/flavones"
+      },
+      {
+        "slug": "histamine",
+        "route": "/compounds/histamine"
+      },
+      {
+        "slug": "serotonin",
+        "route": "/compounds/serotonin"
+      },
+      {
+        "slug": "terpenes",
+        "route": "/compounds/terpenes"
+      },
+      {
+        "slug": "thymol",
+        "route": "/compounds/thymol"
+      },
+      {
+        "slug": "triterpenoids",
+        "route": "/compounds/triterpenoids"
+      },
+      {
+        "slug": "apigenin",
+        "route": "/compounds/apigenin"
+      },
+      {
+        "slug": "beta-carbolines",
+        "route": "/compounds/beta-carbolines"
+      },
+      {
+        "slug": "diterpenoids",
+        "route": "/compounds/diterpenoids"
+      },
+      {
+        "slug": "harman",
+        "route": "/compounds/harman"
+      },
+      {
+        "slug": "nicotine",
+        "route": "/compounds/nicotine"
+      },
+      {
+        "slug": "norharman",
+        "route": "/compounds/norharman"
+      },
+      {
+        "slug": "harmala-alkaloids-harmine",
+        "route": "/compounds/harmala-alkaloids-harmine"
+      },
+      {
+        "slug": "lysergic-acid-amide-lsa",
+        "route": "/compounds/lysergic-acid-amide-lsa"
+      },
+      {
+        "slug": "mesembrine-analogues-suspected",
+        "route": "/compounds/mesembrine-analogues-suspected"
+      },
+      {
+        "slug": "rosmarinic-acid",
+        "route": "/compounds/rosmarinic-acid"
+      },
+      {
+        "slug": "7-hydroxymitragynine",
+        "route": "/compounds/7-hydroxymitragynine"
+      },
+      {
+        "slug": "acorin",
+        "route": "/compounds/acorin"
+      },
+      {
+        "slug": "desmodin",
+        "route": "/compounds/desmodin"
+      },
+      {
+        "slug": "long-chain-fatty-acids",
+        "route": "/compounds/long-chain-fatty-acids"
+      },
+      {
+        "slug": "mitragynine",
+        "route": "/compounds/mitragynine"
+      },
+      {
+        "slug": "monoterpenes",
+        "route": "/compounds/monoterpenes"
+      },
+      {
+        "slug": "muirapuamine",
+        "route": "/compounds/muirapuamine"
+      },
+      {
+        "slug": "speciogynine",
+        "route": "/compounds/speciogynine"
+      },
+      {
+        "slug": "voacangine",
+        "route": "/compounds/voacangine"
+      },
+      {
+        "slug": "bufotenin",
+        "route": "/compounds/bufotenin"
+      },
+      {
+        "slug": "ephedrine",
+        "route": "/compounds/ephedrine"
+      },
+      {
+        "slug": "fatty-acids",
+        "route": "/compounds/fatty-acids"
+      },
+      {
+        "slug": "ibotenic-acid",
+        "route": "/compounds/ibotenic-acid"
+      },
+      {
+        "slug": "muscimol",
+        "route": "/compounds/muscimol"
+      },
+      {
+        "slug": "nepetaefolin",
+        "route": "/compounds/nepetaefolin"
+      },
+      {
+        "slug": "umbelliferone",
+        "route": "/compounds/umbelliferone"
+      },
+      {
+        "slug": "volatile-oils",
+        "route": "/compounds/volatile-oils"
+      },
+      {
+        "slug": "arbutin",
+        "route": "/compounds/arbutin"
+      },
+      {
+        "slug": "alkylamides",
+        "route": "/compounds/alkylamides"
+      },
+      {
+        "slug": "baicalin",
+        "route": "/compounds/baicalin"
+      },
+      {
+        "slug": "carvacrol",
+        "route": "/compounds/carvacrol"
+      },
+      {
+        "slug": "coumarins",
+        "route": "/compounds/coumarins"
+      },
+      {
+        "slug": "gallic-acid",
+        "route": "/compounds/gallic-acid"
+      },
+      {
+        "slug": "phenylethylamine",
+        "route": "/compounds/phenylethylamine"
+      },
+      {
+        "slug": "scutellarein",
+        "route": "/compounds/scutellarein"
+      },
+      {
+        "slug": "scutellarin",
+        "route": "/compounds/scutellarin"
+      },
+      {
+        "slug": "spilanthol",
+        "route": "/compounds/spilanthol"
+      },
+      {
+        "slug": "ursolic-acid",
+        "route": "/compounds/ursolic-acid"
+      },
+      {
+        "slug": "wogonin",
+        "route": "/compounds/wogonin"
+      },
+      {
+        "slug": "alkaloids-uncharacterized",
+        "route": "/compounds/alkaloids-uncharacterized"
+      },
+      {
+        "slug": "flavonoids-vitexin",
+        "route": "/compounds/flavonoids-vitexin"
+      },
+      {
+        "slug": "harman-alkaloids",
+        "route": "/compounds/harman-alkaloids"
+      },
+      {
+        "slug": "isovaleric-acid",
+        "route": "/compounds/isovaleric-acid"
+      },
+      {
+        "slug": "isovitexin",
+        "route": "/compounds/isovitexin"
+      },
+      {
+        "slug": "lactucin",
+        "route": "/compounds/lactucin"
+      },
+      {
+        "slug": "lactucopicrin",
+        "route": "/compounds/lactucopicrin"
+      },
+      {
+        "slug": "maltol",
+        "route": "/compounds/maltol"
+      },
+      {
+        "slug": "nepetalactone",
+        "route": "/compounds/nepetalactone"
+      },
+      {
+        "slug": "pterocarpans",
+        "route": "/compounds/pterocarpans"
+      },
+      {
+        "slug": "theophylline",
+        "route": "/compounds/theophylline"
+      },
+      {
+        "slug": "tryptamines",
+        "route": "/compounds/tryptamines"
+      },
+      {
+        "slug": "codeine",
+        "route": "/compounds/codeine"
+      },
+      {
+        "slug": "kaempferol",
+        "route": "/compounds/kaempferol"
+      },
+      {
+        "slug": "morphine",
+        "route": "/compounds/morphine"
+      },
+      {
+        "slug": "nmt",
+        "route": "/compounds/nmt"
+      },
+      {
+        "slug": "papaverine",
+        "route": "/compounds/papaverine"
+      },
+      {
+        "slug": "pseudoephedrine",
+        "route": "/compounds/pseudoephedrine"
+      },
+      {
+        "slug": "safrole",
+        "route": "/compounds/safrole"
+      },
+      {
+        "slug": "sesquiterpene-lactones",
+        "route": "/compounds/sesquiterpene-lactones"
+      },
+      {
+        "slug": "thebaine",
+        "route": "/compounds/thebaine"
+      },
+      {
+        "slug": "vasicinone",
+        "route": "/compounds/vasicinone"
+      },
+      {
+        "slug": "vertine-cryogenine",
+        "route": "/compounds/vertine-cryogenine"
+      },
+      {
+        "slug": "coronaridine",
+        "route": "/compounds/coronaridine"
+      },
+      {
+        "slug": "coumarin",
+        "route": "/compounds/coumarin"
+      },
+      {
+        "slug": "ibogaine-related-alkaloids",
+        "route": "/compounds/ibogaine-related-alkaloids"
+      },
+      {
+        "slug": "menthol",
+        "route": "/compounds/menthol"
+      },
+      {
+        "slug": "menthone",
+        "route": "/compounds/menthone"
+      },
+      {
+        "slug": "menthyl-acetate",
+        "route": "/compounds/menthyl-acetate"
+      },
+      {
+        "slug": "pulegone",
+        "route": "/compounds/pulegone"
+      },
+      {
+        "slug": "voacristine",
+        "route": "/compounds/voacristine"
+      },
+      {
+        "slug": "caffeine-like-alkaloids",
+        "route": "/compounds/caffeine-like-alkaloids"
+      },
+      {
+        "slug": "caffeine-like-compounds",
+        "route": "/compounds/caffeine-like-compounds"
+      },
+      {
+        "slug": "damianin",
+        "route": "/compounds/damianin"
+      },
+      {
+        "slug": "ibogaine",
+        "route": "/compounds/ibogaine"
+      },
+      {
+        "slug": "noribogaine",
+        "route": "/compounds/noribogaine"
+      },
+      {
+        "slug": "noscapine",
+        "route": "/compounds/noscapine"
+      },
+      {
+        "slug": "pinocembrin",
+        "route": "/compounds/pinocembrin"
+      },
+      {
+        "slug": "quercetin",
+        "route": "/compounds/quercetin"
+      },
+      {
+        "slug": "sulfur-compounds",
+        "route": "/compounds/sulfur-compounds"
+      },
+      {
+        "slug": "triterpenoids-undisclosed-alkaloids",
+        "route": "/compounds/triterpenoids-undisclosed-alkaloids"
+      },
+      {
+        "slug": "trithiolanes",
+        "route": "/compounds/trithiolanes"
+      },
+      {
+        "slug": "valerenic-acid",
+        "route": "/compounds/valerenic-acid"
+      },
+      {
+        "slug": "alchorneine",
+        "route": "/compounds/alchorneine"
+      },
+      {
+        "slug": "citral",
+        "route": "/compounds/citral"
+      },
+      {
+        "slug": "elemicin",
+        "route": "/compounds/elemicin"
+      },
+      {
+        "slug": "ibogamine",
+        "route": "/compounds/ibogamine"
+      },
+      {
+        "slug": "marrubiin",
+        "route": "/compounds/marrubiin"
+      },
+      {
+        "slug": "myristicin",
+        "route": "/compounds/myristicin"
+      },
+      {
+        "slug": "scopoletin",
+        "route": "/compounds/scopoletin"
+      },
+      {
+        "slug": "unverified-cannabinoids",
+        "route": "/compounds/unverified-cannabinoids"
+      },
+      {
+        "slug": "cytisine",
+        "route": "/compounds/cytisine"
+      },
+      {
+        "slug": "cytisine-nicotinic-agonist",
+        "route": "/compounds/cytisine-nicotinic-agonist"
+      },
+      {
+        "slug": "harmala-alkaloids",
+        "route": "/compounds/harmala-alkaloids"
+      },
+      {
+        "slug": "neferine",
+        "route": "/compounds/neferine"
+      },
+      {
+        "slug": "beta-carbolines-trace",
+        "route": "/compounds/beta-carbolines-trace"
+      },
+      {
+        "slug": "cinnamic-acid-derivatives",
+        "route": "/compounds/cinnamic-acid-derivatives"
+      },
+      {
+        "slug": "ergine",
+        "route": "/compounds/ergine"
+      },
+      {
+        "slug": "isopetasin",
+        "route": "/compounds/isopetasin"
+      },
+      {
+        "slug": "l-theanine",
+        "route": "/compounds/l-theanine"
+      },
+      {
+        "slug": "ligans",
+        "route": "/compounds/ligans"
+      },
+      {
+        "slug": "n-dimethyltryptamine-dmt",
+        "route": "/compounds/n-dimethyltryptamine-dmt"
+      },
+      {
+        "slug": "n-methyltryptamine",
+        "route": "/compounds/n-methyltryptamine"
+      },
+      {
+        "slug": "petasin",
+        "route": "/compounds/petasin"
+      },
+      {
+        "slug": "pyrrolizidine-alkaloids-toxic",
+        "route": "/compounds/pyrrolizidine-alkaloids-toxic"
+      },
+      {
+        "slug": "farnesol",
+        "route": "/compounds/farnesol"
+      },
+      {
+        "slug": "gramine",
+        "route": "/compounds/gramine"
+      },
+      {
+        "slug": "lsa-ergine",
+        "route": "/compounds/lsa-ergine"
+      },
+      {
+        "slug": "luteolin",
+        "route": "/compounds/luteolin"
+      },
+      {
+        "slug": "catechin",
+        "route": "/compounds/catechin"
+      },
+      {
+        "slug": "lupeol",
+        "route": "/compounds/lupeol"
+      },
+      {
+        "slug": "alamarckine",
+        "route": "/compounds/alamarckine"
+      },
+      {
+        "slug": "alamaridine",
+        "route": "/compounds/alamaridine"
+      },
+      {
+        "slug": "alamarine",
+        "route": "/compounds/alamarine"
+      },
+      {
+        "slug": "alangamide",
+        "route": "/compounds/alangamide"
+      },
+      {
+        "slug": "alangimaridine",
+        "route": "/compounds/alangimaridine"
+      },
+      {
+        "slug": "alangimarin",
+        "route": "/compounds/alangimarin"
+      },
+      {
+        "slug": "alangimarine",
+        "route": "/compounds/alangimarine"
+      },
+      {
+        "slug": "alangiside",
+        "route": "/compounds/alangiside"
+      },
+      {
+        "slug": "anabasine",
+        "route": "/compounds/anabasine"
+      },
+      {
+        "slug": "cbd",
+        "route": "/compounds/cbd"
+      },
+      {
+        "slug": "cbn",
+        "route": "/compounds/cbn"
+      },
+      {
+        "slug": "cephaeline",
+        "route": "/compounds/cephaeline"
+      },
+      {
+        "slug": "deoxytubulosine",
+        "route": "/compounds/deoxytubulosine"
+      },
+      {
+        "slug": "emetin",
+        "route": "/compounds/emetin"
+      },
+      {
+        "slug": "eucalyptol",
+        "route": "/compounds/eucalyptol"
+      },
+      {
+        "slug": "himandrine",
+        "route": "/compounds/himandrine"
+      },
+      {
+        "slug": "himbacine-alkaloids",
+        "route": "/compounds/himbacine-alkaloids"
+      },
+      {
+        "slug": "iboga-alkaloids",
+        "route": "/compounds/iboga-alkaloids"
+      },
+      {
+        "slug": "isocephaeline",
+        "route": "/compounds/isocephaeline"
+      },
+      {
+        "slug": "kavalactones-kavain",
+        "route": "/compounds/kavalactones-kavain"
+      },
+      {
+        "slug": "methysticin",
+        "route": "/compounds/methysticin"
+      },
+      {
+        "slug": "n-methylcephaeline-alamarckine",
+        "route": "/compounds/n-methylcephaeline-alamarckine"
+      },
+      {
+        "slug": "p-coumaric-acid",
+        "route": "/compounds/p-coumaric-acid"
+      },
+      {
+        "slug": "psychotrin",
+        "route": "/compounds/psychotrin"
+      },
+      {
+        "slug": "salsoline",
+        "route": "/compounds/salsoline"
+      },
+      {
+        "slug": "tabersonine",
+        "route": "/compounds/tabersonine"
+      },
+      {
+        "slug": "thc",
+        "route": "/compounds/thc"
+      },
+      {
+        "slug": "venoterpine",
+        "route": "/compounds/venoterpine"
+      },
+      {
+        "slug": "yangonin",
+        "route": "/compounds/yangonin"
+      },
+      {
+        "slug": "caffeic-acid",
+        "route": "/compounds/caffeic-acid"
+      },
+      {
+        "slug": "calein-a-and-b",
+        "route": "/compounds/calein-a-and-b"
+      },
+      {
+        "slug": "dmt-in-root-bark",
+        "route": "/compounds/dmt-in-root-bark"
+      },
+      {
+        "slug": "ellagitannins",
+        "route": "/compounds/ellagitannins"
+      },
+      {
+        "slug": "phytosterols",
+        "route": "/compounds/phytosterols"
+      },
+      {
+        "slug": "salicylic-acid-derivatives",
+        "route": "/compounds/salicylic-acid-derivatives"
+      },
+      {
+        "slug": "2-4-5-trimethoxybenzaldehyde",
+        "route": "/compounds/2-4-5-trimethoxybenzaldehyde"
+      },
+      {
+        "slug": "aervine",
+        "route": "/compounds/aervine"
+      },
+      {
+        "slug": "aervolanine",
+        "route": "/compounds/aervolanine"
+      },
+      {
+        "slug": "aervoside",
+        "route": "/compounds/aervoside"
+      },
+      {
+        "slug": "aescin-escin",
+        "route": "/compounds/aescin-escin"
+      },
+      {
+        "slug": "agrimoniin",
+        "route": "/compounds/agrimoniin"
+      },
+      {
+        "slug": "apigenin-glycosides",
+        "route": "/compounds/apigenin-glycosides"
+      },
+      {
+        "slug": "azulene",
+        "route": "/compounds/azulene"
+      },
+      {
+        "slug": "benzoic-acid",
+        "route": "/compounds/benzoic-acid"
+      },
+      {
+        "slug": "borneol",
+        "route": "/compounds/borneol"
+      },
+      {
+        "slug": "camphene",
+        "route": "/compounds/camphene"
+      },
+      {
+        "slug": "chamazulene",
+        "route": "/compounds/chamazulene"
+      },
+      {
+        "slug": "cis-methylisoeugenol",
+        "route": "/compounds/cis-methylisoeugenol"
+      },
+      {
+        "slug": "corynanthine",
+        "route": "/compounds/corynanthine"
+      },
+      {
+        "slug": "ellagic-acid",
+        "route": "/compounds/ellagic-acid"
+      },
+      {
+        "slug": "ervine",
+        "route": "/compounds/ervine"
+      },
+      {
+        "slug": "ervolanine",
+        "route": "/compounds/ervolanine"
+      },
+      {
+        "slug": "ervoside",
+        "route": "/compounds/ervoside"
+      },
+      {
+        "slug": "estragole",
+        "route": "/compounds/estragole"
+      },
+      {
+        "slug": "indole-alkaloids",
+        "route": "/compounds/indole-alkaloids"
+      },
+      {
+        "slug": "isoquercetin",
+        "route": "/compounds/isoquercetin"
+      },
+      {
+        "slug": "isorhamnetin",
+        "route": "/compounds/isorhamnetin"
+      },
+      {
+        "slug": "kaempferol-glycosides",
+        "route": "/compounds/kaempferol-glycosides"
+      },
+      {
+        "slug": "limonoids",
+        "route": "/compounds/limonoids"
+      },
+      {
+        "slug": "lupeol-acetate",
+        "route": "/compounds/lupeol-acetate"
+      },
+      {
+        "slug": "methaervine",
+        "route": "/compounds/methaervine"
+      },
+      {
+        "slug": "methyl-eugenol",
+        "route": "/compounds/methyl-eugenol"
+      },
+      {
+        "slug": "methyl-grevillate",
+        "route": "/compounds/methyl-grevillate"
+      },
+      {
+        "slug": "methylervine",
+        "route": "/compounds/methylervine"
+      },
+      {
+        "slug": "o-cymene",
+        "route": "/compounds/o-cymene"
+      },
+      {
+        "slug": "other-saponins",
+        "route": "/compounds/other-saponins"
+      },
+      {
+        "slug": "persinol",
+        "route": "/compounds/persinol"
+      },
+      {
+        "slug": "persinosides-a",
+        "route": "/compounds/persinosides-a"
+      },
+      {
+        "slug": "persinosides-b",
+        "route": "/compounds/persinosides-b"
+      },
+      {
+        "slug": "procyanidin-oligomers",
+        "route": "/compounds/procyanidin-oligomers"
+      },
+      {
+        "slug": "quercetin-derivatives",
+        "route": "/compounds/quercetin-derivatives"
+      },
+      {
+        "slug": "tannic-acid",
+        "route": "/compounds/tannic-acid"
+      },
+      {
+        "slug": "terpenoids",
+        "route": "/compounds/terpenoids"
+      },
+      {
+        "slug": "tiliroside",
+        "route": "/compounds/tiliroside"
+      },
+      {
+        "slug": "trans-methylisoeugenol",
+        "route": "/compounds/trans-methylisoeugenol"
+      },
+      {
+        "slug": "yohimbine",
+        "route": "/compounds/yohimbine"
+      },
+      {
+        "slug": "calacorene",
+        "route": "/compounds/calacorene"
+      },
+      {
+        "slug": "pinene",
+        "route": "/compounds/pinene"
+      },
+      {
+        "slug": "terpinene",
+        "route": "/compounds/terpinene"
+      },
+      {
+        "slug": "terpineol",
+        "route": "/compounds/terpineol"
+      },
+      {
+        "slug": "caryophyllene",
+        "route": "/compounds/caryophyllene"
+      },
+      {
+        "slug": "beta-pinene",
+        "route": "/compounds/beta-pinene"
+      },
+      {
+        "slug": "sitosteryl-acetate",
+        "route": "/compounds/sitosteryl-acetate"
+      },
+      {
+        "slug": "gamma-terpinene",
+        "route": "/compounds/gamma-terpinene"
+      },
+      {
+        "slug": "aconine",
+        "route": "/compounds/aconine"
+      },
+      {
+        "slug": "aconitine",
+        "route": "/compounds/aconitine"
+      },
+      {
+        "slug": "benzaconine",
+        "route": "/compounds/benzaconine"
+      },
+      {
+        "slug": "deoxyaconitine",
+        "route": "/compounds/deoxyaconitine"
+      },
+      {
+        "slug": "hypaconitine",
+        "route": "/compounds/hypaconitine"
+      },
+      {
+        "slug": "indaconitine",
+        "route": "/compounds/indaconitine"
+      },
+      {
+        "slug": "jesaconitine",
+        "route": "/compounds/jesaconitine"
+      },
+      {
+        "slug": "lucidine",
+        "route": "/compounds/lucidine"
+      },
+      {
+        "slug": "mesaconitine",
+        "route": "/compounds/mesaconitine"
+      },
+      {
+        "slug": "napelline",
+        "route": "/compounds/napelline"
+      },
+      {
+        "slug": "neoline",
+        "route": "/compounds/neoline"
+      },
+      {
+        "slug": "parquine",
+        "route": "/compounds/parquine"
+      },
+      {
+        "slug": "picraconitine",
+        "route": "/compounds/picraconitine"
+      },
+      {
+        "slug": "solanine",
+        "route": "/compounds/solanine"
+      },
+      {
+        "slug": "songoramine",
+        "route": "/compounds/songoramine"
+      },
+      {
+        "slug": "boswellic-acids",
+        "route": "/compounds/boswellic-acids"
+      },
+      {
+        "slug": "budmunchiamines-l1-l6",
+        "route": "/compounds/budmunchiamines-l1-l6"
+      },
+      {
+        "slug": "echinocystic-acid-acacic-acid",
+        "route": "/compounds/echinocystic-acid-acacic-acid"
+      },
+      {
+        "slug": "elaeagnin",
+        "route": "/compounds/elaeagnin"
+      },
+      {
+        "slug": "geraldone",
+        "route": "/compounds/geraldone"
+      },
+      {
+        "slug": "isookanin",
+        "route": "/compounds/isookanin"
+      },
+      {
+        "slug": "lebbeckalysin",
+        "route": "/compounds/lebbeckalysin"
+      },
+      {
+        "slug": "lebbeckoside-c",
+        "route": "/compounds/lebbeckoside-c"
+      },
+      {
+        "slug": "lebbeckosides-a-and-b",
+        "route": "/compounds/lebbeckosides-a-and-b"
+      },
+      {
+        "slug": "leucopelargonidin",
+        "route": "/compounds/leucopelargonidin"
+      },
+      {
+        "slug": "lignans",
+        "route": "/compounds/lignans"
+      },
+      {
+        "slug": "melanoxetin",
+        "route": "/compounds/melanoxetin"
+      },
+      {
+        "slug": "okanine",
+        "route": "/compounds/okanine"
+      },
+      {
+        "slug": "oleanolic-acid",
+        "route": "/compounds/oleanolic-acid"
+      },
+      {
+        "slug": "phenolics",
+        "route": "/compounds/phenolics"
+      },
+      {
+        "slug": "pinitol",
+        "route": "/compounds/pinitol"
+      },
+      {
+        "slug": "prenylated-isoflavonoids",
+        "route": "/compounds/prenylated-isoflavonoids"
+      },
+      {
+        "slug": "saponins-lebbekanin-a-h",
+        "route": "/compounds/saponins-lebbekanin-a-h"
+      },
+      {
+        "slug": "triterpenes",
+        "route": "/compounds/triterpenes"
+      },
+      {
+        "slug": "xanthones",
+        "route": "/compounds/xanthones"
+      },
+      {
+        "slug": "7-hydroxybaruol",
+        "route": "/compounds/7-hydroxybaruol"
+      },
+      {
+        "slug": "campesterol",
+        "route": "/compounds/campesterol"
+      },
+      {
+        "slug": "ferulic-acid",
+        "route": "/compounds/ferulic-acid"
+      },
+      {
+        "slug": "geranial",
+        "route": "/compounds/geranial"
+      },
+      {
+        "slug": "glutinol",
+        "route": "/compounds/glutinol"
+      },
+      {
+        "slug": "hydroquinone",
+        "route": "/compounds/hydroquinone"
+      },
+      {
+        "slug": "lsa-lysergic-acid-amide",
+        "route": "/compounds/lsa-lysergic-acid-amide"
+      },
+      {
+        "slug": "p-hydroxybenzoic-acid",
+        "route": "/compounds/p-hydroxybenzoic-acid"
+      },
+      {
+        "slug": "phlorizin",
+        "route": "/compounds/phlorizin"
+      },
+      {
+        "slug": "suberosol",
+        "route": "/compounds/suberosol"
+      },
+      {
+        "slug": "syringic-acid",
+        "route": "/compounds/syringic-acid"
+      },
+      {
+        "slug": "thaliandiol",
+        "route": "/compounds/thaliandiol"
+      },
+      {
+        "slug": "thalianol",
+        "route": "/compounds/thalianol"
+      },
+      {
+        "slug": "umelliferone",
+        "route": "/compounds/umelliferone"
+      },
+      {
+        "slug": "vanillic-acid",
+        "route": "/compounds/vanillic-acid"
+      },
+      {
+        "slug": "astragalin",
+        "route": "/compounds/astragalin"
+      },
+      {
+        "slug": "casimiroin",
+        "route": "/compounds/casimiroin"
+      },
+      {
+        "slug": "celastrine",
+        "route": "/compounds/celastrine"
+      },
+      {
+        "slug": "mescaline",
+        "route": "/compounds/mescaline"
+      },
+      {
+        "slug": "paniculatin",
+        "route": "/compounds/paniculatin"
+      },
+      {
+        "slug": "triterpene-saponins",
+        "route": "/compounds/triterpene-saponins"
+      },
+      {
+        "slug": "violine",
+        "route": "/compounds/violine"
+      },
+      {
+        "slug": "zapotin",
+        "route": "/compounds/zapotin"
+      },
+      {
+        "slug": "alpha-bulnesene",
+        "route": "/compounds/alpha-bulnesene"
+      },
+      {
+        "slug": "ascaridole",
+        "route": "/compounds/ascaridole"
+      },
+      {
+        "slug": "beta",
+        "route": "/compounds/beta"
+      },
+      {
+        "slug": "bulnesene",
+        "route": "/compounds/bulnesene"
+      },
+      {
+        "slug": "cymene",
+        "route": "/compounds/cymene"
+      },
+      {
+        "slug": "galbulimimine",
+        "route": "/compounds/galbulimimine"
+      },
+      {
+        "slug": "himbacine",
+        "route": "/compounds/himbacine"
+      },
+      {
+        "slug": "meo",
+        "route": "/compounds/meo"
+      },
+      {
+        "slug": "p-cymene",
+        "route": "/compounds/p-cymene"
+      },
+      {
+        "slug": "patchoulol",
+        "route": "/compounds/patchoulol"
+      },
+      {
+        "slug": "triterpenoid-saponins",
+        "route": "/compounds/triterpenoid-saponins"
+      },
+      {
+        "slug": "methyl-salicylate",
+        "route": "/compounds/methyl-salicylate"
+      },
+      {
+        "slug": "alkaloids-nicotine-leucocyanidin",
+        "route": "/compounds/alkaloids-nicotine-leucocyanidin"
+      },
+      {
+        "slug": "alpha",
+        "route": "/compounds/alpha"
+      },
+      {
+        "slug": "flavonols",
+        "route": "/compounds/flavonols"
+      },
+      {
+        "slug": "julibroside-c1",
+        "route": "/compounds/julibroside-c1"
+      },
+      {
+        "slug": "lignan-glycosides",
+        "route": "/compounds/lignan-glycosides"
+      },
+      {
+        "slug": "myricetin",
+        "route": "/compounds/myricetin"
+      },
+      {
+        "slug": "phenols",
+        "route": "/compounds/phenols"
+      },
+      {
+        "slug": "polysaccharides-arabinose-rhamnose",
+        "route": "/compounds/polysaccharides-arabinose-rhamnose"
+      },
+      {
+        "slug": "quercitrin",
+        "route": "/compounds/quercitrin"
+      },
+      {
+        "slug": "steroids",
+        "route": "/compounds/steroids"
+      },
+      {
+        "slug": "tannins-gallic-acid-ellagic-acid-catechin",
+        "route": "/compounds/tannins-gallic-acid-ellagic-acid-catechin"
+      },
+      {
+        "slug": "vasicine",
+        "route": "/compounds/vasicine"
+      },
+      {
+        "slug": "benzyl-isothiocyanate",
+        "route": "/compounds/benzyl-isothiocyanate"
+      },
+      {
+        "slug": "catuabine",
+        "route": "/compounds/catuabine"
+      },
+      {
+        "slug": "chlorogenic-acid",
+        "route": "/compounds/chlorogenic-acid"
+      },
+      {
+        "slug": "cissamine",
+        "route": "/compounds/cissamine"
+      },
+      {
+        "slug": "combretin",
+        "route": "/compounds/combretin"
+      },
+      {
+        "slug": "combretol",
+        "route": "/compounds/combretol"
+      },
+      {
+        "slug": "elsholtzia-ketone",
+        "route": "/compounds/elsholtzia-ketone"
+      },
+      {
+        "slug": "fragarine",
+        "route": "/compounds/fragarine"
+      },
+      {
+        "slug": "furanocoumarins",
+        "route": "/compounds/furanocoumarins"
+      },
+      {
+        "slug": "graveoline",
+        "route": "/compounds/graveoline"
+      },
+      {
+        "slug": "huperzine-a",
+        "route": "/compounds/huperzine-a"
+      },
+      {
+        "slug": "marmelosin",
+        "route": "/compounds/marmelosin"
+      },
+      {
+        "slug": "pareirine",
+        "route": "/compounds/pareirine"
+      },
+      {
+        "slug": "pellitorine",
+        "route": "/compounds/pellitorine"
+      },
+      {
+        "slug": "perillaldehyde",
+        "route": "/compounds/perillaldehyde"
+      },
+      {
+        "slug": "rutarin",
+        "route": "/compounds/rutarin"
+      },
+      {
+        "slug": "rutin",
+        "route": "/compounds/rutin"
+      },
+      {
+        "slug": "sanshools",
+        "route": "/compounds/sanshools"
+      },
+      {
+        "slug": "stachydrine",
+        "route": "/compounds/stachydrine"
+      },
+      {
+        "slug": "tartaric-acid",
+        "route": "/compounds/tartaric-acid"
+      },
+      {
+        "slug": "tetrahydropalmatine-thp",
+        "route": "/compounds/tetrahydropalmatine-thp"
+      },
+      {
+        "slug": "tynanthin",
+        "route": "/compounds/tynanthin"
+      },
+      {
+        "slug": "verbenalin",
+        "route": "/compounds/verbenalin"
+      },
+      {
+        "slug": "amorphigenin",
+        "route": "/compounds/amorphigenin"
+      },
+      {
+        "slug": "anthocyanins",
+        "route": "/compounds/anthocyanins"
+      },
+      {
+        "slug": "bacosides-a-and-b",
+        "route": "/compounds/bacosides-a-and-b"
+      },
+      {
+        "slug": "boldine",
+        "route": "/compounds/boldine"
+      },
+      {
+        "slug": "ergoline-alkaloids-trace",
+        "route": "/compounds/ergoline-alkaloids-trace"
+      },
+      {
+        "slug": "ergotamine",
+        "route": "/compounds/ergotamine"
+      },
+      {
+        "slug": "gymnemic-acids",
+        "route": "/compounds/gymnemic-acids"
+      },
+      {
+        "slug": "linalyl-acetate",
+        "route": "/compounds/linalyl-acetate"
+      },
+      {
+        "slug": "sclareol",
+        "route": "/compounds/sclareol"
+      },
+      {
+        "slug": "valeranon",
+        "route": "/compounds/valeranon"
+      },
+      {
+        "slug": "verbascoside",
+        "route": "/compounds/verbascoside"
+      }
+    ]
   },
   "summaries": {
     "herbs": {
       "total": 699,
-      "indexable": 16,
-      "excluded": 683,
+      "indexable": 465,
+      "excluded": 28,
+      "tierCounts": {
+        "strong": 64,
+        "publishable": 401,
+        "needs_work": 206,
+        "excluded": 28
+      },
       "excludedByReason": {
-        "weakDescription": 651,
-        "placeholderText": 667,
-        "insufficientEffects": 201,
         "invalidNameOrSlug": 28,
-        "nanArtifacts": 23
+        "corruptedContent": 23
       }
     },
     "compounds": {
-      "total": 393,
-      "indexable": 0,
-      "excluded": 393,
+      "total": 390,
+      "indexable": 378,
+      "excluded": 12,
+      "tierCounts": {
+        "strong": 204,
+        "publishable": 174,
+        "needs_work": 0,
+        "excluded": 12
+      },
       "excludedByReason": {
-        "invalidNameOrSlug": 12,
-        "weakDescription": 393,
-        "placeholderText": 222,
-        "insufficientEffects": 52,
-        "insufficientEvidenceOrCompleteness": 40
+        "invalidNameOrSlug": 12
       }
     },
     "blogIndex": {
@@ -133,10 +4275,10 @@
     }
   },
   "thresholds": {
-    "minDescriptionLength": 30,
-    "minSources": 2,
-    "minEffects": 1,
-    "minCompletenessScore": 0.4,
+    "strongDescriptionLength": 60,
+    "strongMinSources": 2,
+    "publishableDescriptionLength": 20,
+    "publishableMinSources": 1,
     "minSlugLength": 2
   }
 }

@@ -1,7 +1,5 @@
 {
   "name": "quercitrin",
-  "category": "general",
-  "description": "quercitrin is a compound reported in albizia julibrissin. Available references are still early and incomplete.",
   "herbs": [
     "albizia julibrissin"
   ],
@@ -16,24 +14,13 @@
     "may potentiate sedative or antidepressant drugs",
     "avoid in pregnancy or lactation unless supervised."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: quercitrin (CID 5280459)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280459",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "quercitrin",
+  "id": "quercitrin",
+  "displayName": "quercitrin",
+  "description": "quercitrin is a compound reported in albizia julibrissin. Available references are still early and incomplete.",
   "summary": "quercitrin is a compound reported in albizia julibrissin. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

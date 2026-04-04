@@ -1,9 +1,7 @@
 {
   "name": "mesembrenol",
-  "category": "general",
-  "description": "mesembrenol appears in records as a compound reported in sceletium tortuosum. Current source coverage is limited and still developing.",
   "herbs": [
-    "sceletium tortuosum"
+    "nan"
   ],
   "effects": [
     "Euphoria",
@@ -28,30 +26,19 @@
     "ssris",
     "maois."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: mesembrenol (CID 46898090)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/46898090",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "mesembrenol",
-  "summary": "mesembrenol appears in records as a compound reported in sceletium tortuosum. Current source coverage is limited and still developing.",
+  "id": "mesembrenol",
+  "displayName": "mesembrenol",
+  "description": "mesembrenol appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "mesembrenol appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "sceletium-tortuosum"
+    "nan"
   ]
 }

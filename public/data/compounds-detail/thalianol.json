@@ -1,7 +1,5 @@
 {
   "name": "thalianol",
-  "category": "general",
-  "description": "thalianol is a compound reported in adenostoma fasciculatum. Available references are still early and incomplete.",
   "herbs": [
     "adenostoma fasciculatum"
   ],
@@ -13,24 +11,18 @@
     "Limited safety data",
     "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: thalianol (CID 25229600)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/25229600",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "lastUpdated": "2026-03-21",
   "slug": "thalianol",
+  "id": "thalianol",
+  "displayName": "thalianol",
+  "description": "thalianol is a compound reported in adenostoma fasciculatum. Available references are still early and incomplete.",
   "summary": "thalianol is a compound reported in adenostoma fasciculatum. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

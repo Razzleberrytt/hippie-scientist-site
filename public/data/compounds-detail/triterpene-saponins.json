@@ -1,7 +1,5 @@
 {
   "name": "triterpene saponins",
-  "category": "saponin",
-  "description": "triterpene saponins is a saponin compound reported in african dream root. Current source coverage is limited and still developing.",
   "herbs": [
     "african dream root"
   ],
@@ -18,25 +16,14 @@
     "Children, pregnant and breastfeeding individuals should avoid use",
     "Consult healthcare professional before use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: triterpene saponins",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/triterpene-saponins",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "triterpene-saponins",
-  "summary": "triterpene saponins is a saponin compound reported in african dream root. Current source coverage is limited and still developing.",
+  "id": "triterpene-saponins",
+  "displayName": "triterpene saponins",
+  "description": "triterpene saponins appears in records as a compound reported in african dream root. Current source coverage is limited and still developing.",
+  "summary": "triterpene saponins appears in records as a compound reported in african dream root. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -1,10 +1,9 @@
 {
   "name": "Alpha-asarone",
-  "category": "general",
-  "description": "Alpha-asarone is a compound reported in acorus americanus and acorus calamus. Available references are still early and incomplete.",
   "herbs": [
     "acorus americanus",
-    "acorus calamus"
+    "nan",
+    "acorus tatarinowii"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -25,7 +24,12 @@
     "dreaming or folk medicine",
     "digestive aid",
     "and purported hallucinogen",
-    "contains β-asarone"
+    "contains β-asarone",
+    "CNS stimulant",
+    "memory aid",
+    "and anti-epileptic in TCM",
+    "and anti",
+    "epileptic in TCM"
   ],
   "contraindications": [
     "Pregnancy",
@@ -34,33 +38,40 @@
     "children",
     "high doses",
     "pregnancy",
-    "cancer risk (β-asarone in some strains)."
+    "cancer risk (β-asarone in some strains).",
+    "β",
+    "asarone is potentially carcinogenic",
+    "avoid long",
+    "term or high",
+    "dose use",
+    "contraindicated in pregnancy and children."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: Alpha-asarone (CID 636822)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/636822",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "lastUpdated": "2026-03-21",
   "slug": "alpha-asarone",
-  "summary": "Alpha-asarone is a compound reported in acorus americanus and acorus calamus. Available references are still early and incomplete.",
+  "displayName": "Alpha-asarone",
+  "id": "alpha-asarone",
+  "aliases": [
+    "α-asarone"
+  ],
+  "slugAliases": [
+    "asarone"
+  ],
+  "description": "Alpha-asarone is a compound reported in acorus americanus, nan, and related herbs. Available references are still early and incomplete.",
+  "summary": "Alpha-asarone is a compound reported in acorus americanus, nan, and related herbs. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "acorus-americanus",
-    "acorus-calamus"
+    "nan",
+    "acorus-tatarinowii"
   ]
 }

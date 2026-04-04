@@ -3,9 +3,9 @@
   "latin": "Turnera diffusa",
   "class": "Aphrodisiac, Mild Psychoactive",
   "intensity": "Mild",
-  "mechanism": "Used as an aphrodisiac and mood enhancer in mexican herbalism.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.",
   "activeCompounds": [
-    "damianin",
+    "Damianin",
     "flavonoids",
     "terpenes",
     "caffeine-like alkaloids",
@@ -16,47 +16,68 @@
     "pinocembrin"
   ],
   "effects": [
-    "relaxation",
+    "Mood lift",
+    "mild stimulation",
+    "aphrodisiac",
+    "Mild euphoria",
     "stimulation",
-    "mood",
-    "libido enhancer"
+    "relaxation",
+    "increased libido",
+    "Mild stimulation",
+    "mood enhancement",
+    "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism."
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with hormone-sensitive conditions"
+    "Avoid in bipolar disorder and pregnancy",
+    "Pregnancy",
+    "hormone-sensitive conditions",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "interactions": [
-    "CNS stimulants and SSRIs",
-    "Antidiabetic medications",
-    "Sedatives",
-    "Hormone therapies"
+  "safetyNotes": [
+    "Safe in traditional doses",
+    "Restlessness",
+    "slight GI upset",
+    "Low",
+    "Not reported",
+    "Generally considered safe in moderate doses",
+    "Nausea",
+    "headache",
+    "dizziness",
+    "Not determined",
+    "Safe in moderate doses",
+    "avoid in large quantities",
+    "Insomnia",
+    "headache (high doses)",
+    "Not well known",
+    "safe",
+    "No direct toxicity data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. Avoid in pregnancy; Avoid with hormone-sensitive conditions; Avoid in large quantities or safe in moderate doses; Avoid use during pregnancy unless advised by a clinician or do not combine with serotonergic drugs or MAOIs without medical guidance; Avoid in large quantities.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Turnera diffusa (TaxID 329212)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=329212&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "NCCIH"
     },
     {
-      "title": "PubMed search: Turnera diffusa",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Turnera+diffusa",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: Turnera diffusa",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Turnera+diffusa",
-      "note": "Chemical and bioactivity reference index"
+      "title": "Mexican Pharmacopoeia"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Used as an aphrodisiac and mood enhancer in mexican herbalism.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Used as an aphrodisiac and mood enhancer in mexican herbalism..",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct region data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism."
+  ],
   "duration": "No direct duration data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct region data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.",
+  "interactions": [
+    "May amplify CNS stimulants and SSRIs",
+    "Antidiabetics",
+    "sedatives",
+    "hormone therapies",
+    "Diabetes medications"
+  ],
   "legalStatus": "Unregulated",
-  "preparation": "Smoked.",
-  "region": "Texas, mexico.",
+  "preparation": "No direct preparation data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct region data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.",
+  "region": "No direct region data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.",
   "therapeuticUses": [
     "Anxiety",
     "depression",
@@ -65,11 +86,27 @@
     "fatigue",
     "Low libido",
     "stress",
-    "mild depression"
+    "mild depression",
+    "traditional support for mild digestive comfort",
+    "traditional stress resilience support"
   ],
   "traditionalUse": "Used by indigenous Central Americans for sexual vitality",
-  "sideEffects": [],
   "slug": "turnera-diffusa",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "turnera diffusa",
+  "displayScientificName": "Turnera diffusa",
+  "scientificNormalized": "turnera diffusa",
+  "id": "turnera-diffusa",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -3,57 +3,111 @@
   "latin": "Delosperma bosseranum",
   "class": "Visionary, Oneirogen",
   "intensity": "No direct intensity data. Contextual inference: Mild entheogen, possible adaptogen; little data available. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild entheogen, possible adaptogen; little data available. No direct region data. Contextual inference: Mild entheogen, possible adaptogen; little data available. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild entheogen, possible adaptogen; little data available. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [
-    "mesembrine",
-    "alkaloids"
+    "Mesembrine",
+    "alkaloids",
+    "Mesembrine analogues (suspected)"
   ],
   "effects": [
-    "mood",
-    "psychedelic",
-    "visionary"
+    "Mood elevation",
+    "dream enhancement",
+    "Dream enhancement",
+    "mood elevation",
+    "introspection",
+    "Mild entheogen",
+    "possible adaptogen",
+    "little data available"
   ],
   "contraindications": [
-    "may interact with ssris",
-    "avoid in pregnancy"
+    "SSRI use",
+    "Pregnancy",
+    "concurrent SSRI use"
   ],
-  "interactions": [
-    "Avoid with: Antidepressants",
-    "Avoid with: MAOIs"
+  "safetyNotes": [
+    "Considered safe at moderate doses",
+    "Dry mouth",
+    "agitation",
+    "Low",
+    "Not determined",
+    "use caution",
+    "mild sedation",
+    "no toxicological studies",
+    "Not established",
+    "Unverified – used in research and ethnobotany",
+    "Limited data",
+    "possible skin irritation",
+    "avoid during pregnancy",
+    "No direct toxicity data. Contextual inference: Mild entheogen",
+    "possible adaptogen",
+    "little data available. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Mild entheogen",
+    "little data available. none."
   ],
-  "safetyNotes": "Considered safe at moderate doses; Dry mouth; Agitation; Not determined; Use caution; Mild sedation; No toxicological studies; Unverified – used in research and ethnobotany; Limited data; Possible skin irritation; Avoid during pregnancy; Mild entheogen; Possible adaptogen; Little data available; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Mild entheogen; May interact with ssris; Avoid in pregnancy.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Delosperma bosseranum (TaxID 1346862)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1346862&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Ethnobotanical reports"
+    },
+    {
+      "title": "Online ethnobotanical reports"
+    },
+    {
+      "title": "succulent research journals"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.916Z",
-  "description": "Mild entheogen, possible adaptogen; little data available..",
-  "dosage": "Very low, psychoactive interest",
+  "lastUpdated": "2026-03-21",
+  "description": "Mild entheogen, possible adaptogen; little data available. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "Very low",
+    "psychoactive interest"
+  ],
   "duration": "3–6 hours",
+  "interactions": [
+    "Antidepressants",
+    "MAOIs"
+  ],
   "legalStatus": "Unregulated; niche ethnobotanical use",
-  "preparation": "Smoked.",
-  "region": "",
+  "preparation": "Rare ethnobotanical; when used, aerial parts dried or smoked; limited clinical or traditional preparation guidance",
+  "region": "No direct region data. Contextual inference: Mild entheogen, possible adaptogen; little data available. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild entheogen, possible adaptogen; little data available. none. ; nan; nan",
   "therapeuticUses": [
     "Depression support (anecdotal)",
     "Mood stabilization",
     "dream work (anecdotally)"
   ],
   "traditionalUse": "Rare; some anecdotal modern reports of spiritual use",
+  "slug": "delosperma-bosseranum",
   "sideEffects": [
     "Limited data",
     "possible skin irritation",
     "avoid during pregnancy"
   ],
-  "slug": "delosperma-bosseranum",
+  "displayName": "delosperma bosseranum",
+  "displayScientificName": "Delosperma bosseranum",
+  "scientificNormalized": "delosperma bosseranum",
+  "id": "delosperma-bosseranum",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
     "mesembrine",
-    "alkaloids"
+    "alkaloids",
+    "mesembrine-analogues-suspected"
   ]
 }

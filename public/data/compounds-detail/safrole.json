@@ -1,11 +1,8 @@
 {
   "name": "Safrole",
-  "category": "general",
-  "description": "Safrole is a compound reported in mexican pepperleaf, myristica fragrans, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "mexican pepperleaf",
-    "myristica fragrans",
-    "Myristica fragrans Houtt."
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in ritual",
@@ -36,32 +33,20 @@
     "dangerous interactions with MAOIs",
     "SSRIs"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Safrole (CID 5144)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5144",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "safrole",
-  "summary": "Safrole is a compound reported in mexican pepperleaf, myristica fragrans, and related herbs. Available references are still early and incomplete.",
+  "id": "safrole",
+  "displayName": "Safrole",
+  "description": "Safrole is a compound reported in mexican pepperleaf and nan. Available references are still early and incomplete.",
+  "summary": "Safrole is a compound reported in mexican pepperleaf and nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "mexican-pepperleaf",
-    "myristica-fragrans",
-    "myristica-fragrans-houtt"
+    "nan"
   ]
 }

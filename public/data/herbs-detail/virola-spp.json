@@ -3,37 +3,50 @@
   "latin": "Virola spp.",
   "class": "ethnobotanical / rare",
   "intensity": "High",
-  "mechanism": "Contains dmt, 5-meo-dmt, and beta-carbolines.",
+  "mechanism": "Contains DMT, 5-MeO-DMT, and beta-carbolines; classic tryptamine entheogen profile.",
   "activeCompounds": [],
   "effects": [
-    "psychedelic"
+    "DMT-containing tree resin",
+    "DMT",
+    "containing tree resin"
   ],
   "contraindications": [
-    "avoid with unstable mental health conditions",
-    "avoid with heart issues",
-    "may interact with maois"
+    "mental health disorders",
+    "heart issues",
+    "maoi interactions."
   ],
-  "interactions": [
-    "Dangerous with SSRIs",
-    "MAOIs",
-    "And other serotonergic substances"
+  "safetyNotes": [
+    "Toxic – psychoactive and ceremonial",
+    "nausea",
+    "intense hallucinations",
+    "elevated heart rate.",
+    "Can be overwhelming",
+    "physical toxicity low but psychological risks high."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause nausea, intense hallucinations or elevated heart rate. Avoid with unstable mental health conditions; Avoid with heart issues; May interact with MAOIs; Avoid with unstable mental health conditions, may cause toxic – psychoactive and ceremonial, elevated heart rate, can be overwhelming or may interact with MAOIs; Avoid with unstable mental health conditions or may interact with MAOIs.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Virola spp.",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Virola%20spp.&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Inferred from Unknown"
+    },
+    {
+      "note": "Inferred from Unknown",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.032Z",
-  "description": "Amazonian trees producing dmt-rich resins for shamanic snuffs.",
-  "dosage": "0. 1-1 g snuff or oral admixture.",
+  "lastUpdated": "2026-03-21",
+  "description": "amazonian trees producing dmt-rich resins for shamanic snuffs.",
+  "dosage": [
+    "0.1",
+    "1 g snuff or oral admixture"
+  ],
   "duration": "Occasional ceremonial use only",
+  "interactions": [
+    "dangerous with ssris",
+    "maois",
+    "and other serotonergic substances."
+  ],
   "legalStatus": "Restricted / Controlled",
-  "preparation": "Smoked.",
-  "region": "🇲🇽 latin america.",
+  "preparation": "Used in Amazonian snuffs",
+  "region": "🇲🇽 latin america",
   "therapeuticUses": [
     "used in amazonian shamanic healing rituals",
     "possible antidepressant potential."
@@ -45,6 +58,10 @@
     "elevated heart rate."
   ],
   "slug": "virola-spp",
+  "id": "virola-spp",
+  "displayName": "virola spp.",
+  "displayScientificName": "Virola spp.",
+  "scientificNormalized": "virola spp",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

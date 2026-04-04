@@ -1,9 +1,7 @@
 {
   "name": "mesembrenone",
-  "category": "general",
-  "description": "mesembrenone is a compound reported in sceletium tortuosum. Available references are still early and incomplete.",
   "herbs": [
-    "sceletium tortuosum"
+    "nan"
   ],
   "effects": [
     "Euphoria",
@@ -28,30 +26,19 @@
     "ssris",
     "maois."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: mesembrenone (CID 216272)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/216272",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "mesembrenone",
-  "summary": "mesembrenone is a compound reported in sceletium tortuosum. Available references are still early and incomplete.",
+  "id": "mesembrenone",
+  "displayName": "mesembrenone",
+  "description": "mesembrenone is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "mesembrenone is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "sceletium-tortuosum"
+    "nan"
   ]
 }

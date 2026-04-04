@@ -1,46 +1,55 @@
 {
   "name": "sambucus nigra",
   "latin": "Sambucus nigra",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antiviral, immune stimulant, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiviral, immune stimulant, anti-inflammatory. No direct region data. Contextual inference: Antiviral, immune stimulant, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiviral, immune stimulant, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
-  "activeCompounds": [
-    "anthocyanins",
-    "rutin",
-    "quercetin"
-  ],
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
   "effects": [
-    "stimulation",
+    "Antiviral",
+    "immune stimulant",
     "anti-inflammatory",
-    "immune support",
-    "antimicrobial"
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "safe",
+    "Unripe/uncooked parts toxic",
+    "nausea",
+    "diarrhea",
+    "No direct toxicity data. Contextual inference: Antiviral",
+    "immune stimulant",
+    "anti-inflammatory. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antiviral",
+    "anti-inflammatory. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause unripe, uncooked parts toxic, nausea or diarrhea.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Sambucus nigra (TaxID 4202)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4202&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.018Z",
-  "description": "Antiviral, immune stimulant, anti-inflammatory.",
-  "dosage": "500-1500 mg/day flower, berry extract.",
-  "duration": "Usually used in short seasonal windows or intermittent periods.",
-  "legalStatus": "Legal worldwide",
-  "preparation": "Tincture.",
-  "region": "",
-  "therapeuticUses": [
-    "Seasonal routine support with species-labeled elderberry",
-    "Short-window use rather than indefinite daily intake",
-    "Family cabinet products where label clarity is prioritized"
+  "lastUpdated": "2026-03-21",
+  "description": "Antiviral, immune stimulant, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "500",
+    "1500 mg",
+    "day flower",
+    "berry extract"
   ],
+  "duration": "6–8 hours",
+  "interactions": [],
+  "legalStatus": "Legal worldwide",
+  "preparation": "Flowers infused, berries cooked or made into syrups and tinctures; immune and cold support",
+  "region": "No direct region data. Contextual inference: Antiviral, immune stimulant, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiviral, immune stimulant, anti-inflammatory. none. ; nan; nan",
+  "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
     "Unripe",
@@ -49,14 +58,13 @@
     "diarrhea"
   ],
   "slug": "sambucus-nigra",
+  "id": "sambucus-nigra",
+  "displayName": "sambucus nigra",
+  "displayScientificName": "Sambucus nigra",
+  "scientificNormalized": "sambucus nigra",
   "identity": "",
-  "categoryUseContext": "Commonly selected for seasonal support and syrup/extract comparisons where species accuracy matters.",
-  "evidenceLevel": "Mixed-to-moderate evidence depending on formulation and endpoint; high-sugar syrup products can reduce practical fit for some users.",
-  "relatedEntities": [
-    "echinacea-purpurea",
-    "ginger",
-    "tulsi",
-    "reishi-mushroom"
-  ],
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
   "relatedCompounds": []
 }

@@ -1,9 +1,7 @@
 {
   "name": "coumarins",
-  "category": "coumarin",
-  "description": "coumarins is a coumarin compound reported in acmella oleracea. Current source coverage is limited and still developing.",
   "herbs": [
-    "acmella oleracea"
+    "nan"
   ],
   "effects": [
     "Local anesthesia",
@@ -24,30 +22,19 @@
     "None established",
     "avoid overuse on broken skin"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: coumarins (CID 54678486)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/54678486",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "coumarins",
-  "summary": "coumarins is a coumarin compound reported in acmella oleracea. Current source coverage is limited and still developing.",
+  "id": "coumarins",
+  "displayName": "coumarins",
+  "description": "coumarins appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "coumarins appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "acmella-oleracea"
+    "nan"
   ]
 }

@@ -1,8 +1,7 @@
 {
   "name": "Scutellarin",
-  "category": "general",
-  "description": "Scutellarin is a compound reported in scutellaria lateriflora. Available references are still early and incomplete.",
   "herbs": [
+    "nan",
     "scutellaria lateriflora"
   ],
   "effects": [
@@ -21,30 +20,20 @@
     "pregnancy",
     "sedative sensitivity."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Scutellarin (CID 185617)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/185617",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "scutellarin",
-  "summary": "Scutellarin is a compound reported in scutellaria lateriflora. Available references are still early and incomplete.",
+  "id": "scutellarin",
+  "displayName": "Scutellarin",
+  "description": "Scutellarin is a compound reported in nan and scutellaria lateriflora. Available references are still early and incomplete.",
+  "summary": "Scutellarin is a compound reported in nan and scutellaria lateriflora. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "scutellaria-lateriflora"
   ]
 }

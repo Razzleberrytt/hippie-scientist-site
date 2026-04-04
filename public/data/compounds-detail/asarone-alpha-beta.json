@@ -1,8 +1,8 @@
 {
   "name": "Asarone (alpha & beta)",
-  "category": "general",
-  "description": "Asarone (alpha & beta) is listed as a compound in this profile. Available references are still early and incomplete.",
-  "herbs": [],
+  "herbs": [
+    "nan"
+  ],
   "effects": [
     "Mild stimulation",
     "focus",
@@ -16,28 +16,19 @@
     "Similar risks to Acorus calamus",
     "avoid large doses"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Asarone (alpha & beta)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/asarone-alpha-beta",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "asarone-alpha-beta",
-  "summary": "Asarone (alpha & beta) is listed as a compound in this profile. Available references are still early and incomplete.",
+  "id": "asarone-alpha-beta",
+  "displayName": "Asarone (alpha & beta)",
+  "description": "Asarone (alpha & beta) is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Asarone (alpha & beta) is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "linkedHerbs": []
+  "linkedHerbs": [
+    "nan"
+  ]
 }

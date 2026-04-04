@@ -1,64 +1,72 @@
 {
   "name": "turmeric",
   "latin": "turmeric",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
   "mechanism": "Curcuminoids modulate inflammatory pathways including NF-κB and COX-2, with clinical effect depending on formulation bioavailability.",
-  "activeCompounds": [
-    "curcumin",
-    "demethoxycurcumin",
-    "bisdemethoxycurcumin"
-  ],
+  "activeCompounds": [],
   "effects": [
-    "pain relief",
-    "anti-inflammatory"
+    "May modestly reduce osteoarthritis pain and stiffness",
+    "Anti-inflammatory signal reduction in some trials",
+    "Adjunct symptom support rather than disease-modifying treatment"
   ],
-  "contraindications": [],
-  "interactions": [
-    "Potential additive bleeding risk with anticoagulant or antiplatelet medicines"
+  "contraindications": [
+    "Use caution with anticoagulant or antiplatelet therapy",
+    "Use caution with gallstones or biliary obstruction",
+    "Avoid high-dose supplemental use before surgery unless clinician advises"
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause gastrointestinal upset, nausea or diarrhea or headache in some users at higher doses. Use caution with anticoagulant or antiplatelet therapy; Use caution with gallstones or biliary obstruction; Avoid high-dose supplemental use before surgery unless clinician advises; Use caution with anticoagulant or antiplatelet therapy, gastrointestinal upset, nausea or diarrhea or headache in some users at higher doses; Use caution with anticoagulants or antiplatelet drugs.",
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: turmeric",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=turmeric&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "PubMed: Curcumin/Curcuma for arthritis meta-analysis (PMID: 35935936)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35935936/"
     },
     {
-      "title": "PubMed search: turmeric",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=turmeric",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: turmeric",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=turmeric",
-      "note": "Chemical and bioactivity reference index"
+      "title": "Wikipedia: Turmeric",
+      "url": "https://en.wikipedia.org/wiki/Turmeric"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
+  "lastUpdated": "2026-04-03T00:00:00.000Z",
   "description": "Turmeric (Curcuma longa) is a culinary and medicinal rhizome; curcumin-enriched extracts are studied most for osteoarthritis symptom support.",
-  "dosage": "Common oral use is about 1-3 g dried rhizome daily or standardized curcumin extracts per label.",
-  "duration": "Usually framed as a daily consistency herb; reassess tolerance and medication context during longer use periods.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "Potential additive bleeding risk with anticoagulant or antiplatelet medicines."
+  ],
   "legalStatus": "legal",
-  "preparation": "Extract.",
-  "region": "",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
-    "Daily food-plus-supplement wellness routines",
-    "Standardized curcumin capsule comparisons for consistency",
-    "Long-horizon routines where convenience and adherence matter"
+    "support for mild inflammatory discomfort",
+    "digestive support for dyspepsia and bile flow"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "turmeric",
-  "identity": "",
-  "categoryUseContext": "Frequently compared for long-term daily use, food-first routines, and extract-based convenience formats.",
-  "evidenceLevel": "Moderate evidence for selected inflammatory-context outcomes in standardized curcumin products; culinary turmeric and extracts are not equivalent.",
-  "relatedEntities": [
-    "ginger",
-    "silybum-marianum",
-    "reishi-mushroom",
-    "tulsi"
+  "sideEffects": [
+    "Gastrointestinal upset",
+    "Nausea or diarrhea",
+    "Headache in some users at higher doses"
   ],
+  "id": "turmeric",
+  "displayName": "turmeric",
+  "displayScientificName": "turmeric",
+  "scientificNormalized": "turmeric",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
   "relatedCompounds": []
 }

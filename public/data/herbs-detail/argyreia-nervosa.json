@@ -3,65 +3,111 @@
   "latin": "Argyreia nervosa",
   "class": "Entheogen, Tryptamine-related",
   "intensity": "Moderate to strong",
-  "mechanism": "used in ayurvedic and polynesian traditions for mind-opening",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.",
   "activeCompounds": [
+    "Lysergic acid amide (LSA)",
     "isoergine",
-    "ergine"
+    "ergine",
+    "LSA (lysergic acid amide)"
   ],
   "effects": [
-    "relaxation",
-    "psychedelic",
-    "visionary"
+    "Closed-eye visuals",
+    "sedation",
+    "dream-like mental state",
+    "Visual distortion",
+    "introspection",
+    "altered perception of time and self",
+    "No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.",
+    "No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind",
+    "opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind",
+    "opening... Used in Ayurvedic and Polynesian traditions for mind",
+    "opening.. Used in Ayurvedic and Polynesian traditions for mind",
+    "opening."
   ],
   "contraindications": [
-    "avoid with antidepressants",
-    "avoid with antipsychotics",
-    "avoid in pregnancy",
-    "avoid with cardiovascular disease",
-    "may interact with maois"
+    "Avoid with antidepressants",
+    "antipsychotics",
+    "Pregnancy",
+    "cardiovascular disease",
+    "MAOI use",
+    "avoid during pregnancy and breastfeeding",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "interactions": [
-    "May potentiate: Serotonin syndrome risk with other psychoactives"
+  "safetyNotes": [
+    "Side effects common",
+    "not physically addictive",
+    "Nausea",
+    "vasoconstriction",
+    "lethargy",
+    "Moderate",
+    "Not available",
+    "Moderate caution advised due to nausea and variability in potency",
+    "sedation",
+    "Low at traditional doses",
+    "seeds contain cyanogenic glycosides in the hulls",
+    "Not well documented",
+    "Toxic – psychedelic with potential vasospasm",
+    "No direct toxicity data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening."
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with antidepressants; Avoid with antipsychotics.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Argyreia nervosa",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Argyreia%20nervosa&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "MAPS"
     },
     {
-      "title": "PubMed search: Argyreia nervosa",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Argyreia+nervosa",
-      "note": "Literature index for pharmacology and safety evidence"
+      "title": "ethnobotanical databases"
     },
     {
-      "title": "PubChem search: Argyreia nervosa",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Argyreia+nervosa",
-      "note": "Chemical and bioactivity reference index"
+      "title": "Erowid"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Used in ayurvedic and polynesian traditions for mind-opening.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Used in ayurvedic and polynesian traditions for mind-opening..",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in ayurvedic and polynesian traditions for mind",
+    "opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind",
+    "opening... Used in Ayurvedic and Polynesian traditions for mind",
+    "opening.. No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind",
+    "opening.. Used in Ayurvedic and Polynesian traditions for mind",
+    "opening.. No direct region data. Contextual inference: Used in ayurvedic and polynesian traditions for mind",
+    "opening."
+  ],
   "duration": "No direct duration data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.. No direct region data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.",
+  "interactions": [
+    "Serotonin syndrome risk with other psychoactives"
+  ],
   "legalStatus": "Legal in many places; regulated in some",
-  "preparation": "Extract.",
-  "region": "India, hawaii.",
+  "preparation": "No direct preparation data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.. No direct region data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.",
+  "region": "No direct region data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.",
   "therapeuticUses": [
     "Spiritual exploration",
     "Introspection",
-    "spiritual exploration"
+    "spiritual exploration",
+    "traditional support for mild digestive comfort"
   ],
   "traditionalUse": "Used in Ayurvedic and tantric rituals for spiritual purposes",
-  "sideEffects": [],
   "slug": "argyreia-nervosa",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "argyreia nervosa",
+  "displayScientificName": "Argyreia nervosa",
+  "scientificNormalized": "argyreia nervosa",
+  "id": "argyreia-nervosa",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
+    "lysergic-acid-amide-lsa",
     "isoergine",
-    "ergine"
+    "ergine",
+    "lsa-lysergic-acid-amide"
   ]
 }

@@ -1,10 +1,8 @@
 {
   "name": "harmine",
-  "category": "general",
-  "description": "harmine is a compound reported in banisteriopsis caapi and peganum harmala. Available references are still early and incomplete.",
   "herbs": [
-    "banisteriopsis caapi",
-    "peganum harmala"
+    "nan",
+    "banisteriopsis caapi"
   ],
   "effects": [
     "Altered perception",
@@ -38,31 +36,20 @@
     "liver issues",
     "psychiatric disorders"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: harmine (CID 5280953)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280953",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "harmine",
-  "summary": "harmine is a compound reported in banisteriopsis caapi and peganum harmala. Available references are still early and incomplete.",
+  "id": "harmine",
+  "displayName": "harmine",
+  "description": "harmine is a compound reported in nan and banisteriopsis caapi. Available references are still early and incomplete.",
+  "summary": "harmine is a compound reported in nan and banisteriopsis caapi. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "banisteriopsis-caapi",
-    "peganum-harmala"
+    "nan",
+    "banisteriopsis-caapi"
   ]
 }

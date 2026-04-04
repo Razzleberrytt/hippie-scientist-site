@@ -1,7 +1,5 @@
 {
   "name": "Cymene",
-  "category": "general",
-  "description": "Cymene appears in records as a compound reported in dysphania ambrosioides. Current source coverage is limited and still developing.",
   "herbs": [
     "dysphania ambrosioides"
   ],
@@ -13,24 +11,13 @@
     "dreaming or folk medicine"
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Cymene (CID 7463)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/7463",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "cymene",
+  "id": "cymene",
+  "displayName": "Cymene",
+  "description": "Cymene appears in records as a compound reported in dysphania ambrosioides. Current source coverage is limited and still developing.",
   "summary": "Cymene appears in records as a compound reported in dysphania ambrosioides. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

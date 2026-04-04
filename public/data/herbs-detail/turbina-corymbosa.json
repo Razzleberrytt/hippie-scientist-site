@@ -3,58 +3,108 @@
   "latin": "Turbina corymbosa",
   "class": "Psychedelic, Entheogen",
   "intensity": "No direct intensity data. Contextual inference: Entheogenic; seeds contain lsa. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Entheogenic; seeds contain LSA. No direct region data. Contextual inference: Entheogenic; seeds contain lsa. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Entheogenic; seeds contain LSA. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [
+    "LSA (ergine)",
     "isoergine"
   ],
   "effects": [
-    "mood",
-    "digestive support",
-    "psychedelic"
+    "Closed-eye visuals",
+    "emotional introspection",
+    "nausea",
+    "Entheogenic",
+    "seeds contain LSA"
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "may interact with maois",
-    "may interact with ssris"
+    "Pregnancy",
+    "MAOIs",
+    "SSRIs"
   ],
+  "safetyNotes": [
+    "Traditional use considered safe",
+    "overdose risks",
+    "Nausea",
+    "vasoconstriction",
+    "fatigue",
+    "Moderate",
+    "Not precisely known",
+    "Psychoactive seeds",
+    "nausea",
+    "hallucinations",
+    "not for regular use",
+    "No direct toxicity data. Contextual inference: Entheogenic",
+    "seeds contain lsa. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Entheogenic",
+    "seeds contain LSA. none."
+  ],
+  "sources": [
+    {
+      "title": "Aztec use"
+    },
+    {
+      "title": "ethnobotany"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Entheogenic; seeds contain lsa. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Entheogenic",
+    "seeds contain lsa. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Entheogenic",
+    "seeds contain LSA. No direct region data. Contextual inference: Entheogenic",
+    "seeds contain LSA. none.",
+    "nan."
+  ],
+  "duration": "6–10 hours",
   "interactions": [
     "MAOIs",
     "SSRIs",
-    "Alcohol"
+    "alcohol"
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause psychoactive seeds, nausea, hallucinations or not for regular use. Avoid in pregnancy; May interact with MAOIs; May interact with SSRIs; Avoid in pregnancy, may cause traditional use considered safe, overdose risks, vasoconstriction, fatigue, moderate, not precisely known, seeds contain lsa; Avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or MAOIs without medical guidance, psychoactive seeds, nausea, hallucinations, not for regular use, may interact with MAOIs or may interact with SSRIs.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: Turbina corymbosa",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Turbina%20corymbosa&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.028Z",
-  "description": "Entheogenic; seeds contain lsa.",
-  "dosage": "",
-  "duration": "6–10 hours",
   "legalStatus": "Restricted in some countries",
-  "preparation": "Seeds historically ground and consumed ritually; contains ergoline alkaloids; not commonly used in herbal medicine.",
-  "region": "",
+  "preparation": "Seeds historically ground and consumed ritually; contains ergoline alkaloids; not commonly used in herbal medicine",
+  "region": "No direct region data. Contextual inference: Entheogenic; seeds contain lsa. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Entheogenic; seeds contain LSA. none. ; nan; nan",
   "therapeuticUses": [
     "Spiritual vision",
     "introspection"
   ],
   "traditionalUse": "; nan; nan",
+  "slug": "turbina-corymbosa",
   "sideEffects": [
     "Psychoactive seeds",
     "nausea",
     "hallucinations",
     "not for regular use"
   ],
-  "slug": "turbina-corymbosa",
+  "displayName": "turbina corymbosa",
+  "displayScientificName": "Turbina corymbosa",
+  "scientificNormalized": "turbina corymbosa",
+  "id": "turbina-corymbosa",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
+    "lsa-ergine",
     "isoergine"
   ]
 }

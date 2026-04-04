@@ -1,7 +1,5 @@
 {
   "name": "α-terpineol",
-  "category": "general",
-  "description": "α-terpineol is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
   "herbs": [
     "acorus tatarinowii"
   ],
@@ -20,24 +18,18 @@
     "dose use",
     "contraindicated in pregnancy and children."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: α-terpineol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/terpineol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "lastUpdated": "2026-03-21",
   "slug": "terpineol",
+  "id": "terpineol",
+  "displayName": "α-terpineol",
+  "description": "α-terpineol is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
   "summary": "α-terpineol is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

@@ -1,37 +1,49 @@
 {
   "name": "leptospermum scoparium",
   "latin": "Leptospermum scoparium",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Manuka; antimicrobial, used topically and internally. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Manuka; antimicrobial, used topically and internally. No direct region data. Contextual inference: Manuka; antimicrobial, used topically and internally. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Manuka; antimicrobial, used topically and internally. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "antimicrobial"
+    "Manuka",
+    "antimicrobial",
+    "used topically and internally"
   ],
   "contraindications": [],
-  "interactions": [
-    "Caution with: Interaction evidence is limited",
-    "Caution with: use caution with prescription medicines",
-    "Caution with: especially CNS active",
-    "Avoid with: anticoagulant",
-    "Caution with: hepatotoxic",
-    "Caution with: blood pressure/glucose lowering drugs"
+  "safetyNotes": [
+    "safe",
+    "Generally safe",
+    "mild GI or allergic responses possible",
+    "No direct toxicity data. Contextual inference: Manuka",
+    "antimicrobial",
+    "used topically and internally. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Manuka",
+    "used topically and internally. none."
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Leptospermum scoparium (TaxID 295139)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=295139&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.954Z",
-  "description": "Manuka; antimicrobial, used topically and internally..",
-  "dosage": "Topical or 1, 2 mL honey orally",
+  "lastUpdated": "2026-03-21",
+  "description": "Manuka; antimicrobial, used topically and internally. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "Topical or 1",
+    "2 mL honey orally"
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "Leaves and flowers infused or used in steam; known as Manuka; external and internal antimicrobial use",
+  "region": "No direct region data. Contextual inference: Manuka; antimicrobial, used topically and internally. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Manuka; antimicrobial, used topically and internally. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -39,6 +51,10 @@
     "mild GI or allergic responses possible"
   ],
   "slug": "leptospermum-scoparium",
+  "id": "leptospermum-scoparium",
+  "displayName": "leptospermum scoparium",
+  "displayScientificName": "Leptospermum scoparium",
+  "scientificNormalized": "leptospermum scoparium",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

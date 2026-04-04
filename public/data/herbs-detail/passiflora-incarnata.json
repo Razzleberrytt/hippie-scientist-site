@@ -3,59 +3,109 @@
   "latin": "Passiflora incarnata",
   "class": "Medicinal, Sedative",
   "intensity": "No direct intensity data. Contextual inference: Anxiolytic, sedative, sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anxiolytic, sedative, sleep aid. No direct region data. Contextual inference: Anxiolytic, sedative, sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anxiolytic, sedative, sleep aid. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [
+    "Flavonoids (vitexin",
+    "isovitexin)",
     "harman alkaloids",
     "maltol"
   ],
   "effects": [
-    "relaxation",
-    "sleep",
-    "anxiety relief"
+    "Calmness",
+    "drowsiness",
+    "muscle relaxation",
+    "Anxiolytic",
+    "sedative",
+    "sleep aid"
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with sedative use",
-    "avoid in liver disease"
+    "Pregnancy",
+    "sedative use",
+    "liver disorders"
   ],
-  "interactions": [
-    "Sedatives",
-    "Antidepressants",
-    "Blood thinners"
+  "safetyNotes": [
+    "Well tolerated",
+    "avoid during pregnancy",
+    "Drowsiness",
+    "dizziness",
+    "gastrointestinal upset",
+    "Low",
+    "Not established",
+    "safe",
+    "avoid with sedatives",
+    "No direct toxicity data. Contextual inference: Anxiolytic",
+    "sedative",
+    "sleep aid. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anxiolytic",
+    "sleep aid. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause drowsiness or dizziness. Avoid in pregnancy; Avoid with sedative use; Avoid in liver disease; Avoid combining with sedatives, generally well tolerated; Avoid during pregnancy, safe or drowsiness; Avoid with sedatives; Avoid use during pregnancy unless advised by a clinician, alcohol, or other CNS depressants, drowsiness or dizziness; Avoid combining with sedatives; Avoid during pregnancy.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Passiflora incarnata (TaxID 159425)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=159425&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "PubMed"
+    },
+    {
+      "title": "WHO monographs"
+    },
+    {
+      "title": "Herbal Pharmacopoeias"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.988Z",
-  "description": "Anxiolytic, sedative, sleep aid.",
-  "dosage": "250-1000 mg/day extract or 1-3 g infusion.",
+  "lastUpdated": "2026-03-21",
+  "description": "Anxiolytic, sedative, sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "1000 mg",
+    "day extract or 1",
+    "3 g infusion"
+  ],
   "duration": "4–6 hours",
+  "interactions": [
+    "Sedatives",
+    "antidepressants",
+    "blood thinners"
+  ],
   "legalStatus": "Legal; used in traditional and supplement forms",
-  "preparation": "Tincture.",
-  "region": "North america, central america.",
+  "preparation": "Aerial parts dried and used in infusions or tinctures; calming nervine herb (passionflower)",
+  "region": "No direct region data. Contextual inference: Anxiolytic, sedative, sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anxiolytic, sedative, sleep aid. none. ; nan; nan",
   "therapeuticUses": [
     "Anxiety",
     "insomnia",
     "neuralgia"
   ],
   "traditionalUse": "; nan; nan",
+  "slug": "passiflora-incarnata",
   "sideEffects": [
     "Drowsiness",
     "dizziness",
     "avoid with sedatives"
   ],
-  "slug": "passiflora-incarnata",
+  "displayName": "passiflora incarnata",
+  "displayScientificName": "Passiflora incarnata",
+  "scientificNormalized": "passiflora incarnata",
+  "id": "passiflora-incarnata",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
+    "flavonoids-vitexin",
+    "isovitexin",
     "harman-alkaloids",
     "maltol"
   ]

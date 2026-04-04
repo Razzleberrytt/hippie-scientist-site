@@ -1,9 +1,7 @@
 {
   "name": "caffeine-like alkaloids",
-  "category": "alkaloid",
-  "description": "caffeine-like alkaloids is an alkaloid compound reported in turnera diffusa. Current source coverage is limited and still developing.",
   "herbs": [
-    "turnera diffusa"
+    "nan"
   ],
   "effects": [
     "Mood lift",
@@ -22,30 +20,19 @@
     "Pregnancy",
     "hormone-sensitive conditions"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: caffeine-like alkaloids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/caffeine-like-alkaloids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "caffeine-like-alkaloids",
-  "summary": "caffeine-like alkaloids is an alkaloid compound reported in turnera diffusa. Current source coverage is limited and still developing.",
+  "id": "caffeine-like-alkaloids",
+  "displayName": "caffeine-like alkaloids",
+  "description": "caffeine-like alkaloids appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "caffeine-like alkaloids appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "turnera-diffusa"
+    "nan"
   ]
 }

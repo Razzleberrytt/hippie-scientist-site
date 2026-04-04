@@ -1,7 +1,5 @@
 {
   "name": "Alpha-bulnesene",
-  "category": "general",
-  "description": "Alpha-bulnesene is a compound reported in pogostemon cablin. Available references are still early and incomplete.",
   "herbs": [
     "pogostemon cablin"
   ],
@@ -13,24 +11,13 @@
     "dreaming or folk medicine"
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Alpha-bulnesene (CID 94275)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/94275",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "alpha-bulnesene",
+  "id": "alpha-bulnesene",
+  "displayName": "Alpha-bulnesene",
+  "description": "Alpha-bulnesene is a compound reported in pogostemon cablin. Available references are still early and incomplete.",
   "summary": "Alpha-bulnesene is a compound reported in pogostemon cablin. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

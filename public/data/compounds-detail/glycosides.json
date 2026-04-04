@@ -1,10 +1,7 @@
 {
   "name": "glycosides",
-  "category": "glycoside",
-  "description": "glycosides is a glycoside compound reported in nymphaea lotus and nymphaea rubra. Available references are still early and incomplete.",
   "herbs": [
-    "nymphaea lotus",
-    "nymphaea rubra"
+    "nan"
   ],
   "effects": [
     "Relaxation",
@@ -27,31 +24,19 @@
     "sedative sensitivity",
     "liver dysfunction (high doses)"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: glycosides (CID 637579)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/637579",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "glycosides",
-  "summary": "glycosides is a glycoside compound reported in nymphaea lotus and nymphaea rubra. Available references are still early and incomplete.",
+  "id": "glycosides",
+  "displayName": "glycosides",
+  "description": "glycosides is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "glycosides is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "nymphaea-lotus",
-    "nymphaea-rubra"
+    "nan"
   ]
 }

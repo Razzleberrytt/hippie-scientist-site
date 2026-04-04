@@ -3,43 +3,59 @@
   "latin": "adhatoda vasica",
   "class": "Shrub",
   "intensity": "mild",
-  "mechanism": "vasicinone exhibits anti-inflammatory and antimicrobial effects | volatile oils and flavonoids provide antioxidant and soothing properties",
+  "mechanism": "Vasicine acts as a bronchodilator by stimulating beta-adrenergic receptors to relax airway muscles; vasicinone exhibits anti-inflammatory and antimicrobial effects; volatile oils and flavonoids provide antioxidant and soothing properties.",
   "activeCompounds": [
     "vasicine",
     "vasicinone",
     "essential oils",
     "flavonoids"
   ],
-  "effects": [],
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
   "contraindications": [
-    "avoid with high doses cause nausea or vomiting",
-    "avoid in pregnancy",
-    "increase bleeding risk"
+    "High doses may cause nausea or vomiting",
+    "Not recommended during pregnancy or lactation without medical guidance",
+    "Use cautiously in individuals with bleeding disorders or on anticoagulant medications"
   ],
-  "interactions": [],
-  "safetyNotes": "Avoid with high doses cause nausea or vomiting; Avoid in pregnancy; Increase bleeding risk.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: adhatoda vasica",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=adhatoda%20vasica&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    }
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "lastUpdated": "2026-04-01T18:55:37.841Z",
-  "description": "",
-  "dosage": "",
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Tea.",
-  "region": "Indian subcontinent.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "Relief of respiratory conditions like asthma, bronchitis and cough",
     "Anti-inflammatory and antimicrobial actions",
     "Traditional Ayurvedic and Unani medicine for lung health"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "adhatoda-vasica",
+  "id": "adhatoda-vasica",
+  "displayName": "adhatoda vasica",
+  "displayScientificName": "adhatoda vasica",
+  "scientificNormalized": "adhatoda vasica",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

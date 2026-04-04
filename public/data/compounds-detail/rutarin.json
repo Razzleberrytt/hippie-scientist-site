@@ -1,7 +1,5 @@
 {
   "name": "Rutarin",
-  "category": "general",
-  "description": "Rutarin appears in records as a compound reported in ruta graveolens. Current source coverage is limited and still developing.",
   "herbs": [
     "ruta graveolens"
   ],
@@ -9,24 +7,13 @@
     "No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Rutarin (CID 442149)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442149",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "rutarin",
+  "id": "rutarin",
+  "displayName": "Rutarin",
+  "description": "Rutarin appears in records as a compound reported in ruta graveolens. Current source coverage is limited and still developing.",
   "summary": "Rutarin appears in records as a compound reported in ruta graveolens. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

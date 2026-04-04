@@ -3,59 +3,85 @@
   "latin": "Acorus gramineus",
   "class": "Aromatic, Tonic",
   "intensity": "Very mild",
-  "mechanism": "Volatile terpenoids may contribute smooth-muscle, antimicrobial, or sensory effects",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
+    "Asarone (alpha & beta)",
     "essential oils"
   ],
   "effects": [
-    "relaxation",
-    "stimulation",
-    "focus"
+    "Mild stimulation",
+    "focus",
+    "calm",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "avoid with similar risks to acorus calamus",
-    "avoid large doses"
+    "Similar risks to Acorus calamus",
+    "avoid large doses",
+    "avoid during pregnancy and breastfeeding",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "interactions": [
-    "Caution with: limited interaction data"
+  "safetyNotes": [
+    "Safe in traditional use",
+    "Mild nausea at high doses",
+    "Low",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyNotes": "Avoid with similar risks to acorus calamus; Avoid large doses.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Acorus gramineus (TaxID 55184)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=55184&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    },
-    {
-      "title": "PubMed search: Acorus gramineus",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Acorus+gramineus",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: Acorus gramineus",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Acorus+gramineus",
-      "note": "Chemical and bioactivity reference index"
+      "title": "Herbal pharmacopoeias"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Fragrant root used in traditional medicine for clarity and calm.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Fragrant root used in traditional medicine for clarity and calm",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "Minimal known"
+  ],
   "legalStatus": "Legal",
-  "preparation": "Tea.",
-  "region": "🇨🇳 east asia.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "Cognition support",
-    "digestion aid"
+    "digestion aid",
+    "traditional support for mild digestive comfort"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "acorus-gramineus",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "acorus gramineus",
+  "displayScientificName": "Acorus gramineus",
+  "scientificNormalized": "acorus gramineus",
+  "id": "acorus-gramineus",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
+    "asarone-alpha-beta",
     "essential-oils"
   ]
 }

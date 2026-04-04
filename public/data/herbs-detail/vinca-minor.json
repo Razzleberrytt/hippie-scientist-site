@@ -1,35 +1,51 @@
 {
   "name": "vinca minor",
   "latin": "Vinca minor",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Nootropic, vasodilator, astringent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Nootropic, vasodilator, astringent. No direct region data. Contextual inference: Nootropic, vasodilator, astringent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Nootropic, vasodilator, astringent. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "focus",
-    "cardiovascular"
+    "Nootropic",
+    "vasodilator",
+    "astringent"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "safe",
+    "Toxic in high doses",
+    "hypotension",
+    "GI effects",
+    "No direct toxicity data. Contextual inference: Nootropic",
+    "vasodilator",
+    "astringent. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Nootropic",
+    "astringent. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause toxic in high doses, hypotension or gi effects.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Vinca minor (TaxID 60093)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=60093&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.031Z",
-  "description": "Nootropic, vasodilator, astringent.",
-  "dosage": "30-60 mg/day standardized extract.",
+  "lastUpdated": "2026-03-21",
+  "description": "Nootropic, vasodilator, astringent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "30",
+    "60 mg",
+    "day standardized extract"
+  ],
   "duration": "4–8 hours",
+  "interactions": [],
   "legalStatus": "Restricted in some countries",
-  "preparation": "Tincture.",
-  "region": "Europe, cultivated globally.",
+  "preparation": "Aerial parts historically infused or tinctured; contains alkaloids—internal use limited due to toxicity concerns",
+  "region": "No direct region data. Contextual inference: Nootropic, vasodilator, astringent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Nootropic, vasodilator, astringent. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -38,6 +54,10 @@
     "GI effects"
   ],
   "slug": "vinca-minor",
+  "id": "vinca-minor",
+  "displayName": "vinca minor",
+  "displayScientificName": "Vinca minor",
+  "scientificNormalized": "vinca minor",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

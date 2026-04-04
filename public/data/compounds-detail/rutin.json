@@ -1,7 +1,5 @@
 {
   "name": "Rutin",
-  "category": "general",
-  "description": "Rutin is a compound reported in ruta graveolens. Available references are still early and incomplete.",
   "herbs": [
     "ruta graveolens"
   ],
@@ -9,24 +7,13 @@
     "No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Rutin (CID 5280805)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280805",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "rutin",
+  "id": "rutin",
+  "displayName": "Rutin",
+  "description": "Rutin is a compound reported in ruta graveolens. Available references are still early and incomplete.",
   "summary": "Rutin is a compound reported in ruta graveolens. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

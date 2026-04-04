@@ -2,73 +2,134 @@
   "name": "papaver somniferum",
   "latin": "Papaver somniferum L.",
   "class": "Analgesic, Sedative, Psychoactive",
-  "intensity": "High and dose-dependent due to opioid alkaloid content.",
-  "mechanism": "Sedative, and respiratory effects.",
+  "intensity": "No direct intensity data. Contextual inference: Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of opiates; analgesic and sedative. No direct region data. Contextual inference: Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of opiates; analgesic and sedative. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [
-    "morphine",
+    "Morphine",
     "codeine",
     "papaverine",
     "noscapine",
     "thebaine"
   ],
   "effects": [
-    "relaxation",
-    "mood",
-    "pain relief",
-    "respiratory support"
+    "Euphoria",
+    "analgesia",
+    "sedation",
+    "cough suppression",
+    "Source of opiates",
+    "analgesic and sedative",
+    "Pain relief",
+    "euphoria"
   ],
   "contraindications": [
-    "avoid with respiratory issues",
-    "avoid in liver disease",
-    "avoid in pregnancy",
-    "avoid with opioid use",
-    "avoid with respiratory disorders",
-    "may interact with maois",
-    "avoid with addiction history"
-  ],
-  "interactions": [
-    "CNS depressants",
-    "Alcohol",
+    "Respiratory issues",
+    "liver impairment",
+    "pregnancy",
+    "opioid use",
+    "Respiratory disorders",
     "MAOIs",
-    "SSRIs",
-    "Anticoagulants"
+    "addiction history",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with sedatives, alcohol, or other CNS depressants.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "safetyLevel": "high",
-  "safetyNotes": "Avoid with respiratory issues; Avoid in liver disease; Avoid in pregnancy; Avoid with opioid use; Avoid with respiratory disorders; May interact with MAOIs; Avoid with addiction history; Avoid use during pregnancy unless advised by a clinician, may cause high risk if misused, addiction potential, constipation, respiratory depression, dependence, high, human extrapolated), restricted, high-risk profile includes dependence, overdose, and respiratory depression potential, analgesic and sedative; Avoid with respiratory issues or may interact with MAOIs; Avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or MAOIs without medical guidance or may interact with MAOIs.",
+  "safetyNotes": [
+    "High risk if misused",
+    "addiction potential",
+    "Constipation",
+    "respiratory depression",
+    "dependence",
+    "High",
+    "~200 mg/kg (morphine",
+    "oral",
+    "human extrapolated)",
+    "restricted",
+    "No direct toxicity data. Contextual inference: Source of opiates",
+    "analgesic and sedative. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Source of opiates",
+    "analgesic and sedative. none.",
+    "High abuse potential",
+    "nausea",
+    "tolerance",
+    "overdose risk",
+    "Morphine LD50 in humans ~120–250 mg"
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Papaver somniferum L.",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Papaver%20somniferum%20L.&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "PubMed"
     },
     {
-      "title": "PubMed search: Papaver somniferum L.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Papaver+somniferum+L.",
-      "note": "Literature index for pharmacology and safety evidence"
+      "title": "ADF"
     },
     {
-      "title": "PubChem search: Papaver somniferum L.",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Papaver+somniferum+L.",
-      "note": "Chemical and bioactivity reference index"
+      "title": "WHO"
+    },
+    {
+      "title": "Pharmacognosy Texts"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "title": "EMCDDA"
+    },
+    {
+      "title": "FDA"
+    },
+    {
+      "title": "UNODC"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Papaver somniferum is a medicinal herb traditionally used for euphoria and analgesia.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "Pharmaceutical use only under regulation"
+  ],
   "duration": "4–6 hours (morphine); longer with raw opium",
+  "interactions": [
+    "CNS depressants",
+    "alcohol",
+    "MAOIs",
+    "SSRIs",
+    "anticoagulants"
+  ],
   "legalStatus": "Strictly regulated; illegal to grow for opium in most countries",
-  "preparation": "",
-  "region": "Originally from the Mediterranean and western Asia, now cultivated in multiple regulated regions.",
+  "preparation": "No direct preparation data. Contextual inference: Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of opiates; analgesic and sedative. No direct region data. Contextual inference: Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of opiates; analgesic and sedative. none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of opiates; analgesic and sedative. none. ; nan; nan",
   "therapeuticUses": [
     "Pain",
     "severe cough",
     "diarrhea (historically)",
     "diarrhea",
-    "cough"
+    "cough",
+    "mild anxiolytic support",
+    "sleep onset support"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "papaver-somniferum",
+  "displayName": "papaver somniferum",
+  "displayScientificName": "Papaver somniferum L.",
+  "scientificNormalized": "papaver somniferum",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "papaver-somniferum",
+  "aliases": [
+    "nan",
+    "Papaver somniferum"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

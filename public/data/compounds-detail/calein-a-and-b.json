@@ -1,9 +1,7 @@
 {
   "name": "calein A and B",
-  "category": "general",
-  "description": "calein A and B is a compound reported in calea zacatechichi. Available references are still early and incomplete.",
   "herbs": [
-    "calea zacatechichi"
+    "nan"
   ],
   "effects": [
     "Vivid and lucid dreams",
@@ -13,30 +11,19 @@
   "contraindications": [
     "Avoid in pregnancy and with CNS depressants"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: calein A and B",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/calein-a-and-b",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "calein-a-and-b",
-  "summary": "calein A and B is a compound reported in calea zacatechichi. Available references are still early and incomplete.",
+  "id": "calein-a-and-b",
+  "displayName": "calein A and B",
+  "description": "calein A and B is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "calein A and B is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "calea-zacatechichi"
+    "nan"
   ]
 }

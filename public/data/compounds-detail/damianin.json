@@ -1,8 +1,7 @@
 {
   "name": "Damianin",
-  "category": "general",
-  "description": "Damianin appears in records as a compound reported in turnera diffusa var. aphrodisiaca and turnera diffusa. Current source coverage is limited and still developing.",
   "herbs": [
+    "nan",
     "turnera diffusa var. aphrodisiaca",
     "turnera diffusa"
   ],
@@ -27,30 +26,20 @@
     "Pregnancy",
     "hormone-sensitive conditions"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Damianin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/damianin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "damianin",
-  "summary": "Damianin appears in records as a compound reported in turnera diffusa var. aphrodisiaca and turnera diffusa. Current source coverage is limited and still developing.",
+  "id": "damianin",
+  "displayName": "Damianin",
+  "description": "Damianin appears in records as a compound reported in nan, turnera diffusa var. aphrodisiaca, and related herbs. Current source coverage is limited and still developing.",
+  "summary": "Damianin appears in records as a compound reported in nan, turnera diffusa var. aphrodisiaca, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "turnera-diffusa-var-aphrodisiaca",
     "turnera-diffusa"
   ]

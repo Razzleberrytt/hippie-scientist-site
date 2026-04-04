@@ -1,8 +1,7 @@
 {
   "name": "ibotenic acid",
-  "category": "general",
-  "description": "ibotenic acid is a compound reported in amanita muscaria. Available references are still early and incomplete.",
   "herbs": [
+    "nan",
     "amanita muscaria"
   ],
   "effects": [
@@ -22,30 +21,20 @@
     "Toxic if misused",
     "dangerous with alcohol or sedatives"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: ibotenic acid (CID 1233)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1233",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "ibotenic-acid",
-  "summary": "ibotenic acid is a compound reported in amanita muscaria. Available references are still early and incomplete.",
+  "id": "ibotenic-acid",
+  "displayName": "ibotenic acid",
+  "description": "ibotenic acid is a compound reported in nan and amanita muscaria. Available references are still early and incomplete.",
+  "summary": "ibotenic acid is a compound reported in nan and amanita muscaria. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "amanita-muscaria"
   ]
 }

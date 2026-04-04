@@ -1,7 +1,5 @@
 {
   "name": "tannins (gallic acid, ellagic acid, catechin)",
-  "category": "tannin",
-  "description": "tannins (gallic acid, ellagic acid, catechin) is a tannin compound reported in acacia nilotica. Available references are still early and incomplete.",
   "herbs": [
     "acacia nilotica"
   ],
@@ -13,25 +11,14 @@
     "Avoid during pregnancy or lactation due to potential anti-fertility effects",
     "Not recommended for children under 12"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: tannins (gallic acid, ellagic acid, catechin)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tannins-gallic-acid-ellagic-acid-catechin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "tannins-gallic-acid-ellagic-acid-catechin",
-  "summary": "tannins (gallic acid, ellagic acid, catechin) is a tannin compound reported in acacia nilotica. Available references are still early and incomplete.",
+  "id": "tannins-gallic-acid-ellagic-acid-catechin",
+  "displayName": "tannins (gallic acid, ellagic acid, catechin)",
+  "description": "tannins (gallic acid, ellagic acid, catechin) is a compound reported in acacia nilotica. Available references are still early and incomplete.",
+  "summary": "tannins (gallic acid, ellagic acid, catechin) is a compound reported in acacia nilotica. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

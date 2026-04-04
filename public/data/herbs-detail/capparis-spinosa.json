@@ -1,35 +1,65 @@
 {
   "name": "capparis spinosa",
   "latin": "Capparis spinosa",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antioxidant and anti-inflammatory; edible flower buds (capers). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-inflammatory; edible flower buds (capers). No direct region data. Contextual inference: Antioxidant and anti-inflammatory; edible flower buds (capers). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-inflammatory; edible flower buds (capers). none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "anti-inflammatory",
-    "antioxidant"
+    "Antioxidant and anti-inflammatory",
+    "edible flower buds (capers)",
+    "Antioxidant and anti",
+    "inflammatory"
   ],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Edible flower buds (capers); Antioxidant effects; Or enzyme inhibition.",
+  "contraindications": [
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
+  ],
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference: Antioxidant and anti-inflammatory",
+    "edible flower buds (capers). Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antioxidant and anti-inflammatory",
+    "edible flower buds (capers). none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Capparis spinosa (TaxID 65558)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=65558&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.887Z",
-  "description": "Antioxidant and anti-inflammatory; edible flower buds (capers)..",
-  "dosage": "250-750 mg/day extract or pickled buds",
+  "lastUpdated": "2026-03-21",
+  "description": "Antioxidant and anti-inflammatory; edible flower buds (capers). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "750 mg",
+    "day extract or pickled buds"
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "",
-  "region": "",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Antioxidant and anti-inflammatory; edible flower buds (capers). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-inflammatory; edible flower buds (capers). No direct region data. Contextual inference: Antioxidant and anti-inflammatory; edible flower buds (capers). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-inflammatory; edible flower buds (capers). none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Antioxidant and anti-inflammatory; edible flower buds (capers). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-inflammatory; edible flower buds (capers). none. ; nan; nan",
+  "therapeuticUses": [
+    "traditional use for musculoskeletal discomfort",
+    "support for mild inflammatory pain"
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "capparis-spinosa",
+  "sideEffects": [
+    "headache (more likely with higher intake)",
+    "dry mouth"
+  ],
+  "id": "capparis-spinosa",
+  "displayName": "capparis spinosa",
+  "displayScientificName": "Capparis spinosa",
+  "scientificNormalized": "capparis spinosa",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

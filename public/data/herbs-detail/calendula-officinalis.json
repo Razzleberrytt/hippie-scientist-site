@@ -1,41 +1,77 @@
 {
   "name": "calendula officinalis",
   "latin": "Calendula officinalis",
-  "class": "general",
-  "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, wound healing, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, antifungal. No direct region data. Contextual inference: Anti-inflammatory, wound healing, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, antifungal. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
-  "activeCompounds": [],
-  "effects": [
-    "anti-inflammatory",
-    "antimicrobial"
+  "class": "Topical anti-inflammatory herb",
+  "intensity": "mild",
+  "mechanism": "Primarily topical activity; preclinical and limited clinical evidence suggests anti-inflammatory and wound-healing effects.",
+  "activeCompounds": [
+    "triterpenoids",
+    "flavonoids",
+    "carotenoids"
   ],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Rare allergic skin reactions; Generally well tolerated; Antifungal; Antioxidant effects; Or enzyme inhibition.",
+  "effects": [
+    "topical anti-inflammatory support",
+    "minor wound-healing support"
+  ],
+  "contraindications": [
+    "avoid if allergic to Asteraceae/Compositae plants"
+  ],
+  "safetyNotes": [
+    "safe",
+    "Rare allergic skin reactions",
+    "generally well tolerated",
+    "No direct toxicity data. Contextual inference: Anti-inflammatory",
+    "wound healing",
+    "antifungal. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anti-inflammatory",
+    "antifungal. none."
+  ],
   "sources": [
     {
       "title": "NCBI Taxonomy: Calendula officinalis (TaxID 41496)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=41496&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "note": "Canonical species identity."
+    },
+    {
+      "title": "Systematic review: Calendula officinalis extract for wound healing",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31145533/",
+      "note": "Review-level evidence for topical wound-healing use; certainty is limited by heterogeneous studies."
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.879Z",
-  "description": "Anti-inflammatory, wound healing, antifungal..",
-  "dosage": "1-2 g/day dried flower or 300-500 mg extract",
+  "lastUpdated": "2026-03-21",
+  "description": "Traditional topical herb used for minor skin inflammation and wound support; human evidence is limited and mostly adjunctive.",
+  "dosage": [
+    "Topical preparations are most common; product-specific dosing should follow labeling and clinical guidance."
+  ],
   "duration": "3–6 hours",
+  "interactions": [],
   "legalStatus": "Widely legal; approved for use in herbal products",
-  "preparation": "Tincture.",
-  "region": "",
-  "therapeuticUses": [],
-  "traditionalUse": "; nan; nan",
+  "preparation": "Petals used fresh or dried in teas, infusions, salves, and tinctures",
+  "region": "No direct region data. Contextual inference: Anti-inflammatory, wound healing, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, antifungal. none. ; nan; nan",
+  "therapeuticUses": [
+    "minor skin irritation support",
+    "adjunct wound-care support"
+  ],
+  "traditionalUse": "Traditionally used in European and Mediterranean herbal medicine, mainly as a topical preparation.",
   "sideEffects": [
     "Rare allergic skin reactions",
     "generally well tolerated"
   ],
   "slug": "calendula-officinalis",
+  "id": "calendula-officinalis",
+  "displayName": "calendula officinalis",
+  "displayScientificName": "Calendula officinalis",
+  "scientificNormalized": "calendula officinalis",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [
+    "triterpenoids",
+    "flavonoids",
+    "carotenoids"
+  ]
 }

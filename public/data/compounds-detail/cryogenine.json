@@ -1,11 +1,8 @@
 {
   "name": "Cryogenine",
-  "category": "general",
-  "description": "Cryogenine appears in records as a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
-    "heimia myrtifolia",
-    "heimia salicifolia (sinicuichi)",
-    "Sinicuichi (Heimia myrtifolia)"
+    "nan",
+    "heimia salicifolia"
   ],
   "effects": [
     "Auditory distortion",
@@ -44,32 +41,20 @@
     "Antidepressants",
     "liver conditions"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Cryogenine (CID 5315204)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5315204",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "cryogenine",
-  "summary": "Cryogenine appears in records as a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Current source coverage is limited and still developi",
+  "id": "cryogenine",
+  "displayName": "Cryogenine",
+  "description": "Cryogenine appears in records as a compound reported in nan and heimia salicifolia. Current source coverage is limited and still developing.",
+  "summary": "Cryogenine appears in records as a compound reported in nan and heimia salicifolia. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "heimia-myrtifolia",
-    "heimia-salicifolia-sinicuichi",
-    "sinicuichi-heimia-myrtifolia"
+    "nan",
+    "heimia-salicifolia"
   ]
 }

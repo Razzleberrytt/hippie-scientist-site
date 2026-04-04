@@ -3,59 +3,79 @@
   "latin": "Galbulimima belgraveana",
   "class": "Hallucinogen (Rare)",
   "intensity": "Moderate to strong",
-  "mechanism": "used with homalomena in psychoactive brews by papuan tribes",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.",
   "activeCompounds": [
-    "himandrine",
-    "himbacine",
-    "galbulimimine"
+    "Himandrine",
+    "himbacine (alkaloids)",
+    "Himbacine",
+    "Galbulimimine"
   ],
   "effects": [
-    "psychedelic"
+    "Hallucinations",
+    "dizziness",
+    "sedation",
+    "No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
   ],
   "contraindications": [
-    "avoid with not recommended outside supervised research"
+    "not recommended outside supervised research",
+    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+    "Do not use with known allergy to this plant or related species."
   ],
-  "interactions": [
-    "May potentiate: May increase sedation when combined with CNS depressants",
-    "Caution with: Use caution with serotonergic or psychoactive medications due to possible CNS interaction"
+  "safetyNotes": [
+    "traditional use only",
+    "Delirium",
+    "confusion",
+    "sedation",
+    "Not established",
+    "Toxic – hallucinogen with unpredictable effects",
+    "No direct toxicity data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid with not recommended outside supervised research.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Galbulimima belgraveana (TaxID 13535)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=13535&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Ethnobotany"
     },
     {
-      "title": "PubMed search: Galbulimima belgraveana",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Galbulimima+belgraveana",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: Galbulimima belgraveana",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Galbulimima+belgraveana",
-      "note": "Chemical and bioactivity reference index"
+      "title": "rare plant reports"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Rare tree from Papua New Guinea with visionary and sedative effects, used in ritual mixtures.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Rare tree from Papua New Guinea with visionary and sedative effects, used in ritual mixtures",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. No direct region data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
+  ],
   "duration": "No direct duration data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. No direct region data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.",
+  "interactions": [],
   "legalStatus": "Unregulated but obscure",
-  "preparation": "Tea.",
-  "region": "Papua new guinea and northern australia.",
+  "preparation": "No direct preparation data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. No direct region data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.",
+  "region": "No direct region data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.",
   "therapeuticUses": [
-    "Traditional visionary experiences"
+    "Traditional visionary experiences",
+    "Traditional supportive use; indication depends on species part and preparation.",
+    "Evidence level varies; use only within established clinical or traditional context."
   ],
   "traditionalUse": "Used with Homalomena in psychoactive brews by Papuan tribes.",
-  "sideEffects": [],
   "slug": "galbulimima-belgraveana",
+  "sideEffects": [
+    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  ],
+  "displayName": "galbulimima belgraveana",
+  "displayScientificName": "Galbulimima belgraveana",
+  "scientificNormalized": "galbulimima belgraveana",
+  "id": "galbulimima-belgraveana",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
     "himandrine",
+    "himbacine-alkaloids",
     "himbacine",
     "galbulimimine"
   ]

@@ -1,33 +1,63 @@
 {
   "name": "rhizophora stylosa",
   "latin": "Rhizophora stylosa",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in folk medicine for diarrhea and wound healing. No direct region data. Contextual inference: Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in folk medicine for diarrhea and wound healing. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "caution",
-  "safetyNotes": "",
+  "effects": [
+    "Used in folk medicine for diarrhea and wound healing"
+  ],
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding unless clinician-guided",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
+  ],
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference: Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Used in folk medicine for diarrhea and wound healing. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Rhizophora stylosa (TaxID 98588)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=98588&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.007Z",
-  "description": "Rhizophora stylosa is a medicinal herb traditionally used for folk medicine for diarrhea and wound healing.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Used in folk medicine for diarrhea and wound healing. No direct region data. Contextual inference: Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Used in folk medicine for diarrhea and wound healing. none.",
+    "nan."
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Unregulated",
-  "preparation": "",
-  "region": "",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in folk medicine for diarrhea and wound healing. No direct region data. Contextual inference: Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in folk medicine for diarrhea and wound healing. none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Used in folk medicine for diarrhea and wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in folk medicine for diarrhea and wound healing. none. ; nan; nan",
+  "therapeuticUses": [
+    "digestive support (bloating, gas, mild cramping)",
+    "historical use for symptom relief in regional folk medicine"
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "rhizophora-stylosa",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "rhizophora-stylosa",
+  "displayName": "rhizophora stylosa",
+  "displayScientificName": "Rhizophora stylosa",
+  "scientificNormalized": "rhizophora stylosa",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

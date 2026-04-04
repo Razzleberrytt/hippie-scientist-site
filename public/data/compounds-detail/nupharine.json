@@ -1,10 +1,7 @@
 {
   "name": "Nupharine",
-  "category": "general",
-  "description": "Nupharine is a compound reported in nymphaea caerulea and nymphaea rubra. Available references are still early and incomplete.",
   "herbs": [
-    "nymphaea caerulea",
-    "nymphaea rubra"
+    "nan"
   ],
   "effects": [
     "Relaxation",
@@ -35,31 +32,19 @@
     "concurrent CNS depressants",
     "driving or operating machinery"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Nupharine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nupharine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "nupharine",
-  "summary": "Nupharine is a compound reported in nymphaea caerulea and nymphaea rubra. Available references are still early and incomplete.",
+  "id": "nupharine",
+  "displayName": "Nupharine",
+  "description": "Nupharine is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Nupharine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "nymphaea-caerulea",
-    "nymphaea-rubra"
+    "nan"
   ]
 }

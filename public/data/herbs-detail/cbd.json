@@ -1,44 +1,56 @@
 {
   "name": "cbd",
   "latin": "cbd",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "cbd engages multiple receptor and enzyme pathways | mechanistic complexity and formulation variability limit simple efficacy extrapolation across products",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [],
-  "effects": [],
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
   "contraindications": [
-    "avoid with use caution in significant hepatic impairment without clinician oversight",
-    "avoid unsupported replacement of prescribed therapy with non-standardized cbd products"
+    "avoid during pregnancy and breastfeeding",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "interactions": [
-    "May potentiate: Potential interaction with CYP metabolized medications including antiseizure agents and other narrow therapeutic index drugs"
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyNotes": "Monitor for liver enzyme elevations in higher-risk populations and polypharmacy contexts., Sedation, gastrointestinal effects, and drug-drug interactions are key counseling points.",
-  "sources": [
-    {
-      "title": "src_doi-10-1186-cpr-2024-11820",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39211820/"
-    },
-    {
-      "title": "src_fda-epidiolex-label-2021",
-      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/210365s005lbl.pdf"
-    },
-    {
-      "title": "src_pubmed-40622698",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40622698/"
-    }
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
   ],
-  "lastUpdated": "2026-04-01T18:55:37.891Z",
-  "description": "Cannabidiol (CBD) is a cannabinoid used in regulated products (for example prescription formulations) and consumer supplements with variable quality standards.",
-  "dosage": "Dose context is product- and indication-specific; use approved labeling or clinician guidance rather than generic self-dosing ranges.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "legalStatus": "",
-  "preparation": "Extract.",
-  "region": "Unknown.",
-  "therapeuticUses": [],
-  "traditionalUse": "Cannabis-related traditional use exists in multiple cultures, but modern CBD claims should rely on product-specific clinical and regulatory evidence.",
-  "sideEffects": [],
+  "interactions": [],
+  "legalStatus": null,
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": [
+    "traditional support for mild digestive comfort"
+  ],
+  "traditionalUse": "; nan; nan",
   "slug": "cbd",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "cbd",
+  "displayName": "cbd",
+  "displayScientificName": "cbd",
+  "scientificNormalized": "cbd",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -3,39 +3,42 @@
   "latin": "eleutherococcus senticosus",
   "class": null,
   "intensity": "mild",
-  "mechanism": "Eleutherosides and phenylpropanoid glycosides show stress-response modulation and may influence HPA-axis signaling and fatigue-related outcomes.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [],
-  "effects": [],
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
   "contraindications": [
     "avoid during pregnancy and breastfeeding",
     "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "safetyNotes": "Usually tolerated short term, but may cause insomnia, palpitations, or blood-pressure changes at higher doses. Avoid use in uncontrolled hypertension.",
-  "sources": [
-    {
-      "title": "Eleutherococcus senticosus (Siberian ginseng): safety and efficacy review (Am Fam Physician. 2003)",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/14655808/",
-      "note": "Clinical safety considerations and evidence limits."
-    },
-    {
-      "title": "Siberian Ginseng - MedlinePlus Supplements",
-      "url": "https://medlineplus.gov/druginfo/natural/985.html",
-      "note": "Interaction cautions and practical contraindications."
-    }
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
+  "sources": [],
   "lastUpdated": "2026-03-21",
-  "description": "",
-  "dosage": "",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Caution with: May increase or decrease blood glucose",
-    "Caution with: monitor when combined with antidiabetic medicines",
-    "Caution with: Possible interaction with digoxin immunoassays and caution with anticoagulants based on case level reports",
-    "May potentiate: May increase stimulation with caffeine or other stimulants in sensitive users"
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
   ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Extract.",
-  "region": "Siberia.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "traditional support for mild digestive comfort"
   ],

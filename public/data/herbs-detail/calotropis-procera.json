@@ -1,32 +1,64 @@
 {
   "name": "calotropis procera",
   "latin": "Calotropis procera",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Analgesic, anti-inflammatory, antihelminthic; toxic in high doses. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic, anti-inflammatory, antihelminthic; toxic in high doses. No direct region data. Contextual inference: Analgesic, anti-inflammatory, antihelminthic; toxic in high doses. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic, anti-inflammatory, antihelminthic; toxic in high doses. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "pain relief",
+    "Analgesic",
     "anti-inflammatory",
-    "antimicrobial"
+    "antihelminthic",
+    "toxic in high doses",
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Toxic latex; Can cause blistering on skin contact; Ingestion may lead to vomiting; Arrhythmias; Analgesic; Antihelminthic; Toxic in high doses; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Analgesic.",
+  "safetyNotes": [
+    "Toxic latex",
+    "can cause blistering on skin contact",
+    "ingestion may lead to vomiting",
+    "arrhythmias",
+    "No direct toxicity data. Contextual inference: Analgesic",
+    "anti-inflammatory",
+    "antihelminthic",
+    "toxic in high doses. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Analgesic",
+    "toxic in high doses. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Calotropis procera (TaxID 141467)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=141467&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.883Z",
-  "description": "Analgesic, anti-inflammatory, antihelminthic; toxic in high doses..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Analgesic, anti-inflammatory, antihelminthic; toxic in high doses. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Analgesic",
+    "anti",
+    "inflammatory",
+    "antihelminthic",
+    "toxic in high doses. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Analgesic",
+    "toxic in high doses. No direct region data. Contextual inference: Analgesic",
+    "toxic in high doses. none.",
+    "nan."
+  ],
   "duration": "3–6 hours",
+  "interactions": [],
   "legalStatus": "Used traditionally; some parts regulated for toxicity",
-  "preparation": "Raw.",
-  "region": "",
+  "preparation": "Latex and leaves used cautiously in external applications or processed formulas; toxic when raw",
+  "region": "No direct region data. Contextual inference: Analgesic, anti-inflammatory, antihelminthic; toxic in high doses. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic, anti-inflammatory, antihelminthic; toxic in high doses. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -36,6 +68,10 @@
     "arrhythmias"
   ],
   "slug": "calotropis-procera",
+  "id": "calotropis-procera",
+  "displayName": "calotropis procera",
+  "displayScientificName": "Calotropis procera",
+  "scientificNormalized": "calotropis procera",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

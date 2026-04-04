@@ -1,7 +1,5 @@
 {
   "name": "MeO",
-  "category": "general",
-  "description": "MeO appears in records as a compound reported in virola theiodora. Current source coverage is limited and still developing.",
   "herbs": [
     "virola theiodora"
   ],
@@ -9,24 +7,13 @@
     "No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: MeO (CID 128395)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/128395",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "meo",
+  "id": "meo",
+  "displayName": "MeO",
+  "description": "MeO appears in records as a compound reported in virola theiodora. Current source coverage is limited and still developing.",
   "summary": "MeO appears in records as a compound reported in virola theiodora. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

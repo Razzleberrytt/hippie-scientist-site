@@ -1,9 +1,7 @@
 {
   "name": "ibogaine-related alkaloids",
-  "category": "alkaloid",
-  "description": "ibogaine-related alkaloids is an alkaloid compound reported in voacanga africana. Available references are still early and incomplete.",
   "herbs": [
-    "voacanga africana"
+    "nan"
   ],
   "effects": [
     "Altered perception",
@@ -21,30 +19,19 @@
     "cardiovascular conditions",
     "MAOI use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: ibogaine-related alkaloids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ibogaine-related-alkaloids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "ibogaine-related-alkaloids",
-  "summary": "ibogaine-related alkaloids is an alkaloid compound reported in voacanga africana. Available references are still early and incomplete.",
+  "id": "ibogaine-related-alkaloids",
+  "displayName": "ibogaine-related alkaloids",
+  "description": "ibogaine-related alkaloids is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "ibogaine-related alkaloids is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "voacanga-africana"
+    "nan"
   ]
 }

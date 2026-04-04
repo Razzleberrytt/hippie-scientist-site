@@ -1,35 +1,73 @@
 {
   "name": "boswellia sacra",
   "latin": "Boswellia sacra",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Produces frankincense resin; anti-inflammatory and anxiolytic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Produces frankincense resin; anti-inflammatory and anxiolytic. No direct region data. Contextual inference: Produces frankincense resin; anti-inflammatory and anxiolytic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Produces frankincense resin; anti-inflammatory and anxiolytic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "relaxation",
-    "anti-inflammatory"
+    "Produces frankincense resin",
+    "anti-inflammatory and anxiolytic",
+    "anti",
+    "inflammatory and anxiolytic"
   ],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Produces frankincense resin; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Produces frankincense resin.",
+  "contraindications": [
+    "use caution with chronic medical conditions and prescription medications",
+    "discontinue if hypersensitivity or allergic symptoms occur",
+    "use caution before driving or operating machinery if sedation occurs"
+  ],
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference: Produces frankincense resin",
+    "anti-inflammatory and anxiolytic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Produces frankincense resin",
+    "anti-inflammatory and anxiolytic. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Boswellia sacra (TaxID 173701)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=173701&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.870Z",
-  "description": "Produces frankincense resin; anti-inflammatory and anxiolytic..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Produces frankincense resin; anti-inflammatory and anxiolytic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Produces frankincense resin",
+    "anti",
+    "inflammatory and anxiolytic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Produces frankincense resin",
+    "inflammatory and anxiolytic. No direct region data. Contextual inference: Produces frankincense resin",
+    "inflammatory and anxiolytic. none.",
+    "nan."
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "Smoked.",
-  "region": "",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Produces frankincense resin; anti-inflammatory and anxiolytic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Produces frankincense resin; anti-inflammatory and anxiolytic. No direct region data. Contextual inference: Produces frankincense resin; anti-inflammatory and anxiolytic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Produces frankincense resin; anti-inflammatory and anxiolytic. none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Produces frankincense resin; anti-inflammatory and anxiolytic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Produces frankincense resin; anti-inflammatory and anxiolytic. none. ; nan; nan",
+  "therapeuticUses": [
+    "short-term calming support during stress",
+    "occasional support for mild pain symptoms"
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "boswellia-sacra",
+  "sideEffects": [
+    "headache",
+    "dry mouth",
+    "light dizziness"
+  ],
+  "id": "boswellia-sacra",
+  "displayName": "boswellia sacra",
+  "displayScientificName": "Boswellia sacra",
+  "scientificNormalized": "boswellia sacra",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -1,7 +1,5 @@
 {
   "name": "hypaconitine",
-  "category": "general",
-  "description": "hypaconitine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing.",
   "herbs": [
     "aconitum napellus"
   ],
@@ -18,24 +16,18 @@
     "avoid internal use",
     "handling requires caution."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: hypaconitine (CID 91973803)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/91973803",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "lastUpdated": "2026-03-21",
   "slug": "hypaconitine",
+  "id": "hypaconitine",
+  "displayName": "hypaconitine",
+  "description": "hypaconitine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing.",
   "summary": "hypaconitine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

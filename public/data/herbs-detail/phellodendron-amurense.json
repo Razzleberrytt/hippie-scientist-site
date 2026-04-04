@@ -1,36 +1,71 @@
 {
   "name": "phellodendron amurense",
   "latin": "Phellodendron amurense",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory and antimicrobial; contains berberine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains berberine. No direct region data. Contextual inference: Anti-inflammatory and antimicrobial; contains berberine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains berberine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "anti-inflammatory",
-    "antimicrobial"
+    "Anti-inflammatory and antimicrobial",
+    "contains berberine",
+    "Anti",
+    "inflammatory and antimicrobial"
   ],
-  "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "caution",
-  "safetyNotes": "Avoid combining with prescription drugs without guidance.",
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding unless clinician-guided",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
+  ],
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference: Anti-inflammatory and antimicrobial",
+    "contains berberine. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anti-inflammatory and antimicrobial",
+    "contains berberine. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Phellodendron amurense (TaxID 68554)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=68554&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.994Z",
-  "description": "Anti-inflammatory and antimicrobial; contains berberine.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Anti-inflammatory and antimicrobial; contains berberine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Anti",
+    "inflammatory and antimicrobial",
+    "contains berberine. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anti",
+    "contains berberine. No direct region data. Contextual inference: Anti",
+    "contains berberine. none.",
+    "nan."
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "",
-  "region": "",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Anti-inflammatory and antimicrobial; contains berberine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains berberine. No direct region data. Contextual inference: Anti-inflammatory and antimicrobial; contains berberine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains berberine. none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Anti-inflammatory and antimicrobial; contains berberine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains berberine. none. ; nan; nan",
+  "therapeuticUses": [
+    "digestive support (bloating, gas, mild cramping)",
+    "historical use for symptom relief in regional folk medicine"
+  ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "phellodendron-amurense",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "phellodendron-amurense",
+  "displayName": "phellodendron amurense",
+  "displayScientificName": "Phellodendron amurense",
+  "scientificNormalized": "phellodendron amurense",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

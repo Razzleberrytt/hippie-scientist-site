@@ -1,7 +1,5 @@
 {
   "name": "Perillaldehyde",
-  "category": "general",
-  "description": "Perillaldehyde is a compound reported in perilla frutescens. Available references are still early and incomplete.",
   "herbs": [
     "perilla frutescens"
   ],
@@ -9,24 +7,13 @@
     "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Perillaldehyde (CID 16441)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/16441",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "perillaldehyde",
+  "id": "perillaldehyde",
+  "displayName": "Perillaldehyde",
+  "description": "Perillaldehyde is a compound reported in perilla frutescens. Available references are still early and incomplete.",
   "summary": "Perillaldehyde is a compound reported in perilla frutescens. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

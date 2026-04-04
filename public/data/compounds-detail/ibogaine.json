@@ -1,8 +1,7 @@
 {
   "name": "Ibogaine",
-  "category": "general",
-  "description": "Ibogaine is a compound reported in tabernanthe iboga. Available references are still early and incomplete.",
   "herbs": [
+    "nan",
     "tabernanthe iboga"
   ],
   "effects": [
@@ -23,30 +22,20 @@
     "heart disease",
     "psychiatric disorders."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Ibogaine (CID 197060)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/197060",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "ibogaine",
-  "summary": "Ibogaine is a compound reported in tabernanthe iboga. Available references are still early and incomplete.",
+  "id": "ibogaine",
+  "displayName": "Ibogaine",
+  "description": "Ibogaine is a compound reported in nan and tabernanthe iboga. Available references are still early and incomplete.",
+  "summary": "Ibogaine is a compound reported in nan and tabernanthe iboga. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "tabernanthe-iboga"
   ]
 }

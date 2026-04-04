@@ -1,39 +1,48 @@
 {
   "name": "kava",
   "latin": "kava",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "kavalactones appear to modulate gabaergic and other neurochemical pathways | but pathway-level certainty does not equal universal clinical efficacy",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [],
   "effects": [
-    "anxiety relief"
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
-  "contraindications": [
-    "avoid in liver disease"
+  "contraindications": "Liver conditions, alcohol, sedatives",
+  "safetyNotes": [
+    "caution",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "interactions": [
-    "May potentiate: Potential additive sedation with alcohol",
-    "Avoid with: benzodiazepines",
-    "Avoid with: other CNS depressants"
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
   ],
-  "safetyNotes": "Liver safety concerns remain a core caution point, especially with nontraditional extracts and co-exposures.",
-  "sources": [
-    {
-      "title": "src_cochrane-cd003383",
-      "url": "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD003383/full"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:37.951Z",
-  "description": "Kava (Piper methysticum) is a Pacific traditional beverage plant studied in standardized extracts for anxiety-related outcomes.",
-  "dosage": "Use product-specific clinical labeling or trial-standardized extract context; avoid unsupervised high-dose use.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Tincture.",
-  "region": "Polynesia, micronesia.",
-  "therapeuticUses": [],
-  "traditionalUse": "Traditional use in Pacific ceremonial and social contexts is well documented and culturally specific.",
-  "sideEffects": [],
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": "Anxiety, stress, sleep aid",
+  "traditionalUse": "; nan; nan",
   "slug": "kava",
+  "id": "kava",
+  "displayName": "kava",
+  "displayScientificName": "kava",
+  "scientificNormalized": "kava",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

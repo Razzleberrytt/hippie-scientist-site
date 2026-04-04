@@ -1,69 +1,125 @@
 {
   "name": "urtica dioica",
   "latin": "Urtica dioica",
-  "class": "Nutritional Tonic, Mild Stimulant",
+  "class": "Nutritional and anti-inflammatory herb",
   "intensity": "Very mild",
-  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity.",
+  "mechanism": "Evidence suggests anti-inflammatory activity and possible effects on cytokine signaling; clinical evidence remains mixed by indication.",
   "activeCompounds": [
-    "histamine",
+    "flavonoids",
+    "phenolic acids",
+    "lectins",
+    "histamine (fresh trichomes)",
+    "Histamine",
     "serotonin",
-    "acetylcholine",
-    "flavonoids"
+    "acetylcholine"
   ],
   "effects": [
-    "stimulation",
-    "cardiovascular"
+    "adjunct symptom support in some inflammatory conditions",
+    "nutritive tonic use in traditional practice",
+    "Mild stimulation",
+    "increased circulation",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with diuretics"
+    "use caution in pregnancy",
+    "use caution with antihypertensives and diuretics",
+    "Pregnancy (caution)",
+    "diuretics"
   ],
-  "interactions": [
-    "Diuretics",
-    "Antihypertensives"
+  "safetyNotes": [
+    "Generally well tolerated when processed for oral use.",
+    "Fresh plant contact can cause transient stinging/urticarial skin reactions.",
+    "Very safe",
+    "stings from fresh plant can irritate skin",
+    "Skin irritation",
+    "urticaria from contact",
+    "Low",
+    "considered non-toxic",
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyLevel": "caution",
-  "safetyNotes": "Generally well tolerated. Avoid in pregnancy; Avoid with diuretics; Avoid use during pregnancy unless advised by a clinician.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Urtica dioica (TaxID 3501)",
       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3501&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "note": "Canonical species identity."
     },
     {
-      "title": "PubMed search: Urtica dioica",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Urtica+dioica",
-      "note": "Literature index for pharmacology and safety evidence"
+      "title": "Randomized trial (BPH): Urtica dioica root extract",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16635963/",
+      "note": "Clinical trial evidence for one indication; not generalizable to all uses."
     },
     {
-      "title": "PubChem search: Urtica dioica",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Urtica+dioica",
-      "note": "Chemical and bioactivity reference index"
+      "title": "Randomized trial (osteoarthritis): stinging nettle leaf",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10581821/",
+      "note": "Small trial; evidence should be considered preliminary."
+    },
+    {
+      "title": "Herbal texts"
+    },
+    {
+      "title": "folk medicine"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Nutritive herb with minor stimulant and revitalizing effects when fresh.",
-  "dosage": "",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "legalStatus": "Legal",
-  "preparation": "Tea.",
-  "region": "Europe, north america.",
+  "lastUpdated": "2026-03-21",
   "therapeuticUses": [
+    "benign prostatic symptom support (selected extracts)",
+    "adjunct joint symptom support (limited evidence)",
     "Fatigue",
     "anemia",
     "joint support"
   ],
-  "traditionalUse": "; nan; nan",
-  "sideEffects": [],
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "legalStatus": "legal",
+  "interactions": [
+    "Diuretics",
+    "antihypertensives"
+  ],
+  "description": "Traditional nettle herb with mixed but suggestive human evidence for selected inflammatory and urinary indications.",
+  "sideEffects": [
+    "contact urticaria from fresh plant hairs",
+    "mild gastrointestinal upset in some users"
+  ],
   "slug": "urtica-dioica",
+  "traditionalUse": "; nan; nan",
+  "displayName": "urtica dioica",
+  "displayScientificName": "Urtica dioica",
+  "scientificNormalized": "urtica dioica",
+  "id": "urtica-dioica",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
+    "flavonoids",
+    "phenolic-acids",
+    "lectins",
+    "histamine-fresh-trichomes",
     "histamine",
     "serotonin",
-    "acetylcholine",
-    "flavonoids"
+    "acetylcholine"
   ]
 }

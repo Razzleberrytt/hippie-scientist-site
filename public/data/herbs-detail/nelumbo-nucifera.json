@@ -3,63 +3,87 @@
   "latin": "Nelumbo nucifera",
   "class": "Traditional, Medicinal",
   "intensity": "Mild to moderate",
-  "mechanism": "Used in ayurveda and buddhist practices for calm and devotion.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.",
   "activeCompounds": [
-    "nuciferine",
+    "Nuciferine",
     "neferine",
     "flavonoids",
     "alkaloids",
-    "tannins"
+    "tannins",
+    "Neferine"
   ],
   "effects": [
-    "relaxation",
-    "anti-inflammatory",
+    "Calming",
     "antioxidant",
-    "metabolism enhancer"
+    "anti-inflammatory",
+    "lipid-lowering",
+    "No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion."
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with hypotension",
-    "avoid with sedation"
+    "Pregnancy",
+    "hypotension",
+    "sedation",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with sedatives, alcohol, or other CNS depressants.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "interactions": [
-    "Sedatives",
-    "Antihypertensives"
+  "safetyNotes": [
+    "Generally safe in moderation",
+    "Drowsiness",
+    "hypotension",
+    "Low",
+    "Not established",
+    "safe",
+    "No direct toxicity data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. Avoid in pregnancy; Avoid with hypotension; Avoid with sedation; Avoid combining with sedatives, generally well tolerated; Avoid use during pregnancy unless advised by a clinician, alcohol or or other CNS depressants; Avoid combining with sedatives.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Nelumbo nucifera (TaxID 4432)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4432&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "PubMed"
     },
     {
-      "title": "PubMed search: Nelumbo nucifera",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Nelumbo+nucifera",
-      "note": "Literature index for pharmacology and safety evidence"
+      "title": "AYUSH Database"
     },
     {
-      "title": "PubChem search: Nelumbo nucifera",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Nelumbo+nucifera",
-      "note": "Chemical and bioactivity reference index"
+      "title": "Chinese Pharmacopoeia"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Nelumbo nucifera is a medicinal herb traditionally used for calming and antioxidant.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "A sacred aquatic plant used in traditional medicine for calming, anti-inflammatory, and cardioprotective purposes.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. No direct region data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion."
+  ],
   "duration": "No direct duration data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. No direct region data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.",
+  "interactions": [
+    "Sedatives",
+    "antihypertensives"
+  ],
   "legalStatus": "Legal worldwide",
-  "preparation": "Smoked.",
-  "region": "India, china.",
+  "preparation": "No direct preparation data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. No direct region data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.",
+  "region": "No direct region data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.",
   "therapeuticUses": [
     "Anxiety",
     "hypertension",
-    "inflammation"
+    "inflammation",
+    "mild anxiolytic support",
+    "sleep onset support"
   ],
   "traditionalUse": "Used in Ayurveda and Buddhist practices for calm and devotion.",
-  "sideEffects": [],
   "slug": "nelumbo-nucifera",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "nelumbo nucifera",
+  "displayScientificName": "Nelumbo nucifera",
+  "scientificNormalized": "nelumbo nucifera",
+  "id": "nelumbo-nucifera",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

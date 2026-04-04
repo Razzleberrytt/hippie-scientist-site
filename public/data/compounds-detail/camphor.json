@@ -1,13 +1,10 @@
 {
   "name": "camphor",
-  "category": "general",
-  "description": "camphor is a compound reported in acorus tatarinowii, artemisia abrotanum, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "acorus tatarinowii",
     "artemisia abrotanum",
     "artemisia ludoviciana",
-    "salvia apiana",
-    "salvia officinalis"
+    "nan"
   ],
   "effects": [
     "CNS stimulant",
@@ -44,24 +41,18 @@
     "Avoid during pregnancy",
     "neurotoxic in high doses"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: camphor (CID 2537)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2537",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "lastUpdated": "2026-03-21",
   "slug": "camphor",
+  "id": "camphor",
+  "displayName": "camphor",
+  "description": "camphor is a compound reported in acorus tatarinowii, artemisia abrotanum, and related herbs. Available references are still early and incomplete.",
   "summary": "camphor is a compound reported in acorus tatarinowii, artemisia abrotanum, and related herbs. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
@@ -71,7 +62,6 @@
     "acorus-tatarinowii",
     "artemisia-abrotanum",
     "artemisia-ludoviciana",
-    "salvia-apiana",
-    "salvia-officinalis"
+    "nan"
   ]
 }

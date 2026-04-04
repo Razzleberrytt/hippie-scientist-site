@@ -3,42 +3,50 @@
   "latin": "Aloe vera",
   "class": null,
   "intensity": "No direct intensity data. Contextual inference: Laxative, wound healing, skin soother. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, wound healing, skin soother. No direct region data. Contextual inference: Laxative, wound healing, skin soother. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, wound healing, skin soother. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Topical polysaccharides (for example acemannan) support moist wound healing and anti-inflammatory signaling; anthraquinone-rich latex acts as a stimulant laxative.",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "digestive support"
+    "Laxative",
+    "wound healing",
+    "skin soother"
   ],
   "contraindications": [],
-  "safetyNotes": "Topical gel is usually well tolerated; oral latex can cause cramping, diarrhea, and clinically significant potassium loss. Avoid internal latex use during pregnancy, breastfeeding, bowel disease, or kidney disease.",
+  "safetyNotes": [
+    "safe",
+    "Abdominal cramps",
+    "diarrhea (latex)",
+    "rare allergic skin reactions (topical)",
+    "avoid during pregnancy internally",
+    "No direct toxicity data. Contextual inference: Laxative",
+    "wound healing",
+    "skin soother. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Laxative",
+    "skin soother. none."
+  ],
   "sources": [
     {
-      "title": "Aloe - LiverTox (NCBI Bookshelf)",
-      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548634/",
-      "note": "Safety profile, hepatotoxicity case summary, and product-form distinctions."
+      "title": "Inferred from scientific name:"
     },
     {
-      "title": "Aloe vera: A systematic review of its clinical effectiveness (Br J Gen Pract. 2005)",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/15970021/",
-      "note": "Clinical evidence summary for topical and oral uses."
-    },
-    {
-      "title": "Aloe latex - MedlinePlus Supplements",
-      "url": "https://medlineplus.gov/druginfo/natural/607.html",
-      "note": "Interaction and contraindication overview for oral latex products."
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Laxative, wound healing, skin soother.",
-  "dosage": "0.5-1 g/day gel or juice",
-  "duration": "Varies with form",
-  "interactions": [
-    "May potentiate: Latex may increase potassium loss with loop or thiazide diuretics and can raise digoxin toxicity risk",
-    "May potentiate: Latex can potentiate hypokalemia with corticosteroids or licorice use",
-    "May potentiate: Latex laxative effect may alter absorption of oral medicines if taken at the same time"
+  "description": "Laxative, wound healing, skin soother. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "0.5",
+    "1 g",
+    "day gel or juice"
   ],
+  "duration": "Varies with form",
+  "interactions": [],
   "legalStatus": "Approved for external use; oral use regulated",
-  "preparation": "Raw.",
-  "region": "",
+  "preparation": "Fresh gel applied topically or taken internally (juice form); latex processed separately for laxative use",
+  "region": "No direct region data. Contextual inference: Laxative, wound healing, skin soother. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, wound healing, skin soother. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [

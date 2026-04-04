@@ -1,9 +1,7 @@
 {
   "name": "papaverine",
-  "category": "general",
-  "description": "papaverine appears in records as a compound reported in papaver somniferum. Current source coverage is limited and still developing.",
   "herbs": [
-    "papaver somniferum"
+    "nan"
   ],
   "effects": [
     "Pain relief",
@@ -24,30 +22,19 @@
     "liver impairment",
     "opioid use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: papaverine (CID 4680)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4680",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "papaverine",
-  "summary": "papaverine appears in records as a compound reported in papaver somniferum. Current source coverage is limited and still developing.",
+  "id": "papaverine",
+  "displayName": "papaverine",
+  "description": "papaverine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "papaverine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "papaver-somniferum"
+    "nan"
   ]
 }

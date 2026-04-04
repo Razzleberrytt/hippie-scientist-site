@@ -1,11 +1,7 @@
 {
   "name": "terpenes",
-  "category": "terpenoid",
-  "description": "terpenes is a terpenoid compound reported in cannabis sativa, Myristica fragrans Houtt., and related herbs. Available references are still early and incomplete.",
   "herbs": [
-    "cannabis sativa",
-    "Myristica fragrans Houtt.",
-    "turnera diffusa"
+    "nan"
   ],
   "effects": [
     "Euphoria",
@@ -42,32 +38,19 @@
     "schizophrenia",
     "pregnancy"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: terpenes",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/terpenes",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "terpenes",
-  "summary": "terpenes is a terpenoid compound reported in cannabis sativa, Myristica fragrans Houtt., and related herbs. Available references are still early and incomplete.",
+  "id": "terpenes",
+  "displayName": "terpenes",
+  "description": "terpenes is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "terpenes is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "cannabis-sativa",
-    "myristica-fragrans-houtt",
-    "turnera-diffusa"
+    "nan"
   ]
 }

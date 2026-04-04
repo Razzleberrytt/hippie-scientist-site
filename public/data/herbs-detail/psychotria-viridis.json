@@ -1,31 +1,50 @@
 {
   "name": "psychotria viridis",
   "latin": "Psychotria viridis",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Source of dmt; hallucinogenic; used in ayahuasca. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of DMT; hallucinogenic; used in ayahuasca. No direct region data. Contextual inference: Source of dmt; hallucinogenic; used in ayahuasca. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of DMT; hallucinogenic; used in ayahuasca. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "psychedelic"
+    "Source of DMT",
+    "hallucinogenic",
+    "used in ayahuasca"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause contains dmt, side effects include nausea, disorientation or psychological distress.",
+  "safetyNotes": [
+    "restricted",
+    "Contains DMT",
+    "side effects include nausea",
+    "disorientation",
+    "psychological distress",
+    "No direct toxicity data. Contextual inference: Source of dmt",
+    "hallucinogenic",
+    "used in ayahuasca. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Source of DMT",
+    "used in ayahuasca. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Psychotria viridis (TaxID 189196)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=189196&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.002Z",
-  "description": "Psychotria viridis is a medicinal herb traditionally used for source of dmt and hallucinogenic.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Source of dmt; hallucinogenic; used in ayahuasca. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "Traditionally used in Ayahuasca brews"
+  ],
   "duration": "2–6 hours",
+  "interactions": [],
   "legalStatus": "Controlled in many jurisdictions",
-  "preparation": "Smoked.",
-  "region": "Amazon basin (peru, brazil.",
+  "preparation": "Leaves traditionally decocted with Banisteriopsis caapi in Ayahuasca; contains DMT; ceremonial use only",
+  "region": "No direct region data. Contextual inference: Source of dmt; hallucinogenic; used in ayahuasca. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of DMT; hallucinogenic; used in ayahuasca. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -35,6 +54,10 @@
     "psychological distress"
   ],
   "slug": "psychotria-viridis",
+  "id": "psychotria-viridis",
+  "displayName": "psychotria viridis",
+  "displayScientificName": "Psychotria viridis",
+  "scientificNormalized": "psychotria viridis",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

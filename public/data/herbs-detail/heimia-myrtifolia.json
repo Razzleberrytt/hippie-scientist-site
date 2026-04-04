@@ -3,59 +3,101 @@
   "latin": "Heimia myrtifolia",
   "class": "Oneirogen, Sedative",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
-    "cryogenine",
+    "Cryogenine",
     "lyfoline",
-    "lythrine"
+    "lythrine",
+    "Vertine (cryogenine)"
   ],
   "effects": [
+    "Auditory shifts",
+    "relaxed dreamlike state",
+    "Mild auditory and visual alterations",
     "relaxation",
-    "visionary"
+    "dream enhancement",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "avoid with cns depressants",
-    "avoid in pregnancy",
-    "may interact with maois"
+    "CNS depressants",
+    "pregnancy",
+    "Avoid use with MAOIs or CNS depressants",
+    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+    "Do not use with known allergy to this plant or related species."
   ],
-  "interactions": [
-    "May potentiate: CNS depressants may amplify effects"
+  "safetyNotes": [
+    "Mild effects",
+    "few known adverse reports",
+    "Lethargy",
+    "slight motor coordination loss",
+    "Low",
+    "Unknown in humans",
+    "Generally regarded as safe in moderate doses",
+    "Mild dizziness or dry mouth with large doses",
+    "Not established",
+    "caution",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyNotes": "Avoid with cns depressants; May interact with maois.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Heimia myrtifolia (TaxID 135798)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=135798&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Traditional Mexican use"
     },
     {
-      "title": "PubMed search: Heimia myrtifolia",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Heimia+myrtifolia",
-      "note": "Literature index for pharmacology and safety evidence"
+      "title": "Traditional use records"
     },
     {
-      "title": "PubChem search: Heimia myrtifolia",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Heimia+myrtifolia",
-      "note": "Chemical and bioactivity reference index"
+      "title": "ethnobotanical texts"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Rare cousin of Sinicuichi used for mild auditory alterations and calm dream states.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Rare cousin of Sinicuichi used for mild auditory alterations and calm dream states",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "CNS depressants may amplify effects"
+  ],
   "legalStatus": "Legal",
-  "preparation": "Tea.",
-  "region": "Mexico.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "Insomnia",
     "dream enhancement",
     "Anxiety relief",
     "sleep aid",
-    "spiritual practices"
+    "spiritual practices",
+    "Traditional supportive use; indication depends on species part and preparation.",
+    "Evidence level varies; use only within established clinical or traditional context."
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "heimia-myrtifolia",
+  "sideEffects": [
+    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  ],
+  "displayName": "heimia myrtifolia",
+  "displayScientificName": "Heimia myrtifolia",
+  "scientificNormalized": "heimia myrtifolia",
+  "id": "heimia-myrtifolia",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
@@ -63,6 +105,7 @@
   "relatedCompounds": [
     "cryogenine",
     "lyfoline",
-    "lythrine"
+    "lythrine",
+    "vertine-cryogenine"
   ]
 }

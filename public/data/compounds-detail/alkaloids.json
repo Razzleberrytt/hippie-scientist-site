@@ -1,27 +1,10 @@
 {
   "name": "alkaloids",
-  "category": "alkaloid",
-  "description": "alkaloids is an alkaloid compound reported in african dream root, alchornea castaneifolia, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "african dream root",
     "alchornea castaneifolia",
     "Muira Puama",
-    "alchornea floribunda",
-    "calliandra anomala",
-    "delosperma bosseranum",
-    "desfontainia spinosa",
-    "desmodium gangeticum",
-    "Acacia confusa Merr.",
-    "achillea millefolium",
-    "Gymnosporia senegalensis",
-    "Zanthoxylum zanthoxyloides",
-    "Vernonia amygdalina",
-    "Herba lucidum fictus",
-    "nelumbo nucifera",
-    "nymphaea rubra",
-    "ptychopetalum olacoides",
-    "sceletium tortuosum",
-    "zornia latifolia"
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in ritual",
@@ -157,25 +140,19 @@
     "Not recommended with CNS depressants",
     "epilepsy"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: alkaloids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alkaloids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.038Z",
+  "lastUpdated": "2026-03-21",
   "slug": "alkaloids",
-  "summary": "alkaloids is an alkaloid compound reported in african dream root, alchornea castaneifolia, and related herbs. Available references are still early and incomplete.",
+  "id": "alkaloids",
+  "displayName": "alkaloids",
+  "description": "alkaloids is a compound reported in african dream root, alchornea castaneifolia, and related herbs. Available references are still early and incomplete.",
+  "summary": "alkaloids is a compound reported in african dream root, alchornea castaneifolia, and related herbs. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
@@ -184,21 +161,6 @@
     "african-dream-root",
     "alchornea-castaneifolia",
     "muira-puama",
-    "alchornea-floribunda",
-    "calliandra-anomala",
-    "delosperma-bosseranum",
-    "desfontainia-spinosa",
-    "desmodium-gangeticum",
-    "acacia-confusa-merr",
-    "achillea-millefolium",
-    "gymnosporia-senegalensis",
-    "zanthoxylum-zanthoxyloides",
-    "vernonia-amygdalina",
-    "herba-lucidum-fictus",
-    "nelumbo-nucifera",
-    "nymphaea-rubra",
-    "ptychopetalum-olacoides",
-    "sceletium-tortuosum",
-    "zornia-latifolia"
+    "nan"
   ]
 }

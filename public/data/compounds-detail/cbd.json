@@ -1,51 +1,37 @@
 {
   "name": "CBD",
-  "category": "phytocannabinoid",
-  "description": "Cannabidiol (CBD) is a non-intoxicating phytocannabinoid with approved use in specific seizure disorders and broad off-label consumer exposure. Human reviews support a measurable adverse-event and interaction profile.",
   "herbs": [
+    "nan",
     "cannabis sativa"
   ],
   "effects": [
-    "Clinical and post-marketing syntheses report antiseizure use with common adverse effects including somnolence and gastrointestinal symptoms.",
-    "Human safety reviews identify transaminase elevations in some populations, especially with interacting drugs."
+    "Euphoria",
+    "altered perception",
+    "sedation or stimulation",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "Avoid unsupervised use in pregnancy or severe hepatic impairment due to limited safety certainty and interaction complexity.",
-    "Use caution in patients taking centrally acting sedatives or hepatotoxic co-therapies."
+    "Psychosis",
+    "schizophrenia",
+    "pregnancy"
   ],
-  "interactions": [
-    "CBD can inhibit CYP-mediated metabolism and increase exposure to selected co-medications; structured medication review is recommended."
-  ],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "Cannabidiol safety and drug-interaction profile: a systematic review of clinical and post-marketing evidence.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39211820/"
-    },
-    {
-      "title": "Cannabidiol in Developmental Epilepsy: Organoid-Guided Precision Medicine Across Critical Developmental Stages.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41898755/"
-    },
-    {
-      "title": "EPIDIOLEX (cannabidiol) prescribing information",
-      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/210365s005lbl.pdf"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "cbd",
-  "summary": "Cannabidiol (CBD) is a non-intoxicating phytocannabinoid with approved use in specific seizure disorders and broad off-label consumer exposure. Human reviews support a measurable a",
+  "id": "cbd",
+  "displayName": "CBD",
+  "description": "CBD appears in records as a compound reported in nan and cannabis sativa. Current source coverage is limited and still developing.",
+  "summary": "CBD appears in records as a compound reported in nan and cannabis sativa. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "cannabis-sativa"
   ]
 }

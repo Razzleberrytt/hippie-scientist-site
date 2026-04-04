@@ -1,10 +1,9 @@
 {
   "name": "Beta-asarone",
-  "category": "general",
-  "description": "Beta-asarone is a compound reported in acorus calamus var. angustatus and acorus calamus. Available references are still early and incomplete.",
   "herbs": [
     "acorus calamus var. angustatus",
-    "acorus calamus"
+    "nan",
+    "acorus tatarinowii"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in ritual",
@@ -21,7 +20,12 @@
     "hallucinogenic in high doses",
     "digestive aid",
     "and purported hallucinogen",
-    "contains β-asarone"
+    "contains β-asarone",
+    "CNS stimulant",
+    "memory aid",
+    "and anti-epileptic in TCM",
+    "and anti",
+    "epileptic in TCM"
   ],
   "contraindications": [
     "Pregnancy",
@@ -30,33 +34,40 @@
     "children",
     "high doses",
     "pregnancy",
-    "cancer risk (β-asarone in some strains)."
+    "cancer risk (β-asarone in some strains).",
+    "β",
+    "asarone is potentially carcinogenic",
+    "avoid long",
+    "term or high",
+    "dose use",
+    "contraindicated in pregnancy and children."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: Beta-asarone (CID 5281758)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281758",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "lastUpdated": "2026-03-21",
   "slug": "beta-asarone",
-  "summary": "Beta-asarone is a compound reported in acorus calamus var. angustatus and acorus calamus. Available references are still early and incomplete.",
+  "displayName": "Beta-asarone",
+  "id": "beta-asarone",
+  "aliases": [
+    "β-asarone"
+  ],
+  "slugAliases": [
+    "asarone"
+  ],
+  "description": "Beta-asarone is a compound reported in acorus calamus var. angustatus, nan, and related herbs. Available references are still early and incomplete.",
+  "summary": "Beta-asarone is a compound reported in acorus calamus var. angustatus, nan, and related herbs. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "acorus-calamus-var-angustatus",
-    "acorus-calamus"
+    "nan",
+    "acorus-tatarinowii"
   ]
 }

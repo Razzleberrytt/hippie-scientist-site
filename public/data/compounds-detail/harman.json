@@ -1,9 +1,7 @@
 {
   "name": "harman",
-  "category": "general",
-  "description": "harman appears in records as a compound reported in nicotiana rustica. Current source coverage is limited and still developing.",
   "herbs": [
-    "nicotiana rustica"
+    "nan"
   ],
   "effects": [
     "Intense stimulation",
@@ -22,30 +20,19 @@
     "cardiovascular disease",
     "pregnancy."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: harman (CID 5281404)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281404",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "harman",
-  "summary": "harman appears in records as a compound reported in nicotiana rustica. Current source coverage is limited and still developing.",
+  "id": "harman",
+  "displayName": "harman",
+  "description": "harman appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "harman appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "nicotiana-rustica"
+    "nan"
   ]
 }

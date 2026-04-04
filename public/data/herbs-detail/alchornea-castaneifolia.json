@@ -3,7 +3,7 @@
   "latin": "alchornea castaneifolia",
   "class": "Tree",
   "intensity": "mild",
-  "mechanism": "contains alkaloids like alchorneine and other secondary metabolites | bark extracts inhibit prostaglandin synthesis and reduce inflammation | used for pain relief and anti‑inflammatory effects【335246768052841†l115-l126】",
+  "mechanism": "Contains alkaloids like alchorneine and other secondary metabolites; bark extracts inhibit prostaglandin synthesis and reduce inflammation; used for pain relief and anti‑inflammatory effects【335246768052841†L115-L126】.",
   "activeCompounds": [
     "alchorneine",
     "steroids",
@@ -13,52 +13,35 @@
     "flavones",
     "tannins",
     "xanthones",
-    "alkaloids"
+    "alkaloids",
+    "Alchorneine"
   ],
-  "effects": [],
-  "contraindications": [
-    "avoid with little clinical research",
-    "avoid in pregnancy",
-    "avoid with potential interactions due to alkaloid content",
-    "avoid with use under supervision"
+  "effects": [
+    "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain."
   ],
-  "interactions": [],
-  "safetyNotes": "Avoid with little clinical research; Avoid with potential interactions due to alkaloid content; Avoid with use under supervision.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: alchornea castaneifolia",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=alchornea%20castaneifolia&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    },
-    {
-      "title": "PubMed search: alchornea castaneifolia",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=alchornea+castaneifolia",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: alchornea castaneifolia",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=alchornea+castaneifolia",
-      "note": "Chemical and bioactivity reference index"
-    }
+  "contraindications": "Little clinical research; avoid during pregnancy or while breastfeeding; potential interactions due to alkaloid content; use under supervision.",
+  "safetyNotes": [
+    "caution",
+    "No direct toxicity data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain."
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Used in traditional amazonian medicine for arthritis and pain.",
-  "dosage": "",
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used in traditional amazonian medicine for arthritis and pain..",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.. No direct region data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain."
+  ],
   "duration": "No direct duration data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.. No direct region data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Tea.",
-  "region": "Amazon basin.",
-  "therapeuticUses": [
-    "Traditional Amazonian remedy for rheumatism",
-    "arthritis",
-    "colds",
-    "muscle pains and diarrhoea",
-    "aphrodisiac and reproductive tonic",
-    "used as a component of ayahuasca."
-  ],
+  "preparation": "No direct preparation data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.. No direct region data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
+  "region": "No direct region data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
+  "therapeuticUses": "Traditional Amazonian remedy for rheumatism, arthritis, colds, muscle pains and diarrhoea; aphrodisiac and reproductive tonic; used as a component of ayahuasca.",
   "traditionalUse": "Used in traditional Amazonian medicine for arthritis and pain.",
-  "sideEffects": [],
   "slug": "alchornea-castaneifolia",
+  "id": "alchornea-castaneifolia",
+  "displayName": "alchornea castaneifolia",
+  "displayScientificName": "alchornea castaneifolia",
+  "scientificNormalized": "alchornea castaneifolia",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

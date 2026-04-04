@@ -1,10 +1,8 @@
 {
   "name": "lactucopicrin",
-  "category": "general",
-  "description": "lactucopicrin is a compound reported in wild lettuce and lactuca virosa. Available references are still early and incomplete.",
   "herbs": [
-    "wild lettuce",
-    "lactuca virosa"
+    "nan",
+    "wild lettuce"
   ],
   "effects": [
     "Sedation",
@@ -23,31 +21,20 @@
   "contraindications": [
     "Not recommended during pregnancy or with sedatives"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: lactucopicrin (CID 174863)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/174863",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "lactucopicrin",
-  "summary": "lactucopicrin is a compound reported in wild lettuce and lactuca virosa. Available references are still early and incomplete.",
+  "id": "lactucopicrin",
+  "displayName": "lactucopicrin",
+  "description": "lactucopicrin is a compound reported in nan and wild lettuce. Available references are still early and incomplete.",
+  "summary": "lactucopicrin is a compound reported in nan and wild lettuce. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "wild-lettuce",
-    "lactuca-virosa"
+    "nan",
+    "wild-lettuce"
   ]
 }

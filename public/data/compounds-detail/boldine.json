@@ -1,7 +1,5 @@
 {
   "name": "Boldine",
-  "category": "general",
-  "description": "Boldine appears in records as a compound reported in peumus boldus. Current source coverage is limited and still developing.",
   "herbs": [
     "peumus boldus"
   ],
@@ -12,24 +10,13 @@
     "nan."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Boldine (CID 10154)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10154",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "boldine",
+  "id": "boldine",
+  "displayName": "Boldine",
+  "description": "Boldine appears in records as a compound reported in peumus boldus. Current source coverage is limited and still developing.",
   "summary": "Boldine appears in records as a compound reported in peumus boldus. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

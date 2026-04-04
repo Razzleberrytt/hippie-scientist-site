@@ -1,10 +1,8 @@
 {
   "name": "Lactucin",
-  "category": "general",
-  "description": "Lactucin appears in records as a compound reported in wild lettuce and lactuca virosa. Current source coverage is limited and still developing.",
   "herbs": [
-    "wild lettuce",
-    "lactuca virosa"
+    "nan",
+    "wild lettuce"
   ],
   "effects": [
     "Sedation",
@@ -23,31 +21,20 @@
   "contraindications": [
     "Not recommended during pregnancy or with sedatives"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Lactucin (CID 442266)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442266",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "lactucin",
-  "summary": "Lactucin appears in records as a compound reported in wild lettuce and lactuca virosa. Current source coverage is limited and still developing.",
+  "id": "lactucin",
+  "displayName": "Lactucin",
+  "description": "Lactucin appears in records as a compound reported in nan and wild lettuce. Current source coverage is limited and still developing.",
+  "summary": "Lactucin appears in records as a compound reported in nan and wild lettuce. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "wild-lettuce",
-    "lactuca-virosa"
+    "nan",
+    "wild-lettuce"
   ]
 }

@@ -1,8 +1,7 @@
 {
   "name": "Petasin",
-  "category": "general",
-  "description": "Petasin is a compound reported in petasites hybridus. Available references are still early and incomplete.",
   "herbs": [
+    "nan",
     "petasites hybridus"
   ],
   "effects": [
@@ -18,30 +17,20 @@
   "contraindications": [
     "Avoid unpurified extracts due to liver-toxic alkaloids"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Petasin (CID 5281526)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281526",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "petasin",
-  "summary": "Petasin is a compound reported in petasites hybridus. Available references are still early and incomplete.",
+  "id": "petasin",
+  "displayName": "Petasin",
+  "description": "Petasin is a compound reported in nan and petasites hybridus. Available references are still early and incomplete.",
+  "summary": "Petasin is a compound reported in nan and petasites hybridus. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "petasites-hybridus"
   ]
 }

@@ -1,12 +1,10 @@
 {
   "name": "Bufotenine",
-  "category": "general",
-  "description": "Bufotenine appears in records as a compound reported in anadenanthera colubrina, anadenanthera peregrina, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "anadenanthera colubrina",
+    "nan",
     "anadenanthera peregrina",
-    "virola theiodora",
-    "arundo donax"
+    "virola theiodora"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in ritual",
@@ -42,33 +40,22 @@
     "schizophrenia",
     "pregnancy"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Bufotenine (CID 10257)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10257",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "bufotenine",
-  "summary": "Bufotenine appears in records as a compound reported in anadenanthera colubrina, anadenanthera peregrina, and related herbs. Current source coverage is limited and still developing",
+  "id": "bufotenine",
+  "displayName": "Bufotenine",
+  "description": "Bufotenine appears in records as a compound reported in anadenanthera colubrina, nan, and related herbs. Current source coverage is limited and still developing.",
+  "summary": "Bufotenine appears in records as a compound reported in anadenanthera colubrina, nan, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "anadenanthera-colubrina",
+    "nan",
     "anadenanthera-peregrina",
-    "virola-theiodora",
-    "arundo-donax"
+    "virola-theiodora"
   ]
 }

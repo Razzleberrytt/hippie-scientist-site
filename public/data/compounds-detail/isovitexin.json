@@ -1,8 +1,8 @@
 {
   "name": "isovitexin)",
-  "category": "general",
-  "description": "isovitexin) is currently cataloged as a compound entry. Current source coverage is limited and still developing.",
-  "herbs": [],
+  "herbs": [
+    "nan"
+  ],
   "effects": [
     "Calmness",
     "drowsiness",
@@ -16,28 +16,19 @@
     "sedative use",
     "liver disorders"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: isovitexin)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/isovitexin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "isovitexin",
-  "summary": "isovitexin) is currently cataloged as a compound entry. Current source coverage is limited and still developing.",
+  "id": "isovitexin",
+  "displayName": "isovitexin)",
+  "description": "isovitexin) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "isovitexin) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "linkedHerbs": []
+  "linkedHerbs": [
+    "nan"
+  ]
 }

@@ -1,10 +1,8 @@
 {
   "name": "Muirapuamine",
-  "category": "general",
-  "description": "Muirapuamine appears in records as a compound reported in Muira Puama and ptychopetalum olacoides. Current source coverage is limited and still developing.",
   "herbs": [
     "Muira Puama",
-    "ptychopetalum olacoides"
+    "nan"
   ],
   "effects": [
     "Improved libido",
@@ -21,31 +19,25 @@
     "hypertension",
     "pregnancy."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: Muirapuamine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/muirapuamine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "lastUpdated": "2026-03-21",
   "slug": "muirapuamine",
-  "summary": "Muirapuamine appears in records as a compound reported in Muira Puama and ptychopetalum olacoides. Current source coverage is limited and still developing.",
+  "id": "muirapuamine",
+  "displayName": "Muirapuamine",
+  "description": "Muirapuamine appears in records as a compound reported in Muira Puama and nan. Current source coverage is limited and still developing.",
+  "summary": "Muirapuamine appears in records as a compound reported in Muira Puama and nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "muira-puama",
-    "ptychopetalum-olacoides"
+    "nan"
   ]
 }

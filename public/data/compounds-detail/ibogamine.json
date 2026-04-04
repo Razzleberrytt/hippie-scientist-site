@@ -1,9 +1,7 @@
 {
   "name": "ibogamine",
-  "category": "general",
-  "description": "ibogamine appears in records as a compound reported in ervatamia coronaria. Current source coverage is limited and still developing.",
   "herbs": [
-    "ervatamia coronaria"
+    "nan"
   ],
   "effects": [
     "Tranquility",
@@ -16,30 +14,19 @@
     "Heart conditions",
     "psychotropics"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: ibogamine (CID 100217)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/100217",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "ibogamine",
-  "summary": "ibogamine appears in records as a compound reported in ervatamia coronaria. Current source coverage is limited and still developing.",
+  "id": "ibogamine",
+  "displayName": "ibogamine",
+  "description": "ibogamine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "ibogamine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "ervatamia-coronaria"
+    "nan"
   ]
 }

@@ -1,28 +1,51 @@
 {
   "name": "capsella bursa-pastoris",
   "latin": "Capsella bursa-pastoris",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Astringent, styptic, uterine tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent, styptic, uterine tonic. No direct region data. Contextual inference: Astringent, styptic, uterine tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent, styptic, uterine tonic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
-  "effects": [],
+  "effects": [
+    "Astringent",
+    "styptic",
+    "uterine tonic"
+  ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "May cause uterine stimulation; Avoid in pregnancy; Possible mild GI upset; Astringent; Styptic; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Astringent.",
+  "safetyNotes": [
+    "safe",
+    "May cause uterine stimulation",
+    "avoid in pregnancy",
+    "possible mild GI upset",
+    "No direct toxicity data. Contextual inference: Astringent",
+    "styptic",
+    "uterine tonic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Astringent",
+    "uterine tonic. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Capsella bursa-pastoris (TaxID 3719)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3719&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.888Z",
-  "description": "Astringent, styptic, uterine tonic..",
-  "dosage": "500-1000 mg/day herb extract or tea",
+  "lastUpdated": "2026-03-21",
+  "description": "Astringent, styptic, uterine tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "500",
+    "1000 mg",
+    "day herb extract or tea"
+  ],
   "duration": "3–5 hours",
+  "interactions": [],
   "legalStatus": "Legal in herbal preparations",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "Aerial parts dried and infused as tea or decocted; occasionally juiced for acute internal bleeding",
+  "region": "No direct region data. Contextual inference: Astringent, styptic, uterine tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent, styptic, uterine tonic. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -31,6 +54,10 @@
     "possible mild GI upset"
   ],
   "slug": "capsella-bursa-pastoris",
+  "id": "capsella-bursa-pastoris",
+  "displayName": "capsella bursa-pastoris",
+  "displayScientificName": "Capsella bursa-pastoris",
+  "scientificNormalized": "capsella bursa-pastoris",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

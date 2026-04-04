@@ -1,9 +1,7 @@
 {
   "name": "methysticin",
-  "category": "general",
-  "description": "methysticin appears in records as a compound reported in piper methysticum. Current source coverage is limited and still developing.",
   "herbs": [
-    "piper methysticum"
+    "nan"
   ],
   "effects": [
     "Euphoria",
@@ -18,30 +16,19 @@
     "Liver conditions",
     "concurrent alcohol use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: methysticin (CID 5281567)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281567",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "methysticin",
-  "summary": "methysticin appears in records as a compound reported in piper methysticum. Current source coverage is limited and still developing.",
+  "id": "methysticin",
+  "displayName": "methysticin",
+  "description": "methysticin appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "methysticin appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "piper-methysticum"
+    "nan"
   ]
 }

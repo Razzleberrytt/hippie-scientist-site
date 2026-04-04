@@ -1,12 +1,9 @@
 {
   "name": "Leonurine",
-  "category": "general",
-  "description": "Leonurine appears in records as a compound reported in motherwort, klip dagga, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
+    "leonurus sibiricus",
     "motherwort",
-    "klip dagga",
-    "leonotis leonurus",
-    "siberian motherwort"
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in ritual",
@@ -48,33 +45,21 @@
     "Not recommended for pregnant or breastfeeding individuals",
     "psychiatric disorders."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Leonurine (CID 161464)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/161464",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "leonurine",
-  "summary": "Leonurine appears in records as a compound reported in motherwort, klip dagga, and related herbs. Current source coverage is limited and still developing.",
+  "id": "leonurine",
+  "displayName": "Leonurine",
+  "description": "Leonurine appears in records as a compound reported in leonurus sibiricus, motherwort, and related herbs. Current source coverage is limited and still developing.",
+  "summary": "Leonurine appears in records as a compound reported in leonurus sibiricus, motherwort, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "leonurus-sibiricus",
     "motherwort",
-    "klip-dagga",
-    "leonotis-leonurus",
-    "siberian-motherwort"
+    "nan"
   ]
 }

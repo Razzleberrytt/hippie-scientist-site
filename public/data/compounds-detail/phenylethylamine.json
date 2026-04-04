@@ -1,9 +1,7 @@
 {
   "name": "phenylethylamine",
-  "category": "general",
-  "description": "phenylethylamine is a compound reported in theobroma cacao. Available references are still early and incomplete.",
   "herbs": [
-    "theobroma cacao"
+    "nan"
   ],
   "effects": [
     "Euphoria",
@@ -18,30 +16,19 @@
     "Heart conditions",
     "stimulant sensitivity"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: phenylethylamine (CID 1001)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1001",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "phenylethylamine",
-  "summary": "phenylethylamine is a compound reported in theobroma cacao. Available references are still early and incomplete.",
+  "id": "phenylethylamine",
+  "displayName": "phenylethylamine",
+  "description": "phenylethylamine is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "phenylethylamine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "theobroma-cacao"
+    "nan"
   ]
 }

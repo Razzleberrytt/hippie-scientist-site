@@ -1,15 +1,9 @@
 {
   "name": "eugenol",
-  "category": "general",
-  "description": "eugenol appears in records as a compound reported in pimenta dioica, tynanthus panurensis, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
+    "nan",
     "pimenta dioica",
-    "tynanthus panurensis",
-    "acorus calamus",
-    "myristica fragrans",
-    "Myristica fragrans Houtt.",
-    "unnamed herb",
-    "ocimum sanctum"
+    "tynanthus panurensis"
   ],
   "effects": [
     "Euphoria",
@@ -71,36 +65,21 @@
     "SSRIs",
     "None known"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: eugenol (CID 3314)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3314",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.042Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "eugenol",
-  "summary": "eugenol appears in records as a compound reported in pimenta dioica, tynanthus panurensis, and related herbs. Current source coverage is limited and still developing.",
+  "id": "eugenol",
+  "displayName": "eugenol",
+  "description": "eugenol appears in records as a compound reported in nan, pimenta dioica, and related herbs. Current source coverage is limited and still developing.",
+  "summary": "eugenol appears in records as a compound reported in nan, pimenta dioica, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "pimenta-dioica",
-    "tynanthus-panurensis",
-    "acorus-calamus",
-    "myristica-fragrans",
-    "myristica-fragrans-houtt",
-    "unnamed-herb",
-    "ocimum-sanctum"
+    "tynanthus-panurensis"
   ]
 }

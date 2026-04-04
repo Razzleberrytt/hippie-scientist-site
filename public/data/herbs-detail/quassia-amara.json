@@ -1,53 +1,61 @@
 {
   "name": "quassia amara",
   "latin": "Quassia amara",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Bitter tonic, digestive stimulant, antiparasitic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, digestive stimulant, antiparasitic. No direct region data. Contextual inference: Bitter tonic, digestive stimulant, antiparasitic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, digestive stimulant, antiparasitic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
-  "activeCompounds": [
-    "quassin",
-    "neoquassin",
-    "simarolide",
-    "canthin alkaloids"
-  ],
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
   "effects": [
-    "stimulation",
-    "digestive support",
-    "antimicrobial"
+    "Bitter tonic",
+    "digestive stimulant",
+    "antiparasitic"
   ],
-  "contraindications": [
-    "avoid during pregnancy because concentrated bitter principles may increase uterine activity risk",
-    "avoid in active peptic ulcer or severe gastritis"
+  "contraindications": [],
+  "safetyNotes": [
+    "safe",
+    "Bitter compounds may cause nausea",
+    "GI discomfort",
+    "No direct toxicity data. Contextual inference: Bitter tonic",
+    "digestive stimulant",
+    "antiparasitic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Bitter tonic",
+    "antiparasitic. none."
   ],
-  "interactions": [
-    "May increase gastrointestinal irritation when combined with NSAIDs or other gastric irritants",
-    "Use caution with other strongly bitter digestive stimulants"
-  ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause bitter compounds may cause nausea or gi discomfort. Avoid during pregnancy because concentrated bitter principles may increase uterine activity risk; Avoid in active peptic ulcer or severe gastritis; Avoid combining with other stimulants, generally well tolerated; Avoid use during pregnancy unless advised by a clinician, bitter compounds may cause nausea or GI discomfort; Avoid combining with other stimulants.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Quassia amara (TaxID 43725)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=43725&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.004Z",
-  "description": "Bitter tonic, digestive stimulant, antiparasitic.",
-  "dosage": "250-500 mg/day wood or extract.",
-  "duration": "2–4 hours",
-  "legalStatus": "Legal in herbal medicine",
-  "preparation": "",
-  "region": "",
-  "therapeuticUses": [],
-  "traditionalUse": [
-    "Traditional bitter tonic for appetite and digestive complaints and as an antiparasitic remedy"
+  "lastUpdated": "2026-03-21",
+  "description": "Bitter tonic, digestive stimulant, antiparasitic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "500 mg",
+    "day wood or extract"
   ],
+  "duration": "2–4 hours",
+  "interactions": [],
+  "legalStatus": "Legal in herbal medicine",
+  "preparation": "Wood chips infused or decocted; intensely bitter, traditionally used for digestive and antiparasitic purposes",
+  "region": "No direct region data. Contextual inference: Bitter tonic, digestive stimulant, antiparasitic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, digestive stimulant, antiparasitic. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
   "sideEffects": [
     "Bitter compounds may cause nausea",
     "GI discomfort"
   ],
   "slug": "quassia-amara",
+  "id": "quassia-amara",
+  "displayName": "quassia amara",
+  "displayScientificName": "Quassia amara",
+  "scientificNormalized": "quassia amara",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

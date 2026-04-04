@@ -1,36 +1,58 @@
 {
   "name": "trichocereus bridgesii",
   "latin": "Trichocereus bridgesii",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Psychoactive (mescaline), visionary, emetic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychoactive (mescaline), visionary, emetic. No direct region data. Contextual inference: Psychoactive (mescaline), visionary, emetic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychoactive (mescaline), visionary, emetic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "digestive support",
-    "psychedelic",
-    "visionary"
+    "Psychoactive (mescaline)",
+    "visionary",
+    "emetic"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "Contains mescaline",
+    "hallucinations",
+    "nausea",
+    "legal restrictions",
+    "No direct toxicity data. Contextual inference: Psychoactive (mescaline)",
+    "visionary",
+    "emetic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Psychoactive (mescaline)",
+    "emetic. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause contains mescaline, hallucinations, nausea or legal restrictions.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Trichocereus bridgesii",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Trichocereus%20bridgesii&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.027Z",
-  "description": "Psychoactive (mescaline), visionary, emetic.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Psychoactive (mescaline), visionary, emetic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Psychoactive (mescaline)",
+    "visionary",
+    "emetic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Psychoactive (mescaline)",
+    "emetic. No direct region data. Contextual inference: Psychoactive (mescaline)",
+    "emetic. none.",
+    "nan."
+  ],
   "duration": "8–12 hours",
+  "interactions": [],
   "legalStatus": "Restricted/controlled in many countries",
-  "preparation": "",
-  "region": "",
+  "preparation": "Stems decocted traditionally in South American rituals; contains mescaline; psychoactive and restricted in many countries",
+  "region": "No direct region data. Contextual inference: Psychoactive (mescaline), visionary, emetic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychoactive (mescaline), visionary, emetic. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -40,6 +62,10 @@
     "legal restrictions"
   ],
   "slug": "trichocereus-bridgesii",
+  "id": "trichocereus-bridgesii",
+  "displayName": "trichocereus bridgesii",
+  "displayScientificName": "Trichocereus bridgesii",
+  "scientificNormalized": "trichocereus bridgesii",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

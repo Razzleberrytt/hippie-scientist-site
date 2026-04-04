@@ -1,7 +1,5 @@
 {
   "name": "myricetin",
-  "category": "general",
-  "description": "myricetin is a compound reported in acacia nilotica. Available references are still early and incomplete.",
   "herbs": [
     "acacia nilotica"
   ],
@@ -13,24 +11,13 @@
     "Avoid during pregnancy or lactation due to potential anti-fertility effects",
     "Not recommended for children under 12"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: myricetin (CID 5281672)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281672",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "myricetin",
+  "id": "myricetin",
+  "displayName": "myricetin",
+  "description": "myricetin is a compound reported in acacia nilotica. Available references are still early and incomplete.",
   "summary": "myricetin is a compound reported in acacia nilotica. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

@@ -1,9 +1,7 @@
 {
   "name": "Harmalol",
-  "category": "general",
-  "description": "Harmalol is a compound reported in peganum harmala. Available references are still early and incomplete.",
   "herbs": [
-    "peganum harmala"
+    "nan"
   ],
   "effects": [
     "Altered perception",
@@ -29,30 +27,19 @@
     "MAOIs",
     "liver issues"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Harmalol (CID 3565)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3565",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "harmalol",
-  "summary": "Harmalol is a compound reported in peganum harmala. Available references are still early and incomplete.",
+  "id": "harmalol",
+  "displayName": "Harmalol",
+  "description": "Harmalol is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Harmalol is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "peganum-harmala"
+    "nan"
   ]
 }

@@ -3,7 +3,7 @@
   "latin": "Cannabis sativa",
   "class": "Psychoactive, Euphoriant",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "THC is a partial CB1/CB2 agonist and CBD modulates endocannabinoid signaling with additional receptor-level effects; clinical effects vary by THC: CBD ratio and route.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
     "THC",
     "CBD",
@@ -11,10 +11,13 @@
     "terpenes"
   ],
   "effects": [
-    "relaxation",
-    "stimulation",
-    "mood",
-    "dissociation"
+    "Euphoria",
+    "altered perception",
+    "sedation or stimulation",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
     "Psychosis",
@@ -23,35 +26,46 @@
     "avoid during pregnancy and breastfeeding",
     "avoid in psychotic disorders, severe anxiety, or unsupervised psychoactive use"
   ],
-  "safetyNotes": "Common adverse effects include dizziness, cognitive slowing, anxiety, and dry mouth; high-THC products can precipitate panic or psychosis in vulnerable individuals. Avoid use during pregnancy and adolescence when possible.",
+  "safetyNotes": [
+    "Generally safe",
+    "dependency and psychosis risk in vulnerable users",
+    "Dry mouth",
+    "anxiety",
+    "memory disruption",
+    "Low",
+    ">1000 mg/kg (est.)",
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
   "sources": [
     {
-      "title": "The health effects of cannabis and cannabinoids (National Academies, 2017)",
-      "url": "https://www.ncbi.nlm.nih.gov/books/NBK423845/",
-      "note": "Comprehensive evidence review of efficacy and harms."
+      "title": "Pharmacological research"
     },
     {
-      "title": "Cannabis (Marijuana) and Cannabinoids - NCCIH",
-      "url": "https://www.nccih.nih.gov/health/cannabis-marijuana-and-cannabinoids-what-you-need-to-know",
-      "note": "Clinical safety and interaction summary."
+      "title": "ethnobotany"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Globally known psychoactive plant used medicinally and recreationally.",
-  "dosage": "",
+  "description": "Globally known psychoactive plant used medicinally and recreationally",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
-    "Avoid with: Additive sedation and psychomotor impairment with alcohol",
-    "Avoid with: opioids",
-    "Avoid with: benzodiazepines",
-    "Avoid with: sedative hypnotics",
-    "May potentiate: THC/CBD can interact with CYP3A4 and CYP2C9 substrates/inhibitors",
-    "Caution with: potentially changing drug exposure",
-    "May potentiate: May increase tachycardia risk with sympathomimetic agents"
+    "Potentiates other CNS depressants"
   ],
   "legalStatus": "Legal/regulated/illegal depending on region",
-  "preparation": "Smoked.",
-  "region": "Cultivated worldwide.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "Pain relief",
     "nausea",

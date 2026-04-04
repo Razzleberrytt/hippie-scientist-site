@@ -1,32 +1,58 @@
 {
   "name": "armoracia rusticana",
   "latin": "Armoracia rusticana",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Stimulant, expectorant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, expectorant, antimicrobial. No direct region data. Contextual inference: Stimulant, expectorant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, expectorant, antimicrobial. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "stimulation",
-    "respiratory support",
+    "Stimulant",
+    "expectorant",
     "antimicrobial"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "May cause GI irritation; Sweating; Or allergic skin reactions; High doses can irritate mucous membranes; Expectorant; Antimicrobial; Antioxidant effects; Or enzyme inhibition.",
+  "safetyNotes": [
+    "May cause GI irritation",
+    "sweating",
+    "or allergic skin reactions",
+    "high doses can irritate mucous membranes",
+    "No direct toxicity data. Contextual inference: Stimulant",
+    "expectorant",
+    "antimicrobial. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Stimulant",
+    "antimicrobial. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Armoracia rusticana (TaxID 3704)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3704&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.852Z",
-  "description": "Stimulant, expectorant, antimicrobial..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Stimulant, expectorant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Stimulant",
+    "expectorant",
+    "antimicrobial. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Stimulant",
+    "antimicrobial. No direct region data. Contextual inference: Stimulant",
+    "antimicrobial. none.",
+    "nan."
+  ],
   "duration": "2–4 hours",
+  "interactions": [],
   "legalStatus": "Legal as food and traditional remedy",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Fresh root grated for food use; infused in vinegar or tinctured medicinally",
+  "region": "No direct region data. Contextual inference: Stimulant, expectorant, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, expectorant, antimicrobial. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -36,6 +62,10 @@
     "high doses can irritate mucous membranes"
   ],
   "slug": "armoracia-rusticana",
+  "id": "armoracia-rusticana",
+  "displayName": "armoracia rusticana",
+  "displayScientificName": "Armoracia rusticana",
+  "scientificNormalized": "armoracia rusticana",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

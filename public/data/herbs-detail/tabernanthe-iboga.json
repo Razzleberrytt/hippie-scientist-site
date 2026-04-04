@@ -3,57 +3,138 @@
   "latin": "Tabernanthe iboga",
   "class": "Psychedelic, Stimulant, Entheogen",
   "intensity": "No direct intensity data. Contextual inference: Powerful psychedelic and anti-addiction; long visionary experience. Ibogaine affects nmda, opioid, and serotonergic receptors.. ; nan; nan.. Ibogaine affects NMDA, opioid, and serotonergic receptors.. Powerful psychedelic and anti-addiction; long visionary experience. No direct region data. Contextual inference: Powerful psychedelic and anti-addiction; long visionary experience. Ibogaine affects nmda, opioid, and serotonergic receptors.. ; nan; nan.. Ibogaine affects NMDA, opioid, and serotonergic receptors.. Powerful psychedelic and anti-addiction; long visionary experience. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
-    "ibogaine",
+    "Ibogaine",
     "noribogaine"
   ],
   "effects": [
-    "psychedelic",
-    "visionary",
-    "dissociation"
+    "Intense visions",
+    "introspection",
+    "ataxia",
+    "dream states",
+    "Powerful psychedelic and anti-addiction",
+    "long visionary experience",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan.",
+    "Powerful psychedelic and anti",
+    "addiction"
   ],
   "contraindications": [
-    "avoid with serious cardiac risk",
+    "Serious cardiac risk",
     "avoid with heart conditions or psychiatric disorders",
-    "avoid with heart disease",
-    "avoid with psychiatric disorders"
+    "heart disease",
+    "psychiatric disorders.",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "interactions": [
-    "Potentiated by SSRIs",
-    "Dangerous with CNS depressants",
-    "Opioids",
-    "Antidepressants"
+  "safetyNotes": [
+    "Serious cardiac and neurotoxic risks",
+    "Nausea",
+    "ataxia",
+    "tremors",
+    "bradycardia",
+    "High risk in improper doses",
+    "75–100 mg/kg (mice",
+    "intraperitoneal)",
+    "nausea",
+    "heart arrhythmia",
+    "hallucinations.",
+    "No direct toxicity data. Contextual inference: Powerful psychedelic and anti-addiction",
+    "long visionary experience. Ibogaine affects nmda",
+    "opioid",
+    "and serotonergic receptors..",
+    "nan.. Ibogaine affects NMDA",
+    "and serotonergic receptors.. Powerful psychedelic and anti-addiction",
+    "long visionary experience.",
+    "Toxic – neuroactive",
+    "QT prolongation",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyLevel": "high",
-  "safetyNotes": "May cause nausea, heart arrhythmia or hallucinations. Avoid with serious cardiac risk; Avoid with heart conditions or psychiatric disorders; Avoid with heart disease; Avoid with psychiatric disorders; Avoid with serious cardiac risk, may cause serious cardiac and neurotoxic risks, ataxia, tremors, bradycardia, high risk in improper doses, intraperitoneal), heart arrhythmia, hallucinations, long visionary experience.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Tabernanthe iboga (TaxID 141617)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=141617&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "MAPS"
+    },
+    {
+      "title": "Erowid"
+    },
+    {
+      "title": "ibogaine medical literature"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.024Z",
-  "description": "Powerful psychedelic and anti-addiction; long visionary experience.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Powerful psychedelic and anti-addiction; long visionary experience. Ibogaine affects nmda, opioid, and serotonergic receptors.. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Powerful psychedelic and anti",
+    "addiction",
+    "long visionary experience. Ibogaine affects nmda",
+    "opioid",
+    "and serotonergic receptors..",
+    "nan.. Ibogaine affects NMDA",
+    "and serotonergic receptors.. Powerful psychedelic and anti",
+    "long visionary experience. No direct region data. Contextual inference: Powerful psychedelic and anti",
+    "long visionary experience.",
+    "nan.",
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "Potentiated by SSRIs",
+    "dangerous with CNS depressants",
+    "opioids",
+    "antidepressants."
+  ],
   "legalStatus": "Restricted or illegal in some countries; Schedule I (US)",
-  "preparation": "Extract.",
-  "region": "Central africa.",
+  "preparation": "No direct preparation data. Contextual inference: Powerful psychedelic and anti-addiction; long visionary experience. Ibogaine affects nmda, opioid, and serotonergic receptors.. ; nan; nan.. Ibogaine affects NMDA, opioid, and serotonergic receptors.. Powerful psychedelic and anti-addiction; long visionary experience. No direct region data. Contextual inference: Powerful psychedelic and anti-addiction; long visionary experience. Ibogaine affects nmda, opioid, and serotonergic receptors.. ; nan; nan.. Ibogaine affects NMDA, opioid, and serotonergic receptors.. Powerful psychedelic and anti-addiction; long visionary experience. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Powerful psychedelic and anti-addiction; long visionary experience. Ibogaine affects nmda, opioid, and serotonergic receptors.. ; nan; nan.. Ibogaine affects NMDA, opioid, and serotonergic receptors.. Powerful psychedelic and anti-addiction; long visionary experience. ; nan; nan",
   "therapeuticUses": [
     "Addiction interruption",
     "PTSD therapy",
     "addiction treatment",
-    "introspection."
+    "introspection.",
+    "traditional support for mild digestive comfort",
+    "traditional stress resilience support"
   ],
   "traditionalUse": "; nan; nan",
+  "slug": "tabernanthe-iboga",
   "sideEffects": [
     "nausea",
     "heart arrhythmia",
-    "hallucinations."
+    "hallucinations.",
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
   ],
-  "slug": "tabernanthe-iboga",
+  "displayName": "tabernanthe iboga",
+  "displayScientificName": "Tabernanthe iboga",
+  "scientificNormalized": "tabernanthe iboga",
+  "id": "tabernanthe-iboga",
+  "aliases": [
+    "nan",
+    "iboga"
+  ],
+  "slugAliases": [
+    "iboga",
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

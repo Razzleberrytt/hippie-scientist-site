@@ -3,60 +3,81 @@
   "latin": "Salvia apiana",
   "class": "Mild Psychoactive, Purifier",
   "intensity": "No direct intensity data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. No direct region data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.",
-  "mechanism": "Used in smudging rituals for purification and clarity.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.",
   "activeCompounds": [
-    "eucalyptol",
+    "Eucalyptol",
     "camphor",
     "flavonoids",
-    "cineole",
-    "rosmarinic acid"
+    "[object Object]",
+    "Cineole",
+    "Rosmarinic acid"
   ],
   "effects": [
-    "relaxation",
-    "focus",
-    "mood"
+    "Clarity",
+    "calm",
+    "subtle mood lift",
+    "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with neurotoxic in high doses"
+    "Avoid during pregnancy",
+    "neurotoxic in high doses",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "interactions": [
-    "Significant"
+  "safetyNotes": [
+    "Safe in small doses",
+    "Dry mouth",
+    "dizziness (rare)",
+    "Low",
+    "Very high (camphor oral LD50 ~1300 mg/kg)",
+    "safe",
+    "No direct toxicity data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
   ],
-  "safetyLevel": "caution",
-  "safetyNotes": "Generally well tolerated. Avoid in pregnancy; Avoid with neurotoxic in high doses; Avoid use during pregnancy unless advised by a clinician.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Salvia apiana (TaxID 392646)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=392646&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Chumash"
     },
     {
-      "title": "PubMed search: Salvia apiana",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Salvia+apiana",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: Salvia apiana",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Salvia+apiana",
-      "note": "Chemical and bioactivity reference index"
+      "title": "Native American ethnobotany"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Sacred Native American plant burned or brewed for clarity and ritual cleansing.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Sacred Native American plant burned or brewed for clarity and ritual cleansing",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. No direct region data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
+  ],
   "duration": "No direct duration data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. No direct region data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.",
+  "interactions": [
+    "None significant"
+  ],
   "legalStatus": "Legal",
-  "preparation": "Smoked.",
-  "region": "Southwestern us.",
+  "preparation": "No direct preparation data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. No direct region data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.",
+  "region": "No direct region data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.",
   "therapeuticUses": [
     "Purification",
     "anxiety",
-    "focus"
+    "focus",
+    "traditional support for mild digestive comfort",
+    "traditional stress resilience support"
   ],
   "traditionalUse": "Used in smudging rituals for purification and clarity.",
-  "sideEffects": [],
   "slug": "salvia-apiana",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "salvia apiana",
+  "displayScientificName": "Salvia apiana",
+  "scientificNormalized": "salvia apiana",
+  "id": "salvia-apiana",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
@@ -65,6 +86,7 @@
     "eucalyptol",
     "camphor",
     "flavonoids",
+    "object-object",
     "cineole",
     "rosmarinic-acid"
   ]

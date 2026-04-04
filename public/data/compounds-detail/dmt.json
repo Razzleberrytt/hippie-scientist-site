@@ -1,17 +1,9 @@
 {
   "name": "DMT",
-  "category": "general",
-  "description": "DMT appears in records as a compound reported in acacia maidenii, virola theiodora, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
+    "nan",
     "acacia maidenii",
-    "virola theiodora",
-    "acacia confusa",
-    "acacia phlebophylla",
-    "anadenanthera peregrina",
-    "arundo donax",
-    "Acacia confusa Merr.",
-    "Calliandra lucidum",
-    "virola calophylla"
+    "virola theiodora"
   ],
   "effects": [
     "Intense visual hallucinations",
@@ -65,38 +57,21 @@
     "hypertension",
     "Not recommended for those with psychotic disorders or serotonin syndrome risk"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: DMT (CID 6089)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6089",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "dmt",
-  "summary": "DMT appears in records as a compound reported in acacia maidenii, virola theiodora, and related herbs. Current source coverage is limited and still developing.",
+  "id": "dmt",
+  "displayName": "DMT",
+  "description": "DMT appears in records as a compound reported in nan, acacia maidenii, and related herbs. Current source coverage is limited and still developing.",
+  "summary": "DMT appears in records as a compound reported in nan, acacia maidenii, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "acacia-maidenii",
-    "virola-theiodora",
-    "acacia-confusa",
-    "acacia-phlebophylla",
-    "anadenanthera-peregrina",
-    "arundo-donax",
-    "acacia-confusa-merr",
-    "calliandra-lucidum",
-    "virola-calophylla"
+    "virola-theiodora"
   ]
 }

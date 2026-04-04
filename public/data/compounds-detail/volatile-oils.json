@@ -1,12 +1,11 @@
 {
   "name": "volatile oils",
-  "category": "general",
-  "description": "volatile oils appears in records as a compound reported in agrimonia eupatoria, rhododendron anthopogon, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "agrimonia eupatoria",
+    "nan",
     "rhododendron anthopogon",
-    "tilia tomentosa",
-    "asarum canadense"
+    "Silver Linden",
+    "tilia tomentosa"
   ],
   "effects": [
     "Astringent",
@@ -32,33 +31,28 @@
     "gastrointestinal disorders",
     "None known"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: volatile oils",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/volatile-oils",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "lastUpdated": "2026-03-21",
   "slug": "volatile-oils",
-  "summary": "volatile oils appears in records as a compound reported in agrimonia eupatoria, rhododendron anthopogon, and related herbs. Current source coverage is limited and still developing.",
+  "id": "volatile-oils",
+  "displayName": "volatile oils",
+  "description": "volatile oils appears in records as a compound reported in agrimonia eupatoria, nan, and related herbs. Current source coverage is limited and still developing.",
+  "summary": "volatile oils appears in records as a compound reported in agrimonia eupatoria, nan, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "agrimonia-eupatoria",
+    "nan",
     "rhododendron-anthopogon",
-    "tilia-tomentosa",
-    "asarum-canadense"
+    "silver-linden",
+    "tilia-tomentosa"
   ]
 }

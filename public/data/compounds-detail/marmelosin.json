@@ -1,7 +1,5 @@
 {
   "name": "Marmelosin",
-  "category": "general",
-  "description": "Marmelosin appears in records as a compound reported in aegle marmelos. Current source coverage is limited and still developing.",
   "herbs": [
     "aegle marmelos"
   ],
@@ -9,24 +7,13 @@
     "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Marmelosin (CID 10212)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10212",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "marmelosin",
+  "id": "marmelosin",
+  "displayName": "Marmelosin",
+  "description": "Marmelosin appears in records as a compound reported in aegle marmelos. Current source coverage is limited and still developing.",
   "summary": "Marmelosin appears in records as a compound reported in aegle marmelos. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

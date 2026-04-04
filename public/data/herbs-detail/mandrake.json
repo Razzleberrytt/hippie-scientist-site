@@ -1,45 +1,62 @@
 {
   "name": "mandrake",
   "latin": "mandrake",
-  "class": "general",
+  "class": null,
   "intensity": "very strong",
-  "mechanism": "available mechanistic data are preclinical and do not establish therapeutic efficacy",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
   "activeCompounds": [],
-  "effects": [],
+  "effects": [
+    "No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
+  ],
   "contraindications": [
-    "avoid in pregnancy"
+    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+    "Do not use with known allergy to this plant or related species."
   ],
-  "interactions": [
-    "May potentiate: Potential additive anticholinergic burden with other anticholinergic medicines",
-    "May potentiate: Potential additive CNS effects with sedatives or alcohol",
-    "May potentiate: toxicity risk may increase"
+  "safetyNotes": [
+    "Toxic – deliriant",
+    "anticholinergic",
+    "No direct toxicity data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
   ],
-  "safetyNotes": "Risk of delirium, tachycardia, dry mouth, urinary retention, and confusion from anticholinergic exposure., Toxicity management requires medical supervision; non-clinical ingestion is high risk.",
-  "sources": [
-    {
-      "title": "src_doi-10-1007-s13659-022-00357-w",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36109439/"
-    },
-    {
-      "title": "src_doi-10-1016-j-plantsci-2019-03-013",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31128700/"
-    },
-    {
-      "title": "src_doi-10-1002-ptrr-2023-4419",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38884419/"
-    }
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used in ritual, dreaming or folk medicine.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine"
   ],
-  "lastUpdated": "2026-04-01T18:55:37.958Z",
-  "description": "Mandrake is a medicinal herb traditionally used for anticholinergic toxicity patterns are documented in clinical toxicology literature.",
-  "dosage": "No safe self-care dosage is established in reviewed sources; toxicology-focused literature should guide cautionary copy only.",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "interactions": [],
   "legalStatus": "restricted",
-  "preparation": "Tea.",
-  "region": "Mediterranean.",
-  "therapeuticUses": [],
-  "traditionalUse": "Traditional records describe sedative, ritual, and analgesic uses; these historical uses should not be interpreted as evidence of modern clinical efficacy.",
-  "sideEffects": [],
+  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "therapeuticUses": [
+    "Traditional supportive use; indication depends on species part and preparation.",
+    "Evidence level varies; use only within established clinical or traditional context."
+  ],
+  "traditionalUse": "Used in ritual, dreaming or folk medicine",
   "slug": "mandrake",
+  "sideEffects": [
+    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  ],
+  "id": "mandrake",
+  "displayName": "mandrake",
+  "displayScientificName": "mandrake",
+  "scientificNormalized": "mandrake",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

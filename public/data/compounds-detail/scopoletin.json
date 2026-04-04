@@ -1,9 +1,7 @@
 {
   "name": "scopoletin",
-  "category": "general",
-  "description": "scopoletin is a compound reported in leonotis leonurus. Available references are still early and incomplete.",
   "herbs": [
-    "leonotis leonurus"
+    "nan"
   ],
   "effects": [
     "Relaxation",
@@ -21,30 +19,19 @@
     "pregnancy",
     "psychiatric conditions."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: scopoletin (CID 5280460)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280460",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "scopoletin",
-  "summary": "scopoletin is a compound reported in leonotis leonurus. Available references are still early and incomplete.",
+  "id": "scopoletin",
+  "displayName": "scopoletin",
+  "description": "scopoletin is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "scopoletin is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "leonotis-leonurus"
+    "nan"
   ]
 }

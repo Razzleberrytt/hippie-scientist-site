@@ -1,11 +1,7 @@
 {
   "name": "5-MeO-DMT",
-  "category": "general",
-  "description": "5-MeO-DMT appears in records as a compound reported in anadenanthera peregrina, virola calophylla, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
-    "anadenanthera peregrina",
-    "virola calophylla",
-    "virola theiodora"
+    "nan"
   ],
   "effects": [
     "Intense visuals",
@@ -38,32 +34,19 @@
     "SSRIs",
     "schizophrenia"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: 5-MeO-DMT (CID 1832)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1832",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.038Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "5-meo-dmt",
-  "summary": "5-MeO-DMT appears in records as a compound reported in anadenanthera peregrina, virola calophylla, and related herbs. Current source coverage is limited and still developing.",
+  "id": "5-meo-dmt",
+  "displayName": "5-MeO-DMT",
+  "description": "5-MeO-DMT appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "5-MeO-DMT appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "anadenanthera-peregrina",
-    "virola-calophylla",
-    "virola-theiodora"
+    "nan"
   ]
 }

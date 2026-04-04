@@ -1,7 +1,5 @@
 {
   "name": "procyanidin oligomers",
-  "category": "general",
-  "description": "procyanidin oligomers appears in records as a compound reported in agrimonia eupatoria. Current source coverage is limited and still developing.",
   "herbs": [
     "agrimonia eupatoria"
   ],
@@ -17,24 +15,18 @@
     "due to tannins may cause constipation or reduce absorption of minerals",
     "avoid large doses during pregnancy."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: procyanidin oligomers",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/procyanidin-oligomers",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "lastUpdated": "2026-03-21",
   "slug": "procyanidin-oligomers",
+  "id": "procyanidin-oligomers",
+  "displayName": "procyanidin oligomers",
+  "description": "procyanidin oligomers appears in records as a compound reported in agrimonia eupatoria. Current source coverage is limited and still developing.",
   "summary": "procyanidin oligomers appears in records as a compound reported in agrimonia eupatoria. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

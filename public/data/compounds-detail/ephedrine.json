@@ -1,10 +1,8 @@
 {
   "name": "ephedrine",
-  "category": "general",
-  "description": "ephedrine is a compound reported in aconitum napellus and sida cordifolia. Available references are still early and incomplete.",
   "herbs": [
     "aconitum napellus",
-    "sida cordifolia"
+    "nan"
   ],
   "effects": [
     "Potent analgesic and anti-inflammatory",
@@ -32,31 +30,25 @@
     "heart conditions",
     "pregnancy"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: ephedrine (CID 9294)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9294",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.041Z",
+  "lastUpdated": "2026-03-21",
   "slug": "ephedrine",
-  "summary": "ephedrine is a compound reported in aconitum napellus and sida cordifolia. Available references are still early and incomplete.",
+  "id": "ephedrine",
+  "displayName": "ephedrine",
+  "description": "ephedrine is a compound reported in aconitum napellus and nan. Available references are still early and incomplete.",
+  "summary": "ephedrine is a compound reported in aconitum napellus and nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "aconitum-napellus",
-    "sida-cordifolia"
+    "nan"
   ]
 }

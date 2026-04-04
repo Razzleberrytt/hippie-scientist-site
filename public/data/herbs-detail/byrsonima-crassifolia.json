@@ -1,35 +1,50 @@
 {
   "name": "byrsonima crassifolia",
   "latin": "byrsonima crassifolia",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. No direct region data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.",
-  "mechanism": "used in to promote calm and wellness",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.",
   "activeCompounds": [
-    "catechins",
-    "quercetin"
+    "Catechins",
+    "Quercetin"
   ],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: byrsonima crassifolia (TaxID 4270)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4270&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness."
   ],
-  "lastUpdated": "2026-04-01T18:55:37.876Z",
-  "description": "Used in to promote calm and wellness.",
-  "dosage": "",
+  "contraindications": [
+    "discontinue if hypersensitivity or allergic symptoms occur",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "use caution before driving or operating machinery if sedation occurs"
+  ],
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness."
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used in folk medicine to promote calm and wellness..",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. No direct region data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness."
+  ],
   "duration": "No direct duration data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. No direct region data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.",
-  "legalStatus": "",
-  "preparation": "",
-  "region": "Central and south america.",
-  "therapeuticUses": [],
+  "interactions": [],
+  "legalStatus": null,
+  "preparation": "No direct preparation data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. No direct region data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.",
+  "region": "No direct region data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.",
+  "therapeuticUses": [
+    "evening use for nervous system settling in traditional practice",
+    "sleep onset support"
+  ],
   "traditionalUse": "Used in folk medicine to promote calm and wellness.",
-  "sideEffects": [],
   "slug": "byrsonima-crassifolia",
+  "sideEffects": [
+    "headache (more likely with higher intake)",
+    "dry mouth",
+    "light dizziness"
+  ],
+  "id": "byrsonima-crassifolia",
+  "displayName": "byrsonima crassifolia",
+  "displayScientificName": "byrsonima crassifolia",
+  "scientificNormalized": "byrsonima crassifolia",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

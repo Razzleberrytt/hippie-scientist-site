@@ -1,9 +1,7 @@
 {
   "name": "monoterpenes",
-  "category": "terpenoid",
-  "description": "monoterpenes is a terpenoid compound reported in acorus calamus. Current source coverage is limited and still developing.",
   "herbs": [
-    "acorus calamus"
+    "nan"
   ],
   "effects": [
     "Stimulation",
@@ -31,30 +29,19 @@
     "pregnancy",
     "cancer risk (β-asarone in some strains)."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: monoterpenes",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/monoterpenes",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "monoterpenes",
-  "summary": "monoterpenes is a terpenoid compound reported in acorus calamus. Current source coverage is limited and still developing.",
+  "id": "monoterpenes",
+  "displayName": "monoterpenes",
+  "description": "monoterpenes appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "monoterpenes appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "acorus-calamus"
+    "nan"
   ]
 }

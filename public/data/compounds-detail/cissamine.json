@@ -1,7 +1,5 @@
 {
   "name": "Cissamine",
-  "category": "general",
-  "description": "Cissamine is a compound reported in cissampelos pareira. Available references are still early and incomplete.",
   "herbs": [
     "cissampelos pareira"
   ],
@@ -9,24 +7,13 @@
     "No direct effects data. Contextual inference: Used in amazonian and ayurvedic traditions for pain and calming... No direct mechanismofaction data. Contextual inference: Used in amazonian and ayurvedic traditions for pain and calming... Used in Amazonian and Ayurvedic traditions for pain and calming.. Used in Amazonian and Ayurvedic traditions for pain and calming."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Cissamine (CID 3082134)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3082134",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "cissamine",
+  "id": "cissamine",
+  "displayName": "Cissamine",
+  "description": "Cissamine is a compound reported in cissampelos pareira. Available references are still early and incomplete.",
   "summary": "Cissamine is a compound reported in cissampelos pareira. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

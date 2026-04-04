@@ -1,9 +1,7 @@
 {
   "name": "Iboga alkaloids",
-  "category": "alkaloid",
-  "description": "Iboga alkaloids is an alkaloid compound reported in tabernaemontana undulata. Available references are still early and incomplete.",
   "herbs": [
-    "tabernaemontana undulata"
+    "nan"
   ],
   "effects": [
     "Inner visions",
@@ -15,30 +13,19 @@
     "Heart conditions",
     "psychiatric illness"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Iboga alkaloids",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/iboga-alkaloids",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "iboga-alkaloids",
-  "summary": "Iboga alkaloids is an alkaloid compound reported in tabernaemontana undulata. Available references are still early and incomplete.",
+  "id": "iboga-alkaloids",
+  "displayName": "Iboga alkaloids",
+  "description": "Iboga alkaloids is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Iboga alkaloids is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "tabernaemontana-undulata"
+    "nan"
   ]
 }

@@ -1,35 +1,48 @@
 {
   "name": "ficus religiosa",
   "latin": "ficus religiosa",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct region data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.",
-  "mechanism": "used in ayurveda and spiritual practice for mindfulness and peace",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.",
   "activeCompounds": [
-    "furanocoumarins",
-    "tannins"
+    "Furanocoumarins",
+    "Tannins"
   ],
-  "effects": [],
-  "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Used in ayurveda and spiritual practice for mindfulness and peace. Used in ayurveda and spiritual practice for mindfulness and peace. Used in Ayurveda and spiritual practice for mindfulness and peace. Used in ayurveda and spiritual practice for mindfulness and peace. Used in ayurveda and spiritual practice for mindfulness and peace. Used in Ayurveda and spiritual practice for mindfulness and peace. Used in Ayurveda and spiritual practice for mindfulness and peace. Used in Ayurveda and spiritual practice for mindfulness and peace.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: ficus religiosa (TaxID 66387)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=66387&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    }
+  "effects": [
+    "No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace."
   ],
-  "lastUpdated": "2026-04-01T18:55:37.936Z",
-  "description": "Used in ayurveda and spiritual practice for mindfulness and peace.",
-  "dosage": "",
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding",
+    "avoid in psychotic disorders, severe anxiety, or unsupervised psychoactive use"
+  ],
+  "safetyNotes": [
+    "No direct toxicity data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace."
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used in ayurveda and spiritual practice for mindfulness and peace..",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct region data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace."
+  ],
   "duration": "No direct duration data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct region data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.",
-  "legalStatus": "",
-  "preparation": "",
-  "region": "India, southeast asia.",
-  "therapeuticUses": [],
+  "interactions": [],
+  "legalStatus": null,
+  "preparation": "No direct preparation data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct region data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.",
+  "region": "No direct region data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.",
+  "therapeuticUses": [
+    "traditional support for mild digestive comfort",
+    "traditional ceremonial or ritual context use"
+  ],
   "traditionalUse": "Used in Ayurveda and spiritual practice for mindfulness and peace.",
-  "sideEffects": [],
   "slug": "ficus-religiosa",
+  "sideEffects": [
+    "nausea, confusion, or anxiety with higher intake",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "ficus-religiosa",
+  "displayName": "ficus religiosa",
+  "displayScientificName": "ficus religiosa",
+  "scientificNormalized": "ficus religiosa",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

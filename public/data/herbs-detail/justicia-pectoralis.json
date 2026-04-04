@@ -3,61 +3,94 @@
   "latin": "Justicia pectoralis",
   "class": "Entheogen, Mild Relaxant",
   "intensity": "Mild",
-  "mechanism": "used in amazonian herbal mixtures and healing brews",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.",
   "activeCompounds": [
-    "coumarin",
+    "Coumarin",
     "umbelliferone",
     "flavonoids",
     "essential oils",
-    "umelliferone"
+    "Umelliferone"
   ],
   "effects": [
-    "relaxation",
-    "mood"
+    "Calming",
+    "mild euphoria",
+    "spiritual insight",
+    "Mild euphoria",
+    "sedation",
+    "muscle relaxation",
+    "spiritual openness",
+    "No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews."
   ],
   "contraindications": [
-    "avoid large doses",
-    "avoid with coumarin toxicity risk",
-    "avoid in pregnancy",
-    "increase bleeding risk"
+    "Avoid large doses",
+    "coumarin toxicity risk",
+    "Pregnancy",
+    "anticoagulant therapy due to coumarin content",
+    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+    "Do not use with known allergy to this plant or related species."
   ],
-  "interactions": [
-    "Caution with: caution advised with anticoagulants"
+  "safetyNotes": [
+    "Coumarin toxicity in high doses",
+    "Lightheadedness",
+    "photosensitivity",
+    "Moderate",
+    "Coumarin: 293 mg/kg (rats",
+    "oral)",
+    "Considered safe when traditionally prepared",
+    "Drowsiness",
+    "allergic reaction in sensitive individuals",
+    "Low",
+    "generally regarded as safe in traditional use",
+    "safe",
+    "No direct toxicity data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews."
   ],
-  "safetyNotes": "Potentially toxic; avoid unsupervised use; Avoid large doses; Avoid with coumarin toxicity risk.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Justicia pectoralis",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Justicia%20pectoralis&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Ethnobotanical texts"
     },
     {
-      "title": "PubMed search: Justicia pectoralis",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Justicia+pectoralis",
-      "note": "Literature index for pharmacology and safety evidence"
+      "title": "MAPS reports"
     },
     {
-      "title": "PubChem search: Justicia pectoralis",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Justicia+pectoralis",
-      "note": "Chemical and bioactivity reference index"
+      "title": "Amazonian pharmacopoeia"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Aromatic herb used in Amazonian shamanic rituals for its calming and spiritual effects.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Aromatic herb used in Amazonian shamanic rituals for its calming and spiritual effects",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. No direct region data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews."
+  ],
   "duration": "No direct duration data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. No direct region data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.",
+  "interactions": [
+    "caution advised with anticoagulants"
+  ],
   "legalStatus": "Unregulated",
-  "preparation": "Tea.",
-  "region": "Amazon basin.",
+  "preparation": "No direct preparation data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. No direct region data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.",
+  "region": "No direct region data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.",
   "therapeuticUses": [
     "Calming",
     "spiritual meditation",
     "anti-inflammatory",
-    "spiritual ceremonies"
+    "spiritual ceremonies",
+    "Traditional supportive use; indication depends on species part and preparation.",
+    "Evidence level varies; use only within established clinical or traditional context."
   ],
   "traditionalUse": "Used by Amazonian tribes in healing rituals and dream work",
-  "sideEffects": [],
   "slug": "justicia-pectoralis",
+  "sideEffects": [
+    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  ],
+  "displayName": "justicia pectoralis",
+  "displayScientificName": "Justicia pectoralis",
+  "scientificNormalized": "justicia pectoralis",
+  "id": "justicia-pectoralis",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -3,36 +3,49 @@
   "latin": "Psilocybin",
   "class": "psychedelic",
   "intensity": "Moderate",
-  "mechanism": "Converted to psilocin which acts as 5-ht2a agonist.",
+  "mechanism": "Converted to psilocin which acts as 5-HT2A agonist.",
   "activeCompounds": [],
   "effects": [
-    "mood",
-    "psychedelic"
+    "Visual patterns",
+    "mystical insight",
+    "emotional release"
   ],
   "contraindications": [
-    "avoid with unstable mental health conditions",
-    "avoid with uncontrolled hypertension"
+    "psychosis",
+    "uncontrolled hypertension."
   ],
-  "interactions": [
-    "Ssris may reduce effects",
-    "Avoid MAOIs"
+  "safetyNotes": [
+    "Toxic – controlled psychedelic",
+    "nausea",
+    "anxiety",
+    "transient increase in heart rate.",
+    "Low toxicity",
+    "wide margin of safety."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause nausea, anxiety or transient increase in heart rate. Avoid with unstable mental health conditions; Avoid with uncontrolled hypertension; Avoid with unstable mental health conditions, may cause toxic – controlled psychedelic, anxiety, transient increase in heart rate or wide margin of safety; Avoid with unstable mental health conditions or transient increase in heart rate.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Psilocybin",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Psilocybin&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Inferred from Psilocybin"
+    },
+    {
+      "note": "Inferred from Psilocybin",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.001Z",
-  "description": "Psilocybin is a medicinal herb traditionally used for visual patterns and mystical insight.",
-  "dosage": "10-25 mg pure or ~1-5 g dried mushrooms.",
+  "lastUpdated": "2026-03-21",
+  "description": "active compound in psychedelic mushrooms producing profound perceptual changes.",
+  "dosage": [
+    "10",
+    "25 mg pure or ~1",
+    "5 g dried mushrooms"
+  ],
   "duration": "No direct duration data. Contextual inference: active compound in psychedelic mushrooms producing profound perceptual changes.. Converted to psilocin which acts as 5-HT2A agonist.. Visual patterns;mystical insight;emotional release. 🌎 global. ; nan; nan",
+  "interactions": [
+    "ssris may reduce effects",
+    "avoid maois."
+  ],
   "legalStatus": "Controlled in many countries",
-  "preparation": "Extract.",
-  "region": "",
+  "preparation": "Consumed as dried mushrooms or extract",
+  "region": "🌎 global",
   "therapeuticUses": [
     "promising treatment for depression",
     "addiction",
@@ -48,6 +61,10 @@
     "transient increase in heart rate."
   ],
   "slug": "psilocybin",
+  "id": "psilocybin",
+  "displayName": "psilocybin",
+  "displayScientificName": "Psilocybin",
+  "scientificNormalized": "psilocybin",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -1,8 +1,8 @@
 {
   "name": "Mesembrine analogues (suspected)",
-  "category": "general",
-  "description": "Mesembrine analogues (suspected) is currently cataloged as a compound entry. Current source coverage is limited and still developing.",
-  "herbs": [],
+  "herbs": [
+    "nan"
+  ],
   "effects": [
     "Mood elevation",
     "dream enhancement",
@@ -18,28 +18,19 @@
     "Pregnancy",
     "concurrent SSRI use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Mesembrine analogues (suspected)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mesembrine-analogues-suspected",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "mesembrine-analogues-suspected",
-  "summary": "Mesembrine analogues (suspected) is currently cataloged as a compound entry. Current source coverage is limited and still developing.",
+  "id": "mesembrine-analogues-suspected",
+  "displayName": "Mesembrine analogues (suspected)",
+  "description": "Mesembrine analogues (suspected) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "Mesembrine analogues (suspected) appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "linkedHerbs": []
+  "linkedHerbs": [
+    "nan"
+  ]
 }

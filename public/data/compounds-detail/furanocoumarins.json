@@ -1,7 +1,5 @@
 {
   "name": "Furanocoumarins",
-  "category": "general",
-  "description": "Furanocoumarins is a compound reported in ficus religiosa. Available references are still early and incomplete.",
   "herbs": [
     "ficus religiosa"
   ],
@@ -9,24 +7,13 @@
     "No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Furanocoumarins",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/furanocoumarins",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.042Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "furanocoumarins",
+  "id": "furanocoumarins",
+  "displayName": "Furanocoumarins",
+  "description": "Furanocoumarins is a compound reported in ficus religiosa. Available references are still early and incomplete.",
   "summary": "Furanocoumarins is a compound reported in ficus religiosa. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

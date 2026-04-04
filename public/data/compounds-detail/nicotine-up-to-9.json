@@ -1,8 +1,8 @@
 {
   "name": "Nicotine (up to 9%)",
-  "category": "general",
-  "description": "Nicotine (up to 9%) is listed as a compound in this profile. Available references are still early and incomplete.",
-  "herbs": [],
+  "herbs": [
+    "nan"
+  ],
   "effects": [
     "Intense stimulation",
     "purging",
@@ -20,28 +20,19 @@
     "cardiovascular disease",
     "pregnancy."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Nicotine (up to 9%)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nicotine-up-to-9",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "nicotine-up-to-9",
-  "summary": "Nicotine (up to 9%) is listed as a compound in this profile. Available references are still early and incomplete.",
+  "id": "nicotine-up-to-9",
+  "displayName": "Nicotine (up to 9%)",
+  "description": "Nicotine (up to 9%) is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Nicotine (up to 9%) is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "linkedHerbs": []
+  "linkedHerbs": [
+    "nan"
+  ]
 }

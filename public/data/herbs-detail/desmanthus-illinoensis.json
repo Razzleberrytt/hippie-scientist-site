@@ -3,57 +3,89 @@
   "latin": "Desmanthus illinoensis",
   "class": "Tryptamine Source, Entheogen (potential)",
   "intensity": "Moderate (when active)",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
+    "DMT (in root bark)",
     "tryptamines"
   ],
   "effects": [
-    "mood",
-    "psychedelic"
+    "Psychedelic visuals",
+    "emotional shifts (with MAOI)",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "avoid with psychoactivity not fully studied"
+    "psychoactivity not fully studied",
+    "avoid during pregnancy and breastfeeding",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "interactions": [
-    "Avoid with: MAOIs",
-    "Avoid with: SSRIs"
+  "safetyNotes": [
+    "Not well researched",
+    "caution advised",
+    "Nausea",
+    "psychological discomfort",
+    "Not established",
+    "caution",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyNotes": "Avoid with psychoactivity not fully studied.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Desmanthus illinoensis (TaxID 196648)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=196648&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "DMT Nexus"
     },
     {
-      "title": "PubMed search: Desmanthus illinoensis",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Desmanthus+illinoensis",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: Desmanthus illinoensis",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Desmanthus+illinoensis",
-      "note": "Chemical and bioactivity reference index"
+      "title": "ethnobotanical reports"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "U.S. native legume with root bark containing DMT; used in analog ayahuasca.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "U.S. native legume with root bark containing DMT; used in analog ayahuasca",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "MAOIs",
+    "SSRIs"
+  ],
   "legalStatus": "Plant legal; DMT controlled",
-  "preparation": "Tea.",
-  "region": "Central and southern united states.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
-    "Experimental inner work"
+    "Experimental inner work",
+    "traditional support for mild digestive comfort"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "desmanthus-illinoensis",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "desmanthus illinoensis",
+  "displayScientificName": "Desmanthus illinoensis",
+  "scientificNormalized": "desmanthus illinoensis",
+  "id": "desmanthus-illinoensis",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
+    "dmt-in-root-bark",
     "tryptamines"
   ]
 }

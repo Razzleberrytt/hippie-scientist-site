@@ -1,7 +1,5 @@
 {
   "name": "N-methylcephaeline (alamarckine)",
-  "category": "general",
-  "description": "N-methylcephaeline (alamarckine) appears in records as a compound reported in alangium salvifolium. Current source coverage is limited and still developing.",
   "herbs": [
     "alangium salvifolium"
   ],
@@ -19,24 +17,18 @@
     "can be toxic",
     "use with caution and avoid during pregnancy or without medical supervision."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: N-methylcephaeline (alamarckine)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/n-methylcephaeline-alamarckine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "lastUpdated": "2026-03-21",
   "slug": "n-methylcephaeline-alamarckine",
+  "id": "n-methylcephaeline-alamarckine",
+  "displayName": "N-methylcephaeline (alamarckine)",
+  "description": "N-methylcephaeline (alamarckine) appears in records as a compound reported in alangium salvifolium. Current source coverage is limited and still developing.",
   "summary": "N-methylcephaeline (alamarckine) appears in records as a compound reported in alangium salvifolium. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

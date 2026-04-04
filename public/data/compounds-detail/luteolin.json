@@ -1,43 +1,42 @@
 {
-  "name": "Luteolin",
-  "category": "flavone",
-  "description": "Luteolin is a dietary flavone studied for anti-inflammatory and redox-active pharmacology. Evidence includes mechanistic studies and translational safety reviews with potential drug-interaction liability.",
+  "name": "luteolin",
   "herbs": [
     "albizia lebbeck",
     "alchemilla vulgaris"
   ],
   "effects": [
-    "In human and translational reviews, luteolin is discussed for anti-inflammatory and antioxidant pathway modulation.",
-    "Mechanistic literature reports modulation of CYP enzymes and transporters, which may alter co-administered drug exposure."
+    "Used in Ayurveda for asthma",
+    "allergies",
+    "and anxiety",
+    "Uterine tonic",
+    "astringent",
+    "anti-inflammatory",
+    "regulates menstruation and bleeding.",
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [
-    "Use caution with narrow-therapeutic-index drugs because CYP/transporter modulation may change exposure.",
-    "Evidence for efficacy is mixed and largely translational; avoid treating as a substitute for standard care."
+    "No well‑documented contraindications",
+    "due to saponins and alkaloids",
+    "excessive intake may cause gastrointestinal irritation or interact with medications.",
+    "Excessive internal use may cause constipation or dry mucous membranes",
+    "caution in pregnancy or lactation",
+    "may interact with blood thinners due to tannin content【859641390196180†L297",
+    "L313】."
   ],
-  "interactions": [
-    "Potential interaction risk with CYP-metabolized medicines and transporter substrates; monitor for altered drug response."
-  ],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "Drug interaction and safety implications of luteolin supplementation: translational review.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39992013/"
-    },
-    {
-      "title": "Luteolin modulation of CYP and transporter pathways: integrated mechanistic in vitro and in vivo analysis.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38110244/"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "lastUpdated": "2026-03-21",
   "slug": "luteolin",
-  "summary": "Luteolin is a dietary flavone studied for anti-inflammatory and redox-active pharmacology. Evidence includes mechanistic studies and translational safety reviews with potential dru",
+  "id": "luteolin",
+  "displayName": "luteolin",
+  "description": "luteolin is a compound reported in albizia lebbeck and alchemilla vulgaris. Available references are still early and incomplete.",
+  "summary": "luteolin is a compound reported in albizia lebbeck and alchemilla vulgaris. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -1,9 +1,7 @@
 {
   "name": "scutellarein",
-  "category": "general",
-  "description": "scutellarein appears in records as a compound reported in scutellaria lateriflora. Current source coverage is limited and still developing.",
   "herbs": [
-    "scutellaria lateriflora"
+    "nan"
   ],
   "effects": [
     "Mild sedation",
@@ -21,30 +19,19 @@
     "pregnancy",
     "sedative sensitivity."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: scutellarein (CID 5281697)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281697",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "scutellarein",
-  "summary": "scutellarein appears in records as a compound reported in scutellaria lateriflora. Current source coverage is limited and still developing.",
+  "id": "scutellarein",
+  "displayName": "scutellarein",
+  "description": "scutellarein appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "scutellarein appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "scutellaria-lateriflora"
+    "nan"
   ]
 }

@@ -1,51 +1,105 @@
 {
   "name": "lavandula angustifolia",
   "latin": "lavandula angustifolia",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways; anxiolytic and sedative.. ; nan; nan.. Linalool modulates GABA and serotonin pathways; anxiolytic and sedative.. Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. No direct region data. Contextual inference: Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways; anxiolytic and sedative.. ; nan; nan.. Linalool modulates GABA and serotonin pathways; anxiolytic and sedative.. Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. ; nan; nan. ; nan; nan",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [],
   "effects": [
-    "relaxation",
-    "anxiety relief",
-    "anti-inflammatory"
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan.",
+    "Anxiolytic",
+    "sedative",
+    "anti-inflammatory",
+    "used in aromatherapy and teas",
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with hormone-sensitive conditions",
-    "avoid with hormone",
-    "avoid with sensitive conditions"
+    "pregnancy (high doses)",
+    "hormone-sensitive conditions.",
+    "hormone",
+    "sensitive conditions."
   ],
-  "interactions": [
-    "Avoid with: sedatives",
-    "Avoid with: antidepressants"
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "drowsiness",
+    "allergic reactions.",
+    "No direct toxicity data. Contextual inference: Anxiolytic",
+    "sedative",
+    "anti-inflammatory",
+    "used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways",
+    "anxiolytic and sedative..",
+    "nan.. Linalool modulates GABA and serotonin pathways",
+    "anxiolytic and sedative.. Anxiolytic",
+    "used in aromatherapy and teas."
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: lavandula angustifolia (TaxID 39329)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=39329&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.954Z",
-  "description": "Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways; anxiolytic and sedative..",
-  "dosage": "Anxiolytic, sedative, anti, inflammatory, used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways, anxiolytic and sedative. Linalool modulates GABA and serotonin pathways, anxiolytic and sedative. Anxiolytic, used in aromatherapy and teas. Anxiolytic, used in aromatherapy and teas.",
+  "lastUpdated": "2026-03-21",
+  "description": "Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways; anxiolytic and sedative.. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:",
+    "No direct dosage data. Contextual inference: Anxiolytic",
+    "sedative",
+    "anti",
+    "inflammatory",
+    "used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways",
+    "anxiolytic and sedative..",
+    "nan.. Linalool modulates GABA and serotonin pathways",
+    "anxiolytic and sedative.. Anxiolytic",
+    "used in aromatherapy and teas. No direct region data. Contextual inference: Anxiolytic",
+    "used in aromatherapy and teas."
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "sedatives",
+    "antidepressants."
+  ],
   "legalStatus": "Legal globally",
-  "preparation": "Tea.",
-  "region": "Mediterranean.",
+  "preparation": "No direct preparation data. Contextual inference: Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways; anxiolytic and sedative.. ; nan; nan.. Linalool modulates GABA and serotonin pathways; anxiolytic and sedative.. Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. No direct region data. Contextual inference: Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways; anxiolytic and sedative.. ; nan; nan.. Linalool modulates GABA and serotonin pathways; anxiolytic and sedative.. Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways; anxiolytic and sedative.. ; nan; nan.. Linalool modulates GABA and serotonin pathways; anxiolytic and sedative.. Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. ; nan; nan",
   "therapeuticUses": [
     "anxiety relief",
     "sleep aid",
     "calming effects."
   ],
   "traditionalUse": "; nan; nan",
+  "slug": "lavandula-angustifolia",
   "sideEffects": [
     "drowsiness",
     "allergic reactions."
   ],
-  "slug": "lavandula-angustifolia",
+  "displayName": "lavandula angustifolia",
+  "displayScientificName": "lavandula angustifolia",
+  "scientificNormalized": "lavandula angustifolia",
+  "id": "lavandula-angustifolia",
+  "aliases": [
+    "lavender",
+    "Lavandula angustifolia"
+  ],
+  "slugAliases": [
+    "lavender"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

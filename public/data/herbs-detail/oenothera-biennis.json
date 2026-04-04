@@ -1,32 +1,62 @@
 {
   "name": "oenothera biennis",
   "latin": "Oenothera biennis",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, hormonal support (pms, menopause). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, hormonal support (PMS, menopause). No direct region data. Contextual inference: Anti-inflammatory, hormonal support (pms, menopause). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, hormonal support (PMS, menopause). none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "anti-inflammatory",
-    "hormonal tonic"
+    "Anti-inflammatory",
+    "hormonal support (PMS",
+    "menopause)",
+    "Anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause headache, gi upset or allergic skin reactions.",
+  "safetyNotes": [
+    "Headache",
+    "GI upset",
+    "allergic skin reactions",
+    "No direct toxicity data. Contextual inference: Anti-inflammatory",
+    "hormonal support (pms",
+    "menopause). Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anti-inflammatory",
+    "hormonal support (PMS",
+    "menopause). none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Oenothera biennis (TaxID 3942)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3942&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.985Z",
-  "description": "Anti-inflammatory, hormonal support (pms, menopause).",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Anti-inflammatory, hormonal support (pms, menopause). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Anti",
+    "inflammatory",
+    "hormonal support (pms",
+    "menopause). Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anti",
+    "hormonal support (PMS",
+    "menopause). No direct region data. Contextual inference: Anti",
+    "menopause). none.",
+    "nan."
+  ],
   "duration": "Chronic",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "Seeds cold-pressed to extract evening primrose oil; traditionally also used as infusions or poultices",
+  "region": "No direct region data. Contextual inference: Anti-inflammatory, hormonal support (pms, menopause). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, hormonal support (PMS, menopause). none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -35,6 +65,10 @@
     "allergic skin reactions"
   ],
   "slug": "oenothera-biennis",
+  "id": "oenothera-biennis",
+  "displayName": "oenothera biennis",
+  "displayScientificName": "Oenothera biennis",
+  "scientificNormalized": "oenothera biennis",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

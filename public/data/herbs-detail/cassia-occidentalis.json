@@ -1,31 +1,59 @@
 {
   "name": "cassia occidentalis",
   "latin": "Cassia occidentalis",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Laxative, anti-inflammatory, traditionally used for liver ailments. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, anti-inflammatory, traditionally used for liver ailments. No direct region data. Contextual inference: Laxative, anti-inflammatory, traditionally used for liver ailments. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, anti-inflammatory, traditionally used for liver ailments. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
+    "Laxative",
     "anti-inflammatory",
-    "digestive support"
+    "traditionally used for liver ailments",
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Hepatotoxicity and muscle degeneration reported; Not recommended for internal use in high doses; Laxative; Traditionally used for liver ailments; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Laxative.",
+  "safetyNotes": [
+    "Hepatotoxicity and muscle degeneration reported",
+    "not recommended for internal use in high doses",
+    "No direct toxicity data. Contextual inference: Laxative",
+    "anti-inflammatory",
+    "traditionally used for liver ailments. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Laxative",
+    "traditionally used for liver ailments. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Cassia occidentalis",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Cassia%20occidentalis&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.890Z",
-  "description": "Laxative, anti-inflammatory, traditionally used for liver ailments..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Laxative, anti-inflammatory, traditionally used for liver ailments. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Laxative",
+    "anti",
+    "inflammatory",
+    "traditionally used for liver ailments. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Laxative",
+    "traditionally used for liver ailments. No direct region data. Contextual inference: Laxative",
+    "traditionally used for liver ailments. none.",
+    "nan."
+  ],
   "duration": "Up to 12 hours",
+  "interactions": [],
   "legalStatus": "Unregulated; used in traditional medicine",
-  "preparation": "Tea.",
-  "region": "",
+  "preparation": "Leaves and seeds used in decoctions; requires careful use due to potential hepatotoxicity",
+  "region": "No direct region data. Contextual inference: Laxative, anti-inflammatory, traditionally used for liver ailments. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, anti-inflammatory, traditionally used for liver ailments. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -33,6 +61,10 @@
     "not recommended for internal use in high doses"
   ],
   "slug": "cassia-occidentalis",
+  "id": "cassia-occidentalis",
+  "displayName": "cassia occidentalis",
+  "displayScientificName": "Cassia occidentalis",
+  "scientificNormalized": "cassia occidentalis",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -1,38 +1,53 @@
 {
   "name": "vitex agnus-castus",
   "latin": "Vitex agnus-castus",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Hormonal modulator, pms relief, prolactin regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hormonal modulator, PMS relief, prolactin regulator. No direct region data. Contextual inference: Hormonal modulator, pms relief, prolactin regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hormonal modulator, PMS relief, prolactin regulator. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
-  "activeCompounds": [
-    "agnuside",
-    "casticin",
-    "aucubin"
-  ],
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
   "effects": [
-    "hormonal tonic"
+    "Hormonal modulator",
+    "PMS relief",
+    "prolactin regulator"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "safe",
+    "GI upset",
+    "dizziness",
+    "acne-like rash",
+    "affects hormonal balance",
+    "No direct toxicity data. Contextual inference: Hormonal modulator",
+    "pms relief",
+    "prolactin regulator. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Hormonal modulator",
+    "PMS relief",
+    "prolactin regulator. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause gi upset, dizziness, acne, like rash or affects hormonal balance.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Vitex agnus-castus (TaxID 54477)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=54477&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.032Z",
-  "description": "Hormonal modulator, pms relief, prolactin regulator.",
-  "dosage": "150-500 mg/day extract.",
+  "lastUpdated": "2026-03-21",
+  "description": "Hormonal modulator, pms relief, prolactin regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "150",
+    "500 mg",
+    "day extract"
+  ],
   "duration": "Chronic",
+  "interactions": [],
   "legalStatus": "Legal worldwide",
-  "preparation": "Tincture.",
-  "region": "Mediterranean, western asia.",
+  "preparation": "Dried berries used in tinctures or capsules; hormone modulator used for PMS and menstrual regulation",
+  "region": "No direct region data. Contextual inference: Hormonal modulator, pms relief, prolactin regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hormonal modulator, PMS relief, prolactin regulator. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -43,6 +58,10 @@
     "affects hormonal balance"
   ],
   "slug": "vitex-agnus-castus",
+  "id": "vitex-agnus-castus",
+  "displayName": "vitex agnus-castus",
+  "displayScientificName": "Vitex agnus-castus",
+  "scientificNormalized": "vitex agnus-castus",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

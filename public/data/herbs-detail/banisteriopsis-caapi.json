@@ -3,58 +3,90 @@
   "latin": "Banisteriopsis caapi",
   "class": "MAOI, Entheogen",
   "intensity": "moderate",
-  "mechanism": "Alkaloid constituents can modulate neuronal signaling pathways",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
-    "harmine",
+    "Harmine",
     "harmaline",
     "tetrahydroharmine"
   ],
   "effects": [
-    "mood",
-    "visionary"
+    "Dreamlike visions",
+    "introspection",
+    "emotional release",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "may interact with ssris",
-    "avoid with psychiatric disorders",
-    "may interact with maois"
+    "SSRIs",
+    "psychiatric disorders",
+    "MAOIs",
+    "avoid during pregnancy and breastfeeding",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "interactions": [
-    "Avoid with: MAOIs",
-    "Avoid with: SSRIs",
-    "Avoid with: psychedelics"
+  "safetyNotes": [
+    "Traditional use considered safe with proper guidance",
+    "Vomiting (purge)",
+    "dizziness",
+    "emotional intensity",
+    "Moderate",
+    "Not well established",
+    "caution",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyNotes": "May interact with ssris; Avoid with psychiatric disorders; May interact with maois.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Banisteriopsis caapi (TaxID 577683)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=577683&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Ethnobotany"
     },
     {
-      "title": "PubMed search: Banisteriopsis caapi",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Banisteriopsis+caapi",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: Banisteriopsis caapi",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Banisteriopsis+caapi",
-      "note": "Chemical and bioactivity reference index"
+      "title": "psychedelic studies"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Amazonian vine used in ayahuasca brew for vision and healing.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Amazonian vine used in ayahuasca brew for vision and healing",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "MAOIs",
+    "SSRIs",
+    "psychedelics"
+  ],
   "legalStatus": "Restricted in some countries",
-  "preparation": "Extract.",
-  "region": "Amazon basin: peru, brazil.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "PTSD",
-    "depression (investigational)"
+    "depression (investigational)",
+    "traditional support for mild digestive comfort"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "banisteriopsis-caapi",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "banisteriopsis caapi",
+  "displayScientificName": "Banisteriopsis caapi",
+  "scientificNormalized": "banisteriopsis caapi",
+  "id": "banisteriopsis-caapi",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

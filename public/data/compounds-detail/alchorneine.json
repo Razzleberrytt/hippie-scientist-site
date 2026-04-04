@@ -1,10 +1,8 @@
 {
   "name": "alchorneine",
-  "category": "general",
-  "description": "alchorneine is a compound reported in alchornea castaneifolia and alchornea floribunda. Available references are still early and incomplete.",
   "herbs": [
     "alchornea castaneifolia",
-    "alchornea floribunda"
+    "nan"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
@@ -21,31 +19,20 @@
     "use under supervision.",
     "Avoid in pregnancy or heart issues"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: alchorneine (CID 217611)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/217611",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.038Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "alchorneine",
-  "summary": "alchorneine is a compound reported in alchornea castaneifolia and alchornea floribunda. Available references are still early and incomplete.",
+  "id": "alchorneine",
+  "displayName": "alchorneine",
+  "description": "alchorneine is a compound reported in alchornea castaneifolia and nan. Available references are still early and incomplete.",
+  "summary": "alchorneine is a compound reported in alchornea castaneifolia and nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
     "alchornea-castaneifolia",
-    "alchornea-floribunda"
+    "nan"
   ]
 }

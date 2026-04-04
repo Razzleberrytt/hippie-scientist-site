@@ -3,61 +3,102 @@
   "latin": "Petasites hybridus",
   "class": "Sedative, Herbal remedy",
   "intensity": "Mild",
-  "mechanism": "",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.",
   "activeCompounds": [
-    "petasin",
-    "isopetasin"
+    "Petasin",
+    "isopetasin",
+    "pyrrolizidine alkaloids (toxic)",
+    "Isopetasin"
   ],
   "effects": [
-    "relaxation",
-    "pain relief"
+    "Mild sedation",
+    "muscle relaxation",
+    "No direct effects data. Contextual inference: Used historically to treat pain",
+    "migraines",
+    "and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain",
+    "and spasms... Used historically to treat pain",
+    "and spasms.. Used historically to treat pain",
+    "and spasms."
   ],
   "contraindications": [
-    "avoid in liver disease"
+    "Avoid unpurified extracts due to liver-toxic alkaloids",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
+  "safetyNotes": [
+    "Unpurified form hepatotoxic",
+    "Drowsiness",
+    "nausea",
+    "liver risk (raw)",
+    "High (unpurified)",
+    "Petasin: ~400 mg/kg (rats)",
+    "safe",
+    "No direct toxicity data. Contextual inference: Used historically to treat pain",
+    "migraines",
+    "and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain",
+    "and spasms... Used historically to treat pain",
+    "and spasms.. No direct effects data. Contextual inference: Used historically to treat pain",
+    "and spasms.. Used historically to treat pain",
+    "and spasms."
+  ],
+  "sources": [
+    {
+      "title": "Natural medicine texts"
+    },
+    {
+      "title": "PubMed"
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Traditional herb for migraine and anxiety with calming effects",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used historically to treat pain",
+    "migraines",
+    "and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain",
+    "and spasms... Used historically to treat pain",
+    "and spasms.. No direct effects data. Contextual inference: Used historically to treat pain",
+    "and spasms.. Used historically to treat pain",
+    "and spasms.. No direct region data. Contextual inference: Used historically to treat pain",
+    "and spasms."
+  ],
+  "duration": "No direct duration data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. No direct region data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.",
   "interactions": [
     "May potentiate CNS depressants"
   ],
-  "safetyLevel": "caution",
-  "safetyNotes": "Generally well tolerated. Avoid in liver disease; Avoid combining with sedatives, generally well tolerated; Avoid combining with sedatives.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: Petasites hybridus (TaxID 278673)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=278673&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
-    },
-    {
-      "title": "PubMed search: Petasites hybridus",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Petasites+hybridus",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: Petasites hybridus",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Petasites+hybridus",
-      "note": "Chemical and bioactivity reference index"
-    }
-  ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Traditional herb for migraine and anxiety with calming effects.",
-  "dosage": "",
-  "duration": "No direct duration data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. No direct region data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.",
   "legalStatus": "Restricted in some countries unless purified",
-  "preparation": "Extract.",
-  "region": "Europe, asia.",
+  "preparation": "No direct preparation data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. No direct region data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.",
+  "region": "No direct region data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.",
   "therapeuticUses": [
     "Migraine",
     "anxiety",
-    "muscle tension"
+    "muscle tension",
+    "support for mild inflammatory pain"
   ],
   "traditionalUse": "Used historically to treat pain, migraines, and spasms.",
-  "sideEffects": [],
   "slug": "petasites-hybridus",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "petasites hybridus",
+  "displayScientificName": "Petasites hybridus",
+  "scientificNormalized": "petasites hybridus",
+  "id": "petasites-hybridus",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [
     "petasin",
-    "isopetasin"
+    "isopetasin",
+    "pyrrolizidine-alkaloids-toxic"
   ]
 }

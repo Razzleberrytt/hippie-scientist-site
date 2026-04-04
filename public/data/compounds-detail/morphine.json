@@ -1,9 +1,7 @@
 {
   "name": "Morphine",
-  "category": "general",
-  "description": "Morphine is a compound reported in papaver somniferum. Available references are still early and incomplete.",
   "herbs": [
-    "papaver somniferum"
+    "nan"
   ],
   "effects": [
     "Pain relief",
@@ -24,30 +22,19 @@
     "liver impairment",
     "opioid use"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Morphine (CID 5288826)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5288826",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "morphine",
-  "summary": "Morphine is a compound reported in papaver somniferum. Available references are still early and incomplete.",
+  "id": "morphine",
+  "displayName": "Morphine",
+  "description": "Morphine is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Morphine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "papaver-somniferum"
+    "nan"
   ]
 }

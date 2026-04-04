@@ -1,39 +1,52 @@
 {
   "name": "scutellaria baicalensis",
   "latin": "Scutellaria baicalensis",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antioxidant, hepatoprotective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, hepatoprotective. No direct region data. Contextual inference: Anti-inflammatory, antioxidant, hepatoprotective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, hepatoprotective. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
-  "activeCompounds": [
-    "baicalin",
-    "baicalein",
-    "wogonin"
-  ],
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
   "effects": [
-    "anti-inflammatory",
-    "antioxidant"
+    "Anti-inflammatory",
+    "antioxidant",
+    "hepatoprotective",
+    "Anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "safe",
+    "Generally safe",
+    "rare hepatotoxicity cases",
+    "No direct toxicity data. Contextual inference: Anti-inflammatory",
+    "antioxidant",
+    "hepatoprotective. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anti-inflammatory",
+    "hepatoprotective. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause generally safe or rare hepatotoxicity cases.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Scutellaria baicalensis (TaxID 65409)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=65409&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.019Z",
-  "description": "Anti-inflammatory, antioxidant, hepatoprotective.",
-  "dosage": "250-1000 mg/day root extract.",
+  "lastUpdated": "2026-03-21",
+  "description": "Anti-inflammatory, antioxidant, hepatoprotective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "1000 mg",
+    "day root extract"
+  ],
   "duration": "6–10 hours",
+  "interactions": [],
   "legalStatus": "Legal globally",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Root dried and decocted or tinctured; used in TCM for heat-clearing and inflammation (Huang Qin)",
+  "region": "No direct region data. Contextual inference: Anti-inflammatory, antioxidant, hepatoprotective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, hepatoprotective. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -41,6 +54,10 @@
     "rare hepatotoxicity cases"
   ],
   "slug": "scutellaria-baicalensis",
+  "id": "scutellaria-baicalensis",
+  "displayName": "scutellaria baicalensis",
+  "displayScientificName": "Scutellaria baicalensis",
+  "scientificNormalized": "scutellaria baicalensis",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

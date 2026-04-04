@@ -3,58 +3,78 @@
   "latin": "Calliandra anomala",
   "class": "Mild psychoactive, sedative",
   "intensity": "Low to mild.",
-  "mechanism": "polyphenol and flavonoid activity",
+  "mechanism": "Polyphenol and flavonoid activity.",
   "activeCompounds": [
-    "flavonoids",
+    "Flavonoids",
     "alkaloids",
     "saponins"
   ],
   "effects": [
-    "relaxation",
-    "mood",
-    "anti-inflammatory"
+    "Relaxation",
+    "mild sedation",
+    "slight mood enhancement",
+    "Anti-inflammatory",
+    "antioxidant (inferred from related Calliandra species).",
+    "Anti",
+    "inflammatory"
   ],
   "contraindications": [
-    "avoid with not recommended with cns depressants"
+    "Not recommended with CNS depressants"
   ],
-  "interactions": [
-    "May potentiate: May increase sedation when combined with CNS depressants"
+  "safetyNotes": [
+    "Generally safe in moderate doses",
+    "Drowsiness",
+    "dry mouth",
+    "Low",
+    "Limited data",
+    "may cause mild GI upset or allergic reactions",
+    "edible flowers in some regions."
   ],
-  "safetyNotes": "Generally safe in moderate doses, Drowsiness, dry mouth, Low, Limited data, may cause mild GI upset or allergic reactions, edible flowers in some regions.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Calliandra anomala",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Calliandra%20anomala&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Ethnobotanical fieldwork"
     },
     {
-      "title": "PubMed search: Calliandra anomala",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Calliandra+anomala",
-      "note": "Literature index for pharmacology and safety evidence"
+      "title": "regional herbal texts"
     },
     {
-      "title": "PubChem search: Calliandra anomala",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Calliandra+anomala",
-      "note": "Chemical and bioactivity reference index"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
+  "lastUpdated": "2026-03-21",
   "description": "Shrubby Fabaceae species with bright pink flowers; limited pharmacological research.",
-  "dosage": "Mild infusions or topical use.",
+  "dosage": [
+    "Mild infusions or topical use."
+  ],
   "duration": "2–3 hours.",
+  "interactions": [],
   "legalStatus": "Unregulated; used in folk medicine",
-  "preparation": "Tea.",
-  "region": "Central and South America.",
+  "preparation": "Flower infusions or poultices.",
+  "region": "Central and South America",
   "therapeuticUses": [
     "Mild anxiolytic",
     "sleep aid"
   ],
   "traditionalUse": "Used as a calming tea in Central American folk medicine",
+  "slug": "calliandra-anomala",
   "sideEffects": [
     "Limited data",
     "may cause mild GI upset or allergic reactions"
   ],
-  "slug": "calliandra-anomala",
+  "displayName": "calliandra anomala",
+  "displayScientificName": "Calliandra anomala",
+  "scientificNormalized": "calliandra anomala",
+  "id": "calliandra-anomala",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

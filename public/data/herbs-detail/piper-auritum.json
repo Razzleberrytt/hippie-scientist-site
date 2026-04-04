@@ -1,33 +1,59 @@
 {
   "name": "piper auritum",
   "latin": "Piper auritum",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Digestive aid, antimicrobial, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, antimicrobial, anti-inflammatory. No direct region data. Contextual inference: Digestive aid, antimicrobial, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, antimicrobial, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
+    "Digestive aid",
+    "antimicrobial",
     "anti-inflammatory",
-    "digestive support",
-    "antimicrobial"
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "caution",
-  "safetyNotes": "May cause contains safrole or potential carcinogen in high amounts. Avoid combining with prescription drugs without guidance, may cause contains safrole, potential carcinogen in high amounts, antimicrobial or herbs often act via neurotransmitter modulation or contains safrole; Avoid combining with prescription drugs without guidance.",
+  "safetyNotes": [
+    "Contains safrole",
+    "potential carcinogen in high amounts",
+    "No direct toxicity data. Contextual inference: Digestive aid",
+    "antimicrobial",
+    "anti-inflammatory. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Digestive aid",
+    "anti-inflammatory. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Piper auritum (TaxID 130385)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=130385&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.996Z",
-  "description": "Digestive aid, antimicrobial, anti-inflammatory.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Digestive aid, antimicrobial, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Digestive aid",
+    "antimicrobial",
+    "anti",
+    "inflammatory. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Digestive aid",
+    "inflammatory. No direct region data. Contextual inference: Digestive aid",
+    "inflammatory. none.",
+    "nan."
+  ],
   "duration": "3–6 hours",
+  "interactions": [],
   "legalStatus": "Restricted in some regions due to safrole",
-  "preparation": "Tea.",
-  "region": "Mexico, central america.",
+  "preparation": "Leaves used fresh in teas or cooking; aromatic herb with traditional use in Mesoamerican medicine",
+  "region": "No direct region data. Contextual inference: Digestive aid, antimicrobial, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, antimicrobial, anti-inflammatory. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -35,6 +61,10 @@
     "potential carcinogen in high amounts"
   ],
   "slug": "piper-auritum",
+  "id": "piper-auritum",
+  "displayName": "piper auritum",
+  "displayScientificName": "Piper auritum",
+  "scientificNormalized": "piper auritum",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

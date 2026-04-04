@@ -1,38 +1,51 @@
 {
   "name": "iris germanica",
   "latin": "Iris germanica",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Emetic, expectorant, limited traditional use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emetic, expectorant, limited traditional use. No direct region data. Contextual inference: Emetic, expectorant, limited traditional use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emetic, expectorant, limited traditional use. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "digestive support",
-    "respiratory support"
+    "Emetic",
+    "expectorant",
+    "limited traditional use"
   ],
   "contraindications": [],
-  "interactions": [
-    "Caution with: Interaction evidence is limited",
-    "Caution with: use caution with prescription medicines",
-    "Caution with: especially CNS active",
-    "Avoid with: anticoagulant",
-    "Caution with: hepatotoxic",
-    "Caution with: blood pressure/glucose lowering drugs"
+  "safetyNotes": [
+    "caution",
+    "May cause vomiting",
+    "abdominal pain",
+    "avoid internally",
+    "No direct toxicity data. Contextual inference: Emetic",
+    "expectorant",
+    "limited traditional use. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Emetic",
+    "limited traditional use. none."
   ],
-  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Iris germanica (TaxID 34205)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34205&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.950Z",
-  "description": "Emetic, expectorant, limited traditional use..",
-  "dosage": "250-500 mg/day root extract (dried)",
+  "lastUpdated": "2026-03-21",
+  "description": "Emetic, expectorant, limited traditional use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "500 mg",
+    "day root extract (dried)"
+  ],
   "duration": "4–6 hours",
+  "interactions": [],
   "legalStatus": "Not widely regulated; some toxic concerns",
-  "preparation": "Extract.",
-  "region": "",
+  "preparation": "Rhizomes (orris root) dried and powdered; traditionally used in perfumes or in tooth powders—not typically ingested",
+  "region": "No direct region data. Contextual inference: Emetic, expectorant, limited traditional use. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emetic, expectorant, limited traditional use. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -41,6 +54,10 @@
     "avoid internally"
   ],
   "slug": "iris-germanica",
+  "id": "iris-germanica",
+  "displayName": "iris germanica",
+  "displayScientificName": "Iris germanica",
+  "scientificNormalized": "iris germanica",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

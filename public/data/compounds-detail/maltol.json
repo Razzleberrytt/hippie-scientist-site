@@ -1,9 +1,7 @@
 {
   "name": "maltol",
-  "category": "general",
-  "description": "maltol appears in records as a compound reported in passiflora incarnata. Current source coverage is limited and still developing.",
   "herbs": [
-    "passiflora incarnata"
+    "nan"
   ],
   "effects": [
     "Calmness",
@@ -18,30 +16,19 @@
     "sedative use",
     "liver disorders"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: maltol (CID 8369)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8369",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "maltol",
-  "summary": "maltol appears in records as a compound reported in passiflora incarnata. Current source coverage is limited and still developing.",
+  "id": "maltol",
+  "displayName": "maltol",
+  "description": "maltol appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "maltol appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "passiflora-incarnata"
+    "nan"
   ]
 }

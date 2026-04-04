@@ -1,30 +1,59 @@
 {
   "name": "althaea officinalis",
   "latin": "Althaea officinalis",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Demulcent, anti-inflammatory, soothing for mucous membranes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Demulcent, anti-inflammatory, soothing for mucous membranes. No direct region data. Contextual inference: Demulcent, anti-inflammatory, soothing for mucous membranes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Demulcent, anti-inflammatory, soothing for mucous membranes. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "anti-inflammatory"
+    "Demulcent",
+    "anti-inflammatory",
+    "soothing for mucous membranes",
+    "anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Generally safe; May delay absorption of other drugs if taken simultaneously; Demulcent; Soothing for mucous membranes; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Demulcent.",
+  "safetyNotes": [
+    "Generally safe",
+    "may delay absorption of other drugs if taken simultaneously",
+    "No direct toxicity data. Contextual inference: Demulcent",
+    "anti-inflammatory",
+    "soothing for mucous membranes. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Demulcent",
+    "soothing for mucous membranes. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Althaea officinalis (TaxID 145745)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=145745&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.846Z",
-  "description": "Demulcent, anti-inflammatory, soothing for mucous membranes..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Demulcent, anti-inflammatory, soothing for mucous membranes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Demulcent",
+    "anti",
+    "inflammatory",
+    "soothing for mucous membranes. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Demulcent",
+    "soothing for mucous membranes. No direct region data. Contextual inference: Demulcent",
+    "soothing for mucous membranes. none.",
+    "nan."
+  ],
   "duration": "2–4 hours",
+  "interactions": [],
   "legalStatus": "Legal in herbal medicine globally",
-  "preparation": "Tea.",
-  "region": "Europe, middle east.",
+  "preparation": "Roots, leaves, and flowers infused or decocted; cold infusion common for demulcent properties",
+  "region": "No direct region data. Contextual inference: Demulcent, anti-inflammatory, soothing for mucous membranes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Demulcent, anti-inflammatory, soothing for mucous membranes. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -32,6 +61,10 @@
     "may delay absorption of other drugs if taken simultaneously"
   ],
   "slug": "althaea-officinalis",
+  "id": "althaea-officinalis",
+  "displayName": "althaea officinalis",
+  "displayScientificName": "Althaea officinalis",
+  "scientificNormalized": "althaea officinalis",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

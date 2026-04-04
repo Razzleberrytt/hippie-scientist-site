@@ -1,48 +1,60 @@
 {
   "name": "chamomile",
   "latin": "chamomile",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "likely involves multi-component phytochemistry (for example apigenin-related gabaergic and anti-inflammatory hypotheses) | but definitive clinical mechanism remains unresolved",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [],
-  "effects": [],
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
   "contraindications": [
-    "avoid use in individuals with known severe ragweed/asteraceae allergy"
+    "avoid during pregnancy and breastfeeding",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "interactions": [
-    "Caution with: Potential additive sedation with sedative drugs",
-    "Caution with: monitor anticoagulant co use cautiously in high intake extract contexts"
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyNotes": "Generally well tolerated, but allergic reactions can occur, especially in Asteraceae-sensitive individuals.",
-  "sources": [
-    {
-      "title": "src_pubmed-31006899",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31006899/"
-    }
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
   ],
-  "lastUpdated": "2026-04-01T18:55:37.895Z",
-  "description": "Chamomile is frequently used as a tea-first herb for gentle evening calming routines and bedtime wind-down habits.",
-  "dosage": "Tea and extract labels vary widely; compare by flower amount per serving and keep preparations consistent before adjusting.",
-  "duration": "Often used situationally or nightly in short-to-medium routines depending on tolerance and sleep goals.",
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Tincture.",
-  "region": "Native to Europe and Western Asia.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
-    "Evening wind-down tea rituals",
-    "Mild stress-tension support in non-daytime-critical settings",
-    "Simple herb-only relaxation beverage routines"
+    "traditional support for mild digestive comfort"
   ],
-  "traditionalUse": "Traditional use includes digestive and calming applications across European and Middle Eastern herbal traditions.",
-  "sideEffects": [],
+  "traditionalUse": "; nan; nan",
   "slug": "chamomile",
-  "identity": "",
-  "categoryUseContext": "Best known for tea-based calming use, light digestive comfort pairing, and low-friction nightly routines.",
-  "evidenceLevel": "Moderate traditional and limited modern clinical support for calming use contexts; strongest confidence is around practical tolerability and routine fit.",
-  "relatedEntities": [
-    "lemon-balm",
-    "passionflower",
-    "valerian-root",
-    "peppermint"
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
   ],
+  "id": "chamomile",
+  "displayName": "chamomile",
+  "displayScientificName": "chamomile",
+  "scientificNormalized": "chamomile",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
   "relatedCompounds": []
 }

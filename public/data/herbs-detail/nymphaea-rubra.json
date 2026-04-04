@@ -3,9 +3,9 @@
   "latin": "Nymphaea rubra",
   "class": "Nootropic, Sedative, Traditional",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "Likely mediated in part by flavonoid/polyphenol antioxidant and anti-inflammatory activity; Alkaloid constituents can modulate neuronal signaling pathways.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [
-    "nupharine",
+    "Nupharine",
     "nupharidine",
     "flavonoids",
     "alkaloids",
@@ -13,56 +13,93 @@
     "tannins"
   ],
   "effects": [
-    "relaxation",
-    "mood",
-    "anxiety relief",
-    "visionary"
+    "Relaxation",
+    "mild euphoria",
+    "dream enhancement",
+    "anxiolytic",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "avoid in pregnancy",
-    "avoid with sedative sensitivity",
-    "avoid in liver disease"
+    "Pregnancy",
+    "sedative sensitivity",
+    "liver dysfunction (high doses)",
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "interactions": [
-    "Sedatives",
-    "Alcohol",
-    "CNS depressants"
+  "safetyNotes": [
+    "Generally considered safe in traditional use",
+    "Drowsiness",
+    "dizziness",
+    "dry mouth (rare)",
+    "Low",
+    "Not well-established",
+    "likely >2000 mg/kg (extrapolated)",
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. Avoid in pregnancy; Avoid with sedative sensitivity; Avoid in liver disease; Avoid combining with sedatives, generally well tolerated; Avoid use during pregnancy unless advised by a clinician, alcohol or or other CNS depressants; Avoid combining with sedatives.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Nymphaea rubra (TaxID 307976)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=307976&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Ethnobotanical texts"
     },
     {
-      "title": "PubMed search: Nymphaea rubra",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Nymphaea+rubra",
-      "note": "Literature index for pharmacology and safety evidence"
+      "title": "Ayurvedic and traditional medicine records"
     },
     {
-      "title": "PubChem search: Nymphaea rubra",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=Nymphaea+rubra",
-      "note": "Chemical and bioactivity reference index"
+      "title": "PubMed references"
     }
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Aquatic plant traditionally used in Southeast Asia for calming and spiritual purposes.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Aquatic plant traditionally used in Southeast Asia for calming and spiritual purposes. It has mild sedative and nootropic effects.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "Sedatives",
+    "alcohol",
+    "CNS depressants"
+  ],
   "legalStatus": "Unregulated in most regions",
-  "preparation": "Smoked.",
-  "region": "South asia.",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
     "Anxiety",
     "insomnia",
     "spiritual use",
-    "mild cognitive support"
+    "mild cognitive support",
+    "traditional support for mild digestive comfort",
+    "traditional stress resilience support"
   ],
   "traditionalUse": "; nan; nan",
-  "sideEffects": [],
   "slug": "nymphaea-rubra",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "displayName": "nymphaea rubra",
+  "displayScientificName": "Nymphaea rubra",
+  "scientificNormalized": "nymphaea rubra",
+  "id": "nymphaea-rubra",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -1,9 +1,7 @@
 {
   "name": "speciogynine",
-  "category": "general",
-  "description": "speciogynine appears in records as a compound reported in mitragyna javanica. Current source coverage is limited and still developing.",
   "herbs": [
-    "mitragyna javanica"
+    "nan"
   ],
   "effects": [
     "Stimulation",
@@ -20,30 +18,19 @@
     "MAOI use",
     "liver conditions"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: speciogynine (CID 15560577)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/15560577",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "speciogynine",
-  "summary": "speciogynine appears in records as a compound reported in mitragyna javanica. Current source coverage is limited and still developing.",
+  "id": "speciogynine",
+  "displayName": "speciogynine",
+  "description": "speciogynine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "speciogynine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "mitragyna-javanica"
+    "nan"
   ]
 }

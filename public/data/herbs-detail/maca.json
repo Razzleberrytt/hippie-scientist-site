@@ -1,50 +1,58 @@
 {
   "name": "maca",
   "latin": "maca",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "Limited human and preclinical data suggest macamides and glucosinolates may influence stress-response and metabolic signaling; definitive mechanism remains uncertain.",
-  "activeCompounds": [
-    "macamides",
-    "macaenes",
-    "glucosinolates",
-    "sterols",
-    "polyphenols"
-  ],
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "activeCompounds": [],
   "effects": [
-    "stimulation",
-    "anxiety relief",
-    "libido enhancer"
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "use caution during pregnancy or breastfeeding due to limited safety data",
-    "use caution in hormone-sensitive conditions until more clinical data are available"
+    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+    "Do not use with known allergy to this plant or related species."
   ],
-  "interactions": [
-    "Caution with: monitor with thyroid medications (goitrogen containing preparations)",
-    "Caution with: use caution with antihypertensive or glucose lowering medications"
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyNotes": "Generally well tolerated in food-level and supplemental use, but high-quality long-term safety trials are limited. Use standardized products and monitor for gastrointestinal upset or sleep disturbance.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: maca",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=maca&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    }
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
   ],
-  "lastUpdated": "2026-04-01T18:55:37.957Z",
-  "description": "Maca is a medicinal herb traditionally used for libido and perceived energy.",
-  "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "",
-  "region": "",
-  "therapeuticUses": [],
-  "traditionalUse": [
-    "Andean food and tonic root used for stamina and fertility support"
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": [
+    "Traditional supportive use; indication depends on species part and preparation.",
+    "Evidence level varies; use only within established clinical or traditional context."
   ],
-  "sideEffects": [],
+  "traditionalUse": "; nan; nan",
   "slug": "maca",
+  "sideEffects": [
+    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  ],
+  "id": "maca",
+  "displayName": "maca",
+  "displayScientificName": "maca",
+  "scientificNormalized": "maca",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

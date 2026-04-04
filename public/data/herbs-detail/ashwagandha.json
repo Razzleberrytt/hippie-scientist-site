@@ -1,50 +1,60 @@
 {
   "name": "ashwagandha",
   "latin": "ashwagandha",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "proposed mechanisms include neuroendocrine stress-response modulation and anti-inflammatory signaling | direct clinical mechanisms remain incompletely resolved",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
   "activeCompounds": [],
   "effects": [
-    "relaxation"
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
   ],
   "contraindications": [
-    "avoid in pregnancy"
+    "avoid during pregnancy and breastfeeding",
+    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "interactions": [
-    "Caution with: Potential additive sedation with CNS depressants",
-    "Caution with: monitor with thyroid active therapy due to reported endocrine effects in broader literature"
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
   ],
-  "safetyNotes": "Generally tolerated in short-term trials, but adverse effects and product variability require caution.",
-  "sources": [
-    {
-      "title": "src_pubmed-31517876",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31517876/"
-    }
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
   ],
-  "lastUpdated": "2026-04-01T18:55:37.860Z",
-  "description": "Ashwagandha (Withania somnifera) is commonly chosen for stress-heavy periods when people want a non-stimulant daily routine option with straightforward labeling.",
-  "dosage": "Use the labeled serving for the exact extract standardization; avoid assuming root powder and concentrated extracts are interchangeable milligram-for-milligram.",
-  "duration": "Often evaluated over multi-week daily use windows; short trials are common, so reassess fit periodically.",
-  "legalStatus": "",
-  "preparation": "Tea.",
-  "region": "Unknown.",
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [],
+  "legalStatus": null,
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
   "therapeuticUses": [
-    "Stress-load support in high-demand routines",
-    "Evening calm routines when stimulant-free options are preferred",
-    "General adaptogen category comparisons for daily use"
+    "traditional support for mild digestive comfort"
   ],
-  "traditionalUse": "Traditional Ayurvedic use includes resilience and vitality support; this traditional context should not be treated as proof of all modern claims.",
-  "sideEffects": [],
+  "traditionalUse": "; nan; nan",
   "slug": "ashwagandha",
-  "identity": "",
-  "categoryUseContext": "Commonly compared for stress resilience, evening wind-down support, and routine-friendly adaptogen use.",
-  "evidenceLevel": "Moderate human evidence for stress-related outcomes in standardized extract studies; product quality still varies.",
-  "relatedEntities": [
-    "rhodiola-rosea",
-    "bacopa-monnieri",
-    "tulsi",
-    "lemon-balm"
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "allergic rash or itching in sensitive individuals"
   ],
+  "id": "ashwagandha",
+  "displayName": "ashwagandha",
+  "displayScientificName": "ashwagandha",
+  "scientificNormalized": "ashwagandha",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
   "relatedCompounds": []
 }

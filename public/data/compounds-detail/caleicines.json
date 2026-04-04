@@ -1,9 +1,7 @@
 {
   "name": "Caleicines",
-  "category": "general",
-  "description": "Caleicines is a compound reported in calea ternifolia. Available references are still early and incomplete.",
   "herbs": [
-    "calea ternifolia"
+    "nan"
   ],
   "effects": [
     "Lucid dreaming",
@@ -27,30 +25,19 @@
     "pregnancy",
     "epilepsy."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Caleicines",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/caleicines",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "caleicines",
-  "summary": "Caleicines is a compound reported in calea ternifolia. Available references are still early and incomplete.",
+  "id": "caleicines",
+  "displayName": "Caleicines",
+  "description": "Caleicines is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "Caleicines is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "calea-ternifolia"
+    "nan"
   ]
 }

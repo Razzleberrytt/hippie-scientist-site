@@ -1,35 +1,59 @@
 {
   "name": "solidago virgaurea",
   "latin": "Solidago virgaurea",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, diuretic, urinary tract support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, diuretic, urinary tract support. No direct region data. Contextual inference: Anti-inflammatory, diuretic, urinary tract support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, diuretic, urinary tract support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "anti-inflammatory",
-    "detoxification"
+    "Anti-inflammatory",
+    "diuretic",
+    "urinary tract support",
+    "Anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "safetyNotes": [
+    "Allergic reactions",
+    "avoid in kidney disease",
+    "No direct toxicity data. Contextual inference: Anti-inflammatory",
+    "diuretic",
+    "urinary tract support. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anti-inflammatory",
+    "urinary tract support. none."
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "May cause allergic reactions. Avoid in kidney disease, may cause allergic reactions, diuretic, urinary tract support; Avoid in kidney disease or allergic reactions; Avoid in kidney disease.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Solidago virgaurea (TaxID 462879)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=462879&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.021Z",
-  "description": "Anti-inflammatory, diuretic, urinary tract support.",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Anti-inflammatory, diuretic, urinary tract support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Anti",
+    "inflammatory",
+    "diuretic",
+    "urinary tract support. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anti",
+    "urinary tract support. No direct region data. Contextual inference: Anti",
+    "urinary tract support. none.",
+    "nan."
+  ],
   "duration": "3–5 hours",
+  "interactions": [],
   "legalStatus": "Legal and available in herbal preparations",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Aerial parts dried for teas or tinctures; used for urinary tract and anti-inflammatory support",
+  "region": "No direct region data. Contextual inference: Anti-inflammatory, diuretic, urinary tract support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, diuretic, urinary tract support. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -37,6 +61,10 @@
     "avoid in kidney disease"
   ],
   "slug": "solidago-virgaurea",
+  "id": "solidago-virgaurea",
+  "displayName": "solidago virgaurea",
+  "displayScientificName": "Solidago virgaurea",
+  "scientificNormalized": "solidago virgaurea",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

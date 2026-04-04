@@ -1,9 +1,7 @@
 {
   "name": "alkylamides",
-  "category": "general",
-  "description": "alkylamides is a compound reported in acmella oleracea. Available references are still early and incomplete.",
   "herbs": [
-    "acmella oleracea"
+    "nan"
   ],
   "effects": [
     "Local anesthesia",
@@ -24,30 +22,19 @@
     "None established",
     "avoid overuse on broken skin"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: alkylamides",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alkylamides",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "alkylamides",
-  "summary": "alkylamides is a compound reported in acmella oleracea. Available references are still early and incomplete.",
+  "id": "alkylamides",
+  "displayName": "alkylamides",
+  "description": "alkylamides is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "alkylamides is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "acmella-oleracea"
+    "nan"
   ]
 }

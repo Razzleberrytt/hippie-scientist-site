@@ -1,9 +1,7 @@
 {
   "name": "Valerenic acid",
-  "category": "general",
-  "description": "Valerenic acid is a compound reported in valeriana officinalis. Available references are still early and incomplete.",
   "herbs": [
-    "valeriana officinalis"
+    "nan"
   ],
   "effects": [
     "Sedation",
@@ -18,30 +16,36 @@
     "benzodiazepines",
     "or barbiturates"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
       "title": "PubChem compound: Valerenic acid (CID 6440940)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6440940",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6440940"
+    },
+    {
+      "title": "Wikipedia: Valerenic acid",
+      "url": "https://en.wikipedia.org/wiki/Valerenic_acid"
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "lastUpdated": "2026-04-03T00:00:00.000Z",
   "slug": "valerenic-acid",
-  "summary": "Valerenic acid is a compound reported in valeriana officinalis. Available references are still early and incomplete.",
+  "description": "Valerenic acid is a valerian constituent linked to GABA-A receptor modulation and sedative pharmacology.",
+  "sideEffects": [
+    "Drowsiness",
+    "Dizziness",
+    "Mild gastrointestinal upset"
+  ],
+  "interactions": [
+    "Potential additive CNS depression with sedatives and alcohol."
+  ],
+  "id": "valerenic-acid",
+  "displayName": "Valerenic acid",
+  "summary": "Valerenic acid is a valerian constituent linked to GABA-A receptor modulation and sedative pharmacology.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "valeriana-officinalis"
+    "nan"
   ]
 }

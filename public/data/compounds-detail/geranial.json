@@ -1,7 +1,5 @@
 {
   "name": "geranial",
-  "category": "general",
-  "description": "geranial appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
   "herbs": [
     "adenostoma fasciculatum"
   ],
@@ -13,24 +11,18 @@
     "Limited safety data",
     "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: geranial (CID 638011)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/638011",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.043Z",
+  "lastUpdated": "2026-03-21",
   "slug": "geranial",
+  "id": "geranial",
+  "displayName": "geranial",
+  "description": "geranial appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
   "summary": "geranial appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",

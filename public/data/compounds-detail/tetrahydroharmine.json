@@ -1,10 +1,7 @@
 {
   "name": "tetrahydroharmine",
-  "category": "general",
-  "description": "tetrahydroharmine is a compound reported in banisteriopsis caapi and peganum harmala. Available references are still early and incomplete.",
   "herbs": [
-    "banisteriopsis caapi",
-    "peganum harmala"
+    "nan"
   ],
   "effects": [
     "Altered perception",
@@ -38,31 +35,19 @@
     "liver issues",
     "psychiatric disorders"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: tetrahydroharmine (CID 442118)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442118",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.051Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "tetrahydroharmine",
-  "summary": "tetrahydroharmine is a compound reported in banisteriopsis caapi and peganum harmala. Available references are still early and incomplete.",
+  "id": "tetrahydroharmine",
+  "displayName": "tetrahydroharmine",
+  "description": "tetrahydroharmine is a compound reported in nan. Available references are still early and incomplete.",
+  "summary": "tetrahydroharmine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "banisteriopsis-caapi",
-    "peganum-harmala"
+    "nan"
   ]
 }

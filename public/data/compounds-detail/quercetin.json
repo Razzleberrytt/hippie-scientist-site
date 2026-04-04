@@ -1,7 +1,5 @@
 {
   "name": "quercetin",
-  "category": "general",
-  "description": "quercetin is a compound reported in acacia nilotica, aerva lanata, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "acacia nilotica",
     "aerva lanata",
@@ -9,6 +7,7 @@
     "alchemilla vulgaris",
     "byrsonima crassifolia",
     "pimenta dioica",
+    "Silver Linden",
     "tilia tomentosa"
   ],
   "effects": [
@@ -48,24 +47,18 @@
     "L313】.",
     "None known"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
+  "category": null,
   "sources": [
     {
-      "title": "PubChem compound: quercetin (CID 5280343)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280343",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:38.050Z",
+  "lastUpdated": "2026-03-21",
   "slug": "quercetin",
+  "id": "quercetin",
+  "displayName": "quercetin",
+  "description": "quercetin is a compound reported in acacia nilotica, aerva lanata, and related herbs. Available references are still early and incomplete.",
   "summary": "quercetin is a compound reported in acacia nilotica, aerva lanata, and related herbs. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
@@ -78,6 +71,7 @@
     "alchemilla-vulgaris",
     "byrsonima-crassifolia",
     "pimenta-dioica",
+    "silver-linden",
     "tilia-tomentosa"
   ]
 }

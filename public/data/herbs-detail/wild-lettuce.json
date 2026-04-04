@@ -1,52 +1,62 @@
 {
   "name": "wild lettuce",
   "latin": "wild lettuce",
-  "class": "general",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "Used in 19th-century medicine for pain and insomnia.",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.",
   "activeCompounds": [
-    "lactucin",
-    "lactucopicrin"
+    "Lactucin",
+    "Lactucopicrin"
   ],
   "effects": [
-    "sleep",
-    "pain relief"
+    "No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",
+    "No direct effects data. Contextual inference: Used in 19th",
+    "century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th",
+    "century medicine for pain and insomnia... Used in 19th",
+    "century medicine for pain and insomnia.. Used in 19th",
+    "century medicine for pain and insomnia."
   ],
-  "contraindications": [],
-  "interactions": [
-    "Use extra caution with anticoagulants",
-    "Sedatives"
+  "contraindications": [
+    "avoid during pregnancy and breastfeeding unless advised by a clinician",
+    "Use caution with sedatives, alcohol, or other CNS depressants.",
+    "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated.",
-  "sources": [
-    {
-      "title": "NCBI Taxonomy: wild lettuce",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=wild%20lettuce&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
-    },
-    {
-      "title": "PubMed search: wild lettuce",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=wild+lettuce",
-      "note": "Literature index for pharmacology and safety evidence"
-    },
-    {
-      "title": "PubChem search: wild lettuce",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=wild+lettuce",
-      "note": "Chemical and bioactivity reference index"
-    }
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia."
   ],
-  "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Used in 19th-century medicine for pain and insomnia.",
-  "dosage": "",
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Used in 19th-century medicine for pain and insomnia..",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used in 19th",
+    "century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th",
+    "century medicine for pain and insomnia... Used in 19th",
+    "century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th",
+    "century medicine for pain and insomnia.. Used in 19th",
+    "century medicine for pain and insomnia.. No direct region data. Contextual inference: Used in 19th",
+    "century medicine for pain and insomnia."
+  ],
   "duration": "No direct duration data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. No direct region data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",
+  "interactions": [],
   "legalStatus": "legal",
-  "preparation": "Smoked.",
-  "region": "Europe, north america.",
-  "therapeuticUses": [],
+  "preparation": "No direct preparation data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. No direct region data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",
+  "region": "No direct region data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",
+  "therapeuticUses": [
+    "mild anxiolytic support",
+    "sleep onset support"
+  ],
   "traditionalUse": "Used in 19th-century medicine for pain and insomnia.",
-  "sideEffects": [],
   "slug": "wild-lettuce",
+  "sideEffects": [
+    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
+    "headache (more likely with higher intake)",
+    "allergic rash or itching in sensitive individuals"
+  ],
+  "id": "wild-lettuce",
+  "displayName": "wild lettuce",
+  "displayScientificName": "wild lettuce",
+  "scientificNormalized": "wild lettuce",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

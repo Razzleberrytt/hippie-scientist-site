@@ -1,9 +1,7 @@
 {
   "name": "N-methyltryptamine",
-  "category": "general",
-  "description": "N-methyltryptamine appears in records as a compound reported in acacia confusa. Current source coverage is limited and still developing.",
   "herbs": [
-    "acacia confusa"
+    "nan"
   ],
   "effects": [
     "Psychedelic visuals",
@@ -20,30 +18,19 @@
     "pregnancy",
     "liver disease"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: N-methyltryptamine (CID 6088)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6088",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.049Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "n-methyltryptamine",
-  "summary": "N-methyltryptamine appears in records as a compound reported in acacia confusa. Current source coverage is limited and still developing.",
+  "id": "n-methyltryptamine",
+  "displayName": "N-methyltryptamine",
+  "description": "N-methyltryptamine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "summary": "N-methyltryptamine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
-    "acacia-confusa"
+    "nan"
   ]
 }

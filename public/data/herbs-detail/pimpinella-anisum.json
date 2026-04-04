@@ -1,32 +1,52 @@
 {
   "name": "pimpinella anisum",
   "latin": "Pimpinella anisum",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Carminative, expectorant, mild estrogenic effect. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, expectorant, mild estrogenic effect. No direct region data. Contextual inference: Carminative, expectorant, mild estrogenic effect. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, expectorant, mild estrogenic effect. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "digestive support",
-    "respiratory support"
+    "Carminative",
+    "expectorant",
+    "mild estrogenic effect"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause estrogenic effects, allergic reactions or nausea.",
+  "safetyNotes": [
+    "safe",
+    "Estrogenic effects",
+    "allergic reactions",
+    "nausea",
+    "No direct toxicity data. Contextual inference: Carminative",
+    "expectorant",
+    "mild estrogenic effect. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Carminative",
+    "mild estrogenic effect. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Pimpinella anisum (TaxID 271192)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=271192&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.995Z",
-  "description": "Pimpinella anisum is a medicinal herb traditionally used for carminative and expectorant.",
-  "dosage": "1-3 g/day seed or 250-500 mg extract.",
+  "lastUpdated": "2026-03-21",
+  "description": "Carminative, expectorant, mild estrogenic effect. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "1",
+    "3 g",
+    "day seed or 250",
+    "500 mg extract"
+  ],
   "duration": "2–4 hours",
+  "interactions": [],
   "legalStatus": "Legal; used in food and medicine",
-  "preparation": "Tincture.",
-  "region": "",
+  "preparation": "Seeds (anise) dried and used in infusions, tinctures, or essential oils; carminative and digestive support",
+  "region": "No direct region data. Contextual inference: Carminative, expectorant, mild estrogenic effect. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, expectorant, mild estrogenic effect. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -35,6 +55,10 @@
     "nausea"
   ],
   "slug": "pimpinella-anisum",
+  "id": "pimpinella-anisum",
+  "displayName": "pimpinella anisum",
+  "displayScientificName": "Pimpinella anisum",
+  "scientificNormalized": "pimpinella anisum",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -1,7 +1,5 @@
 {
   "name": "Verbenalin",
-  "category": "general",
-  "description": "Verbenalin is a compound reported in verbena officinalis. Available references are still early and incomplete.",
   "herbs": [
     "verbena officinalis"
   ],
@@ -9,24 +7,13 @@
     "No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Verbenalin (CID 73467)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/73467",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.052Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "verbenalin",
+  "id": "verbenalin",
+  "displayName": "Verbenalin",
+  "description": "Verbenalin is a compound reported in verbena officinalis. Available references are still early and incomplete.",
   "summary": "Verbenalin is a compound reported in verbena officinalis. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

@@ -1,31 +1,51 @@
 {
   "name": "cephaelis ipecacuanha",
   "latin": "Cephaelis ipecacuanha",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Emetic, expectorant, used for bronchial issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emetic, expectorant, used for bronchial issues. No direct region data. Contextual inference: Emetic, expectorant, used for bronchial issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emetic, expectorant, used for bronchial issues. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "digestive support",
-    "respiratory support"
+    "Emetic",
+    "expectorant",
+    "used for bronchial issues"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Nausea; Vomiting; Cardiotoxicity in overdose due to emetine content; Emetic; Expectorant; Used for bronchial issues; Antioxidant effects; Or enzyme inhibition; Or enzyme inhibition. Emetic.",
+  "safetyNotes": [
+    "caution",
+    "Nausea",
+    "vomiting",
+    "cardiotoxicity in overdose due to emetine content",
+    "No direct toxicity data. Contextual inference: Emetic",
+    "expectorant",
+    "used for bronchial issues. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Emetic",
+    "used for bronchial issues. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Cephaelis ipecacuanha",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Cephaelis%20ipecacuanha&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-by-name)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.894Z",
-  "description": "Emetic, expectorant, used for bronchial issues..",
-  "dosage": "50-100 mg/day extract (emetic use rarely needed today)",
+  "lastUpdated": "2026-03-21",
+  "description": "Emetic, expectorant, used for bronchial issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "50",
+    "100 mg",
+    "day extract (emetic use rarely needed today)"
+  ],
   "duration": "2–4 hours",
+  "interactions": [],
   "legalStatus": "Controlled; rarely used today",
-  "preparation": "Extract.",
-  "region": "",
+  "preparation": "Roots powdered or decocted in very small doses as expectorant or emetic; formerly used in syrup of ipecac",
+  "region": "No direct region data. Contextual inference: Emetic, expectorant, used for bronchial issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emetic, expectorant, used for bronchial issues. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -34,6 +54,10 @@
     "cardiotoxicity in overdose due to emetine content"
   ],
   "slug": "cephaelis-ipecacuanha",
+  "id": "cephaelis-ipecacuanha",
+  "displayName": "cephaelis ipecacuanha",
+  "displayScientificName": "Cephaelis ipecacuanha",
+  "scientificNormalized": "cephaelis ipecacuanha",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

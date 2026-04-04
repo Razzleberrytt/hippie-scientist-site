@@ -1,8 +1,7 @@
 {
   "name": "isopetasin",
-  "category": "general",
-  "description": "isopetasin appears in records as a compound reported in petasites hybridus. Current source coverage is limited and still developing.",
   "herbs": [
+    "nan",
     "petasites hybridus"
   ],
   "effects": [
@@ -18,30 +17,20 @@
   "contraindications": [
     "Avoid unpurified extracts due to liver-toxic alkaloids"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: isopetasin (CID 5318627)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5318627",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.044Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "isopetasin",
-  "summary": "isopetasin appears in records as a compound reported in petasites hybridus. Current source coverage is limited and still developing.",
+  "id": "isopetasin",
+  "displayName": "isopetasin",
+  "description": "isopetasin appears in records as a compound reported in nan and petasites hybridus. Current source coverage is limited and still developing.",
+  "summary": "isopetasin appears in records as a compound reported in nan and petasites hybridus. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "petasites-hybridus"
   ]
 }

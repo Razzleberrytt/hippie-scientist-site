@@ -1,13 +1,9 @@
 {
   "name": "Caffeine",
-  "category": "general",
-  "description": "Caffeine appears in records as a compound reported in yerba mate, camellia sinensis, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
+    "nan",
     "yerba mate",
-    "camellia sinensis",
-    "paullinia cupana",
-    "paullinia yoco",
-    "theobroma cacao"
+    "camellia sinensis"
   ],
   "effects": [
     "Mental alertness",
@@ -51,34 +47,21 @@
     "Heart conditions",
     "stimulant sensitivity"
   ],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Caffeine (CID 2519)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2519",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.040Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "caffeine",
-  "summary": "Caffeine appears in records as a compound reported in yerba mate, camellia sinensis, and related herbs. Current source coverage is limited and still developing.",
+  "id": "caffeine",
+  "displayName": "Caffeine",
+  "description": "Caffeine appears in records as a compound reported in nan, yerba mate, and related herbs. Current source coverage is limited and still developing.",
+  "summary": "Caffeine appears in records as a compound reported in nan, yerba mate, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
   "linkedHerbs": [
+    "nan",
     "yerba-mate",
-    "camellia-sinensis",
-    "paullinia-cupana",
-    "paullinia-yoco",
-    "theobroma-cacao"
+    "camellia-sinensis"
   ]
 }

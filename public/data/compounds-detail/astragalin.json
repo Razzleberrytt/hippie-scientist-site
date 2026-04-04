@@ -1,7 +1,5 @@
 {
   "name": "Astragalin",
-  "category": "general",
-  "description": "Astragalin is a compound reported in desmodium adscendens. Available references are still early and incomplete.",
   "herbs": [
     "desmodium adscendens"
   ],
@@ -14,24 +12,13 @@
     "and liver issues in folk medicine."
   ],
   "contraindications": [],
-  "interactions": [],
-  "therapeuticUses": [],
-  "activeCompounds": [],
-  "dosage": "",
-  "duration": "",
-  "region": "",
-  "preparation": "",
-  "legalStatus": "",
-  "sideEffects": [],
-  "sources": [
-    {
-      "title": "PubChem compound: Astragalin (CID 5282102)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5282102",
-      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
-    }
-  ],
-  "lastUpdated": "2026-04-01T18:55:38.039Z",
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
   "slug": "astragalin",
+  "id": "astragalin",
+  "displayName": "Astragalin",
+  "description": "Astragalin is a compound reported in desmodium adscendens. Available references are still early and incomplete.",
   "summary": "Astragalin is a compound reported in desmodium adscendens. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",

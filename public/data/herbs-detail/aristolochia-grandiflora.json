@@ -1,30 +1,57 @@
 {
   "name": "aristolochia grandiflora",
   "latin": "Aristolochia grandiflora",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Historically used as anti-inflammatory; toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Historically used as anti-inflammatory; toxic. No direct region data. Contextual inference: Historically used as anti-inflammatory; toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Historically used as anti-inflammatory; toxic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [],
   "effects": [
-    "anti-inflammatory"
+    "Historically used as anti-inflammatory",
+    "toxic",
+    "Historically used as anti",
+    "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "Highly toxic; Contains aristolochic acid linked to nephrotoxicity and cancer; Banned in many countries; Antioxidant effects; Or enzyme inhibition.",
+  "safetyNotes": [
+    "Highly toxic",
+    "contains aristolochic acid linked to nephrotoxicity and cancer",
+    "banned in many countries",
+    "No direct toxicity data. Contextual inference: Historically used as anti-inflammatory",
+    "toxic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Historically used as anti-inflammatory",
+    "toxic. none."
+  ],
   "sources": [
     {
-      "title": "NCBI Taxonomy: Aristolochia grandiflora (TaxID 145283)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=145283&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.851Z",
-  "description": "Historically used as anti-inflammatory; toxic..",
-  "dosage": "",
+  "lastUpdated": "2026-03-21",
+  "description": "Historically used as anti-inflammatory; toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Historically used as anti",
+    "inflammatory",
+    "toxic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Historically used as anti",
+    "toxic. No direct region data. Contextual inference: Historically used as anti",
+    "toxic. none.",
+    "nan."
+  ],
   "duration": "Varies",
+  "interactions": [],
   "legalStatus": "Banned or restricted in many countries",
-  "preparation": "",
-  "region": "",
+  "preparation": "Highly toxic; not used in modern herbalism due to nephrotoxins",
+  "region": "No direct region data. Contextual inference: Historically used as anti-inflammatory; toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Historically used as anti-inflammatory; toxic. none. ; nan; nan",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -33,6 +60,10 @@
     "banned in many countries"
   ],
   "slug": "aristolochia-grandiflora",
+  "id": "aristolochia-grandiflora",
+  "displayName": "aristolochia grandiflora",
+  "displayScientificName": "Aristolochia grandiflora",
+  "scientificNormalized": "aristolochia grandiflora",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
