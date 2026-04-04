@@ -32,7 +32,10 @@
   "description": "The rhizome (underground stem) is the primary part used; commonly consumed as spice and used as dietary supplement. NCCIH notes ginger is native to warm parts of Asia and now grown in other regions; POWO adds that *Z. officinale* is widely cultivated and \"possibly native to India.\"",
   "dosage": "No single standardized dose is established across indications; clinical trials use product-specific regimens.",
   "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "interactions": "unresolved beyond general medication-review caution",
+  "interactions": [
+    "Unresolved: interaction profile is not adequately characterized in current repository sources.",
+    "Use medication review caution, especially with CNS-active, cardiovascular, anticoagulant, and hepatically metabolized drugs."
+  ],
   "preparation": "Used as food (fresh/dried) and as dietary supplements; rhizome-based products are typical.",
   "region": "POWO lists native range as E. Himalaya to S. Central China (and provides cultivation notes), while NCCIH describes broader cultivation in South America, Africa, and the Middle East.",
   "therapeuticUses": [

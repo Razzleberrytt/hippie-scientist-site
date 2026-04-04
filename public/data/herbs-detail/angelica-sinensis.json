@@ -10,7 +10,7 @@
     "menstrual regulator"
   ],
   "contraindications": [],
-  "safetyNotes": "safe; May increase bleeding risk; caution with anticoagulants; possible estrogenic effects; No direct toxicity data. Contextual inference: Blood tonic; hormone modulator; menstrual regulator. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Blood tonic; menstrual regulator. none.",
+  "safetyNotes": "High-risk profile. Avoid self-experimentation or unsupervised use. Contraindicated in pregnancy/lactation and in people with cardiovascular, neurologic, hepatic, or psychiatric vulnerability unless specialist oversight exists.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -20,14 +20,17 @@
       "url": ""
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Blood tonic, hormone modulator, menstrual regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "lastUpdated": "2026-04-04",
+  "description": "angelica sinensis record normalized to schema-consistent baseline. Traditional use is documented, but indication-specific clinical evidence remains limited or mixed.",
   "dosage": "250; 500 mg; day extract or 1; 3 g dried root",
   "duration": "6–8 hours",
-  "interactions": [],
+  "interactions": [
+    "Unresolved: interaction profile is not adequately characterized in current repository sources.",
+    "Use medication review caution, especially with CNS-active, cardiovascular, anticoagulant, and hepatically metabolized drugs."
+  ],
   "legalStatus": "Legal; widely used in TCM",
   "preparation": "Roots sliced, dried, decocted or tinctured; often used in TCM formulas",
-  "region": "No direct region data. Contextual inference: Blood tonic, hormone modulator, menstrual regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Blood tonic, hormone modulator, menstrual regulator. none. ; nan; nan",
+  "region": "Regional native/cultivation details remain unresolved in current repository sources.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -44,5 +47,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "angelica sinensis baseline updated; key clinical fields remain unresolved where high-quality human evidence is limited."
 }

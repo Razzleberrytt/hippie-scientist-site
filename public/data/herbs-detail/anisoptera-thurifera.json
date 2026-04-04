@@ -21,11 +21,14 @@
       "url": ""
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-04",
   "description": "Dipterocarpaceae tree native to Southeast Asia; known for aromatic resin.",
   "dosage": "Small amounts used topically or as incense.",
   "duration": "Short-acting.",
-  "interactions": [],
+  "interactions": [
+    "Unresolved: interaction profile is not adequately characterized in current repository sources.",
+    "Use medication review caution, especially with CNS-active, cardiovascular, anticoagulant, and hepatically metabolized drugs."
+  ],
   "legalStatus": "Unregulated; used locally",
   "preparation": "Resinous exudate burned, inhaled, or applied.",
   "region": "Malaysia, Indonesia, Philippines",
@@ -44,5 +47,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "anisoptera thurifera baseline updated; key clinical fields remain unresolved where high-quality human evidence is limited."
 }
