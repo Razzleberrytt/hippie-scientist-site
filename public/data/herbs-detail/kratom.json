@@ -2,8 +2,11 @@
   "name": "kratom",
   "latin": "kratom",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: kratom contains indole/oxindole alkaloids; mitragynine is described as a major alkaloid and is metabolized to 7-hydroxymitragynine, which is more potent at μ-opioid receptor activity in mechanistic discussions; human evidence remains limited.",
+  "activeCompounds": [
+    "Mitragynine",
+    "7-hydroxymitragynine (7‑OH) (alkaloids discussed in mechanistic literature and noted in FDA enforcement focus)."
+  ],
   "effects": [
     "No direct effects data. Contextual inference:",
     "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -14,16 +17,41 @@
     "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
     "Do not use with known allergy to this plant or related species."
   ],
-  "safetyNotes": "caution; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
+  "safetyNotes": "Potential for dependence/withdrawal; reported serious adverse events include seizures and liver problems; deaths appear linked mainly to use in combination with other drugs; liver injury cases have been reported in structured case series.",
+  "sources": [
+    {
+      "title": "Kratom (NCCIH)",
+      "url": "https://www.nccih.nih.gov/health/kratom"
+    },
+    {
+      "title": "FDA and Kratom (FDA)",
+      "url": "https://www.fda.gov/news-events/public-health-focus/fda-and-kratom"
+    },
+    {
+      "title": "Kratom (LiverTox, NCBI Bookshelf)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548231/"
+    },
+    {
+      "title": "Liver Injury Associated with Kratom (PMC)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8113016/"
+    },
+    {
+      "title": "POWO: *Mitragyna speciosa* Korth.",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:756303-1"
+    },
+    {
+      "title": "FDA warning letters re: 7-hydroxymitragynine products (FDA)",
+      "url": "https://www.fda.gov/news-events/press-announcements/fda-issues-warning-letters-firms-marketing-products-containing-7-hydroxymitragynine"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "description": "A tropical tree; POWO reports native range from S. Indo-China to New Guinea. In the U.S., products have been marketed as \"dietary supplements,\" but legality is contested by FDA statements.",
   "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
+  "interactions": "NCCIH flags that kratom may interact with many medications and that more research is needed on drug interactions; NCCIH also notes combination with other drugs has been linked to severe adverse effects/deaths.",
   "legalStatus": "varies",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "Native range (POWO): S. Indo-China to New Guinea.",
   "therapeuticUses": [
     "Traditional supportive use; indication depends on species part and preparation.",
     "Evidence level varies; use only within established clinical or traditional context."
@@ -42,5 +70,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Research is early; NCCIH notes major knowledge gaps about short- and long-term effects and safety. Reported uses include attempts to manage opioid withdrawal, but kratom can be addictive with withdrawal symptoms; adverse effects range from nausea/constipation/drowsiness to rare serious effects (seizures, high blood pressure, liver problems)."
 }

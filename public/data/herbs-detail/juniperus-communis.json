@@ -2,32 +2,39 @@
   "name": "juniperus communis",
   "latin": "Juniperus communis",
   "intensity": "No direct intensity data. Contextual inference: Diuretic, carminative, antiseptic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, carminative, antiseptic. No direct region data. Contextual inference: Diuretic, carminative, antiseptic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, carminative, antiseptic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: diuretic/aquaretic effects are discussed primarily from nonclinical (animal) and methodological-variable studies; evidence in humans is not established in the EMA documentation as \"well-established use.\"",
+  "activeCompounds": [
+    "Essential oil constituents (Ph. Eur. requirement ranges referenced in EMA assessment): α-pinene, sabinene, β-pinene, β-myrcene, limonene, terpinen-4-ol, bornyl acetate, β-caryophyllene (among others)."
+  ],
   "effects": [
     "Diuretic",
     "carminative",
     "antiseptic"
   ],
   "contraindications": [],
-  "safetyNotes": "safe; Kidney irritation; avoid in kidney disease and pregnancy; No direct toxicity data. Contextual inference: Diuretic; carminative; antiseptic. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Diuretic; antiseptic. none.",
+  "safetyNotes": "Not recommended in severe renal disease including infectious interstitial nephritis, pyelitis, pyelonephritis; adequate fluid intake is required during treatment for urinary flushing indication; pregnancy/lactation not recommended due to insufficient data; adults-only (under 18 not recommended).",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
+      "title": "European Union herbal monograph on *Juniperus communis* L., galbulus (pseudo-fructus) (Final, 2023)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-juniperus-communis-l-pseudo-fructus-galbulus-revision-1_en.pdf"
     },
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "EMA assessment report on *Juniperus communis* L., galbulus (pseudo-fructus) (Final, 2023)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-report/final-assessment-report-juniperus-communis-l-pseudo-fructus-galbulus-revision-1_en.pdf"
+    },
+    {
+      "title": "POWO: *Juniperus communis* L.",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30088655-2"
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Diuretic, carminative, antiseptic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "1; 3 g; day berries or 250; 500 mg extract",
+  "lastUpdated": "2026-04-04",
+  "description": "Dried ripe \"cone berry\" of *J. communis* containing essential oil (Ph. Eur. specification described in the EMA assessment report); adulteration can occur with fruits of other *Juniperus* species.",
+  "dosage": "EMA posology (adults/elderly): infusion 2.0–2.5 g in 150 mL boiling water, 1–3×/day (urinary flushing) or 1–4×/day (digestive); liquid extract (1:1) 2–4 mL 3×/day; tincture (1:5) 1–2 mL 3×/day; soft extract 0.57 g once daily (per monograph preparations).",
   "duration": "4–6 hours",
-  "interactions": [],
+  "interactions": "EMA monograph: \"none reported.\" EMA assessment report notes a single case report (conference abstract) of decreased INR in a patient on phenprocoumon during intake of juniper cone berries—clinical significance uncertain.",
   "legalStatus": "Legal globally",
-  "preparation": "Berries dried and infused or tinctured; used as digestive or urinary support (avoid during pregnancy)",
-  "region": "No direct region data. Contextual inference: Diuretic, carminative, antiseptic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, carminative, antiseptic. none. ; nan; nan",
+  "preparation": "Comminuted cone berry as herbal tea/infusion; liquid extract (DER 1:1, ethanol 25%); tincture (1:5, ethanol 45%); soft extract (water).",
+  "region": "Native range: subarctic and temperate Northern Hemisphere (POWO).",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -43,5 +50,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Traditional herbal medicinal product (EU) used to increase urine output for flushing the urinary tract in minor urinary tract complaints; also used for symptomatic relief of digestive disorders (e.g., dyspepsia/flatulence). Evidence basis is long-standing/traditional use."
 }

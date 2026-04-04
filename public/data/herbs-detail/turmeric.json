@@ -2,8 +2,11 @@
   "name": "turmeric",
   "latin": "turmeric",
   "intensity": "mild",
-  "mechanism": "Curcuminoids modulate inflammatory pathways including NF-κB and COX-2, with clinical effect depending on formulation bioavailability.",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: LiverTox describes putative anti-inflammatory effects (e.g., inhibition of leukotriene synthesis) and broader hypothesized pathways (e.g., intracellular kinase inhibition for antineoplastic effects), but these remain mechanistic hypotheses without strong clinical proof for outcomes.",
+  "activeCompounds": [
+    "Curcumin is the primary named constituent in NCCIH and LiverTox discussions",
+    "PubChem lists curcumin (CID 969516). LiverTox also notes curcumin comprises ~1–6% of whole turmeric extracts by dry weight."
+  ],
   "effects": [
     "May modestly reduce osteoarthritis pain and stiffness",
     "Anti-inflammatory signal reduction in some trials",
@@ -14,27 +17,35 @@
     "Use caution with gallstones or biliary obstruction",
     "Avoid high-dose supplemental use before surgery unless clinician advises"
   ],
-  "safetyNotes": "No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+  "safetyNotes": "NCCIH: conventionally formulated oral turmeric/curcumin is likely safe in recommended amounts for up to 2–3 months but can cause GI adverse effects; liver damage has been reported with some bioavailable curcumin products, and pregnancy use of supplements may be unsafe. LiverTox: turmeric is now a well-documented cause of clinically apparent liver injury (rare), often linked to high-bioavailability curcumin; advises stopping product if symptoms arise and avoiding rechallenge after injury.",
   "sources": [
     {
-      "title": "PubMed: Curcumin/Curcuma for arthritis meta-analysis (PMID: 35935936)",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35935936/"
+      "title": "Turmeric: Usefulness and Safety (NCCIH)",
+      "url": "https://www.nccih.nih.gov/health/turmeric"
     },
     {
-      "title": "Wikipedia: Turmeric",
-      "url": "https://en.wikipedia.org/wiki/Turmeric"
+      "title": "Turmeric (LiverTox; updated June 16, 2025)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548561/"
+    },
+    {
+      "title": "*Curcuma longa* L. (POWO)",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A796451-1"
+    },
+    {
+      "title": "Curcumin (PubChem)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Curcumin"
     }
   ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z",
-  "description": "Turmeric (Curcuma longa) is a culinary and medicinal rhizome; curcumin-enriched extracts are studied most for osteoarthritis symptom support.",
+  "lastUpdated": "2026-04-04",
+  "description": "A spice/botanical product from the roots/rhizomes of *Curcuma longa*; supplements include turmeric extracts and curcumin-focused products with widely variable curcuminoid content; high-bioavailability curcumin formulations are common.",
   "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "Potential additive bleeding risk with anticoagulant or antiplatelet medicines."
   ],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Whole turmeric powder, turmeric extracts, and curcumin products (including enhanced-bioavailability forms using piperine or nanoparticle/lipid delivery methods described in LiverTox context).",
+  "region": "POWO lists turmeric as a cultigen from SW India.",
   "therapeuticUses": [
     "support for mild inflammatory discomfort",
     "digestive support for dyspepsia and bile flow"
@@ -54,5 +65,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "NCCIH: evidence is insufficient to definitively conclude benefit for most conditions; initial research suggests possible improvements in certain NAFLD measures and oral mucositis symptoms, but findings are not definitive. LiverTox: rigorous proof of efficacy in any medical condition is lacking."
 }

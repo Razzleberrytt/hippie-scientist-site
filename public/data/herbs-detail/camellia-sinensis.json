@@ -3,10 +3,10 @@
   "latin": "Camellia sinensis",
   "class": "Stimulant, Nootropic",
   "intensity": "Mild to moderate",
-  "mechanism": "Proposed mechanism: Catechins, notably EGCG, and caffeine are highlighted in relation to modest body-weight effects; catechins are also implicated in green-tea-extract hepatotoxicity, with significant product variability.",
+  "mechanism": "Proposed mechanism: Catechins (notably EGCG) and caffeine are highlighted by NCCIH in relation to modest body-weight effects; LiverTox discusses catechins (EGCG in highest concentration) as implicated in green-tea-extract hepatotoxicity, with significant product variability in extract/catechin content.",
   "activeCompounds": [
-    "EGCG",
-    "Catechin"
+    "EGCG (epigallocatechin gallate) is a major catechin constituent frequently discussed",
+    "catechin is another well-characterized flavan-3-ol reference compound in tea polyphenol contexts."
   ],
   "effects": [
     "Alertness",
@@ -24,7 +24,7 @@
     "avoid during pregnancy and breastfeeding",
     "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "safetyNotes": "Beverage is generally safe, but extracts may cause nausea, constipation, abdominal discomfort, or increased blood pressure; liver injury reports primarily involve extract products.",
+  "safetyNotes": "NCCIH: beverage generally safe, but extracts may cause nausea/constipation/abdominal discomfort/increased blood pressure; liver injury reports primarily involve extract products, and susceptibility may relate to genetic variation (NCCIH). LiverTox: green tea extract has been implicated in clinically apparent acute liver injury and explains variability across products.",
   "sources": [
     {
       "title": "Green Tea: Usefulness and Safety",
@@ -39,14 +39,14 @@
       "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2018/021902s033lbl.pdf"
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Green, black, and oolong teas come from Camellia sinensis but differ by processing; green tea leaves are steamed/pan-fried/dried and not fermented.",
+  "lastUpdated": "2026-04-04",
+  "description": "Green, black, and oolong teas come from *Camellia sinensis* but differ by processing; NCCIH states green tea leaves are steamed/pan-fried/dried and not fermented. Tea cultivation originated in China thousands of years ago and has health-use history.",
   "dosage": "unresolved for oral supplement dosing; FDA-approved sinecatechins 15% ointment is applied three times daily, but that is topical drug dosing, not supplement dosing.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "High-dose green tea reduces nadolol blood levels; green tea extract reduces atorvastatin blood levels; interaction described with raloxifene.",
+  "interactions": "NCCIH: high-dose green tea reduces nadolol blood levels and green tea extract reduces atorvastatin blood levels; additional interaction with raloxifene described. NCCIH herb–drug interaction digest reiterates nadolol and atorvastatin effects.",
   "legalStatus": "Legal",
-  "preparation": "Beverage and dietary supplements/extracts; processing differs from black/oolong tea.",
-  "region": "Native range is E. Himalaya to S. China and N. Indo-China, Hainan.",
+  "preparation": "Beverage (leaf infusion) and dietary supplements (extracts); processing differs from black/oolong tea as described by NCCIH.",
+  "region": "POWO lists native range as E. Himalaya to S. China and N. Indo-China, Hainan.",
   "therapeuticUses": [
     "Mental alertness",
     "antioxidant support",
@@ -77,5 +77,5 @@
     "l-theanine",
     "catechins"
   ],
-  "summary": "Green tea beverage is generally not associated with major safety concerns in adults, but concentrated green tea extracts can cause GI side effects and are linked to uncommon cases of clinically apparent liver injury, including rare severe outcomes. High-dose green tea can reduce blood levels of nadolol and atorvastatin; an interaction with raloxifene is also described."
+  "summary": "Green tea beverage is generally not associated with major safety concerns in adults, but concentrated green tea extracts (tablets/capsules) can cause GI side effects and are linked to uncommon cases of clinically apparent liver injury (including rare severe outcomes). NCCIH reports clinically relevant interaction evidence at high doses (reduced blood levels of nadolol; reduced blood levels of atorvastatin; interaction described with raloxifene). FDA has approved a topical botanical drug derived from green tea extract (sinecatechins ointment) for external genital/perianal warts."
 }

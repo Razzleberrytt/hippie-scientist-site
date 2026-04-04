@@ -2,10 +2,10 @@
   "name": "hypericum perforatum",
   "latin": "hypericum perforatum",
   "intensity": "mild",
-  "mechanism": "Likely pharmacologic activity is multifactorial (including effects on monoamine signaling and drug-metabolizing enzymes). Interaction liability is well established and clinically important.",
+  "mechanism": "Proposed mechanism: NCCIH characterizes St. John’s wort as a potent inducer of cytochrome P‑450 enzymes and intestinal P‑glycoprotein, providing a mechanistic basis for reduced exposure to many co-administered drugs.",
   "activeCompounds": [
-    "Hyperforin",
-    "Hypericin"
+    "Hyperforin and hypericin are widely referenced constituents of St. John’s wort",
+    "PubChem describes hyperforin as produced by St. John’s wort and hypericin as naturally found in *Hypericum perforatum*."
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -16,32 +16,41 @@
   "contraindications": [
     "Use with SSRIs, pregnancy, strong sunlight exposure"
   ],
-  "safetyNotes": "St. John's wort can cause clinically significant herb-drug interactions and should not be self-combined with prescription antidepressants. Use in pregnancy is generally avoided because of potential fetal risk signals.",
+  "safetyNotes": "Can cause photosensitivity (especially at large doses) and other side effects (e.g., insomnia, anxiety, dry mouth, dizziness, GI symptoms, fatigue, headache, sexual dysfunction). Pregnancy/lactation safety concerns exist (animal birth defects; reported infant effects in breastfeeding).",
   "sources": [
     {
-      "title": "NCCIH: St. John's Wort and Depression — In Depth",
+      "title": "St. John’s Wort: Usefulness and Safety (NCCIH)",
       "url": "https://www.nccih.nih.gov/health/st-johns-wort"
     },
     {
-      "title": "PubChem: Hyperforin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5271805"
+      "title": "Herb-Drug Interactions: What the Science Says (NCCIH Clinical Digest)",
+      "url": "https://www.nccih.nih.gov/health/providers/digest/herb-drug-interactions-science"
     },
     {
-      "title": "PubChem: Hypericin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281051"
+      "title": "St. John’s Wort and Depression: In Depth (NCCIH)",
+      "url": "https://www.nccih.nih.gov/health/st-johns-wort-and-depression-in-depth"
+    },
+    {
+      "title": "*Hypericum perforatum* L. (POWO)",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A433719-1"
+    },
+    {
+      "title": "Hyperforin (PubChem)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Hyperforin"
+    },
+    {
+      "title": "Hypericin (PubChem)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Hypericin"
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Hypericum perforatum preparations vary substantially by extract profile. Clinical outcomes are indication- and product-dependent.",
+  "lastUpdated": "2026-04-04",
+  "description": "A yellow-flowered plant long used in multiple traditional medical systems; currently promoted mainly for depressive symptoms, with additional promoted uses (menopause symptoms and topical wound uses) where evidence is limited.",
   "dosage": "Clinical studies are mostly short term (often up to about 12 weeks) with standardized extracts; dosing varies by product.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Can reduce effectiveness of many medicines (including some antidepressants, oral contraceptives, warfarin, immunosuppressants, seizure medicines, HIV therapies, and some cancer therapies).",
-    "Combining with serotonergic medicines can increase risk of serotonin-related adverse effects."
-  ],
+  "interactions": "High-risk interactions documented with cyclosporine, indinavir, oral contraceptives, warfarin, digoxin, benzodiazepines (among others); concomitant use with certain antidepressants may lead to potentially serious serotonin-related effects.",
   "legalStatus": "legal",
-  "preparation": "Commercial use is primarily oral extracts from flowering aerial parts.",
-  "region": "Native to Europe and parts of Asia; now naturalized in many temperate regions.",
+  "preparation": "Oral extracts/capsules/tablets and topical preparations exist; interaction risk is primarily relevant to oral use affecting systemic drug exposure.",
+  "region": "Native range: Europe to China and NW Africa (POWO).",
   "therapeuticUses": [
     "Mild to moderate depression, anxiety, sleep issues"
   ],
@@ -56,5 +65,5 @@
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [],
-  "summary": "St. John's wort is most studied for depression symptoms; evidence suggests possible benefit for mild to moderate depression, with uncertainty for severe depression or long-term use."
+  "summary": "Evidence suggests St. John’s wort may be more effective than placebo and as effective as standard antidepressants for mild to moderate depression, but it is uncertain for severe depression or treatment periods longer than ~12 weeks; regardless of efficacy, it has dangerous, sometimes life-threatening drug interactions."
 }

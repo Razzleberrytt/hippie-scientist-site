@@ -5,10 +5,8 @@
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, astringent, memory enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, astringent, memory enhancer. No direct region data. Contextual inference: Antimicrobial, astringent, memory enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, astringent, memory enhancer. none. ; nan; nan. ; nan; nan",
   "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
   "activeCompounds": [
-    "Thujone",
-    "camphor",
-    "cineole",
-    "flavonoids"
+    "Thujone (safety-relevant constituent",
+    "exposure constrained in EMA monograph). PubChem lists thujone as a compound and (separately) notes co-occurrence with sage in essential oils."
   ],
   "effects": [
     "Mental clarity",
@@ -23,36 +21,29 @@
     "epilepsy",
     "or during pregnancy"
   ],
-  "safetyNotes": "Safe in culinary doses; toxic in excess; Dizziness; dry mouth; seizures (high dose); Moderate in excess; Thujone ~45 mg/kg (oral; rats); caution; Neurotoxic in high doses; dizziness; No direct toxicity data. Contextual inference: Antimicrobial; astringent; memory enhancer. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Antimicrobial; memory enhancer. none.",
+  "safetyNotes": "EMA warns thujone is neurotoxic; chemotypes with low thujone should be preferred; product must specify thujone and keep daily exposure below 6.0 mg. Overconsumption (sage oil corresponding to >15 g leaf) is reported to cause heat sensation, tachycardia, vertigo, and epileptiform convulsions. Pregnancy/lactation safety not established (not recommended).",
   "sources": [
     {
-      "title": "WHO monographs"
+      "title": "EU herbal monograph on Salvia officinalis L., folium (Revision 1) (EMA)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-salvia-officinalis-l-folium-revision-1_en.pdf"
     },
     {
-      "title": "NIH"
+      "title": "*Salvia officinalis* L. (POWO)",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A456833-1"
     },
     {
-      "title": "European Pharmacopoeia"
-    },
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Thujone (PubChem)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Thujone"
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Antimicrobial, astringent, memory enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "250; 500 mg; day leaf extract",
+  "lastUpdated": "2026-04-04",
+  "description": "EMA monograph defines multiple preparations (comminuted leaf for tea/infusion; dry and liquid extracts; tincture; oromucosal and cutaneous forms).",
+  "dosage": "EMA provides preparation- and indication-specific regimens, including: - Dyspeptic complaints: tea (e.g., 1–2 g in 150 mL boiling water) and extract/tincture dosing; - Excessive sweating: tea (2 g in 150 mL) and extract dosing; - Oromucosal inflammation: infusion gargle regimens and extract gel dosing; - Minor skin inflammations: topical infusion applications 2–4x daily.",
   "duration": "4–6 hours",
-  "interactions": [
-    "Potentiates CNS stimulants",
-    "caution with GABAergic meds"
-  ],
+  "interactions": "EMA: none reported.",
   "legalStatus": "Legal worldwide",
-  "preparation": "Leaves dried or fresh in teas, infusions, or tinctures; used for throat, digestion, and antimicrobial effects",
-  "region": "No direct region data. Contextual inference: Antimicrobial, astringent, memory enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, astringent, memory enhancer. none. ; nan; nan",
+  "preparation": "Oral (tea/extract/tincture), oromucosal (gargle/gel), and cutaneous (topical infusion) routes depending on indication.",
+  "region": "Native range (POWO): SW Germany to S Europe (with additional subspecies distribution detail available).",
   "therapeuticUses": [
     "Cognitive support",
     "menopausal symptoms",
@@ -84,5 +75,6 @@
     "camphor",
     "cineole",
     "flavonoids"
-  ]
+  ],
+  "summary": "Traditional-use indications in EMA monograph include relief of (1) mild dyspeptic complaints (heartburn/bloating), (2) excessive sweating, (3) inflammations in the mouth/throat, and (4) minor skin inflammations."
 }

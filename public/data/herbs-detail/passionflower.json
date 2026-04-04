@@ -2,8 +2,11 @@
   "name": "passionflower",
   "latin": "passionflower",
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: EMA assessment describes preclinical signals consistent with modulation of the GABAergic system (e.g., anxiolytic effect antagonized by flumazenil in animal work), but this does not constitute strong clinical proof.",
+  "activeCompounds": [
+    "Flavonoids (notably C‑glycosides of apigenin/luteolin such as isovitexin/isoorientin and related compounds",
+    "vitexin used for expression), potential cyanogenic glycoside (gynocardin), trace beta‑carboline alkaloids (harman/harmol/harmalol—often undetectable in commercial materials), and trace essential oil components."
+  ],
   "effects": [
     "No direct effects data. Contextual inference:",
     "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -13,16 +16,33 @@
   "contraindications": [
     "Pregnancy, CNS depressants"
   ],
-  "safetyNotes": "safe No direct toxicity data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
+  "safetyNotes": "NCCIH notes tea use up to 7 nights and extract use up to 8 weeks \"may be safe,\" with possible drowsiness/dizziness/confusion; avoid in pregnancy (possible uterine contraction risk) and use caution near surgery. EMA monograph notes pregnancy/lactation safety not established and not recommended.",
+  "sources": [
+    {
+      "title": "Passionflower: Usefulness and Safety (NCCIH)",
+      "url": "https://www.nccih.nih.gov/health/passionflower"
+    },
+    {
+      "title": "Community herbal monograph on *Passiflora incarnata* L., herba (EMA)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-passiflora-incarnata-l-herba_en.pdf"
+    },
+    {
+      "title": "Assessment report on *Passiflora incarnata* L., herba (EMA)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-report/final-assessment-report-passiflora-incarnata-l-herba_en.pdf"
+    },
+    {
+      "title": "*Passiflora incarnata* L. (POWO)",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A675096-1"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "description": "EMA defines the herbal substance as fragmented/cut dried aerial parts; pharmacopoeial quality includes a minimum total flavonoid content expressed as vitexin, and extracts also standardized to flavonoids (vitexin equivalents).",
+  "dosage": "EMA monograph includes herbal tea 1–2 g comminuted herb in 150 mL boiling water (posology details are preparation-specific; extract/tablet/capsule regimens also exist in EMA sources).",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
+  "interactions": "NCCIH warns that taking passionflower near anesthesia/other perioperative meds may slow the nervous system too much; EMA monograph lists \"none reported,\" so interaction risk should be documented as cautionary/uncertain, with perioperative CNS depression as the main flagged concern.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Tea (infusion), comminuted herb and standardized extracts in solid oral dosage forms; traditional use for mild mental stress and to aid sleep.",
+  "region": "POWO lists native range as Central & E. U.S.A. and Bermuda.",
   "therapeuticUses": [
     "Anxiety, insomnia, nervous restlessness"
   ],
@@ -36,5 +56,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Evidence in people is limited; NCCIH reports a small amount of research suggesting oral passionflower may improve total sleep time in adults with insomnia, but effects on sleep onset/maintenance are mixed."
 }

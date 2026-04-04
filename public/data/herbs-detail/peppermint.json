@@ -2,8 +2,11 @@
   "name": "peppermint",
   "latin": "peppermint",
   "intensity": "mild",
-  "mechanism": "Menthol-rich peppermint oil can relax gastrointestinal smooth muscle via calcium-channel effects and TRPM8 signaling.",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: EMA notes topical peppermint oil produces a prolonged cold sensation by stimulation of cold‑sensitive receptors, giving an analgesic effect; GI symptom relief is consistent with antispasmodic use but should be labeled \"proposed\" unless tied to specific human mechanism studies.",
+  "activeCompounds": [
+    "Menthol is referenced as a key constituent relevant to adverse respiratory effects in small children (constituent-level safety relevance)",
+    "broader oil chemistry not enumerated here as a field-ready list."
+  ],
   "effects": [
     "May reduce IBS abdominal pain and global symptom burden",
     "Antispasmodic support for functional GI discomfort",
@@ -14,27 +17,33 @@
     "Use caution with severe GERD because reflux can worsen",
     "Use caution with gallbladder disease unless advised by a clinician"
   ],
-  "safetyNotes": "safe No direct toxicity data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan.",
+  "safetyNotes": "NCCIH: oral side effects can include heartburn/nausea/abdominal pain/dry mouth; rare allergy; avoid applying to infants’/young children’s faces due to menthol inhalation risk. EMA: contraindications include children under 2 years (menthol reflex apnea/laryngospasm risk), certain biliary disorders; pregnancy/lactation safety not established (not recommended); avoid applying to broken/irritated skin.",
   "sources": [
     {
-      "title": "PubMed: Peppermint oil in IBS meta-analysis (PMID: 35942669)",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35942669/"
+      "title": "Peppermint Oil: Usefulness and Safety (NCCIH)",
+      "url": "https://www.nccih.nih.gov/health/peppermint-oil"
     },
     {
-      "title": "Wikipedia: Peppermint",
-      "url": "https://en.wikipedia.org/wiki/Peppermint"
+      "title": "EU herbal monograph on *Mentha × piperita* L., aetheroleum (EMA)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-mentha-x-piperita-l-aetheroleum-revision-1_en.pdf"
+    },
+    {
+      "title": "Menthae piperitae aetheroleum – EMA herbal overview",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/menthae-piperitae-aetheroleum"
+    },
+    {
+      "title": "*Mentha × piperita* L. (POWO)",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A450969-1"
     }
   ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z",
-  "description": "Peppermint (Mentha × piperita) is used for functional gastrointestinal symptoms, with best evidence for enteric-coated oil in irritable bowel syndrome.",
-  "dosage": "No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
+  "lastUpdated": "2026-04-04",
+  "description": "Essential oil derived from *Mentha × piperita* (a hybrid; *M. aquatica × M. spicata* per POWO). Products include enteric-coated capsules and topical preparations.",
+  "dosage": "EMA monograph includes oral daily dose ranges for gastro‑resistant dosage forms (e.g., a daily dose stated as 0.24–0.48 mL for an indication in the monograph) and specifies topical use regimens for indications; dosing is preparation- and indication-specific and should be stored with preparation metadata.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Monitor with acid-suppressing therapy because enteric-coated capsule release can be altered."
-  ],
+  "interactions": "EMA: food/antacids or acid‑reducing meds (H2 blockers/PPIs) can cause early release or premature dissolution of enteric coatings; should be avoided in that context.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Enteric-coated oral capsules; topical/transdermal application for certain indications; peppermint tea from leaves is considered safe in typical consumption but large-amount long-term leaf safety is unknown.",
+  "region": "POWO lists native range as Europe to Central Asia.",
   "therapeuticUses": [
     "support for bloating and functional dyspepsia",
     "traditional soothing herb for mild tension headache"
@@ -54,5 +63,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "NCCIH: safe in commonly used doses; evidence supports some uses (e.g., certain GI contexts) but remains limited for many conditions. EMA: peppermint oil oral preparations may be used for minor GI spasms/flatulence/abdominal pain (notably IBS context) and topical use for mild headache relief (per monograph summary pages)."
 }
