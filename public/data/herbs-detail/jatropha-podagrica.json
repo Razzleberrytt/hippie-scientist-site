@@ -13,14 +13,7 @@
   "contraindications": [
     "Oral use contraindicated due to toxicity"
   ],
-  "safetyNotes": [
-    "Toxic if ingested",
-    "severe vomiting",
-    "diarrhea",
-    "respiratory failure",
-    "High",
-    "contains curcin and phorbol esters."
-  ],
+  "safetyNotes": "Toxic if ingested; severe vomiting; diarrhea; respiratory failure; High; contains curcin and phorbol esters.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -32,10 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Ornamental and medicinal plant with thick stem and red flowers.",
-  "dosage": [
-    "Not safe for ingestion",
-    "used externally in traditional remedies."
-  ],
+  "dosage": "Not safe for ingestion; used externally in traditional remedies.",
   "duration": "Topical effects within hours; no systemic duration due to toxicity.",
   "interactions": [
     "avoid with protein synthesis inhibitors"

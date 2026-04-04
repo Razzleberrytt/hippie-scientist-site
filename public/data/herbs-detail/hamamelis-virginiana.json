@@ -13,19 +13,7 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Mild skin irritation",
-    "tannins may cause GI upset internally",
-    "No direct toxicity data. Contextual inference: Astringent",
-    "anti-inflammatory",
-    "used topically for skin issues. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Astringent",
-    "used topically for skin issues. none."
-  ],
+  "safetyNotes": "safe; Mild skin irritation; tannins may cause GI upset internally; No direct toxicity data. Contextual inference: Astringent; anti-inflammatory; used topically for skin issues. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Astringent; used topically for skin issues. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -37,11 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Astringent, anti-inflammatory, used topically for skin issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "500 mg",
-    "day bark or leaf extract"
-  ],
+  "dosage": "250; 500 mg; day bark or leaf extract",
   "duration": "2–4 hours",
   "interactions": [],
   "legalStatus": "Legal; commonly used in skincare",

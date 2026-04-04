@@ -11,19 +11,7 @@
     "used topically and internally"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "Generally safe",
-    "mild GI or allergic responses possible",
-    "No direct toxicity data. Contextual inference: Manuka",
-    "antimicrobial",
-    "used topically and internally. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Manuka",
-    "used topically and internally. none."
-  ],
+  "safetyNotes": "safe; Generally safe; mild GI or allergic responses possible; No direct toxicity data. Contextual inference: Manuka; antimicrobial; used topically and internally. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Manuka; used topically and internally. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -35,10 +23,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Manuka; antimicrobial, used topically and internally. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "Topical or 1",
-    "2 mL honey orally"
-  ],
+  "dosage": "Topical or 1; 2 mL honey orally",
   "duration": "4–6 hours",
   "interactions": [],
   "legalStatus": "Legal globally",

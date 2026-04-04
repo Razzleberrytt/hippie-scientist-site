@@ -13,17 +13,7 @@
     "pregnancy",
     "psychiatric disorders."
   ],
-  "safetyNotes": [
-    "caution",
-    "drowsiness",
-    "dizziness.",
-    "No direct toxicity data. Contextual inference: Mildly sedative and euphoric",
-    "traditional use in mexico and south america. May affect auditory processing and memory",
-    "unknown alkaloid moa..",
-    "nan.. May affect auditory processing and memory",
-    "unknown alkaloid MOA.. Mildly sedative and euphoric",
-    "traditional use in Mexico and South America."
-  ],
+  "safetyNotes": "caution; drowsiness; dizziness.; No direct toxicity data. Contextual inference: Mildly sedative and euphoric; traditional use in mexico and south america. May affect auditory processing and memory; unknown alkaloid moa..; nan.. May affect auditory processing and memory; unknown alkaloid MOA.. Mildly sedative and euphoric; traditional use in Mexico and South America.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -35,11 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Mildly sedative and euphoric; traditional use in mexico and south america. May affect auditory processing and memory; unknown alkaloid moa.. ; nan; nan.",
-  "dosage": [
-    "1",
-    "2 g",
-    "day infusion (traditional use)"
-  ],
+  "dosage": "1; 2 g; day infusion (traditional use)",
   "duration": "4–6 hours",
   "interactions": [
     "cns depressants",

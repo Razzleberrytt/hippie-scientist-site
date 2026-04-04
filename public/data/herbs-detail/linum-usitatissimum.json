@@ -15,21 +15,7 @@
     "3 source"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "May cause bloating",
-    "gas",
-    "or allergic reactions",
-    "avoid in bowel obstruction",
-    "No direct toxicity data. Contextual inference: Laxative",
-    "anti-inflammatory",
-    "omega-3 source. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Laxative",
-    "omega-3 source. none."
-  ],
+  "safetyNotes": "safe; May cause bloating; gas; or allergic reactions; avoid in bowel obstruction; No direct toxicity data. Contextual inference: Laxative; anti-inflammatory; omega-3 source. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Laxative; omega-3 source. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -41,12 +27,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Laxative, anti-inflammatory, omega-3 source. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "5",
-    "15 g",
-    "day ground seed or 500",
-    "1000 mg extract"
-  ],
+  "dosage": "5; 15 g; day ground seed or 500; 1000 mg extract",
   "duration": "12+ hours",
   "interactions": [],
   "legalStatus": "Legal globally",

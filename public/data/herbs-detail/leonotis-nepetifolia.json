@@ -28,24 +28,7 @@
     "pregnancy",
     "psychiatric disorders."
   ],
-  "safetyNotes": [
-    "Generally regarded as low risk",
-    "Drowsiness",
-    "dry mouth",
-    "Low",
-    "Not known",
-    "Low risk profile",
-    "Mild nausea or lethargy when overused",
-    "Not established",
-    "sedation",
-    "dry mouth.",
-    "No direct toxicity data. Contextual inference: Mild euphoric and sedative",
-    "used in traditional african and caribbean medicine. Similar to wild dagga",
-    "interacts with cannabinoid receptors..",
-    "nan.. Similar to Wild Dagga",
-    "interacts with cannabinoid receptors.. Mild euphoric and sedative",
-    "used in traditional African and Caribbean medicine."
-  ],
+  "safetyNotes": "Generally regarded as low risk; Drowsiness; dry mouth; Low; Not known; Low risk profile; Mild nausea or lethargy when overused; Not established; sedation; dry mouth.; No direct toxicity data. Contextual inference: Mild euphoric and sedative; used in traditional african and caribbean medicine. Similar to wild dagga; interacts with cannabinoid receptors..; nan.. Similar to Wild Dagga; interacts with cannabinoid receptors.. Mild euphoric and sedative; used in traditional African and Caribbean medicine.",
   "sources": [
     {
       "title": "Traditional African and Caribbean medicine"
@@ -63,16 +46,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Mild euphoric and sedative; used in traditional african and caribbean medicine. Similar to wild dagga; interacts with cannabinoid receptors.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Mild euphoric and sedative",
-    "used in traditional african and caribbean medicine. Similar to wild dagga",
-    "interacts with cannabinoid receptors..",
-    "nan.. Similar to Wild Dagga",
-    "interacts with cannabinoid receptors.. Mild euphoric and sedative",
-    "used in traditional African and Caribbean medicine. No direct region data. Contextual inference: Mild euphoric and sedative",
-    "used in traditional African and Caribbean medicine.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Mild euphoric and sedative; used in traditional african and caribbean medicine. Similar to wild dagga; interacts with cannabinoid receptors..; nan.. Similar to Wild Dagga; interacts with cannabinoid receptors.. Mild euphoric and sedative; used in traditional African and Caribbean medicine. No direct region data. Contextual inference: Mild euphoric and sedative; used in traditional African and Caribbean medicine.; nan.",
   "duration": "1–2 hours",
   "interactions": [
     "CNS depressants",

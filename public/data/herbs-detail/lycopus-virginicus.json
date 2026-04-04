@@ -11,19 +11,7 @@
     "astringent"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "safe",
-    "May affect thyroid",
-    "avoid in hypothyroidism or pregnancy",
-    "No direct toxicity data. Contextual inference: Thyroid modulator",
-    "sedative",
-    "astringent. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Thyroid modulator",
-    "astringent. none."
-  ],
+  "safetyNotes": "safe; May affect thyroid; avoid in hypothyroidism or pregnancy; No direct toxicity data. Contextual inference: Thyroid modulator; sedative; astringent. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Thyroid modulator; astringent. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -35,11 +23,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Thyroid modulator, sedative, astringent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "250",
-    "500 mg",
-    "day aerial parts extract"
-  ],
+  "dosage": "250; 500 mg; day aerial parts extract",
   "duration": "4–6 hours",
   "interactions": [],
   "legalStatus": "Legal in Western herbal medicine",

@@ -27,27 +27,7 @@
     "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
     "Do not use with known allergy to this plant or related species."
   ],
-  "safetyNotes": [
-    "Generally regarded as safe in moderation",
-    "Dry mouth",
-    "mild lethargy",
-    "Low",
-    "No human LD50 established",
-    "safe",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "dry mouth",
-    "sedation.",
-    "No direct toxicity data. Contextual inference: Mild euphoric and calming",
-    "used as cannabis substitute. Acts on cannabinoid receptors",
-    "may offer sedative and euphoric effects..",
-    "nan.. Acts on cannabinoid receptors",
-    "may offer sedative and euphoric effects.. Mild euphoric and calming",
-    "used as cannabis substitute."
-  ],
+  "safetyNotes": "Generally regarded as safe in moderation; Dry mouth; mild lethargy; Low; No human LD50 established; safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; dry mouth; sedation.; No direct toxicity data. Contextual inference: Mild euphoric and calming; used as cannabis substitute. Acts on cannabinoid receptors; may offer sedative and euphoric effects..; nan.. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. Mild euphoric and calming; used as cannabis substitute.",
   "sources": [
     {
       "title": "FAO Agris"
@@ -65,21 +45,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Mild euphoric and calming; used as cannabis substitute. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:",
-    "No direct dosage data. Contextual inference: Mild euphoric and calming",
-    "used as cannabis substitute. Acts on cannabinoid receptors",
-    "may offer sedative and euphoric effects..",
-    "nan.. Acts on cannabinoid receptors",
-    "may offer sedative and euphoric effects.. Mild euphoric and calming",
-    "used as cannabis substitute. No direct region data. Contextual inference: Mild euphoric and calming",
-    "used as cannabis substitute."
-  ],
+  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:; No direct dosage data. Contextual inference: Mild euphoric and calming; used as cannabis substitute. Acts on cannabinoid receptors; may offer sedative and euphoric effects..; nan.. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. Mild euphoric and calming; used as cannabis substitute. No direct region data. Contextual inference: Mild euphoric and calming; used as cannabis substitute.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [
     "Possible potentiation with CNS depressants",

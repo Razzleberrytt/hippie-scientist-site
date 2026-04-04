@@ -17,25 +17,7 @@
     "hormone",
     "sensitive conditions."
   ],
-  "safetyNotes": [
-    "safe",
-    "Generally safe",
-    "high doses may cause insomnia or jitteriness",
-    "No direct toxicity data. Contextual inference: Adaptogen",
-    "fertility enhancer",
-    "energizer. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Adaptogen",
-    "energizer. none.",
-    "gi upset",
-    "jitteriness (rare).",
-    "energy booster",
-    "libido enhancer. Alkaloids modulate endocrine function and energy metabolism..",
-    "nan.. Alkaloids modulate endocrine function and energy metabolism.. Adaptogen",
-    "libido enhancer."
-  ],
+  "safetyNotes": "safe; Generally safe; high doses may cause insomnia or jitteriness; No direct toxicity data. Contextual inference: Adaptogen; fertility enhancer; energizer. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Adaptogen; energizer. none.; gi upset; jitteriness (rare).; energy booster; libido enhancer. Alkaloids modulate endocrine function and energy metabolism..; nan.. Alkaloids modulate endocrine function and energy metabolism.. Adaptogen; libido enhancer.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -47,14 +29,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Adaptogen, fertility enhancer, energizer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "1",
-    "5 g",
-    "day root powder or 500",
-    "1000 mg extract",
-    "3 g",
-    "day powder or 500"
-  ],
+  "dosage": "1; 5 g; day root powder or 500; 1000 mg extract; 3 g; day powder or 500",
   "duration": "Chronic use",
   "interactions": [
     "hormonal therapies."
