@@ -1,9 +1,14 @@
 {
   "name": "echinacea purpurea",
   "latin": "echinacea purpurea",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanisms are immunomodulatory rather than definitively established clinical mechanisms. NCCIH notes immune-related activity hypotheses; in vitro and preclinical literature often discusses alkamides, caffeic-acid derivatives, and polysaccharide fractions, but clinical relevance varies by extract composition.",
+  "activeCompounds": [
+    "Alkamides (echinacea alkylamides)",
+    "Cichoric acid",
+    "Caftaric acid"
+  ],
   "effects": [
     "No direct effects data. Contextual inference:",
     "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -14,16 +19,37 @@
     "avoid during pregnancy and breastfeeding",
     "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
+  "safetyNotes": "Likely safe for most adults when used short term in typical oral extract doses, but allergic reactions can occur and may be severe in sensitive individuals (especially with ragweed-family allergy). Gastrointestinal upset can occur. Pregnancy/lactation evidence is limited; use should be clinician-guided.",
+  "sources": [
+    {
+      "title": "NCCIH: Echinacea (Usefulness and Safety)",
+      "url": "https://www.nccih.nih.gov/health/echinacea"
+    },
+    {
+      "title": "Kew POWO: Echinacea purpurea (accepted name and native range)",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A1174497-2/general-information"
+    },
+    {
+      "title": "PubChem: Cichoric acid",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Cichoric-acid"
+    },
+    {
+      "title": "PubChem: Caftaric acid",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Caftaric-acid"
+    }
+  ],
   "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+  "description": "Echinacea purpurea is a North American perennial in the Asteraceae family. It is native to central and eastern U.S. regions and is widely cultivated for herbal preparations made from aerial parts and/or root depending on product standardization.",
+  "dosage": "No single evidence-based universal dose applies across products. Use product-specific labeled dosing from standardized preparations; clinical studies use heterogeneous formulations and strengths.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
+  "interactions": [
+    "Potential interaction risk with immunosuppressive therapy (theoretical immunologic antagonism).",
+    "Conflicting evidence for interactions with some CYP-metabolized medicines; monitor and review with a clinician/pharmacist.",
+    "Theoretical interaction with caffeine noted by NCCIH."
+  ],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Common preparations include pressed juice/extracts, tinctures, capsules, and teas from aerial parts and/or root. Product chemistry differs substantially by species, plant part, and extraction method.",
+  "region": "Native range is central and eastern United States; now cultivated more broadly for supplement production.",
   "therapeuticUses": [
     "traditional support for mild digestive comfort"
   ],
@@ -41,5 +67,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Echinacea purpurea (purple coneflower) is used mainly for common-cold prevention/treatment support. Human studies are mixed: NCCIH reports a possible small reduction in cold risk, but uncertain effect on duration."
 }
