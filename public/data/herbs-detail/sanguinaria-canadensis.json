@@ -10,19 +10,7 @@
     "escharotic (topical use only)"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Toxic – escharotic",
-    "Highly toxic internally",
-    "GI distress",
-    "oral lesions",
-    "No direct toxicity data. Contextual inference: Antimicrobial",
-    "escharotic (topical use only). Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Antimicrobial",
-    "escharotic (topical use only). none."
-  ],
+  "safetyNotes": "Toxic – escharotic; Highly toxic internally; GI distress; oral lesions; No direct toxicity data. Contextual inference: Antimicrobial; escharotic (topical use only). Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Antimicrobial; escharotic (topical use only). none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -34,10 +22,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Antimicrobial, escharotic (topical use only). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "Historically topical",
-    "oral use discouraged"
-  ],
+  "dosage": "Historically topical; oral use discouraged",
   "duration": "Days",
   "interactions": [],
   "legalStatus": "Restricted",

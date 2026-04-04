@@ -1,10 +1,10 @@
 # Data Audit Report
 
-- Generated: 2026-04-04T01:42:04.083Z
+- Generated: 2026-04-04T01:59:39.815Z
 - Herb list records: 699
 - Herb detail records: 677
 - Compound records: 390
-- Errors: 11715
+- Errors: 11133
 - Warnings: 0
 
 ## Dataset coverage
@@ -15,9 +15,9 @@
 
 ## Issue counts by code
 
-- missing-required-field: 9462
-- invalid-field-type: 2188
-- placeholder-value: 26
+- missing-required-field: 9460
+- invalid-field-type: 1604
+- placeholder-value: 30
 - herb-list-detail-mismatch: 23
 - unresolved-active-compound-reference: 10
 - duplicate-name: 4
@@ -26,8 +26,8 @@
 ## Issue counts by dataset
 
 - compound: 2061
-- herb-detail: 4836
-- herb-list: 4818
+- herb-detail: 4545
+- herb-list: 4527
 
 ## Sample findings
 

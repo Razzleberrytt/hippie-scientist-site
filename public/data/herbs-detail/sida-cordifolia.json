@@ -28,33 +28,7 @@
     "heart conditions",
     "pregnancy"
   ],
-  "safetyNotes": [
-    "Moderate risk",
-    "contraindications important",
-    "Insomnia",
-    "anxiety",
-    "elevated heart rate",
-    "Moderate",
-    "~2000 mg/kg (rats",
-    "ephedrine)",
-    "Use with caution under supervision",
-    "Palpitations",
-    "insomnia in high doses",
-    "Moderate (dose dependent)",
-    "Ephedrine approx. 50–75 mg/kg (rat)",
-    "caution",
-    "Contains ephedrine-like alkaloids",
-    "increases BP",
-    "stroke risk",
-    "No direct toxicity data. Contextual inference: Stimulant",
-    "anti-inflammatory",
-    "traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Stimulant",
-    "traditionally used for asthma and weight loss. none."
-  ],
+  "safetyNotes": "Moderate risk; contraindications important; Insomnia; anxiety; elevated heart rate; Moderate; ~2000 mg/kg (rats; ephedrine); Use with caution under supervision; Palpitations; insomnia in high doses; Moderate (dose dependent); Ephedrine approx. 50–75 mg/kg (rat); caution; Contains ephedrine-like alkaloids; increases BP; stroke risk; No direct toxicity data. Contextual inference: Stimulant; anti-inflammatory; traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Stimulant; traditionally used for asthma and weight loss. none.",
   "sources": [
     {
       "title": "Ayurvedic medicine"
@@ -69,11 +43,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Stimulant, anti-inflammatory, traditionally used for asthma and weight loss. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "100",
-    "300 mg",
-    "day aerial extract (restricted in some regions)"
-  ],
+  "dosage": "100; 300 mg; day aerial extract (restricted in some regions)",
   "duration": "4–6 hours",
   "interactions": [
     "Stimulants",

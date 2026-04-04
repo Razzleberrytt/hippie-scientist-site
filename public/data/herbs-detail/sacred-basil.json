@@ -14,19 +14,7 @@
     "pregnancy (high doses)",
     "thyroid issues."
   ],
-  "safetyNotes": [
-    "dry mouth",
-    "mild sedation.",
-    "No direct toxicity data. Contextual inference: Adaptogen",
-    "stress reducer",
-    "immune modulator. Modulates cortisol",
-    "dopamine",
-    "and serotonin",
-    "adaptogenic and anxiolytic..",
-    "nan.. Modulates cortisol",
-    "adaptogenic and anxiolytic.. Adaptogen",
-    "immune modulator."
-  ],
+  "safetyNotes": "dry mouth; mild sedation.; No direct toxicity data. Contextual inference: Adaptogen; stress reducer; immune modulator. Modulates cortisol; dopamine; and serotonin; adaptogenic and anxiolytic..; nan.. Modulates cortisol; adaptogenic and anxiolytic.. Adaptogen; immune modulator.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -38,19 +26,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Adaptogen",
-    "stress reducer",
-    "immune modulator. Modulates cortisol",
-    "dopamine",
-    "and serotonin",
-    "adaptogenic and anxiolytic..",
-    "nan.. Modulates cortisol",
-    "adaptogenic and anxiolytic.. Adaptogen",
-    "immune modulator. No direct region data. Contextual inference: Adaptogen",
-    "immune modulator.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Adaptogen; stress reducer; immune modulator. Modulates cortisol; dopamine; and serotonin; adaptogenic and anxiolytic..; nan.. Modulates cortisol; adaptogenic and anxiolytic.. Adaptogen; immune modulator. No direct region data. Contextual inference: Adaptogen; immune modulator.; nan.",
   "duration": "4–6 hours",
   "interactions": [
     "sedatives",

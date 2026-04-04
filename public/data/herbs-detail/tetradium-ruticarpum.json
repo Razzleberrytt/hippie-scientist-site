@@ -13,19 +13,7 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "GI upset",
-    "dizziness",
-    "contains evodiamine which may be toxic in excess",
-    "No direct toxicity data. Contextual inference: Analgesic",
-    "anti-inflammatory",
-    "stimulant (tcm use). Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Analgesic",
-    "stimulant (TCM use). none."
-  ],
+  "safetyNotes": "GI upset; dizziness; contains evodiamine which may be toxic in excess; No direct toxicity data. Contextual inference: Analgesic; anti-inflammatory; stimulant (tcm use). Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Analgesic; stimulant (TCM use). none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -37,19 +25,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Analgesic, anti-inflammatory, stimulant (tcm use). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Analgesic",
-    "anti",
-    "inflammatory",
-    "stimulant (tcm use). Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Analgesic",
-    "stimulant (TCM use). No direct region data. Contextual inference: Analgesic",
-    "stimulant (TCM use). none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Analgesic; anti; inflammatory; stimulant (tcm use). Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Analgesic; stimulant (TCM use). No direct region data. Contextual inference: Analgesic; stimulant (TCM use). none.; nan.",
   "duration": "6–8 hours",
   "interactions": [],
   "legalStatus": "Legal in traditional medicine contexts",

@@ -11,18 +11,7 @@
     "calming"
   ],
   "contraindications": [],
-  "safetyNotes": [
-    "Photosensitivity",
-    "mild allergic reactions",
-    "No direct toxicity data. Contextual inference: Mild euphoric",
-    "digestive aid",
-    "calming. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Mild euphoric",
-    "calming. none."
-  ],
+  "safetyNotes": "Photosensitivity; mild allergic reactions; No direct toxicity data. Contextual inference: Mild euphoric; digestive aid; calming. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Mild euphoric; calming. none.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -34,18 +23,7 @@
   ],
   "lastUpdated": "2026-03-21",
   "description": "Mild euphoric, digestive aid, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": [
-    "No direct dosage data. Contextual inference: Mild euphoric",
-    "digestive aid",
-    "calming. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Mild euphoric",
-    "calming. No direct region data. Contextual inference: Mild euphoric",
-    "calming. none.",
-    "nan."
-  ],
+  "dosage": "No direct dosage data. Contextual inference: Mild euphoric; digestive aid; calming. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Mild euphoric; calming. No direct region data. Contextual inference: Mild euphoric; calming. none.; nan.",
   "duration": "3–5 hours",
   "interactions": [],
   "legalStatus": "Legal globally",
