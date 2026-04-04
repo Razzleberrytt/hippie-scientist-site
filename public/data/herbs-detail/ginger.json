@@ -2,9 +2,9 @@
   "name": "ginger",
   "latin": "ginger",
   "intensity": "No direct intensity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "mechanism": "Proposed mechanism: Ginger contains pungent phenolic compounds such as gingerols and other constituents studied for anti-inflammatory, antioxidant, and GI-related bioactivities; human clinical benefit does not confirm any single mechanism across indications.",
+  "mechanism": "Proposed mechanism: Ginger contains pungent phenolic compounds (e.g., gingerols) and other constituents studied for anti-inflammatory/antioxidant and GI-related bioactivities; human clinical benefit does not confirm any single mechanism across indications.",
   "activeCompounds": [
-    "(6)-Gingerol"
+    "(6)-Gingerol is a well-characterized ginger constituent frequently used as a reference compound in ginger chemistry."
   ],
   "effects": [
     "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
@@ -13,7 +13,7 @@
     "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
     "Do not use with known allergy to this plant or related species."
   ],
-  "safetyNotes": "Generally well tolerated; adverse effects can include heartburn, diarrhea, abdominal discomfort, and mouth/throat irritation; has not been linked to clinically apparent liver injury.",
+  "safetyNotes": "NCCIH reports ginger has been used safely in many research studies; adverse effects can include heartburn, diarrhea, abdominal discomfort, and mouth/throat irritation. LiverTox states ginger is generally recognized as safe (GRAS) and has not been linked to clinically apparent liver injury.",
   "sources": [
     {
       "title": "Ginger: Usefulness and Safety",
@@ -28,13 +28,13 @@
       "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6_-Gingerol"
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "The rhizome is the primary part used; commonly consumed as spice and used as a dietary supplement; native to warm parts of Asia and now grown in other regions.",
+  "lastUpdated": "2026-04-04",
+  "description": "The rhizome (underground stem) is the primary part used; commonly consumed as spice and used as dietary supplement. NCCIH notes ginger is native to warm parts of Asia and now grown in other regions; POWO adds that *Z. officinale* is widely cultivated and \"possibly native to India.\"",
   "dosage": "No single standardized dose is established across indications; clinical trials use product-specific regimens.",
   "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
   "interactions": "unresolved beyond general medication-review caution",
-  "preparation": "Used as food (fresh/dried) and dietary supplements; rhizome-based products are typical.",
-  "region": "Native range E. Himalaya to S. Central China, with broader cultivation.",
+  "preparation": "Used as food (fresh/dried) and as dietary supplements; rhizome-based products are typical.",
+  "region": "POWO lists native range as E. Himalaya to S. Central China (and provides cultivation notes), while NCCIH describes broader cultivation in South America, Africa, and the Middle East.",
   "therapeuticUses": [
     "Traditional supportive use; indication depends on species part and preparation.",
     "Evidence level varies; use only within established clinical or traditional context."
@@ -54,5 +54,5 @@
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [],
-  "summary": "Ginger rhizome is used in food and supplements; evidence suggests possible benefit for pregnancy-associated nausea/vomiting and menstrual cramps, while results for motion sickness are mostly negative and evidence for osteoarthritis is limited."
+  "summary": "Ginger rhizome is used in food and supplements; evidence suggests possible benefit for pregnancy-associated nausea/vomiting and for menstrual cramps, while results for motion sickness are mostly negative and evidence for osteoarthritis is limited by study quality. Ginger is generally well tolerated, with GI adverse effects possible."
 }

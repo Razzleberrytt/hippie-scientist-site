@@ -29,31 +29,26 @@
     "Pregnancy (caution)",
     "diuretics"
   ],
-  "safetyNotes": "Generally well tolerated when processed for oral use.; Fresh plant contact can cause transient stinging/urticarial skin reactions.; Very safe; stings from fresh plant can irritate skin; Skin irritation; urticaria from contact; Low; considered non-toxic; safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+  "safetyNotes": "GI complaints (e.g., nausea/heartburn/flatulence/diarrhea) and allergic reactions (pruritus/rash/urticaria) possible; seek medical evaluation if red-flag urinary symptoms occur (e.g., blood in urine, urinary retention, painful urination, fever).",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Urtica dioica (TaxID 3501)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3501&mode=Info",
-      "note": "Canonical species identity."
+      "title": "European Union herbal monograph on *Urtica dioica* L.; *Urtica urens* L., radix (Final – Revision 1)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-urtica-dioica-l-urtica-urens-l-radix-revision-1_en.pdf"
     },
     {
-      "title": "Randomized trial (BPH): Urtica dioica root extract",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/16635963/",
-      "note": "Clinical trial evidence for one indication; not generalizable to all uses."
+      "title": "Urticae radix (Nettle root) – EMA inventory page",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/urticae-radix"
     },
     {
-      "title": "Randomized trial (osteoarthritis): stinging nettle leaf",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/10581821/",
-      "note": "Small trial; evidence should be considered preliminary."
+      "title": "*Urtica dioica* L. – POWO",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A260630-2"
     },
     {
-      "title": "Herbal texts"
-    },
-    {
-      "title": "folk medicine"
+      "title": "*Urtica urens* L. – POWO",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A857987-1"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-04",
   "therapeuticUses": [
     "benign prostatic symptom support (selected extracts)",
     "adjunct joint symptom support (limited evidence)",
@@ -61,16 +56,13 @@
     "anemia",
     "joint support"
   ],
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+  "dosage": "Adults/elderly men examples from EMA monograph include: herbal infusion 2 g in 150 mL water, 2–3 times daily; multiple extract-specific single daily dose (SD) / daily dose (DD) regimens are also listed and vary by preparation (DER/solvent).",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "Native range reported for Urtica dioica includes entity[\"place\",\"Europe\",\"continent\"] to Siberia and W. China, plus NW. Africa; Urtica urens native range includes Europe to Siberia and Himalaya and parts of tropical Africa to the Arabian Peninsula.",
+  "preparation": "Oral use as infusion (\"herbal tea\") or standardized extracts in solid/liquid dosage forms.",
   "legalStatus": "legal",
-  "interactions": [
-    "Diuretics",
-    "antihypertensives"
-  ],
-  "description": "Traditional nettle herb with mixed but suggestive human evidence for selected inflammatory and urinary indications.",
+  "interactions": "\"None reported\" in the EMA monograph.",
+  "description": "Herbal substance/preparations include comminuted root and multiple dry/liquid extracts (various DERs and ethanol percentages) intended for oral use.",
   "sideEffects": [
     "contact urticaria from fresh plant hairs",
     "mild gastrointestinal upset in some users"
@@ -99,5 +91,6 @@
     "histamine",
     "serotonin",
     "acetylcholine"
-  ]
+  ],
+  "summary": "Traditional herbal medicinal product for relief of lower urinary tract symptoms related to benign prostatic hyperplasia (BPH) after serious conditions have been excluded by a clinician (traditional use basis)."
 }

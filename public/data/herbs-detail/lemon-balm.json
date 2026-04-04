@@ -2,8 +2,10 @@
   "name": "lemon balm",
   "latin": "lemon balm",
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: nonclinical data include (a) inhibition of GABA transaminase in vitro with increased GABA levels, (b) CNS receptor binding activity in human brain-membrane assays (in vitro), and (c) sedative/anxiolytic-like effects in animal models; additionally, water extract may inhibit thyroid stimulating hormone activity in vitro/animals, with unknown clinical relevance.",
+  "activeCompounds": [
+    "Essential oil constituents (citral/neral/citronellal), rosmarinic acid (phenylpropanoid), flavonoids (luteolin/quercetin/apigenin/kaempferol glycosides), triterpenes (ursolic/oleanolic acids) as listed in EMA assessment report."
+  ],
   "effects": [
     "No direct effects data. Contextual inference:",
     "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -14,16 +16,29 @@
     "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
     "Do not use with known allergy to this plant or related species."
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+  "safetyNotes": "EMA monograph: pregnancy/lactation not recommended (insufficient data); may impair ability to drive/use machines.",
+  "sources": [
+    {
+      "title": "Community herbal monograph on *Melissa officinalis* L., folium (EMA)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-melissa-officinalis-l-folium_en.pdf"
+    },
+    {
+      "title": "EMA assessment report on *Melissa officinalis* L., folium",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-report/final-assessment-report-melissa-officinalis-l-folium_en.pdf"
+    },
+    {
+      "title": "POWO: *Melissa officinalis* L.",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:450084-1"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "description": "EMA assessment report lists key constituent categories: essential oil (with monoterpene aldehydes such as citral/neral/citronellal), flavonoids, phenylpropanoids (notably rosmarinic acid, with Ph. Eur. minimum content), tannins, and triterpenes.",
+  "dosage": "EMA monograph (≥12 years): tea 1.5–4.5 g in 150 mL boiling water, 1–3×/day; powder 0.19–0.55 g 2–3×/day; liquid extract 2–4 mL 1–3×/day; tincture 2–6 mL 1–3×/day.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
+  "interactions": "EMA monograph: \"no data available\" on interactions (not the same as \"none\").",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Comminuted herbal substance (tea), powdered herb, liquid extract (DER 1:1; ethanol 45–53% v/v), tincture (1:5; ethanol 45–53% v/v), dried extracts corresponding to these preparations.",
+  "region": "Native range (POWO): Mediterranean to Central Asia.",
   "therapeuticUses": [
     "Traditional supportive use; indication depends on species part and preparation.",
     "Evidence level varies; use only within established clinical or traditional context."
@@ -42,5 +57,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Traditional herbal medicinal product (EU) for relief of mild mental stress and to aid sleep; also for symptomatic treatment of mild GI complaints (bloating/flatulence), based on long-standing use."
 }

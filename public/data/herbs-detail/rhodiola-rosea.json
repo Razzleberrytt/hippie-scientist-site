@@ -2,8 +2,10 @@
   "name": "rhodiola rosea",
   "latin": "Rhodiola rosea",
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: standardized extracts are described in peer-reviewed literature as polyphenol‑rich; PubMed review notes salidroside and tyrosol as primary marker compounds of standardized *R. rosea* extracts, with additional phenylpropanoid markers such as rosavin frequently discussed in the literature.",
+  "activeCompounds": [
+    "Salidroside (CID 159278), tyrosol (CID 10393), rosavin (CID 9823887) are commonly referenced marker constituents for *R. rosea* extracts."
+  ],
   "effects": [
     "Adaptogen",
     "mental performance enhancer",
@@ -20,28 +22,45 @@
     "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
     "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "safetyNotes": "safe irritability dry mouth. No direct toxicity data. Contextual inference: Adaptogen mental performance enhancer antidepressant. Inhibits monoamine oxidase modulates cortisol and neurotransmitters.. nan.. Inhibits monoamine oxidase modulates cortisol and neurotransmitters.. Adaptogen antidepressant. No direct toxicity data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan.",
+  "safetyNotes": "Possibly safe up to 12 weeks; NCCIH lists possible side effects (dizziness/headache/insomnia/dry mouth or excessive saliva) and notes limited pregnancy/breastfeeding safety information.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
+      "title": "Rhodiola: Usefulness and Safety (NCCIH)",
+      "url": "https://www.nccih.nih.gov/health/rhodiola"
     },
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "*Rhodiola rosea* L. (POWO)",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A315148-2"
+    },
+    {
+      "title": "Rhodiola plants: Chemistry and biological activity (PubMed)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28911692/"
+    },
+    {
+      "title": "Salidroside (PubChem)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Salidroside"
+    },
+    {
+      "title": "Tyrosol (PubChem)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Tyrosol"
+    },
+    {
+      "title": "Rosavin (PubChem)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Rosavin"
+    },
+    {
+      "title": "Pharmacokinetic interaction between losartan and *Rhodiola rosea* in rabbits (PubMed)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23327826/"
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.",
+  "lastUpdated": "2026-04-04",
+  "description": "Plant used traditionally in Russia/Scandinavia/parts of Europe; promoted for mood/cognition/energy/stress; POWO reports native range as subarctic & subalpine Northern Hemisphere.",
   "dosage": "100 400 mg day extract (standardized) No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "ssris",
-    "maois",
-    "stimulants."
-  ],
+  "interactions": "NCCIH reports interactions with losartan have been reported; a PubMed-indexed rabbit pharmacokinetic study suggests *R. rosea* can alter losartan pharmacokinetics (animal data—do not claim direct human interaction magnitude).",
   "legalStatus": "Legal globally",
-  "preparation": "No direct preparation data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan",
+  "preparation": "Typically root/rhizome extracts marketed as \"arctic/golden root\" supplements; product standardization and marker presence can vary across commercial extracts.",
+  "region": "POWO reports \"Subarctic & Subalpine Northern Hemisphere\" as the native range.",
   "therapeuticUses": [
     "fatigue",
     "depression",
@@ -72,5 +91,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "NCCIH concludes there isn’t enough reliable evidence to determine whether rhodiola or its components are useful for any health-related purpose; human research is often low‑to‑moderate quality."
 }

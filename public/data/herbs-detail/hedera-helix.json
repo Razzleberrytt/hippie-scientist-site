@@ -10,25 +10,29 @@
     "used in cough relief"
   ],
   "contraindications": [],
-  "safetyNotes": "GI reactions and allergic reactions have been reported; pregnancy/lactation safety not established; use not recommended absent sufficient data.",
+  "safetyNotes": "EMA: GI reactions (nausea, vomiting, diarrhoea) and allergic reactions (urticaria, skin rash, dyspnoea, anaphylactic reaction) have been reported (frequency not known). Pregnancy/lactation safety not established; use not recommended absent sufficient data.",
   "sources": [
     {
-      "title": "EU herbal monograph on Hedera helix L., folium (EMA)",
+      "title": "EU herbal monograph on *Hedera helix* L., folium (EMA)",
       "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-hedera-helix-l-folium-revision-2_en.pdf"
     },
     {
-      "title": "Hedera helix L. - Plants of the World Online (Kew)",
+      "title": "*Hedera helix* L. - Plants of the World Online (Kew)",
       "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:90723-1"
+    },
+    {
+      "title": "EMA monograph excerpt (interactions/safety section screenshot source)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-hedera-helix-l-folium-revision-2_en.pdf"
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Ivy leaf preparations are defined as specific dry or liquid extracts with stated drug-extract ratios and extraction solvents.",
-  "dosage": "EMA monograph dosing schedules depend on extract type (defined dry/liquid extracts by DER and solvent); preserve product-specific EMA schedule details and age bands when selecting a product label dose.",
+  "lastUpdated": "2026-04-04",
+  "description": "Ivy leaf preparations are defined as specific dry or liquid extracts with stated drug-extract ratios (DER) and extraction solvents (ethanol at various concentrations; propylene-glycol mixture for soft extract).",
+  "dosage": "EMA dosing depends on preparation type; examples shown for adolescents/adults/elderly include: - Preparation a): single 15–65 mg, 1–3× daily; daily 45–105 mg (note special maximum for ethanol-containing products) - Preparation b): single 14–18 mg, 3× daily; daily 42–54 mg - Preparation c): single 33 mg, 2× daily; daily 66 mg - Preparation d): single 100 mg, 3× daily; daily 300 mg - Preparation e): single 40 mg, 3× daily; daily 120 mg Pediatric dosing ranges are also specified; use under age 2 is contraindicated.",
   "duration": "4–6 hours",
-  "interactions": "None reported.",
+  "interactions": "EMA reports \"None reported\" for interactions with other medicinal products and other forms of interaction (in the monograph section shown).",
   "legalStatus": "Legal; used in registered cough preparations",
-  "preparation": "EMA-defined extract preparations (dry/liquid/soft extracts with specified DER and solvents), administered orally; consult clinician if symptoms persist more than 1 week.",
-  "region": "Native range Europe/Mediterranean region to Iran.",
+  "preparation": "EMA-defined extract preparations (dry/liquid/soft extracts with specified DER and solvents), administered orally; duration guidance: consult clinician if symptoms persist >1 week.",
+  "region": "POWO lists native range as Europe/Mediterranean region to Iran.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -47,5 +51,5 @@
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [],
-  "summary": "Hedera helix leaf preparations are used as an expectorant in productive cough, with defined extract preparations and dosing schedules; pregnancy/lactation safety is not established."
+  "summary": "EMA monograph supports use of *Hedera helix* leaf preparations as an expectorant in productive cough, with defined extract preparations and dosing schedules. EMA reports \"none reported\" for interactions in the monograph section shown, and states pregnancy/lactation safety not established (use not recommended)."
 }

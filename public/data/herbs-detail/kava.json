@@ -2,8 +2,10 @@
   "name": "kava",
   "latin": "kava",
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: anxiolytic/sedative effects are consistent with observed clinical/anecdotal outcomes, but NCCIH does not claim a definitive molecular mechanism; in vitro evidence shows kava extract can inhibit human cytochrome P450 activities, supporting a plausible interaction pathway.",
+  "activeCompounds": [
+    "Kava exposure is commonly expressed as kavalactones/kavapyrones (e.g., \"kavapyrone\" dosing appears in LiverTox case summaries), but specific constituent lists are product-dependent and not standardized in NCCIH materials."
+  ],
   "effects": [
     "No direct effects data. Contextual inference:",
     "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -13,16 +15,33 @@
   "contraindications": [
     "Liver conditions, alcohol, sedatives"
   ],
-  "safetyNotes": "caution; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
+  "safetyNotes": "Rare liver injury cases (some severe/fatal) reported with various kava products, including non-aqueous extracts and also some water-prepared beverages; other adverse effects include GI upset, headache, dizziness; long-term high-dose use can cause \"kava dermopathy.\" Avoid combining with other sedatives (e.g., benzodiazepines) or alcohol. Pregnancy/breastfeeding caution noted by NCCIH.",
+  "sources": [
+    {
+      "title": "Kava: Usefulness and Safety (NCCIH)",
+      "url": "https://www.nccih.nih.gov/health/kava"
+    },
+    {
+      "title": "Kava Kava (LiverTox, NCBI Bookshelf)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548637/"
+    },
+    {
+      "title": "Inhibition of human cytochrome P450 activities by kava extract and kavalactones (PubMed)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12386118/"
+    },
+    {
+      "title": "POWO: *Piper methysticum* G.Forst.",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:198437-2"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "description": "Traditionally prepared as a beverage; U.S. products sold as supplements, while some countries regulate as drugs/herbal medicines. POWO lists native range Santa Cruz Islands to Vanuatu.",
   "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
+  "interactions": "Avoid co-use with sedatives and alcohol (sedation risk); in vitro CYP inhibition suggests potential for drug interactions, but well-designed clinical interaction studies are limited.",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Traditional aqueous beverages; supplement products and extracts (including alcohol/acetone extracts referenced historically in hepatotoxicity investigations).",
+  "region": "Native range (POWO): Santa Cruz Islands to Vanuatu.",
   "therapeuticUses": [
     "Anxiety, stress, sleep aid"
   ],
@@ -36,5 +55,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Kava is a South Pacific plant used traditionally as a beverage; marketed as a dietary supplement for anxiety. NCCIH notes kava may help anxiety in some contexts but is not shown helpful for generalized anxiety disorder symptoms; it has been linked to rare but sometimes severe liver injury."
 }

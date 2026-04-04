@@ -2,7 +2,7 @@
   "name": "maca",
   "latin": "maca",
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "Proposed mechanism: not clearly established in Tier‑1 sources reviewed here; reviews discuss multiple hypothesized pathways and phytochemical categories, but clinical linkage remains uncertain.",
   "activeCompounds": [],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -15,15 +15,36 @@
     "Do not use with known allergy to this plant or related species."
   ],
   "safetyNotes": "safe No direct toxicity data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
+  "sources": [
+    {
+      "title": "POWO: *Lepidium meyenii* Walp.",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:286286-1"
+    },
+    {
+      "title": "POWO: *Lepidium peruvianum* (synonym note)",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60450131-2"
+    },
+    {
+      "title": "A comprehensive review of the effects of maca (PMC, 2024)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10910417/"
+    },
+    {
+      "title": "Not All Maca Is Created Equal (PMC, 2024)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10892513/"
+    },
+    {
+      "title": "ClinicalTrials.gov: Maca Root study (NCT00568126)",
+      "url": "https://clinicaltrials.gov/study/NCT00568126"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "description": "High-altitude Andean plant used as a nutrient-dense food and marketed as a supplement; POWO lists native range S. Peru to NW Argentina.",
   "dosage": "No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [],
   "legalStatus": "legal",
   "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "Native range (POWO): S. Peru to NW Argentina.",
   "therapeuticUses": [
     "Traditional supportive use; indication depends on species part and preparation.",
     "Evidence level varies; use only within established clinical or traditional context."
@@ -42,5 +63,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Contemporary clinical literature summarized in recent reviews suggests maca research in humans is primarily focused on sexual health endpoints, and reports potential improvements in sexual desire and related outcomes; broader claimed benefits are not firmly established and require cautious interpretation."
 }

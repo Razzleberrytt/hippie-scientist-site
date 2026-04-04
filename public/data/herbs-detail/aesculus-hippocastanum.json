@@ -3,9 +3,9 @@
   "latin": "Aesculus hippocastanum",
   "class": "Tree",
   "intensity": "No direct intensity data. Contextual inference: Venotonic, anti-inflammatory, edema relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Venotonic, anti-inflammatory, edema relief. No direct region data. Contextual inference: Venotonic, anti-inflammatory, edema relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Venotonic, anti-inflammatory, edema relief. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Proposed mechanism: Seed extracts contain escin/aescin; mechanism of rare idiosyncratic liver injury is unknown.",
+  "mechanism": "Proposed mechanism: Seed extracts contain escin/aescin (a well-characterized saponin used as an alternate name for horse chestnut products). LiverTox states the mechanism of idiosyncratic liver injury (rare) is unknown.",
   "activeCompounds": [
-    "Aescin/escin"
+    "Aescin/escin is a well-characterized natural product associated with horse chestnut extracts (also used as an alternate name for products)."
   ],
   "effects": [
     "Venotonic",
@@ -20,7 +20,7 @@
     "May cause mild nausea or abdominal upset",
     "Pregnant or breastfeeding individuals should consult healthcare provider before use"
   ],
-  "safetyNotes": "Raw plant parts are unsafe orally; standardized extracts are likely safe short-term; adverse effects may include dizziness, digestive upsets, headache, itching; liver injury is rare and generally mild/self-limited.",
+  "safetyNotes": "NCCIH: raw plant parts unsafe orally; standardized extracts likely safe short-term; possible side effects include dizziness, digestive upsets, headache, itching; pregnancy/lactation safety unknown. LiverTox: liver injury rare and typically mild/self-limited with no known cases of acute liver failure/death from horse chestnut.",
   "sources": [
     {
       "title": "Horse Chestnut: Usefulness and Safety",
@@ -35,14 +35,14 @@
       "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Aescin"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-04",
   "description": "A tree native to parts of southeastern Europe; seeds resemble sweet chestnuts but taste bitter; seed extracts are the common supplement form.",
   "dosage": "No direct dosage data. Contextual inference: Venotonic; anti; inflammatory; edema relief. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Venotonic; edema relief. No direct region data. Contextual inference: Venotonic; edema relief. none.; nan.",
   "duration": "6–8 hours",
   "interactions": [],
   "legalStatus": "Approved in EU for venous insufficiency; regulated",
-  "preparation": "Standardized horse chestnut seed extracts used orally; raw plant material is unsafe.",
-  "region": "Native range Central Balkan Peninsula to Türkiye.",
+  "preparation": "Standardized horse chestnut seed extracts (with toxic component removed) used orally; raw plant material is unsafe.",
+  "region": "POWO lists native range as Central Balkan Peninsula to Türkiye.",
   "therapeuticUses": [
     "Management of chronic venous insufficiency and varicose veins",
     "Reduction of edema and swelling",
@@ -69,5 +69,5 @@
     "aescin-escin",
     "other-saponins"
   ],
-  "summary": "Horse chestnut seed extract is promoted for chronic venous insufficiency. Reviews suggest symptom improvement in CVI, though more rigorous trials are needed. Raw seeds/bark/flowers/leaves are unsafe orally due to a toxic component; standardized extracts with the toxic component removed are likely safe for short-term use."
+  "summary": "Horse chestnut seed extract is promoted for chronic venous insufficiency (CVI). NCCIH cites a systematic review suggesting symptom improvement in CVI (with calls for more rigorous trials). Raw seeds/bark/flowers/leaves are unsafe orally due to a toxic component; standardized extracts with the toxic component removed are likely safe for short-term use (studied up to 12 weeks). LiverTox reports rare, generally mild and self-limited liver injury cases attributed to horse chestnut."
 }

@@ -2,8 +2,11 @@
   "name": "uva ursi",
   "latin": "uva ursi",
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: antibacterial activity is often attributed to arbutin/hydroquinone derivatives; however, EMA assessment indicates scientific evidence of efficacy/safety in humans is poor and supports only traditional use.",
+  "activeCompounds": [
+    "Arbutin (marker framework: hydroquinone derivatives calculated as anhydrous arbutin)",
+    "PubChem lists arbutin (CID 440936)."
+  ],
   "effects": [
     "No direct effects data. Contextual inference:",
     "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -15,16 +18,33 @@
     "avoid in kidney disease and in pregnancy/breastfeeding",
     "avoid in children without clinician guidance"
   ],
-  "safetyNotes": "caution; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+  "safetyNotes": "Contraindicated in kidney disorders; not recommended in children/adolescents <18; not recommended in men (medical supervision concerns); not to be used more than 1 week, and if symptoms persist >4 days consult clinician; may cause greenish-brown urine discoloration. EMA assessment concludes that a daily dose corresponding to 840 mg hydroquinone derivatives (as arbutin) for one week can be considered safe for human use based on long experience.",
+  "sources": [
+    {
+      "title": "EU herbal monograph on Arctostaphylos uva‑ursi (L.) Spreng., folium (Revision 2) (EMA)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-arctostaphylos-uva-ursi-l-spreng-folium-revision-2_en.pdf"
+    },
+    {
+      "title": "Assessment report on Arctostaphylos uva‑ursi (L.) Spreng., folium (Revision 2) (EMA)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-report/final-assessment-report-arctostaphylos-uva-ursi-l-spreng-folium-revision-2_en.pdf"
+    },
+    {
+      "title": "*Arctostaphylos uva-ursi* (L.) Spreng. (POWO)",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A1024084-2"
+    },
+    {
+      "title": "Arbutin (PubChem)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Arbutin"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "description": "EMA monograph defines comminuted/powdered herb and dry/liquid extracts standardized to hydroquinone derivatives calculated as anhydrous arbutin.",
+  "dosage": "EMA monograph examples for female adults/elderly: herbal tea 1.5–4 g in 150 mL, 2–4× daily (max daily dose 8 g); powdered herb 700–1050 mg twice daily; extracts dosed by hydroquinone-derivative equivalents (daily 200–840 mg as anhydrous arbutin); duration ≤1 week.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Oral use as herbal infusion or macerate (macerate used immediately after preparation), powder, and standardized dry/liquid extracts; avoid prolonged use.",
+  "region": "Native range (POWO): Subarctic to N, W & Central USA (bearberry is also broadly circumboreal; use POWO-native-range text for taxonomy field consistency).",
   "therapeuticUses": [
     "traditional short-term urinary tract support",
     "historical use for urinary discomfort"
@@ -44,5 +64,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Traditional herbal medicinal product for relief of symptoms of mild recurrent lower urinary tract infections (burning during urination/frequent urination) in women, after serious conditions are excluded by a medical doctor; traditional-use basis."
 }

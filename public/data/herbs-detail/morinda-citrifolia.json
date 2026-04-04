@@ -2,7 +2,7 @@
   "name": "morinda citrifolia",
   "latin": "Morinda citrifolia",
   "intensity": "No direct intensity data. Contextual inference: Immune support, anti-inflammatory, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immune support, anti-inflammatory, antioxidant. No direct region data. Contextual inference: Immune support, anti-inflammatory, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immune support, anti-inflammatory, antioxidant. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "Proposed mechanism (preclinical): antioxidant, immune‑modulating, antimicrobial/antifungal activities observed in laboratory research; these findings do not establish clinical efficacy.",
   "activeCompounds": [],
   "effects": [
     "Immune support",
@@ -12,24 +12,33 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": "safe May cause liver toxicity in high doses GI discomfort No direct toxicity data. Contextual inference: Immune support anti-inflammatory antioxidant. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Immune support antioxidant. none.",
+  "safetyNotes": "NCCIH notes noni juice \"might be safe\" up to 3 months, but cases of liver toxicity have been reported with noni juice/tea; causality is unclear. LiverTox contains a dedicated noni record for hepatotoxicity context.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
+      "title": "Noni: Usefulness and Safety (NCCIH)",
+      "url": "https://www.nccih.nih.gov/health/noni"
     },
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Noni (LiverTox)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548374/"
+    },
+    {
+      "title": "*Morinda citrifolia* L. (POWO)",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A756359-1"
+    },
+    {
+      "title": "*Morinda citrifolia* (NCBI Taxonomy)",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=43522&mode=Info"
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Immune support, anti-inflammatory, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "lastUpdated": "2026-04-04",
+  "description": "Small evergreen tree; multiple plant parts (roots/stem/bark/leaves/flowers/fruit) have traditional medicinal uses; modern products include juices, teas, and extracts.",
   "dosage": "500 1000 mg day fruit juice or extract",
   "duration": "Chronic",
   "interactions": [],
   "legalStatus": "Legal in most countries",
-  "preparation": "Fruit juice fermented or taken fresh; commonly called noni; used in Polynesian medicine",
-  "region": "No direct region data. Contextual inference: Immune support, anti-inflammatory, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immune support, anti-inflammatory, antioxidant. none. ; nan; nan",
+  "preparation": "Common supplement forms include juice and tea; also fruit extracts.",
+  "region": "POWO lists native range as \"Tropical & Subtropical Asia to N. Australia\"; NCCIH also describes distribution including Pacific islands and parts of entity[\"place\",\"Southeast Asia\",\"region\"] and entity[\"country\",\"India\",\"country\"], and entity[\"country\",\"Australia\",\"country\"].",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -45,5 +54,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Noni is promoted as a dietary supplement, but human research is very limited and has not shown beneficial effects on any health condition in studies of people (per NCCIH)."
 }

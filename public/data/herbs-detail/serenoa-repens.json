@@ -9,24 +9,29 @@
     "used for BPH support"
   ],
   "contraindications": [],
-  "safetyNotes": "safe; GI upset; headache; dizziness; No direct toxicity data. Contextual inference: Antiandrogenic; used for bph support. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Antiandrogenic; used for BPH support. none.",
+  "safetyNotes": "Generally well tolerated; adverse effects are mild/infrequent (digestive symptoms, dizziness, headache). NCCIH cautions it may be unsafe during pregnancy/breastfeeding; it does not appear to affect PSA readings even at higher-than-usual amounts.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
+      "title": "Saw Palmetto: Usefulness and Safety (NCCIH)",
+      "url": "https://www.nccih.nih.gov/health/saw-palmetto"
     },
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Spotlight on Saw Palmetto: What the Science Says (NCCIH Clinical Digest)",
+      "url": "https://www.nccih.nih.gov/health/providers/digest/spotlight-on-saw-palmetto-science"
+    },
+    {
+      "title": "*Serenoa repens* (POWO)",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A941782-1"
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Antiandrogenic, used for bph support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "160; 320 mg; day lipophilic extract",
+  "lastUpdated": "2026-04-04",
+  "description": "A small tree/palm native to the West Indies and the southeast coast of North America; medicinal use centers on the berries (extracts sold as dietary supplements).",
+  "dosage": "Trial dosing context (not a recommended dose): a large randomized trial tested saw palmetto extract up to 3× the standard daily dose (320 mg/day) without benefit over placebo for BPH symptoms.",
   "duration": "Chronic",
-  "interactions": [],
+  "interactions": "NCCIH Clinical Digest notes saw palmetto has not been shown to interact with medications (evidence base largely from studies in men).",
   "legalStatus": "Legal globally",
-  "preparation": "Fruit dried and extracted into lipophilic extracts or tinctures; used for benign prostatic hyperplasia (BPH)",
-  "region": "No direct region data. Contextual inference: Antiandrogenic, used for bph support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiandrogenic, used for BPH support. none. ; nan; nan",
+  "preparation": "Oral berry extracts (including hexane-extracted products in some trials) marketed as dietary supplements for urinary symptoms and other uses.",
+  "region": "Native range: SE United States (POWO).",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -43,5 +48,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Saw palmetto is commonly promoted for urinary symptoms of benign prostatic hyperplasia (BPH), but NCCIH concludes it is probably not helpful for urinary tract symptoms associated with prostate enlargement, and evidence for other uses is insufficient."
 }

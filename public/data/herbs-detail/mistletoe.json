@@ -16,25 +16,22 @@
     "active infection",
     "or autoimmune conditions without supervision. toxic at high doses."
   ],
-  "safetyNotes": "Toxic – medical supervision required injection-site inflammation allergic reactions or flu-like symptoms possible. oral use milder but requires caution. Moderate–high (dose-dependent)",
+  "safetyNotes": "NCCIH: berries and leaves can cause serious harmful effects when taken orally; injected extract may cause local inflammation, headache, fever, chills, and rare severe allergic reactions; probably unsafe in pregnancy; breastfeeding safety unknown.",
   "sources": [
     {
-      "title": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3201634/"
-    },
-    {
-      "note": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3201634/;European Medicines Agency;Plants of the Gods – Rätsch",
-      "url": ""
+      "title": "European Mistletoe: Usefulness and Safety (NCCIH)",
+      "url": "https://www.nccih.nih.gov/health/european-mistletoe"
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "a sacred plant in ancient druidic and european traditions, mistletoe has been used both ritually and medicinally for nervous disorders, cancer support, and hypertension. often associated with peace and protection.",
+  "lastUpdated": "2026-04-04",
+  "description": "Semiparasitic plant growing on multiple host trees; injected extracts are sold as prescription drugs in parts of Europe; oral products may be sold as supplements; FDA has not approved it for cancer or other conditions.",
   "dosage": "Subcutaneous injection in integrative cancer therapy",
   "duration": "Long-term under supervision",
   "interactions": [
     "may interfere with immunosuppressants or chemotherapeutics."
   ],
   "legalStatus": "Legal but regulated in some countries",
-  "preparation": "Extracts used in standardized injectable cancer therapies (e.g., Iscador). Traditional tea/tincture use with caution.",
+  "preparation": "Injected extracts (prescription drugs in Europe) versus oral dietary supplement forms; administration routes substantially change risk profile.",
   "region": "europe, western asia",
   "therapeuticUses": [
     "used for anxiety",
@@ -61,5 +58,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "European mistletoe has been promoted as a cancer treatment; NCCIH states it is not a proven cancer treatment and should not be used as cancer treatment outside clinical trials. Most research involves injected extracts; very little research evaluates oral use."
 }
