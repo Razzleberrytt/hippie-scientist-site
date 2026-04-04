@@ -1875,8 +1875,10 @@
     "name": "alpinia galanga",
     "latin": "alpinia galanga",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -1886,16 +1888,18 @@
     "contraindications": [
       "Gastric ulcers, anticoagulant medication"
     ],
-    "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "alpinia galanga is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "Used in Southeast Asian medicine for digestion and fatigue"
     ],
@@ -1904,7 +1908,8 @@
     "id": "alpinia-galanga",
     "displayName": "alpinia galanga",
     "displayScientificName": "alpinia galanga",
-    "scientificNormalized": "alpinia galanga"
+    "scientificNormalized": "alpinia galanga",
+    "summary": "alpinia galanga entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "althaea officinalis",
@@ -2086,8 +2091,10 @@
     "name": "amanita pantherina",
     "latin": "amanita pantherina",
     "intensity": "strong",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -2097,16 +2104,18 @@
     "contraindications": [
       "Mental illness, combining with other depressants"
     ],
-    "safetyNotes": "Toxic – neurotoxic effects; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "amanita pantherina is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "restricted",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "Traditional Siberian shamanic use; rarely employed medically"
     ],
@@ -2115,14 +2124,17 @@
     "id": "amanita-pantherina",
     "displayName": "amanita pantherina",
     "displayScientificName": "amanita pantherina",
-    "scientificNormalized": "amanita pantherina"
+    "scientificNormalized": "amanita pantherina",
+    "summary": "amanita pantherina entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "american ginseng",
     "latin": "american ginseng",
     "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -2133,16 +2145,18 @@
       "avoid during pregnancy and breastfeeding unless advised by a clinician",
       "Use caution with prescription medications and chronic conditions; monitor for intolerance."
     ],
-    "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "american ginseng is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "traditional support for mild digestive comfort",
       "non-specific traditional tonic use"
@@ -2156,14 +2170,17 @@
     "id": "american-ginseng",
     "displayName": "american ginseng",
     "displayScientificName": "american ginseng",
-    "scientificNormalized": "american ginseng"
+    "scientificNormalized": "american ginseng",
+    "summary": "american ginseng entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "american yellow lotus",
     "latin": "american yellow lotus",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -2174,16 +2191,18 @@
       "avoid during pregnancy and breastfeeding unless advised by a clinician",
       "Use caution with prescription medications and chronic conditions; monitor for intolerance."
     ],
-    "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "american yellow lotus is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "traditional support for mild digestive comfort",
       "non-specific traditional tonic use"
@@ -2197,7 +2216,8 @@
     "id": "american-yellow-lotus",
     "displayName": "american yellow lotus",
     "displayScientificName": "american yellow lotus",
-    "scientificNormalized": "american yellow lotus"
+    "scientificNormalized": "american yellow lotus",
+    "summary": "american yellow lotus entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "amorpha fruticosa",
@@ -2383,8 +2403,10 @@
     "name": "anadenanthera colubrina (cebíl)",
     "latin": "anadenanthera colubrina (cebíl)",
     "intensity": "strong",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -2394,16 +2416,18 @@
     "contraindications": [
       "Cardiovascular disorders, psychiatric conditions, and pregnancy."
     ],
-    "safetyNotes": "No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "anadenanthera colubrina (cebíl) is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "restricted",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "Traditionally used as a snuff for visionary and divinatory rituals in South American cultures [1, 1]."
     ],
@@ -2412,7 +2436,8 @@
     "id": "anadenanthera-colubrina-ceb-l",
     "displayName": "anadenanthera colubrina (cebíl)",
     "displayScientificName": "anadenanthera colubrina (cebíl)",
-    "scientificNormalized": "anadenanthera colubrina cebil"
+    "scientificNormalized": "anadenanthera colubrina cebil",
+    "summary": "anadenanthera colubrina (cebíl) entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "anadenanthera peregrina",
@@ -2555,8 +2580,10 @@
     "name": "anemone pulsatilla",
     "latin": "anemone pulsatilla",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -2566,16 +2593,18 @@
     "contraindications": [
       "Pregnancy, open wounds, large doses"
     ],
-    "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "anemone pulsatilla is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "European folk remedy for anxiety, insomnia and menstrual pain"
     ],
@@ -2584,7 +2613,8 @@
     "id": "anemone-pulsatilla",
     "displayName": "anemone pulsatilla",
     "displayScientificName": "anemone pulsatilla",
-    "scientificNormalized": "anemone pulsatilla"
+    "scientificNormalized": "anemone pulsatilla",
+    "summary": "anemone pulsatilla entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "angelica archangelica",
@@ -2934,8 +2964,10 @@
     "name": "aquilaria malaccensis",
     "latin": "aquilaria malaccensis",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -2945,16 +2977,18 @@
     "contraindications": [
       "Respiratory issues when inhaled heavily"
     ],
-    "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "aquilaria malaccensis is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "Used in traditional Asian medicine and incense for calming and meditation"
     ],
@@ -2963,7 +2997,8 @@
     "id": "aquilaria-malaccensis",
     "displayName": "aquilaria malaccensis",
     "displayScientificName": "aquilaria malaccensis",
-    "scientificNormalized": "aquilaria malaccensis"
+    "scientificNormalized": "aquilaria malaccensis",
+    "summary": "aquilaria malaccensis entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "aquilegia vulgaris",
@@ -3113,8 +3148,10 @@
     "name": "argemone mexicana",
     "latin": "argemone mexicana",
     "intensity": "moderate",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -3124,16 +3161,18 @@
     "contraindications": [
       "Liver disorders, pregnancy, high doses"
     ],
-    "safetyNotes": "Toxic – hepatotoxic; epidemic dropsy link; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "argemone mexicana is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "Mexican and Ayurvedic traditions use it for pain, insomnia and mild narcotic effects"
     ],
@@ -3142,7 +3181,8 @@
     "id": "argemone-mexicana",
     "displayName": "argemone mexicana",
     "displayScientificName": "argemone mexicana",
-    "scientificNormalized": "argemone mexicana"
+    "scientificNormalized": "argemone mexicana",
+    "summary": "argemone mexicana entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "argyreia nervosa",
@@ -3228,8 +3268,10 @@
     "name": "argyreia speciosa",
     "latin": "argyreia speciosa",
     "intensity": "moderate",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -3239,16 +3281,18 @@
     "contraindications": [
       "Pregnancy, mental health disorders"
     ],
-    "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "argyreia speciosa is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "Occasionally used in Ayurveda as a tonic and for spiritual rituals"
     ],
@@ -3257,7 +3301,8 @@
     "id": "argyreia-speciosa",
     "displayName": "argyreia speciosa",
     "displayScientificName": "argyreia speciosa",
-    "scientificNormalized": "argyreia speciosa"
+    "scientificNormalized": "argyreia speciosa",
+    "summary": "argyreia speciosa entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "aristolochia argentina",
@@ -4140,8 +4185,10 @@
     "name": "asclepias syriaca",
     "latin": "asclepias syriaca",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -4152,16 +4199,18 @@
       "discontinue if hypersensitivity or allergic symptoms occur",
       "avoid during pregnancy and breastfeeding unless advised by a clinician"
     ],
-    "safetyNotes": "Toxic – cardiac effects; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "asclepias syriaca is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "traditional support for mild digestive comfort",
       "traditional stress resilience support"
@@ -4175,7 +4224,8 @@
     "id": "asclepias-syriaca",
     "displayName": "asclepias syriaca",
     "displayScientificName": "asclepias syriaca",
-    "scientificNormalized": "asclepias syriaca"
+    "scientificNormalized": "asclepias syriaca",
+    "summary": "asclepias syriaca entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "asclepias tuberosa",
@@ -4526,8 +4576,10 @@
     "name": "avena sativa",
     "latin": "avena sativa",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -4538,16 +4590,18 @@
       "avoid during pregnancy and breastfeeding unless advised by a clinician",
       "Use caution with prescription medications and chronic conditions; monitor for intolerance."
     ],
-    "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "avena sativa is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "traditional support for mild digestive comfort",
       "non-specific traditional tonic use"
@@ -4561,14 +4615,17 @@
     "id": "avena-sativa",
     "displayName": "avena sativa",
     "displayScientificName": "avena sativa",
-    "scientificNormalized": "avena sativa"
+    "scientificNormalized": "avena sativa",
+    "summary": "avena sativa entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "ayahuasca",
     "latin": "ayahuasca",
     "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -4580,15 +4637,17 @@
       "use caution with chronic medical conditions and prescription medications",
       "avoid combining with serotonergic psychoactive substances"
     ],
-    "safetyNotes": "No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "ayahuasca is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "ceremonial use in traditional spiritual practices",
       "non-specific traditional tonic use"
@@ -4603,7 +4662,8 @@
     "id": "ayahuasca",
     "displayName": "ayahuasca",
     "displayScientificName": "ayahuasca",
-    "scientificNormalized": "ayahuasca"
+    "scientificNormalized": "ayahuasca",
+    "summary": "ayahuasca entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "azadirachta indica",
@@ -4654,8 +4714,10 @@
     "name": "bacopa",
     "latin": "bacopa",
     "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -4666,15 +4728,17 @@
       "discontinue if hypersensitivity or allergic symptoms occur",
       "avoid during pregnancy and breastfeeding unless advised by a clinician"
     ],
-    "safetyNotes": "No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "bacopa is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "traditional support for mild digestive comfort",
       "traditional stress resilience support"
@@ -4688,7 +4752,8 @@
     "id": "bacopa",
     "displayName": "bacopa",
     "displayScientificName": "bacopa",
-    "scientificNormalized": "bacopa"
+    "scientificNormalized": "bacopa",
+    "summary": "bacopa entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "bacopa monnieri",
@@ -4896,8 +4961,10 @@
     "name": "baybean",
     "latin": "baybean",
     "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -4908,15 +4975,17 @@
       "avoid during pregnancy and breastfeeding unless advised by a clinician",
       "Use caution with prescription medications and chronic conditions; monitor for intolerance."
     ],
-    "safetyNotes": "No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "baybean is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "traditional support for mild digestive comfort",
       "non-specific traditional tonic use"
@@ -4930,14 +4999,17 @@
     "id": "baybean",
     "displayName": "baybean",
     "displayScientificName": "baybean",
-    "scientificNormalized": "baybean"
+    "scientificNormalized": "baybean",
+    "summary": "baybean entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "belladonna",
     "latin": "belladonna",
     "intensity": "strong",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -4947,16 +5019,18 @@
     "contraindications": [
       "Cardiovascular disease, glaucoma, pregnancy."
     ],
-    "safetyNotes": "No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "belladonna is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "restricted",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "Historically used for pain, muscle spasms, and cosmetic dilation."
     ],
@@ -4965,7 +5039,8 @@
     "id": "belladonna",
     "displayName": "belladonna",
     "displayScientificName": "belladonna",
-    "scientificNormalized": "belladonna"
+    "scientificNormalized": "belladonna",
+    "summary": "belladonna entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "berberis vulgaris",
@@ -9802,8 +9877,10 @@
     "name": "copal",
     "latin": "copal",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -9813,16 +9890,18 @@
     "contraindications": [
       "Unknown"
     ],
-    "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "copal is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "Unknown"
     ],
@@ -9831,7 +9910,8 @@
     "id": "copal",
     "displayName": "copal",
     "displayScientificName": "copal",
-    "scientificNormalized": "copal"
+    "scientificNormalized": "copal",
+    "summary": "copal entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "coptis chinensis",
@@ -13953,8 +14033,10 @@
     "name": "frankincense (boswellia)",
     "latin": "frankincense (boswellia)",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -13964,16 +14046,18 @@
     "contraindications": [
       "Unknown"
     ],
-    "safetyNotes": "No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "frankincense (boswellia) is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "Unknown"
     ],
@@ -13982,7 +14066,8 @@
     "id": "frankincense-boswellia",
     "displayName": "frankincense (boswellia)",
     "displayScientificName": "frankincense (boswellia)",
-    "scientificNormalized": "frankincense boswellia"
+    "scientificNormalized": "frankincense boswellia",
+    "summary": "frankincense (boswellia) entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "fucus vesiculosus",
@@ -18555,8 +18640,10 @@
     "name": "lion's mane",
     "latin": "lion's mane",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -18567,16 +18654,18 @@
       "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
       "Do not use with known allergy to this plant or related species."
     ],
-    "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "lion's mane is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "Traditional supportive use; indication depends on species part and preparation.",
       "Evidence level varies; use only within established clinical or traditional context."
@@ -18590,14 +18679,17 @@
     "id": "lion-s-mane",
     "displayName": "lion's mane",
     "displayScientificName": "lion's mane",
-    "scientificNormalized": "lion's mane"
+    "scientificNormalized": "lion's mane",
+    "summary": "lion's mane entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "lion’s mane",
     "latin": "lion’s mane",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
@@ -18605,16 +18697,18 @@
       "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
       "Do not use with known allergy to this plant or related species."
     ],
-    "safetyNotes": "safe; No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "Folk medicine.",
-    "dosage": "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+    "description": "lion's mane is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-    "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "Traditional supportive use; indication depends on species part and preparation.",
       "Evidence level varies; use only within established clinical or traditional context."
@@ -18628,7 +18722,8 @@
     "id": "lion-s-mane",
     "displayName": "lion’s mane",
     "displayScientificName": "lion’s mane",
-    "scientificNormalized": "lion’s mane"
+    "scientificNormalized": "lion’s mane",
+    "summary": "lion's mane entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "lippia alba",
@@ -22714,8 +22809,10 @@
     "name": "nymphaea ampla",
     "latin": "nymphaea ampla",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -22725,16 +22822,18 @@
     "contraindications": [
       "Unknown"
     ],
-    "safetyNotes": "No direct toxicity data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
+    "description": "nymphaea ampla is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "Unknown"
     ],
@@ -22743,7 +22842,8 @@
     "id": "nymphaea-ampla",
     "displayName": "nymphaea ampla",
     "displayScientificName": "nymphaea ampla",
-    "scientificNormalized": "nymphaea ampla"
+    "scientificNormalized": "nymphaea ampla",
+    "summary": "nymphaea ampla entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "nymphaea caerulea",
@@ -28872,8 +28972,10 @@
     "name": "silphium (extinct)",
     "latin": "silphium (extinct)",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
+    "activeCompounds": [
+      "Unresolved from current repository sources."
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -28883,16 +28985,18 @@
     "contraindications": [
       "Unknown"
     ],
-    "safetyNotes": "No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
-    "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+    "description": "silphium (extinct) is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
+    "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Unresolved from current repository sources; perform medication and condition screening before use."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+    "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
+    "region": "Unresolved from current repository sources.",
     "therapeuticUses": [
       "Unknown"
     ],
@@ -28901,7 +29005,8 @@
     "id": "silphium-extinct",
     "displayName": "silphium (extinct)",
     "displayScientificName": "silphium (extinct)",
-    "scientificNormalized": "silphium extinct"
+    "scientificNormalized": "silphium extinct",
+    "summary": "silphium (extinct) entry normalized to a baseline profile; evidence remains limited in current repository sources."
   },
   {
     "name": "silybum marianum",
