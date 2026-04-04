@@ -1,9 +1,14 @@
 {
   "name": "chaste tree",
   "latin": "chaste tree",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
+  "mechanism": "Evidence supports a proposed dopaminergic effect (especially D2-related pathways) that may influence prolactin signaling and menstrual-symptom patterns. This remains a proposed clinical mechanism rather than a universally confirmed one.",
+  "activeCompounds": [
+    "Agnuside",
+    "Casticin",
+    "Flavonoids and iridoid glycosides"
+  ],
   "effects": [
     "No direct effects data. Contextual inference:",
     "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -14,16 +19,32 @@
     "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
     "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
+  "safetyNotes": "Generally well tolerated for short-term use, with possible nausea, headache, acne, rash, or cycle changes. Avoid in pregnancy and breastfeeding unless specifically advised by a clinician.",
+  "sources": [
+    {
+      "title": "NCCIH: Chasteberry",
+      "url": "https://www.nccih.nih.gov/health/chasteberry"
+    },
+    {
+      "title": "PubMed: Vitex agnus castus for premenstrual syndrome and premenstrual dysphoric disorder",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23136064/"
+    },
+    {
+      "title": "NCBI Taxonomy: Vitex agnus-castus",
+      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=39333"
+    }
+  ],
   "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+  "description": "Chaste tree fruit extract is used mainly for premenstrual symptom patterns (such as breast tenderness, irritability, and cyclic discomfort). Reviews and trials suggest some patients improve compared with placebo, but outcomes and product standardization are inconsistent across studies.",
+  "dosage": "Dose depends on extract standardization; studies use fixed-dose proprietary extracts rather than one universal dose. Follow product labeling and clinician guidance.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
+  "interactions": [
+    "May interact with dopamine agonists/antagonists because of dopaminergic activity.",
+    "Use caution with hormonal therapies (including oral contraceptives or fertility-related treatment) due to theoretical endocrine effects."
+  ],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Most evidence comes from standardized fruit extracts in capsules or tablets rather than whole-herb preparations.",
+  "region": "Native to the Mediterranean and Western Asia; cultivated in Europe and other temperate regions.",
   "therapeuticUses": [
     "non-specific traditional tonic use",
     "traditional stress resilience support"
@@ -42,5 +63,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Chaste tree (Vitex agnus-castus) is primarily used for cyclical premenstrual symptoms; clinical evidence suggests possible benefit in some PMS symptoms, though study quality varies."
 }
