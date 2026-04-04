@@ -16641,5 +16641,185 @@
     "aliases": [
       "β-sitosteryl acetate"
     ]
+  },
+  {
+    "id": "magnesium",
+    "slug": "magnesium",
+    "name": "magnesium",
+    "summaryShort": "Magnesium is an essential mineral involved in 300+ enzymatic reactions related to energy metabolism and neuromuscular function; supplementation is used in selected contexts, with variable evidence for some outcomes.",
+    "description": "Magnesium is present as Mg2+ in foods and supplements (for example citrate and oxide salts). About half of total body magnesium is in bone, with the rest in muscle and soft tissue, and dietary intake is important because insufficiency can occur.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Proposed: Magnesium acts as a cofactor for ATP-dependent enzymes, regulates calcium and potassium transport, and may stabilize neuronal excitability in migraine and muscle contexts.",
+    "effects": [
+      "Supports enzyme-dependent metabolism",
+      "Supports muscle and nerve function",
+      "Used in selected heart, bone, or migraine support contexts"
+    ],
+    "primaryEffects": [
+      "Supports enzyme-dependent metabolism",
+      "Supports muscle and nerve function",
+      "Used in selected heart, bone, or migraine support contexts"
+    ],
+    "herbs": [
+      "nuts",
+      "leafy greens",
+      "whole grains"
+    ],
+    "confidence": "high",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
+    "aliases": [
+      "magnesium"
+    ]
+  },
+  {
+    "id": "pyridoxine",
+    "slug": "pyridoxine",
+    "name": "pyridoxine",
+    "summaryShort": "Vitamin B6 is an essential nutrient and metabolic cofactor used to prevent deficiency, with mixed evidence for some supplement uses such as PMS or nausea contexts.",
+    "description": "Vitamin B6 includes pyridoxine, pyridoxal, pyridoxamine, and related phosphates. It is present in many foods, and pyridoxal-5-phosphate functions as a core coenzyme in amino-acid and neurotransmitter pathways.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Proposed: B6-dependent coenzyme activity supports neurotransmitter synthesis pathways (including serotonin and GABA) and may influence hormone-related pathways.",
+    "effects": [
+      "Supports amino-acid metabolism",
+      "Supports neurotransmitter synthesis",
+      "Used for deficiency prevention and correction"
+    ],
+    "primaryEffects": [
+      "Supports amino-acid metabolism",
+      "Supports neurotransmitter synthesis",
+      "Used for deficiency prevention and correction"
+    ],
+    "herbs": [
+      "meat",
+      "beans",
+      "grains"
+    ],
+    "confidence": "high",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
+    "aliases": [
+      "pyridoxine"
+    ]
+  },
+  {
+    "id": "riboflavin",
+    "slug": "riboflavin",
+    "name": "riboflavin",
+    "summaryShort": "Riboflavin is an essential B-vitamin required for energy production and antioxidant enzyme systems; it is used for deficiency prevention and studied at high doses for migraine prophylaxis.",
+    "description": "Riboflavin is found in foods such as milk, eggs, and green vegetables. Dietary requirements are low, while migraine-focused protocols use pharmacologic doses substantially above the RDA.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Proposed: As part of FAD/FMN coenzymes, riboflavin supports redox metabolism and may improve mitochondrial energy handling in migraine pathways.",
+    "effects": [
+      "Supports energy metabolism",
+      "Supports antioxidant enzyme systems",
+      "Used for deficiency prevention"
+    ],
+    "primaryEffects": [
+      "Supports energy metabolism",
+      "Supports antioxidant enzyme systems",
+      "Used for deficiency prevention"
+    ],
+    "herbs": [
+      "milk",
+      "eggs",
+      "green vegetables"
+    ],
+    "confidence": "high",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
+    "aliases": [
+      "riboflavin"
+    ]
+  },
+  {
+    "id": "selenium",
+    "slug": "selenium",
+    "name": "selenium",
+    "summaryShort": "Selenium is an essential trace mineral involved in antioxidant enzymes and thyroid-hormone metabolism; supplementation mainly targets deficiency, while higher-dose preventive uses remain mixed.",
+    "description": "Selenium is incorporated into selenoproteins and obtained from diet. Adult intake guidance is in micrograms, and excessive intake raises toxicity risk.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Proposed: Selenium supports redox defense through selenoproteins and contributes to thyroid hormone conversion via deiodinase enzymes.",
+    "effects": [
+      "Supports antioxidant enzyme function",
+      "Supports thyroid-hormone metabolism",
+      "Used for selenium deficiency correction"
+    ],
+    "primaryEffects": [
+      "Supports antioxidant enzyme function",
+      "Supports thyroid-hormone metabolism",
+      "Used for selenium deficiency correction"
+    ],
+    "herbs": [
+      "bread",
+      "meat",
+      "seafood"
+    ],
+    "confidence": "high",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
+    "aliases": [
+      "selenium"
+    ]
+  },
+  {
+    "id": "vitamin-d",
+    "slug": "vitamin-d",
+    "name": "vitamin-d",
+    "summaryShort": "Vitamin D is an essential nutrient and prohormone (D2 and D3 forms) central to calcium balance and bone health; deficiency prevention is well established, while broader non-skeletal claims remain under study.",
+    "description": "Vitamin D is produced in skin (D3) and obtained from diet or supplements (D2 and D3). It is metabolized in liver and kidney to active hormonal forms, and intake guidance varies by age and status.",
+    "className": "nutrient",
+    "category": "nutrient",
+    "mechanism": "Proposed: Vitamin D increases intestinal calcium and phosphorus absorption for bone mineralization and also modulates immune signaling via vitamin D receptors.",
+    "effects": [
+      "Supports calcium homeostasis",
+      "Supports bone health",
+      "Used for deficiency prevention and treatment"
+    ],
+    "primaryEffects": [
+      "Supports calcium homeostasis",
+      "Supports bone health",
+      "Used for deficiency prevention and treatment"
+    ],
+    "herbs": [
+      "animal foods",
+      "fortified foods",
+      "sunlight-derived synthesis"
+    ],
+    "confidence": "high",
+    "hasInteractionData": true,
+    "hasEvidenceNotes": true,
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
+    "aliases": [
+      "vitamin-d"
+    ]
   }
 ]

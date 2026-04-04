@@ -1,0 +1,49 @@
+{
+  "category": "nutrient",
+  "sources": [
+    {
+      "title": "Compound research dossier (ops/research/compound-research.pdf)",
+      "url": "ops/research/compound-research.pdf"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [],
+  "name": "magnesium",
+  "displayName": "magnesium",
+  "slug": "magnesium",
+  "id": "magnesium",
+  "herbs": [
+    "nuts",
+    "leafy greens",
+    "whole grains"
+  ],
+  "effects": [
+    "Supports enzyme-dependent metabolism",
+    "Supports muscle and nerve function",
+    "Used in selected heart, bone, or migraine support contexts"
+  ],
+  "contraindications": [
+    "High oral doses may cause diarrhea",
+    "Overdose risk includes hypermagnesemia",
+    "Use medical supervision for IV magnesium"
+  ],
+  "description": "Magnesium is present as Mg2+ in foods and supplements (for example citrate and oxide salts). About half of total body magnesium is in bone, with the rest in muscle and soft tissue, and dietary intake is important because insufficiency can occur.",
+  "summary": "Magnesium is an essential mineral involved in 300+ enzymatic reactions related to energy metabolism and neuromuscular function; supplementation is used in selected contexts, with variable evidence for some outcomes.",
+  "mechanism": "Proposed: Magnesium acts as a cofactor for ATP-dependent enzymes, regulates calcium and potassium transport, and may stabilize neuronal excitability in migraine and muscle contexts.",
+  "safetyNotes": "Generally safe at dietary intake. Higher-dose supplements, especially oxide forms, can cause diarrhea; overdose can cause hypermagnesemia, and IV misuse can cause hypotension or cardiac complications.",
+  "interactions": [
+    "May reduce absorption of bisphosphonates and some antibiotics (including tetracyclines and fluoroquinolones); separate dosing windows are commonly used.",
+    "May potentiate neuromuscular blocking agents."
+  ],
+  "dosage": "RDA is approximately 310-420 mg/day in adults. Typical supplemental ranges are often around 100-400 mg elemental magnesium/day; IV dosing is a medical protocol only.",
+  "preparation": "Available as oxide, citrate, chloride, aspartate, and related salts; food sources include nuts, leafy greens, and whole grains.",
+  "regulatoryStatus": "Permitted as a dietary supplement and GRAS food additive; prescription formulations exist for specific medical use (for example IV magnesium sulfate).",
+  "sourceType": "Essential nutrient / mineral",
+  "activeCompounds": [
+    "Mg2+"
+  ]
+}

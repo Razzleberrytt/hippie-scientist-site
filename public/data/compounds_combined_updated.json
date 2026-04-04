@@ -11333,5 +11333,252 @@
     ],
     "lastUpdated": "2026-03-21",
     "slug": "terpinene"
+  },
+  {
+    "category": "nutrient",
+    "sources": [
+      {
+        "title": "Compound research dossier (ops/research/compound-research.pdf)",
+        "url": "ops/research/compound-research.pdf"
+      }
+    ],
+    "lastUpdated": "2026-04-04",
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
+    "name": "magnesium",
+    "displayName": "magnesium",
+    "slug": "magnesium",
+    "id": "magnesium",
+    "herbs": [
+      "nuts",
+      "leafy greens",
+      "whole grains"
+    ],
+    "effects": [
+      "Supports enzyme-dependent metabolism",
+      "Supports muscle and nerve function",
+      "Used in selected heart, bone, or migraine support contexts"
+    ],
+    "contraindications": [
+      "High oral doses may cause diarrhea",
+      "Overdose risk includes hypermagnesemia",
+      "Use medical supervision for IV magnesium"
+    ],
+    "description": "Magnesium is present as Mg2+ in foods and supplements (for example citrate and oxide salts). About half of total body magnesium is in bone, with the rest in muscle and soft tissue, and dietary intake is important because insufficiency can occur.",
+    "summary": "Magnesium is an essential mineral involved in 300+ enzymatic reactions related to energy metabolism and neuromuscular function; supplementation is used in selected contexts, with variable evidence for some outcomes.",
+    "mechanism": "Proposed: Magnesium acts as a cofactor for ATP-dependent enzymes, regulates calcium and potassium transport, and may stabilize neuronal excitability in migraine and muscle contexts.",
+    "safetyNotes": "Generally safe at dietary intake. Higher-dose supplements, especially oxide forms, can cause diarrhea; overdose can cause hypermagnesemia, and IV misuse can cause hypotension or cardiac complications.",
+    "interactions": [
+      "May reduce absorption of bisphosphonates and some antibiotics (including tetracyclines and fluoroquinolones); separate dosing windows are commonly used.",
+      "May potentiate neuromuscular blocking agents."
+    ],
+    "dosage": "RDA is approximately 310-420 mg/day in adults. Typical supplemental ranges are often around 100-400 mg elemental magnesium/day; IV dosing is a medical protocol only.",
+    "preparation": "Available as oxide, citrate, chloride, aspartate, and related salts; food sources include nuts, leafy greens, and whole grains.",
+    "regulatoryStatus": "Permitted as a dietary supplement and GRAS food additive; prescription formulations exist for specific medical use (for example IV magnesium sulfate).",
+    "sourceType": "Essential nutrient / mineral",
+    "activeCompounds": [
+      "Mg2+"
+    ]
+  },
+  {
+    "category": "nutrient",
+    "sources": [
+      {
+        "title": "Compound research dossier (ops/research/compound-research.pdf)",
+        "url": "ops/research/compound-research.pdf"
+      }
+    ],
+    "lastUpdated": "2026-04-04",
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
+    "name": "pyridoxine",
+    "displayName": "pyridoxine",
+    "slug": "pyridoxine",
+    "id": "pyridoxine",
+    "herbs": [
+      "meat",
+      "beans",
+      "grains"
+    ],
+    "effects": [
+      "Supports amino-acid metabolism",
+      "Supports neurotransmitter synthesis",
+      "Used for deficiency prevention and correction"
+    ],
+    "contraindications": [
+      "High-dose chronic use may cause peripheral neuropathy",
+      "Use caution with anticonvulsant therapy",
+      "Use caution with levodopa regimens"
+    ],
+    "description": "Vitamin B6 includes pyridoxine, pyridoxal, pyridoxamine, and related phosphates. It is present in many foods, and pyridoxal-5-phosphate functions as a core coenzyme in amino-acid and neurotransmitter pathways.",
+    "summary": "Vitamin B6 is an essential nutrient and metabolic cofactor used to prevent deficiency, with mixed evidence for some supplement uses such as PMS or nausea contexts.",
+    "mechanism": "Proposed: B6-dependent coenzyme activity supports neurotransmitter synthesis pathways (including serotonin and GABA) and may influence hormone-related pathways.",
+    "safetyNotes": "RDA-level intake is generally safe. Chronic high doses above about 100 mg/day are linked to peripheral neuropathy, which is documented and often improves after discontinuation.",
+    "interactions": [
+      "High-dose vitamin B6 may reduce effectiveness of phenytoin.",
+      "Vitamin B6 can affect levodopa response when not paired with carbidopa."
+    ],
+    "dosage": "RDA is about 1.3-1.7 mg/day in adults. Supplement doses of about 50-100 mg/day are used in some contexts, but upper-intake safety limits should be respected.",
+    "preparation": "Commonly available as pyridoxine hydrochloride tablets or capsules, often in B-complex formulations.",
+    "regulatoryStatus": "Essential nutrient with established RDA; broadly available as a dietary supplement.",
+    "sourceType": "Essential vitamin (cofactor)",
+    "activeCompounds": [
+      "Pyridoxine",
+      "Pyridoxal-5-phosphate"
+    ]
+  },
+  {
+    "category": "nutrient",
+    "sources": [
+      {
+        "title": "Compound research dossier (ops/research/compound-research.pdf)",
+        "url": "ops/research/compound-research.pdf"
+      }
+    ],
+    "lastUpdated": "2026-04-04",
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
+    "name": "riboflavin",
+    "displayName": "riboflavin",
+    "slug": "riboflavin",
+    "id": "riboflavin",
+    "herbs": [
+      "milk",
+      "eggs",
+      "green vegetables"
+    ],
+    "effects": [
+      "Supports energy metabolism",
+      "Supports antioxidant enzyme systems",
+      "Used for deficiency prevention"
+    ],
+    "contraindications": [
+      "High-dose use should follow clinical guidance for migraine protocols",
+      "Bright-yellow urine is expected and generally harmless"
+    ],
+    "description": "Riboflavin is found in foods such as milk, eggs, and green vegetables. Dietary requirements are low, while migraine-focused protocols use pharmacologic doses substantially above the RDA.",
+    "summary": "Riboflavin is an essential B-vitamin required for energy production and antioxidant enzyme systems; it is used for deficiency prevention and studied at high doses for migraine prophylaxis.",
+    "mechanism": "Proposed: As part of FAD/FMN coenzymes, riboflavin supports redox metabolism and may improve mitochondrial energy handling in migraine pathways.",
+    "safetyNotes": "Riboflavin is generally considered very safe, including at high supplemental doses. Excess is excreted and can cause bright-yellow urine without known serious toxicity.",
+    "interactions": [
+      "No major clinically significant drug interactions are emphasized in the research dossier."
+    ],
+    "dosage": "RDA is around 1.1-1.3 mg/day. Migraine studies commonly use 400 mg/day, which is distinct from dietary-intake use.",
+    "preparation": "Available as tablets or capsules and in B-complex products; riboflavin is light-sensitive and typically stored in opaque packaging.",
+    "regulatoryStatus": "Essential nutrient with established RDA; available as a dietary supplement.",
+    "sourceType": "Essential vitamin (coenzyme component)",
+    "activeCompounds": [
+      "Riboflavin (FAD/FMN precursor)"
+    ]
+  },
+  {
+    "category": "nutrient",
+    "sources": [
+      {
+        "title": "Compound research dossier (ops/research/compound-research.pdf)",
+        "url": "ops/research/compound-research.pdf"
+      }
+    ],
+    "lastUpdated": "2026-04-04",
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
+    "name": "selenium",
+    "displayName": "selenium",
+    "slug": "selenium",
+    "id": "selenium",
+    "herbs": [
+      "bread",
+      "meat",
+      "seafood"
+    ],
+    "effects": [
+      "Supports antioxidant enzyme function",
+      "Supports thyroid-hormone metabolism",
+      "Used for selenium deficiency correction"
+    ],
+    "contraindications": [
+      "Excess intake may cause selenosis",
+      "Do not exceed upper-intake guidance without supervision",
+      "Use caution with anticoagulant therapy"
+    ],
+    "description": "Selenium is incorporated into selenoproteins and obtained from diet. Adult intake guidance is in micrograms, and excessive intake raises toxicity risk.",
+    "summary": "Selenium is an essential trace mineral involved in antioxidant enzymes and thyroid-hormone metabolism; supplementation mainly targets deficiency, while higher-dose preventive uses remain mixed.",
+    "mechanism": "Proposed: Selenium supports redox defense through selenoproteins and contributes to thyroid hormone conversion via deiodinase enzymes.",
+    "safetyNotes": "Deficiency can contribute to cardiomyopathy and hypothyroid states. Excess intake can cause selenosis (including garlic breath, hair loss, and neuropathy); upper intake is around 400 mcg/day.",
+    "interactions": [
+      "High selenium intake may interact with anticoagulants and increase bleeding risk.",
+      "Reported interactions with heavy-metal biology are context-dependent and not a routine supplementation target."
+    ],
+    "dosage": "RDA is about 55 mcg/day in adults. Some historical trials used 200 mcg/day, but high-dose prevention strategies are not routinely recommended.",
+    "preparation": "Available as selenomethionine and selenite formulations.",
+    "regulatoryStatus": "Essential nutrient with established RDA; allowed as a dietary supplement.",
+    "sourceType": "Essential micronutrient",
+    "activeCompounds": [
+      "Selenomethionine",
+      "Selenocysteine"
+    ]
+  },
+  {
+    "category": "nutrient",
+    "sources": [
+      {
+        "title": "Compound research dossier (ops/research/compound-research.pdf)",
+        "url": "ops/research/compound-research.pdf"
+      }
+    ],
+    "lastUpdated": "2026-04-04",
+    "identity": "",
+    "categoryUseContext": "",
+    "evidenceLevel": "",
+    "relatedEntities": [],
+    "linkedHerbs": [],
+    "name": "vitamin-d",
+    "displayName": "vitamin-d",
+    "slug": "vitamin-d",
+    "id": "vitamin-d",
+    "herbs": [
+      "animal foods",
+      "fortified foods",
+      "sunlight-derived synthesis"
+    ],
+    "effects": [
+      "Supports calcium homeostasis",
+      "Supports bone health",
+      "Used for deficiency prevention and treatment"
+    ],
+    "contraindications": [
+      "Excess intake may cause hypercalcemia",
+      "Use caution with high-dose long-term supplementation",
+      "Monitor when combined with thiazide diuretics"
+    ],
+    "description": "Vitamin D is produced in skin (D3) and obtained from diet or supplements (D2 and D3). It is metabolized in liver and kidney to active hormonal forms, and intake guidance varies by age and status.",
+    "summary": "Vitamin D is an essential nutrient and prohormone (D2 and D3 forms) central to calcium balance and bone health; deficiency prevention is well established, while broader non-skeletal claims remain under study.",
+    "mechanism": "Proposed: Vitamin D increases intestinal calcium and phosphorus absorption for bone mineralization and also modulates immune signaling via vitamin D receptors.",
+    "safetyNotes": "Deficiency contributes to bone disease. Excess supplementation can cause hypervitaminosis D with hypercalcemia, nausea, weakness, and kidney-stone risk; monitoring is advised for high-dose therapy.",
+    "interactions": [
+      "May increase calcium-retention effects of thiazide diuretics and raise hypercalcemia risk.",
+      "Glucocorticoids may reduce vitamin D activity."
+    ],
+    "dosage": "RDA is approximately 600-800 IU/day depending on age; the upper intake level is around 4000 IU/day. Higher intake ranges are sometimes used clinically with monitoring.",
+    "preparation": "Supplements are commonly sold as vitamin D3 (cholecalciferol) or vitamin D2 (ergocalciferol), including combined calcium + vitamin D products.",
+    "regulatoryStatus": "Essential nutrient with established RDA; OTC supplements are common, and some high-dose calciferol products are prescription.",
+    "sourceType": "Essential vitamin (hormone precursor)",
+    "activeCompounds": [
+      "Vitamin D2 (ergocalciferol)",
+      "Vitamin D3 (cholecalciferol)",
+      "Calcitriol (active hormone)"
+    ]
   }
 ]

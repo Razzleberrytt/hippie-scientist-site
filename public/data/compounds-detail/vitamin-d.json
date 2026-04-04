@@ -1,0 +1,51 @@
+{
+  "category": "nutrient",
+  "sources": [
+    {
+      "title": "Compound research dossier (ops/research/compound-research.pdf)",
+      "url": "ops/research/compound-research.pdf"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [],
+  "name": "vitamin-d",
+  "displayName": "vitamin-d",
+  "slug": "vitamin-d",
+  "id": "vitamin-d",
+  "herbs": [
+    "animal foods",
+    "fortified foods",
+    "sunlight-derived synthesis"
+  ],
+  "effects": [
+    "Supports calcium homeostasis",
+    "Supports bone health",
+    "Used for deficiency prevention and treatment"
+  ],
+  "contraindications": [
+    "Excess intake may cause hypercalcemia",
+    "Use caution with high-dose long-term supplementation",
+    "Monitor when combined with thiazide diuretics"
+  ],
+  "description": "Vitamin D is produced in skin (D3) and obtained from diet or supplements (D2 and D3). It is metabolized in liver and kidney to active hormonal forms, and intake guidance varies by age and status.",
+  "summary": "Vitamin D is an essential nutrient and prohormone (D2 and D3 forms) central to calcium balance and bone health; deficiency prevention is well established, while broader non-skeletal claims remain under study.",
+  "mechanism": "Proposed: Vitamin D increases intestinal calcium and phosphorus absorption for bone mineralization and also modulates immune signaling via vitamin D receptors.",
+  "safetyNotes": "Deficiency contributes to bone disease. Excess supplementation can cause hypervitaminosis D with hypercalcemia, nausea, weakness, and kidney-stone risk; monitoring is advised for high-dose therapy.",
+  "interactions": [
+    "May increase calcium-retention effects of thiazide diuretics and raise hypercalcemia risk.",
+    "Glucocorticoids may reduce vitamin D activity."
+  ],
+  "dosage": "RDA is approximately 600-800 IU/day depending on age; the upper intake level is around 4000 IU/day. Higher intake ranges are sometimes used clinically with monitoring.",
+  "preparation": "Supplements are commonly sold as vitamin D3 (cholecalciferol) or vitamin D2 (ergocalciferol), including combined calcium + vitamin D products.",
+  "regulatoryStatus": "Essential nutrient with established RDA; OTC supplements are common, and some high-dose calciferol products are prescription.",
+  "sourceType": "Essential vitamin (hormone precursor)",
+  "activeCompounds": [
+    "Vitamin D2 (ergocalciferol)",
+    "Vitamin D3 (cholecalciferol)",
+    "Calcitriol (active hormone)"
+  ]
+}

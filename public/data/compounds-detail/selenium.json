@@ -1,0 +1,50 @@
+{
+  "category": "nutrient",
+  "sources": [
+    {
+      "title": "Compound research dossier (ops/research/compound-research.pdf)",
+      "url": "ops/research/compound-research.pdf"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [],
+  "name": "selenium",
+  "displayName": "selenium",
+  "slug": "selenium",
+  "id": "selenium",
+  "herbs": [
+    "bread",
+    "meat",
+    "seafood"
+  ],
+  "effects": [
+    "Supports antioxidant enzyme function",
+    "Supports thyroid-hormone metabolism",
+    "Used for selenium deficiency correction"
+  ],
+  "contraindications": [
+    "Excess intake may cause selenosis",
+    "Do not exceed upper-intake guidance without supervision",
+    "Use caution with anticoagulant therapy"
+  ],
+  "description": "Selenium is incorporated into selenoproteins and obtained from diet. Adult intake guidance is in micrograms, and excessive intake raises toxicity risk.",
+  "summary": "Selenium is an essential trace mineral involved in antioxidant enzymes and thyroid-hormone metabolism; supplementation mainly targets deficiency, while higher-dose preventive uses remain mixed.",
+  "mechanism": "Proposed: Selenium supports redox defense through selenoproteins and contributes to thyroid hormone conversion via deiodinase enzymes.",
+  "safetyNotes": "Deficiency can contribute to cardiomyopathy and hypothyroid states. Excess intake can cause selenosis (including garlic breath, hair loss, and neuropathy); upper intake is around 400 mcg/day.",
+  "interactions": [
+    "High selenium intake may interact with anticoagulants and increase bleeding risk.",
+    "Reported interactions with heavy-metal biology are context-dependent and not a routine supplementation target."
+  ],
+  "dosage": "RDA is about 55 mcg/day in adults. Some historical trials used 200 mcg/day, but high-dose prevention strategies are not routinely recommended.",
+  "preparation": "Available as selenomethionine and selenite formulations.",
+  "regulatoryStatus": "Essential nutrient with established RDA; allowed as a dietary supplement.",
+  "sourceType": "Essential micronutrient",
+  "activeCompounds": [
+    "Selenomethionine",
+    "Selenocysteine"
+  ]
+}

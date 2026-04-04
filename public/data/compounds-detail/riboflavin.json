@@ -1,0 +1,47 @@
+{
+  "category": "nutrient",
+  "sources": [
+    {
+      "title": "Compound research dossier (ops/research/compound-research.pdf)",
+      "url": "ops/research/compound-research.pdf"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [],
+  "name": "riboflavin",
+  "displayName": "riboflavin",
+  "slug": "riboflavin",
+  "id": "riboflavin",
+  "herbs": [
+    "milk",
+    "eggs",
+    "green vegetables"
+  ],
+  "effects": [
+    "Supports energy metabolism",
+    "Supports antioxidant enzyme systems",
+    "Used for deficiency prevention"
+  ],
+  "contraindications": [
+    "High-dose use should follow clinical guidance for migraine protocols",
+    "Bright-yellow urine is expected and generally harmless"
+  ],
+  "description": "Riboflavin is found in foods such as milk, eggs, and green vegetables. Dietary requirements are low, while migraine-focused protocols use pharmacologic doses substantially above the RDA.",
+  "summary": "Riboflavin is an essential B-vitamin required for energy production and antioxidant enzyme systems; it is used for deficiency prevention and studied at high doses for migraine prophylaxis.",
+  "mechanism": "Proposed: As part of FAD/FMN coenzymes, riboflavin supports redox metabolism and may improve mitochondrial energy handling in migraine pathways.",
+  "safetyNotes": "Riboflavin is generally considered very safe, including at high supplemental doses. Excess is excreted and can cause bright-yellow urine without known serious toxicity.",
+  "interactions": [
+    "No major clinically significant drug interactions are emphasized in the research dossier."
+  ],
+  "dosage": "RDA is around 1.1-1.3 mg/day. Migraine studies commonly use 400 mg/day, which is distinct from dietary-intake use.",
+  "preparation": "Available as tablets or capsules and in B-complex products; riboflavin is light-sensitive and typically stored in opaque packaging.",
+  "regulatoryStatus": "Essential nutrient with established RDA; available as a dietary supplement.",
+  "sourceType": "Essential vitamin (coenzyme component)",
+  "activeCompounds": [
+    "Riboflavin (FAD/FMN precursor)"
+  ]
+}
