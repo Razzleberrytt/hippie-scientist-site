@@ -1,35 +1,29 @@
 {
   "name": "Cytisine (nicotinic agonist)",
-  "herbs": [
-    "nan"
-  ],
+  "herbs": [],
   "effects": [
     "Delirium",
     "nausea",
     "visionary trance",
-    "paralysis",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "paralysis"
   ],
   "contraindications": [
     "Highly toxic",
     "ceremonial use only"
   ],
-  "category": null,
+  "category": "quinolizidine alkaloid",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "cytisine-nicotinic-agonist",
   "id": "cytisine-nicotinic-agonist",
   "displayName": "Cytisine (nicotinic agonist)",
-  "description": "Cytisine (nicotinic agonist) is a compound reported in nan. Available references are still early and incomplete.",
-  "summary": "Cytisine (nicotinic agonist) is a compound reported in nan. Available references are still early and incomplete.",
+  "description": "Cytisine (nicotinic agonist) is classified here as quinolizidine alkaloid. This record is retained because it appears in psychoactive/traditional-use contexts, but supporting references and source-linked occurrence data are currently incomplete. Reported effects in existing notes include Delirium, nausea, visionary trance.",
+  "summary": "Cytisine (nicotinic agonist) is tracked as nicotinic receptor agonist in this dataset. Evidence in the current record is limited, so pharmacology details should be treated as provisional.",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
+  "categoryUseContext": "Natural occurrence context is currently under-documented in this record; botanical source attribution requires verification.",
+  "evidenceLevel": "limited",
   "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
-  ]
+  "linkedHerbs": [],
+  "type": "nicotinic receptor agonist",
+  "mechanism": "Mechanism is uncertain in this dataset. Current notes suggest possible nervous-system activity, but no source-linked mechanism has been validated in this record yet."
 }

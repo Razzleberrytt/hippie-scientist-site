@@ -1,19 +1,13 @@
 {
   "name": "Bufotenin",
-  "herbs": [
-    "nan"
-  ],
+  "herbs": [],
   "effects": [
     "Visuals",
     "nausea",
     "euphoria",
     "altered states",
     "stimulation",
-    "altered perception",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "altered perception"
   ],
   "contraindications": [
     "Asthma",
@@ -23,19 +17,19 @@
     "SSRIs",
     "schizophrenia"
   ],
-  "category": null,
+  "category": "tryptamine alkaloid",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "bufotenin",
   "id": "bufotenin",
   "displayName": "Bufotenin",
-  "description": "Bufotenin is a compound reported in nan. Available references are still early and incomplete.",
-  "summary": "Bufotenin is a compound reported in nan. Available references are still early and incomplete.",
+  "description": "Bufotenin is classified here as tryptamine alkaloid. This record is retained because it appears in psychoactive/traditional-use contexts, but supporting references and source-linked occurrence data are currently incomplete. Reported effects in existing notes include Visuals, nausea, euphoria.",
+  "summary": "Bufotenin is tracked as indole alkaloid in this dataset. Evidence in the current record is limited, so pharmacology details should be treated as provisional.",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
+  "categoryUseContext": "Natural occurrence context is currently under-documented in this record; botanical source attribution requires verification.",
+  "evidenceLevel": "limited",
   "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
-  ]
+  "linkedHerbs": [],
+  "type": "indole alkaloid",
+  "mechanism": "Mechanism is uncertain in this dataset. Current notes suggest possible nervous-system activity, but no source-linked mechanism has been validated in this record yet."
 }

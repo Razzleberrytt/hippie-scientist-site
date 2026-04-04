@@ -1,8 +1,6 @@
 {
   "name": "Caleicines",
-  "herbs": [
-    "nan"
-  ],
+  "herbs": [],
   "effects": [
     "Lucid dreaming",
     "relaxation",
@@ -10,8 +8,6 @@
     "Vivid dreams",
     "increased dream recall",
     "mild sedation",
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
     "dreaming or folk medicine.. Used in ritual",
     "dreaming or folk medicine. Used in ritual",
     "dreaming or folk medicine",
@@ -25,19 +21,19 @@
     "pregnancy",
     "epilepsy."
   ],
-  "category": null,
+  "category": "sesquiterpene lactones",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "caleicines",
   "id": "caleicines",
   "displayName": "Caleicines",
-  "description": "Caleicines is a compound reported in nan. Available references are still early and incomplete.",
-  "summary": "Caleicines is a compound reported in nan. Available references are still early and incomplete.",
+  "description": "Caleicines is classified here as sesquiterpene lactones. This record is retained because it appears in psychoactive/traditional-use contexts, but supporting references and source-linked occurrence data are currently incomplete. Reported effects in existing notes include Lucid dreaming, relaxation, altered dream content.",
+  "summary": "Caleicines is tracked as phytochemical class in this dataset. Evidence in the current record is limited, so pharmacology details should be treated as provisional.",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
+  "categoryUseContext": "Natural occurrence context is currently under-documented in this record; botanical source attribution requires verification.",
+  "evidenceLevel": "limited",
   "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
-  ]
+  "linkedHerbs": [],
+  "type": "phytochemical class",
+  "mechanism": "Mechanism is uncertain in this dataset. Current notes suggest possible nervous-system activity, but no source-linked mechanism has been validated in this record yet."
 }

@@ -1,8 +1,6 @@
 {
   "name": "erythrinan alkaloids",
-  "herbs": [
-    "nan"
-  ],
+  "herbs": [],
   "effects": [
     "Relaxation",
     "improved sleep",
@@ -12,8 +10,6 @@
     "sedation",
     "muscle relaxation",
     "anxiety reduction",
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
     "dreaming or folk medicine.. Used in ritual",
     "dreaming or folk medicine. Used in ritual",
     "dreaming or folk medicine",
@@ -31,19 +27,19 @@
     "low blood pressure",
     "sedative use."
   ],
-  "category": null,
+  "category": "erythrinan alkaloids",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "erythrinan-alkaloids",
   "id": "erythrinan-alkaloids",
   "displayName": "erythrinan alkaloids",
-  "description": "erythrinan alkaloids is a compound reported in nan. Available references are still early and incomplete.",
-  "summary": "erythrinan alkaloids is a compound reported in nan. Available references are still early and incomplete.",
+  "description": "erythrinan alkaloids is classified here as erythrinan alkaloids. This record is retained because it appears in psychoactive/traditional-use contexts, but supporting references and source-linked occurrence data are currently incomplete. Reported effects in existing notes include Relaxation, improved sleep, reduced stress.",
+  "summary": "erythrinan alkaloids is tracked as alkaloid class in this dataset. Evidence in the current record is limited, so pharmacology details should be treated as provisional.",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
+  "categoryUseContext": "Natural occurrence context is currently under-documented in this record; botanical source attribution requires verification.",
+  "evidenceLevel": "limited",
   "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
-  ]
+  "linkedHerbs": [],
+  "type": "alkaloid class",
+  "mechanism": "Mechanism is uncertain in this dataset. Current notes suggest possible nervous-system activity, but no source-linked mechanism has been validated in this record yet."
 }

@@ -1,14 +1,10 @@
 {
   "name": "flavonoids (exact psychoactive agent unknown)",
-  "herbs": [
-    "nan"
-  ],
+  "herbs": [],
   "effects": [
     "Enhanced dreams",
     "altered awareness",
     "calm",
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
     "dreaming or folk medicine.. Used in ritual",
     "dreaming or folk medicine. Used in ritual",
     "dreaming or folk medicine"
@@ -17,19 +13,19 @@
     "Avoid in pregnancy",
     "limited data"
   ],
-  "category": null,
+  "category": "flavonoids",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "flavonoids-exact-psychoactive-agent-unknown",
   "id": "flavonoids-exact-psychoactive-agent-unknown",
   "displayName": "flavonoids (exact psychoactive agent unknown)",
-  "description": "flavonoids (exact psychoactive agent unknown) is a compound reported in nan. Available references are still early and incomplete.",
-  "summary": "flavonoids (exact psychoactive agent unknown) is a compound reported in nan. Available references are still early and incomplete.",
+  "description": "flavonoids (exact psychoactive agent unknown) is classified here as flavonoids. This record is retained because it appears in psychoactive/traditional-use contexts, but supporting references and source-linked occurrence data are currently incomplete. Reported effects in existing notes include Enhanced dreams, altered awareness, calm.",
+  "summary": "flavonoids (exact psychoactive agent unknown) is tracked as polyphenol class in this dataset. Evidence in the current record is limited, so pharmacology details should be treated as provisional.",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
+  "categoryUseContext": "Natural occurrence context is currently under-documented in this record; botanical source attribution requires verification.",
+  "evidenceLevel": "limited",
   "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
-  ]
+  "linkedHerbs": [],
+  "type": "polyphenol class",
+  "mechanism": "Mechanism is uncertain in this dataset. Current notes suggest possible nervous-system activity, but no source-linked mechanism has been validated in this record yet."
 }

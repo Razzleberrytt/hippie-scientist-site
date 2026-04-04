@@ -1,33 +1,27 @@
 {
   "name": "acetylcholine",
-  "herbs": [
-    "nan"
-  ],
+  "herbs": [],
   "effects": [
     "Mild stimulation",
-    "increased circulation",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "increased circulation"
   ],
   "contraindications": [
     "Pregnancy (caution)",
     "diuretics"
   ],
-  "category": null,
+  "category": "choline ester",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "acetylcholine",
   "id": "acetylcholine",
   "displayName": "acetylcholine",
-  "description": "acetylcholine is a compound reported in nan. Available references are still early and incomplete.",
-  "summary": "acetylcholine is a compound reported in nan. Available references are still early and incomplete.",
+  "description": "acetylcholine is classified here as choline ester. This record is retained because it appears in psychoactive/traditional-use contexts, but supporting references and source-linked occurrence data are currently incomplete. Reported effects in existing notes include Mild stimulation, increased circulation.",
+  "summary": "acetylcholine is tracked as neurotransmitter in this dataset. Evidence in the current record is limited, so pharmacology details should be treated as provisional.",
   "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
+  "categoryUseContext": "Natural occurrence context is currently under-documented in this record; botanical source attribution requires verification.",
+  "evidenceLevel": "limited",
   "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
-  ]
+  "linkedHerbs": [],
+  "type": "neurotransmitter",
+  "mechanism": "Mechanism is uncertain in this dataset. Current notes suggest possible nervous-system activity, but no source-linked mechanism has been validated in this record yet."
 }
