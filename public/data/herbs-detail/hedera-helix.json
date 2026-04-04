@@ -10,24 +10,25 @@
     "used in cough relief"
   ],
   "contraindications": [],
-  "safetyNotes": "safe; Nausea; vomiting; allergic skin reactions; not for young children; No direct toxicity data. Contextual inference: Expectorant; antispasmodic; used in cough relief. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Expectorant; used in cough relief. none.",
+  "safetyNotes": "GI reactions and allergic reactions have been reported; pregnancy/lactation safety not established; use not recommended absent sufficient data.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
+      "title": "EU herbal monograph on Hedera helix L., folium (EMA)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-hedera-helix-l-folium-revision-2_en.pdf"
     },
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Hedera helix L. - Plants of the World Online (Kew)",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:90723-1"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Expectorant, antispasmodic; used in cough relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "50; 100 mg; day standardized leaf extract",
+  "description": "Ivy leaf preparations are defined as specific dry or liquid extracts with stated drug-extract ratios and extraction solvents.",
+  "dosage": "EMA monograph dosing schedules depend on extract type (defined dry/liquid extracts by DER and solvent); preserve product-specific EMA schedule details and age bands when selecting a product label dose.",
   "duration": "4–6 hours",
-  "interactions": [],
+  "interactions": "None reported.",
   "legalStatus": "Legal; used in registered cough preparations",
-  "preparation": "Leaves used in syrup or extract forms for respiratory support; raw ingestion discouraged",
-  "region": "No direct region data. Contextual inference: Expectorant, antispasmodic; used in cough relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Expectorant, antispasmodic; used in cough relief. none. ; nan; nan",
+  "preparation": "EMA-defined extract preparations (dry/liquid/soft extracts with specified DER and solvents), administered orally; consult clinician if symptoms persist more than 1 week.",
+  "region": "Native range Europe/Mediterranean region to Iran.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -45,5 +46,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Hedera helix leaf preparations are used as an expectorant in productive cough, with defined extract preparations and dosing schedules; pregnancy/lactation safety is not established."
 }

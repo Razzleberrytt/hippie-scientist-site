@@ -2,8 +2,12 @@
   "name": "grape seed",
   "latin": "grape seed",
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: Proanthocyanidin-rich extracts are often discussed in relation to antioxidant and vascular effects, but human outcomes depend on product composition and study design.",
+  "activeCompounds": [
+    "Proanthocyanidins",
+    "Proanthocyanidin B2",
+    "Catechin"
+  ],
   "effects": [
     "No direct effects data. Contextual inference:",
     "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -14,16 +18,29 @@
     "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
     "Do not use with known allergy to this plant or related species."
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
+  "safetyNotes": "Generally well tolerated orally or topically; limited pregnancy/lactation safety data; has not been associated with clinically apparent acute liver injury.",
+  "sources": [
+    {
+      "title": "Grape Seed Extract: Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/grape-seed-extract"
+    },
+    {
+      "title": "Grape Seed - LiverTox",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK590485/"
+    },
+    {
+      "title": "Proanthocyanidin B2 (CID 5320711) - PubChem",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Proanthocyanidin-B2"
+    }
+  ],
   "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
+  "description": "Made from the seeds of wine grapes; contains proanthocyanidins.",
   "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
+  "interactions": "unresolved beyond general precaution",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Oral dietary supplements and topical products; limited research on mouthrinse use and topical wound-healing hypotheses.",
+  "region": "Native range for Vitis vinifera is S. Central & SE Europe to Central Asia and N. Iran.",
   "therapeuticUses": [
     "Traditional supportive use; indication depends on species part and preparation.",
     "Evidence level varies; use only within established clinical or traditional context."
@@ -42,5 +59,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Grape seed extract is promoted for cardiometabolic and topical uses; reviews suggest possible improvements in LDL/triglycerides and diastolic blood pressure, but trials are small and product composition varies, so conclusions are not definite."
 }

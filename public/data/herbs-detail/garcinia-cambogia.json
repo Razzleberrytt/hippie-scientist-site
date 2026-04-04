@@ -2,31 +2,38 @@
   "name": "garcinia cambogia",
   "latin": "Garcinia cambogia",
   "intensity": "No direct intensity data. Contextual inference: Appetite suppressant, metabolism enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Appetite suppressant, metabolism enhancer. No direct region data. Contextual inference: Appetite suppressant, metabolism enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Appetite suppressant, metabolism enhancer. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: HCA has been studied for effects on appetite and body weight; specific mechanisms in humans are not established clearly enough to treat as confirmed.",
+  "activeCompounds": [
+    "Hydroxycitric acid (HCA; garcinia acid)"
+  ],
   "effects": [
     "Appetite suppressant",
     "metabolism enhancer"
   ],
   "contraindications": [],
-  "safetyNotes": "Possible nausea; headache; GI upset; hepatotoxicity reported with extracts; No direct toxicity data. Contextual inference: Appetite suppressant; metabolism enhancer. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Appetite suppressant; metabolism enhancer. none.",
+  "safetyNotes": "Potential unsafe use due to reported liver damage cases, including severe cases; gastrointestinal adverse effects such as nausea and diarrhea; limited pregnancy/lactation data.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
+      "title": "Garcinia Cambogia: Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/garcinia-cambogia"
     },
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Garcinia Cambogia - LiverTox",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548087/"
+    },
+    {
+      "title": "Garcinia acid (hydroxycitric acid) (CID 185620) - PubChem",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Garcinia-acid"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Appetite suppressant, metabolism enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "A tree native to India / South Asia; supplement preparations commonly emphasize the fruit rind, which contains hydroxycitric acid (HCA). Historically used as a food preservative and in folk medicine.",
   "dosage": "No direct dosage data. Contextual inference: Appetite suppressant; metabolism enhancer. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Appetite suppressant; metabolism enhancer. No direct region data. Contextual inference: Appetite suppressant; metabolism enhancer. none.; nan.",
   "duration": "3–6 hours",
-  "interactions": [],
+  "interactions": "Concerns with liver-affecting drugs and serotonergic drugs; medication review advised.",
   "legalStatus": "Legal but subject to regulatory review",
-  "preparation": "Rind of the fruit dried and powdered; used in capsules or decoctions (weight loss applications)",
-  "region": "No direct region data. Contextual inference: Appetite suppressant, metabolism enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Appetite suppressant, metabolism enhancer. none. ; nan; nan",
+  "preparation": "Commonly sold as extracts of the fruit rind and multi-ingredient weight-loss products containing garcinia extract/HCA.",
+  "region": "Native range is Western India.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -44,5 +51,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Garcinia (hydroxycitric-acid-containing fruit rind extract) is marketed for appetite control and weight loss, but human evidence for meaningful weight-loss benefit is inconsistent; there are multiple reports of clinically apparent liver injury associated with products labeled as containing garcinia, including severe cases."
 }

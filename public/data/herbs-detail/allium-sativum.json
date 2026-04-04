@@ -2,7 +2,7 @@
   "name": "allium sativum",
   "latin": "Allium sativum",
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. No direct region data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Garlic’s effects are proposed to relate to reactive sulfur compounds formed from alliin (including allicin) that may influence vascular tone, platelet activity, and lipid metabolism. These mechanisms are biologically plausible but do not by themselves establish clinical efficacy for any disease outcome.",
+  "mechanism": "Proposed mechanism: Garlic contains organosulfur compounds; alliin can be enzymatically converted to allicin, but specific clinically confirmed mechanisms for lipid/BP effects are not established well enough here to label as confirmed in humans.",
   "activeCompounds": [
     "Alliin",
     "Allicin"
@@ -19,28 +19,29 @@
     "stimulating effects."
   ],
   "contraindications": [],
-  "safetyNotes": "Oral garlic is generally well tolerated in studies, with common adverse effects including odor, GI discomfort, and nausea. Topical raw garlic can cause severe skin irritation or burns. Garlic supplements can increase bleeding risk, especially around procedures or when combined with anticoagulant/antiplatelet therapy.",
+  "safetyNotes": "Common adverse effects include odor, abdominal discomfort, flatulence, nausea, and possible allergic reactions; topical raw garlic can cause chemical burns; bleeding risk is a key safety concern for supplement forms.",
   "sources": [
     {
-      "title": "NCCIH: Garlic — Usefulness and Safety",
+      "title": "Garlic: Usefulness and Safety",
       "url": "https://www.nccih.nih.gov/health/garlic"
     },
     {
-      "title": "PubChem: Garlic (contains alliin/allicin)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Garlic"
+      "title": "Allium sativum L. - Plants of the World Online (Kew)",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:528796-1"
+    },
+    {
+      "title": "Allicin (CID 65036) - PubChem",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Allicin"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Garlic (Allium sativum) is widely used as both a food and an herbal supplement. Clinical evidence suggests small average benefits for LDL/total cholesterol, blood pressure, and blood glucose in some populations, but effects are modest and not a substitute for standard care.",
+  "description": "Cultivated worldwide with long historical medicinal and culinary use; used orally as food and supplements, and sometimes topically, though raw garlic on skin can cause severe irritation/chemical burns.",
   "dosage": "No single standardized dose is established across products. Use product-labeled dosing and clinical guidance, especially when bleeding risk or polypharmacy is present.",
   "duration": "Daily use safe, long-term",
-  "interactions": [
-    "Potential additive bleeding risk with anticoagulants, antiplatelet drugs, and aspirin.",
-    "Discuss supplement use before surgery or invasive procedures due to bleeding risk."
-  ],
+  "interactions": "Increased bleeding risk, particularly with anticoagulants such as warfarin and aspirin; perioperative disclosure advised.",
   "legalStatus": "Widely approved as food and supplement globally (GRAS).",
-  "preparation": "Common preparations include fresh cloves in food, dehydrated garlic powders, aged garlic extracts, and oils. Raw topical application is not considered safe due to risk of skin injury.",
-  "region": "Cultivated worldwide; historically used across multiple medical traditions including Mediterranean and Asian systems.",
+  "preparation": "Food use plus supplement forms and topical forms; raw topical use is specifically cautioned due to burn risk.",
+  "region": "Native range is Central Asia to northeastern Iran.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -58,5 +59,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Garlic is widely used as food and as a dietary supplement; human data suggest small reductions in total cholesterol/LDL, small blood-pressure reductions, and small blood-sugar reductions, while evidence for cancer risk reduction is mixed. Key caution: supplement use may increase bleeding risk, especially around surgery or with anticoagulants/antiplatelets."
 }

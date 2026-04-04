@@ -14,16 +14,29 @@
     "avoid during pregnancy and breastfeeding",
     "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
+  "safetyNotes": "Adverse effects can include dizziness, nausea/vomiting, diarrhea, and muscle pain; pregnancy/lactation safety is uncertain. Some purported hawthorn-root/tejocote products may be substituted with toxic yellow oleander, so product identity matters.",
+  "sources": [
+    {
+      "title": "Hawthorn: Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/hawthorn"
+    },
+    {
+      "title": "FDA warning about tejocote root supplements substituted with toxic yellow oleander",
+      "url": "https://www.fda.gov/food/alerts-advisories-safety-information/fda-issues-warning-about-certain-supplements-substituted-toxic-yellow-oleander"
+    },
+    {
+      "title": "Hawthorn - LiverTox",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK589114/"
+    }
+  ],
   "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
+  "description": "A flowering shrub/tree in the rose family occurring in temperate regions; hawthorn is an umbrella term spanning multiple Crataegus species in commerce and traditional use.",
   "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
+  "interactions": "unresolved beyond cautious medication review language",
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Typically sold as hawthorn supplements and tejocote root products; preparation notes should emphasize verified identity.",
+  "region": "Hawthorn broadly occurs in temperate regions worldwide.",
   "therapeuticUses": [
     "traditional support for mild digestive comfort"
   ],
@@ -41,5 +54,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Hawthorn is promoted for heart/blood-vessel health and other uses; evidence in heart-failure studies is conflicting and insufficient for other cardiovascular endpoints. A major practical safety concern is product substitution/adulteration: some products labeled as tejocote root were adulterated with toxic yellow oleander."
 }

@@ -2,9 +2,10 @@
   "name": "hydrastis canadensis",
   "latin": "Hydrastis canadensis",
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, digestive tonic, mucous membrane support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, digestive tonic, mucous membrane support. No direct region data. Contextual inference: Antimicrobial, digestive tonic, mucous membrane support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, digestive tonic, mucous membrane support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Goldenseal contains isoquinoline alkaloids (including berberine), but oral goldenseal may yield low berberine exposure relative to isolated-compound studies. Mechanistic findings should not be assumed to translate directly to clinical outcomes.",
+  "mechanism": "Proposed mechanism: Goldenseal contains isoquinoline alkaloids such as berberine and hydrastine; low berberine absorption from oral goldenseal may limit applicability of berberine-only studies. A controlled clinical study indicates goldenseal can precipitate drug interactions via inhibition pathways.",
   "activeCompounds": [
-    "Berberine"
+    "Berberine",
+    "Hydrastine"
   ],
   "effects": [
     "Antimicrobial",
@@ -12,28 +13,29 @@
     "mucous membrane support"
   ],
   "contraindications": [],
-  "safetyNotes": "Short-term oral use around 3 g/day has been used in small studies without serious harms, but longer-term safety is uncertain. Avoid in pregnancy/breastfeeding and in infants.",
+  "safetyNotes": "Short-term doses around 3 g/day appeared tolerated in small studies; long-term safety is uncertain; products may be adulterated/mislabeled. Avoid in pregnancy/breastfeeding and do not give to infants due to berberine risk.",
   "sources": [
     {
-      "title": "NCCIH: Goldenseal — Usefulness and Safety",
+      "title": "Goldenseal: Usefulness and Safety",
       "url": "https://www.nccih.nih.gov/health/goldenseal"
     },
     {
-      "title": "PubChem: Berberine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2353"
+      "title": "Assessing Transporter-Mediated Natural Product-Drug Interactions (Goldenseal)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8058163/"
+    },
+    {
+      "title": "Berberine (CID 2353) - PubChem",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Berberine"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Hydrastis canadensis is a North American plant used in supplements, historically for respiratory and GI complaints, but robust human efficacy trials are lacking.",
-  "dosage": "Small studies have used about 3 g/day short term; there is no well-established long-term dosing standard.",
+  "description": "A North American plant with bright yellow rhizome; native to northeastern U.S. and southeastern Canada; wild populations have been overharvested and are limited.",
+  "dosage": "About 3 g/day has been used in small research studies for short periods.",
   "duration": "4–6 hours",
-  "interactions": [
-    "May alter drug disposition; NCCIH describes reduced metformin exposure when combined with goldenseal extract.",
-    "Potential interaction risk with medicines processed by CYP pathways; medication review is advised before use."
-  ],
+  "interactions": "Metformin levels decreased about 25% in a healthy-adult study with goldenseal extract plus metformin; broad interaction potential should be flagged.",
   "legalStatus": "Legal; regulated as supplement",
-  "preparation": "Typically sold as rhizome/root powders, capsules, and tincture/extract products.",
-  "region": "Native to northeastern United States and southeastern Canada.",
+  "preparation": "Oral supplements commonly derived from rhizome/root; also used as mouthwash/eyewash and topically in some contexts, though human evidence is limited.",
+  "region": "Native range is SE Canada to N. Central & E. U.S.A.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -50,5 +52,5 @@
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [],
-  "summary": "Goldenseal has limited clinical evidence; NCCIH reports insufficient evidence to determine usefulness for any health condition."
+  "summary": "Goldenseal is promoted for colds/URIs and other uses, but there is not enough evidence to determine usefulness and no rigorous human studies evaluating effects on health conditions. Short-term dosing around 3 g/day has appeared tolerated in small studies, but longer-term safety is uncertain."
 }

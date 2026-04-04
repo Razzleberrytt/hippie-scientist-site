@@ -2,32 +2,40 @@
   "name": "psyllium (plantago ovata)",
   "latin": "Plantago ovata",
   "intensity": "No direct intensity data. Contextual inference: Laxative, bulking fiber, cholesterol reduction. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, bulking fiber, cholesterol reduction. No direct region data. Contextual inference: Laxative, bulking fiber, cholesterol reduction. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, bulking fiber, cholesterol reduction. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanism: Bulk-forming agents swell in liquid, increasing stool bulk and promoting softer stool; effect starts 12–24 hours later; delayed absorption of co-administered medicines is consistent with mucilage/bulk effects.",
+  "activeCompounds": [
+    "Predominantly soluble fibers/mucilages",
+    "Arabinoxylan"
+  ],
   "effects": [
     "Laxative",
     "bulking fiber",
     "cholesterol reduction"
   ],
   "contraindications": [],
-  "safetyNotes": "Bloating gas potential choking if not taken with water No direct toxicity data. Contextual inference: Laxative bulking fiber cholesterol reduction. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Laxative cholesterol reduction. none.",
+  "safetyNotes": "Contraindications include GI structural/functional disorders, swallowing difficulties, and undiagnosed rectal bleeding; inadequate fluid can cause obstruction/choking; discontinue and seek advice if abdominal pain or irregularity occurs; use not recommended under age 6.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
+      "title": "Community herbal monograph on Plantago ovata Forssk., semen (EMA)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-plantago-ovata-forssk-semen_en.pdf"
     },
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Plantago ovata Forssk. - Plants of the World Online (Kew)",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:685486-1"
+    },
+    {
+      "title": "Psyllium Husk [USP] (PubChem substance record)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/substance/135282130"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Laxative, bulking fiber, cholesterol reduction. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Laxative bulking fiber cholesterol reduction. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Laxative cholesterol reduction. No direct region data. Contextual inference: Laxative cholesterol reduction. none. nan.",
+  "description": "Medicinal material is dried ripe Plantago ovata seeds; powdered herbal substance is also a preparation form.",
+  "dosage": "Adolescents/adults/elderly: 8–40 g daily in 2–3 single doses. Children 6–12 years: 4–25 g daily in 2–3 single doses.",
   "duration": "Daily use",
-  "interactions": [],
+  "interactions": "Take at least 1/2 to 1 hour before or after other medicines due to delayed absorption.",
   "legalStatus": "Legal globally",
-  "preparation": "Seeds used whole or powdered for mucilage; soaked in water or taken as fiber supplement",
-  "region": "No direct region data. Contextual inference: Laxative, bulking fiber, cholesterol reduction. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, bulking fiber, cholesterol reduction. none. ; nan; nan",
+  "preparation": "Mix with sufficient liquid and swallow; maintain adequate fluid intake; avoid taking immediately before bedtime; avoid inhaling powder during preparation.",
+  "region": "Native range SE Spain, North Africa to India and Somalia, and SW/S Central U.S.A. to N. Mexico.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -44,5 +52,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Plantago ovata seed is a bulk-forming laxative for habitual constipation and for situations where easy defecation with soft stool is desirable. It must be taken with sufficient liquid; inadequate fluid can cause choking or GI obstruction."
 }
