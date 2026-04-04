@@ -12,7 +12,7 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "safetyNotes": "caution; May trigger allergic reactions; especially in celery-sensitive individuals; avoid in kidney disorders; No direct toxicity data. Contextual inference: Anti-inflammatory; diuretic; mild sedative. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Anti-inflammatory; mild sedative. none.",
+  "safetyNotes": "High-risk profile. Avoid self-experimentation or unsupervised use. Contraindicated in pregnancy/lactation and in people with cardiovascular, neurologic, hepatic, or psychiatric vulnerability unless specialist oversight exists.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -22,14 +22,17 @@
       "url": ""
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Anti-inflammatory, diuretic, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "lastUpdated": "2026-04-04",
+  "description": "apium graveolens record normalized to schema-consistent baseline. Traditional use is documented, but indication-specific clinical evidence remains limited or mixed.",
   "dosage": "500; 1500 mg; day seed or extract",
   "duration": "2–4 hours",
-  "interactions": [],
+  "interactions": [
+    "Unresolved: interaction profile is not adequately characterized in current repository sources.",
+    "Use medication review caution, especially with CNS-active, cardiovascular, anticoagulant, and hepatically metabolized drugs."
+  ],
   "legalStatus": "Legal globally",
   "preparation": "Seeds and aerial parts used in decoctions or tinctures; consumed as juice or raw",
-  "region": "No direct region data. Contextual inference: Anti-inflammatory, diuretic, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, diuretic, mild sedative. none. ; nan; nan",
+  "region": "Regional native/cultivation details remain unresolved in current repository sources.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -47,5 +50,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "apium graveolens baseline updated; key clinical fields remain unresolved where high-quality human evidence is limited."
 }

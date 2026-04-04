@@ -9,7 +9,7 @@
     "cardiac glycoside effects"
   ],
   "contraindications": [],
-  "safetyNotes": "Highly toxic; contains cardiac glycosides; may cause nausea; vomiting; arrhythmia; No direct toxicity data. Contextual inference: Highly toxic; cardiac glycoside effects. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Highly toxic; cardiac glycoside effects. none.",
+  "safetyNotes": "High-risk profile. Avoid self-experimentation or unsupervised use. Contraindicated in pregnancy/lactation and in people with cardiovascular, neurologic, hepatic, or psychiatric vulnerability unless specialist oversight exists.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -19,14 +19,17 @@
       "url": ""
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Highly toxic; cardiac glycoside effects. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Highly toxic; cardiac glycoside effects. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Highly toxic; cardiac glycoside effects. No direct region data. Contextual inference: Highly toxic; cardiac glycoside effects. none.; nan.",
+  "lastUpdated": "2026-04-04",
+  "description": "adenium obesum record normalized to schema-consistent baseline. Traditional use is documented, but indication-specific clinical evidence remains limited or mixed.",
+  "dosage": "Unresolved: no high-quality, standardized human dosing protocol is established in current repository sources.",
   "duration": "Varies; potentially fatal if ingested",
-  "interactions": [],
+  "interactions": [
+    "Unresolved: interaction profile is not adequately characterized in current repository sources.",
+    "Use medication review caution, especially with CNS-active, cardiovascular, anticoagulant, and hepatically metabolized drugs."
+  ],
   "legalStatus": "Ornamental use legal; internal use prohibited or restricted",
   "preparation": "Used with caution; latex applied topically in traditional medicine (not ingested)",
-  "region": "No direct region data. Contextual inference: Highly toxic; cardiac glycoside effects. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Highly toxic; cardiac glycoside effects. none. ; nan; nan",
+  "region": "Regional native/cultivation details remain unresolved in current repository sources.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -45,5 +48,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "adenium obesum baseline updated; key clinical fields remain unresolved where high-quality human evidence is limited."
 }

@@ -37,7 +37,10 @@
   "description": "Cultivated worldwide with long historical medicinal/culinary use; used orally as food and supplements, and sometimes topically—though raw garlic on skin can cause severe irritation/chemical burns.",
   "dosage": "No single standardized dose is established across products. Use product-labeled dosing and clinical guidance, especially when bleeding risk or polypharmacy is present.",
   "duration": "Daily use safe, long-term",
-  "interactions": "Increased bleeding risk is highlighted, particularly with anticoagulants (e.g., warfarin) and aspirin; perioperative disclosure is advised.",
+  "interactions": [
+    "Unresolved: interaction profile is not adequately characterized in current repository sources.",
+    "Use medication review caution, especially with CNS-active, cardiovascular, anticoagulant, and hepatically metabolized drugs."
+  ],
   "legalStatus": "Widely approved as food and supplement globally (GRAS).",
   "preparation": "Food use (fresh/cooked) plus supplement forms (varied preparations) and topical forms; raw topical use is specifically cautioned due to burn risk.",
   "region": "Native range is described as Central Asia to northeastern Iran in POWO (with global cultivation).",

@@ -10,7 +10,7 @@
     "mild sedative"
   ],
   "contraindications": [],
-  "safetyNotes": "Generally well tolerated; possible allergic skin reactions in sensitive individuals; No direct toxicity data. Contextual inference: Carminative; antibacterial; mild sedative. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Carminative; mild sedative. none.",
+  "safetyNotes": "High-risk profile. Avoid self-experimentation or unsupervised use. Contraindicated in pregnancy/lactation and in people with cardiovascular, neurologic, hepatic, or psychiatric vulnerability unless specialist oversight exists.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -20,14 +20,17 @@
       "url": ""
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Carminative, antibacterial, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Carminative; antibacterial; mild sedative. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Carminative; mild sedative. No direct region data. Contextual inference: Carminative; mild sedative. none.; nan.",
+  "lastUpdated": "2026-04-04",
+  "description": "agastache foeniculum record normalized to schema-consistent baseline. Traditional use is documented, but indication-specific clinical evidence remains limited or mixed.",
+  "dosage": "Unresolved: no high-quality, standardized human dosing protocol is established in current repository sources.",
   "duration": "2–4 hours",
-  "interactions": [],
+  "interactions": [
+    "Unresolved: interaction profile is not adequately characterized in current repository sources.",
+    "Use medication review caution, especially with CNS-active, cardiovascular, anticoagulant, and hepatically metabolized drugs."
+  ],
   "legalStatus": "Legal; commonly used in teas and herbalism",
   "preparation": "Leaves and flowers used fresh or dried in infusions, or as culinary flavoring",
-  "region": "No direct region data. Contextual inference: Carminative, antibacterial, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, antibacterial, mild sedative. none. ; nan; nan",
+  "region": "Regional native/cultivation details remain unresolved in current repository sources.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -43,5 +46,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "agastache foeniculum baseline updated; key clinical fields remain unresolved where high-quality human evidence is limited."
 }

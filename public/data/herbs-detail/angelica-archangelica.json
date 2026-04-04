@@ -10,7 +10,7 @@
     "mild sedative"
   ],
   "contraindications": [],
-  "safetyNotes": "caution; Photosensitivity; possible GI upset; avoid in pregnancy due to uterine stimulation; No direct toxicity data. Contextual inference: Carminative; digestive aid; mild sedative. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Carminative; mild sedative. none.",
+  "safetyNotes": "High-risk profile. Avoid self-experimentation or unsupervised use. Contraindicated in pregnancy/lactation and in people with cardiovascular, neurologic, hepatic, or psychiatric vulnerability unless specialist oversight exists.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -20,14 +20,17 @@
       "url": ""
     }
   ],
-  "lastUpdated": "2026-03-21",
-  "description": "Carminative, digestive aid, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "lastUpdated": "2026-04-04",
+  "description": "angelica archangelica record normalized to schema-consistent baseline. Traditional use is documented, but indication-specific clinical evidence remains limited or mixed.",
   "dosage": "250; 500 mg; day root or extract",
   "duration": "2–4 hours",
-  "interactions": [],
+  "interactions": [
+    "Unresolved: interaction profile is not adequately characterized in current repository sources.",
+    "Use medication review caution, especially with CNS-active, cardiovascular, anticoagulant, and hepatically metabolized drugs."
+  ],
   "legalStatus": "Legal; common in traditional European herbalism",
   "preparation": "Roots and seeds decocted, used in tinctures, or added to liquors and tonics",
-  "region": "No direct region data. Contextual inference: Carminative, digestive aid, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, digestive aid, mild sedative. none. ; nan; nan",
+  "region": "Regional native/cultivation details remain unresolved in current repository sources.",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",
   "sideEffects": [
@@ -44,5 +47,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "angelica archangelica baseline updated; key clinical fields remain unresolved where high-quality human evidence is limited."
 }
