@@ -1,8 +1,8 @@
 {
   "name": "echinacea purpurea",
   "latin": "echinacea purpurea",
-  "class": null,
-  "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "class": "Medicinal, Traditional Herb (Asteraceae)",
+  "intensity": "Mild; clinical effects are modest and product-dependent.",
   "mechanism": "Proposed mechanisms are immunomodulatory rather than definitively established clinical mechanisms. NCCIH notes immune-related activity hypotheses; in vitro and preclinical literature often discusses alkamides, caffeic-acid derivatives, and polysaccharide fractions, but clinical relevance varies by extract composition.",
   "activeCompounds": [
     "Alkamides (echinacea alkylamides)",
@@ -10,14 +10,14 @@
     "Caftaric acid"
   ],
   "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "Possible small reduction in risk of catching a common cold (evidence mixed).",
+    "Uncertain effect on shortening cold duration across heterogeneous products.",
+    "Immune-modulating activity is proposed, but clinically meaningful mechanisms remain unconfirmed."
   ],
   "contraindications": [
-    "avoid during pregnancy and breastfeeding",
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
+    "Use caution with ragweed-family (Asteraceae) allergy because hypersensitivity reactions can occur.",
+    "Discuss use with a clinician if pregnant or breastfeeding due to limited safety data.",
+    "Use caution with immunosuppressive therapy and complex chronic conditions."
   ],
   "safetyNotes": "Likely safe for most adults when used short term in typical oral extract doses, but allergic reactions can occur and may be severe in sensitive individuals (especially with ragweed-family allergy). Gastrointestinal upset can occur. Pregnancy/lactation evidence is limited; use should be clinician-guided.",
   "sources": [
@@ -26,8 +26,8 @@
       "url": "https://www.nccih.nih.gov/health/echinacea"
     },
     {
-      "title": "Kew POWO: Echinacea purpurea (accepted name and native range)",
-      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A1174497-2/general-information"
+      "title": "MedlinePlus: Echinacea (Natural Medicines)",
+      "url": "https://medlineplus.gov/druginfo/natural/981.html"
     },
     {
       "title": "PubChem: Cichoric acid",
@@ -38,10 +38,10 @@
       "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Caftaric-acid"
     }
   ],
-  "lastUpdated": "2026-03-21",
+  "lastUpdated": "2026-04-04",
   "description": "Echinacea purpurea is a North American perennial in the Asteraceae family. It is native to central and eastern U.S. regions and is widely cultivated for herbal preparations made from aerial parts and/or root depending on product standardization.",
   "dosage": "No single evidence-based universal dose applies across products. Use product-specific labeled dosing from standardized preparations; clinical studies use heterogeneous formulations and strengths.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "duration": "Commonly used short-term at onset of upper respiratory symptoms (about 7-10 days in many studies).",
   "interactions": [
     "Potential interaction risk with immunosuppressive therapy (theoretical immunologic antagonism).",
     "Conflicting evidence for interactions with some CYP-metabolized medicines; monitor and review with a clinician/pharmacist.",
@@ -51,9 +51,9 @@
   "preparation": "Common preparations include pressed juice/extracts, tinctures, capsules, and teas from aerial parts and/or root. Product chemistry differs substantially by species, plant part, and extraction method.",
   "region": "Native range is central and eastern United States; now cultivated more broadly for supplement production.",
   "therapeuticUses": [
-    "traditional support for mild digestive comfort"
+    "Common-cold prevention or symptom support (mixed evidence; not a substitute for standard care)."
   ],
-  "traditionalUse": "; nan; nan",
+  "traditionalUse": "Historically used by Indigenous peoples and later in Western herbal practice for respiratory complaints and topical applications.",
   "slug": "echinacea-purpurea",
   "sideEffects": [
     "mild gastrointestinal upset (nausea, cramping, or loose stool)",
