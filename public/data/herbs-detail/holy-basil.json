@@ -1,9 +1,14 @@
 {
   "name": "holy basil",
   "latin": "holy basil",
+  "class": null,
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
-  "activeCompounds": [],
+  "mechanism": "Proposed mechanisms involve phytochemicals such as eugenol and triterpenes with potential anti-inflammatory, antioxidant, and neuroendocrine stress-modulating effects; robust dose-response confirmation in humans is limited.",
+  "activeCompounds": [
+    "Eugenol",
+    "Ursolic acid",
+    "Rosmarinic acid"
+  ],
   "effects": [
     "No direct effects data. Contextual inference: Used in ritual",
     "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -15,16 +20,36 @@
     "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
     "Do not use with known allergy to this plant or related species."
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference: Used in ritual; dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual; dreaming or folk medicine.. Used in ritual; dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual; dreaming or folk medicine. Used in ritual; dreaming or folk medicine",
-  "sources": [],
+  "safetyNotes": "Generally tolerated in short-term studies, but long-term safety data and standardized-product safety are limited. Use caution with glucose-lowering or anticoagulant therapies until interaction risk is better characterized.",
+  "sources": [
+    {
+      "title": "Ocimum tenuiflorum L. | Plants of the World Online | Kew Science",
+      "url": "https://powo.science.kew.org/taxon/453130-1"
+    },
+    {
+      "title": "The clinical efficacy and safety of tulsi in humans: A systematic review of the literature - PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29046365/"
+    },
+    {
+      "title": "Double-blinded randomized controlled trial for immunomodulatory effects of Tulsi (Ocimum sanctum Linn.) leaf extract on healthy volunteers - PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21619917/"
+    },
+    {
+      "title": "Eugenol | CID 3314 - PubChem",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Eugenol"
+    }
+  ],
   "lastUpdated": "2026-03-21",
-  "description": "Used in ritual, dreaming or folk medicine.",
-  "dosage": "No direct dosage data. Contextual inference: Used in ritual; dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual; dreaming or folk medicine.. Used in ritual; dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual; dreaming or folk medicine. Used in ritual; dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual; dreaming or folk medicine",
+  "description": "Holy basil is an aromatic Lamiaceae herb used in South Asian traditional medicine and as tea/extract supplements. Commercial products vary in chemotype and standardization, which limits cross-trial comparability.",
+  "dosage": "No single evidence-based universal dose; studies use varied extract strengths and durations. Prefer standardized products and conservative titration.",
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "interactions": [],
+  "interactions": [
+    "Possible additive glucose-lowering effects with antidiabetic medications.",
+    "Potential pharmacodynamic interaction with anticoagulant/antiplatelet therapy (limited evidence; monitor clinically)."
+  ],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "preparation": "Used as leaf tea/infusion, powdered leaf, and standardized extracts in capsules or tablets.",
+  "region": "Native to tropical and subtropical Asia and widely cultivated or naturalized in other tropical regions.",
   "therapeuticUses": [
     "Traditional supportive use; indication depends on species part and preparation.",
     "Evidence level varies; use only within established clinical or traditional context."
@@ -43,5 +68,6 @@
   "categoryUseContext": "",
   "evidenceLevel": "",
   "relatedEntities": [],
-  "relatedCompounds": []
+  "relatedCompounds": [],
+  "summary": "Holy basil (tulsi; usually Ocimum tenuiflorum/O. sanctum) is a traditional medicinal herb with early human trial signals for stress and some metabolic or immune-related outcomes. Current evidence is suggestive but not definitive due to small, heterogeneous studies."
 }

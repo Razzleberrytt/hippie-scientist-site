@@ -1,10 +1,13 @@
 {
   "name": "hibiscus sabdariffa",
   "latin": "hibiscus sabdariffa",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "Proposed mechanisms include polyphenol/anthocyanin-mediated vascular effects and possible ACE-related and endothelial pathways; these remain partly inferential from mixed clinical and preclinical data.",
   "activeCompounds": [
-    "Anthocyanins"
+    "Anthocyanins (e.g., delphinidin/cyanidin derivatives)",
+    "Organic acids",
+    "Polyphenols"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -16,16 +19,36 @@
     "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
     "Do not use with known allergy to this plant or related species."
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
+  "safetyNotes": "Generally well tolerated as food-level tea intake, but concentrated extracts can affect blood pressure and may alter glycemic or hepatic parameters in some contexts. Use caution with antihypertensive or antidiabetic therapy and in pregnancy due to limited high-quality safety data.",
+  "sources": [
+    {
+      "title": "Hibiscus sabdariffa L. | Plants of the World Online | Kew Science",
+      "url": "https://powo.science.kew.org/taxon/326388-2"
+    },
+    {
+      "title": "Efficacy of Hibiscus sabdariffa on Reducing Blood Pressure in Patients With Mild-to-Moderate Hypertension: A Systematic Review and Meta-Analysis of Published Randomized Controlled Trials - PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34694241/"
+    },
+    {
+      "title": "A systematic review and meta-analysis of the effects of Hibiscus sabdariffa on blood pressure and cardiometabolic markers - PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34927694/"
+    },
+    {
+      "title": "Delphinidin-3-sambubioside chloride | CID 102004789 - PubChem",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Delphinidin-3-sambubioside-chloride"
+    }
+  ],
   "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
+  "description": "Hibiscus sabdariffa is used as a tart beverage/infusion and as an extract in supplements. Clinical literature focuses on cardiovascular risk markers, especially blood pressure and lipids.",
+  "dosage": "Trials use different preparations (teas and extracts), often in daily divided doses over several weeks; no universal standardized dose is established across products.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
+  "interactions": [
+    "Potential additive blood-pressure lowering with antihypertensive medications.",
+    "Possible interaction with antidiabetic therapy requiring glucose monitoring."
+  ],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Commonly prepared as calyx infusion (hot or cold tea), and also as concentrated extracts or capsules.",
+  "region": "Likely native to western tropical Africa and now widely cultivated/naturalized across tropical and subtropical regions globally.",
   "therapeuticUses": [
     "Traditional supportive use; indication depends on species part and preparation.",
     "Evidence level varies; use only within established clinical or traditional context."
@@ -46,5 +69,6 @@
   "relatedEntities": [],
   "relatedCompounds": [
     "anthocyanins"
-  ]
+  ],
+  "summary": "Hibiscus sabdariffa (roselle) calyx preparations are most studied for mild blood-pressure lowering, with meta-analyses showing modest reductions versus placebo. Evidence quality varies and effects are not clearly superior to standard antihypertensives."
 }
