@@ -3,7 +3,7 @@
   "latin": "Nymphaea nouchali",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Mild sedative and aphrodisiac; used in ayurveda and traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative and aphrodisiac; used in Ayurveda and traditional medicine. No direct region data. Contextual inference: Mild sedative and aphrodisiac; used in ayurveda and traditional medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative and aphrodisiac; used in Ayurveda and traditional medicine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "relaxation",
@@ -12,7 +12,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid combining with sedatives, alcohol or or other cns depressants.",
+  "safetyNotes": "May cause drowsiness or mild dizziness. Avoid with dopaminergic medications; Avoid with dopaminergic medications, drowsiness or mild dizziness; Avoid combining with sedatives, alcohol or or other CNS depressants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nymphaea nouchali (TaxID 58040)",
@@ -21,7 +21,7 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.983Z",
-  "description": "Nymphaea nouchali is a medicinal herb traditionally used for mild sedative and aphrodisiac and ayurveda and traditional medicine.",
+  "description": "Mild sedative and aphrodisiac; used in ayurveda and traditional medicine.",
   "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",

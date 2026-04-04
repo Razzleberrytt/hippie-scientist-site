@@ -32,7 +32,7 @@
     "Avoid combining with MAOIs"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician or do not combine with serotonergic drugs or maois without medical guidance. Avoid with high blood pressure; Avoid with hypertension; Avoid in pregnancy; Avoid in patients with hypertension or cardiac issues.",
+  "safetyNotes": "Generally well tolerated. Avoid with high blood pressure; Avoid with hypertension; Avoid in pregnancy; Avoid in patients with hypertension or cardiac issues; Avoid use during pregnancy unless advised by a clinician or do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Ptychopetalum olacoides Benth.",
@@ -51,7 +51,7 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Ptychopetalum olacoides is a medicinal herb traditionally used for mental clarity and energy boost.",
+  "description": "A Brazilian Amazonian herb traditionally used as an aphrodisiac and nerve tonic.",
   "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Legal and widely sold in supplements globally",

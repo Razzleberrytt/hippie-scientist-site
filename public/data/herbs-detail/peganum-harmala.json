@@ -3,7 +3,7 @@
   "latin": "Peganum harmala",
   "class": "MAOI, Psychoactive, Entheogen",
   "intensity": "No direct intensity data. Contextual inference: Mao inhibitor, antispasmodic, psychoactive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. MAO inhibitor, antispasmodic, psychoactive. No direct region data. Contextual inference: Mao inhibitor, antispasmodic, psychoactive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. MAO inhibitor, antispasmodic, psychoactive. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [
     "harmaline",
     "harmine",
@@ -36,7 +36,7 @@
     "Antidepressants"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or maois without medical guidance, toxic in high doses, hallucinations, liver issues, may interact with ssris or may interact with maois. Avoid with stimulants; Avoid with tyramine-rich foods; Avoid with antidepressants; Avoid in pregnancy; Avoid in liver disease.",
+  "safetyNotes": "May cause toxic in high doses, hallucinations or liver issues. May interact with SSRIs; Avoid with stimulants; Avoid with tyramine-rich foods; Avoid with antidepressants; Avoid in pregnancy; May interact with MAOIs; Avoid in liver disease; Avoid with stimulants, may cause toxic in high doses, nausea, tremors, moderate, risk increases with combination substances, vomiting, dizziness, harmaline), use with caution, risk of serotonin syndrome, headache, moderate at high doses, toxic – psychoactive and potent, antispasmodic, psychoactive; Avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or MAOIs without medical guidance, toxic in high doses, hallucinations, liver issues, may interact with SSRIs or may interact with MAOIs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Peganum harmala (TaxID 43879)",

@@ -3,13 +3,15 @@
   "latin": "peppermint",
   "class": "general",
   "intensity": "mild",
-  "mechanism": "",
+  "mechanism": "Menthol-rich peppermint oil can relax gastrointestinal smooth muscle via calcium-channel effects and TRPM8 signaling.",
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
-  "interactions": [],
+  "interactions": [
+    "Monitor with acid-suppressing therapy because enteric-coated capsule release can be altered"
+  ],
   "safetyLevel": "caution",
-  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
+  "safetyNotes": "Generally well tolerated. May cause heartburn or reflux, nausea or mouth or perianal burning with some formulations. Avoid concentrated oil in infants and young children; Use caution with severe GERD because reflux can worsen; Use caution with gallbladder disease unless advised by a clinician; Avoid concentrated oil in infants and young children, heartburn or reflux, nausea or mouth or perianal burning with some formulations; Avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: peppermint",
@@ -29,7 +31,7 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Peppermint is a medicinal herb traditionally used for post-meal comfort tea use and low-friction single-herb daily beverage routines.",
-  "dosage": "Match form to use-case: tea serving counts differ from concentrated capsule/oil products.",
+  "dosage": "",
   "duration": "Often used as-needed around meals or in short daily routines.",
   "legalStatus": "legal",
   "preparation": "Tea.",

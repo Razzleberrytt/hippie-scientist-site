@@ -19,7 +19,7 @@
     "May potentiate antiparasitic drugs"
   ],
   "safetyLevel": "caution",
-  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Avoid use during pregnancy unless advised by a clinician; Avoid in pregnancy.",
+  "safetyNotes": "Avoid in pregnancy; Avoid overdose; Avoid use during pregnancy unless advised by a clinician.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Zanthoxylum zanthoxyloides (TaxID 2099548)",
@@ -29,7 +29,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.974Z",
   "description": "Traditional remedy for toothache, worms, and infections.",
-  "dosage": "Chewed root bark or decoction.",
+  "dosage": "",
   "duration": "300",
   "legalStatus": "Not regulated",
   "preparation": "Extract.",

@@ -3,7 +3,7 @@
   "latin": "Poria cocos",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Diuretic, calming, spleen tonic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, calming, spleen tonic in TCM. No direct region data. Contextual inference: Diuretic, calming, spleen tonic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, calming, spleen tonic in TCM. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "relaxation",
@@ -12,7 +12,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "low",
-  "safetyNotes": "Generally well tolerated. May cause mild gi effects in some.",
+  "safetyNotes": "Generally well tolerated. May cause generally safe or mild gi effects in some.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Poria cocos",
@@ -21,11 +21,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.000Z",
-  "description": "Poria cocos is a medicinal herb traditionally used for diuretic and calming.",
+  "description": "Diuretic, calming, spleen tonic in tcm.",
   "dosage": "",
   "duration": "4–8 hours",
   "legalStatus": "Legal globally",
-  "preparation": "",
+  "preparation": "Fungus dried and decocted; used in Traditional Chinese Medicine for diuretic and calming effects.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

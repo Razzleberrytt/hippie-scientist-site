@@ -3,7 +3,7 @@
   "latin": "Pimpinella anisum",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Carminative, expectorant, mild estrogenic effect. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, expectorant, mild estrogenic effect. No direct region data. Contextual inference: Carminative, expectorant, mild estrogenic effect. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Carminative, expectorant, mild estrogenic effect. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "digestive support",
@@ -12,7 +12,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. stop use if rash or allergic symptoms occur, estrogenic effects, allergic reactions or nausea.",
+  "safetyNotes": "Generally well tolerated. May cause estrogenic effects, allergic reactions or nausea.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Pimpinella anisum (TaxID 271192)",

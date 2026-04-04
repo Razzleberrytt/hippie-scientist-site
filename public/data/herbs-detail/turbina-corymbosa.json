@@ -3,7 +3,7 @@
   "latin": "Turbina corymbosa",
   "class": "Psychedelic, Entheogen",
   "intensity": "No direct intensity data. Contextual inference: Entheogenic; seeds contain lsa. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Entheogenic; seeds contain LSA. No direct region data. Contextual inference: Entheogenic; seeds contain lsa. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Entheogenic; seeds contain LSA. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [
     "isoergine"
   ],
@@ -23,7 +23,7 @@
     "Alcohol"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or maois without medical guidance, psychoactive seeds, nausea, hallucinations, not for regular use, may interact with maois or may interact with ssris. Avoid in pregnancy.",
+  "safetyNotes": "May cause psychoactive seeds, nausea, hallucinations or not for regular use. Avoid in pregnancy; May interact with MAOIs; May interact with SSRIs; Avoid in pregnancy, may cause traditional use considered safe, overdose risks, vasoconstriction, fatigue, moderate, not precisely known, seeds contain lsa; Avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or MAOIs without medical guidance, psychoactive seeds, nausea, hallucinations, not for regular use, may interact with MAOIs or may interact with SSRIs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Turbina corymbosa",
@@ -36,7 +36,7 @@
   "dosage": "",
   "duration": "6–10 hours",
   "legalStatus": "Restricted in some countries",
-  "preparation": "",
+  "preparation": "Seeds historically ground and consumed ritually; contains ergoline alkaloids; not commonly used in herbal medicine.",
   "region": "",
   "therapeuticUses": [
     "Spiritual vision",

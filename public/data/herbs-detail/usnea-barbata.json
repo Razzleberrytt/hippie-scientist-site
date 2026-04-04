@@ -3,7 +3,7 @@
   "latin": "Usnea barbata",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, antifungal, immune tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antifungal, immune tonic. No direct region data. Contextual inference: Antimicrobial, antifungal, immune tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antifungal, immune tonic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "immune support",
@@ -11,14 +11,11 @@
   ],
   "contraindications": [],
   "interactions": [
-    "Insufficient direct interaction data for this herb",
-    "Consult a clinician before combining with prescription medications",
     "Use extra caution with anticoagulants",
-    "Sedatives",
-    "And serotonergic drugs until herb-specific interaction evidence is established"
+    "Sedatives"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance, possible gi discomfort or liver concerns with extracts.",
+  "safetyNotes": "May cause possible gi discomfort or liver concerns with extracts.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Usnea barbata (TaxID 192174)",

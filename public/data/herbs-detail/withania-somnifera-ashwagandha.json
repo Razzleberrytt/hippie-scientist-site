@@ -3,7 +3,7 @@
   "latin": "withania somnifera (ashwagandha)",
   "class": "general",
   "intensity": "mild",
-  "mechanism": "",
+  "mechanism": "Human evidence suggests modulation of hypothalamic-pituitary-adrenal stress signaling and inflammatory mediators.",
   "activeCompounds": [
     "withanolides",
     "withaferin A",
@@ -19,7 +19,7 @@
     "Monitor with thyroid medications"
   ],
   "safetyLevel": "caution",
-  "safetyNotes": "May cause alcohol or or other cns depressants. Caution: safety evidence is limited or inconsistent. Avoid combining with sedatives.",
+  "safetyNotes": "Generally well tolerated. May cause somnolence, gastrointestinal upset or headache. Avoid in pregnancy; Use caution with thyroid-active therapy; Use caution in autoimmune disease or with immunosuppressive therapy; Avoid combining with sedatives, generally well tolerated; Avoid in pregnancy, somnolence, gastrointestinal upset or headache; Avoid combining with sedatives.",
   "sources": [
     {
       "title": "NCBI Taxonomy: withania somnifera (ashwagandha)",
@@ -28,7 +28,7 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.033Z",
-  "description": "",
+  "description": "Withania somnifera (ashwagandha) is an adaptogenic herb studied mainly for stress and anxiety symptom reduction in standardized extracts.",
   "dosage": "Common adult use is 300-600 mg/day of root extract standardized to withanolides.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "legal",

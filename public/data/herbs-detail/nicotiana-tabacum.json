@@ -25,7 +25,7 @@
     "CYP inducers"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician or do not combine with serotonergic drugs or maois without medical guidance. Avoid with heart disease; Avoid in pregnancy; Avoid with epilepsy.",
+  "safetyNotes": "May cause increased heart rate, dependence or respiratory harm when smoked. Avoid with heart disease; Avoid in pregnancy; Avoid with epilepsy; Avoid with heart disease, dependence or respiratory harm when smoked; Avoid use during pregnancy unless advised by a clinician or do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nicotiana tabacum L.",
@@ -44,12 +44,12 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Nicotiana tabacum is a medicinal herb traditionally used for stimulation and mood elevation.",
+  "description": "Cultivated tobacco plant used for its stimulant alkaloid nicotine.",
   "dosage": "",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "legalStatus": "Legal with age restrictions",
   "preparation": "Smoked.",
-  "region": "Worldwide.",
+  "region": "",
   "therapeuticUses": [
     "Nicotine replacement",
     "traditional pain relief"

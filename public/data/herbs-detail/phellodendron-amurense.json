@@ -3,7 +3,7 @@
   "latin": "Phellodendron amurense",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory and antimicrobial; contains berberine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains berberine. No direct region data. Contextual inference: Anti-inflammatory and antimicrobial; contains berberine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains berberine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -12,7 +12,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "caution",
-  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
+  "safetyNotes": "Avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Phellodendron amurense (TaxID 68554)",
@@ -21,7 +21,7 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.994Z",
-  "description": "Phellodendron amurense is a medicinal herb traditionally used for anti-inflammatory-inflammatory and antimicrobial and with berberine.",
+  "description": "Anti-inflammatory and antimicrobial; contains berberine.",
   "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",

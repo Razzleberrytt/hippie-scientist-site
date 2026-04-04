@@ -3,7 +3,7 @@
   "latin": "turmeric",
   "class": "general",
   "intensity": "mild",
-  "mechanism": "",
+  "mechanism": "Curcuminoids modulate inflammatory pathways including NF-κB and COX-2, with clinical effect depending on formulation bioavailability.",
   "activeCompounds": [
     "curcumin",
     "demethoxycurcumin",
@@ -18,7 +18,7 @@
     "Potential additive bleeding risk with anticoagulant or antiplatelet medicines"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. use caution with anticoagulants or antiplatelet drugs.",
+  "safetyNotes": "May cause gastrointestinal upset, nausea or diarrhea or headache in some users at higher doses. Use caution with anticoagulant or antiplatelet therapy; Use caution with gallstones or biliary obstruction; Avoid high-dose supplemental use before surgery unless clinician advises; Use caution with anticoagulant or antiplatelet therapy, gastrointestinal upset, nausea or diarrhea or headache in some users at higher doses; Use caution with anticoagulants or antiplatelet drugs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: turmeric",
@@ -37,7 +37,7 @@
     }
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
-  "description": "Turmeric is typically selected for daily wellness routines where users want a familiar food-compatible herb with standardized extract options available.",
+  "description": "Turmeric (Curcuma longa) is a culinary and medicinal rhizome; curcumin-enriched extracts are studied most for osteoarthritis symptom support.",
   "dosage": "Common oral use is about 1-3 g dried rhizome daily or standardized curcumin extracts per label.",
   "duration": "Usually framed as a daily consistency herb; reassess tolerance and medication context during longer use periods.",
   "legalStatus": "legal",

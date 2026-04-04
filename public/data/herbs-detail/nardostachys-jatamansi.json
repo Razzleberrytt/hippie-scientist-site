@@ -3,7 +3,7 @@
   "latin": "Nardostachys jatamansi",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Calming, neuroprotective, used for stress and epilepsy in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, neuroprotective, used for stress and epilepsy in Ayurveda. No direct region data. Contextual inference: Calming, neuroprotective, used for stress and epilepsy in ayurveda. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, neuroprotective, used for stress and epilepsy in Ayurveda. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Preclinical evidence suggests sesquiterpenes may enhance GABAergic tone and reduce neuroinflammatory signaling; robust human mechanistic confirmation is still limited.",
+  "mechanism": "",
   "activeCompounds": [
     "jatamansone (valeranone)",
     "sesquiterpenes",
@@ -24,7 +24,7 @@
     "Use caution with antiepileptic and anxiolytic medications"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, alcohol, or other cns depressants, drowsiness or gi discomfort in large doses. Avoid combining with sedatives; Avoid in pregnancy due to insufficient safety data; Use caution with sedative medications and alcohol.",
+  "safetyNotes": "May cause drowsiness or gi discomfort in large doses. Avoid in pregnancy due to insufficient safety data; Use caution with sedative medications and alcohol; Avoid combining with sedatives, may cause drowsiness, GI discomfort in large doses, neuroprotective, used for stress and epilepsy in ayurveda; Avoid use during pregnancy unless advised by a clinician, alcohol, or other CNS depressants, drowsiness or GI discomfort in large doses; Avoid combining with sedatives.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nardostachys jatamansi (TaxID 179860)",
@@ -33,7 +33,7 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.978Z",
-  "description": "Nardostachys jatamansi is a medicinal herb traditionally used for calming and neuroprotective.",
+  "description": "Calming, neuroprotective, used for stress and epilepsy in ayurveda.",
   "dosage": "",
   "duration": "4–8 hours",
   "legalStatus": "Legal; protected plant in some areas",

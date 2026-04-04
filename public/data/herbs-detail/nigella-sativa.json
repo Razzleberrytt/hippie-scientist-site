@@ -3,7 +3,7 @@
   "latin": "Nigella sativa",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antioxidant, immune modulating. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, immune modulating. No direct region data. Contextual inference: Anti-inflammatory, antioxidant, immune modulating. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, immune modulating. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -13,7 +13,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, stop use if rash or allergic symptoms occur, gi upset or allergic reactions. Avoid high doses in pregnancy.",
+  "safetyNotes": "Generally well tolerated. May cause gi upset or allergic reactions. Avoid high doses in pregnancy, generally well tolerated; Avoid high doses in pregnancy, GI upset or allergic reactions; Avoid high doses in pregnancy; Avoid use during pregnancy unless advised by a clinician, stop use if rash or allergic symptoms occur, GI upset or allergic reactions.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Nigella sativa (TaxID 555479)",
@@ -22,7 +22,7 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.981Z",
-  "description": "Nigella sativa is a medicinal herb traditionally used for anti-inflammatory-inflammatory and antioxidant.",
+  "description": "Anti-inflammatory, antioxidant, immune modulating.",
   "dosage": "500-1000 mg/day seed extract.",
   "duration": "6–12 hours",
   "legalStatus": "Legal globally",

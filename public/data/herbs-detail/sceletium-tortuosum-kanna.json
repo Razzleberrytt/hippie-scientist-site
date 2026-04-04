@@ -3,7 +3,7 @@
   "latin": "sceletium tortuosum (kanna)",
   "class": "empathogen / euphoriant",
   "intensity": "Moderate",
-  "mechanism": "Selective serotonin reuptake inhibition (ssri) and phosphodiesterase-4 (pde4) inhibition [9 ,  4].",
+  "mechanism": "Selective serotonin reuptake inhibition (ssri) and phosphodiesterase-4 (pde4) inhibition [9, 4].",
   "activeCompounds": [
     "mesembrine",
     "mesembrenone",
@@ -25,7 +25,7 @@
     "4]"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or maois without medical guidance, headache, nausea, mild sedation [9 or 4]. Avoid with do not combine with other serotonergic substances; Avoid in pregnancy; Avoid with 4].",
+  "safetyNotes": "May cause headache, nausea, mild sedation [9 or 4]. Avoid with do not combine with other serotonergic substances; Avoid in pregnancy; Avoid with 4]; Avoid with do not combine with other serotonergic substances, may cause headache, mild sedation [9 or 4]; Avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or MAOIs without medical guidance, headache, nausea, mild sedation [9 or 4].",
   "sources": [
     {
       "title": "NCBI Taxonomy: sceletium tortuosum (kanna)",
@@ -35,7 +35,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.018Z",
   "description": "South african succulent chewed to elevate mood and decrease tension.",
-  "dosage": "Extract products vary; follow labeled serving sizes and avoid combining with serotonergic drugs.",
+  "dosage": "",
   "duration": "121.0",
   "legalStatus": "Legal, sometimes restricted",
   "preparation": "Smoked.",

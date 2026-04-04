@@ -3,7 +3,7 @@
   "latin": "Papaver somniferum L.",
   "class": "Analgesic, Sedative, Psychoactive",
   "intensity": "High and dose-dependent due to opioid alkaloid content.",
-  "mechanism": "Sedative ,  and respiratory effects.",
+  "mechanism": "Sedative, and respiratory effects.",
   "activeCompounds": [
     "morphine",
     "codeine",
@@ -34,7 +34,7 @@
     "Anticoagulants"
   ],
   "safetyLevel": "high",
-  "safetyNotes": "May cause high risk: serious toxicity or overdose harm is possible. avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or maois without medical guidance or may interact with maois. Avoid with respiratory issues; Avoid in liver disease; Avoid in pregnancy; Avoid with opioid use; Avoid with respiratory disorders; Avoid with addiction history.",
+  "safetyNotes": "Avoid with respiratory issues; Avoid in liver disease; Avoid in pregnancy; Avoid with opioid use; Avoid with respiratory disorders; May interact with MAOIs; Avoid with addiction history; Avoid use during pregnancy unless advised by a clinician, may cause high risk if misused, addiction potential, constipation, respiratory depression, dependence, high, human extrapolated), restricted, high-risk profile includes dependence, overdose, and respiratory depression potential, analgesic and sedative; Avoid with respiratory issues or may interact with MAOIs; Avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or MAOIs without medical guidance or may interact with MAOIs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Papaver somniferum L.",
@@ -54,11 +54,11 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Papaver somniferum is a medicinal herb traditionally used for euphoria and analgesia.",
-  "dosage": "Pharmaceutical use only under regulation.",
+  "dosage": "",
   "duration": "4–6 hours (morphine); longer with raw opium",
   "legalStatus": "Strictly regulated; illegal to grow for opium in most countries",
   "preparation": "",
-  "region": "",
+  "region": "Originally from the Mediterranean and western Asia, now cultivated in multiple regulated regions.",
   "therapeuticUses": [
     "Pain",
     "severe cough",

@@ -3,7 +3,7 @@
   "latin": "Phalaris arundinacea",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Contains tryptamines (e.g., dmt); entheogenic in certain contexts. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Contains tryptamines (e.g., DMT); entheogenic in certain contexts. No direct region data. Contextual inference: Contains tryptamines (e.g., dmt); entheogenic in certain contexts. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Contains tryptamines (e.g., DMT); entheogenic in certain contexts. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "psychedelic"
@@ -11,7 +11,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "caution",
-  "safetyNotes": "Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
+  "safetyNotes": "May cause nausea or strong psychological effects when extracted. Uncertain alkaloid variability; Caution with MAOIs; Use caution with MAOIs, strong psychological effects when extracted or uncertain alkaloid variability; Avoid combining with prescription drugs without guidance; Use caution with MAOIs.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Phalaris arundinacea (TaxID 96050)",

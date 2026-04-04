@@ -3,7 +3,7 @@
   "latin": "Theobroma bicolor",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Mild stimulant, antioxidant, nutrient-dense seed. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild stimulant, antioxidant, nutrient-dense seed. No direct region data. Contextual inference: Mild stimulant, antioxidant, nutrient-dense seed. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild stimulant, antioxidant, nutrient-dense seed. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "stimulation",
@@ -11,14 +11,11 @@
   ],
   "contraindications": [],
   "interactions": [
-    "Insufficient direct interaction data for this herb",
-    "Consult a clinician before combining with prescription medications",
     "Use extra caution with anticoagulants",
-    "Sedatives",
-    "And serotonergic drugs until herb-specific interaction evidence is established"
+    "Sedatives"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance, similar to cacao, contains caffeine or like stimulants.",
+  "safetyNotes": "May cause similar to cacao, contains caffeine or like stimulants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Theobroma bicolor (TaxID 108878)",
@@ -31,7 +28,7 @@
   "dosage": "",
   "duration": "3–6 hours",
   "legalStatus": "Legal globally",
-  "preparation": "",
+  "preparation": "Seeds roasted or fermented similarly to cacao; used in beverages and traditional Central American preparations.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

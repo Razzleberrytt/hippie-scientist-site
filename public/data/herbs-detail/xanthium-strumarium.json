@@ -3,7 +3,7 @@
   "latin": "Xanthium strumarium",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Nasal decongestant, anti-inflammatory, diuretic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Nasal decongestant, anti-inflammatory, diuretic. No direct region data. Contextual inference: Nasal decongestant, anti-inflammatory, diuretic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Nasal decongestant, anti-inflammatory, diuretic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -12,14 +12,11 @@
   ],
   "contraindications": [],
   "interactions": [
-    "Insufficient direct interaction data for this herb",
-    "Consult a clinician before combining with prescription medications",
     "Use extra caution with anticoagulants",
-    "Sedatives",
-    "And serotonergic drugs until herb-specific interaction evidence is established"
+    "Sedatives"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance, lower dose or stop if nausea, vomiting, or gi upset occurs, toxic in large doses, nausea or hepatotoxicity.",
+  "safetyNotes": "Generally well tolerated. May cause toxic in large doses, nausea, vomiting or hepatotoxicity.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Xanthium strumarium (TaxID 318068)",
@@ -32,7 +29,7 @@
   "dosage": "Low dose, 100-250 mg/day.",
   "duration": "4–6 hours",
   "legalStatus": "Regulated in some regions",
-  "preparation": "Raw.",
+  "preparation": "Fruits used in TCM (Cang Er Zi); dried and decocted; caution due to potential toxicity of raw parts.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

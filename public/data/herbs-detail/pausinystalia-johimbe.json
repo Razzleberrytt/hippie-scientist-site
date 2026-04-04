@@ -3,7 +3,7 @@
   "latin": "Pausinystalia johimbe",
   "class": "Stimulant, Aphrodisiac",
   "intensity": "Moderate to strong",
-  "mechanism": "Alpha-2 adrenergic receptor antagonist ,  increases norepinephrine.",
+  "mechanism": "Alpha-2 adrenergic receptor antagonist, increases norepinephrine.",
   "activeCompounds": [
     "yohimbine",
     "indole alkaloids",
@@ -25,7 +25,7 @@
     "MAOIs"
   ],
   "safetyLevel": "high",
-  "safetyNotes": "May cause high risk: serious toxicity or overdose harm is possible. do not combine with serotonergic drugs or maois without medical guidance. Avoid with heart disease; Avoid with anxiety; Avoid with hypertension; Avoid with psychiatric conditions.",
+  "safetyNotes": "Avoid with heart disease; Avoid with anxiety; Avoid with hypertension; Avoid with psychiatric conditions.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Pausinystalia johimbe",

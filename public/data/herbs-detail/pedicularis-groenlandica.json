@@ -18,7 +18,7 @@
     "7]"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, alcohol, or other cns depressants, rare, possible gi upset [0 or 7]. Avoid combining with sedatives; Avoid in pregnancy; Avoid during breastfeeding; Avoid with 7].",
+  "safetyNotes": "May cause rare, possible gi upset [0 or 7]. Avoid in pregnancy; Avoid during breastfeeding; Avoid with 7]; Avoid combining with sedatives, may cause rare, possible GI upset [0, 7] or no significant toxicity reported [0; Avoid in pregnancy or 7]; Avoid use during pregnancy unless advised by a clinician, alcohol, or other CNS depressants, rare, possible GI upset [0 or 7]; Avoid combining with sedatives.",
   "sources": [
     {
       "title": "NCBI Taxonomy: pedicularis groenlandica (TaxID 262426)",
@@ -28,7 +28,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.990Z",
   "description": "Pedicularis groenlandica is a medicinal herb traditionally used for relieves tension and anxiety.",
-  "dosage": "Similar to P. densiflora, tea or tincture.",
+  "dosage": "",
   "duration": "1–3 hours when taken as tea or tincture.",
   "legalStatus": "Legal / Unregulated",
   "preparation": "Tincture.",

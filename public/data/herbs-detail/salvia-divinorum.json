@@ -3,7 +3,7 @@
   "latin": "Salvia divinorum",
   "class": "dissociative / sedative",
   "intensity": "No direct intensity data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. No direct region data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. ; nan; nan. ; nan; nan",
-  "mechanism": "Salvinorin a is a kappa-opioid agonist ,  dissociative hallucinogen.",
+  "mechanism": "Salvinorin a is a kappa-opioid agonist, dissociative hallucinogen.",
   "activeCompounds": [
     "salvinorin A"
   ],
@@ -29,7 +29,7 @@
     "May intensify effects of sedatives and dissociatives"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, alcohol, or other cns depressants, dysphoria, confusion, tiredness, dizziness, amnesia, potential for transient psychosis in vulnerable individuals [3 or 2]. Avoid combining with sedatives; Avoid with unstable mental health conditions; Avoid with psychiatric disorders; Avoid with cardiovascular instability; Avoid with 2]; Avoid with schizophrenia; Avoid in pregnancy.",
+  "safetyNotes": "May cause dysphoria, confusion, tiredness, dizziness, amnesia, potential for transient psychosis in vulnerable individuals [3 or 2]. Avoid with unstable mental health conditions; Avoid with psychiatric disorders; Avoid with cardiovascular instability; Avoid with 2]; Avoid with schizophrenia; Avoid in pregnancy; Avoid combining with sedatives, may cause dysphoria, short-acting visionary states; Avoid use during pregnancy unless advised by a clinician, alcohol, or other CNS depressants, dysphoria, confusion, tiredness, dizziness, amnesia, potential for transient psychosis in vulnerable individuals [3 or 2]; Avoid combining with sedatives.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Salvia divinorum (TaxID 28513)",

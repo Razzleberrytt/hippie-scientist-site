@@ -3,7 +3,7 @@
   "latin": "Δ9-Tetrahydrocannabinol (from Cannabis sativa/indica)",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. No direct region data. Contextual inference: Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. ; nan; nan. ; nan; nan",
-  "mechanism": "Agonist at cb1 receptors ,  modulates dopamine and gaba release.",
+  "mechanism": "Agonist at cb1 receptors, modulates dopamine and gaba release.",
   "activeCompounds": [],
   "effects": [
     "mood",
@@ -22,7 +22,7 @@
     "SSRIs"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or maois without medical guidance, euphoria, anxiety, dry mouth or impaired cognition. Avoid with unstable mental health conditions; Avoid in pregnancy; Avoid with heart disease.",
+  "safetyNotes": "May cause euphoria, anxiety, dry mouth or impaired cognition. Avoid with unstable mental health conditions; Avoid in pregnancy; Avoid with heart disease; Avoid with unstable mental health conditions, may cause euphoria, dry mouth, impaired cognition, euphoric, analgesic, antiemetic; Avoid use during pregnancy unless advised by a clinician, do not combine with serotonergic drugs or MAOIs without medical guidance, euphoria, anxiety, dry mouth or impaired cognition.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Δ9-Tetrahydrocannabinol (from Cannabis sativa/indica)",

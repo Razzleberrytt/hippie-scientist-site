@@ -3,7 +3,7 @@
   "latin": "Rhynchosia phaseoloides",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Forage crop; traditional use as anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Forage crop; traditional use as anti-inflammatory. No direct region data. Contextual inference: Forage crop; traditional use as anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Forage crop; traditional use as anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory"
@@ -11,7 +11,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "caution",
-  "safetyNotes": "May cause limited data or potential gi discomfort. Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
+  "safetyNotes": "May cause limited data or potential gi discomfort. Avoid combining with prescription drugs without guidance, may cause limited data, potential GI discomfort or herbs often act via neurotransmitter modulation, limited data or potential GI discomfort; Avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rhynchosia phaseoloides (TaxID 2730134)",
@@ -20,11 +20,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.008Z",
-  "description": "Rhynchosia phaseoloides is a medicinal herb traditionally used for anti-inflammatory support in folk medicine.",
+  "description": "Forage crop; traditional use as anti-inflammatory.",
   "dosage": "",
   "duration": "121.0",
   "legalStatus": "Not regulated; traditional use",
-  "preparation": "",
+  "preparation": "Leaves sometimes decocted or used in forage blends; limited direct herbal usage.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

@@ -3,7 +3,7 @@
   "latin": "Paullinia pinnata",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Aphrodisiac, tonic, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, tonic, anti-inflammatory. No direct region data. Contextual inference: Aphrodisiac, tonic, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, tonic, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -12,7 +12,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "caution",
-  "safetyNotes": "May cause limited data, may cause nervousness or insomnia. Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
+  "safetyNotes": "May cause limited data, may cause nervousness or insomnia. Avoid combining with prescription drugs without guidance, may cause nervousness, insomnia, tonic or herbs often act via neurotransmitter modulation or limited data; Avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Paullinia pinnata (TaxID 290984)",
@@ -21,11 +21,11 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.989Z",
-  "description": "Paullinia pinnata is a medicinal herb traditionally used for aphrodisiac and tonic.",
+  "description": "Aphrodisiac, tonic, anti-inflammatory.",
   "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Folk use; unregulated in many regions",
-  "preparation": "",
+  "preparation": "Leaves and stems decocted or infused; used in African traditional medicine for digestion and aphrodisiac effects.",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

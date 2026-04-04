@@ -8,14 +8,11 @@
   "effects": [],
   "contraindications": [],
   "interactions": [
-    "Insufficient direct interaction data for this herb",
-    "Consult a clinician before combining with prescription medications",
     "Use extra caution with anticoagulants",
-    "Sedatives",
-    "And serotonergic drugs until herb-specific interaction evidence is established"
+    "Sedatives"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance.",
+  "safetyNotes": "Generally well tolerated.",
   "sources": [
     {
       "title": "NCBI Taxonomy: wild jujube seed",

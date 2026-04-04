@@ -18,7 +18,7 @@
     "Avoid MAOIs"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance, lower dose or stop if nausea, vomiting, or gi upset occurs, nausea, anxiety or transient increase in heart rate. Avoid with unstable mental health conditions; Avoid with uncontrolled hypertension.",
+  "safetyNotes": "May cause nausea, anxiety or transient increase in heart rate. Avoid with unstable mental health conditions; Avoid with uncontrolled hypertension; Avoid with unstable mental health conditions, may cause toxic – controlled psychedelic, anxiety, transient increase in heart rate or wide margin of safety; Avoid with unstable mental health conditions or transient increase in heart rate.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Psilocybin",
@@ -32,7 +32,7 @@
   "duration": "No direct duration data. Contextual inference: active compound in psychedelic mushrooms producing profound perceptual changes.. Converted to psilocin which acts as 5-HT2A agonist.. Visual patterns;mystical insight;emotional release. 🌎 global. ; nan; nan",
   "legalStatus": "Controlled in many countries",
   "preparation": "Extract.",
-  "region": "Global.",
+  "region": "",
   "therapeuticUses": [
     "promising treatment for depression",
     "addiction",

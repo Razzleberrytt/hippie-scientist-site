@@ -3,7 +3,7 @@
   "latin": "Ocimum sanctum",
   "class": "Adaptogen, Immunomodulator, Traditional",
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, anti-stress, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-stress, immune support. No direct region data. Contextual inference: Adaptogen, anti-stress, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-stress, immune support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [
     "eugenol",
     "ursolic acid",
@@ -28,7 +28,7 @@
     "Immunomodulators"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, alcohol, or other cns depressants, mild gi issues or drowsiness. Avoid combining with sedatives; Use caution with anticoagulants; Avoid in pregnancy; Avoid with blood clotting disorders.",
+  "safetyNotes": "Generally well tolerated. May cause mild gi issues or drowsiness. Avoid in pregnancy; Avoid with blood clotting disorders; Avoid combining with sedatives, generally well tolerated; Use caution with anticoagulants; Avoid use during pregnancy unless advised by a clinician, alcohol, or other CNS depressants, mild GI issues or drowsiness; Avoid combining with sedatives.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Ocimum sanctum",
@@ -37,7 +37,7 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.984Z",
-  "description": "Ocimum sanctum is a medicinal herb traditionally used for stress relief and respiratory.",
+  "description": "Adaptogen, anti-stress, immune support.",
   "dosage": "250-750 mg/day leaf extract.",
   "duration": "6–8 hours (adaptogenic action)",
   "legalStatus": "Unregulated; widely available",

@@ -3,7 +3,7 @@
   "latin": "Rheum palmatum",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Laxative, digestive aid, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, digestive aid, antimicrobial. No direct region data. Contextual inference: Laxative, digestive aid, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, digestive aid, antimicrobial. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "digestive support",
@@ -12,7 +12,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "caution",
-  "safetyNotes": "May cause laxative, abdominal cramps or electrolyte imbalance. Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
+  "safetyNotes": "Generally well tolerated. May cause laxative, abdominal cramps or electrolyte imbalance. Avoid combining with prescription drugs without guidance, generally well tolerated; Avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rheum palmatum (TaxID 137221)",
@@ -25,7 +25,7 @@
   "dosage": "250-1000 mg/day processed root.",
   "duration": "Up to 12 hours",
   "legalStatus": "Legal; regulated as a laxative",
-  "preparation": "",
+  "preparation": "Root dried and decocted in small doses; purgative and liver-stimulating; common in TCM (Chinese rhubarb).",
   "region": "",
   "therapeuticUses": [],
   "traditionalUse": "; nan; nan",

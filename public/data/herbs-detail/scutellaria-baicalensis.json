@@ -3,7 +3,7 @@
   "latin": "Scutellaria baicalensis",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antioxidant, hepatoprotective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, hepatoprotective. No direct region data. Contextual inference: Anti-inflammatory, antioxidant, hepatoprotective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, hepatoprotective. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [
     "baicalin",
     "baicalein",
@@ -15,14 +15,11 @@
   ],
   "contraindications": [],
   "interactions": [
-    "Insufficient direct interaction data for this herb",
-    "Consult a clinician before combining with prescription medications",
     "Use extra caution with anticoagulants",
-    "Sedatives",
-    "And serotonergic drugs until herb-specific interaction evidence is established"
+    "Sedatives"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause moderate risk: side effects or medication interactions are plausible. do not combine with serotonergic drugs or maois without medical guidance or rare hepatotoxicity cases.",
+  "safetyNotes": "Generally well tolerated. May cause generally safe or rare hepatotoxicity cases.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Scutellaria baicalensis (TaxID 65409)",
@@ -32,7 +29,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.019Z",
   "description": "Anti-inflammatory, antioxidant, hepatoprotective.",
-  "dosage": "Traditional use commonly ranges around 3-9 g dried root daily in decoction.",
+  "dosage": "250-1000 mg/day root extract.",
   "duration": "6–10 hours",
   "legalStatus": "Legal globally",
   "preparation": "Tincture.",

@@ -3,7 +3,7 @@
   "latin": "Salvia officinalis",
   "class": "Mild Psychoactive, Nervine",
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, astringent, memory enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, astringent, memory enhancer. No direct region data. Contextual inference: Antimicrobial, astringent, memory enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, astringent, memory enhancer. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [
     "thujone",
     "camphor",
@@ -26,7 +26,7 @@
     "Caution with GABAergic meds"
   ],
   "safetyLevel": "high",
-  "safetyNotes": "May cause high risk: serious toxicity or overdose harm is possible. avoid use during pregnancy unless advised by a clinician, neurotoxic in high doses, dizziness or dry mouth. Avoid combining with other stimulants; Avoid in high doses; Avoid with epilepsy; Avoid in pregnancy.",
+  "safetyNotes": "May cause neurotoxic in high doses, dizziness or dry mouth. Avoid in high doses; Avoid with epilepsy; Avoid in pregnancy; Avoid use during pregnancy unless advised by a clinician, neurotoxic in high doses, dizziness or dry mouth; Avoid combining with other stimulants, may cause safe in culinary doses, toxic in excess, dizziness, dry mouth, seizures (high dose), moderate in excess, rats), astringent, memory enhancer; Avoid combining with other stimulants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Salvia officinalis (TaxID 38868)",

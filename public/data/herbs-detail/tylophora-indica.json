@@ -3,7 +3,7 @@
   "latin": "Tylophora indica",
   "class": "respiratory / immunomodulator / ayurvedic",
   "intensity": "Moderate",
-  "mechanism": "Contains tylophorine alkaloids with immunosuppressive ,  anti-inflammatory ,  and antiallergic properties.",
+  "mechanism": "Contains tylophorine alkaloids with immunosuppressive, anti-inflammatory, and antiallergic properties.",
   "activeCompounds": [],
   "effects": [
     "respiratory support",
@@ -23,7 +23,7 @@
     "Or antihistamines"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, lower dose or stop if nausea, vomiting, or gi upset occurs or nausea and vomiting in higher doses. gi discomfort is common early in treatment. Avoid in pregnancy; Avoid with with immunosuppressants; Avoid with or in emaciated individuals not for long-term high-dose use; Avoid with or in emaciated individuals not for long; Avoid with term high; Avoid with dose use.",
+  "safetyNotes": "May cause nausea and vomiting in higher doses. gi discomfort is common early in treatment. Avoid in pregnancy; Avoid with with immunosuppressants; Avoid with or in emaciated individuals not for long-term high-dose use; Avoid with or in emaciated individuals not for long; Avoid with term high; Avoid with dose use; Avoid in pregnancy, may cause nausea and vomiting in higher doses; Avoid use during pregnancy unless advised by a clinician, lower dose or stop if nausea, vomiting, or GI upset occurs or nausea and vomiting in higher doses.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Tylophora indica",

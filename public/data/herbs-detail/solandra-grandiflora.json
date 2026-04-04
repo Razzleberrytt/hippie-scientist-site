@@ -3,7 +3,7 @@
   "latin": "Solandra grandiflora",
   "class": "Deliriant, Tropane alkaloid",
   "intensity": "Very strong",
-  "mechanism": "Anticholinergic ,  muscarinic receptor antagonism.",
+  "mechanism": "Anticholinergic, muscarinic receptor antagonism.",
   "activeCompounds": [
     "atropine",
     "scopolamine",
@@ -24,7 +24,7 @@
     "CNS depressants"
   ],
   "safetyLevel": "high",
-  "safetyNotes": "May cause high risk: serious toxicity or overdose harm is possible. avoid use during pregnancy unless advised by a clinician or do not combine with serotonergic drugs or maois without medical guidance. Avoid with cardiac conditions; Avoid with glaucoma; Avoid in pregnancy.",
+  "safetyNotes": "Avoid with cardiac conditions; Avoid with glaucoma; Avoid in pregnancy; Avoid use during pregnancy unless advised by a clinician or do not combine with serotonergic drugs or MAOIs without medical guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Solandra grandiflora (TaxID 33123)",
@@ -34,7 +34,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:37.976Z",
   "description": "Powerful deliriant used in Huichol rituals; causes intense hallucinations and confusion.",
-  "dosage": "Extremely variable and dangerous.",
+  "dosage": "",
   "duration": "8–12 hours",
   "legalStatus": "Regulated in some regions",
   "preparation": "Tea.",

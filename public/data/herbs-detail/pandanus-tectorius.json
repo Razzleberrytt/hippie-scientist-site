@@ -3,7 +3,7 @@
   "latin": "Pandanus tectorius",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Edible fruit; antioxidant, antimicrobial, and wound healing properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Edible fruit; antioxidant, antimicrobial, and wound healing properties. No direct region data. Contextual inference: Edible fruit; antioxidant, antimicrobial, and wound healing properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Edible fruit; antioxidant, antimicrobial, and wound healing properties. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "antimicrobial",
@@ -12,7 +12,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. stop use if rash or allergic symptoms occur, generally safe in food use or rare allergic reactions.",
+  "safetyNotes": "Generally well tolerated. May cause generally safe in food use or rare allergic reactions.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Pandanus tectorius (TaxID 4726)",
@@ -21,7 +21,7 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.986Z",
-  "description": "Pandanus tectorius is a medicinal herb traditionally used for edible fruit and antioxidant.",
+  "description": "Edible fruit; antioxidant, antimicrobial, and wound healing properties.",
   "dosage": "",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",

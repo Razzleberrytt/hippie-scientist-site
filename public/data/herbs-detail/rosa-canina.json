@@ -3,7 +3,7 @@
   "latin": "Rosa canina",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antioxidant, anti-inflammatory, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant, anti-inflammatory, immune support. No direct region data. Contextual inference: Antioxidant, anti-inflammatory, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant, anti-inflammatory, immune support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -13,7 +13,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause moderate risk: side effects or medication interactions are plausible. lower dose or stop if nausea, vomiting, or gi upset occurs, high doses may cause nausea or diarrhea.",
+  "safetyNotes": "Generally well tolerated. May cause generally safe, high doses may cause nausea or diarrhea.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Rosa canina (TaxID 74635)",
@@ -22,7 +22,7 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.010Z",
-  "description": "Rosa canina is a medicinal herb traditionally used for antioxidant and anti-inflammatory-inflammatory.",
+  "description": "Antioxidant, anti-inflammatory, immune support.",
   "dosage": "500-1000 mg/day fruit or extract.",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",

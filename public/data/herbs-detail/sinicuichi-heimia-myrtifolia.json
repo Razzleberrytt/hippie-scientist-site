@@ -3,7 +3,7 @@
   "latin": "Sinicuichi (Heimia myrtifolia)",
   "class": "Oneirogen, Relaxant",
   "intensity": "Mild",
-  "mechanism": "Gabaergic ,  unknown alkaloid activity.",
+  "mechanism": "Gabaergic, unknown alkaloid activity.",
   "activeCompounds": [
     "cryogenine",
     "lyfoline"
@@ -21,7 +21,7 @@
     "Antidepressants"
   ],
   "safetyLevel": "caution",
-  "safetyNotes": "May cause alcohol or or other cns depressants. Caution: safety evidence is limited or inconsistent. Avoid combining with sedatives; Avoid with antidepressants; Avoid in liver disease.",
+  "safetyNotes": "Avoid with antidepressants; Avoid in liver disease; Avoid combining with sedatives, may cause safe in small traditional doses, dry mouth or lethargy or not recorded; Avoid combining with sedatives.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Sinicuichi (Heimia myrtifolia)",

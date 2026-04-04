@@ -3,7 +3,7 @@
   "latin": "Plantago major",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, wound healing, demulcent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, demulcent. No direct region data. Contextual inference: Anti-inflammatory, wound healing, demulcent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, demulcent. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory"
@@ -11,7 +11,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "moderate",
-  "safetyNotes": "Generally well tolerated. May cause moderate risk: side effects or medication interactions are plausible. stop use if rash or allergic symptoms occur or rare allergic skin reactions.",
+  "safetyNotes": "Generally well tolerated. May cause generally safe or rare allergic skin reactions.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Plantago major (TaxID 29818)",
@@ -20,7 +20,7 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.998Z",
-  "description": "Plantago major is a medicinal herb traditionally used for anti-inflammatory-inflammatory and wound healing.",
+  "description": "Anti-inflammatory, wound healing, demulcent.",
   "dosage": "250-1000 mg/day leaf extract.",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",

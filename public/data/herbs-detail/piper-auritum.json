@@ -3,7 +3,7 @@
   "latin": "Piper auritum",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Digestive aid, antimicrobial, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, antimicrobial, anti-inflammatory. No direct region data. Contextual inference: Digestive aid, antimicrobial, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, antimicrobial, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs act via neurotransmitter modulation ,  antioxidant effects ,  or enzyme inhibition.",
+  "mechanism": "",
   "activeCompounds": [],
   "effects": [
     "anti-inflammatory",
@@ -13,7 +13,7 @@
   "contraindications": [],
   "interactions": [],
   "safetyLevel": "caution",
-  "safetyNotes": "May cause contains safrole or potential carcinogen in high amounts. Caution: safety evidence is limited or inconsistent. Use conservative dosing and avoid combining with prescription drugs without guidance.",
+  "safetyNotes": "May cause contains safrole or potential carcinogen in high amounts. Avoid combining with prescription drugs without guidance, may cause contains safrole, potential carcinogen in high amounts, antimicrobial or herbs often act via neurotransmitter modulation or contains safrole; Avoid combining with prescription drugs without guidance.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Piper auritum (TaxID 130385)",
@@ -22,7 +22,7 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:37.996Z",
-  "description": "Piper auritum is a medicinal herb traditionally used for digestive aid and antimicrobial.",
+  "description": "Digestive aid, antimicrobial, anti-inflammatory.",
   "dosage": "",
   "duration": "3–6 hours",
   "legalStatus": "Restricted in some regions due to safrole",

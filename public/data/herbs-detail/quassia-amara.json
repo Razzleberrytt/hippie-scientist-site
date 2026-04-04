@@ -3,7 +3,7 @@
   "latin": "Quassia amara",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Bitter tonic, digestive stimulant, antiparasitic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, digestive stimulant, antiparasitic. No direct region data. Contextual inference: Bitter tonic, digestive stimulant, antiparasitic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Bitter tonic, digestive stimulant, antiparasitic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Quassinoid-rich bitter constituents appear to stimulate bitter-taste receptor pathways that increase digestive secretions; antiparasitic activity is supported mainly by preclinical data.",
+  "mechanism": "",
   "activeCompounds": [
     "quassin",
     "neoquassin",
@@ -24,7 +24,7 @@
     "Use caution with other strongly bitter digestive stimulants"
   ],
   "safetyLevel": "moderate",
-  "safetyNotes": "May cause moderate risk: side effects or medication interactions are plausible. avoid use during pregnancy unless advised by a clinician, bitter compounds may cause nausea or gi discomfort. Avoid combining with other stimulants; Avoid during pregnancy because concentrated bitter principles may increase uterine activity risk; Avoid in active peptic ulcer or severe gastritis.",
+  "safetyNotes": "Generally well tolerated. May cause bitter compounds may cause nausea or gi discomfort. Avoid during pregnancy because concentrated bitter principles may increase uterine activity risk; Avoid in active peptic ulcer or severe gastritis; Avoid combining with other stimulants, generally well tolerated; Avoid use during pregnancy unless advised by a clinician, bitter compounds may cause nausea or GI discomfort; Avoid combining with other stimulants.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Quassia amara (TaxID 43725)",
@@ -33,7 +33,7 @@
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.004Z",
-  "description": "Quassia amara is a medicinal herb traditionally used for bitter tonic and digestive stimulant.",
+  "description": "Bitter tonic, digestive stimulant, antiparasitic.",
   "dosage": "250-500 mg/day wood or extract.",
   "duration": "2–4 hours",
   "legalStatus": "Legal in herbal medicine",
