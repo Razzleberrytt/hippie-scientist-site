@@ -4,12 +4,11 @@
     "nan"
   ],
   "effects": [
-    "Supports calcium and phosphorus homeostasis",
-    "Supports bone mineralization",
-    "Prevents vitamin D deficiency bone disease"
+    "Supports calcium/phosphorus homeostasis",
+    "Supports bone mineralization"
   ],
   "contraindications": [
-    "Avoid chronic high-dose unsupervised use because of hypercalcemia risk"
+    "Avoid chronic high-dose unsupervised use due to hypercalcemia risk"
   ],
   "category": "nutrient",
   "sources": [
@@ -26,30 +25,26 @@
   "slug": "vitamin-d",
   "id": "vitamin-d",
   "displayName": "Vitamin D (Calciferols)",
-  "description": "Vitamin D is produced in skin (primarily D3) and obtained from diet/supplements (D2 and D3), then converted to active metabolites. Core evidence supports deficiency prevention and bone-health roles, while many non-skeletal claims remain under investigation.",
-  "summary": "Vitamin D (D2/D3) is an essential nutrient-prohormone for calcium homeostasis and bone health; deficiency and chronic excess are both clinically important.",
-  "mechanism": "Established with proposed extensions: vitamin D increases intestinal calcium/phosphorus absorption and supports bone mineralization through vitamin D receptor signaling; broader immune/cardiometabolic effects remain tentative.",
+  "description": "Vitamin D2/D3 from skin, diet, and supplements are converted to active metabolites.",
+  "summary": "Essential prohormone nutrient for calcium/bone health; both deficiency and chronic excess are clinically important.",
+  "mechanism": "Increases calcium/phosphorus absorption and supports bone mineralization via vitamin D receptor signaling.",
   "safetyNotes": [
-    "Deficiency is associated with rickets and osteomalacia risk.",
-    "Chronic excessive intake can cause hypercalcemia with symptoms such as nausea, weakness, and kidney stone/renal complications.",
-    "Adult upper intake level context: about 4,000 IU/day unless medically supervised."
+    "Deficiency causes bone disease risk.",
+    "Chronic excess can cause hypercalcemia and renal complications."
   ],
   "interactions": [
-    "Can increase hypercalcemia risk when combined with thiazide diuretics.",
-    "Glucocorticoids can reduce vitamin D action and calcium-balance effects."
+    "Thiazides may increase hypercalcemia risk; glucocorticoids can reduce vitamin D effects."
   ],
   "dosage": [
-    "RDA framework: about 600\u2013800 IU/day depending on age/life stage.",
-    "Higher supplemental intakes are sometimes used to reach serum 25(OH)D targets, but individualized monitoring is often needed.",
-    "Adult upper intake level context: about 4,000 IU/day without specialist supervision."
+    "RDA framework about 600–800 IU/day; upper-limit context about 4,000 IU/day without supervision."
   ],
-  "preparation": "Available as vitamin D3 (cholecalciferol) and vitamin D2 (ergocalciferol), including single-ingredient and calcium+vitamin D products.",
-  "regulatoryStatus": "Essential nutrient with established dietary reference intakes; OTC supplement forms are common, and high-dose prescription calciferol regimens are used in deficiency care.",
+  "preparation": "Available as D3 and D2, including combined calcium+vitamin D products.",
+  "regulatoryStatus": "Essential nutrient; OTC supplements and high-dose prescription regimens exist.",
   "sourceType": "Essential vitamin (hormone precursor)",
   "activeCompounds": [
-    "Ergocalciferol (Vitamin D2)",
-    "Cholecalciferol (Vitamin D3)",
-    "Calcitriol (active metabolite)"
+    "Ergocalciferol (D2)",
+    "Cholecalciferol (D3)",
+    "Calcitriol"
   ],
   "identity": "",
   "categoryUseContext": "",

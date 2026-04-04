@@ -1,0 +1,55 @@
+{
+  "name": "Probiotics",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "May reduce antibiotic-associated diarrhea in some strains",
+    "May modestly improve some IBS symptoms (strain dependent)"
+  ],
+  "contraindications": [
+    "Use caution in severely immunocompromised/ICU patients",
+    "Products are not interchangeable across strains"
+  ],
+  "category": "supplement",
+  "sources": [
+    {
+      "title": "Probiotics (MedlinePlus)",
+      "url": "https://medlineplus.gov/probiotics.html"
+    },
+    {
+      "title": "Probiotics Fact Sheet for Health Professionals (NIH ODS)",
+      "url": "https://ods.od.nih.gov/factsheets/Probiotics-HealthProfessional/"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "slug": "probiotics",
+  "id": "probiotics",
+  "displayName": "Probiotics",
+  "description": "Lactobacillus, Bifidobacterium, Saccharomyces boulardii and others show indication- and strain-specific outcomes.",
+  "summary": "Live microbial products with strain-specific effects; avoid broad universal claims.",
+  "mechanism": "Proposed mechanisms include microbiome modulation, barrier effects, and immune signaling changes.",
+  "safetyNotes": [
+    "Generally safe in healthy people.",
+    "Rare invasive infection risk exists in high-risk patients."
+  ],
+  "interactions": [
+    "Theoretical concerns with immunosuppressants and antifungals."
+  ],
+  "dosage": [
+    "No universal dose; many products provide ~1–10 billion CFU/day."
+  ],
+  "preparation": "Capsules/powders/fermented foods; viability and storage matter.",
+  "regulatoryStatus": "Typically sold as foods or supplements, not approved drugs.",
+  "sourceType": "Live microbial supplement",
+  "activeCompounds": [
+    "Live microbial strains"
+  ],
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nan"
+  ]
+}

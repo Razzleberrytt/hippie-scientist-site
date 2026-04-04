@@ -5,50 +5,42 @@
   ],
   "effects": [
     "Supports antioxidant selenoprotein activity",
-    "Supports thyroid hormone metabolism",
-    "Prevents selenium deficiency states"
+    "Supports thyroid hormone metabolism"
   ],
   "contraindications": [
-    "Avoid chronic high-dose intake above established upper limit due to selenosis risk"
+    "Avoid chronic intake above upper limit",
+    "Non-deficiency high-dose use may add risk without clear benefit"
   ],
   "category": "nutrient",
   "sources": [
     {
       "title": "Selenium Fact Sheet for Health Professionals (NIH ODS)",
       "url": "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional/"
-    },
-    {
-      "title": "NIH Cohort Study on Se and Diabetes",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/"
     }
   ],
   "lastUpdated": "2026-04-04",
   "slug": "selenium",
   "id": "selenium",
   "displayName": "Selenium",
-  "description": "Selenium is incorporated into selenoproteins involved in oxidative defense and thyroid hormone metabolism. Adult intake guidance is centered on microgram-scale intake, and higher chronic intake raises toxicity risk.",
-  "summary": "Selenium is an essential trace mineral for antioxidant and thyroid-related selenoproteins; adequacy is important, while chronic excess can cause selenosis.",
-  "mechanism": "Established with proposed extensions: selenium functions through selenoproteins (including glutathione peroxidase and deiodinase enzymes), supporting oxidative balance and T4-to-T3 conversion.",
+  "description": "Selenium enters selenoproteins; required intake is microgram range and chronic excess can be toxic.",
+  "summary": "Essential trace mineral for antioxidant and thyroid enzymes; high-dose non-deficiency use is uncertain.",
+  "mechanism": "Supports glutathione peroxidase/deiodinase selenoproteins including T4→T3 conversion.",
   "safetyNotes": [
-    "Deficiency can contribute to clinically significant problems in low-selenium settings.",
-    "Chronic excess intake can cause selenosis (for example garlic breath, hair/nail changes, gastrointestinal symptoms, and neuropathy).",
-    "Adult upper intake level context: about 400 micrograms/day."
+    "Deficiency and excess are both clinically important.",
+    "Upper-limit context is about 400 micrograms/day in adults."
   ],
   "interactions": [
-    "May interact with anticoagulant contexts; potential heavy-metal interaction claims are formulation/context dependent and not a routine supplementation rationale."
+    "Potential bleeding-risk context with anticoagulants is discussed in references."
   ],
   "dosage": [
-    "RDA framework (adults): about 55 micrograms/day.",
-    "Some studies evaluated 200 micrograms/day, but routine use above adequacy targets is not generally established.",
-    "Adult upper intake level context: about 400 micrograms/day."
+    "Adult RDA ~55 micrograms/day; some studies used ~200 micrograms/day."
   ],
-  "preparation": "Common supplemental forms include selenomethionine and inorganic forms such as selenite.",
-  "regulatoryStatus": "Essential trace nutrient with established dietary reference intakes; permitted in dietary supplement products.",
-  "sourceType": "Essential micronutrient (trace mineral)",
+  "preparation": "Selenomethionine and selenite supplement forms.",
+  "regulatoryStatus": "Essential nutrient with dietary reference intakes.",
+  "sourceType": "Essential trace element",
   "activeCompounds": [
     "Selenomethionine",
-    "Selenocysteine",
-    "Sodium selenite"
+    "Selenocysteine"
   ],
   "identity": "",
   "categoryUseContext": "",

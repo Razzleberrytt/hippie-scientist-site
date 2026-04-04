@@ -4,50 +4,42 @@
     "nan"
   ],
   "effects": [
-    "Supports cellular energy metabolism",
-    "Supports antioxidant enzyme systems",
-    "Prevents ariboflavinosis (B2 deficiency)"
+    "Supports energy metabolism via FMN/FAD",
+    "Prevents riboflavin deficiency"
   ],
   "contraindications": [
-    "No major contraindications at nutritional intakes were highlighted in this source set"
+    "No major toxicity at typical use levels",
+    "High-dose migraine use differs from dietary dosing"
   ],
   "category": "nutrient",
   "sources": [
     {
-      "title": "Riboflavin Fact Sheet for Health Professionals (NIH ODS)",
+      "title": "Vitamin B2 Fact Sheet for Health Professionals (NIH ODS)",
       "url": "https://ods.od.nih.gov/factsheets/Riboflavin-HealthProfessional/"
-    },
-    {
-      "title": "Migraine prophylaxis guidelines (NIH/NCCIH)",
-      "url": "https://www.nccih.nih.gov/health/headaches-in-depth"
     }
   ],
   "lastUpdated": "2026-04-04",
   "slug": "riboflavin",
   "id": "riboflavin",
   "displayName": "Riboflavin (Vitamin B2)",
-  "description": "Riboflavin supports formation of FMN and FAD and is required at low intake levels to prevent deficiency (ariboflavinosis). Migraine studies typically evaluate pharmacologic-dose supplementation rather than dietary-level intake.",
-  "summary": "Riboflavin (vitamin B2) is an essential vitamin required for FMN/FAD coenzymes in energy and redox metabolism; it has a strong safety profile, while migraine protocols use much higher doses than nutritional intake.",
-  "mechanism": "Established with proposed extensions: riboflavin supports redox enzymes via FMN/FAD (including antioxidant pathways such as glutathione reductase), while migraine benefit is linked to a proposed mitochondrial-energy mechanism.",
+  "description": "Required to prevent ariboflavinosis; migraine studies use pharmacologic doses higher than RDA intake.",
+  "summary": "Essential B2 vitamin for FMN/FAD coenzymes; high-dose migraine use is distinct from nutrition dosing.",
+  "mechanism": "Supports redox enzymes via FMN/FAD; migraine benefit is a proposed mitochondrial-energy mechanism.",
   "safetyNotes": [
-    "Generally very well tolerated, including at high supplemental doses used in studies.",
-    "Bright yellow urine discoloration is common and benign.",
-    "No serious toxicity signal is emphasized in the source set."
+    "Generally well tolerated.",
+    "Bright yellow urine can occur and is benign."
   ],
   "interactions": [
-    "No major clinically significant drug interactions are emphasized in the source corpus."
+    "No major consistent drug interactions established."
   ],
   "dosage": [
-    "RDA framework (adults): about 1.1\u20131.3 mg/day.",
-    "Migraine protocols commonly use 400 mg/day, which is a pharmacologic dose distinct from dietary-intake targets."
+    "Adult RDA about 1.1–1.3 mg/day; migraine trials often use ~400 mg/day."
   ],
-  "preparation": "Available as tablets/capsules and in B-complex products; riboflavin is light sensitive, so protective packaging is common.",
-  "regulatoryStatus": "Essential vitamin with established dietary reference intakes; marketed as a dietary supplement ingredient.",
-  "sourceType": "Essential vitamin (coenzyme component)",
+  "preparation": "Tablets/capsules and B-complex products; light-sensitive.",
+  "regulatoryStatus": "Essential nutrient with dietary reference intakes.",
+  "sourceType": "Essential vitamin",
   "activeCompounds": [
-    "Riboflavin",
-    "Flavin mononucleotide (FMN)",
-    "Flavin adenine dinucleotide (FAD)"
+    "Riboflavin"
   ],
   "identity": "",
   "categoryUseContext": "",

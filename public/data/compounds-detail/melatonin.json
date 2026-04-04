@@ -1,0 +1,55 @@
+{
+  "name": "Melatonin",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Supports circadian sleep timing",
+    "May reduce jet-lag symptoms"
+  ],
+  "contraindications": [
+    "Use caution with sedation-sensitive activities",
+    "Pregnancy/child use needs clinical review"
+  ],
+  "category": "supplement",
+  "sources": [
+    {
+      "title": "Melatonin: What You Need To Know (NCCIH)",
+      "url": "https://www.nccih.nih.gov/health/melatonin-what-you-need-to-know"
+    },
+    {
+      "title": "PubMed review literature on melatonin indications",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/"
+    }
+  ],
+  "lastUpdated": "2026-04-04",
+  "slug": "melatonin",
+  "id": "melatonin",
+  "displayName": "Melatonin",
+  "description": "Night-time hormone available as OTC supplement in many US products (often 0.5–5 mg).",
+  "summary": "Endogenous circadian hormone used for sleep and jet lag with modest short-term benefits and neuroactive caution.",
+  "mechanism": "Acts at MT1/MT2 receptors to shift circadian phase and support sleep onset.",
+  "safetyNotes": [
+    "Short-term use is generally tolerated.",
+    "Long-term safety remains limited."
+  ],
+  "interactions": [
+    "May add effects with sedatives; caution with anticoagulants and immunosuppressants."
+  ],
+  "dosage": [
+    "Commonly 0.5–5 mg taken 30–60 minutes before bed."
+  ],
+  "preparation": "Immediate- and extended-release oral products.",
+  "regulatoryStatus": "US dietary supplement; some countries regulate higher doses as prescription sleep medicines.",
+  "sourceType": "Endogenous hormone",
+  "activeCompounds": [
+    "Melatonin"
+  ],
+  "identity": "",
+  "categoryUseContext": "",
+  "evidenceLevel": "",
+  "relatedEntities": [],
+  "linkedHerbs": [
+    "nan"
+  ]
+}
