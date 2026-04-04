@@ -23,3 +23,9 @@ Optional:
 - `--out-dir <path>` to write artifacts to an alternate output location.
 
 The report reuses existing evidence acquisition run artifacts (`ops/evidence-acquisition/run_*.json`) and does not modify retrieval, extraction, normalization, or patch-application logic.
+## Canonical source policy
+
+For herb/compound enrichment prompts and field-level evidence hierarchy, use:
+
+- `ops/enrichment-source-policy.md`
+
