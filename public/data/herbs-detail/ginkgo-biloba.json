@@ -2,9 +2,10 @@
   "name": "ginkgo biloba",
   "latin": "ginkgo biloba",
   "intensity": "mild",
-  "mechanism": "Proposed actions include platelet-activating factor antagonism and vascular/neurochemical effects from terpene lactones and flavonoids. These mechanistic hypotheses do not confirm clinical efficacy for major indications.",
+  "mechanism": "Proposed mechanism: Ginkgo extracts contain terpene lactones such as ginkgolide A; ginkgolide A is described as a platelet-activating factor antagonist, which may relate to bleeding concerns rather than proving broad therapeutic benefit.",
   "activeCompounds": [
-    "Ginkgolide B"
+    "Ginkgolide A",
+    "Bilobalide"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -15,28 +16,29 @@
   "contraindications": [
     "Bleeding disorders, anticoagulant use"
   ],
-  "safetyNotes": "For most adults, ginkgo leaf extract appears reasonably safe in moderate oral amounts. It may increase bleeding risk (especially with anticoagulants) and may be unsafe during pregnancy.",
+  "safetyNotes": "Moderate-dose leaf extracts are likely safe for most adults and have been used up to 6 years in research, but seeds are toxic; adverse effects can include dizziness, GI symptoms, and headache; bleeding risk and pregnancy cautions apply.",
   "sources": [
     {
-      "title": "NCCIH: Ginkgo — Usefulness and Safety",
+      "title": "Ginkgo: Usefulness and Safety",
       "url": "https://www.nccih.nih.gov/health/ginkgo"
     },
     {
-      "title": "PubChem: Ginkgolide B",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9804"
+      "title": "Herb-Drug Interactions: What the Science Says (Ginkgo section)",
+      "url": "https://www.nccih.nih.gov/health/providers/digest/herb-drug-interactions-science"
+    },
+    {
+      "title": "The Ginkgo Evaluation of Memory (GEM) Study",
+      "url": "https://www.nccih.nih.gov/health/the-ginkgo-evaluation-of-memory-gem-study"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Ginkgo biloba leaf extracts are marketed for memory and circulation-related goals, but clinical findings are inconsistent across populations and outcomes.",
-  "dosage": "Dose depends on extract standardization and indication; trial doses are not interchangeable across products.",
+  "description": "A very ancient deciduous tree; in modern supplement use, leaf extract is most common; seeds can be toxic if consumed.",
+  "dosage": "240 mg/day was used in the GEM trial evaluating dementia prevention.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "May increase bleeding risk when combined with anticoagulants such as warfarin.",
-    "Can interact with other medicines; medication review is recommended before use."
-  ],
+  "interactions": "Warfarin is associated with increased risk of major bleeding events; concomitant use with efavirenz is not recommended.",
   "legalStatus": "legal",
-  "preparation": "Most products use standardized leaf extracts; teas and non-standardized preparations are less comparable to trial products.",
-  "region": "Ginkgo is native to China and now cultivated in multiple temperate regions.",
+  "preparation": "Typically leaf extract supplements; crude plant/seeds are not equivalent and seeds carry toxicity risk.",
+  "region": "Native range is China (Zhejiang).",
   "therapeuticUses": [
     "Used for memory loss, dementia, and circulatory issues"
   ],
@@ -51,5 +53,5 @@
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [],
-  "summary": "Ginkgo has been extensively studied, but NCCIH reports no conclusive evidence that it is helpful for any specific health condition."
+  "summary": "Ginkgo leaf extract is widely marketed for cognitive and other claims, but there is no conclusive evidence of benefit for any condition, and the GEM trial found 240 mg/day ineffective for reducing dementia/Alzheimer’s development in older adults. Safety cautions include bleeding risk, potential drug interactions including warfarin and efavirenz, and toxicity of seeds."
 }

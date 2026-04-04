@@ -3,10 +3,9 @@
   "latin": "Aesculus hippocastanum",
   "class": "Tree",
   "intensity": "No direct intensity data. Contextual inference: Venotonic, anti-inflammatory, edema relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Venotonic, anti-inflammatory, edema relief. No direct region data. Contextual inference: Venotonic, anti-inflammatory, edema relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Venotonic, anti-inflammatory, edema relief. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Aescin is a mixture of triterpene saponins that stimulates endothelial nitric oxide synthesis and increases endothelial cell permeability to calcium, promoting release of prostaglandin F2α; it also antagonizes serotonin and histamine and reduces degradation of mucopolysaccharides, resulting in vasoprotective, anti-inflammatory and venotonic effects.",
+  "mechanism": "Proposed mechanism: Seed extracts contain escin/aescin; mechanism of rare idiosyncratic liver injury is unknown.",
   "activeCompounds": [
-    "aescin (escin)",
-    "other saponins"
+    "Aescin/escin"
   ],
   "effects": [
     "Venotonic",
@@ -21,24 +20,29 @@
     "May cause mild nausea or abdominal upset",
     "Pregnant or breastfeeding individuals should consult healthcare provider before use"
   ],
-  "safetyNotes": "Nausea; GI upset; dizziness; high doses can be toxic due to aescin; avoid raw seeds; No direct toxicity data. Contextual inference: Venotonic; anti-inflammatory; edema relief. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Venotonic; edema relief. none.",
+  "safetyNotes": "Raw plant parts are unsafe orally; standardized extracts are likely safe short-term; adverse effects may include dizziness, digestive upsets, headache, itching; liver injury is rare and generally mild/self-limited.",
   "sources": [
     {
-      "title": "Inferred from scientific name:"
+      "title": "Horse Chestnut: Usefulness and Safety",
+      "url": "https://www.nccih.nih.gov/health/horse-chestnut"
     },
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Horse Chestnut - LiverTox",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548217/"
+    },
+    {
+      "title": "Aescin (CID 4555259) - PubChem",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Aescin"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Venotonic, anti-inflammatory, edema relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "A tree native to parts of southeastern Europe; seeds resemble sweet chestnuts but taste bitter; seed extracts are the common supplement form.",
   "dosage": "No direct dosage data. Contextual inference: Venotonic; anti; inflammatory; edema relief. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Venotonic; edema relief. No direct region data. Contextual inference: Venotonic; edema relief. none.; nan.",
   "duration": "6–8 hours",
   "interactions": [],
   "legalStatus": "Approved in EU for venous insufficiency; regulated",
-  "preparation": "Seeds used in standardized extracts; raw form is toxic and must be processed",
-  "region": "No direct region data. Contextual inference: Venotonic, anti-inflammatory, edema relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Venotonic, anti-inflammatory, edema relief. none. ; nan; nan",
+  "preparation": "Standardized horse chestnut seed extracts used orally; raw plant material is unsafe.",
+  "region": "Native range Central Balkan Peninsula to Türkiye.",
   "therapeuticUses": [
     "Management of chronic venous insufficiency and varicose veins",
     "Reduction of edema and swelling",
@@ -64,5 +68,6 @@
   "relatedCompounds": [
     "aescin-escin",
     "other-saponins"
-  ]
+  ],
+  "summary": "Horse chestnut seed extract is promoted for chronic venous insufficiency. Reviews suggest symptom improvement in CVI, though more rigorous trials are needed. Raw seeds/bark/flowers/leaves are unsafe orally due to a toxic component; standardized extracts with the toxic component removed are likely safe for short-term use."
 }

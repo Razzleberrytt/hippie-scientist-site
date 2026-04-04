@@ -3,11 +3,10 @@
   "latin": "Camellia sinensis",
   "class": "Stimulant, Nootropic",
   "intensity": "Mild to moderate",
-  "mechanism": "Caffeine antagonizes adenosine receptors and increases alertness. Catechins (including EGCG) have antioxidant and signaling effects in vitro and in vivo; clinical outcomes are plausible but depend on dose, matrix, and population.",
+  "mechanism": "Proposed mechanism: Catechins, notably EGCG, and caffeine are highlighted in relation to modest body-weight effects; catechins are also implicated in green-tea-extract hepatotoxicity, with significant product variability.",
   "activeCompounds": [
-    "Caffeine",
-    "Epigallocatechin gallate (EGCG)",
-    "L-theanine"
+    "EGCG",
+    "Catechin"
   ],
   "effects": [
     "Alertness",
@@ -25,37 +24,29 @@
     "avoid during pregnancy and breastfeeding",
     "Use caution with prescription medications and chronic conditions; monitor for intolerance."
   ],
-  "safetyNotes": "Brewed tea is generally safe for most adults in moderate intake, but excess caffeine can cause insomnia, palpitations, anxiety, and GI symptoms. Concentrated green tea extracts have been linked to rare but potentially serious liver injury; stop use and seek care for jaundice, dark urine, or persistent abdominal symptoms.",
+  "safetyNotes": "Beverage is generally safe, but extracts may cause nausea, constipation, abdominal discomfort, or increased blood pressure; liver injury reports primarily involve extract products.",
   "sources": [
     {
-      "title": "NCCIH: Green Tea",
+      "title": "Green Tea: Usefulness and Safety",
       "url": "https://www.nccih.nih.gov/health/green-tea"
     },
     {
-      "title": "LiverTox: Green Tea",
+      "title": "Green Tea - LiverTox",
       "url": "https://www.ncbi.nlm.nih.gov/books/NBK547925/"
     },
     {
-      "title": "PubChem: Caffeine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2519"
-    },
-    {
-      "title": "PubChem: Epigallocatechin gallate (EGCG)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/65064"
+      "title": "Veregen (sinecatechins) ointment label",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2018/021902s033lbl.pdf"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Green, black, and oolong teas all derive from Camellia sinensis and differ mainly by processing. Human evidence supports short-term alertness effects from caffeine and potential cardiometabolic benefits from long-term tea intake patterns, but effect sizes vary and supplement extracts are not equivalent to brewed tea.",
-  "dosage": "No single universal dose for all uses. Moderate brewed tea intake is the best-studied pattern; high-dose extract products require cautious use and label adherence.",
+  "description": "Green, black, and oolong teas come from Camellia sinensis but differ by processing; green tea leaves are steamed/pan-fried/dried and not fermented.",
+  "dosage": "unresolved for oral supplement dosing; FDA-approved sinecatechins 15% ointment is applied three times daily, but that is topical drug dosing, not supplement dosing.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Caffeine-containing tea products can interact with stimulant and cardiovascular medications, and may alter exposure to selected drugs.",
-    "NCCIH specifically notes interaction concerns between green tea and nadolol, and possible interactions with atorvastatin and raloxifene.",
-    "Separate high-dose extracts from complex medication regimens unless reviewed by a clinician."
-  ],
+  "interactions": "High-dose green tea reduces nadolol blood levels; green tea extract reduces atorvastatin blood levels; interaction described with raloxifene.",
   "legalStatus": "Legal",
-  "preparation": "Prepared mainly as brewed leaf tea; supplements include concentrated extracts and decaffeinated catechin products with different safety profiles.",
-  "region": "Native to East and South Asia; now cultivated globally in tropical and subtropical tea-growing regions.",
+  "preparation": "Beverage and dietary supplements/extracts; processing differs from black/oolong tea.",
+  "region": "Native range is E. Himalaya to S. China and N. Indo-China, Hainan.",
   "therapeuticUses": [
     "Mental alertness",
     "antioxidant support",
@@ -86,5 +77,5 @@
     "l-theanine",
     "catechins"
   ],
-  "summary": "Camellia sinensis (tea plant) provides caffeine and catechins; tea consumption is widely used for alertness and cardiometabolic support, while concentrated extracts require greater safety caution."
+  "summary": "Green tea beverage is generally not associated with major safety concerns in adults, but concentrated green tea extracts can cause GI side effects and are linked to uncommon cases of clinically apparent liver injury, including rare severe outcomes. High-dose green tea can reduce blood levels of nadolol and atorvastatin; an interaction with raloxifene is also described."
 }
