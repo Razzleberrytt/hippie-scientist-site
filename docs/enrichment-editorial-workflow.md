@@ -2,6 +2,8 @@
 
 This workflow governs when normalized enrichment can appear as public research content.
 
+Source policy reference: `docs/enrichment-source-policy.md` is the canonical evidence hierarchy for all herb/compound enrichment prompts.
+
 ## Editorial states
 
 Use one of these states in `editorialStatus`:
