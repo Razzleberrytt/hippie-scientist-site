@@ -3861,11 +3861,17 @@
   },
   {
     "name": "ashwagandha",
-    "latin": "ashwagandha",
+    "latin": "Withania somnifera",
     "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "mechanism": "Proposed mechanism: Proposed mechanisms include withanolide-mediated modulation of stress-response signaling and neuroendocrine pathways. These mechanistic findings are preliminary and do not confirm broad clinical benefit across indications.",
     "activeCompounds": [
-      "Withaferin A"
+      "withaferin A",
+      "withanolide D",
+      "withanolide A",
+      "withanoside IV",
+      "sitoindosides",
+      "alkaloids",
+      "withanolides"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -3891,7 +3897,7 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "description": "Ashwagandha (Withania somnifera) is an Ayurvedic shrub used mainly for stress/sleep-related goals. Human trials suggest some preparations may help stress and insomnia symptoms, but findings vary by extract and study quality.",
+    "description": "Ashwagandha is represented here as a monograph-style entry centered on the root. Key reported compounds include withaferin A; withanolide D; withanolide A; withanoside IV; sitoindosides; alkaloids. Typical preparation forms: Root powders and standardized extracts. Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways. Interaction profile: May potentiate sedatives, antihypertensives, antidiabetics, thyroid hormones, and immunosuppressants. Use caution or avoid in: Pregnancy, breastfeeding, autoimmune disease, thyroid disorders, liver disease.",
     "dosage": "Clinical studies often use standardized extracts for roughly 2–4 months, but dosing is product-specific and not interchangeable across preparations.",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "interactions": [
@@ -11068,7 +11074,7 @@
     "name": "echinacea purpurea",
     "latin": "echinacea purpurea",
     "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+    "mechanism": "Roots, leaves and flowers of Echinacea purpurea contain mixtures of lipophilic alkamides and hydrophilic caffeic acid derivatives such as chicoric acid and echinacoside, along with polysaccharides and glycoproteins. These constituents stimulate immune function by enhancing phagocytosis, activating fibroblasts and respiratory burst activity, and modulating nitric‑oxide and cytokine production via cannabinoid type‑2 receptors. They also inhibit cyclo‑oxygenase and lipoxygenase enzymes. Most mechanistic data are from cell and animal studies; human evidence is limited.",
     "activeCompounds": [
       "alkamides",
       "chicoric acid",
@@ -11083,10 +11089,9 @@
       "nan."
     ],
     "contraindications": [
-      "avoid during pregnancy and breastfeeding",
-      "Use caution with prescription medications and chronic conditions; monitor for intolerance."
+      "Individuals with autoimmune disorders or allergies to ragweed and other Asteraceae plants should avoid echinacea. Use during pregnancy or breastfeeding is not recommended. People taking immunosuppressant drugs should avoid echinacea due to potential antagonism."
     ],
-    "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "Short‑term use of echinacea extracts appears safe for most adults. Reported side effects include digestive upset and rash; allergic reactions can occur, especially in individuals sensitive to plants in the Asteraceae family. Some children have developed rashes after echinacea use. Safety during pregnancy or breastfeeding is not established. There is conflicting evidence about whether echinacea alters the metabolism of drugs processed by the liver; theoretical interactions with immunosuppressants or caffeine have been proposed.",
     "sources": [
       {
         "title": "PubMed/PMC"
@@ -13354,9 +13359,9 @@
   },
   {
     "name": "ginger",
-    "latin": "ginger",
+    "latin": "Zingiber officinale",
     "intensity": "No direct intensity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine",
+    "mechanism": "Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. These compounds modulate immune‑cell function and regulate signalling pathways including nuclear factor‑κB, MAPK and PI3K/Akt/mTOR, and they can activate AMP‑activated protein kinase (AMPK), NRF2, HO‑1 and PPARγ. Through these mechanisms ginger exhibits anti‑inflammatory, antioxidant and neuroprotective effects.",
     "activeCompounds": [
       "-gingerol",
       "shogaols",
@@ -13370,7 +13375,7 @@
       "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
       "Do not use with known allergy to this plant or related species."
     ],
-    "safetyNotes": "safe; No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
+    "safetyNotes": "Ginger is widely consumed as a food and supplement and is generally regarded as safe. Research suggests it may help with mild nausea and menstrual cramps. Reported side effects at high doses include abdominal discomfort, heartburn, diarrhoea and irritation of the mouth or throat. Clinical studies using up to 1 000 mg/day of dried powdered extract report adverse event rates similar to placebo. The safety of high‑dose ginger during pregnancy has not been conclusively established.",
     "sources": [
       {
         "title": "PubMed/PMC"
@@ -13408,7 +13413,7 @@
     "name": "ginkgo biloba",
     "latin": "ginkgo biloba",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+    "mechanism": "The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways.",
     "activeCompounds": [
       "ginkgolides A, B, C, J",
       "bilobalide",
@@ -13424,7 +13429,7 @@
       "nan."
     ],
     "contraindications": [
-      "Bleeding disorders, anticoagulant use"
+      "Pregnancy, breastfeeding, bleeding disorders, epilepsy, planned surgery."
     ],
     "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
     "sources": [
@@ -14671,7 +14676,7 @@
   },
   {
     "name": "holy basil",
-    "latin": "holy basil",
+    "latin": "Ocimum tenuiflorum",
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
     "activeCompounds": [
@@ -16040,7 +16045,7 @@
     "name": "kava",
     "latin": "Piper methysticum",
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+    "mechanism": "Kavalactones modulate GABA-A receptors and ion channels, producing anxiolytic and sedative effects without classical benzodiazepine-site binding.",
     "activeCompounds": [
       "kavain",
       "dihydrokavain",
@@ -16058,7 +16063,7 @@
       "nan."
     ],
     "contraindications": [
-      "Liver conditions, alcohol, sedatives"
+      "Liver disease, pregnancy, breastfeeding, concurrent CNS depressants or hepatotoxic drugs."
     ],
     "safetyNotes": "caution; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
     "sources": [
@@ -16641,7 +16646,7 @@
   },
   {
     "name": "lemon balm",
-    "latin": "lemon balm",
+    "latin": "Melissa officinalis",
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
     "activeCompounds": [
@@ -21301,9 +21306,9 @@
   },
   {
     "name": "peppermint",
-    "latin": "peppermint",
+    "latin": "Mentha × piperita",
     "intensity": "mild",
-    "mechanism": "Menthol-rich peppermint oil can relax gastrointestinal smooth muscle via calcium-channel effects and TRPM8 signaling.",
+    "mechanism": "Peppermint oil contains more than 80 constituents; menthol is the main bioactive component. Menthol acts as a smooth‑muscle relaxant by blocking L‑type calcium channels and activating transient receptor potential channels (TRPM8 and TRPA1). These actions underlie the spasmolytic and analgesic properties of peppermint oil. Peppermint oil also has antimicrobial, antiviral and anti‑inflammatory effects.",
     "activeCompounds": [
       "l‑menthol",
       "l‑menthone",
@@ -21323,18 +21328,18 @@
       "Use caution with severe GERD because reflux can worsen",
       "Use caution with gallbladder disease unless advised by a clinician"
     ],
-    "safetyNotes": "safe No direct toxicity data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan.",
+    "safetyNotes": "Menthol is generally regarded as safe. Enteric‑coated peppermint oil is well tolerated; the most common adverse effects reported in clinical trials are heartburn, nausea, abdominal pain and dry mouth. High doses of minor constituents such as pulegone or menthofuran can cause hepatotoxicity in animals, but typical medicinal doses contain negligible amounts and no cases of human hepatotoxicity have been reported. Peppermint oil should not be applied near the faces of infants or young children because menthol inhalation can cause serious adverse reactions.",
     "sources": [
       {
         "title": "PubMed/PMC"
       }
     ],
     "lastUpdated": "2026-04-03T00:00:00.000Z",
-    "description": "Peppermint (Mentha × piperita) is used for functional gastrointestinal symptoms, with best evidence for enteric-coated oil in irritable bowel syndrome.",
+    "description": "Peppermint is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include l‑menthol; l‑menthone; isomenthone; menthyl acetate; 1,8‑cineole (eucalyptol); menthofuran; limonene. Typical preparation forms: Leaves and flowering tops are used fresh or dried to make teas and flavourings. Medicinal products include enteric‑coated capsules of peppermint oil and topical preparations. Peppermint oil contains more than 80 constituents; menthol is the main bioactive component. Menthol acts as a smooth‑muscle relaxant by blocking L‑type calcium channels and activating transient receptor potential channels (TRPM8 and TRPA1). These actions underlie the spasmolytic and analgesic properties of peppermint oil. Peppermint oil also has antimicrobial, antiviral and anti‑inflammatory effects. Interaction profile: Peppermint oil may inhibit cytochrome P450 enzymes (e.g., CYP2A6 and UGT2B7) and could theoretically interact with drugs metabolised by these pathways. Use caution or avoid in: Avoid in infants and young children, and in people with gastro‑oesophageal reflux disease or bile duct obstruction. Use cautiously in those taking hepatotoxic drugs due to potential pulegone/menthofuran toxicity.",
     "dosage": "No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "interactions": [
-      "Monitor with acid-suppressing therapy because enteric-coated capsule release can be altered."
+      "Peppermint oil may inhibit cytochrome P450 enzymes (e.g., CYP2A6 and UGT2B7) and could theoretically interact with drugs metabolised by these pathways."
     ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -23311,7 +23316,7 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "description": "Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.",
+    "description": "Rhodiola Rosea is represented here as a monograph-style entry centered on the root. Key reported compounds include rosavin; rosarin; rosin; salidroside; tyrosol. Typical preparation forms: Standardized root extracts. Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant. Interaction profile: SSRIs, MAOIs, stimulants. Use caution or avoid in: Bipolar disorder; avoid high doses before sleep.",
     "dosage": "100 400 mg day extract (standardized) No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "interactions": [
@@ -27771,9 +27776,9 @@
   },
   {
     "name": "turmeric",
-    "latin": "turmeric",
+    "latin": "Curcuma longa",
     "intensity": "mild",
-    "mechanism": "Curcuminoids modulate inflammatory pathways including NF-κB and COX-2, with clinical effect depending on formulation bioavailability.",
+    "mechanism": "The golden rhizomes of turmeric contain non‑volatile curcuminoids—curcumin (curcumin I), demethoxycurcumin (curcumin II) and bisdemethoxycurcumin (curcumin III)—as well as volatile mono‑ and sesquiterpenoids. Curcumin and related curcuminoids exhibit antioxidant and anti‑inflammatory effects by modulating multiple molecular targets (e.g., NF‑κB, Nrf2, COX‑2). Most data are preclinical; human evidence is limited, so this mechanism should be considered proposed.",
     "activeCompounds": [
       "curcumin",
       "demethoxycurcumin",
@@ -27789,18 +27794,19 @@
       "Use caution with gallstones or biliary obstruction",
       "Avoid high-dose supplemental use before surgery unless clinician advises"
     ],
-    "safetyNotes": "No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+    "safetyNotes": "Conventional oral preparations of turmeric or curcumin appear safe for up to 2–3 months. Reported adverse effects include nausea, vomiting, acid reflux, stomach upset, diarrhoea or constipation. Highly bioavailable curcumin products have been linked to liver damage in rare cases. The safety of turmeric supplements during pregnancy or breastfeeding is uncertain.",
     "sources": [
       {
         "title": "PubMed/PMC"
       }
     ],
     "lastUpdated": "2026-04-03T00:00:00.000Z",
-    "description": "Turmeric (Curcuma longa) is a culinary and medicinal rhizome; curcumin-enriched extracts are studied most for osteoarthritis symptom support.",
+    "description": "Turmeric is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include curcumin; demethoxycurcumin; bisdemethoxycurcumin. Typical preparation forms: The rhizomes are boiled, dried and ground into powder used as a spice, dye and supplement. Extracts standardized for curcuminoid content are available as capsules or tablets. The golden rhizomes of turmeric contain non‑volatile curcuminoids—curcumin (curcumin I), demethoxycurcumin (curcumin II) and bisdemethoxycurcumin (curcumin III)—as well as volatile mono‑ and sesquiterpenoids. Curcumin and related curcuminoids exhibit antioxidant and anti‑inflammatory effects by modulating multiple molecular targets (e.g., NF‑κB, Nrf2, COX‑2). Most data are preclinical; human evidence is limited, so this mechanism should be considered proposed. Interaction profile: Curcumin may enhance the effects of anticoagulant, antiplatelet or antidiabetic drugs and could interact with drugs metabolized by cytochrome P450 enzymes; caution is advised. Use caution or avoid in: Avoid high‑dose turmeric supplements in people with gallbladder obstruction, bleeding disorders or those taking anticoagulant or antiplatelet medications. Use is not recommended during pregnancy or breastfeeding.",
     "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "interactions": [
-      "Potential additive bleeding risk with anticoagulant or antiplatelet medicines."
+      "Curcumin may enhance the effects of anticoagulant, antiplatelet or antidiabetic drugs and could interact with drugs metabolized by cytochrome P450 enzymes",
+      "caution is advised."
     ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -28417,7 +28423,7 @@
   },
   {
     "name": "valerian",
-    "latin": "valerian",
+    "latin": "Valeriana officinalis",
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
     "activeCompounds": [

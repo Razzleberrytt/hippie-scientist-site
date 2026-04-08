@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "black-cohosh",
+    "name": "Black Cohosh",
+    "scientificName": "Actaea racemosa"
+  },
+  {
+    "slug": "garlic",
+    "name": "Garlic",
+    "scientificName": "Allium sativum"
+  },
+  {
+    "slug": "milk-thistle",
+    "name": "Milk Thistle",
+    "scientificName": "Silybum marianum"
+  },
+  {
+    "slug": "saw-palmetto",
+    "name": "Saw Palmetto",
+    "scientificName": "Serenoa repens"
+  },
+  {
+    "slug": "st-johns-wort",
+    "name": "St Johns Wort",
+    "scientificName": "Hypericum perforatum"
+  }
+]

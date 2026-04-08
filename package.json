@@ -176,7 +176,8 @@
     "verify:herb-card-canonical": "node scripts/verify-herb-card-canonical.mjs",
     "data:strip-nan": "node scripts/strip-nan-rebuild-herbs.mjs",
     "import:xlsx:monographs": "node scripts/import-xlsx-monographs.mjs",
-    "verify:deploy-readiness": "node scripts/ci/validate-deploy-readiness.mjs"
+    "verify:deploy-readiness": "node scripts/ci/validate-deploy-readiness.mjs",
+    "verify:workbook-import": "node scripts/verify-workbook-import-reconciliation.mjs"
   },
   "engines": {
     "node": ">=20 <21"

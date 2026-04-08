@@ -343,7 +343,8 @@
   {
     "name": "aconitine",
     "herbs": [
-      "aconitum napellus"
+      "aconitum-ferox",
+      "aconitum-napellus"
     ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
@@ -1217,7 +1218,10 @@
   {
     "name": "Alpha-asarone",
     "herbs": [
-      "acorus americanus"
+      "acorus-americanus",
+      "acorus-calamus",
+      "acorus-calamus-angustatus",
+      "acorus-tatarinowii"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -1343,9 +1347,9 @@
       "nicotiana-rustica"
     ],
     "effects": [
-      "Stimulation",
-      "mood elevation",
-      "alertness"
+      "muscarinic receptor interaction",
+      "cholinergic_modulation",
+      "dopaminergic_modulation"
     ],
     "contraindications": [
       "Heart disease",
@@ -1407,7 +1411,10 @@
   {
     "name": "apigenin",
     "herbs": [
-      "alchemilla vulgaris"
+      "amorpha-fruticosa",
+      "apium-graveolens",
+      "matricaria-chamomilla",
+      "turnera-diffusa"
     ],
     "effects": [
       "Uterine tonic",
@@ -1562,7 +1569,8 @@
   {
     "name": "arbutin",
     "herbs": [
-      "adenostoma fasciculatum"
+      "chimaphila-umbellata",
+      "turnera-diffusa"
     ],
     "effects": [
       "Traditional uses include skin and respiratory conditions",
@@ -1698,7 +1706,15 @@
   {
     "name": "Atropine",
     "herbs": [
-      "datura metel"
+      "atropa-belladonna",
+      "brugmansia",
+      "brugmansia-sanguinea",
+      "brugmansia-suaveolens",
+      "datura-ferox",
+      "datura-stramonium",
+      "datura-wrightii",
+      "mandragora-officinarum",
+      "solandra-maxima"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
@@ -1854,7 +1870,8 @@
   {
     "name": "Baicalin",
     "herbs": [
-      "scutellaria lateriflora"
+      "scutellaria-baicalensis",
+      "scutellaria-lateriflora"
     ],
     "effects": [
       "Mild sedation",
@@ -1974,7 +1991,8 @@
   {
     "name": "Benzyl isothiocyanate",
     "herbs": [
-      "tropaeolum majus"
+      "carica-papaya",
+      "tropaeolum-majus"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness."
@@ -2043,8 +2061,9 @@
   {
     "name": "Beta-asarone",
     "herbs": [
-      "acorus calamus var. angustatus",
-      "acorus tatarinowii"
+      "acorus-calamus",
+      "acorus-calamus-angustatus",
+      "acorus-tatarinowii"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
@@ -2484,8 +2503,16 @@
   {
     "name": "Caffeine",
     "herbs": [
-      "yerba mate",
-      "camellia sinensis"
+      "camellia-sinensis",
+      "coffea-arabica",
+      "coffee",
+      "guarana",
+      "ilex-guayusa",
+      "ilex-paraguariensis",
+      "paullinia-cupana",
+      "paullinia-pinnata",
+      "theobroma-bicolor",
+      "theobroma-cacao"
     ],
     "effects": [
       "Mental alertness",
@@ -2903,8 +2930,10 @@
       "immune support"
     ],
     "contraindications": [
-      "Pregnancy (high doses)",
-      "blood clotting disorders"
+      "Irritation and sensitization potential at higher exposure",
+      "topical and mucosal tolerability matter.",
+      "Other topical irritants/counterirritants (possible additive sensory irritation)",
+      "CYP-mediated interactions remain plausible but not well established clinically."
     ],
     "category": "phenolic monoterpenoid",
     "sources": [
@@ -3125,7 +3154,10 @@
   {
     "name": "CBD",
     "herbs": [
-      "cannabis sativa"
+      "cannabis-indica",
+      "cannabis-ruderalis",
+      "cannabis-sativa",
+      "cannabis-sativa-african-varieties"
     ],
     "effects": [
       "Euphoria",
@@ -3217,7 +3249,8 @@
   {
     "name": "Celastrine",
     "herbs": [
-      "celastrus paniculatus"
+      "celastrus-paniculatus",
+      "celastrus-paniculatus-intellect-tree"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ayurveda for cognition",
@@ -3326,10 +3359,11 @@
       "matricaria-chamomilla"
     ],
     "effects": [
-      "Anti-inflammatory",
-      "astringent",
-      "digestive aid",
-      "hemostatic"
+      "gaba_a_modulation",
+      "multi-target signaling modulation",
+      "gabaergic_modulation",
+      "general or unknown targets",
+      "inflammatory_pathway_modulation"
     ],
     "contraindications": [
       "Pregnancy",
@@ -3380,7 +3414,9 @@
   {
     "name": "Chlorogenic acid",
     "herbs": [
-      "yerba mate"
+      "cecropia-peltata",
+      "lonicera-japonica",
+      "moringa-oleifera"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America."
@@ -3437,8 +3473,12 @@
   {
     "name": "cineole",
     "herbs": [
-      "acorus tatarinowii",
-      "salvia apiana"
+      "artemisia-judaica",
+      "artemisia-vulgaris",
+      "laurus-nobilis",
+      "melaleuca-alternifolia",
+      "rosmarinus-officinalis",
+      "salvia-officinalis"
     ],
     "effects": [
       "CNS stimulant",
@@ -3632,8 +3672,9 @@
       "carminative"
     ],
     "contraindications": [
-      "Pregnancy",
-      "sedation-sensitive individuals"
+      "Irritation/sensitization potential is the main safety watchout.",
+      "Potential additive irritation with other pungent/counterirritant agents",
+      "no strong clinical DDI retained in this pass."
     ],
     "category": "monoterpenoid aldehyde",
     "sources": [
@@ -4383,8 +4424,11 @@
   {
     "name": "DMT",
     "herbs": [
-      "acacia maidenii",
-      "virola theiodora"
+      "anadenanthera-colubrina",
+      "anadenanthera-colubrina-ceb-l",
+      "anadenanthera-peregrina",
+      "piptadenia-peregrina",
+      "virola-spp."
     ],
     "effects": [
       "Intense visual hallucinations",
@@ -4616,14 +4660,14 @@
   {
     "name": "ellagic acid",
     "herbs": [
-      "agrimonia eupatoria"
+      "punica-granatum",
+      "vachellia-nilotica"
     ],
     "effects": [
-      "Astringent",
-      "anti-inflammatory",
-      "digestive tonic",
-      "anti",
-      "inflammatory"
+      "multi-target signaling modulation",
+      "NF-kB modulation",
+      "general or unknown targets",
+      "oxidative stress pathways"
     ],
     "contraindications": [
       "Generally safe when used as tea",
@@ -4756,7 +4800,8 @@
   {
     "name": "ephedrine",
     "herbs": [
-      "aconitum napellus"
+      "ephedra",
+      "ephedra-sinica"
     ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
@@ -5214,7 +5259,8 @@
   {
     "name": "estragole",
     "herbs": [
-      "acorus tatarinowii"
+      "agastache-foeniculum",
+      "tagetes-lucida"
     ],
     "effects": [
       "CNS stimulant",
@@ -5471,7 +5517,9 @@
   {
     "name": "ferulic acid",
     "herbs": [
-      "adenostoma fasciculatum"
+      "angelica-sinensis",
+      "ferula-assa-foetida",
+      "ligusticum-chuanxiong"
     ],
     "effects": [
       "Traditional uses include skin and respiratory conditions",
@@ -6164,8 +6212,8 @@
       "nan."
     ],
     "contraindications": [
-      "MAOIs",
-      "pregnancy"
+      "low",
+      "no well-documented interactions"
     ],
     "category": "other",
     "sources": [
@@ -6285,11 +6333,10 @@
       "peganum-harmala"
     ],
     "effects": [
-      "Intense stimulation",
-      "nausea",
-      "dizziness",
-      "spiritual visions",
-      "relaxation"
+      "multi-target signaling modulation",
+      "general or unknown targets",
+      "monoamine_oxidase_inhibition",
+      "serotonergic_5HT2A_agonism"
     ],
     "contraindications": [
       "Cardiovascular disease",
@@ -6457,7 +6504,8 @@
   {
     "name": "harmine",
     "herbs": [
-      "banisteriopsis caapi"
+      "banisteriopsis-caapi",
+      "peganum-harmala"
     ],
     "effects": [
       "Altered perception",
@@ -6864,7 +6912,8 @@
   {
     "name": "hypaconitine",
     "herbs": [
-      "aconitum napellus"
+      "aconitum-ferox",
+      "aconitum-napellus"
     ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
@@ -6981,7 +7030,8 @@
   {
     "name": "Ibogaine",
     "herbs": [
-      "tabernanthe iboga"
+      "iboga",
+      "tabernanthe-iboga"
     ],
     "effects": [
       "Intense visions",
@@ -7088,7 +7138,8 @@
   {
     "name": "ibotenic acid",
     "herbs": [
-      "amanita muscaria"
+      "amanita-muscaria",
+      "amanita-pantherina"
     ],
     "effects": [
       "Muscle jerks",
@@ -7732,9 +7783,9 @@
       "nan."
     ],
     "contraindications": [
-      "Insomnia",
-      "anxiety",
-      "heart issues"
+      "Generally well tolerated in short-term studies. Do not overstate anxiolytic efficacy because randomized evidence is mixed across populations.",
+      "Sedatives/CNS depressants (possible additive calming effects)",
+      "antihypertensives (possible additive blood-pressure lowering, limited evidence)"
     ],
     "category": "amino acid derivative",
     "sources": [
@@ -7765,10 +7816,12 @@
       "Supports essential amino-acid adequacy"
     ],
     "contraindications": [
-      "EMS history linked to contaminated products; purity matters",
-      "Use caution with serotonergic drugs"
+      "Historical concern exists from eosinophilia-myalgia syndrome linked to contaminated tryptophan products",
+      "serotonergic adverse effects become more relevant with interacting drugs.",
+      "SSRIs/SNRIs/MAOIs and other serotonergic agents (possible additive serotonin-toxicity risk)",
+      "levodopa (possible large-neutral-amino-acid transport competition)."
     ],
-    "category": "nutrient",
+    "category": "essential amino acid",
     "sources": [
       {
         "title": "Workbook source",
@@ -8846,14 +8899,18 @@
     "name": "Magnesium",
     "herbs": [],
     "effects": [
-      "Supports muscle and nerve function",
-      "Supports energy metabolism"
+      "ATP-dependent enzymatic reactions",
+      "calcium/potassium ion transport",
+      "glycolysis",
+      "oxidative phosphorylation"
     ],
     "contraindications": [
-      "Use caution in renal impairment",
-      "High supplemental doses can cause GI effects"
+      "High supplemental doses can cause diarrhea, nausea, and abdominal cramping. Very large doses can cause hypotension, arrhythmia, respiratory depression, and cardiac arrest, especially in renal impairment.",
+      "Oral bisphosphonates (decreased absorption)",
+      "tetracycline and quinolone antibiotics (insoluble complexes reduce absorption)",
+      "diuretics and proton pump inhibitors (can lower magnesium status)."
     ],
-    "category": "nutrient",
+    "category": "essential mineral",
     "sources": [
       {
         "title": "Workbook source",
@@ -9041,8 +9098,11 @@
       "May reduce jet-lag symptoms"
     ],
     "contraindications": [
-      "Use caution with sedation-sensitive activities",
-      "Pregnancy/child use needs clinical review"
+      "Variable product content is a concern in supplement products. Limited safety data in pregnancy and breastfeeding",
+      "daytime drowsiness can occur, especially in older adults.",
+      "Sedatives/CNS depressants (possible additive drowsiness)",
+      "anticoagulants (possible interaction concern in safety guidance)",
+      "drugs affecting CYP1A2 may alter exposure"
     ],
     "category": "supplement",
     "sources": [
@@ -9080,9 +9140,8 @@
       "cooling"
     ],
     "contraindications": [
-      "GERD",
-      "gallbladder disorders",
-      "infants (menthol sensitivity)"
+      "Main concern is local irritation or excessive sensory effects from concentrated products.",
+      "Other strong cooling/counterirritant topicals (possible additive local sensory effects)."
     ],
     "category": "monoterpenoid alcohol",
     "sources": [
@@ -9276,7 +9335,8 @@
   {
     "name": "mesaconitine",
     "herbs": [
-      "aconitum napellus"
+      "aconitum-ferox",
+      "aconitum-napellus"
     ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
@@ -9335,7 +9395,8 @@
   {
     "name": "Mescaline",
     "herbs": [
-      "echinopsis pachanoi"
+      "lophophora-williamsii",
+      "trichocereus-bridgesii"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -9530,7 +9591,8 @@
   {
     "name": "Mesembrine",
     "herbs": [
-      "kanna"
+      "sceletium-tortuosum",
+      "sceletium-tortuosum-kanna"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -10096,7 +10158,8 @@
   {
     "name": "Muscimol",
     "herbs": [
-      "amanita muscaria"
+      "amanita-muscaria",
+      "amanita-pantherina"
     ],
     "effects": [
       "Muscle jerks",
@@ -10280,7 +10343,9 @@
       "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use"
     ],
     "contraindications": [
-      "Use with SSRIs or MAOIs without supervision"
+      "moderate-high",
+      "avoid with SSRIs/MAOIs",
+      "risk of serotonin syndrome"
     ],
     "category": "alkaloid",
     "sources": [
@@ -10644,14 +10709,17 @@
     "name": "Niacin (Vitamin B3)",
     "herbs": [],
     "effects": [
-      "Supports NAD/NADP energy metabolism",
-      "Prevents niacin deficiency"
+      "ATP production",
+      "NAD/NADP-dependent redox metabolism",
+      "tryptophan-to-niacin pathway"
     ],
     "contraindications": [
-      "High-dose use needs medical supervision",
-      "Extended/sustained-release formulations increase hepatotoxicity concern"
+      "Supplemental nicotinic acid at 30–50 mg or more often causes flushing. Pharmacologic doses can cause hypotension, GI effects, hyperglycemia, and hepatotoxicity",
+      "extended-release nicotinic acid has higher liver-risk concern.",
+      "Isoniazid/pyrazinamide (can impair niacin formation from tryptophan)",
+      "antidiabetic medications (high-dose nicotinic acid can worsen glycemic control)."
     ],
-    "category": "nutrient",
+    "category": "water-soluble vitamin",
     "sources": [
       {
         "title": "Workbook source",
@@ -10679,7 +10747,9 @@
   {
     "name": "Nicotine",
     "herbs": [
-      "nicotiana rustica"
+      "duboisia-hopwoodii",
+      "nicotiana-rustica",
+      "nicotiana-spp-polynesian"
     ],
     "effects": [
       "Stimulation",
@@ -10969,8 +11039,10 @@
   {
     "name": "Nuciferine",
     "herbs": [
-      "blue lotus",
-      "nelumbo nucifera"
+      "blue-lotus-nymphaea-caerulea",
+      "nelumbo-lutea",
+      "nymphaea-caerulea",
+      "nymphaea-nouchali"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement.",
@@ -11225,28 +11297,44 @@
     "name": "Omega-3 Fatty Acids (EPA/DHA)",
     "herbs": [],
     "effects": [
-      "Supports triglyceride reduction at higher doses",
-      "Supports membrane lipid biology"
+      "Eicosanoid pathway modulation",
+      "specialized pro-resolving mediator pathways",
+      "triglyceride synthesis reduction"
     ],
     "contraindications": [
-      "Use caution with bleeding-risk conditions",
-      "Quality/purity varies among supplements"
+      "Usually causes GI/fishy aftertaste rather than serious toxicity",
+      "interpretation should stay indication- and dose-specific.",
+      "Anticoagulants/antiplatelets (potential additive bleeding risk, especially at higher doses)",
+      "antihypertensives (possible additive blood-pressure lowering)."
     ],
-    "category": "nutrient",
+    "category": "polyunsaturated fatty acids",
     "sources": [
       {
-        "title": "Omega-3 Fatty Acids Fact Sheet for Health Professionals (NIH ODS)",
+        "title": "Workbook source",
         "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"
       },
       {
-        "title": "FDA prescription omega-3 product labeling context",
-        "url": "https://www.fda.gov/"
+        "title": "Workbook source",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Omega-3-Fatty-Acids"
+      },
+      {
+        "title": "Workbook source",
+        "url": "https://www.nccih.nih.gov/health/omega3-supplements-what-you-need-to-know"
+      },
+      {
+        "title": "Workbook source workbook",
+        "note": "precision_monographs_sprint5.xlsx"
+      },
+      {
+        "title": "Workbook evidence",
+        "note": "Sprint5"
       }
     ],
     "lastUpdated": "2026-04-04",
     "slug": "omega-3-fatty-acids",
     "id": "omega-3-fatty-acids",
-    "displayName": "Omega-3 Fatty Acids (EPA/DHA)"
+    "displayName": "Omega-3 Fatty Acids (EPA/DHA)",
+    "mechanism": "Incorporation into cell membranes with downstream modulation of eicosanoid/resolvin signaling and reduction of hepatic triglyceride production."
   },
   {
     "name": "other saponins",
@@ -11380,7 +11468,8 @@
   {
     "name": "Paniculatin",
     "herbs": [
-      "celastrus paniculatus"
+      "celastrus-paniculatus",
+      "celastrus-paniculatus-intellect-tree"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ayurveda for cognition",
@@ -11960,14 +12049,17 @@
     "name": "Probiotics",
     "herbs": [],
     "effects": [
-      "May reduce antibiotic-associated diarrhea in some strains",
-      "May modestly improve some IBS symptoms (strain dependent)"
+      "Gut barrier integrity",
+      "colonization resistance",
+      "immune modulation",
+      "short-chain fatty acid production"
     ],
     "contraindications": [
-      "Use caution in severely immunocompromised/ICU patients",
-      "Products are not interchangeable across strains"
+      "Generally safe in healthy people, but rare bloodstream infection/sepsis has occurred in high-risk or severely immunocompromised patients.",
+      "Systemic antibiotics (timing can reduce viability)",
+      "immunosuppressive states or central-line settings increase rare infection risk rather than classic DDI risk."
     ],
-    "category": "supplement",
+    "category": "live biotherapeutic / microbiome-active category",
     "sources": [
       {
         "title": "Workbook source",
@@ -12162,9 +12254,9 @@
       "cooling"
     ],
     "contraindications": [
-      "GERD",
-      "gallbladder disorders",
-      "infants (menthol sensitivity)"
+      "hepatotoxic risk at high exposure",
+      "regulatory concern",
+      "avoid with liver stressors or hepatotoxic drugs"
     ],
     "category": "monoterpene ketone",
     "sources": [
@@ -12203,14 +12295,18 @@
     "name": "Pyridoxine (Vitamin B6)",
     "herbs": [],
     "effects": [
-      "Supports amino-acid metabolism",
-      "Supports neurotransmitter synthesis"
+      "PLP/PMP-dependent amino-acid metabolism",
+      "glycogenolysis",
+      "neurotransmitter biosynthesis",
+      "one-carbon metabolism"
     ],
     "contraindications": [
-      "Avoid prolonged high-dose self-supplementation",
-      "Review use with levodopa/anticonvulsants"
+      "Chronic high-dose pyridoxine can cause sensory neuropathy and ataxia. The adult UL in the ODS fact sheet is 100 mg/day.",
+      "Cycloserine (increases urinary pyridoxine loss)",
+      "antiepileptic drugs such as valproate, carbamazepine, and phenytoin (can lower B6 status)",
+      "high-dose pyridoxine may lower phenytoin/phenobarbital concentrations."
     ],
-    "category": "nutrient",
+    "category": "water-soluble vitamin",
     "sources": [
       {
         "title": "Workbook source",
@@ -12264,12 +12360,19 @@
       "st-johns-wort"
     ],
     "effects": [
-      "Shows antioxidant activity in lab models",
-      "Clinical efficacy remains uncertain"
+      "multi-target signaling modulation",
+      "muscarinic receptor interaction",
+      "NF-kB pathway inhibition",
+      "NRF2 pathway activation",
+      "cholinergic_modulation",
+      "general or unknown targets",
+      "xanthine oxidase inhibition"
     ],
     "contraindications": [
-      "Long-term high-dose safety is not well established",
-      "Potential CYP/P-glycoprotein interactions are mostly theoretical"
+      "Generally tolerated in studies, but formulation and dose matter. Human outcome evidence remains mixed for many uses.",
+      "CYP-metabolized drugs (possible altered exposure",
+      "limited clinical certainty)",
+      "anticoagulants/antiplatelets (theoretical additive bleeding concern)"
     ],
     "category": "compound",
     "sources": [
@@ -12414,8 +12517,10 @@
       "Human clinical outcome benefits remain uncertain"
     ],
     "contraindications": [
-      "High doses may cause GI effects",
-      "Use caution with anticoagulants and CYP-sensitive medicines"
+      "Usually tolerated in trials, but GI effects occur at higher doses. Bioavailability limitations are central to interpretation.",
+      "Anticoagulants/antiplatelets (potential additive bleeding risk)",
+      "CYP-metabolized drugs (possible altered exposure",
+      "limited clinical certainty)"
     ],
     "category": "compound",
     "sources": [
@@ -12442,14 +12547,17 @@
     "name": "Riboflavin (Vitamin B2)",
     "herbs": [],
     "effects": [
-      "Supports energy metabolism via FMN/FAD",
-      "Prevents riboflavin deficiency"
+      "FMN/FAD-dependent redox enzymes",
+      "energy production",
+      "tryptophan-to-niacin conversion",
+      "vitamin B6 activation"
     ],
     "contraindications": [
-      "No major toxicity at typical use levels",
-      "High-dose migraine use differs from dietary dosing"
+      "No observable toxicity has been reported from high intakes from food or supplements",
+      "no UL established, though excess intake beyond need offers no clear benefit.",
+      "No clinically relevant medication interactions are established in the ODS fact sheet."
     ],
-    "category": "nutrient",
+    "category": "water-soluble vitamin",
     "sources": [
       {
         "title": "Workbook source",
@@ -12499,11 +12607,8 @@
       "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
     ],
     "contraindications": [
-      "Pregnancy",
-      "sedation-sensitive individuals",
-      "Pregnancy (high doses)",
-      "blood clotting disorders",
-      "Avoid high doses of essential oil"
+      "Generally well tolerated at typical dietary or supplement exposures.",
+      "Potential additive effects with CNS depressants and anti-inflammatory agents are plausible but not strongly established clinically."
     ],
     "category": "polyphenol",
     "sources": [
@@ -12648,10 +12753,11 @@
       "May reduce osteoarthritis pain in some trials"
     ],
     "contraindications": [
-      "Can precipitate mania in bipolar-spectrum patients",
-      "Use caution with serotonergic medications"
+      "GI upset and anxiety/insomnia can occur. Avoid unsupervised use in bipolar disorder because manic symptoms have been reported.",
+      "Serotonergic antidepressants (possible additive serotonergic effects)",
+      "caution in bipolar disorder because activation/mania can occur."
     ],
-    "category": "compound",
+    "category": "sulfonium metabolite / methyl donor",
     "sources": [
       {
         "title": "Workbook source",
@@ -12977,7 +13083,18 @@
   {
     "name": "Scopolamine",
     "herbs": [
-      "datura metel"
+      "atropa-belladonna",
+      "brugmansia",
+      "brugmansia-sanguinea",
+      "brugmansia-suaveolens",
+      "datura-ferox",
+      "datura-stramonium",
+      "datura-wrightii",
+      "duboisia-myoporoides",
+      "hyoscyamus-niger",
+      "mandragora-officinarum",
+      "scopolia-carniolica",
+      "solandra-maxima"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
@@ -13244,14 +13361,17 @@
     "name": "Selenium",
     "herbs": [],
     "effects": [
-      "Supports antioxidant selenoprotein activity",
-      "Supports thyroid hormone metabolism"
+      "Glutathione peroxidase systems",
+      "selenoprotein P",
+      "thioredoxin reductase systems",
+      "thyroid hormone T4-to-T3 conversion"
     ],
     "contraindications": [
-      "Avoid chronic intake above upper limit",
-      "Non-deficiency high-dose use may add risk without clear benefit"
+      "Chronic excess causes selenosis, classically hair loss and nail brittleness, along with garlic breath, metallic taste, GI symptoms, fatigue, and neurologic abnormalities. Adult UL in the ODS fact sheet is 400 mcg/day.",
+      "Cisplatin can reduce selenium levels",
+      "clinically significant supplementation interactions remain limited/uncertain in the ODS fact sheet."
     ],
-    "category": "nutrient",
+    "category": "essential trace mineral",
     "sources": [
       {
         "title": "Workbook source",
@@ -13290,8 +13410,9 @@
       "nan."
     ],
     "contraindications": [
-      "Pregnancy (caution)",
-      "diuretics"
+      "low",
+      "avoid with SSRIs/MAOIs",
+      "risk of serotonin syndrome"
     ],
     "category": "lignans; flavonoids",
     "sources": [
@@ -13570,7 +13691,8 @@
   {
     "name": "Stachydrine",
     "herbs": [
-      "motherwort"
+      "leonurus-cardiaca",
+      "leonurus-japonicus"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support."
@@ -14227,7 +14349,10 @@
   {
     "name": "THC",
     "herbs": [
-      "cannabis sativa"
+      "cannabis-indica",
+      "cannabis-ruderalis",
+      "cannabis-sativa",
+      "cannabis-sativa-african-varieties"
     ],
     "effects": [
       "Euphoria",
@@ -14356,7 +14481,12 @@
   {
     "name": "theobromine",
     "herbs": [
-      "yerba mate"
+      "guarana",
+      "ilex-guayusa",
+      "ilex-paraguariensis",
+      "paullinia-cupana",
+      "theobroma-bicolor",
+      "theobroma-cacao"
     ],
     "effects": [
       "Mental alertness",
@@ -14599,7 +14729,9 @@
   {
     "name": "thymol",
     "herbs": [
-      "thymus vulgaris"
+      "monarda-fistulosa",
+      "origanum-vulgare",
+      "thymus-vulgaris"
     ],
     "effects": [
       "Mild sedation",
@@ -15039,8 +15171,8 @@
       "immune support"
     ],
     "contraindications": [
-      "Pregnancy (high doses)",
-      "blood clotting disorders"
+      "Generally considered low risk in usual exposure ranges, though dedicated human toxicity data remain limited.",
+      "Potential overlap with metabolic and anti-inflammatory drugs is plausible but not well established clinically."
     ],
     "category": "triterpenoid",
     "sources": [
@@ -15466,27 +15598,44 @@
     "name": "Vitamin D (Calciferols)",
     "herbs": [],
     "effects": [
-      "Supports calcium/phosphorus homeostasis",
-      "Supports bone mineralization"
+      "Vitamin D receptor agonism",
+      "bone mineralization signaling",
+      "calcium absorption regulation"
     ],
     "contraindications": [
-      "Avoid chronic high-dose unsupervised use due to hypercalcemia risk"
+      "Excess supplemental intake can cause hypercalcemia, hypercalciuria, renal injury, arrhythmias, and soft-tissue calcification.",
+      "Orlistat and bile acid sequestrants (reduced absorption)",
+      "thiazide diuretics with calcium/vitamin D (increased hypercalcemia risk)",
+      "glucocorticoids can impair vitamin D metabolism."
     ],
     "category": "nutrient",
     "sources": [
       {
-        "title": "Vitamin D Fact Sheet for Health Professionals (NIH ODS)",
+        "title": "Workbook source",
+        "url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer%20/"
+      },
+      {
+        "title": "Workbook source",
         "url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"
       },
       {
-        "title": "Institute of Medicine vitamin D report (2011)",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/21118827/"
+        "title": "Workbook source workbook",
+        "note": "precision_monographs_sprint5.xlsx"
+      },
+      {
+        "title": "Workbook evidence",
+        "note": "Sprint5"
+      },
+      {
+        "title": "Workbook confidence",
+        "note": "high"
       }
     ],
     "lastUpdated": "2026-04-04",
     "slug": "vitamin-d",
     "id": "vitamin-d",
-    "displayName": "Vitamin D (Calciferols)"
+    "displayName": "Vitamin D (Calciferols)",
+    "mechanism": "After metabolic activation, binds the vitamin D receptor (VDR) to regulate calcium/phosphate homeostasis and broader gene transcription."
   },
   {
     "name": "Voacamine",
