@@ -5,14 +5,19 @@ import path from 'node:path'
 const root = process.cwd()
 const outDir = path.join(root, 'public', 'data')
 
-const CANDIDATE_DIRS = [
+const UPDATED_DATASETS_DIR = process.env.UPDATED_DATASETS_DIR
+
+const PORTABLE_CANDIDATE_DIRS = [
+  UPDATED_DATASETS_DIR,
   path.join(root, 'data-sources'),
-  '/home/oai/share',
-  '/mnt/data',
-  '/tmp',
-  root,
   path.join(root, 'public', 'data'),
 ]
+
+const LEGACY_CANDIDATE_DIRS = ['/home/oai/share', '/mnt/data', '/tmp', root]
+
+const CANDIDATE_DIRS = [...PORTABLE_CANDIDATE_DIRS, ...LEGACY_CANDIDATE_DIRS].filter(
+  value => typeof value === 'string' && value.trim().length > 0
+)
 
 const FILES = [
   {
@@ -26,7 +31,7 @@ const FILES = [
 ]
 
 function firstExistingPath(fileName) {
-  for (const dir of CANDIDATE_DIRS) {
+  for (const dir of Array.from(new Set(CANDIDATE_DIRS))) {
     const candidate = path.join(dir, fileName)
     if (fs.existsSync(candidate)) return candidate
   }
