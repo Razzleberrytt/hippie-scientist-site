@@ -119,6 +119,13 @@ function textList(value, limit = 5) {
     .slice(0, limit)
 }
 
+function trimToChars(value, limit = 500) {
+  const normalized = safeStr(value)
+  if (!normalized) return ''
+  if (normalized.length <= limit) return normalized
+  return `${normalized.slice(0, limit).trimEnd()}…`
+}
+
 function textFrom(...values) {
   for (const value of values) {
     const next = safeStr(value)
@@ -453,9 +460,111 @@ function renderRouteContent(route) {
   return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1><p>This route is prerendered for SEO metadata. Interactive content loads after hydration.</p></main>`
 }
 
+function renderPrerenderNoscript(route) {
+  const noscriptWrap = content =>
+    `<noscript><div class="prerender-content sr-only">${content}</div></noscript>`
+
+  if (route.startsWith('/herbs/')) {
+    const slug = route.split('/').pop() || ''
+    const herb = herbBySlug.get(slug)
+    const displayName = safeStr(herb?.common) || safeStr(herb?.commonName) || safeStr(herb?.name) || slug
+    const description = trimToChars(
+      safeStr(herb?.description) || safeStr(herb?.summary) || `${displayName} herb profile.`,
+      500
+    )
+    const activeCompounds = textList(
+      herb?.activeCompounds || herb?.active_compounds || herb?.constituents || herb?.compounds,
+      10
+    )
+    const mechanismSummary = textFrom(
+      herb?.mechanismSummary,
+      herb?.mechanism,
+      herb?.mechanismOfAction,
+      herb?.moaSummary
+    )
+    const safetyNotes = textFrom(
+      herb?.safetyNotes,
+      herb?.safety,
+      herb?.warning,
+      herb?.warnings,
+      herb?.contraindicationsSummary
+    )
+    const contraindications = textList(herb?.contraindications, 8)
+    const safetyItems = [...(safetyNotes ? [safetyNotes] : []), ...contraindications].slice(0, 8)
+
+    return noscriptWrap(
+      `<article><h1>${escapeHtml(displayName)}</h1><p>${escapeHtml(description)}</p>${
+        activeCompounds.length
+          ? `<section><h2>Active compounds</h2><ul>${activeCompounds
+              .map(item => `<li>${escapeHtml(item)}</li>`)
+              .join('')}</ul></section>`
+          : ''
+      }${
+        mechanismSummary
+          ? `<section><h2>Mechanism summary</h2><p>${escapeHtml(mechanismSummary)}</p></section>`
+          : ''
+      }${
+        safetyItems.length
+          ? `<section><h2>Safety notes</h2><ul>${safetyItems
+              .map(item => `<li>${escapeHtml(item)}</li>`)
+              .join('')}</ul></section>`
+          : ''
+      }</article>`
+    )
+  }
+
+  if (route.startsWith('/compounds/')) {
+    const slug = route.split('/').pop() || ''
+    const compound = compoundBySlug.get(slug)
+    const name = textFrom(compound?.name, slug)
+    const description = trimToChars(
+      textFrom(compound?.description, compound?.summary, `${name || slug} compound profile.`),
+      500
+    )
+    const relatedHerbs = textList(compound?.herbs || compound?.sourceHerbs || compound?.plants, 10)
+    const mechanismSummary = textFrom(
+      compound?.mechanismSummary,
+      compound?.mechanism,
+      compound?.mechanismOfAction,
+      compound?.pharmacology
+    )
+    const safetyNotes = textFrom(
+      compound?.safetyNotes,
+      compound?.safety,
+      compound?.warning,
+      compound?.warnings
+    )
+    const interactions = textList(compound?.interactions, 8)
+    const safetyItems = [...(safetyNotes ? [safetyNotes] : []), ...interactions].slice(0, 8)
+
+    return noscriptWrap(
+      `<article><h1>${escapeHtml(name || slug)}</h1><p>${escapeHtml(description)}</p>${
+        relatedHerbs.length
+          ? `<section><h2>Common source herbs</h2><ul>${relatedHerbs
+              .map(item => `<li>${escapeHtml(item)}</li>`)
+              .join('')}</ul></section>`
+          : ''
+      }${
+        mechanismSummary
+          ? `<section><h2>Mechanism summary</h2><p>${escapeHtml(mechanismSummary)}</p></section>`
+          : ''
+      }${
+        safetyItems.length
+          ? `<section><h2>Safety notes</h2><ul>${safetyItems
+              .map(item => `<li>${escapeHtml(item)}</li>`)
+              .join('')}</ul></section>`
+          : ''
+      }</article>`
+    )
+  }
+
+  return ''
+}
+
 function render(route) {
   const head = buildHead(route)
   const bodyContent = renderRouteContent(route)
+  const noscriptContent = renderPrerenderNoscript(route)
   const sanitizeHead = value =>
     HEAD_REPLACE_PATTERNS.reduce((next, pattern) => next.replace(pattern, ''), value)
 
@@ -468,6 +577,10 @@ function render(route) {
     html = html.replace('<div id="root"></div>', `<div id="root">${bodyContent}</div>`)
   } else {
     html = html.replace(/<div id="root">[\s\S]*?<\/div>/, `<div id="root">${bodyContent}</div>`)
+  }
+
+  if (noscriptContent) {
+    html = html.replace(/<body([^>]*)>/i, `<body$1>\n    ${noscriptContent}`)
   }
 
   return html
