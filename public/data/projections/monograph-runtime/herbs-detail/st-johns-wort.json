@@ -1,0 +1,34 @@
+{
+  "name": "St Johns Wort",
+  "slug": "st-johns-wort",
+  "scientificName": "Hypericum perforatum",
+  "summary": "St. John's wort (Hypericum perforatum) is a herb monograph focused on the flowering tops used in herbal preparations. It is associated with Native to Europe and West Asia; naturalized in North America and other temperate regions. Hyperforin and related compounds inhibit monoamine reuptake and affect TRPC6-linked neuroplasticity; additional monoamine oxidase and stress-pathway effects have been proposed. Can cause photosensitivity, GI upset, dizziness, insomnia, restlessness.",
+  "description": "St. John's wort is represented here as a monograph-style entry centered on the flowering tops. Key reported compounds include hyperforin; hypericin; pseudohypericin; quercetin; rutin; kaempferol. Typical preparation forms: Dried flowering tops or standardized extracts. Hyperforin and related compounds inhibit monoamine reuptake and affect TRPC6-linked neuroplasticity; additional monoamine oxidase and stress-pathway effects have been proposed. Interaction profile: Major interactions with antidepressants, oral contraceptives, cyclosporine, tacrolimus, HIV meds, anticancer drugs, warfarin, digoxin and others. Use caution or avoid in: Pregnancy, breastfeeding, bipolar disorder, concomitant prescription meds with CYP/P-gp liability.",
+  "mechanism": "Hyperforin and related compounds inhibit monoamine reuptake and affect TRPC6-linked neuroplasticity; additional monoamine oxidase and stress-pathway effects have been proposed.",
+  "mechanismTags": [
+    "serotonergic",
+    "dopaminergic"
+  ],
+  "activeCompounds": [
+    "hyperforin",
+    "hypericin",
+    "pseudohypericin",
+    "quercetin",
+    "rutin",
+    "kaempferol"
+  ],
+  "safetyNotes": "Can cause photosensitivity, GI upset, dizziness, insomnia, restlessness. Strong inducer of CYP3A4 and P-gp.",
+  "interactions": [
+    "Major interactions with antidepressants",
+    "oral contraceptives",
+    "cyclosporine",
+    "tacrolimus",
+    "HIV meds",
+    "anticancer drugs",
+    "warfarin",
+    "digoxin and others."
+  ],
+  "dosage": "300 mg extract three times daily",
+  "preparation": "Dried flowering tops or standardized extracts.",
+  "region": "Native to Europe and West Asia; naturalized in North America and other temperate regions."
+}

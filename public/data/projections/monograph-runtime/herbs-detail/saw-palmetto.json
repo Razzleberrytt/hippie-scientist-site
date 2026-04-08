@@ -1,0 +1,24 @@
+{
+  "name": "Saw Palmetto",
+  "slug": "saw-palmetto",
+  "scientificName": "Serenoa repens",
+  "summary": "Saw Palmetto (Serenoa repens) is a berry extract monograph focused on the berry used in herbal preparations. It is associated with Southeastern United States. 5-alpha-reductase inhibition; anti-androgenic effects. Generally safe; mild GI upset, headache.",
+  "description": "Saw Palmetto is represented here as a monograph-style entry centered on the berry. Key reported compounds include fatty acids; phytosterols (beta-sitosterol). Typical preparation forms: Berry extracts. 5-alpha-reductase inhibition; anti-androgenic effects. Interaction profile: Hormonal therapies, anticoagulants. Use caution or avoid in: Pregnancy.",
+  "mechanism": "5-alpha-reductase inhibition; anti-androgenic effects",
+  "mechanismTags": [
+    "hormonal",
+    "anti-androgenic"
+  ],
+  "activeCompounds": [
+    "fatty-acids",
+    "phytosterols-beta-sitosterol"
+  ],
+  "safetyNotes": "Generally safe; mild GI upset, headache",
+  "interactions": [
+    "Hormonal therapies",
+    "anticoagulants"
+  ],
+  "dosage": null,
+  "preparation": "Berry extracts",
+  "region": "Southeastern United States"
+}

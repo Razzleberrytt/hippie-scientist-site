@@ -1,0 +1,27 @@
+{
+  "name": "Black Cohosh",
+  "slug": "black-cohosh",
+  "scientificName": "Actaea racemosa",
+  "summary": "Black Cohosh (Actaea racemosa) is a rhizome monograph focused on the root; rhizome used in herbal preparations. It is associated with Native to North America, especially the eastern United States. Proposed mechanism based on preclinical and limited clinical data: black cohosh may act through serotonergic pathways, selective estrogen receptor modulation, and anti-inflammatory signaling rather than as a classical estrogen. Generally well tolerated in short-term studies, but rare cases of liver injury have been reported.",
+  "description": "Black Cohosh is represented here as a monograph-style entry centered on the root; rhizome. Key reported compounds include triterpene glycosides (actein, 23-epi-26-deoxyactein); cimifugoside; caffeic acid derivatives; fukinolic acid. Typical preparation forms: Root and rhizome used in standardized extracts, capsules, tablets, and tinctures. Proposed mechanism based on preclinical and limited clinical data: black cohosh may act through serotonergic pathways, selective estrogen receptor modulation, and anti-inflammatory signaling rather than as a classical estrogen. Interaction profile: Potential interactions with hepatotoxic drugs and with medications affecting estrogen or serotonergic pathways. Use caution or avoid in: Avoid in pregnancy and breastfeeding. Use caution in liver disease or hormone-sensitive conditions.",
+  "mechanism": "Proposed mechanism based on preclinical and limited clinical data: black cohosh may act through serotonergic pathways, selective estrogen receptor modulation, and anti-inflammatory signaling rather than as a classical estrogen.",
+  "mechanismTags": [
+    "serotonergic",
+    "anti-inflammatory",
+    "hormonal"
+  ],
+  "activeCompounds": [
+    "triterpene-glycosides-actein",
+    "23-epi-26-deoxyactein",
+    "cimifugoside",
+    "caffeic-acid-derivatives",
+    "fukinolic-acid"
+  ],
+  "safetyNotes": "Generally well tolerated in short-term studies, but rare cases of liver injury have been reported. Product contamination or misidentification is a known issue.",
+  "interactions": [
+    "Potential interactions with hepatotoxic drugs and with medications affecting estrogen or serotonergic pathways."
+  ],
+  "dosage": null,
+  "preparation": "Root and rhizome used in standardized extracts, capsules, tablets, and tinctures.",
+  "region": "Native to North America, especially the eastern United States."
+}

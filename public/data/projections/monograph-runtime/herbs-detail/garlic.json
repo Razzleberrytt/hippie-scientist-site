@@ -1,0 +1,29 @@
+{
+  "name": "Garlic",
+  "slug": "garlic",
+  "scientificName": "Allium sativum",
+  "summary": "Garlic (Allium sativum) is a bulb monograph focused on the unspecified used in herbal preparations. It is associated with Native to parts of Central Asia including Iran, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan and Uzbekistan, but now cultivated worldwide【387438139344369†L214-L229】. Garlic bulbs contain organosulfur compounds such as diallyl sulfide, diallyl disulfide, diallyl trisulfide, ajoene and S‑allyl‑cysteine. Oral garlic preparations are generally safe when used for up to seven years; side effects include breath and body odour, abdominal pain, flatulence and nausea.",
+  "description": "Garlic is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include diallyl sulfide; diallyl disulfide; diallyl trisulfide; ajoene; S‑allyl‑cysteine. Typical preparation forms: Fresh or dried bulbs are used as food and in remedies. Commercial supplements include aged garlic extracts, oils and powders standardized for organosulfur content. Garlic bulbs contain organosulfur compounds such as diallyl sulfide, diallyl disulfide, diallyl trisulfide, ajoene and S‑allyl‑cysteine. These constituents exert antioxidant, anti‑inflammatory and immunomodulatory effects in vitro and in animal models by scavenging free radicals and modulating inflammatory pathways. Human evidence is limited, so this should be regarded as a proposed mechanism based on preclinical data. Interaction profile: Garlic may potentiate the effects of anticoagulant and antiplatelet drugs (e.g., warfarin, aspirin) and should be discontinued before surgery. It may also enhance the effects of antihypertensive or antidiabetic medicines. Use caution or avoid in: People with bleeding disorders, those taking anticoagulant or antiplatelet drugs and individuals scheduled for surgery should avoid high‑dose garlic supplements. Because safety during pregnancy and breastfeeding has not been established, garlic supplements are not recommended in these populations.",
+  "mechanism": "Garlic bulbs contain organosulfur compounds such as diallyl sulfide, diallyl disulfide, diallyl trisulfide, ajoene and S‑allyl‑cysteine. These constituents exert antioxidant, anti‑inflammatory and immunomodulatory effects in vitro and in animal models by scavenging free radicals and modulating inflammatory pathways. Human evidence is limited, so this should be regarded as a proposed mechanism based on preclinical data.",
+  "mechanismTags": [
+    "anti-inflammatory",
+    "antioxidant",
+    "immunomodulatory"
+  ],
+  "activeCompounds": [
+    "diallyl-sulfide",
+    "diallyl-disulfide",
+    "diallyl-trisulfide",
+    "ajoene",
+    "s-allyl-cysteine"
+  ],
+  "safetyNotes": "Oral garlic preparations are generally safe when used for up to seven years; side effects include breath and body odour, abdominal pain, flatulence and nausea. Because garlic can inhibit platelet aggregation it may increase the risk of bleeding, especially when combined with anticoagulants or antiplatelet drugs. Raw garlic applied to the skin can cause severe irritation or burns. The safety of garlic supplements during pregnancy or breastfeeding is uncertain【945608786527328†L190-L207】.",
+  "interactions": [
+    "Garlic may potentiate the effects of anticoagulant and antiplatelet drugs (e.g.",
+    "warfarin",
+    "aspirin) and should be discontinued before surgery. It may also enhance the effects of antihypertensive or antidiabetic medicines."
+  ],
+  "dosage": null,
+  "preparation": "Fresh or dried bulbs are used as food and in remedies. Commercial supplements include aged garlic extracts, oils and powders standardized for organosulfur content.",
+  "region": "Native to parts of Central Asia including Iran, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan and Uzbekistan, but now cultivated worldwide【387438139344369†L214-L229】."
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Turmeric",
+  "slug": "turmeric",
+  "scientificName": "Curcuma longa",
+  "summary": "Turmeric (Curcuma longa) is a rhizome monograph focused on the unspecified used in herbal preparations. It is associated with Native to India and cultivated throughout the tropics; turmeric is not found in the wild and is grown as a domesticated plant【754431674042811†L224-L241】. The golden rhizomes of turmeric contain non‑volatile curcuminoids—curcumin (curcumin I), demethoxycurcumin (curcumin II) and bisdemethoxycurcumin (curcumin III)—as well as volatile mono‑ and sesquiterpenoids【768158627760254†L420-L432】【768158627760254†L442-L468】. Conventional oral preparations of turmeric or curcumin appear safe for up to 2–3 months.",
+  "description": "Turmeric is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include curcumin; demethoxycurcumin; bisdemethoxycurcumin. Typical preparation forms: The rhizomes are boiled, dried and ground into powder used as a spice, dye and supplement. Extracts standardized for curcuminoid content are available as capsules or tablets. The golden rhizomes of turmeric contain non‑volatile curcuminoids—curcumin (curcumin I), demethoxycurcumin (curcumin II) and bisdemethoxycurcumin (curcumin III)—as well as volatile mono‑ and sesquiterpenoids【768158627760254†L420-L432】【768158627760254†L442-L468】. Curcumin and related curcuminoids exhibit antioxidant and anti‑inflammatory effects by modulating multiple molecular targets (e.g., NF‑κB, Nrf2, COX‑2). Most data are preclinical; human evidence is limited, so this mechanism should be considered proposed. Interaction profile: Curcumin may enhance the effects of anticoagulant, antiplatelet or antidiabetic drugs and could interact with drugs metabolized by cytochrome P450 enzymes; caution is advised. Use caution or avoid in: Avoid high‑dose turmeric supplements in people with gallbladder obstruction, bleeding disorders or those taking anticoagulant or antiplatelet medications. Use is not recommended during pregnancy or breastfeeding.",
+  "mechanism": "The golden rhizomes of turmeric contain non‑volatile curcuminoids—curcumin (curcumin I), demethoxycurcumin (curcumin II) and bisdemethoxycurcumin (curcumin III)—as well as volatile mono‑ and sesquiterpenoids【768158627760254†L420-L432】【768158627760254†L442-L468】. Curcumin and related curcuminoids exhibit antioxidant and anti‑inflammatory effects by modulating multiple molecular targets (e.g., NF‑κB, Nrf2, COX‑2). Most data are preclinical; human evidence is limited, so this mechanism should be considered proposed.",
+  "mechanismTags": [
+    "anti-inflammatory",
+    "antioxidant"
+  ],
+  "activeCompounds": [
+    "curcumin",
+    "demethoxycurcumin",
+    "bisdemethoxycurcumin"
+  ],
+  "safetyNotes": "Conventional oral preparations of turmeric or curcumin appear safe for up to 2–3 months. Reported adverse effects include nausea, vomiting, acid reflux, stomach upset, diarrhoea or constipation. Highly bioavailable curcumin products have been linked to liver damage in rare cases. The safety of turmeric supplements during pregnancy or breastfeeding is uncertain【628537290338832†L207-L223】.",
+  "interactions": [
+    "Curcumin may enhance the effects of anticoagulant",
+    "antiplatelet or antidiabetic drugs and could interact with drugs metabolized by cytochrome P450 enzymes",
+    "caution is advised."
+  ],
+  "dosage": null,
+  "preparation": "The rhizomes are boiled, dried and ground into powder used as a spice, dye and supplement. Extracts standardized for curcuminoid content are available as capsules or tablets.",
+  "region": "Native to India and cultivated throughout the tropics; turmeric is not found in the wild and is grown as a domesticated plant【754431674042811†L224-L241】."
+}

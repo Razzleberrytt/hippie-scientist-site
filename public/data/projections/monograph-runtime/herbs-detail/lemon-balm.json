@@ -1,0 +1,28 @@
+{
+  "name": "Lemon Balm",
+  "slug": "lemon-balm",
+  "scientificName": "Melissa officinalis",
+  "summary": "Lemon Balm (Melissa officinalis) is a herb monograph focused on the leaf; aerial parts used in herbal preparations. It is associated with Europe, Mediterranean. GABAergic (GABA transaminase inhibition); mild cholinergic activity. Generally safe; mild sedation possible.",
+  "description": "Lemon Balm is represented here as a monograph-style entry centered on the leaf; aerial parts. Key reported compounds include rosmarinic acid; citral; citronellal; linalool; flavonoids. Typical preparation forms: Leaf extracts, teas, tinctures. GABAergic (GABA transaminase inhibition); mild cholinergic activity. Interaction profile: Sedatives, thyroid medications. Use caution or avoid in: Hypothyroidism (caution).",
+  "mechanism": "GABAergic (GABA transaminase inhibition); mild cholinergic activity",
+  "mechanismTags": [
+    "gabaergic",
+    "cholinergic",
+    "antioxidant"
+  ],
+  "activeCompounds": [
+    "rosmarinic-acid",
+    "citral",
+    "citronellal",
+    "linalool",
+    "flavonoids"
+  ],
+  "safetyNotes": "Generally safe; mild sedation possible",
+  "interactions": [
+    "Sedatives",
+    "thyroid medications"
+  ],
+  "dosage": null,
+  "preparation": "Leaf extracts, teas, tinctures",
+  "region": "Europe, Mediterranean"
+}
