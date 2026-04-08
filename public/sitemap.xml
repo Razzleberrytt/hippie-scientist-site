@@ -56,9 +56,29 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/build</loc>
+    <loc>https://thehippiescientist.net/downloads</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/contribute</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/interactions</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/compare</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/guides/unknown-compound-survival-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs-for-relaxation</loc>
@@ -149,11 +169,6 @@
     <loc>https://thehippiescientist.net/collections/herbs-for-deep-sleep-recovery</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/blog/page/2</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/blog/2026-03-21-extraction-101-skullcap</loc>
@@ -248,2307 +263,2327 @@
   <url>
     <loc>https://thehippiescientist.net/herbs/calea-zacatechichi</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/acacia-confusa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/erythrina-mulungu</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/heimia-salicifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/nymphaea-caerulea</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/peganum-harmala</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/urtica-dioica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/nicotiana-rustica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/desfontainia-spinosa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/sceletium-tortuosum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/calea-ternifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/ptychopetalum-olacoides</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/acorus-calamus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/delosperma-bosseranum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/mitragyna-javanica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/nymphaea-lotus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/acmella-oleracea</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/amanita-muscaria</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/anadenanthera-peregrina</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/calliandra-anomala</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/leonotis-nepetifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/ocimum-sanctum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/scutellaria-lateriflora</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/peppermint</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/turmeric</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/valerian-root</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/withania-somnifera-ashwagandha</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/calendula-officinalis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/datura-ferox</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/datura-stramonium</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/sida-cordifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/theobroma-cacao</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/virola-calophylla</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/artemisia-vulgaris</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/desmodium-gangeticum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/pedicularis-densiflora</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/mentha-piperita</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/passiflora-incarnata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/paullinia-cupana</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/salvia-officinalis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/valeriana-officinalis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/heimia-myrtifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/papaver-somniferum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/petiveria-alliacea</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/tabernanthe-iboga</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/combretum-micranthum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/justicia-pectoralis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/nepeta-cataria</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/nymphaea-rubra</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/rivea-corymbosa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/voacanga-africana</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/argyreia-nervosa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/brugmansia-sanguinea</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/datura-wrightii</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/lactuca-virosa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/silene-capensis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/turnera-diffusa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/alchornea-floribunda</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/allium-sativum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/duboisia-hopwoodii</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/ervatamia-coronaria</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/leonotis-leonurus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/tylophora-indica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/zornia-latifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/alectra-sessiliflora</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/hyoscyamus-niger</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/mandrake-root</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/nelumbo-nucifera</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/salvia-divinorum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/leonurus-sibiricus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/sophora-secundiflora</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/alangium-salvifolium</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/brugmansia-suaveolens</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/camellia-sinensis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/derris-elliptica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/elaeagnus-angustifolia</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/entada-rheedii</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/erythroxylum-coca</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/henbane</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/humulus-lupulus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/ipomoea-tricolor-heavenly-blue</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/lavandula-angustifolia</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/linum-usitatissimum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/mistletoe</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/moringa-oleifera</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/paullinia-yoco</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/petasites-hybridus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/psychotria-carthagenensis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/tabernaemontana-sananho</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/tulsi</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/acacia-phlebophylla</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/aerva-lanata</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/aesculus-hippocastanum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/alchemilla-vulgaris</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/anemarrhena-asphodeloides</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/anisoptera-thurifera</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/arundo-donax</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/asarum-canadense</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/boesenbergia-rotunda</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/calotropis-procera</loc>
+    <loc>https://thehippiescientist.net/herbs/brugmansia-suaveolens</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/camellia-sinensis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/coptis-chinensis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/croton-lechleri</loc>
+    <loc>https://thehippiescientist.net/herbs/derris-elliptica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/erythrina-variegata</loc>
+    <loc>https://thehippiescientist.net/herbs/elaeagnus-angustifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/entada-rheedii</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/erythroxylum-coca</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/henbane</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/humulus-lupulus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/ipomoea-tricolor-heavenly-blue</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/iresine-herbstii</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/jatropha-podagrica</loc>
+    <loc>https://thehippiescientist.net/herbs/lavandula-angustifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/kaempferia-galanga</loc>
+    <loc>https://thehippiescientist.net/herbs/linum-usitatissimum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/lepidium-meyenii</loc>
+    <loc>https://thehippiescientist.net/herbs/mistletoe</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/lsd</loc>
+    <loc>https://thehippiescientist.net/herbs/moringa-oleifera</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/mescaline</loc>
+    <loc>https://thehippiescientist.net/herbs/paullinia-yoco</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/myristica-fragrans</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/pedicularis-groenlandica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/peperomia-pellucida</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/psilocybin</loc>
+    <loc>https://thehippiescientist.net/herbs/petasites-hybridus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/sceletium-tortuosum-kanna</loc>
+    <loc>https://thehippiescientist.net/herbs/psychotria-carthagenensis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/turbina-corymbosa</loc>
+    <loc>https://thehippiescientist.net/herbs/tabernaemontana-sananho</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/zingiber-officinale</loc>
+    <loc>https://thehippiescientist.net/herbs/tulsi</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/acorus-tatarinowii</loc>
+    <loc>https://thehippiescientist.net/herbs/acacia-phlebophylla</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/agrimonia-eupatoria</loc>
+    <loc>https://thehippiescientist.net/herbs/aerva-lanata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/alnus-rubra</loc>
+    <loc>https://thehippiescientist.net/herbs/aesculus-hippocastanum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/althaea-officinalis</loc>
+    <loc>https://thehippiescientist.net/herbs/alchemilla-vulgaris</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/amphipterygium-adstringens</loc>
+    <loc>https://thehippiescientist.net/herbs/anisoptera-thurifera</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/anisomeles-indica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/apium-graveolens</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/arctium-lappa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/arnica-montana</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/artemisia-gmelinii</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/artemisia-herba-alba</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/bidens-pilosa</loc>
+    <loc>https://thehippiescientist.net/herbs/arundo-donax</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/borago-officinalis</loc>
+    <loc>https://thehippiescientist.net/herbs/asarum-canadense</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/boswellia-serrata</loc>
+    <loc>https://thehippiescientist.net/herbs/calotropis-procera</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/bryonia-alba</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/bupleurum-falcatum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/cannabis-ruderalis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/cassia-occidentalis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/centella-asiatica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/clerodendrum-glabrum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/clinopodium-vulgare</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/commiphora-myrrha</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/convolvulus-pluricaulis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/copaifera-officinalis</loc>
+    <loc>https://thehippiescientist.net/herbs/croton-lechleri</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/curcuma-longa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/cynodon-dactylon</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/cyperus-rotundus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/dactylorhiza-hatagirea</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/delosperma-cooperi</loc>
+    <loc>https://thehippiescientist.net/herbs/erythrina-variegata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/diplopterys-cabrerana</loc>
+    <loc>https://thehippiescientist.net/herbs/jatropha-podagrica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/dodonaea-viscosa</loc>
+    <loc>https://thehippiescientist.net/herbs/kaempferia-galanga</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/eclipta-prostrata</loc>
+    <loc>https://thehippiescientist.net/herbs/lepidium-meyenii</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/elephantopus-mollis</loc>
+    <loc>https://thehippiescientist.net/herbs/lsd</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/eryngium-foetidum</loc>
+    <loc>https://thehippiescientist.net/herbs/mescaline</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/eucalyptus-globulus</loc>
+    <loc>https://thehippiescientist.net/herbs/myristica-fragrans</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/foeniculum-vulgare</loc>
+    <loc>https://thehippiescientist.net/herbs/pedicularis-groenlandica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/gardenia-jasminoides</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/glechoma-hederacea</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/glycyrrhiza-glabra</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/grindelia-robusta</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/hamamelis-virginiana</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/harpagophytum-procumbens</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/ilex-paraguariensis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/kra-thum-na-kok</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/lilium-candidum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/lonicera-japonica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/matricaria-chamomilla</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/morinda-citrifolia</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/muira-puama</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/nigella-sativa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/oenothera-biennis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/ononis-spinosa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/paullinia-pinnata</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/pedicularis-densiflora-indian-warrior</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/picrorhiza-kurroa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/piper-auritum</loc>
+    <loc>https://thehippiescientist.net/herbs/psilocybin</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/plantago-major</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/polygonum-multiflorum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/primula-veris</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/prunella-vulgaris</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/punica-granatum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/rhododendron-tomentosum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/rosa-canina</loc>
+    <loc>https://thehippiescientist.net/herbs/sceletium-tortuosum-kanna</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/salacia-reticulata</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/salix-alba</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/salvia-miltiorrhiza</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/sambucus-nigra</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/sceletium-expansum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/scoparia-dulcis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/scutellaria-baicalensis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/solanum-nigrum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/solidago-virgaurea</loc>
+    <loc>https://thehippiescientist.net/herbs/turbina-corymbosa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/stachytarpheta-cayennensis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/stephania-tetrandra</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/tabebuia-impetiginosa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/tetradium-ruticarpum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/thc</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/theobroma-bicolor</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/tragia-involucrata</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/trifolium-pratense</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/tussilago-farfara</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/verbascum-thapsus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/viola-odorata</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/vitex-trifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/withania-somnifera</loc>
+    <loc>https://thehippiescientist.net/herbs/zingiber-officinale</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/xanthium-strumarium</loc>
+    <loc>https://thehippiescientist.net/herbs/acorus-tatarinowii</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/yucca-schidigera</loc>
+    <loc>https://thehippiescientist.net/herbs/agrimonia-eupatoria</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/acacia-maidenii</loc>
+    <loc>https://thehippiescientist.net/herbs/alnus-rubra</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/aconitum-napellus</loc>
+    <loc>https://thehippiescientist.net/herbs/althaea-officinalis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/acorus-gramineus</loc>
+    <loc>https://thehippiescientist.net/herbs/amphipterygium-adstringens</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/aristolochia-grandiflora</loc>
+    <loc>https://thehippiescientist.net/herbs/anisomeles-indica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/azadirachta-indica</loc>
+    <loc>https://thehippiescientist.net/herbs/apium-graveolens</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/banisteriopsis-caapi</loc>
+    <loc>https://thehippiescientist.net/herbs/arctium-lappa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/arnica-montana</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/bidens-pilosa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/borago-officinalis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/boswellia-sacra</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/boswellia-serrata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/bryonia-alba</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/bupleurum-falcatum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/cannabis-indica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/cannabis-sativa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/capparis-spinosa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/capraria-biflora</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/cassia-occidentalis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/centella-asiatica</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/clinopodium-vulgare</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/commiphora-myrrha</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/copaifera-officinalis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/curcuma-longa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/cynodon-dactylon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/cyperus-rotundus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/delosperma-cooperi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/diplopterys-cabrerana</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/dodonaea-viscosa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/dracocephalum-moldavica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/eclipta-prostrata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/elephantopus-mollis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/eremophila-longifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/eupatorium-perfoliatum</loc>
+    <loc>https://thehippiescientist.net/herbs/eryngium-foetidum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/eucalyptus-globulus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/european-mandrake</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/ferula-assa-foetida</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/galbulimima-belgraveana</loc>
+    <loc>https://thehippiescientist.net/herbs/foeniculum-vulgare</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/gardenia-jasminoides</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/glechoma-hederacea</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/glycyrrhiza-glabra</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/griffonia-simplicifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/grindelia-robusta</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/hamamelis-virginiana</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/harpagophytum-procumbens</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/heliotropium-indicum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/hibiscus-tiliaceus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/horny-goat-weed</loc>
+    <loc>https://thehippiescientist.net/herbs/ilex-paraguariensis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/juniperus-sibirica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/lophophora-williamsii</loc>
+    <loc>https://thehippiescientist.net/herbs/kra-thum-na-kok</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/malva-sylvestris</loc>
+    <loc>https://thehippiescientist.net/herbs/lilium-candidum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/mitragyna-parvifolia</loc>
+    <loc>https://thehippiescientist.net/herbs/lonicera-japonica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/nicotiana-tabacum</loc>
+    <loc>https://thehippiescientist.net/herbs/matricaria-chamomilla</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/origanum-vulgare</loc>
+    <loc>https://thehippiescientist.net/herbs/morinda-citrifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/pandanus-tectorius</loc>
+    <loc>https://thehippiescientist.net/herbs/muira-puama</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/nigella-sativa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/oenothera-biennis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/ononis-spinosa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/paullinia-pinnata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/pedicularis-densiflora-indian-warrior</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/phellodendron-amurense</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/piper-methysticum</loc>
+    <loc>https://thehippiescientist.net/herbs/piper-auritum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/rhodiola-rosea</loc>
+    <loc>https://thehippiescientist.net/herbs/plantago-major</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/rhynchosia-phaseoloides</loc>
+    <loc>https://thehippiescientist.net/herbs/polygonum-multiflorum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/ricinus-communis</loc>
+    <loc>https://thehippiescientist.net/herbs/primula-veris</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/sacred-basil</loc>
+    <loc>https://thehippiescientist.net/herbs/prunella-vulgaris</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/salvia-apiana</loc>
+    <loc>https://thehippiescientist.net/herbs/punica-granatum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/rosa-canina</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/salacia-reticulata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/salix-alba</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/salvia-miltiorrhiza</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/sambucus-nigra</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/sceletium-expansum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/scoparia-dulcis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/scutellaria-baicalensis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/selaginella-tamariscina</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/sophora-flavescens</loc>
+    <loc>https://thehippiescientist.net/herbs/solidago-virgaurea</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/symphytum-officinale</loc>
+    <loc>https://thehippiescientist.net/herbs/stachytarpheta-cayennensis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/tabernaemontana-undulata</loc>
+    <loc>https://thehippiescientist.net/herbs/stephania-tetrandra</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/tabebuia-impetiginosa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/tetradium-ruticarpum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/tetrapterys-methystica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/tongkat-ali</loc>
+    <loc>https://thehippiescientist.net/herbs/thc</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/virola-sebifera</loc>
+    <loc>https://thehippiescientist.net/herbs/theobroma-bicolor</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/virola-theiodora</loc>
+    <loc>https://thehippiescientist.net/herbs/tragia-involucrata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/trifolium-pratense</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/tussilago-farfara</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/verbascum-thapsus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/viola-odorata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/withania-somnifera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/xanthium-strumarium</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/yucca-schidigera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/zanthoxylum-capense</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/african-dream-root</loc>
+    <loc>https://thehippiescientist.net/herbs/acacia-maidenii</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/agastache-foeniculum</loc>
+    <loc>https://thehippiescientist.net/herbs/aconitum-napellus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/albizia-lebbeck</loc>
+    <loc>https://thehippiescientist.net/herbs/acorus-gramineus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/aloe-vera</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/anacardium-occidentale</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/angelica-archangelica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/angelica-sinensis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/annona-muricata</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/aquilegia-vulgaris</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/areca-catechu</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/aristolochia-indica</loc>
+    <loc>https://thehippiescientist.net/herbs/aristolochia-grandiflora</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/armoracia-rusticana</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/artemisia-annua</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/artemisia-judaica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/asclepias-tuberosa</loc>
+    <loc>https://thehippiescientist.net/herbs/azadirachta-indica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/asparagus-racemosus</loc>
+    <loc>https://thehippiescientist.net/herbs/banisteriopsis-caapi</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/aspidosperma-quebracho-blanco</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/astragalus-membranaceus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/atropa-belladonna</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/berberis-vulgaris</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/boerhavia-diffusa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/caesalpinia-bonduc</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/calliandra-portoricensis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/cannabis-sativa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/cannabis-sativa-african-varieties</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/capparis-erythrocarpos</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/capsella-bursa-pastoris</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/cecropia-peltata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/centaurium-erythraea</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/cephaelis-ipecacuanha</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/chaga-inonotus-obliquus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/chelidonium-majus</loc>
+    <loc>https://thehippiescientist.net/herbs/eupatorium-perfoliatum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/chimaphila-umbellata</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/cinnamomum-verum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/citrus-aurantium</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/citrus-limon</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/cnidium-monnieri</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/cocculus-hirsutus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/coffea-arabica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/convallaria-majalis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/cordyceps-sinensis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/cornus-officinalis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/corydalis-cava</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/cymbopogon-citratus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/cynara-scolymus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/dendrobium-nobile</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/desmanthus-illinoensis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/dichroa-febrifuga</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/echinopsis-pachanoi</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/ephedra-sinica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/equisetum-arvense</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/erigeron-canadensis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/fagraea-berteroana</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/galium-aparine</loc>
+    <loc>https://thehippiescientist.net/herbs/galbulimima-belgraveana</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/gentiana-lutea</loc>
+    <loc>https://thehippiescientist.net/herbs/horny-goat-weed</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/geranium-robertianum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/hedera-helix</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/heimia</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/hydrastis-canadensis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/ilex-guayusa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/inula-helenium</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/iris-germanica</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/juglans-nigra</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/juniperus-communis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/laminaria-digitata</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/laurus-nobilis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/leonurus-cardiaca</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/leptospermum-scoparium</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/ligusticum-chuanxiong</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/lippia-alba</loc>
+    <loc>https://thehippiescientist.net/herbs/lophophora-williamsii</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/lomatium-dissectum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/lycopus-virginicus</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/macaranga-tanarius</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/melaleuca-alternifolia</loc>
+    <loc>https://thehippiescientist.net/herbs/malva-sylvestris</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/melissa-officinalis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/micromelum-minutum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/mitragyna-speciosa</loc>
+    <loc>https://thehippiescientist.net/herbs/mitragyna-parvifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/momordica-charantia</loc>
+    <loc>https://thehippiescientist.net/herbs/nicotiana-tabacum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/monarda-fistulosa</loc>
+    <loc>https://thehippiescientist.net/herbs/origanum-vulgare</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/nardostachys-jatamansi</loc>
+    <loc>https://thehippiescientist.net/herbs/pandanus-tectorius</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/panax-ginseng</loc>
+    <loc>https://thehippiescientist.net/herbs/piper-methysticum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/panax-quinquefolius</loc>
+    <loc>https://thehippiescientist.net/herbs/rhodiola-rosea</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/pelargonium-sidoides</loc>
+    <loc>https://thehippiescientist.net/herbs/rhynchosia-phaseoloides</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/phalaris-arundinacea</loc>
+    <loc>https://thehippiescientist.net/herbs/ricinus-communis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/pimpinella-anisum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/poria-cocos</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/psychotria-viridis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/psyllium-plantago-ovata</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/quassia-amara</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/rauvolfia-serpentina</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/rheum-palmatum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/rosmarinus-officinalis</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/ruta-chalepensis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/salvia-dorrii</loc>
+    <loc>https://thehippiescientist.net/herbs/sacred-basil</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/schisandra-chinensis</loc>
+    <loc>https://thehippiescientist.net/herbs/salvia-apiana</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/scopolia-carniolica</loc>
+    <loc>https://thehippiescientist.net/herbs/sophora-flavescens</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/smilax-ornata</loc>
+    <loc>https://thehippiescientist.net/herbs/symphytum-officinale</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/syzygium-aromaticum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/tabernaemontana-africana</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/tabernaemontana-divaricata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/tagetes-lucida</loc>
+    <loc>https://thehippiescientist.net/herbs/tabernaemontana-undulata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/taraxacum-officinale</loc>
+    <loc>https://thehippiescientist.net/herbs/tongkat-ali</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/tasmannia-lanceolata</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/tetrapleura-tetraptera</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/trichilia-emetica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/trichocereus-bridgesii</loc>
+    <loc>https://thehippiescientist.net/herbs/virola-sebifera</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/usnea-barbata</loc>
+    <loc>https://thehippiescientist.net/herbs/virola-theiodora</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/veronicastrum-virginicum</loc>
+    <loc>https://thehippiescientist.net/herbs/african-dream-root</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/viburnum-opulus</loc>
+    <loc>https://thehippiescientist.net/herbs/agastache-foeniculum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/vinca-minor</loc>
+    <loc>https://thehippiescientist.net/herbs/albizia-lebbeck</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/vitex-agnus-castus</loc>
+    <loc>https://thehippiescientist.net/herbs/aloe-vera</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/aconitum-ferox</loc>
+    <loc>https://thehippiescientist.net/herbs/angelica-archangelica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/adenium-obesum</loc>
+    <loc>https://thehippiescientist.net/herbs/angelica-sinensis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/adenostoma-fasciculatum</loc>
+    <loc>https://thehippiescientist.net/herbs/annona-muricata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/aletris-farinosa</loc>
+    <loc>https://thehippiescientist.net/herbs/aquilegia-vulgaris</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/aquilaria-agallocha</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/aristolochia-argentina</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/artemisia-glacialis</loc>
+    <loc>https://thehippiescientist.net/herbs/aristolochia-indica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/baptisia-tinctoria</loc>
+    <loc>https://thehippiescientist.net/herbs/armoracia-rusticana</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/boophone-disticha</loc>
+    <loc>https://thehippiescientist.net/herbs/artemisia-annua</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/asclepias-tuberosa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/asparagus-racemosus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/aspidosperma-quebracho-blanco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/astragalus-membranaceus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/atropa-belladonna</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/berberis-vulgaris</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/boerhavia-diffusa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/brunfelsia-americana</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/bursera-graveolens</loc>
+    <loc>https://thehippiescientist.net/herbs/caesalpinia-bonduc</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/capparis-erythrocarpos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/capsella-bursa-pastoris</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/cassia-alata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/ceanothus-integerrimus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/clematis-vitalba</loc>
+    <loc>https://thehippiescientist.net/herbs/centaurium-erythraea</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/conium-maculatum</loc>
+    <loc>https://thehippiescientist.net/herbs/cephaelis-ipecacuanha</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/duboisia-myoporoides</loc>
+    <loc>https://thehippiescientist.net/herbs/chelidonium-majus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/chimaphila-umbellata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/cinnamomum-verum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/citrus-aurantium</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/citrus-limon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/cnidium-monnieri</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/cocculus-hirsutus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/coffea-arabica</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/convallaria-majalis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/cordyceps-sinensis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/cornus-officinalis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/corydalis-cava</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/cymbopogon-citratus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/cynara-scolymus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/dendrobium-nobile</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/desmanthus-illinoensis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/dichroa-febrifuga</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/echinopsis-pachanoi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/elaeagnus-umbellata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/ephedra-sinica</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/equisetum-arvense</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/erigeron-canadensis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/erythrina-flabelliformis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/erythrina-subumbrans</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/erythroxylum-novogranatense</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/ferula-communis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/fucus-vesiculosus</loc>
+    <loc>https://thehippiescientist.net/herbs/galium-aparine</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/garcinia-cambogia</loc>
+    <loc>https://thehippiescientist.net/herbs/gentiana-lutea</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/geranium-robertianum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/hedera-helix</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/heimia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/hydrastis-canadensis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/ilex-guayusa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/inula-helenium</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/ipomoea-tricolor</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/iris-germanica</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/juglans-nigra</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/juniperus-communis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/justicia-secunda</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/laminaria-digitata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/laurus-nobilis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/leonurus-cardiaca</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/leonurus-japonicus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/lobelia-tupa</loc>
+    <loc>https://thehippiescientist.net/herbs/leptospermum-scoparium</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/lycopodium-clavatum</loc>
+    <loc>https://thehippiescientist.net/herbs/lippia-alba</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/lomatium-dissectum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/lycopus-virginicus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/malouetia-tamaquarina</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/menyanthes-trifoliata</loc>
+    <loc>https://thehippiescientist.net/herbs/melaleuca-alternifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/melissa-officinalis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/mitragyna-speciosa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/mitragyna-stipulosa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/momordica-charantia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/monarda-fistulosa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/myroxylon-balsamum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/nardostachys-jatamansi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/nerium-oleander</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/nymphaea-nouchali</loc>
+    <loc>https://thehippiescientist.net/herbs/panax-ginseng</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/panax-quinquefolius</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/pelargonium-sidoides</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/phalaris-arundinacea</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/pimenta-racemosa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/piptadenia-peregrina</loc>
+    <loc>https://thehippiescientist.net/herbs/pimpinella-anisum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/podophyllum-peltatum</loc>
+    <loc>https://thehippiescientist.net/herbs/poria-cocos</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/psilocybe-mexicana</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/pueraria-mirifica</loc>
+    <loc>https://thehippiescientist.net/herbs/psychotria-viridis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/psyllium-plantago-ovata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/quassia-amara</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/rauvolfia-serpentina</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/rauvolfia-vomitoria</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/rheum-palmatum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/rhizophora-mangle</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/sanguinaria-canadensis</loc>
+    <loc>https://thehippiescientist.net/herbs/rosmarinus-officinalis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/serenoa-repens</loc>
+    <loc>https://thehippiescientist.net/herbs/salvia-dorrii</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/solandra-maxima</loc>
+    <loc>https://thehippiescientist.net/herbs/schisandra-chinensis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/synaptolepis-kirkii</loc>
+    <loc>https://thehippiescientist.net/herbs/scopolia-carniolica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/smilax-ornata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/syzygium-aromaticum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/tabernaemontana-africana</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/tagetes-lucida</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/tanaecium-nocturnum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/teucrium-chamaedrys</loc>
+    <loc>https://thehippiescientist.net/herbs/taraxacum-officinale</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/thevetia-peruviana</loc>
+    <loc>https://thehippiescientist.net/herbs/tasmannia-lanceolata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/trichilia-catigua</loc>
+    <loc>https://thehippiescientist.net/herbs/tetrapleura-tetraptera</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/trichocereus-bridgesii</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/usnea-barbata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/veronicastrum-virginicum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/viburnum-opulus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/vinca-minor</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/virola-elongata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/alyxia-stellata</loc>
+    <loc>https://thehippiescientist.net/herbs/vitex-agnus-castus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/aniseia-martinicensis</loc>
+    <loc>https://thehippiescientist.net/herbs/aconitum-ferox</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/artemisia-tilesii</loc>
+    <loc>https://thehippiescientist.net/herbs/adenium-obesum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/adenostoma-fasciculatum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/aletris-farinosa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/aquilaria-agallocha</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/artemisia-glacialis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/atractylodes-macrocephala</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/baptisia-tinctoria</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/barringtonia-asiatica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/calliandra-haematocephala</loc>
+    <loc>https://thehippiescientist.net/herbs/boophone-disticha</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/bursera-graveolens</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/casimiroa-edulis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/catnip</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/celastrus-paniculatus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/clematis-vitalba</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/codiaeum-variegatum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/conium-maculatum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/cordyline-fruticosa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/corymbia-terminalis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/herbs/delphinium-brunonianum</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/desmodium-adscendens</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/erythrina-vespertilio</loc>
+    <loc>https://thehippiescientist.net/herbs/duboisia-myoporoides</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/ficus-tinctoria</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/fucus-vesiculosus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/garcinia-cambogia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/helinus-integrifolius</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/linden</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/lobelia-tupa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/lycopodium-clavatum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/macropiper-excelsum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/maerua-angolensis</loc>
+    <loc>https://thehippiescientist.net/herbs/menyanthes-trifoliata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/nymphaea-nouchali</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/piptadenia-peregrina</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/pipturus-albidus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/podophyllum-peltatum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/prestonia-amazonica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/pueraria-mirifica</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/rhizophora-stylosa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/sanguinaria-canadensis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/scaevola-taccada</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/selinum-tenuifolium</loc>
+    <loc>https://thehippiescientist.net/herbs/serenoa-repens</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/senna-alexandrina</loc>
+    <loc>https://thehippiescientist.net/herbs/solandra-maxima</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/stephania-cepharantha</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/sweet-violet</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/synaptolepis-kirkii</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/teucrium-chamaedrys</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/thevetia-peruviana</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/trichilia-catigua</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/acorus-calamus-var-angustatus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/alyxia-stellata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/anadenanthera-colubrina</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/aniseia-martinicensis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/artemisia-abrotanum</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/artemisia-ludoviciana</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/artemisia-tilesii</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/calliandra-haematocephala</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/delphinium-brunonianum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/dysphania-ambrosioides</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/erythrina-vespertilio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/maerua-angolensis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/mexican-pepperleaf</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/pogostemon-cablin</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/selinum-tenuifolium</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herbs/senna-alexandrina</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/silene-undulata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/wild-lettuce</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/alchornea-castaneifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/artemisia-absinthium</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/blue-lotus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/byrsonima-crassifolia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/cissampelos-pareira</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/combretum-quadrangulare</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/corydalis-yanhusuo</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/datura-metel</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/elsholtzia-ciliata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/ficus-religiosa</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/motherwort</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/pimenta-dioica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/rhododendron-anthopogon</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/rubus-idaeus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/ruta-graveolens</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/tamarindus-indica</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/tropaeolum-majus</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/tynanthus-panurensis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/verbena-officinalis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/yerba-mate</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/herbs/zanthoxylum-clava-herculis</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thehippiescientist.net/compounds/apigenin</loc>
@@ -2776,11 +2811,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/rosmarinic-acid</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://thehippiescientist.net/compounds/germacranolides</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2942,6 +2972,11 @@
   </url>
   <url>
     <loc>https://thehippiescientist.net/compounds/mesembrine-analogues-suspected</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/compounds/rosmarinic-acid</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3146,11 +3181,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/valerenic-acid</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://thehippiescientist.net/compounds/codeine</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3297,6 +3327,11 @@
   </url>
   <url>
     <loc>https://thehippiescientist.net/compounds/trithiolanes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/compounds/valerenic-acid</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
