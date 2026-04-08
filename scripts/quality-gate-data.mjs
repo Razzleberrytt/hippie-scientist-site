@@ -5,9 +5,9 @@ import { countBootstrapSources, sourceCountBuckets } from './source-normalizatio
 const ROOT = process.cwd()
 
 const QUALITY_THRESHOLDS = {
-  strongDescriptionLength: 60,
+  strongDescriptionLength: 200,
   strongMinSources: 2,
-  publishableDescriptionLength: 20,
+  publishableDescriptionLength: 80,
   publishableMinSources: 1,
   minSlugLength: 2,
 }
@@ -81,6 +81,12 @@ function writeJson(relativePath, data) {
 const asArray = value => (Array.isArray(value) ? value : [])
 const asText = value => String(value || '').trim()
 const clip = (value, max = 155) => asText(value).slice(0, max)
+const stripCitationBrackets = value =>
+  asText(value)
+    .replace(/\[(?:\s*\d+\s*(?:[-,]\s*\d+\s*)*)\]/g, ' ')
+    .replace(/\[\s*citation needed\s*\]/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
 const normalizeKey = value =>
   asText(value)
     .toLowerCase()
@@ -102,6 +108,28 @@ function normalizeDate(value) {
 
 function countSources(record) {
   return countBootstrapSources([record?.sources, record?.source, record?.references, record?.citations])
+}
+
+function sourceQualityScore(record) {
+  const sources = mergeSources(record?.sources, record?.source, record?.references, record?.citations)
+  let score = 0
+
+  for (const source of sources) {
+    const title = asText(source?.title)
+    const url = asText(source?.url)
+    if (!title) continue
+    if (/inferred from/i.test(title)) continue
+
+    const isPubMedTitle = /\bpubmed\b/i.test(title)
+    if (isPubMedTitle && !url) {
+      score += 0.5
+      continue
+    }
+
+    score += 1
+  }
+
+  return score
 }
 
 function mergeSources(...sourceSets) {
@@ -243,7 +271,7 @@ function hasNanArtifacts(record) {
 
 function hasUsableDescription(record) {
   const narrative = [record?.description, record?.summary, record?.mechanism]
-    .map(asText)
+    .map(stripCitationBrackets)
     .filter(Boolean)
     .join(' ')
   if (narrative.length < QUALITY_THRESHOLDS.minDescriptionLength) return false
@@ -347,12 +375,13 @@ function auditEntity(record, type, usedSlugs = new Set()) {
     hasPlaceholderText: hasPlaceholderText(record),
     hasNanArtifacts: hasNanArtifacts(record),
     sourceCount: countSources(record),
+    sourceQualityScore: sourceQualityScore(record),
     effectCount: countEffects(record),
   }
 
-  const descriptionLength = asText(record?.description).length
-  const hasSummary = asText(record?.summary).length > 0
-  const sourceCountNormalized = flags.sourceCount
+  const descriptionLength = stripCitationBrackets(record?.description).length
+  const hasSummary = stripCitationBrackets(record?.summary).length > 0
+  const sourceCountNormalized = flags.sourceQualityScore
   const supportingFields = supportingFieldCount(record)
   const hasUsefulSupportingField = supportingFields > 0
   const hasMeaningfulLinkedContext = hasLinkedContext(record)
