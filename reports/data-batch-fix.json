@@ -1,20 +1,319 @@
 {
-  "runAt": "2026-04-08T00:00:00.000Z",
-  "issueCategory": "invalid-field-type",
-  "selectionCriteria": {
-    "dataset": "herb-detail",
-    "expected": "string[]",
-    "actual": "string"
-  },
-  "batchLimit": 50,
-  "issuesBefore": 27,
-  "issuesAfter": 0,
-  "issuesFixed": 27,
-  "recordsTouched": 26,
-  "fieldsTouched": [
-    "interactions",
-    "contraindications",
-    "therapeuticUses"
+  "runDate": "2026-04-08",
+  "issueCategory": "missing-required-field",
+  "maxRecords": 50,
+  "selectedRecordCount": 50,
+  "updatedRecordCount": 50,
+  "updatedRecords": [
+    {
+      "id": "syringaresnol-4-o-d-apiofuranosyl-1-2-d-glucopyranoside",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "object-object",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "2-4-5-trimethoxybenzaldehyde",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "5",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "5-meo-dmt",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "7-hydroxymitragynine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "7-hydroxybaruol",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "acetylcholine",
+      "fields": [
+        "category",
+        "description"
+      ]
+    },
+    {
+      "id": "aconine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "aconitine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "acorin",
+      "fields": [
+        "category",
+        "description"
+      ]
+    },
+    {
+      "id": "aervine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "aervolanine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "aervoside",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "aescin-escin",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "agrimoniin",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alamarckine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alamaridine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alamarine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alangamide",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alangimaridine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alangimarin",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alangimarine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alangiside",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "albiziasaponins-a-e",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alchorneine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alkaloids",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alkaloids-nicotine-leucocyanidin",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alkaloids-uncharacterized",
+      "fields": [
+        "description",
+        "herbs"
+      ]
+    },
+    {
+      "id": "alkaloids-undetermined",
+      "fields": [
+        "description",
+        "herbs"
+      ]
+    },
+    {
+      "id": "alkylamides",
+      "fields": [
+        "description",
+        "herbs"
+      ]
+    },
+    {
+      "id": "alpha",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alpha-asarone",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "alpha-bulnesene",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "amorphigenin",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "anabasine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "anthocyanins",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "apigenin",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "apigenin-glycosides",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "aporphine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "arbutin",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "asarone-alpha-beta",
+      "fields": [
+        "category",
+        "description"
+      ]
+    },
+    {
+      "id": "ascaridole",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "astragalin",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "atropine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "azulene",
+      "fields": [
+        "description",
+        "herbs"
+      ]
+    },
+    {
+      "id": "bacosides-a-and-b",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "baicalin",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "benzaconine",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "benzoic-acid",
+      "fields": [
+        "description"
+      ]
+    }
   ],
-  "notes": "Converted scalar string values into single-item arrays (or empty arrays for blank strings) for herb detail list fields."
+  "issueCountBefore": 2122,
+  "issueCountAfter": 2061,
+  "issueCountDelta": -61
 }
