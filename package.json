@@ -170,7 +170,8 @@
     "enrichment:evidence:report": "node scripts/enrichment/report-evidence-acquisition.mjs",
     "enrichment:benchmark:mechanism": "node scripts/enrichment/run-mechanism-regression-harness.mjs",
     "verify:herb-affiliate-links": "tsx scripts/verify-herb-affiliate-links.ts",
-    "verify:herb-card-canonical": "node scripts/verify-herb-card-canonical.mjs"
+    "verify:herb-card-canonical": "node scripts/verify-herb-card-canonical.mjs",
+    "data:strip-nan": "node scripts/strip-nan-rebuild-herbs.mjs"
   },
   "engines": {
     "node": ">=20 <21"

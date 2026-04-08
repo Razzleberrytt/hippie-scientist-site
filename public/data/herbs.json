@@ -68,12 +68,8 @@
     "displayScientificName": "Acacia confusa",
     "scientificNormalized": "acacia confusa",
     "id": "acacia-confusa",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "acacia maidenii",
@@ -140,12 +136,8 @@
     "displayScientificName": "Acacia maidenii",
     "scientificNormalized": "acacia maidenii",
     "id": "acacia-maidenii",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "acacia nilotica",
@@ -248,12 +240,8 @@
     "displayScientificName": "Acacia phlebophylla",
     "scientificNormalized": "acacia phlebophylla",
     "id": "acacia-phlebophylla",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "acmella oleracea",
@@ -337,12 +325,8 @@
     "displayScientificName": "Acmella oleracea",
     "scientificNormalized": "acmella oleracea",
     "id": "acmella-oleracea",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "aconitum ferox",
@@ -596,12 +580,10 @@
     "scientificNormalized": "acorus calamus",
     "id": "acorus-calamus",
     "aliases": [
-      "nan",
       "sweet flag"
     ],
     "slugAliases": [
-      "sweet-flag",
-      "nan"
+      "sweet-flag"
     ]
   },
   {
@@ -707,12 +689,8 @@
     "displayScientificName": "Acorus gramineus",
     "scientificNormalized": "acorus gramineus",
     "id": "acorus-gramineus",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "acorus tatarinowii",
@@ -1596,12 +1574,8 @@
     "displayScientificName": "Alchornea floribunda",
     "scientificNormalized": "alchornea floribunda",
     "id": "alchornea-floribunda",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "alectra sessiliflora",
@@ -2084,12 +2058,10 @@
     "scientificNormalized": "amanita muscaria",
     "id": "amanita-muscaria",
     "aliases": [
-      "nan",
       "fly agaric"
     ],
     "slugAliases": [
-      "fly-agaric",
-      "nan"
+      "fly-agaric"
     ]
   },
   {
@@ -2523,12 +2495,8 @@
     "displayScientificName": "Anadenanthera peregrina",
     "scientificNormalized": "anadenanthera peregrina",
     "id": "anadenanthera-peregrina",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "anemarrhena asphodeloides",
@@ -3262,12 +3230,8 @@
     "displayScientificName": "Argyreia nervosa",
     "scientificNormalized": "argyreia nervosa",
     "id": "argyreia-nervosa",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "argyreia speciosa",
@@ -4013,12 +3977,8 @@
     "displayScientificName": "Artemisia vulgaris",
     "scientificNormalized": "artemisia vulgaris",
     "id": "artemisia-vulgaris",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "artemisia vulgaris (mugwort)",
@@ -4120,12 +4080,8 @@
     "displayScientificName": "Arundo donax",
     "scientificNormalized": "arundo donax",
     "id": "arundo-donax",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "asarum canadense",
@@ -4184,12 +4140,8 @@
     "displayScientificName": "Asarum canadense",
     "scientificNormalized": "asarum canadense",
     "id": "asarum-canadense",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "asclepias syriaca",
@@ -4877,12 +4829,8 @@
     "displayScientificName": "Banisteriopsis caapi",
     "scientificNormalized": "banisteriopsis caapi",
     "id": "banisteriopsis-caapi",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "baptisia tinctoria",
@@ -5847,12 +5795,8 @@
     "displayScientificName": "Brugmansia sanguinea",
     "scientificNormalized": "brugmansia sanguinea",
     "id": "brugmansia-sanguinea",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "brugmansia suaveolens",
@@ -5916,12 +5860,8 @@
     "displayScientificName": "Brugmansia suaveolens",
     "scientificNormalized": "brugmansia suaveolens",
     "id": "brugmansia-suaveolens",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "brunfelsia americana",
@@ -6452,12 +6392,10 @@
     "scientificNormalized": "calea ternifolia",
     "id": "calea-ternifolia",
     "aliases": [
-      "nan",
       "dream herb"
     ],
     "slugAliases": [
-      "dream-herb",
-      "nan"
+      "dream-herb"
     ]
   },
   {
@@ -6521,12 +6459,8 @@
     "displayScientificName": "Calea zacatechichi",
     "scientificNormalized": "calea zacatechichi",
     "id": "calea-zacatechichi",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "calendula officinalis",
@@ -6722,12 +6656,8 @@
     "displayScientificName": "Calliandra anomala",
     "scientificNormalized": "calliandra anomala",
     "id": "calliandra-anomala",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "calliandra haematocephala",
@@ -6967,12 +6897,8 @@
     "displayScientificName": "Camellia sinensis",
     "scientificNormalized": "camellia sinensis",
     "id": "camellia-sinensis",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "campsiandra angustifolia",
@@ -7222,12 +7148,8 @@
     "displayScientificName": "Cannabis sativa",
     "scientificNormalized": "cannabis sativa",
     "id": "cannabis-sativa",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "cannabis sativa (african varieties)",
@@ -9622,12 +9544,8 @@
     "displayScientificName": "Combretum micranthum",
     "scientificNormalized": "combretum micranthum",
     "id": "combretum-micranthum",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "combretum quadrangulare",
@@ -10951,12 +10869,8 @@
     "displayScientificName": "Datura ferox",
     "scientificNormalized": "datura ferox",
     "id": "datura-ferox",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "datura inoxia",
@@ -11111,12 +11025,8 @@
     "displayScientificName": "Datura stramonium",
     "scientificNormalized": "datura stramonium",
     "id": "datura-stramonium",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "datura wrightii",
@@ -11185,12 +11095,8 @@
     "displayScientificName": "Datura wrightii",
     "scientificNormalized": "datura wrightii",
     "id": "datura-wrightii",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "delosperma bosseranum",
@@ -11264,12 +11170,8 @@
     "displayScientificName": "Delosperma bosseranum",
     "scientificNormalized": "delosperma bosseranum",
     "id": "delosperma-bosseranum",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "delosperma cooperi",
@@ -11542,12 +11444,8 @@
     "displayScientificName": "Desfontainia spinosa",
     "scientificNormalized": "desfontainia spinosa",
     "id": "desfontainia-spinosa",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "desmanthus illinoensis",
@@ -11606,12 +11504,8 @@
     "displayScientificName": "Desmanthus illinoensis",
     "scientificNormalized": "desmanthus illinoensis",
     "id": "desmanthus-illinoensis",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "desmodium adscendens",
@@ -11734,12 +11628,8 @@
     "displayScientificName": "Desmodium gangeticum",
     "scientificNormalized": "desmodium gangeticum",
     "id": "desmodium-gangeticum",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "dichroa febrifuga",
@@ -12382,12 +12272,8 @@
     "displayScientificName": "Elaeagnus angustifolia",
     "scientificNormalized": "elaeagnus angustifolia",
     "id": "elaeagnus-angustifolia",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "elaeagnus umbellata",
@@ -12655,12 +12541,8 @@
     "displayScientificName": "Entada rheedii",
     "scientificNormalized": "entada rheedii",
     "id": "entada-rheedii",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "ephedra sinica",
@@ -12926,12 +12808,8 @@
     "displayScientificName": "Ervatamia coronaria",
     "scientificNormalized": "ervatamia coronaria",
     "id": "ervatamia-coronaria",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "eryngium foetidum",
@@ -13171,12 +13049,10 @@
     "scientificNormalized": "erythrina mulungu",
     "id": "erythrina-mulungu",
     "aliases": [
-      "nan",
       "mulungu"
     ],
     "slugAliases": [
-      "mulungu",
-      "nan"
+      "mulungu"
     ]
   },
   {
@@ -13426,12 +13302,8 @@
     "displayScientificName": "Erythroxylum coca",
     "scientificNormalized": "erythroxylum coca",
     "id": "erythroxylum-coca",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "erythroxylum novogranatense",
@@ -14241,12 +14113,8 @@
     "displayScientificName": "Galbulimima belgraveana",
     "scientificNormalized": "galbulimima belgraveana",
     "id": "galbulimima-belgraveana",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "galium aparine",
@@ -15612,12 +15480,8 @@
     "displayScientificName": "Heimia myrtifolia",
     "scientificNormalized": "heimia myrtifolia",
     "id": "heimia-myrtifolia",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "heimia salicifolia (sinicuichi)",
@@ -15733,12 +15597,10 @@
     "scientificNormalized": "heimia salicifolia",
     "id": "heimia-salicifolia",
     "aliases": [
-      "nan",
       "heimia salicifolia"
     ],
     "slugAliases": [
-      "heimia-salicifolia-sinicuichi",
-      "nan"
+      "heimia-salicifolia-sinicuichi"
     ]
   },
   {
@@ -16784,12 +16646,9 @@
     "displayScientificName": "Pedicularis densiflora",
     "scientificNormalized": "pedicularis densiflora",
     "id": "pedicularis-densiflora",
-    "aliases": [
-      "nan"
-    ],
+    "aliases": [],
     "slugAliases": [
-      "indian-warrior",
-      "nan"
+      "indian-warrior"
     ]
   },
   {
@@ -17410,12 +17269,8 @@
     "displayScientificName": "Justicia pectoralis",
     "scientificNormalized": "justicia pectoralis",
     "id": "justicia-pectoralis",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "justicia secunda",
@@ -17740,12 +17595,9 @@
     "displayScientificName": "Leonotis nepetifolia",
     "scientificNormalized": "leonotis nepetifolia",
     "id": "leonotis-nepetifolia",
-    "aliases": [
-      "nan"
-    ],
+    "aliases": [],
     "slugAliases": [
-      "klip-dagga",
-      "nan"
+      "klip-dagga"
     ]
   },
   {
@@ -17978,12 +17830,8 @@
     "displayScientificName": "Lactuca virosa",
     "scientificNormalized": "lactuca virosa",
     "id": "lactuca-virosa",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "lagochilus inebrians",
@@ -18296,12 +18144,10 @@
     "scientificNormalized": "leonotis leonurus",
     "id": "leonotis-leonurus",
     "aliases": [
-      "nan",
       "lion’s tail"
     ],
     "slugAliases": [
-      "lion-s-tail",
-      "nan"
+      "lion-s-tail"
     ]
   },
   {
@@ -19964,12 +19810,8 @@
     "displayScientificName": "Mentha piperita",
     "scientificNormalized": "mentha piperita",
     "id": "mentha-piperita",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "menyanthes trifoliata",
@@ -20492,12 +20334,8 @@
     "displayScientificName": "Mitragyna javanica",
     "scientificNormalized": "mitragyna javanica",
     "id": "mitragyna-javanica",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "mitragyna parvifolia",
@@ -21011,7 +20849,7 @@
     "name": "Muira Puama",
     "latin": "Ptychopetalum olacoides Benth.; Ptychopetalum olacoides",
     "class": "Nootropic, Aphrodisiac, Adaptogen",
-    "intensity": "nan",
+    "intensity": null,
     "mechanism": "May enhance dopamine activity and increase blood flow; adaptogenic.",
     "activeCompounds": [
       "Muirapuamine",
@@ -21191,12 +21029,8 @@
     "displayScientificName": "Myristica fragrans",
     "scientificNormalized": "myristica fragrans",
     "id": "myristica-fragrans",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "myroxylon balsamum",
@@ -21244,1172 +21078,6 @@
     "displayName": "myroxylon balsamum",
     "displayScientificName": "Myroxylon balsamum",
     "scientificNormalized": "myroxylon balsamum"
-  },
-  {
-    "name": "nan",
-    "latin": "Acacia confusa Merr.",
-    "class": "Psychoactive, Ethnobotanical",
-    "intensity": "High (especially when used with MAOIs)",
-    "mechanism": "Proposed mechanism: DMT acts as a 5-HT2A agonist; psychoactive effects enhanced by MAOIs",
-    "activeCompounds": [
-      "DMT",
-      "NMT",
-      "tannins",
-      "flavonoids",
-      "alkaloids"
-    ],
-    "effects": [
-      "Intense visual hallucinations",
-      "altered perception",
-      "emotional sensitivity",
-      "introspection"
-    ],
-    "contraindications": [
-      "Avoid in individuals with psychiatric disorders",
-      "may potentiate MAOIs"
-    ],
-    "safetyNotes": "Safety not well characterized in current repository sources; avoid use in pregnancy/lactation and in people with major medical or psychiatric conditions without clinical supervision.",
-    "sources": [
-      {
-        "title": "PubChem"
-      },
-      {
-        "title": "Erowid"
-      },
-      {
-        "title": "Shulgin reports"
-      },
-      {
-        "title": "scientific ethnobotanical reviews"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Acacia confusa is a tree native to Southeast Asia used traditionally for spiritual and healing purposes. It contains psychoactive tryptamines like DMT.",
-    "dosage": "Traditional root bark brew: 5–15g dried bark (not medically recommended)",
-    "duration": "4–8 hours",
-    "interactions": [
-      "Dangerous with MAOIs",
-      "SSRIs",
-      "or other serotonin agents"
-    ],
-    "legalStatus": "DMT is scheduled in most countries; plant legality varies",
-    "preparation": "Brewed as part of analog ayahuasca with MAOI-containing plants",
-    "region": "Southeast Asia, Taiwan, Philippines",
-    "therapeuticUses": [
-      "Traditional shamanic ceremonies",
-      "introspection",
-      "rarely as wood medicine"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Acacia confusa Merr.",
-    "scientificNormalized": "acacia confusa merr",
-    "summary": "Acacia confusa entry normalized to baseline; key clinical and pharmacology fields are unresolved where repository evidence is limited."
-  },
-  {
-    "name": "nan",
-    "latin": "Acacia maidenii F. Muell.",
-    "class": "Psychoactive, Ethnobotanical",
-    "intensity": "High",
-    "mechanism": "DMT is a 5-HT2A receptor agonist; effects depend on MAOI inhibition of monoamine oxidase",
-    "activeCompounds": [
-      "DMT (0.3–0.7%)",
-      "NMT",
-      "tryptamines",
-      "tannins",
-      "flavonoids"
-    ],
-    "effects": [
-      "Psychedelic visions",
-      "auditory changes",
-      "altered time perception",
-      "emotional insight"
-    ],
-    "contraindications": [
-      "Avoid use with MAOIs",
-      "antidepressants",
-      "or in mental health conditions"
-    ],
-    "safetyNotes": "Unknown clinical safety psychological and physiological risks if misused Confusion nausea anxiety dissociation Low direct toxicity high psychological risk Not established in humans DMT oral LD50 ~50 mg/kg in rats",
-    "sources": [
-      {
-        "title": "Erowid Vaults"
-      },
-      {
-        "title": "Acacia compendiums"
-      },
-      {
-        "title": "Australian Botany references"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Acacia maidenii is an Australian native tree traditionally used by Aboriginal peoples. It contains tryptamines like DMT and has been studied for its entheogenic potential.",
-    "dosage": "Not traditionally used in standardized doses; alkaloid extraction for research ranges from 5–15g bark (not recommended for human use)",
-    "duration": "4–6 hours (if orally consumed with MAOI; not recommended)",
-    "interactions": [
-      "Strong interaction with MAOIs and SSRIs",
-      "risk of serotonin syndrome"
-    ],
-    "legalStatus": "DMT is scheduled; plant legal status varies globally",
-    "preparation": "Crushed bark sometimes used for DMT extraction (research purposes only)",
-    "region": "Eastern Australia (NSW, QLD)",
-    "therapeuticUses": [
-      "Traditionally spiritual",
-      "not medically approved"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Acacia maidenii F. Muell.",
-    "scientificNormalized": "acacia maidenii muell"
-  },
-  {
-    "name": "nan",
-    "latin": "Myristica fragrans Houtt.",
-    "class": "Culinary, Psychoactive, Traditional medicine",
-    "intensity": "Mild to moderate (depends heavily on dose)",
-    "mechanism": "Myristicin metabolizes into MMDA-like compounds affecting serotonin and dopamine systems; anticholinergic and hallucinogenic effects",
-    "activeCompounds": [
-      "Myristicin",
-      "elemicin",
-      "safrole",
-      "eugenol",
-      "terpenes"
-    ],
-    "effects": [
-      "Euphoria",
-      "hallucinations",
-      "nausea",
-      "dry mouth",
-      "sedation",
-      "altered perception"
-    ],
-    "contraindications": [
-      "Avoid in pregnancy",
-      "psychiatric conditions",
-      "or with antidepressants",
-      "hepatotoxic in large doses"
-    ],
-    "safetyNotes": "Toxic in large amounts high doses may cause liver damage delirium or seizures Nausea vomiting dry mouth palpitations hallucinations confusion liver toxicity Hepatotoxic at high doses myristicin is neurotoxic in excess Myristicin LD50 in rats: ~400–700 mg/kg oral human toxic dose ~5g+",
-    "sources": [
-      {
-        "title": "PubMed"
-      },
-      {
-        "title": "WHO Monographs"
-      },
-      {
-        "title": "EMCDDA"
-      },
-      {
-        "title": "scientific journals on ethnobotany"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Myristica fragrans is an evergreen tree native to the Moluccas (Indonesia), known for its seeds (nutmeg) and aril (mace). In large amounts, nutmeg acts as a weak hallucinogen due to compounds like myristicin.",
-    "dosage": "Culinary: 0.1–0.5g; psychoactive: 5–15g (not recommended)",
-    "duration": "8–24 hours (psychoactive dose)",
-    "interactions": [
-      "Increases effects of sedatives and antidepressants",
-      "inhibits MAO enzymes",
-      "interacts with liver enzymes"
-    ],
-    "legalStatus": "Legal globally; psychoactive use discouraged or regulated in prisons/schools",
-    "preparation": "Ground seed used in spice, tea, or (rarely) capsules for medicinal/ritual use",
-    "region": "Native to Indonesia; cultivated in India, Sri Lanka, Grenada, Caribbean",
-    "therapeuticUses": [
-      "Digestion",
-      "anti-inflammatory",
-      "analgesic",
-      "used traditionally for anxiety"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Myristica fragrans Houtt.",
-    "scientificNormalized": "myristica fragrans houtt"
-  },
-  {
-    "name": "nan",
-    "latin": "Achillea millefolium L.",
-    "class": "Medicinal, Aromatic, Traditional Herb",
-    "intensity": "Mild to moderate",
-    "mechanism": "Flavonoids and sesquiterpenes modulate inflammatory pathways and smooth muscle activity",
-    "activeCompounds": [
-      "Azulene",
-      "Chamazulene",
-      "Cineole",
-      "Thujone",
-      "Flavonoids",
-      "Tannins",
-      "sesquiterpenes",
-      "alkaloids",
-      "tannins"
-    ],
-    "effects": [
-      "Anti-inflammatory",
-      "astringent",
-      "digestive aid",
-      "hemostatic",
-      "diuretic",
-      "antispasmodic"
-    ],
-    "contraindications": [
-      "Pregnancy",
-      "allergies to Asteraceae",
-      "bleeding disorders",
-      "allergy to Asteraceae",
-      "anticoagulant use"
-    ],
-    "safetyNotes": "Generally safe in moderate amounts; monitor for allergic reactions; Allergic rash; dizziness; photosensitivity; Low; Not established; Generally safe; may cause skin irritation; Headache",
-    "sources": [
-      {
-        "title": "PubMed"
-      },
-      {
-        "title": "WHO monographs"
-      },
-      {
-        "title": "herbal pharmacopoeias"
-      },
-      {
-        "title": "WHO"
-      },
-      {
-        "title": "ESCOP"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "A flowering plant native to temperate regions, used for centuries in traditional medicine for wound healing, digestion, and fever reduction.",
-    "dosage": "Tea: 1–2g dried herb per cup, 1–3 times daily",
-    "duration": "Several hours depending on use",
-    "interactions": [
-      "Anticoagulants",
-      "sedatives",
-      "NSAIDs",
-      "diuretics"
-    ],
-    "legalStatus": "Legal worldwide",
-    "preparation": "Infusion, tincture, poultice",
-    "region": "Europe, North America, Asia",
-    "therapeuticUses": [
-      "Wound care",
-      "digestive disorders",
-      "menstrual cramps",
-      "fever",
-      "Wound healing",
-      "cramps",
-      "digestion"
-    ],
-    "slug": "achillea-millefolium",
-    "displayName": "nan",
-    "displayScientificName": "Achillea millefolium L.",
-    "scientificNormalized": "achillea millefolium",
-    "id": "achillea-millefolium",
-    "aliases": [
-      "Achillea millefolium"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
-  },
-  {
-    "name": "nan",
-    "latin": "Pausinystalia johimbe",
-    "class": "Stimulant, Aphrodisiac",
-    "intensity": "Moderate to strong",
-    "mechanism": "Alpha-2 adrenergic receptor antagonist; increases norepinephrine",
-    "activeCompounds": [
-      "Yohimbine",
-      "indole alkaloids",
-      "corynanthine"
-    ],
-    "effects": [
-      "Stimulation",
-      "increased blood flow",
-      "heightened alertness",
-      "sexual arousal"
-    ],
-    "contraindications": [
-      "Heart disease",
-      "anxiety",
-      "hypertension",
-      "psychiatric conditions"
-    ],
-    "safetyNotes": "Moderate risk side effects common Anxiety hypertension agitation insomnia Moderate ~43 mg/kg (yohimbine oral rat)",
-    "sources": [
-      {
-        "title": "PubMed"
-      },
-      {
-        "title": "NIH Natural Medicines"
-      },
-      {
-        "title": "WHO monographs"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "West African tree bark traditionally used as an aphrodisiac and stimulant, especially for male sexual dysfunction.",
-    "dosage": "5–10 mg yohimbine HCl; bark extract ~250–500 mg",
-    "duration": "2–4 hours",
-    "interactions": [
-      "Antidepressants",
-      "stimulants",
-      "MAOIs"
-    ],
-    "legalStatus": "Controlled in some countries; supplement in others",
-    "preparation": "Bark infusion, extract capsules, tablets",
-    "region": "West and Central Africa",
-    "therapeuticUses": [
-      "Erectile dysfunction",
-      "fatigue"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Pausinystalia johimbe",
-    "scientificNormalized": "pausinystalia johimbe"
-  },
-  {
-    "name": "nan",
-    "latin": "Rhynchosia pyramidalis",
-    "class": "Anti-inflammatory, Antibacterial",
-    "intensity": "Moderate",
-    "mechanism": "Inhibition of pro-inflammatory cytokines via flavonoids",
-    "activeCompounds": [
-      "Prenylated isoflavonoids",
-      "flavonoids",
-      "phenolic acids"
-    ],
-    "effects": [
-      "Pain relief",
-      "immune modulation"
-    ],
-    "contraindications": [
-      "Pregnancy",
-      "hormone-sensitive conditions"
-    ],
-    "safetyNotes": "Generally safe with traditional dosage Mild gastrointestinal discomfort Low toxicity Not determined in humans",
-    "sources": [
-      {
-        "title": "Taylor & Francis ethnobotany publication"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Traditional African medicinal herb with analgesic and anti-inflammatory use",
-    "dosage": "Infusion or decoction, 2–3 cups per day",
-    "duration": "360",
-    "interactions": [
-      "May potentiate NSAIDs and immunosuppressants"
-    ],
-    "legalStatus": "Unregulated",
-    "preparation": "Dried root decoction or tea",
-    "region": "Sub-Saharan Africa",
-    "therapeuticUses": [
-      "Analgesic",
-      "antipyretic",
-      "antibacterial"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Rhynchosia pyramidalis",
-    "scientificNormalized": "rhynchosia pyramidalis"
-  },
-  {
-    "name": "nan",
-    "latin": "Carapa procera",
-    "class": "Antiparasitic, Dermatological",
-    "intensity": "Moderate",
-    "mechanism": "Limonoids disrupt parasite metabolism",
-    "activeCompounds": [
-      "Limonoids",
-      "terpenoids"
-    ],
-    "effects": [
-      "Skin healing",
-      "antiparasitic action"
-    ],
-    "contraindications": [
-      "May cause allergic dermatitis"
-    ],
-    "safetyNotes": "Safe when used topically in diluted form Possible irritation if undiluted Low topical toxicity Unknown orally",
-    "sources": [
-      {
-        "title": "SAGE Ethnobotany"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Used topically to treat skin infections and inflammation",
-    "dosage": "Oil applied topically 1–2 times/day",
-    "duration": "Varies by condition",
-    "interactions": [
-      "None well documented"
-    ],
-    "legalStatus": "Unregulated",
-    "preparation": "Seed oil extraction for topical use",
-    "region": "Tropical Africa",
-    "therapeuticUses": [
-      "Eczema",
-      "ringworm",
-      "inflammation"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Carapa procera",
-    "scientificNormalized": "carapa procera"
-  },
-  {
-    "name": "nan",
-    "latin": "Trichilia monadelpha",
-    "class": "Antimalarial, Antioxidant",
-    "intensity": "Moderate",
-    "mechanism": "Disruption of Plasmodium parasite lifecycle via limonoids",
-    "activeCompounds": [
-      "Limonoids",
-      "saponins"
-    ],
-    "effects": [
-      "Fever reduction",
-      "parasite suppression"
-    ],
-    "contraindications": [
-      "Use in pregnancy not recommended due to limited data"
-    ],
-    "safetyNotes": "Considered safe in traditional doses Mild nausea dizziness Low Not well documented",
-    "sources": [
-      {
-        "title": "SAGE pharmacognosy journal"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "West African medicinal plant used for malaria and inflammation",
-    "dosage": "Decoction of bark or leaves, 1–2x daily",
-    "duration": "480",
-    "interactions": [
-      "May interact with antimalarial pharmaceuticals"
-    ],
-    "legalStatus": "Not regulated",
-    "preparation": "Leaf/bark decoction in water",
-    "region": "West Africa",
-    "therapeuticUses": [
-      "Malaria",
-      "inflammation",
-      "immune support"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Trichilia monadelpha",
-    "scientificNormalized": "trichilia monadelpha"
-  },
-  {
-    "name": "nan",
-    "latin": "Spathodea campanulata",
-    "class": "Antibacterial, Hemostatic",
-    "intensity": "Mild",
-    "mechanism": "Tannin-mediated astringency and antimicrobial activity",
-    "activeCompounds": [
-      "Phenolics",
-      "flavonoids",
-      "tannins"
-    ],
-    "effects": [
-      "Wound healing",
-      "anti-infective effects"
-    ],
-    "contraindications": [
-      "Potential allergenicity with long-term use"
-    ],
-    "safetyNotes": "Topically safe oral use caution advised Skin rash or irritation (rare) Low Unknown in humans",
-    "sources": [
-      {
-        "title": "World Flora Online"
-      },
-      {
-        "title": "ethnomedicinal literature"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Used for wound healing, infections, and inflammation in ethnobotany",
-    "dosage": "Topical application or tea, 2–3x daily",
-    "duration": "300",
-    "interactions": [
-      "May interfere with anticoagulants"
-    ],
-    "legalStatus": "Widely unregulated",
-    "preparation": "Leaf poultice or bark tea",
-    "region": "Tropical Africa, Asia",
-    "therapeuticUses": [
-      "Cuts",
-      "ulcers",
-      "infections"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Spathodea campanulata",
-    "scientificNormalized": "spathodea campanulata"
-  },
-  {
-    "name": "nan",
-    "latin": "Gymnosporia senegalensis",
-    "class": "Analgesic, Anti-inflammatory",
-    "intensity": "Moderate",
-    "mechanism": "Inhibition of COX and inflammatory cytokines",
-    "activeCompounds": [
-      "Triterpenoids",
-      "alkaloids"
-    ],
-    "effects": [
-      "Pain relief",
-      "reduced inflammation"
-    ],
-    "contraindications": [
-      "Avoid in renal disease due to limited safety profile"
-    ],
-    "safetyNotes": "Safe at traditional doses Rare headache or GI upset Low to moderate",
-    "sources": [
-      {
-        "title": "African pharmacological databases"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Shrub used traditionally to treat pain and joint issues",
-    "dosage": "Bark decoction or root infusion",
-    "duration": "360",
-    "interactions": [
-      "Additive effect with NSAIDs"
-    ],
-    "legalStatus": "Not controlled",
-    "preparation": "Boiled bark tea or macerated root",
-    "region": "East and West Africa",
-    "therapeuticUses": [
-      "Arthritis",
-      "rheumatic pain"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Gymnosporia senegalensis",
-    "scientificNormalized": "gymnosporia senegalensis"
-  },
-  {
-    "name": "nan",
-    "latin": "Alchornea cordifolia",
-    "class": "Antibacterial, Anti-inflammatory",
-    "intensity": "Moderate",
-    "mechanism": "Cell wall disruption and inflammation suppression",
-    "activeCompounds": [
-      "Tannins",
-      "saponins",
-      "flavonoids"
-    ],
-    "effects": [
-      "Anti-infective",
-      "wound healing"
-    ],
-    "contraindications": [
-      "Avoid with anticoagulants or bleeding disorders"
-    ],
-    "safetyNotes": "Topically safe monitor systemic use Possible skin irritation Low to moderate depending on form Unknown in clinical models",
-    "sources": [
-      {
-        "title": "African Medicinal Flora"
-      },
-      {
-        "title": "peer-reviewed trials"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Broad-spectrum African medicinal plant used for infections and wounds",
-    "dosage": "Topical paste or internal decoction 2x/day",
-    "duration": "360",
-    "interactions": [
-      "Additive with antibiotics or anti-inflammatories"
-    ],
-    "legalStatus": "Uncontrolled herb",
-    "preparation": "Boiled bark or leaf extract",
-    "region": "Central and West Africa",
-    "therapeuticUses": [
-      "Ulcers",
-      "skin infections",
-      "inflammation"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Alchornea cordifolia",
-    "scientificNormalized": "alchornea cordifolia"
-  },
-  {
-    "name": "nan",
-    "latin": "Zanthoxylum zanthoxyloides",
-    "class": "Anthelmintic, Analgesic",
-    "intensity": "Moderate to strong",
-    "mechanism": "Neural desensitization and antihelminthic disruption",
-    "activeCompounds": [
-      "Alkaloids",
-      "lignans",
-      "xanthones"
-    ],
-    "effects": [
-      "Pain relief",
-      "worm expulsion"
-    ],
-    "contraindications": [
-      "Avoid in pregnancy and lactation"
-    ],
-    "safetyNotes": "Used traditionally avoid overdose Mouth numbness GI irritation Moderate in excess Animal LD50 varies",
-    "sources": [
-      {
-        "title": "Journal of Tropical Medicine"
-      },
-      {
-        "title": "WHO African pharmacopeia"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Traditional remedy for toothache, worms, and infections",
-    "dosage": "Chewed root bark or decoction",
-    "duration": "300",
-    "interactions": [
-      "May potentiate antiparasitic drugs"
-    ],
-    "legalStatus": "Not regulated",
-    "preparation": "Chewed or boiled bark",
-    "region": "West and Central Africa",
-    "therapeuticUses": [
-      "Toothache",
-      "intestinal worms"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Zanthoxylum zanthoxyloides",
-    "scientificNormalized": "zanthoxylum zanthoxyloides"
-  },
-  {
-    "name": "nan",
-    "latin": "Entada africana",
-    "class": "Anti-inflammatory, Antioxidant",
-    "intensity": "Moderate",
-    "mechanism": "Flavonoid-mediated inhibition of pro-inflammatory cytokines",
-    "activeCompounds": [
-      "Flavonoids",
-      "triterpenes",
-      "saponins"
-    ],
-    "effects": [
-      "Anti-inflammatory",
-      "hepatoprotective"
-    ],
-    "contraindications": [
-      "Avoid in patients with liver dysfunction"
-    ],
-    "safetyNotes": "Safe in moderate doses Possible mild GI upset Low Not well established",
-    "sources": [
-      {
-        "title": "Phytomedicine journal"
-      },
-      {
-        "title": "African Traditional Medicine databases"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Used in traditional medicine for inflammation, liver support, and pain",
-    "dosage": "Leaf or bark decoction taken 1–2 times daily",
-    "duration": "360",
-    "interactions": [
-      "May enhance effects of NSAIDs"
-    ],
-    "legalStatus": "Unregulated",
-    "preparation": "Bark or leaf decoction",
-    "region": "West and Central Africa",
-    "therapeuticUses": [
-      "Hepatitis",
-      "inflammation",
-      "rheumatism"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Entada africana",
-    "scientificNormalized": "entada africana"
-  },
-  {
-    "name": "nan",
-    "latin": "Vernonia amygdalina",
-    "class": "Antidiabetic, Anticancer",
-    "intensity": "Moderate to strong",
-    "mechanism": "Insulin-sensitization and inhibition of tumor proliferation",
-    "activeCompounds": [
-      "Sesquiterpene lactones",
-      "flavonoids",
-      "alkaloids"
-    ],
-    "effects": [
-      "Blood sugar regulation",
-      "cytotoxic effects on cancer cells"
-    ],
-    "contraindications": [
-      "Pregnant women should avoid high doses"
-    ],
-    "safetyNotes": "Generally regarded as safe in traditional use Bitterness may cause nausea Low to moderate Approx. 1500 mg/kg in rodents",
-    "sources": [
-      {
-        "title": "PubMed"
-      },
-      {
-        "title": "International Journal of Cancer Research"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Widely used in West Africa for malaria, diabetes, and cancer adjunct therapy",
-    "dosage": "Leaf juice or infusion, 100–200 ml daily",
-    "duration": "420",
-    "interactions": [
-      "Enhances effect of antidiabetic and chemotherapeutic drugs"
-    ],
-    "legalStatus": "Unregulated",
-    "preparation": "Crushed fresh leaves or boiled infusion",
-    "region": "Tropical Africa",
-    "therapeuticUses": [
-      "Type 2 diabetes",
-      "cancer support"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Vernonia amygdalina",
-    "scientificNormalized": "vernonia amygdalina"
-  },
-  {
-    "name": "nan",
-    "latin": "Boswellia dalzielii",
-    "class": "Anti-inflammatory, Antimicrobial",
-    "intensity": "Moderate",
-    "mechanism": "Boswellic acid blocks leukotriene synthesis",
-    "activeCompounds": [
-      "Boswellic acids",
-      "terpenoids"
-    ],
-    "effects": [
-      "Joint pain relief",
-      "antibacterial"
-    ],
-    "contraindications": [
-      "Avoid use in bleeding disorders"
-    ],
-    "safetyNotes": "Safe in small to moderate doses Dry mouth GI discomfort Low High (>2g/kg in mice)",
-    "sources": [
-      {
-        "title": "WHO monographs"
-      },
-      {
-        "title": "Journal of Natural Products"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Gum resin used in ethnomedicine for arthritis, ulcers, and infections",
-    "dosage": "Resin chewed or decocted, 1–2x/day",
-    "duration": "300",
-    "interactions": [
-      "May amplify anti-inflammatory medications"
-    ],
-    "legalStatus": "Partially regulated in some regions",
-    "preparation": "Gum resin chewed or brewed",
-    "region": "West Africa",
-    "therapeuticUses": [
-      "Joint inflammation",
-      "bacterial infections"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Boswellia dalzielii",
-    "scientificNormalized": "boswellia dalzielii"
-  },
-  {
-    "name": "nan",
-    "latin": "Salvia nemorosa",
-    "class": "Aromatic, Nootropic (potential)",
-    "intensity": "Very mild",
-    "mechanism": "Antioxidant and cholinergic modulation",
-    "activeCompounds": [
-      "Rosmarinic acid",
-      "essential oils"
-    ],
-    "effects": [
-      "Subtle clarity",
-      "mild stimulation",
-      "relaxation"
-    ],
-    "contraindications": [
-      "Avoid high doses of essential oil"
-    ],
-    "safetyNotes": "Considered safe in culinary amounts Rare possibly dry mouth or GI upset Low Not established",
-    "sources": [
-      {
-        "title": "Herbals"
-      },
-      {
-        "title": "research papers"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "European sage relative with potential cognitive and calming effects",
-    "dosage": "Infusion: 1–3 g dried leaves",
-    "duration": "180",
-    "interactions": [
-      "None well known"
-    ],
-    "legalStatus": "Legal",
-    "preparation": "Dried leaf tea or tincture",
-    "region": "Europe, West Asia",
-    "therapeuticUses": [
-      "Cognition support",
-      "mild mood lift"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Salvia nemorosa",
-    "scientificNormalized": "salvia nemorosa"
-  },
-  {
-    "name": "nan",
-    "latin": "Cestrum parqui",
-    "class": "Deliriant, Toxic",
-    "intensity": "Strong and toxic",
-    "mechanism": "Likely anticholinergic due to alkaloids",
-    "activeCompounds": [
-      "Solanine",
-      "parquine"
-    ],
-    "effects": [
-      "Delirium",
-      "confusion",
-      "hallucinations (toxic profile)"
-    ],
-    "contraindications": [
-      "Highly toxic",
-      "not for human use"
-    ],
-    "safetyNotes": "Dangerous Vomiting delirium convulsions High ~40 mg/kg (mice)",
-    "sources": [
-      {
-        "title": "Toxicology references"
-      },
-      {
-        "title": "field reports"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Toxic ornamental shrub sometimes misused for psychoactive effects",
-    "dosage": "Not recommended; toxic at low doses",
-    "duration": "Varies (toxic effects last hours)",
-    "interactions": [
-      "likely potentiates CNS effects"
-    ],
-    "legalStatus": "Legal but toxic",
-    "preparation": "None advised; ornamental only",
-    "region": "South America",
-    "therapeuticUses": [
-      "None safe"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Cestrum parqui",
-    "scientificNormalized": "cestrum parqui"
-  },
-  {
-    "name": "nan",
-    "latin": "Solandra grandiflora",
-    "class": "Deliriant, Tropane alkaloid",
-    "intensity": "Very strong",
-    "mechanism": "Anticholinergic; muscarinic receptor antagonism",
-    "activeCompounds": [
-      "Atropine",
-      "scopolamine",
-      "hyoscyamine"
-    ],
-    "effects": [
-      "Visual and auditory hallucinations",
-      "confusion",
-      "amnesia"
-    ],
-    "contraindications": [
-      "Cardiac conditions",
-      "glaucoma",
-      "pregnancy"
-    ],
-    "safetyNotes": "Highly toxic traditional use only Severe delirium tachycardia death (in overdose) High Not well studied in humans",
-    "sources": [
-      {
-        "title": "Huichol ritual use"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Powerful deliriant used in Huichol rituals; causes intense hallucinations and confusion.",
-    "dosage": "Extremely variable and dangerous",
-    "duration": "8–12 hours",
-    "interactions": [
-      "Other deliriants",
-      "MAOIs",
-      "CNS depressants"
-    ],
-    "legalStatus": "Regulated in some regions",
-    "preparation": "Infusion of flowers or roots (extreme caution)",
-    "region": "Mexico, Central America",
-    "therapeuticUses": [
-      "Vision quests (ritual only)"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Solandra grandiflora",
-    "scientificNormalized": "solandra grandiflora"
-  },
-  {
-    "name": "nan",
-    "latin": "Sinicuichi (Heimia myrtifolia)",
-    "class": "Oneirogen, Relaxant",
-    "intensity": "Mild",
-    "mechanism": "GABAergic, unknown alkaloid activity",
-    "activeCompounds": [
-      "Cryogenine",
-      "lyfoline"
-    ],
-    "effects": [
-      "Mild auditory hallucinations",
-      "warmth",
-      "euphoria"
-    ],
-    "contraindications": [
-      "Antidepressants",
-      "liver conditions"
-    ],
-    "safetyNotes": "Safe in small traditional doses Dry mouth lethargy Low Not recorded",
-    "sources": [
-      {
-        "title": "Ethnobotanical reports"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Rare species of Heimia used for auditory enhancement and dream states. Closely related to H. salicifolia.",
-    "dosage": "1–3 g dried leaves (infusion or smoked)",
-    "duration": "2–5 hours",
-    "interactions": [
-      "CNS depressants",
-      "antidepressants"
-    ],
-    "legalStatus": "Legal",
-    "preparation": "Sun-fermented tea or smoke",
-    "region": "Mexico, Central America",
-    "therapeuticUses": [
-      "Mild anxiety relief",
-      "lucid dreaming"
-    ],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Sinicuichi (Heimia myrtifolia)",
-    "scientificNormalized": "sinicuichi heimia myrtifolia"
-  },
-  {
-    "name": "nan",
-    "latin": "Sinicuichi (Heimia salicifolia)",
-    "class": "Psychoactive, auditory hallucinogen",
-    "intensity": "Mild to moderate",
-    "mechanism": "Contains alkaloids that may act on cholinergic pathways and GABA receptors",
-    "activeCompounds": [
-      "Cryogenine (vertine)",
-      "lyfoline",
-      "lythrine"
-    ],
-    "effects": [
-      "Auditory hallucinations",
-      "relaxation",
-      "memory alterations",
-      "vivid dreams"
-    ],
-    "contraindications": [
-      "Pregnancy",
-      "liver conditions",
-      "concurrent CNS depressants"
-    ],
-    "safetyNotes": "Generally considered safe in small doses Dry mouth muscle weakness dizziness Low Not well-established traditional use considered safe in moderate doses",
-    "sources": [
-      {
-        "title": "Ethnobotanical databases"
-      },
-      {
-        "title": "Shulgin writings"
-      },
-      {
-        "title": "peer-reviewed reviews"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Sinicuichi is a traditional Mexican herb used for inducing auditory distortions, mild sedation, and dream enhancement. It has historical use in spiritual and shamanic practices.",
-    "dosage": "20–50g dried leaves brewed into tea",
-    "duration": "4–6 hours",
-    "interactions": [],
-    "legalStatus": "Legal",
-    "preparation": "Leaves sun-fermented in water or brewed fresh as tea",
-    "region": "Mexico, Central America",
-    "therapeuticUses": [
-      "Used traditionally for memory enhancement and relaxation"
-    ],
-    "traditionalUse": "Used by Aztecs and rural Mexican shamans for auditory vision quests",
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Sinicuichi (Heimia salicifolia)",
-    "scientificNormalized": "sinicuichi heimia salicifolia"
-  },
-  {
-    "name": "nan",
-    "latin": "Herba lucidum fictus",
-    "class": "Oneirogenic",
-    "intensity": "Moderate",
-    "mechanism": "Likely acts on acetylcholine receptors",
-    "activeCompounds": [
-      "Lucidine",
-      "alkaloids"
-    ],
-    "effects": [
-      "Lucid dreaming",
-      "relaxation",
-      "altered states of consciousness"
-    ],
-    "contraindications": [
-      "Pregnancy",
-      "epilepsy"
-    ],
-    "safetyNotes": "Generally regarded as safe in moderate doses Mild drowsiness vivid dreams Low >2000 mg/kg (estimated)",
-    "sources": [
-      {
-        "title": "Ethnobotanical texts"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Used to promote vivid and lucid dreams in traditional cultures.",
-    "dosage": "1–2 grams dried leaves",
-    "duration": "4-6 hours",
-    "interactions": [
-      "None confirmed"
-    ],
-    "legalStatus": "Unregulated",
-    "preparation": "Consumed as a tea or smoked",
-    "region": "Central Africa",
-    "therapeuticUses": [
-      "Dream enhancement",
-      "relaxation"
-    ],
-    "traditionalUse": "Shamanic dream practices",
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Herba lucidum fictus",
-    "scientificNormalized": "herba lucidum fictus"
-  },
-  {
-    "name": "nan",
-    "latin": "Calliandra lucidum",
-    "class": "Entheogen",
-    "intensity": "Strong",
-    "mechanism": "Serotonin receptor agonism (5-HT2A)",
-    "activeCompounds": [
-      "DMT",
-      "tannins"
-    ],
-    "effects": [
-      "Visual hallucinations",
-      "euphoria",
-      "introspection"
-    ],
-    "contraindications": [
-      "MAOI use",
-      "hypertension"
-    ],
-    "safetyNotes": "Moderate caution advised with MAOIs Nausea disorientation Low",
-    "sources": [
-      {
-        "title": "Ethnobotanical archives"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Traditional plant believed to induce visionary states.",
-    "dosage": "1–2 grams bark extract",
-    "duration": "6–8 hours",
-    "interactions": [
-      "MAOIs",
-      "SSRIs"
-    ],
-    "legalStatus": "Restricted in some countries",
-    "preparation": "Boiled as part of traditional brew",
-    "region": "Amazon Basin",
-    "therapeuticUses": [
-      "Spiritual healing",
-      "insight"
-    ],
-    "traditionalUse": "Shamanic vision quests",
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "Calliandra lucidum",
-    "scientificNormalized": "calliandra lucidum"
-  },
-  {
-    "name": "nan",
-    "latin": "nan",
-    "class": "Psychoactive",
-    "intensity": "Moderate",
-    "activeCompounds": [
-      "Asarone",
-      "Eugenol",
-      "Farnesol",
-      "Linalool"
-    ],
-    "effects": [
-      "Mild sedative",
-      "hallucinogenic in high doses",
-      "Anxiolytic",
-      "relaxing"
-    ],
-    "contraindications": [
-      "Pregnancy",
-      "high doses",
-      "None known"
-    ],
-    "safetyNotes": "Toxic in large amounts Not well documented Low toxicity Not established",
-    "sources": [
-      {
-        "title": "https://pubmed.ncbi.nlm.nih.gov/12345678"
-      },
-      {
-        "title": "https://pubmed.ncbi.nlm.nih.gov/23456789"
-      }
-    ],
-    "lastUpdated": "2026-03-21",
-    "description": "Description not available.",
-    "dosage": "1-3g dried root",
-    "duration": "4-8 hours",
-    "interactions": [],
-    "legalStatus": "Restricted in some countries",
-    "preparation": "Root chewed, boiled as tea",
-    "region": "Asia, Europe",
-    "therapeuticUses": [],
-    "slug": "nan",
-    "id": "nan",
-    "displayName": "nan",
-    "displayScientificName": "nan",
-    "scientificNormalized": "nan"
   },
   {
     "name": "nardostachys jatamansi",
@@ -22523,12 +21191,8 @@
     "displayScientificName": "Nelumbo nucifera",
     "scientificNormalized": "nelumbo nucifera",
     "id": "nelumbo-nucifera",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "nepeta cataria",
@@ -22599,12 +21263,8 @@
     "displayScientificName": "Nepeta cataria",
     "scientificNormalized": "nepeta cataria",
     "id": "nepeta-cataria",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "nerium oleander",
@@ -22774,12 +21434,10 @@
     ],
     "id": "nicotiana-rustica",
     "aliases": [
-      "nan",
       "mapacho",
       "Nicotiana rustica"
     ],
     "slugAliases": [
-      "nan",
       "mapacho"
     ]
   },
@@ -22843,12 +21501,8 @@
     "displayScientificName": "Nicotiana tabacum L.",
     "scientificNormalized": "nicotiana tabacum",
     "id": "nicotiana-tabacum",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "nigella sativa",
@@ -23030,12 +21684,8 @@
     "displayScientificName": "Nymphaea caerulea",
     "scientificNormalized": "nymphaea caerulea",
     "id": "nymphaea-caerulea",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "nymphaea lotus",
@@ -23107,12 +21757,8 @@
     "displayScientificName": "Nymphaea lotus L.",
     "scientificNormalized": "nymphaea lotus",
     "id": "nymphaea-lotus",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "nymphaea nouchali",
@@ -23230,12 +21876,8 @@
     "displayScientificName": "Nymphaea rubra",
     "scientificNormalized": "nymphaea rubra",
     "id": "nymphaea-rubra",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "ocimum sanctum",
@@ -23313,12 +21955,8 @@
     "displayScientificName": "Ocimum sanctum",
     "scientificNormalized": "ocimum sanctum",
     "id": "ocimum-sanctum",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "ocimum sanctum (holy basil / tulsi)",
@@ -23760,12 +22398,9 @@
     ],
     "id": "papaver-somniferum",
     "aliases": [
-      "nan",
       "Papaver somniferum"
     ],
-    "slugAliases": [
-      "nan"
-    ]
+    "slugAliases": []
   },
   {
     "name": "passiflora incarnata",
@@ -23839,12 +22474,8 @@
     "displayScientificName": "Passiflora incarnata",
     "scientificNormalized": "passiflora incarnata",
     "id": "passiflora-incarnata",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "passionflower",
@@ -23964,12 +22595,8 @@
     "displayScientificName": "Paullinia cupana",
     "scientificNormalized": "paullinia cupana",
     "id": "paullinia-cupana",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "paullinia pinnata",
@@ -24083,12 +22710,8 @@
     "displayScientificName": "Paullinia yoco",
     "scientificNormalized": "paullinia yoco",
     "id": "paullinia-yoco",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "pausinystalia yohimbe",
@@ -24343,12 +22966,8 @@
     "displayScientificName": "Peganum harmala",
     "scientificNormalized": "peganum harmala",
     "id": "peganum-harmala",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "pelargonium sidoides",
@@ -24642,12 +23261,8 @@
     "displayScientificName": "Petasites hybridus",
     "scientificNormalized": "petasites hybridus",
     "id": "petasites-hybridus",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "petiveria alliacea",
@@ -24711,12 +23326,8 @@
     "displayScientificName": "Petiveria alliacea",
     "scientificNormalized": "petiveria alliacea",
     "id": "petiveria-alliacea",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "peumus boldus",
@@ -25216,12 +23827,8 @@
     "displayScientificName": "Piper methysticum",
     "scientificNormalized": "piper methysticum",
     "id": "piper-methysticum",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "piptadenia peregrina",
@@ -25958,12 +24565,8 @@
     "displayScientificName": "Psychotria carthagenensis",
     "scientificNormalized": "psychotria carthagenensis",
     "id": "psychotria-carthagenensis",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "psychotria carthaginensis",
@@ -26196,12 +24799,9 @@
     ],
     "id": "ptychopetalum-olacoides",
     "aliases": [
-      "nan",
       "Ptychopetalum olacoides"
     ],
-    "slugAliases": [
-      "nan"
-    ]
+    "slugAliases": []
   },
   {
     "name": "pueraria mirifica",
@@ -26983,12 +25583,8 @@
     "displayScientificName": "Rivea corymbosa",
     "scientificNormalized": "rivea corymbosa",
     "id": "rivea-corymbosa",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "rosa canina",
@@ -27467,12 +26063,8 @@
     "displayScientificName": "Salvia apiana",
     "scientificNormalized": "salvia apiana",
     "id": "salvia-apiana",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "salvia divinorum",
@@ -27717,12 +26309,8 @@
     "displayScientificName": "Salvia officinalis",
     "scientificNormalized": "salvia officinalis",
     "id": "salvia-officinalis",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "salvia sclarea",
@@ -28111,12 +26699,10 @@
     "scientificNormalized": "sceletium tortuosum",
     "id": "sceletium-tortuosum",
     "aliases": [
-      "nan",
       "kana"
     ],
     "slugAliases": [
-      "kana",
-      "nan"
+      "kana"
     ]
   },
   {
@@ -28476,12 +27062,10 @@
     "scientificNormalized": "scutellaria lateriflora",
     "id": "scutellaria-lateriflora",
     "aliases": [
-      "nan",
       "skullcap"
     ],
     "slugAliases": [
-      "skullcap",
-      "nan"
+      "skullcap"
     ]
   },
   {
@@ -28957,12 +27541,8 @@
     "displayScientificName": "Sida cordifolia",
     "scientificNormalized": "sida cordifolia",
     "id": "sida-cordifolia",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "silene capensis",
@@ -29027,12 +27607,8 @@
     "displayScientificName": "Silene capensis",
     "scientificNormalized": "silene capensis",
     "id": "silene-capensis",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "silene undulata",
@@ -29479,12 +28055,8 @@
     "displayScientificName": "Sophora secundiflora",
     "scientificNormalized": "sophora secundiflora",
     "id": "sophora-secundiflora",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "stachytarpheta cayennensis",
@@ -30215,12 +28787,8 @@
     "displayScientificName": "Tabernaemontana undulata",
     "scientificNormalized": "tabernaemontana undulata",
     "id": "tabernaemontana-undulata",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "tabernanthe iboga",
@@ -30310,12 +28878,10 @@
     "scientificNormalized": "tabernanthe iboga",
     "id": "tabernanthe-iboga",
     "aliases": [
-      "nan",
       "iboga"
     ],
     "slugAliases": [
-      "iboga",
-      "nan"
+      "iboga"
     ]
   },
   {
@@ -30966,12 +29532,8 @@
     "displayScientificName": "Theobroma cacao",
     "scientificNormalized": "theobroma cacao",
     "id": "theobroma-cacao",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "thevetia peruviana",
@@ -31680,12 +30242,8 @@
     "displayScientificName": "Turbina corymbosa",
     "scientificNormalized": "turbina corymbosa",
     "id": "turbina-corymbosa",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "turmeric",
@@ -31823,12 +30381,8 @@
     "displayScientificName": "Turnera diffusa",
     "scientificNormalized": "turnera diffusa",
     "id": "turnera-diffusa",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "turnera diffusa var. aphrodisiaca",
@@ -32268,12 +30822,8 @@
     "displayScientificName": "Urtica dioica",
     "scientificNormalized": "urtica dioica",
     "id": "urtica-dioica",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "usnea barbata",
@@ -32568,12 +31118,8 @@
     "displayScientificName": "Valeriana officinalis",
     "scientificNormalized": "valeriana officinalis",
     "id": "valeriana-officinalis",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "verbascum thapsus",
@@ -32939,12 +31485,8 @@
     "displayScientificName": "Virola calophylla",
     "scientificNormalized": "virola calophylla",
     "id": "virola-calophylla",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "virola elongata",
@@ -33161,12 +31703,8 @@
     "displayScientificName": "Virola theiodora",
     "scientificNormalized": "virola theiodora",
     "id": "virola-theiodora",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "vitex agnus-castus",
@@ -33336,12 +31874,8 @@
     "displayScientificName": "Voacanga africana",
     "scientificNormalized": "voacanga africana",
     "id": "voacanga-africana",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   },
   {
     "name": "white lily",
@@ -34247,11 +32781,7 @@
     "displayScientificName": "Zornia latifolia",
     "scientificNormalized": "zornia latifolia",
     "id": "zornia-latifolia",
-    "aliases": [
-      "nan"
-    ],
-    "slugAliases": [
-      "nan"
-    ]
+    "aliases": [],
+    "slugAliases": []
   }
 ]
