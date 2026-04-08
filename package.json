@@ -175,7 +175,8 @@
     "verify:herb-affiliate-links": "tsx scripts/verify-herb-affiliate-links.ts",
     "verify:herb-card-canonical": "node scripts/verify-herb-card-canonical.mjs",
     "data:strip-nan": "node scripts/strip-nan-rebuild-herbs.mjs",
-    "import:xlsx:monographs": "node scripts/import-xlsx-monographs.mjs"
+    "import:xlsx:monographs": "node scripts/import-xlsx-monographs.mjs",
+    "verify:deploy-readiness": "node scripts/ci/validate-deploy-readiness.mjs"
   },
   "engines": {
     "node": ">=20 <21"
