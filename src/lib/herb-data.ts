@@ -28,11 +28,25 @@ export type HerbSummary = {
   activeCompounds: string[]
   compounds: string[]
   interactionTags: string[]
+  interactionNotes?: string[]
+  interactions?: string[] | string
+  contraindications?: string[] | string
+  mechanismOfAction?: string
+  safety?: string
+  sideEffects?: string
+  toxicity?: string
+  tags?: string[]
+  region?: string
+  legalstatus?: string
+  commonName?: string
+  activeConstituents?: { name: string }[]
+  sourceCount?: number
   hasInteractionData: boolean
   hasEvidenceNotes: boolean
   image: string
   aliases: string[]
   researchEnrichmentSummary?: PublishSafeEnrichmentSummary
+  [key: string]: unknown
 }
 
 function normalizeEnrichmentSummary(value: unknown): PublishSafeEnrichmentSummary | undefined {
@@ -243,6 +257,27 @@ function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
     activeCompounds,
     compounds: activeCompounds,
     interactionTags: splitClean(raw.interactionTags),
+    interactionNotes: splitClean(raw.interactionNotes),
+    interactions: splitClean(raw.interactions),
+    contraindications: splitClean(raw.contraindications),
+    mechanismOfAction: cleanText(raw.mechanismOfAction) || '',
+    safety: cleanText(raw.safety) || '',
+    sideEffects: cleanText(raw.sideEffects) || '',
+    toxicity: cleanText(raw.toxicity) || '',
+    tags: splitClean(raw.tags),
+    region: cleanText(raw.region) || '',
+    legalstatus: cleanText(raw.legalstatus) || '',
+    commonName: cleanText(raw.commonName) || '',
+    activeConstituents: Array.isArray(raw.activeConstituents)
+      ? raw.activeConstituents
+          .map(entry =>
+            entry && typeof entry === 'object' && 'name' in entry
+              ? { name: cleanText((entry as { name?: unknown }).name) }
+              : null,
+          )
+          .filter((entry): entry is { name: string } => Boolean(entry?.name))
+      : undefined,
+    sourceCount: Number.isFinite(Number(raw.sourceCount)) ? Number(raw.sourceCount) : undefined,
     hasInteractionData: Boolean(raw.hasInteractionData),
     hasEvidenceNotes: Boolean(raw.hasEvidenceNotes),
     image: cleanText(raw.image) || '',

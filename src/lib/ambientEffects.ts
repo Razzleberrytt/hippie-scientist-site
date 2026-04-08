@@ -25,16 +25,25 @@ export function getAmbientRoutePolicy(pathname: string): AmbientRoutePolicy {
   return { background: true, cursor: true }
 }
 
+type AmbientConnectionInfo = {
+  saveData?: boolean
+  addEventListener?: (type: 'change', listener: () => void) => void
+  removeEventListener?: (type: 'change', listener: () => void) => void
+}
+
+type NavigatorWithAmbientHints = Navigator & {
+  connection?: AmbientConnectionInfo
+  deviceMemory?: number
+}
+
 function readPowerState() {
   if (typeof navigator === 'undefined') return false
-
-  const connection = navigator.connection as
-    | (NetworkInformation & { saveData?: boolean })
-    | undefined
+  const runtimeNavigator = navigator as NavigatorWithAmbientHints
+  const connection = runtimeNavigator.connection
 
   if (connection?.saveData) return true
 
-  const deviceMemory = 'deviceMemory' in navigator ? (navigator.deviceMemory ?? 8) : 8
+  const deviceMemory = runtimeNavigator.deviceMemory ?? 8
   const cores = navigator.hardwareConcurrency ?? 8
 
   return deviceMemory <= 4 || cores <= 4
@@ -68,13 +77,18 @@ export function useAmbientEnvironmentGate() {
   useEffect(() => {
     setLowPowerDevice(readPowerState())
 
-    const connection = navigator.connection
+    const runtimeNavigator = navigator as NavigatorWithAmbientHints
+    const connection = runtimeNavigator.connection
     if (!connection || typeof connection.addEventListener !== 'function') return
 
     const syncPower = () => setLowPowerDevice(readPowerState())
     connection.addEventListener('change', syncPower)
 
-    return () => connection.removeEventListener('change', syncPower)
+    return () => {
+      if (typeof connection.removeEventListener === 'function') {
+        connection.removeEventListener('change', syncPower)
+      }
+    }
   }, [])
 
   return useMemo(

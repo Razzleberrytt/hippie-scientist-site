@@ -6,6 +6,7 @@ export type RelatedHerb = {
   name: string
   descriptor: string
   confidence?: Herb['confidence']
+  effects?: string[]
 }
 
 function normalizeKey(value: unknown) {
@@ -37,7 +38,7 @@ export function mapRelatedHerbsForCompound(compound: CompoundRecord, herbs: Herb
   const compoundNameKey = normalizeKey(compound.name)
 
   const fromCompoundDataset = compound.herbs
-    .map(name => {
+    .map<RelatedHerb | null>(name => {
       const key = normalizeKey(name)
       if (!key) return null
 
@@ -53,12 +54,13 @@ export function mapRelatedHerbsForCompound(compound: CompoundRecord, herbs: Herb
           name: pickHerbName(existing),
           descriptor: pickDescriptor(existing),
           confidence: existing.confidence,
+          effects: Array.isArray(existing.effects) ? existing.effects : [],
         } satisfies RelatedHerb
       }
       
       return null
     })
-    .filter((item): item is RelatedHerb => Boolean(item))
+      .filter((item): item is RelatedHerb => item !== null)
 
   const fromHerbCompounds = herbs
     .filter(herb => {
@@ -76,10 +78,14 @@ export function mapRelatedHerbsForCompound(compound: CompoundRecord, herbs: Herb
       name: pickHerbName(herb),
       descriptor: pickDescriptor(herb),
       confidence: herb.confidence,
+      effects: Array.isArray(herb.effects) ? herb.effects : [],
     }))
 
   const merged = new Map<string, RelatedHerb>()
-  for (const herb of [...fromCompoundDataset, ...fromHerbCompounds]) {
+  const relatedHerbs = [...fromCompoundDataset, ...fromHerbCompounds].filter(
+    (item): item is RelatedHerb => item !== null,
+  )
+  for (const herb of relatedHerbs) {
     const key = normalizeKey(herb.slug || herb.name)
     if (!key) continue
     if (!merged.has(key)) merged.set(key, herb)

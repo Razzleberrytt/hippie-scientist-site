@@ -1,4 +1,5 @@
 import type { ResearchEnrichment } from '@/types/researchEnrichment'
+import type { PublishSafeEnrichmentSummary } from '@/types/enrichmentDiscovery'
 
 export type Herb = {
   slug: string
@@ -51,7 +52,7 @@ export type Herb = {
   therapeutic?: string
   therapeuticUses?: string | string[]
   sideeffects?: string[] | string
-  sideEffects?: string
+  sideEffects?: string | string[]
   safety?: string
   safetyrating?: string | null
   toxicity?: string
@@ -72,7 +73,10 @@ export type Herb = {
   name?: string
   nameNorm?: string
   commonnames?: string
+  commonName?: string
   scientificname?: string
+  latinName?: string
+  summary?: string
   affiliatelink?: string | null
   productRecommendations?: Array<{
     label: string
@@ -81,6 +85,12 @@ export type Herb = {
   }>
   compoundClasses?: string[]
   pharmCategories?: string[]
+  identity?: string
+  categoryUseContext?: string
+  evidenceLevel?: string
+  relatedEntities?: string[]
+  relatedCompounds?: string[]
+  researchEnrichmentSummary?: PublishSafeEnrichmentSummary
   researchEnrichment?: ResearchEnrichment
   [key: string]: unknown
 }

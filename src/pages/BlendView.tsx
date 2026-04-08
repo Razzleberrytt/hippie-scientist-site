@@ -4,8 +4,7 @@ import Card from '@/components/ui/Card'
 import Badge from '@/components/ui/Badge'
 import Meta from '@/components/Meta'
 import { GOALS } from '@/data/goals'
-import { useHerbData } from '@/lib/herb-data'
-import type { Herb } from '@/types'
+import { useHerbData, type HerbSummary } from '@/lib/herb-data'
 import { deserializeBlend } from '@/utils/deserializeBlend'
 import { getHerbEffects, herbDisplayName } from '@/utils/herbSignals'
 
@@ -18,10 +17,10 @@ export default function BlendView() {
   const hydratedBlend = useMemo(() => {
     if (!blendState || !herbs.length) return null
     const herbMap = new Map(herbs.map(herb => [herb.slug.toLowerCase(), herb]))
-    const primary = herbMap.get(blendState.primary.toLowerCase())
-    const supporting = blendState.supporting
-      .map(item => herbMap.get(item.toLowerCase()))
-      .filter((herb): herb is Herb => Boolean(herb))
+      const primary = herbMap.get(blendState.primary.toLowerCase())
+      const supporting = blendState.supporting
+        .map(item => herbMap.get(item.toLowerCase()))
+        .filter((herb): herb is HerbSummary => Boolean(herb))
 
     if (!primary || supporting.length === 0) return null
 

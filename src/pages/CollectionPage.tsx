@@ -142,6 +142,28 @@ const COLLECTION_REASON_LABELS: Record<string, string> = {
     'no governed herb↔compound propagation signals met publication thresholds',
 }
 
+function confidenceTone(level: string | null | undefined) {
+  if (level === 'high') {
+    return {
+      label: 'High confidence',
+      className: 'border-emerald-300/45 bg-emerald-400/10 text-emerald-100',
+      note: 'Richer mechanism/effects and stronger source coverage.',
+    }
+  }
+  if (level === 'medium') {
+    return {
+      label: 'Medium confidence',
+      className: 'border-sky-300/45 bg-sky-400/10 text-sky-100',
+      note: 'Useful directional profile with some missing depth.',
+    }
+  }
+  return {
+    label: 'Low confidence',
+    className: 'border-white/20 bg-white/5 text-white/75',
+    note: 'Sparse profile; verify specifics before acting.',
+  }
+}
+
 export default function CollectionPage() {
   const { slug = '' } = useParams<{ slug: string }>()
   const location = useLocation()

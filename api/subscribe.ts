@@ -1,6 +1,13 @@
+import type { IncomingHttpHeaders, IncomingMessage, ServerResponse } from 'http'
+
+type LegacyApiResponse = ServerResponse & {
+  status: (code: number) => LegacyApiResponse
+  json: (body: unknown) => LegacyApiResponse
+}
+
 // Legacy/non-canonical endpoint.
 // Canonical production form flow is client-side POST to VITE_FORM_ENDPOINT on Netlify static hosting.
-function getHeader(headers, name) {
+function getHeader(headers: IncomingHttpHeaders | undefined, name: string): string {
   if (!headers) return ''
   const key = Object.keys(headers).find(k => k.toLowerCase() === name.toLowerCase())
   if (!key) return ''
@@ -16,7 +23,7 @@ function parseAllowedOrigins() {
     .filter(Boolean)
 }
 
-function applyCors(req, res) {
+function applyCors(req: IncomingMessage, res: LegacyApiResponse) {
   const origin = getHeader(req.headers, 'origin')
   const allowedOrigins = parseAllowedOrigins()
 
@@ -31,7 +38,10 @@ function applyCors(req, res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
 }
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: IncomingMessage & { body?: unknown },
+  res: LegacyApiResponse,
+) {
   applyCors(req, res)
 
   const hasApiKey = Boolean(process.env.RESEND_API_KEY)

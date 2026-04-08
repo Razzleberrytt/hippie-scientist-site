@@ -54,7 +54,6 @@ async function loadHerbCandidates(): Promise<AnyEntity[]> {
   if (idx?.length) return idx
 
   try {
-    // @ts-expect-error -- Vite glob is provided at build time
     const files = import.meta.glob('/src/content/herbs/*.mdx', { eager: true }) as Record<
       string,
       FrontmatterModule
@@ -81,7 +80,6 @@ async function loadCompoundCandidates(): Promise<AnyEntity[]> {
   if (idx?.length) return idx
 
   try {
-    // @ts-expect-error -- Vite glob is provided at build time
     const files = import.meta.glob('/src/content/compounds/*.mdx', { eager: true }) as Record<
       string,
       FrontmatterModule

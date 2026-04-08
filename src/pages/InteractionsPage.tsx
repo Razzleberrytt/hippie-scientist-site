@@ -140,7 +140,7 @@ function trackInteractionCheck(items: InteractionCatalogItem[], report: Interact
     id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     checkedAt: new Date().toISOString(),
     herbSlugs,
-    warningCount: report.warnings.length,
+    warningCount: report.findings.length,
   }
   pushRecentUnique(INTERACTION_HISTORY_KEY, entry, MAX_INTERACTION_HISTORY)
 }

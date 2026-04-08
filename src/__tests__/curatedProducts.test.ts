@@ -18,10 +18,23 @@ function installAnalyticsWindow(events: unknown[]) {
   const storage = new Map<string, string>()
   storage.set(ANALYTICS_STORAGE_KEY, JSON.stringify(events))
 
-  ;(globalThis as typeof globalThis & { window?: unknown }).window = {
+  Object.defineProperty(globalThis, 'window', {
+    configurable: true,
+    writable: true,
+    value: {
     localStorage: {
+      get length() {
+        return storage.size
+      },
+      clear() {
+        storage.clear()
+      },
       getItem(key: string) {
         return storage.get(key) ?? null
+      },
+      key(index: number) {
+        const keys = Array.from(storage.keys())
+        return keys[index] ?? null
       },
       setItem(key: string, value: string) {
         storage.set(key, value)
@@ -33,7 +46,7 @@ function installAnalyticsWindow(events: unknown[]) {
     dispatchEvent() {
       return true
     },
-  }
+  }})
 }
 
 async function run() {
@@ -759,7 +772,11 @@ async function run() {
   assert.equal(readiness.failureReasons.includes('missing_reviewed_at'), true)
   assert.equal(readiness.reviewRecencyState, 'missing_reviewed_at')
 
-  delete (globalThis as typeof globalThis & { window?: unknown }).window
+  Object.defineProperty(globalThis, 'window', {
+    configurable: true,
+    writable: true,
+    value: undefined,
+  })
 }
 
 run()

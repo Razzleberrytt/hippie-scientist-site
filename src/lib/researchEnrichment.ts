@@ -63,6 +63,7 @@ const EVIDENCE_LABELS = new Set<EvidenceLabel>([
   'insufficient_evidence',
 ])
 const CONFLICT_STATES = new Set<ConflictState>(['none', 'mixed_or_uncertain', 'conflicting_evidence'])
+const isNonNullable = <T>(value: T | null | undefined): value is T => value != null
 
 function asEvidenceJudgment(value: unknown): EvidenceJudgment | null {
   if (!value || typeof value !== 'object') return null
@@ -72,7 +73,7 @@ function asEvidenceJudgment(value: unknown): EvidenceJudgment | null {
   const grading = row.grading && typeof row.grading === 'object' ? (row.grading as Record<string, unknown>) : null
   if (!grading) return null
   const evidenceClass = Array.isArray(grading.evidenceClass)
-    ? Array.from(new Set(grading.evidenceClass.map(item => asEvidenceClass(item)).filter(Boolean)))
+    ? Array.from(new Set(grading.evidenceClass.map(item => asEvidenceClass(item)).filter(isNonNullable)))
     : []
   const studyDesignWeight = Number(grading.studyDesignWeight)
   const humanRelevance = cleanText(grading.humanRelevance)
@@ -221,7 +222,7 @@ export function normalizeResearchEnrichment(value: unknown): ResearchEnrichment 
     : null
   const evidenceClassesPresent = Array.isArray(raw.evidenceClassesPresent)
     ? Array.from(
-        new Set(raw.evidenceClassesPresent.map(item => asEvidenceClass(item)).filter(Boolean)),
+        new Set(raw.evidenceClassesPresent.map(item => asEvidenceClass(item)).filter(isNonNullable)),
       )
     : []
 
@@ -264,13 +265,13 @@ export function normalizeResearchEnrichment(value: unknown): ResearchEnrichment 
             return null
           }
           return {
-            entityType,
+            entityType: entityType as 'herb' | 'compound',
             slug,
             relationshipType,
             ...(notes ? { notes } : {}),
           }
         })
-        .filter(Boolean)
+        .filter(isNonNullable)
     : []
 
   return {
