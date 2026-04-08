@@ -3878,7 +3878,18 @@
       "Use caution with prescription medications and chronic conditions; monitor for intolerance."
     ],
     "safetyNotes": "Short-term use (up to about 3 months) is often tolerated, but drowsiness and GI effects occur. Rare clinically apparent liver injury has been reported with commercial ashwagandha products. Avoid in pregnancy and breastfeeding; use caution with thyroid, autoimmune, or planned surgery contexts.",
-    "sources": [],
+    "sources": [
+      {
+        "title": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "conversation-recovered"
+      }
+    ],
     "lastUpdated": "2026-03-21",
     "description": "Ashwagandha (Withania somnifera) is an Ayurvedic shrub used mainly for stress/sleep-related goals. Human trials suggest some preparations may help stress and insomnia symptoms, but findings vary by extract and study quality.",
     "dosage": "Clinical studies often use standardized extracts for roughly 2–4 months, but dosing is product-specific and not interchangeable across preparations.",
@@ -3902,7 +3913,12 @@
     "displayName": "ashwagandha",
     "displayScientificName": "ashwagandha",
     "scientificNormalized": "ashwagandha",
-    "summary": "ashwagandha entry normalized to baseline; key clinical and pharmacology fields are unresolved where repository evidence is limited."
+    "summary": "ashwagandha entry normalized to baseline; key clinical and pharmacology fields are unresolved where repository evidence is limited.",
+    "aliases": [
+      "ashwagandha",
+      "Indian ginseng",
+      "winter cherry"
+    ]
   },
   {
     "name": "asian ginseng",
@@ -11053,7 +11069,13 @@
     "latin": "echinacea purpurea",
     "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "alkamides",
+      "chicoric acid",
+      "echinacoside",
+      "caffeic acid",
+      "cynarin"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -11065,12 +11087,19 @@
       "Use caution with prescription medications and chronic conditions; monitor for intolerance."
     ],
     "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-    "sources": [],
+    "sources": [
+      {
+        "title": "PubMed/PMC"
+      }
+    ],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Echinacea Purpurea is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include alkamides; chicoric acid; echinacoside; caffeic acid; cynarin. Typical preparation forms: Medicinal products use the roots and aerial parts in teas, juices, tinctures and standardized extracts. Roots, leaves and flowers of Echinacea purpurea contain mixtures of lipophilic alkamides and hydrophilic caffeic acid derivatives such as chicoric acid and echinacoside, along with polysaccharides and glycoproteins. These constituents stimulate immune function by enhancing phagocytosis, activating fibroblasts and respiratory burst activity, and modulating nitric‑oxide and cytokine production via cannabinoid type‑2 receptors. They also inhibit cyclo‑oxygenase and lipoxygenase enzymes. Most mechanistic data are from cell and animal studies; human evidence is limited. Interaction profile: Echinacea may interact with immunosuppressant drugs by stimulating immune activity and could affect the pharmacokinetics of drugs metabolised by cytochrome P450 enzymes; caution is advised when taken with hepatic substrates or caffeine. Use caution or avoid in: Individuals with autoimmune disorders or allergies to ragweed and other Asteraceae plants should avoid echinacea. Use during pregnancy or breastfeeding is not recommended. People taking immunosuppressant drugs should avoid echinacea due to potential antagonism.",
     "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Echinacea may interact with immunosuppressant drugs by stimulating immune activity and could affect the pharmacokinetics of drugs metabolised by cytochrome P450 enzymes",
+      "caution is advised when taken with hepatic substrates or caffeine."
+    ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -11086,7 +11115,11 @@
     "id": "echinacea-purpurea",
     "displayName": "echinacea purpurea",
     "displayScientificName": "echinacea purpurea",
-    "scientificNormalized": "echinacea purpurea"
+    "scientificNormalized": "echinacea purpurea",
+    "aliases": [
+      "echinacea",
+      "purple coneflower"
+    ]
   },
   {
     "name": "echinopsis pachanoi",
@@ -13324,7 +13357,12 @@
     "latin": "ginger",
     "intensity": "No direct intensity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "mechanism": "No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "-gingerol",
+      "shogaols",
+      "zingerone",
+      "paradols"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
@@ -13333,12 +13371,18 @@
       "Do not use with known allergy to this plant or related species."
     ],
     "safetyNotes": "safe; No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "sources": [],
+    "sources": [
+      {
+        "title": "PubMed/PMC"
+      }
+    ],
     "lastUpdated": "2026-03-21",
-    "description": "Folk medicine.",
+    "description": "Ginger is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include -gingerol; shogaols; zingerone; paradols. Typical preparation forms: The rhizome is used fresh, dried, pickled, preserved, candied or powdered. Supplements include encapsulated dried powders and extracts. Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. These compounds modulate immune‑cell function and regulate signalling pathways including nuclear factor‑κB, MAPK and PI3K/Akt/mTOR, and they can activate AMP‑activated protein kinase (AMPK), NRF2, HO‑1 and PPARγ. Through these mechanisms ginger exhibits anti‑inflammatory, antioxidant and neuroprotective effects. Interaction profile: Ginger may increase the risk of bleeding when taken with anticoagulant or antiplatelet drugs and could lower blood glucose or blood pressure, potentiating antidiabetic or antihypertensive medications. Use caution or avoid in: Use cautiously in pregnancy, gallstone disease or bleeding disorders. Discontinue before surgery and avoid high‑dose supplements when taking anticoagulants.",
     "dosage": "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-    "interactions": [],
+    "interactions": [
+      "Ginger may increase the risk of bleeding when taken with anticoagulant or antiplatelet drugs and could lower blood glucose or blood pressure, potentiating antidiabetic or antihypertensive medications."
+    ],
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
     "therapeuticUses": [
@@ -13354,14 +13398,25 @@
     "id": "ginger",
     "displayName": "ginger",
     "displayScientificName": "ginger",
-    "scientificNormalized": "ginger"
+    "scientificNormalized": "ginger",
+    "aliases": [
+      "ginger",
+      "Zingiber officinale"
+    ]
   },
   {
     "name": "ginkgo biloba",
     "latin": "ginkgo biloba",
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "ginkgolides A, B, C, J",
+      "bilobalide",
+      "ginkgetin",
+      "bilobetin",
+      "sciadopitysin",
+      "ginkgolides"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -13372,12 +13427,25 @@
       "Bleeding disorders, anticoagulant use"
     ],
     "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-    "sources": [],
+    "sources": [
+      {
+        "title": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "conversation-recovered"
+      }
+    ],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Ginkgo Biloba is represented here as a monograph-style entry centered on the leaf. Key reported compounds include ginkgolides A, B, C, J; bilobalide; ginkgetin; bilobetin; sciadopitysin. Typical preparation forms: Standardized leaf extract (EGb 761). The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways. Interaction profile: May potentiate NSAIDs, anticoagulants, antiplatelets, and interact with antidepressants and antidiabetic drugs. Use caution or avoid in: Pregnancy, breastfeeding, bleeding disorders, epilepsy, planned surgery.",
     "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "May potentiate NSAIDs, anticoagulants, antiplatelets, and interact with antidepressants and antidiabetic drugs."
+    ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -13389,7 +13457,11 @@
     "id": "ginkgo-biloba",
     "displayName": "ginkgo biloba",
     "displayScientificName": "ginkgo biloba",
-    "scientificNormalized": "ginkgo biloba"
+    "scientificNormalized": "ginkgo biloba",
+    "aliases": [
+      "ginkgo",
+      "maidenhair tree"
+    ]
   },
   {
     "name": "glechoma hederacea",
@@ -14602,7 +14674,11 @@
     "latin": "holy basil",
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "eugenol",
+      "ursolic acid",
+      "rosmarinic acid"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -14615,12 +14691,32 @@
       "Do not use with known allergy to this plant or related species."
     ],
     "safetyNotes": "safe; No direct toxicity data. Contextual inference: Used in ritual; dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual; dreaming or folk medicine.. Used in ritual; dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual; dreaming or folk medicine. Used in ritual; dreaming or folk medicine",
-    "sources": [],
+    "sources": [
+      {
+        "title": "NCCIH"
+      },
+      {
+        "title": "PubMed"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "NCCIH"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "PubMed"
+      },
+      {
+        "title": "NCCIH; PubMed/PMC"
+      }
+    ],
     "lastUpdated": "2026-03-21",
-    "description": "Used in ritual, dreaming or folk medicine.",
+    "description": "Holy Basil is represented here as a monograph-style entry centered on the leaf; aerial parts. Key reported compounds include eugenol; ursolic acid; rosmarinic acid. Typical preparation forms: Leaf extracts, teas. Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways. Interaction profile: Anticoagulants, antidiabetic drugs. Use caution or avoid in: Pregnancy (limited data).",
     "dosage": "No direct dosage data. Contextual inference: Used in ritual; dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual; dreaming or folk medicine.. Used in ritual; dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual; dreaming or folk medicine. Used in ritual; dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual; dreaming or folk medicine",
     "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "interactions": [],
+    "interactions": [
+      "Anticoagulants, antidiabetic drugs"
+    ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
@@ -15942,10 +16038,19 @@
   },
   {
     "name": "kava",
-    "latin": "kava",
+    "latin": "Piper methysticum",
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "kavain",
+      "dihydrokavain",
+      "methysticin",
+      "dihydromethysticin",
+      "yangonin",
+      "desmethoxyyangonin",
+      "flavokavain A/B/C",
+      "total kavalactones"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -15956,12 +16061,26 @@
       "Liver conditions, alcohol, sedatives"
     ],
     "safetyNotes": "caution; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-    "sources": [],
+    "sources": [
+      {
+        "title": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "conversation-recovered"
+      }
+    ],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Kava is represented here as a monograph-style entry centered on the root; rhizome. Key reported compounds include kavain; dihydrokavain; methysticin; dihydromethysticin; yangonin; desmethoxyyangonin; flavokavain A/B/C. Typical preparation forms: Traditional aqueous root beverage; modern standardized root extracts. Kavalactones modulate GABA-A receptors and ion channels, producing anxiolytic and sedative effects without classical benzodiazepine-site binding. Interaction profile: Additive sedation with CNS depressants and alcohol; possible hepatic enzyme interactions. Use caution or avoid in: Liver disease, pregnancy, breastfeeding, concurrent CNS depressants or hepatotoxic drugs.",
     "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Additive sedation with CNS depressants and alcohol",
+      "possible hepatic enzyme interactions."
+    ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -15973,7 +16092,13 @@
     "id": "kava",
     "displayName": "kava",
     "displayScientificName": "kava",
-    "scientificNormalized": "kava"
+    "scientificNormalized": "kava",
+    "aliases": [
+      "kava",
+      "kava-kava",
+      "awa",
+      "yaqona"
+    ]
   },
   {
     "name": "khat",
@@ -16519,7 +16644,13 @@
     "latin": "lemon balm",
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "rosmarinic acid",
+      "citral",
+      "citronellal",
+      "linalool",
+      "flavonoids"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -16531,12 +16662,32 @@
       "Do not use with known allergy to this plant or related species."
     ],
     "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-    "sources": [],
+    "sources": [
+      {
+        "title": "EMA herbal monograph"
+      },
+      {
+        "title": "NCCIH"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "EMA herbal monograph"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "NCCIH"
+      },
+      {
+        "title": "NCCIH; EMA"
+      }
+    ],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Lemon Balm is represented here as a monograph-style entry centered on the leaf; aerial parts. Key reported compounds include rosmarinic acid; citral; citronellal; linalool; flavonoids. Typical preparation forms: Leaf extracts, teas, tinctures. GABAergic (GABA transaminase inhibition); mild cholinergic activity. Interaction profile: Sedatives, thyroid medications. Use caution or avoid in: Hypothyroidism (caution).",
     "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Sedatives, thyroid medications"
+    ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -17437,10 +17588,14 @@
   },
   {
     "name": "maca",
-    "latin": "maca",
+    "latin": "Lepidium meyenii",
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "macamides",
+      "macaenes",
+      "glucosinolates"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -17452,12 +17607,32 @@
       "Do not use with known allergy to this plant or related species."
     ],
     "safetyNotes": "safe No direct toxicity data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan.",
-    "sources": [],
+    "sources": [
+      {
+        "title": "PubMed"
+      },
+      {
+        "title": "NIH"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "PubMed"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "NIH"
+      },
+      {
+        "title": "NIH/ODS; PubMed/PMC"
+      }
+    ],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Maca is represented here as a monograph-style entry centered on the root; hypocotyl. Key reported compounds include macamides; macaenes; glucosinolates. Typical preparation forms: Dried root powder, extracts. May influence endocrine signaling and energy metabolism (unclear mechanism). Interaction profile: Limited data. Use caution or avoid in: Hormone-sensitive conditions (caution).",
     "dosage": "No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Limited data"
+    ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -21129,7 +21304,15 @@
     "latin": "peppermint",
     "intensity": "mild",
     "mechanism": "Menthol-rich peppermint oil can relax gastrointestinal smooth muscle via calcium-channel effects and TRPM8 signaling.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "l‑menthol",
+      "l‑menthone",
+      "isomenthone",
+      "menthyl acetate",
+      "1,8‑cineole (eucalyptol)",
+      "menthofuran",
+      "limonene"
+    ],
     "effects": [
       "May reduce IBS abdominal pain and global symptom burden",
       "Antispasmodic support for functional GI discomfort",
@@ -21143,12 +21326,7 @@
     "safetyNotes": "safe No direct toxicity data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan.",
     "sources": [
       {
-        "title": "PubMed: Peppermint oil in IBS meta-analysis (PMID: 35942669)",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/35942669/"
-      },
-      {
-        "title": "Wikipedia: Peppermint",
-        "url": "https://en.wikipedia.org/wiki/Peppermint"
+        "title": "PubMed/PMC"
       }
     ],
     "lastUpdated": "2026-04-03T00:00:00.000Z",
@@ -21175,7 +21353,11 @@
     "id": "peppermint",
     "displayName": "peppermint",
     "displayScientificName": "peppermint",
-    "scientificNormalized": "peppermint"
+    "scientificNormalized": "peppermint",
+    "aliases": [
+      "peppermint",
+      "Mentha × piperita"
+    ]
   },
   {
     "name": "perilla frutescens",
@@ -23084,7 +23266,14 @@
     "latin": "Rhodiola rosea",
     "intensity": "No direct intensity data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan. ; nan; nan",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "rosavin",
+      "rosarin",
+      "rosin",
+      "salidroside",
+      "tyrosol",
+      "rosavins"
+    ],
     "effects": [
       "Adaptogen",
       "mental performance enhancer",
@@ -23102,7 +23291,25 @@
       "discontinue if hypersensitivity or allergic symptoms occur"
     ],
     "safetyNotes": "safe irritability dry mouth. No direct toxicity data. Contextual inference: Adaptogen mental performance enhancer antidepressant. Inhibits monoamine oxidase modulates cortisol and neurotransmitters.. nan.. Inhibits monoamine oxidase modulates cortisol and neurotransmitters.. Adaptogen antidepressant. No direct toxicity data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan.",
-    "sources": [],
+    "sources": [
+      {
+        "title": "NCCIH"
+      },
+      {
+        "title": "PubMed adaptogen reviews"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "NCCIH"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "PubMed adaptogen reviews"
+      },
+      {
+        "title": "NCCIH; PubMed/PMC"
+      }
+    ],
     "lastUpdated": "2026-03-21",
     "description": "Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.",
     "dosage": "100 400 mg day extract (standardized) No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
@@ -27567,7 +27774,11 @@
     "latin": "turmeric",
     "intensity": "mild",
     "mechanism": "Curcuminoids modulate inflammatory pathways including NF-κB and COX-2, with clinical effect depending on formulation bioavailability.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "curcumin",
+      "demethoxycurcumin",
+      "bisdemethoxycurcumin"
+    ],
     "effects": [
       "May modestly reduce osteoarthritis pain and stiffness",
       "Anti-inflammatory signal reduction in some trials",
@@ -27581,12 +27792,7 @@
     "safetyNotes": "No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
     "sources": [
       {
-        "title": "PubMed: Curcumin/Curcuma for arthritis meta-analysis (PMID: 35935936)",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/35935936/"
-      },
-      {
-        "title": "Wikipedia: Turmeric",
-        "url": "https://en.wikipedia.org/wiki/Turmeric"
+        "title": "PubMed/PMC"
       }
     ],
     "lastUpdated": "2026-04-03T00:00:00.000Z",
@@ -27613,7 +27819,11 @@
     "id": "turmeric",
     "displayName": "turmeric",
     "displayScientificName": "turmeric",
-    "scientificNormalized": "turmeric"
+    "scientificNormalized": "turmeric",
+    "aliases": [
+      "turmeric",
+      "Curcuma longa"
+    ]
   },
   {
     "name": "turnera diffusa",
@@ -28210,7 +28420,13 @@
     "latin": "valerian",
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "valerenic acid",
+      "valerenol",
+      "valerenal",
+      "valepotriates (valtrate, isovaltrate)",
+      "sesquiterpenoids"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -28223,12 +28439,25 @@
       "discontinue if hypersensitivity or allergic symptoms occur"
     ],
     "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-    "sources": [],
+    "sources": [
+      {
+        "title": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "conversation-recovered"
+      }
+    ],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Valerian is represented here as a monograph-style entry centered on the root; rhizome. Key reported compounds include valerenic acid; valerenol; valerenal; valepotriates (valtrate, isovaltrate); sesquiterpenoids. Typical preparation forms: Dried roots/rhizomes as teas, tinctures, or extracts. Valerenic acid derivatives modulate GABA-A signaling and may inhibit GABA breakdown. Interaction profile: May potentiate sedatives and alcohol. Use caution or avoid in: Pregnancy, breastfeeding, liver disease, concurrent CNS depressants.",
     "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "May potentiate sedatives and alcohol."
+    ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -28246,7 +28475,12 @@
     "id": "valerian",
     "displayName": "valerian",
     "displayScientificName": "valerian",
-    "scientificNormalized": "valerian"
+    "scientificNormalized": "valerian",
+    "aliases": [
+      "valerian",
+      "all-heal",
+      "garden heliotrope"
+    ]
   },
   {
     "name": "valerian root",
