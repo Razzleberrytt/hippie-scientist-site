@@ -11,12 +11,11 @@
     "antimicrobial"
   ],
   "activeCompounds": [
-    "l-menthol",
-    "l-menthone",
+    "menthol",
+    "menthone",
     "isomenthone",
     "menthyl-acetate",
-    "1",
-    "8-cineole-eucalyptol",
+    "1-8-cineole",
     "menthofuran",
     "limonene"
   ],

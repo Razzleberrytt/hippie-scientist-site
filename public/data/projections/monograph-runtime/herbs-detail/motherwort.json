@@ -1,0 +1,27 @@
+{
+  "name": "Motherwort",
+  "slug": "motherwort",
+  "scientificName": "Leonurus cardiaca",
+  "summary": "Motherwort is an aerial-parts monograph with historical use around calm, palpitations, and menstrual-support positioning. It is useful for the system because it combines calming relevance with cardiovascular and uterine caution logic.",
+  "description": "Motherwort is used in teas, tinctures, and capsules. Reported constituents include leonurine and stachydrine along with flavonoid fractions. Position cautiously: calming and cycle-support language can coexist with stronger contraindication gating for pregnancy and cardiovascular-medication overlap.",
+  "mechanism": "Proposed mechanism includes mild GABAergic and autonomic-calming effects with additional cardiometabolic and smooth-muscle-adjacent actions attributed to leonurine and related alkaloids.",
+  "mechanismTags": [
+    "calming",
+    "cardiovascular-adjacent",
+    "smooth-muscle-adjacent"
+  ],
+  "activeCompounds": [
+    "leonurine",
+    "stachydrine"
+  ],
+  "safetyNotes": "May cause GI upset, sedation, or dizziness in some users; avoid framing as universally gentle because uterine and cardiovascular considerations matter.",
+  "interactions": [
+    "Use caution with anticoagulants",
+    "antihypertensives",
+    "sedatives",
+    "and other agents affecting uterine tone or bleeding."
+  ],
+  "dosage": "Product-specific tincture/extract dosing",
+  "preparation": "Teas, tinctures, and aerial-parts extracts.",
+  "region": "Native to Eurasia; naturalized widely in North America."
+}

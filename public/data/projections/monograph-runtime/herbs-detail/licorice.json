@@ -1,0 +1,31 @@
+{
+  "name": "Licorice",
+  "slug": "licorice",
+  "scientificName": "Glycyrrhiza glabra",
+  "summary": "Licorice is a root monograph used for soothing GI/respiratory positioning and for endocrine-adjacent effects driven largely by glycyrrhizin. It is a high-leverage addition because whole-root licorice and DGL are not interchangeable from a safety standpoint.",
+  "description": "Licorice root is used as tea, decoction, powder, extract, and deglycyrrhizinated licorice (DGL) products. Major constituents include glycyrrhizin, liquiritigenin, isoliquiritigenin, and glabridin. Frontend logic should split whole-root licorice from DGL whenever blood-pressure or potassium risk matters.",
+  "mechanism": "Mechanism includes 11beta-HSD2 inhibition with downstream mineralocorticoid-like effects plus anti-inflammatory and mucosal-support activity from flavonoid constituents.",
+  "mechanismTags": [
+    "endocrine-modulating",
+    "anti-inflammatory",
+    "demulcent"
+  ],
+  "activeCompounds": [
+    "glycyrrhizin",
+    "liquiritigenin",
+    "isoliquiritigenin",
+    "glabridin"
+  ],
+  "safetyNotes": "Chronic or high-glycyrrhizin intake can raise blood pressure, lower potassium, and increase edema or arrhythmia risk in susceptible users.",
+  "interactions": [
+    "Use caution with diuretics",
+    "corticosteroids",
+    "digoxin",
+    "antihypertensives",
+    "warfarin",
+    "and other drugs affected by potassium or blood-pressure shifts."
+  ],
+  "dosage": "Product-specific dosing; DGL and whole-root licorice must be separated",
+  "preparation": "Teas, decoctions, powders, extracts, and DGL chewables/capsules.",
+  "region": "Native to southwestern Asia and parts of Europe; cultivated broadly."
+}

@@ -14,15 +14,14 @@
     "rosmarinic-acid",
     "citral",
     "citronellal",
-    "linalool",
-    "flavonoids"
+    "linalool"
   ],
   "safetyNotes": "Generally safe; mild sedation possible",
   "interactions": [
     "Sedatives",
     "thyroid medications"
   ],
-  "dosage": null,
+  "dosage": "Rosmarinic acid content",
   "preparation": "Leaf extracts, teas, tinctures",
   "region": "Europe, Mediterranean"
 }

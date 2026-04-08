@@ -1,5 +1,23 @@
 [
   {
+    "name": "American Skullcap",
+    "slug": "american-skullcap",
+    "scientificName": "Scutellaria lateriflora",
+    "summary": "American skullcap is an aerial-parts monograph used primarily for calm, tension, and sleep-adjacent positioning. It is stack-relevant for gentle GABAergic support, but product identity matters because American and Chinese skullcap are not interchangeable.",
+    "mechanismTags": [
+      "gabaergic",
+      "calming",
+      "antioxidant",
+      "anti-inflammatory"
+    ],
+    "activeCompounds": [
+      "baicalin",
+      "baicalein",
+      "scutellarin"
+    ],
+    "region": "Native to North America; especially eastern and central United States and Canada."
+  },
+  {
     "name": "Ashwagandha",
     "slug": "ashwagandha",
     "scientificName": "Withania somnifera",
@@ -15,8 +33,9 @@
       "withanolide-d",
       "withanolide-a",
       "withanoside-iv",
-      "sitoindosides",
-      "alkaloids"
+      "withanone",
+      "sitoindoside-ix",
+      "sitoindoside-x"
     ],
     "region": "Native to India, the Middle East and parts of Africa and Asia."
   },
@@ -31,13 +50,48 @@
       "hormonal"
     ],
     "activeCompounds": [
-      "triterpene-glycosides-actein",
+      "actein",
       "23-epi-26-deoxyactein",
       "cimifugoside",
-      "caffeic-acid-derivatives",
       "fukinolic-acid"
     ],
     "region": "Native to North America, especially the eastern United States."
+  },
+  {
+    "name": "green-tea",
+    "slug": "camellia-sinensis",
+    "scientificName": "antioxidant, mild stimulant",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "caffeine sensitivity"
+  },
+  {
+    "name": "cordyceps",
+    "slug": "cordyceps-militaris",
+    "scientificName": "ATP production support, adaptogenic",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "generally safe"
+  },
+  {
+    "name": "turmeric",
+    "slug": "curcuma-longa",
+    "scientificName": "anti-inflammatory, NF-kB modulation",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "low bioavailability; may interact with anticoagulants"
+  },
+  {
+    "name": "artichoke",
+    "slug": "cynara-scolymus",
+    "scientificName": "bile flow support, hepatometabolic support",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "avoid with bile duct obstruction"
   },
   {
     "name": "Echinacea Purpurea",
@@ -48,13 +102,21 @@
       "immunomodulatory"
     ],
     "activeCompounds": [
-      "alkamides",
       "chicoric-acid",
       "echinacoside",
       "caffeic-acid",
       "cynarin"
     ],
     "region": "Native to the central and eastern United States; now cultivated and introduced in Europe and other temperate regions【55003496660111†L75-L130】."
+  },
+  {
+    "name": "reishi",
+    "slug": "ganoderma-lucidum",
+    "scientificName": "immunomodulatory, adaptogenic",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "generally safe; may affect blood pressure"
   },
   {
     "name": "Garlic",
@@ -87,9 +149,7 @@
     ],
     "activeCompounds": [
       "6-gingerol",
-      "shogaols",
-      "zingerone",
-      "paradols"
+      "zingerone"
     ],
     "region": "Ginger does not occur in the wild; it is believed to have originated in Southeast Asia and is now cultivated across the humid tropics with India as the largest producer【418916103730052†L148-L163】."
   },
@@ -105,16 +165,25 @@
       "antioxidant"
     ],
     "activeCompounds": [
-      "ginkgolides-a",
-      "b",
-      "c",
-      "j",
+      "ginkgolide-a",
+      "ginkgolide-b",
+      "ginkgolide-c",
+      "ginkgolide-j",
       "bilobalide",
       "ginkgetin",
       "bilobetin",
       "sciadopitysin"
     ],
     "region": "Native to China; cultivated worldwide as an ornamental and medicinal tree."
+  },
+  {
+    "name": "lions-mane",
+    "slug": "hericium-erinaceus",
+    "scientificName": "neurotrophic, NGF stimulation",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "generally safe"
   },
   {
     "name": "Holy Basil",
@@ -134,6 +203,24 @@
     "region": "India, Southeast Asia"
   },
   {
+    "name": "st-johns-wort",
+    "slug": "hypericum-perforatum",
+    "scientificName": "serotonergic modulation, antidepressant",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "major drug interactions (CYP induction)"
+  },
+  {
+    "name": "yerba-mate",
+    "slug": "ilex-paraguariensis",
+    "scientificName": "stimulant, antioxidant",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "caffeine sensitivity"
+  },
+  {
     "name": "Kava",
     "slug": "kava",
     "scientificName": "Piper methysticum",
@@ -148,7 +235,9 @@
       "dihydromethysticin",
       "yangonin",
       "desmethoxyyangonin",
-      "flavokavain-a-b-c"
+      "flavokavain-a",
+      "flavokavain-b",
+      "flavokavain-c"
     ],
     "region": "Indigenous to the South Pacific islands (Polynesia, Melanesia and Micronesia)."
   },
@@ -166,10 +255,36 @@
       "rosmarinic-acid",
       "citral",
       "citronellal",
-      "linalool",
-      "flavonoids"
+      "linalool"
     ],
     "region": "Europe, Mediterranean"
+  },
+  {
+    "name": "maca",
+    "slug": "lepidium-meyenii",
+    "scientificName": "adaptogenic, endocrine modulation (traditional use), energy support",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "generally safe; limited mechanistic clarity"
+  },
+  {
+    "name": "Licorice",
+    "slug": "licorice",
+    "scientificName": "Glycyrrhiza glabra",
+    "summary": "Licorice is a root monograph used for soothing GI/respiratory positioning and for endocrine-adjacent effects driven largely by glycyrrhizin. It is a high-leverage addition because whole-root licorice and DGL are not interchangeable from a safety standpoint.",
+    "mechanismTags": [
+      "endocrine-modulating",
+      "anti-inflammatory",
+      "demulcent"
+    ],
+    "activeCompounds": [
+      "glycyrrhizin",
+      "liquiritigenin",
+      "isoliquiritigenin",
+      "glabridin"
+    ],
+    "region": "Native to southwestern Asia and parts of Europe; cultivated broadly."
   },
   {
     "name": "Maca",
@@ -180,12 +295,26 @@
       "adaptogen",
       "hormonal"
     ],
-    "activeCompounds": [
-      "macamides",
-      "macaenes",
-      "glucosinolates"
-    ],
+    "activeCompounds": [],
     "region": "Peru (Andes)"
+  },
+  {
+    "name": "lemon-balm",
+    "slug": "melissa-officinalis",
+    "scientificName": "GABA transaminase inhibition, calming",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "mild sedation"
+  },
+  {
+    "name": "peppermint",
+    "slug": "mentha-piperita",
+    "scientificName": "smooth muscle relaxation, GI relief",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "may worsen reflux in some"
   },
   {
     "name": "Milk Thistle",
@@ -198,13 +327,58 @@
       "hepatoprotective"
     ],
     "activeCompounds": [
-      "silybin-a-b",
-      "isosilybin-a-b",
+      "silybin-a",
+      "silybin-b",
+      "isosilybin-a",
+      "isosilybin-b",
       "silychristin",
       "silydianin",
       "isosilychristin"
     ],
     "region": "Native to the Mediterranean region; now naturalized worldwide."
+  },
+  {
+    "name": "Motherwort",
+    "slug": "motherwort",
+    "scientificName": "Leonurus cardiaca",
+    "summary": "Motherwort is an aerial-parts monograph with historical use around calm, palpitations, and menstrual-support positioning. It is useful for the system because it combines calming relevance with cardiovascular and uterine caution logic.",
+    "mechanismTags": [
+      "calming",
+      "cardiovascular-adjacent",
+      "smooth-muscle-adjacent"
+    ],
+    "activeCompounds": [
+      "leonurine",
+      "stachydrine"
+    ],
+    "region": "Native to Eurasia; naturalized widely in North America."
+  },
+  {
+    "name": "black-seed",
+    "slug": "nigella-sativa",
+    "scientificName": "anti-inflammatory, antioxidant",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "generally safe"
+  },
+  {
+    "name": "holy-basil",
+    "slug": "ocimum-sanctum",
+    "scientificName": "adaptogenic, cortisol modulation",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "generally safe"
+  },
+  {
+    "name": "oregano",
+    "slug": "origanum-vulgare",
+    "scientificName": "antimicrobial, antioxidant",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "generally safe"
   },
   {
     "name": "Peppermint",
@@ -217,16 +391,24 @@
       "antimicrobial"
     ],
     "activeCompounds": [
-      "l-menthol",
-      "l-menthone",
+      "menthol",
+      "menthone",
       "isomenthone",
       "menthyl-acetate",
-      "1",
-      "8-cineole-eucalyptol",
+      "1-8-cineole",
       "menthofuran",
       "limonene"
     ],
     "region": "Peppermint is a hybrid between water mint and spearmint that grows throughout Europe, North America and the Mediterranean【376436993997216†L159-L162】."
+  },
+  {
+    "name": "kava",
+    "slug": "piper-methysticum",
+    "scientificName": "GABAergic, anxiolytic",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "liver toxicity risk with misuse"
   },
   {
     "name": "Rhodiola Rosea",
@@ -244,9 +426,46 @@
       "rosarin",
       "rosin",
       "salidroside",
-      "tyrosol"
+      "tyrosol",
+      "triandrin"
     ],
     "region": "Europe, Asia (cold regions)"
+  },
+  {
+    "name": "rosemary",
+    "slug": "rosmarinus-officinalis",
+    "scientificName": "cholinergic support, antioxidant, circulation support",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "generally safe; concentrated extracts may irritate"
+  },
+  {
+    "name": "Saffron",
+    "slug": "saffron",
+    "scientificName": "Crocus sativus",
+    "summary": "Saffron is a stigma monograph with mood-support and sensory-positioning relevance. It is high-value for the system because it has frontend appeal, a relatively distinct chemistry, and practical differentiation from generic calming herbs.",
+    "mechanismTags": [
+      "mood-support",
+      "serotonergic-adjacent",
+      "antioxidant",
+      "neuroprotective"
+    ],
+    "activeCompounds": [
+      "crocin",
+      "safranal",
+      "picrocrocin"
+    ],
+    "region": "Cultivated in Southwest Asia, the Mediterranean, and other dry temperate regions."
+  },
+  {
+    "name": "sage",
+    "slug": "salvia-officinalis",
+    "scientificName": "cholinergic support, antioxidant",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "high doses may be neurotoxic"
   },
   {
     "name": "Saw Palmetto",
@@ -258,10 +477,18 @@
       "anti-androgenic"
     ],
     "activeCompounds": [
-      "fatty-acids",
-      "phytosterols-beta-sitosterol"
+      "beta-sitosterol"
     ],
     "region": "Southeastern United States"
+  },
+  {
+    "name": "milk-thistle",
+    "slug": "silybum-marianum",
+    "scientificName": "hepatoprotective, antioxidant",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "generally safe; mild GI upset"
   },
   {
     "name": "St Johns Wort",
@@ -283,6 +510,24 @@
     "region": "Native to Europe and West Asia; naturalized in North America and other temperate regions."
   },
   {
+    "name": "clove",
+    "slug": "syzygium-aromaticum",
+    "scientificName": "analgesic, antimicrobial",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "high doses may irritate"
+  },
+  {
+    "name": "thyme",
+    "slug": "thymus-vulgaris",
+    "scientificName": "antimicrobial, respiratory support",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "generally safe"
+  },
+  {
     "name": "Turmeric",
     "slug": "turmeric",
     "scientificName": "Curcuma longa",
@@ -292,11 +537,28 @@
       "antioxidant"
     ],
     "activeCompounds": [
-      "curcumin",
       "demethoxycurcumin",
       "bisdemethoxycurcumin"
     ],
     "region": "Native to India and cultivated throughout the tropics; turmeric is not found in the wild and is grown as a domesticated plant【754431674042811†L224-L241】."
+  },
+  {
+    "name": "damiana",
+    "slug": "turnera-diffusa",
+    "scientificName": "mild stimulant, aphrodisiac (traditional use)",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "limited human data"
+  },
+  {
+    "name": "nettles",
+    "slug": "urtica-dioica",
+    "scientificName": "anti-inflammatory, mineral support, mild antihistamine activity",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "generally safe; caution with diuretics"
   },
   {
     "name": "Valerian",
@@ -310,10 +572,27 @@
       "valerenic-acid",
       "valerenol",
       "valerenal",
-      "valepotriates-valtrate",
-      "isovaltrate",
-      "sesquiterpenoids"
+      "valtrate",
+      "isovaltrate"
     ],
     "region": "Native to Europe and Asia; naturalized in North America and other temperate regions."
+  },
+  {
+    "name": "valerian",
+    "slug": "valeriana-officinalis",
+    "scientificName": "GABAergic sedation",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "sedation; avoid alcohol"
+  },
+  {
+    "name": "ginger",
+    "slug": "zingiber-officinale",
+    "scientificName": "anti-inflammatory, GI motility support",
+    "summary": null,
+    "mechanismTags": [],
+    "activeCompounds": [],
+    "region": "generally safe"
   }
 ]

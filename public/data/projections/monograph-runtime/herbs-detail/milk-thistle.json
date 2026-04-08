@@ -11,8 +11,10 @@
     "hepatoprotective"
   ],
   "activeCompounds": [
-    "silybin-a-b",
-    "isosilybin-a-b",
+    "silybin-a",
+    "silybin-b",
+    "isosilybin-a",
+    "isosilybin-b",
     "silychristin",
     "silydianin",
     "isosilychristin"
