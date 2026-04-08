@@ -97,7 +97,7 @@ function toSourceType(sourceType: string): ResearchSourceRef['sourceType'] {
 
 function toSourceRefs(sourceIds: string[] | undefined): ResearchSourceRef[] {
   if (!Array.isArray(sourceIds)) return []
-  return sourceIds
+  const refs: Array<ResearchSourceRef | null> = sourceIds
     .map(sourceId => {
       const source = sourceRegistryById.get(sourceId)
       if (!source?.active || !source.title || !source.evidenceClass) return null
@@ -107,13 +107,13 @@ function toSourceRefs(sourceIds: string[] | undefined): ResearchSourceRef[] {
         title: source.title,
         evidenceClass: source.evidenceClass,
         reviewer: source.reviewer || 'editorial-team',
-        extractConfidence: 'high' as const,
+        extractConfidence: 'high',
         ...(source.publicationYear ? { publicationYear: source.publicationYear } : {}),
         ...(source.canonicalUrl ? { url: source.canonicalUrl } : {}),
         ...(source.citationText ? { notes: source.citationText } : {}),
       }
     })
-    .filter((source): source is ResearchSourceRef => Boolean(source))
+  return refs.filter((source): source is ResearchSourceRef => source !== null)
 }
 
 export function isPublishableGovernedEnrichment(enrichment: ResearchEnrichment | null | undefined) {
@@ -133,8 +133,12 @@ const rollupMap = new Map(
   }),
 )
 
-export function getGovernedResearchEnrichment(entityType: GovernedEntityType, entitySlug: string) {
+export function getGovernedResearchEnrichment(
+  entityType: GovernedEntityType,
+  entitySlug: string,
+): ResearchEnrichment | null {
   const enrichment = rollupMap.get(`${entityType}:${entitySlug}`)
+  if (!enrichment) return null
   return isPublishableGovernedEnrichment(enrichment) ? enrichment : null
 }
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { compounds } from '../data/compounds/compounds'
 import type { CompoundEntry } from '../data/compounds/compounds'
-import { useHerbData } from '@/lib/herb-data'
+import { useHerbData, type HerbSummary } from '@/lib/herb-data'
 import { recordDevMessage } from '../utils/devMessages'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 
@@ -34,8 +34,8 @@ export function useCompounds(): Compound[] {
       })
     })
 
-    herbs.forEach(h => {
-      h.activeConstituents?.forEach(cn => {
+    herbs.forEach((h: HerbSummary) => {
+      h.activeConstituents?.forEach((cn: { name: string }) => {
         if (!list.find(c => c.name.toLowerCase() === cn.name.toLowerCase())) {
           recordDevMessage('warning', `Herb ${h.name} lists unknown compound: ${cn.name}`)
         }

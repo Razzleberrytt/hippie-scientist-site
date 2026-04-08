@@ -6,6 +6,7 @@ import { getCompoundSeedInteractionData, mergeInteractionData } from '@/lib/inte
 import { hasInvalidEntityName, sanitizeCompoundRecord } from '@/utils/sanitizeData'
 import { normalizeResearchEnrichment } from '@/lib/researchEnrichment'
 import type { PublishSafeEnrichmentSummary } from '@/types/enrichmentDiscovery'
+import type { ResearchEnrichment } from '@/types/researchEnrichment'
 
 export type SourceRef = { title: string; url: string; note?: string }
 
@@ -41,6 +42,9 @@ export type CompoundRecord = {
   relatedEntities: string[]
   relatedCompounds: string[]
   linkedHerbs: string[]
+  researchEnrichment?: ResearchEnrichment
+  researchEnrichmentSummary?: PublishSafeEnrichmentSummary
+  sourceCount?: number
 }
 
 export type CompoundSummaryRecord = {
@@ -59,6 +63,7 @@ export type CompoundSummaryRecord = {
   hasInteractionData: boolean
   hasEvidenceNotes: boolean
   aliases: string[]
+  sourceCount?: number
   researchEnrichmentSummary?: PublishSafeEnrichmentSummary
 }
 
@@ -150,6 +155,7 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   const relatedEntities = splitClean(data.relatedEntities)
   const relatedCompounds = splitClean(data.relatedCompounds)
   const linkedHerbs = splitClean(data.linkedHerbs)
+  const sources = normalizeSources(data.sources)
 
   return {
     id: String(data.id || slug),
@@ -181,8 +187,10 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     relatedCompounds,
     linkedHerbs,
     confidence: calculateCompoundConfidence({ mechanism, effects, compounds: herbs }),
-    sources: normalizeSources(data.sources),
+    sources,
     researchEnrichment: researchEnrichment || undefined,
+    researchEnrichmentSummary: normalizeEnrichmentSummary(data.researchEnrichmentSummary),
+    sourceCount: sources.length,
     lastUpdated: String(data.lastUpdated || data.updatedAt || '').trim(),
   }
 }
@@ -212,6 +220,7 @@ function normalizeCompoundSummary(raw: Record<string, unknown>): CompoundSummary
     hasInteractionData: Boolean(raw.hasInteractionData),
     hasEvidenceNotes: Boolean(raw.hasEvidenceNotes),
     aliases: splitClean(raw.aliases),
+    sourceCount: Number.isFinite(Number(raw.sourceCount)) ? Number(raw.sourceCount) : undefined,
     researchEnrichmentSummary: normalizeEnrichmentSummary(raw.researchEnrichmentSummary),
   }
 }

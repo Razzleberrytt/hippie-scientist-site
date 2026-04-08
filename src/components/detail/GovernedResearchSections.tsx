@@ -273,7 +273,13 @@ export default function GovernedResearchSections({
       {sections
         .filter(section => section.items.length > 0)
         .map(section => (
-          <ClaimList key={section.key} {...section} enrichment={enrichment} />
+          <ClaimList
+            key={section.key}
+            items={section.items}
+            topicType={section.topicType}
+            title={section.title}
+            enrichment={enrichment}
+          />
         ))}
 
       <section className='border-white/8 mt-6 border-t pt-5'>

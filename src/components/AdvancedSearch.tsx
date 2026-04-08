@@ -89,7 +89,15 @@ export default function AdvancedSearch({
   onClose: () => void
   onApply: (results: AdvancedHerb[]) => void
 }) {
-  const herbs = useHerbData() as AdvancedHerb[]
+  const herbRows = useHerbData()
+  const herbs = useMemo<AdvancedHerb[]>(
+    () =>
+      herbRows.map(herb => ({
+        ...herb,
+        effects: Array.isArray(herb.effects) ? herb.effects.join(' ') : herb.effects,
+      })),
+    [herbRows],
+  )
   const [q, setQ] = useState('')
   const [tags, setTags] = useState<string[]>([])
   const [pregSafe, setPregSafe] = useState<null | boolean>(null)

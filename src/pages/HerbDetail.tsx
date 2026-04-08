@@ -429,7 +429,9 @@ export default function HerbDetail() {
       .map(candidate => {
         const candidateProducts = getHerbProducts(candidate.slug)
         const matchedTagCount = candidateProducts.reduce((count, product) => {
-          const hasMatch = product.bestFor.some(tag => matchesUseCaseTag(tag, anchor.keywords))
+          const hasMatch = product.attributes.some((tag: string) =>
+            matchesUseCaseTag(tag, anchor.keywords),
+          )
           return hasMatch ? count + 1 : count
         }, 0)
         const label = String(

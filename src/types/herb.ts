@@ -14,7 +14,7 @@ export type CanonicalHerb = {
 }
 
 export type Herb = {
-  slug?: string
+  slug: string
   id?: string
   common?: string
   scientific?: string
@@ -64,7 +64,7 @@ export type Herb = {
   therapeutic?: string
   therapeuticUses?: string | string[]
   sideeffects?: string[] | string
-  sideEffects?: string
+  sideEffects?: string | string[]
   safety?: string
   safetyrating?: string | null
   toxicity?: string
@@ -85,7 +85,10 @@ export type Herb = {
   name?: string
   nameNorm?: string
   commonnames?: string
+  commonName?: string
   scientificname?: string
+  latinName?: string
+  summary?: string
   affiliatelink?: string | null
   productRecommendations?: Array<{
     label: string
