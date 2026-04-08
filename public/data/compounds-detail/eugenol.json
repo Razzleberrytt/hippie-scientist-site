@@ -1,72 +1,47 @@
 {
   "name": "eugenol",
   "herbs": [
-    "nan",
-    "pimenta dioica",
-    "tynanthus panurensis"
+    "holy-basil"
   ],
   "effects": [
-    "Euphoria",
-    "hallucinations",
-    "nausea",
-    "dry mouth",
-    "sedation",
-    "altered perception",
-    "Stimulation",
-    "mental clarity",
-    "mild sedation (low dose)",
-    "hallucinations (high dose",
-    "beta-asarone rich)",
-    "Mild sedative",
-    "hallucinogenic in high doses",
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine",
-    "digestive aid",
-    "and purported hallucinogen",
-    "contains β-asarone",
-    "Stress relief",
-    "respiratory support",
-    "antioxidant",
-    "mild energy boost",
-    "Adaptogen",
-    "anti-stress",
-    "immune support",
-    "disorientation",
-    "No direct effects data. Contextual inference: Used in spice blends",
-    "aphrodisiacs",
-    "and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends",
-    "and as a psychoactive in folk rituals... Used in spice blends",
-    "and as a psychoactive in folk rituals.. Used in spice blends",
-    "and as a psychoactive in folk rituals.",
-    "Anxiolytic",
-    "relaxing",
-    "No direct effects data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.",
-    "No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion."
+    "inflammatory_pathway_modulation",
+    "analgesic",
+    "antimicrobial",
+    "COX",
+    "prostaglandins",
+    "TRPV1"
   ],
   "contraindications": [
-    "Avoid in pregnancy",
-    "psychiatric conditions",
-    "or with antidepressants",
-    "hepatotoxic in large doses",
-    "Pregnancy",
-    "seizures",
-    "liver disease",
-    "children",
-    "high doses",
-    "pregnancy",
-    "cancer risk (β-asarone in some strains).",
-    "Pregnancy (high doses)",
-    "blood clotting disorders",
-    "Avoid high doses",
-    "dangerous interactions with MAOIs",
-    "SSRIs",
-    "None known"
+    "Generally safe at dietary levels, but high-dose exposure may increase liver-toxicity risk.",
+    "May enhance anticoagulant effects or bleeding tendency in susceptible settings."
   ],
-  "category": null,
-  "sources": [],
+  "category": "phenylpropanoid",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Eugenol | https://pubmed.ncbi.nlm.nih.gov/16998128/ | https://www.fda.gov/food/food-additives-petitions/everything-added-food-united-states-eafus"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubMed"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "FDA food-additive context"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "tier1_locked"
+    },
+    {
+      "title": "Workbook source workbook",
+      "note": "locked_compounds_batch1_2026-04-07"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "eugenol",
   "id": "eugenol",
@@ -81,5 +56,6 @@
     "nan",
     "pimenta-dioica",
     "tynanthus-panurensis"
-  ]
+  ],
+  "mechanism": "Exhibits analgesic and anti-inflammatory effects through prostaglandin-pathway inhibition and ion-channel modulation including TRPV1-related activity; also shows antimicrobial activity."
 }

@@ -1,22 +1,39 @@
 {
   "name": "gramine",
   "herbs": [
-    "nan"
+    "phalaris-arundinacea"
   ],
   "effects": [
-    "Visual stimulation",
-    "introspection",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "multi-target signaling modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "MAOIs",
-    "pregnancy"
+    "low",
+    "no well-documented interactions"
   ],
-  "category": null,
-  "sources": [],
+  "category": "other",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Phalaris%20arundinacea | https://pubchem.ncbi.nlm.nih.gov/#query=gramine"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "gramine",
   "id": "gramine",
@@ -29,5 +46,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

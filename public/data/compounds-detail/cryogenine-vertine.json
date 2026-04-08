@@ -1,37 +1,50 @@
 {
-  "name": "Cryogenine (vertine)",
+  "name": "cryogenine (vertine)",
   "herbs": [
-    "nan"
+    "heimia",
+    "heimia-salicifolia-sinicuichi",
+    "sinicuichi"
   ],
   "effects": [
-    "Auditory distortion",
-    "calmness",
-    "dream enhancement",
-    "muscle relaxation",
-    "light euphoria",
-    "relaxation",
-    "mild euphoria",
-    "dream-like state",
-    "No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
-    "Mild auditory and memory effects",
-    "traditional fermentation increases effects",
-    "Auditory hallucinations",
-    "memory alterations",
-    "vivid dreams"
+    "multi-target signaling modulation",
+    "general or unknown targets",
+    "inflammatory_pathway_modulation"
   ],
   "contraindications": [
-    "Avoid in pregnancy and with CNS depressants",
-    "Avoid with sedatives or antidepressants",
-    "Pregnancy",
-    "psychiatric disorders",
-    "avoid with alcohol or cns depressants",
-    "pregnancy [9",
-    "4].",
-    "liver conditions",
-    "concurrent CNS depressants"
+    "low",
+    "cns depressants, alcohol."
   ],
-  "category": null,
-  "sources": [],
+  "category": "other",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Heimia%20salicifolia | https://plants.sc.egov.usda.gov/home/search?query=Heimia%20spp. | https://plants.sc.egov.usda.gov/home/search?query=sinicuichi | https://pubchem.ncbi.nlm.nih.gov/#query=cryogenine%20%28vertine%29"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "Unknown"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "cryogenine-vertine",
   "id": "cryogenine-vertine",
@@ -44,5 +57,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "Heimia alkaloids, especially vertine (cryogenine), show ataractic, antispasmodic, and anti-inflammatory activity in preclinical work; precise human psychoactive receptor targets remain unresolved."
 }

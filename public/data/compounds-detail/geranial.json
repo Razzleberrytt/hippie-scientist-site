@@ -1,21 +1,37 @@
 {
   "name": "geranial",
   "herbs": [
-    "adenostoma fasciculatum"
+    "dracocephalum-moldavica"
   ],
   "effects": [
-    "Traditional uses include skin and respiratory conditions",
-    "contains tannins"
+    "multi-target signaling modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "Limited safety data",
-    "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
+    "low",
+    "no well-documented interactions"
   ],
-  "category": null,
+  "category": "flavonoids",
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Dracocephalum%20moldavica | https://pubchem.ncbi.nlm.nih.gov/#query=geranial"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
     }
   ],
   "lastUpdated": "2026-03-21",
@@ -30,5 +46,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "adenostoma-fasciculatum"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

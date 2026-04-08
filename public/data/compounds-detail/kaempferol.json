@@ -1,46 +1,37 @@
 {
   "name": "kaempferol",
   "herbs": [
-    "aerva lanata",
-    "albizia lebbeck",
-    "alchemilla vulgaris",
-    "linden"
+    "st-johns-wort"
   ],
   "effects": [
-    "Diuretic",
-    "anti-inflammatory",
-    "antimicrobial",
-    "anti",
-    "inflammatory",
-    "Used in Ayurveda for asthma",
-    "allergies",
-    "and anxiety",
-    "Uterine tonic",
-    "astringent",
-    "regulates menstruation and bleeding.",
-    "No direct effects data. Contextual inference: Used as a calming tea for sleep",
-    "anxiety",
-    "and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep",
-    "and tension... Used as a calming tea for sleep",
-    "and tension.. Used as a calming tea for sleep",
-    "and tension."
+    "multi-target signaling modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "Limited safety data; some alkaloids may be toxic at high doses",
-    "Pregnant women should use cautiously",
-    "No well‑documented contraindications",
-    "due to saponins and alkaloids",
-    "excessive intake may cause gastrointestinal irritation or interact with medications.",
-    "Excessive internal use may cause constipation or dry mucous membranes",
-    "caution in pregnancy or lactation",
-    "may interact with blood thinners due to tannin content【859641390196180†L297",
-    "L313】."
+    "low",
+    "no well-documented interactions"
   ],
-  "category": null,
+  "category": "Ethyl cinnamate, kaempferol, essential oils",
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Kaempferia%20galanga | https://pubchem.ncbi.nlm.nih.gov/#query=kaempferol"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
     }
   ],
   "lastUpdated": "2026-03-21",
@@ -58,5 +49,6 @@
     "albizia-lebbeck",
     "alchemilla-vulgaris",
     "linden"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

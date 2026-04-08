@@ -1,40 +1,40 @@
 {
   "name": "isoergine",
   "herbs": [
-    "nan"
+    "ipomoea-tricolor",
+    "turbina-corymbosa"
   ],
   "effects": [
-    "Visual hallucinations",
-    "euphoria",
-    "dream-like state",
-    "Psychedelic",
-    "induces visual and cognitive alterations.",
-    "Closed-eye visuals",
-    "sedation",
-    "dream-like mental state",
-    "Visual distortion",
-    "introspection",
-    "altered perception of time and self",
-    "No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.",
-    "emotional introspection",
-    "nausea",
-    "Entheogenic",
-    "seeds contain LSA"
+    "multi-target signaling modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "Avoid with psychiatric conditions",
-    "MAOIs",
-    "SSRIs",
-    "cardiovascular disease",
-    "pregnancy [0",
-    "4].",
-    "Avoid with antidepressants",
-    "antipsychotics",
-    "Pregnancy",
-    "MAOI use"
+    "low",
+    "no well-documented interactions"
   ],
-  "category": null,
-  "sources": [],
+  "category": "ergoline alkaloids",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Ipomoea%20tricolor | https://plants.sc.egov.usda.gov/home/search?query=Turbina%20corymbosa | https://pubchem.ncbi.nlm.nih.gov/#query=isoergine"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "isoergine",
   "id": "isoergine",
@@ -47,5 +47,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

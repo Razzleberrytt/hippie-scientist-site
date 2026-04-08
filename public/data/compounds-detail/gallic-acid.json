@@ -1,33 +1,33 @@
 {
   "name": "gallic acid",
   "herbs": [
-    "alchemilla vulgaris",
-    "nan"
+    "vachellia-nilotica"
   ],
   "effects": [
-    "Uterine tonic",
-    "astringent",
-    "anti-inflammatory",
-    "regulates menstruation and bleeding.",
-    "anti",
-    "inflammatory",
-    "Detoxification",
-    "improved glucose tolerance",
-    "Antioxidant",
-    "hepatoprotective"
+    "multi-target signaling modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "Excessive internal use may cause constipation or dry mucous membranes",
-    "caution in pregnancy or lactation",
-    "may interact with blood thinners due to tannin content【859641390196180†L297",
-    "L313】.",
-    "Avoid during pregnancy due to uterine stimulation potential"
+    "low",
+    "no well-documented interactions"
   ],
-  "category": null,
+  "category": "tannins",
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=acacia%20nilotica | https://pubchem.ncbi.nlm.nih.gov/#query=gallic%20acid"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
     }
   ],
   "lastUpdated": "2026-03-21",
@@ -43,5 +43,6 @@
   "linkedHerbs": [
     "alchemilla-vulgaris",
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

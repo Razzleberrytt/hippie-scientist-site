@@ -1,47 +1,59 @@
 {
   "name": "hyoscyamine",
   "herbs": [
-    "nan"
+    "atropa-belladonna",
+    "brugmansia",
+    "brugmansia-sanguinea",
+    "brugmansia-suaveolens",
+    "datura-ferox",
+    "datura-wrightii",
+    "duboisia-myoporoides",
+    "hyoscyamus-niger",
+    "mandragora-officinarum",
+    "scopolia-carniolica",
+    "solandra-maxima"
   ],
   "effects": [
-    "Complete dissociation",
-    "hallucinations",
-    "amnesia",
-    "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use",
-    "Intense hallucinations",
-    "delirium",
-    "Strong anticholinergic and hallucinogenic effects",
-    "toxic",
-    "traditionally used in shamanic contexts.",
-    "True hallucinations",
-    "confusion",
-    "Anticholinergic",
-    "hallucinogenic",
-    "sedative",
-    "Visual and auditory hallucinations",
-    "Delirium",
-    "visual hallucinations",
-    "Hallucinogenic",
-    "anticholinergic",
-    "historically used in rituals",
-    "Hallucinations",
-    "dry mouth",
-    "contains scopolamine and atropine"
+    "muscarinic receptor interaction",
+    "CHRM1, CHRM2 (muscarinic receptors)",
+    "cholinergic_modulation"
   ],
   "contraindications": [
-    "Extremely dangerous",
-    "avoid recreational use",
-    "fatal at high doses",
-    "All use discouraged without medical oversight",
-    "Cardiac conditions",
-    "glaucoma",
-    "pregnancy",
-    "Cardiac issues",
-    "mental illness",
-    "Heart conditions"
+    "high",
+    "avoid with other anticholinergics",
+    "additive toxicity"
   ],
-  "category": null,
-  "sources": [],
+  "category": "alkaloid",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "Handbook of Medicinal Plants \u2013 CRC Press | Plants of the Gods \u2013 R\u00e4tsch | https://plants.sc.egov.usda.gov/home/search?query=Atropa%20belladonna | https://plants.sc.egov.usda.gov/home/search?query=Brugmansia%20sanguinea | https://plants.sc.egov.usda.gov/home/search?query=Datura%20ferox | https://plants.sc.egov.usda.gov/home/search?query=Datura%20wrightii | https://plants.sc.egov.usda.gov/home/search?query=Duboisia%20myoporoides | https://plants.sc.egov.usda.gov/home/search?query=Mandragora%20officinarum | https://plants.sc.egov.usda.gov/home/search?query=Scopolia%20carniolica | https://plants.sc.egov.usda.gov/home/search?query=Solandra%20maxima | https://plants.sc.egov.usda.gov/home/search?query=brugmansia | https://plants.sc.egov.usda.gov/home/search?query=brugmansia%20suaveolens | https://plants.sc.egov.usda.gov/home/search?query=mandrake | https://pubchem.ncbi.nlm.nih.gov/#query=hyoscyamine | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1318951/"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "citation_or_url_present"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "hyoscyamine",
   "id": "hyoscyamine",
@@ -54,5 +66,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "Scopolamine, hyoscyamine, and atropine block muscarinic acetylcholine receptors (anticholinergic), disrupting sensory and cognitive processing."
 }

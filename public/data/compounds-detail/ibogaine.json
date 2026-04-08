@@ -1,29 +1,44 @@
 {
-  "name": "Ibogaine",
+  "name": "ibogaine",
   "herbs": [
-    "nan",
-    "tabernanthe iboga"
+    "iboga",
+    "tabernanthe-iboga"
   ],
   "effects": [
-    "Intense visions",
-    "introspection",
-    "ataxia",
-    "dream states",
-    "Powerful psychedelic and anti-addiction",
-    "long visionary experience",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "multi-target signaling modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "Serious cardiac risk",
-    "avoid with heart conditions or psychiatric disorders",
-    "heart disease",
-    "psychiatric disorders."
+    "low",
+    "opioids, antidepressants."
   ],
-  "category": null,
-  "sources": [],
+  "category": "other",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Tabernanthe%20iboga | https://plants.sc.egov.usda.gov/home/search?query=tabernanthe%20iboga | https://pubchem.ncbi.nlm.nih.gov/#query=ibogaine"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "ibogaine",
   "id": "ibogaine",
@@ -37,5 +52,6 @@
   "linkedHerbs": [
     "nan",
     "tabernanthe-iboga"
-  ]
+  ],
+  "mechanism": "Ibogaine exhibits NMDA receptor antagonism, kappa-opioid receptor agonism, and monoamine transporter modulation."
 }

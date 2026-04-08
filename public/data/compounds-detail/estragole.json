@@ -1,28 +1,38 @@
 {
   "name": "estragole",
   "herbs": [
-    "acorus tatarinowii"
+    "agastache-foeniculum",
+    "tagetes-lucida"
   ],
   "effects": [
-    "CNS stimulant",
-    "memory aid",
-    "and anti-epileptic in TCM",
-    "and anti",
-    "epileptic in TCM"
+    "multi-target signaling modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "β",
-    "asarone is potentially carcinogenic",
-    "avoid long",
-    "term or high",
-    "dose use",
-    "contraindicated in pregnancy and children."
+    "low",
+    "no well-documented interactions"
   ],
-  "category": null,
+  "category": "other",
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Agastache%20foeniculum | https://plants.sc.egov.usda.gov/home/search?query=Tagetes%20lucida | https://pubchem.ncbi.nlm.nih.gov/#query=estragole"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
     }
   ],
   "lastUpdated": "2026-03-21",
@@ -37,5 +47,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "acorus-tatarinowii"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

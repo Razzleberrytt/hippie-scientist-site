@@ -1,23 +1,39 @@
 {
   "name": "isovaleric acid",
   "herbs": [
-    "nan"
+    "valeriana-officinalis"
   ],
   "effects": [
-    "Sedation",
-    "muscle relaxation",
-    "sleep support",
-    "Sedative",
-    "anxiolytic",
-    "sleep aid"
+    "multi-target signaling modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "Avoid with alcohol",
-    "benzodiazepines",
-    "or barbiturates"
+    "low",
+    "no well-documented interactions"
   ],
-  "category": null,
-  "sources": [],
+  "category": "organic acid",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Valeriana%20officinalis | https://pubchem.ncbi.nlm.nih.gov/#query=isovaleric%20acid"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "isovaleric-acid",
   "id": "isovaleric-acid",
@@ -30,5 +46,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }
