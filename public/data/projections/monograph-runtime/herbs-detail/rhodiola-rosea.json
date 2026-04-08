@@ -16,7 +16,8 @@
     "rosarin",
     "rosin",
     "salidroside",
-    "tyrosol"
+    "tyrosol",
+    "triandrin"
   ],
   "safetyNotes": "Generally well tolerated; possible dizziness, dry mouth, insomnia",
   "interactions": [
@@ -24,7 +25,7 @@
     "MAOIs",
     "stimulants"
   ],
-  "dosage": null,
+  "dosage": "Typically 3% rosavins, 1% salidroside",
   "preparation": "Standardized root extracts",
   "region": "Europe, Asia (cold regions)"
 }

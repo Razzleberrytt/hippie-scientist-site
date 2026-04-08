@@ -1,0 +1,31 @@
+{
+  "workbookPath": "data-sources/herb_monograph_new.xlsx",
+  "generatedAt": "2026-04-08T18:12:13.914Z",
+  "herbCount": 45,
+  "compoundCount": 539,
+  "mappingResolutionPct": 71.88,
+  "runtimeFieldCoveragePct": 63.15,
+  "runtimeFieldCoverageByFieldPct": {
+    "name": 100,
+    "slug": 100,
+    "scientificName": 100,
+    "summary": 46.67,
+    "description": 46.67,
+    "mechanism": 46.67,
+    "activeCompounds": 44.44,
+    "safetyNotes": 46.67,
+    "interactions": 46.67,
+    "dosage": 33.33,
+    "preparation": 46.67,
+    "region": 100
+  },
+  "blockers": {
+    "duplicateCompoundsRemoved": 19,
+    "normalizedCompoundSlugs": 111,
+    "droppedMalformedMapRows": 24,
+    "droppedInvalidHerbMapRows": 0,
+    "droppedInvalidCompoundMapRows": 12,
+    "unresolvedActiveCompoundRefsRemoved": 12,
+    "queueUnnamedColumnsRemoved": 2
+  }
+}

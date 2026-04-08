@@ -1,0 +1,29 @@
+{
+  "name": "Saffron",
+  "slug": "saffron",
+  "scientificName": "Crocus sativus",
+  "summary": "Saffron is a stigma monograph with mood-support and sensory-positioning relevance. It is high-value for the system because it has frontend appeal, a relatively distinct chemistry, and practical differentiation from generic calming herbs.",
+  "description": "Saffron is used as culinary stigma threads, powders, and standardized extracts. Key compounds include crocin, safranal, and picrocrocin. Position around mood/stress support with restrained claims and careful cost/quality framing because adulteration risk is meaningful.",
+  "mechanism": "Proposed mechanism includes serotonergic and glutamatergic modulation together with antioxidant and neuroprotective effects associated with crocins and volatile constituents such as safranal.",
+  "mechanismTags": [
+    "mood-support",
+    "serotonergic-adjacent",
+    "antioxidant",
+    "neuroprotective"
+  ],
+  "activeCompounds": [
+    "crocin",
+    "safranal",
+    "picrocrocin"
+  ],
+  "safetyNotes": "Usually tolerated in supplement-range doses, but dizziness, GI upset, headache, or overstimulation are possible in some users.",
+  "interactions": [
+    "Use caution with serotonergic drugs",
+    "anticoagulants",
+    "antihypertensives",
+    "and mood-active stacks."
+  ],
+  "dosage": "Product-specific extract dosing",
+  "preparation": "Whole stigma, powders, capsules, and standardized extracts.",
+  "region": "Cultivated in Southwest Asia, the Mediterranean, and other dry temperate regions."
+}

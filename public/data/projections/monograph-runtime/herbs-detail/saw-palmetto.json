@@ -10,15 +10,14 @@
     "anti-androgenic"
   ],
   "activeCompounds": [
-    "fatty-acids",
-    "phytosterols-beta-sitosterol"
+    "beta-sitosterol"
   ],
   "safetyNotes": "Generally safe; mild GI upset, headache",
   "interactions": [
     "Hormonal therapies",
     "anticoagulants"
   ],
-  "dosage": null,
+  "dosage": "Standardized to fatty acid content",
   "preparation": "Berry extracts",
   "region": "Southeastern United States"
 }

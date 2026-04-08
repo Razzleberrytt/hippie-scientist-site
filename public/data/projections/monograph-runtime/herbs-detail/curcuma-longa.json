@@ -1,0 +1,15 @@
+{
+  "name": "turmeric",
+  "slug": "curcuma-longa",
+  "scientificName": "anti-inflammatory, NF-kB modulation",
+  "summary": null,
+  "description": null,
+  "mechanism": null,
+  "mechanismTags": [],
+  "activeCompounds": [],
+  "safetyNotes": null,
+  "interactions": [],
+  "dosage": null,
+  "preparation": null,
+  "region": "low bioavailability; may interact with anticoagulants"
+}

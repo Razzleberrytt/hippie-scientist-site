@@ -1,0 +1,29 @@
+{
+  "name": "American Skullcap",
+  "slug": "american-skullcap",
+  "scientificName": "Scutellaria lateriflora",
+  "summary": "American skullcap is an aerial-parts monograph used primarily for calm, tension, and sleep-adjacent positioning. It is stack-relevant for gentle GABAergic support, but product identity matters because American and Chinese skullcap are not interchangeable.",
+  "description": "American skullcap is used in teas, tinctures, capsules, and extracts. Reported flavones include baicalin, baicalein, and scutellarin. Position as calming and nervous-system support rather than as a generic 'sedative' shortcut, and keep species identity explicit in frontend labels.",
+  "mechanism": "Proposed mechanism centers on flavone-driven GABAergic and neuroinhibitory support with additional anti-inflammatory and antioxidant effects.",
+  "mechanismTags": [
+    "gabaergic",
+    "calming",
+    "antioxidant",
+    "anti-inflammatory"
+  ],
+  "activeCompounds": [
+    "baicalin",
+    "baicalein",
+    "scutellarin"
+  ],
+  "safetyNotes": "Usually tolerated, but drowsiness, dizziness, or additive sedation are possible in sensitive users or higher-dose combinations.",
+  "interactions": [
+    "Use caution with sedatives",
+    "alcohol",
+    "anticonvulsants",
+    "and polyherbal sleep formulas."
+  ],
+  "dosage": "Product-specific extract dosing; traditional tea/tincture use common",
+  "preparation": "Teas, tinctures, capsules, and aerial-parts extracts.",
+  "region": "Native to North America; especially eastern and central United States and Canada."
+}
