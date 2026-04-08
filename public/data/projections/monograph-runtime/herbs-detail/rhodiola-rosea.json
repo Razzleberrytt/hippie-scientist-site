@@ -1,0 +1,30 @@
+{
+  "name": "Rhodiola Rosea",
+  "slug": "rhodiola-rosea",
+  "scientificName": "Rhodiola rosea",
+  "summary": "Rhodiola Rosea (Rhodiola rosea) is a adaptogenic root monograph focused on the root used in herbal preparations. It is associated with Europe, Asia (cold regions). Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant. Generally well tolerated; possible dizziness, dry mouth, insomnia.",
+  "description": "Rhodiola Rosea is represented here as a monograph-style entry centered on the root. Key reported compounds include rosavin; rosarin; rosin; salidroside; tyrosol. Typical preparation forms: Standardized root extracts. Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant. Interaction profile: SSRIs, MAOIs, stimulants. Use caution or avoid in: Bipolar disorder; avoid high doses before sleep.",
+  "mechanism": "Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant",
+  "mechanismTags": [
+    "adaptogen",
+    "serotonergic",
+    "dopaminergic",
+    "antioxidant"
+  ],
+  "activeCompounds": [
+    "rosavin",
+    "rosarin",
+    "rosin",
+    "salidroside",
+    "tyrosol"
+  ],
+  "safetyNotes": "Generally well tolerated; possible dizziness, dry mouth, insomnia",
+  "interactions": [
+    "SSRIs",
+    "MAOIs",
+    "stimulants"
+  ],
+  "dosage": null,
+  "preparation": "Standardized root extracts",
+  "region": "Europe, Asia (cold regions)"
+}

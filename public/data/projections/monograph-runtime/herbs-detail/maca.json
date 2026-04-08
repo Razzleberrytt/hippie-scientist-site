@@ -1,0 +1,24 @@
+{
+  "name": "Maca",
+  "slug": "maca",
+  "scientificName": "Lepidium meyenii",
+  "summary": "Maca (Lepidium meyenii) is a root monograph focused on the root; hypocotyl used in herbal preparations. It is associated with Peru (Andes). May influence endocrine signaling and energy metabolism (unclear mechanism). Generally safe; mild GI upset possible.",
+  "description": "Maca is represented here as a monograph-style entry centered on the root; hypocotyl. Key reported compounds include macamides; macaenes; glucosinolates. Typical preparation forms: Dried root powder, extracts. May influence endocrine signaling and energy metabolism (unclear mechanism). Interaction profile: Limited data. Use caution or avoid in: Hormone-sensitive conditions (caution).",
+  "mechanism": "May influence endocrine signaling and energy metabolism (unclear mechanism)",
+  "mechanismTags": [
+    "adaptogen",
+    "hormonal"
+  ],
+  "activeCompounds": [
+    "macamides",
+    "macaenes",
+    "glucosinolates"
+  ],
+  "safetyNotes": "Generally safe; mild GI upset possible",
+  "interactions": [
+    "Limited data"
+  ],
+  "dosage": null,
+  "preparation": "Dried root powder, extracts",
+  "region": "Peru (Andes)"
+}

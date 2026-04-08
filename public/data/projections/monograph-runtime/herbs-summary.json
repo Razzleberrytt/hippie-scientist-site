@@ -1,0 +1,319 @@
+[
+  {
+    "name": "Ashwagandha",
+    "slug": "ashwagandha",
+    "scientificName": "Withania somnifera",
+    "summary": "Ashwagandha (Withania somnifera) is a shrub monograph focused on the root used in herbal preparations. It is associated with Native to India, the Middle East and parts of Africa and Asia. Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways. Short-term use appears safe; side effects include drowsiness and GI upset.",
+    "mechanismTags": [
+      "adaptogen",
+      "anti-inflammatory",
+      "antioxidant",
+      "gabaergic"
+    ],
+    "activeCompounds": [
+      "withaferin-a",
+      "withanolide-d",
+      "withanolide-a",
+      "withanoside-iv",
+      "sitoindosides",
+      "alkaloids"
+    ],
+    "region": "Native to India, the Middle East and parts of Africa and Asia."
+  },
+  {
+    "name": "Black Cohosh",
+    "slug": "black-cohosh",
+    "scientificName": "Actaea racemosa",
+    "summary": "Black Cohosh (Actaea racemosa) is a rhizome monograph focused on the root; rhizome used in herbal preparations. It is associated with Native to North America, especially the eastern United States. Proposed mechanism based on preclinical and limited clinical data: black cohosh may act through serotonergic pathways, selective estrogen receptor modulation, and anti-inflammatory signaling rather than as a classical estrogen. Generally well tolerated in short-term studies, but rare cases of liver injury have been reported.",
+    "mechanismTags": [
+      "serotonergic",
+      "anti-inflammatory",
+      "hormonal"
+    ],
+    "activeCompounds": [
+      "triterpene-glycosides-actein",
+      "23-epi-26-deoxyactein",
+      "cimifugoside",
+      "caffeic-acid-derivatives",
+      "fukinolic-acid"
+    ],
+    "region": "Native to North America, especially the eastern United States."
+  },
+  {
+    "name": "Echinacea Purpurea",
+    "slug": "echinacea-purpurea",
+    "scientificName": "Echinacea purpurea",
+    "summary": "Echinacea Purpurea (Echinacea purpurea) is a herb monograph focused on the unspecified used in herbal preparations. It is associated with Native to the central and eastern United States; now cultivated and introduced in Europe and other temperate regions【55003496660111†L75-L130】. Roots, leaves and flowers of Echinacea purpurea contain mixtures of lipophilic alkamides and hydrophilic caffeic acid derivatives such as chicoric acid and echinacoside, along with polysaccharides and glycoproteins【880087072039746†L166-L200】【840476591578855†L240-L305】. Short‑term use of echinacea extracts appears safe for most adults.",
+    "mechanismTags": [
+      "immunomodulatory"
+    ],
+    "activeCompounds": [
+      "alkamides",
+      "chicoric-acid",
+      "echinacoside",
+      "caffeic-acid",
+      "cynarin"
+    ],
+    "region": "Native to the central and eastern United States; now cultivated and introduced in Europe and other temperate regions【55003496660111†L75-L130】."
+  },
+  {
+    "name": "Garlic",
+    "slug": "garlic",
+    "scientificName": "Allium sativum",
+    "summary": "Garlic (Allium sativum) is a bulb monograph focused on the unspecified used in herbal preparations. It is associated with Native to parts of Central Asia including Iran, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan and Uzbekistan, but now cultivated worldwide【387438139344369†L214-L229】. Garlic bulbs contain organosulfur compounds such as diallyl sulfide, diallyl disulfide, diallyl trisulfide, ajoene and S‑allyl‑cysteine. Oral garlic preparations are generally safe when used for up to seven years; side effects include breath and body odour, abdominal pain, flatulence and nausea.",
+    "mechanismTags": [
+      "anti-inflammatory",
+      "antioxidant",
+      "immunomodulatory"
+    ],
+    "activeCompounds": [
+      "diallyl-sulfide",
+      "diallyl-disulfide",
+      "diallyl-trisulfide",
+      "ajoene",
+      "s-allyl-cysteine"
+    ],
+    "region": "Native to parts of Central Asia including Iran, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan and Uzbekistan, but now cultivated worldwide【387438139344369†L214-L229】."
+  },
+  {
+    "name": "Ginger",
+    "slug": "ginger",
+    "scientificName": "Zingiber officinale",
+    "summary": "Ginger (Zingiber officinale) is a rhizome monograph focused on the unspecified used in herbal preparations. It is associated with Ginger does not occur in the wild; it is believed to have originated in Southeast Asia and is now cultivated across the humid tropics with India as the largest producer【418916103730052†L148-L163】. Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. Ginger is widely consumed as a food and supplement and is generally regarded as safe.",
+    "mechanismTags": [
+      "anti-inflammatory",
+      "antioxidant",
+      "immunomodulatory"
+    ],
+    "activeCompounds": [
+      "6-gingerol",
+      "shogaols",
+      "zingerone",
+      "paradols"
+    ],
+    "region": "Ginger does not occur in the wild; it is believed to have originated in Southeast Asia and is now cultivated across the humid tropics with India as the largest producer【418916103730052†L148-L163】."
+  },
+  {
+    "name": "Ginkgo Biloba",
+    "slug": "ginkgo-biloba",
+    "scientificName": "Ginkgo biloba",
+    "summary": "Ginkgo Biloba (Ginkgo biloba) is a tree monograph focused on the leaf used in herbal preparations. It is associated with Native to China; cultivated worldwide as an ornamental and medicinal tree. The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways. Appears safe at recommended doses, but fresh seeds are toxic.",
+    "mechanismTags": [
+      "dopaminergic",
+      "serotonergic",
+      "cholinergic",
+      "antioxidant"
+    ],
+    "activeCompounds": [
+      "ginkgolides-a",
+      "b",
+      "c",
+      "j",
+      "bilobalide",
+      "ginkgetin",
+      "bilobetin",
+      "sciadopitysin"
+    ],
+    "region": "Native to China; cultivated worldwide as an ornamental and medicinal tree."
+  },
+  {
+    "name": "Holy Basil",
+    "slug": "holy-basil",
+    "scientificName": "Ocimum tenuiflorum",
+    "summary": "Holy Basil (Ocimum tenuiflorum) is a herb monograph focused on the leaf; aerial parts used in herbal preparations. It is associated with India, Southeast Asia. Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways. Generally safe; possible mild GI upset.",
+    "mechanismTags": [
+      "adaptogen",
+      "anti-inflammatory",
+      "antioxidant"
+    ],
+    "activeCompounds": [
+      "eugenol",
+      "ursolic-acid",
+      "rosmarinic-acid"
+    ],
+    "region": "India, Southeast Asia"
+  },
+  {
+    "name": "Kava",
+    "slug": "kava",
+    "scientificName": "Piper methysticum",
+    "summary": "Kava (Piper methysticum) is a shrub monograph focused on the root; rhizome used in herbal preparations. It is associated with Indigenous to the South Pacific islands (Polynesia, Melanesia and Micronesia). Kavalactones modulate GABA-A receptors and ion channels, producing anxiolytic and sedative effects without classical benzodiazepine-site binding. Rare but serious liver injury has been reported, especially with nontraditional extracts or concurrent alcohol/hepatotoxic drug use.",
+    "mechanismTags": [
+      "gabaergic"
+    ],
+    "activeCompounds": [
+      "kavain",
+      "dihydrokavain",
+      "methysticin",
+      "dihydromethysticin",
+      "yangonin",
+      "desmethoxyyangonin",
+      "flavokavain-a-b-c"
+    ],
+    "region": "Indigenous to the South Pacific islands (Polynesia, Melanesia and Micronesia)."
+  },
+  {
+    "name": "Lemon Balm",
+    "slug": "lemon-balm",
+    "scientificName": "Melissa officinalis",
+    "summary": "Lemon Balm (Melissa officinalis) is a herb monograph focused on the leaf; aerial parts used in herbal preparations. It is associated with Europe, Mediterranean. GABAergic (GABA transaminase inhibition); mild cholinergic activity. Generally safe; mild sedation possible.",
+    "mechanismTags": [
+      "gabaergic",
+      "cholinergic",
+      "antioxidant"
+    ],
+    "activeCompounds": [
+      "rosmarinic-acid",
+      "citral",
+      "citronellal",
+      "linalool",
+      "flavonoids"
+    ],
+    "region": "Europe, Mediterranean"
+  },
+  {
+    "name": "Maca",
+    "slug": "maca",
+    "scientificName": "Lepidium meyenii",
+    "summary": "Maca (Lepidium meyenii) is a root monograph focused on the root; hypocotyl used in herbal preparations. It is associated with Peru (Andes). May influence endocrine signaling and energy metabolism (unclear mechanism). Generally safe; mild GI upset possible.",
+    "mechanismTags": [
+      "adaptogen",
+      "hormonal"
+    ],
+    "activeCompounds": [
+      "macamides",
+      "macaenes",
+      "glucosinolates"
+    ],
+    "region": "Peru (Andes)"
+  },
+  {
+    "name": "Milk Thistle",
+    "slug": "milk-thistle",
+    "scientificName": "Silybum marianum",
+    "summary": "Milk Thistle (Silybum marianum) is a herb monograph focused on the seed; fruit used in herbal preparations. It is associated with Native to the Mediterranean region; now naturalized worldwide. Silymarin flavonolignans exhibit antioxidant, anti-inflammatory and antifibrotic activity relevant to hepatoprotection. Generally well tolerated; mild GI side effects and occasional allergic reactions.",
+    "mechanismTags": [
+      "antioxidant",
+      "anti-inflammatory",
+      "hepatoprotective"
+    ],
+    "activeCompounds": [
+      "silybin-a-b",
+      "isosilybin-a-b",
+      "silychristin",
+      "silydianin",
+      "isosilychristin"
+    ],
+    "region": "Native to the Mediterranean region; now naturalized worldwide."
+  },
+  {
+    "name": "Peppermint",
+    "slug": "peppermint",
+    "scientificName": "Mentha × piperita",
+    "summary": "Peppermint (Mentha × piperita) is a herb monograph focused on the unspecified used in herbal preparations. It is associated with Peppermint is a hybrid between water mint and spearmint that grows throughout Europe, North America and the Mediterranean【376436993997216†L159-L162】. Peppermint oil contains more than 80 constituents; menthol is the main bioactive component. Menthol is generally regarded as safe.",
+    "mechanismTags": [
+      "anti-inflammatory",
+      "spasmolytic",
+      "antimicrobial"
+    ],
+    "activeCompounds": [
+      "l-menthol",
+      "l-menthone",
+      "isomenthone",
+      "menthyl-acetate",
+      "1",
+      "8-cineole-eucalyptol",
+      "menthofuran",
+      "limonene"
+    ],
+    "region": "Peppermint is a hybrid between water mint and spearmint that grows throughout Europe, North America and the Mediterranean【376436993997216†L159-L162】."
+  },
+  {
+    "name": "Rhodiola Rosea",
+    "slug": "rhodiola-rosea",
+    "scientificName": "Rhodiola rosea",
+    "summary": "Rhodiola Rosea (Rhodiola rosea) is a adaptogenic root monograph focused on the root used in herbal preparations. It is associated with Europe, Asia (cold regions). Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant. Generally well tolerated; possible dizziness, dry mouth, insomnia.",
+    "mechanismTags": [
+      "adaptogen",
+      "serotonergic",
+      "dopaminergic",
+      "antioxidant"
+    ],
+    "activeCompounds": [
+      "rosavin",
+      "rosarin",
+      "rosin",
+      "salidroside",
+      "tyrosol"
+    ],
+    "region": "Europe, Asia (cold regions)"
+  },
+  {
+    "name": "Saw Palmetto",
+    "slug": "saw-palmetto",
+    "scientificName": "Serenoa repens",
+    "summary": "Saw Palmetto (Serenoa repens) is a berry extract monograph focused on the berry used in herbal preparations. It is associated with Southeastern United States. 5-alpha-reductase inhibition; anti-androgenic effects. Generally safe; mild GI upset, headache.",
+    "mechanismTags": [
+      "hormonal",
+      "anti-androgenic"
+    ],
+    "activeCompounds": [
+      "fatty-acids",
+      "phytosterols-beta-sitosterol"
+    ],
+    "region": "Southeastern United States"
+  },
+  {
+    "name": "St Johns Wort",
+    "slug": "st-johns-wort",
+    "scientificName": "Hypericum perforatum",
+    "summary": "St. John's wort (Hypericum perforatum) is a herb monograph focused on the flowering tops used in herbal preparations. It is associated with Native to Europe and West Asia; naturalized in North America and other temperate regions. Hyperforin and related compounds inhibit monoamine reuptake and affect TRPC6-linked neuroplasticity; additional monoamine oxidase and stress-pathway effects have been proposed. Can cause photosensitivity, GI upset, dizziness, insomnia, restlessness.",
+    "mechanismTags": [
+      "serotonergic",
+      "dopaminergic"
+    ],
+    "activeCompounds": [
+      "hyperforin",
+      "hypericin",
+      "pseudohypericin",
+      "quercetin",
+      "rutin",
+      "kaempferol"
+    ],
+    "region": "Native to Europe and West Asia; naturalized in North America and other temperate regions."
+  },
+  {
+    "name": "Turmeric",
+    "slug": "turmeric",
+    "scientificName": "Curcuma longa",
+    "summary": "Turmeric (Curcuma longa) is a rhizome monograph focused on the unspecified used in herbal preparations. It is associated with Native to India and cultivated throughout the tropics; turmeric is not found in the wild and is grown as a domesticated plant【754431674042811†L224-L241】. The golden rhizomes of turmeric contain non‑volatile curcuminoids—curcumin (curcumin I), demethoxycurcumin (curcumin II) and bisdemethoxycurcumin (curcumin III)—as well as volatile mono‑ and sesquiterpenoids【768158627760254†L420-L432】【768158627760254†L442-L468】. Conventional oral preparations of turmeric or curcumin appear safe for up to 2–3 months.",
+    "mechanismTags": [
+      "anti-inflammatory",
+      "antioxidant"
+    ],
+    "activeCompounds": [
+      "curcumin",
+      "demethoxycurcumin",
+      "bisdemethoxycurcumin"
+    ],
+    "region": "Native to India and cultivated throughout the tropics; turmeric is not found in the wild and is grown as a domesticated plant【754431674042811†L224-L241】."
+  },
+  {
+    "name": "Valerian",
+    "slug": "valerian",
+    "scientificName": "Valeriana officinalis",
+    "summary": "Valerian (Valeriana officinalis) is a herb monograph focused on the root; rhizome used in herbal preparations. It is associated with Native to Europe and Asia; naturalized in North America and other temperate regions. Valerenic acid derivatives modulate GABA-A signaling and may inhibit GABA breakdown. Short-term use appears safe; side effects include headache, GI upset, mental dullness, excitability, vivid dreams.",
+    "mechanismTags": [
+      "gabaergic"
+    ],
+    "activeCompounds": [
+      "valerenic-acid",
+      "valerenol",
+      "valerenal",
+      "valepotriates-valtrate",
+      "isovaltrate",
+      "sesquiterpenoids"
+    ],
+    "region": "Native to Europe and Asia; naturalized in North America and other temperate regions."
+  }
+]

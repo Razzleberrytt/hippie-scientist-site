@@ -1,0 +1,31 @@
+{
+  "name": "Peppermint",
+  "slug": "peppermint",
+  "scientificName": "Mentha × piperita",
+  "summary": "Peppermint (Mentha × piperita) is a herb monograph focused on the unspecified used in herbal preparations. It is associated with Peppermint is a hybrid between water mint and spearmint that grows throughout Europe, North America and the Mediterranean【376436993997216†L159-L162】. Peppermint oil contains more than 80 constituents; menthol is the main bioactive component. Menthol is generally regarded as safe.",
+  "description": "Peppermint is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include l‑menthol; l‑menthone; isomenthone; menthyl acetate; 1,8‑cineole (eucalyptol); menthofuran; limonene. Typical preparation forms: Leaves and flowering tops are used fresh or dried to make teas and flavourings. Medicinal products include enteric‑coated capsules of peppermint oil and topical preparations. Peppermint oil contains more than 80 constituents; menthol is the main bioactive component. Menthol acts as a smooth‑muscle relaxant by blocking L‑type calcium channels and activating transient receptor potential channels (TRPM8 and TRPA1). These actions underlie the spasmolytic and analgesic properties of peppermint oil. Peppermint oil also has antimicrobial, antiviral and anti‑inflammatory effects【271856535371736†L224-L289】【271856535371736†L312-L333】. Interaction profile: Peppermint oil may inhibit cytochrome P450 enzymes (e.g., CYP2A6 and UGT2B7) and could theoretically interact with drugs metabolised by these pathways. Use caution or avoid in: Avoid in infants and young children, and in people with gastro‑oesophageal reflux disease or bile duct obstruction. Use cautiously in those taking hepatotoxic drugs due to potential pulegone/menthofuran toxicity.",
+  "mechanism": "Peppermint oil contains more than 80 constituents; menthol is the main bioactive component. Menthol acts as a smooth‑muscle relaxant by blocking L‑type calcium channels and activating transient receptor potential channels (TRPM8 and TRPA1). These actions underlie the spasmolytic and analgesic properties of peppermint oil. Peppermint oil also has antimicrobial, antiviral and anti‑inflammatory effects【271856535371736†L224-L289】【271856535371736†L312-L333】.",
+  "mechanismTags": [
+    "anti-inflammatory",
+    "spasmolytic",
+    "antimicrobial"
+  ],
+  "activeCompounds": [
+    "l-menthol",
+    "l-menthone",
+    "isomenthone",
+    "menthyl-acetate",
+    "1",
+    "8-cineole-eucalyptol",
+    "menthofuran",
+    "limonene"
+  ],
+  "safetyNotes": "Menthol is generally regarded as safe. Enteric‑coated peppermint oil is well tolerated; the most common adverse effects reported in clinical trials are heartburn, nausea, abdominal pain and dry mouth【220193048567304†L45-L53】. High doses of minor constituents such as pulegone or menthofuran can cause hepatotoxicity in animals, but typical medicinal doses contain negligible amounts and no cases of human hepatotoxicity have been reported【271856535371736†L1296-L1354】. Peppermint oil should not be applied near the faces of infants or young children because menthol inhalation can cause serious adverse reactions【220193048567304†L45-L53】.",
+  "interactions": [
+    "Peppermint oil may inhibit cytochrome P450 enzymes (e.g.",
+    "CYP2A6 and UGT2B7) and could theoretically interact with drugs metabolised by these pathways."
+  ],
+  "dosage": null,
+  "preparation": "Leaves and flowering tops are used fresh or dried to make teas and flavourings. Medicinal products include enteric‑coated capsules of peppermint oil and topical preparations.",
+  "region": "Peppermint is a hybrid between water mint and spearmint that grows throughout Europe, North America and the Mediterranean【376436993997216†L159-L162】."
+}

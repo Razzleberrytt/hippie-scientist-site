@@ -1,0 +1,28 @@
+{
+  "name": "Kava",
+  "slug": "kava",
+  "scientificName": "Piper methysticum",
+  "summary": "Kava (Piper methysticum) is a shrub monograph focused on the root; rhizome used in herbal preparations. It is associated with Indigenous to the South Pacific islands (Polynesia, Melanesia and Micronesia). Kavalactones modulate GABA-A receptors and ion channels, producing anxiolytic and sedative effects without classical benzodiazepine-site binding. Rare but serious liver injury has been reported, especially with nontraditional extracts or concurrent alcohol/hepatotoxic drug use.",
+  "description": "Kava is represented here as a monograph-style entry centered on the root; rhizome. Key reported compounds include kavain; dihydrokavain; methysticin; dihydromethysticin; yangonin; desmethoxyyangonin; flavokavain A/B/C. Typical preparation forms: Traditional aqueous root beverage; modern standardized root extracts. Kavalactones modulate GABA-A receptors and ion channels, producing anxiolytic and sedative effects without classical benzodiazepine-site binding. Interaction profile: Additive sedation with CNS depressants and alcohol; possible hepatic enzyme interactions. Use caution or avoid in: Liver disease, pregnancy, breastfeeding, concurrent CNS depressants or hepatotoxic drugs.",
+  "mechanism": "Kavalactones modulate GABA-A receptors and ion channels, producing anxiolytic and sedative effects without classical benzodiazepine-site binding.",
+  "mechanismTags": [
+    "gabaergic"
+  ],
+  "activeCompounds": [
+    "kavain",
+    "dihydrokavain",
+    "methysticin",
+    "dihydromethysticin",
+    "yangonin",
+    "desmethoxyyangonin",
+    "flavokavain-a-b-c"
+  ],
+  "safetyNotes": "Rare but serious liver injury has been reported, especially with nontraditional extracts or concurrent alcohol/hepatotoxic drug use.",
+  "interactions": [
+    "Additive sedation with CNS depressants and alcohol",
+    "possible hepatic enzyme interactions."
+  ],
+  "dosage": "~250 mg/day total kavalactones upper practical limit",
+  "preparation": "Traditional aqueous root beverage; modern standardized root extracts.",
+  "region": "Indigenous to the South Pacific islands (Polynesia, Melanesia and Micronesia)."
+}
