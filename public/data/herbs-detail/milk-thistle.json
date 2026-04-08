@@ -1,0 +1,30 @@
+{
+  "name": "Milk Thistle",
+  "slug": "milk-thistle",
+  "scientificName": "Silybum marianum",
+  "summary": "Milk Thistle (Silybum marianum) is a herb monograph focused on the seed; fruit used in herbal preparations. It is associated with Native to the Mediterranean region; now naturalized worldwide. Silymarin flavonolignans exhibit antioxidant, anti-inflammatory and antifibrotic activity relevant to hepatoprotection. Generally well tolerated; mild GI side effects and occasional allergic reactions.",
+  "description": "Milk Thistle is represented here as a monograph-style entry centered on the seed; fruit. Key reported compounds include silybin A/B; isosilybin A/B; silychristin; silydianin; isosilychristin. Typical preparation forms: Seed/fruit extracts standardized to silymarin. Silymarin flavonolignans exhibit antioxidant, anti-inflammatory and antifibrotic activity relevant to hepatoprotection. Interaction profile: Possible CYP2C9/CYP3A4 interaction risk; may affect warfarin and some other drugs. Use caution or avoid in: Asteraceae allergy; caution in pregnancy/breastfeeding.",
+  "mechanism": "Silymarin flavonolignans exhibit antioxidant, anti-inflammatory and antifibrotic activity relevant to hepatoprotection.",
+  "mechanismTags": [
+    "antioxidant",
+    "anti-inflammatory",
+    "hepatoprotective"
+  ],
+  "activeCompounds": [
+    "silybin-a",
+    "silybin-b",
+    "isosilybin-a",
+    "isosilybin-b",
+    "silychristin",
+    "silydianin",
+    "isosilychristin"
+  ],
+  "safetyNotes": "Generally well tolerated; mild GI side effects and occasional allergic reactions.",
+  "interactions": [
+    "Possible CYP2C9/CYP3A4 interaction risk",
+    "may affect warfarin and some other drugs."
+  ],
+  "dosage": "250–750 mg silymarin 2–3 times daily",
+  "preparation": "Seed/fruit extracts standardized to silymarin.",
+  "region": "Native to the Mediterranean region; now naturalized worldwide."
+}
