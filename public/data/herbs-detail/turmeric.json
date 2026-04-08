@@ -66,5 +66,10 @@
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [],
-  "summary": "NCCIH: evidence is insufficient to definitively conclude benefit for most conditions; initial research suggests possible improvements in certain NAFLD measures and oral mucositis symptoms, but findings are not definitive. LiverTox: rigorous proof of efficacy in any medical condition is lacking."
+  "summary": "NCCIH: evidence is insufficient to definitively conclude benefit for most conditions; initial research suggests possible improvements in certain NAFLD measures and oral mucositis symptoms, but findings are not definitive. LiverTox: rigorous proof of efficacy in any medical condition is lacking.",
+  "scientificName": "Curcuma longa",
+  "mechanismTags": [
+    "anti-inflammatory",
+    "antioxidant"
+  ]
 }

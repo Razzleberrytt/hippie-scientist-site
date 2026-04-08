@@ -67,5 +67,9 @@
   "evidenceLevel": "",
   "relatedEntities": [],
   "relatedCompounds": [],
-  "summary": "NCCIH: evidence for sleep/anxiety and other conditions is insufficient and inconsistent; a clinical practice guideline recommended against valerian for chronic insomnia. EMA: indications include relief of mild nervous tension and sleep disorders (traditional use for mental stress and to aid sleep)."
+  "summary": "NCCIH: evidence for sleep/anxiety and other conditions is insufficient and inconsistent; a clinical practice guideline recommended against valerian for chronic insomnia. EMA: indications include relief of mild nervous tension and sleep disorders (traditional use for mental stress and to aid sleep).",
+  "scientificName": "Valeriana officinalis",
+  "mechanismTags": [
+    "gabaergic"
+  ]
 }
