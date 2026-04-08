@@ -48,6 +48,7 @@
     "og:prune": "node scripts/generate-og.mjs --prune || node scripts/generate-og-fallback.mjs --prune",
     "rss": "node scripts/generate-rss.mjs",
     "blog:daily": "node scripts/generate-daily-post.mjs",
+    "blog:publish-drafts": "node scripts/publish-draft-posts.mjs",
     "ai:posts": "node scripts/ai/generate-ai-posts.mjs",
     "gen:ai-post": "node scripts/ai-write-posts.mjs --one",
     "gen:ai-posts:10": "node scripts/ai-write-posts.mjs --count=10",
