@@ -8,15 +8,32 @@ type Entity = Record<string, unknown>
 type CsvRow = Record<string, string>
 
 const ROOT = process.cwd()
-const CSV_CANDIDATES = [
+const LEGACY_CSV_CANDIDATES = [
   '/home/oai/share/psychoactive_herbs_enriched_full.csv',
   '/home/oai/share/psychoactive_herbs_enriched_full 3.csv',
+  '/mnt/data/psychoactive_herbs_enriched_full.csv',
+  '/tmp/psychoactive_herbs_enriched_full.csv',
 ]
 
 const HERBS_PATH = path.join(ROOT, 'public/data/herbs.json')
 const COMPOUNDS_PATH = path.join(ROOT, 'public/data/compounds.json')
 
 const nowIso = new Date().toISOString()
+
+function resolveCsvCandidates() {
+  const portableCandidates = [
+    process.env.HERBS_CSV_PATH,
+    path.join(ROOT, 'data-sources', 'herbs.csv'),
+    path.join(ROOT, 'data-sources', 'psychoactive_herbs_enriched_full.csv'),
+    path.join(ROOT, 'public', 'data', 'herbs_source.csv'),
+  ]
+
+  const candidates = [...portableCandidates, ...LEGACY_CSV_CANDIDATES].filter(
+    (value): value is string => Boolean(value && value.trim())
+  )
+
+  return Array.from(new Set(candidates))
+}
 
 function norm(value: unknown) {
   return String(value ?? '').trim()
@@ -177,6 +194,7 @@ function createIncomingRow(row: CsvRow): { herb: Entity | null; compounds: Entit
 }
 
 function main() {
+  const csvCandidates = resolveCsvCandidates()
   const herbs = JSON.parse(fs.readFileSync(HERBS_PATH, 'utf8')) as Entity[]
   const compounds = JSON.parse(fs.readFileSync(COMPOUNDS_PATH, 'utf8')) as Entity[]
 
@@ -192,12 +210,15 @@ function main() {
     if (key) compoundMap.set(key, item)
   })
 
-  for (const csvPath of CSV_CANDIDATES) {
+  let ingestedAnyCsv = false
+
+  for (const csvPath of csvCandidates) {
     if (!fs.existsSync(csvPath)) {
       console.warn(`[convert-herbs-csv] missing CSV, skipping: ${csvPath}`)
       continue
     }
 
+    ingestedAnyCsv = true
     const rows = parseCsv(csvPath)
     for (const row of rows) {
       const { herb, compounds: parsedCompounds } = createIncomingRow(row)
@@ -212,6 +233,13 @@ function main() {
         compoundMap.set(key, mergeEntity(compoundMap.get(key), compound))
       }
     }
+  }
+
+  if (!ingestedAnyCsv) {
+    console.warn(
+      '[convert-herbs-csv] no source CSV found; skipping dataset merge and leaving existing public/data JSON unchanged.'
+    )
+    return
   }
 
   const mergedHerbs = Array.from(herbMap.values()).sort(entitySort)

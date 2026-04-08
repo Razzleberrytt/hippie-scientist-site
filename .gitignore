@@ -76,3 +76,9 @@ READY_TO_DEPLOY.md
 REFACTOR_SUMMARY.md
 CLEANUP_NOTES.md
 DATA_QUALITY_REPORT.md
+
+# Portable local source inputs (keep directory scaffold tracked)
+data-sources/*
+!data-sources/.gitkeep
+data-sources/*.csv
+data-sources/*.json
