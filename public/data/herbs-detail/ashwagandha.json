@@ -1,68 +1,34 @@
 {
-  "name": "ashwagandha",
-  "latin": "ashwagandha",
-  "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "Proposed mechanism: Proposed mechanisms include withanolide-mediated modulation of stress-response signaling and neuroendocrine pathways. These mechanistic findings are preliminary and do not confirm broad clinical benefit across indications.",
-  "activeCompounds": [
-    "Withaferin A"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "avoid during pregnancy and breastfeeding",
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
-  ],
-  "safetyNotes": "Short-term use (up to about 3 months) is often tolerated, but drowsiness and GI effects occur. Rare clinically apparent liver injury has been reported with commercial ashwagandha products. Avoid in pregnancy and breastfeeding; use caution with thyroid, autoimmune, or planned surgery contexts.",
-  "sources": [
-    {
-      "title": "NCCIH: Ashwagandha — Usefulness and Safety",
-      "url": "https://www.nccih.nih.gov/health/ashwagandha"
-    },
-    {
-      "title": "NIH ODS: Ashwagandha Health Professional Fact Sheet",
-      "url": "https://ods.od.nih.gov/factsheets/Ashwagandha-HealthProfessional/"
-    },
-    {
-      "title": "LiverTox: Ashwagandha",
-      "url": "https://www.ncbi.nlm.nih.gov/books/n/livertox/Ashwagandha"
-    },
-    {
-      "title": "PubChem: Withaferin A",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/265237"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Ashwagandha (Withania somnifera) is an Ayurvedic shrub used mainly for stress/sleep-related goals. Human trials suggest some preparations may help stress and insomnia symptoms, but findings vary by extract and study quality.",
-  "dosage": "Clinical studies often use standardized extracts for roughly 2–4 months, but dosing is product-specific and not interchangeable across preparations.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "May interact with sedatives, immunosuppressants, thyroid hormone therapies, anti-seizure medicines, and some diabetes/blood-pressure medicines.",
-    "Use caution in people with hormone-sensitive prostate cancer because some preparations may raise testosterone."
-  ],
-  "legalStatus": null,
-  "preparation": "Commercial products commonly use root extract, root powder, or root/leaf extracts; clinical outcomes differ by extract standardization and dose.",
-  "region": "Native/established in parts of India, Africa, and the Middle East; widely used in South Asian traditional medicine.",
-  "therapeuticUses": [
-    "traditional support for mild digestive comfort"
-  ],
-  "traditionalUse": "; nan; nan",
+  "name": "Ashwagandha",
   "slug": "ashwagandha",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "allergic rash or itching in sensitive individuals"
+  "scientificName": "Withania somnifera",
+  "summary": "Ashwagandha (Withania somnifera) is a shrub monograph focused on the root used in herbal preparations. It is associated with Native to India, the Middle East and parts of Africa and Asia. Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways. Short-term use appears safe; side effects include drowsiness and GI upset.",
+  "description": "Ashwagandha is represented here as a monograph-style entry centered on the root. Key reported compounds include withaferin A; withanolide D; withanolide A; withanoside IV; sitoindosides; alkaloids. Typical preparation forms: Root powders and standardized extracts. Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways. Interaction profile: May potentiate sedatives, antihypertensives, antidiabetics, thyroid hormones, and immunosuppressants. Use caution or avoid in: Pregnancy, breastfeeding, autoimmune disease, thyroid disorders, liver disease.",
+  "mechanism": "Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways.",
+  "mechanismTags": [
+    "adaptogen",
+    "anti-inflammatory",
+    "antioxidant",
+    "gabaergic"
   ],
-  "id": "ashwagandha",
-  "displayName": "ashwagandha",
-  "displayScientificName": "ashwagandha",
-  "scientificNormalized": "ashwagandha",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "ashwagandha entry normalized to baseline; key clinical and pharmacology fields are unresolved where repository evidence is limited."
+  "activeCompounds": [
+    "withaferin-a",
+    "withanolide-d",
+    "withanolide-a",
+    "withanoside-iv",
+    "withanone",
+    "sitoindoside-ix",
+    "sitoindoside-x"
+  ],
+  "safetyNotes": "Short-term use appears safe; side effects include drowsiness and GI upset. Rare liver injury has been reported.",
+  "interactions": [
+    "May potentiate sedatives",
+    "antihypertensives",
+    "antidiabetics",
+    "thyroid hormones",
+    "and immunosuppressants."
+  ],
+  "dosage": "300–500 mg root extract twice daily",
+  "preparation": "Root powders and standardized extracts.",
+  "region": "Native to India, the Middle East and parts of Africa and Asia."
 }

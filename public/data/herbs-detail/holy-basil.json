@@ -1,73 +1,26 @@
 {
-  "name": "holy basil",
-  "latin": "holy basil",
-  "class": null,
-  "intensity": "mild",
-  "mechanism": "Proposed mechanisms involve phytochemicals such as eugenol and triterpenes with potential anti-inflammatory, antioxidant, and neuroendocrine stress-modulating effects; robust dose-response confirmation in humans is limited.",
-  "activeCompounds": [
-    "Eugenol",
-    "Ursolic acid",
-    "Rosmarinic acid"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
-  ],
-  "contraindications": [
-    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
-    "Do not use with known allergy to this plant or related species."
-  ],
-  "safetyNotes": "Generally tolerated in short-term studies, but long-term safety data and standardized-product safety are limited. Use caution with glucose-lowering or anticoagulant therapies until interaction risk is better characterized.",
-  "sources": [
-    {
-      "title": "Ocimum tenuiflorum L. | Plants of the World Online | Kew Science",
-      "url": "https://powo.science.kew.org/taxon/453130-1"
-    },
-    {
-      "title": "The clinical efficacy and safety of tulsi in humans: A systematic review of the literature - PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29046365/"
-    },
-    {
-      "title": "Double-blinded randomized controlled trial for immunomodulatory effects of Tulsi (Ocimum sanctum Linn.) leaf extract on healthy volunteers - PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/21619917/"
-    },
-    {
-      "title": "Eugenol | CID 3314 - PubChem",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Eugenol"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Holy basil is an aromatic Lamiaceae herb used in South Asian traditional medicine and as tea/extract supplements. Commercial products vary in chemotype and standardization, which limits cross-trial comparability.",
-  "dosage": "No single evidence-based universal dose; studies use varied extract strengths and durations. Prefer standardized products and conservative titration.",
-  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "interactions": [
-    "Possible additive glucose-lowering effects with antidiabetic medications.",
-    "Potential pharmacodynamic interaction with anticoagulant/antiplatelet therapy (limited evidence; monitor clinically)."
-  ],
-  "legalStatus": "legal",
-  "preparation": "Used as leaf tea/infusion, powdered leaf, and standardized extracts in capsules or tablets.",
-  "region": "Native to tropical and subtropical Asia and widely cultivated or naturalized in other tropical regions.",
-  "therapeuticUses": [
-    "Traditional supportive use; indication depends on species part and preparation.",
-    "Evidence level varies; use only within established clinical or traditional context."
-  ],
-  "traditionalUse": "Used in ritual, dreaming or folk medicine",
+  "name": "Holy Basil",
   "slug": "holy-basil",
-  "sideEffects": [
-    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
-    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  "scientificName": "Ocimum tenuiflorum",
+  "summary": "Holy Basil (Ocimum tenuiflorum) is a herb monograph focused on the leaf; aerial parts used in herbal preparations. It is associated with India, Southeast Asia. Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways. Generally safe; possible mild GI upset.",
+  "description": "Holy Basil is represented here as a monograph-style entry centered on the leaf; aerial parts. Key reported compounds include eugenol; ursolic acid; rosmarinic acid. Typical preparation forms: Leaf extracts, teas. Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways. Interaction profile: Anticoagulants, antidiabetic drugs. Use caution or avoid in: Pregnancy (limited data).",
+  "mechanism": "Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways",
+  "mechanismTags": [
+    "adaptogen",
+    "anti-inflammatory",
+    "antioxidant"
   ],
-  "id": "holy-basil",
-  "displayName": "holy basil",
-  "displayScientificName": "holy basil",
-  "scientificNormalized": "holy basil",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "Holy basil (tulsi; usually Ocimum tenuiflorum/O. sanctum) is a traditional medicinal herb with early human trial signals for stress and some metabolic or immune-related outcomes. Current evidence is suggestive but not definitive due to small, heterogeneous studies."
+  "activeCompounds": [
+    "eugenol",
+    "ursolic-acid",
+    "rosmarinic-acid"
+  ],
+  "safetyNotes": "Generally safe; possible mild GI upset",
+  "interactions": [
+    "Anticoagulants",
+    "antidiabetic drugs"
+  ],
+  "dosage": "Eugenol or ursolic acid content",
+  "preparation": "Leaf extracts, teas",
+  "region": "India, Southeast Asia"
 }

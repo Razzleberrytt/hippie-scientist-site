@@ -1,68 +1,20 @@
 {
-  "name": "maca",
-  "latin": "maca",
-  "intensity": "mild",
-  "mechanism": "Proposed mechanism: not clearly established in Tier‑1 sources reviewed here; reviews discuss multiple hypothesized pathways and phytochemical categories, but clinical linkage remains uncertain.",
-  "activeCompounds": [],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
-    "Do not use with known allergy to this plant or related species."
-  ],
-  "safetyNotes": "safe No direct toxicity data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan.",
-  "sources": [
-    {
-      "title": "POWO: *Lepidium meyenii* Walp.",
-      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:286286-1"
-    },
-    {
-      "title": "POWO: *Lepidium peruvianum* (synonym note)",
-      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60450131-2"
-    },
-    {
-      "title": "A comprehensive review of the effects of maca (PMC, 2024)",
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10910417/"
-    },
-    {
-      "title": "Not All Maca Is Created Equal (PMC, 2024)",
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10892513/"
-    },
-    {
-      "title": "ClinicalTrials.gov: Maca Root study (NCT00568126)",
-      "url": "https://clinicaltrials.gov/study/NCT00568126"
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "description": "High-altitude Andean plant used as a nutrient-dense food and marketed as a supplement; POWO lists native range S. Peru to NW Argentina.",
-  "dosage": "No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
-  "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "Native range (POWO): S. Peru to NW Argentina.",
-  "therapeuticUses": [
-    "Traditional supportive use; indication depends on species part and preparation.",
-    "Evidence level varies; use only within established clinical or traditional context."
-  ],
-  "traditionalUse": "; nan; nan",
+  "name": "Maca",
   "slug": "maca",
-  "sideEffects": [
-    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
-    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  "scientificName": "Lepidium meyenii",
+  "summary": "Maca (Lepidium meyenii) is a root monograph focused on the root; hypocotyl used in herbal preparations. It is associated with Peru (Andes). May influence endocrine signaling and energy metabolism (unclear mechanism). Generally safe; mild GI upset possible.",
+  "description": "Maca is represented here as a monograph-style entry centered on the root; hypocotyl. Key reported compounds include macamides; macaenes; glucosinolates. Typical preparation forms: Dried root powder, extracts. May influence endocrine signaling and energy metabolism (unclear mechanism). Interaction profile: Limited data. Use caution or avoid in: Hormone-sensitive conditions (caution).",
+  "mechanism": "May influence endocrine signaling and energy metabolism (unclear mechanism)",
+  "mechanismTags": [
+    "adaptogen",
+    "hormonal"
   ],
-  "id": "maca",
-  "displayName": "maca",
-  "displayScientificName": "maca",
-  "scientificNormalized": "maca",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "Contemporary clinical literature summarized in recent reviews suggests maca research in humans is primarily focused on sexual health endpoints, and reports potential improvements in sexual desire and related outcomes; broader claimed benefits are not firmly established and require cautious interpretation."
+  "activeCompounds": [],
+  "safetyNotes": "Generally safe; mild GI upset possible",
+  "interactions": [
+    "Limited data"
+  ],
+  "dosage": null,
+  "preparation": "Dried root powder, extracts",
+  "region": "Peru (Andes)"
 }

@@ -1,98 +1,31 @@
 {
-  "name": "rhodiola rosea",
-  "latin": "Rhodiola rosea",
-  "intensity": "No direct intensity data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan. ; nan; nan",
-  "mechanism": "Proposed mechanism: standardized extracts are described in peer-reviewed literature as polyphenol‑rich; PubMed review notes salidroside and tyrosol as primary marker compounds of standardized *R. rosea* extracts, with additional phenylpropanoid markers such as rosavin frequently discussed in the literature.",
-  "activeCompounds": [
-    "Salidroside (CID 159278), tyrosol (CID 10393), rosavin (CID 9823887) are commonly referenced marker constituents for *R. rosea* extracts."
-  ],
-  "effects": [
-    "Adaptogen",
-    "mental performance enhancer",
-    "antidepressant",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "bipolar disorder",
-    "pregnancy.",
-    "avoid during pregnancy and breastfeeding unless advised by a clinician",
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
-    "discontinue if hypersensitivity or allergic symptoms occur"
-  ],
-  "safetyNotes": "Possibly safe up to 12 weeks; NCCIH lists possible side effects (dizziness/headache/insomnia/dry mouth or excessive saliva) and notes limited pregnancy/breastfeeding safety information.",
-  "sources": [
-    {
-      "title": "Rhodiola: Usefulness and Safety (NCCIH)",
-      "url": "https://www.nccih.nih.gov/health/rhodiola"
-    },
-    {
-      "title": "*Rhodiola rosea* L. (POWO)",
-      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A315148-2"
-    },
-    {
-      "title": "Rhodiola plants: Chemistry and biological activity (PubMed)",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/28911692/"
-    },
-    {
-      "title": "Salidroside (PubChem)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Salidroside"
-    },
-    {
-      "title": "Tyrosol (PubChem)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Tyrosol"
-    },
-    {
-      "title": "Rosavin (PubChem)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Rosavin"
-    },
-    {
-      "title": "Pharmacokinetic interaction between losartan and *Rhodiola rosea* in rabbits (PubMed)",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/23327826/"
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "description": "Plant used traditionally in Russia/Scandinavia/parts of Europe; promoted for mood/cognition/energy/stress; POWO reports native range as subarctic & subalpine Northern Hemisphere.",
-  "dosage": "100 400 mg day extract (standardized) No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "NCCIH reports interactions with losartan have been reported; a PubMed-indexed rabbit pharmacokinetic study suggests *R. rosea* can alter losartan pharmacokinetics (animal data—do not claim direct human interaction magnitude)."
-  ],
-  "legalStatus": "Legal globally",
-  "preparation": "Typically root/rhizome extracts marketed as \"arctic/golden root\" supplements; product standardization and marker presence can vary across commercial extracts.",
-  "region": "POWO reports \"Subarctic & Subalpine Northern Hemisphere\" as the native range.",
-  "therapeuticUses": [
-    "fatigue",
-    "depression",
-    "cognitive support.",
-    "traditional support for mild digestive comfort",
-    "traditional stress resilience support"
-  ],
-  "traditionalUse": "; nan; nan",
-  "sideEffects": [
-    "irritability",
-    "dry mouth.",
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "headache (more likely with higher intake)",
-    "allergic rash or itching in sensitive individuals"
-  ],
+  "name": "Rhodiola Rosea",
   "slug": "rhodiola-rosea",
-  "displayName": "rhodiola rosea",
-  "displayScientificName": "Rhodiola rosea",
-  "scientificNormalized": "rhodiola rosea",
-  "id": "rhodiola-rosea",
-  "aliases": [
-    "rhodiola"
+  "scientificName": "Rhodiola rosea",
+  "summary": "Rhodiola Rosea (Rhodiola rosea) is a adaptogenic root monograph focused on the root used in herbal preparations. It is associated with Europe, Asia (cold regions). Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant. Generally well tolerated; possible dizziness, dry mouth, insomnia.",
+  "description": "Rhodiola Rosea is represented here as a monograph-style entry centered on the root. Key reported compounds include rosavin; rosarin; rosin; salidroside; tyrosol. Typical preparation forms: Standardized root extracts. Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant. Interaction profile: SSRIs, MAOIs, stimulants. Use caution or avoid in: Bipolar disorder; avoid high doses before sleep.",
+  "mechanism": "Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant",
+  "mechanismTags": [
+    "adaptogen",
+    "serotonergic",
+    "dopaminergic",
+    "antioxidant"
   ],
-  "slugAliases": [
-    "rhodiola"
+  "activeCompounds": [
+    "rosavin",
+    "rosarin",
+    "rosin",
+    "salidroside",
+    "tyrosol",
+    "triandrin"
   ],
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "NCCIH concludes there isn’t enough reliable evidence to determine whether rhodiola or its components are useful for any health-related purpose; human research is often low‑to‑moderate quality."
+  "safetyNotes": "Generally well tolerated; possible dizziness, dry mouth, insomnia",
+  "interactions": [
+    "SSRIs",
+    "MAOIs",
+    "stimulants"
+  ],
+  "dosage": "Typically 3% rosavins, 1% salidroside",
+  "preparation": "Standardized root extracts",
+  "region": "Europe, Asia (cold regions)"
 }
