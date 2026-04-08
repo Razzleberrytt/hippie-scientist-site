@@ -20,7 +20,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "syringaresnol-4-o-d-apiofuranosyl-1-2-d-glucopyranoside",
     "id": "syringaresnol-4-o-d-apiofuranosyl-1-2-d-glucopyranoside",
-    "displayName": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside"
+    "displayName": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside",
+    "description": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside appears in records as a compound reported in albizia julibrissin. Current source coverage is limited and still developing."
   },
   {
     "name": "[object Object]",
@@ -47,7 +48,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "object-object",
     "id": "object-object",
-    "displayName": "[object Object]"
+    "displayName": "[object Object]",
+    "description": "[object Object] is a compound reported in kratom hybrids, nan, and related herbs. Available references are still early and incomplete."
   },
   {
     "name": "2,4,5-trimethoxybenzaldehyde",
@@ -79,7 +81,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "2-4-5-trimethoxybenzaldehyde",
     "id": "2-4-5-trimethoxybenzaldehyde",
-    "displayName": "2,4,5-trimethoxybenzaldehyde"
+    "displayName": "2,4,5-trimethoxybenzaldehyde",
+    "description": "2,4,5-trimethoxybenzaldehyde is a compound reported in acorus tatarinowii. Available references are still early and incomplete."
   },
   {
     "name": "5",
@@ -95,7 +98,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "5",
     "id": "5",
-    "displayName": "5"
+    "displayName": "5",
+    "description": "5 appears in records as a compound reported in virola theiodora. Current source coverage is limited and still developing."
   },
   {
     "name": "5-MeO-DMT",
@@ -199,7 +203,8 @@
     "slug": "5-meo-dmt",
     "id": "5-meo-dmt",
     "displayName": "5-MeO-DMT",
-    "mechanism": "Tryptamines act on serotonergic receptors, especially 5-HT2A, producing psychedelic effects."
+    "mechanism": "Tryptamines act on serotonergic receptors, especially 5-HT2A, producing psychedelic effects.",
+    "description": "5-MeO-DMT appears in records as a compound reported in nan. Current source coverage is limited and still developing."
   },
   {
     "name": "7-hydroxymitragynine",
@@ -261,7 +266,8 @@
     "slug": "7-hydroxymitragynine",
     "id": "7-hydroxymitragynine",
     "displayName": "7-hydroxymitragynine",
-    "mechanism": "Mitragynine and 7-hydroxymitragynine act as partial agonists at μ-opioid receptors with additional adrenergic and serotonergic activity."
+    "mechanism": "Mitragynine and 7-hydroxymitragynine act as partial agonists at μ-opioid receptors with additional adrenergic and serotonergic activity.",
+    "description": "7-hydroxymitragynine is a compound reported in nan. Available references are still early and incomplete."
   },
   {
     "name": "7α-hydroxybaruol",
@@ -286,7 +292,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "7-hydroxybaruol",
     "id": "7-hydroxybaruol",
-    "displayName": "7α-hydroxybaruol"
+    "displayName": "7α-hydroxybaruol",
+    "description": "7α-hydroxybaruol appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing."
   },
   {
     "name": "acetylcholine",
@@ -303,12 +310,13 @@
       "Pregnancy (caution)",
       "diuretics"
     ],
-    "category": null,
+    "category": "choline ester",
     "sources": [],
     "lastUpdated": "2026-03-21",
     "slug": "acetylcholine",
     "id": "acetylcholine",
-    "displayName": "acetylcholine"
+    "displayName": "acetylcholine",
+    "description": "acetylcholine is classified here as choline ester. This record is retained because it appears in psychoactive/traditional-use contexts, but supporting references and source-linked occurrence data are currently incomplete. Reported effects in existing notes include Mild stimulation, increased circulation."
   },
   {
     "name": "aconine",
@@ -338,7 +346,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "aconine",
     "id": "aconine",
-    "displayName": "aconine"
+    "displayName": "aconine",
+    "description": "aconine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing."
   },
   {
     "name": "aconitine",
@@ -398,7 +407,8 @@
     "slug": "aconitine",
     "id": "aconitine",
     "displayName": "aconitine",
-    "mechanism": "insufficient evidence"
+    "mechanism": "insufficient evidence",
+    "description": "aconitine is a compound reported in aconitum napellus. Available references are still early and incomplete."
   },
   {
     "name": "acorin",
@@ -429,12 +439,13 @@
       "pregnancy",
       "cancer risk (β-asarone in some strains)."
     ],
-    "category": null,
+    "category": "phenylpropanoid",
     "sources": [],
     "lastUpdated": "2026-03-21",
     "slug": "acorin",
     "id": "acorin",
-    "displayName": "acorin"
+    "displayName": "acorin",
+    "description": "acorin is classified here as phenylpropanoid. This record is retained because it appears in psychoactive/traditional-use contexts, but supporting references and source-linked occurrence data are currently incomplete. Reported effects in existing notes include Stimulation, mental clarity, mild sedation (low dose)."
   },
   {
     "name": "aervine",
@@ -462,7 +473,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "aervine",
     "id": "aervine",
-    "displayName": "aervine"
+    "displayName": "aervine",
+    "description": "aervine is a compound reported in aerva lanata. Available references are still early and incomplete."
   },
   {
     "name": "aervolanine",
@@ -490,7 +502,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "aervolanine",
     "id": "aervolanine",
-    "displayName": "aervolanine"
+    "displayName": "aervolanine",
+    "description": "aervolanine is a compound reported in aerva lanata. Available references are still early and incomplete."
   },
   {
     "name": "aervoside",
@@ -518,7 +531,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "aervoside",
     "id": "aervoside",
-    "displayName": "aervoside"
+    "displayName": "aervoside",
+    "description": "aervoside is a compound reported in aerva lanata. Available references are still early and incomplete."
   },
   {
     "name": "aescin (escin)",
@@ -548,7 +562,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "aescin-escin",
     "id": "aescin-escin",
-    "displayName": "aescin (escin)"
+    "displayName": "aescin (escin)",
+    "description": "aescin (escin) is a compound reported in aesculus hippocastanum. Available references are still early and incomplete."
   },
   {
     "name": "agrimoniin",
@@ -602,7 +617,8 @@
     "slug": "agrimoniin",
     "id": "agrimoniin",
     "displayName": "agrimoniin",
-    "mechanism": "insufficient evidence"
+    "mechanism": "insufficient evidence",
+    "description": "agrimoniin appears in records as a compound reported in agrimonia eupatoria. Current source coverage is limited and still developing."
   },
   {
     "name": "alamarckine",
@@ -633,7 +649,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "alamarckine",
     "id": "alamarckine",
-    "displayName": "alamarckine"
+    "displayName": "alamarckine",
+    "description": "alamarckine is a compound reported in alangium salvifolium. Available references are still early and incomplete."
   },
   {
     "name": "alamaridine",
@@ -664,7 +681,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "alamaridine",
     "id": "alamaridine",
-    "displayName": "alamaridine"
+    "displayName": "alamaridine",
+    "description": "alamaridine appears in records as a compound reported in alangium salvifolium. Current source coverage is limited and still developing."
   },
   {
     "name": "alamarine",
@@ -695,7 +713,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "alamarine",
     "id": "alamarine",
-    "displayName": "alamarine"
+    "displayName": "alamarine",
+    "description": "alamarine is a compound reported in alangium salvifolium. Available references are still early and incomplete."
   },
   {
     "name": "alangamide",
@@ -726,7 +745,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "alangamide",
     "id": "alangamide",
-    "displayName": "alangamide"
+    "displayName": "alangamide",
+    "description": "alangamide appears in records as a compound reported in alangium salvifolium. Current source coverage is limited and still developing."
   },
   {
     "name": "alangimaridine",
@@ -757,7 +777,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "alangimaridine",
     "id": "alangimaridine",
-    "displayName": "alangimaridine"
+    "displayName": "alangimaridine",
+    "description": "alangimaridine appears in records as a compound reported in alangium salvifolium. Current source coverage is limited and still developing."
   },
   {
     "name": "alangimarin",
@@ -788,7 +809,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "alangimarin",
     "id": "alangimarin",
-    "displayName": "alangimarin"
+    "displayName": "alangimarin",
+    "description": "alangimarin appears in records as a compound reported in alangium salvifolium. Current source coverage is limited and still developing."
   },
   {
     "name": "alangimarine",
@@ -819,7 +841,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "alangimarine",
     "id": "alangimarine",
-    "displayName": "alangimarine"
+    "displayName": "alangimarine",
+    "description": "alangimarine is a compound reported in alangium salvifolium. Available references are still early and incomplete."
   },
   {
     "name": "alangiside",
@@ -850,7 +873,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "alangiside",
     "id": "alangiside",
-    "displayName": "alangiside"
+    "displayName": "alangiside",
+    "description": "alangiside appears in records as a compound reported in alangium salvifolium. Current source coverage is limited and still developing."
   },
   {
     "name": "albiziasaponins A–E",
@@ -877,7 +901,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "albiziasaponins-a-e",
     "id": "albiziasaponins-a-e",
-    "displayName": "albiziasaponins A–E"
+    "displayName": "albiziasaponins A–E",
+    "description": "albiziasaponins A–E is a compound reported in albizia lebbeck. Available references are still early and incomplete."
   },
   {
     "name": "alchorneine",
@@ -934,7 +959,8 @@
     "slug": "alchorneine",
     "id": "alchorneine",
     "displayName": "alchorneine",
-    "mechanism": "insufficient evidence"
+    "mechanism": "insufficient evidence",
+    "description": "alchorneine is a compound reported in alchornea castaneifolia and nan. Available references are still early and incomplete."
   },
   {
     "name": "alkaloids",
@@ -1087,7 +1113,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "alkaloids",
     "id": "alkaloids",
-    "displayName": "alkaloids"
+    "displayName": "alkaloids",
+    "description": "alkaloids is a compound reported in african dream root, alchornea castaneifolia, and related herbs. Available references are still early and incomplete."
   },
   {
     "name": "alkaloids (nicotine, leucocyanidin)",
@@ -1107,11 +1134,14 @@
     "lastUpdated": "2026-03-21",
     "slug": "alkaloids-nicotine-leucocyanidin",
     "id": "alkaloids-nicotine-leucocyanidin",
-    "displayName": "alkaloids (nicotine, leucocyanidin)"
+    "displayName": "alkaloids (nicotine, leucocyanidin)",
+    "description": "alkaloids (nicotine, leucocyanidin) appears in records as a compound reported in acacia nilotica. Current source coverage is limited and still developing."
   },
   {
     "name": "alkaloids (uncharacterized)",
-    "herbs": [],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Muscle relaxation",
       "mild sedation",
@@ -1130,11 +1160,14 @@
     "lastUpdated": "2026-03-21",
     "slug": "alkaloids-uncharacterized",
     "id": "alkaloids-uncharacterized",
-    "displayName": "alkaloids (uncharacterized)"
+    "displayName": "alkaloids (uncharacterized)",
+    "description": "alkaloids (uncharacterized) appears in records as a compound reported in nan. Current source coverage is limited and still developing."
   },
   {
     "name": "alkaloids (undetermined)",
-    "herbs": [],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Color vision changes",
       "detachment",
@@ -1159,11 +1192,14 @@
     "lastUpdated": "2026-03-21",
     "slug": "alkaloids-undetermined",
     "id": "alkaloids-undetermined",
-    "displayName": "alkaloids (undetermined)"
+    "displayName": "alkaloids (undetermined)",
+    "description": "alkaloids (undetermined) appears in records as a compound reported in nan. Current source coverage is limited and still developing."
   },
   {
     "name": "alkylamides",
-    "herbs": [],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Local anesthesia",
       "salivation",
@@ -1188,7 +1224,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "alkylamides",
     "id": "alkylamides",
-    "displayName": "alkylamides"
+    "displayName": "alkylamides",
+    "description": "alkylamides is a compound reported in nan. Available references are still early and incomplete."
   },
   {
     "name": "Alpha",
@@ -1213,7 +1250,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "alpha",
     "id": "alpha",
-    "displayName": "Alpha"
+    "displayName": "Alpha",
+    "description": "Alpha is a compound reported in acorus americanus and pogostemon cablin. Available references are still early and incomplete."
   },
   {
     "name": "Alpha-asarone",
@@ -1300,7 +1338,8 @@
     "slug": "alpha-asarone",
     "id": "alpha-asarone",
     "displayName": "Alpha-asarone",
-    "mechanism": "insufficient evidence"
+    "mechanism": "insufficient evidence",
+    "description": "Alpha-asarone is a compound reported in acorus americanus, nan, and related herbs. Available references are still early and incomplete."
   },
   {
     "name": "Alpha-bulnesene",
@@ -1320,7 +1359,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "alpha-bulnesene",
     "id": "alpha-bulnesene",
-    "displayName": "Alpha-bulnesene"
+    "displayName": "Alpha-bulnesene",
+    "description": "Alpha-bulnesene is a compound reported in pogostemon cablin. Available references are still early and incomplete."
   },
   {
     "name": "Amorphigenin",
@@ -1339,7 +1379,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "amorphigenin",
     "id": "amorphigenin",
-    "displayName": "Amorphigenin"
+    "displayName": "Amorphigenin",
+    "description": "Amorphigenin appears in records as a compound reported in amorpha fruticosa. Current source coverage is limited and still developing."
   },
   {
     "name": "anabasine",
@@ -1387,7 +1428,8 @@
     "slug": "anabasine",
     "id": "anabasine",
     "displayName": "anabasine",
-    "mechanism": "Nicotine acts as an agonist at nicotinic acetylcholine receptors, increasing dopamine and norepinephrine release."
+    "mechanism": "Nicotine acts as an agonist at nicotinic acetylcholine receptors, increasing dopamine and norepinephrine release.",
+    "description": "anabasine is a compound reported in nan. Available references are still early and incomplete."
   },
   {
     "name": "Anthocyanins",
@@ -1406,7 +1448,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "anthocyanins",
     "id": "anthocyanins",
-    "displayName": "Anthocyanins"
+    "displayName": "Anthocyanins",
+    "description": "Anthocyanins appears in records as a compound reported in hibiscus sabdariffa. Current source coverage is limited and still developing."
   },
   {
     "name": "apigenin",
@@ -1494,7 +1537,8 @@
     "slug": "apigenin",
     "id": "apigenin",
     "displayName": "apigenin",
-    "mechanism": "Chamomile's CNS effects are partly attributed to apigenin, which binds at the central benzodiazepine site associated with GABA_A receptor signaling; other constituents contribute anti-inflammatory and spasmolytic activity."
+    "mechanism": "Chamomile's CNS effects are partly attributed to apigenin, which binds at the central benzodiazepine site associated with GABA_A receptor signaling; other constituents contribute anti-inflammatory and spasmolytic activity.",
+    "description": "apigenin appears in records as a compound reported in alchemilla vulgaris and nan. Current source coverage is limited and still developing."
   },
   {
     "name": "apigenin glycosides",
@@ -1523,7 +1567,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "apigenin-glycosides",
     "id": "apigenin-glycosides",
-    "displayName": "apigenin glycosides"
+    "displayName": "apigenin glycosides",
+    "description": "apigenin glycosides appears in records as a compound reported in agrimonia eupatoria. Current source coverage is limited and still developing."
   },
   {
     "name": "Aporphine",
@@ -1564,7 +1609,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "aporphine",
     "id": "aporphine",
-    "displayName": "Aporphine"
+    "displayName": "Aporphine",
+    "description": "Aporphine is a compound reported in blue lotus and nan. Available references are still early and incomplete."
   },
   {
     "name": "arbutin",
@@ -1632,7 +1678,8 @@
     "slug": "arbutin",
     "id": "arbutin",
     "displayName": "arbutin",
-    "mechanism": "insufficient evidence"
+    "mechanism": "insufficient evidence",
+    "description": "arbutin appears in records as a compound reported in adenostoma fasciculatum and nan. Current source coverage is limited and still developing."
   },
   {
     "name": "Asarone (alpha & beta)",
@@ -1650,12 +1697,13 @@
       "Similar risks to Acorus calamus",
       "avoid large doses"
     ],
-    "category": null,
+    "category": "phenylpropanoids",
     "sources": [],
     "lastUpdated": "2026-03-21",
     "slug": "asarone-alpha-beta",
     "id": "asarone-alpha-beta",
-    "displayName": "Asarone (alpha & beta)"
+    "displayName": "Asarone (alpha & beta)",
+    "description": "Asarone (alpha & beta) is classified here as phenylpropanoids. This record is retained because it appears in psychoactive/traditional-use contexts, but supporting references and source-linked occurrence data are currently incomplete. Reported effects in existing notes include Mild stimulation, focus, calm."
   },
   {
     "name": "Ascaridole",
@@ -1680,7 +1728,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "ascaridole",
     "id": "ascaridole",
-    "displayName": "Ascaridole"
+    "displayName": "Ascaridole",
+    "description": "Ascaridole appears in records as a compound reported in dysphania ambrosioides and peumus boldus. Current source coverage is limited and still developing."
   },
   {
     "name": "Astragalin",
@@ -1701,7 +1750,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "astragalin",
     "id": "astragalin",
-    "displayName": "Astragalin"
+    "displayName": "Astragalin",
+    "description": "Astragalin is a compound reported in desmodium adscendens. Available references are still early and incomplete."
   },
   {
     "name": "Atropine",
@@ -1825,11 +1875,14 @@
     "slug": "atropine",
     "id": "atropine",
     "displayName": "Atropine",
-    "mechanism": "Tropane alkaloids block muscarinic acetylcholine receptors causing central and peripheral anticholinergic effects."
+    "mechanism": "Tropane alkaloids block muscarinic acetylcholine receptors causing central and peripheral anticholinergic effects.",
+    "description": "Atropine is a compound reported in datura metel and nan. Available references are still early and incomplete."
   },
   {
     "name": "Azulene",
-    "herbs": [],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Anti-inflammatory",
       "astringent",
@@ -1846,7 +1899,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "azulene",
     "id": "azulene",
-    "displayName": "Azulene"
+    "displayName": "Azulene",
+    "description": "Azulene is a compound reported in nan. Available references are still early and incomplete."
   },
   {
     "name": "Bacosides A and B",
@@ -1865,7 +1919,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "bacosides-a-and-b",
     "id": "bacosides-a-and-b",
-    "displayName": "Bacosides A and B"
+    "displayName": "Bacosides A and B",
+    "description": "Bacosides A and B appears in records as a compound reported in bacopa monnieri. Current source coverage is limited and still developing."
   },
   {
     "name": "Baicalin",
@@ -1928,7 +1983,8 @@
     "slug": "baicalin",
     "id": "baicalin",
     "displayName": "Baicalin",
-    "mechanism": "American skullcap flavonoids are associated with anticonvulsant and anxiolytic activity; GABAergic signaling and broader neuroinhibitory effects have been proposed in preclinical work."
+    "mechanism": "American skullcap flavonoids are associated with anticonvulsant and anxiolytic activity; GABAergic signaling and broader neuroinhibitory effects have been proposed in preclinical work.",
+    "description": "Baicalin appears in records as a compound reported in nan and scutellaria lateriflora. Current source coverage is limited and still developing."
   },
   {
     "name": "benzaconine",
@@ -1958,7 +2014,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "benzaconine",
     "id": "benzaconine",
-    "displayName": "benzaconine"
+    "displayName": "benzaconine",
+    "description": "benzaconine is a compound reported in aconitum napellus. Available references are still early and incomplete."
   },
   {
     "name": "benzoic acid",
@@ -1986,7 +2043,8 @@
     "lastUpdated": "2026-03-21",
     "slug": "benzoic-acid",
     "id": "benzoic-acid",
-    "displayName": "benzoic acid"
+    "displayName": "benzoic acid",
+    "description": "benzoic acid appears in records as a compound reported in aerva lanata. Current source coverage is limited and still developing."
   },
   {
     "name": "Benzyl isothiocyanate",
