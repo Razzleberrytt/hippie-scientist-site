@@ -18,6 +18,11 @@ const CORE_STATIC_ROUTES = [
   '/learning',
   '/herbs',
   '/compounds',
+  '/downloads',
+  '/contribute',
+  '/interactions',
+  '/compare',
+  '/guides/unknown-compound-survival-guide',
   '/build',
 ]
 
@@ -32,7 +37,7 @@ const DISALLOWED_ROUTES = [
   '/temp',
   '/test',
   '/dev',
-  '/herb-index',
+  '/data-report',
 ]
 
 const CORE_ROUTE_META = new Map([
@@ -47,6 +52,11 @@ const CORE_ROUTE_META = new Map([
   ['/learning', { title: 'Learning Paths | The Hippie Scientist', description: 'Structured paths across herbs, compounds, and safety context.' }],
   ['/herbs', { title: 'Herb Database | The Hippie Scientist', description: 'Browse herb profiles, mechanisms, and safety notes.' }],
   ['/compounds', { title: 'Compound Database | The Hippie Scientist', description: 'Browse active compounds, pharmacology, and related herbs.' }],
+  ['/downloads', { title: 'Downloads | The Hippie Scientist', description: 'Download practical guides, checklists, and educational resources.' }],
+  ['/contribute', { title: 'Contribute | The Hippie Scientist', description: 'Submit feedback, corrections, and research sources to improve this project.' }],
+  ['/interactions', { title: 'Interactions | The Hippie Scientist', description: 'Explore herb and compound interaction context with safety-first framing.' }],
+  ['/compare', { title: 'Compare Herbs | The Hippie Scientist', description: 'Compare herb profiles side-by-side with evidence-aware context.' }],
+  ['/guides/unknown-compound-survival-guide', { title: 'Unknown Compound Survival Guide | The Hippie Scientist', description: 'Harm-reduction and safety-first guidance for uncertain compounds.' }],
   ['/build', { title: 'Build Blend | The Hippie Scientist', description: 'Build and evaluate herb stacks with safety-first interaction context.' }],
 ])
 
@@ -88,6 +98,11 @@ const CORE_SITEMAP_META = new Map([
   ['/blog', { priority: 0.8, changefreq: 'daily' }],
   ['/herbs', { priority: 0.9, changefreq: 'weekly' }],
   ['/compounds', { priority: 0.9, changefreq: 'weekly' }],
+  ['/downloads', { priority: 0.6, changefreq: 'monthly' }],
+  ['/contribute', { priority: 0.5, changefreq: 'monthly' }],
+  ['/interactions', { priority: 0.7, changefreq: 'weekly' }],
+  ['/compare', { priority: 0.6, changefreq: 'weekly' }],
+  ['/guides/unknown-compound-survival-guide', { priority: 0.6, changefreq: 'monthly' }],
   ['/build', { priority: 0.8, changefreq: 'weekly' }],
 ])
 
@@ -532,6 +547,7 @@ function getBlogEntries() {
   const posts = readJson('src/data/blog/posts.json')
   return dedupe(
     posts
+      .filter(post => post?.draft !== true)
       .map(post => {
         const slug = String(post?.slug || '').replace(/^\/+|\/+$/g, '')
         return slug ? `/blog/${slug}` : ''
@@ -794,7 +810,10 @@ export function getSharedRouteManifest() {
     .filter(isIndexableEntityRoute)
 
   const prerenderRoutes = approvedRoutes.filter(isIndexableEntityRoute)
-  const sitemapRoutes = approvedRoutes.filter(isIndexableEntityRoute)
+  const sitemapRoutes = approvedRoutes.filter(route => {
+    if (!isIndexableEntityRoute(route)) return false
+    return routeDirectives.get(route)?.noindex !== true
+  })
 
   return {
     approvedRoutes,

@@ -73,6 +73,7 @@ function normalizeRoutes(list) {
 
 function getBlogEntries(records) {
   return records
+    .filter(item => item?.draft !== true)
     .map(item => {
       const slug = String(item?.slug || '').trim()
       if (!slug) return null
@@ -130,7 +131,7 @@ function buildSitemapXml() {
 
   for (const route of herbRoutes) {
     sitemapMeta.set(normalizePathname(route), {
-      priority: 0.8,
+      priority: 0.7,
       changefreq: 'monthly',
     })
   }

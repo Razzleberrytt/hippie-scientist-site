@@ -13,5 +13,5 @@ Disallow: /tmp
 Disallow: /temp
 Disallow: /test
 Disallow: /dev
-Disallow: /herb-index
+Disallow: /data-report
 Sitemap: https://thehippiescientist.net/sitemap.xml
