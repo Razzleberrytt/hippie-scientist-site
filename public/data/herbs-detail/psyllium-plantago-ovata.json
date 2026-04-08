@@ -33,7 +33,9 @@
   "description": "Medicinal material is dried ripe *Plantago ovata* seeds (ispaghula seed); monograph also recognizes powdered herbal substance as a preparation form.",
   "dosage": "EMA posology: - Adolescents/adults/elderly: 8–40 g herbal substance/preparation daily in 2–3 single doses. - Children 6–12 years: 4–25 g daily in 2–3 single doses. Duration guidance: if constipation does not resolve within 3 days, consult clinician.",
   "duration": "Daily use",
-  "interactions": "EMA: take at least ½ to 1 hour before or after other medicines, due to potential delay in absorption.",
+  "interactions": [
+    "EMA: take at least ½ to 1 hour before or after other medicines, due to potential delay in absorption."
+  ],
   "legalStatus": "Legal globally",
   "preparation": "Mix with sufficient liquid (examples include water, milk, fruit juice) and swallow; maintain adequate fluid intake; avoid taking immediately before bedtime; avoid inhaling powder during preparation to reduce sensitization risk.",
   "region": "POWO lists native range as SE Spain, North Africa to India and Somalia, and SW/S Central U.S.A. to N. Mexico.",

@@ -39,7 +39,9 @@
   "description": "EMA defines the herbal substance as fragmented/cut dried aerial parts; pharmacopoeial quality includes a minimum total flavonoid content expressed as vitexin, and extracts also standardized to flavonoids (vitexin equivalents).",
   "dosage": "EMA monograph includes herbal tea 1–2 g comminuted herb in 150 mL boiling water (posology details are preparation-specific; extract/tablet/capsule regimens also exist in EMA sources).",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "NCCIH warns that taking passionflower near anesthesia/other perioperative meds may slow the nervous system too much; EMA monograph lists \"none reported,\" so interaction risk should be documented as cautionary/uncertain, with perioperative CNS depression as the main flagged concern.",
+  "interactions": [
+    "NCCIH warns that taking passionflower near anesthesia/other perioperative meds may slow the nervous system too much; EMA monograph lists \"none reported,\" so interaction risk should be documented as cautionary/uncertain, with perioperative CNS depression as the main flagged concern."
+  ],
   "legalStatus": "legal",
   "preparation": "Tea (infusion), comminuted herb and standardized extracts in solid oral dosage forms; traditional use for mild mental stress and to aid sleep.",
   "region": "POWO lists native range as Central & E. U.S.A. and Bermuda.",

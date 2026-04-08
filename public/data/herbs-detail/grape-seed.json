@@ -36,7 +36,9 @@
   "description": "Made from the seeds of wine grapes; contains proanthocyanidins described by NCCIH as having effects that might be beneficial for health-condition management.",
   "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "unresolved beyond general precaution",
+  "interactions": [
+    "unresolved beyond general precaution"
+  ],
   "legalStatus": "legal",
   "preparation": "Oral dietary supplements and topical products; NCCIH also notes limited research on mouthrinse use and topical wound-healing hypotheses.",
   "region": "POWO lists native range for *V. vinifera* as S. Central & SE Europe to Central Asia and N. Iran.",

@@ -1,0 +1,20 @@
+{
+  "runAt": "2026-04-08T00:00:00.000Z",
+  "issueCategory": "invalid-field-type",
+  "selectionCriteria": {
+    "dataset": "herb-detail",
+    "expected": "string[]",
+    "actual": "string"
+  },
+  "batchLimit": 50,
+  "issuesBefore": 27,
+  "issuesAfter": 0,
+  "issuesFixed": 27,
+  "recordsTouched": 26,
+  "fieldsTouched": [
+    "interactions",
+    "contraindications",
+    "therapeuticUses"
+  ],
+  "notes": "Converted scalar string values into single-item arrays (or empty arrays for blank strings) for herb detail list fields."
+}

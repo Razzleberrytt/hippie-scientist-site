@@ -33,7 +33,9 @@
   "description": "A flowering shrub/tree in the rose family, occurring in temperate regions; hawthorn is an umbrella term spanning multiple *Crataegus* species in commerce and traditional use.",
   "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "NCCIH suggests a possible interaction explanation in the study reporting early heart-failure progression risk; otherwise, specific interaction pairs are not established on the NCCIH page, so a cautious \"review meds\" note is appropriate.",
+  "interactions": [
+    "NCCIH suggests a possible interaction explanation in the study reporting early heart-failure progression risk; otherwise, specific interaction pairs are not established on the NCCIH page, so a cautious \"review meds\" note is appropriate."
+  ],
   "legalStatus": "legal",
   "preparation": "Typically sold as hawthorn supplements and \"tejocote root\" products; given documented substitution risk, preparation notes should emphasize verified identity.",
   "region": "Hawthorn broadly occurs in temperate regions worldwide (general term). As an example species commonly referenced in commerce, POWO lists *Crataegus monogyna* native range as Europe to Caucasus, N. Africa to Iraq.",

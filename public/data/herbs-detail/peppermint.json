@@ -40,7 +40,9 @@
   "description": "Essential oil derived from *Mentha × piperita* (a hybrid; *M. aquatica × M. spicata* per POWO). Products include enteric-coated capsules and topical preparations.",
   "dosage": "EMA monograph includes oral daily dose ranges for gastro‑resistant dosage forms (e.g., a daily dose stated as 0.24–0.48 mL for an indication in the monograph) and specifies topical use regimens for indications; dosing is preparation- and indication-specific and should be stored with preparation metadata.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "EMA: food/antacids or acid‑reducing meds (H2 blockers/PPIs) can cause early release or premature dissolution of enteric coatings; should be avoided in that context.",
+  "interactions": [
+    "EMA: food/antacids or acid‑reducing meds (H2 blockers/PPIs) can cause early release or premature dissolution of enteric coatings; should be avoided in that context."
+  ],
   "legalStatus": "legal",
   "preparation": "Enteric-coated oral capsules; topical/transdermal application for certain indications; peppermint tea from leaves is considered safe in typical consumption but large-amount long-term leaf safety is unknown.",
   "region": "POWO lists native range as Europe to Central Asia.",

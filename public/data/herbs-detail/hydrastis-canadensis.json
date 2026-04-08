@@ -31,7 +31,9 @@
   "description": "A North American plant with bright yellow rhizome; native to northeastern U.S. and southeastern Canada; wild populations have been overharvested and are limited.",
   "dosage": "About 3 g/day has been used in small research studies for short periods (longer-term safety uncertain).",
   "duration": "4–6 hours",
-  "interactions": "NCCIH reports a study in healthy adults where metformin levels decreased ~25% with goldenseal extract + metformin, potentially affecting glucose control; NCCIH also flags broad interaction potential. The controlled trial article (PMC) specifically frames goldenseal as capable of clinical drug interactions via CYP inhibition effects.",
+  "interactions": [
+    "NCCIH reports a study in healthy adults where metformin levels decreased ~25% with goldenseal extract + metformin, potentially affecting glucose control; NCCIH also flags broad interaction potential. The controlled trial article (PMC) specifically frames goldenseal as capable of clinical drug interactions via CYP inhibition effects."
+  ],
   "legalStatus": "Legal; regulated as supplement",
   "preparation": "Oral supplements (commonly rhizome/root-derived); also used as mouthwash/eyewash and topically in some contexts, though NCCIH emphasizes limited human evidence for efficacy.",
   "region": "Native range is SE Canada to N. Central & E. U.S.A.",

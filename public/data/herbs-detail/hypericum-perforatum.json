@@ -47,7 +47,9 @@
   "description": "A yellow-flowered plant long used in multiple traditional medical systems; currently promoted mainly for depressive symptoms, with additional promoted uses (menopause symptoms and topical wound uses) where evidence is limited.",
   "dosage": "Clinical studies are mostly short term (often up to about 12 weeks) with standardized extracts; dosing varies by product.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "High-risk interactions documented with cyclosporine, indinavir, oral contraceptives, warfarin, digoxin, benzodiazepines (among others); concomitant use with certain antidepressants may lead to potentially serious serotonin-related effects.",
+  "interactions": [
+    "High-risk interactions documented with cyclosporine, indinavir, oral contraceptives, warfarin, digoxin, benzodiazepines (among others); concomitant use with certain antidepressants may lead to potentially serious serotonin-related effects."
+  ],
   "legalStatus": "legal",
   "preparation": "Oral extracts/capsules/tablets and topical preparations exist; interaction risk is primarily relevant to oral use affecting systemic drug exposure.",
   "region": "Native range: Europe to China and NW Africa (POWO).",

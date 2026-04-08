@@ -41,7 +41,9 @@
   "description": "Roots and rhizomes used medicinally; sold as oral supplements; EMA also includes use as a bath additive (comminuted herb).",
   "dosage": "EMA posology examples include: dry extract 400–600 mg per dose for mild nervous tension up to 3× daily; for sleep, dosing is timed \"half to one hour before bedtime\" (with preparation-specific doses), plus multiple other preparation-specific regimens; NCCIH notes 300–600 mg daily used with apparent safety up to 6 weeks.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "EMA: none reported. NCCIH cautions against combining with alcohol or sedatives (sleep-inducing effect possible though not proven).",
+  "interactions": [
+    "EMA: none reported. NCCIH cautions against combining with alcohol or sedatives (sleep-inducing effect possible though not proven)."
+  ],
   "legalStatus": "legal",
   "preparation": "Oral extracts (dry extracts, tinctures) and comminuted herb for tea; bath additive use is included in EMA monograph.",
   "region": "Native range (POWO): Europe to NW Iran.",

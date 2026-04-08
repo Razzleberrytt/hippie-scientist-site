@@ -34,7 +34,9 @@
   "description": "A very ancient deciduous tree; in modern supplement use, leaf (usually extract) is most common form; seeds can be toxic if consumed.",
   "dosage": "240 mg/day was the dose used in the GEM trial evaluating dementia prevention (ineffective in that context).",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "NCCIH’s herb–drug interaction digest states that taking *Ginkgo biloba* with warfarin is associated with increased risk of major bleeding events; concomitant use with efavirenz is not recommended.",
+  "interactions": [
+    "NCCIH’s herb–drug interaction digest states that taking *Ginkgo biloba* with warfarin is associated with increased risk of major bleeding events; concomitant use with efavirenz is not recommended."
+  ],
   "legalStatus": "legal",
   "preparation": "Typically leaf extract supplements; crude plant/seeds are not equivalent and seeds carry toxicity risk.",
   "region": "POWO lists native range as China (Zhejiang).",
