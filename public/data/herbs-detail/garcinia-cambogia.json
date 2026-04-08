@@ -30,7 +30,9 @@
   "description": "A tree native to India / South Asia; preparations in supplements commonly emphasize the fruit rind, which contains hydroxycitric acid (HCA). Historically used as a food preservative and in folk medicine (e.g., inflammation and stomach complaints).",
   "dosage": "No direct dosage data. Contextual inference: Appetite suppressant; metabolism enhancer. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Appetite suppressant; metabolism enhancer. No direct region data. Contextual inference: Appetite suppressant; metabolism enhancer. none.; nan.",
   "duration": "3–6 hours",
-  "interactions": "Reported interactions include concerns with drugs affecting the liver and serotonergic drugs; theoretical interaction potential is also noted, so medication review is advised.",
+  "interactions": [
+    "Reported interactions include concerns with drugs affecting the liver and serotonergic drugs; theoretical interaction potential is also noted, so medication review is advised."
+  ],
   "legalStatus": "Legal but subject to regulatory review",
   "preparation": "Commonly sold as extracts of the fruit rind and multi-ingredient weight-loss products containing garcinia extract/HCA.",
   "region": "Native range is Western India (accepted species *G. gummi-gutta*).",

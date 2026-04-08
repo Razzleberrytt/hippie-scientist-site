@@ -29,7 +29,9 @@
   "description": "EMA monograph covers senna leaf preparations standardized by hydroxyanthracene derivatives calculated as sennoside B, with oral use dosing frameworks.",
   "dosage": "Adolescents >12, adults, elderly: single dose equivalent to 10–30 mg hydroxyanthracene derivatives (as sennoside B) once daily at night; lowest effective dose recommended; not to be used more than 1 week.",
   "duration": "1 bowel movement",
-  "interactions": "Hypokalaemia from long-term laxative abuse can potentiate cardiac glycosides and interact with antiarrhythmics; concomitant use with diuretics, adrenocorticosteroids, and liquorice root may enhance potassium loss.",
+  "interactions": [
+    "Hypokalaemia from long-term laxative abuse can potentiate cardiac glycosides and interact with antiarrhythmics; concomitant use with diuretics, adrenocorticosteroids, and liquorice root may enhance potassium loss."
+  ],
   "legalStatus": "Legal in over-the-counter laxatives",
   "preparation": "Oral dosage forms allowing titration; taken at night for next-day effect (per monograph posology presentation).",
   "region": "Native range (POWO): Sahara & Sahel to Indian Subcontinent.",

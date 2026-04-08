@@ -61,7 +61,9 @@
   "region": "Native range reported for Urtica dioica includes entity[\"place\",\"Europe\",\"continent\"] to Siberia and W. China, plus NW. Africa; Urtica urens native range includes Europe to Siberia and Himalaya and parts of tropical Africa to the Arabian Peninsula.",
   "preparation": "Oral use as infusion (\"herbal tea\") or standardized extracts in solid/liquid dosage forms.",
   "legalStatus": "legal",
-  "interactions": "\"None reported\" in the EMA monograph.",
+  "interactions": [
+    "\"None reported\" in the EMA monograph."
+  ],
   "description": "Herbal substance/preparations include comminuted root and multiple dry/liquid extracts (various DERs and ethanol percentages) intended for oral use.",
   "sideEffects": [
     "contact urticaria from fresh plant hairs",

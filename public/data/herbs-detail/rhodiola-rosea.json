@@ -57,7 +57,9 @@
   "description": "Plant used traditionally in Russia/Scandinavia/parts of Europe; promoted for mood/cognition/energy/stress; POWO reports native range as subarctic & subalpine Northern Hemisphere.",
   "dosage": "100 400 mg day extract (standardized) No direct dosage data. Contextual inference: nan.. No direct mechanismofaction data. Contextual inference: nan.. nan. No direct effects data. Contextual inference: nan. nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "NCCIH reports interactions with losartan have been reported; a PubMed-indexed rabbit pharmacokinetic study suggests *R. rosea* can alter losartan pharmacokinetics (animal data—do not claim direct human interaction magnitude).",
+  "interactions": [
+    "NCCIH reports interactions with losartan have been reported; a PubMed-indexed rabbit pharmacokinetic study suggests *R. rosea* can alter losartan pharmacokinetics (animal data—do not claim direct human interaction magnitude)."
+  ],
   "legalStatus": "Legal globally",
   "preparation": "Typically root/rhizome extracts marketed as \"arctic/golden root\" supplements; product standardization and marker presence can vary across commercial extracts.",
   "region": "POWO reports \"Subarctic & Subalpine Northern Hemisphere\" as the native range.",

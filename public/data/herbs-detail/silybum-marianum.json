@@ -35,7 +35,9 @@
   "description": "NCCIH identifies silymarin (mixture of compounds) as the main constituent of milk thistle extract; EMA monograph specifies multiple preparation types (tea, powdered herb, various dry/soft extracts with DER and solvents).",
   "dosage": "EMA posology (adults/elderly) includes: tea 3–5 g in 100 mL boiling water 2–3×/day; powdered herb 300–600 mg 2–3×/day (daily up to 1800 mg); multiple extract-specific single-dose ranges by DER/solvent.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "EMA: none reported. NCCIH advises consulting clinicians because herb–medicine interactions can occur but does not provide a definitive interaction list for milk thistle in the fact sheet.",
+  "interactions": [
+    "EMA: none reported. NCCIH advises consulting clinicians because herb–medicine interactions can occur but does not provide a definitive interaction list for milk thistle in the fact sheet."
+  ],
   "legalStatus": "legal",
   "preparation": "Tea (comminuted fruit), powdered substance, dry extracts (multiple solvents/DER ranges), soft extract; oral use.",
   "region": "Native range (POWO): Macaronesia, Mediterranean to Central Asia and India, Ethiopia.",

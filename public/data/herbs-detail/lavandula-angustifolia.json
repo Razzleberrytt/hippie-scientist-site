@@ -41,7 +41,9 @@
   "description": "Aromatic plant native to the Mediterranean region; promoted for oral supplement use, aromatherapy, and topical use. POWO lists native range in parts of southern Europe (NE Spain to Italy).",
   "dosage": "EMA (lavender oil): oral daily dose 20–80 mg; bath additive 1–3 g per full bath once daily; avoid in children under 12.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "EMA: none reported. NCCIH recommends clinician discussion for supplement-drug interactions generally; no specific lavender interactions are established in the Tier‑1 sources reviewed.",
+  "interactions": [
+    "EMA: none reported. NCCIH recommends clinician discussion for supplement-drug interactions generally; no specific lavender interactions are established in the Tier‑1 sources reviewed."
+  ],
   "legalStatus": "Legal globally",
   "preparation": "Essential oil obtained by steam distillation from flowering tops; used orally (liquid dosage form) and as bath additive.",
   "region": "Native Mediterranean range; POWO: NE Spain to Italy.",

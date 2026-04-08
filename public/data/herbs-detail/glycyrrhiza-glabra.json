@@ -33,7 +33,9 @@
   "description": "Perennial herb cultivated widely; many U.S. \"licorice\" products may not contain true licorice; licorice contains glycyrrhizin/glycyrrhizic acid associated with serious adverse effects at higher or prolonged intakes.",
   "dosage": "EMA posology (adults/elderly): - Digestive indication: tea 1.5–2 g in 150 mL boiling water (infusion) 2–4×/day or decoction 2–4×/day; soft extract (DER 1:0.4–0.5) 32 mg 2–3×/day (max 160 mg/day). - Cough/cold indication: tea 1.5 g in 150 mL 2×/day (infusion or decoction); soft extract (DER 3:1) 1.2–1.5 g 3–4×/day. Duration limits and age restrictions apply (under 18 not recommended).",
   "duration": "4–6 hours",
-  "interactions": "EMA: may counteract antihypertensive medications; not to be used with diuretics, cardiac glycosides, corticosteroids, stimulant laxatives, or other meds aggravating electrolyte imbalance. NCCIH notes interactions with corticosteroids have been reported.",
+  "interactions": [
+    "EMA: may counteract antihypertensive medications; not to be used with diuretics, cardiac glycosides, corticosteroids, stimulant laxatives, or other meds aggravating electrolyte imbalance. NCCIH notes interactions with corticosteroids have been reported."
+  ],
   "legalStatus": "Legal with warnings for chronic use",
   "preparation": "Comminuted root as herbal tea (infusion/decoction); soft extracts and corresponding dry extracts; oral use.",
   "region": "*Glycyrrhiza glabra* native range (POWO): Central Mediterranean to Mongolia and Pakistan; cultivated/introduced elsewhere (NCCIH characterizes cultivation throughout Europe, Asia, Middle East).",

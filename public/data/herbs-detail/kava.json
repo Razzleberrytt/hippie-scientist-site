@@ -38,7 +38,9 @@
   "description": "Traditionally prepared as a beverage; U.S. products sold as supplements, while some countries regulate as drugs/herbal medicines. POWO lists native range Santa Cruz Islands to Vanuatu.",
   "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "Avoid co-use with sedatives and alcohol (sedation risk); in vitro CYP inhibition suggests potential for drug interactions, but well-designed clinical interaction studies are limited.",
+  "interactions": [
+    "Avoid co-use with sedatives and alcohol (sedation risk); in vitro CYP inhibition suggests potential for drug interactions, but well-designed clinical interaction studies are limited."
+  ],
   "legalStatus": "legal",
   "preparation": "Traditional aqueous beverages; supplement products and extracts (including alcohol/acetone extracts referenced historically in hepatotoxicity investigations).",
   "region": "Native range (POWO): Santa Cruz Islands to Vanuatu.",

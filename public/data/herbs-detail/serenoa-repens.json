@@ -28,7 +28,9 @@
   "description": "A small tree/palm native to the West Indies and the southeast coast of North America; medicinal use centers on the berries (extracts sold as dietary supplements).",
   "dosage": "Trial dosing context (not a recommended dose): a large randomized trial tested saw palmetto extract up to 3× the standard daily dose (320 mg/day) without benefit over placebo for BPH symptoms.",
   "duration": "Chronic",
-  "interactions": "NCCIH Clinical Digest notes saw palmetto has not been shown to interact with medications (evidence base largely from studies in men).",
+  "interactions": [
+    "NCCIH Clinical Digest notes saw palmetto has not been shown to interact with medications (evidence base largely from studies in men)."
+  ],
   "legalStatus": "Legal globally",
   "preparation": "Oral berry extracts (including hexane-extracted products in some trials) marketed as dietary supplements for urinary symptoms and other uses.",
   "region": "Native range: SE United States (POWO).",

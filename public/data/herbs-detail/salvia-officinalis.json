@@ -40,7 +40,9 @@
   "description": "EMA monograph defines multiple preparations (comminuted leaf for tea/infusion; dry and liquid extracts; tincture; oromucosal and cutaneous forms).",
   "dosage": "EMA provides preparation- and indication-specific regimens, including: - Dyspeptic complaints: tea (e.g., 1–2 g in 150 mL boiling water) and extract/tincture dosing; - Excessive sweating: tea (2 g in 150 mL) and extract dosing; - Oromucosal inflammation: infusion gargle regimens and extract gel dosing; - Minor skin inflammations: topical infusion applications 2–4x daily.",
   "duration": "4–6 hours",
-  "interactions": "EMA: none reported.",
+  "interactions": [
+    "EMA: none reported."
+  ],
   "legalStatus": "Legal worldwide",
   "preparation": "Oral (tea/extract/tincture), oromucosal (gargle/gel), and cutaneous (topical infusion) routes depending on indication.",
   "region": "Native range (POWO): SW Germany to S Europe (with additional subspecies distribution detail available).",

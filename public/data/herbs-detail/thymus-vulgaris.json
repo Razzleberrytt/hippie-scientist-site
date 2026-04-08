@@ -36,7 +36,9 @@
   "description": "EMA monograph covers multiple liquid/dry extracts and comminuted herb as herbal tea, all for oral use.",
   "dosage": "EMA provides multiple preparation-specific regimens; examples include liquid extracts (e.g., DER 1:1 single dose 1–2 mL, 3–4 times daily) and other extracts/tinctures with variable dosing (max daily doses depend on preparation).",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "EMA: none reported.",
+  "interactions": [
+    "EMA: none reported."
+  ],
   "legalStatus": "legal",
   "preparation": "Oral use as herbal tea (comminuted herb) and as liquid/dry extracts/tinctures; ethanol-containing tinctures/extracts require appropriate labeling guidance.",
   "region": "Native range of *Thymus vulgaris* (POWO): SW Europe and SE Italy.",

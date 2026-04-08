@@ -15,7 +15,9 @@
     "nan..",
     "nan."
   ],
-  "contraindications": "Heart conditions, pregnancy, anxiety disorders",
+  "contraindications": [
+    "Heart conditions, pregnancy, anxiety disorders"
+  ],
   "safetyNotes": "Safety profile is expected to track caffeine exposure: possible insomnia, palpitations, anxiety, reflux, or tremor with higher intake. Use caution in pregnancy, arrhythmia risk, and alongside other stimulant sources.",
   "sources": [
     {
@@ -45,7 +47,9 @@
   "legalStatus": "legal",
   "preparation": "Typically prepared as roasted or unroasted leaf infusion (yaupon tea); commercial products include loose-leaf and bagged teas.",
   "region": "Native to the southeastern United States and adjoining regions of North America.",
-  "therapeuticUses": "Native American ceremonial drink for stimulation and purification",
+  "therapeuticUses": [
+    "Native American ceremonial drink for stimulation and purification"
+  ],
   "traditionalUse": "; nan; nan",
   "slug": "ilex-vomitoria",
   "id": "ilex-vomitoria",

@@ -43,7 +43,9 @@
   "description": "Green, black, and oolong teas come from *Camellia sinensis* but differ by processing; NCCIH states green tea leaves are steamed/pan-fried/dried and not fermented. Tea cultivation originated in China thousands of years ago and has health-use history.",
   "dosage": "unresolved for oral supplement dosing; FDA-approved sinecatechins 15% ointment is applied three times daily, but that is topical drug dosing, not supplement dosing.",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": "NCCIH: high-dose green tea reduces nadolol blood levels and green tea extract reduces atorvastatin blood levels; additional interaction with raloxifene described. NCCIH herb–drug interaction digest reiterates nadolol and atorvastatin effects.",
+  "interactions": [
+    "NCCIH: high-dose green tea reduces nadolol blood levels and green tea extract reduces atorvastatin blood levels; additional interaction with raloxifene described. NCCIH herb–drug interaction digest reiterates nadolol and atorvastatin effects."
+  ],
   "legalStatus": "Legal",
   "preparation": "Beverage (leaf infusion) and dietary supplements (extracts); processing differs from black/oolong tea as described by NCCIH.",
   "region": "POWO lists native range as E. Himalaya to S. China and N. Indo-China, Hainan.",

@@ -31,7 +31,9 @@
   "description": "Dried ripe \"cone berry\" of *J. communis* containing essential oil (Ph. Eur. specification described in the EMA assessment report); adulteration can occur with fruits of other *Juniperus* species.",
   "dosage": "EMA posology (adults/elderly): infusion 2.0–2.5 g in 150 mL boiling water, 1–3×/day (urinary flushing) or 1–4×/day (digestive); liquid extract (1:1) 2–4 mL 3×/day; tincture (1:5) 1–2 mL 3×/day; soft extract 0.57 g once daily (per monograph preparations).",
   "duration": "4–6 hours",
-  "interactions": "EMA monograph: \"none reported.\" EMA assessment report notes a single case report (conference abstract) of decreased INR in a patient on phenprocoumon during intake of juniper cone berries—clinical significance uncertain.",
+  "interactions": [
+    "EMA monograph: \"none reported.\" EMA assessment report notes a single case report (conference abstract) of decreased INR in a patient on phenprocoumon during intake of juniper cone berries—clinical significance uncertain."
+  ],
   "legalStatus": "Legal globally",
   "preparation": "Comminuted cone berry as herbal tea/infusion; liquid extract (DER 1:1, ethanol 25%); tincture (1:5, ethanol 45%); soft extract (water).",
   "region": "Native range: subarctic and temperate Northern Hemisphere (POWO).",
