@@ -1,9 +1,16 @@
 {
   "name": "Caffeine",
   "herbs": [
-    "nan",
-    "yerba mate",
-    "camellia sinensis"
+    "camellia-sinensis",
+    "coffea-arabica",
+    "coffee",
+    "guarana",
+    "ilex-guayusa",
+    "ilex-paraguariensis",
+    "paullinia-cupana",
+    "paullinia-pinnata",
+    "theobroma-bicolor",
+    "theobroma-cacao"
   ],
   "effects": [
     "Mental alertness",
@@ -48,7 +55,32 @@
     "stimulant sensitivity"
   ],
   "category": null,
-  "sources": [],
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Coffea%20arabica | https://plants.sc.egov.usda.gov/home/search?query=Ilex%20guayusa | https://plants.sc.egov.usda.gov/home/search?query=Ilex%20paraguariensis | https://plants.sc.egov.usda.gov/home/search?query=Paullinia%20cupana | https://plants.sc.egov.usda.gov/home/search?query=Paullinia%20pinnata | https://plants.sc.egov.usda.gov/home/search?query=Theobroma%20bicolor | https://plants.sc.egov.usda.gov/home/search?query=Theobroma%20cacao | https://plants.sc.egov.usda.gov/home/search?query=camellia%20sinensis | https://plants.sc.egov.usda.gov/home/search?query=coffee | https://plants.sc.egov.usda.gov/home/search?query=guarana | https://plants.sc.egov.usda.gov/home/search?query=yerba%20mate | https://pubchem.ncbi.nlm.nih.gov/#query=caffeine"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "caffeine",
   "id": "caffeine",
@@ -63,5 +95,6 @@
     "nan",
     "yerba-mate",
     "camellia-sinensis"
-  ]
+  ],
+  "mechanism": "Coffee's stimulant effects are driven primarily by caffeine, which acts as a nonselective adenosine receptor antagonist; chlorogenic acids and diterpenes contribute additional antioxidant and metabolic effects."
 }

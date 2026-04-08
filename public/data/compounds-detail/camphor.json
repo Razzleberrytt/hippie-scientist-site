@@ -44,8 +44,24 @@
   "category": null,
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Artemisia%20herba-alba | https://plants.sc.egov.usda.gov/home/search?query=Artemisia%20judaica | https://plants.sc.egov.usda.gov/home/search?query=Artemisia%20vulgaris | https://pubchem.ncbi.nlm.nih.gov/#query=camphor"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
     }
   ],
   "lastUpdated": "2026-03-21",
@@ -63,5 +79,6 @@
     "artemisia-abrotanum",
     "artemisia-ludoviciana",
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

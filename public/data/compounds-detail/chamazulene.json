@@ -1,13 +1,14 @@
 {
   "name": "Chamazulene",
   "herbs": [
-    "nan"
+    "matricaria-chamomilla"
   ],
   "effects": [
-    "Anti-inflammatory",
-    "astringent",
-    "digestive aid",
-    "hemostatic"
+    "gaba_a_modulation",
+    "multi-target signaling modulation",
+    "gabaergic_modulation",
+    "general or unknown targets",
+    "inflammatory_pathway_modulation"
   ],
   "contraindications": [
     "Pregnancy",
@@ -15,7 +16,32 @@
     "bleeding disorders"
   ],
   "category": null,
-  "sources": [],
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Matricaria%20chamomilla | https://plants.sc.egov.usda.gov/home/search?query=chamomile | https://pubchem.ncbi.nlm.nih.gov/#query=chamazulene"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "chamazulene",
   "id": "chamazulene",
@@ -28,5 +54,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "Chamomile's CNS effects are partly attributed to apigenin, which binds at the central benzodiazepine site associated with GABA_A receptor signaling; other constituents contribute anti-inflammatory and spasmolytic activity."
 }

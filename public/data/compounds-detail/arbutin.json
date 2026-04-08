@@ -28,8 +28,28 @@
   "category": null,
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Chimaphila%20umbellata | https://plants.sc.egov.usda.gov/home/search?query=turnera%20diffusa | https://pubchem.ncbi.nlm.nih.gov/#query=arbutin"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
     }
   ],
   "lastUpdated": "2026-03-21",
@@ -45,5 +65,6 @@
   "linkedHerbs": [
     "adenostoma-fasciculatum",
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

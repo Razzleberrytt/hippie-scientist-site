@@ -4,9 +4,9 @@
     "nan"
   ],
   "effects": [
-    "Stimulation",
-    "mood elevation",
-    "alertness"
+    "muscarinic receptor interaction",
+    "cholinergic_modulation",
+    "dopaminergic_modulation"
   ],
   "contraindications": [
     "Heart disease",
@@ -14,7 +14,24 @@
     "epilepsy"
   ],
   "category": null,
-  "sources": [],
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=nicotiana%20rustica | https://pubchem.ncbi.nlm.nih.gov/#query=anabasine"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "anabasine",
   "id": "anabasine",
@@ -27,5 +44,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "Nicotine acts as an agonist at nicotinic acetylcholine receptors, increasing dopamine and norepinephrine release."
 }

@@ -1,8 +1,15 @@
 {
   "name": "Atropine",
   "herbs": [
-    "datura metel",
-    "nan"
+    "atropa-belladonna",
+    "brugmansia",
+    "brugmansia-sanguinea",
+    "brugmansia-suaveolens",
+    "datura-ferox",
+    "datura-stramonium",
+    "datura-wrightii",
+    "mandragora-officinarum",
+    "solandra-maxima"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
@@ -43,7 +50,32 @@
     "Heart conditions"
   ],
   "category": null,
-  "sources": [],
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Atropa%20belladonna | https://plants.sc.egov.usda.gov/home/search?query=Brugmansia%20sanguinea | https://plants.sc.egov.usda.gov/home/search?query=Datura%20ferox | https://plants.sc.egov.usda.gov/home/search?query=Datura%20stramonium | https://plants.sc.egov.usda.gov/home/search?query=Datura%20wrightii | https://plants.sc.egov.usda.gov/home/search?query=Mandragora%20officinarum | https://plants.sc.egov.usda.gov/home/search?query=Solandra%20maxima | https://plants.sc.egov.usda.gov/home/search?query=brugmansia | https://plants.sc.egov.usda.gov/home/search?query=brugmansia%20suaveolens | https://plants.sc.egov.usda.gov/home/search?query=mandrake | https://pubchem.ncbi.nlm.nih.gov/#query=atropine"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "atropine",
   "id": "atropine",
@@ -57,5 +89,6 @@
   "linkedHerbs": [
     "datura-metel",
     "nan"
-  ]
+  ],
+  "mechanism": "Tropane alkaloids block muscarinic acetylcholine receptors causing central and peripheral anticholinergic effects."
 }

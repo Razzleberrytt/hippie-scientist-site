@@ -6,9 +6,29 @@
   "effects": [
     "No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness."
   ],
-  "contraindications": [],
+  "contraindications": [
+    "low",
+    "no well-documented interactions"
+  ],
   "category": null,
-  "sources": [],
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=carica%20papaya | https://plants.sc.egov.usda.gov/home/search?query=tropaeolum%20majus | https://pubchem.ncbi.nlm.nih.gov/#query=benzyl%20isothiocyanate"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "benzyl-isothiocyanate",
   "id": "benzyl-isothiocyanate",
@@ -21,5 +41,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "tropaeolum-majus"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }
