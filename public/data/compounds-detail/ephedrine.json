@@ -1,40 +1,43 @@
 {
   "name": "ephedrine",
   "herbs": [
-    "aconitum napellus",
-    "nan"
+    "ephedra",
+    "ephedra-sinica"
   ],
   "effects": [
-    "Potent analgesic and anti-inflammatory",
-    "extremely toxic",
-    "Potent analgesic and anti",
-    "inflammatory",
-    "Increased energy",
-    "focus",
-    "thermogenesis",
-    "alertness",
-    "bronchodilation",
-    "Stimulant",
-    "anti-inflammatory",
-    "traditionally used for asthma and weight loss"
+    "multi-target signaling modulation",
+    "dopaminergic_modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "Highly toxic",
-    "ingestion can cause severe arrhythmias",
-    "paralysis and death",
-    "avoid internal use",
-    "handling requires caution.",
-    "Hypertension",
-    "cardiac conditions",
-    "MAOIs",
-    "heart conditions",
-    "pregnancy"
+    "low",
+    "stimulants, beta-blockers, maois."
   ],
-  "category": null,
+  "category": "other",
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Ephedra%20sinica | https://plants.sc.egov.usda.gov/home/search?query=ephedra%20sinica | https://pubchem.ncbi.nlm.nih.gov/#query=ephedrine"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
     }
   ],
   "lastUpdated": "2026-03-21",
@@ -50,5 +53,6 @@
   "linkedHerbs": [
     "aconitum-napellus",
     "nan"
-  ]
+  ],
+  "mechanism": "Ephedrine alkaloids act as mixed sympathomimetics, directly stimulating alpha- and beta-adrenergic receptors and indirectly increasing synaptic norepinephrine."
 }

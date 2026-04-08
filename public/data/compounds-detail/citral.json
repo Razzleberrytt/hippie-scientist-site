@@ -1,26 +1,54 @@
 {
-  "name": "Citral",
+  "name": "citral",
   "herbs": [
-    "aloysia citrodora",
-    "nan"
+    "lemon-balm"
   ],
   "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan.",
-    "Mild sedation",
-    "relaxation",
-    "antispasmodic",
-    "Mild sedative",
-    "carminative"
+    "gaba_a_modulation",
+    "multi-target signaling modulation",
+    "TNF-a reduction",
+    "TRPM3 modulation",
+    "TRP_M8 modulation",
+    "TRPV1 modulation",
+    "gabaergic_modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "Pregnancy",
-    "sedation-sensitive individuals"
+    "Irritation/sensitization potential is the main safety watchout.",
+    "Potential additive irritation with other pungent/counterirritant agents",
+    "no strong clinical DDI retained in this pass."
   ],
-  "category": null,
-  "sources": [],
+  "category": "monoterpenoid aldehyde",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cymbopogon%20citratus | https://plants.sc.egov.usda.gov/home/search?query=Lippia%20alba | https://plants.sc.egov.usda.gov/home/search?query=Melissa%20Officinalis | https://plants.sc.egov.usda.gov/home/search?query=lemon%20balm | https://pmc.ncbi.nlm.nih.gov/articles/PMC5339496/ | https://pmc.ncbi.nlm.nih.gov/articles/PMC9489894/ | https://pubchem.ncbi.nlm.nih.gov/#query=citral"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    },
+    {
+      "title": "Workbook source workbook",
+      "note": "precision_monographs_sprint3.xlsx"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "citral",
   "id": "citral",
@@ -34,5 +62,6 @@
   "linkedHerbs": [
     "aloysia-citrodora",
     "nan"
-  ]
+  ],
+  "mechanism": "Preclinical work supports TRP-channel-linked nociception modulation and anti-inflammatory cytokine reduction."
 }

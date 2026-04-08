@@ -1,22 +1,35 @@
 {
-  "name": "Histamine",
+  "name": "histamine",
   "herbs": [
-    "nan"
+    "urtica-dioica"
   ],
   "effects": [
-    "Mild stimulation",
-    "increased circulation",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "multi-target signaling modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "Pregnancy (caution)",
-    "diuretics"
+    "low",
+    "no well-documented interactions"
   ],
-  "category": null,
-  "sources": [],
+  "category": "lignans; flavonoids",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=urtica%20dioica | https://pubchem.ncbi.nlm.nih.gov/#query=histamine"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "histamine",
   "id": "histamine",
@@ -29,5 +42,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

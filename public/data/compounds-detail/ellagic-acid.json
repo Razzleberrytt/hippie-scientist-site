@@ -1,25 +1,48 @@
 {
   "name": "ellagic acid",
   "herbs": [
-    "agrimonia eupatoria"
+    "punica-granatum",
+    "vachellia-nilotica"
   ],
   "effects": [
-    "Astringent",
-    "anti-inflammatory",
-    "digestive tonic",
-    "anti",
-    "inflammatory"
+    "multi-target signaling modulation",
+    "NF-kB modulation",
+    "general or unknown targets",
+    "oxidative stress pathways"
   ],
   "contraindications": [
-    "Generally safe when used as tea",
-    "due to tannins may cause constipation or reduce absorption of minerals",
-    "avoid large doses during pregnancy."
+    "low",
+    "Anticoagulants (possible \u2191 bleeding risk)"
   ],
-  "category": null,
+  "category": "polyphenol",
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Punica%20granatum | https://plants.sc.egov.usda.gov/home/search?query=acacia%20nilotica | https://pubchem.ncbi.nlm.nih.gov/#query=ellagic%20acid"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    },
+    {
+      "title": "Workbook source workbook",
+      "note": "master_monographs_v3.xlsx"
     }
   ],
   "lastUpdated": "2026-03-21",
@@ -34,5 +57,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "agrimonia-eupatoria"
-  ]
+  ],
+  "mechanism": "Antioxidant and anti-inflammatory signaling"
 }

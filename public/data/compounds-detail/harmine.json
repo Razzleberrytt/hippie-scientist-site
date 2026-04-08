@@ -1,43 +1,46 @@
 {
   "name": "harmine",
   "herbs": [
-    "nan",
-    "banisteriopsis caapi"
+    "banisteriopsis-caapi",
+    "peganum-harmala"
   ],
   "effects": [
-    "Altered perception",
-    "dream intensification",
-    "nausea",
-    "Mild euphoria",
-    "altered perception",
-    "potentiation of DMT",
-    "MAOI activity",
-    "altered consciousness",
-    "dream enhancement",
-    "MAO inhibitor",
-    "antispasmodic",
-    "psychoactive",
-    "Dreamlike visions",
-    "introspection",
-    "emotional release",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "multi-target signaling modulation",
+    "general or unknown targets",
+    "monoamine_oxidase_inhibition",
+    "serotonergic_5HT2A_agonism"
   ],
   "contraindications": [
-    "Avoid with SSRIs",
-    "stimulants",
-    "tyramine-rich foods",
-    "Antidepressants",
-    "SSRIs",
-    "pregnancy",
-    "MAOIs",
-    "liver issues",
-    "psychiatric disorders"
+    "low",
+    "no well-documented interactions"
   ],
-  "category": null,
-  "sources": [],
+  "category": "other",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Peganum%20harmala | https://plants.sc.egov.usda.gov/home/search?query=banisteriopsis%20caapi | https://pubchem.ncbi.nlm.nih.gov/#query=harmine"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "harmine",
   "id": "harmine",
@@ -51,5 +54,6 @@
   "linkedHerbs": [
     "nan",
     "banisteriopsis-caapi"
-  ]
+  ],
+  "mechanism": "Beta-carboline alkaloids act as reversible MAO-A inhibitors, allowing oral activity of DMT and modulating serotonergic signaling."
 }

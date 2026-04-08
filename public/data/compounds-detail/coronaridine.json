@@ -1,26 +1,39 @@
 {
   "name": "coronaridine",
   "herbs": [
-    "nan"
+    "tabernaemontana-divaricata"
   ],
   "effects": [
-    "Altered perception",
-    "stimulation",
-    "euphoria",
-    "potential visionary states",
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
+    "multi-target signaling modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "Pregnancy",
-    "cardiovascular conditions",
-    "MAOI use"
+    "low",
+    "no well-documented interactions"
   ],
-  "category": null,
-  "sources": [],
+  "category": "indole alkaloids",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Tabernaemontana%20divaricata | https://pubchem.ncbi.nlm.nih.gov/#query=coronaridine"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "coronaridine",
   "id": "coronaridine",
@@ -33,5 +46,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

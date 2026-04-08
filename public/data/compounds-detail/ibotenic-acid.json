@@ -1,28 +1,46 @@
 {
   "name": "ibotenic acid",
   "herbs": [
-    "nan",
-    "amanita muscaria"
+    "amanita-muscaria",
+    "amanita-pantherina"
   ],
   "effects": [
-    "Muscle jerks",
-    "euphoria",
-    "confusion",
-    "dream-like states",
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine",
-    "Psychoactive and deliriant",
-    "contains muscimol and ibotenic acid"
+    "gaba_a_modulation",
+    "multi-target signaling modulation",
+    "gabaergic_modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "Toxic if misused",
-    "dangerous with alcohol or sedatives"
+    "low",
+    "no well-documented interactions"
   ],
-  "category": null,
-  "sources": [],
+  "category": "organic acid",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Amanita%20muscaria | https://plants.sc.egov.usda.gov/home/search?query=amanita%20muscaria | https://plants.sc.egov.usda.gov/home/search?query=amanita%20pantherina | https://pubchem.ncbi.nlm.nih.gov/#query=ibotenic%20acid"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "ibotenic-acid",
   "id": "ibotenic-acid",
@@ -36,5 +54,6 @@
   "linkedHerbs": [
     "nan",
     "amanita-muscaria"
-  ]
+  ],
+  "mechanism": "Psychotropic effects are mainly attributed to muscimol acting at GABA_A receptors, with ibotenic acid contributing excitatory glutamatergic activity."
 }

@@ -1,34 +1,39 @@
 {
-  "name": "Harmalol",
+  "name": "harmalol",
   "herbs": [
-    "nan"
+    "peganum-harmala"
   ],
   "effects": [
-    "Altered perception",
-    "dream intensification",
-    "nausea",
-    "Mild euphoria",
-    "altered perception",
-    "potentiation of DMT",
-    "MAOI activity",
-    "altered consciousness",
-    "dream enhancement",
-    "MAO inhibitor",
-    "antispasmodic",
-    "psychoactive"
+    "multi-target signaling modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "Avoid with SSRIs",
-    "stimulants",
-    "tyramine-rich foods",
-    "Antidepressants",
-    "SSRIs",
-    "pregnancy",
-    "MAOIs",
-    "liver issues"
+    "low",
+    "no well-documented interactions"
   ],
-  "category": null,
-  "sources": [],
+  "category": "other",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Peganum%20harmala | https://pubchem.ncbi.nlm.nih.gov/#query=harmalol"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "harmalol",
   "id": "harmalol",
@@ -41,5 +46,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

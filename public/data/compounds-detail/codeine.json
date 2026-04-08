@@ -1,29 +1,39 @@
 {
   "name": "codeine",
   "herbs": [
-    "nan"
+    "papaver-somniferum"
   ],
   "effects": [
-    "Pain relief",
-    "euphoria",
-    "sedation",
-    "Euphoria",
-    "analgesia",
-    "cough suppression",
-    "Source of opiates",
-    "analgesic and sedative"
+    "multi-target signaling modulation",
+    "general or unknown targets"
   ],
   "contraindications": [
-    "Respiratory disorders",
-    "pregnancy",
-    "MAOIs",
-    "addiction history",
-    "Respiratory issues",
-    "liver impairment",
-    "opioid use"
+    "low",
+    "no well-documented interactions"
   ],
-  "category": null,
-  "sources": [],
+  "category": "other",
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Papaver%20somniferum | https://pubchem.ncbi.nlm.nih.gov/#query=codeine"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "codeine",
   "id": "codeine",
@@ -36,5 +46,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }
