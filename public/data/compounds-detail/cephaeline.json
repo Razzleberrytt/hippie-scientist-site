@@ -20,8 +20,24 @@
   "category": null,
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cephaelis%20ipecacuanha | https://pubchem.ncbi.nlm.nih.gov/#query=cephaeline"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
     }
   ],
   "lastUpdated": "2026-03-21",
@@ -36,5 +52,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "alangium-salvifolium"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

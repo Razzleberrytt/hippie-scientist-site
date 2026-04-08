@@ -1,9 +1,10 @@
 {
   "name": "Alpha-asarone",
   "herbs": [
-    "acorus americanus",
-    "nan",
-    "acorus tatarinowii"
+    "acorus-americanus",
+    "acorus-calamus",
+    "acorus-calamus-angustatus",
+    "acorus-tatarinowii"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -49,8 +50,28 @@
   "category": null,
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Acorus%20tatarinowii | https://plants.sc.egov.usda.gov/home/search?query=acorus%20americanus | https://plants.sc.egov.usda.gov/home/search?query=acorus%20calamus | https://plants.sc.egov.usda.gov/home/search?query=acorus%20calamus%20var.%20angustatus | https://pubchem.ncbi.nlm.nih.gov/#query=alpha-asarone"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
     }
   ],
   "lastUpdated": "2026-03-21",
@@ -73,5 +94,6 @@
     "acorus-americanus",
     "nan",
     "acorus-tatarinowii"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

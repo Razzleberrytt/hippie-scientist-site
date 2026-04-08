@@ -1,14 +1,40 @@
 {
   "name": "Chlorogenic acid",
   "herbs": [
-    "yerba mate"
+    "cecropia-peltata",
+    "lonicera-japonica",
+    "moringa-oleifera"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America."
   ],
-  "contraindications": [],
+  "contraindications": [
+    "low",
+    "no well-documented interactions"
+  ],
   "category": null,
-  "sources": [],
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cecropia%20peltata | https://plants.sc.egov.usda.gov/home/search?query=Lonicera%20japonica | https://plants.sc.egov.usda.gov/home/search?query=Moringa%20oleifera | https://pubchem.ncbi.nlm.nih.gov/#query=chlorogenic%20acid"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "chlorogenic-acid",
   "id": "chlorogenic-acid",
@@ -21,5 +47,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "yerba-mate"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

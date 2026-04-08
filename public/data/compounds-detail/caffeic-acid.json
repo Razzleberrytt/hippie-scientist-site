@@ -20,8 +20,16 @@
   "category": null,
   "sources": [
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "Workbook source basis",
+      "note": "herb_monograph_activeCompounds"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "derived_from_curated_herb_monograph"
+    },
+    {
+      "title": "Workbook source workbook",
+      "note": "herb_monograph_master_advanced_v8_compound_layer.xlsx"
     }
   ],
   "lastUpdated": "2026-03-21",

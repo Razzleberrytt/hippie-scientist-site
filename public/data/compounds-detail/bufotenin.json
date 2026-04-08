@@ -1,6 +1,11 @@
 {
   "name": "Bufotenin",
-  "herbs": [],
+  "herbs": [
+    "anadenanthera-colubrina",
+    "anadenanthera-colubrina-ceb-l",
+    "anadenanthera-peregrina",
+    "piptadenia-peregrina"
+  ],
   "effects": [
     "Visuals",
     "nausea",
@@ -18,7 +23,32 @@
     "schizophrenia"
   ],
   "category": "tryptamine alkaloid",
-  "sources": [],
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Anadenanthera%20Colubrina | https://plants.sc.egov.usda.gov/home/search?query=Piptadenia%20peregrina | https://plants.sc.egov.usda.gov/home/search?query=anadenanthera%20colubrina | https://plants.sc.egov.usda.gov/home/search?query=anadenanthera%20peregrina | https://pubchem.ncbi.nlm.nih.gov/#query=bufotenin"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "bufotenin",
   "id": "bufotenin",

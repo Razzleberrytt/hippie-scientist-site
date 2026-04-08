@@ -1,7 +1,14 @@
 {
   "name": "5-MeO-DMT",
   "herbs": [
-    "nan"
+    "anadenanthera-colubrina",
+    "anadenanthera-colubrina-ceb-l",
+    "anadenanthera-peregrina",
+    "piptadenia-peregrina",
+    "virola-calophylla",
+    "virola-elongata",
+    "virola-sebifera",
+    "virola-spp."
   ],
   "effects": [
     "Intense visuals",
@@ -35,7 +42,36 @@
     "schizophrenia"
   ],
   "category": null,
-  "sources": [],
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Anadenanthera%20Colubrina | https://plants.sc.egov.usda.gov/home/search?query=Piptadenia%20peregrina | https://plants.sc.egov.usda.gov/home/search?query=Virola%20calophylla | https://plants.sc.egov.usda.gov/home/search?query=Virola%20elongata | https://plants.sc.egov.usda.gov/home/search?query=Virola%20sebifera | https://plants.sc.egov.usda.gov/home/search?query=Virola%20spp. | https://plants.sc.egov.usda.gov/home/search?query=anadenanthera%20colubrina | https://plants.sc.egov.usda.gov/home/search?query=anadenanthera%20peregrina | https://pubchem.ncbi.nlm.nih.gov/#query=5-methoxy-n%2Cn-dimethyltryptamine"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "Unknown"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "5-meo-dmt",
   "id": "5-meo-dmt",
@@ -48,5 +84,6 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "Tryptamines act on serotonergic receptors, especially 5-HT2A, producing psychedelic effects."
 }

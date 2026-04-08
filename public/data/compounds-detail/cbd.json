@@ -1,8 +1,10 @@
 {
   "name": "CBD",
   "herbs": [
-    "nan",
-    "cannabis sativa"
+    "cannabis-indica",
+    "cannabis-ruderalis",
+    "cannabis-sativa",
+    "cannabis-sativa-african-varieties"
   ],
   "effects": [
     "Euphoria",
@@ -19,7 +21,32 @@
     "pregnancy"
   ],
   "category": null,
-  "sources": [],
+  "sources": [
+    {
+      "title": "Workbook source URL",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cannabis%20indica | https://plants.sc.egov.usda.gov/home/search?query=Cannabis%20ruderalis | https://plants.sc.egov.usda.gov/home/search?query=Cannabis%20sativa%20%28African%20varieties%29 | https://plants.sc.egov.usda.gov/home/search?query=cannabis%20sativa | https://pubchem.ncbi.nlm.nih.gov/#query=cbd"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "PubChem compound page (NIH)"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "USDA Plants database"
+    },
+    {
+      "title": "Workbook source basis",
+      "note": "scientific name"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "inferred_plus_trusted_gov"
+    },
+    {
+      "title": "Workbook source quality",
+      "note": "trusted_gov_added"
+    }
+  ],
   "lastUpdated": "2026-03-21",
   "slug": "cbd",
   "id": "cbd",
@@ -33,5 +60,6 @@
   "linkedHerbs": [
     "nan",
     "cannabis-sativa"
-  ]
+  ],
+  "mechanism": "THC acts at CB1 receptors; terpenes may modulate neurotransmitter systems and pharmacokinetics."
 }
