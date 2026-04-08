@@ -1,72 +1,25 @@
 {
-  "name": "echinacea purpurea",
-  "latin": "echinacea purpurea",
-  "class": "Medicinal, Traditional Herb (Asteraceae)",
-  "intensity": "Mild; clinical effects are modest and product-dependent.",
-  "mechanism": "Proposed mechanisms are immunomodulatory rather than definitively established clinical mechanisms. NCCIH notes immune-related activity hypotheses; in vitro and preclinical literature often discusses alkamides, caffeic-acid derivatives, and polysaccharide fractions, but clinical relevance varies by extract composition.",
-  "activeCompounds": [
-    "Alkamides (echinacea alkylamides)",
-    "Cichoric acid",
-    "Caftaric acid"
-  ],
-  "effects": [
-    "Possible small reduction in risk of catching a common cold (evidence mixed).",
-    "Uncertain effect on shortening cold duration across heterogeneous products.",
-    "Immune-modulating activity is proposed, but clinically meaningful mechanisms remain unconfirmed."
-  ],
-  "contraindications": [
-    "Use caution with ragweed-family (Asteraceae) allergy because hypersensitivity reactions can occur.",
-    "Discuss use with a clinician if pregnant or breastfeeding due to limited safety data.",
-    "Use caution with immunosuppressive therapy and complex chronic conditions."
-  ],
-  "safetyNotes": "Likely safe for most adults when used short term in typical oral extract doses, but allergic reactions can occur and may be severe in sensitive individuals (especially with ragweed-family allergy). Gastrointestinal upset can occur. Pregnancy/lactation evidence is limited; use should be clinician-guided.",
-  "sources": [
-    {
-      "title": "NCCIH: Echinacea (Usefulness and Safety)",
-      "url": "https://www.nccih.nih.gov/health/echinacea"
-    },
-    {
-      "title": "MedlinePlus: Echinacea (Natural Medicines)",
-      "url": "https://medlineplus.gov/druginfo/natural/981.html"
-    },
-    {
-      "title": "PubChem: Cichoric acid",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Cichoric-acid"
-    },
-    {
-      "title": "PubChem: Caftaric acid",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Caftaric-acid"
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "description": "Echinacea purpurea is a North American perennial in the Asteraceae family. It is native to central and eastern U.S. regions and is widely cultivated for herbal preparations made from aerial parts and/or root depending on product standardization.",
-  "dosage": "No single evidence-based universal dose applies across products. Use product-specific labeled dosing from standardized preparations; clinical studies use heterogeneous formulations and strengths.",
-  "duration": "Commonly used short-term at onset of upper respiratory symptoms (about 7-10 days in many studies).",
-  "interactions": [
-    "Potential interaction risk with immunosuppressive therapy (theoretical immunologic antagonism).",
-    "Conflicting evidence for interactions with some CYP-metabolized medicines; monitor and review with a clinician/pharmacist.",
-    "Theoretical interaction with caffeine noted by NCCIH."
-  ],
-  "legalStatus": "legal",
-  "preparation": "Common preparations include pressed juice/extracts, tinctures, capsules, and teas from aerial parts and/or root. Product chemistry differs substantially by species, plant part, and extraction method.",
-  "region": "Native range is central and eastern United States; now cultivated more broadly for supplement production.",
-  "therapeuticUses": [
-    "Common-cold prevention or symptom support (mixed evidence; not a substitute for standard care)."
-  ],
-  "traditionalUse": "Historically used by Indigenous peoples and later in Western herbal practice for respiratory complaints and topical applications.",
+  "name": "Echinacea Purpurea",
   "slug": "echinacea-purpurea",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "allergic rash or itching in sensitive individuals"
+  "scientificName": "Echinacea purpurea",
+  "summary": "Echinacea Purpurea (Echinacea purpurea) is a herb monograph focused on the unspecified used in herbal preparations. It is associated with Native to the central and eastern United States; now cultivated and introduced in Europe and other temperate regions【55003496660111†L75-L130】. Roots, leaves and flowers of Echinacea purpurea contain mixtures of lipophilic alkamides and hydrophilic caffeic acid derivatives such as chicoric acid and echinacoside, along with polysaccharides and glycoproteins【880087072039746†L166-L200】【840476591578855†L240-L305】. Short‑term use of echinacea extracts appears safe for most adults.",
+  "description": "Echinacea Purpurea is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include alkamides; chicoric acid; echinacoside; caffeic acid; cynarin. Typical preparation forms: Medicinal products use the roots and aerial parts in teas, juices, tinctures and standardized extracts. Roots, leaves and flowers of Echinacea purpurea contain mixtures of lipophilic alkamides and hydrophilic caffeic acid derivatives such as chicoric acid and echinacoside, along with polysaccharides and glycoproteins【880087072039746†L166-L200】【840476591578855†L240-L305】. These constituents stimulate immune function by enhancing phagocytosis, activating fibroblasts and respiratory burst activity, and modulating nitric‑oxide and cytokine production via cannabinoid type‑2 receptors【880087072039746†L215-L243】. They also inhibit cyclo‑oxygenase and lipoxygenase enzymes. Most mechanistic data are from cell and animal studies; human evidence is limited. Interaction profile: Echinacea may interact with immunosuppressant drugs by stimulating immune activity and could affect the pharmacokinetics of drugs metabolised by cytochrome P450 enzymes; caution is advised when taken with hepatic substrates or caffeine. Use caution or avoid in: Individuals with autoimmune disorders or allergies to ragweed and other Asteraceae plants should avoid echinacea. Use during pregnancy or breastfeeding is not recommended. People taking immunosuppressant drugs should avoid echinacea due to potential antagonism.",
+  "mechanism": "Roots, leaves and flowers of Echinacea purpurea contain mixtures of lipophilic alkamides and hydrophilic caffeic acid derivatives such as chicoric acid and echinacoside, along with polysaccharides and glycoproteins【880087072039746†L166-L200】【840476591578855†L240-L305】. These constituents stimulate immune function by enhancing phagocytosis, activating fibroblasts and respiratory burst activity, and modulating nitric‑oxide and cytokine production via cannabinoid type‑2 receptors【880087072039746†L215-L243】. They also inhibit cyclo‑oxygenase and lipoxygenase enzymes. Most mechanistic data are from cell and animal studies; human evidence is limited.",
+  "mechanismTags": [
+    "immunomodulatory"
   ],
-  "id": "echinacea-purpurea",
-  "displayName": "echinacea purpurea",
-  "displayScientificName": "echinacea purpurea",
-  "scientificNormalized": "echinacea purpurea",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "Echinacea purpurea (purple coneflower) is used mainly for common-cold prevention/treatment support. Human studies are mixed: NCCIH reports a possible small reduction in cold risk, but uncertain effect on duration."
+  "activeCompounds": [
+    "chicoric-acid",
+    "echinacoside",
+    "caffeic-acid",
+    "cynarin"
+  ],
+  "safetyNotes": "Short‑term use of echinacea extracts appears safe for most adults. Reported side effects include digestive upset and rash; allergic reactions can occur, especially in individuals sensitive to plants in the Asteraceae family. Some children have developed rashes after echinacea use. Safety during pregnancy or breastfeeding is not established. There is conflicting evidence about whether echinacea alters the metabolism of drugs processed by the liver; theoretical interactions with immunosuppressants or caffeine have been proposed【246299874455786†L194-L213】.",
+  "interactions": [
+    "Echinacea may interact with immunosuppressant drugs by stimulating immune activity and could affect the pharmacokinetics of drugs metabolised by cytochrome P450 enzymes",
+    "caution is advised when taken with hepatic substrates or caffeine."
+  ],
+  "dosage": null,
+  "preparation": "Medicinal products use the roots and aerial parts in teas, juices, tinctures and standardized extracts.",
+  "region": "Native to the central and eastern United States; now cultivated and introduced in Europe and other temperate regions【55003496660111†L75-L130】."
 }

@@ -1,62 +1,30 @@
 {
-  "name": "kava",
-  "latin": "kava",
-  "intensity": "mild",
-  "mechanism": "Proposed mechanism: anxiolytic/sedative effects are consistent with observed clinical/anecdotal outcomes, but NCCIH does not claim a definitive molecular mechanism; in vitro evidence shows kava extract can inhibit human cytochrome P450 activities, supporting a plausible interaction pathway.",
-  "activeCompounds": [
-    "Kava exposure is commonly expressed as kavalactones/kavapyrones (e.g., \"kavapyrone\" dosing appears in LiverTox case summaries), but specific constituent lists are product-dependent and not standardized in NCCIH materials."
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "Liver conditions, alcohol, sedatives"
-  ],
-  "safetyNotes": "Rare liver injury cases (some severe/fatal) reported with various kava products, including non-aqueous extracts and also some water-prepared beverages; other adverse effects include GI upset, headache, dizziness; long-term high-dose use can cause \"kava dermopathy.\" Avoid combining with other sedatives (e.g., benzodiazepines) or alcohol. Pregnancy/breastfeeding caution noted by NCCIH.",
-  "sources": [
-    {
-      "title": "Kava: Usefulness and Safety (NCCIH)",
-      "url": "https://www.nccih.nih.gov/health/kava"
-    },
-    {
-      "title": "Kava Kava (LiverTox, NCBI Bookshelf)",
-      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548637/"
-    },
-    {
-      "title": "Inhibition of human cytochrome P450 activities by kava extract and kavalactones (PubMed)",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/12386118/"
-    },
-    {
-      "title": "POWO: *Piper methysticum* G.Forst.",
-      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:198437-2"
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "description": "Traditionally prepared as a beverage; U.S. products sold as supplements, while some countries regulate as drugs/herbal medicines. POWO lists native range Santa Cruz Islands to Vanuatu.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Avoid co-use with sedatives and alcohol (sedation risk); in vitro CYP inhibition suggests potential for drug interactions, but well-designed clinical interaction studies are limited."
-  ],
-  "legalStatus": "legal",
-  "preparation": "Traditional aqueous beverages; supplement products and extracts (including alcohol/acetone extracts referenced historically in hepatotoxicity investigations).",
-  "region": "Native range (POWO): Santa Cruz Islands to Vanuatu.",
-  "therapeuticUses": [
-    "Anxiety, stress, sleep aid"
-  ],
-  "traditionalUse": "; nan; nan",
+  "name": "Kava",
   "slug": "kava",
-  "id": "kava",
-  "displayName": "kava",
-  "displayScientificName": "kava",
-  "scientificNormalized": "kava",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "Kava is a South Pacific plant used traditionally as a beverage; marketed as a dietary supplement for anxiety. NCCIH notes kava may help anxiety in some contexts but is not shown helpful for generalized anxiety disorder symptoms; it has been linked to rare but sometimes severe liver injury."
+  "scientificName": "Piper methysticum",
+  "summary": "Kava (Piper methysticum) is a shrub monograph focused on the root; rhizome used in herbal preparations. It is associated with Indigenous to the South Pacific islands (Polynesia, Melanesia and Micronesia). Kavalactones modulate GABA-A receptors and ion channels, producing anxiolytic and sedative effects without classical benzodiazepine-site binding. Rare but serious liver injury has been reported, especially with nontraditional extracts or concurrent alcohol/hepatotoxic drug use.",
+  "description": "Kava is represented here as a monograph-style entry centered on the root; rhizome. Key reported compounds include kavain; dihydrokavain; methysticin; dihydromethysticin; yangonin; desmethoxyyangonin; flavokavain A/B/C. Typical preparation forms: Traditional aqueous root beverage; modern standardized root extracts. Kavalactones modulate GABA-A receptors and ion channels, producing anxiolytic and sedative effects without classical benzodiazepine-site binding. Interaction profile: Additive sedation with CNS depressants and alcohol; possible hepatic enzyme interactions. Use caution or avoid in: Liver disease, pregnancy, breastfeeding, concurrent CNS depressants or hepatotoxic drugs.",
+  "mechanism": "Kavalactones modulate GABA-A receptors and ion channels, producing anxiolytic and sedative effects without classical benzodiazepine-site binding.",
+  "mechanismTags": [
+    "gabaergic"
+  ],
+  "activeCompounds": [
+    "kavain",
+    "dihydrokavain",
+    "methysticin",
+    "dihydromethysticin",
+    "yangonin",
+    "desmethoxyyangonin",
+    "flavokavain-a",
+    "flavokavain-b",
+    "flavokavain-c"
+  ],
+  "safetyNotes": "Rare but serious liver injury has been reported, especially with nontraditional extracts or concurrent alcohol/hepatotoxic drug use.",
+  "interactions": [
+    "Additive sedation with CNS depressants and alcohol",
+    "possible hepatic enzyme interactions."
+  ],
+  "dosage": "~250 mg/day total kavalactones upper practical limit",
+  "preparation": "Traditional aqueous root beverage; modern standardized root extracts.",
+  "region": "Indigenous to the South Pacific islands (Polynesia, Melanesia and Micronesia)."
 }

@@ -1,58 +1,34 @@
 {
-  "name": "ginkgo biloba",
-  "latin": "ginkgo biloba",
-  "intensity": "mild",
-  "mechanism": "Proposed mechanism: Ginkgo extracts contain terpene lactones (e.g., ginkgolides) and other constituents; ginkgolide A is described as a platelet-activating factor (PAF) antagonist, which may relate to anticoagulant/bleeding concerns rather than a proven therapeutic pathway across indications.",
-  "activeCompounds": [
-    "Ginkgolide A and bilobalide are two well-characterized ginkgo constituents commonly referenced in standardized extracts."
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "Bleeding disorders, anticoagulant use"
-  ],
-  "safetyNotes": "NCCIH notes moderate-dose leaf extracts are likely safe for most adults and used safely up to 6 years in research, but seeds are toxic; common adverse effects include dizziness, GI symptoms, and headache. Bleeding risk and pregnancy cautions are emphasized. LiverTox states ginkgo has not been specifically linked to liver injury.",
-  "sources": [
-    {
-      "title": "Ginkgo: Usefulness and Safety",
-      "url": "https://www.nccih.nih.gov/health/ginkgo"
-    },
-    {
-      "title": "Herb-Drug Interactions: What the Science Says (Ginkgo section)",
-      "url": "https://www.nccih.nih.gov/health/providers/digest/herb-drug-interactions-science"
-    },
-    {
-      "title": "The Ginkgo Evaluation of Memory (GEM) Study",
-      "url": "https://www.nccih.nih.gov/health/the-ginkgo-evaluation-of-memory-gem-study"
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "description": "A very ancient deciduous tree; in modern supplement use, leaf (usually extract) is most common form; seeds can be toxic if consumed.",
-  "dosage": "240 mg/day was the dose used in the GEM trial evaluating dementia prevention (ineffective in that context).",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "NCCIH’s herb–drug interaction digest states that taking *Ginkgo biloba* with warfarin is associated with increased risk of major bleeding events; concomitant use with efavirenz is not recommended."
-  ],
-  "legalStatus": "legal",
-  "preparation": "Typically leaf extract supplements; crude plant/seeds are not equivalent and seeds carry toxicity risk.",
-  "region": "POWO lists native range as China (Zhejiang).",
-  "therapeuticUses": [
-    "Used for memory loss, dementia, and circulatory issues"
-  ],
-  "traditionalUse": "; nan; nan",
+  "name": "Ginkgo Biloba",
   "slug": "ginkgo-biloba",
-  "id": "ginkgo-biloba",
-  "displayName": "ginkgo biloba",
-  "displayScientificName": "ginkgo biloba",
-  "scientificNormalized": "ginkgo biloba",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "Ginkgo leaf extract is widely marketed for cognitive and other claims, but NCCIH concludes there is no conclusive evidence of benefit for any condition, and the large GEM trial found 240 mg/day ineffective for reducing dementia/Alzheimer’s development in older adults. Safety cautions include bleeding risk (especially with warfarin), potential drug interactions (including efavirenz), and toxicity of seeds."
+  "scientificName": "Ginkgo biloba",
+  "summary": "Ginkgo Biloba (Ginkgo biloba) is a tree monograph focused on the leaf used in herbal preparations. It is associated with Native to China; cultivated worldwide as an ornamental and medicinal tree. The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways. Appears safe at recommended doses, but fresh seeds are toxic.",
+  "description": "Ginkgo Biloba is represented here as a monograph-style entry centered on the leaf. Key reported compounds include ginkgolides A, B, C, J; bilobalide; ginkgetin; bilobetin; sciadopitysin. Typical preparation forms: Standardized leaf extract (EGb 761). The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways. Interaction profile: May potentiate NSAIDs, anticoagulants, antiplatelets, and interact with antidepressants and antidiabetic drugs. Use caution or avoid in: Pregnancy, breastfeeding, bleeding disorders, epilepsy, planned surgery.",
+  "mechanism": "The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways.",
+  "mechanismTags": [
+    "dopaminergic",
+    "serotonergic",
+    "cholinergic",
+    "antioxidant"
+  ],
+  "activeCompounds": [
+    "ginkgolide-a",
+    "ginkgolide-b",
+    "ginkgolide-c",
+    "ginkgolide-j",
+    "bilobalide",
+    "ginkgetin",
+    "bilobetin",
+    "sciadopitysin"
+  ],
+  "safetyNotes": "Appears safe at recommended doses, but fresh seeds are toxic. May increase bleeding risk and lower seizure threshold.",
+  "interactions": [
+    "May potentiate NSAIDs",
+    "anticoagulants",
+    "antiplatelets",
+    "and interact with antidepressants and antidiabetic drugs."
+  ],
+  "dosage": "120–240 mg/day standardized extract",
+  "preparation": "Standardized leaf extract (EGb 761).",
+  "region": "Native to China; cultivated worldwide as an ornamental and medicinal tree."
 }

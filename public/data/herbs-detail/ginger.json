@@ -1,61 +1,25 @@
 {
-  "name": "ginger",
-  "latin": "ginger",
-  "intensity": "No direct intensity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "mechanism": "Proposed mechanism: Ginger contains pungent phenolic compounds (e.g., gingerols) and other constituents studied for anti-inflammatory/antioxidant and GI-related bioactivities; human clinical benefit does not confirm any single mechanism across indications.",
-  "activeCompounds": [
-    "(6)-Gingerol is a well-characterized ginger constituent frequently used as a reference compound in ginger chemistry."
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
-  ],
-  "contraindications": [
-    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
-    "Do not use with known allergy to this plant or related species."
-  ],
-  "safetyNotes": "NCCIH reports ginger has been used safely in many research studies; adverse effects can include heartburn, diarrhea, abdominal discomfort, and mouth/throat irritation. LiverTox states ginger is generally recognized as safe (GRAS) and has not been linked to clinically apparent liver injury.",
-  "sources": [
-    {
-      "title": "Ginger: Usefulness and Safety",
-      "url": "https://www.nccih.nih.gov/health/ginger"
-    },
-    {
-      "title": "Ginger - LiverTox",
-      "url": "https://www.ncbi.nlm.nih.gov/books/NBK600585/"
-    },
-    {
-      "title": "(6)-Gingerol (CID 442793) - PubChem",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6_-Gingerol"
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "description": "The rhizome (underground stem) is the primary part used; commonly consumed as spice and used as dietary supplement. NCCIH notes ginger is native to warm parts of Asia and now grown in other regions; POWO adds that *Z. officinale* is widely cultivated and \"possibly native to India.\"",
-  "dosage": "No single standardized dose is established across indications; clinical trials use product-specific regimens.",
-  "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "interactions": [
-    "Unresolved: interaction profile is not adequately characterized in current repository sources.",
-    "Use medication review caution, especially with CNS-active, cardiovascular, anticoagulant, and hepatically metabolized drugs."
-  ],
-  "preparation": "Used as food (fresh/dried) and as dietary supplements; rhizome-based products are typical.",
-  "region": "POWO lists native range as E. Himalaya to S. Central China (and provides cultivation notes), while NCCIH describes broader cultivation in South America, Africa, and the Middle East.",
-  "therapeuticUses": [
-    "Traditional supportive use; indication depends on species part and preparation.",
-    "Evidence level varies; use only within established clinical or traditional context."
-  ],
-  "traditionalUse": "Folk medicine",
+  "name": "Ginger",
   "slug": "ginger",
-  "sideEffects": [
-    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
-    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  "scientificName": "Zingiber officinale",
+  "summary": "Ginger (Zingiber officinale) is a rhizome monograph focused on the unspecified used in herbal preparations. It is associated with Ginger does not occur in the wild; it is believed to have originated in Southeast Asia and is now cultivated across the humid tropics with India as the largest producer【418916103730052†L148-L163】. Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. Ginger is widely consumed as a food and supplement and is generally regarded as safe.",
+  "description": "Ginger is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include [6]-gingerol; shogaols; zingerone; paradols. Typical preparation forms: The rhizome is used fresh, dried, pickled, preserved, candied or powdered. Supplements include encapsulated dried powders and extracts【418916103730052†L176-L189】. Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. These compounds modulate immune‑cell function and regulate signalling pathways including nuclear factor‑κB, MAPK and PI3K/Akt/mTOR, and they can activate AMP‑activated protein kinase (AMPK), NRF2, HO‑1 and PPARγ【69571933386645†L153-L169】【69571933386645†L240-L249】. Through these mechanisms ginger exhibits anti‑inflammatory, antioxidant and neuroprotective effects. Interaction profile: Ginger may increase the risk of bleeding when taken with anticoagulant or antiplatelet drugs and could lower blood glucose or blood pressure, potentiating antidiabetic or antihypertensive medications. Use caution or avoid in: Use cautiously in pregnancy, gallstone disease or bleeding disorders. Discontinue before surgery and avoid high‑dose supplements when taking anticoagulants.",
+  "mechanism": "Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. These compounds modulate immune‑cell function and regulate signalling pathways including nuclear factor‑κB, MAPK and PI3K/Akt/mTOR, and they can activate AMP‑activated protein kinase (AMPK), NRF2, HO‑1 and PPARγ【69571933386645†L153-L169】【69571933386645†L240-L249】. Through these mechanisms ginger exhibits anti‑inflammatory, antioxidant and neuroprotective effects.",
+  "mechanismTags": [
+    "anti-inflammatory",
+    "antioxidant",
+    "immunomodulatory"
   ],
-  "id": "ginger",
-  "displayName": "ginger",
-  "displayScientificName": "ginger",
-  "scientificNormalized": "ginger",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "Ginger rhizome is used in food and supplements; evidence suggests possible benefit for pregnancy-associated nausea/vomiting and for menstrual cramps, while results for motion sickness are mostly negative and evidence for osteoarthritis is limited by study quality. Ginger is generally well tolerated, with GI adverse effects possible."
+  "activeCompounds": [
+    "6-gingerol",
+    "zingerone"
+  ],
+  "safetyNotes": "Ginger is widely consumed as a food and supplement and is generally regarded as safe. Research suggests it may help with mild nausea and menstrual cramps. Reported side effects at high doses include abdominal discomfort, heartburn, diarrhoea and irritation of the mouth or throat【799387966105800†L29-L56】. Clinical studies using up to 1 000 mg/day of dried powdered extract report adverse event rates similar to placebo【739669106228210†L96-L133】. The safety of high‑dose ginger during pregnancy has not been conclusively established.",
+  "interactions": [
+    "Ginger may increase the risk of bleeding when taken with anticoagulant or antiplatelet drugs and could lower blood glucose or blood pressure",
+    "potentiating antidiabetic or antihypertensive medications."
+  ],
+  "dosage": "Typical adult dose is up to 1 000 mg/day of dried powdered extract for gastrointestinal complaints【739669106228210†L96-L133】.",
+  "preparation": "The rhizome is used fresh, dried, pickled, preserved, candied or powdered. Supplements include encapsulated dried powders and extracts【418916103730052†L176-L189】.",
+  "region": "Ginger does not occur in the wild; it is believed to have originated in Southeast Asia and is now cultivated across the humid tropics with India as the largest producer【418916103730052†L148-L163】."
 }
