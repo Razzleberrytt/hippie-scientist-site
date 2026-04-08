@@ -39,7 +39,7 @@
   },
   {
     "id": "object-object",
-    "slug": "object-object",
+    "slug": "compound-object-object",
     "name": "[object Object]",
     "summaryShort": "[object Object] is a compound reported in kratom hybrids, nan, and related herbs. Available references are still early and incomplete.",
     "description": "[object Object] is a compound reported in kratom hybrids, nan, and related herbs. Available references are still early and incomplete.",
@@ -81,6 +81,9 @@
     ],
     "aliases": [
       "[object Object]"
+    ],
+    "slugAliases": [
+      "object-object"
     ]
   },
   {
@@ -124,7 +127,7 @@
   },
   {
     "id": "5",
-    "slug": "5",
+    "slug": "compound-5",
     "name": "5",
     "summaryShort": "5 appears in records as a compound reported in virola theiodora. Current source coverage is limited and still developing.",
     "description": "5 appears in records as a compound reported in virola theiodora. Current source coverage is limited and still developing.",
@@ -151,6 +154,9 @@
       "virola-theiodora"
     ],
     "aliases": [
+      "5"
+    ],
+    "slugAliases": [
       "5"
     ]
   },
@@ -10631,7 +10637,7 @@
   },
   {
     "id": "n",
-    "slug": "n",
+    "slug": "compound-n",
     "name": "N",
     "summaryShort": "N is a compound reported in nan. Available references are still early and incomplete.",
     "description": "N is a compound reported in nan. Available references are still early and incomplete.",
@@ -10665,6 +10671,9 @@
     ],
     "aliases": [
       "N"
+    ],
+    "slugAliases": [
+      "n"
     ]
   },
   {
@@ -11756,7 +11765,7 @@
   },
   {
     "id": "p",
-    "slug": "p",
+    "slug": "compound-p",
     "name": "p",
     "summaryShort": "p is a compound reported in dysphania ambrosioides. Available references are still early and incomplete.",
     "description": "p is a compound reported in dysphania ambrosioides. Available references are still early and incomplete.",
@@ -11790,6 +11799,9 @@
       "dysphania-ambrosioides"
     ],
     "aliases": [
+      "p"
+    ],
+    "slugAliases": [
       "p"
     ]
   },

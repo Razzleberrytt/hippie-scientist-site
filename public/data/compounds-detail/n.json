@@ -12,7 +12,7 @@
   "category": "unresolved phytochemical",
   "sources": [],
   "lastUpdated": "2026-03-21",
-  "slug": "n",
+  "slug": "compound-n",
   "id": "n",
   "displayName": "N",
   "description": "N is classified here as unresolved phytochemical. This record is retained because it appears in psychoactive/traditional-use contexts, but supporting references and source-linked occurrence data are currently incomplete. Reported effects in existing notes include Closed-eye visuals, altered cognition, spiritual insight (when used with MAOI).",
@@ -23,5 +23,8 @@
   "relatedEntities": [],
   "linkedHerbs": [],
   "type": "compound (unresolved identity)",
-  "mechanism": "Mechanism is uncertain in this dataset. Current notes suggest possible nervous-system activity, but no source-linked mechanism has been validated in this record yet."
+  "mechanism": "Mechanism is uncertain in this dataset. Current notes suggest possible nervous-system activity, but no source-linked mechanism has been validated in this record yet.",
+  "slugAliases": [
+    "n"
+  ]
 }

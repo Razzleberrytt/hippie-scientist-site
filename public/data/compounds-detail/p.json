@@ -14,7 +14,7 @@
   "category": null,
   "sources": [],
   "lastUpdated": "2026-03-21",
-  "slug": "p",
+  "slug": "compound-p",
   "id": "p",
   "displayName": "p",
   "description": "p is a compound reported in dysphania ambrosioides. Available references are still early and incomplete.",
@@ -25,5 +25,8 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "dysphania-ambrosioides"
+  ],
+  "slugAliases": [
+    "p"
   ]
 }

@@ -10,7 +10,7 @@
   "category": null,
   "sources": [],
   "lastUpdated": "2026-03-21",
-  "slug": "5",
+  "slug": "compound-5",
   "id": "5",
   "displayName": "5",
   "description": "5 appears in records as a compound reported in virola theiodora. Current source coverage is limited and still developing.",
@@ -21,5 +21,8 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "virola-theiodora"
+  ],
+  "slugAliases": [
+    "5"
   ]
 }

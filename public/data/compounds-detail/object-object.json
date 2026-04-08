@@ -22,7 +22,7 @@
   "category": null,
   "sources": [],
   "lastUpdated": "2026-03-21",
-  "slug": "object-object",
+  "slug": "compound-object-object",
   "id": "object-object",
   "displayName": "[object Object]",
   "description": "[object Object] is a compound reported in kratom hybrids, nan, and related herbs. Available references are still early and incomplete.",
@@ -35,5 +35,8 @@
     "kratom-hybrids",
     "nan",
     "yarrow"
+  ],
+  "slugAliases": [
+    "object-object"
   ]
 }

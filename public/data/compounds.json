@@ -46,10 +46,13 @@
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "slug": "object-object",
+    "slug": "compound-object-object",
     "id": "object-object",
     "displayName": "[object Object]",
-    "description": "[object Object] is a compound reported in kratom hybrids, nan, and related herbs. Available references are still early and incomplete."
+    "description": "[object Object] is a compound reported in kratom hybrids, nan, and related herbs. Available references are still early and incomplete.",
+    "slugAliases": [
+      "object-object"
+    ]
   },
   {
     "name": "2,4,5-trimethoxybenzaldehyde",
@@ -96,10 +99,13 @@
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "slug": "5",
+    "slug": "compound-5",
     "id": "5",
     "displayName": "5",
-    "description": "5 appears in records as a compound reported in virola theiodora. Current source coverage is limited and still developing."
+    "description": "5 appears in records as a compound reported in virola theiodora. Current source coverage is limited and still developing.",
+    "slugAliases": [
+      "5"
+    ]
   },
   {
     "name": "5-MeO-DMT",
@@ -10378,9 +10384,12 @@
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "slug": "n",
+    "slug": "compound-n",
     "id": "n",
-    "displayName": "N"
+    "displayName": "N",
+    "slugAliases": [
+      "n"
+    ]
   },
   {
     "name": "N-Dimethyltryptamine (DMT)",
@@ -11440,9 +11449,12 @@
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "slug": "p",
+    "slug": "compound-p",
     "id": "p",
-    "displayName": "p"
+    "displayName": "p",
+    "slugAliases": [
+      "p"
+    ]
   },
   {
     "name": "p-coumaric acid",

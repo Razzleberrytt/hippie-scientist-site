@@ -53,7 +53,7 @@
     "introspection",
     "rarely as wood medicine"
   ],
-  "slug": "nan",
+  "slug": "herb-nan",
   "id": "nan",
   "displayName": "nan",
   "displayScientificName": "Acacia confusa Merr.",
@@ -69,5 +69,8 @@
     "flavonoids",
     "alkaloids"
   ],
-  "summary": "Acacia confusa entry normalized to baseline; key clinical and pharmacology fields are unresolved where repository evidence is limited."
+  "summary": "Acacia confusa entry normalized to baseline; key clinical and pharmacology fields are unresolved where repository evidence is limited.",
+  "slugAliases": [
+    "nan"
+  ]
 }

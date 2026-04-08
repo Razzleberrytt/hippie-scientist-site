@@ -62,7 +62,10 @@
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "slug": "5"
+    "slug": "compound-5",
+    "slugAliases": [
+      "5"
+    ]
   },
   {
     "name": "5-MeO-DMT",
@@ -177,7 +180,10 @@
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "slug": "object-object"
+    "slug": "compound-object-object",
+    "slugAliases": [
+      "object-object"
+    ]
   },
   {
     "name": "acetylcholine",
@@ -7142,7 +7148,10 @@
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "slug": "n"
+    "slug": "compound-n",
+    "slugAliases": [
+      "n"
+    ]
   },
   {
     "name": "N-Dimethyltryptamine (DMT)",
@@ -7848,7 +7857,10 @@
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "slug": "p"
+    "slug": "compound-p",
+    "slugAliases": [
+      "p"
+    ]
   },
   {
     "name": "p-coumaric acid",

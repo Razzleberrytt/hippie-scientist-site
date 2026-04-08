@@ -1,319 +1,80 @@
 {
   "runDate": "2026-04-08",
-  "issueCategory": "missing-required-field",
-  "maxRecords": 50,
-  "selectedRecordCount": 50,
-  "updatedRecordCount": 50,
-  "updatedRecords": [
+  "issueCategory": "invalid-slug",
+  "constraints": {
+    "maxBatches": 5,
+    "maxRecordsPerBatch": 50,
+    "deterministicNormalizationOnly": true
+  },
+  "beforeCount": 5,
+  "afterCount": 0,
+  "delta": -5,
+  "batches": [
     {
-      "id": "syringaresnol-4-o-d-apiofuranosyl-1-2-d-glucopyranoside",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "object-object",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "2-4-5-trimethoxybenzaldehyde",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "5",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "5-meo-dmt",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "7-hydroxymitragynine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "7-hydroxybaruol",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "acetylcholine",
-      "fields": [
-        "category",
-        "description"
-      ]
-    },
-    {
-      "id": "aconine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "aconitine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "acorin",
-      "fields": [
-        "category",
-        "description"
-      ]
-    },
-    {
-      "id": "aervine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "aervolanine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "aervoside",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "aescin-escin",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "agrimoniin",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alamarckine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alamaridine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alamarine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alangamide",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alangimaridine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alangimarin",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alangimarine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alangiside",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "albiziasaponins-a-e",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alchorneine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alkaloids",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alkaloids-nicotine-leucocyanidin",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alkaloids-uncharacterized",
-      "fields": [
-        "description",
-        "herbs"
-      ]
-    },
-    {
-      "id": "alkaloids-undetermined",
-      "fields": [
-        "description",
-        "herbs"
-      ]
-    },
-    {
-      "id": "alkylamides",
-      "fields": [
-        "description",
-        "herbs"
-      ]
-    },
-    {
-      "id": "alpha",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alpha-asarone",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "alpha-bulnesene",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "amorphigenin",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "anabasine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "anthocyanins",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "apigenin",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "apigenin-glycosides",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "aporphine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "arbutin",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "asarone-alpha-beta",
-      "fields": [
-        "category",
-        "description"
-      ]
-    },
-    {
-      "id": "ascaridole",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "astragalin",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "atropine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "azulene",
-      "fields": [
-        "description",
-        "herbs"
-      ]
-    },
-    {
-      "id": "bacosides-a-and-b",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "baicalin",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "benzaconine",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "benzoic-acid",
-      "fields": [
-        "description"
+      "batchNumber": 1,
+      "selectedRecordCount": 5,
+      "updatedRecordCount": 5,
+      "beforeCount": 5,
+      "afterCount": 0,
+      "delta": -5,
+      "records": [
+        {
+          "dataset": "herb-detail",
+          "recordId": "nan",
+          "oldSlug": "nan",
+          "newSlug": "herb-nan",
+          "compatibility": {
+            "slugAliasesAdded": [
+              "nan"
+            ]
+          }
+        },
+        {
+          "dataset": "compound",
+          "recordId": "object-object",
+          "oldSlug": "object-object",
+          "newSlug": "compound-object-object",
+          "compatibility": {
+            "slugAliasesAdded": [
+              "object-object"
+            ]
+          }
+        },
+        {
+          "dataset": "compound",
+          "recordId": "5",
+          "oldSlug": "5",
+          "newSlug": "compound-5",
+          "compatibility": {
+            "slugAliasesAdded": [
+              "5"
+            ]
+          }
+        },
+        {
+          "dataset": "compound",
+          "recordId": "n",
+          "oldSlug": "n",
+          "newSlug": "compound-n",
+          "compatibility": {
+            "slugAliasesAdded": [
+              "n"
+            ]
+          }
+        },
+        {
+          "dataset": "compound",
+          "recordId": "p",
+          "oldSlug": "p",
+          "newSlug": "compound-p",
+          "compatibility": {
+            "slugAliasesAdded": [
+              "p"
+            ]
+          }
+        }
       ]
     }
   ],
-  "issueCountBefore": 2122,
-  "issueCountAfter": 2061,
-  "issueCountDelta": -61
+  "stoppedReason": "No remaining invalid-slug records after batch 1."
 }
