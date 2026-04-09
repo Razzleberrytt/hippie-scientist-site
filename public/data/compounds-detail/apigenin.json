@@ -33,7 +33,7 @@
     "Pregnancy",
     "hormone-sensitive conditions"
   ],
-  "category": null,
+  "category": "other",
   "sources": [
     {
       "title": "Workbook source URL",
@@ -68,7 +68,7 @@
   "summary": "apigenin appears in records as a compound reported in alchemilla vulgaris and nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "alchemilla-vulgaris",

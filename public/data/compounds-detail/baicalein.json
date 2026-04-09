@@ -1,0 +1,37 @@
+{
+  "slug": "baicalein",
+  "id": "baicalein",
+  "name": "baicalein",
+  "effects": [
+    "gaba_a_modulation",
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Scutellaria%20baicalensis"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=scutellaria%20lateriflora"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=baicalein"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "flavonoid",
+  "mechanism": "American skullcap flavonoids are associated with anticonvulsant and anxiolytic activity; GABAergic signaling and broader neuroinhibitory effects have been proposed in preclinical work.",
+  "herbs": [
+    "scutellaria-baicalensis",
+    "scutellaria-lateriflora"
+  ],
+  "contraindications": [
+    "Anticoagulants (↑ bleeding risk)"
+  ],
+  "summary": "American skullcap flavonoids are associated with anticonvulsant and anxiolytic activity; GABAergic signaling and broader neuroinhibitory effects have been proposed in preclinical work.",
+  "description": "American skullcap flavonoids are associated with anticonvulsant and anxiolytic activity; GABAergic signaling and broader neuroinhibitory effects have been proposed in preclinical work.",
+  "evidenceLevel": "Batch8",
+  "aliases": []
+}

@@ -24,7 +24,7 @@
     "may interact with blood thinners due to tannin content【859641390196180†L297",
     "L313】."
   ],
-  "category": null,
+  "category": "flavonoid",
   "sources": [
     {
       "note": "Inferred from scientific name:",
@@ -39,10 +39,11 @@
   "summary": "luteolin is a compound reported in albizia lebbeck and alchemilla vulgaris. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "Batch9",
   "relatedEntities": [],
   "linkedHerbs": [
     "albizia-lebbeck",
     "alchemilla-vulgaris"
-  ]
+  ],
+  "mechanism": "Inhibits NF-kB and MAPK signaling"
 }

@@ -18,7 +18,7 @@
     "pregnancy",
     "liver disease"
   ],
-  "category": null,
+  "category": "alkaloid",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "n-methyltryptamine",
@@ -28,9 +28,10 @@
   "summary": "N-methyltryptamine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "DMT acts primarily as a 5-HT2A receptor agonist with additional sigma-1 receptor activity (proposed)."
 }

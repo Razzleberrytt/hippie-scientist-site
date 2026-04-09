@@ -1,0 +1,31 @@
+{
+  "slug": "cordycepin",
+  "id": "cordycepin",
+  "name": "cordycepin",
+  "effects": [
+    "adenosine receptor antagonism"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cordyceps%20sinensis"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=cordycepin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "polysaccharides",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "cordyceps-sinensis"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

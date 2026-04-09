@@ -16,7 +16,7 @@
     "Liver conditions",
     "concurrent alcohol use"
   ],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "methysticin",
@@ -26,9 +26,10 @@
   "summary": "methysticin appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "Kavalactones modulate GABA_A receptor activity, inhibit voltage-gated sodium and calcium channels, and influence dopamine signaling."
 }

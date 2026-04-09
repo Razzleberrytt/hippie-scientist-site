@@ -23,7 +23,7 @@
     "due to saponins and alkaloids",
     "excessive intake may cause gastrointestinal irritation or interact with medications."
   ],
-  "category": null,
+  "category": "other",
   "sources": [
     {
       "note": "Inferred from scientific name:",
@@ -38,11 +38,12 @@
   "summary": "lupeol appears in records as a compound reported in aerva lanata, albizia lebbeck, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "aerva-lanata",
     "albizia-lebbeck",
     "tamarindus-indica"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

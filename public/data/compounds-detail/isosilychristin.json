@@ -1,0 +1,39 @@
+{
+  "slug": "isosilychristin",
+  "id": "isosilychristin",
+  "name": "isosilychristin",
+  "effects": [
+    "inflammatory_pathway_modulation",
+    "oxidative_stress_modulation",
+    "hepatoprotective",
+    "oxidative_stress_modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Isosilychristin"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=isosilychristin"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.nccih.nih.gov/health/milk-thistle"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "flavonolignan",
+  "mechanism": "proposed mechanism based on preclinical data: antioxidant and hepatoprotective signaling reported in flavonolignan literature; no established human mechanism.",
+  "herbs": [
+    "milk-thistle"
+  ],
+  "contraindications": [
+    "No isolated-compound clinical interaction set is established",
+    "retain herb-level milk thistle interaction caution only."
+  ],
+  "summary": "proposed mechanism based on preclinical data: antioxidant and hepatoprotective signaling reported in flavonolignan literature; no established human mechanism.",
+  "description": "proposed mechanism based on preclinical data: antioxidant and hepatoprotective signaling reported in flavonolignan literature; no established human mechanism.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

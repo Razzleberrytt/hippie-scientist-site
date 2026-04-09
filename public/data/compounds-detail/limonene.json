@@ -35,7 +35,7 @@
     "gallbladder disorders",
     "infants (menthol sensitivity)"
   ],
-  "category": null,
+  "category": "terpene",
   "sources": [
     {
       "note": "Inferred from scientific name:",
@@ -50,10 +50,11 @@
   "summary": "limonene appears in records as a compound reported in acorus tatarinowii and nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "acorus-tatarinowii",
     "nan"
-  ]
+  ],
+  "mechanism": "THC acts at CB1 receptors; terpenes may modulate neurotransmitter systems and pharmacokinetics."
 }

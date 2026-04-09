@@ -1,0 +1,37 @@
+{
+  "slug": "phosphatidylserine",
+  "id": "phosphatidylserine",
+  "name": "phosphatidylserine",
+  "effects": [
+    "Cell-membrane phospholipid signaling",
+    "apoptotic membrane signaling",
+    "cortisol/stress-response modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Phosphatidylserine"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11842879/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25933483/"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "phospholipid",
+  "mechanism": "Membrane phospholipid involved in neuronal membrane structure, signaling, and apoptosis-related membrane dynamics; supplemental use is usually framed around membrane support and stress-response modulation rather than a single receptor target.",
+  "herbs": [],
+  "contraindications": [
+    "Anticoagulants/antiplatelets (theoretical additive bleeding-risk caution",
+    "stronger at product level than molecule-specific level)",
+    "cholinergic agents (no strong direct interaction retained)."
+  ],
+  "summary": "Membrane phospholipid involved in neuronal membrane structure, signaling, and apoptosis-related membrane dynamics; supplemental use is usually framed around membrane support and stress-response modulation rather than a single receptor target.",
+  "description": "Membrane phospholipid involved in neuronal membrane structure, signaling, and apoptosis-related membrane dynamics; supplemental use is usually framed around membrane support and stress-response modulation rather than a single receptor target.",
+  "evidenceLevel": "mixed",
+  "aliases": []
+}

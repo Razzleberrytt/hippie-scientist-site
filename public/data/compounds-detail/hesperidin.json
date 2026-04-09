@@ -1,0 +1,21 @@
+{
+  "slug": "hesperidin",
+  "id": "hesperidin",
+  "name": "hesperidin",
+  "effects": [
+    "NF-kB modulation",
+    "cytokine suppression"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-04-09",
+  "category": "flavonoid",
+  "mechanism": "Modulates inflammatory cytokine signaling",
+  "herbs": [],
+  "contraindications": [
+    "CYP interactions (possible)"
+  ],
+  "summary": "Modulates inflammatory cytokine signaling",
+  "description": "Modulates inflammatory cytokine signaling",
+  "evidenceLevel": "Batch8",
+  "aliases": []
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "schisandrin",
+  "id": "schisandrin",
+  "name": "schisandrin",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Schisandra%20chinensis"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=schisandrin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Schisandrin, gomisin, lignans",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "schisandra-chinensis"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

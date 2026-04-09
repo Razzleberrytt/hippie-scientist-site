@@ -1,0 +1,29 @@
+{
+  "slug": "menthofuran",
+  "id": "menthofuran",
+  "name": "menthofuran",
+  "effects": [
+    "hepatotoxicity_risk",
+    "metabolic_activation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Menthofuran"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "monoterpene furan",
+  "mechanism": "proposed mechanism based on preclinical data: metabolic activation to reactive intermediates associated with hepatotoxicity risk at high exposure; no established human therapeutic mechanism.",
+  "herbs": [
+    "peppermint"
+  ],
+  "contraindications": [
+    "Flag with hepatotoxic co-exposures",
+    "do not treat as a routine blend-positive compound."
+  ],
+  "summary": "proposed mechanism based on preclinical data: metabolic activation to reactive intermediates associated with hepatotoxicity risk at high exposure; no established human therapeutic mechanism.",
+  "description": "proposed mechanism based on preclinical data: metabolic activation to reactive intermediates associated with hepatotoxicity risk at high exposure; no established human therapeutic mechanism.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

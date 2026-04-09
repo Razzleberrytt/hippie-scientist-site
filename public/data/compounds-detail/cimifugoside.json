@@ -1,0 +1,33 @@
+{
+  "slug": "cimifugoside",
+  "id": "cimifugoside",
+  "name": "cimifugoside",
+  "effects": [
+    "inflammatory_pathway_modulation",
+    "hormonal"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "PubMed black cohosh phytochemistry/mechanism literature"
+    },
+    {
+      "title": "Reference",
+      "url": "EMA Actaea racemosa monograph"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "triterpene glycoside",
+  "mechanism": "Proposed mechanism based on preclinical data: cimifugoside is a black cohosh triterpene glycoside that may contribute to anti-inflammatory and anti-proliferative activity seen in Actaea racemosa extracts. Human mechanism data are not established.",
+  "herbs": [
+    "black-cohosh"
+  ],
+  "contraindications": [
+    "No confirmed compound-specific interactions",
+    "theoretical overlap with hormonal and anti-inflammatory agents."
+  ],
+  "summary": "Proposed mechanism based on preclinical data: cimifugoside is a black cohosh triterpene glycoside that may contribute to anti-inflammatory and anti-proliferative activity seen in Actaea racemosa extracts. Human mechanism data are not established.",
+  "description": "Proposed mechanism based on preclinical data: cimifugoside is a black cohosh triterpene glycoside that may contribute to anti-inflammatory and anti-proliferative activity seen in Actaea racemosa extracts. Human mechanism data are not established.",
+  "evidenceLevel": "preclinical",
+  "aliases": []
+}

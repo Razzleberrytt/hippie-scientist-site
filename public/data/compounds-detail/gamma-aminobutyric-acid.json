@@ -1,0 +1,31 @@
+{
+  "slug": "gamma-aminobutyric-acid",
+  "id": "gamma-aminobutyric-acid",
+  "name": "gamma-aminobutyric acid (GABA)",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=casimiroa%20edulis"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=gamma-aminobutyric%20acid"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "amino acid derivative",
+  "mechanism": "Endogenous ligand at GABA-A (ionotropic chloride channel) and GABA-B (metabotropic GPCR) receptors.",
+  "herbs": [
+    "casimiroa-edulis"
+  ],
+  "contraindications": [
+    "CNS depressants (additive ↑ sedation via GABAergic signaling)."
+  ],
+  "summary": "Endogenous ligand at GABA-A (ionotropic chloride channel) and GABA-B (metabotropic GPCR) receptors.",
+  "description": "Endogenous ligand at GABA-A (ionotropic chloride channel) and GABA-B (metabotropic GPCR) receptors.",
+  "evidenceLevel": "Batch10",
+  "aliases": []
+}

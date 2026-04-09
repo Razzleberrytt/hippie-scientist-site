@@ -1,0 +1,31 @@
+{
+  "slug": "valerenol",
+  "id": "valerenol",
+  "name": "valerenol",
+  "effects": [
+    "gaba_a_modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=valerian"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=valerenol"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "Valerenic acid binds beta-subunits of GABA-A receptors, enhancing chloride influx and inhibitory signaling.",
+  "herbs": [
+    "valerian"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "Valerenic acid binds beta-subunits of GABA-A receptors, enhancing chloride influx and inhibitory signaling.",
+  "description": "Valerenic acid binds beta-subunits of GABA-A receptors, enhancing chloride influx and inhibitory signaling.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

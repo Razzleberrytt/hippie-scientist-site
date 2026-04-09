@@ -54,7 +54,7 @@
     "Heart conditions",
     "stimulant sensitivity"
   ],
-  "category": null,
+  "category": "xanthine alkaloid",
   "sources": [
     {
       "title": "Workbook source URL",
@@ -89,7 +89,7 @@
   "summary": "Caffeine appears in records as a compound reported in nan, yerba mate, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan",

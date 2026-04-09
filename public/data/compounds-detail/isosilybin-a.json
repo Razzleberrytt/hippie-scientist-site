@@ -1,0 +1,39 @@
+{
+  "slug": "isosilybin-a",
+  "id": "isosilybin-a",
+  "name": "isosilybin A",
+  "effects": [
+    "inflammatory_pathway_modulation",
+    "oxidative_stress_modulation",
+    "cytoprotective",
+    "oxidative_stress_modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Isosilybin-A"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=isosilybin+A"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.nccih.nih.gov/health/milk-thistle"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "flavonolignan",
+  "mechanism": "proposed mechanism based on preclinical data: cytoprotective, anti-inflammatory, and redox-modulating signaling reported in flavonolignan literature; no established human mechanism.",
+  "herbs": [
+    "milk-thistle"
+  ],
+  "contraindications": [
+    "No isolated-compound clinical interaction set is established",
+    "retain herb-level milk thistle interaction caution only."
+  ],
+  "summary": "proposed mechanism based on preclinical data: cytoprotective, anti-inflammatory, and redox-modulating signaling reported in flavonolignan literature; no established human mechanism.",
+  "description": "proposed mechanism based on preclinical data: cytoprotective, anti-inflammatory, and redox-modulating signaling reported in flavonolignan literature; no established human mechanism.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

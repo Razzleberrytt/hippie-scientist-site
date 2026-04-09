@@ -1,0 +1,31 @@
+{
+  "slug": "vitamin-c",
+  "id": "vitamin-c",
+  "name": "vitamin c",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Rosa%20canina"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=vitamin%20c"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Vitamin C, flavonoids, carotenoids",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "rosa-canina"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

@@ -12,7 +12,7 @@
     "and learning."
   ],
   "contraindications": [],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "paniculatin",
@@ -22,9 +22,10 @@
   "summary": "Paniculatin is a compound reported in celastrus paniculatus. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "celastrus-paniculatus"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

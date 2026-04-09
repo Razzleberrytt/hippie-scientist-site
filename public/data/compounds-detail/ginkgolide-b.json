@@ -1,0 +1,41 @@
+{
+  "slug": "ginkgolide-b",
+  "id": "ginkgolide-b",
+  "name": "ginkgolide B",
+  "effects": [
+    "paf receptor antagonism",
+    "inflammatory_pathway_modulation signaling"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/11973122"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12190325/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30054600/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.nccih.nih.gov/health/ginkgo"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "diterpene trilactone / ginkgolide",
+  "mechanism": "proposed mechanism based on preclinical data: potent platelet-activating factor receptor antagonism; among the more active ginkgolides in receptor-binding literature.",
+  "herbs": [
+    "ginkgo-biloba"
+  ],
+  "contraindications": [
+    "No isolated-compound clinical interaction set established",
+    "retain herb-level ginkgo interaction caution."
+  ],
+  "summary": "proposed mechanism based on preclinical data: potent platelet-activating factor receptor antagonism; among the more active ginkgolides in receptor-binding literature.",
+  "description": "proposed mechanism based on preclinical data: potent platelet-activating factor receptor antagonism; among the more active ginkgolides in receptor-binding literature.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

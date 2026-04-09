@@ -1,0 +1,20 @@
+{
+  "slug": "ginkgo-biloba-ginkgolides",
+  "id": "ginkgo-biloba-ginkgolides",
+  "name": "ginkgo biloba (ginkgolides)",
+  "effects": [
+    "PAF receptor antagonism"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-04-09",
+  "category": "terpenoid",
+  "mechanism": "Platelet-activating factor (PAF) antagonism",
+  "herbs": [],
+  "contraindications": [
+    "Anticoagulants (↑ bleeding risk)"
+  ],
+  "summary": "Platelet-activating factor (PAF) antagonism",
+  "description": "Platelet-activating factor (PAF) antagonism",
+  "evidenceLevel": "Sprint6",
+  "aliases": []
+}

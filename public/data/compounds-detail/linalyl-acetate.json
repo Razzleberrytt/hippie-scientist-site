@@ -10,7 +10,7 @@
     "nan."
   ],
   "contraindications": [],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "linalyl-acetate",
@@ -20,9 +20,10 @@
   "summary": "Linalyl acetate is a compound reported in salvia sclarea. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "salvia-sclarea"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

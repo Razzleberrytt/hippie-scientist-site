@@ -1,0 +1,31 @@
+{
+  "slug": "eryngial",
+  "id": "eryngial",
+  "name": "eryngial",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Eryngium%20foetidum"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=eryngial"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "phenolic acids",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "eryngium-foetidum"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

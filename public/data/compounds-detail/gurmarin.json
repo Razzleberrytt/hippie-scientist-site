@@ -1,0 +1,31 @@
+{
+  "slug": "gurmarin",
+  "id": "gurmarin",
+  "name": "gurmarin",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=gymnema%20sylvestre"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=gurmarin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "Gymnemic acids suppress sweet taste receptors and reduce intestinal glucose absorption; may enhance insulin secretion.",
+  "herbs": [
+    "gymnema-sylvestre"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "Gymnemic acids suppress sweet taste receptors and reduce intestinal glucose absorption; may enhance insulin secretion.",
+  "description": "Gymnemic acids suppress sweet taste receptors and reduce intestinal glucose absorption; may enhance insulin secretion.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

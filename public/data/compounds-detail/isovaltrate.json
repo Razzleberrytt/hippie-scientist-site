@@ -1,0 +1,18 @@
+{
+  "slug": "isovaltrate",
+  "id": "isovaltrate",
+  "name": "isovaltrate",
+  "effects": [],
+  "sources": [],
+  "lastUpdated": "2026-04-09",
+  "category": "valepotriates",
+  "mechanism": "",
+  "herbs": [
+    "valerian"
+  ],
+  "contraindications": [],
+  "summary": "",
+  "description": "",
+  "evidenceLevel": "herb_level_reference_only",
+  "aliases": []
+}

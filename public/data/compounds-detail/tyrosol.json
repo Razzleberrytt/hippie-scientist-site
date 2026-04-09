@@ -1,0 +1,41 @@
+{
+  "slug": "tyrosol",
+  "id": "tyrosol",
+  "name": "tyrosol",
+  "effects": [
+    "oxidative_stress_modulation",
+    "cytoprotective",
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Tyrosol"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=tyrosol+absorption"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=tyrosol+Nrf2"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "simple phenolic alcohol / phenethyl alcohol",
+  "mechanism": "proposed mechanism based on preclinical data: antioxidant and cytoprotective signaling, including Nrf2/HO-1-associated effects and ROS attenuation; human target-level confirmation is limited.",
+  "herbs": [
+    "rhodiola-rosea"
+  ],
+  "contraindications": [
+    "No established clinical drug interactions identified for isolated tyrosol."
+  ],
+  "summary": "proposed mechanism based on preclinical data: antioxidant and cytoprotective signaling, including Nrf2/HO-1-associated effects and ROS attenuation; human target-level confirmation is limited.",
+  "description": "proposed mechanism based on preclinical data: antioxidant and cytoprotective signaling, including Nrf2/HO-1-associated effects and ROS attenuation; human target-level confirmation is limited.",
+  "evidenceLevel": "human absorption + preclinical mechanism",
+  "aliases": [
+    "p-tyrosol",
+    "4-(2-hydroxyethyl)phenol",
+    "2-(4-hydroxyphenyl)ethanol"
+  ]
+}

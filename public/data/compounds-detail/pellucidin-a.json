@@ -1,0 +1,31 @@
+{
+  "slug": "pellucidin-a",
+  "id": "pellucidin-a",
+  "name": "pellucidin a",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Peperomia%20pellucida"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=pellucidin%20a"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "flavonoids; secolignans",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "peperomia-pellucida"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

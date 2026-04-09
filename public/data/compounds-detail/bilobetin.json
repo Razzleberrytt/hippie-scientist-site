@@ -1,0 +1,40 @@
+{
+  "slug": "bilobetin",
+  "id": "bilobetin",
+  "name": "bilobetin",
+  "effects": [
+    "inflammatory_pathway_modulation",
+    "oxidative_stress_modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30693991/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32573953/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35319397/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.nccih.nih.gov/health/ginkgo"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "biflavonoid",
+  "mechanism": "proposed mechanism based on preclinical data: anti-inflammatory and redox-modulating activity reported in Ginkgo constituent studies; isolated-compound evidence is preclinical.",
+  "herbs": [
+    "ginkgo-biloba"
+  ],
+  "contraindications": [
+    "No isolated-compound clinical interaction set established."
+  ],
+  "summary": "proposed mechanism based on preclinical data: anti-inflammatory and redox-modulating activity reported in Ginkgo constituent studies; isolated-compound evidence is preclinical.",
+  "description": "proposed mechanism based on preclinical data: anti-inflammatory and redox-modulating activity reported in Ginkgo constituent studies; isolated-compound evidence is preclinical.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

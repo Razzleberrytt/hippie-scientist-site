@@ -1,0 +1,31 @@
+{
+  "slug": "osthole",
+  "id": "osthole",
+  "name": "osthole",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cnidium%20monnieri"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=osthole"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Osthole, coumarins, volatile oils",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "cnidium-monnieri"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

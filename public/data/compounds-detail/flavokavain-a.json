@@ -1,0 +1,38 @@
+{
+  "slug": "flavokavain-a",
+  "id": "flavokavain-a",
+  "name": "flavokavain A",
+  "effects": [
+    "inflammatory_pathway_modulation",
+    "oxidative_stress_modulation",
+    "cytostatic signaling"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Flavokawain-A"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=flavokavain+A"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.nccih.nih.gov/health/kava"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "chalcone",
+  "mechanism": "proposed mechanism based on preclinical data: redox-active and cytostatic signaling with apoptosis-related effects reported in cell models; no established human mechanism.",
+  "herbs": [
+    "kava"
+  ],
+  "contraindications": [
+    "No isolated-compound clinical interaction set established",
+    "retain herb-level kava interaction caution."
+  ],
+  "summary": "proposed mechanism based on preclinical data: redox-active and cytostatic signaling with apoptosis-related effects reported in cell models; no established human mechanism.",
+  "description": "proposed mechanism based on preclinical data: redox-active and cytostatic signaling with apoptosis-related effects reported in cell models; no established human mechanism.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

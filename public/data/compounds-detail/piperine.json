@@ -1,0 +1,21 @@
+{
+  "slug": "piperine",
+  "id": "piperine",
+  "name": "piperine",
+  "effects": [
+    "CYP3A4 inhibition",
+    "P-gp inhibition"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-04-09",
+  "category": "alkaloid",
+  "mechanism": "Inhibits drug metabolism enzymes and enhances bioavailability",
+  "herbs": [],
+  "contraindications": [
+    "Multiple drugs (↑ exposure)"
+  ],
+  "summary": "Inhibits drug metabolism enzymes and enhances bioavailability",
+  "description": "Inhibits drug metabolism enzymes and enhances bioavailability",
+  "evidenceLevel": "Batch9",
+  "aliases": []
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "turmerone",
+  "id": "turmerone",
+  "name": "turmerone",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Curcuma%20longa"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=turmerone"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Curcumin, turmerone, essential oils",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "curcuma-longa"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

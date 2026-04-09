@@ -7,7 +7,7 @@
     "No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support."
   ],
   "contraindications": [],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "stachydrine",
@@ -17,9 +17,10 @@
   "summary": "Stachydrine is a compound reported in motherwort. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "motherwort"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

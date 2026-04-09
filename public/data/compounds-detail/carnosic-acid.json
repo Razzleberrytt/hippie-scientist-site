@@ -1,0 +1,31 @@
+{
+  "slug": "carnosic-acid",
+  "id": "carnosic-acid",
+  "name": "carnosic acid",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Rosmarinus%20officinalis"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=carnosic%20acid"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "organic acid",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "rosmarinus-officinalis"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

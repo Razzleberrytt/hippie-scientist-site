@@ -1,0 +1,32 @@
+{
+  "slug": "eurycomanone",
+  "id": "eurycomanone",
+  "name": "eurycomanone",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Eurycoma%20longifolia"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=eurycomanone"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "eurycoma-longifolia"
+  ],
+  "contraindications": [
+    "stimulants",
+    "steroids."
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

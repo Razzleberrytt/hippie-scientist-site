@@ -17,7 +17,7 @@
     "gallbladder disorders",
     "infants (menthol sensitivity)"
   ],
-  "category": null,
+  "category": "monoterpenoid alcohol",
   "sources": [
     {
       "title": "PubChem compound: Menthol (CID 1254)",
@@ -44,9 +44,10 @@
   "summary": "Menthol is a monoterpene alcohol from mint oils that activates TRPM8 cold receptors and is used in topical cooling and GI antispasmodic products.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "Sprint3",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "Agonist of TRPM8, driving cooling sensation and core sensory pharmacology."
 }

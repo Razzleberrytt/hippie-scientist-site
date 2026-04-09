@@ -1,0 +1,31 @@
+{
+  "slug": "choline",
+  "id": "choline",
+  "name": "choline",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Capsella%20bursa-pastoris"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=choline"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "essential nutrient",
+  "mechanism": "Precursor for acetylcholine synthesis and phosphatidylcholine membrane formation; involved in methyl-group metabolism.",
+  "herbs": [
+    "capsella-bursa-pastoris"
+  ],
+  "contraindications": [
+    "Anticholinergic drugs (functional opposition ↓ effect)."
+  ],
+  "summary": "Precursor for acetylcholine synthesis and phosphatidylcholine membrane formation; involved in methyl-group metabolism.",
+  "description": "Precursor for acetylcholine synthesis and phosphatidylcholine membrane formation; involved in methyl-group metabolism.",
+  "evidenceLevel": "Batch10",
+  "aliases": []
+}

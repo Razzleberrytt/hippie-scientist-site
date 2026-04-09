@@ -43,7 +43,7 @@
   "summary": "estragole is a compound reported in acorus tatarinowii. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "acorus-tatarinowii"

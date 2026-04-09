@@ -1,0 +1,31 @@
+{
+  "slug": "agnuside",
+  "id": "agnuside",
+  "name": "agnuside",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Vitex%20agnus-castus"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=agnuside"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Agnuside, flavonoids, diterpenes",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "vitex-agnus-castus"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

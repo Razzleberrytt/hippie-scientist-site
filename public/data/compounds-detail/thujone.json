@@ -38,7 +38,7 @@
     "or during pregnancy",
     "thujone sensitivity"
   ],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "thujone",
@@ -48,12 +48,13 @@
   "summary": "Thujone appears in records as a compound reported in artemisia abrotanum, artemisia absinthium, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "artemisia-abrotanum",
     "artemisia-absinthium",
     "artemisia-ludoviciana",
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

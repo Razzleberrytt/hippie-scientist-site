@@ -19,7 +19,7 @@
     "pregnancy",
     "psychiatric conditions."
   ],
-  "category": null,
+  "category": "Scopoletin, damnacanthal, polysaccharides",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "scopoletin",
@@ -29,9 +29,10 @@
   "summary": "scopoletin is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

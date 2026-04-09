@@ -1,0 +1,36 @@
+{
+  "slug": "ligustilide",
+  "id": "ligustilide",
+  "name": "ligustilide",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Angelica%20sinensis"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Ligusticum%20chuanxiong"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=ligustilide"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Ferulic acid, ligustilide, polysaccharides",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "angelica-sinensis",
+    "ligusticum-chuanxiong"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

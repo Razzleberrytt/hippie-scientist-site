@@ -1,0 +1,31 @@
+{
+  "slug": "zerumbone",
+  "id": "zerumbone",
+  "name": "zerumbone",
+  "effects": [
+    "cox/nf-kb inhibition"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=shampoo%20ginger"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=zerumbone"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "sesquiterpenes",
+  "mechanism": "Zerumbone is the best-characterized constituent and shows anti-inflammatory and immunomodulatory effects in preclinical models.",
+  "herbs": [
+    "zingiber-zerumbet"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "Zerumbone is the best-characterized constituent and shows anti-inflammatory and immunomodulatory effects in preclinical models.",
+  "description": "Zerumbone is the best-characterized constituent and shows anti-inflammatory and immunomodulatory effects in preclinical models.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

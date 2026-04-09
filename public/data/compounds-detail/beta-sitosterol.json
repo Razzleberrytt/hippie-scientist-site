@@ -1,0 +1,35 @@
+{
+  "slug": "beta-sitosterol",
+  "id": "beta-sitosterol",
+  "name": "beta-sitosterol",
+  "effects": [
+    "inflammatory_pathway_modulation",
+    "hormonal"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "PubMed beta-sitosterol literature"
+    },
+    {
+      "title": "Reference",
+      "url": "PubChem"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "phytosterol",
+  "mechanism": "Beta-sitosterol is a phytosterol associated with anti-inflammatory and androgen-related signaling effects in saw palmetto and other botanicals; in clinical literature it is also studied for lower urinary tract symptom support.",
+  "herbs": [
+    "saw-palmetto"
+  ],
+  "contraindications": [
+    "No major compound-specific interaction profile is locked here",
+    "theoretical overlap with hormone-active therapies remains possible."
+  ],
+  "summary": "Beta-sitosterol is a phytosterol associated with anti-inflammatory and androgen-related signaling effects in saw palmetto and other botanicals; in clinical literature it is also studied for lower urinary tract symptom support.",
+  "description": "Beta-sitosterol is a phytosterol associated with anti-inflammatory and androgen-related signaling effects in saw palmetto and other botanicals; in clinical literature it is also studied for lower urinary tract symptom support.",
+  "evidenceLevel": "human + preclinical",
+  "aliases": [
+    "β-sitosterol"
+  ]
+}

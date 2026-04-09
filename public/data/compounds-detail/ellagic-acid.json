@@ -12,7 +12,7 @@
   ],
   "contraindications": [
     "low",
-    "Anticoagulants (possible \u2191 bleeding risk)"
+    "Anticoagulants (possible ↑ bleeding risk)"
   ],
   "category": "polyphenol",
   "sources": [
@@ -53,7 +53,7 @@
   "summary": "ellagic acid is a compound reported in agrimonia eupatoria. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "Batch9",
   "relatedEntities": [],
   "linkedHerbs": [
     "agrimonia-eupatoria"

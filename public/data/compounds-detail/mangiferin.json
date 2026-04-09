@@ -1,0 +1,36 @@
+{
+  "slug": "mangiferin",
+  "id": "mangiferin",
+  "name": "mangiferin",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Anemarrhena%20asphodeloides"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Salacia%20reticulata"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=mangiferin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "timosaponin AIII; saponins",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "anemarrhena-asphodeloides",
+    "salacia-reticulata"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

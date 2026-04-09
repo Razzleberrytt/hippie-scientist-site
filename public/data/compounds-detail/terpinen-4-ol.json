@@ -1,0 +1,31 @@
+{
+  "slug": "terpinen-4-ol",
+  "id": "terpinen-4-ol",
+  "name": "terpinen-4-ol",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Melaleuca%20alternifolia"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=terpinen-4-ol"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Terpinen-4-ol, cineole, monoterpenes",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "melaleuca-alternifolia"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

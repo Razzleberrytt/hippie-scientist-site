@@ -47,7 +47,7 @@
     "dose use",
     "contraindicated in pregnancy and children."
   ],
-  "category": null,
+  "category": "other",
   "sources": [
     {
       "title": "Workbook source URL",
@@ -88,7 +88,7 @@
   "summary": "Alpha-asarone is a compound reported in acorus americanus, nan, and related herbs. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "acorus-americanus",

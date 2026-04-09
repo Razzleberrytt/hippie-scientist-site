@@ -1,0 +1,31 @@
+{
+  "slug": "lobelanidine",
+  "id": "lobelanidine",
+  "name": "lobelanidine",
+  "effects": [
+    "muscarinic receptor interaction"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=lobelia%20inflata"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=lobelanidine"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "Lobeline acts as a partial agonist at nicotinic acetylcholine receptors and modulates dopamine release.",
+  "herbs": [
+    "lobelia-inflata"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "Lobeline acts as a partial agonist at nicotinic acetylcholine receptors and modulates dopamine release.",
+  "description": "Lobeline acts as a partial agonist at nicotinic acetylcholine receptors and modulates dopamine release.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

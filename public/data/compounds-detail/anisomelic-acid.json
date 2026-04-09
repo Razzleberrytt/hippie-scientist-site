@@ -1,0 +1,31 @@
+{
+  "slug": "anisomelic-acid",
+  "id": "anisomelic-acid",
+  "name": "anisomelic acid",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Anisomeles%20indica"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=anisomelic%20acid"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "diterpenes",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "anisomeles-indica"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

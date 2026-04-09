@@ -1,0 +1,31 @@
+{
+  "slug": "artemisinin",
+  "id": "artemisinin",
+  "name": "artemisinin",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Artemisia%20annua"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=artemisinin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Artemisinin, flavonoids, coumarins",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "artemisia-annua"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

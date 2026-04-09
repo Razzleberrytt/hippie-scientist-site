@@ -22,7 +22,7 @@
     "None established",
     "avoid overuse on broken skin"
   ],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "spilanthol",
@@ -32,9 +32,10 @@
   "summary": "Spilanthol is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "Spilanthol activates trigeminal sensory pathways and may modulate ion channels; detailed receptor mapping remains limited."
 }

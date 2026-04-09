@@ -20,7 +20,7 @@
     "pregnancy",
     "sedative sensitivity."
   ],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "scutellarin",
@@ -30,10 +30,11 @@
   "summary": "Scutellarin is a compound reported in nan and scutellaria lateriflora. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan",
     "scutellaria-lateriflora"
-  ]
+  ],
+  "mechanism": "American skullcap flavonoids are associated with anticonvulsant and anxiolytic activity; GABAergic signaling and broader neuroinhibitory effects have been proposed in preclinical work."
 }

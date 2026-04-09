@@ -1,0 +1,31 @@
+{
+  "slug": "solamargine",
+  "id": "solamargine",
+  "name": "solamargine",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Solanum%20nigrum"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=solamargine"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Solanine, solamargine, flavonoids",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "solanum-nigrum"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

@@ -49,7 +49,7 @@
     "mental illness",
     "Heart conditions"
   ],
-  "category": null,
+  "category": "alkaloid",
   "sources": [
     {
       "title": "Workbook source URL",
@@ -84,7 +84,7 @@
   "summary": "Atropine is a compound reported in datura metel and nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "datura-metel",

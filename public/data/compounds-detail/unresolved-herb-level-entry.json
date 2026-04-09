@@ -1,0 +1,138 @@
+{
+  "slug": "unresolved-herb-level-entry",
+  "id": "unresolved-herb-level-entry",
+  "name": "UNRESOLVED_HERB_LEVEL_ENTRY",
+  "effects": [
+    "cox/nf-kb inhibition",
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Aerva%20lanata"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Albizia%20lebbeck"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Calliandra%20anomala"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Calliandra%20haematocephala"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Calliandra%20portoricensis"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Ceanothus%20integerrimus"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cordyline%20fruticosa"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Dodonaea%20viscosa"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Erythrina%20vespertilio"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Helinus%20integrifolius"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Lobelia%20tupa"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Rhizophora%20mangle"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Rhizophora%20stylosa"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Tetrapleura%20tetraptera"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=blue%20vervain"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=bobinsana"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=boldo"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=bolivian%20torch"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=brunfelsia%20grandiflora"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=byrsonima%20crassifolia"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=caapi"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=caesalpinia%20sepiaria"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=desmodium%20gangeticum"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "alkaloids; flavonoids; saponins",
+  "mechanism": "Likely involves antioxidant, anti-inflammatory, or neuromodulatory pathways; specific mechanisms not well characterized",
+  "herbs": [
+    "aerva-lanata",
+    "albizia-lebbeck",
+    "bobinsana",
+    "boldo",
+    "bolivian-torch",
+    "brunfelsia-grandiflora",
+    "byrsonima-crassifolia",
+    "caapi",
+    "caesalpinia-sepiaria",
+    "calliandra-anomala",
+    "calliandra-haematocephala",
+    "calliandra-portoricensis",
+    "ceanothus-integerrimus",
+    "cordyline-fruticosa",
+    "desmodium-gangeticum",
+    "dodonaea-viscosa",
+    "erythrina-vespertilio",
+    "helinus-integrifolius",
+    "lobelia-tupa",
+    "rhizophora-mangle",
+    "rhizophora-stylosa",
+    "tetrapleura-tetraptera",
+    "verbena-hastata"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "Likely involves antioxidant, anti-inflammatory, or neuromodulatory pathways; specific mechanisms not well characterized",
+  "description": "Likely involves antioxidant, anti-inflammatory, or neuromodulatory pathways; specific mechanisms not well characterized",
+  "evidenceLevel": "unresolved_herb_level",
+  "aliases": []
+}

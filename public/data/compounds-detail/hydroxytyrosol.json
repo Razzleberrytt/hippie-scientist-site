@@ -1,0 +1,35 @@
+{
+  "slug": "hydroxytyrosol",
+  "id": "hydroxytyrosol",
+  "name": "hydroxytyrosol",
+  "effects": [
+    "oxidative_stress_modulation",
+    "inflammatory_pathway_modulation",
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Hydroxytyrosol"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=hydroxytyrosol+pharmacokinetics"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "simple phenolic alcohol / catechol phenol",
+  "mechanism": "proposed mechanism based on preclinical data: antioxidant and cytoprotective signaling with modulation of oxidative-stress and inflammatory pathways; human exposure and metabolism are well described, but target-level clinical mechanism is not fully established.",
+  "herbs": [],
+  "contraindications": [
+    "No established clinical drug interactions identified for isolated hydroxytyrosol."
+  ],
+  "summary": "proposed mechanism based on preclinical data: antioxidant and cytoprotective signaling with modulation of oxidative-stress and inflammatory pathways; human exposure and metabolism are well described, but target-level clinical mechanism is not fully established.",
+  "description": "proposed mechanism based on preclinical data: antioxidant and cytoprotective signaling with modulation of oxidative-stress and inflammatory pathways; human exposure and metabolism are well described, but target-level clinical mechanism is not fully established.",
+  "evidenceLevel": "human PK + preclinical mechanism",
+  "aliases": [
+    "3",
+    "4-dihydroxyphenylethanol",
+    "DOPET"
+  ]
+}

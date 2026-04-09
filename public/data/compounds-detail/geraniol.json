@@ -1,0 +1,31 @@
+{
+  "slug": "geraniol",
+  "id": "geraniol",
+  "name": "geraniol",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cymbopogon%20citratus"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=geraniol"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Citral, geraniol, flavonoids",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "cymbopogon-citratus"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

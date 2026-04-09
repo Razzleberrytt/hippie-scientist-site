@@ -30,7 +30,7 @@
     "blood clotting disorders",
     "Avoid high doses of essential oil"
   ],
-  "category": null,
+  "category": "polyphenol",
   "sources": [
     {
       "title": "PubChem compound: Rosmarinic acid (CID 5281792)",
@@ -57,11 +57,12 @@
   "summary": "Rosmarinic acid is a caffeic-acid ester in many Lamiaceae herbs, studied for antioxidant and anti-inflammatory effects.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "human + preclinical",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan",
     "perilla-frutescens",
     "salvia-apiana"
-  ]
+  ],
+  "mechanism": "Demonstrated antioxidant and anti-inflammatory activity through inhibition of complement activation, COX/LOX signaling, and reactive oxygen species formation; also reported to inhibit GABA transaminase and support increased GABA availability."
 }

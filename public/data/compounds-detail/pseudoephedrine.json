@@ -20,7 +20,7 @@
     "heart conditions",
     "pregnancy"
   ],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "pseudoephedrine",
@@ -30,9 +30,10 @@
   "summary": "pseudoephedrine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "Ephedrine alkaloids act as mixed sympathomimetics, directly stimulating alpha- and beta-adrenergic receptors and indirectly increasing synaptic norepinephrine."
 }

@@ -1,0 +1,21 @@
+{
+  "slug": "genistein",
+  "id": "genistein",
+  "name": "genistein",
+  "effects": [
+    "ER modulation",
+    "Tyrosine kinase inhibition"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-04-09",
+  "category": "isoflavone",
+  "mechanism": "Tyrosine kinase inhibition and estrogen receptor modulation",
+  "herbs": [],
+  "contraindications": [
+    "Hormonal therapies (interaction possible)"
+  ],
+  "summary": "Tyrosine kinase inhibition and estrogen receptor modulation",
+  "description": "Tyrosine kinase inhibition and estrogen receptor modulation",
+  "evidenceLevel": "Batch9",
+  "aliases": []
+}

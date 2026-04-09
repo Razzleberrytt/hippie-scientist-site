@@ -1,0 +1,31 @@
+{
+  "slug": "beta-thujone",
+  "id": "beta-thujone",
+  "name": "beta-thujone",
+  "effects": [
+    "gaba_a_modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=artemisia%20absinthium"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=beta-thujone"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "Thujone is associated with GABA_A receptor antagonism; other constituents contribute bitter, digestive, and broader preclinical bioactivities.",
+  "herbs": [
+    "artemisia-absinthium"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "Thujone is associated with GABA_A receptor antagonism; other constituents contribute bitter, digestive, and broader preclinical bioactivities.",
+  "description": "Thujone is associated with GABA_A receptor antagonism; other constituents contribute bitter, digestive, and broader preclinical bioactivities.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

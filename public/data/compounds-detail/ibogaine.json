@@ -47,7 +47,7 @@
   "summary": "Ibogaine is a compound reported in nan and tabernanthe iboga. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan",

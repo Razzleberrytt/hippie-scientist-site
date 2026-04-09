@@ -1,0 +1,31 @@
+{
+  "slug": "dehydrocorydalmine",
+  "id": "dehydrocorydalmine",
+  "name": "dehydrocorydalmine",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=argemone%20mexicana"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=dehydrocorydalmine"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "protopine alkaloids",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "argemone-mexicana"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "saponins-hederacoside",
+  "id": "saponins-hederacoside",
+  "name": "saponins (hederacoside)",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Hedera%20helix"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=saponins%20%28hederacoside%29"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Saponins (hederacoside), flavonoids",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "hedera-helix"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

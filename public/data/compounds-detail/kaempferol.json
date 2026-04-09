@@ -42,7 +42,7 @@
   "summary": "kaempferol is a compound reported in aerva lanata, albizia lebbeck, and related herbs. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "aerva-lanata",

@@ -27,7 +27,7 @@
   "sources": [
     {
       "title": "Workbook source URL",
-      "url": "Handbook of Medicinal Plants \u2013 CRC Press | Plants of the Gods \u2013 R\u00e4tsch | https://plants.sc.egov.usda.gov/home/search?query=Atropa%20belladonna | https://plants.sc.egov.usda.gov/home/search?query=Brugmansia%20sanguinea | https://plants.sc.egov.usda.gov/home/search?query=Datura%20ferox | https://plants.sc.egov.usda.gov/home/search?query=Datura%20wrightii | https://plants.sc.egov.usda.gov/home/search?query=Duboisia%20myoporoides | https://plants.sc.egov.usda.gov/home/search?query=Mandragora%20officinarum | https://plants.sc.egov.usda.gov/home/search?query=Scopolia%20carniolica | https://plants.sc.egov.usda.gov/home/search?query=Solandra%20maxima | https://plants.sc.egov.usda.gov/home/search?query=brugmansia | https://plants.sc.egov.usda.gov/home/search?query=brugmansia%20suaveolens | https://plants.sc.egov.usda.gov/home/search?query=mandrake | https://pubchem.ncbi.nlm.nih.gov/#query=hyoscyamine | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1318951/"
+      "url": "Handbook of Medicinal Plants – CRC Press | Plants of the Gods – Rätsch | https://plants.sc.egov.usda.gov/home/search?query=Atropa%20belladonna | https://plants.sc.egov.usda.gov/home/search?query=Brugmansia%20sanguinea | https://plants.sc.egov.usda.gov/home/search?query=Datura%20ferox | https://plants.sc.egov.usda.gov/home/search?query=Datura%20wrightii | https://plants.sc.egov.usda.gov/home/search?query=Duboisia%20myoporoides | https://plants.sc.egov.usda.gov/home/search?query=Mandragora%20officinarum | https://plants.sc.egov.usda.gov/home/search?query=Scopolia%20carniolica | https://plants.sc.egov.usda.gov/home/search?query=Solandra%20maxima | https://plants.sc.egov.usda.gov/home/search?query=brugmansia | https://plants.sc.egov.usda.gov/home/search?query=brugmansia%20suaveolens | https://plants.sc.egov.usda.gov/home/search?query=mandrake | https://pubchem.ncbi.nlm.nih.gov/#query=hyoscyamine | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1318951/"
     },
     {
       "title": "Workbook source basis",
@@ -62,7 +62,7 @@
   "summary": "hyoscyamine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"

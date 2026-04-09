@@ -1,0 +1,40 @@
+{
+  "slug": "ginkgetin",
+  "id": "ginkgetin",
+  "name": "ginkgetin",
+  "effects": [
+    "inflammatory_pathway_modulation",
+    "eicosanoid pathway modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Ginkgetin"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16327145/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11988854/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.nccih.nih.gov/health/ginkgo"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "biflavonoid",
+  "mechanism": "proposed mechanism based on preclinical data: anti-inflammatory signaling with dual COX-2/5-lipoxygenase inhibition and suppression of degranulation reported in cell and animal models.",
+  "herbs": [
+    "ginkgo-biloba"
+  ],
+  "contraindications": [
+    "No isolated-compound clinical interaction set established."
+  ],
+  "summary": "proposed mechanism based on preclinical data: anti-inflammatory signaling with dual COX-2/5-lipoxygenase inhibition and suppression of degranulation reported in cell and animal models.",
+  "description": "proposed mechanism based on preclinical data: anti-inflammatory signaling with dual COX-2/5-lipoxygenase inhibition and suppression of degranulation reported in cell and animal models.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}
