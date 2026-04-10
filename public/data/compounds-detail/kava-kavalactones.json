@@ -1,0 +1,20 @@
+{
+  "slug": "kava-kavalactones",
+  "id": "kava-kavalactones",
+  "name": "kava (kavalactones)",
+  "effects": [
+    "GABA_A modulation"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-04-09",
+  "category": "lactone",
+  "mechanism": "Positive modulation of GABA-A receptors",
+  "herbs": [],
+  "contraindications": [
+    "Sedatives/alcohol (additive CNS depression)"
+  ],
+  "summary": "Positive modulation of GABA-A receptors",
+  "description": "Positive modulation of GABA-A receptors",
+  "evidenceLevel": "Sprint6",
+  "aliases": []
+}

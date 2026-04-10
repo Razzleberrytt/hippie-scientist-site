@@ -1,0 +1,31 @@
+{
+  "slug": "astragaloside-iv",
+  "id": "astragaloside-iv",
+  "name": "astragaloside iv",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Astragalus%20membranaceus"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=astragaloside%20iv"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Astragaloside IV, polysaccharides, flavonoids",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "astragalus-membranaceus"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

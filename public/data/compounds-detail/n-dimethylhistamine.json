@@ -1,0 +1,31 @@
+{
+  "slug": "n-dimethylhistamine",
+  "id": "n-dimethylhistamine",
+  "name": "n-dimethylhistamine",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=casimiroa%20edulis"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=n-dimethylhistamine"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "casimiroa-edulis"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

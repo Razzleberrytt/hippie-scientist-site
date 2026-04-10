@@ -1,0 +1,38 @@
+{
+  "slug": "withanone",
+  "id": "withanone",
+  "name": "withanone",
+  "effects": [
+    "multi-target signaling modulation",
+    "oxidative_stress_modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Withanone"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=withanone"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.nccih.nih.gov/health/ashwagandha"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "withanolide / steroidal lactone",
+  "mechanism": "proposed mechanism based on preclinical data: redox-modulating and cytostatic effects with reported interactions in cancer-focused literature involving p53-related stress signaling, proteostasis disruption, and selective tumor-cell toxicity. No established human mechanism.",
+  "herbs": [
+    "ashwagandha"
+  ],
+  "contraindications": [
+    "No compound-specific clinical drug interactions established."
+  ],
+  "summary": "proposed mechanism based on preclinical data: redox-modulating and cytostatic effects with reported interactions in cancer-focused literature involving p53-related stress signaling, proteostasis disruption, and selective tumor-cell toxicity. No established human mechanism.",
+  "description": "proposed mechanism based on preclinical data: redox-modulating and cytostatic effects with reported interactions in cancer-focused literature involving p53-related stress signaling, proteostasis disruption, and selective tumor-cell toxicity. No established human mechanism.",
+  "evidenceLevel": "preclinical",
+  "aliases": [
+    "WTHN"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "aspidospermine",
+  "id": "aspidospermine",
+  "name": "aspidospermine",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Aspidosperma%20quebracho-blanco"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=aspidospermine"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "yohimbine-type alkaloids",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "aspidosperma-quebracho-blanco"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

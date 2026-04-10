@@ -1,0 +1,31 @@
+{
+  "slug": "gelseminine",
+  "id": "gelseminine",
+  "name": "gelseminine",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=carolina%20jessamine"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=gelseminine"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "Gelsemium alkaloids act on the central and peripheral nervous system; gelsemine has demonstrated antinociceptive activity at spinal alpha3 glycine receptors, while toxic alkaloids can cause convulsions and respiratory failure.",
+  "herbs": [
+    "carolina-jessamine"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "Gelsemium alkaloids act on the central and peripheral nervous system; gelsemine has demonstrated antinociceptive activity at spinal alpha3 glycine receptors, while toxic alkaloids can cause convulsions and respiratory failure.",
+  "description": "Gelsemium alkaloids act on the central and peripheral nervous system; gelsemine has demonstrated antinociceptive activity at spinal alpha3 glycine receptors, while toxic alkaloids can cause convulsions and respiratory failure.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

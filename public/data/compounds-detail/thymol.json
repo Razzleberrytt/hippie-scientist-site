@@ -30,7 +30,7 @@
     "Avoid in bipolar disorder and pregnancy",
     "hormone-sensitive conditions"
   ],
-  "category": null,
+  "category": "Thymol, carvacrol, essential oils",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "thymol",
@@ -40,10 +40,11 @@
   "summary": "thymol appears in records as a compound reported in nan and thymus vulgaris. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan",
     "thymus-vulgaris"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

@@ -1,0 +1,33 @@
+{
+  "slug": "curcumin",
+  "id": "curcumin",
+  "name": "curcumin",
+  "effects": [
+    "nf-kb inhibition"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Curcuma%20longa"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=curcumin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "phenolic",
+  "mechanism": "Pleiotropic anti-inflammatory polyphenol associated with suppression of NF-kB and other inflammatory signaling; many reported targets exist, but oral PK limitations complicate translation.",
+  "herbs": [
+    "turmeric"
+  ],
+  "contraindications": [
+    "Anticoagulants/antiplatelets (potential additive bleeding risk)",
+    "CYP-metabolized drugs (possible altered exposure)",
+    "piperine-containing products may materially increase exposure"
+  ],
+  "summary": "Pleiotropic anti-inflammatory polyphenol associated with suppression of NF-kB and other inflammatory signaling; many reported targets exist, but oral PK limitations complicate translation.",
+  "description": "Pleiotropic anti-inflammatory polyphenol associated with suppression of NF-kB and other inflammatory signaling; many reported targets exist, but oral PK limitations complicate translation.",
+  "evidenceLevel": "Sprint4",
+  "aliases": []
+}

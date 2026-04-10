@@ -1,0 +1,31 @@
+{
+  "slug": "xanthohumol",
+  "id": "xanthohumol",
+  "name": "xanthohumol",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Humulus%20lupulus"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=xanthohumol"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "humulus-lupulus"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

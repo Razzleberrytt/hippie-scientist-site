@@ -16,7 +16,7 @@
     "avoid internal use",
     "handling requires caution."
   ],
-  "category": null,
+  "category": "other",
   "sources": [
     {
       "note": "Inferred from scientific name:",
@@ -31,9 +31,10 @@
   "summary": "mesaconitine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "aconitum-napellus"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

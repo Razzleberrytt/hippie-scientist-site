@@ -1,0 +1,31 @@
+{
+  "slug": "thymoquinone",
+  "id": "thymoquinone",
+  "name": "thymoquinone",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Nigella%20sativa"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=thymoquinone"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Thymoquinone, nigellone, essential oils",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "nigella-sativa"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

@@ -40,7 +40,7 @@
     "Heart conditions",
     "stimulant sensitivity"
   ],
-  "category": null,
+  "category": "tannins",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "theobromine",
@@ -50,10 +50,11 @@
   "summary": "theobromine is a compound reported in nan and yerba mate. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan",
     "yerba-mate"
-  ]
+  ],
+  "mechanism": "Guarana's stimulant effects are driven primarily by caffeine acting as a nonselective adenosine receptor antagonist; other xanthines and polyphenols contribute secondary stimulant and antioxidant effects."
 }

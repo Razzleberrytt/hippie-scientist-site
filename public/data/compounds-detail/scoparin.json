@@ -1,0 +1,31 @@
+{
+  "slug": "scoparin",
+  "id": "scoparin",
+  "name": "scoparin",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Scoparia%20dulcis"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=scoparin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "flavonoids",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "scoparia-dulcis"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "vitexin",
+  "id": "vitexin",
+  "name": "vitexin",
+  "effects": [
+    "multi-target signaling modulation",
+    "muscarinic receptor interaction"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=amorpha%20fruticosa"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=passionflower"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=vitexin"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=vitexin%29"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "Flavonoids interact with benzodiazepine binding sites on GABA-A receptors; mild MAO-A inhibition proposed.",
+  "herbs": [
+    "amorpha-fruticosa",
+    "passiflora-incarnata"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "Flavonoids interact with benzodiazepine binding sites on GABA-A receptors; mild MAO-A inhibition proposed.",
+  "description": "Flavonoids interact with benzodiazepine binding sites on GABA-A receptors; mild MAO-A inhibition proposed.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

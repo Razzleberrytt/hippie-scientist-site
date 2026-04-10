@@ -1,0 +1,36 @@
+{
+  "slug": "trigonelline",
+  "id": "trigonelline",
+  "name": "trigonelline",
+  "effects": [
+    "adenosine receptor antagonism"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Coffea%20arabica"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=coffee"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=trigonelline"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "Coffee's stimulant effects are driven primarily by caffeine, which acts as a nonselective adenosine receptor antagonist; chlorogenic acids and diterpenes contribute additional antioxidant and metabolic effects.",
+  "herbs": [
+    "coffea-arabica",
+    "coffee"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "Coffee's stimulant effects are driven primarily by caffeine, which acts as a nonselective adenosine receptor antagonist; chlorogenic acids and diterpenes contribute additional antioxidant and metabolic effects.",
+  "description": "Coffee's stimulant effects are driven primarily by caffeine, which acts as a nonselective adenosine receptor antagonist; chlorogenic acids and diterpenes contribute additional antioxidant and metabolic effects.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

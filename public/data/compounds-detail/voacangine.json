@@ -26,7 +26,7 @@
     "cardiovascular conditions",
     "MAOI use"
   ],
-  "category": null,
+  "category": "indole alkaloids",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "voacangine",
@@ -36,10 +36,11 @@
   "summary": "voacangine appears in records as a compound reported in nan and tabernaemontana undulata. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan",
     "tabernaemontana-undulata"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

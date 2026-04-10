@@ -1,0 +1,40 @@
+{
+  "slug": "rosin",
+  "id": "rosin",
+  "name": "rosin",
+  "effects": [
+    "adaptogen",
+    "oxidative_stress_modulation",
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/?term=rosin+rhodiola"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=rosin+rhodiola"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.nccih.nih.gov/health/rhodiola"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "phenylpropanoid glycoside",
+  "mechanism": "No established human mechanism. proposed mechanism based on preclinical data: antioxidant/stress-response contribution inferred from Rhodiola constituent work; current evidence is insufficient to assign a validated single-compound pathway model.",
+  "herbs": [
+    "rhodiola-rosea"
+  ],
+  "contraindications": [
+    "No compound-specific clinical drug interactions established."
+  ],
+  "summary": "No established human mechanism. proposed mechanism based on preclinical data: antioxidant/stress-response contribution inferred from Rhodiola constituent work; current evidence is insufficient to assign a validated single-compound pathway model.",
+  "description": "No established human mechanism. proposed mechanism based on preclinical data: antioxidant/stress-response contribution inferred from Rhodiola constituent work; current evidence is insufficient to assign a validated single-compound pathway model.",
+  "evidenceLevel": "phytochemical identity strong; pharmacology limited",
+  "aliases": [
+    "cinnamyl alcohol beta-D-glucoside",
+    "rosin glycoside"
+  ]
+}

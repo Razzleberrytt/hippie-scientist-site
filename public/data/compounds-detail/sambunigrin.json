@@ -1,0 +1,31 @@
+{
+  "slug": "sambunigrin",
+  "id": "sambunigrin",
+  "name": "sambunigrin",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Sambucus%20nigra"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=sambunigrin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Anthocyanins, flavonoids, sambunigrin",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "sambucus-nigra"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

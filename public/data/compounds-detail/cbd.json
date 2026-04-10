@@ -20,7 +20,7 @@
     "schizophrenia",
     "pregnancy"
   ],
-  "category": null,
+  "category": "terpenes",
   "sources": [
     {
       "title": "Workbook source URL",
@@ -55,7 +55,7 @@
   "summary": "CBD appears in records as a compound reported in nan and cannabis sativa. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan",

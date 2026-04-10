@@ -1,0 +1,37 @@
+{
+  "slug": "sitoindoside-x",
+  "id": "sitoindoside-x",
+  "name": "sitoindoside X",
+  "effects": [
+    "neuroprotective",
+    "adaptogen",
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/?term=sitoindoside+X"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=sitoindoside+X"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.nccih.nih.gov/health/ashwagandha"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "steroidal glycoside / sitoindoside",
+  "mechanism": "No established human mechanism. proposed mechanism based on preclinical data: neuroprotective and adaptogen-associated effects inferred from older Withania extract/constituent studies rather than strong isolated-compound literature.",
+  "herbs": [
+    "ashwagandha"
+  ],
+  "contraindications": [
+    "No compound-specific clinical drug interactions established."
+  ],
+  "summary": "No established human mechanism. proposed mechanism based on preclinical data: neuroprotective and adaptogen-associated effects inferred from older Withania extract/constituent studies rather than strong isolated-compound literature.",
+  "description": "No established human mechanism. proposed mechanism based on preclinical data: neuroprotective and adaptogen-associated effects inferred from older Withania extract/constituent studies rather than strong isolated-compound literature.",
+  "evidenceLevel": "constituent-level + preclinical context",
+  "aliases": []
+}

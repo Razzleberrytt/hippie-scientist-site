@@ -1,0 +1,31 @@
+{
+  "slug": "dibenzyl-trisulfide",
+  "id": "dibenzyl-trisulfide",
+  "name": "dibenzyl trisulfide",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Petiveria%20alliacea"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=dibenzyl%20trisulfide"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "petiveria-alliacea"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

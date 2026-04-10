@@ -1,0 +1,37 @@
+{
+  "slug": "madecassoside",
+  "id": "madecassoside",
+  "name": "madecassoside",
+  "effects": [
+    "cox/nf-kb inhibition",
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Centella%20asiatica"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=centella%20asiatica"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=madecassoside"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "centella-asiatica",
+    "gotu-kola"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

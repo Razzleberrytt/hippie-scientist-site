@@ -16,7 +16,7 @@
     "avoid internal use",
     "handling requires caution."
   ],
-  "category": null,
+  "category": "other",
   "sources": [
     {
       "title": "Workbook source URL",
@@ -47,7 +47,7 @@
   "summary": "aconitine is a compound reported in aconitum napellus. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "aconitum-napellus"

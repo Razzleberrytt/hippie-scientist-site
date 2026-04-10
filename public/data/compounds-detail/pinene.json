@@ -18,7 +18,7 @@
     "dose use",
     "contraindicated in pregnancy and children."
   ],
-  "category": null,
+  "category": "terpenes (myrcene",
   "sources": [
     {
       "note": "Inferred from scientific name:",
@@ -33,9 +33,10 @@
   "summary": "α-pinene appears in records as a compound reported in acorus tatarinowii. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "acorus-tatarinowii"
-  ]
+  ],
+  "mechanism": "THC acts at CB1 receptors; terpenes may modulate neurotransmitter systems and pharmacokinetics."
 }

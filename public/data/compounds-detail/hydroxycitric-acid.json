@@ -1,0 +1,31 @@
+{
+  "slug": "hydroxycitric-acid",
+  "id": "hydroxycitric-acid",
+  "name": "hydroxycitric acid (hca)",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Garcinia%20cambogia"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=hydroxycitric%20acid%20%28hca%29"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "organic acid",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "garcinia-cambogia"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "withaferin-a",
+  "id": "withaferin-a",
+  "name": "withaferin A",
+  "effects": [
+    "inflammatory_pathway_modulation",
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Withaferin-A"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=withaferin+A+HSP90"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=withaferin+A+vimentin"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=withaferin+A+IKKb"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.nccih.nih.gov/health/ashwagandha"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "withanolide / steroidal lactone",
+  "mechanism": "proposed mechanism based on preclinical data: multi-target modulation including HSP90 inhibition, disruption of vimentin-dependent cytoskeletal signaling, and suppression of IKKbeta/NF-kappaB inflammatory signaling. Human clinical mechanism is not established.",
+  "herbs": [
+    "ashwagandha"
+  ],
+  "contraindications": [
+    "No compound-specific clinical interaction set is established",
+    "retain herb-level ashwagandha interaction caution only."
+  ],
+  "summary": "proposed mechanism based on preclinical data: multi-target modulation including HSP90 inhibition, disruption of vimentin-dependent cytoskeletal signaling, and suppression of IKKbeta/NF-kappaB inflammatory signaling. Human clinical mechanism is not established.",
+  "description": "proposed mechanism based on preclinical data: multi-target modulation including HSP90 inhibition, disruption of vimentin-dependent cytoskeletal signaling, and suppression of IKKbeta/NF-kappaB inflammatory signaling. Human clinical mechanism is not established.",
+  "evidenceLevel": "preclinical + early human PK",
+  "aliases": [
+    "WA"
+  ]
+}

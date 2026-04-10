@@ -25,7 +25,7 @@
     "Pregnancy",
     "hormone-sensitive conditions"
   ],
-  "category": null,
+  "category": "Arbutin, tannins, methyl salicylate",
   "sources": [
     {
       "title": "Workbook source URL",
@@ -60,7 +60,7 @@
   "summary": "arbutin appears in records as a compound reported in adenostoma fasciculatum and nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "adenostoma-fasciculatum",

@@ -1,0 +1,41 @@
+{
+  "slug": "silybin-a",
+  "id": "silybin-a",
+  "name": "silybin A",
+  "effects": [
+    "inflammatory_pathway_modulation",
+    "oxidative_stress_modulation",
+    "hepatoprotective",
+    "oxidative_stress_modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Silybin-A"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=silybin+A"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.nccih.nih.gov/health/milk-thistle"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "flavonolignan",
+  "mechanism": "proposed mechanism based on preclinical data: antioxidant, anti-inflammatory, and hepatoprotective signaling reported in silymarin literature; no isolated-compound human mechanism is established.",
+  "herbs": [
+    "milk-thistle"
+  ],
+  "contraindications": [
+    "No isolated-compound clinical interaction set is established",
+    "retain herb-level caution for possible CYP2C9/CYP3A4-related interaction potential and possible warfarin interaction concerns."
+  ],
+  "summary": "proposed mechanism based on preclinical data: antioxidant, anti-inflammatory, and hepatoprotective signaling reported in silymarin literature; no isolated-compound human mechanism is established.",
+  "description": "proposed mechanism based on preclinical data: antioxidant, anti-inflammatory, and hepatoprotective signaling reported in silymarin literature; no isolated-compound human mechanism is established.",
+  "evidenceLevel": "compound_level",
+  "aliases": [
+    "silibinin A"
+  ]
+}

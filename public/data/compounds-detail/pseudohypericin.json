@@ -1,0 +1,33 @@
+{
+  "slug": "pseudohypericin",
+  "id": "pseudohypericin",
+  "name": "pseudohypericin",
+  "effects": [
+    "photodynamic activity",
+    "oxidative_stress_modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Pseudohypericin"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548880/"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "naphthodianthrone",
+  "mechanism": "proposed mechanism based on preclinical data: photodynamic, antiviral, and redox-active signaling; no established human mechanism.",
+  "herbs": [
+    "st-johns-wort"
+  ],
+  "contraindications": [
+    "No isolated-compound clinical interaction set is established",
+    "retain herb-level St Johns wort interaction caution only."
+  ],
+  "summary": "proposed mechanism based on preclinical data: photodynamic, antiviral, and redox-active signaling; no established human mechanism.",
+  "description": "proposed mechanism based on preclinical data: photodynamic, antiviral, and redox-active signaling; no established human mechanism.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

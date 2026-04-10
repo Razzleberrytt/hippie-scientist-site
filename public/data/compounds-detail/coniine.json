@@ -1,0 +1,31 @@
+{
+  "slug": "coniine",
+  "id": "coniine",
+  "name": "coniine",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Conium%20maculatum"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=coniine"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Coniine, conhydrine, piperidine alkaloids",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "conium-maculatum"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

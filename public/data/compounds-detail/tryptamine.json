@@ -1,0 +1,37 @@
+{
+  "slug": "tryptamine",
+  "id": "tryptamine",
+  "name": "tryptamine",
+  "effects": [
+    "serotonergic modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Phalaris%20arundinacea"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=acacia%20confusa"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=tryptamine"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "alkaloid",
+  "mechanism": "DMT acts primarily as a 5-HT2A receptor agonist with additional sigma-1 receptor activity (proposed).",
+  "herbs": [
+    "acacia-confusa",
+    "phalaris-arundinacea"
+  ],
+  "contraindications": [
+    "avoid with SSRIs/MAOIs",
+    "risk of serotonin syndrome"
+  ],
+  "summary": "DMT acts primarily as a 5-HT2A receptor agonist with additional sigma-1 receptor activity (proposed).",
+  "description": "DMT acts primarily as a 5-HT2A receptor agonist with additional sigma-1 receptor activity (proposed).",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

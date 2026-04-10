@@ -20,7 +20,7 @@
     "pregnancy",
     "sedative sensitivity."
   ],
-  "category": null,
+  "category": "other",
   "sources": [
     {
       "title": "Workbook source URL",
@@ -55,7 +55,7 @@
   "summary": "Baicalin appears in records as a compound reported in nan and scutellaria lateriflora. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan",

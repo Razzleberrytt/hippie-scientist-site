@@ -1,0 +1,31 @@
+{
+  "slug": "pachymic-acid",
+  "id": "pachymic-acid",
+  "name": "pachymic acid",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Poria%20cocos"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=pachymic%20acid"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "polysaccharides; triterpenes",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "poria-cocos"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

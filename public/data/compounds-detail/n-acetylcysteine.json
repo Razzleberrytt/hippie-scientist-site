@@ -1,0 +1,42 @@
+{
+  "slug": "n-acetylcysteine",
+  "id": "n-acetylcysteine",
+  "name": "n-acetylcysteine (nac)",
+  "effects": [
+    "Glutathione replenishment",
+    "mucolytic disulfide-bond reduction",
+    "redox signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8234027/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/N-Acetyl-L-Cysteine"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK537183/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548401/"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "amino acid derivative / thiol",
+  "mechanism": "Replenishes glutathione by serving as a cysteine precursor; also has direct reducing activity and breaks disulfide bonds in mucus.",
+  "herbs": [],
+  "contraindications": [
+    "Nitroglycerin (can potentiate vasodilation",
+    "headache",
+    "and hypotension)",
+    "activated charcoal can reduce absorption in overdose settings."
+  ],
+  "summary": "Replenishes glutathione by serving as a cysteine precursor; also has direct reducing activity and breaks disulfide bonds in mucus.",
+  "description": "Replenishes glutathione by serving as a cysteine precursor; also has direct reducing activity and breaks disulfide bonds in mucus.",
+  "evidenceLevel": "Sprint5",
+  "aliases": []
+}

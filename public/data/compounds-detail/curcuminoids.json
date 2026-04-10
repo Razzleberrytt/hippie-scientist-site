@@ -1,0 +1,21 @@
+{
+  "slug": "curcuminoids",
+  "id": "curcuminoids",
+  "name": "curcuminoids",
+  "effects": [
+    "COX-2 inhibition",
+    "NF-kB inhibition"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-04-09",
+  "category": "polyphenol",
+  "mechanism": "Inhibits NF-kB and COX-2 signaling",
+  "herbs": [],
+  "contraindications": [
+    "Anticoagulants (↑ bleeding risk)"
+  ],
+  "summary": "Inhibits NF-kB and COX-2 signaling",
+  "description": "Inhibits NF-kB and COX-2 signaling",
+  "evidenceLevel": "Batch8",
+  "aliases": []
+}

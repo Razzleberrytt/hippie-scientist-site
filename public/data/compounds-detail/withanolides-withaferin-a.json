@@ -1,0 +1,37 @@
+{
+  "slug": "withanolides-withaferin-a",
+  "id": "withanolides-withaferin-a",
+  "name": "withanolides (withaferin a",
+  "effects": [
+    "cox/nf-kb inhibition",
+    "gaba_a_modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Withania%20Somnifera"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=ashwagandha"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=withanolides%20%28withaferin%20a"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "withania-somnifera",
+    "withania-somnifera-ashwagandha"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

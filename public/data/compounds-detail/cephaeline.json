@@ -17,7 +17,7 @@
     "can be toxic",
     "use with caution and avoid during pregnancy or without medical supervision."
   ],
-  "category": null,
+  "category": "Emetine, cephaeline, alkaloids",
   "sources": [
     {
       "title": "Workbook source URL",
@@ -48,7 +48,7 @@
   "summary": "cephaeline is a compound reported in alangium salvifolium. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "alangium-salvifolium"

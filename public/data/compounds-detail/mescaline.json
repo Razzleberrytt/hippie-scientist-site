@@ -15,7 +15,7 @@
     "mental illness",
     "pregnancy."
   ],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "mescaline",
@@ -25,9 +25,10 @@
   "summary": "Mescaline appears in records as a compound reported in echinopsis pachanoi. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "echinopsis-pachanoi"
-  ]
+  ],
+  "mechanism": "Mescaline acts as a 5-HT2A receptor agonist producing psychedelic effects."
 }

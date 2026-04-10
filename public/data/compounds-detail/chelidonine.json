@@ -1,0 +1,31 @@
+{
+  "slug": "chelidonine",
+  "id": "chelidonine",
+  "name": "chelidonine",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Chelidonium%20majus"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=chelidonine"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Chelidonine, berberine, alkaloids",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "chelidonium-majus"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

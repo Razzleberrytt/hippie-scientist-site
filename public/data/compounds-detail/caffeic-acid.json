@@ -17,7 +17,7 @@
     "may interact with blood thinners due to tannin content【859641390196180†L297",
     "L313】."
   ],
-  "category": null,
+  "category": "provisional_from_herb_monograph",
   "sources": [
     {
       "title": "Workbook source basis",
@@ -40,9 +40,10 @@
   "summary": "caffeic acid is a compound reported in alchemilla vulgaris. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "herb_level_reference_only",
   "relatedEntities": [],
   "linkedHerbs": [
     "alchemilla-vulgaris"
-  ]
+  ],
+  "mechanism": ""
 }

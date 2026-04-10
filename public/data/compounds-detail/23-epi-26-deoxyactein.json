@@ -1,0 +1,28 @@
+{
+  "slug": "23-epi-26-deoxyactein",
+  "id": "23-epi-26-deoxyactein",
+  "name": "23-epi-26-deoxyactein",
+  "effects": [
+    "inflammatory_pathway_modulation",
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21614156/"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "triterpene glycoside",
+  "mechanism": "Proposed mechanism based on preclinical data: 23-epi-26-deoxyactein shows anti-inflammatory pathway effects and suppression of nitric oxide signaling in vitro, with broader black cohosh mechanistic relevance still not fully resolved in humans.",
+  "herbs": [
+    "black-cohosh"
+  ],
+  "contraindications": [
+    "No well-established clinical interactions are confirmed."
+  ],
+  "summary": "Proposed mechanism based on preclinical data: 23-epi-26-deoxyactein shows anti-inflammatory pathway effects and suppression of nitric oxide signaling in vitro, with broader black cohosh mechanistic relevance still not fully resolved in humans.",
+  "description": "Proposed mechanism based on preclinical data: 23-epi-26-deoxyactein shows anti-inflammatory pathway effects and suppression of nitric oxide signaling in vitro, with broader black cohosh mechanistic relevance still not fully resolved in humans.",
+  "evidenceLevel": "preclinical",
+  "aliases": []
+}

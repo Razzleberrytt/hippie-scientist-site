@@ -1,0 +1,31 @@
+{
+  "slug": "lycorine",
+  "id": "lycorine",
+  "name": "lycorine",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Boophone%20disticha"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=lycorine"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "alkaloids",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "boophone-disticha"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

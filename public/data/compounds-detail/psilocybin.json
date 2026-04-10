@@ -1,0 +1,36 @@
+{
+  "slug": "psilocybin",
+  "id": "psilocybin",
+  "name": "psilocybin",
+  "effects": [
+    "serotonin receptor interaction"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Psilocybe%20mexicana"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Psilocybin"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=psilocybin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "Converted to psilocin which acts as 5-HT2A agonist.",
+  "herbs": [
+    "psilocybe-mexicana",
+    "psilocybin"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "Converted to psilocin which acts as 5-HT2A agonist.",
+  "description": "Converted to psilocin which acts as 5-HT2A agonist.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "salidroside",
+  "id": "salidroside",
+  "name": "salidroside",
+  "effects": [
+    "adaptogen",
+    "oxidative_stress_modulation",
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "PubMed/PMC salidroside reviews"
+    },
+    {
+      "title": "Reference",
+      "url": "PubChem"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "phenylpropanoid glycoside",
+  "mechanism": "Salidroside shows cytoprotective, metabolic, and stress-response activity across preclinical and limited human literature, with repeated linkage to AMPK, PI3K/Akt, and Nrf2-associated pathways.",
+  "herbs": [
+    "rhodiola-rosea"
+  ],
+  "contraindications": [
+    "No strong compound-specific clinical DDI retained",
+    "interaction risk remains limited but not fully excluded."
+  ],
+  "summary": "Salidroside shows cytoprotective, metabolic, and stress-response activity across preclinical and limited human literature, with repeated linkage to AMPK, PI3K/Akt, and Nrf2-associated pathways.",
+  "description": "Salidroside shows cytoprotective, metabolic, and stress-response activity across preclinical and limited human literature, with repeated linkage to AMPK, PI3K/Akt, and Nrf2-associated pathways.",
+  "evidenceLevel": "preclinical + limited human",
+  "aliases": []
+}

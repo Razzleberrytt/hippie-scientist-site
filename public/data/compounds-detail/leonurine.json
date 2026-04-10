@@ -45,7 +45,7 @@
     "Not recommended for pregnant or breastfeeding individuals",
     "psychiatric disorders."
   ],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "leonurine",
@@ -55,11 +55,12 @@
   "summary": "Leonurine appears in records as a compound reported in leonurus sibiricus, motherwort, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "leonurus-sibiricus",
     "motherwort",
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

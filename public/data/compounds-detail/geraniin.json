@@ -1,0 +1,31 @@
+{
+  "slug": "geraniin",
+  "id": "geraniin",
+  "name": "geraniin",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Geranium%20robertianum"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=geraniin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Tannins, flavonoids, geraniin",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "geranium-robertianum"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

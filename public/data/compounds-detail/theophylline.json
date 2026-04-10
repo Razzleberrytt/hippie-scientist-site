@@ -22,7 +22,7 @@
     "Pregnancy",
     "anxiety disorders"
   ],
-  "category": null,
+  "category": "tannins",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "theophylline",
@@ -32,9 +32,10 @@
   "summary": "theophylline appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "Guarana's stimulant effects are driven primarily by caffeine acting as a nonselective adenosine receptor antagonist; other xanthines and polyphenols contribute secondary stimulant and antioxidant effects."
 }

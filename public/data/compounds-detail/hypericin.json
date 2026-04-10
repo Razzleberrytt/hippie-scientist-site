@@ -1,0 +1,32 @@
+{
+  "slug": "hypericin",
+  "id": "hypericin",
+  "name": "hypericin",
+  "effects": [
+    "photodynamic activity",
+    "oxidative_stress_modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Hypericin"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548880/"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "naphthodianthrone",
+  "mechanism": "proposed mechanism based on preclinical data: photodynamic and redox-active signaling; no established human antidepressant mechanism at isolated-compound level.",
+  "herbs": [
+    "st-johns-wort"
+  ],
+  "contraindications": [
+    "No isolated-compound clinical interaction set is established beyond herb-level St Johns wort interaction liability."
+  ],
+  "summary": "proposed mechanism based on preclinical data: photodynamic and redox-active signaling; no established human antidepressant mechanism at isolated-compound level.",
+  "description": "proposed mechanism based on preclinical data: photodynamic and redox-active signaling; no established human antidepressant mechanism at isolated-compound level.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

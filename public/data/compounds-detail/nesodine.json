@@ -25,7 +25,7 @@
     "pregnancy [9",
     "4]."
   ],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "nesodine",
@@ -35,9 +35,10 @@
   "summary": "nesodine appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "Primary alkaloid cryogenine (vertine) has CNS activity; precise receptor targets are not well-characterized in humans. Marked as mechanism not fully established."
 }

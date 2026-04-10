@@ -1,0 +1,31 @@
+{
+  "slug": "bilobalide",
+  "id": "bilobalide",
+  "name": "bilobalide",
+  "effects": [
+    "gaba_a_modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=ginkgo%20biloba"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=bilobalide"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "flavonol glycosides",
+  "mechanism": "Ginkgolides antagonize platelet-activating factor (PAF) receptors; bilobalide modulates GABAergic and glutamatergic transmission.",
+  "herbs": [
+    "ginkgo-biloba"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "Ginkgolides antagonize platelet-activating factor (PAF) receptors; bilobalide modulates GABAergic and glutamatergic transmission.",
+  "description": "Ginkgolides antagonize platelet-activating factor (PAF) receptors; bilobalide modulates GABAergic and glutamatergic transmission.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

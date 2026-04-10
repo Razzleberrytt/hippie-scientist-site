@@ -28,7 +28,7 @@
     "dangerous interactions with MAOIs",
     "SSRIs"
   ],
-  "category": null,
+  "category": "essential oils",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "myristicin",
@@ -38,10 +38,11 @@
   "summary": "Myristicin appears in records as a compound reported in nan and myristica fragrans. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan",
     "myristica-fragrans"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

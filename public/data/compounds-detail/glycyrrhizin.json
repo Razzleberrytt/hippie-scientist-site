@@ -1,0 +1,31 @@
+{
+  "slug": "glycyrrhizin",
+  "id": "glycyrrhizin",
+  "name": "glycyrrhizin",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Glycyrrhiza%20glabra"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=glycyrrhizin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Glycyrrhizin, flavonoids, saponins",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "glycyrrhiza-glabra"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

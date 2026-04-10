@@ -50,7 +50,7 @@
   "summary": "eugenol appears in records as a compound reported in nan, pimenta dioica, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "human + preclinical",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan",

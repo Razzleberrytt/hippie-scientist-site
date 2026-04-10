@@ -1,0 +1,31 @@
+{
+  "slug": "loganin",
+  "id": "loganin",
+  "name": "loganin",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cornus%20officinalis"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=loganin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "iridoid glycosides",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "cornus-officinalis"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "anthocyanins-delphinidin",
+  "id": "anthocyanins-delphinidin",
+  "name": "anthocyanins (delphinidin",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=hibiscus%20sabdariffa"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=anthocyanins%20%28delphinidin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "Anthocyanins and organic acids contribute antioxidant and ACE-inhibitory activity.",
+  "herbs": [
+    "hibiscus-sabdariffa"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "Anthocyanins and organic acids contribute antioxidant and ACE-inhibitory activity.",
+  "description": "Anthocyanins and organic acids contribute antioxidant and ACE-inhibitory activity.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

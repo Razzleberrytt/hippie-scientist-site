@@ -17,7 +17,7 @@
     "gallbladder disorders",
     "infants (menthol sensitivity)"
   ],
-  "category": null,
+  "category": "monoterpene ketone",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "pulegone",
@@ -27,9 +27,10 @@
   "summary": "pulegone appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "metabolized to hepatotoxic intermediates in high doses; safety-relevant compound"
 }

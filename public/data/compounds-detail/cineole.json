@@ -55,7 +55,7 @@
     "or during pregnancy",
     "thujone sensitivity"
   ],
-  "category": null,
+  "category": "other",
   "sources": [
     {
       "title": "Workbook source URL",
@@ -86,7 +86,7 @@
   "summary": "cineole appears in records as a compound reported in acorus tatarinowii, nan, and related herbs. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "acorus-tatarinowii",

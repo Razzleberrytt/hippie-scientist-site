@@ -1,0 +1,31 @@
+{
+  "slug": "punarnavine",
+  "id": "punarnavine",
+  "name": "punarnavine",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Boerhavia%20diffusa"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=punarnavine"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Punarnavine, alkaloids, flavonoids",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "boerhavia-diffusa"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

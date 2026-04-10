@@ -33,7 +33,7 @@
     "dangerous interactions with MAOIs",
     "SSRIs"
   ],
-  "category": null,
+  "category": "essential oils",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "safrole",
@@ -43,10 +43,11 @@
   "summary": "Safrole is a compound reported in mexican pepperleaf and nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "mexican-pepperleaf",
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

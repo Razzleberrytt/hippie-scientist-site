@@ -35,7 +35,7 @@
     "liver issues",
     "psychiatric disorders"
   ],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "tetrahydroharmine",
@@ -45,9 +45,10 @@
   "summary": "tetrahydroharmine is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "Beta-carboline alkaloids act as reversible MAO-A inhibitors, allowing oral activity of DMT and modulating serotonergic signaling."
 }

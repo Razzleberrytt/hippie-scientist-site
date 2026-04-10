@@ -1,0 +1,33 @@
+{
+  "slug": "salvinorin-a",
+  "id": "salvinorin-a",
+  "name": "salvinorin a",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=salvia%20divinorum"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=salvinorin%20a"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "Salvinorin A is a potent kappa-opioid receptor agonist producing dissociative and hallucinogenic effects.",
+  "herbs": [
+    "salvia-divinorum"
+  ],
+  "contraindications": [
+    "cns depressants may potentiate sedative effects",
+    "caution when coadministered [3",
+    "3]."
+  ],
+  "summary": "Salvinorin A is a potent kappa-opioid receptor agonist producing dissociative and hallucinogenic effects.",
+  "description": "Salvinorin A is a potent kappa-opioid receptor agonist producing dissociative and hallucinogenic effects.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

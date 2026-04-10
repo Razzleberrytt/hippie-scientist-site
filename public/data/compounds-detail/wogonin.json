@@ -19,7 +19,7 @@
     "pregnancy",
     "sedative sensitivity."
   ],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "wogonin",
@@ -29,9 +29,10 @@
   "summary": "wogonin appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "American skullcap flavonoids are associated with anticonvulsant and anxiolytic activity; GABAergic signaling and broader neuroinhibitory effects have been proposed in preclinical work."
 }

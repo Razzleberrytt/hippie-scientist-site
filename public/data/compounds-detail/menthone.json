@@ -17,7 +17,7 @@
     "gallbladder disorders",
     "infants (menthol sensitivity)"
   ],
-  "category": null,
+  "category": "Menthol, menthone, flavonoids",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "menthone",
@@ -27,9 +27,10 @@
   "summary": "menthone is a compound reported in nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

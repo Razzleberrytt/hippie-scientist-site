@@ -48,7 +48,7 @@
   "summary": "ephedrine is a compound reported in aconitum napellus and nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "aconitum-napellus",

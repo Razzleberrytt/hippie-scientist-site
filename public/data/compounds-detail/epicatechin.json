@@ -1,0 +1,31 @@
+{
+  "slug": "epicatechin",
+  "id": "epicatechin",
+  "name": "epicatechin",
+  "effects": [
+    "adenosine receptor antagonism"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Theobroma%20cacao"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=epicatechin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "flavonoid",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "theobroma-cacao"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

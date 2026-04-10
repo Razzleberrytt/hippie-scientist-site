@@ -1,0 +1,32 @@
+{
+  "slug": "madecassic-acid",
+  "id": "madecassic-acid",
+  "name": "madecassic acid",
+  "effects": [
+    "cox/nf-kb inhibition"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Centella%20asiatica"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=madecassic%20acid"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "organic acid",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "gotu-kola"
+  ],
+  "contraindications": [
+    "sedatives",
+    "hepatotoxic drugs."
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

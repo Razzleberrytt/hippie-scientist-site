@@ -1,0 +1,18 @@
+{
+  "slug": "chicoric-acid",
+  "id": "chicoric-acid",
+  "name": "chicoric acid",
+  "effects": [],
+  "sources": [],
+  "lastUpdated": "2026-04-09",
+  "category": "provisional_from_herb_monograph",
+  "mechanism": "",
+  "herbs": [
+    "echinacea-purpurea"
+  ],
+  "contraindications": [],
+  "summary": "",
+  "description": "",
+  "evidenceLevel": "herb_level_reference_only",
+  "aliases": []
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "n-acetyl-l-tyrosine",
+  "id": "n-acetyl-l-tyrosine",
+  "name": "N-acetyl-L-tyrosine",
+  "effects": [
+    "Tyrosine pool replenishment",
+    "catecholamine biosynthesis support",
+    "thyroid hormone precursor biology"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3018185/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/N-Acetyl-L-tyrosine"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "N-acetyl amino acid derivative",
+  "mechanism": "Acetylated tyrosine donor that is deacetylated to tyrosine and can feed catecholamine-precursor pools; evidence that it outperforms L-tyrosine as a CNS precursor is limited.",
+  "herbs": [],
+  "contraindications": [
+    "Levodopa / other large neutral amino acids (theoretical transport competition after deacetylation)."
+  ],
+  "summary": "Acetylated tyrosine donor that is deacetylated to tyrosine and can feed catecholamine-precursor pools; evidence that it outperforms L-tyrosine as a CNS precursor is limited.",
+  "description": "Acetylated tyrosine donor that is deacetylated to tyrosine and can feed catecholamine-precursor pools; evidence that it outperforms L-tyrosine as a CNS precursor is limited.",
+  "evidenceLevel": "mixed",
+  "aliases": []
+}

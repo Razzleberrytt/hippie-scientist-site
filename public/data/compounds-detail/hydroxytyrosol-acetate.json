@@ -1,0 +1,33 @@
+{
+  "slug": "hydroxytyrosol-acetate",
+  "id": "hydroxytyrosol-acetate",
+  "name": "hydroxytyrosol acetate",
+  "effects": [
+    "oxidative_stress_modulation",
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Hydroxytyrosol-Acetate"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=hydroxytyrosol+acetate"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "phenolic ester / tyrosol derivative",
+  "mechanism": "proposed mechanism based on preclinical data: antioxidant and cytoprotective activity is inferred from tyrosol-family literature, but no established human mechanism exists.",
+  "herbs": [],
+  "contraindications": [
+    "No compound-specific clinical drug interactions established."
+  ],
+  "summary": "proposed mechanism based on preclinical data: antioxidant and cytoprotective activity is inferred from tyrosol-family literature, but no established human mechanism exists.",
+  "description": "proposed mechanism based on preclinical data: antioxidant and cytoprotective activity is inferred from tyrosol-family literature, but no established human mechanism exists.",
+  "evidenceLevel": "identity strong; mechanism preclinical; PK limited",
+  "aliases": [
+    "2-(3",
+    "4-dihydroxyphenyl)ethyl acetate"
+  ]
+}

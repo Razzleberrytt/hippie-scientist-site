@@ -19,7 +19,7 @@
     "use under supervision.",
     "Avoid in pregnancy or heart issues"
   ],
-  "category": null,
+  "category": "iboga alkaloids",
   "sources": [
     {
       "title": "Workbook source URL",
@@ -50,7 +50,7 @@
   "summary": "alchorneine is a compound reported in alchornea castaneifolia and nan. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "alchornea-castaneifolia",

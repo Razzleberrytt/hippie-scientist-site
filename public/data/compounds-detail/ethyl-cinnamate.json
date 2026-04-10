@@ -1,0 +1,31 @@
+{
+  "slug": "ethyl-cinnamate",
+  "id": "ethyl-cinnamate",
+  "name": "ethyl cinnamate",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Kaempferia%20galanga"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=ethyl%20cinnamate"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Ethyl cinnamate, kaempferol, essential oils",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "kaempferia-galanga"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

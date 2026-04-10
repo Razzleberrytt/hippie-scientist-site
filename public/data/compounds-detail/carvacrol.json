@@ -20,7 +20,7 @@
     "Other topical irritants/counterirritants (possible additive sensory irritation)",
     "CYP-mediated interactions remain plausible but not well established clinically."
   ],
-  "category": null,
+  "category": "phenolic monoterpenoid",
   "sources": [
     {
       "title": "Workbook source URL",
@@ -59,7 +59,7 @@
   "summary": "carvacrol appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "Sprint3",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"

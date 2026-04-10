@@ -1,0 +1,31 @@
+{
+  "slug": "theanine",
+  "id": "theanine",
+  "name": "theanine",
+  "effects": [
+    "adenosine receptor antagonism"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=camellia%20sinensis"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=theanine"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "EGCG inhibits catechol-O-methyltransferase (COMT) and activates AMPK; caffeine antagonizes adenosine A1 and A2A receptors.",
+  "herbs": [
+    "camellia-sinensis"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "EGCG inhibits catechol-O-methyltransferase (COMT) and activates AMPK; caffeine antagonizes adenosine A1 and A2A receptors.",
+  "description": "EGCG inhibits catechol-O-methyltransferase (COMT) and activates AMPK; caffeine antagonizes adenosine A1 and A2A receptors.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

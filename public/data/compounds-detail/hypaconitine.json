@@ -43,7 +43,7 @@
   "summary": "hypaconitine appears in records as a compound reported in aconitum napellus. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "aconitum-napellus"

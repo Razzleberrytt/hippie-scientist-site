@@ -1,0 +1,54 @@
+{
+  "slug": "emodin",
+  "id": "emodin",
+  "name": "emodin",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cassia%20occidentalis"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Polygonum%20multiflorum"
+    },
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Rheum%20palmatum"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11255441/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11944761/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7168079/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=emodin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "anthraquinone",
+  "mechanism": "NF-kB-linked anti-inflammatory signaling plus broader apoptosis/kinase-pathway effects.",
+  "herbs": [
+    "cassia-occidentalis",
+    "polygonum-multiflorum",
+    "rheum-palmatum"
+  ],
+  "contraindications": [
+    "CYP1A2/CYP3A4 substrates (possible altered exposure)",
+    "caution with hepatotoxic drugs."
+  ],
+  "summary": "NF-kB-linked anti-inflammatory signaling plus broader apoptosis/kinase-pathway effects.",
+  "description": "NF-kB-linked anti-inflammatory signaling plus broader apoptosis/kinase-pathway effects.",
+  "evidenceLevel": "Sprint3",
+  "aliases": []
+}

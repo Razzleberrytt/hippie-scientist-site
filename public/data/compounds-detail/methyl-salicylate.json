@@ -17,7 +17,7 @@
     "and gentle mood support."
   ],
   "contraindications": [],
-  "category": null,
+  "category": "Arbutin, tannins, methyl salicylate",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "methyl-salicylate",
@@ -27,10 +27,11 @@
   "summary": "Methyl salicylate is a compound reported in betula lenta and sweet violet. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "betula-lenta",
     "sweet-violet"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

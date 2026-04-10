@@ -1,0 +1,31 @@
+{
+  "slug": "damnacanthal",
+  "id": "damnacanthal",
+  "name": "damnacanthal",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Morinda%20citrifolia"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=damnacanthal"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Scopoletin, damnacanthal, polysaccharides",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "morinda-citrifolia"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "re",
+  "id": "re",
+  "name": "re)",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Panax%20quinquefolius"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=re%29"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "Ginsenosides (Rb1, Re), polysaccharides",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "panax-quinquefolius"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

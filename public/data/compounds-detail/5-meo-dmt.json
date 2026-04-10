@@ -41,7 +41,7 @@
     "SSRIs",
     "schizophrenia"
   ],
-  "category": null,
+  "category": "alkaloid",
   "sources": [
     {
       "title": "Workbook source URL",
@@ -80,7 +80,7 @@
   "summary": "5-MeO-DMT appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"

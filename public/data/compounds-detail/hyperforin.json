@@ -1,0 +1,46 @@
+{
+  "slug": "hyperforin",
+  "id": "hyperforin",
+  "name": "hyperforin",
+  "effects": [
+    "monoamine reuptake modulation",
+    "neuroplasticity modulation",
+    "enzyme induction relevance"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Hyperforin"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548880/"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Pseudohypericin"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "phloroglucinol derivative",
+  "mechanism": "proposed mechanism based on preclinical and limited human data: inhibition of monoamine reuptake and modulation of TRPC6-linked neuroplasticity; major herb-drug interaction relevance is strongly associated with hyperforin-rich St Johns wort extracts.",
+  "herbs": [
+    "st-johns-wort"
+  ],
+  "contraindications": [
+    "Major herb-level interaction relevance with antidepressants",
+    "oral contraceptives",
+    "cyclosporine",
+    "tacrolimus",
+    "antiretrovirals",
+    "digoxin",
+    "anticoagulants",
+    "platelet inhibitors",
+    "and other CYP3A4/P-glycoprotein-sensitive drugs",
+    "do not overstate isolated-compound clinical interaction certainty."
+  ],
+  "summary": "proposed mechanism based on preclinical and limited human data: inhibition of monoamine reuptake and modulation of TRPC6-linked neuroplasticity; major herb-drug interaction relevance is strongly associated with hyperforin-rich St Johns wort extracts.",
+  "description": "proposed mechanism based on preclinical and limited human data: inhibition of monoamine reuptake and modulation of TRPC6-linked neuroplasticity; major herb-drug interaction relevance is strongly associated with hyperforin-rich St Johns wort extracts.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

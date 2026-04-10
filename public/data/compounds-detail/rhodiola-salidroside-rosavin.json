@@ -1,0 +1,21 @@
+{
+  "slug": "rhodiola-salidroside-rosavin",
+  "id": "rhodiola-salidroside-rosavin",
+  "name": "rhodiola (salidroside/rosavin)",
+  "effects": [
+    "AMPK activation",
+    "HPA-axis modulation"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-04-09",
+  "category": "phenolic glycoside",
+  "mechanism": "Modulates AMPK and stress-response pathways",
+  "herbs": [],
+  "contraindications": [
+    "Stimulants (additive effects)"
+  ],
+  "summary": "Modulates AMPK and stress-response pathways",
+  "description": "Modulates AMPK and stress-response pathways",
+  "evidenceLevel": "Sprint6",
+  "aliases": []
+}

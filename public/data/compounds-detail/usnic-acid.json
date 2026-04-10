@@ -1,0 +1,31 @@
+{
+  "slug": "usnic-acid",
+  "id": "usnic-acid",
+  "name": "usnic acid",
+  "effects": [
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=Usnea%20barbata"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=usnic%20acid"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "organic acid",
+  "mechanism": "insufficient evidence",
+  "herbs": [
+    "usnea-barbata"
+  ],
+  "contraindications": [
+    "no well-documented interactions"
+  ],
+  "summary": "insufficient evidence",
+  "description": "insufficient evidence",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

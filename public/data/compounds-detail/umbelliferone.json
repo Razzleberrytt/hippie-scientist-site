@@ -24,7 +24,7 @@
     "Pregnancy",
     "anticoagulant therapy due to coumarin content"
   ],
-  "category": null,
+  "category": "other",
   "sources": [
     {
       "note": "Inferred from scientific name:",
@@ -39,10 +39,11 @@
   "summary": "umbelliferone appears in records as a compound reported in adenostoma fasciculatum and nan. Current source coverage is limited and still developing.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "adenostoma-fasciculatum",
     "nan"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }

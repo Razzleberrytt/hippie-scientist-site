@@ -1,0 +1,37 @@
+{
+  "slug": "withanoside-v",
+  "id": "withanoside-v",
+  "name": "withanoside V",
+  "effects": [
+    "neuroprotective",
+    "adaptogen",
+    "multi-target signaling modulation"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Withanoside-V"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=withanoside+V"
+    },
+    {
+      "title": "Reference",
+      "url": "https://www.nccih.nih.gov/health/ashwagandha"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "withanolide glycoside / steroidal lactone glycoside",
+  "mechanism": "proposed mechanism based on preclinical data: neuroprotective and adaptogen-associated effects are reported in Withania literature, but no established human mechanism exists.",
+  "herbs": [
+    "ashwagandha"
+  ],
+  "contraindications": [
+    "No compound-specific clinical drug interactions established."
+  ],
+  "summary": "proposed mechanism based on preclinical data: neuroprotective and adaptogen-associated effects are reported in Withania literature, but no established human mechanism exists.",
+  "description": "proposed mechanism based on preclinical data: neuroprotective and adaptogen-associated effects are reported in Withania literature, but no established human mechanism exists.",
+  "evidenceLevel": "preclinical",
+  "aliases": []
+}

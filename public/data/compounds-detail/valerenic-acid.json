@@ -16,7 +16,7 @@
     "benzodiazepines",
     "or barbiturates"
   ],
-  "category": null,
+  "category": "organic acid",
   "sources": [
     {
       "title": "PubChem compound: Valerenic acid (CID 6440940)",
@@ -43,9 +43,10 @@
   "summary": "Valerenic acid is a valerian constituent linked to GABA-A receptor modulation and sedative pharmacology.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanism": "Valerenic acid binds beta-subunits of GABA-A receptors, enhancing chloride influx and inhibitory signaling."
 }

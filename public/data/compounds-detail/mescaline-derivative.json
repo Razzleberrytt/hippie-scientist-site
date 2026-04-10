@@ -1,0 +1,31 @@
+{
+  "slug": "mescaline-derivative",
+  "id": "mescaline-derivative",
+  "name": "mescaline derivative",
+  "effects": [
+    "serotonin receptor interaction"
+  ],
+  "sources": [
+    {
+      "title": "Reference",
+      "url": "https://plants.sc.egov.usda.gov/home/search?query=3%2C4%2C5-trimethoxyphenethylamine"
+    },
+    {
+      "title": "Reference",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=mescaline%20derivative"
+    }
+  ],
+  "lastUpdated": "2026-04-09",
+  "category": "other",
+  "mechanism": "Phenethylamine psychedelic acting on 5-HT2A and dopamine receptors.",
+  "herbs": [
+    "mescaline"
+  ],
+  "contraindications": [
+    "maois and sympathomimetics may potentiate."
+  ],
+  "summary": "Phenethylamine psychedelic acting on 5-HT2A and dopamine receptors.",
+  "description": "Phenethylamine psychedelic acting on 5-HT2A and dopamine receptors.",
+  "evidenceLevel": "compound_level",
+  "aliases": []
+}

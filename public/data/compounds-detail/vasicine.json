@@ -15,7 +15,7 @@
     "Not recommended during pregnancy or lactation without medical guidance",
     "Use cautiously in individuals with bleeding disorders or on anticoagulant medications"
   ],
-  "category": null,
+  "category": "other",
   "sources": [],
   "lastUpdated": "2026-03-21",
   "slug": "vasicine",
@@ -25,10 +25,11 @@
   "summary": "vasicine is a compound reported in adhatoda vasica and justicia adhatoda. Available references are still early and incomplete.",
   "identity": "",
   "categoryUseContext": "",
-  "evidenceLevel": "",
+  "evidenceLevel": "compound_level",
   "relatedEntities": [],
   "linkedHerbs": [
     "adhatoda-vasica",
     "justicia-adhatoda"
-  ]
+  ],
+  "mechanism": "insufficient evidence"
 }
