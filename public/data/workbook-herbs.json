@@ -1,0 +1,963 @@
+[
+  {
+    "slug": "ashwagandha",
+    "name": "Ashwagandha",
+    "scientificName": "Withania somnifera",
+    "category": "shrub",
+    "plantPartUsed": "root",
+    "commonNames": [
+      "ashwagandha",
+      "Indian ginseng",
+      "winter cherry"
+    ],
+    "region": "Native to India, the Middle East and parts of Africa and Asia.",
+    "summary": "Ashwagandha (Withania somnifera) is a shrub monograph focused on the root used in herbal preparations. It is associated with Native to India, the Middle East and parts of Africa and Asia. Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways. Short-term use appears safe; side effects include drowsiness and GI upset.",
+    "description": "Ashwagandha is represented here as a monograph-style entry centered on the root. Key reported compounds include withaferin A; withanolide D; withanolide A; withanoside IV; sitoindosides; alkaloids. Typical preparation forms: Root powders and standardized extracts. Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways. Interaction profile: May potentiate sedatives, antihypertensives, antidiabetics, thyroid hormones, and immunosuppressants. Use caution or avoid in: Pregnancy, breastfeeding, autoimmune disease, thyroid disorders, liver disease.",
+    "mechanism": "Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways.",
+    "mechanismTags": [
+      "adaptogen",
+      "anti-inflammatory",
+      "antioxidant",
+      "gabaergic"
+    ],
+    "evidenceLevel": "human + preclinical",
+    "activeCompounds": [
+      "withaferin A",
+      "withanolide D",
+      "withanolide A",
+      "withanoside IV",
+      "sitoindosides",
+      "alkaloids"
+    ],
+    "markerCompounds": [
+      "withanolides"
+    ],
+    "safetyNotes": "Short-term use appears safe; side effects include drowsiness and GI upset. Rare liver injury has been reported.",
+    "interactions": [
+      "May potentiate sedatives, antihypertensives, antidiabetics, thyroid hormones, and immunosuppressants."
+    ],
+    "contraindications": [
+      "Pregnancy, breastfeeding, autoimmune disease, thyroid disorders, liver disease."
+    ],
+    "preparation": "Root powders and standardized extracts.",
+    "dosage": "300–500 mg root extract twice daily",
+    "standardization": "Often standardized to withanolides.",
+    "qualityConcerns": "",
+    "confidence": "medium",
+    "publishStatus": "Source review",
+    "readinessFlag": "Near ready",
+    "frontendReadyFlag": "No",
+    "completenessPct": "100%",
+    "priorityTier": "High",
+    "totalScore": "6",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "Recovered from prior batch output in this conversation"
+    ]
+  },
+  {
+    "slug": "black-cohosh",
+    "name": "Black Cohosh",
+    "scientificName": "Actaea racemosa",
+    "category": "rhizome",
+    "plantPartUsed": "root; rhizome",
+    "commonNames": [
+      "black cohosh",
+      "black snakeroot",
+      "Actaea racemosa"
+    ],
+    "region": "Native to North America, especially the eastern United States.",
+    "summary": "Black Cohosh (Actaea racemosa) is a rhizome monograph focused on the root; rhizome used in herbal preparations. It is associated with Native to North America, especially the eastern United States. Proposed mechanism based on preclinical and limited clinical data: black cohosh may act through serotonergic pathways, selective estrogen receptor modulation, and anti-inflammatory signaling rather than as a classical estrogen. Generally well tolerated in short-term studies, but rare cases of liver injury have been reported.",
+    "description": "Black Cohosh is represented here as a monograph-style entry centered on the root; rhizome. Key reported compounds include triterpene glycosides (actein, 23-epi-26-deoxyactein); cimifugoside; caffeic acid derivatives; fukinolic acid. Typical preparation forms: Root and rhizome used in standardized extracts, capsules, tablets, and tinctures. Proposed mechanism based on preclinical and limited clinical data: black cohosh may act through serotonergic pathways, selective estrogen receptor modulation, and anti-inflammatory signaling rather than as a classical estrogen. Interaction profile: Potential interactions with hepatotoxic drugs and with medications affecting estrogen or serotonergic pathways. Use caution or avoid in: Avoid in pregnancy and breastfeeding. Use caution in liver disease or hormone-sensitive conditions.",
+    "mechanism": "Proposed mechanism based on preclinical and limited clinical data: black cohosh may act through serotonergic pathways, selective estrogen receptor modulation, and anti-inflammatory signaling rather than as a classical estrogen.",
+    "mechanismTags": [
+      "serotonergic",
+      "anti-inflammatory",
+      "hormonal"
+    ],
+    "evidenceLevel": "preclinical + limited human",
+    "activeCompounds": [
+      "triterpene glycosides (actein, 23-epi-26-deoxyactein)",
+      "cimifugoside",
+      "caffeic acid derivatives",
+      "fukinolic acid"
+    ],
+    "markerCompounds": [
+      "actein",
+      "23-epi-26-deoxyactein"
+    ],
+    "safetyNotes": "Generally well tolerated in short-term studies, but rare cases of liver injury have been reported. Product contamination or misidentification is a known issue.",
+    "interactions": [
+      "Potential interactions with hepatotoxic drugs and with medications affecting estrogen or serotonergic pathways."
+    ],
+    "contraindications": [
+      "Avoid in pregnancy and breastfeeding. Use caution in liver disease or hormone-sensitive conditions."
+    ],
+    "preparation": "Root and rhizome used in standardized extracts, capsules, tablets, and tinctures.",
+    "dosage": "",
+    "standardization": "",
+    "qualityConcerns": "Adulteration/misidentification risk in commercial products.",
+    "confidence": "medium",
+    "publishStatus": "Ready for QA",
+    "readinessFlag": "Ready",
+    "frontendReadyFlag": "Yes",
+    "completenessPct": "86%",
+    "priorityTier": "Medium",
+    "totalScore": "8",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "NCCIH",
+      "NIH ODS",
+      "PubMed mechanism review PMC3046019"
+    ]
+  },
+  {
+    "slug": "echinacea-purpurea",
+    "name": "Echinacea Purpurea",
+    "scientificName": "Echinacea purpurea",
+    "category": "herb",
+    "plantPartUsed": "unspecified",
+    "commonNames": [
+      "echinacea",
+      "purple coneflower"
+    ],
+    "region": "Native to the central and eastern United States; now cultivated and introduced in Europe and other temperate regions【55003496660111†L75-L130】.",
+    "summary": "Echinacea Purpurea (Echinacea purpurea) is a herb monograph focused on the unspecified used in herbal preparations. It is associated with Native to the central and eastern United States; now cultivated and introduced in Europe and other temperate regions【55003496660111†L75-L130】. Roots, leaves and flowers of Echinacea purpurea contain mixtures of lipophilic alkamides and hydrophilic caffeic acid derivatives such as chicoric acid and echinacoside, along with polysaccharides and glycoproteins【880087072039746†L166-L200】【840476591578855†L240-L305】. Short‑term use of echinacea extracts appears safe for most adults.",
+    "description": "Echinacea Purpurea is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include alkamides; chicoric acid; echinacoside; caffeic acid; cynarin. Typical preparation forms: Medicinal products use the roots and aerial parts in teas, juices, tinctures and standardized extracts. Roots, leaves and flowers of Echinacea purpurea contain mixtures of lipophilic alkamides and hydrophilic caffeic acid derivatives such as chicoric acid and echinacoside, along with polysaccharides and glycoproteins【880087072039746†L166-L200】【840476591578855†L240-L305】. These constituents stimulate immune function by enhancing phagocytosis, activating fibroblasts and respiratory burst activity, and modulating nitric‑oxide and cytokine production via cannabinoid type‑2 receptors【880087072039746†L215-L243】. They also inhibit cyclo‑oxygenase and lipoxygenase enzymes. Most mechanistic data are from cell and animal studies; human evidence is limited. Interaction profile: Echinacea may interact with immunosuppressant drugs by stimulating immune activity and could affect the pharmacokinetics of drugs metabolised by cytochrome P450 enzymes; caution is advised when taken with hepatic substrates or caffeine. Use caution or avoid in: Individuals with autoimmune disorders or allergies to ragweed and other Asteraceae plants should avoid echinacea. Use during pregnancy or breastfeeding is not recommended. People taking immunosuppressant drugs should avoid echinacea due to potential antagonism.",
+    "mechanism": "Roots, leaves and flowers of Echinacea purpurea contain mixtures of lipophilic alkamides and hydrophilic caffeic acid derivatives such as chicoric acid and echinacoside, along with polysaccharides and glycoproteins【880087072039746†L166-L200】【840476591578855†L240-L305】. These constituents stimulate immune function by enhancing phagocytosis, activating fibroblasts and respiratory burst activity, and modulating nitric‑oxide and cytokine production via cannabinoid type‑2 receptors【880087072039746†L215-L243】. They also inhibit cyclo‑oxygenase and lipoxygenase enzymes. Most mechanistic data are from cell and animal studies; human evidence is limited.",
+    "mechanismTags": [
+      "immunomodulatory"
+    ],
+    "evidenceLevel": "",
+    "activeCompounds": [
+      "alkamides",
+      "chicoric acid",
+      "echinacoside",
+      "caffeic acid",
+      "cynarin"
+    ],
+    "markerCompounds": [],
+    "safetyNotes": "Short‑term use of echinacea extracts appears safe for most adults. Reported side effects include digestive upset and rash; allergic reactions can occur, especially in individuals sensitive to plants in the Asteraceae family. Some children have developed rashes after echinacea use. Safety during pregnancy or breastfeeding is not established. There is conflicting evidence about whether echinacea alters the metabolism of drugs processed by the liver; theoretical interactions with immunosuppressants or caffeine have been proposed【246299874455786†L194-L213】.",
+    "interactions": [
+      "Echinacea may interact with immunosuppressant drugs by stimulating immune activity and could affect the pharmacokinetics of drugs metabolised by cytochrome P450 enzymes",
+      "caution is advised when taken with hepatic substrates or caffeine."
+    ],
+    "contraindications": [
+      "Individuals with autoimmune disorders or allergies to ragweed and other Asteraceae plants should avoid echinacea. Use during pregnancy or breastfeeding is not recommended. People taking immunosuppressant drugs should avoid echinacea due to potential antagonism."
+    ],
+    "preparation": "Medicinal products use the roots and aerial parts in teas, juices, tinctures and standardized extracts.",
+    "dosage": "",
+    "standardization": "",
+    "qualityConcerns": "",
+    "confidence": "medium",
+    "publishStatus": "Editorial polish",
+    "readinessFlag": "Near ready",
+    "frontendReadyFlag": "No",
+    "completenessPct": "71%",
+    "priorityTier": "Medium",
+    "totalScore": "6",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "【880087072039746†L166-L200】",
+      "【880087072039746†L215-L243】",
+      "【840476591578855†L240-L305】",
+      "【246299874455786†L194-L213】",
+      "【55003496660111†L75-L130】"
+    ]
+  },
+  {
+    "slug": "garlic",
+    "name": "Garlic",
+    "scientificName": "Allium sativum",
+    "category": "bulb",
+    "plantPartUsed": "unspecified",
+    "commonNames": [
+      "garlic",
+      "Allium sativum"
+    ],
+    "region": "Native to parts of Central Asia including Iran, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan and Uzbekistan, but now cultivated worldwide【387438139344369†L214-L229】.",
+    "summary": "Garlic (Allium sativum) is a bulb monograph focused on the unspecified used in herbal preparations. It is associated with Native to parts of Central Asia including Iran, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan and Uzbekistan, but now cultivated worldwide【387438139344369†L214-L229】. Garlic bulbs contain organosulfur compounds such as diallyl sulfide, diallyl disulfide, diallyl trisulfide, ajoene and S‑allyl‑cysteine. Oral garlic preparations are generally safe when used for up to seven years; side effects include breath and body odour, abdominal pain, flatulence and nausea.",
+    "description": "Garlic is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include diallyl sulfide; diallyl disulfide; diallyl trisulfide; ajoene; S‑allyl‑cysteine. Typical preparation forms: Fresh or dried bulbs are used as food and in remedies. Commercial supplements include aged garlic extracts, oils and powders standardized for organosulfur content. Garlic bulbs contain organosulfur compounds such as diallyl sulfide, diallyl disulfide, diallyl trisulfide, ajoene and S‑allyl‑cysteine. These constituents exert antioxidant, anti‑inflammatory and immunomodulatory effects in vitro and in animal models by scavenging free radicals and modulating inflammatory pathways. Human evidence is limited, so this should be regarded as a proposed mechanism based on preclinical data. Interaction profile: Garlic may potentiate the effects of anticoagulant and antiplatelet drugs (e.g., warfarin, aspirin) and should be discontinued before surgery. It may also enhance the effects of antihypertensive or antidiabetic medicines. Use caution or avoid in: People with bleeding disorders, those taking anticoagulant or antiplatelet drugs and individuals scheduled for surgery should avoid high‑dose garlic supplements. Because safety during pregnancy and breastfeeding has not been established, garlic supplements are not recommended in these populations.",
+    "mechanism": "Garlic bulbs contain organosulfur compounds such as diallyl sulfide, diallyl disulfide, diallyl trisulfide, ajoene and S‑allyl‑cysteine. These constituents exert antioxidant, anti‑inflammatory and immunomodulatory effects in vitro and in animal models by scavenging free radicals and modulating inflammatory pathways. Human evidence is limited, so this should be regarded as a proposed mechanism based on preclinical data.",
+    "mechanismTags": [
+      "anti-inflammatory",
+      "antioxidant",
+      "immunomodulatory"
+    ],
+    "evidenceLevel": "",
+    "activeCompounds": [
+      "diallyl sulfide",
+      "diallyl disulfide",
+      "diallyl trisulfide",
+      "ajoene",
+      "S‑allyl‑cysteine"
+    ],
+    "markerCompounds": [],
+    "safetyNotes": "Oral garlic preparations are generally safe when used for up to seven years; side effects include breath and body odour, abdominal pain, flatulence and nausea. Because garlic can inhibit platelet aggregation it may increase the risk of bleeding, especially when combined with anticoagulants or antiplatelet drugs. Raw garlic applied to the skin can cause severe irritation or burns. The safety of garlic supplements during pregnancy or breastfeeding is uncertain【945608786527328†L190-L207】.",
+    "interactions": [
+      "Garlic may potentiate the effects of anticoagulant and antiplatelet drugs (e.g., warfarin, aspirin) and should be discontinued before surgery. It may also enhance the effects of antihypertensive or antidiabetic medicines."
+    ],
+    "contraindications": [
+      "People with bleeding disorders, those taking anticoagulant or antiplatelet drugs and individuals scheduled for surgery should avoid high‑dose garlic supplements. Because safety during pregnancy and breastfeeding has not been established, garlic supplements are not recommended in these populations."
+    ],
+    "preparation": "Fresh or dried bulbs are used as food and in remedies. Commercial supplements include aged garlic extracts, oils and powders standardized for organosulfur content.",
+    "dosage": "",
+    "standardization": "",
+    "qualityConcerns": "",
+    "confidence": "medium",
+    "publishStatus": "Editorial polish",
+    "readinessFlag": "Near ready",
+    "frontendReadyFlag": "No",
+    "completenessPct": "71%",
+    "priorityTier": "Medium",
+    "totalScore": "6",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "【170738571486764†L1208-L1216】",
+      "【945608786527328†L190-L207】",
+      "【387438139344369†L214-L229】"
+    ]
+  },
+  {
+    "slug": "ginger",
+    "name": "Ginger",
+    "scientificName": "Zingiber officinale",
+    "category": "rhizome",
+    "plantPartUsed": "unspecified",
+    "commonNames": [
+      "ginger",
+      "Zingiber officinale"
+    ],
+    "region": "Ginger does not occur in the wild; it is believed to have originated in Southeast Asia and is now cultivated across the humid tropics with India as the largest producer【418916103730052†L148-L163】.",
+    "summary": "Ginger (Zingiber officinale) is a rhizome monograph focused on the unspecified used in herbal preparations. It is associated with Ginger does not occur in the wild; it is believed to have originated in Southeast Asia and is now cultivated across the humid tropics with India as the largest producer【418916103730052†L148-L163】. Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. Ginger is widely consumed as a food and supplement and is generally regarded as safe.",
+    "description": "Ginger is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include [6]-gingerol; shogaols; zingerone; paradols. Typical preparation forms: The rhizome is used fresh, dried, pickled, preserved, candied or powdered. Supplements include encapsulated dried powders and extracts【418916103730052†L176-L189】. Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. These compounds modulate immune‑cell function and regulate signalling pathways including nuclear factor‑κB, MAPK and PI3K/Akt/mTOR, and they can activate AMP‑activated protein kinase (AMPK), NRF2, HO‑1 and PPARγ【69571933386645†L153-L169】【69571933386645†L240-L249】. Through these mechanisms ginger exhibits anti‑inflammatory, antioxidant and neuroprotective effects. Interaction profile: Ginger may increase the risk of bleeding when taken with anticoagulant or antiplatelet drugs and could lower blood glucose or blood pressure, potentiating antidiabetic or antihypertensive medications. Use caution or avoid in: Use cautiously in pregnancy, gallstone disease or bleeding disorders. Discontinue before surgery and avoid high‑dose supplements when taking anticoagulants.",
+    "mechanism": "Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. These compounds modulate immune‑cell function and regulate signalling pathways including nuclear factor‑κB, MAPK and PI3K/Akt/mTOR, and they can activate AMP‑activated protein kinase (AMPK), NRF2, HO‑1 and PPARγ【69571933386645†L153-L169】【69571933386645†L240-L249】. Through these mechanisms ginger exhibits anti‑inflammatory, antioxidant and neuroprotective effects.",
+    "mechanismTags": [
+      "anti-inflammatory",
+      "antioxidant",
+      "immunomodulatory"
+    ],
+    "evidenceLevel": "",
+    "activeCompounds": [
+      "[6]-gingerol",
+      "shogaols",
+      "zingerone",
+      "paradols"
+    ],
+    "markerCompounds": [],
+    "safetyNotes": "Ginger is widely consumed as a food and supplement and is generally regarded as safe. Research suggests it may help with mild nausea and menstrual cramps. Reported side effects at high doses include abdominal discomfort, heartburn, diarrhoea and irritation of the mouth or throat【799387966105800†L29-L56】. Clinical studies using up to 1 000 mg/day of dried powdered extract report adverse event rates similar to placebo【739669106228210†L96-L133】. The safety of high‑dose ginger during pregnancy has not been conclusively established.",
+    "interactions": [
+      "Ginger may increase the risk of bleeding when taken with anticoagulant or antiplatelet drugs and could lower blood glucose or blood pressure, potentiating antidiabetic or antihypertensive medications."
+    ],
+    "contraindications": [
+      "Use cautiously in pregnancy, gallstone disease or bleeding disorders. Discontinue before surgery and avoid high‑dose supplements when taking anticoagulants."
+    ],
+    "preparation": "The rhizome is used fresh, dried, pickled, preserved, candied or powdered. Supplements include encapsulated dried powders and extracts【418916103730052†L176-L189】.",
+    "dosage": "Typical adult dose is up to 1 000 mg/day of dried powdered extract for gastrointestinal complaints【739669106228210†L96-L133】.",
+    "standardization": "",
+    "qualityConcerns": "",
+    "confidence": "high",
+    "publishStatus": "Editorial polish",
+    "readinessFlag": "Near ready",
+    "frontendReadyFlag": "No",
+    "completenessPct": "79%",
+    "priorityTier": "Medium",
+    "totalScore": "7",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "【69571933386645†L153-L169】",
+      "【69571933386645†L240-L249】",
+      "【799387966105800†L29-L56】",
+      "【739669106228210†L96-L133】",
+      "【418916103730052†L148-L163】",
+      "【418916103730052†L176-L189】"
+    ]
+  },
+  {
+    "slug": "ginkgo-biloba",
+    "name": "Ginkgo Biloba",
+    "scientificName": "Ginkgo biloba",
+    "category": "tree",
+    "plantPartUsed": "leaf",
+    "commonNames": [
+      "ginkgo",
+      "maidenhair tree"
+    ],
+    "region": "Native to China; cultivated worldwide as an ornamental and medicinal tree.",
+    "summary": "Ginkgo Biloba (Ginkgo biloba) is a tree monograph focused on the leaf used in herbal preparations. It is associated with Native to China; cultivated worldwide as an ornamental and medicinal tree. The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways. Appears safe at recommended doses, but fresh seeds are toxic.",
+    "description": "Ginkgo Biloba is represented here as a monograph-style entry centered on the leaf. Key reported compounds include ginkgolides A, B, C, J; bilobalide; ginkgetin; bilobetin; sciadopitysin. Typical preparation forms: Standardized leaf extract (EGb 761). The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways. Interaction profile: May potentiate NSAIDs, anticoagulants, antiplatelets, and interact with antidepressants and antidiabetic drugs. Use caution or avoid in: Pregnancy, breastfeeding, bleeding disorders, epilepsy, planned surgery.",
+    "mechanism": "The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways.",
+    "mechanismTags": [
+      "dopaminergic",
+      "serotonergic",
+      "cholinergic",
+      "antioxidant"
+    ],
+    "evidenceLevel": "human + preclinical",
+    "activeCompounds": [
+      "ginkgolides A, B, C, J",
+      "bilobalide",
+      "ginkgetin",
+      "bilobetin",
+      "sciadopitysin"
+    ],
+    "markerCompounds": [
+      "ginkgolides",
+      "bilobalide"
+    ],
+    "safetyNotes": "Appears safe at recommended doses, but fresh seeds are toxic. May increase bleeding risk and lower seizure threshold.",
+    "interactions": [
+      "May potentiate NSAIDs, anticoagulants, antiplatelets, and interact with antidepressants and antidiabetic drugs."
+    ],
+    "contraindications": [
+      "Pregnancy, breastfeeding, bleeding disorders, epilepsy, planned surgery."
+    ],
+    "preparation": "Standardized leaf extract (EGb 761).",
+    "dosage": "120–240 mg/day standardized extract",
+    "standardization": "Typically 24% flavonoid glycosides and 6% terpene lactones.",
+    "qualityConcerns": "",
+    "confidence": "high",
+    "publishStatus": "Source review",
+    "readinessFlag": "Near ready",
+    "frontendReadyFlag": "No",
+    "completenessPct": "100%",
+    "priorityTier": "High",
+    "totalScore": "7",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "Recovered from prior batch output in this conversation"
+    ]
+  },
+  {
+    "slug": "holy-basil",
+    "name": "Holy Basil",
+    "scientificName": "Ocimum tenuiflorum",
+    "category": "herb",
+    "plantPartUsed": "leaf; aerial parts",
+    "commonNames": [],
+    "region": "India, Southeast Asia",
+    "summary": "Holy Basil (Ocimum tenuiflorum) is a herb monograph focused on the leaf; aerial parts used in herbal preparations. It is associated with India, Southeast Asia. Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways. Generally safe; possible mild GI upset.",
+    "description": "Holy Basil is represented here as a monograph-style entry centered on the leaf; aerial parts. Key reported compounds include eugenol; ursolic acid; rosmarinic acid. Typical preparation forms: Leaf extracts, teas. Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways. Interaction profile: Anticoagulants, antidiabetic drugs. Use caution or avoid in: Pregnancy (limited data).",
+    "mechanism": "Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways",
+    "mechanismTags": [
+      "adaptogen",
+      "anti-inflammatory",
+      "antioxidant"
+    ],
+    "evidenceLevel": "preclinical + limited human",
+    "activeCompounds": [
+      "eugenol",
+      "ursolic acid",
+      "rosmarinic acid"
+    ],
+    "markerCompounds": [
+      "eugenol",
+      "ursolic acid"
+    ],
+    "safetyNotes": "Generally safe; possible mild GI upset",
+    "interactions": [
+      "Anticoagulants, antidiabetic drugs"
+    ],
+    "contraindications": [
+      "Pregnancy (limited data)"
+    ],
+    "preparation": "Leaf extracts, teas",
+    "dosage": "",
+    "standardization": "Eugenol or ursolic acid content",
+    "qualityConcerns": "",
+    "confidence": "medium",
+    "publishStatus": "Ready for QA",
+    "readinessFlag": "Ready",
+    "frontendReadyFlag": "Yes",
+    "completenessPct": "93%",
+    "priorityTier": "Medium",
+    "totalScore": "8",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "NCCIH",
+      "PubMed"
+    ]
+  },
+  {
+    "slug": "kava",
+    "name": "Kava",
+    "scientificName": "Piper methysticum",
+    "category": "shrub",
+    "plantPartUsed": "root; rhizome",
+    "commonNames": [
+      "kava",
+      "kava-kava",
+      "awa",
+      "yaqona"
+    ],
+    "region": "Indigenous to the South Pacific islands (Polynesia, Melanesia and Micronesia).",
+    "summary": "Kava (Piper methysticum) is a shrub monograph focused on the root; rhizome used in herbal preparations. It is associated with Indigenous to the South Pacific islands (Polynesia, Melanesia and Micronesia). Kavalactones modulate GABA-A receptors and ion channels, producing anxiolytic and sedative effects without classical benzodiazepine-site binding. Rare but serious liver injury has been reported, especially with nontraditional extracts or concurrent alcohol/hepatotoxic drug use.",
+    "description": "Kava is represented here as a monograph-style entry centered on the root; rhizome. Key reported compounds include kavain; dihydrokavain; methysticin; dihydromethysticin; yangonin; desmethoxyyangonin; flavokavain A/B/C. Typical preparation forms: Traditional aqueous root beverage; modern standardized root extracts. Kavalactones modulate GABA-A receptors and ion channels, producing anxiolytic and sedative effects without classical benzodiazepine-site binding. Interaction profile: Additive sedation with CNS depressants and alcohol; possible hepatic enzyme interactions. Use caution or avoid in: Liver disease, pregnancy, breastfeeding, concurrent CNS depressants or hepatotoxic drugs.",
+    "mechanism": "Kavalactones modulate GABA-A receptors and ion channels, producing anxiolytic and sedative effects without classical benzodiazepine-site binding.",
+    "mechanismTags": [
+      "gabaergic"
+    ],
+    "evidenceLevel": "human + preclinical",
+    "activeCompounds": [
+      "kavain",
+      "dihydrokavain",
+      "methysticin",
+      "dihydromethysticin",
+      "yangonin",
+      "desmethoxyyangonin",
+      "flavokavain A/B/C"
+    ],
+    "markerCompounds": [
+      "total kavalactones"
+    ],
+    "safetyNotes": "Rare but serious liver injury has been reported, especially with nontraditional extracts or concurrent alcohol/hepatotoxic drug use.",
+    "interactions": [
+      "Additive sedation with CNS depressants and alcohol",
+      "possible hepatic enzyme interactions."
+    ],
+    "contraindications": [
+      "Liver disease, pregnancy, breastfeeding, concurrent CNS depressants or hepatotoxic drugs."
+    ],
+    "preparation": "Traditional aqueous root beverage; modern standardized root extracts.",
+    "dosage": "~250 mg/day total kavalactones upper practical limit",
+    "standardization": "Standardized to kavalactone content.",
+    "qualityConcerns": "Avoid stems/leaves; extraction method matters.",
+    "confidence": "medium",
+    "publishStatus": "Source review",
+    "readinessFlag": "Near ready",
+    "frontendReadyFlag": "No",
+    "completenessPct": "100%",
+    "priorityTier": "High",
+    "totalScore": "6",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "Recovered from prior batch output in this conversation"
+    ]
+  },
+  {
+    "slug": "lemon-balm",
+    "name": "Lemon Balm",
+    "scientificName": "Melissa officinalis",
+    "category": "herb",
+    "plantPartUsed": "leaf; aerial parts",
+    "commonNames": [],
+    "region": "Europe, Mediterranean",
+    "summary": "Lemon Balm (Melissa officinalis) is a herb monograph focused on the leaf; aerial parts used in herbal preparations. It is associated with Europe, Mediterranean. GABAergic (GABA transaminase inhibition); mild cholinergic activity. Generally safe; mild sedation possible.",
+    "description": "Lemon Balm is represented here as a monograph-style entry centered on the leaf; aerial parts. Key reported compounds include rosmarinic acid; citral; citronellal; linalool; flavonoids. Typical preparation forms: Leaf extracts, teas, tinctures. GABAergic (GABA transaminase inhibition); mild cholinergic activity. Interaction profile: Sedatives, thyroid medications. Use caution or avoid in: Hypothyroidism (caution).",
+    "mechanism": "GABAergic (GABA transaminase inhibition); mild cholinergic activity",
+    "mechanismTags": [
+      "gabaergic",
+      "cholinergic",
+      "antioxidant"
+    ],
+    "evidenceLevel": "preclinical + limited human",
+    "activeCompounds": [
+      "rosmarinic acid",
+      "citral",
+      "citronellal",
+      "linalool",
+      "flavonoids"
+    ],
+    "markerCompounds": [
+      "rosmarinic acid"
+    ],
+    "safetyNotes": "Generally safe; mild sedation possible",
+    "interactions": [
+      "Sedatives, thyroid medications"
+    ],
+    "contraindications": [
+      "Hypothyroidism (caution)"
+    ],
+    "preparation": "Leaf extracts, teas, tinctures",
+    "dosage": "",
+    "standardization": "Rosmarinic acid content",
+    "qualityConcerns": "",
+    "confidence": "medium",
+    "publishStatus": "Ready for QA",
+    "readinessFlag": "Ready",
+    "frontendReadyFlag": "Yes",
+    "completenessPct": "93%",
+    "priorityTier": "Medium",
+    "totalScore": "8",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "EMA herbal monograph",
+      "NCCIH"
+    ]
+  },
+  {
+    "slug": "maca",
+    "name": "Maca",
+    "scientificName": "Lepidium meyenii",
+    "category": "root",
+    "plantPartUsed": "root; hypocotyl",
+    "commonNames": [],
+    "region": "Peru (Andes)",
+    "summary": "Maca (Lepidium meyenii) is a root monograph focused on the root; hypocotyl used in herbal preparations. It is associated with Peru (Andes). May influence endocrine signaling and energy metabolism (unclear mechanism). Generally safe; mild GI upset possible.",
+    "description": "Maca is represented here as a monograph-style entry centered on the root; hypocotyl. Key reported compounds include macamides; macaenes; glucosinolates. Typical preparation forms: Dried root powder, extracts. May influence endocrine signaling and energy metabolism (unclear mechanism). Interaction profile: Limited data. Use caution or avoid in: Hormone-sensitive conditions (caution).",
+    "mechanism": "May influence endocrine signaling and energy metabolism (unclear mechanism)",
+    "mechanismTags": [
+      "adaptogen",
+      "hormonal"
+    ],
+    "evidenceLevel": "preclinical + limited human",
+    "activeCompounds": [
+      "macamides",
+      "macaenes",
+      "glucosinolates"
+    ],
+    "markerCompounds": [
+      "macamides"
+    ],
+    "safetyNotes": "Generally safe; mild GI upset possible",
+    "interactions": [
+      "Limited data"
+    ],
+    "contraindications": [
+      "Hormone-sensitive conditions (caution)"
+    ],
+    "preparation": "Dried root powder, extracts",
+    "dosage": "",
+    "standardization": "",
+    "qualityConcerns": "",
+    "confidence": "medium",
+    "publishStatus": "Ready for QA",
+    "readinessFlag": "Ready",
+    "frontendReadyFlag": "Yes",
+    "completenessPct": "86%",
+    "priorityTier": "Medium",
+    "totalScore": "8",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "PubMed",
+      "NIH"
+    ]
+  },
+  {
+    "slug": "milk-thistle",
+    "name": "Milk Thistle",
+    "scientificName": "Silybum marianum",
+    "category": "herb",
+    "plantPartUsed": "seed; fruit",
+    "commonNames": [
+      "milk thistle",
+      "St. Mary's thistle",
+      "blessed milkthistle"
+    ],
+    "region": "Native to the Mediterranean region; now naturalized worldwide.",
+    "summary": "Milk Thistle (Silybum marianum) is a herb monograph focused on the seed; fruit used in herbal preparations. It is associated with Native to the Mediterranean region; now naturalized worldwide. Silymarin flavonolignans exhibit antioxidant, anti-inflammatory and antifibrotic activity relevant to hepatoprotection. Generally well tolerated; mild GI side effects and occasional allergic reactions.",
+    "description": "Milk Thistle is represented here as a monograph-style entry centered on the seed; fruit. Key reported compounds include silybin A/B; isosilybin A/B; silychristin; silydianin; isosilychristin. Typical preparation forms: Seed/fruit extracts standardized to silymarin. Silymarin flavonolignans exhibit antioxidant, anti-inflammatory and antifibrotic activity relevant to hepatoprotection. Interaction profile: Possible CYP2C9/CYP3A4 interaction risk; may affect warfarin and some other drugs. Use caution or avoid in: Asteraceae allergy; caution in pregnancy/breastfeeding.",
+    "mechanism": "Silymarin flavonolignans exhibit antioxidant, anti-inflammatory and antifibrotic activity relevant to hepatoprotection.",
+    "mechanismTags": [
+      "antioxidant",
+      "anti-inflammatory",
+      "hepatoprotective"
+    ],
+    "evidenceLevel": "human + preclinical",
+    "activeCompounds": [
+      "silybin A/B",
+      "isosilybin A/B",
+      "silychristin",
+      "silydianin",
+      "isosilychristin"
+    ],
+    "markerCompounds": [
+      "silymarin",
+      "silybin"
+    ],
+    "safetyNotes": "Generally well tolerated; mild GI side effects and occasional allergic reactions.",
+    "interactions": [
+      "Possible CYP2C9/CYP3A4 interaction risk",
+      "may affect warfarin and some other drugs."
+    ],
+    "contraindications": [
+      "Asteraceae allergy",
+      "caution in pregnancy/breastfeeding."
+    ],
+    "preparation": "Seed/fruit extracts standardized to silymarin.",
+    "dosage": "250–750 mg silymarin 2–3 times daily",
+    "standardization": "Typically 70–80% silymarin.",
+    "qualityConcerns": "",
+    "confidence": "high",
+    "publishStatus": "Source review",
+    "readinessFlag": "Near ready",
+    "frontendReadyFlag": "No",
+    "completenessPct": "100%",
+    "priorityTier": "High",
+    "totalScore": "7",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "Recovered from prior batch output in this conversation"
+    ]
+  },
+  {
+    "slug": "peppermint",
+    "name": "Peppermint",
+    "scientificName": "Mentha × piperita",
+    "category": "herb",
+    "plantPartUsed": "unspecified",
+    "commonNames": [
+      "peppermint",
+      "Mentha × piperita"
+    ],
+    "region": "Peppermint is a hybrid between water mint and spearmint that grows throughout Europe, North America and the Mediterranean【376436993997216†L159-L162】.",
+    "summary": "Peppermint (Mentha × piperita) is a herb monograph focused on the unspecified used in herbal preparations. It is associated with Peppermint is a hybrid between water mint and spearmint that grows throughout Europe, North America and the Mediterranean【376436993997216†L159-L162】. Peppermint oil contains more than 80 constituents; menthol is the main bioactive component. Menthol is generally regarded as safe.",
+    "description": "Peppermint is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include l‑menthol; l‑menthone; isomenthone; menthyl acetate; 1,8‑cineole (eucalyptol); menthofuran; limonene. Typical preparation forms: Leaves and flowering tops are used fresh or dried to make teas and flavourings. Medicinal products include enteric‑coated capsules of peppermint oil and topical preparations. Peppermint oil contains more than 80 constituents; menthol is the main bioactive component. Menthol acts as a smooth‑muscle relaxant by blocking L‑type calcium channels and activating transient receptor potential channels (TRPM8 and TRPA1). These actions underlie the spasmolytic and analgesic properties of peppermint oil. Peppermint oil also has antimicrobial, antiviral and anti‑inflammatory effects【271856535371736†L224-L289】【271856535371736†L312-L333】. Interaction profile: Peppermint oil may inhibit cytochrome P450 enzymes (e.g., CYP2A6 and UGT2B7) and could theoretically interact with drugs metabolised by these pathways. Use caution or avoid in: Avoid in infants and young children, and in people with gastro‑oesophageal reflux disease or bile duct obstruction. Use cautiously in those taking hepatotoxic drugs due to potential pulegone/menthofuran toxicity.",
+    "mechanism": "Peppermint oil contains more than 80 constituents; menthol is the main bioactive component. Menthol acts as a smooth‑muscle relaxant by blocking L‑type calcium channels and activating transient receptor potential channels (TRPM8 and TRPA1). These actions underlie the spasmolytic and analgesic properties of peppermint oil. Peppermint oil also has antimicrobial, antiviral and anti‑inflammatory effects【271856535371736†L224-L289】【271856535371736†L312-L333】.",
+    "mechanismTags": [
+      "anti-inflammatory",
+      "spasmolytic",
+      "antimicrobial"
+    ],
+    "evidenceLevel": "",
+    "activeCompounds": [
+      "l‑menthol",
+      "l‑menthone",
+      "isomenthone",
+      "menthyl acetate",
+      "1,8‑cineole (eucalyptol)",
+      "menthofuran",
+      "limonene"
+    ],
+    "markerCompounds": [],
+    "safetyNotes": "Menthol is generally regarded as safe. Enteric‑coated peppermint oil is well tolerated; the most common adverse effects reported in clinical trials are heartburn, nausea, abdominal pain and dry mouth【220193048567304†L45-L53】. High doses of minor constituents such as pulegone or menthofuran can cause hepatotoxicity in animals, but typical medicinal doses contain negligible amounts and no cases of human hepatotoxicity have been reported【271856535371736†L1296-L1354】. Peppermint oil should not be applied near the faces of infants or young children because menthol inhalation can cause serious adverse reactions【220193048567304†L45-L53】.",
+    "interactions": [
+      "Peppermint oil may inhibit cytochrome P450 enzymes (e.g., CYP2A6 and UGT2B7) and could theoretically interact with drugs metabolised by these pathways."
+    ],
+    "contraindications": [
+      "Avoid in infants and young children, and in people with gastro‑oesophageal reflux disease or bile duct obstruction. Use cautiously in those taking hepatotoxic drugs due to potential pulegone/menthofuran toxicity."
+    ],
+    "preparation": "Leaves and flowering tops are used fresh or dried to make teas and flavourings. Medicinal products include enteric‑coated capsules of peppermint oil and topical preparations.",
+    "dosage": "",
+    "standardization": "",
+    "qualityConcerns": "",
+    "confidence": "medium",
+    "publishStatus": "Editorial polish",
+    "readinessFlag": "Near ready",
+    "frontendReadyFlag": "No",
+    "completenessPct": "71%",
+    "priorityTier": "Medium",
+    "totalScore": "6",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "【697136726945063†L340-L345】",
+      "【271856535371736†L224-L289】",
+      "【271856535371736†L312-L333】",
+      "【220193048567304†L45-L53】",
+      "【271856535371736†L1296-L1354】",
+      "【376436993997216†L159-L162】"
+    ]
+  },
+  {
+    "slug": "rhodiola-rosea",
+    "name": "Rhodiola Rosea",
+    "scientificName": "Rhodiola rosea",
+    "category": "adaptogenic root",
+    "plantPartUsed": "root",
+    "commonNames": [],
+    "region": "Europe, Asia (cold regions)",
+    "summary": "Rhodiola Rosea (Rhodiola rosea) is a adaptogenic root monograph focused on the root used in herbal preparations. It is associated with Europe, Asia (cold regions). Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant. Generally well tolerated; possible dizziness, dry mouth, insomnia.",
+    "description": "Rhodiola Rosea is represented here as a monograph-style entry centered on the root. Key reported compounds include rosavin; rosarin; rosin; salidroside; tyrosol. Typical preparation forms: Standardized root extracts. Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant. Interaction profile: SSRIs, MAOIs, stimulants. Use caution or avoid in: Bipolar disorder; avoid high doses before sleep.",
+    "mechanism": "Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant",
+    "mechanismTags": [
+      "adaptogen",
+      "serotonergic",
+      "dopaminergic",
+      "antioxidant"
+    ],
+    "evidenceLevel": "preclinical + limited human",
+    "activeCompounds": [
+      "rosavin",
+      "rosarin",
+      "rosin",
+      "salidroside",
+      "tyrosol"
+    ],
+    "markerCompounds": [
+      "rosavins",
+      "salidroside"
+    ],
+    "safetyNotes": "Generally well tolerated; possible dizziness, dry mouth, insomnia",
+    "interactions": [
+      "SSRIs, MAOIs, stimulants"
+    ],
+    "contraindications": [
+      "Bipolar disorder",
+      "avoid high doses before sleep"
+    ],
+    "preparation": "Standardized root extracts",
+    "dosage": "",
+    "standardization": "Typically 3% rosavins, 1% salidroside",
+    "qualityConcerns": "",
+    "confidence": "medium",
+    "publishStatus": "Ready for QA",
+    "readinessFlag": "Ready",
+    "frontendReadyFlag": "Yes",
+    "completenessPct": "93%",
+    "priorityTier": "Medium",
+    "totalScore": "8",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "NCCIH",
+      "PubMed adaptogen reviews"
+    ]
+  },
+  {
+    "slug": "saw-palmetto",
+    "name": "Saw Palmetto",
+    "scientificName": "Serenoa repens",
+    "category": "berry extract",
+    "plantPartUsed": "berry",
+    "commonNames": [],
+    "region": "Southeastern United States",
+    "summary": "Saw Palmetto (Serenoa repens) is a berry extract monograph focused on the berry used in herbal preparations. It is associated with Southeastern United States. 5-alpha-reductase inhibition; anti-androgenic effects. Generally safe; mild GI upset, headache.",
+    "description": "Saw Palmetto is represented here as a monograph-style entry centered on the berry. Key reported compounds include fatty acids; phytosterols (beta-sitosterol). Typical preparation forms: Berry extracts. 5-alpha-reductase inhibition; anti-androgenic effects. Interaction profile: Hormonal therapies, anticoagulants. Use caution or avoid in: Pregnancy.",
+    "mechanism": "5-alpha-reductase inhibition; anti-androgenic effects",
+    "mechanismTags": [
+      "hormonal",
+      "anti-androgenic"
+    ],
+    "evidenceLevel": "preclinical + limited human",
+    "activeCompounds": [
+      "fatty acids",
+      "phytosterols (beta-sitosterol)"
+    ],
+    "markerCompounds": [
+      "fatty acids",
+      "beta-sitosterol"
+    ],
+    "safetyNotes": "Generally safe; mild GI upset, headache",
+    "interactions": [
+      "Hormonal therapies, anticoagulants"
+    ],
+    "contraindications": [
+      "Pregnancy"
+    ],
+    "preparation": "Berry extracts",
+    "dosage": "",
+    "standardization": "Standardized to fatty acid content",
+    "qualityConcerns": "",
+    "confidence": "medium",
+    "publishStatus": "Ready for QA",
+    "readinessFlag": "Ready",
+    "frontendReadyFlag": "Yes",
+    "completenessPct": "93%",
+    "priorityTier": "Medium",
+    "totalScore": "8",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "NIH ODS",
+      "EMA"
+    ]
+  },
+  {
+    "slug": "st-johns-wort",
+    "name": "St Johns Wort",
+    "scientificName": "Hypericum perforatum",
+    "category": "herb",
+    "plantPartUsed": "flowering tops",
+    "commonNames": [
+      "St. John's wort",
+      "Hypericum",
+      "goatweed"
+    ],
+    "region": "Native to Europe and West Asia; naturalized in North America and other temperate regions.",
+    "summary": "St. John's wort (Hypericum perforatum) is a herb monograph focused on the flowering tops used in herbal preparations. It is associated with Native to Europe and West Asia; naturalized in North America and other temperate regions. Hyperforin and related compounds inhibit monoamine reuptake and affect TRPC6-linked neuroplasticity; additional monoamine oxidase and stress-pathway effects have been proposed. Can cause photosensitivity, GI upset, dizziness, insomnia, restlessness.",
+    "description": "St. John's wort is represented here as a monograph-style entry centered on the flowering tops. Key reported compounds include hyperforin; hypericin; pseudohypericin; quercetin; rutin; kaempferol. Typical preparation forms: Dried flowering tops or standardized extracts. Hyperforin and related compounds inhibit monoamine reuptake and affect TRPC6-linked neuroplasticity; additional monoamine oxidase and stress-pathway effects have been proposed. Interaction profile: Major interactions with antidepressants, oral contraceptives, cyclosporine, tacrolimus, HIV meds, anticancer drugs, warfarin, digoxin and others. Use caution or avoid in: Pregnancy, breastfeeding, bipolar disorder, concomitant prescription meds with CYP/P-gp liability.",
+    "mechanism": "Hyperforin and related compounds inhibit monoamine reuptake and affect TRPC6-linked neuroplasticity; additional monoamine oxidase and stress-pathway effects have been proposed.",
+    "mechanismTags": [
+      "serotonergic",
+      "dopaminergic"
+    ],
+    "evidenceLevel": "human + preclinical",
+    "activeCompounds": [
+      "hyperforin",
+      "hypericin",
+      "pseudohypericin",
+      "quercetin",
+      "rutin",
+      "kaempferol"
+    ],
+    "markerCompounds": [
+      "hyperforin",
+      "hypericin"
+    ],
+    "safetyNotes": "Can cause photosensitivity, GI upset, dizziness, insomnia, restlessness. Strong inducer of CYP3A4 and P-gp.",
+    "interactions": [
+      "Major interactions with antidepressants, oral contraceptives, cyclosporine, tacrolimus, HIV meds, anticancer drugs, warfarin, digoxin and others."
+    ],
+    "contraindications": [
+      "Pregnancy, breastfeeding, bipolar disorder, concomitant prescription meds with CYP/P-gp liability."
+    ],
+    "preparation": "Dried flowering tops or standardized extracts.",
+    "dosage": "300 mg extract three times daily",
+    "standardization": "Often 0.3% hypericin or 2–5% hyperforin.",
+    "qualityConcerns": "",
+    "confidence": "high",
+    "publishStatus": "Source review",
+    "readinessFlag": "Near ready",
+    "frontendReadyFlag": "No",
+    "completenessPct": "100%",
+    "priorityTier": "High",
+    "totalScore": "7",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "Recovered from prior batch output in this conversation"
+    ]
+  },
+  {
+    "slug": "turmeric",
+    "name": "Turmeric",
+    "scientificName": "Curcuma longa",
+    "category": "rhizome",
+    "plantPartUsed": "unspecified",
+    "commonNames": [
+      "turmeric",
+      "Curcuma longa"
+    ],
+    "region": "Native to India and cultivated throughout the tropics; turmeric is not found in the wild and is grown as a domesticated plant【754431674042811†L224-L241】.",
+    "summary": "Turmeric (Curcuma longa) is a rhizome monograph focused on the unspecified used in herbal preparations. It is associated with Native to India and cultivated throughout the tropics; turmeric is not found in the wild and is grown as a domesticated plant【754431674042811†L224-L241】. The golden rhizomes of turmeric contain non‑volatile curcuminoids—curcumin (curcumin I), demethoxycurcumin (curcumin II) and bisdemethoxycurcumin (curcumin III)—as well as volatile mono‑ and sesquiterpenoids【768158627760254†L420-L432】【768158627760254†L442-L468】. Conventional oral preparations of turmeric or curcumin appear safe for up to 2–3 months.",
+    "description": "Turmeric is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include curcumin; demethoxycurcumin; bisdemethoxycurcumin. Typical preparation forms: The rhizomes are boiled, dried and ground into powder used as a spice, dye and supplement. Extracts standardized for curcuminoid content are available as capsules or tablets. The golden rhizomes of turmeric contain non‑volatile curcuminoids—curcumin (curcumin I), demethoxycurcumin (curcumin II) and bisdemethoxycurcumin (curcumin III)—as well as volatile mono‑ and sesquiterpenoids【768158627760254†L420-L432】【768158627760254†L442-L468】. Curcumin and related curcuminoids exhibit antioxidant and anti‑inflammatory effects by modulating multiple molecular targets (e.g., NF‑κB, Nrf2, COX‑2). Most data are preclinical; human evidence is limited, so this mechanism should be considered proposed. Interaction profile: Curcumin may enhance the effects of anticoagulant, antiplatelet or antidiabetic drugs and could interact with drugs metabolized by cytochrome P450 enzymes; caution is advised. Use caution or avoid in: Avoid high‑dose turmeric supplements in people with gallbladder obstruction, bleeding disorders or those taking anticoagulant or antiplatelet medications. Use is not recommended during pregnancy or breastfeeding.",
+    "mechanism": "The golden rhizomes of turmeric contain non‑volatile curcuminoids—curcumin (curcumin I), demethoxycurcumin (curcumin II) and bisdemethoxycurcumin (curcumin III)—as well as volatile mono‑ and sesquiterpenoids【768158627760254†L420-L432】【768158627760254†L442-L468】. Curcumin and related curcuminoids exhibit antioxidant and anti‑inflammatory effects by modulating multiple molecular targets (e.g., NF‑κB, Nrf2, COX‑2). Most data are preclinical; human evidence is limited, so this mechanism should be considered proposed.",
+    "mechanismTags": [
+      "anti-inflammatory",
+      "antioxidant"
+    ],
+    "evidenceLevel": "",
+    "activeCompounds": [
+      "curcumin",
+      "demethoxycurcumin",
+      "bisdemethoxycurcumin"
+    ],
+    "markerCompounds": [],
+    "safetyNotes": "Conventional oral preparations of turmeric or curcumin appear safe for up to 2–3 months. Reported adverse effects include nausea, vomiting, acid reflux, stomach upset, diarrhoea or constipation. Highly bioavailable curcumin products have been linked to liver damage in rare cases. The safety of turmeric supplements during pregnancy or breastfeeding is uncertain【628537290338832†L207-L223】.",
+    "interactions": [
+      "Curcumin may enhance the effects of anticoagulant, antiplatelet or antidiabetic drugs and could interact with drugs metabolized by cytochrome P450 enzymes",
+      "caution is advised."
+    ],
+    "contraindications": [
+      "Avoid high‑dose turmeric supplements in people with gallbladder obstruction, bleeding disorders or those taking anticoagulant or antiplatelet medications. Use is not recommended during pregnancy or breastfeeding."
+    ],
+    "preparation": "The rhizomes are boiled, dried and ground into powder used as a spice, dye and supplement. Extracts standardized for curcuminoid content are available as capsules or tablets.",
+    "dosage": "",
+    "standardization": "",
+    "qualityConcerns": "",
+    "confidence": "medium",
+    "publishStatus": "Editorial polish",
+    "readinessFlag": "Near ready",
+    "frontendReadyFlag": "No",
+    "completenessPct": "71%",
+    "priorityTier": "Medium",
+    "totalScore": "6",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "【768158627760254†L420-L432】",
+      "【768158627760254†L442-L468】",
+      "【628537290338832†L207-L223】",
+      "【754431674042811†L224-L241】"
+    ]
+  },
+  {
+    "slug": "valerian",
+    "name": "Valerian",
+    "scientificName": "Valeriana officinalis",
+    "category": "herb",
+    "plantPartUsed": "root; rhizome",
+    "commonNames": [
+      "valerian",
+      "all-heal",
+      "garden heliotrope"
+    ],
+    "region": "Native to Europe and Asia; naturalized in North America and other temperate regions.",
+    "summary": "Valerian (Valeriana officinalis) is a herb monograph focused on the root; rhizome used in herbal preparations. It is associated with Native to Europe and Asia; naturalized in North America and other temperate regions. Valerenic acid derivatives modulate GABA-A signaling and may inhibit GABA breakdown. Short-term use appears safe; side effects include headache, GI upset, mental dullness, excitability, vivid dreams.",
+    "description": "Valerian is represented here as a monograph-style entry centered on the root; rhizome. Key reported compounds include valerenic acid; valerenol; valerenal; valepotriates (valtrate, isovaltrate); sesquiterpenoids. Typical preparation forms: Dried roots/rhizomes as teas, tinctures, or extracts. Valerenic acid derivatives modulate GABA-A signaling and may inhibit GABA breakdown. Interaction profile: May potentiate sedatives and alcohol. Use caution or avoid in: Pregnancy, breastfeeding, liver disease, concurrent CNS depressants.",
+    "mechanism": "Valerenic acid derivatives modulate GABA-A signaling and may inhibit GABA breakdown.",
+    "mechanismTags": [
+      "gabaergic"
+    ],
+    "evidenceLevel": "preclinical + limited human",
+    "activeCompounds": [
+      "valerenic acid",
+      "valerenol",
+      "valerenal",
+      "valepotriates (valtrate, isovaltrate)",
+      "sesquiterpenoids"
+    ],
+    "markerCompounds": [
+      "valerenic acid"
+    ],
+    "safetyNotes": "Short-term use appears safe; side effects include headache, GI upset, mental dullness, excitability, vivid dreams. Rare liver injury reported.",
+    "interactions": [
+      "May potentiate sedatives and alcohol."
+    ],
+    "contraindications": [
+      "Pregnancy, breastfeeding, liver disease, concurrent CNS depressants."
+    ],
+    "preparation": "Dried roots/rhizomes as teas, tinctures, or extracts.",
+    "dosage": "300–600 mg extract",
+    "standardization": "",
+    "qualityConcerns": "",
+    "confidence": "medium",
+    "publishStatus": "Source review",
+    "readinessFlag": "Near ready",
+    "frontendReadyFlag": "No",
+    "completenessPct": "93%",
+    "priorityTier": "High",
+    "totalScore": "6",
+    "pathwayTargets": [],
+    "compound_count": "",
+    "pathway_count": "",
+    "evidence_tier": "",
+    "sources": [
+      "Recovered from prior batch output in this conversation"
+    ]
+  }
+]
