@@ -192,6 +192,21 @@ function buildShortSummary(therapeuticUses: string[]) {
   return `${conciseUses[0]}. ${conciseUses[1]}`
 }
 
+function getEvidenceBadgeTone(evidenceLevel: string) {
+  const normalized = evidenceLevel.trim().toLowerCase()
+  if (!normalized) return 'border-white/20 bg-white/6 text-white/75'
+  if (normalized.includes('human')) return 'border-emerald-300/35 bg-emerald-500/12 text-emerald-100'
+  if (normalized.includes('preclinical + limited human'))
+    return 'border-amber-300/35 bg-amber-500/12 text-amber-100'
+  return 'border-white/20 bg-white/6 text-white/75'
+}
+
+function getCompletenessLabel(completenessPct: number) {
+  if (completenessPct >= 80) return 'Well-documented'
+  if (completenessPct >= 50) return 'Partial data'
+  return 'Limited data'
+}
+
 export default function HerbDetail() {
   const { slug = '' } = useParams()
   const { herb, isLoading } = useHerbDetailState(slug)
@@ -348,8 +363,23 @@ export default function HerbDetail() {
   const duration = herb.duration || ''
   const dosage = herb.dosage || ''
   const preparation = herb.preparation || ''
+  const standardization = String(herb.standardization || '').trim()
   const legalStatus = herb.legalStatus || ''
+  const qualityConcerns = String(herb.qualityConcerns || '').trim()
   const herbClass = String(herb.class || herb.category || '')
+  const evidenceLevel = String(herb.evidenceLevel || '').trim()
+  const mechanismTags = Array.isArray(herb.mechanismTags) ? splitClean(herb.mechanismTags) : []
+  const pathwayTargets = Array.isArray(herb.pathwayTargets) ? splitClean(herb.pathwayTargets) : []
+  const compoundCount =
+    typeof herb.compound_count === 'number' && Number.isFinite(herb.compound_count)
+      ? herb.compound_count
+      : null
+  const completenessPct =
+    typeof herb.completenessPct === 'number' && Number.isFinite(herb.completenessPct)
+      ? herb.completenessPct
+      : null
+  const evidenceBadgeTone = getEvidenceBadgeTone(evidenceLevel)
+  const completenessLabel = completenessPct === null ? '' : getCompletenessLabel(completenessPct)
   const lastUpdated = String((herb as Record<string, unknown>).lastUpdated || '').trim()
   const sourceCount = sources.length
   const cautionCount = countCautionSignals({
@@ -397,6 +427,7 @@ export default function HerbDetail() {
     dosage ? `Dosage: ${dosage}` : '',
     duration ? `Duration: ${duration}` : '',
     preparation ? `Preparation: ${preparation}` : '',
+    standardization ? `Often standardized to: ${standardization}` : '',
   ].filter(Boolean)
   const herbToken = encodeURIComponent(`herb:${herb.slug}`)
   const herbCheckerHref = buildInteractionsLink([herbToken])
@@ -629,11 +660,25 @@ export default function HerbDetail() {
                 <p className='mt-1 text-sm italic text-white/55'>{herb.scientific}</p>
               )}
             </div>
-            {intensity && (
-              <span className='bg-white/6 mt-1 shrink-0 rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/80'>
-                {intensity}
-              </span>
-            )}
+            <div className='mt-1 flex shrink-0 flex-wrap gap-2'>
+              {intensity && (
+                <span className='bg-white/6 rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/80'>
+                  {intensity}
+                </span>
+              )}
+              {evidenceLevel && (
+                <span
+                  className={`rounded-full border px-3 py-1 text-xs font-semibold tracking-wide ${evidenceBadgeTone}`}
+                >
+                  Evidence: {evidenceLevel}
+                </span>
+              )}
+              {completenessPct !== null && (
+                <span className='rounded-full border border-cyan-300/30 bg-cyan-500/10 px-3 py-1 text-xs font-semibold tracking-wide text-cyan-100'>
+                  {completenessLabel} ({Math.round(completenessPct)}%)
+                </span>
+              )}
+            </div>
           </div>
 
           <DataTrustPanel
@@ -874,10 +919,26 @@ export default function HerbDetail() {
           </Section>
         )}
 
+        {qualityConcerns && (
+          <div className='mt-4 rounded-xl border border-amber-300/35 bg-amber-500/12 p-3 text-sm text-amber-100'>
+            <p className='font-semibold'>⚠ Quality concerns</p>
+            <p className='mt-1 text-amber-50/90'>{qualityConcerns}</p>
+          </div>
+        )}
+
         <PremiumDataSection
           details={premiumDetails}
           relationGroups={relationGroups}
         />
+
+        {compoundCount !== null && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <p className='text-xs uppercase tracking-[0.16em] text-white/55'>Workbook coverage</p>
+            <p className='mt-2 text-sm text-white/80'>
+              Compound records linked: <span className='font-semibold text-white'>{compoundCount}</span>
+            </p>
+          </section>
+        )}
 
         {/* Core content */}
         {description && (
@@ -934,7 +995,36 @@ export default function HerbDetail() {
 
         {herbClass && <Section title='Class'>{herbClass}</Section>}
 
-        {mechanism && <Section title='Mechanism of Action'>{mechanism}</Section>}
+        {mechanism && (
+          <Section title='Mechanism of Action'>
+            <div className='space-y-3'>
+              <p>{mechanism}</p>
+              {mechanismTags.length > 0 && (
+                <div className='flex flex-wrap gap-2'>
+                  {mechanismTags.map(tag => (
+                    <span key={tag} className='ds-pill'>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </Section>
+        )}
+
+        {pathwayTargets.length > 0 && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Biological Pathways'>
+              <div className='flex flex-wrap gap-2 text-sm text-white/85'>
+                {pathwayTargets.map(target => (
+                  <span key={target} className='ds-pill'>
+                    {target}
+                  </span>
+                ))}
+              </div>
+            </Collapse>
+          </section>
+        )}
 
         {linkedCompounds.length > 0 && (
           <section id='key-active-compounds' className='border-white/8 mt-6 border-t pt-5'>
