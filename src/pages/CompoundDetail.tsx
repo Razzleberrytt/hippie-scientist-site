@@ -4,6 +4,7 @@ import Meta from '@/components/Meta'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
 import { useCompoundDataState, useCompoundDetailState } from '@/lib/compound-data'
 import { useHerbDataState } from '@/lib/herb-data'
+import { splitClean } from '@/lib/sanitize'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { getCompoundDataCompleteness } from '@/utils/getDataCompleteness'
@@ -102,10 +103,55 @@ function dedupeRelatedLinks(items: Array<RelatedLinkItem | null | undefined>) {
   return Array.from(unique.values()).sort((a, b) => a.label.localeCompare(b.label))
 }
 
+
+function normalizeTextValue(value: unknown): string {
+  return String(value || '').trim()
+}
+
+function splitPipeList(value: unknown): string[] {
+  if (Array.isArray(value)) {
+    return value.map(item => normalizeTextValue(item)).filter(Boolean)
+  }
+  return normalizeTextValue(value)
+    .split('|')
+    .map(item => item.trim())
+    .filter(Boolean)
+}
+
+function toTitleCase(value: string): string {
+  return value
+    .replace(/[-_]+/g, ' ')
+    .trim()
+    .replace(/\s+/g, ' ')
+    .replace(/\b\w/g, letter => letter.toUpperCase())
+}
+
+function buildSourceLabel(rawUrl: string, fallbackTitle: string) {
+  const title = normalizeTextValue(fallbackTitle)
+  const genericTitle = !title || /^(source|link|reference|article|study)$/i.test(title)
+  try {
+    const domain = new URL(rawUrl).hostname.replace(/^www\./i, '')
+    return genericTitle ? domain : title
+  } catch {
+    return title || rawUrl
+  }
+}
+
 export default function CompoundDetail() {
   const { slug = '' } = useParams()
-  const { compound, isLoading: isCompoundLoading } = useCompoundDetailState(slug)
   const { compounds, isLoading: isCompoundsLoading } = useCompoundDataState()
+  const slugNeedle = normalizeKey(slug)
+  const detailLookupSlug =
+    compounds.find(item => {
+      const record = item as unknown as Record<string, unknown>
+      const candidates = [
+        item.slug,
+        item.id,
+        normalizeTextValue(record.canonicalCompoundId),
+      ]
+      return candidates.some(candidate => normalizeKey(String(candidate || '')) === slugNeedle)
+    })?.slug || slug
+  const { compound, isLoading: isCompoundLoading } = useCompoundDetailState(detailLookupSlug)
   const { herbs, isLoading: isHerbLoading } = useHerbDataState()
 
   if (isCompoundLoading || isCompoundsLoading || isHerbLoading) {
@@ -122,6 +168,22 @@ export default function CompoundDetail() {
       </main>
     )
   }
+
+  const compoundRecord = compound as unknown as Record<string, unknown>
+  const name =
+    normalizeTextValue(compoundRecord.compoundName) ||
+    normalizeTextValue(compoundRecord.name) ||
+    normalizeTextValue(compoundRecord.id) ||
+    'Unknown compound'
+  const evidence = normalizeTextValue(compoundRecord.evidence)
+  const pharmacokinetics = normalizeTextValue(compoundRecord.pharmacokinetics)
+  const pathwayTargets = splitClean(compoundRecord.pathwayTargets)
+  const workbookSources = splitPipeList(compoundRecord.sourceUrls)
+  const relatedHerbSlugs = splitClean(compoundRecord.relatedHerbSlugs)
+  const compoundInteractionsText = compound.interactions.join(' | ').trim()
+  const drugInteractions = normalizeTextValue(compoundRecord.drugInteractions)
+  const hasDistinctDrugInteractions =
+    !!drugInteractions && normalizeKey(drugInteractions) !== normalizeKey(compoundInteractionsText)
 
   const linkedHerbs = mapRelatedHerbsForCompound(compound, herbs)
   const herbByKey = new Map<string, { label: string; slug: string }>()
@@ -182,6 +244,14 @@ export default function CompoundDetail() {
       to: `/herbs/${encodeURIComponent(herb.slug)}`,
     })),
     ...premiumRelatedHerbs,
+    ...relatedHerbSlugs.map(entry => {
+      const normalized = herbByKey.get(normalizeKey(entry))
+      const resolvedSlug = normalized?.slug || entry
+      return {
+        label: normalized?.label || toTitleCase(entry),
+        to: `/herbs/${encodeURIComponent(resolvedSlug)}`,
+      }
+    }),
   ])
   const relatedCompoundLinks = dedupeRelatedLinks(premiumRelatedCompounds)
   const relationGroups = [
@@ -282,7 +352,7 @@ export default function CompoundDetail() {
   const governedFaq = governedResearch
     ? buildGovernedFaqSectionContent({
         entityType: 'compound',
-        entityName: compound.name,
+        entityName: name,
         enrichment: governedResearch,
       })
     : null
@@ -290,14 +360,14 @@ export default function CompoundDetail() {
     governedResearch && governedFaq
       ? buildGovernedRelatedQuestions({
           entityType: 'compound',
-          entityName: compound.name,
+          entityName: name,
           enrichment: governedResearch,
           governedFaq,
           hasVisibleCompareSection: Boolean(foundInHerbLinks.length || relatedCollections.length),
         })
       : null
   const fallbackIntro = buildFallbackCompoundIntro({
-    compoundName: compound.name,
+    compoundName: name,
     description: compound.description,
     mechanism: compound.mechanism,
     therapeuticUses: compound.therapeuticUses,
@@ -312,7 +382,7 @@ export default function CompoundDetail() {
     introFacts,
   })
   const governedIntro = buildGovernedDetailIntro({
-    entityName: compound.name,
+    entityName: name,
     fallback: fallbackIntro,
     enrichment: governedResearch,
     sourceCount,
@@ -338,12 +408,12 @@ export default function CompoundDetail() {
   ).trim()
   const baseCompoundMetaDescription = formatMetaDescription(
     compoundDescriptionSource,
-    `${compound.name} compound guide with pharmacology, effects, and safety notes.`,
+    `${name} compound guide with pharmacology, effects, and safety notes.`,
   )
-  const baseCompoundMetaTitle = `${compound.name} Compound Guide: Mechanism, Effects & Safety`
+  const baseCompoundMetaTitle = `${name} Compound Guide: Mechanism, Effects & Safety`
   const compoundMetaTitle = buildGovernedMetaTitle(
     baseCompoundMetaTitle,
-    compound.name,
+    name,
     'Compound',
     compound.researchEnrichmentSummary,
   )
@@ -362,7 +432,7 @@ export default function CompoundDetail() {
         path={pagePath}
         jsonLd={[
           compoundJsonLd({
-            name: compound.name,
+            name,
             slug: compound.slug,
             description: compoundMetaDescription,
             category: compound.category,
@@ -373,7 +443,7 @@ export default function CompoundDetail() {
             [
               { name: 'Home', url: SITE_URL },
               { name: 'Compounds', url: `${SITE_URL}/compounds` },
-              { name: compound.name, url: `${SITE_URL}${pagePath}` },
+              { name, url: `${SITE_URL}${pagePath}` },
             ],
             { id: breadcrumbId },
           ),
@@ -394,7 +464,7 @@ export default function CompoundDetail() {
         items={[
           { label: 'Home', to: '/' },
           { label: 'Compounds', to: '/compounds' },
-          { label: compound.name },
+          { label: name },
         ]}
       />
       <Link to='/compounds' className='btn-secondary inline-flex items-center'>
@@ -405,13 +475,19 @@ export default function CompoundDetail() {
         {/* Header */}
         <header>
           <div className='flex flex-wrap items-start justify-between gap-3'>
-            <h1 className='text-3xl font-semibold leading-tight'>{compound.name}</h1>
+            <h1 className='text-3xl font-semibold leading-tight'>{name}</h1>
             {displayClass && (
               <span className='bg-white/6 mt-1 shrink-0 rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/80'>
                 {displayClass}
               </span>
             )}
           </div>
+          {(confidence || evidence) && (
+            <div className='mt-3 flex flex-wrap gap-2'>
+              {confidence && <span className='ds-pill'>Confidence: {confidence}</span>}
+              {evidence && <span className='ds-pill'>Evidence: {evidence}</span>}
+            </div>
+          )}
           <DataTrustPanel
             entity='compound'
             confidence={confidence}
@@ -642,7 +718,7 @@ export default function CompoundDetail() {
               {whyItMatters && (
                 <p>
                   <span className='font-semibold text-white'>Why it matters:</span> This helps
-                  explain why {compound.name} is discussed in herbal profiles for{' '}
+                  explain why {name} is discussed in herbal profiles for{' '}
                   {linkedHerbs.length > 0 ? `${linkedHerbs.length} herb(s)` : 'multiple herbs'}.
                   Commonly tracked outcomes include {whyItMatters}.
                 </p>
@@ -659,6 +735,23 @@ export default function CompoundDetail() {
           </Section>
         )}
 
+
+        {pharmacokinetics && <Section title='Pharmacokinetics'>{pharmacokinetics}</Section>}
+
+        {pathwayTargets.length > 0 && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Pathway Targets'>
+              <div className='flex flex-wrap gap-2 text-sm text-white/85'>
+                {pathwayTargets.map(target => (
+                  <span key={target} className='ds-pill'>
+                    {target}
+                  </span>
+                ))}
+              </div>
+            </Collapse>
+          </section>
+        )}
+
         {compound.therapeuticUses.length > 0 && (
           <section className='border-white/8 mt-6 border-t pt-5'>
             <Collapse title='Traditional & Therapeutic Use'>
@@ -672,7 +765,8 @@ export default function CompoundDetail() {
         {/* Safety */}
         {(compound.contraindications.length > 0 ||
           compound.interactions.length > 0 ||
-          compound.sideEffects.length > 0) && (
+          compound.sideEffects.length > 0 ||
+          hasDistinctDrugInteractions) && (
           <section className='border-white/8 mt-6 border-t pt-5'>
             <Collapse title='Safety Notes'>
               <div className='space-y-4 text-sm leading-relaxed text-white/85'>
@@ -696,6 +790,17 @@ export default function CompoundDetail() {
                     </ul>
                   </div>
                 )}
+                {hasDistinctDrugInteractions && (
+                  <div className='rounded-xl border border-amber-300/40 bg-amber-500/10 px-3 py-2 text-amber-100'>
+                    <p className='text-xs font-semibold uppercase tracking-[0.14em] text-amber-100'>
+                      <span aria-hidden='true' className='mr-1'>
+                        ⚠
+                      </span>
+                      Drug Interactions
+                    </p>
+                    <p className='mt-1'>{drugInteractions}</p>
+                  </div>
+                )}
                 {compound.interactions.length > 0 && (
                   <div>
                     <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
@@ -717,10 +822,10 @@ export default function CompoundDetail() {
           </section>
         )}
 
-        {/* Associated herbs */}
+        {/* Found in */}
         {foundInHerbLinks.length > 0 && (
           <section id='related-herbs' className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title={`Found In Herbs (${foundInHerbLinks.length})`}>
+            <Collapse title={`Found In (${foundInHerbLinks.length})`}>
               <div className='space-y-4 text-sm leading-relaxed text-white/85'>
                 {linkedHerbCards.length > 0 && (
                   <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
@@ -831,20 +936,27 @@ export default function CompoundDetail() {
         {compound.dosage && <Section title='Dosage'>{compound.dosage}</Section>}
         {compound.duration && <Section title='Duration'>{compound.duration}</Section>}
         {/* Sources */}
-        {compound.sources.length > 0 && (
+        {(compound.sources.length > 0 || workbookSources.length > 0) && (
           <section className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='References'>
+            <Collapse title='Sources'>
               <ol className='list-decimal space-y-1 pl-5 text-sm leading-relaxed text-white/85'>
                 {compound.sources.map((source, index) => (
                   <li key={`${source.url}-${index}`}>
                     {/^https?:\/\//i.test(source.url) ? (
                       <a href={source.url} target='_blank' rel='noreferrer' className='link'>
-                        {source.title}
+                        {buildSourceLabel(source.url, source.title)}
                       </a>
                     ) : (
                       source.title
                     )}
                     {source.note && <span className='ml-2 text-white/55'>— {source.note}</span>}
+                  </li>
+                ))}
+                {workbookSources.map(sourceUrl => (
+                  <li key={`workbook-${sourceUrl}`}>
+                    <a href={sourceUrl} target='_blank' rel='noreferrer' className='link'>
+                      {buildSourceLabel(sourceUrl, '')}
+                    </a>
                   </li>
                 ))}
               </ol>
