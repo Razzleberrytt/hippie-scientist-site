@@ -47,6 +47,12 @@ const RUNTIME_COVERAGE_FIELDS = [
 
 const JUNK_VALUES = new Set(['', 'na', 'n/a', 'none', 'null', 'undefined', 'unknown', 'unk', 'tbd', '-', '--'])
 
+function parseArgs(argv) {
+  return {
+    herbsOnly: argv.includes('--herbs-only'),
+  }
+}
+
 function cleanText(value) {
   const text = String(value ?? '').replace(/\s+/g, ' ').trim()
   return text
@@ -363,6 +369,7 @@ function computeRuntimeCoverage(herbs) {
 }
 
 function main() {
+  const { herbsOnly } = parseArgs(process.argv.slice(2))
   const workbookPath = resolveWorkbookPath(repoRoot)
   const outputDir = process.env.MONOGRAPH_PROJECTION_OUTPUT_DIR
     ? path.resolve(repoRoot, process.env.MONOGRAPH_PROJECTION_OUTPUT_DIR)
@@ -411,9 +418,11 @@ function main() {
     writeJson(path.join(detailDir, `${herb.slug}.json`), herb)
   }
 
-  writeJson(path.join(outputDir, 'workbook-cleaned-compound-master-v3.json'), dedupedCompounds.deduped)
-  writeJson(path.join(outputDir, 'workbook-cleaned-herb-compound-map-v3.json'), cleanedMap.cleaned)
-  writeJson(path.join(outputDir, 'workbook-cleaned-herb-enrichment-queue-v3.json'), cleanedQueueRows)
+  if (!herbsOnly) {
+    writeJson(path.join(outputDir, 'workbook-cleaned-compound-master-v3.json'), dedupedCompounds.deduped)
+    writeJson(path.join(outputDir, 'workbook-cleaned-herb-compound-map-v3.json'), cleanedMap.cleaned)
+    writeJson(path.join(outputDir, 'workbook-cleaned-herb-enrichment-queue-v3.json'), cleanedQueueRows)
+  }
 
   writeJson(repairReportPath, {
     workbookPath: path.relative(repoRoot, workbookPath),
@@ -441,6 +450,9 @@ function main() {
   console.log(`[generate-monograph-projection] runtimeFieldCoveragePct: ${runtimeCoverage.overallPct}`)
   console.log(`[generate-monograph-projection] output: ${path.relative(repoRoot, outputDir)}`)
   console.log(`[generate-monograph-projection] repairReport: ${path.relative(repoRoot, repairReportPath)}`)
+  if (herbsOnly) {
+    console.log('[generate-monograph-projection] mode: herbs-only')
+  }
 }
 
 main()
