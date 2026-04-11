@@ -1,4 +1,6 @@
 import type { Herb } from '../types'
+import type { HerbRecord } from '@/types/herb'
+import { loadPublicJsonArray } from '@/lib/data'
 
 const CLASS_MAP: Record<string, string> = {
   phenethylamine: 'Phenethylamine',
@@ -24,6 +26,71 @@ const PHARM_MAP = [
 ] as const
 
 type ListLike = string | string[] | null | undefined
+
+function normalizeSlug(slug: unknown): string {
+  return typeof slug === 'string' ? slug.trim().toLowerCase() : ''
+}
+
+function isNonEmptyValue(value: unknown): boolean {
+  if (value == null) return false
+  if (typeof value === 'string') return value.trim().length > 0
+  if (Array.isArray(value)) return value.length > 0
+  return true
+}
+
+function mergeHerbRecord(legacy: HerbRecord, workbook: HerbRecord): HerbRecord {
+  const merged: HerbRecord = { ...legacy }
+  for (const [key, value] of Object.entries(workbook)) {
+    if (isNonEmptyValue(value)) {
+      merged[key] = value
+    }
+  }
+  return merged
+}
+
+async function loadWorkbookHerbData(): Promise<HerbRecord[]> {
+  if (typeof window === 'undefined') return []
+  return loadPublicJsonArray<HerbRecord>('/data/workbook-herbs.json')
+}
+
+async function loadLegacyHerbData(): Promise<HerbRecord[]> {
+  const legacyModule = await import('@/data/herbs_enriched.json')
+  const payload = (legacyModule.default ?? legacyModule) as unknown
+  return Array.isArray(payload) ? (payload as HerbRecord[]) : []
+}
+
+const workbookHerbsPromise = loadWorkbookHerbData().catch(() => [])
+const allHerbsPromise = Promise.all([workbookHerbsPromise, loadLegacyHerbData()]).then(
+  ([workbook, legacy]) => {
+    const legacyBySlug = new Map<string, HerbRecord>()
+    legacy.forEach(herb => {
+      const slug = normalizeSlug(herb.slug)
+      if (!slug) return
+      legacyBySlug.set(slug, herb)
+    })
+
+    const mergedBySlug = new Map<string, HerbRecord>(legacyBySlug)
+
+    workbook.forEach(workbookHerb => {
+      const slug = normalizeSlug(workbookHerb.slug)
+      if (!slug) return
+
+      const legacyHerb = legacyBySlug.get(slug)
+      mergedBySlug.set(slug, legacyHerb ? mergeHerbRecord(legacyHerb, workbookHerb) : workbookHerb)
+    })
+
+    return Array.from(mergedBySlug.values())
+  },
+)
+
+export const workbookHerbs: HerbRecord[] = await workbookHerbsPromise
+export const allHerbs: HerbRecord[] = await allHerbsPromise
+
+export function getHerbBySlug(slug: string): HerbRecord | undefined {
+  const slugKey = normalizeSlug(slug)
+  if (!slugKey) return undefined
+  return allHerbs.find(herb => normalizeSlug(herb.slug) === slugKey)
+}
 
 function normList(value?: ListLike): string[] {
   const source = Array.isArray(value) ? value.join(',') : (value ?? '')
