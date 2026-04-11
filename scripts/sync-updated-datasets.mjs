@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
+import { execFileSync } from 'node:child_process'
+import { resolveWorkbookPath } from './workbook-source.mjs'
 
 const root = process.cwd()
 const outDir = path.join(root, 'public', 'data')
@@ -103,3 +105,18 @@ for (const file of FILES) {
 
 hydrateUpdatedDatasetSlugs('herbs_combined_updated.json', 'herbs')
 hydrateUpdatedDatasetSlugs('compounds_combined_updated.json', 'compounds')
+
+const workbookPath = resolveWorkbookPath(root)
+if (fs.existsSync(workbookPath)) {
+  console.log(`[data-sync] Applying workbook overlay from ${workbookPath}`)
+  execFileSync('node', ['scripts/import-xlsx-monographs.mjs'], {
+    cwd: root,
+    stdio: 'inherit',
+    env: {
+      ...process.env,
+      HERB_XLSX_PATH: path.relative(root, workbookPath),
+    },
+  })
+} else {
+  console.log('[data-sync] Skipping workbook overlay; no workbook file found.')
+}

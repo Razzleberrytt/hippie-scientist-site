@@ -4,9 +4,10 @@ import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 import XLSX from 'xlsx'
+import { resolveWorkbookPath } from './workbook-source.mjs'
 
 const repoRoot = process.cwd()
-const workbookPath = path.join(repoRoot, 'data-sources', 'herb_monograph_master.xlsx')
+const workbookPath = resolveWorkbookPath(repoRoot)
 const herbsPath = path.join(repoRoot, 'public', 'data', 'herbs.json')
 const compoundsPath = path.join(repoRoot, 'public', 'data', 'compounds.json')
 
