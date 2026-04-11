@@ -20,6 +20,16 @@ export type Entity = {
   sources?: { title: string; url: string }[]
 }
 
+export async function loadPublicJsonArray<T>(path: string): Promise<T[]> {
+  const response = await fetch(path, { cache: 'no-store' })
+  if (!response.ok) {
+    throw new Error(`Failed to load ${path}`)
+  }
+
+  const payload = (await response.json()) as unknown
+  return Array.isArray(payload) ? (payload as T[]) : []
+}
+
 function asRecord(value: unknown): Record<string, unknown> | null {
   return value && typeof value === 'object' && !Array.isArray(value)
     ? (value as Record<string, unknown>)
