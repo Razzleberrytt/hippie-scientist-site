@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import { useHerbData } from '@/lib/herb-data'
 import { getCommonName } from '@/lib/herbName'
+import { useGoalBundles } from '@/hooks/useGoalBundles'
 import {
   buildEffectCollectionFeed,
   EFFECT_COLLECTION_CONFIGS,
@@ -21,7 +22,9 @@ export default function HerbGoalPage() {
   const { goal = '' } = useParams<{ goal: string }>()
   const intent = goal as EffectCollectionIntent
   const config = EFFECT_COLLECTION_CONFIGS[intent]
+  const goalLabel = goal ? goal.charAt(0).toUpperCase() + goal.slice(1) : ''
   const herbs = useHerbData()
+  const { bundles, loading: bundlesLoading } = useGoalBundles(goal)
 
   if (!config) {
     return (
@@ -32,6 +35,7 @@ export default function HerbGoalPage() {
   }
 
   const ranked = buildEffectCollectionFeed(herbs, intent, 18)
+  const curatedBundles = [...bundles].sort((a, b) => a.rank - b.rank)
 
   return (
     <main className='container-page py-8'>
@@ -46,10 +50,48 @@ export default function HerbGoalPage() {
         <p className='mt-3 text-sm leading-7 text-white/80'>{config.intro}</p>
       </section>
 
+      {curatedBundles.length > 0 && (
+        <section className='ds-card mt-5'>
+          <div className='flex flex-wrap items-center justify-between gap-3'>
+            <h2 className='text-lg font-semibold text-white'>Curated Herb Stacks for {goalLabel}</h2>
+            <p className='text-xs text-white/70'>{curatedBundles.length} curated stacks</p>
+          </div>
+
+          <ul className='mt-3 space-y-3'>
+            {curatedBundles.map(bundle => (
+              <li
+                key={`${bundle.goal}-${bundle.rank}-${bundle.stack}`}
+                className='rounded-xl border border-white/10 bg-white/5 p-4'
+              >
+                <div className='flex flex-wrap items-start justify-between gap-3'>
+                  <div>
+                    <p className='text-xs uppercase tracking-wide text-cyan-200/90'>#{bundle.rank}</p>
+                    <p className='text-base font-semibold text-white'>{bundle.stack}</p>
+                    <p className='mt-1 text-xs text-white/70'>Intent: {bundle.intent}</p>
+                  </div>
+                  <p className='text-xs text-white/70'>Score: {bundle.score}</p>
+                </div>
+
+                <div className='mt-2 flex flex-wrap items-center gap-2'>
+                  <span className='rounded-full border border-emerald-300/35 bg-emerald-500/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-emerald-100'>
+                    {bundle.time_of_day.toUpperCase()}
+                  </span>
+                  <span className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100'>
+                    {bundle.balance_profile}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <section className='ds-card mt-5'>
         <div className='flex flex-wrap items-center justify-between gap-3'>
-          <h2 className='text-lg font-semibold text-white'>Ranked herb list</h2>
-          <p className='text-xs text-white/70'>{ranked.length} ranked matches</p>
+          <h2 className='text-lg font-semibold text-white'>Browse All Herbs for {goalLabel}</h2>
+          <p className='text-xs text-white/70'>
+            {bundlesLoading ? 'Loading curated stacks…' : `${ranked.length} ranked matches`}
+          </p>
         </div>
 
         <ol className='mt-3 space-y-3'>
