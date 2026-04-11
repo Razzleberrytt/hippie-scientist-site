@@ -12,7 +12,7 @@ export type CanonicalCompound = {
   confidence?: ConfidenceLevel
 }
 
-export type Compound = {
+export type CompoundRecord = {
   name: string
   category?: string
   mechanism?: string
@@ -34,3 +34,5 @@ export type Compound = {
   foundIn?: string[]
   [key: string]: unknown
 }
+
+export type Compound = CompoundRecord
