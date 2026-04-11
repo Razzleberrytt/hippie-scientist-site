@@ -6,6 +6,7 @@
  * Extend via props only.
  */
 import { memo } from 'react'
+import { FlaskConical } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Card from './ui/Card'
 import './HerbCard.css'
@@ -14,10 +15,35 @@ interface HerbCardProps {
   name: string
   summary: string
   tags?: string[]
+  mechanismTags?: string[]
+  compound_count?: number
+  evidence_tier?: string
+  evidenceLevel?: string
   detailUrl: string
 }
 
-function HerbCard({ name, summary, tags = [], detailUrl }: HerbCardProps) {
+const EVIDENCE_TIER_BADGE_CLASS: Record<string, string> = {
+  'Tier 1': 'border-emerald-300/35 bg-emerald-400/15 text-emerald-200',
+  'Tier 2': 'border-sky-300/35 bg-sky-400/15 text-sky-200',
+  'Tier 3': 'border-amber-300/35 bg-amber-400/15 text-amber-200',
+}
+
+function HerbCard({
+  name,
+  summary,
+  tags = [],
+  mechanismTags = [],
+  compound_count,
+  evidence_tier,
+  evidenceLevel,
+  detailUrl,
+}: HerbCardProps) {
+  const mergedTags = Array.from(new Set([...tags, ...mechanismTags].filter(Boolean)))
+  const hasCompoundCount = typeof compound_count === 'number' && compound_count > 0
+  const normalizedEvidenceTier = (evidence_tier || '').trim()
+  const fallbackEvidence = normalizedEvidenceTier ? '' : (evidenceLevel || '').trim()
+  const showMetadata = hasCompoundCount || Boolean(normalizedEvidenceTier) || Boolean(fallbackEvidence)
+
   return (
     <div className='group relative h-full transition-transform duration-200 ease-out HerbCardTilt hover:scale-[1.01]'>
       <div className='HerbCardGlow pointer-events-none absolute inset-0 rounded-[1.25rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100' />
@@ -29,7 +55,7 @@ function HerbCard({ name, summary, tags = [], detailUrl }: HerbCardProps) {
         <section className='space-y-4 text-white/80'>
           <p className='line-clamp-3 text-sm leading-6 text-white/70'>{summary}</p>
           <div className='flex flex-wrap gap-2'>
-            {tags.map(tag => (
+            {mergedTags.map(tag => (
               <span
                 key={tag}
                 className='rounded-full border border-white/15 bg-white/[0.03] px-2.5 py-1 text-xs font-medium text-white/70'
@@ -38,6 +64,31 @@ function HerbCard({ name, summary, tags = [], detailUrl }: HerbCardProps) {
               </span>
             ))}
           </div>
+          {showMetadata && (
+            <div className='min-h-0 flex flex-wrap items-center gap-2'>
+              {hasCompoundCount && (
+                <span className='inline-flex items-center gap-1.5 text-xs text-white/55'>
+                  <FlaskConical className='h-3.5 w-3.5' aria-hidden='true' />
+                  {compound_count} compounds
+                </span>
+              )}
+              {normalizedEvidenceTier && (
+                <span
+                  className={`inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium ${
+                    EVIDENCE_TIER_BADGE_CLASS[normalizedEvidenceTier] ??
+                    'border-white/20 bg-white/[0.05] text-white/75'
+                  }`}
+                >
+                  {normalizedEvidenceTier}
+                </span>
+              )}
+              {!normalizedEvidenceTier && fallbackEvidence && (
+                <span className='inline-flex max-w-[12rem] items-center rounded-full border border-white/20 bg-white/[0.05] px-2.5 py-1 text-xs font-medium text-white/75'>
+                  <span className='truncate'>{fallbackEvidence.slice(0, 24)}</span>
+                </span>
+              )}
+            </div>
+          )}
         </section>
 
         <footer className='mt-auto flex items-center justify-end pt-2 text-sm'>
