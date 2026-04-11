@@ -27,6 +27,33 @@ jobs:
       - name: Enrichment release gate
         run: npm run enrichment:release:gate
 
+      # === Workbook Data Pipeline ===
+      # Runs when HERB_WORKBOOK_B64 secret is set.
+      # Exports workbook sheets → JSON, rebuilds publication manifest,
+      # regenerates sitemap. No-op if secret is absent.
+      - name: Decode workbook from HERB_WORKBOOK_B64 secret
+        env:
+          HERB_WORKBOOK_B64: ${{ secrets.HERB_WORKBOOK_B64 }}
+        run: |
+          if [ -z "$HERB_WORKBOOK_B64" ]; then
+            echo "::warning::HERB_WORKBOOK_B64 secret is not set. Skipping workbook download."
+            exit 0
+          fi
+
+          mkdir -p data-sources
+          printf '%s' "$HERB_WORKBOOK_B64" | base64 --decode > data-sources/herb_monograph_master.xlsx
+          echo "[deploy] Workbook decoded to data-sources/herb_monograph_master.xlsx"
+
+      - name: Run workbook import + manifest rebuild
+        run: |
+          if [ -f "data-sources/herb_monograph_master.xlsx" ]; then
+            node scripts/export-workbook-to-json.mjs
+            node scripts/build-publication-manifest-from-workbook.mjs
+            node scripts/generate-sitemap.mjs
+          else
+            echo "::warning::data-sources/herb_monograph_master.xlsx not found. Skipping workbook pipeline."
+          fi
+
       - name: Build production site (includes prebuild + postbuild)
         run: npm run build
 
