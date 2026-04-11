@@ -14,6 +14,18 @@ const site = (process.env.SITE_URL || 'https://thehippiescientist.net').replace(
 const basePath = normalizeBasePath(process.env.BASE_PATH || process.env.VITE_BASE_PATH || '/')
 const today = new Date().toISOString().slice(0, 10)
 
+const GOAL_LANDING_PAGES = [
+  '/herbs-for-anxiety',
+  '/herbs-for-cognition',
+  '/herbs-for-sleep',
+  '/herbs-for-energy',
+  '/herbs-for-inflammation',
+  '/herbs-for-digestive',
+  '/herbs-for-immune',
+  '/herbs-for-liver',
+  '/herbs-for-cardiovascular',
+]
+
 function normalizeBasePath(value) {
   if (!value || value === '/') return '/'
   return `/${String(value).replace(/^\/+|\/+$/g, '')}/`
@@ -43,19 +55,6 @@ function readJson(relativePath) {
   }
 }
 
-function readObject(relativePath) {
-  const full = path.resolve(__dirname, '..', relativePath)
-  if (!fs.existsSync(full)) return {}
-
-  try {
-    const parsed = JSON.parse(fs.readFileSync(full, 'utf-8'))
-    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {}
-  } catch {
-    return {}
-  }
-}
-
-
 function normalizeDate(value) {
   if (!value) return null
   const date = new Date(value)
@@ -69,7 +68,6 @@ function uniq(list) {
 function normalizeRoutes(list) {
   return uniq(list.map(route => normalizePathname(route)).filter(Boolean))
 }
-
 
 function getBlogEntries(records) {
   return records
@@ -98,32 +96,43 @@ function toUrlEntry(loc, { priority = 0.6, changefreq = 'weekly', lastmod } = {}
   return ['  <url>', ...tags, '  </url>'].join('\n')
 }
 
-function buildSitemapXml() {
+function getHerbSlug(entry) {
+  if (typeof entry === 'string') return entry.trim()
+  if (!entry || typeof entry !== 'object') return ''
+  if (typeof entry.slug === 'string' && entry.slug.trim()) return entry.slug.trim()
+  if (typeof entry.route === 'string' && entry.route.trim()) {
+    return entry.route.replace(/^\/+herbs\//, '').trim()
+  }
+  return ''
+}
+
+function getCompoundSlug(entry) {
+  if (typeof entry === 'string') return entry.trim()
+  if (!entry || typeof entry !== 'object') return ''
+  if (typeof entry.canonicalCompoundId === 'string' && entry.canonicalCompoundId.trim()) {
+    return entry.canonicalCompoundId.trim()
+  }
+  if (typeof entry.slug === 'string' && entry.slug.trim()) return entry.slug.trim()
+  if (typeof entry.route === 'string' && entry.route.trim()) {
+    return entry.route.replace(/^\/+compounds\//, '').trim()
+  }
+  return ''
+}
+
+function buildSitemap() {
   const { sitemapRoutes, sitemapMeta, disallowedRoutes } = getSharedRouteManifest()
-  const publicationManifest = readObject('public/data/publication-manifest.json')
-  const publicationIndex = readObject('public/data/publication-index.json')
   const indexableHerbs = readJson('public/data/indexable-herbs.json')
   const indexableCompounds = readJson('public/data/indexable-compounds.json')
 
   const blogEntries = getBlogEntries(readJson('public/blogdata/index.json'))
-  const herbRoutes = Array.isArray(indexableHerbs) && indexableHerbs.length > 0
-    ? indexableHerbs.map(row => row?.route).filter(Boolean)
-    : Array.isArray(publicationManifest?.routes?.herbs) && publicationManifest.routes.herbs.length > 0
-      ? publicationManifest.routes.herbs
-      : Array.isArray(publicationIndex?.routes?.herbs)
-        ? publicationIndex.routes.herbs
-        : []
-  const compoundRoutes = Array.isArray(indexableCompounds) && indexableCompounds.length > 0
-    ? indexableCompounds.map(row => row?.route).filter(Boolean)
-    : Array.isArray(publicationManifest?.routes?.compounds) && publicationManifest.routes.compounds.length > 0
-      ? publicationManifest.routes.compounds
-      : Array.isArray(publicationIndex?.routes?.compounds)
-        ? publicationIndex.routes.compounds
-        : []
+  const herbRoutes = normalizeRoutes(indexableHerbs.map(getHerbSlug).filter(Boolean).map(slug => `/herbs/${slug}`))
+  const compoundRoutes = normalizeRoutes(indexableCompounds.map(getCompoundSlug).filter(Boolean).map(slug => `/compounds/${slug}`))
 
   const blockedRoutes = new Set(disallowedRoutes.map(route => normalizePathname(route)))
+  const staticRoutes = normalizeRoutes([...sitemapRoutes, ...GOAL_LANDING_PAGES]).filter(route => !blockedRoutes.has(route))
+
   const allRoutes = normalizeRoutes([
-    ...sitemapRoutes,
+    ...staticRoutes,
     ...herbRoutes,
     ...compoundRoutes,
     ...blogEntries.map(entry => entry.route),
@@ -156,7 +165,17 @@ function buildSitemapXml() {
     .filter(Boolean)
     .join('\n')
 
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlEntries}\n</urlset>\n`
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlEntries}\n</urlset>\n`
+
+  return {
+    xml,
+    counts: {
+      total: allRoutes.length,
+      herbs: herbRoutes.length,
+      compounds: compoundRoutes.length,
+      static: staticRoutes.length,
+    },
+  }
 }
 
 function buildRobotsTxt() {
@@ -182,13 +201,17 @@ function run() {
   fs.mkdirSync(outDir, { recursive: true })
 
   const sitemapPath = path.join(outDir, 'sitemap.xml')
-  fs.writeFileSync(sitemapPath, buildSitemapXml(), 'utf-8')
+  const sitemap = buildSitemap()
+  fs.writeFileSync(sitemapPath, sitemap.xml, 'utf-8')
 
   const robotsPath = path.join(outDir, 'robots.txt')
   fs.writeFileSync(robotsPath, buildRobotsTxt(), 'utf-8')
 
   console.log('[crawl] wrote', sitemapPath)
   console.log('[crawl] wrote', robotsPath)
+  console.log(
+    `[crawl] summary total=${sitemap.counts.total} herbs=${sitemap.counts.herbs} compounds=${sitemap.counts.compounds} static=${sitemap.counts.static}`,
+  )
 }
 
 run()
