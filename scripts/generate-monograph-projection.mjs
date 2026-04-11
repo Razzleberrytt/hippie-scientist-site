@@ -4,12 +4,12 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import XLSX from 'xlsx'
+import { resolveWorkbookPath } from './workbook-source.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 
-const DEFAULT_XLSX_PATH = path.join(repoRoot, 'data-sources', 'herb_monograph_master.xlsx')
 const DEFAULT_OUTPUT_DIR = path.join(repoRoot, 'public', 'data', 'projections', 'monograph-runtime')
 const DEFAULT_COMPOUNDS_PATH = path.join(repoRoot, 'public', 'data', 'compounds.json')
 const DEFAULT_REPAIR_REPORT_PATH = path.join(repoRoot, 'reports', 'workbook-repair-pass.json')
@@ -363,7 +363,7 @@ function computeRuntimeCoverage(herbs) {
 }
 
 function main() {
-  const workbookPath = process.env.HERB_XLSX_PATH ? path.resolve(repoRoot, process.env.HERB_XLSX_PATH) : DEFAULT_XLSX_PATH
+  const workbookPath = resolveWorkbookPath(repoRoot)
   const outputDir = process.env.MONOGRAPH_PROJECTION_OUTPUT_DIR
     ? path.resolve(repoRoot, process.env.MONOGRAPH_PROJECTION_OUTPUT_DIR)
     : DEFAULT_OUTPUT_DIR

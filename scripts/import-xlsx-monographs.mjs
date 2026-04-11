@@ -4,13 +4,13 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import XLSX from 'xlsx'
+import { resolveWorkbookPath } from './workbook-source.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 
-const DEFAULT_XLSX_PATH = path.join('data-sources', 'herb_monograph_master.xlsx')
-const workbookPath = path.resolve(repoRoot, process.env.HERB_XLSX_PATH || DEFAULT_XLSX_PATH)
+const workbookPath = resolveWorkbookPath(repoRoot)
 
 const herbsPath = path.join(repoRoot, 'public', 'data', 'herbs.json')
 const compoundsPath = path.join(repoRoot, 'public', 'data', 'compounds.json')
