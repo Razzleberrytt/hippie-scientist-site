@@ -21,6 +21,7 @@ export type BrowseQualityAssessment = {
   demote: boolean
   dedupeKey: string
   qualityScore: number
+  rankScore: number
   reasons: string[]
 }
 
@@ -86,12 +87,42 @@ function computeStrength(input: {
   return score
 }
 
+function computeRankScore(input: {
+  name: string
+  summary: string
+  description: string
+  mechanism: string
+  effectsCount: number
+  sourceCount: number
+  hasEvidence: boolean
+  associationsCount: number
+  qualityScore: number
+  malformedName: boolean
+  longChemicalName: boolean
+}): number {
+  let score = input.qualityScore * 10
+
+  if (!input.malformedName && input.name.length >= 3 && input.name.length <= 60) score += 4
+  if (input.summary.length >= 60 && !hasPlaceholderOnly(input.summary)) score += 6
+  if (input.description.length >= 80 && !hasPlaceholderOnly(input.description)) score += 4
+  if (input.associationsCount > 0) score += Math.min(3, input.associationsCount)
+
+  if (hasPlaceholderOnly(input.summary)) score -= 10
+  if (input.description && hasPlaceholderOnly(input.description)) score -= 8
+  if (input.longChemicalName) score -= 8
+  if (input.associationsCount === 0) score -= 6
+  if (input.qualityScore <= 2) score -= 8
+
+  return score
+}
+
 export function assessBrowseRecord(input: {
   name: unknown
   summary: unknown
   description?: unknown
   mechanism?: unknown
   effects?: unknown[]
+  associations?: unknown[]
   sourceCount?: unknown
   hasEvidence?: unknown
 }): BrowseQualityAssessment {
@@ -100,6 +131,9 @@ export function assessBrowseRecord(input: {
   const description = cleanText(input.description)
   const mechanism = cleanText(input.mechanism)
   const effectsCount = Array.isArray(input.effects) ? input.effects.filter(Boolean).length : 0
+  const associationsCount = Array.isArray(input.associations)
+    ? input.associations.filter(Boolean).length
+    : 0
   const sourceCount = Number(input.sourceCount) || 0
   const hasEvidence = Boolean(input.hasEvidence)
   const qualityScore = computeStrength({
@@ -112,20 +146,42 @@ export function assessBrowseRecord(input: {
   })
 
   const reasons: string[] = []
+  const malformedName = hasMalformedName(name)
+  const longChemicalName = isUltraLongChemicalName(name)
 
-  if (hasMalformedName(name)) reasons.push('malformed_name')
+  if (malformedName) reasons.push('malformed_name')
   if (hasPlaceholderOnly(summary) && qualityScore < 3) reasons.push('placeholder_summary')
   if (summary.length > 0 && summary.length < 24 && qualityScore < 3) reasons.push('weak_summary')
   if (!summary && qualityScore < 2) reasons.push('missing_summary')
+  if (description && hasPlaceholderOnly(description)) reasons.push('placeholder_description')
+  if (associationsCount === 0) reasons.push('no_associations')
+  if (qualityScore <= 2) reasons.push('sparse_metadata')
 
-  const longChemicalName = isUltraLongChemicalName(name)
   if (longChemicalName && qualityScore < 2) reasons.push('long_name_low_metadata')
+  const rankScore = computeRankScore({
+    name,
+    summary,
+    description,
+    mechanism,
+    effectsCount,
+    sourceCount,
+    hasEvidence,
+    associationsCount,
+    qualityScore,
+    malformedName,
+    longChemicalName,
+  })
 
   return {
-    hide: reasons.length > 0,
-    demote: longChemicalName || (summary.length > 0 && summary.length < 40),
+    hide: false,
+    demote:
+      longChemicalName ||
+      (summary.length > 0 && summary.length < 40) ||
+      associationsCount === 0 ||
+      rankScore < 20,
     dedupeKey: buildDedupeKey(name),
     qualityScore,
+    rankScore,
     reasons,
   }
 }
@@ -133,6 +189,7 @@ export function assessBrowseRecord(input: {
 export function applyBrowseQualityGate<T>(
   items: T[],
   assess: (item: T) => BrowseQualityAssessment,
+  options: { rankOnly?: boolean } = {},
 ): {
   items: T[]
   assessments: Map<T, BrowseQualityAssessment>
@@ -147,7 +204,7 @@ export function applyBrowseQualityGate<T>(
   for (const item of items) {
     const assessment = assess(item)
     assessments.set(item, assessment)
-    if (assessment.hide) {
+    if (!options.rankOnly && assessment.hide) {
       hiddenCount += 1
       continue
     }
@@ -158,6 +215,10 @@ export function applyBrowseQualityGate<T>(
   let dedupedCount = 0
 
   for (const item of survivors) {
+    if (options.rankOnly) {
+      deduped.set(`__${deduped.size}`, item)
+      continue
+    }
     const assessment = assessments.get(item)
     if (!assessment) continue
     const key = assessment.dedupeKey
@@ -172,8 +233,8 @@ export function applyBrowseQualityGate<T>(
       continue
     }
 
-    const currentScore = assessments.get(existing)?.qualityScore ?? 0
-    if (assessment.qualityScore > currentScore) {
+    const currentScore = assessments.get(existing)?.rankScore ?? 0
+    if (assessment.rankScore > currentScore) {
       deduped.set(key, item)
     }
     dedupedCount += 1

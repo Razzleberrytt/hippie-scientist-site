@@ -14,6 +14,7 @@ export default function SortSelect({ value, onChange }: SortSelectProps) {
         onChange={event => onChange(event.target.value as SortFilter)}
         className='w-full rounded-xl border border-white/15 bg-black/40 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-400/35'
       >
+        <option value='browse_quality'>Best quality (default)</option>
         <option value='az'>A–Z</option>
         <option value='confidence'>Confidence</option>
         <option value='effects'>Effects count</option>

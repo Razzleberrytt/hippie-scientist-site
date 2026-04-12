@@ -81,9 +81,11 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
       description: herb.description,
       mechanism: herb.mechanism || herb.mechanismOfAction,
       effects: asStringArray(herb.effects),
+      associations: asStringArray(herb.activeCompounds || herb.active_compounds || herb.compounds),
       sourceCount: (herb as Record<string, unknown>).sourceCount,
       hasEvidence: Boolean(herb.researchEnrichmentSummary?.evidenceLabel),
     }),
+    { rankOnly: true },
   )
 
   const qualityFiltered = browseQuality.items
@@ -126,6 +128,11 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
     const aDemoted = Number(Boolean(browseQuality.assessments.get(a)?.demote))
     const bDemoted = Number(Boolean(browseQuality.assessments.get(b)?.demote))
     if (aDemoted !== bDemoted) return aDemoted - bDemoted
+
+    const rankScoreDiff =
+      (browseQuality.assessments.get(b)?.rankScore ?? 0) -
+      (browseQuality.assessments.get(a)?.rankScore ?? 0)
+    if (rankScoreDiff !== 0) return rankScoreDiff
 
     const effectCountDiff = asStringArray(b.effects).length - asStringArray(a.effects).length
     if (effectCountDiff !== 0) return effectCountDiff
