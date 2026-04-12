@@ -125,6 +125,7 @@ export function assessBrowseRecord(input: {
   associations?: unknown[]
   sourceCount?: unknown
   hasEvidence?: unknown
+  confidenceLevel?: unknown
 }): BrowseQualityAssessment {
   const name = cleanText(input.name)
   const summary = cleanText(input.summary)
@@ -136,6 +137,7 @@ export function assessBrowseRecord(input: {
     : 0
   const sourceCount = Number(input.sourceCount) || 0
   const hasEvidence = Boolean(input.hasEvidence)
+  const confidenceLevel = String(input.confidenceLevel || '').toLowerCase()
   const qualityScore = computeStrength({
     summary,
     description,
@@ -148,6 +150,9 @@ export function assessBrowseRecord(input: {
   const reasons: string[] = []
   const malformedName = hasMalformedName(name)
   const longChemicalName = isUltraLongChemicalName(name)
+  const authoritySuffixHits = (name.match(AUTHORITY_SUFFIX_PATTERN) || []).length
+  const hasFormattingNoise =
+    /[_]{2,}|[|]{2,}|[0-9]{3,}/.test(name) || /\([^)]*[0-9]{3,}[^)]*\)/.test(name)
 
   if (malformedName) reasons.push('malformed_name')
   if (hasPlaceholderOnly(summary) && qualityScore < 3) reasons.push('placeholder_summary')
@@ -159,6 +164,9 @@ export function assessBrowseRecord(input: {
   if (name.length > 0 && name.length <= 2 && qualityScore <= 2) reasons.push('fragment_name_low_metadata')
 
   if (longChemicalName && qualityScore < 2) reasons.push('long_name_low_metadata')
+  if (authoritySuffixHits >= 2 || hasFormattingNoise) reasons.push('noisy_name_variant')
+  if (sourceCount === 0 && !hasEvidence) reasons.push('zero_context_record')
+
   const hide =
     (malformedName && qualityScore <= 2) ||
     (hasPlaceholderOnly(summary) &&
@@ -181,6 +189,8 @@ export function assessBrowseRecord(input: {
     malformedName,
     longChemicalName,
   })
+  const confidenceWeight =
+    confidenceLevel === 'high' ? 3 : confidenceLevel === 'medium' ? 1 : confidenceLevel ? -2 : 0
 
   return {
     hide,
@@ -188,10 +198,17 @@ export function assessBrowseRecord(input: {
       (longChemicalName && qualityScore <= 2) ||
       (summary.length > 0 && summary.length < 40) ||
       associationsCount === 0 ||
+      authoritySuffixHits >= 2 ||
+      hasFormattingNoise ||
       rankScore < 20,
     dedupeKey: buildDedupeKey(name),
     qualityScore,
-    rankScore,
+    rankScore:
+      rankScore +
+      confidenceWeight +
+      (sourceCount >= 3 ? 2 : 0) -
+      (authoritySuffixHits >= 2 ? 4 : 0) -
+      (hasFormattingNoise ? 4 : 0),
     reasons,
   }
 }

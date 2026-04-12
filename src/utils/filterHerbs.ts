@@ -74,7 +74,6 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
     return true
   })
 
-  const isDefaultBrowseView = filters.query.trim().length === 0
   const browseQuality = applyBrowseQualityGate(
     filtered,
     herb =>
@@ -87,11 +86,12 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
         associations: asStringArray(herb.activeCompounds || herb.active_compounds || herb.compounds),
         sourceCount: (herb as Record<string, unknown>).sourceCount,
         hasEvidence: Boolean(herb.researchEnrichmentSummary?.evidenceLabel),
+        confidenceLevel: getHerbConfidence(herb),
       }),
     {
-      // Browse-quality gate only hides/dedupes in the default listing (no query),
-      // so explicit user searches can still surface every matched record.
-      rankOnly: !isDefaultBrowseView,
+      // Keep browse behavior non-destructive: all records stay discoverable/searchable,
+      // while noisy entries are demoted through ranking signals.
+      rankOnly: true,
     },
   )
 

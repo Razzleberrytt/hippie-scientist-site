@@ -79,7 +79,6 @@ export function filterCompounds(
     return true
   })
 
-  const isDefaultBrowseView = filters.query.trim().length === 0
   const browseQuality = applyBrowseQualityGate(
     filtered,
     compound =>
@@ -92,11 +91,12 @@ export function filterCompounds(
         associations: asStringArray(compound.herbs),
         sourceCount: compound.sourceCount,
         hasEvidence: Boolean(compound.researchEnrichmentSummary?.evidenceLabel),
+        confidenceLevel: getCompoundConfidence(compound),
       }),
     {
-      // Apply stricter browse cleanup only for default listing pages.
-      // Query-driven search keeps all matches discoverable, including low-quality records.
-      rankOnly: !isDefaultBrowseView,
+      // Keep browse behavior non-destructive: all records stay discoverable/searchable,
+      // while noisy entries are demoted through ranking signals.
+      rankOnly: true,
     },
   )
 
