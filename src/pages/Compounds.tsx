@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { AlertTriangle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import ActiveFiltersBar from '@/components/filters/ActiveFiltersBar'
@@ -305,13 +306,18 @@ export default function CompoundsPage() {
                     ))}
                   </div>
                 )}
-                {confidence === 'low' && (
-                  <p className='text-[11px] text-amber-100/90'>⚠ Limited verified data.</p>
-                )}
-                <p className='text-[11px] text-white/70'>
-                  {compound.herbs.length} {compound.herbs.length === 1 ? 'herb' : 'herbs'}{' '}
-                  associated
-                </p>
+                <div className='flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px]'>
+                  {confidence === 'low' && (
+                    <span className='inline-flex items-center gap-1 rounded-full border border-amber-300/20 bg-amber-400/[0.06] px-1.5 py-0.5 text-amber-100/75'>
+                      <AlertTriangle className='h-3 w-3' aria-hidden='true' />
+                      Limited data
+                    </span>
+                  )}
+                  <p className='text-white/70'>
+                    {compound.herbs.length} {compound.herbs.length === 1 ? 'herb' : 'herbs'}{' '}
+                    associated
+                  </p>
+                </div>
                 <Link
                   to={`/compounds/${compound.slug}`}
                   className='mt-auto inline-flex w-fit items-center rounded-md border border-white/20 bg-white/[0.06] px-2.5 py-1.5 text-xs font-medium text-white/85 transition hover:border-white/35 hover:bg-white/[0.12]'
