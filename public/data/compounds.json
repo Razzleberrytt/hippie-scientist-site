@@ -34,7 +34,9 @@
     "aliases": "",
     "compoundClass": "5-hydroxytryptophan (5-HTP)",
     "mechanism": "Immediate serotonin precursor formed from tryptophan and decarboxylated by aromatic L-amino-acid decarboxylase to serotonin; strongest mechanism is precursor loading rather than receptor binding.",
-    "mechanismTags": "serotonin signaling",
+    "mechanismTags": [
+      "unclassified"
+    ],
     "pathwayTargets": "Aromatic L-amino-acid decarboxylase pathway; HTR1A, HTR2A (serotonin receptors); melatonin precursor biology; serotonin biosynthesis",
     "pharmacokinetics": "Crosses the blood-brain barrier, but substantial peripheral decarboxylation to serotonin occurs unless decarboxylase activity is inhibited.",
     "safetyNotes": "Nausea and vomiting are common; serotonergic toxicity risk rises with interacting serotonergic drugs.",
@@ -90,11 +92,7 @@
     "aliases": "",
     "compoundClass": "6-gingerol",
     "mechanism": "insufficient evidence",
-    "mechanismTags": [
-      "anti-inflammatory signaling",
-      "gastrointestinal modulation",
-      "unclassified"
-    ],
+    "mechanismTags": "anti-inflammatory signaling; gastrointestinal modulation; unclassified",
     "pathwayTargets": "inflammatory_pathway_modulation",
     "pharmacokinetics": "oral absorption; hepatic metabolism; systemic distribution",
     "safetyNotes": "low",
@@ -1167,12 +1165,7 @@
     "aliases": "",
     "compoundClass": "Flavonoid",
     "mechanism": "Chamomile's CNS effects are partly attributed to apigenin, which binds at the central benzodiazepine site associated with GABA_A receptor signaling; other constituents contribute anti-inflammatory and spasmolytic activity.",
-    "mechanismTags": [
-      "anxiolytic signaling",
-      "gaba-a modulation",
-      "nf-kb inhibition",
-      "unclassified"
-    ],
+    "mechanismTags": "anxiolytic signaling; gaba-a modulation; nf-kb inhibition; unclassified",
     "pathwayTargets": "cholinergic_modulation; gabaergic_modulation; general or unknown targets; inflammatory_pathway_modulation",
     "pharmacokinetics": "rapid systemic absorption; crosses BBB; hepatic metabolism",
     "safetyNotes": "low",
@@ -1811,11 +1804,7 @@
     "aliases": "",
     "compoundClass": "flavonoid",
     "mechanism": "American skullcap flavonoids are associated with anticonvulsant and anxiolytic activity; GABAergic signaling and broader neuroinhibitory effects have been proposed in preclinical work.",
-    "mechanismTags": [
-      "neuroprotective signaling",
-      "nf-kb inhibition",
-      "unclassified"
-    ],
+    "mechanismTags": "neuroprotective signaling; nf-kb inhibition; unclassified",
     "pathwayTargets": "LOX inhibition; NF-kB inhibition; gabaergic_modulation; general or unknown targets",
     "pharmacokinetics": "Oral; liver and immune support",
     "safetyNotes": "low",
@@ -1844,11 +1833,7 @@
     "aliases": "",
     "compoundClass": "Flavonoid",
     "mechanism": "American skullcap flavonoids are associated with anticonvulsant and anxiolytic activity; GABAergic signaling and broader neuroinhibitory effects have been proposed in preclinical work.",
-    "mechanismTags": [
-      "neuroprotective signaling",
-      "nf-kb inhibition",
-      "unclassified"
-    ],
+    "mechanismTags": "neuroprotective signaling; nf-kb inhibition; unclassified",
     "pathwayTargets": "gabaergic_modulation; general or unknown targets",
     "pharmacokinetics": "Oral; liver and immune support",
     "safetyNotes": "low",
@@ -2225,11 +2210,7 @@
     "aliases": "",
     "compoundClass": "flavonol glycosides",
     "mechanism": "Ginkgolides antagonize platelet-activating factor (PAF) receptors; bilobalide modulates GABAergic and glutamatergic transmission.",
-    "mechanismTags": [
-      "mitochondrial support",
-      "neuroprotective signaling",
-      "unclassified"
-    ],
+    "mechanismTags": "mitochondrial support; neuroprotective signaling; unclassified",
     "pathwayTargets": "gabaergic_modulation",
     "pharmacokinetics": "moderate absorption; hepatic metabolism",
     "safetyNotes": "low",
@@ -2490,12 +2471,7 @@
     "aliases": "",
     "compoundClass": "xanthine alkaloid",
     "mechanism": "Coffee's stimulant effects are driven primarily by caffeine, which acts as a nonselective adenosine receptor antagonist; chlorogenic acids and diterpenes contribute additional antioxidant and metabolic effects.",
-    "mechanismTags": [
-      "adenosine a1 antagonism",
-      "adenosine a2a antagonism",
-      "stimulant cns signaling",
-      "unclassified"
-    ],
+    "mechanismTags": "adenosine a1 antagonism; adenosine a2a antagonism; stimulant cns signaling; unclassified",
     "pathwayTargets": "ADORA1, ADORA2A (adenosine receptors); adenosine_antagonism; dopaminergic_modulation",
     "pharmacokinetics": "well absorbed orally; hepatic metabolism (CYP1A2); renal excretion",
     "safetyNotes": "moderate",
@@ -2757,11 +2733,7 @@
     "aliases": "",
     "compoundClass": "carnosic acid",
     "mechanism": "insufficient evidence",
-    "mechanismTags": [
-      "neuroprotective signaling",
-      "oxidative stress reduction",
-      "unclassified"
-    ],
+    "mechanismTags": "neuroprotective signaling; oxidative stress reduction; unclassified",
     "pathwayTargets": "general or unknown targets",
     "pharmacokinetics": "Oral; antioxidant and cholagogue",
     "safetyNotes": "low",
@@ -4413,11 +4385,7 @@
     "aliases": "",
     "compoundClass": "dehydrocorybulbine",
     "mechanism": "insufficient evidence",
-    "mechanismTags": [
-      "analgesic signaling",
-      "dopamine signaling",
-      "unclassified"
-    ],
+    "mechanismTags": "analgesic signaling; dopamine signaling; unclassified",
     "pathwayTargets": "dopaminergic_modulation",
     "pharmacokinetics": "moderate absorption; hepatic metabolism",
     "safetyNotes": "low",
@@ -4967,10 +4935,7 @@
     "aliases": "",
     "compoundClass": "Phytochemical",
     "mechanism": "insufficient evidence",
-    "mechanismTags": [
-      "core pharmacology",
-      "unclassified"
-    ],
+    "mechanismTags": "core pharmacology; unclassified",
     "pathwayTargets": "adenosine_antagonism",
     "pharmacokinetics": "Absorption and bioavailability vary; some compounds metabolized via cytochrome P450 enzymes.",
     "safetyNotes": "low",
@@ -5172,10 +5137,7 @@
     "aliases": "",
     "compoundClass": "phenylpropanoid",
     "mechanism": "Exhibits analgesic and anti-inflammatory effects through prostaglandin-pathway inhibition and ion-channel modulation including TRPV1-related activity; also shows antimicrobial activity.",
-    "mechanismTags": [
-      "reinforcement",
-      "unclassified"
-    ],
+    "mechanismTags": "reinforcement; unclassified",
     "pathwayTargets": "COX; prostaglandins; TRPV1",
     "pharmacokinetics": "Rapidly absorbed and metabolized in the liver.",
     "safetyNotes": "Generally safe at dietary levels, but high-dose exposure may increase liver-toxicity risk.",
@@ -6247,11 +6209,7 @@
     "aliases": "",
     "compoundClass": "β-carboline",
     "mechanism": "Beta-carboline alkaloids act as reversible MAO-A inhibitors, allowing oral activity of DMT and modulating serotonergic signaling.",
-    "mechanismTags": [
-      "mao-a inhibition",
-      "monoamine preservation",
-      "unclassified"
-    ],
+    "mechanismTags": "mao-a inhibition; monoamine preservation; unclassified",
     "pathwayTargets": "general or unknown targets; monoamine_oxidase_inhibition; serotonergic_5HT2A_agonism",
     "pharmacokinetics": "moderate absorption; hepatic metabolism",
     "safetyNotes": "low",
@@ -6309,11 +6267,7 @@
     "aliases": "",
     "compoundClass": "β-carboline",
     "mechanism": "Beta-carboline alkaloids act as reversible MAO-A inhibitors, allowing oral activity of DMT and modulating serotonergic signaling.",
-    "mechanismTags": [
-      "mao-a inhibition",
-      "monoamine preservation",
-      "unclassified"
-    ],
+    "mechanismTags": "mao-a inhibition; monoamine preservation; unclassified",
     "pathwayTargets": "general or unknown targets; monoamine_oxidase_inhibition; serotonergic_5HT2A_agonism",
     "pharmacokinetics": "moderate absorption; hepatic metabolism",
     "safetyNotes": "low",
@@ -6748,11 +6702,7 @@
     "aliases": "",
     "compoundClass": "phloroglucinol derivative",
     "mechanism": "proposed mechanism based on preclinical and limited human data: inhibition of monoamine reuptake and modulation of TRPC6-linked neuroplasticity; major herb-drug interaction relevance is strongly associated with hyperforin-rich St Johns wort extracts.",
-    "mechanismTags": [
-      "antidepressant signaling",
-      "monoamine reuptake modulation",
-      "unclassified"
-    ],
+    "mechanismTags": "antidepressant signaling; monoamine reuptake modulation; unclassified",
     "pathwayTargets": "TRPC6; serotonin/norepinephrine/dopamine reuptake-related pathways; CYP3A4 induction; P-glycoprotein induction",
     "pharmacokinetics": "No robust isolated-compound human PK framework is established; extract-level standardization and hyperforin content are more clinically relevant than isolated-compound PK.",
     "safetyNotes": "Use St Johns wort herb-level safety framing; caution for photosensitivity, GI upset, dizziness, restlessness, and extensive drug-interaction liability.",
@@ -6781,11 +6731,7 @@
     "aliases": "",
     "compoundClass": "naphthodianthrone",
     "mechanism": "proposed mechanism based on preclinical data: photodynamic and redox-active signaling; no established human antidepressant mechanism at isolated-compound level.",
-    "mechanismTags": [
-      "antidepressant signaling",
-      "photosensitizing activity",
-      "unclassified"
-    ],
+    "mechanismTags": "antidepressant signaling; photosensitizing activity; unclassified",
     "pathwayTargets": "photosensitization-related pathways; oxidative-stress signaling",
     "pharmacokinetics": "Human isolated-compound PK data are limited; purified hypericin has been studied clinically but extract-level context remains more relevant to herb use.",
     "safetyNotes": "Photosensitivity is the key safety signal; use St Johns wort herb-level safety framing for broader adverse-effect and interaction context.",
@@ -6814,13 +6760,7 @@
     "aliases": "",
     "compoundClass": "Alkaloid",
     "mechanism": "Ibogaine exhibits NMDA receptor antagonism, kappa-opioid receptor agonism, and monoamine transporter modulation.",
-    "mechanismTags": [
-      "multi-target neuropharmacology",
-      "nmda antagonism",
-      "opioid receptor activity",
-      "sigma receptor interaction",
-      "unclassified"
-    ],
+    "mechanismTags": "multi-target neuropharmacology; nmda antagonism; opioid receptor activity; sigma receptor interaction; unclassified",
     "pathwayTargets": "general or unknown targets",
     "pharmacokinetics": "Oral; onset ~1 hr; duration 8–24 hrs.",
     "safetyNotes": "low",
@@ -7286,11 +7226,7 @@
     "aliases": "",
     "compoundClass": "Ethyl cinnamate, kaempferol, essential oils",
     "mechanism": "Ethyl cinnamate, kaempferol, essential oils",
-    "mechanismTags": [
-      "nf-kb inhibition",
-      "oxidative stress reduction",
-      "unclassified"
-    ],
+    "mechanismTags": "nf-kb inhibition; oxidative stress reduction; unclassified",
     "pathwayTargets": "general or unknown targets",
     "pharmacokinetics": "Oral; anti-inflammatory and stimulant",
     "safetyNotes": "low",
@@ -10247,11 +10183,7 @@
     "aliases": "",
     "compoundClass": "alkaloid",
     "mechanism": "Inhibits drug metabolism enzymes and enhances bioavailability",
-    "mechanismTags": [
-      "absorption enhancement",
-      "bioavailability modulation",
-      "unclassified"
-    ],
+    "mechanismTags": "absorption enhancement; bioavailability modulation; unclassified",
     "pathwayTargets": "CYP3A4 inhibition; P-gp inhibition",
     "pharmacokinetics": "",
     "safetyNotes": "",
@@ -10686,12 +10618,7 @@
     "aliases": "",
     "compoundClass": "flavonoid",
     "mechanism": "Broad anti-inflammatory and antioxidant flavonol activity with inhibition of NF-kB-linked inflammatory signaling and enzyme-level effects that include xanthine oxidase inhibition in experimental systems.",
-    "mechanismTags": [
-      "mast-cell modulation",
-      "nf-kb inhibition",
-      "oxidative stress reduction",
-      "unclassified"
-    ],
+    "mechanismTags": "mast-cell modulation; nf-kb inhibition; oxidative stress reduction; unclassified",
     "pathwayTargets": "NF-kB pathway inhibition; NRF2 pathway activation; cholinergic_modulation; general or unknown targets; xanthine oxidase inhibition",
     "pharmacokinetics": "Poor and variable oral bioavailability; extensively metabolized to conjugates after absorption.",
     "safetyNotes": "Generally tolerated in studies, but formulation and dose matter. Human outcome evidence remains mixed for many uses.",
@@ -10829,12 +10756,7 @@
     "aliases": "",
     "compoundClass": "resveratrol",
     "mechanism": "Polyphenolic signaling modulator with reported activation of SIRT1/AMPK-related pathways and suppression of NF-kB-associated inflammatory signaling; many claims remain formulation- and context-dependent.",
-    "mechanismTags": [
-      "ampk activation",
-      "oxidative stress reduction",
-      "sirt1-associated signaling",
-      "unclassified"
-    ],
+    "mechanismTags": "ampk activation; oxidative stress reduction; sirt1-associated signaling; unclassified",
     "pathwayTargets": "AMPK activation; NF-kB pathway inhibition; SIRT1 activation",
     "pharmacokinetics": "Rapid absorption but very low oral bioavailability because of extensive first-pass metabolism to sulfate and glucuronide metabolites.",
     "safetyNotes": "Usually tolerated in trials, but GI effects occur at higher doses. Bioavailability limitations are central to interpretation.",
@@ -11031,10 +10953,7 @@
     "aliases": "",
     "compoundClass": "phenylpropanoid glycoside",
     "mechanism": "Proposed mechanism based on preclinical and limited human data: rosavin is a characteristic Rhodiola rosea marker compound associated with adaptogenic and monoamine/stress-response effects in standardized extracts.",
-    "mechanismTags": [
-      "reinforcement",
-      "unclassified"
-    ],
+    "mechanismTags": "reinforcement; unclassified",
     "pathwayTargets": "HPA-axis modulation; monoamine signaling",
     "pharmacokinetics": "Human pharmacokinetic profile not firmly locked.",
     "safetyNotes": "No major standalone safety signal established at typical extract exposures.",
@@ -11062,12 +10981,7 @@
     "aliases": "",
     "compoundClass": "rosmarinic acid",
     "mechanism": "Demonstrated antioxidant and anti-inflammatory activity through inhibition of complement activation, COX/LOX signaling, and reactive oxygen species formation; also reported to inhibit GABA transaminase and support increased GABA availability.",
-    "mechanismTags": [
-      "nf-kb inhibition",
-      "oxidative stress reduction",
-      "reinforcement",
-      "unclassified"
-    ],
+    "mechanismTags": "nf-kb inhibition; oxidative stress reduction; reinforcement; unclassified",
     "pathwayTargets": "COX; LOX; reactive oxygen species; GABA metabolism",
     "pharmacokinetics": "Absorbed orally and metabolized into conjugated phenolic metabolites.",
     "safetyNotes": "Generally well tolerated at typical dietary or supplement exposures.",
@@ -11329,10 +11243,7 @@
     "aliases": "",
     "compoundClass": "phenylpropanoid glycoside",
     "mechanism": "Salidroside shows cytoprotective, metabolic, and stress-response activity across preclinical and limited human literature, with repeated linkage to AMPK, PI3K/Akt, and Nrf2-associated pathways.",
-    "mechanismTags": [
-      "reinforcement",
-      "unclassified"
-    ],
+    "mechanismTags": "reinforcement; unclassified",
     "pathwayTargets": "AMPK activation; NRF2/ARE pathway activation; PI3K/Akt pathway modulation",
     "pharmacokinetics": "Strong human PK profile remains incompletely defined; disposition claims should stay conservative.",
     "safetyNotes": "Reviewed sources suggest a relatively clean safety profile, but human interaction evidence is sparse.",
@@ -12461,12 +12372,7 @@
     "aliases": "",
     "compoundClass": "Amino Acid",
     "mechanism": "EGCG inhibits catechol-O-methyltransferase (COMT) and activates AMPK; caffeine antagonizes adenosine A1 and A2A receptors.",
-    "mechanismTags": [
-      "calming cns signaling",
-      "gaba-a modulation",
-      "glutamatergic modulation",
-      "unclassified"
-    ],
+    "mechanismTags": "calming cns signaling; gaba-a modulation; glutamatergic modulation; unclassified",
     "pathwayTargets": "adenosine_antagonism",
     "pharmacokinetics": "moderate absorption; hepatic metabolism",
     "safetyNotes": "low",
@@ -13105,10 +13011,7 @@
     "aliases": "",
     "compoundClass": "triterpenoid",
     "mechanism": "Anti-inflammatory and metabolic signaling modulator with reported NF-kB inhibition, AMPK activation, and downstream effects relevant to muscle protein synthesis and cellular stress response.",
-    "mechanismTags": [
-      "reinforcement",
-      "unclassified"
-    ],
+    "mechanismTags": "reinforcement; unclassified",
     "pathwayTargets": "NF-kB; AMPK; mTOR",
     "pharmacokinetics": "Low oral bioavailability; lipophilic compound with systemic distribution after absorption.",
     "safetyNotes": "Generally considered low risk in usual exposure ranges, though dedicated human toxicity data remain limited.",
@@ -13339,11 +13242,7 @@
     "aliases": "",
     "compoundClass": "Alkaloid",
     "mechanism": "insufficient evidence",
-    "mechanismTags": [
-      "bronchodilatory signaling",
-      "respiratory pathway",
-      "unclassified"
-    ],
+    "mechanismTags": "bronchodilatory signaling; respiratory pathway; unclassified",
     "pathwayTargets": "general or unknown targets",
     "pharmacokinetics": "moderate absorption; hepatic metabolism",
     "safetyNotes": "low",
@@ -13952,11 +13851,7 @@
     "aliases": "WA",
     "compoundClass": "withanolide / steroidal lactone",
     "mechanism": "proposed mechanism based on preclinical data: multi-target modulation including HSP90 inhibition, disruption of vimentin-dependent cytoskeletal signaling, and suppression of IKKbeta/NF-kappaB inflammatory signaling. Human clinical mechanism is not established.",
-    "mechanismTags": [
-      "cytoprotective signaling",
-      "nf-kb inhibition",
-      "unclassified"
-    ],
+    "mechanismTags": "cytoprotective signaling; nf-kb inhibition; unclassified",
     "pathwayTargets": "HSP90; vimentin; IKKbeta; NFkB; EMT-related signaling",
     "pharmacokinetics": "Human PK exists but remains early-stage; measurable oral exposure reported in phase I work, but dataset remains limited.",
     "safetyNotes": "Use herb-level ashwagandha safety framing; rare liver injury has been reported for ashwagandha products and caution is appropriate in pregnancy, breastfeeding, thyroid-related contexts, and long-term use uncertainty.",
@@ -13985,11 +13880,7 @@
     "aliases": "WLD-A; withanolide A steroidal lactone",
     "compoundClass": "withanolide / steroidal lactone",
     "mechanism": "proposed mechanism based on preclinical data: neuroprotective and anti-neuroinflammatory activity with reported effects on hippocampal neuroinflammation and neurotrophic/oxidative-stress signaling. Human target-level confirmation is limited.",
-    "mechanismTags": [
-      "neuroprotective signaling",
-      "stress-response modulation",
-      "unclassified"
-    ],
+    "mechanismTags": "neuroprotective signaling; stress-response modulation; unclassified",
     "pathwayTargets": "BDNF/TrkB-associated signaling; Akt; ERK; CREB; NRF2; neuroinflammation-related signaling",
     "pharmacokinetics": "Preclinical PK is stronger than clinical PK; rat studies report permeability, plasma protein binding, blood partitioning, and tissue distribution; isolated-compound human PK remains limited.",
     "safetyNotes": "Use cautious ashwagandha/withanolide-class safety framing; isolated-compound human safety data remain limited.",
@@ -14018,10 +13909,7 @@
     "aliases": "",
     "compoundClass": "withanolide glycoside / steroidal lactone glycoside",
     "mechanism": "proposed mechanism based on preclinical data: neuroprotective and neurite-outgrowth-associated effects are reported in Withania studies, but no established human mechanism exists.",
-    "mechanismTags": [
-      "reinforcement",
-      "unclassified"
-    ],
+    "mechanismTags": "reinforcement; unclassified",
     "pathwayTargets": "neuroregeneration-related signaling; unresolved at isolated-compound level",
     "pharmacokinetics": "No robust isolated-compound human pharmacokinetic data identified.",
     "safetyNotes": "Use herb-level ashwagandha safety framing only; isolated-compound human safety data remain limited.",
@@ -14049,10 +13937,7 @@
     "aliases": "",
     "compoundClass": "triterpene glycoside",
     "mechanism": "Proposed mechanism based on preclinical data: actein exhibits anti-inflammatory and anti-proliferative activity via modulation of NF-kB signaling, calcium homeostasis, and nitric oxide pathways, with apoptosis-related effects reported in vitro.",
-    "mechanismTags": [
-      "reinforcement",
-      "unclassified"
-    ],
+    "mechanismTags": "reinforcement; unclassified",
     "pathwayTargets": "NF-kB; calcium signaling; nitric oxide",
     "pharmacokinetics": "Limited human data; absorption and metabolism are not well characterized.",
     "safetyNotes": "No independent human toxicity profile is established; safety is generally inferred from black cohosh extract use.",
@@ -14080,10 +13965,7 @@
     "aliases": "",
     "compoundClass": "triterpene glycoside",
     "mechanism": "Proposed mechanism based on preclinical data: 23-epi-26-deoxyactein shows anti-inflammatory pathway effects and suppression of nitric oxide signaling in vitro, with broader black cohosh mechanistic relevance still not fully resolved in humans.",
-    "mechanismTags": [
-      "reinforcement",
-      "unclassified"
-    ],
+    "mechanismTags": "reinforcement; unclassified",
     "pathwayTargets": "NF-kB; inflammatory cytokines; nitric oxide",
     "pharmacokinetics": "Pharmacokinetic profile is not well characterized in humans.",
     "safetyNotes": "No independent human toxicity profile is established; safety is generally inferred from black cohosh extract use.",
@@ -14140,10 +14022,7 @@
     "aliases": "",
     "compoundClass": "phenolic acid derivative",
     "mechanism": "Proposed mechanism based on preclinical data: fukinolic acid is a phenolic constituent reported in black cohosh preparations and may contribute antioxidant and signaling effects, but the mechanistic evidence is limited and mixed.",
-    "mechanismTags": [
-      "reinforcement",
-      "unclassified"
-    ],
+    "mechanismTags": "reinforcement; unclassified",
     "pathwayTargets": "general or unknown targets",
     "pharmacokinetics": "Human pharmacokinetic data not locked.",
     "safetyNotes": "No standalone human safety profile established; use caution because evidence is limited.",
@@ -14374,10 +14253,7 @@
     "aliases": "",
     "compoundClass": "diterpene trilactone / ginkgolide",
     "mechanism": "proposed mechanism based on preclinical data: platelet-activating factor receptor antagonism; ginkgolides also show glycine receptor channel blocking activity in preclinical models.",
-    "mechanismTags": [
-      "core pharmacology",
-      "unclassified"
-    ],
+    "mechanismTags": "core pharmacology; unclassified",
     "pathwayTargets": "PAFR; glycine receptor chloride channel",
     "pharmacokinetics": "Human terpene-lactone PK is documented at extract level; isolated-compound human PK remains limited.",
     "safetyNotes": "Use herb-level ginkgo safety framing; ginkgo may increase bleeding risk and interact with anticoagulants/antiplatelets.",
@@ -14405,11 +14281,7 @@
     "aliases": "",
     "compoundClass": "diterpene trilactone / ginkgolide",
     "mechanism": "proposed mechanism based on preclinical data: potent platelet-activating factor receptor antagonism; among the more active ginkgolides in receptor-binding literature.",
-    "mechanismTags": [
-      "paf antagonism",
-      "unclassified",
-      "vascular signaling"
-    ],
+    "mechanismTags": "paf antagonism; unclassified; vascular signaling",
     "pathwayTargets": "PAFR",
     "pharmacokinetics": "Human terpene-lactone PK is documented at extract level; isolated-compound human PK remains limited.",
     "safetyNotes": "Use herb-level ginkgo safety framing; bleeding-risk and seizure cautions remain herb/extract-level.",
@@ -14438,10 +14310,7 @@
     "aliases": "",
     "compoundClass": "diterpene trilactone / ginkgolide",
     "mechanism": "proposed mechanism based on preclinical data: platelet-activating factor receptor antagonism with additional anti-inflammatory signaling reported in cell and animal models.",
-    "mechanismTags": [
-      "core pharmacology",
-      "unclassified"
-    ],
+    "mechanismTags": "core pharmacology; unclassified",
     "pathwayTargets": "PAFR; CD40/NFkB",
     "pharmacokinetics": "Human terpene-lactone PK is documented at extract level; isolated-compound human PK remains limited.",
     "safetyNotes": "Use herb-level ginkgo safety framing; isolated-compound human safety characterization is limited.",
@@ -14933,10 +14802,7 @@
     "aliases": "rhodioloside B; rosarin glycoside",
     "compoundClass": "phenylpropanoid glycoside",
     "mechanism": "No established human mechanism. proposed mechanism based on preclinical data: antioxidant/stress-response activity inferred from Rhodiola constituent studies; used more reliably as a chemotaxonomic and extract-standardization marker than as a standalone validated pharmacologic agent.",
-    "mechanismTags": [
-      "reinforcement",
-      "unclassified"
-    ],
+    "mechanismTags": "reinforcement; unclassified",
     "pathwayTargets": "unresolved at single-compound level",
     "pharmacokinetics": "No robust standalone human PK identified; treat as unresolved.",
     "safetyNotes": "No compound-specific human safety dataset identified; use herb-level Rhodiola safety framing only.",
@@ -14964,10 +14830,7 @@
     "aliases": "cinnamyl alcohol beta-D-glucoside; rosin glycoside",
     "compoundClass": "phenylpropanoid glycoside",
     "mechanism": "No established human mechanism. proposed mechanism based on preclinical data: antioxidant/stress-response contribution inferred from Rhodiola constituent work; current evidence is insufficient to assign a validated single-compound pathway model.",
-    "mechanismTags": [
-      "reinforcement",
-      "unclassified"
-    ],
+    "mechanismTags": "reinforcement; unclassified",
     "pathwayTargets": "unresolved at single-compound level",
     "pharmacokinetics": "No robust standalone human PK identified; treat as unresolved.",
     "safetyNotes": "No compound-specific human safety dataset identified; keep safety attribution at the Rhodiola herb/extract layer.",
@@ -14995,10 +14858,7 @@
     "aliases": "p-tyrosol; 4-(2-hydroxyethyl)phenol; 2-(4-hydroxyphenyl)ethanol",
     "compoundClass": "simple phenolic alcohol / phenethyl alcohol",
     "mechanism": "proposed mechanism based on preclinical data: antioxidant and cytoprotective signaling, including Nrf2/HO-1-associated effects and ROS attenuation; human target-level confirmation is limited.",
-    "mechanismTags": [
-      "reinforcement",
-      "unclassified"
-    ],
+    "mechanismTags": "reinforcement; unclassified",
     "pathwayTargets": "NRF2; HO-1; oxidative-stress response pathways",
     "pharmacokinetics": "Human absorption is documented after oral intake from olive oil matrices; metabolism and disposition are better characterized than purified supplement-style dosing.",
     "safetyNotes": "Compound-specific intervention safety data are limited; dietary exposure appears well tolerated.",
@@ -15432,10 +15292,7 @@
     "aliases": "",
     "compoundClass": "withanolide glycoside / steroidal lactone glycoside",
     "mechanism": "proposed mechanism based on preclinical data: neuroprotective and adaptogen-associated effects are reported in Withania literature, but no established human mechanism exists.",
-    "mechanismTags": [
-      "reinforcement",
-      "unclassified"
-    ],
+    "mechanismTags": "reinforcement; unclassified",
     "pathwayTargets": "neuroregeneration-related signaling; unresolved at isolated-compound level",
     "pharmacokinetics": "No robust isolated-compound human pharmacokinetic data identified.",
     "safetyNotes": "Use herb-level ashwagandha safety framing only; isolated-compound human safety data remain limited.",
