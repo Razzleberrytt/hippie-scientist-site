@@ -88,7 +88,7 @@ export default function HerbsPage() {
   const clearAll = () => setFilters(DEFAULT_FILTER_STATE)
 
   return (
-    <main className='container mx-auto max-w-6xl px-4 py-8 sm:py-10 text-white'>
+    <main className='container mx-auto max-w-6xl px-4 py-8 text-white sm:py-10'>
       <Meta
         title='Herb Knowledge Database | The Hippie Scientist'
         description='Search effects, classification, confidence, and safety context across the herb library.'
@@ -200,7 +200,10 @@ export default function HerbsPage() {
         <TypeFilter
           label='Research signal'
           options={ENRICHMENT_FILTER_OPTIONS.map(option => option.label)}
-          value={ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label || ENRICHMENT_FILTER_OPTIONS[0].label}
+          value={
+            ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label ||
+            ENRICHMENT_FILTER_OPTIONS[0].label
+          }
           onChange={label => {
             const next = ENRICHMENT_FILTER_OPTIONS.find(option => option.label === label)
             setFilters(prev => ({ ...prev, enrichment: next?.value || 'all' }))
@@ -248,7 +251,7 @@ export default function HerbsPage() {
           No herbs match your current filters.
         </div>
       ) : (
-        <section className='grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+        <section className='grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3'>
           {visibleHerbs.map((herb, index) => (
             <HerbCard
               key={herb.slug || herb.id || `${herb.common}-${index}`}
@@ -260,15 +263,16 @@ export default function HerbsPage() {
                   description: herb.description,
                   activeCompounds: herb.compounds,
                   therapeuticUses: herb.therapeuticUses,
-                  maxLen: 130,
+                  maxLen: 110,
                 }) || 'Learn more about this herb and its potential uses.'
               }
               tags={extractPrimaryEffects(Array.isArray(herb.effects) ? herb.effects : [], 2)}
+              compact
               detailUrl={
                 hasVal(herb.slug)
                   ? `/herbs/${encodeURIComponent(String(herb.slug))}`
                   : `/herbs/${encodeURIComponent(
-                      slugify(String(herb.common || herb.scientific || herb.name || ''))
+                      slugify(String(herb.common || herb.scientific || herb.name || '')),
                     )}`
               }
             />

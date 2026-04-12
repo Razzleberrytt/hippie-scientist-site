@@ -5,6 +5,7 @@ import { searchEntries } from './searchEntries'
 import type { EntryFilterState } from './filterModel'
 import { asStringArray } from './asStringArray'
 import { getReviewFreshnessState, matchesEnrichmentFilter } from '@/lib/enrichmentDiscovery'
+import { applyBrowseQualityGate, assessBrowseRecord } from '@/utils/browseQuality'
 
 function getConfidenceRank(level: string) {
   if (level === 'high') return 3
@@ -43,7 +44,7 @@ function getFreshnessRank(compound: CompoundSummaryRecord) {
 
 export function filterCompounds(
   compounds: CompoundSummaryRecord[],
-  filters: EntryFilterState
+  filters: EntryFilterState,
 ): CompoundSummaryRecord[] {
   const searched = searchEntries(compounds, filters.query, compound => ({
     name: compound.name,
@@ -65,19 +66,34 @@ export function filterCompounds(
 
     if (effectNeedles.length > 0) {
       const hasAllEffects = effectNeedles.every(effect =>
-        effects.some(compoundEffect => compoundEffect.includes(effect))
+        effects.some(compoundEffect => compoundEffect.includes(effect)),
       )
       if (!hasAllEffects) return false
     }
 
     if (filters.confidence !== 'all' && confidence !== filters.confidence) return false
     if (typeNeedle !== 'all' && typeNeedle && category !== typeNeedle) return false
-    if (!matchesEnrichmentFilter(compound.researchEnrichmentSummary, filters.enrichment)) return false
+    if (!matchesEnrichmentFilter(compound.researchEnrichmentSummary, filters.enrichment))
+      return false
 
     return true
   })
 
-  return filtered.sort((a, b) => {
+  const browseQuality = applyBrowseQualityGate(filtered, compound =>
+    assessBrowseRecord({
+      name: compound.name,
+      summary: compound.summaryShort || compound.description,
+      description: compound.description,
+      mechanism: compound.mechanism,
+      effects: asStringArray(compound.effects),
+      sourceCount: compound.sourceCount,
+      hasEvidence: Boolean(compound.researchEnrichmentSummary?.evidenceLabel),
+    }),
+  )
+
+  const qualityFiltered = browseQuality.items
+
+  return qualityFiltered.sort((a, b) => {
     if (filters.sort === 'az') return a.name.localeCompare(b.name)
 
     if (filters.sort === 'confidence') {
@@ -109,6 +125,10 @@ export function filterCompounds(
       if (conflictDiff !== 0) return conflictDiff
       return getEvidenceRank(b) - getEvidenceRank(a)
     }
+
+    const aDemoted = Number(Boolean(browseQuality.assessments.get(a)?.demote))
+    const bDemoted = Number(Boolean(browseQuality.assessments.get(b)?.demote))
+    if (aDemoted !== bDemoted) return aDemoted - bDemoted
 
     const effectCountDiff = asStringArray(b.effects).length - asStringArray(a.effects).length
     if (effectCountDiff !== 0) return effectCountDiff
