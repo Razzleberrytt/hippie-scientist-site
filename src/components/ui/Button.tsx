@@ -21,7 +21,7 @@ export function Button({ children, variant = 'default', className = '', ...props
   return (
     <MotionButton
       whileTap={{ scale: 0.985 }}
-      whileHover={{ y: -1 }}
+      whileHover={{ y: -1, scale: 1.005 }}
       className={`${variantClasses[variant]} ${className}`.trim()}
       {...props}
     >
