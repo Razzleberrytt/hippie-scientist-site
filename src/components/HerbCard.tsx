@@ -49,85 +49,101 @@ function HerbCard({
   compact = false,
 }: HerbCardProps) {
   const mergedTags = Array.from(new Set([...tags, ...mechanismTags].filter(Boolean)))
-  const visibleTags = mergedTags.slice(0, 2)
+  const primaryTag = mergedTags[0]
   const hasCompoundCount = typeof compound_count === 'number' && compound_count > 0
   const normalizedEvidenceTier = (evidence_tier || '').trim()
   const fallbackEvidence = normalizedEvidenceTier ? '' : (evidenceLevel || '').trim()
-  const showMetadata =
-    hasCompoundCount || Boolean(normalizedEvidenceTier) || Boolean(fallbackEvidence)
   const title = truncateTitle(name, 60)
   const isTitleTruncated = title !== name
+  const summaryText = summary?.trim() || 'Overview coming soon.'
+
+  const priorityChips = [
+    normalizedEvidenceTier
+      ? {
+          key: `tier-${normalizedEvidenceTier}`,
+          label: normalizedEvidenceTier,
+          className:
+            EVIDENCE_TIER_BADGE_CLASS[normalizedEvidenceTier] ??
+            'border-white/20 bg-white/[0.05] text-white/75',
+        }
+      : fallbackEvidence
+        ? {
+            key: `evidence-${fallbackEvidence}`,
+            label: fallbackEvidence.slice(0, 24),
+            className: 'border-white/20 bg-white/[0.05] text-white/75',
+          }
+        : null,
+    hasCompoundCount
+      ? {
+          key: 'compound-count',
+          label: `${compound_count} compounds`,
+          className: 'border-white/20 bg-white/[0.05] text-white/70',
+        }
+      : null,
+    primaryTag
+      ? {
+          key: `tag-${primaryTag}`,
+          label: primaryTag,
+          className: 'border-white/15 bg-white/[0.03] text-white/70',
+        }
+      : null,
+  ]
+    .filter(Boolean)
+    .slice(0, 2) as Array<{ key: string; label: string; className: string }>
 
   return (
-    <div className='HerbCardTilt group relative h-full transition-transform duration-200 ease-out hover:scale-[1.01]'>
+    <div className='HerbCardTilt group relative h-full transition-transform duration-200 ease-out hover:scale-[1.005]'>
       <div className='HerbCardGlow pointer-events-none absolute inset-0 rounded-[1.25rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100' />
       <Card
         className={`card-pad border-white/12 relative flex h-full flex-col bg-white/[0.05] transition duration-200 ease-out group-hover:border-white/20 group-hover:bg-white/[0.07] ${
-          compact ? 'gap-2 p-2.5' : 'gap-3 p-3'
+          compact ? 'gap-1.5 p-2' : 'gap-2 p-2.5 sm:p-3'
         }`}
       >
-        <header className={compact ? 'space-y-1' : 'space-y-2'}>
+        <header className='space-y-0.5'>
           <h2
             title={isTitleTruncated ? name : undefined}
             className={
               compact
-                ? 'line-clamp-2 break-words text-base font-semibold leading-tight text-lime-200'
-                : 'line-clamp-2 break-words text-[1.35rem] font-semibold leading-tight text-lime-200 sm:text-2xl'
+                ? 'line-clamp-2 break-words text-[0.95rem] font-semibold leading-tight text-lime-200'
+                : 'line-clamp-2 break-words text-base font-semibold leading-tight text-lime-200 sm:text-lg'
             }
           >
             {title}
           </h2>
         </header>
 
-        <section className={compact ? 'space-y-1.5 text-white/80' : 'space-y-2 text-white/80'}>
+        <section className='space-y-1 text-white/80'>
           <p
-            className={`line-clamp-2 text-sm text-white/70 ${compact ? 'leading-tight' : 'leading-5'}`}
+            className={`line-clamp-2 text-xs text-white/70 ${compact ? 'leading-tight' : 'leading-snug sm:text-sm'}`}
           >
-            {summary}
+            {summaryText}
           </p>
-          {visibleTags.length > 0 && (
-            <div className='flex flex-wrap gap-1.5'>
-              {visibleTags.map(tag => (
+          {priorityChips.length > 0 && (
+            <div className='flex flex-wrap gap-1'>
+              {priorityChips.map(chip => (
                 <span
-                  key={tag}
-                  className='rounded-full border border-white/15 bg-white/[0.03] px-2 py-0.5 text-[11px] font-medium text-white/70'
+                  key={chip.key}
+                  className={`inline-flex max-w-full items-center rounded-full border px-1.5 py-0.5 text-[10px] font-medium ${chip.className}`}
                 >
-                  {tag}
+                  <span className='truncate'>{chip.label}</span>
                 </span>
               ))}
             </div>
           )}
-          {showMetadata && (
-            <div className='flex min-h-0 flex-wrap items-center gap-1'>
-              {hasCompoundCount && (
-                <span className='inline-flex items-center gap-1 text-[11px] text-white/55'>
-                  <FlaskConical className='h-3 w-3' aria-hidden='true' />
-                  {compound_count} compounds
-                </span>
-              )}
-              {normalizedEvidenceTier && (
-                <span
-                  className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium ${
-                    EVIDENCE_TIER_BADGE_CLASS[normalizedEvidenceTier] ??
-                    'border-white/20 bg-white/[0.05] text-white/75'
-                  }`}
-                >
-                  {normalizedEvidenceTier}
-                </span>
-              )}
-              {!normalizedEvidenceTier && fallbackEvidence && (
-                <span className='inline-flex max-w-[11rem] items-center rounded-full border border-white/20 bg-white/[0.05] px-2 py-0.5 text-[11px] font-medium text-white/75'>
-                  <span className='truncate'>{fallbackEvidence.slice(0, 24)}</span>
-                </span>
-              )}
-            </div>
-          )}
         </section>
 
-        <footer className='mt-auto flex items-center justify-end text-sm'>
+        <footer className='mt-auto flex items-center justify-between pt-0.5'>
+          {hasCompoundCount ? (
+            <span className='inline-flex items-center gap-1 text-[10px] text-white/50'>
+              <FlaskConical className='h-3 w-3' aria-hidden='true' />
+              {compound_count}
+            </span>
+          ) : (
+            <span className='text-[10px] text-white/40'>Profile</span>
+          )}
           <Link
             to={detailUrl}
-            className='inline-flex min-h-7 items-center rounded-md border border-white/15 bg-white/[0.04] px-2 py-1 text-[11px] font-medium text-white/75 transition duration-200 ease-out hover:border-white/30 hover:bg-white/[0.08] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300'
+            className='inline-flex min-h-6 items-center rounded-md border border-white/12 bg-white/[0.03] px-1.5 py-0.5 text-[10px] font-medium text-white/70 transition duration-200 ease-out hover:border-white/25 hover:bg-white/[0.06] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300'
           >
             View details
           </Link>
