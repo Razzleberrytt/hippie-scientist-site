@@ -1,5 +1,14 @@
 {
-  "withania somnifera": "ashwagandha",
+  "bupleurum": "bupleurum-falcatum",
+  "cacao": "theobroma-cacao",
+  "cordyceps": "cordyceps-sinensis",
+  "dendrobium": "dendrobium-nobile",
+  "holy basil purple": "holy-basil",
+  "holy basil seed": "holy-basil",
+  "ocimum sanctum": "holy-basil",
+  "poria": "poria-cocos",
+  "reishi": "reishi-mushroom",
   "rhodiola rosea": "rhodiola-rosea",
-  "ocimum sanctum": "holy-basil"
+  "sage": "white-sage",
+  "withania somnifera": "ashwagandha"
 }

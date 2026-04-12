@@ -12171,7 +12171,13 @@
     "lastUpdated": "2026-04-04",
     "slug": "vitamin-d-calciferols",
     "id": "vitamin-d",
-    "displayName": "Vitamin D (Calciferols)"
+    "displayName": "Vitamin D (Calciferols)",
+    "canonicalCompoundId": "vitamin-d",
+    "compoundName": "vitamin d",
+    "compoundClass": "vitamin d",
+    "mechanismTags": [
+      "unclassified"
+    ]
   },
   {
     "name": "L-Tryptophan",
@@ -12284,7 +12290,7 @@
       "Use caution with bleeding-risk conditions or concurrent anticoagulant/antiplatelet therapy",
       "Supplement quality/purity and oxidation status vary across products"
     ],
-    "category": "nutrient",
+    "category": "omega-3 fatty acids",
     "sources": [
       {
         "title": "Omega-3 Fatty Acids Fact Sheet for Health Professionals (NIH ODS)",
@@ -12298,7 +12304,14 @@
     "lastUpdated": "2026-04-04",
     "slug": "omega-3-fatty-acids-epa-dha",
     "id": "omega-3-fatty-acids",
-    "displayName": "Omega-3 Fatty Acids (EPA/DHA)"
+    "displayName": "Omega-3 Fatty Acids (EPA/DHA)",
+    "canonicalCompoundId": "omega-3-fatty-acids",
+    "compoundName": "omega-3 fatty acids",
+    "compoundClass": "omega-3 fatty acids",
+    "mechanism": "polyunsaturated fatty acids",
+    "mechanismTags": [
+      "unclassified"
+    ]
   },
   {
     "name": "Probiotics",
