@@ -484,17 +484,30 @@ export default function CompoundDetail() {
           <div className='flex flex-wrap items-start justify-between gap-3'>
             <h1 className='text-3xl font-semibold leading-tight'>{name}</h1>
           </div>
+          {(compound.description || topSummary) && (
+            <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>
+              {compound.description || topSummary}
+            </p>
+          )}
           {(confidence || evidence || sourceCount > 0 || cautionCount > 0) && (
-            <div className='mt-3 flex flex-wrap gap-2'>
-              {confidence && <span className='ds-pill'>Confidence: {confidence}</span>}
-              {evidence && <span className='ds-pill'>Evidence: {evidence}</span>}
+            <div className='mt-3 flex flex-wrap gap-1.5 text-[11px] text-white/65'>
+              {confidence && (
+                <span className='rounded-full border border-white/20 bg-white/[0.03] px-2 py-0.5'>
+                  Confidence: {confidence}
+                </span>
+              )}
+              {evidence && (
+                <span className='rounded-full border border-white/20 bg-white/[0.03] px-2 py-0.5'>
+                  Evidence: {evidence}
+                </span>
+              )}
               {sourceCount > 0 && (
-                <span className='ds-pill'>
+                <span className='rounded-full border border-white/20 bg-white/[0.03] px-2 py-0.5'>
                   {sourceCount} source{sourceCount === 1 ? '' : 's'}
                 </span>
               )}
               {cautionCount > 0 && (
-                <span className='ds-pill'>
+                <span className='rounded-full border border-amber-300/25 bg-amber-500/8 px-2 py-0.5 text-amber-100/85'>
                   {cautionCount} caution signal{cautionCount === 1 ? '' : 's'}
                 </span>
               )}
@@ -502,7 +515,7 @@ export default function CompoundDetail() {
           )}
           <Link
             to={compoundCheckerHref}
-            className='btn-primary mt-4 inline-flex'
+            className='btn-primary mt-2 inline-flex text-xs'
             onClick={() =>
               trackDetailCheckerClick({
                 detailType: 'compound',
@@ -515,20 +528,9 @@ export default function CompoundDetail() {
           </Link>
         </header>
 
-        <PremiumDataSection
-          details={premiumDetails}
-          relationGroups={relationGroups}
-        />
-
         {/* Core fields — only render when value is present */}
-        {compound.description && (
+        {compound.description && compound.description !== topSummary && (
           <Section title='Overview'>
-            {confidence === 'low' ? (
-              <p className='mb-2 rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-amber-100'>
-                Evidence context: this overview is low-confidence and may include inferred or sparse
-                findings.
-              </p>
-            ) : null}
             {compound.description}
             {topSummary && <p className='mt-3 text-white/80'>{topSummary}</p>}
             {displayClass && (
@@ -580,6 +582,8 @@ export default function CompoundDetail() {
             <ListSection items={compound.effects} />
           </Section>
         )}
+
+        <PremiumDataSection details={premiumDetails} relationGroups={relationGroups} />
 
 
         {pharmacokinetics && <Section title='Pharmacokinetics'>{pharmacokinetics}</Section>}

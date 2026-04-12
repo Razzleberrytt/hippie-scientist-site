@@ -109,7 +109,7 @@ a:hover {
   }
 
   .ds-section {
-    @apply mb-7 sm:mb-9;
+    @apply mb-9 sm:mb-12;
   }
 
   .ds-stack {
@@ -117,18 +117,18 @@ a:hover {
   }
 
   .ds-card {
-    @apply rounded-2xl border border-white/15 bg-white/[0.04] p-4 sm:p-5 backdrop-blur-md;
+    @apply rounded-2xl border border-white/15 bg-white/[0.04] p-3 sm:p-4 backdrop-blur-md;
     box-shadow:
       0 14px 30px -26px rgba(16, 185, 129, 0.5),
       0 8px 22px -22px rgba(0, 0, 0, 0.72);
   }
 
   .ds-card-lg {
-    @apply ds-card p-5 sm:p-6;
+    @apply ds-card p-4 sm:p-5;
   }
 
   .ds-card-grid {
-    @apply grid gap-3 sm:gap-4;
+    @apply grid gap-3 sm:gap-5;
     grid-auto-rows: 1fr;
   }
 
@@ -141,7 +141,7 @@ a:hover {
   }
 
   .ds-heading {
-    @apply text-2xl font-semibold tracking-tight text-white sm:text-3xl;
+    @apply text-xl font-semibold tracking-tight text-white sm:text-2xl;
   }
 
   .ds-subheading {

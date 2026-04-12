@@ -85,29 +85,29 @@ function HerbCard({
     .slice(0, 2) as Array<{ key: string; label: string; className: string }>
 
   return (
-    <div className='HerbCardTilt group relative h-full transition-transform duration-200 ease-out hover:scale-[1.005]'>
+    <div className='HerbCardTilt group relative h-full transition-transform duration-200 ease-out hover:scale-[1.004]'>
       <div className='HerbCardGlow pointer-events-none absolute inset-0 rounded-[1.25rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100' />
       <Card
         className={`card-pad border-white/12 relative flex h-full flex-col bg-white/[0.05] transition duration-200 ease-out group-hover:border-white/20 group-hover:bg-white/[0.07] ${
-          compact ? 'gap-1.5 p-2' : 'gap-2 p-2.5 sm:p-3'
+          compact ? 'gap-1 p-1.5' : 'gap-1.5 p-2 sm:p-2.5'
         }`}
       >
-        <header className='space-y-0.5'>
+        <header className='space-y-0'>
           <h2
             title={isTitleTruncated ? name : undefined}
             className={
               compact
-                ? 'line-clamp-2 min-h-[2.3rem] break-all text-[0.95rem] font-semibold leading-tight text-lime-200'
-                : 'line-clamp-2 min-h-[2.5rem] break-all text-base font-semibold leading-tight text-lime-200 sm:text-lg'
+                ? 'line-clamp-2 min-h-[2.1rem] break-all text-[0.9rem] font-semibold leading-tight text-lime-200'
+                : 'line-clamp-2 min-h-[2.3rem] break-all text-[0.96rem] font-semibold leading-tight text-lime-200 sm:text-base'
             }
           >
             {title}
           </h2>
         </header>
 
-        <section className='space-y-1 text-white/80'>
+        <section className='space-y-0.5 text-white/80'>
           <p
-            className={`line-clamp-2 text-xs text-white/70 ${compact ? 'leading-tight' : 'leading-snug sm:text-sm'}`}
+            className={`line-clamp-2 text-[11px] text-white/68 ${compact ? 'leading-tight' : 'leading-snug sm:text-xs'}`}
           >
             {summaryText}
           </p>
@@ -116,7 +116,7 @@ function HerbCard({
               {priorityChips.map(chip => (
                 <span
                   key={chip.key}
-                  className={`inline-flex max-w-full items-center rounded-full border px-1.5 py-0.5 text-[10px] font-medium ${chip.className}`}
+                  className={`inline-flex max-w-full items-center rounded-full border px-1.5 py-0 text-[10px] font-medium ${chip.className}`}
                 >
                   <span className='truncate'>{chip.label}</span>
                 </span>
@@ -125,18 +125,18 @@ function HerbCard({
           )}
         </section>
 
-        <footer className='mt-auto flex items-center justify-between pt-0.5'>
+        <footer className='mt-auto flex items-center justify-between pt-0'>
           {hasCompoundCount ? (
-            <span className='inline-flex items-center gap-1 text-[10px] text-white/50'>
+            <span className='inline-flex items-center gap-1 text-[10px] text-white/45'>
               <FlaskConical className='h-3 w-3' aria-hidden='true' />
               {compound_count}
             </span>
           ) : (
-            <span className='text-[10px] text-white/40'>Profile</span>
+            <span className='text-[10px] text-white/35'>Profile</span>
           )}
           <Link
             to={detailUrl}
-            className='inline-flex min-h-6 items-center rounded-md border border-white/12 bg-white/[0.03] px-1.5 py-0.5 text-[10px] font-medium text-white/70 transition duration-200 ease-out hover:border-white/25 hover:bg-white/[0.06] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300'
+            className='inline-flex min-h-5 items-center rounded-md border border-white/12 bg-white/[0.03] px-1.5 py-0 text-[10px] font-medium text-white/68 transition duration-200 ease-out hover:border-white/25 hover:bg-white/[0.06] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300'
           >
             View details
           </Link>

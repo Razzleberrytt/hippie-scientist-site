@@ -34,10 +34,10 @@ const ENRICHMENT_FILTER_OPTIONS: Array<{ value: EnrichmentFilter; label: string 
 
 function confidenceBadgeClass(level: ConfidenceLevel) {
   if (level === 'high')
-    return 'border-emerald-300/50 bg-emerald-500/15 text-emerald-100 shadow-[0_0_18px_rgba(16,185,129,0.35)]'
+    return 'border-emerald-300/40 bg-emerald-500/12 text-emerald-100'
   if (level === 'medium')
-    return 'border-amber-300/45 bg-amber-500/15 text-amber-100 shadow-[0_0_18px_rgba(245,158,11,0.35)]'
-  return 'border-rose-300/50 bg-rose-500/15 text-rose-100 shadow-[0_0_18px_rgba(244,63,94,0.35)]'
+    return 'border-amber-300/35 bg-amber-500/12 text-amber-100'
+  return 'border-rose-300/35 bg-rose-500/10 text-rose-100/90'
 }
 
 function summarize(compound: { description: string; effects: string[] }) {
@@ -105,14 +105,14 @@ export default function CompoundsPage() {
         path='/compounds'
       />
 
-      <header className='ds-card-lg mb-6'>
+      <header className='ds-card-lg mb-10'>
         <h1 className='text-3xl font-semibold sm:text-4xl'>Compounds</h1>
-        <p className='mt-3 max-w-3xl text-white/80'>
+        <p className='mt-2 max-w-3xl text-sm text-white/76 sm:text-base'>
           Search compounds by mechanism and effects, then filter by confidence and category.
         </p>
       </header>
 
-      <section className='mb-4 space-y-3'>
+      <section className='mb-9 space-y-3'>
         <SearchBar
           value={filters.query}
           onChange={value => {
@@ -132,7 +132,7 @@ export default function CompoundsPage() {
           placeholder='Search compounds, effects, mechanisms...'
         />
 
-        <div className='grid gap-3 lg:grid-cols-2'>
+        <div className='grid gap-2.5 lg:grid-cols-2'>
           <ConfidenceFilter
             value={filters.confidence}
             onChange={value => {
@@ -218,32 +218,31 @@ export default function CompoundsPage() {
               selected={filters.selectedEffects}
               onToggle={toggleEffect}
             />
-
-            <ActiveFiltersBar
-              state={filters}
-              typeLabel='Category'
-              onRemoveEffect={toggleEffect}
-              onClear={clearAll}
-              onClearQuery={() => setFilters(prev => ({ ...prev, query: '' }))}
-              onClearType={() => setFilters(prev => ({ ...prev, type: 'all' }))}
-              onClearConfidence={() => setFilters(prev => ({ ...prev, confidence: 'all' }))}
-              onClearEnrichment={() => setFilters(prev => ({ ...prev, enrichment: 'all' }))}
-              enrichmentLabel={
-                ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label
-              }
-            />
           </div>
         </Collapse>
+        <ActiveFiltersBar
+          state={filters}
+          typeLabel='Category'
+          onRemoveEffect={toggleEffect}
+          onClear={clearAll}
+          onClearQuery={() => setFilters(prev => ({ ...prev, query: '' }))}
+          onClearType={() => setFilters(prev => ({ ...prev, type: 'all' }))}
+          onClearConfidence={() => setFilters(prev => ({ ...prev, confidence: 'all' }))}
+          onClearEnrichment={() => setFilters(prev => ({ ...prev, enrichment: 'all' }))}
+          enrichmentLabel={
+            ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label
+          }
+        />
       </section>
 
-      <p className='mb-4 text-sm text-white/70'>{filtered.length} results</p>
+      <p className='mb-5 text-xs text-white/60 sm:text-sm'>{filtered.length} results</p>
 
       {filtered.length === 0 ? (
         <div className='rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center text-white/80'>
           No compounds match your current filters.
         </div>
       ) : (
-        <section className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+        <section className='grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3'>
           {visibleCompounds.map(compound => {
             const confidence =
               compound.confidence ??
@@ -271,29 +270,29 @@ export default function CompoundsPage() {
             ].slice(0, 2)
 
             return (
-              <article key={compound.id} className='ds-card flex h-full flex-col gap-2.5 p-3.5'>
+              <article key={compound.id} className='ds-card flex h-full flex-col gap-1.5 p-2.5 sm:p-3'>
                 <div className='flex items-start justify-between gap-2'>
                   <h2
                     title={compound.name}
-                    className='line-clamp-2 min-h-[2.5rem] break-all text-base font-semibold leading-tight'
+                    className='line-clamp-2 min-h-[2.2rem] break-all text-[0.96rem] font-semibold leading-tight sm:text-base'
                   >
                     {title}
                   </h2>
                   <span
-                    className={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
+                    className={`shrink-0 rounded-full border px-1.5 py-0 text-[10px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
                   >
                     {confidence}
                   </span>
                 </div>
-                <p className='text-white/82 line-clamp-2 text-sm'>{summarize(compound)}</p>
+                <p className='text-white/76 line-clamp-2 text-xs sm:text-sm'>{summarize(compound)}</p>
                 {chips.length > 0 && (
                   <div className='flex flex-wrap gap-1'>
                     {chips.map(chip => (
                       <span
                         key={`${compound.id}-${chip.label}`}
-                        className={`rounded-full border px-2 py-0.5 text-[10px] ${
+                        className={`rounded-full border px-1.5 py-0 text-[10px] ${
                           chip.tone === 'warning'
-                            ? 'bg-amber-500/12 border-amber-300/35 text-amber-100'
+                            ? 'bg-amber-500/8 border-amber-300/25 text-amber-100/85'
                             : chip.tone === 'evidence'
                               ? 'border-cyan-300/35 bg-cyan-500/15 text-cyan-100'
                               : 'border-violet-300/35 bg-violet-500/15 text-violet-100'
@@ -306,19 +305,19 @@ export default function CompoundsPage() {
                 )}
                 <div className='flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px]'>
                   {confidence === 'low' && (
-                    <span className='inline-flex items-center gap-1 rounded-full border border-amber-300/20 bg-amber-400/[0.06] px-1.5 py-0.5 text-amber-100/75'>
+                    <span className='inline-flex items-center gap-1 rounded-full border border-amber-300/20 bg-amber-400/[0.04] px-1.5 py-0 text-amber-100/65'>
                       <AlertTriangle className='h-3 w-3' aria-hidden='true' />
                       Limited data
                     </span>
                   )}
-                  <p className='text-white/70'>
+                  <p className='text-white/58'>
                     {compound.herbs.length} {compound.herbs.length === 1 ? 'herb' : 'herbs'}{' '}
                     associated
                   </p>
                 </div>
                 <Link
                   to={`/compounds/${compound.slug}`}
-                  className='mt-auto inline-flex w-fit items-center rounded-md border border-white/20 bg-white/[0.06] px-2.5 py-1.5 text-xs font-medium text-white/85 transition hover:border-white/35 hover:bg-white/[0.12]'
+                  className='mt-auto inline-flex w-fit items-center rounded-md border border-white/20 bg-white/[0.05] px-2 py-1 text-[11px] font-medium text-white/80 transition hover:border-white/35 hover:bg-white/[0.1]'
                 >
                   View details
                 </Link>
