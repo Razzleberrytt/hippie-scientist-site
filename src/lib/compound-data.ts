@@ -45,6 +45,8 @@ export type CompoundRecord = {
   researchEnrichment?: ResearchEnrichment
   researchEnrichmentSummary?: PublishSafeEnrichmentSummary
   sourceCount?: number
+  compounds?: string[]
+  benefits?: string[]
 }
 
 export type CompoundSummaryRecord = {
@@ -90,6 +92,7 @@ function normalizeEnrichmentSummary(value: unknown): PublishSafeEnrichmentSummar
 }
 
 let compoundsSummaryPromise: Promise<CompoundSummaryRecord[]> | null = null
+let canonicalCompoundsSummaryPromise: Promise<CompoundSummaryRecord[]> | null = null
 let workbookCompoundsPromise: Promise<Record<string, unknown>[]> | null = null
 const compoundDetailPromiseBySlug = new Map<string, Promise<CompoundRecord | null>>()
 
@@ -139,6 +142,26 @@ function loadWorkbookCompoundRows(): Promise<Record<string, unknown>[]> {
   return workbookCompoundsPromise
 }
 
+function loadCanonicalCompoundSummaryRows(): Promise<CompoundSummaryRecord[]> {
+  if (!canonicalCompoundsSummaryPromise) {
+    canonicalCompoundsSummaryPromise = fetch('/data/compounds-summary.json', { cache: 'no-store' })
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load /data/compounds-summary.json')
+        return response.json()
+      })
+      .then(payload => {
+        const rows = Array.isArray(payload) ? payload : []
+        return rows.map(row => normalizeCompoundSummary(row as Record<string, unknown>))
+      })
+      .catch(error => {
+        canonicalCompoundsSummaryPromise = null
+        throw error
+      })
+  }
+
+  return canonicalCompoundsSummaryPromise
+}
+
 async function loadWorkbookCompoundDetailBySlug(slug: string): Promise<CompoundRecord | null> {
   const needle = normalizeSlugCandidate(slug)
   if (!needle) return null
@@ -168,6 +191,19 @@ async function resolveCompoundDetailSlug(slug: string): Promise<string | null> {
   if (!needle) return null
 
   const summaries = await loadCompoundSummaryData()
+  const match = summaries.find(item => {
+    const candidates = [item.slug, item.id, item.name, ...item.aliases]
+    return candidates.some(candidate => normalizeSlugCandidate(candidate) === needle)
+  })
+
+  return match?.slug || null
+}
+
+async function resolveCanonicalCompoundDetailSlug(slug: string): Promise<string | null> {
+  const needle = normalizeSlugCandidate(slug)
+  if (!needle) return null
+
+  const summaries = await loadCanonicalCompoundSummaryRows()
   const match = summaries.find(item => {
     const candidates = [item.slug, item.id, item.name, ...item.aliases]
     return candidates.some(candidate => normalizeSlugCandidate(candidate) === needle)
@@ -217,6 +253,8 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   const relatedEntities = splitClean(data.relatedEntities)
   const relatedCompounds = splitClean(data.relatedCompounds)
   const linkedHerbs = splitClean(data.linkedHerbs)
+  const compounds = splitClean(data.compounds ?? data.relatedCompounds)
+  const benefits = splitClean(data.benefits ?? data.effects)
   const sources = normalizeSources(data.sources)
 
   return {
@@ -230,6 +268,7 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     mechanism,
     activeCompounds: splitClean(data.activeCompounds),
     effects,
+    benefits,
     therapeuticUses: splitClean(data.therapeuticUses),
     contraindications: splitClean(data.contraindications),
     interactions: splitClean(data.interactions),
@@ -247,6 +286,7 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     evidenceLevel,
     relatedEntities,
     relatedCompounds,
+    compounds,
     linkedHerbs,
     confidence: calculateCompoundConfidence({ mechanism, effects, compounds: herbs }),
     sources,
@@ -344,32 +384,23 @@ export async function loadCompoundDetailBySlug(slug: string): Promise<CompoundRe
   const cached = compoundDetailPromiseBySlug.get(slugKey)
   if (cached) return cached
 
-  const request = fetch(`/data/compounds-detail/${encodeURIComponent(slugKey)}.json`, {
-    cache: 'no-store',
-  })
-    .then(async response => {
-      if (response.status === 404) {
-        const resolvedSlug = await resolveCompoundDetailSlug(slugKey)
-        if (resolvedSlug && resolvedSlug !== slugKey) {
-          const fallbackResponse = await fetch(
-            `/data/compounds-detail/${encodeURIComponent(resolvedSlug)}.json`,
-            {
-              cache: 'no-store',
-            },
-          )
-          if (fallbackResponse.ok) {
-            return fallbackResponse.json()
-          }
-          if (fallbackResponse.status !== 404) {
-            throw new Error(`Failed to load /data/compounds-detail/${resolvedSlug}.json`)
-          }
+  const request = resolveCanonicalCompoundDetailSlug(slugKey)
+    .then(async resolvedCanonicalSlug => {
+      if (resolvedCanonicalSlug) {
+        const canonicalResponse = await fetch(
+          `/data/compounds-detail/${encodeURIComponent(resolvedCanonicalSlug)}.json`,
+          { cache: 'no-store' },
+        )
+        if (canonicalResponse.ok) {
+          return canonicalResponse.json()
         }
-        return loadWorkbookCompoundDetailBySlug(resolvedSlug || slugKey)
+        if (canonicalResponse.status !== 404) {
+          throw new Error(`Failed to load /data/compounds-detail/${resolvedCanonicalSlug}.json`)
+        }
       }
-      if (!response.ok) {
-        throw new Error(`Failed to load /data/compounds-detail/${slugKey}.json`)
-      }
-      return response.json()
+
+      const resolvedSlug = await resolveCompoundDetailSlug(slugKey)
+      return loadWorkbookCompoundDetailBySlug(resolvedSlug || slugKey)
     })
     .then(payload => {
       if (!payload || typeof payload !== 'object') return null
