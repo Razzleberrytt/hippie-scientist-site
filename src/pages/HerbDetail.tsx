@@ -588,7 +588,7 @@ export default function HerbDetail() {
   }
 
   return (
-    <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
+    <main className='container mx-auto max-w-5xl px-4 py-6 text-white sm:py-8'>
       <Meta
         title={herbMetaTitle}
         description={herbMetaDescription}
@@ -631,27 +631,29 @@ export default function HerbDetail() {
           { label: herbDisplayName },
         ]}
       />
-      <Link to='/herbs' className='btn-secondary inline-flex items-center'>
-        ← Back to herbs
-      </Link>
-      <button
-        type='button'
-        className='ml-2 inline-flex rounded-full border border-white/20 px-3 py-1 text-sm text-white/85 transition hover:border-white/35 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300'
-        onClick={() =>
-          toggle({
-            type: 'herb',
-            slug: herb.slug,
-            title: herb.common || herb.name || herb.slug,
-            href: `/herbs/${herb.slug}`,
-            note: description,
-          })
-        }
-      >
-        {isSaved('herb', herb.slug) ? '★ Favorited' : '☆ Favorite'}
-      </button>
+      <div className='flex flex-wrap items-center gap-2'>
+        <Link to='/herbs' className='btn-secondary inline-flex items-center'>
+          ← Back to herbs
+        </Link>
+        <button
+          type='button'
+          className='inline-flex rounded-full border border-white/20 px-3 py-1 text-sm text-white/85 transition hover:border-white/35 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300'
+          onClick={() =>
+            toggle({
+              type: 'herb',
+              slug: herb.slug,
+              title: herb.common || herb.name || herb.slug,
+              href: `/herbs/${herb.slug}`,
+              note: description,
+            })
+          }
+        >
+          {isSaved('herb', herb.slug) ? '★ Favorited' : '☆ Favorite'}
+        </button>
+      </div>
 
       <article className='ds-card-lg mt-4'>
-        {/* Header */}
+        {/* Refactor: move highest-signal content to the very top for immediate scanning. */}
         <header>
           <div className='flex flex-col gap-2'>
             <div>
@@ -661,16 +663,27 @@ export default function HerbDetail() {
               )}
             </div>
           </div>
-          {(description || shortSummary) && (
-            <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>
-              {description || shortSummary}
+          {/* Primary effects are elevated directly under the name. */}
+          {primaryEffects.length > 0 && (
+            <div className='mt-3 flex flex-wrap gap-2'>
+              {primaryEffects.map(effect => (
+                <span
+                  key={effect}
+                  className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
+                >
+                  {effect}
+                </span>
+              ))}
+            </div>
+          )}
+          {/* Keep summary concise above the fold; deep explanation is pushed lower. */}
+          {(shortSummary || description) && (
+            <p className='mt-4 max-w-3xl text-sm leading-relaxed text-white/80'>
+              {shortSummary || description}
             </p>
           )}
 
           <div className='mt-3 flex flex-wrap gap-1.5 text-[11px] text-white/65'>
-            <span className='rounded-full border border-white/20 bg-white/[0.03] px-2 py-0.5'>
-              Confidence: {confidence}
-            </span>
             {evidenceLevel && (
               <span className='rounded-full border border-white/20 bg-white/[0.03] px-2 py-0.5'>
                 {evidenceLevel}
@@ -709,36 +722,6 @@ export default function HerbDetail() {
           </Section>
         )}
 
-        {/* Primary effects pills — high-signal summary */}
-        {primaryEffects.length > 0 && (
-          <div className='mt-5 flex flex-wrap gap-2'>
-            {primaryEffects.map(effect => (
-              <span
-                key={effect}
-                className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
-              >
-                {effect}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {shortSummary && shortSummary !== description && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
-            <p className='max-w-3xl text-base leading-relaxed text-white/88'>{shortSummary}</p>
-          </section>
-        )}
-
-        <GovernedReviewFreshnessPanel
-          decision={governedReviewFreshness}
-          nextStepHref='#governed-safety-interactions'
-          analyticsContext={{
-            pageType: 'herb_detail',
-            entityType: 'herb',
-            entitySlug: herb.slug,
-          }}
-        />
-
         {isDataIncomplete && (
           <div className='bg-amber-500/8 mt-4 rounded-xl border border-amber-300/30 p-3 text-sm text-amber-100'>
             <p className='font-semibold'>Incomplete profile</p>
@@ -749,16 +732,32 @@ export default function HerbDetail() {
           </div>
         )}
 
-        <DataTrustPanel
-          entity='herb'
-          confidence={confidence}
-          completeness={completeness}
-          sourceCount={sourceCount}
-          lastReviewed={lastUpdated}
-          cautionCount={cautionCount}
-          hasInferredContent={hasInferredContent}
-          hasFallbackContent={hasFallbackContent}
-        />
+        {/* Confidence explanations are now hidden by default to reduce initial clutter. */}
+        <section className='border-white/8 mt-6 border-t pt-5'>
+          <Collapse title='Confidence & data quality'>
+            <div className='space-y-4'>
+              <GovernedReviewFreshnessPanel
+                decision={governedReviewFreshness}
+                nextStepHref='#governed-safety-interactions'
+                analyticsContext={{
+                  pageType: 'herb_detail',
+                  entityType: 'herb',
+                  entitySlug: herb.slug,
+                }}
+              />
+              <DataTrustPanel
+                entity='herb'
+                confidence={confidence}
+                completeness={completeness}
+                sourceCount={sourceCount}
+                lastReviewed={lastUpdated}
+                cautionCount={cautionCount}
+                hasInferredContent={hasInferredContent}
+                hasFallbackContent={hasFallbackContent}
+              />
+            </div>
+          </Collapse>
+        </section>
 
         <StructuredDetailIntro
           confidence={confidence}
@@ -976,7 +975,35 @@ export default function HerbDetail() {
           </div>
         )}
 
-        <PremiumDataSection details={premiumDetails} relationGroups={relationGroups} />
+        <PremiumDataSection details={premiumDetails} />
+
+        {relationGroups.length > 0 && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            {/* Related entities are grouped into a dedicated accordion for cleaner information hierarchy. */}
+            <Collapse title='Related herbs & compounds'>
+              <div className='space-y-4'>
+                {relationGroups.map(group => (
+                  <div key={group.title}>
+                    <p className='text-xs font-semibold uppercase tracking-[0.14em] text-white/60'>
+                      {group.title}
+                    </p>
+                    <div className='mt-2 flex flex-wrap gap-2'>
+                      {group.items.map(item => (
+                        <Link
+                          key={`${group.title}-${item.to}`}
+                          to={item.to}
+                          className='ds-pill transition hover:border-white/30'
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Collapse>
+          </section>
+        )}
 
         {compoundCount !== null && (
           <section className='border-white/8 mt-6 border-t pt-5'>
@@ -1163,19 +1190,6 @@ export default function HerbDetail() {
           </section>
         )}
 
-        {governedResearch && governedFaq && governedRelatedQuestions && (
-          <GovernedResearchSections
-            enrichment={governedResearch}
-            governedFaq={governedFaq}
-            relatedQuestions={governedRelatedQuestions}
-            analyticsContext={{
-              pageType: 'herb_detail',
-              entityType: 'herb',
-              entitySlug: herb.slug,
-            }}
-          />
-        )}
-
         {effects.length > 0 && (
           <Section title='Effects'>
             <ListSection items={effects} />
@@ -1201,24 +1215,40 @@ export default function HerbDetail() {
         {region && <Section title='Region'>{region}</Section>}
         {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
 
-        {/* Sources */}
-        {sources.length > 0 && (
+        {(sources.length > 0 || (governedResearch && governedFaq && governedRelatedQuestions)) && (
           <section className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='References'>
-              <ol className='list-decimal space-y-1 pl-5 text-sm leading-relaxed text-white/85'>
-                {sources.map((source, index) => (
-                  <li key={`${source.url}-${index}`}>
-                    {/^https?:\/\//i.test(source.url) ? (
-                      <a href={source.url} target='_blank' rel='noreferrer' className='link'>
-                        {source.title}
-                      </a>
-                    ) : (
-                      source.title
-                    )}
-                    {source.note && <span className='ml-2 text-white/55'>— {source.note}</span>}
-                  </li>
-                ))}
-              </ol>
+            {/* Research bundle moved to bottom to avoid overload above the fold. */}
+            <Collapse title='Research'>
+              <div className='space-y-4'>
+                {governedResearch && governedFaq && governedRelatedQuestions && (
+                  <GovernedResearchSections
+                    enrichment={governedResearch}
+                    governedFaq={governedFaq}
+                    relatedQuestions={governedRelatedQuestions}
+                    analyticsContext={{
+                      pageType: 'herb_detail',
+                      entityType: 'herb',
+                      entitySlug: herb.slug,
+                    }}
+                  />
+                )}
+                {sources.length > 0 && (
+                  <ol className='list-decimal space-y-1 pl-5 text-sm leading-relaxed text-white/85'>
+                    {sources.map((source, index) => (
+                      <li key={`${source.url}-${index}`}>
+                        {/^https?:\/\//i.test(source.url) ? (
+                          <a href={source.url} target='_blank' rel='noreferrer' className='link'>
+                            {source.title}
+                          </a>
+                        ) : (
+                          source.title
+                        )}
+                        {source.note && <span className='ml-2 text-white/55'>— {source.note}</span>}
+                      </li>
+                    ))}
+                  </ol>
+                )}
+              </div>
             </Collapse>
           </section>
         )}

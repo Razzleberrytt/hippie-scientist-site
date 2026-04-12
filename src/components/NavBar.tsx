@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from 'react'
+import { type FormEvent, useEffect, useMemo, useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { getDailyDiscoverySnippet } from '@/utils/contentSnippets'
 
 const linkBase =
@@ -14,12 +14,21 @@ const linkActive =
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
   const location = useLocation()
+  const navigate = useNavigate()
   const isHome = location.pathname === '/'
   const dailyDiscovery = useMemo(() => getDailyDiscoverySnippet(), [])
   useEffect(() => {
     setMenuOpen(false)
   }, [location])
+
+  function handleSearchSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const query = searchQuery.trim()
+    navigate(query ? `/herbs?q=${encodeURIComponent(query)}` : '/herbs')
+    setMenuOpen(false)
+  }
 
   return (
     <header className='sticky top-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur-xl supports-[backdrop-filter]:bg-black/40'>
@@ -44,6 +53,20 @@ export default function NavBar() {
           </button>
 
           <div className='hidden min-w-0 flex-1 items-center justify-end gap-1.5 md:flex'>
+            {/* Sticky quick search keeps discovery accessible while reading long detail pages. */}
+            <form onSubmit={handleSearchSubmit} className='mr-1 hidden lg:block'>
+              <label htmlFor='site-search-desktop' className='sr-only'>
+                Search herbs
+              </label>
+              <input
+                id='site-search-desktop'
+                type='search'
+                value={searchQuery}
+                onChange={event => setSearchQuery(event.target.value)}
+                placeholder='Search herbs...'
+                className='min-h-11 w-44 rounded-xl border border-white/15 bg-white/7 px-3 text-sm text-white placeholder:text-white/45 focus:border-emerald-300/45 focus:outline-none'
+              />
+            </form>
             <NavLink
               to='/herbs'
               className={({ isActive }) => `${linkBase} ${isActive ? linkActive : linkSolid}`}
@@ -96,6 +119,20 @@ export default function NavBar() {
         </div>
         {menuOpen && (
           <div className='border-white/12 mb-2 grid gap-2 rounded-2xl border bg-black/40 p-2.5 backdrop-blur-xl md:hidden'>
+            {/* Mobile-first: keep search in the hamburger panel so it remains one tap away. */}
+            <form onSubmit={handleSearchSubmit} className='mb-1'>
+              <label htmlFor='site-search-mobile' className='sr-only'>
+                Search herbs
+              </label>
+              <input
+                id='site-search-mobile'
+                type='search'
+                value={searchQuery}
+                onChange={event => setSearchQuery(event.target.value)}
+                placeholder='Search herbs...'
+                className='min-h-11 w-full rounded-xl border border-white/15 bg-white/7 px-3 text-sm text-white placeholder:text-white/45 focus:border-emerald-300/45 focus:outline-none'
+              />
+            </form>
             <NavLink
               to='/herbs'
               className={({ isActive }) =>
