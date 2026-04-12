@@ -103,6 +103,35 @@ function dedupeBy(records, keyFn) {
   return output
 }
 
+function removeEmptyValues(input) {
+  if (Array.isArray(input)) {
+    return input
+      .map(item => removeEmptyValues(item))
+      .filter(item => item !== '' && item !== null && item !== undefined)
+  }
+
+  if (input && typeof input === 'object') {
+    const cleanedEntries = Object.entries(input)
+      .map(([key, value]) => [key, removeEmptyValues(value)])
+      .filter(([, value]) => {
+        if (value === '' || value === null || value === undefined) return false
+        if (Array.isArray(value) && value.length === 0) return false
+        if (typeof value === 'object' && value && Object.keys(value).length === 0) return false
+        return true
+      })
+
+    return Object.fromEntries(cleanedEntries)
+  }
+
+  return input
+}
+
+function normalizeRecordSlug(record, fieldName) {
+  const raw = toCleanString(record[fieldName])
+  if (!raw) return ''
+  return slugify(raw)
+}
+
 function readSheetRows(workbook, sheetName, diagnostics, { optional = false } = {}) {
   const sheetDiagnostics = diagnostics.sheets[sheetName]
   const sheet = workbook.Sheets[sheetName]
@@ -189,7 +218,10 @@ function exportHerbs(workbook, diagnostics) {
     }))
     .filter(record => Boolean(record.publishStatus))
 
-  const deduped = dedupeBy(records, record => record.slug || record.name)
+  const deduped = dedupeBy(records, record => record.slug || record.name).map(record => {
+    const withNormalizedSlug = { ...record, slug: normalizeRecordSlug(record, 'slug') }
+    return removeEmptyValues(withNormalizedSlug)
+  })
   diagnostics.sheets['Herb Monographs'].skippedRows += records.length - deduped.length
   return deduped
 }
@@ -225,7 +257,17 @@ function exportCompounds(workbook, diagnostics) {
     reverseLookupReady: cleanScalar(row.reverseLookupReady),
   }))
 
-  const deduped = dedupeBy(records, record => record.id || record.name)
+  const deduped = dedupeBy(records, record => record.id || record.name).map(record => {
+    const slug = normalizeRecordSlug(record, 'slug')
+    const canonicalCompoundId = normalizeRecordSlug({ canonicalCompoundId: record.canonicalCompoundId || record.id }, 'canonicalCompoundId')
+    const cleaned = {
+      ...record,
+      id: canonicalCompoundId || slug,
+      slug: slug || canonicalCompoundId,
+      canonicalCompoundId: canonicalCompoundId || slug,
+    }
+    return removeEmptyValues(cleaned)
+  })
   diagnostics.sheets['Compound Master V3'].skippedRows += records.length - deduped.length
   return deduped
 }
@@ -252,6 +294,12 @@ function exportHerbCompoundMap(workbook, diagnostics) {
   const deduped = dedupeBy(
     records,
     record => `${record.herbSlug}::${record.canonicalCompoundId || record.canonicalCompoundName}::${record.rawCompound}`
+  ).map(record =>
+    removeEmptyValues({
+      ...record,
+      herbSlug: normalizeRecordSlug(record, 'herbSlug'),
+      canonicalCompoundId: normalizeRecordSlug(record, 'canonicalCompoundId'),
+    })
   )
   diagnostics.sheets['Herb Compound Map V3'].skippedRows += records.length - deduped.length
   return deduped

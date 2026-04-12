@@ -49,9 +49,6 @@
     "preparation": "Root powders and standardized extracts.",
     "dosage": "300–500 mg root extract twice daily",
     "standardization": "Often standardized to withanolides.",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
@@ -67,7 +64,6 @@
     ],
     "compound_count": "4",
     "pathway_count": "5",
-    "evidence_tier": "",
     "sources": [
       "Recovered from prior batch output in this conversation"
     ]
@@ -118,11 +114,7 @@
       "Avoid in pregnancy and breastfeeding. Use caution in liver disease or hormone-sensitive conditions."
     ],
     "preparation": "Root and rhizome used in standardized extracts, capsules, tablets, and tinctures.",
-    "dosage": "",
-    "standardization": "",
     "qualityConcerns": "Adulteration/misidentification risk in commercial products.",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Ready for QA",
     "readinessFlag": "Ready",
     "frontendReadyFlag": "Yes",
@@ -137,7 +129,6 @@
     ],
     "compound_count": "3",
     "pathway_count": "4",
-    "evidence_tier": "",
     "sources": [
       "NCCIH",
       "NIH ODS",
@@ -186,21 +177,14 @@
       "Individuals with autoimmune disorders or allergies to ragweed and other Asteraceae plants should avoid echinacea. Use during pregnancy or breastfeeding is not recommended. People taking immunosuppressant drugs should avoid echinacea due to potential antagonism."
     ],
     "preparation": "Medicinal products use the roots and aerial parts in teas, juices, tinctures and standardized extracts.",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.714285714",
     "priorityTier": "Medium",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "1",
     "pathway_count": "0",
-    "evidence_tier": "",
     "sources": [
       "【880087072039746†L166-L200】",
       "【880087072039746†L215-L243】",
@@ -256,11 +240,6 @@
       "garlic supplements are not recommended in these populations."
     ],
     "preparation": "Fresh or dried bulbs are used as food and in remedies. Commercial supplements include aged garlic extracts, oils and powders standardized for organosulfur content.",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
@@ -272,7 +251,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "【170738571486764†L1208-L1216】",
       "【945608786527328†L190-L207】",
@@ -322,10 +300,6 @@
     ],
     "preparation": "The rhizome is used fresh, dried, pickled, preserved, candied or powdered. Supplements include encapsulated dried powders and extracts【418916103730052†L176-L189】.",
     "dosage": "Typical adult dose is up to 1 000 mg/day of dried powdered extract for gastrointestinal complaints【739669106228210†L96-L133】.",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
@@ -337,7 +311,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "【69571933386645†L153-L169】",
       "【69571933386645†L240-L249】",
@@ -405,9 +378,6 @@
     "preparation": "Standardized leaf extract (EGb 761).",
     "dosage": "120–240 mg/day standardized extract",
     "standardization": "Typically 24% flavonoid glycosides and 6% terpene lactones.",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
@@ -424,7 +394,6 @@
     ],
     "compound_count": "8",
     "pathway_count": "8",
-    "evidence_tier": "",
     "sources": [
       "Recovered from prior batch output in this conversation"
     ]
@@ -437,7 +406,6 @@
     "category": "herb",
     "class": "herb",
     "plantPartUsed": "leaf; aerial parts",
-    "commonNames": [],
     "region": "India, Southeast Asia",
     "summary": "Holy Basil (Ocimum tenuiflorum) is a herb monograph focused on the leaf; aerial parts used in herbal preparations. It is associated with India, Southeast Asia. Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways. Generally safe; possible mild GI upset.",
     "description": "Holy Basil is represented here as a monograph-style entry centered on the leaf; aerial parts. Key reported compounds include eugenol; ursolic acid; rosmarinic acid. Typical preparation forms: Leaf extracts, teas. Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways. Interaction profile: Anticoagulants, antidiabetic drugs. Use caution or avoid in: Pregnancy (limited data).",
@@ -470,11 +438,7 @@
       "Pregnancy (limited data)"
     ],
     "preparation": "Leaf extracts, teas",
-    "dosage": "",
     "standardization": "Eugenol or ursolic acid content",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Ready for QA",
     "readinessFlag": "Ready",
     "frontendReadyFlag": "Yes",
@@ -486,7 +450,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "NCCIH",
       "PubMed"
@@ -544,8 +507,6 @@
     "dosage": "~250 mg/day total kavalactones upper practical limit",
     "standardization": "Standardized to kavalactone content.",
     "qualityConcerns": "Avoid stems/leaves; extraction method matters.",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
@@ -557,7 +518,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Recovered from prior batch output in this conversation"
     ]
@@ -570,7 +530,6 @@
     "category": "herb",
     "class": "herb",
     "plantPartUsed": "leaf; aerial parts",
-    "commonNames": [],
     "region": "Europe, Mediterranean",
     "summary": "Lemon Balm (Melissa officinalis) is a herb monograph focused on the leaf; aerial parts used in herbal preparations. It is associated with Europe, Mediterranean. GABAergic (GABA transaminase inhibition); mild cholinergic activity. Generally safe; mild sedation possible.",
     "description": "Lemon Balm is represented here as a monograph-style entry centered on the leaf; aerial parts. Key reported compounds include rosmarinic acid; citral; citronellal; linalool; flavonoids. Typical preparation forms: Leaf extracts, teas, tinctures. GABAergic (GABA transaminase inhibition); mild cholinergic activity. Interaction profile: Sedatives, thyroid medications. Use caution or avoid in: Hypothyroidism (caution).",
@@ -599,11 +558,7 @@
       "Hypothyroidism (caution)"
     ],
     "preparation": "Leaf extracts, teas, tinctures",
-    "dosage": "",
     "standardization": "Rosmarinic acid content",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Ready for QA",
     "readinessFlag": "Ready",
     "frontendReadyFlag": "Yes",
@@ -615,7 +570,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "EMA herbal monograph",
       "NCCIH"
@@ -629,7 +583,6 @@
     "category": "root",
     "class": "root",
     "plantPartUsed": "root; hypocotyl",
-    "commonNames": [],
     "region": "Peru (Andes)",
     "summary": "Maca (Lepidium meyenii) is a root monograph focused on the root; hypocotyl used in herbal preparations. It is associated with Peru (Andes). May influence endocrine signaling and energy metabolism (unclear mechanism). Generally safe; mild GI upset possible.",
     "description": "Maca is represented here as a monograph-style entry centered on the root; hypocotyl. Key reported compounds include macamides; macaenes; glucosinolates. Typical preparation forms: Dried root powder, extracts. May influence endocrine signaling and energy metabolism (unclear mechanism). Interaction profile: Limited data. Use caution or avoid in: Hormone-sensitive conditions (caution).",
@@ -658,11 +611,6 @@
       "Hormone-sensitive conditions (caution)"
     ],
     "preparation": "Dried root powder, extracts",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Ready for QA",
     "readinessFlag": "Ready",
     "frontendReadyFlag": "Yes",
@@ -674,7 +622,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "PubMed",
       "NIH"
@@ -724,19 +671,14 @@
     "preparation": "Seed/fruit extracts standardized to silymarin.",
     "dosage": "250–750 mg silymarin 2–3 times daily",
     "standardization": "Typically 70–80% silymarin.",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "1",
     "priorityTier": "High",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
     "pathway_count": "0",
-    "evidence_tier": "",
     "sources": [
       "Recovered from prior batch output in this conversation"
     ]
@@ -781,11 +723,6 @@
       "and in people with gastro‑oesophageal reflux disease or bile duct obstruction. Use cautiously in those taking hepatotoxic drugs due to potential pulegone/menthofuran toxicity."
     ],
     "preparation": "Leaves and flowering tops are used fresh or dried to make teas and flavourings. Medicinal products include enteric‑coated capsules of peppermint oil and topical preparations.",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
@@ -797,7 +734,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "【697136726945063†L340-L345】",
       "【271856535371736†L224-L289】",
@@ -815,7 +751,6 @@
     "category": "adaptogenic root",
     "class": "adaptogenic root",
     "plantPartUsed": "root",
-    "commonNames": [],
     "region": "Europe, Asia (cold regions)",
     "summary": "Rhodiola Rosea (Rhodiola rosea) is a adaptogenic root monograph focused on the root used in herbal preparations. It is associated with Europe, Asia (cold regions). Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant. Generally well tolerated; possible dizziness, dry mouth, insomnia.",
     "description": "Rhodiola Rosea is represented here as a monograph-style entry centered on the root. Key reported compounds include rosavin; rosarin; rosin; salidroside; tyrosol. Typical preparation forms: Standardized root extracts. Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant. Interaction profile: SSRIs, MAOIs, stimulants. Use caution or avoid in: Bipolar disorder; avoid high doses before sleep.",
@@ -853,11 +788,7 @@
       "avoid high doses before sleep"
     ],
     "preparation": "Standardized root extracts",
-    "dosage": "",
     "standardization": "Typically 3% rosavins, 1% salidroside",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Ready for QA",
     "readinessFlag": "Ready",
     "frontendReadyFlag": "Yes",
@@ -869,7 +800,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "NCCIH",
       "PubMed adaptogen reviews"
@@ -883,7 +813,6 @@
     "category": "berry extract",
     "class": "berry extract",
     "plantPartUsed": "berry",
-    "commonNames": [],
     "region": "Southeastern United States",
     "summary": "Saw Palmetto (Serenoa repens) is a berry extract monograph focused on the berry used in herbal preparations. It is associated with Southeastern United States. 5-alpha-reductase inhibition; anti-androgenic effects. Generally safe; mild GI upset, headache.",
     "description": "Saw Palmetto is represented here as a monograph-style entry centered on the berry. Key reported compounds include fatty acids; phytosterols (beta-sitosterol). Typical preparation forms: Berry extracts. 5-alpha-reductase inhibition; anti-androgenic effects. Interaction profile: Hormonal therapies, anticoagulants. Use caution or avoid in: Pregnancy.",
@@ -914,21 +843,15 @@
       "Pregnancy"
     ],
     "preparation": "Berry extracts",
-    "dosage": "",
     "standardization": "Standardized to fatty acid content",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Ready for QA",
     "readinessFlag": "Ready",
     "frontendReadyFlag": "Yes",
     "completenessPct": "0.928571429",
     "priorityTier": "Medium",
     "totalScore": "8",
-    "pathwayTargets": [],
     "compound_count": "1",
     "pathway_count": "0",
-    "evidence_tier": "",
     "sources": [
       "NIH ODS",
       "EMA"
@@ -992,9 +915,6 @@
     "preparation": "Dried flowering tops or standardized extracts.",
     "dosage": "300 mg extract three times daily",
     "standardization": "Often 0.3% hypericin or 2–5% hyperforin.",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
@@ -1006,7 +926,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Recovered from prior batch output in this conversation"
     ]
@@ -1054,11 +973,6 @@
       "bleeding disorders or those taking anticoagulant or antiplatelet medications. Use is not recommended during pregnancy or breastfeeding."
     ],
     "preparation": "The rhizomes are boiled, dried and ground into powder used as a spice, dye and supplement. Extracts standardized for curcuminoid content are available as capsules or tablets.",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
@@ -1070,7 +984,6 @@
     ],
     "compound_count": "6",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "【768158627760254†L420-L432】",
       "【768158627760254†L442-L468】",
@@ -1122,10 +1035,6 @@
     ],
     "preparation": "Dried roots/rhizomes as teas, tinctures, or extracts.",
     "dosage": "300–600 mg extract",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
@@ -1137,7 +1046,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Recovered from prior batch output in this conversation"
     ]
@@ -1179,15 +1087,8 @@
     "contraindications": [
       "Use caution in uncontrolled blood pressure-sensitive contexts."
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Ready for QA",
     "readinessFlag": "Ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "9",
@@ -1195,9 +1096,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "yerba-mate",
@@ -1237,15 +1136,8 @@
     "contraindications": [
       "Use caution in uncontrolled blood pressure-sensitive contexts."
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -1253,9 +1145,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "damiana",
@@ -1294,15 +1184,8 @@
     "contraindications": [
       "Use caution in pregnancy-sensitive contexts."
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -1310,9 +1193,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "blue-lotus",
@@ -1351,15 +1232,8 @@
     "contraindications": [
       "Avoid high-sedation contexts without clear need."
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -1367,9 +1241,7 @@
       "unclassified"
     ],
     "compound_count": "5",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "kudzu",
@@ -1403,16 +1275,8 @@
     "interactions": [
       "Use caution in stacked contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -1420,9 +1284,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "yarrow",
@@ -1461,15 +1323,8 @@
     "contraindications": [
       "Use caution in pregnancy-sensitive contexts."
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -1477,9 +1332,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "feverfew",
@@ -1519,15 +1372,8 @@
     "contraindications": [
       "Use caution in pregnancy-sensitive and surgery-sensitive contexts"
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -1535,9 +1381,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "butterbur",
@@ -1571,16 +1415,8 @@
     "interactions": [
       "Use caution in stacked contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -1588,9 +1424,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "dong-quai",
@@ -1629,15 +1463,8 @@
     "contraindications": [
       "Avoid pregnancy-sensitive contexts unless professionally guided."
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -1645,9 +1472,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "rosemary",
@@ -1686,15 +1511,8 @@
     "contraindications": [
       "Use caution with seizure-sensitive contexts at concentrated intake levels."
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -1702,9 +1520,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "sage",
@@ -1743,15 +1559,8 @@
     "contraindications": [
       "Use caution in seizure-sensitive contexts at high-concentration intake levels."
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -1759,9 +1568,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "thyme",
@@ -1800,15 +1607,8 @@
     "contraindications": [
       "Use caution with highly sensitive GI contexts at concentrated intake."
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -1816,9 +1616,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "oregano",
@@ -1861,23 +1659,13 @@
     "contraindications": [
       "Use caution with gastric irritation-sensitive contexts"
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "eucalyptus",
@@ -1920,23 +1708,13 @@
     "contraindications": [
       "Use caution with young children and high-dose essential-oil contexts"
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "artichoke",
@@ -1972,16 +1750,8 @@
     "interactions": [
       "Avoid with bile-duct obstruction or severe gallbladder issues."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -1989,9 +1759,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "fennel",
@@ -2027,16 +1795,8 @@
     "interactions": [
       "Use caution in highly concentrated oil form."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2044,9 +1804,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "cinnamon",
@@ -2082,16 +1840,8 @@
     "interactions": [
       "Use caution with concentrated extracts and coumarin-sensitive contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2099,9 +1849,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "dandelion",
@@ -2137,16 +1885,8 @@
     "interactions": [
       "Use caution with aggressive diuretic stacking or ragweed-family sensitivity."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2154,9 +1894,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "burdock",
@@ -2192,16 +1930,8 @@
     "interactions": [
       "Use caution with daisy-family sensitivities."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2209,9 +1939,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "chamomile",
@@ -2247,16 +1975,8 @@
     "interactions": [
       "Use caution with ragweed-family allergy contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2268,9 +1988,7 @@
       "adrenergic signaling"
     ],
     "compound_count": "6",
-    "pathway_count": "5",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "5"
   },
   {
     "slug": "red-clover",
@@ -2305,16 +2023,8 @@
     "interactions": [
       "Use caution in hormone-sensitive contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2322,9 +2032,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "oatstraw",
@@ -2360,16 +2068,8 @@
     "interactions": [
       "Use caution with gluten cross-contact concerns depending on sourcing."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2377,9 +2077,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "calendula",
@@ -2415,16 +2113,8 @@
     "interactions": [
       "Use caution with daisy-family sensitivities."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2432,9 +2122,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "pau-darco",
@@ -2470,16 +2158,8 @@
     "interactions": [
       "Avoid exaggerated disease-treatment claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2487,9 +2167,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "gymnema",
@@ -2523,16 +2201,8 @@
     "interactions": [
       "Use caution with glucose-lowering strategies."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2540,9 +2210,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "banaba",
@@ -2577,16 +2245,8 @@
     "interactions": [
       "Use caution with glucose-lowering strategies."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2594,9 +2254,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "mulberry-leaf",
@@ -2631,16 +2289,8 @@
     "interactions": [
       "Use caution with glucose-lowering strategies."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2648,9 +2298,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "neem",
@@ -2686,16 +2334,8 @@
     "interactions": [
       "Avoid overextending seed-oil safety assumptions to all forms."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2703,9 +2343,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "mugwort",
@@ -2741,16 +2379,8 @@
     "interactions": [
       "Avoid during pregnancy."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2758,9 +2388,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "lemon-verbena",
@@ -2796,16 +2424,8 @@
     "interactions": [
       "Use caution with concentrated essential-oil contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2813,9 +2433,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "milky-oats",
@@ -2852,16 +2470,8 @@
     "interactions": [
       "Use caution with sourcing and gluten cross-contact concerns."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2869,9 +2479,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "cissus",
@@ -2907,24 +2515,13 @@
     "interactions": [
       "Use caution with aggressive performance claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "ashitaba",
@@ -2960,16 +2557,8 @@
     "interactions": [
       "Use caution with concentrated extract marketing claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -2977,9 +2566,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "pomegranate",
@@ -3015,16 +2602,8 @@
     "interactions": [
       "Use caution with overgeneralized disease claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -3032,9 +2611,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "moringa",
@@ -3071,13 +2648,6 @@
     "interactions": [
       "Use caution with concentrated extracts and glucose-lowering strategies."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3089,7 +2659,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3128,13 +2697,6 @@
     "interactions": [
       "Use caution with blood-pressure-lowering strategies."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3147,7 +2709,6 @@
     ],
     "compound_count": "2",
     "pathway_count": "2",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3186,13 +2747,6 @@
     "interactions": [
       "Use caution with overgeneralized disease claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3204,7 +2758,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3242,23 +2795,14 @@
     "interactions": [
       "Use caution with anticoagulant-sensitive contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
     "completenessPct": "0.55",
     "priorityTier": "Medium",
     "totalScore": "5",
-    "pathwayTargets": [],
     "compound_count": "1",
     "pathway_count": "0",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3297,13 +2841,6 @@
     "interactions": [
       "Use caution with overly concentrated extract claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3315,7 +2852,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3355,13 +2891,6 @@
     "interactions": [
       "Avoid long-duration casual use."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3373,7 +2902,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3412,13 +2940,6 @@
     "interactions": [
       "Use caution with concentrated oil assumptions."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3430,7 +2951,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3469,23 +2989,14 @@
     "interactions": [
       "Use caution with overextended immune claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
     "completenessPct": "0.55",
     "priorityTier": "Medium",
     "totalScore": "5",
-    "pathwayTargets": [],
     "compound_count": "1",
     "pathway_count": "0",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3524,13 +3035,6 @@
     "interactions": [
       "Use caution with exaggerated anti-inflammatory claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3542,7 +3046,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3580,13 +3083,6 @@
     "interactions": [
       "Avoid with bile obstruction or excessive casual use."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3598,7 +3094,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3638,13 +3133,6 @@
     "interactions": [
       "Avoid overextended vitality claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3656,7 +3144,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3694,13 +3181,6 @@
     "interactions": [
       "Use caution with aggressive performance claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3712,7 +3192,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3751,13 +3230,6 @@
     "interactions": [
       "Use caution with sedative stacking."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3769,7 +3241,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3808,13 +3279,6 @@
     "interactions": [
       "Avoid exaggerated oncology claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3826,7 +3290,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3864,13 +3327,6 @@
     "interactions": [
       "Avoid overextended reproductive-health claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3882,7 +3338,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3920,13 +3375,6 @@
     "interactions": [
       "Avoid overstated nootropic claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3938,7 +3386,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -3977,13 +3424,6 @@
     "interactions": [
       "Use caution with sedative stacking."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -3995,7 +3435,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -4035,13 +3474,6 @@
     "interactions": [
       "Use caution with concentrated oil assumptions."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -4053,7 +3485,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -4094,13 +3525,6 @@
     "interactions": [
       "Use caution with concentrated oil assumptions."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -4112,7 +3536,6 @@
     ],
     "compound_count": "1",
     "pathway_count": "1",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -4151,23 +3574,14 @@
     "interactions": [
       "Use caution with overextended glycemic claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
     "completenessPct": "0.55",
     "priorityTier": "Medium",
     "totalScore": "5",
-    "pathwayTargets": [],
     "compound_count": "1",
     "pathway_count": "0",
-    "evidence_tier": "",
     "sources": [
       "Pass 125 curated expansion"
     ]
@@ -4207,24 +3621,13 @@
     "interactions": [
       "Use caution with anticoagulant-sensitive contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "eucommia",
@@ -4260,16 +3663,8 @@
     "interactions": [
       "Avoid overextended tonic claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -4277,9 +3672,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "cistanche",
@@ -4315,16 +3708,8 @@
     "interactions": [
       "Use caution with exaggerated vitality claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -4332,9 +3717,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "jujube",
@@ -4371,24 +3754,13 @@
     "interactions": [
       "Use caution with sedative stacking."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "longan",
@@ -4424,16 +3796,8 @@
     "interactions": [
       "Avoid overextended nootropic claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -4441,9 +3805,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "polygala",
@@ -4480,16 +3842,8 @@
     "interactions": [
       "Use caution with sedative stacking."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -4497,9 +3851,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "gastrodia",
@@ -4535,16 +3887,8 @@
     "interactions": [
       "Avoid overstated neuroprotective claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -4552,9 +3896,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "white-peony",
@@ -4589,16 +3931,8 @@
     "interactions": [
       "Use caution with anticoagulant-sensitive contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -4606,9 +3940,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "bupleurum",
@@ -4643,24 +3975,13 @@
     "interactions": [
       "Avoid overgeneralized mood claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "codonopsis",
@@ -4697,24 +4018,13 @@
     "interactions": [
       "Avoid exaggerated adaptogen claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "dendrobium",
@@ -4750,16 +4060,8 @@
     "interactions": [
       "Avoid exaggerated anti-aging claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -4767,9 +4069,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "ophiopogon",
@@ -4805,24 +4105,13 @@
     "interactions": [
       "Avoid overextended pulmonary claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "houttuynia",
@@ -4858,16 +4147,8 @@
     "interactions": [
       "Avoid exaggerated antiviral claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -4875,9 +4156,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "isatis",
@@ -4914,16 +4193,8 @@
     "interactions": [
       "Avoid exaggerated infection-treatment claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -4931,9 +4202,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "sophora-flavescens",
@@ -4969,16 +4238,8 @@
     "interactions": [
       "Avoid overextended antimicrobial claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Ready for QA",
     "readinessFlag": "Ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "8",
@@ -4986,9 +4247,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "notoginseng",
@@ -5025,24 +4284,13 @@
     "interactions": [
       "Use caution with anticoagulant-sensitive contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "luo-han-guo",
@@ -5078,24 +4326,13 @@
     "interactions": [
       "Avoid overextended glycemic claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "kuding-tea",
@@ -5131,16 +4368,8 @@
     "interactions": [
       "Use caution with strong bitterness and GI sensitivity."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -5148,9 +4377,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "atractylodes",
@@ -5185,24 +4412,13 @@
     "interactions": [
       "Avoid overextended metabolic claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "schisandra-berry",
@@ -5238,24 +4454,13 @@
     "interactions": [
       "Use caution with CYP-sensitive medication contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Ready for QA",
     "readinessFlag": "Ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "8",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "catuaba",
@@ -5291,24 +4496,13 @@
     "interactions": [
       "Avoid exaggerated sexual-performance claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "muira-puama",
@@ -5344,16 +4538,8 @@
     "interactions": [
       "Avoid overextended neurocognitive claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -5361,9 +4547,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "maitake-d-fraction",
@@ -5397,16 +4581,8 @@
     "interactions": [
       "Avoid exaggerated oncology-treatment claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -5414,9 +4590,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "poria",
@@ -5453,16 +4627,8 @@
     "interactions": [
       "Avoid overextended diuretic claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -5470,9 +4636,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "rehmannia-prepared",
@@ -5508,16 +4672,8 @@
     "interactions": [
       "Avoid conflating raw and prepared-form actions."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -5525,9 +4681,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "agarikon",
@@ -5563,16 +4717,8 @@
     "interactions": [
       "Avoid exaggerated antimicrobial claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -5580,9 +4726,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "elecampane",
@@ -5618,16 +4762,8 @@
     "interactions": [
       "Use caution with ragweed-family sensitivity."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -5635,9 +4771,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "angelica-root",
@@ -5673,16 +4807,8 @@
     "interactions": [
       "Use caution with photosensitivity-related contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -5690,9 +4816,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "galangal",
@@ -5728,16 +4852,8 @@
     "interactions": [
       "Avoid overextended antimicrobial claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -5745,9 +4861,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "black-pepper",
@@ -5786,15 +4900,8 @@
     "contraindications": [
       "Use caution in reflux-sensitive contexts."
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -5804,9 +4911,7 @@
       "unclassified"
     ],
     "compound_count": "3",
-    "pathway_count": "3",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "3"
   },
   {
     "slug": "cardamom",
@@ -5843,16 +4948,8 @@
     "interactions": [
       "Use caution with concentrated essential-oil assumptions."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -5860,9 +4957,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "holy-basil-seed",
@@ -5899,24 +4994,13 @@
     "interactions": [
       "Separate from oral medications in concentrated use."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "psyllium",
@@ -5952,24 +5036,13 @@
     "interactions": [
       "Separate from oral medications."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "caraway",
@@ -6005,16 +5078,8 @@
     "interactions": [
       "Use caution with concentrated oil assumptions."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -6022,9 +5087,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "ajwain",
@@ -6059,16 +5122,8 @@
     "interactions": [
       "Avoid overextended antimicrobial claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -6076,9 +5131,7 @@
       "unclassified"
     ],
     "compound_count": "3",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "holy-basil-purple",
@@ -6114,16 +5167,8 @@
     "interactions": [
       "Use caution with concentrated extract marketing claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -6131,9 +5176,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "curry-leaf",
@@ -6169,16 +5212,8 @@
     "interactions": [
       "Avoid overextended glycemic claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -6186,9 +5221,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "gudmar",
@@ -6222,16 +5255,8 @@
     "interactions": [
       "Use caution with glucose-lowering strategies."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -6239,9 +5264,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "roselle-seed",
@@ -6277,16 +5300,8 @@
     "interactions": [
       "Avoid conflating seed with calyx evidence."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -6294,9 +5309,7 @@
       "oxidative stress reduction"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "tamarind",
@@ -6332,16 +5345,8 @@
     "interactions": [
       "Use caution with overextended laxative claims."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -6349,9 +5354,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "rhodiola",
@@ -6388,16 +5391,8 @@
     "interactions": [
       "Dose dependent"
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Ready for QA",
     "readinessFlag": "Ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "8",
@@ -6405,9 +5400,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "cordyceps",
@@ -6441,16 +5434,8 @@
     "interactions": [
       "Generally well tolerated"
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -6458,9 +5443,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "lions-mane",
@@ -6497,24 +5480,13 @@
     "interactions": [
       "Mild GI possible"
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "panax-ginseng",
@@ -6548,16 +5520,8 @@
     "interactions": [
       "Stimulatory in high doses"
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
@@ -6570,9 +5534,7 @@
       "neurotrophic signaling"
     ],
     "compound_count": "8",
-    "pathway_count": "8",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "8"
   },
   {
     "slug": "passionflower",
@@ -6606,16 +5568,8 @@
     "interactions": [
       "Sedation possible"
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -6623,9 +5577,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "yohimbe",
@@ -6659,16 +5611,8 @@
     "interactions": [
       "High BP risk"
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
@@ -6676,9 +5620,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "skullcap",
@@ -6712,24 +5654,13 @@
     "interactions": [
       "Mild sedation"
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "eleuthero",
@@ -6763,16 +5694,8 @@
     "interactions": [
       "Generally safe"
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
@@ -6780,9 +5703,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "gotu-kola",
@@ -6816,24 +5737,13 @@
     "interactions": [
       "Generally safe"
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "schisandra",
@@ -6867,24 +5777,13 @@
     "interactions": [
       "Generally safe"
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "reishi",
@@ -6918,16 +5817,8 @@
     "interactions": [
       "Mild GI"
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -6935,9 +5826,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "chaga",
@@ -6971,24 +5860,13 @@
     "interactions": [
       "Oxalates"
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "turkey-tail",
@@ -7022,24 +5900,13 @@
     "interactions": [
       "Generally safe"
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "boswellia",
@@ -7076,24 +5943,13 @@
     "interactions": [
       "Use caution with GI sensitivity."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "hawthorn",
@@ -7129,24 +5985,13 @@
     "interactions": [
       "Use caution with cardiovascular medications."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "astragalus",
@@ -7182,24 +6027,13 @@
     "interactions": [
       "Use caution in autoimmune contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "nettle-root",
@@ -7235,16 +6069,8 @@
     "interactions": [
       "Use caution with urinary medications."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
@@ -7252,9 +6078,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "bacopa",
@@ -7290,24 +6114,13 @@
     "interactions": [
       "Use caution with GI sensitivity."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "1",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "mucuna",
@@ -7347,24 +6160,13 @@
       "stimulants",
       "and antipsychotics."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "epimedium",
@@ -7404,16 +6206,8 @@
       "stimulants",
       "and anticoagulants."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
@@ -7423,9 +6217,7 @@
       "PDE5-related signaling"
     ],
     "compound_count": "5",
-    "pathway_count": "3",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "3"
   },
   {
     "slug": "tongkat-ali",
@@ -7464,24 +6256,13 @@
       "glucose-lowering agents",
       "and hormone-sensitive contexts."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "shatavari",
@@ -7519,24 +6300,13 @@
       "hormone-modulating therapies",
       "and glucose-lowering agents."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "pueraria-mirifica",
@@ -7574,24 +6344,13 @@
       "contraceptives",
       "and endocrine-active drugs."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "cacao",
@@ -7629,24 +6388,13 @@
     "interactions": [
       "May interact with stimulants and can add to caffeine-like effects."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "rooibos",
@@ -7685,24 +6433,13 @@
       "No major interaction pattern is firmly established",
       "use routine caution in polypharmacy."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "cats-claw",
@@ -7741,24 +6478,13 @@
       "anticoagulants",
       "and antihypertensive drugs."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "lavender",
@@ -7794,24 +6520,13 @@
     "interactions": [
       "May add to sedative effects from CNS depressants."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "Medium",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "berberis",
@@ -7850,24 +6565,13 @@
       "glucose-lowering agents",
       "and anticoagulants."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "bitter-melon",
@@ -7905,24 +6609,13 @@
     "interactions": [
       "May add to glucose-lowering drugs and should be used cautiously with diabetes medications."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "coleus-forskohlii",
@@ -7961,24 +6654,13 @@
       "bronchodilators",
       "and stimulant stacks."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
-    "frontendReadyFlag": "",
     "completenessPct": "0.9",
     "priorityTier": "High",
     "totalScore": "3",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "aloe-vera",
@@ -7991,7 +6673,6 @@
     "commonNames": [
       "aloe vera"
     ],
-    "region": "",
     "summary": "Aloe Vera is an intake-stage monograph candidate linked to 1 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Aloe Vera through compounds such as aloin.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -8021,23 +6702,14 @@
     "contraindications": [
       "Use caution with diarrhea-prone or pregnancy-sensitive contexts when latex fractions are relevant"
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "4",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "american-ginseng",
@@ -8050,7 +6722,6 @@
     "commonNames": [
       "american ginseng"
     ],
-    "region": "",
     "summary": "American Ginseng is an intake-stage monograph candidate linked to 3 internal compound records and pathway tags including gabaergic_modulation, inflammatory_pathway_modulation.",
     "description": "Internal cross-linking supports American Ginseng through compounds such as ginsenosides (including rb1, rg1), rb2.",
     "mechanism": "Internal workbook mapping currently connects this herb to gabaergic_modulation, inflammatory_pathway_modulation.",
@@ -8074,24 +6745,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "artemisia-annua",
@@ -8104,7 +6765,6 @@
     "commonNames": [
       "artemisia annua"
     ],
-    "region": "",
     "summary": "Artemisia Annua is an intake-stage monograph candidate linked to 1 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Artemisia Annua through compounds such as artemisinin.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -8134,23 +6794,14 @@
     "contraindications": [
       "Avoid pregnancy-sensitive contexts without stronger review"
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "4",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "celastrus-paniculatus",
@@ -8163,7 +6814,6 @@
     "commonNames": [
       "celastrus paniculatus"
     ],
-    "region": "",
     "summary": "Celastrus Paniculatus is an intake-stage monograph candidate linked to 4 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Celastrus Paniculatus through compounds such as beta-amyrin, celastrine, lupeol.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -8187,13 +6837,6 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
@@ -8204,9 +6847,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "acorus-calamus",
@@ -8219,7 +6860,6 @@
     "commonNames": [
       "calamus"
     ],
-    "region": "",
     "summary": "Calamus is an intake-stage monograph candidate linked to 3 internal compound records and pathway tags including gabaergic_modulation, NF-kB pathway inhibition.",
     "description": "Internal cross-linking supports Calamus through compounds such as eugenol, alpha-asarone, beta-asarone.",
     "mechanism": "Internal workbook mapping currently connects this herb to gabaergic_modulation, NF-kB pathway inhibition, PLCγ2-PKC pathway inhibition.",
@@ -8244,24 +6884,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "capsicum-annuum",
@@ -8274,7 +6904,6 @@
     "commonNames": [
       "cayenne"
     ],
-    "region": "",
     "summary": "Cayenne is an intake-stage monograph candidate linked to 4 internal compound records and pathway tags including TRPV1 activation.",
     "description": "Internal cross-linking supports Cayenne through compounds such as capsaicin, capsorubin, dihydrocapsaicin.",
     "mechanism": "Internal workbook mapping currently connects this herb to TRPV1 activation.",
@@ -8298,24 +6927,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "corydalis-yanhusuo",
@@ -8328,7 +6947,6 @@
     "commonNames": [
       "corydalis"
     ],
-    "region": "",
     "summary": "Corydalis is an intake-stage monograph candidate linked to 4 internal compound records and pathway tags including dopaminergic_modulation.",
     "description": "Internal cross-linking supports Corydalis through compounds such as corydaline, isocorypalmine, dehydrocorybulbine.",
     "mechanism": "Internal workbook mapping currently connects this herb to dopaminergic_modulation.",
@@ -8352,13 +6970,6 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
@@ -8371,9 +6982,7 @@
       "unclassified"
     ],
     "compound_count": "2",
-    "pathway_count": "3",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "3"
   },
   {
     "slug": "scutellaria-baicalensis",
@@ -8386,7 +6995,6 @@
     "commonNames": [
       "chinese skullcap"
     ],
-    "region": "",
     "summary": "Chinese Skullcap is an intake-stage monograph candidate linked to 3 internal compound records and pathway tags including gabaergic_modulation, LOX inhibition.",
     "description": "Internal cross-linking supports Chinese Skullcap through compounds such as baicalein, baicalin, wogonin.",
     "mechanism": "Internal workbook mapping currently connects this herb to gabaergic_modulation, LOX inhibition, NF-kB inhibition.",
@@ -8411,13 +7019,6 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
@@ -8430,9 +7031,7 @@
       "unclassified"
     ],
     "compound_count": "5",
-    "pathway_count": "3",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "3"
   },
   {
     "slug": "phellodendron-amurense",
@@ -8445,7 +7044,6 @@
     "commonNames": [
       "phellodendron"
     ],
-    "region": "",
     "summary": "Phellodendron is an intake-stage monograph candidate linked to 3 internal compound records and pathway tags including AMPK activation, NF-kB pathway inhibition.",
     "description": "Internal cross-linking supports Phellodendron through compounds such as berberine, jatrorrhizine, palmatine.",
     "mechanism": "Internal workbook mapping currently connects this herb to AMPK activation, NF-kB pathway inhibition, mitochondrial complex I inhibition.",
@@ -8470,24 +7068,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "coptis-chinensis",
@@ -8500,7 +7088,6 @@
     "commonNames": [
       "coptis"
     ],
-    "region": "",
     "summary": "Coptis is an intake-stage monograph candidate linked to 3 internal compound records and pathway tags including AMPK activation, NF-kB pathway inhibition.",
     "description": "Internal cross-linking supports Coptis through compounds such as berberine, palmatine, coptisine.",
     "mechanism": "Internal workbook mapping currently connects this herb to AMPK activation, NF-kB pathway inhibition, mitochondrial complex I inhibition.",
@@ -8525,24 +7112,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "crocus-sativus",
@@ -8555,7 +7132,6 @@
     "commonNames": [
       "saffron"
     ],
-    "region": "",
     "summary": "Saffron is an intake-stage monograph candidate linked to 4 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Saffron through compounds such as picrocrocin, crocin, safranal.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -8579,24 +7155,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "carica-papaya",
@@ -8609,7 +7175,6 @@
     "commonNames": [
       "papaya leaf"
     ],
-    "region": "",
     "summary": "Papaya Leaf is an intake-stage monograph candidate linked to 4 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Papaya Leaf through compounds such as carpaine, papain, benzyl isothiocyanate.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -8633,24 +7198,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "sceletium-tortuosum",
@@ -8663,7 +7218,6 @@
     "commonNames": [
       "kanna"
     ],
-    "region": "",
     "summary": "Kanna is an intake-stage monograph candidate linked to 4 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Kanna through compounds such as mesembrenone, mesembranol, mesembrine.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -8687,24 +7241,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "camellia-sinensis",
@@ -8717,7 +7261,6 @@
     "commonNames": [
       "green tea"
     ],
-    "region": "",
     "summary": "Green Tea is an intake-stage monograph candidate linked to 3 internal compound records and pathway tags including adenosine_antagonism, ADORA1, ADORA2A (adenosine receptors).",
     "description": "Internal cross-linking supports Green Tea through compounds such as caffeine, theanine, catechins (egcg).",
     "mechanism": "Internal workbook mapping currently connects this herb to adenosine_antagonism, ADORA1, ADORA2A (adenosine receptors), dopaminergic_modulation.",
@@ -8743,13 +7286,6 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
@@ -8765,9 +7301,7 @@
       "AMPK activation"
     ],
     "compound_count": "5",
-    "pathway_count": "9",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "9"
   },
   {
     "slug": "hydrastis-canadensis",
@@ -8780,7 +7314,6 @@
     "commonNames": [
       "goldenseal"
     ],
-    "region": "",
     "summary": "Goldenseal is an intake-stage monograph candidate linked to 2 internal compound records and pathway tags including AMPK activation, NF-kB pathway inhibition.",
     "description": "Internal cross-linking supports Goldenseal through compounds such as berberine, hydrastine.",
     "mechanism": "Internal workbook mapping currently connects this herb to AMPK activation, NF-kB pathway inhibition, mitochondrial complex I inhibition.",
@@ -8804,24 +7337,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "salacia-reticulata",
@@ -8834,7 +7357,6 @@
     "commonNames": [
       "salacia"
     ],
-    "region": "",
     "summary": "Salacia is an intake-stage monograph candidate linked to 3 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Salacia through compounds such as mangiferin, kotalanol, salacinol.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -8857,24 +7379,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "ligusticum-chuanxiong",
@@ -8887,7 +7399,6 @@
     "commonNames": [
       "chuanxiong"
     ],
-    "region": "",
     "summary": "Chuanxiong is an intake-stage monograph candidate linked to 3 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Chuanxiong through compounds such as ligustilide, ferulic acid, tetramethylpyrazine.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -8917,23 +7428,14 @@
     "contraindications": [
       "Use caution in pregnancy-sensitive or bleeding-sensitive contexts"
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "boesenbergia-rotunda",
@@ -8946,7 +7448,6 @@
     "commonNames": [
       "fingerroot"
     ],
-    "region": "",
     "summary": "Fingerroot is an intake-stage monograph candidate linked to 3 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Fingerroot through compounds such as pinostrobin, pinocembrin, panduratin a.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -8969,24 +7470,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "artemisia-absinthium",
@@ -8999,7 +7490,6 @@
     "commonNames": [
       "wormwood"
     ],
-    "region": "",
     "summary": "Wormwood is an intake-stage monograph candidate linked to 3 internal compound records and pathway tags including gabaergic_modulation.",
     "description": "Internal cross-linking supports Wormwood through compounds such as alpha-thujone, absinthin, beta-thujone.",
     "mechanism": "Internal workbook mapping currently connects this herb to gabaergic_modulation.",
@@ -9022,24 +7512,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "aesculus-hippocastanum",
@@ -9052,7 +7532,6 @@
     "commonNames": [
       "horse chestnut"
     ],
-    "region": "",
     "summary": "Horse Chestnut is an intake-stage monograph candidate linked to 3 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Horse Chestnut through compounds such as aesculin, aescin, fraxin.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -9081,23 +7560,14 @@
     "contraindications": [
       "Use caution around anticoagulant-sensitive and GI-sensitive contexts"
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "aegle-marmelos",
@@ -9110,7 +7580,6 @@
     "commonNames": [
       "bael"
     ],
-    "region": "",
     "summary": "Bael is an intake-stage monograph candidate linked to 3 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Bael through compounds such as skimmianine, aegeline, marmelosin.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -9133,24 +7602,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "ilex-guayusa",
@@ -9163,7 +7622,6 @@
     "commonNames": [
       "guayusa"
     ],
-    "region": "",
     "summary": "Guayusa is an intake-stage monograph candidate linked to 2 internal compound records and pathway tags including ADORA1, ADORA2A (adenosine receptors), adenosine_antagonism.",
     "description": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine.",
     "mechanism": "Internal workbook mapping currently connects this herb to ADORA1, ADORA2A (adenosine receptors), adenosine_antagonism, dopaminergic_modulation.",
@@ -9188,24 +7646,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "lonicera-japonica",
@@ -9218,7 +7666,6 @@
     "commonNames": [
       "honeysuckle"
     ],
-    "region": "",
     "summary": "Honeysuckle is an intake-stage monograph candidate linked to 2 internal compound records and pathway tags including MAPK pathway inhibition, NF-kB inhibition.",
     "description": "Internal cross-linking supports Honeysuckle through compounds such as luteolin, chlorogenic acid.",
     "mechanism": "Internal workbook mapping currently connects this herb to MAPK pathway inhibition, NF-kB inhibition.",
@@ -9241,24 +7688,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "cassia-alata",
@@ -9271,7 +7708,6 @@
     "commonNames": [
       "cassia alata"
     ],
-    "region": "",
     "summary": "Cassia Alata is an intake-stage monograph candidate linked to 2 internal compound records and pathway tags including MAPK pathway, NF-kB inhibition.",
     "description": "Internal cross-linking supports Cassia Alata through compounds such as aloe-emodin, chrysophanol.",
     "mechanism": "Internal workbook mapping currently connects this herb to MAPK pathway, NF-kB inhibition.",
@@ -9294,24 +7730,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "nelumbo-lutea",
@@ -9324,7 +7750,6 @@
     "commonNames": [
       "american yellow lotus"
     ],
-    "region": "",
     "summary": "American Yellow Lotus is an intake-stage monograph candidate linked to 4 internal compound records and pathway tags including dopaminergic_modulation.",
     "description": "Internal cross-linking supports American Yellow Lotus through compounds such as nuciferine, roemerine, n-methylasimilobine.",
     "mechanism": "Internal workbook mapping currently connects this herb to dopaminergic_modulation.",
@@ -9348,24 +7773,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "7",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "agastache-foeniculum",
@@ -9378,7 +7793,6 @@
     "commonNames": [
       "anise hyssop"
     ],
-    "region": "",
     "summary": "Anise Hyssop is an intake-stage monograph candidate linked to 3 internal compound records and pathway tags including endocannabinoid_modulation.",
     "description": "Internal cross-linking supports Anise Hyssop through compounds such as limonene, anethole, estragole.",
     "mechanism": "Internal workbook mapping currently connects this herb to endocannabinoid_modulation.",
@@ -9401,24 +7815,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "althaea-officinalis",
@@ -9431,7 +7835,6 @@
     "commonNames": [
       "marshmallow"
     ],
-    "region": "",
     "summary": "Marshmallow is an intake-stage monograph candidate linked to 1 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Marshmallow through compounds such as pectin.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -9459,23 +7862,14 @@
     "contraindications": [
       "Use caution where reduced absorption timing could matter"
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "4",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "glycyrrhiza-glabra",
@@ -9488,7 +7882,6 @@
     "commonNames": [
       "licorice"
     ],
-    "region": "",
     "summary": "Licorice is an intake-stage monograph candidate linked to 1 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Licorice through compounds such as glycyrrhizin.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -9509,24 +7902,14 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "4",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "sambucus-nigra",
@@ -9539,7 +7922,6 @@
     "commonNames": [
       "elderberry"
     ],
-    "region": "",
     "summary": "Elderberry is an intake-stage monograph candidate linked to 1 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -9569,23 +7951,14 @@
     "contraindications": [
       "Avoid raw or improperly prepared plant material"
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "4",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   },
   {
     "slug": "boerhavia-diffusa",
@@ -9598,7 +7971,6 @@
     "commonNames": [
       "punarnava"
     ],
-    "region": "",
     "summary": "Punarnava is an intake-stage monograph candidate linked to 1 internal compound records in the current workbook.",
     "description": "Internal cross-linking supports Punarnava through compounds such as punarnavine.",
     "mechanism": "Current internal mapping is compound-linked, with pathway resolution still limited.",
@@ -9628,12 +8000,6 @@
     "contraindications": [
       "Use caution with dehydration-prone or blood pressure-sensitive contexts"
     ],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Source review",
     "readinessFlag": "Needs work",
     "frontendReadyFlag": "No",
@@ -9644,9 +8010,7 @@
       "unclassified"
     ],
     "compound_count": "1",
-    "pathway_count": "1",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "1"
   },
   {
     "slug": "coffee",
@@ -9659,7 +8023,6 @@
     "commonNames": [
       "coffee cherry"
     ],
-    "region": "",
     "summary": "Coffee Cherry is an intake-stage monograph candidate linked to 4 internal compound records and pathway tags including adenosine_antagonism, ADORA1, ADORA2A (adenosine receptors).",
     "description": "Internal cross-linking supports Coffee Cherry through compounds such as caffeine, trigonelline, cafestol.",
     "mechanism": "Internal workbook mapping currently connects this herb to adenosine_antagonism, ADORA1, ADORA2A (adenosine receptors), dopaminergic_modulation.",
@@ -9686,23 +8049,13 @@
     "interactions": [
       "Interaction review required before publication."
     ],
-    "contraindications": [],
-    "preparation": "",
-    "dosage": "",
-    "standardization": "",
-    "qualityConcerns": "",
-    "confidenceLevel": "",
-    "confidence": "",
     "publishStatus": "Editorial polish",
     "readinessFlag": "Near ready",
     "frontendReadyFlag": "No",
     "completenessPct": "0.95",
     "priorityTier": "High",
     "totalScore": "6",
-    "pathwayTargets": [],
     "compound_count": "0",
-    "pathway_count": "0",
-    "evidence_tier": "",
-    "sources": []
+    "pathway_count": "0"
   }
 ]
