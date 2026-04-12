@@ -64,6 +64,16 @@ function splitSemicolonOrCommaList(value) {
   return splitList(value, /[;,|]/)
 }
 
+function firstMeaningful(...values) {
+  for (const value of values) {
+    const cleaned = cleanScalar(value)
+    if (isMeaningfulValue(cleaned)) {
+      return cleaned
+    }
+  }
+  return ''
+}
+
 function slugify(value) {
   return toCleanString(value)
     .toLowerCase()
@@ -125,10 +135,12 @@ function exportHerbs(workbook, diagnostics) {
 
   const records = rows
     .map(row => ({
-      slug: cleanScalar(row.slug),
+      slug: firstMeaningful(row.slug, row.herbSlug, row.name ? slugify(row.name) : ''),
       name: cleanScalar(row.name),
-      scientificName: cleanScalar(row.scientificName),
-      category: cleanScalar(row.category),
+      scientificName: firstMeaningful(row.scientificName, row.latin, row.latinName),
+      latin: firstMeaningful(row.scientificName, row.latin, row.latinName),
+      category: firstMeaningful(row.category, row.class),
+      class: firstMeaningful(row.category, row.class),
       plantPartUsed: cleanScalar(row.plantPartUsed),
       commonNames: splitSemicolonOrCommaList(row.commonNames),
       region: cleanScalar(row.region),
@@ -136,8 +148,9 @@ function exportHerbs(workbook, diagnostics) {
       description: cleanScalar(row.description),
       mechanism: cleanScalar(row.mechanism),
       mechanismTags: splitSemicolonOrCommaList(row.mechanismTags),
-      evidenceLevel: cleanScalar(row.evidenceLevel),
+      evidenceLevel: firstMeaningful(row.evidenceLevel, row.evidence_tier, row.evidenceTier),
       activeCompounds: splitSemicolonOrCommaList(row.activeCompounds),
+      topCompounds: splitSemicolonOrCommaList(firstMeaningful(row.topCompounds, row.markerCompounds)),
       markerCompounds: splitSemicolonOrCommaList(row.markerCompounds),
       safetyNotes: cleanScalar(row.safetyNotes),
       interactions: splitSemicolonOrCommaList(row.interactions),
@@ -146,8 +159,9 @@ function exportHerbs(workbook, diagnostics) {
       dosage: cleanScalar(row.dosage),
       standardization: cleanScalar(row.standardization),
       qualityConcerns: cleanScalar(row.qualityConcerns),
-      confidence: cleanScalar(row.confidence),
-      publishStatus: cleanScalar(row.publishStatus),
+      confidenceLevel: firstMeaningful(row.confidenceLevel, row.confidence),
+      confidence: firstMeaningful(row.confidenceLevel, row.confidence),
+      publishStatus: firstMeaningful(row.publishStatus, row.readinessFlag),
       readinessFlag: cleanScalar(row.readinessFlag),
       frontendReadyFlag: cleanScalar(row.frontendReadyFlag),
       completenessPct: cleanScalar(row.completenessPct),
@@ -175,9 +189,14 @@ function exportCompounds(workbook, diagnostics) {
   const rows = readSheetRows(workbook, 'Compound Master V3', diagnostics)
   const records = rows.map(row => ({
     id: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.canonicalCompoundName || row.Compound),
+    slug: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.canonicalCompoundName || row.Compound),
+    canonicalCompoundId: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.canonicalCompoundName || row.Compound),
     name: cleanScalar(row.compoundName || row.canonicalCompoundName || row.Compound),
+    compoundName: cleanScalar(row.compoundName || row.canonicalCompoundName || row.Compound),
+    canonicalCompoundName: cleanScalar(row.canonicalCompoundName || row.compoundName || row.Compound),
     aliases: splitSemicolonOrCommaList(row.aliases),
     compoundClass: cleanScalar(row.compoundClass),
+    class: cleanScalar(row.compoundClass),
     mechanism: cleanScalar(row.mechanism),
     mechanismTags: splitSemicolonOrCommaList(row.mechanismTags),
     pathwayTargets: splitSemicolonOrCommaList(row.pathwayTargets),
@@ -185,7 +204,11 @@ function exportCompounds(workbook, diagnostics) {
     safetyNotes: cleanScalar(row.safetyNotes),
     drugInteractions: cleanScalar(row.drugInteractions),
     confidence: cleanScalar(row.confidence),
+    confidenceLevel: firstMeaningful(row.confidenceLevel, row.confidence),
     evidence: cleanScalar(row.evidence),
+    evidenceTier: firstMeaningful(row.evidenceTier, row.evidence, row.evidence_tier),
+    score: firstMeaningful(row.score, row.totalScore),
+    tier: firstMeaningful(row.tier, row.scoreTier),
     sourceUrls: splitList(row.sourceUrls, /\s\|\s/),
     relatedHerbSlugs: splitSemicolonOrCommaList(row.relatedHerbSlugs),
     herbCount: cleanScalar(row.herbCount),
