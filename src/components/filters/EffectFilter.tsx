@@ -1,4 +1,6 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+
+const MORE_FILTERS_EVENT = 'filters:more-toggle'
 
 type EffectFilterProps = {
   options: string[]
@@ -8,11 +10,32 @@ type EffectFilterProps = {
 
 export default function EffectFilter({ options, selected, onToggle }: EffectFilterProps) {
   const [expanded, setExpanded] = useState(false)
+  const [moreFiltersOpen, setMoreFiltersOpen] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return window.localStorage.getItem('filters:more-open') === 'true'
+  })
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined
+
+    const handleChange = (event: Event) => {
+      const detail = (event as CustomEvent<{ open?: boolean }>).detail
+      if (typeof detail?.open === 'boolean') {
+        setMoreFiltersOpen(detail.open)
+      }
+    }
+
+    window.addEventListener(MORE_FILTERS_EVENT, handleChange as EventListener)
+    return () => window.removeEventListener(MORE_FILTERS_EVENT, handleChange as EventListener)
+  }, [])
+
   const hasOverflow = options.length > 18
   const visible = useMemo(() => {
     if (expanded || !hasOverflow) return options
     return options.slice(0, 18)
   }, [expanded, hasOverflow, options])
+
+  if (!moreFiltersOpen) return null
 
   return (
     <section className='rounded-2xl border border-white/10 bg-white/[0.03] p-3'>

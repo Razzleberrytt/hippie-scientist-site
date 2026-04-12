@@ -34,6 +34,9 @@ export default function ActiveFiltersBar({
 
   return (
     <div className='flex flex-wrap items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.03] p-3'>
+      <span className='mr-1 text-xs font-semibold uppercase tracking-wide text-white/55'>
+        Active
+      </span>
       {state.query && (
         <button
           type='button'
