@@ -89,26 +89,26 @@ export default function Home() {
 
       <Hero />
 
-      <section className='ds-section container mx-auto max-w-4xl px-4 pt-2 sm:px-6'>
-        <div className='ds-card-grid sm:grid-cols-2'>
-          <div className='ds-card h-full'>
-            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/55'>
+      <section className='container mx-auto max-w-4xl px-4 pt-8 sm:px-6 sm:pt-12'>
+        <div className='grid gap-8 sm:grid-cols-2 sm:gap-10'>
+          <div className='h-full space-y-2'>
+            <p className='text-[11px] font-semibold uppercase tracking-[0.2em] text-white/45'>
               First move
             </p>
-            <h2 className='mt-2 text-lg font-semibold text-white'>Search by effect, not hype</h2>
-            <p className='mt-1 text-sm text-white/70'>
+            <h2 className='text-base font-medium text-white/82'>Search by effect, not hype</h2>
+            <p className='text-sm text-white/60'>
               Start with the outcome you want. Then pressure-test safety.
             </p>
             <a href='#effect-search' className='btn-primary mt-4 inline-flex'>
               Open Effect Search
             </a>
           </div>
-          <div className='ds-card h-full'>
-            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/55'>
+          <div className='h-full space-y-2'>
+            <p className='text-[11px] font-semibold uppercase tracking-[0.2em] text-white/45'>
               Quick tools
             </p>
-            <h2 className='mt-2 text-lg font-semibold text-white'>Run a second check</h2>
-            <div className='mt-3 flex flex-wrap items-center gap-2 text-sm text-white/70'>
+            <h2 className='text-base font-medium text-white/82'>Run a second check</h2>
+            <div className='flex flex-wrap items-center gap-2 text-sm text-white/60'>
               <Link
                 to='/herbs'
                 className='underline-offset-4 transition hover:text-white hover:underline'
@@ -131,7 +131,7 @@ export default function Home() {
                 Blend Builder
               </Link>
             </div>
-            <p className='mt-3 text-xs text-white/60'>One action, then verify.</p>
+            <p className='pt-1 text-xs text-white/48'>One action, then verify.</p>
           </div>
         </div>
       </section>
