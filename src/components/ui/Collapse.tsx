@@ -1,4 +1,6 @@
 import { type ReactNode, useId, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { ChevronDown } from 'lucide-react'
 
 export default function Collapse({
   title,
@@ -32,13 +34,26 @@ export default function Collapse({
         <span className='text-sm font-semibold uppercase tracking-[0.16em] text-white/75'>
           {title}
         </span>
-        <span className='text-xs text-white/70'>{open ? 'Hide' : 'Show'}</span>
+        <span className='inline-flex items-center gap-2 text-xs text-white/70'>
+          {open ? 'Hide' : 'Show'}
+          <ChevronDown size={14} className={`transition-transform ${open ? 'rotate-180' : ''}`} />
+        </span>
       </button>
-      {open && (
-        <div id={contentId} className='border-white/8 border-t px-4 py-3'>
-          {children}
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key='collapse-content'
+            id={contentId}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.22, ease: 'easeInOut' }}
+            className='overflow-hidden'
+          >
+            <div className='border-white/8 border-t px-4 py-3'>{children}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
