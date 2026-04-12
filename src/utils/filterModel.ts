@@ -1,5 +1,6 @@
 export type ConfidenceFilter = 'all' | 'high' | 'medium' | 'low'
 export type SortFilter =
+  | 'browse_quality'
   | 'az'
   | 'confidence'
   | 'effects'
@@ -23,7 +24,7 @@ export const DEFAULT_FILTER_STATE: EntryFilterState = {
   confidence: 'all',
   type: 'all',
   enrichment: 'all',
-  sort: 'az',
+  sort: 'browse_quality',
 }
 
 export function parseFilterStateFromSearchParams(
@@ -42,6 +43,7 @@ export function parseFilterStateFromSearchParams(
 
   const sortRaw = (params.get('sort') || defaults.sort).toLowerCase()
   const sort: SortFilter = [
+    'browse_quality',
     'az',
     'confidence',
     'effects',
@@ -84,7 +86,7 @@ export function toSearchParamsFromFilterState(state: EntryFilterState): URLSearc
   if (state.confidence !== 'all') next.set('confidence', state.confidence)
   if (state.type !== 'all') next.set('type', state.type)
   if (state.enrichment !== 'all') next.set('enrichment', state.enrichment)
-  if (state.sort !== 'az') next.set('sort', state.sort)
+  if (state.sort !== 'browse_quality') next.set('sort', state.sort)
 
   return next
 }

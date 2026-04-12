@@ -86,9 +86,11 @@ export function filterCompounds(
       description: compound.description,
       mechanism: compound.mechanism,
       effects: asStringArray(compound.effects),
+      associations: asStringArray(compound.herbs),
       sourceCount: compound.sourceCount,
       hasEvidence: Boolean(compound.researchEnrichmentSummary?.evidenceLabel),
     }),
+    { rankOnly: true },
   )
 
   const qualityFiltered = browseQuality.items
@@ -129,6 +131,11 @@ export function filterCompounds(
     const aDemoted = Number(Boolean(browseQuality.assessments.get(a)?.demote))
     const bDemoted = Number(Boolean(browseQuality.assessments.get(b)?.demote))
     if (aDemoted !== bDemoted) return aDemoted - bDemoted
+
+    const rankScoreDiff =
+      (browseQuality.assessments.get(b)?.rankScore ?? 0) -
+      (browseQuality.assessments.get(a)?.rankScore ?? 0)
+    if (rankScoreDiff !== 0) return rankScoreDiff
 
     const effectCountDiff = asStringArray(b.effects).length - asStringArray(a.effects).length
     if (effectCountDiff !== 0) return effectCountDiff
