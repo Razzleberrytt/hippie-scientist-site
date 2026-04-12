@@ -653,30 +653,11 @@ export default function HerbDetail() {
       <article className='ds-card-lg mt-4'>
         {/* Header */}
         <header>
-          <div className='flex flex-wrap items-start justify-between gap-3'>
+          <div className='flex flex-col gap-3'>
             <div>
               <h1 className='text-3xl font-semibold leading-tight'>{herb.common || herb.name}</h1>
               {herb.scientific && (
                 <p className='mt-1 text-sm italic text-white/55'>{herb.scientific}</p>
-              )}
-            </div>
-            <div className='mt-1 flex shrink-0 flex-wrap gap-2'>
-              {intensity && (
-                <span className='bg-white/6 rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/80'>
-                  {intensity}
-                </span>
-              )}
-              {evidenceLevel && (
-                <span
-                  className={`rounded-full border px-3 py-1 text-xs font-semibold tracking-wide ${evidenceBadgeTone}`}
-                >
-                  Evidence: {evidenceLevel}
-                </span>
-              )}
-              {completenessPct !== null && (
-                <span className='rounded-full border border-cyan-300/30 bg-cyan-500/10 px-3 py-1 text-xs font-semibold tracking-wide text-cyan-100'>
-                  {completenessLabel} ({Math.round(completenessPct)}%)
-                </span>
               )}
             </div>
           </div>
@@ -691,195 +672,94 @@ export default function HerbDetail() {
             hasInferredContent={hasInferredContent}
             hasFallbackContent={hasFallbackContent}
           />
-
-          {isDataIncomplete && (
-            <div className='bg-amber-500/8 mt-4 rounded-xl border border-amber-300/30 p-3 text-sm text-amber-100'>
-              <p className='font-semibold'>Incomplete profile</p>
-              <p className='mt-1 text-amber-50/80'>
-                Key evidence fields are missing. Treat this as a draft — cross-check before making
-                decisions.
-              </p>
-            </div>
-          )}
-
-          <StructuredDetailIntro
-            confidence={confidence}
-            whatItIs={governedIntro.whatItIs}
-            commonUse={governedIntro.commonUse}
-            evidenceContext={governedIntro.evidenceContext}
-            cautionNote={governedIntro.cautionNote}
-            quickFacts={governedIntro.quickFacts}
-            nextSteps={[
-              { label: 'Check this herb in interactions', to: herbCheckerHref },
-              {
-                label: 'Review active compounds',
-                to: '#key-active-compounds',
-                variant: 'secondary',
-              },
-              { label: 'Add to stack builder', to: '/build', variant: 'secondary' },
-            ]}
-            onStepClick={step => {
-              if (step.to.startsWith('/interactions')) {
+          <div className='mt-1'>
+            <Link
+              to={herbCheckerHref}
+              className='btn-primary inline-flex text-sm'
+              onClick={() =>
                 trackDetailCheckerClick({
                   detailType: 'herb',
                   detailSlug: herb.slug,
-                  placement: 'quick_intro_next_steps',
+                  placement: 'above_fold_primary_cta',
                 })
               }
-              if (step.to === '/build') {
-                trackDetailBuilderClick({
-                  detailType: 'herb',
-                  detailSlug: herb.slug,
-                  placement: 'quick_intro_next_steps',
-                })
-              }
-            }}
-            analyticsContext={{
-              pageType: 'herb_detail',
-              entityType: 'herb',
-              entitySlug: herb.slug,
-              profile: governedIntro.decision.mode,
-            }}
-          />
-          <GovernedReviewFreshnessPanel
-            decision={governedReviewFreshness}
-            nextStepHref='#governed-safety-interactions'
-            analyticsContext={{
-              pageType: 'herb_detail',
-              entityType: 'herb',
-              entitySlug: herb.slug,
-            }}
-          />
-
-          <CtaVariantLayout
-            variant={ctaExperiment.variant}
-            slotOrderOverride={governedCta.slotOrder}
-            onSlotImpression={(slot, position) => {
-              const ctaType =
-                slot === 'tool'
-                  ? 'tool'
-                  : slot === 'builder'
-                    ? 'builder'
-                    : slot === 'affiliate'
-                      ? 'affiliate'
-                      : null
-              if (!ctaType) return
-              trackCtaSlotImpression({
-                sourceType: 'detail',
-                source: `herb:${herb.slug}`,
-                placement: 'cta_experiment_slot',
-                ctaMetadata: {
-                  pageType: 'herb_detail',
-                  entitySlug: herb.slug,
-                  ctaType,
-                  ctaPosition: `position_${position}`,
-                  variantId: ctaVariantId,
-                },
-              })
-            }}
-            slots={{
-              tool: (
-                <div className='rounded-lg border border-emerald-300/30 bg-emerald-500/10 p-3'>
-                  <p className='text-xs font-semibold uppercase tracking-[0.14em] text-emerald-100'>
-                    {governedCta.copy.toolTitle}
-                  </p>
-                  <p className='mt-1 text-xs text-white/75'>{governedCta.copy.toolBody}</p>
-                  <Link
-                    to={herbCheckerHref}
-                    className='btn-primary mt-2 inline-flex text-xs'
-                    onClick={() =>
-                      trackDetailCheckerClick({
-                        detailType: 'herb',
-                        detailSlug: herb.slug,
-                        placement: 'cta_variant_tool',
-                        ctaMetadata: {
-                          pageType: 'herb_detail',
-                          entitySlug: herb.slug,
-                          ctaType: 'tool',
-                          ctaPosition: 'detail_tool_checker',
-                          variantId: ctaVariantId,
-                        },
-                      })
-                    }
-                  >
-                    {governedCta.copy.toolButtonLabel}
-                  </Link>
-                </div>
-              ),
-              builder: (
-                <div className='rounded-lg border border-cyan-300/25 bg-cyan-500/10 p-3'>
-                  <p className='text-xs text-white/75'>{governedCta.copy.builderBody}</p>
-                  <Link
-                    to='/build'
-                    className='btn-secondary mt-2 inline-flex text-xs'
-                    onClick={() =>
-                      trackDetailBuilderClick({
-                        detailType: 'herb',
-                        detailSlug: herb.slug,
-                        placement: 'cta_variant_builder',
-                        ctaMetadata: {
-                          pageType: 'herb_detail',
-                          entitySlug: herb.slug,
-                          ctaType: 'builder',
-                          ctaPosition: 'detail_stack_builder',
-                          variantId: ctaVariantId,
-                        },
-                      })
-                    }
-                  >
-                    {governedCta.copy.builderButtonLabel}
-                  </Link>
-                </div>
-              ),
-              related: relatedCollections.length > 0 && (
-                <div className='rounded-lg border border-white/10 bg-white/[0.02] p-3'>
-                  <p className='text-xs font-semibold text-white'>
-                    {governedCta.copy.relatedTitle}
-                  </p>
-                  <div className='mt-2 flex flex-wrap gap-2'>
-                    {relatedCollections.slice(0, 3).map(collection => (
-                      <Link
-                        key={`cta-${collection.slug}`}
-                        to={`/collections/${collection.slug}`}
-                        className='btn-secondary text-xs'
-                        onClick={() =>
-                          trackGovernedEvent({
-                            type: 'governed_cta_click',
-                            eventAction: 'click',
-                            pageType: 'herb_detail',
-                            entityType: 'herb',
-                            entitySlug: herb.slug,
-                            surfaceId: 'detail_cta_related',
-                            componentType: 'related_collection_cta',
-                            item: collection.slug,
-                            variantId: ctaVariantId,
-                            reviewedStatus: 'reviewed',
-                            freshnessState: 'not_applicable',
-                          })
-                        }
-                      >
-                        {collection.title}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ),
-              affiliate: curatedProducts.length > 0 && (
-                <CuratedProductModule
-                  entityType='herb'
-                  entitySlug={herb.slug}
-                  products={curatedProducts}
-                  positionContext='herb_detail_cta_variant'
-                  pageType='herb_detail'
-                  variantId={ctaVariantId}
-                  ctaPosition='detail_affiliate_module'
-                  preDisclosureGuidance={governedCta.copy.affiliateLeadIn}
-                  useCaseAnchor={activeUseCaseAnchor}
-                />
-              ),
-            }}
-          />
+            >
+              {governedCta.copy.toolButtonLabel}
+            </Link>
+          </div>
         </header>
+
+        {/* Core content */}
+        {description && (
+          <Section title='Overview'>
+            {confidence === 'low' ? (
+              <p className='mb-2 rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-amber-100'>
+                Evidence context: this overview is low-confidence and may rely on limited or
+                indirect data.
+              </p>
+            ) : null}
+            {description}
+          </Section>
+        )}
+
+        <StructuredDetailIntro
+          confidence={confidence}
+          whatItIs={governedIntro.whatItIs}
+          commonUse={governedIntro.commonUse}
+          evidenceContext={governedIntro.evidenceContext}
+          cautionNote={governedIntro.cautionNote}
+          quickFacts={governedIntro.quickFacts}
+          nextSteps={[
+            { label: 'Check this herb in interactions', to: herbCheckerHref },
+            {
+              label: 'Review active compounds',
+              to: '#key-active-compounds',
+              variant: 'secondary',
+            },
+            { label: 'Add to stack builder', to: '/build', variant: 'secondary' },
+          ]}
+          onStepClick={step => {
+            if (step.to.startsWith('/interactions')) {
+              trackDetailCheckerClick({
+                detailType: 'herb',
+                detailSlug: herb.slug,
+                placement: 'quick_intro_next_steps',
+              })
+            }
+            if (step.to === '/build') {
+              trackDetailBuilderClick({
+                detailType: 'herb',
+                detailSlug: herb.slug,
+                placement: 'quick_intro_next_steps',
+              })
+            }
+          }}
+          analyticsContext={{
+            pageType: 'herb_detail',
+            entityType: 'herb',
+            entitySlug: herb.slug,
+            profile: governedIntro.decision.mode,
+          }}
+        />
+        <GovernedReviewFreshnessPanel
+          decision={governedReviewFreshness}
+          nextStepHref='#governed-safety-interactions'
+          analyticsContext={{
+            pageType: 'herb_detail',
+            entityType: 'herb',
+            entitySlug: herb.slug,
+          }}
+        />
+
+        {isDataIncomplete && (
+          <div className='bg-amber-500/8 mt-4 rounded-xl border border-amber-300/30 p-3 text-sm text-amber-100'>
+            <p className='font-semibold'>Incomplete profile</p>
+            <p className='mt-1 text-amber-50/80'>
+              Key evidence fields are missing. Treat this as a draft — cross-check before making
+              decisions.
+            </p>
+          </div>
+        )}
 
         {/* Primary effects pills — high-signal summary */}
         {primaryEffects.length > 0 && (
@@ -900,6 +780,157 @@ export default function HerbDetail() {
             <p className='max-w-3xl text-base leading-relaxed text-white/88'>{shortSummary}</p>
           </section>
         )}
+
+        {intensity || evidenceLevel || completenessPct !== null ? (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <div className='flex flex-wrap gap-2'>
+              {intensity && (
+                <span className='bg-white/6 rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/80'>
+                  {intensity}
+                </span>
+              )}
+              {evidenceLevel && (
+                <span
+                  className={`rounded-full border px-3 py-1 text-xs font-semibold tracking-wide ${evidenceBadgeTone}`}
+                >
+                  Evidence: {evidenceLevel}
+                </span>
+              )}
+              {completenessPct !== null && (
+                <span className='rounded-full border border-cyan-300/30 bg-cyan-500/10 px-3 py-1 text-xs font-semibold tracking-wide text-cyan-100'>
+                  {completenessLabel} ({Math.round(completenessPct)}%)
+                </span>
+              )}
+            </div>
+          </section>
+        ) : null}
+
+        <CtaVariantLayout
+          variant={ctaExperiment.variant}
+          slotOrderOverride={governedCta.slotOrder}
+          onSlotImpression={(slot, position) => {
+            const ctaType =
+              slot === 'tool'
+                ? 'tool'
+                : slot === 'builder'
+                  ? 'builder'
+                  : slot === 'affiliate'
+                    ? 'affiliate'
+                    : null
+            if (!ctaType) return
+            trackCtaSlotImpression({
+              sourceType: 'detail',
+              source: `herb:${herb.slug}`,
+              placement: 'cta_experiment_slot',
+              ctaMetadata: {
+                pageType: 'herb_detail',
+                entitySlug: herb.slug,
+                ctaType,
+                ctaPosition: `position_${position}`,
+                variantId: ctaVariantId,
+              },
+            })
+          }}
+          slots={{
+            tool: (
+              <div className='rounded-lg border border-emerald-300/30 bg-emerald-500/10 p-3'>
+                <p className='text-xs font-semibold uppercase tracking-[0.14em] text-emerald-100'>
+                  {governedCta.copy.toolTitle}
+                </p>
+                <p className='mt-1 text-xs text-white/75'>{governedCta.copy.toolBody}</p>
+                <Link
+                  to={herbCheckerHref}
+                  className='btn-primary mt-2 inline-flex text-xs'
+                  onClick={() =>
+                    trackDetailCheckerClick({
+                      detailType: 'herb',
+                      detailSlug: herb.slug,
+                      placement: 'cta_variant_tool',
+                      ctaMetadata: {
+                        pageType: 'herb_detail',
+                        entitySlug: herb.slug,
+                        ctaType: 'tool',
+                        ctaPosition: 'detail_tool_checker',
+                        variantId: ctaVariantId,
+                      },
+                    })
+                  }
+                >
+                  {governedCta.copy.toolButtonLabel}
+                </Link>
+              </div>
+            ),
+            builder: (
+              <div className='rounded-lg border border-cyan-300/25 bg-cyan-500/10 p-3'>
+                <p className='text-xs text-white/75'>{governedCta.copy.builderBody}</p>
+                <Link
+                  to='/build'
+                  className='btn-secondary mt-2 inline-flex text-xs'
+                  onClick={() =>
+                    trackDetailBuilderClick({
+                      detailType: 'herb',
+                      detailSlug: herb.slug,
+                      placement: 'cta_variant_builder',
+                      ctaMetadata: {
+                        pageType: 'herb_detail',
+                        entitySlug: herb.slug,
+                        ctaType: 'builder',
+                        ctaPosition: 'detail_stack_builder',
+                        variantId: ctaVariantId,
+                      },
+                    })
+                  }
+                >
+                  {governedCta.copy.builderButtonLabel}
+                </Link>
+              </div>
+            ),
+            related: relatedCollections.length > 0 && (
+              <div className='rounded-lg border border-white/10 bg-white/[0.02] p-3'>
+                <p className='text-xs font-semibold text-white'>{governedCta.copy.relatedTitle}</p>
+                <div className='mt-2 flex flex-wrap gap-2'>
+                  {relatedCollections.slice(0, 3).map(collection => (
+                    <Link
+                      key={`cta-${collection.slug}`}
+                      to={`/collections/${collection.slug}`}
+                      className='btn-secondary text-xs'
+                      onClick={() =>
+                        trackGovernedEvent({
+                          type: 'governed_cta_click',
+                          eventAction: 'click',
+                          pageType: 'herb_detail',
+                          entityType: 'herb',
+                          entitySlug: herb.slug,
+                          surfaceId: 'detail_cta_related',
+                          componentType: 'related_collection_cta',
+                          item: collection.slug,
+                          variantId: ctaVariantId,
+                          reviewedStatus: 'reviewed',
+                          freshnessState: 'not_applicable',
+                        })
+                      }
+                    >
+                      {collection.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ),
+            affiliate: curatedProducts.length > 0 && (
+              <CuratedProductModule
+                entityType='herb'
+                entitySlug={herb.slug}
+                products={curatedProducts}
+                positionContext='herb_detail_cta_variant'
+                pageType='herb_detail'
+                variantId={ctaVariantId}
+                ctaPosition='detail_affiliate_module'
+                preDisclosureGuidance={governedCta.copy.affiliateLeadIn}
+                useCaseAnchor={activeUseCaseAnchor}
+              />
+            ),
+          }}
+        />
 
         {therapeuticUses.length > 0 && (
           <Section title='What it’s used for'>
@@ -926,10 +957,7 @@ export default function HerbDetail() {
           </div>
         )}
 
-        <PremiumDataSection
-          details={premiumDetails}
-          relationGroups={relationGroups}
-        />
+        <PremiumDataSection details={premiumDetails} relationGroups={relationGroups} />
 
         {compoundCount !== null && (
           <section className='border-white/8 mt-6 border-t pt-5'>
@@ -938,19 +966,6 @@ export default function HerbDetail() {
               Compound records linked: <span className='font-semibold text-white'>{compoundCount}</span>
             </p>
           </section>
-        )}
-
-        {/* Core content */}
-        {description && (
-          <Section title='Overview'>
-            {confidence === 'low' ? (
-              <p className='mb-2 rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-amber-100'>
-                Evidence context: this overview is low-confidence and may rely on limited or
-                indirect data.
-              </p>
-            ) : null}
-            {description}
-          </Section>
         )}
 
         {(whyPeopleChooseBullets.length > 0 || useCaseAnchors.length > 0) && (
