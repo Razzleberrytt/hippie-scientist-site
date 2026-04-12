@@ -14,18 +14,6 @@ const site = (process.env.SITE_URL || 'https://thehippiescientist.net').replace(
 const basePath = normalizeBasePath(process.env.BASE_PATH || process.env.VITE_BASE_PATH || '/')
 const today = new Date().toISOString().slice(0, 10)
 
-const GOAL_LANDING_PAGES = [
-  '/herbs-for-anxiety',
-  '/herbs-for-cognition',
-  '/herbs-for-sleep',
-  '/herbs-for-energy',
-  '/herbs-for-inflammation',
-  '/herbs-for-digestive',
-  '/herbs-for-immune',
-  '/herbs-for-liver',
-  '/herbs-for-cardiovascular',
-]
-
 function normalizeBasePath(value) {
   if (!value || value === '/') return '/'
   return `/${String(value).replace(/^\/+|\/+$/g, '')}/`
@@ -129,7 +117,7 @@ function buildSitemap() {
   const compoundRoutes = normalizeRoutes(indexableCompounds.map(getCompoundSlug).filter(Boolean).map(slug => `/compounds/${slug}`))
 
   const blockedRoutes = new Set(disallowedRoutes.map(route => normalizePathname(route)))
-  const staticRoutes = normalizeRoutes([...sitemapRoutes, ...GOAL_LANDING_PAGES]).filter(route => !blockedRoutes.has(route))
+  const staticRoutes = normalizeRoutes(sitemapRoutes).filter(route => !blockedRoutes.has(route))
 
   const allRoutes = normalizeRoutes([
     ...staticRoutes,
