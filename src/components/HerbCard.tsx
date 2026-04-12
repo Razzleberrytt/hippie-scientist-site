@@ -55,7 +55,8 @@ function HerbCard({
   const fallbackEvidence = normalizedEvidenceTier ? '' : (evidenceLevel || '').trim()
   const showMetadata =
     hasCompoundCount || Boolean(normalizedEvidenceTier) || Boolean(fallbackEvidence)
-  const title = compact ? truncateTitle(name, 54) : name
+  const title = truncateTitle(name, 60)
+  const isTitleTruncated = title !== name
 
   return (
     <div className='HerbCardTilt group relative h-full transition-transform duration-200 ease-out hover:scale-[1.01]'>
@@ -67,11 +68,11 @@ function HerbCard({
       >
         <header className={compact ? 'space-y-1' : 'space-y-2'}>
           <h2
-            title={name}
+            title={isTitleTruncated ? name : undefined}
             className={
               compact
-                ? 'line-clamp-2 text-base font-semibold leading-tight text-lime-200'
-                : 'text-[1.35rem] font-semibold leading-tight text-lime-200 sm:text-2xl'
+                ? 'line-clamp-2 break-words text-base font-semibold leading-tight text-lime-200'
+                : 'line-clamp-2 break-words text-[1.35rem] font-semibold leading-tight text-lime-200 sm:text-2xl'
             }
           >
             {title}
