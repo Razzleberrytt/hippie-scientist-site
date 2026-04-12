@@ -72,6 +72,7 @@ function normalizeEnrichmentSummary(value: unknown): PublishSafeEnrichmentSummar
 }
 
 let herbSummariesPromise: Promise<HerbSummary[]> | null = null
+let workbookHerbsPromise: Promise<Record<string, unknown>[]> | null = null
 const herbDetailPromiseBySlug = new Map<string, Promise<Herb | null>>()
 
 function isPresent(value: unknown): boolean {
@@ -98,6 +99,49 @@ function normalizeSlugCandidate(value: string): string {
     .toLowerCase()
     .replace(/\band\b/g, '')
     .replace(/[^a-z0-9]+/g, '')
+}
+
+function loadWorkbookHerbRows(): Promise<Record<string, unknown>[]> {
+  if (!workbookHerbsPromise) {
+    workbookHerbsPromise = fetch('/data/workbook-herbs.json', { cache: 'no-store' })
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load /data/workbook-herbs.json')
+        return response.json()
+      })
+      .then(payload => (Array.isArray(payload) ? (payload as Record<string, unknown>[]) : []))
+      .catch(error => {
+        workbookHerbsPromise = null
+        throw error
+      })
+  }
+
+  return workbookHerbsPromise
+}
+
+async function loadWorkbookHerbDetailBySlug(slug: string): Promise<Herb | null> {
+  const needle = normalizeSlugCandidate(slug)
+  if (!needle) return null
+
+  const workbookRows = await loadWorkbookHerbRows().catch(() => [])
+  const match = workbookRows.find(row => {
+    const record = row as Record<string, unknown>
+    const aliases = splitClean(record.aliases)
+    const candidates = [
+      String(record.slug || ''),
+      String(record.id || ''),
+      String(record.common || ''),
+      String(record.name || ''),
+      String(record.commonName || ''),
+      String(record.scientific || ''),
+      String(record.scientificName || ''),
+      String(record.latin || ''),
+      ...aliases,
+    ]
+    return candidates.some(candidate => normalizeSlugCandidate(candidate) === needle)
+  })
+
+  if (!match) return null
+  return normalizeHerbRow(match)
 }
 
 async function resolveHerbDetailSlug(slug: string): Promise<string | null> {
@@ -366,18 +410,21 @@ export async function loadHerbDetailBySlug(slug: string): Promise<Herb | null> {
     .then(async response => {
       if (response.status === 404) {
         const resolvedSlug = await resolveHerbDetailSlug(slugKey)
-        if (!resolvedSlug || resolvedSlug === slugKey) return null
-        const fallbackResponse = await fetch(
-          `/data/herbs-detail/${encodeURIComponent(resolvedSlug)}.json`,
-          {
-            cache: 'no-store',
-          },
-        )
-        if (fallbackResponse.status === 404) return null
-        if (!fallbackResponse.ok) {
-          throw new Error(`Failed to load /data/herbs-detail/${resolvedSlug}.json`)
+        if (resolvedSlug && resolvedSlug !== slugKey) {
+          const fallbackResponse = await fetch(
+            `/data/herbs-detail/${encodeURIComponent(resolvedSlug)}.json`,
+            {
+              cache: 'no-store',
+            },
+          )
+          if (fallbackResponse.ok) {
+            return fallbackResponse.json()
+          }
+          if (fallbackResponse.status !== 404) {
+            throw new Error(`Failed to load /data/herbs-detail/${resolvedSlug}.json`)
+          }
         }
-        return fallbackResponse.json()
+        return loadWorkbookHerbDetailBySlug(resolvedSlug || slugKey)
       }
       if (!response.ok) {
         throw new Error(`Failed to load /data/herbs-detail/${slugKey}.json`)
