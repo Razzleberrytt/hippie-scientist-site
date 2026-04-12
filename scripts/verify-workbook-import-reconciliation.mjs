@@ -8,6 +8,7 @@ import { resolveWorkbookPath } from './workbook-source.mjs'
 
 const repoRoot = process.cwd()
 const workbookPath = resolveWorkbookPath(repoRoot)
+const REQUIRED_WORKBOOK_SHEETS = ['Herb Monographs', 'Compound Master V3']
 const herbsPath = path.join(repoRoot, 'public', 'data', 'herbs.json')
 const compoundsPath = path.join(repoRoot, 'public', 'data', 'compounds.json')
 
@@ -16,9 +17,9 @@ function clean(value) {
 }
 
 function baselineCounts() {
-  const workbook = XLSX.readFile(workbookPath)
-  const herbRows = XLSX.utils.sheet_to_json(workbook.Sheets['Herb Monographs'], { defval: '', raw: false, blankrows: false })
-  const compoundRows = XLSX.utils.sheet_to_json(workbook.Sheets['Compound Master V3'], { defval: '', raw: false, blankrows: false })
+  const workbook = XLSX.readFile(workbookPath, { sheets: REQUIRED_WORKBOOK_SHEETS })
+  const herbRows = XLSX.utils.sheet_to_json(workbook.Sheets[REQUIRED_WORKBOOK_SHEETS[0]], { defval: '', raw: false, blankrows: false })
+  const compoundRows = XLSX.utils.sheet_to_json(workbook.Sheets[REQUIRED_WORKBOOK_SHEETS[1]], { defval: '', raw: false, blankrows: false })
 
   const herbs = JSON.parse(fs.readFileSync(herbsPath, 'utf8'))
   const compounds = JSON.parse(fs.readFileSync(compoundsPath, 'utf8'))

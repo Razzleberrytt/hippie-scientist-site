@@ -12,6 +12,7 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 
 const workbookPath = resolveWorkbookPath(repoRoot)
+const REQUIRED_WORKBOOK_SHEETS = ['Herb Monographs', 'Compound Master V3']
 
 const herbsPath = path.join(repoRoot, 'public', 'data', 'herbs.json')
 const compoundsPath = path.join(repoRoot, 'public', 'data', 'compounds.json')
@@ -719,9 +720,9 @@ function main() {
     throw new Error(`[import-xlsx-monographs] Workbook not found at ${workbookPath}`)
   }
 
-  const workbook = XLSX.readFile(workbookPath)
-  const herbRows = parseSheet(workbook, 'Herb Monographs')
-  const compoundRows = parseSheet(workbook, 'Compound Master V3')
+  const workbook = XLSX.readFile(workbookPath, { sheets: REQUIRED_WORKBOOK_SHEETS })
+  const herbRows = parseSheet(workbook, REQUIRED_WORKBOOK_SHEETS[0])
+  const compoundRows = parseSheet(workbook, REQUIRED_WORKBOOK_SHEETS[1])
 
   const herbs = JSON.parse(fs.readFileSync(herbsPath, 'utf8'))
   const compounds = JSON.parse(fs.readFileSync(compoundsPath, 'utf8'))

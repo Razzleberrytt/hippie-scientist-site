@@ -9,6 +9,7 @@ import { canonicalizeWorkbookRow } from './workbook-column-mapping.mjs'
 const repoRoot = process.cwd()
 const workbookPath = resolveWorkbookPath(repoRoot)
 const dataDir = path.join(repoRoot, 'public', 'data')
+const EXPORT_WORKBOOK_SHEETS = ['Herb Monographs', 'Compound Master V3', 'Herb Compound Map V3', 'Production Export V1']
 
 function toCleanString(value) {
   const text = String(value ?? '').replace(/\bnan\b/gi, '').trim()
@@ -193,7 +194,7 @@ function writeJson(filename, records) {
 }
 
 function main() {
-  const workbook = XLSX.readFile(workbookPath)
+  const workbook = XLSX.readFile(workbookPath, { sheets: EXPORT_WORKBOOK_SHEETS })
 
   writeJson('workbook-herbs.json', exportHerbs(workbook))
   writeJson('workbook-compounds.json', exportCompounds(workbook))
