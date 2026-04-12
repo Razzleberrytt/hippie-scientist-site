@@ -17916,7 +17916,10 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Aphrodisiac, testosterone support; contains icariin. Icariin inhibits pde5 and boosts nitric oxide; mimics testosterone effects.. ; nan; nan.. Icariin inhibits PDE5 and boosts nitric oxide; mimics testosterone effects.. Aphrodisiac, testosterone support; contains icariin. No direct region data. Contextual inference: Aphrodisiac, testosterone support; contains icariin. Icariin inhibits pde5 and boosts nitric oxide; mimics testosterone effects.. ; nan; nan.. Icariin inhibits PDE5 and boosts nitric oxide; mimics testosterone effects.. Aphrodisiac, testosterone support; contains icariin. ; nan; nan. ; nan; nan",
     "mechanism": "Icariin inhibits PDE5 and boosts nitric oxide; mimics testosterone effects.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "icariin",
+      "flavonoids"
+    ],
     "effects": [
       "Aphrodisiac",
       "testosterone support",
@@ -17945,8 +17948,10 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
+      },
+      {
+        "title": "Internal workbook cross-link"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -17982,7 +17987,15 @@
       "rapid heartbeat",
       "dry mouth."
     ],
-    "slug": "horny-goat-weed"
+    "slug": "horny-goat-weed",
+    "aliases": [
+      "epimedium",
+      "horny goat weed"
+    ],
+    "mechanismTags": [
+      "circulation support",
+      "libido support"
+    ]
   },
   {
     "name": "huperzia serrata",
@@ -46539,7 +46552,7 @@
   },
   {
     "name": "petasites hybridus",
-    "latin": null,
+    "latin": "Petasites hybridus",
     "class": null,
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.",
@@ -46560,8 +46573,12 @@
       "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
       "discontinue if hypersensitivity or allergic symptoms occur"
     ],
-    "safetyNotes": [],
-    "sources": [],
+    "safetyNotes": "Generally well tolerated.",
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ],
     "lastUpdated": "2026-03-21",
     "therapeuticUses": [
       "support for mild inflammatory pain"
@@ -46580,14 +46597,22 @@
     "region": "No direct region data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.",
     "preparation": "No direct preparation data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. No direct region data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.",
     "legalStatus": "legal",
-    "interactions": [],
+    "interactions": [
+      "Use caution in stacked contexts."
+    ],
     "description": "Used historically to treat pain, migraines, and spasms..",
     "sideEffects": [
       "mild gastrointestinal upset (nausea, cramping, or loose stool)",
       "headache (more likely with higher intake)",
       "allergic rash or itching in sensitive individuals"
     ],
-    "slug": "petasites-hybridus"
+    "slug": "petasites-hybridus",
+    "aliases": [
+      "Butterbur"
+    ],
+    "mechanismTags": [
+      "multi-domain"
+    ]
   },
   {
     "name": "petiveria alliacea",
@@ -48107,6 +48132,9 @@
         "title": "Randomized trial (osteoarthritis): stinging nettle leaf",
         "url": "https://pubmed.ncbi.nlm.nih.gov/10581821/",
         "note": "Small trial; evidence should be considered preliminary."
+      },
+      {
+        "title": "Internal workbook + enrichment queue"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -48126,13 +48154,22 @@
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "legalStatus": "legal",
-    "interactions": [],
+    "interactions": [
+      "Use caution with urinary medications."
+    ],
     "description": "Traditional nettle herb with mixed but suggestive human evidence for selected inflammatory and urinary indications.",
     "sideEffects": [
       "contact urticaria from fresh plant hairs",
       "mild gastrointestinal upset in some users"
     ],
-    "slug": "urtica-dioica"
+    "slug": "urtica-dioica",
+    "aliases": [
+      "nettle root"
+    ],
+    "mechanismTags": [
+      "men's-health support",
+      "urinary support"
+    ]
   },
   {
     "name": "valeriana officinalis",
@@ -48457,5 +48494,1288 @@
       "allergic rash or itching in sensitive individuals"
     ],
     "slug": "unknown"
+  },
+  {
+    "id": "black-cohosh",
+    "slug": "black-cohosh",
+    "name": "Black Cohosh",
+    "scientificName": "Actaea racemosa",
+    "description": "Black Cohosh is represented here as a monograph-style entry centered on the root; rhizome. Key reported compounds include triterpene glycosides (actein, 23-epi-26-deoxyactein); cimifugoside; caffeic acid derivatives; fukinolic acid. Typical preparation forms: Root and rhizome used in standardized extracts, capsules, tablets, and tinctures. Proposed mechanism based on preclinical and limited clinical data: black cohosh may act through serotonergic pathways, selective estrogen receptor modulation, and anti-inflammatory signaling rather than as a classical estrogen. Interaction profile: Potential interactions with hepatotoxic drugs and with medications affecting estrogen or serotonergic pathways. Use caution or avoid in: Avoid in pregnancy and breastfeeding. Use caution in liver disease or hormone-sensitive conditions.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Actaea racemosa",
+    "mechanism": "Proposed mechanism based on preclinical and limited clinical data: black cohosh may act through serotonergic pathways, selective estrogen receptor modulation, and anti-inflammatory signaling rather than as a classical estrogen.",
+    "safetyNotes": "Generally well tolerated in short-term studies, but rare cases of liver injury have been reported. Product contamination or misidentification is a known issue.",
+    "preparation": "Root and rhizome used in standardized extracts, capsules, tablets, and tinctures.",
+    "region": "Native to North America, especially the eastern United States.",
+    "aliases": [
+      "black cohosh",
+      "black snakeroot",
+      "Actaea racemosa"
+    ],
+    "activeCompounds": [
+      "triterpene glycosides (actein, 23-epi-26-deoxyactein)",
+      "cimifugoside",
+      "caffeic acid derivatives",
+      "fukinolic acid",
+      "actein",
+      "23-epi-26-deoxyactein"
+    ],
+    "interactions": [
+      "Potential interactions with hepatotoxic drugs and with medications affecting estrogen or serotonergic pathways."
+    ],
+    "contraindications": [
+      "Avoid in pregnancy and breastfeeding. Use caution in liver disease or hormone-sensitive conditions."
+    ],
+    "mechanismTags": [
+      "anti-inflammatory",
+      "hormonal",
+      "serotonergic"
+    ],
+    "sources": [
+      {
+        "title": "NCCIH"
+      },
+      {
+        "title": "NIH ODS"
+      },
+      {
+        "title": "PubMed mechanism review PMC3046019"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "NCCIH"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "NIH ODS"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "PubMed mechanism review PMC3046019"
+      },
+      {
+        "title": "NCCIH; NIH/ODS; PubMed/PMC"
+      }
+    ]
+  },
+  {
+    "id": "feverfew",
+    "slug": "feverfew",
+    "name": "Feverfew",
+    "scientificName": "Tanacetum parthenium",
+    "description": "",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Tanacetum parthenium",
+    "mechanism": "Mechanistic activity supported by mixed evidence.",
+    "safetyNotes": "Review interactions and contraindications",
+    "region": "global",
+    "aliases": [
+      "Feverfew"
+    ],
+    "activeCompounds": [
+      "parthenolide",
+      "flavonoids"
+    ],
+    "interactions": [
+      "May interact with anticoagulant-sensitive contexts"
+    ],
+    "contraindications": [
+      "Use caution in pregnancy-sensitive and surgery-sensitive contexts"
+    ],
+    "mechanismTags": [
+      "headache support",
+      "inflammation support",
+      "vascular modulation"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "pau-darco",
+    "slug": "pau-darco",
+    "name": "Pau d'Arco",
+    "scientificName": "Handroanthus impetiginosus",
+    "description": "It should be framed conservatively because popular claims often exceed the evidence and preparation differences matter.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Handroanthus impetiginosus",
+    "mechanism": "Naphthoquinones are associated with antimicrobial and redox-related positioning in preclinical contexts.",
+    "safetyNotes": "Use conservatively; concentrated use may be irritating.",
+    "region": "South America",
+    "aliases": [
+      "pau d'arco"
+    ],
+    "activeCompounds": [
+      "lapachol",
+      "naphthoquinones"
+    ],
+    "interactions": [
+      "Avoid exaggerated disease-treatment claims."
+    ],
+    "mechanismTags": [
+      "antimicrobial support",
+      "traditional immune support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "banaba",
+    "slug": "banaba",
+    "name": "Banaba",
+    "scientificName": "Lagerstroemia speciosa",
+    "description": "It is best framed conservatively because evidence quality and standardization vary across products.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Lagerstroemia speciosa",
+    "mechanism": "Triterpene constituents are associated with glycemic-support positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "Southeast Asia",
+    "aliases": [
+      "banaba"
+    ],
+    "activeCompounds": [
+      "corosolic acid"
+    ],
+    "interactions": [
+      "Use caution with glucose-lowering strategies."
+    ],
+    "mechanismTags": [
+      "glycemic support",
+      "metabolic support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "mulberry-leaf",
+    "slug": "mulberry-leaf",
+    "name": "Mulberry Leaf",
+    "scientificName": "Morus alba",
+    "description": "It is best framed around alpha-glucosidase-adjacent positioning rather than generalized wellness language.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Morus alba",
+    "mechanism": "Iminosugars are associated with carbohydrate-handling support.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "China and cultivated broadly",
+    "aliases": [
+      "mulberry leaf"
+    ],
+    "activeCompounds": [
+      "1-deoxynojirimycin",
+      "flavonoids"
+    ],
+    "interactions": [
+      "Use caution with glucose-lowering strategies."
+    ],
+    "mechanismTags": [
+      "glycemic support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "cissus",
+    "slug": "cissus",
+    "name": "Cissus",
+    "scientificName": "Cissus quadrangularis",
+    "description": "It is best framed conservatively because evidence is mixed and product positioning often outruns the data.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Cissus quadrangularis",
+    "mechanism": "Constituents are associated with connective-tissue and recovery-adjacent positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "Africa and South Asia",
+    "aliases": [
+      "cissus"
+    ],
+    "activeCompounds": [
+      "ketosteroids",
+      "flavonoids",
+      "quadrangularin A"
+    ],
+    "interactions": [
+      "Use caution with aggressive performance claims."
+    ],
+    "mechanismTags": [
+      "connective tissue support",
+      "recovery support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "ashitaba",
+    "slug": "ashitaba",
+    "name": "Ashitaba",
+    "scientificName": "Angelica keiskei",
+    "description": "It is best framed around chalcone-rich chemistry with modest translational evidence.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Angelica keiskei",
+    "mechanism": "Chalcones are associated with antioxidant and metabolic-support positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "Japan",
+    "aliases": [
+      "ashitaba"
+    ],
+    "activeCompounds": [
+      "xanthoangelol",
+      "4-hydroxyderricin"
+    ],
+    "interactions": [
+      "Use caution with concentrated extract marketing claims."
+    ],
+    "mechanismTags": [
+      "antioxidant",
+      "metabolic support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "arjuna",
+    "slug": "arjuna",
+    "name": "Arjuna",
+    "scientificName": "Terminalia arjuna",
+    "description": "It is best framed around bark polyphenols and triterpenes with specific cardiotonic-support positioning.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Terminalia arjuna",
+    "mechanism": "Triterpenes and polyphenols support cardiovascular and antioxidant positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "India and South Asia",
+    "aliases": [
+      "arjuna"
+    ],
+    "activeCompounds": [
+      "arjunolic acid",
+      "triterpenes"
+    ],
+    "interactions": [
+      "Use caution with blood-pressure-lowering strategies."
+    ],
+    "mechanismTags": [
+      "cardiovascular support",
+      "vascular support"
+    ],
+    "sources": [
+      {
+        "title": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Curated expansion"
+      }
+    ]
+  },
+  {
+    "id": "cranberry",
+    "slug": "cranberry",
+    "name": "Cranberry",
+    "scientificName": "Vaccinium macrocarpon",
+    "description": "It is best framed around proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Vaccinium macrocarpon",
+    "mechanism": "Polyphenols support urinary and antioxidant positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "North America",
+    "aliases": [
+      "cranberry"
+    ],
+    "activeCompounds": [
+      "A-type proanthocyanidins"
+    ],
+    "interactions": [
+      "Use caution with anticoagulant-sensitive contexts."
+    ],
+    "mechanismTags": [
+      "antioxidant",
+      "urinary support"
+    ],
+    "sources": [
+      {
+        "title": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Curated expansion"
+      }
+    ]
+  },
+  {
+    "id": "myrtle",
+    "slug": "myrtle",
+    "name": "Myrtle",
+    "scientificName": "Myrtus communis",
+    "description": "It is best framed as an aromatic Mediterranean leaf botanical with modest modern evidence.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Myrtus communis",
+    "mechanism": "Volatile constituents and polyphenols support aromatic and antioxidant positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "Mediterranean",
+    "aliases": [
+      "myrtle"
+    ],
+    "activeCompounds": [
+      "myrtenyl acetate",
+      "myricetin"
+    ],
+    "interactions": [
+      "Use caution with concentrated oil assumptions."
+    ],
+    "mechanismTags": [
+      "antioxidant",
+      "aromatic support"
+    ],
+    "sources": [
+      {
+        "title": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Curated expansion"
+      }
+    ]
+  },
+  {
+    "id": "acerola",
+    "slug": "acerola",
+    "name": "Acerola",
+    "scientificName": "Malpighia emarginata",
+    "description": "It is best framed as a vitamin-C-rich fruit botanical with food/supplement relevance.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Malpighia emarginata",
+    "mechanism": "Fruit polyphenols and vitamin content support antioxidant and nutritive positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "Caribbean; tropical Americas",
+    "aliases": [
+      "acerola cherry"
+    ],
+    "activeCompounds": [
+      "ascorbic acid",
+      "carotenoids"
+    ],
+    "interactions": [
+      "Use caution with overextended immune claims."
+    ],
+    "mechanismTags": [
+      "antioxidant",
+      "nutritive support"
+    ],
+    "sources": [
+      {
+        "title": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Curated expansion"
+      }
+    ]
+  },
+  {
+    "id": "mangosteen",
+    "slug": "mangosteen",
+    "name": "Mangosteen",
+    "scientificName": "Garcinia mangostana",
+    "description": "It should be framed conservatively because broad anti-inflammatory and disease claims outrun the evidence.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Garcinia mangostana",
+    "mechanism": "Xanthones support antioxidant and traditional-support positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "Southeast Asia",
+    "aliases": [
+      "mangosteen"
+    ],
+    "activeCompounds": [
+      "alpha-mangostin",
+      "xanthones"
+    ],
+    "interactions": [
+      "Use caution with exaggerated anti-inflammatory claims."
+    ],
+    "mechanismTags": [
+      "antioxidant",
+      "traditional wellness support"
+    ],
+    "sources": [
+      {
+        "title": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Curated expansion"
+      }
+    ]
+  },
+  {
+    "id": "suma",
+    "slug": "suma",
+    "name": "Suma",
+    "scientificName": "Pfaffia paniculata",
+    "description": "It should be framed conservatively because traditional-use breadth exceeds evidence depth.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Pfaffia paniculata",
+    "mechanism": "Saponins support traditional restorative and adaptogenic positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "South America",
+    "aliases": [
+      "suma",
+      "Brazilian ginseng"
+    ],
+    "activeCompounds": [
+      "pfaffic acid",
+      "saponins"
+    ],
+    "interactions": [
+      "Avoid overextended vitality claims."
+    ],
+    "mechanismTags": [
+      "adaptogenic support",
+      "traditional restorative support"
+    ],
+    "sources": [
+      {
+        "title": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Curated expansion"
+      }
+    ]
+  },
+  {
+    "id": "maral-root",
+    "slug": "maral-root",
+    "name": "Maral Root",
+    "scientificName": "Rhaponticum carthamoides",
+    "description": "It is best framed carefully because ecdysteroid narratives often outpace evidence quality.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Rhaponticum carthamoides",
+    "mechanism": "Ecdysteroids support adaptogenic and performance-adjacent positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "Central Asia",
+    "aliases": [
+      "maral root"
+    ],
+    "activeCompounds": [
+      "ecdysterone"
+    ],
+    "interactions": [
+      "Use caution with aggressive performance claims."
+    ],
+    "mechanismTags": [
+      "adaptogenic support",
+      "recovery support"
+    ],
+    "sources": [
+      {
+        "title": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Curated expansion"
+      }
+    ]
+  },
+  {
+    "id": "ashoka",
+    "slug": "ashoka",
+    "name": "Ashoka",
+    "scientificName": "Saraca asoca",
+    "description": "It should be framed conservatively because traditional gynecologic use is much stronger than modern evidence.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Saraca asoca",
+    "mechanism": "Polyphenols support traditional cycle-related positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "India and South Asia",
+    "aliases": [
+      "ashoka"
+    ],
+    "activeCompounds": [
+      "catechins",
+      "flavonoids"
+    ],
+    "interactions": [
+      "Avoid overextended reproductive-health claims."
+    ],
+    "mechanismTags": [
+      "traditional cycle support"
+    ],
+    "sources": [
+      {
+        "title": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Curated expansion"
+      }
+    ]
+  },
+  {
+    "id": "carob",
+    "slug": "carob",
+    "name": "Carob",
+    "scientificName": "Ceratonia siliqua",
+    "description": "It is best framed as a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Ceratonia siliqua",
+    "mechanism": "Inositol derivatives and polyphenols support metabolic and digestive positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "Mediterranean",
+    "aliases": [
+      "carob"
+    ],
+    "activeCompounds": [
+      "D-pinitol",
+      "polyphenols"
+    ],
+    "interactions": [
+      "Use caution with overextended glycemic claims."
+    ],
+    "mechanismTags": [
+      "digestive support",
+      "metabolic support"
+    ],
+    "sources": [
+      {
+        "title": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Pass 125 curated expansion"
+      },
+      {
+        "title": "Curated expansion"
+      }
+    ]
+  },
+  {
+    "id": "eucommia",
+    "slug": "eucommia",
+    "name": "Eucommia",
+    "scientificName": "Eucommia ulmoides",
+    "description": "It is best framed conservatively because traditional tonic use is broader than modern evidence quality.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Eucommia ulmoides",
+    "mechanism": "Iridoids and lignans support connective-tissue and metabolic positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "China and East Asia",
+    "aliases": [
+      "eucommia"
+    ],
+    "activeCompounds": [
+      "geniposidic acid",
+      "lignans"
+    ],
+    "interactions": [
+      "Avoid overextended tonic claims."
+    ],
+    "mechanismTags": [
+      "cardiometabolic support",
+      "connective tissue support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "cistanche",
+    "slug": "cistanche",
+    "name": "Cistanche",
+    "scientificName": "Cistanche deserticola",
+    "description": "It should be framed conservatively because traditional-system use is broader than modern clinical depth.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Cistanche deserticola",
+    "mechanism": "Phenylethanoid glycosides support restorative and antioxidant positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "China and Central Asia",
+    "aliases": [
+      "cistanche"
+    ],
+    "activeCompounds": [
+      "echinacoside",
+      "acteoside"
+    ],
+    "interactions": [
+      "Use caution with exaggerated vitality claims."
+    ],
+    "mechanismTags": [
+      "fatigue support",
+      "traditional restorative support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "longan",
+    "slug": "longan",
+    "name": "Longan",
+    "scientificName": "Dimocarpus longan",
+    "description": "It should be framed as a food-like fruit botanical with modest modern evidence.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Dimocarpus longan",
+    "mechanism": "Polyphenols support antioxidant and nutritive positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "Southeast Asia",
+    "aliases": [
+      "longan"
+    ],
+    "activeCompounds": [
+      "polyphenols",
+      "gallic acid"
+    ],
+    "interactions": [
+      "Avoid overextended nootropic claims."
+    ],
+    "mechanismTags": [
+      "calming support",
+      "nutritive support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "white-peony",
+    "slug": "white-peony",
+    "name": "White Peony",
+    "scientificName": "Paeonia lactiflora",
+    "description": "It is best framed as a paeoniflorin-rich root with traditional-system relevance.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Paeonia lactiflora",
+    "mechanism": "Monoterpene glycosides support traditional cycle and calming positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "China and East Asia",
+    "aliases": [
+      "white peony"
+    ],
+    "activeCompounds": [
+      "paeoniflorin"
+    ],
+    "interactions": [
+      "Use caution with anticoagulant-sensitive contexts."
+    ],
+    "mechanismTags": [
+      "calming support",
+      "traditional cycle support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "codonopsis",
+    "slug": "codonopsis",
+    "name": "Codonopsis",
+    "scientificName": "Codonopsis pilosula",
+    "description": "It is best framed as a gentler tonic-style root with modest modern evidence.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Codonopsis pilosula",
+    "mechanism": "Polysaccharides and glycosides support restorative and fatigue-support positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "China and East Asia",
+    "aliases": [
+      "codonopsis",
+      "dang shen"
+    ],
+    "activeCompounds": [
+      "tangshenosides",
+      "polysaccharides",
+      "tangshenoside I"
+    ],
+    "interactions": [
+      "Avoid exaggerated adaptogen claims."
+    ],
+    "mechanismTags": [
+      "fatigue support",
+      "traditional restorative support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "ophiopogon",
+    "slug": "ophiopogon",
+    "name": "Ophiopogon",
+    "scientificName": "Ophiopogon japonicus",
+    "description": "It is best framed as a moistening tonic-style root with traditional-system relevance.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Ophiopogon japonicus",
+    "mechanism": "Saponins support demulcent and traditional respiratory positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "China and East Asia",
+    "aliases": [
+      "ophiopogon",
+      "mai men dong"
+    ],
+    "activeCompounds": [
+      "ophiopogonins",
+      "ophiopogonin D"
+    ],
+    "interactions": [
+      "Avoid overextended pulmonary claims."
+    ],
+    "mechanismTags": [
+      "demulcent support",
+      "traditional respiratory support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "houttuynia",
+    "slug": "houttuynia",
+    "name": "Houttuynia",
+    "scientificName": "Houttuynia cordata",
+    "description": "It should be framed cautiously because strong folklore claims exceed the evidence.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Houttuynia cordata",
+    "mechanism": "Flavonoids and volatiles support traditional immune and respiratory positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "East and Southeast Asia",
+    "aliases": [
+      "houttuynia"
+    ],
+    "activeCompounds": [
+      "quercitrin",
+      "volatile oils"
+    ],
+    "interactions": [
+      "Avoid exaggerated antiviral claims."
+    ],
+    "mechanismTags": [
+      "traditional immune support",
+      "traditional respiratory support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "isatis",
+    "slug": "isatis",
+    "name": "Isatis",
+    "scientificName": "Isatis tinctoria",
+    "description": "It is best framed as a traditional-use herb with limited modern clinical depth.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Isatis tinctoria",
+    "mechanism": "Indole derivatives support traditional immune-related positioning.",
+    "region": "China and Eurasia",
+    "aliases": [
+      "isatis",
+      "ban lan gen"
+    ],
+    "activeCompounds": [
+      "indirubin",
+      "tryptanthrin"
+    ],
+    "interactions": [
+      "Avoid exaggerated infection-treatment claims."
+    ],
+    "mechanismTags": [
+      "throat support",
+      "traditional immune support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "notoginseng",
+    "slug": "notoginseng",
+    "name": "Notoginseng",
+    "scientificName": "Panax notoginseng",
+    "description": "It is best framed as a saponin-rich Panax relative with specific vascular-support positioning.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Panax notoginseng",
+    "mechanism": "Saponins support vascular and recovery-related positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "China",
+    "aliases": [
+      "notoginseng",
+      "san qi"
+    ],
+    "activeCompounds": [
+      "notoginsenoside R1",
+      "ginsenosides"
+    ],
+    "interactions": [
+      "Use caution with anticoagulant-sensitive contexts."
+    ],
+    "mechanismTags": [
+      "recovery support",
+      "vascular support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "luo-han-guo",
+    "slug": "luo-han-guo",
+    "name": "Luo Han Guo",
+    "scientificName": "Siraitia grosvenorii",
+    "description": "It is best framed as a fruit botanical with sweet mogrosides and soothing traditional use.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Siraitia grosvenorii",
+    "mechanism": "Triterpene glycosides support sweetener and throat-soothing positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "China",
+    "aliases": [
+      "monk fruit",
+      "luo han guo"
+    ],
+    "activeCompounds": [
+      "mogrosides",
+      "mogroside V"
+    ],
+    "interactions": [
+      "Avoid overextended glycemic claims."
+    ],
+    "mechanismTags": [
+      "sweetener-adjacent support",
+      "throat support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "kuding-tea",
+    "slug": "kuding-tea",
+    "name": "Kuding Tea",
+    "scientificName": "Ilex kudingcha",
+    "description": "It should be framed as a bitter tea botanical with food-form relevance and modest modern evidence.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Ilex kudingcha",
+    "mechanism": "Bitters and polyphenols support antioxidant and metabolic positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "China",
+    "aliases": [
+      "kuding tea"
+    ],
+    "activeCompounds": [
+      "triterpenoid saponins",
+      "polyphenols",
+      "kudinlactone"
+    ],
+    "interactions": [
+      "Use caution with strong bitterness and GI sensitivity."
+    ],
+    "mechanismTags": [
+      "antioxidant",
+      "cardiometabolic support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "maitake-d-fraction",
+    "slug": "maitake-d-fraction",
+    "name": "Maitake D-Fraction",
+    "scientificName": "Grifola frondosa",
+    "description": "It should be framed distinctly from whole maitake because extract-standardization claims can exceed the underlying evidence.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Grifola frondosa",
+    "mechanism": "Beta-glucan-rich extracts support immune-modulating positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "Japan; cultivated globally",
+    "aliases": [
+      "maitake D-fraction"
+    ],
+    "activeCompounds": [
+      "beta-glucans"
+    ],
+    "interactions": [
+      "Avoid exaggerated oncology-treatment claims."
+    ],
+    "mechanismTags": [
+      "immune modulation"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "rehmannia-prepared",
+    "slug": "rehmannia-prepared",
+    "name": "Rehmannia Prepared",
+    "scientificName": "Rehmannia glutinosa praeparata",
+    "description": "It should be framed distinctly from raw rehmannia because processed-form use-cases differ materially.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Rehmannia glutinosa praeparata",
+    "mechanism": "Traditional preparation context supports restorative positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "China and East Asia",
+    "aliases": [
+      "prepared rehmannia",
+      "shu di huang"
+    ],
+    "activeCompounds": [
+      "catalpol",
+      "rehmanniosides"
+    ],
+    "interactions": [
+      "Avoid conflating raw and prepared-form actions."
+    ],
+    "mechanismTags": [
+      "traditional restorative support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "agarikon",
+    "slug": "agarikon",
+    "name": "Agarikon",
+    "scientificName": "Fomitopsis officinalis",
+    "description": "It should be framed modestly because traditional use is much stronger than modern evidence.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Fomitopsis officinalis",
+    "mechanism": "Traditional fungal use and polysaccharides support immune-support positioning.",
+    "region": "Europe, Asia, North America",
+    "aliases": [
+      "agarikon"
+    ],
+    "activeCompounds": [
+      "agaric acid",
+      "polysaccharides"
+    ],
+    "interactions": [
+      "Avoid exaggerated antimicrobial claims."
+    ],
+    "mechanismTags": [
+      "respiratory support",
+      "traditional immune support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "black-pepper",
+    "slug": "black-pepper",
+    "name": "Black Pepper",
+    "scientificName": "Piper nigrum",
+    "description": "It should be framed specifically around piperine and digestive relevance rather than as a stand-alone tonic.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Piper nigrum",
+    "mechanism": "Alkaloids support digestive and absorption-related positioning.",
+    "safetyNotes": "Generally well tolerated; use caution with concentrated extracts.",
+    "region": "India; cultivated globally",
+    "aliases": [
+      "black pepper"
+    ],
+    "activeCompounds": [
+      "piperine"
+    ],
+    "interactions": [
+      "Use caution with drug-metabolism-sensitive contexts and tightly dosed stacks."
+    ],
+    "contraindications": [
+      "Use caution in reflux-sensitive contexts."
+    ],
+    "mechanismTags": [
+      "bioavailability support",
+      "digestive support",
+      "metabolic support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "cardamom",
+    "slug": "cardamom",
+    "name": "Cardamom",
+    "scientificName": "Elettaria cardamomum",
+    "description": "It is best framed as an aromatic culinary seed with modest translational evidence.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Elettaria cardamomum",
+    "mechanism": "Volatiles support digestive and aromatic positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "India and Guatemala; cultivated broadly",
+    "aliases": [
+      "cardamom"
+    ],
+    "activeCompounds": [
+      "1,8-cineole",
+      "terpinyl acetate"
+    ],
+    "interactions": [
+      "Use caution with concentrated essential-oil assumptions."
+    ],
+    "mechanismTags": [
+      "aromatic support",
+      "digestive support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "caraway",
+    "slug": "caraway",
+    "name": "Caraway",
+    "scientificName": "Carum carvi",
+    "description": "It is best framed as an aromatic seed with traditional GI relevance.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Carum carvi",
+    "mechanism": "Volatile constituents support digestive and aromatic positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "Europe and Western Asia",
+    "aliases": [
+      "caraway"
+    ],
+    "activeCompounds": [
+      "carvone",
+      "limonene"
+    ],
+    "interactions": [
+      "Use caution with concentrated oil assumptions."
+    ],
+    "mechanismTags": [
+      "aromatic support",
+      "digestive support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "ajwain",
+    "slug": "ajwain",
+    "name": "Ajwain",
+    "scientificName": "Trachyspermum ammi",
+    "description": "It is best framed as a culinary-medicinal seed with strong traditional GI positioning.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Trachyspermum ammi",
+    "mechanism": "Aromatic phenols support digestive and antimicrobial-adjacent positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "India and South Asia",
+    "aliases": [
+      "ajwain"
+    ],
+    "activeCompounds": [
+      "thymol"
+    ],
+    "interactions": [
+      "Avoid overextended antimicrobial claims."
+    ],
+    "mechanismTags": [
+      "aromatic support",
+      "digestive support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "curry-leaf",
+    "slug": "curry-leaf",
+    "name": "Curry Leaf",
+    "scientificName": "Murraya koenigii",
+    "description": "It is best framed as a culinary-medicinal leaf with food-form relevance.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Murraya koenigii",
+    "mechanism": "Alkaloids and polyphenols support antioxidant and metabolic positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "India and South Asia",
+    "aliases": [
+      "curry leaf"
+    ],
+    "activeCompounds": [
+      "mahanimbine",
+      "carbazole alkaloids"
+    ],
+    "interactions": [
+      "Avoid overextended glycemic claims."
+    ],
+    "mechanismTags": [
+      "antioxidant",
+      "metabolic support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "turkey-tail",
+    "slug": "turkey-tail",
+    "name": "Turkey Tail",
+    "scientificName": "Trametes versicolor",
+    "description": "",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Trametes versicolor",
+    "region": "Global",
+    "aliases": [
+      "turkey tail"
+    ],
+    "activeCompounds": [
+      "PSK"
+    ],
+    "interactions": [
+      "Generally safe"
+    ],
+    "mechanismTags": [
+      "nfkb"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ]
+  },
+  {
+    "id": "rooibos",
+    "slug": "rooibos",
+    "name": "Rooibos",
+    "scientificName": "Aspalathus linearis",
+    "description": "It is best framed as a mild tea herb with low-intensity wellness positioning.",
+    "compounds": [],
+    "benefits": [],
+    "latin": "Aspalathus linearis",
+    "mechanism": "Polyphenol-linked antioxidant relevance supports mild positioning.",
+    "safetyNotes": "Generally well tolerated.",
+    "region": "South Africa",
+    "aliases": [
+      "rooibos",
+      "red bush"
+    ],
+    "activeCompounds": [
+      "aspalathin",
+      "nothofagin",
+      "flavonoids"
+    ],
+    "interactions": [
+      "No major interaction pattern is firmly established",
+      "use routine caution in polypharmacy."
+    ],
+    "mechanismTags": [
+      "antioxidant support",
+      "soothing support"
+    ],
+    "sources": [
+      {
+        "title": "Internal workbook cross-link"
+      }
+    ]
   }
 ]
