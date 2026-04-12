@@ -180,10 +180,15 @@ export default function CompoundDetail() {
   const pathwayTargets = splitClean(compoundRecord.pathwayTargets)
   const workbookSources = splitPipeList(compoundRecord.sourceUrls)
   const relatedHerbSlugs = splitClean(compoundRecord.relatedHerbSlugs)
-  const compoundInteractionsText = compound.interactions.join(' | ').trim()
   const drugInteractions = normalizeTextValue(compoundRecord.drugInteractions)
-  const hasDistinctDrugInteractions =
-    !!drugInteractions && normalizeKey(drugInteractions) !== normalizeKey(compoundInteractionsText)
+  const uniqueDrugInteractionItems = Array.from(
+    new Map(
+      [...compound.interactions, ...(drugInteractions ? [drugInteractions] : [])]
+        .map(item => normalizeTextValue(item))
+        .filter(Boolean)
+        .map(item => [normalizeKey(item), item]),
+    ).values(),
+  )
 
   const linkedHerbs = mapRelatedHerbsForCompound(compound, herbs)
   const herbByKey = new Map<string, { label: string; slug: string }>()
@@ -388,6 +393,8 @@ export default function CompoundDetail() {
     sourceCount,
   })
   const governedReviewFreshness = buildGovernedReviewFreshness(governedResearch)
+  const topSummary =
+    governedIntro.whatItIs || governedIntro.commonUse || compound.description || compound.mechanism
   const enrichmentRecommendations = buildEnrichmentRecommendations('compound', compound.slug)
   const quickCompareSection = buildGovernedQuickCompareSection('compound', compound.slug)
   const recommendationNames = {
@@ -488,191 +495,20 @@ export default function CompoundDetail() {
               {evidence && <span className='ds-pill'>Evidence: {evidence}</span>}
             </div>
           )}
-          <DataTrustPanel
-            entity='compound'
-            confidence={confidence}
-            completeness={completeness}
-            sourceCount={sourceCount}
-            lastReviewed={compound.lastUpdated}
-            cautionCount={cautionCount}
-            hasInferredContent={hasInferredContent}
-            hasFallbackContent={hasFallbackContent}
-          />
-
-          <StructuredDetailIntro
-            confidence={confidence}
-            whatItIs={governedIntro.whatItIs}
-            commonUse={governedIntro.commonUse}
-            evidenceContext={governedIntro.evidenceContext}
-            cautionNote={governedIntro.cautionNote}
-            quickFacts={governedIntro.quickFacts}
-            nextSteps={[
-              { label: 'Check this compound in interactions', to: compoundCheckerHref },
-              ...(foundInHerbLinks.length > 0
-                ? [{ label: 'Review related herbs', to: '#related-herbs', variant: 'secondary' as const }]
-                : []),
-              { label: 'Continue to stack builder', to: '/build', variant: 'secondary' as const },
-            ]}
-            onStepClick={step => {
-              if (step.to.startsWith('/interactions')) {
-                trackDetailCheckerClick({
-                  detailType: 'compound',
-                  detailSlug: compound.slug,
-                  placement: 'quick_intro_next_steps',
-                })
-              }
-              if (step.to === '/build') {
-                trackDetailBuilderClick({
-                  detailType: 'compound',
-                  detailSlug: compound.slug,
-                  placement: 'quick_intro_next_steps',
-                })
-              }
-            }}
-            analyticsContext={{
-              pageType: 'compound_detail',
-              entityType: 'compound',
-              entitySlug: compound.slug,
-              profile: governedIntro.decision.mode,
-            }}
-          />
-          <GovernedReviewFreshnessPanel
-            decision={governedReviewFreshness}
-            nextStepHref='#governed-safety-interactions'
-            analyticsContext={{
-              pageType: 'compound_detail',
-              entityType: 'compound',
-              entitySlug: compound.slug,
-            }}
-          />
-
-          <CtaVariantLayout
-            variant={ctaExperiment.variant}
-            slotOrderOverride={governedCta.slotOrder}
-            onSlotImpression={(slot, position) => {
-              const ctaType =
-                slot === 'tool'
-                  ? 'tool'
-                  : slot === 'builder'
-                    ? 'builder'
-                    : slot === 'affiliate'
-                      ? 'affiliate'
-                      : null
-              if (!ctaType) return
-              trackCtaSlotImpression({
-                sourceType: 'detail',
-                source: `compound:${compound.slug}`,
-                placement: 'cta_experiment_slot',
-                ctaMetadata: {
-                  pageType: 'compound_detail',
-                  entitySlug: compound.slug,
-                  ctaType,
-                  ctaPosition: `position_${position}`,
-                  variantId: ctaVariantId,
-                },
+          {topSummary && <p className='mt-4 text-sm leading-relaxed text-white/80'>{topSummary}</p>}
+          <Link
+            to={compoundCheckerHref}
+            className='btn-primary mt-4 inline-flex'
+            onClick={() =>
+              trackDetailCheckerClick({
+                detailType: 'compound',
+                detailSlug: compound.slug,
+                placement: 'top_summary_primary_cta',
               })
-            }}
-            slots={{
-              tool: (
-                <div className='rounded-lg border border-emerald-300/30 bg-emerald-500/10 p-3'>
-                  <p className='text-xs font-semibold uppercase tracking-[0.14em] text-emerald-100'>
-                    {governedCta.copy.toolTitle}
-                  </p>
-                  <p className='mt-1 text-xs text-white/75'>{governedCta.copy.toolBody}</p>
-                  <Link
-                    to={compoundCheckerHref}
-                    className='btn-primary mt-2 inline-flex text-xs'
-                    onClick={() =>
-                      trackDetailCheckerClick({
-                        detailType: 'compound',
-                        detailSlug: compound.slug,
-                        placement: 'cta_variant_tool',
-                        ctaMetadata: {
-                          pageType: 'compound_detail',
-                          entitySlug: compound.slug,
-                          ctaType: 'tool',
-                          ctaPosition: 'detail_tool_checker',
-                          variantId: ctaVariantId,
-                        },
-                      })
-                    }
-                  >
-                    {governedCta.copy.toolButtonLabel}
-                  </Link>
-                </div>
-              ),
-              builder: (
-                <div className='rounded-lg border border-cyan-300/25 bg-cyan-500/10 p-3'>
-                  <p className='text-xs text-white/75'>{governedCta.copy.builderBody}</p>
-                  <Link
-                    to='/build'
-                    className='btn-secondary mt-2 inline-flex text-xs'
-                    onClick={() =>
-                      trackDetailBuilderClick({
-                        detailType: 'compound',
-                        detailSlug: compound.slug,
-                        placement: 'cta_variant_builder',
-                        ctaMetadata: {
-                          pageType: 'compound_detail',
-                          entitySlug: compound.slug,
-                          ctaType: 'builder',
-                          ctaPosition: 'detail_stack_builder',
-                          variantId: ctaVariantId,
-                        },
-                      })
-                    }
-                  >
-                    {governedCta.copy.builderButtonLabel}
-                  </Link>
-                </div>
-              ),
-              related: relatedCollections.length > 0 && (
-                <div className='rounded-lg border border-white/10 bg-white/[0.02] p-3'>
-                  <p className='text-xs font-semibold text-white'>
-                    {governedCta.copy.relatedTitle}
-                  </p>
-                  <div className='mt-2 flex flex-wrap gap-2'>
-                    {relatedCollections.slice(0, 3).map(collection => (
-                      <Link
-                        key={`cta-${collection.slug}`}
-                        to={`/collections/${collection.slug}`}
-                        className='btn-secondary text-xs'
-                        onClick={() =>
-                          trackGovernedEvent({
-                            type: 'governed_cta_click',
-                            eventAction: 'click',
-                            pageType: 'compound_detail',
-                            entityType: 'compound',
-                            entitySlug: compound.slug,
-                            surfaceId: 'detail_cta_related',
-                            componentType: 'related_collection_cta',
-                            item: collection.slug,
-                            variantId: ctaVariantId,
-                            reviewedStatus: 'reviewed',
-                            freshnessState: 'not_applicable',
-                          })
-                        }
-                      >
-                        {collection.title}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ),
-              affiliate: curatedProducts.length > 0 && (
-                <CuratedProductModule
-                  entityType='compound'
-                  entitySlug={compound.slug}
-                  products={curatedProducts}
-                  positionContext='compound_detail_cta_variant'
-                  pageType='compound_detail'
-                  variantId={ctaVariantId}
-                  ctaPosition='detail_affiliate_module'
-                  preDisclosureGuidance={governedCta.copy.affiliateLeadIn}
-                />
-              ),
-            }}
-          />
+            }
+          >
+            Check this compound in interactions
+          </Link>
         </header>
 
         {/* Primary effects pills */}
@@ -766,8 +602,8 @@ export default function CompoundDetail() {
         {(compound.contraindications.length > 0 ||
           compound.interactions.length > 0 ||
           compound.sideEffects.length > 0 ||
-          hasDistinctDrugInteractions) && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
+          uniqueDrugInteractionItems.length > 0) && (
+          <section id='governed-safety-interactions' className='border-white/8 mt-6 border-t pt-5'>
             <Collapse title='Safety Notes'>
               <div className='space-y-4 text-sm leading-relaxed text-white/85'>
                 {compound.contraindications.length > 0 && (
@@ -790,23 +626,12 @@ export default function CompoundDetail() {
                     </ul>
                   </div>
                 )}
-                {hasDistinctDrugInteractions && (
-                  <div className='rounded-xl border border-amber-300/40 bg-amber-500/10 px-3 py-2 text-amber-100'>
-                    <p className='text-xs font-semibold uppercase tracking-[0.14em] text-amber-100'>
-                      <span aria-hidden='true' className='mr-1'>
-                        ⚠
-                      </span>
-                      Drug Interactions
-                    </p>
-                    <p className='mt-1'>{drugInteractions}</p>
-                  </div>
-                )}
-                {compound.interactions.length > 0 && (
+                {uniqueDrugInteractionItems.length > 0 && (
                   <div>
                     <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
                       Drug Interactions
                     </h3>
-                    <ListSection items={compound.interactions} />
+                    <ListSection items={uniqueDrugInteractionItems} />
                   </div>
                 )}
                 {compound.sideEffects.length > 0 && (
@@ -905,6 +730,188 @@ export default function CompoundDetail() {
             }}
           />
         )}
+
+        <DataTrustPanel
+          entity='compound'
+          confidence={confidence}
+          completeness={completeness}
+          sourceCount={sourceCount}
+          lastReviewed={compound.lastUpdated}
+          cautionCount={cautionCount}
+          hasInferredContent={hasInferredContent}
+          hasFallbackContent={hasFallbackContent}
+        />
+        <GovernedReviewFreshnessPanel
+          decision={governedReviewFreshness}
+          nextStepHref='#governed-safety-interactions'
+          analyticsContext={{
+            pageType: 'compound_detail',
+            entityType: 'compound',
+            entitySlug: compound.slug,
+          }}
+        />
+        <StructuredDetailIntro
+          confidence={confidence}
+          whatItIs={governedIntro.whatItIs}
+          commonUse={governedIntro.commonUse}
+          evidenceContext={governedIntro.evidenceContext}
+          cautionNote={governedIntro.cautionNote}
+          quickFacts={governedIntro.quickFacts}
+          nextSteps={[
+            { label: 'Check this compound in interactions', to: compoundCheckerHref },
+            ...(foundInHerbLinks.length > 0
+              ? [{ label: 'Review related herbs', to: '#related-herbs', variant: 'secondary' as const }]
+              : []),
+            { label: 'Continue to stack builder', to: '/build', variant: 'secondary' as const },
+          ]}
+          onStepClick={step => {
+            if (step.to.startsWith('/interactions')) {
+              trackDetailCheckerClick({
+                detailType: 'compound',
+                detailSlug: compound.slug,
+                placement: 'quick_intro_next_steps',
+              })
+            }
+            if (step.to === '/build') {
+              trackDetailBuilderClick({
+                detailType: 'compound',
+                detailSlug: compound.slug,
+                placement: 'quick_intro_next_steps',
+              })
+            }
+          }}
+          analyticsContext={{
+            pageType: 'compound_detail',
+            entityType: 'compound',
+            entitySlug: compound.slug,
+            profile: governedIntro.decision.mode,
+          }}
+        />
+        <CtaVariantLayout
+          variant={ctaExperiment.variant}
+          slotOrderOverride={governedCta.slotOrder}
+          onSlotImpression={(slot, position) => {
+            const ctaType =
+              slot === 'tool'
+                ? 'tool'
+                : slot === 'builder'
+                  ? 'builder'
+                  : slot === 'affiliate'
+                    ? 'affiliate'
+                    : null
+            if (!ctaType) return
+            trackCtaSlotImpression({
+              sourceType: 'detail',
+              source: `compound:${compound.slug}`,
+              placement: 'cta_experiment_slot',
+              ctaMetadata: {
+                pageType: 'compound_detail',
+                entitySlug: compound.slug,
+                ctaType,
+                ctaPosition: `position_${position}`,
+                variantId: ctaVariantId,
+              },
+            })
+          }}
+          slots={{
+            tool: (
+              <div className='rounded-lg border border-emerald-300/30 bg-emerald-500/10 p-3'>
+                <p className='text-xs font-semibold uppercase tracking-[0.14em] text-emerald-100'>
+                  {governedCta.copy.toolTitle}
+                </p>
+                <p className='mt-1 text-xs text-white/75'>{governedCta.copy.toolBody}</p>
+                <Link
+                  to={compoundCheckerHref}
+                  className='btn-primary mt-2 inline-flex text-xs'
+                  onClick={() =>
+                    trackDetailCheckerClick({
+                      detailType: 'compound',
+                      detailSlug: compound.slug,
+                      placement: 'cta_variant_tool',
+                      ctaMetadata: {
+                        pageType: 'compound_detail',
+                        entitySlug: compound.slug,
+                        ctaType: 'tool',
+                        ctaPosition: 'detail_tool_checker',
+                        variantId: ctaVariantId,
+                      },
+                    })
+                  }
+                >
+                  {governedCta.copy.toolButtonLabel}
+                </Link>
+              </div>
+            ),
+            builder: (
+              <div className='rounded-lg border border-cyan-300/25 bg-cyan-500/10 p-3'>
+                <p className='text-xs text-white/75'>{governedCta.copy.builderBody}</p>
+                <Link
+                  to='/build'
+                  className='btn-secondary mt-2 inline-flex text-xs'
+                  onClick={() =>
+                    trackDetailBuilderClick({
+                      detailType: 'compound',
+                      detailSlug: compound.slug,
+                      placement: 'cta_variant_builder',
+                      ctaMetadata: {
+                        pageType: 'compound_detail',
+                        entitySlug: compound.slug,
+                        ctaType: 'builder',
+                        ctaPosition: 'detail_stack_builder',
+                        variantId: ctaVariantId,
+                      },
+                    })
+                  }
+                >
+                  {governedCta.copy.builderButtonLabel}
+                </Link>
+              </div>
+            ),
+            related: relatedCollections.length > 0 && (
+              <div className='rounded-lg border border-white/10 bg-white/[0.02] p-3'>
+                <p className='text-xs font-semibold text-white'>{governedCta.copy.relatedTitle}</p>
+                <div className='mt-2 flex flex-wrap gap-2'>
+                  {relatedCollections.slice(0, 3).map(collection => (
+                    <Link
+                      key={`cta-${collection.slug}`}
+                      to={`/collections/${collection.slug}`}
+                      className='btn-secondary text-xs'
+                      onClick={() =>
+                        trackGovernedEvent({
+                          type: 'governed_cta_click',
+                          eventAction: 'click',
+                          pageType: 'compound_detail',
+                          entityType: 'compound',
+                          entitySlug: compound.slug,
+                          surfaceId: 'detail_cta_related',
+                          componentType: 'related_collection_cta',
+                          item: collection.slug,
+                          variantId: ctaVariantId,
+                          reviewedStatus: 'reviewed',
+                          freshnessState: 'not_applicable',
+                        })
+                      }
+                    >
+                      {collection.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ),
+            affiliate: curatedProducts.length > 0 && (
+              <CuratedProductModule
+                entityType='compound'
+                entitySlug={compound.slug}
+                products={curatedProducts}
+                positionContext='compound_detail_cta_variant'
+                pageType='compound_detail'
+                variantId={ctaVariantId}
+                ctaPosition='detail_affiliate_module'
+                preDisclosureGuidance={governedCta.copy.affiliateLeadIn}
+              />
+            ),
+          }}
+        />
 
         <section id='governed-compare-links'>
           <GovernedQuickCompareBlock
