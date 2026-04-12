@@ -45,6 +45,9 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
     compounds: compound.herbsFound.map(h => h.name),
   })
   const primaryEffects = extractPrimaryEffects(effects, 3)
+  const visiblePrimaryEffects = primaryEffects.slice(0, 2)
+  const visibleHerbs = compound.herbsFound.slice(0, 2)
+  const hiddenHerbCount = Math.max(compound.herbsFound.length - visibleHerbs.length, 0)
   const summary = buildCardSummary({
     effects,
     mechanism,
@@ -57,52 +60,54 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
     <motion.article
       whileHover={{ scale: 1.03 }}
       title={compound.herbsFound.map(h => h.name).join(', ')}
-      className='ds-card relative flex flex-col rounded-2xl p-4 text-left transition hover:border-white/25'
+      className='ds-card relative flex flex-col rounded-2xl p-2.5 text-left transition hover:border-white/25'
     >
       <span
-        className={`absolute right-4 top-4 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
+        className={`absolute right-2.5 top-2.5 rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
       >
         {confidence}
       </span>
-      <h2 className='mb-1 text-lg font-semibold text-emerald-200'>{compound.name}</h2>
-      <div className='mb-2 flex flex-wrap gap-2 pr-16'>
+      <h2 className='mb-0.5 text-base font-semibold leading-tight text-emerald-200'>{compound.name}</h2>
+      <div className='mb-1 flex flex-wrap gap-1.5 pr-14'>
         <TagBadge label={compound.type ?? compound.category ?? 'compound'} />
         {compound.effectClass && <TagBadge label={compound.effectClass} variant='blue' />}
       </div>
-      {primaryEffects.length > 0 && (
-        <div className='mb-2 flex flex-wrap gap-1.5'>
-          {primaryEffects.map(effect => (
+      {visiblePrimaryEffects.length > 0 && (
+        <div className='mb-1 flex flex-wrap gap-1'>
+          {visiblePrimaryEffects.map(effect => (
             <span
               key={`${compound.name}-${effect}`}
-              className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100 shadow-[0_0_14px_rgba(139,92,246,0.3)]'
+              className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2 py-0.5 text-[10px] text-violet-100 shadow-[0_0_14px_rgba(139,92,246,0.3)]'
             >
               {effect}
             </span>
           ))}
         </div>
       )}
-      <p className='mb-2 line-clamp-2 text-sm text-white/75'>{summary}</p>
+      <p className='mb-1 line-clamp-2 text-sm leading-tight text-white/75'>{summary}</p>
       {confidence === 'low' && (
-        <p className='mb-2 rounded-lg border border-amber-300/35 bg-amber-500/10 px-2.5 py-1.5 text-xs text-amber-100'>
-          ⚠️ This entry is incomplete. Data is still being verified.
-        </p>
+        <div className='mb-1 inline-flex items-center gap-1 text-[11px] text-amber-100/90'>
+          <span aria-hidden='true'>⚠️</span>
+          <span className='truncate'>Entry incomplete, verification in progress.</span>
+        </div>
       )}
       <div className='mt-auto flex flex-wrap gap-1'>
-        {compound.herbsFound.map(h =>
+        {visibleHerbs.map(h =>
           h.slug ? (
             <Link
               key={h.name}
               to={`/herbs/${h.slug}`}
-              className='ds-pill text-xs transition hover:border-white/30'
+              className='ds-pill px-2 py-0.5 text-[11px] transition hover:border-white/30'
             >
               {h.name}
             </Link>
           ) : (
-            <span key={h.name} className='ds-pill text-xs'>
+            <span key={h.name} className='ds-pill px-2 py-0.5 text-[11px]'>
               {h.name}
             </span>
           )
         )}
+        {hiddenHerbCount > 0 && <span className='ds-pill px-2 py-0.5 text-[11px]'>+{hiddenHerbCount}</span>}
       </div>
     </motion.article>
   )
