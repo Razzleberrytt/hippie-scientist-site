@@ -6554,7 +6554,10 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Liver tonic, anti-inflammatory, immunomodulatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver tonic, anti-inflammatory, immunomodulatory. No direct region data. Contextual inference: Liver tonic, anti-inflammatory, immunomodulatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver tonic, anti-inflammatory, immunomodulatory. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "saikosaponins",
+      "saikosaponin A"
+    ],
     "effects": [
       "Liver tonic",
       "anti-inflammatory",
@@ -6581,8 +6584,10 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
+      },
+      {
+        "title": "Internal workbook + enrichment queue"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -6601,7 +6606,9 @@
       "nan."
     ],
     "duration": "4–6 hours",
-    "interactions": [],
+    "interactions": [
+      "Avoid overgeneralized mood claims."
+    ],
     "legalStatus": "Legal in TCM and supplements",
     "preparation": "Roots decocted or extracted in Traditional Chinese Medicine",
     "region": "No direct region data. Contextual inference: Liver tonic, anti-inflammatory, immunomodulatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Liver tonic, anti-inflammatory, immunomodulatory. none. ; nan; nan",
@@ -6613,7 +6620,14 @@
       "rare liver toxicity with long",
       "term use"
     ],
-    "slug": "bupleurum-falcatum"
+    "slug": "bupleurum-falcatum",
+    "aliases": [
+      "bupleurum"
+    ],
+    "mechanismTags": [
+      "traditional liver support",
+      "traditional stress support"
+    ]
   },
   {
     "name": "bursera graveolens",
@@ -11175,7 +11189,9 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Adaptogen, immune modulator, energy booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, immune modulator, energy booster. No direct region data. Contextual inference: Adaptogen, immune modulator, energy booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, immune modulator, energy booster. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "cordycepin"
+    ],
     "effects": [
       "Adaptogen",
       "immune modulator",
@@ -11201,8 +11217,10 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
+      },
+      {
+        "title": "Internal workbook + enrichment queue"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -11220,7 +11238,9 @@
       "nan."
     ],
     "duration": "6–8 hours",
-    "interactions": [],
+    "interactions": [
+      "Generally well tolerated"
+    ],
     "legalStatus": "Legal; widely used in supplements",
     "preparation": "Fungi dried and powdered; used in capsules, decoctions, or tonics in Traditional Chinese Medicine",
     "region": "No direct region data. Contextual inference: Adaptogen, immune modulator, energy booster. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, immune modulator, energy booster. none. ; nan; nan",
@@ -11232,7 +11252,13 @@
       "nausea",
       "or diarrhea"
     ],
-    "slug": "cordyceps-sinensis"
+    "slug": "cordyceps-sinensis",
+    "aliases": [
+      "cordyceps"
+    ],
+    "mechanismTags": [
+      "ampk"
+    ]
   },
   {
     "name": "cordyline fruticosa",
@@ -12593,7 +12619,11 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Tonic, immune support, adaptogen in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic, immune support, adaptogen in TCM. No direct region data. Contextual inference: Tonic, immune support, adaptogen in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic, immune support, adaptogen in TCM. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "polysaccharides",
+      "alkaloids",
+      "dendrobine"
+    ],
     "effects": [
       "Tonic",
       "immune support",
@@ -12617,8 +12647,10 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
+      },
+      {
+        "title": "Internal workbook + enrichment queue"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -12636,7 +12668,9 @@
       "nan."
     ],
     "duration": "6–8 hours",
-    "interactions": [],
+    "interactions": [
+      "Avoid exaggerated anti-aging claims."
+    ],
     "legalStatus": "Legal in most herbal systems",
     "preparation": "Stems dried and decocted; key tonic herb in Traditional Chinese Medicine for yin nourishment",
     "region": "No direct region data. Contextual inference: Tonic, immune support, adaptogen in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic, immune support, adaptogen in TCM. none. ; nan; nan",
@@ -12646,7 +12680,14 @@
       "Well tolerated",
       "high doses may cause dry mouth or dizziness"
     ],
-    "slug": "dendrobium-nobile"
+    "slug": "dendrobium-nobile",
+    "aliases": [
+      "dendrobium"
+    ],
+    "mechanismTags": [
+      "mucosal support",
+      "traditional restorative support"
+    ]
   },
   {
     "name": "derris elliptica",
@@ -17683,6 +17724,9 @@
       },
       {
         "title": "NCCIH; PubMed/PMC"
+      },
+      {
+        "title": "Internal workbook + enrichment queue"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -34049,7 +34093,10 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Diuretic, calming, spleen tonic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, calming, spleen tonic in TCM. No direct region data. Contextual inference: Diuretic, calming, spleen tonic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, calming, spleen tonic in TCM. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "pachymic acid",
+      "polysaccharides"
+    ],
     "effects": [
       "Diuretic",
       "calming",
@@ -34073,8 +34120,10 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
+      },
+      {
+        "title": "Internal workbook + enrichment queue"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -34092,7 +34141,9 @@
       "nan."
     ],
     "duration": "4–8 hours",
-    "interactions": [],
+    "interactions": [
+      "Avoid overextended diuretic claims."
+    ],
     "legalStatus": "Legal globally",
     "preparation": "Fungus dried and decocted; used in Traditional Chinese Medicine for diuretic and calming effects",
     "region": "No direct region data. Contextual inference: Diuretic, calming, spleen tonic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, calming, spleen tonic in TCM. none. ; nan; nan",
@@ -34102,7 +34153,15 @@
       "Generally safe",
       "mild GI effects in some"
     ],
-    "slug": "poria-cocos"
+    "slug": "poria-cocos",
+    "aliases": [
+      "poria",
+      "fu ling"
+    ],
+    "mechanismTags": [
+      "calming support",
+      "traditional fluid-balance support"
+    ]
   },
   {
     "name": "prestonia amazonica",
@@ -35027,7 +35086,9 @@
     "class": null,
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "triterpenes"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -35046,7 +35107,11 @@
       "nan. No direct effects data. Contextual inference:",
       "nan."
     ],
-    "sources": [],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ],
     "lastUpdated": "2026-03-21",
     "description": "; nan; nan.",
     "dosage": [
@@ -35058,7 +35123,9 @@
       "nan. No direct region data. Contextual inference:"
     ],
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Mild GI"
+    ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
@@ -35071,6 +35138,12 @@
     "sideEffects": [
       "mild gastrointestinal upset (nausea, cramping, or loose stool)",
       "allergic rash or itching in sensitive individuals"
+    ],
+    "aliases": [
+      "reishi"
+    ],
+    "mechanismTags": [
+      "nfkb"
     ]
   },
   {
@@ -40560,10 +40633,7 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. Adaptogenic, immunomodulatory, stress-relieving; used in Ayurvedic medicine. No direct region data. Contextual inference: Adaptogenic, immunomodulatory, stress-relieving; used in ayurvedic medicine. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. ; nan; nan.. Acts as an adaptogen; modulates cortisol and inflammatory pathways.. Adaptogenic, immunomodulatory, stress-relieving; used in Ayurvedic medicine. ; nan; nan. ; nan; nan",
     "mechanism": "Acts as an adaptogen; modulates cortisol and inflammatory pathways.",
-    "activeCompounds": [
-      "mucilage",
-      "fiber"
-    ],
+    "activeCompounds": [],
     "effects": [
       "Adaptogenic",
       "immunomodulatory",
@@ -40593,10 +40663,8 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:"
-      },
-      {
-        "title": "Internal workbook + enrichment queue"
+        "note": "Inferred from scientific name:",
+        "url": ""
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -40632,15 +40700,7 @@
       "rare nausea",
       "drowsiness."
     ],
-    "slug": "tulsi",
-    "aliases": [
-      "sabja",
-      "basil seed"
-    ],
-    "mechanismTags": [
-      "demulcent support",
-      "digestive support"
-    ]
+    "slug": "tulsi"
   },
   {
     "name": "turmeric",
@@ -42241,11 +42301,13 @@
   },
   {
     "name": "white sage",
-    "latin": "white sage",
+    "latin": "Salvia officinalis",
     "class": null,
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "thujone"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -42266,7 +42328,11 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "sources": [],
+    "sources": [
+      {
+        "title": "Internal workbook + enrichment queue"
+      }
+    ],
     "lastUpdated": "2026-03-21",
     "description": "Used in ritual, dreaming or folk medicine.",
     "dosage": [
@@ -42279,7 +42345,9 @@
       "dreaming or folk medicine"
     ],
     "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "interactions": [],
+    "interactions": [
+      "Use caution in cognition-focused stacks with multiple cholinergic agents."
+    ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
@@ -42293,6 +42361,14 @@
       "mild gastrointestinal upset (nausea, cramping, or loose stool)",
       "headache (more likely with higher intake)",
       "allergic rash or itching in sensitive individuals"
+    ],
+    "aliases": [
+      "Sage"
+    ],
+    "mechanismTags": [
+      "antioxidant",
+      "cognition",
+      "digestive support"
     ]
   },
   {
@@ -47740,7 +47816,11 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. No direct region data. Contextual inference: Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "theobromine",
+      "flavanols",
+      "catechins"
+    ],
     "effects": [
       "Stimulant",
       "antioxidant",
@@ -47752,11 +47832,13 @@
       "Use caution with stimulants and in uncontrolled hypertension or arrhythmia.",
       "discontinue if hypersensitivity or allergic symptoms occur"
     ],
-    "safetyNotes": [],
+    "safetyNotes": "Use caution in stimulant-sensitive users and with migraine triggers.",
     "sources": [
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
+      },
+      {
+        "title": "Internal workbook cross-link"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -47780,14 +47862,24 @@
     "region": "No direct region data. Contextual inference: Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. none. ; nan; nan",
     "preparation": "No direct preparation data. Contextual inference: Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. No direct region data. Contextual inference: Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. none. ; nan; nan. ; nan; nan",
     "legalStatus": "Legal globally",
-    "interactions": [],
+    "interactions": [
+      "May interact with stimulants and can add to caffeine-like effects."
+    ],
     "description": "Stimulant, antioxidant, mild euphoriant; contains theobromine and caffeine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
     "sideEffects": [
       "mild gastrointestinal upset (nausea, cramping, or loose stool)",
       "headache (more likely with higher intake)",
       "allergic rash or itching in sensitive individuals"
     ],
-    "slug": "theobroma-cacao"
+    "slug": "theobroma-cacao",
+    "aliases": [
+      "cacao",
+      "cocoa"
+    ],
+    "mechanismTags": [
+      "circulation support",
+      "mood support"
+    ]
   },
   {
     "name": "tilia tomentosa",

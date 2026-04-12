@@ -20,11 +20,6 @@
     "scientificName": "Petasites hybridus"
   },
   {
-    "slug": "sage",
-    "name": "Sage",
-    "scientificName": "Salvia officinalis"
-  },
-  {
     "slug": "pau-darco",
     "name": "Pau d'Arco",
     "scientificName": "Handroanthus impetiginosus"
@@ -115,19 +110,9 @@
     "scientificName": "Paeonia lactiflora"
   },
   {
-    "slug": "bupleurum",
-    "name": "Bupleurum",
-    "scientificName": "Bupleurum chinense"
-  },
-  {
     "slug": "codonopsis",
     "name": "Codonopsis",
     "scientificName": "Codonopsis pilosula"
-  },
-  {
-    "slug": "dendrobium",
-    "name": "Dendrobium",
-    "scientificName": "Dendrobium officinale"
   },
   {
     "slug": "ophiopogon",
@@ -165,11 +150,6 @@
     "scientificName": "Grifola frondosa"
   },
   {
-    "slug": "poria",
-    "name": "Poria",
-    "scientificName": "Wolfiporia extensa"
-  },
-  {
     "slug": "rehmannia-prepared",
     "name": "Rehmannia Prepared",
     "scientificName": "Rehmannia glutinosa praeparata"
@@ -190,11 +170,6 @@
     "scientificName": "Elettaria cardamomum"
   },
   {
-    "slug": "holy-basil-seed",
-    "name": "Holy Basil Seed",
-    "scientificName": "Ocimum tenuiflorum"
-  },
-  {
     "slug": "caraway",
     "name": "Caraway",
     "scientificName": "Carum carvi"
@@ -205,24 +180,9 @@
     "scientificName": "Trachyspermum ammi"
   },
   {
-    "slug": "holy-basil-purple",
-    "name": "Holy Basil Purple",
-    "scientificName": "Ocimum tenuiflorum"
-  },
-  {
     "slug": "curry-leaf",
     "name": "Curry Leaf",
     "scientificName": "Murraya koenigii"
-  },
-  {
-    "slug": "cordyceps",
-    "name": "Cordyceps",
-    "scientificName": "Cordyceps militaris"
-  },
-  {
-    "slug": "reishi",
-    "name": "Reishi",
-    "scientificName": "Ganoderma lucidum"
   },
   {
     "slug": "turkey-tail",
@@ -238,11 +198,6 @@
     "slug": "epimedium",
     "name": "Epimedium",
     "scientificName": "Epimedium sagittatum"
-  },
-  {
-    "slug": "cacao",
-    "name": "Cacao",
-    "scientificName": "Theobroma cacao"
   },
   {
     "slug": "rooibos",
