@@ -20,6 +20,7 @@ const unmatchedHerbsReportPath = path.join(reportsDir, 'workbook-unmatched-herbs
 const unmatchedCompoundsReportPath = path.join(reportsDir, 'workbook-unmatched-compounds.json')
 
 const citationArtifactPatterns = [/【[^】]*】/g, /\[[\d†\-:A-Za-z]+\]/g]
+const DELIMITED_SPLIT_PATTERN = /[;|]/
 const JUNK_TOKENS = new Set([
   '',
   'na',
@@ -38,6 +39,14 @@ const JUNK_TOKENS = new Set([
   '[object object]',
   'object object',
   'nan',
+  'nil',
+  'nill',
+  'n.a.',
+  'not applicable',
+  'not available',
+  '<null>',
+  '(null)',
+  '<na>',
 ])
 
 const HERB_EXPLICIT_ALIASES = {
@@ -69,6 +78,10 @@ function cleanText(value) {
   }
 
   return output.replace(/\s+/g, ' ').trim()
+}
+
+function normalizeSlugValue(value) {
+  return slugify(value).toLowerCase()
 }
 
 function normalizeLookupBase(value) {
@@ -159,25 +172,29 @@ function shouldPatchScalar(currentValue, candidateValue, { minCandidateLength = 
   if (candidate === current) return false
 
   if (weakScalar(current, { minLength: minCandidateLength })) return true
-  return scalarStrength(candidate) >= scalarStrength(current) + minGain
+  const candidateScore = scalarStrength(candidate)
+  const currentScore = scalarStrength(current)
+  return candidateScore > currentScore && candidateScore >= currentScore + minGain
 }
 
 function shouldPatchArray(currentValue, candidateValue, { minItems = 1, minGain = 20 } = {}) {
   if (!Array.isArray(candidateValue) || candidateValue.length < minItems) return false
   if (weakArray(currentValue, { minItems })) return true
-  return arrayStrength(candidateValue) >= arrayStrength(currentValue) + minGain
+  const candidateScore = arrayStrength(candidateValue)
+  const currentScore = arrayStrength(currentValue)
+  return candidateScore > currentScore && candidateScore >= currentScore + minGain
 }
 
 function splitSemicolonDelimited(value) {
   if (Array.isArray(value)) {
-    return value.map((item) => cleanText(item)).filter(Boolean)
+    return dedupeStrings(value)
   }
 
   const cleaned = cleanText(value)
   if (!cleaned) return []
 
   return cleaned
-    .split(/[;|]/)
+    .split(DELIMITED_SPLIT_PATTERN)
     .map((part) => part.trim())
     .filter(Boolean)
 }
@@ -242,6 +259,18 @@ function parseSourceUrls(value) {
   }
 
   return urls
+}
+
+function mergeSourcesPreferExisting(currentSources, candidateSources) {
+  if (!Array.isArray(currentSources) || currentSources.length === 0) {
+    return dedupeSources(candidateSources)
+  }
+
+  if (!Array.isArray(candidateSources) || candidateSources.length === 0) {
+    return dedupeSources(currentSources)
+  }
+
+  return dedupeSources([...currentSources, ...candidateSources])
 }
 
 function buildHerbSources(row) {
@@ -318,7 +347,12 @@ function buildCompoundSources(row) {
 function canonicalizeRow(row) {
   const out = canonicalizeWorkbookRow(row, 'unknown')
   for (const [key, value] of Object.entries(out)) {
-    out[key] = typeof value === 'string' ? cleanText(value) : value
+    if (typeof value === 'string') {
+      const cleaned = cleanText(value)
+      out[key] = looksJunk(cleaned) ? '' : cleaned
+      continue
+    }
+    out[key] = value
   }
   return out
 }
@@ -346,6 +380,12 @@ function slugify(value) {
     .replace(/^-+|-+$/g, '')
 }
 
+function isStableSlug(value) {
+  const normalized = cleanText(value).toLowerCase()
+  if (!normalized || looksJunk(normalized)) return false
+  return normalized === normalizeSlugValue(normalized)
+}
+
 function applyValueIfChanged(record, key, value) {
   const current = record[key]
   const nextSerialized = JSON.stringify(value)
@@ -353,6 +393,14 @@ function applyValueIfChanged(record, key, value) {
   if (nextSerialized === currentSerialized) return false
   record[key] = value
   return true
+}
+
+function patchField(record, key, value, counters) {
+  const changed = applyValueIfChanged(record, key, value)
+  if (changed) {
+    counters[key] = (counters[key] || 0) + 1
+  }
+  return changed
 }
 
 function addLookupEntry(map, key, value) {
@@ -393,55 +441,69 @@ function resolveHerb(herbIndex, row) {
     HERB_EXPLICIT_ALIASES[normalizeLookupBase(name)] || '',
   ].filter(Boolean)
 
-  return (
-    (slug && herbIndex.bySlug.get(slug)) ||
-    (name && herbIndex.byName.get(name)) ||
-    aliasTargets.map((value) => herbIndex.byVariant.get(value) || herbIndex.bySlug.get(value)).find(Boolean) ||
-    null
-  )
+  if (slug && herbIndex.bySlug.get(slug)) {
+    return { herb: herbIndex.bySlug.get(slug), matchType: 'slug' }
+  }
+
+  if (name && herbIndex.byName.get(name)) {
+    return { herb: herbIndex.byName.get(name), matchType: 'name' }
+  }
+
+  const aliasMatch = aliasTargets
+    .map((value) => herbIndex.byVariant.get(value) || herbIndex.bySlug.get(value))
+    .find(Boolean)
+
+  if (aliasMatch) {
+    return { herb: aliasMatch, matchType: 'variant' }
+  }
+
+  return { herb: null, matchType: 'unmatched' }
 }
 
-function patchHerb(herb, row) {
+function patchHerb(herb, row, fieldPatchCounts) {
   let patched = false
 
   const scientificName = cleanText(row.scientificName)
   if (shouldPatchScalar(herb.latin, scientificName, { minCandidateLength: 6, minGain: 8 })) {
-    patched = applyValueIfChanged(herb, 'latin', scientificName) || patched
+    patched = patchField(herb, 'latin', scientificName, fieldPatchCounts) || patched
   }
 
   const descriptionCandidate = cleanText(row.description || row.summary)
   if (shouldPatchScalar(herb.description, descriptionCandidate, { minCandidateLength: 40, minGain: 80 })) {
-    patched = applyValueIfChanged(herb, 'description', descriptionCandidate) || patched
+    patched = patchField(herb, 'description', descriptionCandidate, fieldPatchCounts) || patched
   }
 
   const mechanismCandidate = cleanText(row.mechanism)
   if (shouldPatchScalar(herb.mechanism, mechanismCandidate, { minCandidateLength: 20, minGain: 56 })) {
-    patched = applyValueIfChanged(herb, 'mechanism', mechanismCandidate) || patched
+    patched = patchField(herb, 'mechanism', mechanismCandidate, fieldPatchCounts) || patched
   }
 
   const safetyCandidate = cleanText(row.safetyNotes)
   if (shouldPatchScalar(herb.safetyNotes, safetyCandidate, { minCandidateLength: 20, minGain: 56 })) {
-    patched = applyValueIfChanged(herb, 'safetyNotes', safetyCandidate) || patched
+    patched = patchField(herb, 'safetyNotes', safetyCandidate, fieldPatchCounts) || patched
   }
 
   const dosageCandidate = cleanText(row.dosage)
   if (shouldPatchScalar(herb.dosage, dosageCandidate, { minCandidateLength: 10, minGain: 18 })) {
-    patched = applyValueIfChanged(herb, 'dosage', dosageCandidate) || patched
+    patched = patchField(herb, 'dosage', dosageCandidate, fieldPatchCounts) || patched
   }
 
   const preparationCandidate = cleanText(row.preparation)
   if (shouldPatchScalar(herb.preparation, preparationCandidate, { minCandidateLength: 10, minGain: 18 })) {
-    patched = applyValueIfChanged(herb, 'preparation', preparationCandidate) || patched
+    patched = patchField(herb, 'preparation', preparationCandidate, fieldPatchCounts) || patched
   }
 
   const regionCandidate = cleanText(row.region)
   if (shouldPatchScalar(herb.region, regionCandidate, { minCandidateLength: 4, minGain: 8 })) {
-    patched = applyValueIfChanged(herb, 'region', regionCandidate) || patched
+    patched = patchField(herb, 'region', regionCandidate, fieldPatchCounts) || patched
   }
 
-  const aliasCandidate = dedupeStrings(splitSemicolonDelimited(row.commonNames))
+  const aliasCandidate = dedupeStrings([
+    ...splitSemicolonDelimited(row.commonNames),
+    ...splitSemicolonDelimited(row.aliases),
+  ])
   if (shouldPatchArray(herb.aliases, aliasCandidate, { minItems: 1, minGain: 30 })) {
-    patched = applyValueIfChanged(herb, 'aliases', aliasCandidate) || patched
+    patched = patchField(herb, 'aliases', aliasCandidate, fieldPatchCounts) || patched
   }
 
   const compoundsCandidate = dedupeStrings([
@@ -449,22 +511,28 @@ function patchHerb(herb, row) {
     ...splitSemicolonDelimited(row.markerCompounds),
   ])
   if (shouldPatchArray(herb.activeCompounds, compoundsCandidate, { minItems: 1, minGain: 30 })) {
-    patched = applyValueIfChanged(herb, 'activeCompounds', compoundsCandidate) || patched
+    patched = patchField(herb, 'activeCompounds', compoundsCandidate, fieldPatchCounts) || patched
   }
 
   const interactionsCandidate = dedupeStrings(splitSemicolonDelimited(row.interactions))
   if (shouldPatchArray(herb.interactions, interactionsCandidate, { minItems: 1, minGain: 24 })) {
-    patched = applyValueIfChanged(herb, 'interactions', interactionsCandidate) || patched
+    patched = patchField(herb, 'interactions', interactionsCandidate, fieldPatchCounts) || patched
   }
 
   const contraindicationsCandidate = dedupeStrings(splitSemicolonDelimited(row.contraindications))
   if (shouldPatchArray(herb.contraindications, contraindicationsCandidate, { minItems: 1, minGain: 24 })) {
-    patched = applyValueIfChanged(herb, 'contraindications', contraindicationsCandidate) || patched
+    patched = patchField(herb, 'contraindications', contraindicationsCandidate, fieldPatchCounts) || patched
+  }
+
+  const mechanismTagsCandidate = dedupeStrings(splitSemicolonDelimited(row.mechanismTags))
+  if (shouldPatchArray(herb.mechanismTags, mechanismTagsCandidate, { minItems: 1, minGain: 18 })) {
+    patched = patchField(herb, 'mechanismTags', mechanismTagsCandidate, fieldPatchCounts) || patched
   }
 
   const sourceCandidates = buildHerbSources(row)
-  if (shouldPatchArray(herb.sources, sourceCandidates, { minItems: 1, minGain: 18 })) {
-    patched = applyValueIfChanged(herb, 'sources', sourceCandidates) || patched
+  const mergedSources = mergeSourcesPreferExisting(herb.sources, sourceCandidates)
+  if (shouldPatchArray(herb.sources, mergedSources, { minItems: 1, minGain: 18 })) {
+    patched = patchField(herb, 'sources', mergedSources, fieldPatchCounts) || patched
   }
 
   return patched
@@ -502,51 +570,64 @@ function resolveCompound(compoundIndex, row) {
     COMPOUND_EXPLICIT_ALIASES[normalizeLookupBase(compoundName)] || '',
   ].filter(Boolean)
 
-  return (
-    (canonicalId && compoundIndex.byId.get(canonicalId)) ||
-    (compoundName && compoundIndex.byName.get(compoundName.toLowerCase())) ||
-    aliasTargets
-      .map(
-        (value) =>
-          compoundIndex.byVariant.get(value) ||
-          compoundIndex.byId.get(value) ||
-          compoundIndex.byName.get(value.toLowerCase())
-      )
-      .find(Boolean) ||
-    null
-  )
+  if (canonicalId && compoundIndex.byId.get(canonicalId)) {
+    return { compound: compoundIndex.byId.get(canonicalId), matchType: 'slug' }
+  }
+
+  if (compoundName && compoundIndex.byName.get(compoundName.toLowerCase())) {
+    return { compound: compoundIndex.byName.get(compoundName.toLowerCase()), matchType: 'name' }
+  }
+
+  const aliasMatch = aliasTargets
+    .map(
+      (value) =>
+        compoundIndex.byVariant.get(value) || compoundIndex.byId.get(value) || compoundIndex.byName.get(value.toLowerCase())
+    )
+    .find(Boolean)
+
+  if (aliasMatch) {
+    return { compound: aliasMatch, matchType: 'variant' }
+  }
+
+  return { compound: null, matchType: 'unmatched' }
 }
 
-function patchCompound(compound, row) {
+function patchCompound(compound, row, fieldPatchCounts) {
   let patched = false
 
-  const canonicalId = cleanText(row.canonicalCompoundId) || slugify(row.compoundName || row.canonicalCompoundName)
-  if (shouldPatchScalar(compound.canonicalCompoundId, canonicalId, { minCandidateLength: 3, minGain: 0 })) {
-    patched = applyValueIfChanged(compound, 'canonicalCompoundId', canonicalId) || patched
+  const workbookCanonicalId = cleanText(row.canonicalCompoundId)
+  const fallbackCanonicalId = slugify(row.compoundName || row.canonicalCompoundName)
+  const canonicalId = workbookCanonicalId || fallbackCanonicalId
+  const canPatchCanonicalId =
+    (workbookCanonicalId && isStableSlug(workbookCanonicalId)) ||
+    (weakScalar(compound.canonicalCompoundId, { minLength: 3 }) && isStableSlug(fallbackCanonicalId))
+
+  if (canPatchCanonicalId && shouldPatchScalar(compound.canonicalCompoundId, canonicalId, { minCandidateLength: 3, minGain: 0 })) {
+    patched = patchField(compound, 'canonicalCompoundId', canonicalId, fieldPatchCounts) || patched
   }
-  if (shouldPatchScalar(compound.id, canonicalId, { minCandidateLength: 3, minGain: 0 })) {
-    patched = applyValueIfChanged(compound, 'id', canonicalId) || patched
+  if (canPatchCanonicalId && shouldPatchScalar(compound.id, canonicalId, { minCandidateLength: 3, minGain: 0 })) {
+    patched = patchField(compound, 'id', canonicalId, fieldPatchCounts) || patched
   }
 
   const compoundName = cleanText(row.compoundName || row.canonicalCompoundName)
   if (shouldPatchScalar(compound.compoundName, compoundName, { minCandidateLength: 3, minGain: 0 })) {
-    patched = applyValueIfChanged(compound, 'compoundName', compoundName) || patched
+    patched = patchField(compound, 'compoundName', compoundName, fieldPatchCounts) || patched
   }
   if (shouldPatchScalar(compound.name, compoundName, { minCandidateLength: 3, minGain: 0 })) {
-    patched = applyValueIfChanged(compound, 'name', compoundName) || patched
+    patched = patchField(compound, 'name', compoundName, fieldPatchCounts) || patched
   }
 
   const classCandidate = cleanText(row.compoundClass)
   if (shouldPatchScalar(compound.category, classCandidate, { minCandidateLength: 4, minGain: 12 })) {
-    patched = applyValueIfChanged(compound, 'category', classCandidate) || patched
+    patched = patchField(compound, 'category', classCandidate, fieldPatchCounts) || patched
   }
   if (shouldPatchScalar(compound.compoundClass, classCandidate, { minCandidateLength: 3, minGain: 0 })) {
-    patched = applyValueIfChanged(compound, 'compoundClass', classCandidate) || patched
+    patched = patchField(compound, 'compoundClass', classCandidate, fieldPatchCounts) || patched
   }
 
   const mechanismCandidate = cleanText(row.mechanism)
   if (shouldPatchScalar(compound.mechanism, mechanismCandidate, { minCandidateLength: 20, minGain: 32 })) {
-    patched = applyValueIfChanged(compound, 'mechanism', mechanismCandidate) || patched
+    patched = patchField(compound, 'mechanism', mechanismCandidate, fieldPatchCounts) || patched
   }
 
   const effectsCandidate = dedupeStrings([
@@ -554,7 +635,7 @@ function patchCompound(compound, row) {
     ...splitSemicolonDelimited(row.pathwayTargets),
   ])
   if (shouldPatchArray(compound.effects, effectsCandidate, { minItems: 1, minGain: 20 })) {
-    patched = applyValueIfChanged(compound, 'effects', effectsCandidate) || patched
+    patched = patchField(compound, 'effects', effectsCandidate, fieldPatchCounts) || patched
   }
 
   const contraindicationCandidate = dedupeStrings([
@@ -562,55 +643,60 @@ function patchCompound(compound, row) {
     ...splitSemicolonDelimited(row.drugInteractions),
   ])
   if (shouldPatchArray(compound.contraindications, contraindicationCandidate, { minItems: 1, minGain: 20 })) {
-    patched = applyValueIfChanged(compound, 'contraindications', contraindicationCandidate) || patched
+    patched = patchField(compound, 'contraindications', contraindicationCandidate, fieldPatchCounts) || patched
   }
 
   const safetyNotes = cleanText(row.safetyNotes)
   if (shouldPatchScalar(compound.safetyNotes, safetyNotes, { minCandidateLength: 3, minGain: 0 })) {
-    patched = applyValueIfChanged(compound, 'safetyNotes', safetyNotes) || patched
+    patched = patchField(compound, 'safetyNotes', safetyNotes, fieldPatchCounts) || patched
   }
 
   const drugInteractions = cleanText(row.drugInteractions)
   if (shouldPatchScalar(compound.drugInteractions, drugInteractions, { minCandidateLength: 3, minGain: 0 })) {
-    patched = applyValueIfChanged(compound, 'drugInteractions', drugInteractions) || patched
+    patched = patchField(compound, 'drugInteractions', drugInteractions, fieldPatchCounts) || patched
   }
 
   const herbLinksCandidate = dedupeStrings(splitSemicolonDelimited(row.relatedHerbSlugs))
   if (shouldPatchArray(compound.herbs, herbLinksCandidate, { minItems: 1, minGain: 16 })) {
-    patched = applyValueIfChanged(compound, 'herbs', herbLinksCandidate) || patched
+    patched = patchField(compound, 'herbs', herbLinksCandidate, fieldPatchCounts) || patched
   }
   if (shouldPatchScalar(compound.relatedHerbSlugs, herbLinksCandidate.join('; '), { minCandidateLength: 3, minGain: 0 })) {
-    patched = applyValueIfChanged(compound, 'relatedHerbSlugs', herbLinksCandidate.join('; ')) || patched
+    patched = patchField(compound, 'relatedHerbSlugs', herbLinksCandidate.join('; '), fieldPatchCounts) || patched
   }
 
   const sourceCandidates = buildCompoundSources(row)
-  if (shouldPatchArray(compound.sources, sourceCandidates, { minItems: 1, minGain: 18 })) {
-    patched = applyValueIfChanged(compound, 'sources', sourceCandidates) || patched
+  const mergedSources = mergeSourcesPreferExisting(compound.sources, sourceCandidates)
+  if (shouldPatchArray(compound.sources, mergedSources, { minItems: 1, minGain: 18 })) {
+    patched = patchField(compound, 'sources', mergedSources, fieldPatchCounts) || patched
   }
 
   const sourceUrls = dedupeStrings(parseSourceUrls(row.sourceUrls))
   if (shouldPatchScalar(compound.sourceUrls, sourceUrls.join(' | '), { minCandidateLength: 8, minGain: 0 })) {
-    patched = applyValueIfChanged(compound, 'sourceUrls', sourceUrls.join(' | ')) || patched
+    patched = patchField(compound, 'sourceUrls', sourceUrls.join(' | '), fieldPatchCounts) || patched
   }
 
   const confidence = cleanText(row.confidence)
   if (shouldPatchScalar(compound.confidence, confidence, { minCandidateLength: 2, minGain: 0 })) {
-    patched = applyValueIfChanged(compound, 'confidence', confidence) || patched
+    patched = patchField(compound, 'confidence', confidence, fieldPatchCounts) || patched
   }
 
   const evidence = cleanText(row.evidence)
   if (shouldPatchScalar(compound.evidence, evidence, { minCandidateLength: 2, minGain: 0 })) {
-    patched = applyValueIfChanged(compound, 'evidence', evidence) || patched
+    patched = patchField(compound, 'evidence', evidence, fieldPatchCounts) || patched
   }
 
   const mechanismTags = dedupeStrings(splitSemicolonDelimited(row.mechanismTags))
-  if (shouldPatchScalar(compound.mechanismTags, mechanismTags.join('; '), { minCandidateLength: 2, minGain: 0 })) {
-    patched = applyValueIfChanged(compound, 'mechanismTags', mechanismTags.join('; ')) || patched
+  if (shouldPatchArray(compound.mechanismTags, mechanismTags, { minItems: 1, minGain: 12 })) {
+    patched = patchField(compound, 'mechanismTags', mechanismTags, fieldPatchCounts) || patched
+  } else if (shouldPatchScalar(compound.mechanismTags, mechanismTags.join('; '), { minCandidateLength: 2, minGain: 0 })) {
+    patched = patchField(compound, 'mechanismTags', mechanismTags.join('; '), fieldPatchCounts) || patched
   }
 
   const pathwayTargets = dedupeStrings(splitSemicolonDelimited(row.pathwayTargets))
-  if (shouldPatchScalar(compound.pathwayTargets, pathwayTargets.join('; '), { minCandidateLength: 2, minGain: 0 })) {
-    patched = applyValueIfChanged(compound, 'pathwayTargets', pathwayTargets.join('; ')) || patched
+  if (shouldPatchArray(compound.pathwayTargets, pathwayTargets, { minItems: 1, minGain: 12 })) {
+    patched = patchField(compound, 'pathwayTargets', pathwayTargets, fieldPatchCounts) || patched
+  } else if (shouldPatchScalar(compound.pathwayTargets, pathwayTargets.join('; '), { minCandidateLength: 2, minGain: 0 })) {
+    patched = patchField(compound, 'pathwayTargets', pathwayTargets.join('; '), fieldPatchCounts) || patched
   }
 
   return patched
@@ -646,6 +732,12 @@ function main() {
 
   const herbIndex = indexHerbs(herbs)
   const compoundIndex = indexCompounds(compounds)
+  const fieldPatchCounts = {
+    herbs: {},
+    compounds: {},
+  }
+  const herbMatchTypeCounts = { slug: 0, name: 0, variant: 0 }
+  const compoundMatchTypeCounts = { slug: 0, name: 0, variant: 0 }
 
   const herbLog = {
     matchedAndPatched: [],
@@ -659,7 +751,7 @@ function main() {
   }
 
   for (const row of herbRows) {
-    const herb = resolveHerb(herbIndex, row)
+    const { herb, matchType } = resolveHerb(herbIndex, row)
     if (!herb) {
       herbLog.unmatched.push({
         slug: cleanText(row.slug),
@@ -668,13 +760,15 @@ function main() {
       })
       continue
     }
+    herbMatchTypeCounts[matchType] = (herbMatchTypeCounts[matchType] || 0) + 1
 
-    const patched = patchHerb(herb, row)
+    const patched = patchHerb(herb, row, fieldPatchCounts.herbs)
     const payload = {
       rowSlug: cleanText(row.slug),
       rowName: cleanText(row.name),
       herbSlug: cleanText(herb.slug),
       herbName: cleanText(herb.name),
+      matchType,
     }
 
     if (patched) {
@@ -685,7 +779,7 @@ function main() {
   }
 
   for (const row of compoundRows) {
-    const compound = resolveCompound(compoundIndex, row)
+    const { compound, matchType } = resolveCompound(compoundIndex, row)
     if (!compound) {
       compoundLog.unmatched.push({
         canonicalCompoundId: cleanText(row.canonicalCompoundId),
@@ -693,13 +787,15 @@ function main() {
       })
       continue
     }
+    compoundMatchTypeCounts[matchType] = (compoundMatchTypeCounts[matchType] || 0) + 1
 
-    const patched = patchCompound(compound, row)
+    const patched = patchCompound(compound, row, fieldPatchCounts.compounds)
     const payload = {
       rowCompoundId: cleanText(row.canonicalCompoundId),
       rowCompoundName: cleanText(row.compoundName),
       compoundId: cleanText(compound.id),
       compoundName: cleanText(compound.name),
+      matchType,
     }
 
     if (patched) {
@@ -720,14 +816,35 @@ function main() {
 
   console.log(`[import-xlsx-monographs] mode: ${options.dryRun ? 'dry-run' : 'apply'}`)
   console.log(`[import-xlsx-monographs] workbook: ${workbookPath}`)
+  console.log(`[import-xlsx-monographs] rows read => herbs: ${herbRows.length}, compounds: ${compoundRows.length}`)
+  console.log(
+    `[import-xlsx-monographs] rows matched by slug => herbs: ${herbMatchTypeCounts.slug}, compounds: ${compoundMatchTypeCounts.slug}`
+  )
+  console.log(
+    `[import-xlsx-monographs] rows matched by name/variant => herbs: ${herbMatchTypeCounts.name + herbMatchTypeCounts.variant}, compounds: ${compoundMatchTypeCounts.name + compoundMatchTypeCounts.variant}`
+  )
+  console.log(
+    `[import-xlsx-monographs] rows patched => herbs: ${herbLog.matchedAndPatched.length}, compounds: ${compoundLog.matchedAndPatched.length}`
+  )
+  console.log(
+    `[import-xlsx-monographs] rows skipped (matched with no changes + unmatched) => herbs: ${herbLog.matchedNoChange.length + herbLog.unmatched.length}, compounds: ${compoundLog.matchedNoChange.length + compoundLog.unmatched.length}`
+  )
   console.log(
     `[import-xlsx-monographs] herbs => matched-and-patched: ${herbLog.matchedAndPatched.length}, matched-no-change: ${herbLog.matchedNoChange.length}, unmatched: ${herbLog.unmatched.length}`
   )
   console.log(
     `[import-xlsx-monographs] compounds => matched-and-patched: ${compoundLog.matchedAndPatched.length}, matched-no-change: ${compoundLog.matchedNoChange.length}, unmatched: ${compoundLog.unmatched.length}`
   )
+  console.log(`[import-xlsx-monographs] herb field patch counts: ${JSON.stringify(fieldPatchCounts.herbs)}`)
+  console.log(`[import-xlsx-monographs] compound field patch counts: ${JSON.stringify(fieldPatchCounts.compounds)}`)
   console.log(`[import-xlsx-monographs] unmatched herb report: ${path.relative(repoRoot, unmatchedHerbsReportPath)}`)
   console.log(`[import-xlsx-monographs] unmatched compound report: ${path.relative(repoRoot, unmatchedCompoundsReportPath)}`)
 }
 
-main()
+try {
+  main()
+} catch (error) {
+  const message = error instanceof Error ? error.stack || error.message : String(error)
+  console.error(`[import-xlsx-monographs] fatal error: ${message}`)
+  process.exitCode = 1
+}
