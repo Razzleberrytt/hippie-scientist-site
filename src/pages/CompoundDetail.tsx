@@ -483,19 +483,23 @@ export default function CompoundDetail() {
         <header>
           <div className='flex flex-wrap items-start justify-between gap-3'>
             <h1 className='text-3xl font-semibold leading-tight'>{name}</h1>
-            {displayClass && (
-              <span className='bg-white/6 mt-1 shrink-0 rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/80'>
-                {displayClass}
-              </span>
-            )}
           </div>
-          {(confidence || evidence) && (
+          {(confidence || evidence || sourceCount > 0 || cautionCount > 0) && (
             <div className='mt-3 flex flex-wrap gap-2'>
               {confidence && <span className='ds-pill'>Confidence: {confidence}</span>}
               {evidence && <span className='ds-pill'>Evidence: {evidence}</span>}
+              {sourceCount > 0 && (
+                <span className='ds-pill'>
+                  {sourceCount} source{sourceCount === 1 ? '' : 's'}
+                </span>
+              )}
+              {cautionCount > 0 && (
+                <span className='ds-pill'>
+                  {cautionCount} caution signal{cautionCount === 1 ? '' : 's'}
+                </span>
+              )}
             </div>
           )}
-          {topSummary && <p className='mt-4 text-sm leading-relaxed text-white/80'>{topSummary}</p>}
           <Link
             to={compoundCheckerHref}
             className='btn-primary mt-4 inline-flex'
@@ -510,20 +514,6 @@ export default function CompoundDetail() {
             Check this compound in interactions
           </Link>
         </header>
-
-        {/* Primary effects pills */}
-        {primaryEffects.length > 0 && (
-          <div className='mt-5 flex flex-wrap gap-2'>
-            {primaryEffects.map(effect => (
-              <span
-                key={effect}
-                className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
-              >
-                {effect}
-              </span>
-            ))}
-          </div>
-        )}
 
         <PremiumDataSection
           details={premiumDetails}
@@ -540,7 +530,27 @@ export default function CompoundDetail() {
               </p>
             ) : null}
             {compound.description}
+            {topSummary && <p className='mt-3 text-white/80'>{topSummary}</p>}
+            {displayClass && (
+              <p className='mt-3 text-xs uppercase tracking-[0.12em] text-white/55'>
+                Category: {displayClass}
+              </p>
+            )}
           </Section>
+        )}
+
+        {/* Primary effects pills */}
+        {primaryEffects.length > 0 && (
+          <div className='mt-5 flex flex-wrap gap-2'>
+            {primaryEffects.map(effect => (
+              <span
+                key={effect}
+                className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
+              >
+                {effect}
+              </span>
+            ))}
+          </div>
         )}
 
         {(doesText || whyItMatters) && (

@@ -702,6 +702,46 @@ export default function HerbDetail() {
           </Section>
         )}
 
+        {/* Primary effects pills — high-signal summary */}
+        {primaryEffects.length > 0 && (
+          <div className='mt-5 flex flex-wrap gap-2'>
+            {primaryEffects.map(effect => (
+              <span
+                key={effect}
+                className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
+              >
+                {effect}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {shortSummary && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <p className='max-w-3xl text-base leading-relaxed text-white/88'>{shortSummary}</p>
+          </section>
+        )}
+
+        <GovernedReviewFreshnessPanel
+          decision={governedReviewFreshness}
+          nextStepHref='#governed-safety-interactions'
+          analyticsContext={{
+            pageType: 'herb_detail',
+            entityType: 'herb',
+            entitySlug: herb.slug,
+          }}
+        />
+
+        {isDataIncomplete && (
+          <div className='bg-amber-500/8 mt-4 rounded-xl border border-amber-300/30 p-3 text-sm text-amber-100'>
+            <p className='font-semibold'>Incomplete profile</p>
+            <p className='mt-1 text-amber-50/80'>
+              Key evidence fields are missing. Treat this as a draft — cross-check before making
+              decisions.
+            </p>
+          </div>
+        )}
+
         <StructuredDetailIntro
           confidence={confidence}
           whatItIs={governedIntro.whatItIs}
@@ -741,45 +781,6 @@ export default function HerbDetail() {
             profile: governedIntro.decision.mode,
           }}
         />
-        <GovernedReviewFreshnessPanel
-          decision={governedReviewFreshness}
-          nextStepHref='#governed-safety-interactions'
-          analyticsContext={{
-            pageType: 'herb_detail',
-            entityType: 'herb',
-            entitySlug: herb.slug,
-          }}
-        />
-
-        {isDataIncomplete && (
-          <div className='bg-amber-500/8 mt-4 rounded-xl border border-amber-300/30 p-3 text-sm text-amber-100'>
-            <p className='font-semibold'>Incomplete profile</p>
-            <p className='mt-1 text-amber-50/80'>
-              Key evidence fields are missing. Treat this as a draft — cross-check before making
-              decisions.
-            </p>
-          </div>
-        )}
-
-        {/* Primary effects pills — high-signal summary */}
-        {primaryEffects.length > 0 && (
-          <div className='mt-5 flex flex-wrap gap-2'>
-            {primaryEffects.map(effect => (
-              <span
-                key={effect}
-                className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
-              >
-                {effect}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {shortSummary && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
-            <p className='max-w-3xl text-base leading-relaxed text-white/88'>{shortSummary}</p>
-          </section>
-        )}
 
         {intensity || evidenceLevel || completenessPct !== null ? (
           <section className='border-white/8 mt-6 border-t pt-5'>

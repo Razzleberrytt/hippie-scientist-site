@@ -8,6 +8,7 @@ import EffectFilter from '@/components/filters/EffectFilter'
 import SearchBar from '@/components/filters/SearchBar'
 import SortSelect from '@/components/filters/SortSelect'
 import TypeFilter from '@/components/filters/TypeFilter'
+import Collapse from '@/components/ui/Collapse'
 import { useCompoundData } from '@/lib/compound-data'
 import { extractPrimaryEffects } from '@/lib/dataTrust'
 import { useUrlFilterState } from '@/hooks/useUrlFilterState'
@@ -131,7 +132,7 @@ export default function CompoundsPage() {
           placeholder='Search compounds, effects, mechanisms...'
         />
 
-        <div className='grid gap-3 lg:grid-cols-3'>
+        <div className='grid gap-3 lg:grid-cols-2'>
           <ConfidenceFilter
             value={filters.confidence}
             onChange={value => {
@@ -143,25 +144,6 @@ export default function CompoundsPage() {
                 entityType: 'compound',
                 surfaceId: 'compounds_search_index',
                 componentType: 'confidence_filter',
-                item: value,
-                reviewedStatus: 'not_applicable',
-                freshnessState: 'not_applicable',
-              })
-            }}
-          />
-          <TypeFilter
-            label='Category'
-            options={options.categories}
-            value={filters.type}
-            onChange={value => {
-              setFilters(prev => ({ ...prev, type: value }))
-              trackGovernedEvent({
-                type: 'governed_browse_filter_change',
-                eventAction: 'change',
-                pageType: 'compounds_index',
-                entityType: 'compound',
-                surfaceId: 'compounds_search_index',
-                componentType: 'type_filter',
                 item: value,
                 reviewedStatus: 'not_applicable',
                 freshnessState: 'not_applicable',
@@ -186,49 +168,72 @@ export default function CompoundsPage() {
             }}
           />
         </div>
-        <TypeFilter
-          label='Research signal'
-          options={ENRICHMENT_FILTER_OPTIONS.map(option => option.label)}
-          value={
-            ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label ||
-            ENRICHMENT_FILTER_OPTIONS[0].label
-          }
-          onChange={label => {
-            const next = ENRICHMENT_FILTER_OPTIONS.find(option => option.label === label)
-            setFilters(prev => ({ ...prev, enrichment: next?.value || 'all' }))
-            trackGovernedEvent({
-              type: 'governed_browse_filter_change',
-              eventAction: 'change',
-              pageType: 'compounds_index',
-              entityType: 'compound',
-              surfaceId: 'compounds_search_index',
-              componentType: 'enrichment_filter',
-              item: next?.value || 'all',
-              reviewedStatus: 'not_applicable',
-              freshnessState: 'not_applicable',
-            })
-          }}
-        />
+        <Collapse title='More filters'>
+          <div className='space-y-3 pt-2'>
+            <TypeFilter
+              label='Category'
+              options={options.categories}
+              value={filters.type}
+              onChange={value => {
+                setFilters(prev => ({ ...prev, type: value }))
+                trackGovernedEvent({
+                  type: 'governed_browse_filter_change',
+                  eventAction: 'change',
+                  pageType: 'compounds_index',
+                  entityType: 'compound',
+                  surfaceId: 'compounds_search_index',
+                  componentType: 'type_filter',
+                  item: value,
+                  reviewedStatus: 'not_applicable',
+                  freshnessState: 'not_applicable',
+                })
+              }}
+            />
+            <TypeFilter
+              label='Research signal'
+              options={ENRICHMENT_FILTER_OPTIONS.map(option => option.label)}
+              value={
+                ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)
+                  ?.label || ENRICHMENT_FILTER_OPTIONS[0].label
+              }
+              onChange={label => {
+                const next = ENRICHMENT_FILTER_OPTIONS.find(option => option.label === label)
+                setFilters(prev => ({ ...prev, enrichment: next?.value || 'all' }))
+                trackGovernedEvent({
+                  type: 'governed_browse_filter_change',
+                  eventAction: 'change',
+                  pageType: 'compounds_index',
+                  entityType: 'compound',
+                  surfaceId: 'compounds_search_index',
+                  componentType: 'enrichment_filter',
+                  item: next?.value || 'all',
+                  reviewedStatus: 'not_applicable',
+                  freshnessState: 'not_applicable',
+                })
+              }}
+            />
 
-        <EffectFilter
-          options={options.effects}
-          selected={filters.selectedEffects}
-          onToggle={toggleEffect}
-        />
+            <EffectFilter
+              options={options.effects}
+              selected={filters.selectedEffects}
+              onToggle={toggleEffect}
+            />
 
-        <ActiveFiltersBar
-          state={filters}
-          typeLabel='Category'
-          onRemoveEffect={toggleEffect}
-          onClear={clearAll}
-          onClearQuery={() => setFilters(prev => ({ ...prev, query: '' }))}
-          onClearType={() => setFilters(prev => ({ ...prev, type: 'all' }))}
-          onClearConfidence={() => setFilters(prev => ({ ...prev, confidence: 'all' }))}
-          onClearEnrichment={() => setFilters(prev => ({ ...prev, enrichment: 'all' }))}
-          enrichmentLabel={
-            ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label
-          }
-        />
+            <ActiveFiltersBar
+              state={filters}
+              typeLabel='Category'
+              onRemoveEffect={toggleEffect}
+              onClear={clearAll}
+              onClearQuery={() => setFilters(prev => ({ ...prev, query: '' }))}
+              onClearType={() => setFilters(prev => ({ ...prev, type: 'all' }))}
+              onClearConfidence={() => setFilters(prev => ({ ...prev, confidence: 'all' }))}
+              onClearEnrichment={() => setFilters(prev => ({ ...prev, enrichment: 'all' }))}
+              enrichmentLabel={
+                ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label
+              }
+            />
+          </div>
+        </Collapse>
       </section>
 
       <p className='mb-4 text-sm text-white/70'>{filtered.length} results</p>
