@@ -2,11 +2,14 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import XLSX from 'xlsx'
 import { resolveWorkbookPath } from './workbook-source.mjs'
 import { canonicalizeWorkbookRow } from './workbook-column-mapping.mjs'
 
-const repoRoot = process.cwd()
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const repoRoot = path.resolve(__dirname, '..')
 const workbookPath = resolveWorkbookPath(repoRoot)
 const dataDir = path.join(repoRoot, 'public', 'data')
 const EXPORT_WORKBOOK_SHEETS = ['Herb Monographs', 'Compound Master V3', 'Herb Compound Map V3', 'Production Export V1']
