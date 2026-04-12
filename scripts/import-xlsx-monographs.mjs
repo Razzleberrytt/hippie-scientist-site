@@ -117,6 +117,50 @@ function normalizeIdentityKey(value) {
     .trim()
 }
 
+function normalizeString(value) {
+  return cleanText(value)
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}\s]+/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function normalizeCompound(value) {
+  const base = normalizeString(value)
+    .replace(/[-_/]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+  if (!base) return ''
+  return base
+    .replace(/\bacids\b/g, 'acid')
+    .replace(/\bates\b/g, 'ate')
+    .replace(/\bides\b/g, 'ide')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function normalizeHerb(value) {
+  return normalizeString(value)
+    .replace(/\b(var|ssp|subsp|subspecies|species|spec|sp)\.?\b/g, ' ')
+    .replace(/[-_/]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function herbNormalizationVariants(value) {
+  const normalized = normalizeHerb(value)
+  if (!normalized) return []
+  return dedupeStrings([normalized, normalized.replace(/\s+/g, '')])
+}
+
+function compoundNormalizationVariants(value) {
+  const normalized = normalizeCompound(value)
+  if (!normalized) return []
+  return dedupeStrings([normalized, normalized.replace(/\s+/g, ''), normalized.replace(/\bacid\b/g, 'acids')])
+}
+
 function buildLookupVariants(value) {
   const base = normalizeLookupBase(value)
   if (!base) return []
@@ -470,63 +514,91 @@ function addLookupEntry(map, key, value) {
   map.set(key, value)
 }
 
+function addUniqueLookupEntry(map, key, value, getIdentity) {
+  if (!key) return
+  if (!map.has(key)) {
+    map.set(key, value)
+    return
+  }
+  const existing = map.get(key)
+  if (!existing) return
+  if (getIdentity(existing) !== getIdentity(value)) {
+    map.set(key, null)
+  }
+}
+
 function indexHerbs(herbs) {
   const bySlug = new Map()
-  const byName = new Map()
-  const byVariant = new Map()
+  const byNormalizedName = new Map()
+  const byNormalizedCommonName = new Map()
+  const byNormalizedAlias = new Map()
+  const herbIdentity = (herb) => cleanText(herb.slug).toLowerCase()
 
   for (const herb of herbs) {
     const slug = cleanText(herb.slug).toLowerCase()
-    const name = cleanText(herb.name).toLowerCase()
-    if (slug) addLookupEntry(bySlug, slug, herb)
-    if (name) addLookupEntry(byName, name, herb)
+    if (slug) addUniqueLookupEntry(bySlug, slug, herb, herbIdentity)
 
-    const aliases = Array.isArray(herb.aliases) ? herb.aliases : []
+    for (const normalizedName of herbNormalizationVariants(herb.name)) {
+      addUniqueLookupEntry(byNormalizedName, normalizedName, herb, herbIdentity)
+    }
+
+    for (const scientificName of herbNormalizationVariants(herb.latin || herb.scientificName)) {
+      addUniqueLookupEntry(byNormalizedAlias, scientificName, herb, herbIdentity)
+    }
+
     const commonNames = splitSemicolonDelimited(herb.commonNames)
-    for (const value of [herb.slug, herb.name, ...aliases, ...commonNames]) {
-      for (const variant of buildIdentityVariants(value)) {
-        addLookupEntry(byVariant, variant, herb)
+    const aliases = Array.isArray(herb.aliases) ? herb.aliases : []
+    for (const commonName of commonNames) {
+      for (const normalizedCommonName of herbNormalizationVariants(commonName)) {
+        addUniqueLookupEntry(byNormalizedCommonName, normalizedCommonName, herb, herbIdentity)
+      }
+    }
+
+    for (const alias of [...aliases, herb.slug]) {
+      for (const normalizedAlias of herbNormalizationVariants(alias)) {
+        addUniqueLookupEntry(byNormalizedAlias, normalizedAlias, herb, herbIdentity)
       }
     }
   }
 
-  return { bySlug, byName, byVariant }
+  return { bySlug, byNormalizedName, byNormalizedCommonName, byNormalizedAlias }
 }
 
-function resolveHerb(herbIndex, row) {
+function resolveHerbPrimary(herbIndex, row) {
   const slug = cleanText(row.slug).toLowerCase()
-  const name = cleanText(row.name).toLowerCase()
-  const commonNames = splitSemicolonDelimited(row.commonNames)
-  const workbookAliases = dedupeStrings([
-    ...splitSemicolonDelimited(row.aliases),
-    ...commonNames,
-    name,
-    normalizeLookupBase(name).replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim(),
-  ])
-
-  const fallbackTargets = [
-    ...buildIdentityVariants(slug),
-    ...buildIdentityVariants(name),
-    ...commonNames.flatMap((value) => buildIdentityVariants(value)),
-    ...workbookAliases.flatMap((value) => buildIdentityVariants(value)),
-    HERB_EXPLICIT_ALIASES[normalizeLookupBase(slug)] || '',
-    HERB_EXPLICIT_ALIASES[normalizeLookupBase(name)] || '',
-  ].filter(Boolean)
-
   if (slug && herbIndex.bySlug.get(slug)) {
     return { herb: herbIndex.bySlug.get(slug), matchType: 'slug' }
   }
 
-  if (name && herbIndex.byName.get(name)) {
-    return { herb: herbIndex.byName.get(name), matchType: 'name' }
+  for (const normalizedName of herbNormalizationVariants(row.name)) {
+    const nameMatch = herbIndex.byNormalizedName.get(normalizedName)
+    if (nameMatch) return { herb: nameMatch, matchType: 'normalized-name' }
   }
 
-  const aliasMatch = fallbackTargets
-    .map((value) => herbIndex.byVariant.get(value) || herbIndex.bySlug.get(value))
-    .find(Boolean)
+  return { herb: null, matchType: 'unmatched' }
+}
 
-  if (aliasMatch) {
-    return { herb: aliasMatch, matchType: 'fallback' }
+function resolveHerbRetry(herbIndex, row) {
+  const commonNames = splitSemicolonDelimited(row.commonNames)
+  for (const commonName of commonNames) {
+    for (const normalizedCommon of herbNormalizationVariants(commonName)) {
+      const commonMatch = herbIndex.byNormalizedCommonName.get(normalizedCommon)
+      if (commonMatch) return { herb: commonMatch, matchType: 'alias-common' }
+    }
+  }
+
+  const aliasCandidates = dedupeStrings([
+    ...splitSemicolonDelimited(row.aliases),
+    cleanText(row.scientificName),
+    cleanText(row.name),
+    HERB_EXPLICIT_ALIASES[normalizeLookupBase(row.slug)] || '',
+    HERB_EXPLICIT_ALIASES[normalizeLookupBase(row.name)] || '',
+  ])
+  for (const alias of aliasCandidates) {
+    for (const normalizedAlias of herbNormalizationVariants(alias)) {
+      const aliasMatch = herbIndex.byNormalizedAlias.get(normalizedAlias)
+      if (aliasMatch) return { herb: aliasMatch, matchType: 'alias-common' }
+    }
   }
 
   return { herb: null, matchType: 'unmatched' }
@@ -619,79 +691,50 @@ function patchHerb(herb, row, fieldPatchCounts) {
 }
 
 function indexCompounds(compounds) {
-  const byId = new Map()
-  const byName = new Map()
-  const byVariant = new Map()
-  const bySlug = new Map()
+  const byNormalizedCanonicalName = new Map()
+  const byNormalizedCompoundName = new Map()
+  const compoundIdentity = (compound) => cleanText(compound.canonicalCompoundId || compound.id || compound.slug).toLowerCase()
 
   for (const compound of compounds) {
-    const id = cleanText(compound.id || compound.canonicalCompoundId)
-    const name = cleanText(compound.canonicalCompoundName || compound.name || compound.compoundName)
-    if (id) addLookupEntry(byId, id, compound)
-    if (name) addLookupEntry(byName, name.toLowerCase(), compound)
-    if (id) addLookupEntry(bySlug, slugify(id), compound)
-    if (name) addLookupEntry(bySlug, slugify(name), compound)
-
-    for (const value of [compound.id, compound.canonicalCompoundId, compound.canonicalCompoundName, compound.name, compound.compoundName]) {
-      for (const variant of buildIdentityVariants(value)) {
-        addLookupEntry(byVariant, variant, compound)
-      }
+    for (const normalizedCanonicalName of compoundNormalizationVariants(compound.canonicalCompoundName || compound.name || compound.compoundName || compound.id || compound.canonicalCompoundId)) {
+      addUniqueLookupEntry(byNormalizedCanonicalName, normalizedCanonicalName, compound, compoundIdentity)
+    }
+    for (const normalizedCompoundName of compoundNormalizationVariants(compound.compoundName || compound.name || compound.canonicalCompoundName || compound.id || compound.canonicalCompoundId)) {
+      addUniqueLookupEntry(byNormalizedCompoundName, normalizedCompoundName, compound, compoundIdentity)
     }
   }
 
-  return { byId, byName, byVariant, bySlug }
+  return { byNormalizedCanonicalName, byNormalizedCompoundName }
 }
 
-function resolveCompound(compoundIndex, row) {
-  const canonicalId = cleanText(row.canonicalCompoundId)
-  const canonicalCompoundName = cleanText(row.canonicalCompoundName)
-  const compoundName = cleanText(row.compoundName)
-  const compoundNameSlug = slugify(compoundName)
-  const canonicalCompoundNameSlug = slugify(canonicalCompoundName)
-
-  const aliasTargets = [
-    ...buildLookupVariants(canonicalId),
-    ...buildIdentityVariants(canonicalCompoundName),
-    ...buildIdentityVariants(compoundName),
-    compoundNameSlug,
-    canonicalCompoundNameSlug,
-    COMPOUND_EXPLICIT_ALIASES[normalizeLookupBase(canonicalId)] || '',
-    COMPOUND_EXPLICIT_ALIASES[normalizeLookupBase(compoundName)] || '',
-    COMPOUND_EXPLICIT_ALIASES[normalizeLookupBase(canonicalCompoundName)] || '',
-  ].filter(Boolean)
-
-  if (canonicalId && compoundIndex.byId.get(canonicalId)) {
-    return { compound: compoundIndex.byId.get(canonicalId), matchType: 'id' }
+function resolveCompoundPrimary(compoundIndex, row) {
+  const canonicalNameCandidates = [
+    cleanText(row.canonicalCompoundId),
+    cleanText(row.canonicalCompoundName),
+    COMPOUND_EXPLICIT_ALIASES[normalizeLookupBase(row.canonicalCompoundId)] || '',
+    COMPOUND_EXPLICIT_ALIASES[normalizeLookupBase(row.canonicalCompoundName)] || '',
+  ]
+  for (const candidate of canonicalNameCandidates) {
+    for (const normalizedCanonical of compoundNormalizationVariants(candidate)) {
+      const canonicalMatch = compoundIndex.byNormalizedCanonicalName.get(normalizedCanonical)
+      if (canonicalMatch) return { compound: canonicalMatch, matchType: 'canonical-name' }
+    }
   }
 
-  if (canonicalCompoundName && compoundIndex.byName.get(canonicalCompoundName.toLowerCase())) {
-    return { compound: compoundIndex.byName.get(canonicalCompoundName.toLowerCase()), matchType: 'fallback' }
-  }
+  return { compound: null, matchType: 'unmatched' }
+}
 
-  if (compoundName && compoundIndex.byName.get(compoundName.toLowerCase())) {
-    return { compound: compoundIndex.byName.get(compoundName.toLowerCase()), matchType: 'fallback' }
-  }
-
-  if (compoundNameSlug && compoundIndex.bySlug.get(compoundNameSlug)) {
-    return { compound: compoundIndex.bySlug.get(compoundNameSlug), matchType: 'fallback' }
-  }
-
-  if (canonicalCompoundNameSlug && compoundIndex.bySlug.get(canonicalCompoundNameSlug)) {
-    return { compound: compoundIndex.bySlug.get(canonicalCompoundNameSlug), matchType: 'fallback' }
-  }
-
-  const aliasMatch = aliasTargets
-    .map(
-      (value) =>
-        compoundIndex.byVariant.get(value) ||
-        compoundIndex.bySlug.get(slugify(value)) ||
-        compoundIndex.byId.get(value) ||
-        compoundIndex.byName.get(value.toLowerCase())
-    )
-    .find(Boolean)
-
-  if (aliasMatch) {
-    return { compound: aliasMatch, matchType: 'fallback' }
+function resolveCompoundRetry(compoundIndex, row) {
+  const nameCandidates = [
+    cleanText(row.compoundName),
+    cleanText(row.canonicalCompoundName),
+    COMPOUND_EXPLICIT_ALIASES[normalizeLookupBase(row.compoundName)] || '',
+  ]
+  for (const candidate of nameCandidates) {
+    for (const normalizedName of compoundNormalizationVariants(candidate)) {
+      const nameMatch = compoundIndex.byNormalizedCompoundName.get(normalizedName)
+      if (nameMatch) return { compound: nameMatch, matchType: 'normalized-name' }
+    }
   }
 
   return { compound: null, matchType: 'unmatched' }
@@ -855,8 +898,8 @@ function main() {
     herbs: {},
     compounds: {},
   }
-  const herbMatchTypeCounts = { slug: 0, name: 0, fallback: 0, unmatched: 0 }
-  const compoundMatchTypeCounts = { id: 0, fallback: 0, unmatched: 0 }
+  const herbMatchTypeCounts = { slug: 0, normalizedName: 0, aliasCommon: 0, unmatched: 0 }
+  const compoundMatchTypeCounts = { canonicalName: 0, normalizedName: 0, unmatched: 0 }
   const reservedCanonicalIds = new Set(
     compounds
       .flatMap((compound) => [cleanText(compound.canonicalCompoundId), cleanText(compound.id)])
@@ -875,20 +918,22 @@ function main() {
     unmatched: [],
   }
 
+  const previousUnmatchedHerbsCount = fs.existsSync(unmatchedHerbsReportPath)
+    ? JSON.parse(fs.readFileSync(unmatchedHerbsReportPath, 'utf8')).length
+    : null
+  const previousUnmatchedCompoundsCount = fs.existsSync(unmatchedCompoundsReportPath)
+    ? JSON.parse(fs.readFileSync(unmatchedCompoundsReportPath, 'utf8')).length
+    : null
+
+  const herbPrimaryUnmatchedRows = []
   for (const row of herbRows) {
-    const { herb, matchType } = resolveHerb(herbIndex, row)
+    const { herb, matchType } = resolveHerbPrimary(herbIndex, row)
     if (!herb) {
-      herbMatchTypeCounts.unmatched += 1
-      herbLog.unmatched.push({
-        slug: cleanText(row.slug),
-        name: cleanText(row.name),
-        scientificName: cleanText(row.scientificName),
-      })
+      herbPrimaryUnmatchedRows.push(row)
       continue
     }
     if (matchType === 'slug') herbMatchTypeCounts.slug += 1
-    else if (matchType === 'name') herbMatchTypeCounts.name += 1
-    else herbMatchTypeCounts.fallback += 1
+    else herbMatchTypeCounts.normalizedName += 1
 
     const patched = patchHerb(herb, row, fieldPatchCounts.herbs)
     const payload = {
@@ -906,13 +951,35 @@ function main() {
     }
   }
 
-  for (const row of compoundRows) {
-    const { compound, matchType } = resolveCompound(compoundIndex, row)
-    if (!compound) {
-      compoundLog.unmatched.push({
-        canonicalCompoundId: cleanText(row.canonicalCompoundId),
-        compoundName: cleanText(row.compoundName),
+  for (const row of herbPrimaryUnmatchedRows) {
+    const { herb, matchType } = resolveHerbRetry(herbIndex, row)
+    if (!herb) {
+      herbLog.unmatched.push({
+        slug: cleanText(row.slug),
+        name: cleanText(row.name),
+        scientificName: cleanText(row.scientificName),
       })
+      continue
+    }
+    herbMatchTypeCounts.aliasCommon += 1
+    const patched = patchHerb(herb, row, fieldPatchCounts.herbs)
+    const payload = {
+      rowSlug: cleanText(row.slug),
+      rowName: cleanText(row.name),
+      herbSlug: cleanText(herb.slug),
+      herbName: cleanText(herb.name),
+      matchType,
+    }
+    if (patched) herbLog.matchedAndPatched.push(payload)
+    else herbLog.matchedNoChange.push(payload)
+  }
+  herbMatchTypeCounts.unmatched = herbLog.unmatched.length
+
+  const compoundPrimaryUnmatchedRows = []
+  for (const row of compoundRows) {
+    const { compound, matchType } = resolveCompoundPrimary(compoundIndex, row)
+    if (!compound) {
+      compoundPrimaryUnmatchedRows.push(row)
       continue
     }
 
@@ -922,11 +989,7 @@ function main() {
     }
     if (compoundKey) matchedCompoundSlugs.add(compoundKey)
 
-    if (matchType === 'id') {
-      compoundMatchTypeCounts.id += 1
-    } else {
-      compoundMatchTypeCounts.fallback += 1
-    }
+    compoundMatchTypeCounts.canonicalName += 1
 
     const patched = patchCompound(compound, row, reservedCanonicalIds, fieldPatchCounts.compounds)
     const payload = {
@@ -942,6 +1005,34 @@ function main() {
     } else {
       compoundLog.matchedNoChange.push(payload)
     }
+  }
+
+  for (const row of compoundPrimaryUnmatchedRows) {
+    const { compound, matchType } = resolveCompoundRetry(compoundIndex, row)
+    if (!compound) {
+      compoundLog.unmatched.push({
+        canonicalCompoundId: cleanText(row.canonicalCompoundId),
+        compoundName: cleanText(row.compoundName),
+      })
+      continue
+    }
+    const compoundKey = cleanText(compound.canonicalCompoundId || compound.id || compound.slug).toLowerCase()
+    if (compoundKey && matchedCompoundSlugs.has(compoundKey)) {
+      continue
+    }
+    if (compoundKey) matchedCompoundSlugs.add(compoundKey)
+
+    compoundMatchTypeCounts.normalizedName += 1
+    const patched = patchCompound(compound, row, reservedCanonicalIds, fieldPatchCounts.compounds)
+    const payload = {
+      rowCompoundId: cleanText(row.canonicalCompoundId),
+      rowCompoundName: cleanText(row.compoundName),
+      compoundId: cleanText(compound.id),
+      compoundName: cleanText(compound.name),
+      matchType,
+    }
+    if (patched) compoundLog.matchedAndPatched.push(payload)
+    else compoundLog.matchedNoChange.push(payload)
   }
   compoundMatchTypeCounts.unmatched = compoundLog.unmatched.length
 
@@ -960,10 +1051,22 @@ function main() {
     `[import-xlsx-monographs] ignored non-target sheets: ${diagnostics.ignoredSheets.length > 0 ? diagnostics.ignoredSheets.join(', ') : '(none)'}`
   )
   console.log(`[import-xlsx-monographs] rows read => herbs: ${herbRows.length}, compounds: ${compoundRows.length}`)
-  console.log(`[import-xlsx-monographs] herb matches => by-slug: ${herbMatchTypeCounts.slug}, by-name: ${herbMatchTypeCounts.name}, by-fallback: ${herbMatchTypeCounts.fallback}, unmatched: ${herbMatchTypeCounts.unmatched}`)
-  console.log(
-    `[import-xlsx-monographs] compound matches => by-id: ${compoundMatchTypeCounts.id}, by-fallback: ${compoundMatchTypeCounts.fallback}, unmatched: ${compoundMatchTypeCounts.unmatched}`
-  )
+  console.log(`[import-xlsx-monographs] herb matches => matched via slug: ${herbMatchTypeCounts.slug}, matched via normalized name: ${herbMatchTypeCounts.normalizedName}, matched via alias/commonNames: ${herbMatchTypeCounts.aliasCommon}, remaining unmatched: ${herbMatchTypeCounts.unmatched}`)
+  console.log(`[import-xlsx-monographs] compound matches => matched via canonical name: ${compoundMatchTypeCounts.canonicalName}, matched via normalized name: ${compoundMatchTypeCounts.normalizedName}, remaining unmatched: ${compoundMatchTypeCounts.unmatched}`)
+  if (previousUnmatchedHerbsCount !== null) {
+    const herbDelta = previousUnmatchedHerbsCount - herbLog.unmatched.length
+    const herbPct = previousUnmatchedHerbsCount > 0 ? ((herbDelta / previousUnmatchedHerbsCount) * 100).toFixed(2) : '0.00'
+    console.log(`[import-xlsx-monographs] herbs unmatched improvement vs previous run: ${herbDelta >= 0 ? '+' : ''}${herbDelta} (${herbPct}%)`)
+  } else {
+    console.log('[import-xlsx-monographs] herbs unmatched improvement vs previous run: n/a (no prior report)')
+  }
+  if (previousUnmatchedCompoundsCount !== null) {
+    const compoundDelta = previousUnmatchedCompoundsCount - compoundLog.unmatched.length
+    const compoundPct = previousUnmatchedCompoundsCount > 0 ? ((compoundDelta / previousUnmatchedCompoundsCount) * 100).toFixed(2) : '0.00'
+    console.log(`[import-xlsx-monographs] compounds unmatched improvement vs previous run: ${compoundDelta >= 0 ? '+' : ''}${compoundDelta} (${compoundPct}%)`)
+  } else {
+    console.log('[import-xlsx-monographs] compounds unmatched improvement vs previous run: n/a (no prior report)')
+  }
   console.log(
     `[import-xlsx-monographs] rows patched => herbs: ${herbLog.matchedAndPatched.length}, compounds: ${compoundLog.matchedAndPatched.length}`
   )
