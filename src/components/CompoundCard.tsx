@@ -35,6 +35,14 @@ function confidenceBadgeClass(level: ConfidenceLevel) {
   return 'border-rose-300/50 bg-rose-500/15 text-rose-100 shadow-[0_0_18px_rgba(244,63,94,0.35)]'
 }
 
+function truncateTitle(name: string, maxLength = 60): string {
+  if (name.length <= maxLength) return name
+  const trimmed = name.slice(0, maxLength - 1).trimEnd()
+  const cutoff = trimmed.lastIndexOf(' ')
+  if (cutoff >= Math.floor(maxLength * 0.55)) return `${trimmed.slice(0, cutoff)}…`
+  return `${trimmed}…`
+}
+
 export default function CompoundCard({ compound }: { compound: CompoundWithRefs }) {
   const mechanism = getMechanism(compound)
   const effects = Array.isArray(compound.effects) ? compound.effects : []
@@ -48,6 +56,8 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
   const visiblePrimaryEffects = primaryEffects.slice(0, 2)
   const visibleHerbs = compound.herbsFound.slice(0, 2)
   const hiddenHerbCount = Math.max(compound.herbsFound.length - visibleHerbs.length, 0)
+  const title = truncateTitle(compound.name, 60)
+  const isTitleTruncated = title !== compound.name
   const summary = buildCardSummary({
     effects,
     mechanism,
@@ -67,7 +77,12 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
       >
         {confidence}
       </span>
-      <h2 className='mb-0.5 text-base font-semibold leading-tight text-emerald-200'>{compound.name}</h2>
+      <h2
+        title={isTitleTruncated ? compound.name : undefined}
+        className='mb-0.5 line-clamp-2 break-words text-base font-semibold leading-tight text-emerald-200'
+      >
+        {title}
+      </h2>
       <div className='mb-1 flex flex-wrap gap-1.5 pr-14'>
         <TagBadge label={compound.type ?? compound.category ?? 'compound'} />
         {compound.effectClass && <TagBadge label={compound.effectClass} variant='blue' />}
