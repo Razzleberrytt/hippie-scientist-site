@@ -20,6 +20,9 @@ export default function SearchBar({
   return (
     <div className={`sticky top-2 z-20 ${className}`}>
       <div className='rounded-2xl border border-white/15 bg-black/35 p-2 shadow-[0_0_18px_rgba(168,85,247,0.16)] backdrop-blur'>
+        <div className='mb-1 px-1 text-[11px] font-medium uppercase tracking-wide text-white/55'>
+          Search
+        </div>
         <div className='flex items-center gap-2'>
           <input
             value={value}
