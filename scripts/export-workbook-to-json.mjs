@@ -5,7 +5,12 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import XLSX from 'xlsx'
 import { resolveWorkbookPath } from './workbook-source.mjs'
-import { canonicalizeWorkbookRow } from './workbook-column-mapping.mjs'
+import {
+  canonicalizeWorkbookRow,
+  hasMeaningfulWorkbookValue,
+  normalizeWorkbookCell,
+  normalizeWorkbookMultiValue,
+} from './workbook-column-mapping.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -14,7 +19,6 @@ const workbookPath = resolveWorkbookPath(repoRoot)
 const dataDir = path.join(repoRoot, 'public', 'data')
 const EXPORT_WORKBOOK_SHEETS = ['Herb Monographs', 'Compound Master V3', 'Herb Compound Map V3', 'Production Export V1']
 const OPTIONAL_WORKBOOK_SHEETS = new Set(['Production Export V1'])
-const WEAK_TEXT_VALUES = new Set(['nan', 'null', 'undefined', 'n/a', 'na', 'none', 'nil'])
 const SHEET_REQUIRED_COLUMNS = {
   'Herb Monographs': ['name', 'publishStatus'],
   'Compound Master V3': ['compoundName'],
@@ -39,28 +43,24 @@ function createDiagnostics() {
 }
 
 function toCleanString(value) {
-  const text = String(value ?? '').trim()
-  if (!text) return ''
-  if (WEAK_TEXT_VALUES.has(text.toLowerCase())) return ''
-  return text
+  const cleaned = normalizeWorkbookCell(value)
+  if (cleaned === '') return ''
+  return String(cleaned).trim()
 }
 
 function splitList(value, pattern = /[;|]/) {
-  const text = toCleanString(value)
-  if (!text) return []
-  return [...new Set(text.split(pattern).map(item => toCleanString(item)).filter(Boolean))]
+  return normalizeWorkbookMultiValue(value, pattern).map(item => toCleanString(item)).filter(Boolean)
 }
 
 function cleanScalar(value) {
-  if (value == null) return ''
-  if (typeof value === 'string') return toCleanString(value)
-  return value
+  const normalized = normalizeWorkbookCell(value)
+  if (normalized === '') return ''
+  if (typeof normalized === 'string') return toCleanString(normalized)
+  return normalized
 }
 
 function isMeaningfulValue(value) {
-  if (value == null) return false
-  if (typeof value === 'string') return toCleanString(value) !== ''
-  return true
+  return hasMeaningfulWorkbookValue(value)
 }
 
 function splitSemicolonOrCommaList(value) {
@@ -286,7 +286,8 @@ function writeJson(filename, records) {
 
 function main() {
   const diagnostics = createDiagnostics()
-  const workbook = XLSX.readFile(workbookPath)
+  const workbook = XLSX.readFile(workbookPath, { sheets: EXPORT_WORKBOOK_SHEETS })
+  const ignoredSheets = workbook.SheetNames.filter(sheetName => !EXPORT_WORKBOOK_SHEETS.includes(sheetName))
 
   for (const sheetName of EXPORT_WORKBOOK_SHEETS) {
     if (!workbook.Sheets[sheetName] && !OPTIONAL_WORKBOOK_SHEETS.has(sheetName)) {
@@ -298,6 +299,10 @@ function main() {
   writeJson('workbook-compounds.json', exportCompounds(workbook, diagnostics))
   writeJson('workbook-herb-compound-map.json', exportHerbCompoundMap(workbook, diagnostics))
   writeJson('workbook-goal-bundles.json', exportGoalBundles(workbook, diagnostics))
+
+  console.log(
+    `[export][diagnostics] ignored non-target sheets: ${ignoredSheets.length > 0 ? ignoredSheets.join(', ') : '(none)'}`
+  )
 
   for (const sheetName of EXPORT_WORKBOOK_SHEETS) {
     const sheetDiagnostics = diagnostics.sheets[sheetName]

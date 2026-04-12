@@ -5,7 +5,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import XLSX from 'xlsx'
 import { resolveWorkbookPath } from './workbook-source.mjs'
-import { canonicalizeWorkbookRow } from './workbook-column-mapping.mjs'
+import { canonicalizeWorkbookRow, hasMeaningfulWorkbookValue, normalizeWorkbookCell } from './workbook-column-mapping.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -13,6 +13,14 @@ const repoRoot = path.resolve(__dirname, '..')
 
 const workbookPath = resolveWorkbookPath(repoRoot)
 const REQUIRED_WORKBOOK_SHEETS = ['Herb Monographs', 'Compound Master V3']
+const TARGET_WORKBOOK_SHEETS = ['Herb Monographs', 'Compound Master V3', 'Herb Compound Map V3', 'Production Export V1']
+const OPTIONAL_WORKBOOK_SHEETS = new Set(['Production Export V1'])
+const SHEET_REQUIRED_COLUMNS = {
+  'Herb Monographs': ['name'],
+  'Compound Master V3': ['compoundName'],
+  'Herb Compound Map V3': ['herbSlug', 'canonicalCompoundId'],
+  'Production Export V1': ['goal'],
+}
 
 const herbsPath = path.join(repoRoot, 'public', 'data', 'herbs.json')
 const compoundsPath = path.join(repoRoot, 'public', 'data', 'compounds.json')
@@ -70,7 +78,8 @@ function parseArgs(argv) {
 }
 
 function cleanText(value) {
-  const input = String(value ?? '').trim()
+  const normalized = normalizeWorkbookCell(value)
+  const input = String(normalized ?? '').trim()
   if (!input) return ''
 
   let output = input
@@ -358,9 +367,26 @@ function canonicalizeRow(row) {
   return out
 }
 
-function parseSheet(workbook, sheetName) {
+function createDiagnostics() {
+  return {
+    sheets: Object.fromEntries(
+      TARGET_WORKBOOK_SHEETS.map(sheetName => [
+        sheetName,
+        { loadedRows: 0, skippedRows: 0, parseWarnings: [], missingRequiredColumns: [] },
+      ])
+    ),
+    ignoredSheets: [],
+  }
+}
+
+function parseSheet(workbook, sheetName, diagnostics, { optional = false } = {}) {
+  const sheetDiagnostics = diagnostics.sheets[sheetName]
   const sheet = workbook.Sheets[sheetName]
   if (!sheet) {
+    if (optional) {
+      sheetDiagnostics.parseWarnings.push('Sheet not present; treated as optional and skipped.')
+      return []
+    }
     throw new Error(`[import-xlsx-monographs] Missing required worksheet: ${sheetName}`)
   }
 
@@ -369,8 +395,22 @@ function parseSheet(workbook, sheetName) {
     raw: false,
     blankrows: false,
   })
+  sheetDiagnostics.loadedRows = rows.length
 
-  return rows.map(row => canonicalizeWorkbookRow(canonicalizeRow(row), sheetName))
+  const canonicalRows = rows.map(row => canonicalizeWorkbookRow(canonicalizeRow(row), sheetName))
+  const requiredColumns = SHEET_REQUIRED_COLUMNS[sheetName] || []
+  const observedColumns = new Set(canonicalRows.flatMap(row => Object.keys(row || {})))
+  const missingRequiredColumns = requiredColumns.filter(column => !observedColumns.has(column))
+  if (missingRequiredColumns.length > 0) {
+    sheetDiagnostics.missingRequiredColumns = missingRequiredColumns
+    sheetDiagnostics.parseWarnings.push(`Missing required columns: ${missingRequiredColumns.join(', ')}`)
+  }
+
+  return canonicalRows.filter(row => {
+    const hasData = Object.values(row || {}).some(hasMeaningfulWorkbookValue)
+    if (!hasData) sheetDiagnostics.skippedRows += 1
+    return hasData
+  })
 }
 
 function slugify(value) {
@@ -762,14 +802,18 @@ function writeJson(filePath, data) {
 
 function main() {
   const options = parseArgs(process.argv.slice(2))
+  const diagnostics = createDiagnostics()
 
   if (!fs.existsSync(workbookPath)) {
     throw new Error(`[import-xlsx-monographs] Workbook not found at ${workbookPath}`)
   }
 
-  const workbook = XLSX.readFile(workbookPath, { sheets: REQUIRED_WORKBOOK_SHEETS })
-  const herbRows = parseSheet(workbook, REQUIRED_WORKBOOK_SHEETS[0])
-  const compoundRows = parseSheet(workbook, REQUIRED_WORKBOOK_SHEETS[1])
+  const workbook = XLSX.readFile(workbookPath, { sheets: TARGET_WORKBOOK_SHEETS })
+  diagnostics.ignoredSheets = workbook.SheetNames.filter(sheetName => !TARGET_WORKBOOK_SHEETS.includes(sheetName))
+  const herbRows = parseSheet(workbook, REQUIRED_WORKBOOK_SHEETS[0], diagnostics)
+  const compoundRows = parseSheet(workbook, REQUIRED_WORKBOOK_SHEETS[1], diagnostics)
+  parseSheet(workbook, 'Herb Compound Map V3', diagnostics)
+  parseSheet(workbook, 'Production Export V1', diagnostics, { optional: OPTIONAL_WORKBOOK_SHEETS.has('Production Export V1') })
 
   const herbs = JSON.parse(fs.readFileSync(herbsPath, 'utf8'))
   const compounds = JSON.parse(fs.readFileSync(compoundsPath, 'utf8'))
@@ -873,6 +917,9 @@ function main() {
 
   console.log(`[import-xlsx-monographs] mode: ${options.dryRun ? 'dry-run' : 'apply'}`)
   console.log(`[import-xlsx-monographs] workbook: ${workbookPath}`)
+  console.log(
+    `[import-xlsx-monographs] ignored non-target sheets: ${diagnostics.ignoredSheets.length > 0 ? diagnostics.ignoredSheets.join(', ') : '(none)'}`
+  )
   console.log(`[import-xlsx-monographs] rows read => herbs: ${herbRows.length}, compounds: ${compoundRows.length}`)
   console.log(
     `[import-xlsx-monographs] herb matches => direct: ${herbMatchTypeCounts.direct}, alias-fallback: ${herbMatchTypeCounts.aliasFallback}`
@@ -896,6 +943,18 @@ function main() {
   console.log(`[import-xlsx-monographs] compound field patch counts: ${JSON.stringify(fieldPatchCounts.compounds)}`)
   console.log(`[import-xlsx-monographs] unmatched herb report: ${path.relative(repoRoot, unmatchedHerbsReportPath)}`)
   console.log(`[import-xlsx-monographs] unmatched compound report: ${path.relative(repoRoot, unmatchedCompoundsReportPath)}`)
+  for (const sheetName of TARGET_WORKBOOK_SHEETS) {
+    const sheetDiagnostics = diagnostics.sheets[sheetName]
+    console.log(`[import-xlsx-monographs][diagnostics] ${sheetName}: loaded=${sheetDiagnostics.loadedRows} skipped=${sheetDiagnostics.skippedRows}`)
+    if (sheetDiagnostics.missingRequiredColumns.length > 0) {
+      console.warn(
+        `[import-xlsx-monographs][diagnostics] ${sheetName}: missing required columns => ${sheetDiagnostics.missingRequiredColumns.join(', ')}`
+      )
+    }
+    for (const warning of sheetDiagnostics.parseWarnings) {
+      console.warn(`[import-xlsx-monographs][diagnostics] ${sheetName}: warning => ${warning}`)
+    }
+  }
 }
 
 try {
