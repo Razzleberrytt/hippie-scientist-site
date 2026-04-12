@@ -44,8 +44,8 @@ body {
     Arial,
     'Apple Color Emoji',
     'Segoe UI Emoji';
-  line-height: 1.58;
-  letter-spacing: -0.005em;
+  line-height: 1.54;
+  letter-spacing: 0;
   overscroll-behavior-y: none;
   @apply antialiased;
 }
@@ -109,7 +109,7 @@ a:hover {
   }
 
   .ds-section {
-    @apply mb-10 border-t border-white/5 pt-6 sm:mb-14 sm:pt-8;
+    @apply mb-12 border-t border-white/10 pt-7 sm:mb-16 sm:pt-9;
   }
 
   .ds-stack {
@@ -117,19 +117,19 @@ a:hover {
   }
 
   .ds-card {
-    @apply rounded-2xl border border-white/14 bg-white/[0.035] p-3 sm:p-3.5 backdrop-blur-md transition-all duration-200;
+    @apply rounded-2xl border border-white/14 bg-white/[0.03] p-3 sm:p-3 backdrop-blur-md transition-all duration-150;
     box-shadow:
-      0 10px 24px -22px rgba(16, 185, 129, 0.38),
-      0 10px 28px -26px rgba(0, 0, 0, 0.75);
+      0 8px 20px -20px rgba(16, 185, 129, 0.26),
+      0 12px 24px -24px rgba(0, 0, 0, 0.75);
   }
 
   .ds-card:hover {
-    @apply border-white/20 bg-white/[0.045];
-    transform: translateY(-1px);
+    @apply border-white/20 bg-white/[0.04];
+    transform: translateY(-1px) scale(1.003);
   }
 
   .ds-card-lg {
-    @apply ds-card p-4 sm:p-4;
+    @apply ds-card p-3.5 sm:p-4;
   }
 
   .ds-card-grid {
@@ -146,80 +146,87 @@ a:hover {
   }
 
   .ds-heading {
-    @apply text-lg font-semibold tracking-tight text-white sm:text-xl;
+    @apply text-base font-semibold tracking-tight text-white sm:text-lg;
   }
 
   .ds-subheading {
-    @apply text-base font-semibold tracking-tight text-white/95 sm:text-lg;
+    @apply text-sm font-semibold tracking-tight text-white/90 sm:text-base;
   }
 
   .ds-text {
-    @apply max-w-[66ch] text-sm leading-6 text-white/80 sm:text-[0.975rem];
+    @apply max-w-[64ch] text-sm leading-[1.5] text-white/80 sm:text-[0.94rem];
   }
 
   .ds-text-muted {
-    @apply max-w-[66ch] text-sm leading-6 text-white/70 sm:text-[0.975rem];
+    @apply max-w-[64ch] text-sm leading-[1.48] text-white/70 sm:text-[0.92rem];
   }
 
   .ds-metadata {
-    @apply text-xs font-medium tracking-wide text-white/52 sm:text-[0.8rem];
+    @apply text-[0.72rem] font-medium tracking-[0.02em] text-white/50 sm:text-xs;
   }
 
   .ds-pill,
   .pill {
-    @apply inline-flex items-center rounded-full border border-white/14 bg-white/[0.045] px-2.5 py-0.5 text-[0.7rem] font-medium text-white/75 transition-colors duration-150;
+    @apply inline-flex items-center rounded-full border border-white/14 bg-white/[0.035] px-2 py-0.5 text-[0.68rem] font-medium text-white/75 transition-all duration-150;
   }
 
   .ds-pill:hover,
   .pill:hover {
-    @apply border-white/20 bg-white/[0.07] text-white/90;
+    @apply border-white/20 bg-white/[0.05] text-white/85;
   }
 
   .btn,
   .btn-primary,
   .btn-secondary,
   .btn-ghost {
-    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border px-3.5 py-2 text-sm font-medium leading-none transition duration-150;
+    @apply inline-flex min-h-9 items-center justify-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-medium leading-none transition-all duration-150 sm:px-3.5 sm:py-1.5 sm:text-sm;
   }
 
   .btn {
-    border-color: rgba(255, 255, 255, 0.16);
-    background: linear-gradient(180deg, rgba(29, 35, 49, 0.92), rgba(19, 24, 35, 0.9));
-    color: rgba(244, 246, 255, 0.93);
+    border-color: rgba(255, 255, 255, 0.14);
+    background: linear-gradient(180deg, rgba(27, 33, 46, 0.9), rgba(19, 24, 34, 0.88));
+    color: rgba(244, 246, 255, 0.9);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
 
   .btn:hover {
-    border-color: rgba(255, 255, 255, 0.24);
-    background: linear-gradient(180deg, rgba(35, 42, 56, 0.94), rgba(22, 28, 40, 0.92));
+    border-color: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(180deg, rgba(31, 38, 52, 0.92), rgba(21, 27, 38, 0.9));
     transform: translateY(-1px);
   }
 
   .btn-primary {
-    border-color: rgba(134, 198, 48, 0.42);
-    background: linear-gradient(180deg, rgba(92, 131, 35, 0.94), rgba(66, 101, 28, 0.94));
-    color: rgba(243, 252, 226, 0.94);
+    border-color: rgba(134, 198, 48, 0.34);
+    background: linear-gradient(180deg, rgba(86, 123, 34, 0.9), rgba(66, 96, 30, 0.9));
+    color: rgba(244, 252, 232, 0.92);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 
   .btn-primary:hover {
-    border-color: rgba(164, 217, 77, 0.54);
-    background: linear-gradient(180deg, rgba(103, 145, 40, 0.94), rgba(74, 112, 31, 0.94));
+    border-color: rgba(162, 214, 80, 0.46);
+    background: linear-gradient(180deg, rgba(96, 136, 38, 0.92), rgba(73, 107, 32, 0.92));
   }
 
   .btn-secondary,
   .btn-ghost {
-    border-color: rgba(255, 255, 255, 0.16);
-    background: rgba(255, 255, 255, 0.035);
-    color: rgba(241, 245, 249, 0.85);
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(241, 245, 249, 0.8);
     box-shadow: none;
   }
 
   .btn-secondary:hover,
   .btn-ghost:hover {
-    border-color: rgba(255, 255, 255, 0.24);
-    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
     transform: translateY(-1px);
+  }
+
+  .btn:active,
+  .btn-primary:active,
+  .btn-secondary:active,
+  .btn-ghost:active {
+    transform: translateY(0);
   }
 }
 
