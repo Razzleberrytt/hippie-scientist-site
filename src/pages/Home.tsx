@@ -56,24 +56,21 @@ export default function Home() {
 
   const renderGovernedSignals = (item: HomepageFeaturedItem) => {
     if (!item.governedSummary?.enrichedAndReviewed) return null
+    const secondarySignal = item.governedSummary.safetyCautionsPresent
+      ? 'Safety cautions'
+      : item.governedSummary.mechanismCoveragePresent
+        ? 'Mechanism coverage'
+        : item.governedSummary.conflictingEvidence
+          ? 'Conflicting evidence'
+          : null
     return (
-      <div className='mt-2 flex flex-wrap gap-1.5'>
-        <span className='rounded-full border border-emerald-300/45 bg-emerald-500/10 px-2 py-0.5 text-[10px] uppercase tracking-[0.14em] text-emerald-100'>
+      <div className='mt-2 flex flex-wrap gap-1'>
+        <span className='rounded-full border border-emerald-300/40 bg-emerald-500/8 px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-emerald-100'>
           {item.governedSummary.title}
         </span>
-        {item.governedSummary.safetyCautionsPresent && (
-          <span className='rounded-full border border-amber-300/45 bg-amber-500/10 px-2 py-0.5 text-[10px] uppercase tracking-[0.14em] text-amber-100'>
-            Safety cautions
-          </span>
-        )}
-        {item.governedSummary.mechanismCoveragePresent && (
-          <span className='rounded-full border border-cyan-300/45 bg-cyan-500/10 px-2 py-0.5 text-[10px] uppercase tracking-[0.14em] text-cyan-100'>
-            Mechanism coverage
-          </span>
-        )}
-        {item.governedSummary.conflictingEvidence && (
-          <span className='rounded-full border border-rose-300/45 bg-rose-500/10 px-2 py-0.5 text-[10px] uppercase tracking-[0.14em] text-rose-100'>
-            Conflicting evidence
+        {secondarySignal && (
+          <span className='rounded-full border border-white/20 bg-white/[0.04] px-2 py-0.5 text-[10px] text-white/70'>
+            {secondarySignal}
           </span>
         )}
       </div>
@@ -133,27 +130,6 @@ export default function Home() {
               </Link>
             </div>
             <p className='mt-3 text-xs text-white/65'>Most people start with one tool, then compare details.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
-        <div className='ds-card'>
-          <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/60'>
-            Popular guides
-          </p>
-          <h2 className='mt-2 text-lg font-semibold text-white'>Best herbs by goal</h2>
-          <p className='mt-1 text-sm text-white/75'>Landing pages for common outcomes.</p>
-          <div className='ds-action-row mt-3'>
-            <Link to='/best-herbs-for-anxiety' className='btn-primary'>
-              Best herbs for anxiety
-            </Link>
-            <Link to='/best-herbs-for-sleep' className='btn-secondary'>
-              Best herbs for sleep
-            </Link>
-            <Link to='/best-herbs-for-focus' className='btn-secondary'>
-              Best herbs for focus
-            </Link>
           </div>
         </div>
       </section>

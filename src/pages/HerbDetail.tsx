@@ -653,7 +653,7 @@ export default function HerbDetail() {
       <article className='ds-card-lg mt-4'>
         {/* Header */}
         <header>
-          <div className='flex flex-col gap-3'>
+          <div className='flex flex-col gap-2'>
             <div>
               <h1 className='text-3xl font-semibold leading-tight'>{herb.common || herb.name}</h1>
               {herb.scientific && (
@@ -661,21 +661,34 @@ export default function HerbDetail() {
               )}
             </div>
           </div>
+          {(description || shortSummary) && (
+            <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>
+              {description || shortSummary}
+            </p>
+          )}
 
-          <DataTrustPanel
-            entity='herb'
-            confidence={confidence}
-            completeness={completeness}
-            sourceCount={sourceCount}
-            lastReviewed={lastUpdated}
-            cautionCount={cautionCount}
-            hasInferredContent={hasInferredContent}
-            hasFallbackContent={hasFallbackContent}
-          />
-          <div className='mt-1'>
+          <div className='mt-3 flex flex-wrap gap-1.5 text-[11px] text-white/65'>
+            <span className='rounded-full border border-white/20 bg-white/[0.03] px-2 py-0.5'>
+              Confidence: {confidence}
+            </span>
+            {evidenceLevel && (
+              <span className='rounded-full border border-white/20 bg-white/[0.03] px-2 py-0.5'>
+                {evidenceLevel}
+              </span>
+            )}
+            <span className='rounded-full border border-white/20 bg-white/[0.03] px-2 py-0.5'>
+              {sourceCount} source{sourceCount === 1 ? '' : 's'}
+            </span>
+            {cautionCount > 0 && (
+              <span className='rounded-full border border-amber-300/25 bg-amber-500/8 px-2 py-0.5 text-amber-100/85'>
+                {cautionCount} caution signal{cautionCount === 1 ? '' : 's'}
+              </span>
+            )}
+          </div>
+          <div className='mt-2'>
             <Link
               to={herbCheckerHref}
-              className='btn-primary inline-flex text-sm'
+              className='btn-primary inline-flex text-xs'
               onClick={() =>
                 trackDetailCheckerClick({
                   detailType: 'herb',
@@ -690,14 +703,8 @@ export default function HerbDetail() {
         </header>
 
         {/* Core content */}
-        {description && (
+        {description && description !== shortSummary && (
           <Section title='Overview'>
-            {confidence === 'low' ? (
-              <p className='mb-2 rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-amber-100'>
-                Evidence context: this overview is low-confidence and may rely on limited or
-                indirect data.
-              </p>
-            ) : null}
             {description}
           </Section>
         )}
@@ -716,7 +723,7 @@ export default function HerbDetail() {
           </div>
         )}
 
-        {shortSummary && (
+        {shortSummary && shortSummary !== description && (
           <section className='border-white/8 mt-6 border-t pt-5'>
             <p className='max-w-3xl text-base leading-relaxed text-white/88'>{shortSummary}</p>
           </section>
@@ -741,6 +748,17 @@ export default function HerbDetail() {
             </p>
           </div>
         )}
+
+        <DataTrustPanel
+          entity='herb'
+          confidence={confidence}
+          completeness={completeness}
+          sourceCount={sourceCount}
+          lastReviewed={lastUpdated}
+          cautionCount={cautionCount}
+          hasInferredContent={hasInferredContent}
+          hasFallbackContent={hasFallbackContent}
+        />
 
         <StructuredDetailIntro
           confidence={confidence}
