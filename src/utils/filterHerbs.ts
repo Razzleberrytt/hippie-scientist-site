@@ -4,6 +4,7 @@ import { searchEntries } from './searchEntries'
 import type { EntryFilterState } from './filterModel'
 import { asStringArray } from './asStringArray'
 import { getReviewFreshnessState, matchesEnrichmentFilter } from '@/lib/enrichmentDiscovery'
+import { applyBrowseQualityGate, assessBrowseRecord } from '@/utils/browseQuality'
 
 function getConfidenceRank(level: string) {
   if (level === 'high') return 3
@@ -56,12 +57,12 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
     const herbEffects = asStringArray(herb.effects).map(effect => normalizeText(effect))
     const confidence = getHerbConfidence(herb)
     const herbType = normalizeText(
-      String((herb as Record<string, unknown>).class || herb.category || '')
+      String((herb as Record<string, unknown>).class || herb.category || ''),
     )
 
     if (effectNeedles.length > 0) {
       const hasAllEffects = effectNeedles.every(effect =>
-        herbEffects.some(herbEffect => herbEffect.includes(effect))
+        herbEffects.some(herbEffect => herbEffect.includes(effect)),
       )
       if (!hasAllEffects) return false
     }
@@ -73,10 +74,24 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
     return true
   })
 
-  return filtered.sort((a, b) => {
+  const browseQuality = applyBrowseQualityGate(filtered, herb =>
+    assessBrowseRecord({
+      name: herb.common || herb.name || herb.scientific || herb.slug,
+      summary: herb.summaryShort || herb.description,
+      description: herb.description,
+      mechanism: herb.mechanism || herb.mechanismOfAction,
+      effects: asStringArray(herb.effects),
+      sourceCount: (herb as Record<string, unknown>).sourceCount,
+      hasEvidence: Boolean(herb.researchEnrichmentSummary?.evidenceLabel),
+    }),
+  )
+
+  const qualityFiltered = browseQuality.items
+
+  return qualityFiltered.sort((a, b) => {
     if (filters.sort === 'az') {
       return String(a.common || a.name || a.scientific || '').localeCompare(
-        String(b.common || b.name || b.scientific || '')
+        String(b.common || b.name || b.scientific || ''),
       )
     }
 
@@ -108,11 +123,15 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
       return getEvidenceRank(b) - getEvidenceRank(a)
     }
 
+    const aDemoted = Number(Boolean(browseQuality.assessments.get(a)?.demote))
+    const bDemoted = Number(Boolean(browseQuality.assessments.get(b)?.demote))
+    if (aDemoted !== bDemoted) return aDemoted - bDemoted
+
     const effectCountDiff = asStringArray(b.effects).length - asStringArray(a.effects).length
     if (effectCountDiff !== 0) return effectCountDiff
 
     return String(a.common || a.name || a.scientific || '').localeCompare(
-      String(b.common || b.name || b.scientific || '')
+      String(b.common || b.name || b.scientific || ''),
     )
   })
 }
