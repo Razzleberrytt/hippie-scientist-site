@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { filterHerbs } from '@/utils/filterHerbs'
 import { filterCompounds } from '@/utils/filterCompounds'
 import { DEFAULT_FILTER_STATE } from '@/utils/filterModel'
+import { assessBrowseRecord } from '@/utils/browseQuality'
 import type { Herb } from '@/types'
 import type { CompoundSummaryRecord } from '@/lib/compound-data'
 
@@ -126,5 +127,34 @@ describe('default browse ranking', () => {
 
     const searchable = filterCompounds(compounds, { ...DEFAULT_FILTER_STATE, query: 'l.' })
     expect(searchable.map(item => item.slug)).toEqual(['rosmarinic-acid-extract'])
+  })
+
+  it('demotes long chemical names only when metadata is sparse', () => {
+    const longName =
+      '2,3,4,5,6,7,8,9-octamethyl-11-(2,4,6-trimethylphenyl)-tricyclo[7.3.1.0]trideca-1,3,5-triene'
+
+    const sparse = assessBrowseRecord({
+      name: longName,
+      summary: 'unknown',
+      description: 'data is still being verified',
+      mechanism: '',
+      effects: [],
+      associations: [],
+      sourceCount: 0,
+      hasEvidence: false,
+    })
+    expect(sparse.demote).toBe(true)
+
+    const rich = assessBrowseRecord({
+      name: longName,
+      summary: 'Detailed summary with high-signal context suitable for browse ranking.',
+      description: 'Rich metadata, useful mechanism detail, and direct associations to mapped herbs.',
+      mechanism: 'Mechanistic pathway has plausible receptor-level coverage and context.',
+      effects: ['calm', 'focus'],
+      associations: ['rosemary', 'lemon balm'],
+      sourceCount: 3,
+      hasEvidence: true,
+    })
+    expect(rich.demote).toBe(false)
   })
 })

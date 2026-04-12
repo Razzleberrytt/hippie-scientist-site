@@ -9,6 +9,7 @@ import { memo } from 'react'
 import { FlaskConical } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Card from './ui/Card'
+import { formatBrowseTitle } from '@/utils/titleDisplay'
 import './HerbCard.css'
 
 interface HerbCardProps {
@@ -29,14 +30,6 @@ const EVIDENCE_TIER_BADGE_CLASS: Record<string, string> = {
   'Tier 3': 'border-amber-300/35 bg-amber-400/15 text-amber-200',
 }
 
-function truncateTitle(name: string, maxLength: number): string {
-  if (name.length <= maxLength) return name
-  const trimmed = name.slice(0, maxLength - 1).trimEnd()
-  const cutoff = trimmed.lastIndexOf(' ')
-  if (cutoff >= Math.floor(maxLength * 0.55)) return `${trimmed.slice(0, cutoff)}…`
-  return `${trimmed}…`
-}
-
 function HerbCard({
   name,
   summary,
@@ -53,7 +46,7 @@ function HerbCard({
   const hasCompoundCount = typeof compound_count === 'number' && compound_count > 0
   const normalizedEvidenceTier = (evidence_tier || '').trim()
   const fallbackEvidence = normalizedEvidenceTier ? '' : (evidenceLevel || '').trim()
-  const title = truncateTitle(name, 60)
+  const title = formatBrowseTitle(name, 60)
   const isTitleTruncated = title !== name
   const summaryText = summary?.trim() || 'Overview coming soon.'
 
@@ -104,8 +97,8 @@ function HerbCard({
             title={isTitleTruncated ? name : undefined}
             className={
               compact
-                ? 'line-clamp-2 break-words text-[0.95rem] font-semibold leading-tight text-lime-200'
-                : 'line-clamp-2 break-words text-base font-semibold leading-tight text-lime-200 sm:text-lg'
+                ? 'line-clamp-2 min-h-[2.3rem] break-all text-[0.95rem] font-semibold leading-tight text-lime-200'
+                : 'line-clamp-2 min-h-[2.5rem] break-all text-base font-semibold leading-tight text-lime-200 sm:text-lg'
             }
           >
             {title}
