@@ -156,8 +156,18 @@ export function assessBrowseRecord(input: {
   if (description && hasPlaceholderOnly(description)) reasons.push('placeholder_description')
   if (associationsCount === 0) reasons.push('no_associations')
   if (qualityScore <= 2) reasons.push('sparse_metadata')
+  if (name.length > 0 && name.length <= 2 && qualityScore <= 2) reasons.push('fragment_name_low_metadata')
 
   if (longChemicalName && qualityScore < 2) reasons.push('long_name_low_metadata')
+  const hide =
+    (malformedName && qualityScore <= 2) ||
+    (hasPlaceholderOnly(summary) &&
+      hasPlaceholderOnly(description) &&
+      qualityScore <= 2 &&
+      (malformedName || longChemicalName)) ||
+    (longChemicalName && qualityScore <= 1) ||
+    reasons.includes('fragment_name_low_metadata')
+
   const rankScore = computeRankScore({
     name,
     summary,
@@ -173,7 +183,7 @@ export function assessBrowseRecord(input: {
   })
 
   return {
-    hide: false,
+    hide,
     demote:
       longChemicalName ||
       (summary.length > 0 && summary.length < 40) ||
