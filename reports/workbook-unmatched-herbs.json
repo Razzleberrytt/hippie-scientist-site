@@ -5,11 +5,6 @@
     "scientificName": "Actaea racemosa"
   },
   {
-    "slug": "kudzu",
-    "name": "Kudzu",
-    "scientificName": "Pueraria lobata"
-  },
-  {
     "slug": "feverfew",
     "name": "Feverfew",
     "scientificName": "Tanacetum parthenium"
@@ -185,18 +180,8 @@
     "scientificName": "Trametes versicolor"
   },
   {
-    "slug": "epimedium",
-    "name": "Epimedium",
-    "scientificName": "Epimedium sagittatum"
-  },
-  {
     "slug": "rooibos",
     "name": "Rooibos",
     "scientificName": "Aspalathus linearis"
-  },
-  {
-    "slug": "coleus-forskohlii",
-    "name": "Coleus Forskohlii",
-    "scientificName": "Coleus forskohlii"
   }
 ]
