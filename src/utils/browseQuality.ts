@@ -185,7 +185,7 @@ export function assessBrowseRecord(input: {
   return {
     hide,
     demote:
-      longChemicalName ||
+      (longChemicalName && qualityScore <= 2) ||
       (summary.length > 0 && summary.length < 40) ||
       associationsCount === 0 ||
       rankScore < 20,

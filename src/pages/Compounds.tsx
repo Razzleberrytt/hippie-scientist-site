@@ -17,6 +17,7 @@ import { extractFilterOptions } from '@/utils/extractFilterOptions'
 import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
 import type { EnrichmentFilter } from '@/types/enrichmentDiscovery'
 import { trackGovernedEvent } from '@/lib/governedAnalytics'
+import { formatBrowseTitle } from '@/utils/titleDisplay'
 
 const ENRICHMENT_FILTER_OPTIONS: Array<{ value: EnrichmentFilter; label: string }> = [
   { value: 'all', label: 'All research states' },
@@ -36,14 +37,6 @@ function confidenceBadgeClass(level: ConfidenceLevel) {
   if (level === 'medium')
     return 'border-amber-300/45 bg-amber-500/15 text-amber-100 shadow-[0_0_18px_rgba(245,158,11,0.35)]'
   return 'border-rose-300/50 bg-rose-500/15 text-rose-100 shadow-[0_0_18px_rgba(244,63,94,0.35)]'
-}
-
-function truncateBrowseTitle(name: string, maxLength = 58) {
-  if (name.length <= maxLength) return name
-  const trimmed = name.slice(0, maxLength - 1).trimEnd()
-  const split = trimmed.lastIndexOf(' ')
-  if (split >= Math.floor(maxLength * 0.55)) return `${trimmed.slice(0, split)}…`
-  return `${trimmed}…`
 }
 
 function summarize(compound: { description: string; effects: string[] }) {
@@ -256,7 +249,7 @@ export default function CompoundsPage() {
               })
             const primaryEffects = extractPrimaryEffects(compound.effects, 3)
 
-            const title = truncateBrowseTitle(compound.name)
+            const title = formatBrowseTitle(compound.name, 58)
             const chips = [
               ...primaryEffects.map(effect => ({ label: effect, tone: 'effect' as const })),
               ...(compound.researchEnrichmentSummary
@@ -277,7 +270,7 @@ export default function CompoundsPage() {
                 <div className='flex items-start justify-between gap-2'>
                   <h2
                     title={compound.name}
-                    className='line-clamp-2 text-base font-semibold leading-tight'
+                    className='line-clamp-2 min-h-[2.5rem] break-all text-base font-semibold leading-tight'
                   >
                     {title}
                   </h2>
