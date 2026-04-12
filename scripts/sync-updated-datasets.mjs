@@ -108,6 +108,15 @@ hydrateUpdatedDatasetSlugs('compounds_combined_updated.json', 'compounds')
 
 const workbookPath = resolveWorkbookPath(root)
 if (fs.existsSync(workbookPath)) {
+  console.log(`[data-sync] Exporting workbook datasets from ${workbookPath}`)
+  execFileSync('node', ['scripts/export-workbook-to-json.mjs'], {
+    cwd: root,
+    stdio: 'inherit',
+    env: {
+      ...process.env,
+      HERB_XLSX_PATH: path.relative(root, workbookPath),
+    },
+  })
   console.log(`[data-sync] Applying workbook overlay from ${workbookPath}`)
   execFileSync('node', ['scripts/import-xlsx-monographs.mjs'], {
     cwd: root,

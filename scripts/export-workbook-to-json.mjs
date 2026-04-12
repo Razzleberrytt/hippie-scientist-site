@@ -4,6 +4,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import XLSX from 'xlsx'
 import { resolveWorkbookPath } from './workbook-source.mjs'
+import { canonicalizeWorkbookRow } from './workbook-column-mapping.mjs'
 
 const repoRoot = process.cwd()
 const workbookPath = resolveWorkbookPath(repoRoot)
@@ -26,6 +27,14 @@ function cleanScalar(value) {
   return value
 }
 
+function slugify(value) {
+  return toCleanString(value)
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
 function dedupeBy(records, keyFn) {
   const seen = new Set()
   const output = []
@@ -44,11 +53,13 @@ function readSheetRows(workbook, sheetName, { optional = false } = {}) {
     if (optional) return []
     throw new Error(`Missing sheet: ${sheetName}`)
   }
-  return XLSX.utils.sheet_to_json(sheet, {
+  const rows = XLSX.utils.sheet_to_json(sheet, {
     defval: '',
     raw: false,
     blankrows: false,
   })
+
+  return rows.map(row => canonicalizeWorkbookRow(row, sheetName))
 }
 
 function exportHerbs(workbook) {
@@ -103,8 +114,8 @@ function exportHerbs(workbook) {
 function exportCompounds(workbook) {
   const rows = readSheetRows(workbook, 'Compound Master V3')
   const records = rows.map(row => ({
-    id: cleanScalar(row.canonicalCompoundId),
-    name: cleanScalar(row.compoundName),
+    id: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.canonicalCompoundName || row.Compound),
+    name: cleanScalar(row.compoundName || row.canonicalCompoundName || row.Compound),
     aliases: splitList(row.aliases),
     compoundClass: cleanScalar(row.compoundClass),
     mechanism: cleanScalar(row.mechanism),
