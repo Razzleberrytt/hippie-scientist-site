@@ -31,7 +31,28 @@
     ],
     "dosage": "300–500 mg root extract twice daily",
     "preparation": "Root powders and standardized extracts.",
-    "region": "Native to India, the Middle East and parts of Africa and Asia."
+    "region": "Native to India, the Middle East and parts of Africa and Asia.",
+    "latin": "Withania somnifera",
+    "aliases": [
+      "ashwagandha",
+      "Indian ginseng",
+      "winter cherry"
+    ],
+    "contraindications": [
+      "Pregnancy, breastfeeding, autoimmune disease, thyroid disorders, liver disease."
+    ],
+    "sources": [
+      {
+        "title": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "conversation-recovered"
+      }
+    ]
   },
   {
     "name": "Black Cohosh",
@@ -46,10 +67,12 @@
       "hormonal"
     ],
     "activeCompounds": [
-      "actein",
-      "23-epi-26-deoxyactein",
+      "triterpene glycosides (actein, 23-epi-26-deoxyactein)",
       "cimifugoside",
-      "fukinolic-acid"
+      "caffeic acid derivatives",
+      "fukinolic acid",
+      "actein",
+      "23-epi-26-deoxyactein"
     ],
     "safetyNotes": "Generally well tolerated in short-term studies, but rare cases of liver injury have been reported. Product contamination or misidentification is a known issue.",
     "interactions": [
@@ -57,7 +80,42 @@
     ],
     "dosage": null,
     "preparation": "Root and rhizome used in standardized extracts, capsules, tablets, and tinctures.",
-    "region": "Native to North America, especially the eastern United States."
+    "region": "Native to North America, especially the eastern United States.",
+    "latin": "Actaea racemosa",
+    "aliases": [
+      "black cohosh",
+      "black snakeroot",
+      "Actaea racemosa"
+    ],
+    "contraindications": [
+      "Avoid in pregnancy and breastfeeding. Use caution in liver disease or hormone-sensitive conditions."
+    ],
+    "sources": [
+      {
+        "title": "NCCIH"
+      },
+      {
+        "title": "NIH ODS"
+      },
+      {
+        "title": "PubMed mechanism review PMC3046019"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "NCCIH"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "NIH ODS"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "PubMed mechanism review PMC3046019"
+      },
+      {
+        "title": "NCCIH; NIH/ODS; PubMed/PMC"
+      }
+    ]
   },
   {
     "name": "Echinacea Purpurea",
@@ -82,7 +140,20 @@
     ],
     "dosage": null,
     "preparation": "Medicinal products use the roots and aerial parts in teas, juices, tinctures and standardized extracts.",
-    "region": "Native to the central and eastern United States; now cultivated and introduced in Europe and other temperate regions【55003496660111†L75-L130】."
+    "region": "Native to the central and eastern United States; now cultivated and introduced in Europe and other temperate regions【55003496660111†L75-L130】.",
+    "latin": "Echinacea purpurea",
+    "aliases": [
+      "echinacea",
+      "purple coneflower"
+    ],
+    "contraindications": [
+      "Individuals with autoimmune disorders or allergies to ragweed and other Asteraceae plants should avoid echinacea. Use during pregnancy or breastfeeding is not recommended. People taking immunosuppressant drugs should avoid echinacea due to potential antagonism."
+    ],
+    "sources": [
+      {
+        "title": "PubMed/PMC"
+      }
+    ]
   },
   {
     "name": "Garlic",
@@ -111,7 +182,20 @@
     ],
     "dosage": null,
     "preparation": "Fresh or dried bulbs are used as food and in remedies. Commercial supplements include aged garlic extracts, oils and powders standardized for organosulfur content.",
-    "region": "Native to parts of Central Asia including Iran, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan and Uzbekistan, but now cultivated worldwide【387438139344369†L214-L229】."
+    "region": "Native to parts of Central Asia including Iran, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan and Uzbekistan, but now cultivated worldwide【387438139344369†L214-L229】.",
+    "latin": "Allium sativum",
+    "aliases": [
+      "garlic",
+      "Allium sativum"
+    ],
+    "contraindications": [
+      "People with bleeding disorders, those taking anticoagulant or antiplatelet drugs and individuals scheduled for surgery should avoid high‑dose garlic supplements. Because safety during pregnancy and breastfeeding has not been established, garlic supplements are not recommended in these populations."
+    ],
+    "sources": [
+      {
+        "title": "PubMed/PMC"
+      }
+    ]
   },
   {
     "name": "Ginger",
@@ -136,7 +220,20 @@
     ],
     "dosage": "Typical adult dose is up to 1 000 mg/day of dried powdered extract for gastrointestinal complaints【739669106228210†L96-L133】.",
     "preparation": "The rhizome is used fresh, dried, pickled, preserved, candied or powdered. Supplements include encapsulated dried powders and extracts【418916103730052†L176-L189】.",
-    "region": "Ginger does not occur in the wild; it is believed to have originated in Southeast Asia and is now cultivated across the humid tropics with India as the largest producer【418916103730052†L148-L163】."
+    "region": "Ginger does not occur in the wild; it is believed to have originated in Southeast Asia and is now cultivated across the humid tropics with India as the largest producer【418916103730052†L148-L163】.",
+    "latin": "Zingiber officinale",
+    "aliases": [
+      "ginger",
+      "Zingiber officinale"
+    ],
+    "contraindications": [
+      "Use cautiously in pregnancy, gallstone disease or bleeding disorders. Discontinue before surgery and avoid high‑dose supplements when taking anticoagulants."
+    ],
+    "sources": [
+      {
+        "title": "PubMed/PMC"
+      }
+    ]
   },
   {
     "name": "Ginkgo Biloba",
@@ -170,7 +267,27 @@
     ],
     "dosage": "120–240 mg/day standardized extract",
     "preparation": "Standardized leaf extract (EGb 761).",
-    "region": "Native to China; cultivated worldwide as an ornamental and medicinal tree."
+    "region": "Native to China; cultivated worldwide as an ornamental and medicinal tree.",
+    "latin": "Ginkgo biloba",
+    "aliases": [
+      "ginkgo",
+      "maidenhair tree"
+    ],
+    "contraindications": [
+      "Pregnancy, breastfeeding, bleeding disorders, epilepsy, planned surgery."
+    ],
+    "sources": [
+      {
+        "title": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "conversation-recovered"
+      }
+    ]
   },
   {
     "name": "Holy Basil",
@@ -196,7 +313,30 @@
     ],
     "dosage": "Eugenol or ursolic acid content",
     "preparation": "Leaf extracts, teas",
-    "region": "India, Southeast Asia"
+    "region": "India, Southeast Asia",
+    "latin": "Ocimum tenuiflorum",
+    "contraindications": [
+      "Pregnancy (limited data)"
+    ],
+    "sources": [
+      {
+        "title": "NCCIH"
+      },
+      {
+        "title": "PubMed"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "NCCIH"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "PubMed"
+      },
+      {
+        "title": "NCCIH; PubMed/PMC"
+      }
+    ]
   },
   {
     "name": "Kava",
@@ -226,7 +366,29 @@
     ],
     "dosage": "~250 mg/day total kavalactones upper practical limit",
     "preparation": "Traditional aqueous root beverage; modern standardized root extracts.",
-    "region": "Indigenous to the South Pacific islands (Polynesia, Melanesia and Micronesia)."
+    "region": "Indigenous to the South Pacific islands (Polynesia, Melanesia and Micronesia).",
+    "latin": "Piper methysticum",
+    "aliases": [
+      "kava",
+      "kava-kava",
+      "awa",
+      "yaqona"
+    ],
+    "contraindications": [
+      "Liver disease, pregnancy, breastfeeding, concurrent CNS depressants or hepatotoxic drugs."
+    ],
+    "sources": [
+      {
+        "title": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "conversation-recovered"
+      }
+    ]
   },
   {
     "name": "Lemon Balm",
@@ -253,7 +415,30 @@
     ],
     "dosage": "Rosmarinic acid content",
     "preparation": "Leaf extracts, teas, tinctures",
-    "region": "Europe, Mediterranean"
+    "region": "Europe, Mediterranean",
+    "latin": "Melissa officinalis",
+    "contraindications": [
+      "Hypothyroidism (caution)"
+    ],
+    "sources": [
+      {
+        "title": "EMA herbal monograph"
+      },
+      {
+        "title": "NCCIH"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "EMA herbal monograph"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "NCCIH"
+      },
+      {
+        "title": "NCCIH; EMA"
+      }
+    ]
   },
   {
     "name": "Maca",
@@ -266,14 +451,41 @@
       "adaptogen",
       "hormonal"
     ],
-    "activeCompounds": [],
+    "activeCompounds": [
+      "macamides",
+      "macaenes",
+      "glucosinolates"
+    ],
     "safetyNotes": "Generally safe; mild GI upset possible",
     "interactions": [
       "Limited data"
     ],
     "dosage": null,
     "preparation": "Dried root powder, extracts",
-    "region": "Peru (Andes)"
+    "region": "Peru (Andes)",
+    "latin": "Lepidium meyenii",
+    "contraindications": [
+      "Hormone-sensitive conditions (caution)"
+    ],
+    "sources": [
+      {
+        "title": "PubMed"
+      },
+      {
+        "title": "NIH"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "PubMed"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "NIH"
+      },
+      {
+        "title": "NIH/ODS; PubMed/PMC"
+      }
+    ]
   },
   {
     "name": "Milk Thistle",
@@ -303,7 +515,29 @@
     ],
     "dosage": "250–750 mg silymarin 2–3 times daily",
     "preparation": "Seed/fruit extracts standardized to silymarin.",
-    "region": "Native to the Mediterranean region; now naturalized worldwide."
+    "region": "Native to the Mediterranean region; now naturalized worldwide.",
+    "latin": "Silybum marianum",
+    "aliases": [
+      "milk thistle",
+      "St. Mary's thistle",
+      "blessed milkthistle"
+    ],
+    "contraindications": [
+      "Asteraceae allergy",
+      "caution in pregnancy/breastfeeding."
+    ],
+    "sources": [
+      {
+        "title": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "conversation-recovered"
+      }
+    ]
   },
   {
     "name": "Peppermint",
@@ -333,7 +567,20 @@
     ],
     "dosage": null,
     "preparation": "Leaves and flowering tops are used fresh or dried to make teas and flavourings. Medicinal products include enteric‑coated capsules of peppermint oil and topical preparations.",
-    "region": "Peppermint is a hybrid between water mint and spearmint that grows throughout Europe, North America and the Mediterranean【376436993997216†L159-L162】."
+    "region": "Peppermint is a hybrid between water mint and spearmint that grows throughout Europe, North America and the Mediterranean【376436993997216†L159-L162】.",
+    "latin": "Mentha × piperita",
+    "aliases": [
+      "peppermint",
+      "Mentha × piperita"
+    ],
+    "contraindications": [
+      "Avoid in infants and young children, and in people with gastro‑oesophageal reflux disease or bile duct obstruction. Use cautiously in those taking hepatotoxic drugs due to potential pulegone/menthofuran toxicity."
+    ],
+    "sources": [
+      {
+        "title": "PubMed/PMC"
+      }
+    ]
   },
   {
     "name": "Rhodiola Rosea",
@@ -364,7 +611,31 @@
     ],
     "dosage": "Typically 3% rosavins, 1% salidroside",
     "preparation": "Standardized root extracts",
-    "region": "Europe, Asia (cold regions)"
+    "region": "Europe, Asia (cold regions)",
+    "latin": "Rhodiola rosea",
+    "contraindications": [
+      "Bipolar disorder",
+      "avoid high doses before sleep"
+    ],
+    "sources": [
+      {
+        "title": "NCCIH"
+      },
+      {
+        "title": "PubMed adaptogen reviews"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "NCCIH"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "PubMed adaptogen reviews"
+      },
+      {
+        "title": "NCCIH; PubMed/PMC"
+      }
+    ]
   },
   {
     "name": "Saw Palmetto",
@@ -378,6 +649,8 @@
       "anti-androgenic"
     ],
     "activeCompounds": [
+      "fatty acids",
+      "phytosterols (beta-sitosterol)",
       "beta-sitosterol"
     ],
     "safetyNotes": "Generally safe; mild GI upset, headache",
@@ -387,7 +660,30 @@
     ],
     "dosage": "Standardized to fatty acid content",
     "preparation": "Berry extracts",
-    "region": "Southeastern United States"
+    "region": "Southeastern United States",
+    "latin": "Serenoa repens",
+    "contraindications": [
+      "Pregnancy"
+    ],
+    "sources": [
+      {
+        "title": "NIH ODS"
+      },
+      {
+        "title": "EMA"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "NIH ODS"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "EMA"
+      },
+      {
+        "title": "NIH/ODS; EMA"
+      }
+    ]
   },
   {
     "name": "St Johns Wort",
@@ -421,7 +717,28 @@
     ],
     "dosage": "300 mg extract three times daily",
     "preparation": "Dried flowering tops or standardized extracts.",
-    "region": "Native to Europe and West Asia; naturalized in North America and other temperate regions."
+    "region": "Native to Europe and West Asia; naturalized in North America and other temperate regions.",
+    "latin": "Hypericum perforatum",
+    "aliases": [
+      "St. John's wort",
+      "Hypericum",
+      "goatweed"
+    ],
+    "contraindications": [
+      "Pregnancy, breastfeeding, bipolar disorder, concomitant prescription meds with CYP/P-gp liability."
+    ],
+    "sources": [
+      {
+        "title": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "conversation-recovered"
+      }
+    ]
   },
   {
     "name": "Turmeric",
@@ -432,7 +749,8 @@
     "mechanism": "The golden rhizomes of turmeric contain non‑volatile curcuminoids—curcumin (curcumin I), demethoxycurcumin (curcumin II) and bisdemethoxycurcumin (curcumin III)—as well as volatile mono‑ and sesquiterpenoids【768158627760254†L420-L432】【768158627760254†L442-L468】. Curcumin and related curcuminoids exhibit antioxidant and anti‑inflammatory effects by modulating multiple molecular targets (e.g., NF‑κB, Nrf2, COX‑2). Most data are preclinical; human evidence is limited, so this mechanism should be considered proposed.",
     "mechanismTags": [
       "anti-inflammatory",
-      "antioxidant"
+      "antioxidant",
+      "nf-kb modulation"
     ],
     "activeCompounds": [
       "demethoxycurcumin",
@@ -446,7 +764,20 @@
     ],
     "dosage": null,
     "preparation": "The rhizomes are boiled, dried and ground into powder used as a spice, dye and supplement. Extracts standardized for curcuminoid content are available as capsules or tablets.",
-    "region": "Native to India and cultivated throughout the tropics; turmeric is not found in the wild and is grown as a domesticated plant【754431674042811†L224-L241】."
+    "region": "Native to India and cultivated throughout the tropics; turmeric is not found in the wild and is grown as a domesticated plant【754431674042811†L224-L241】.",
+    "latin": "Curcuma longa",
+    "aliases": [
+      "turmeric",
+      "Curcuma longa"
+    ],
+    "contraindications": [
+      "Avoid high‑dose turmeric supplements in people with gallbladder obstruction, bleeding disorders or those taking anticoagulant or antiplatelet medications. Use is not recommended during pregnancy or breastfeeding."
+    ],
+    "sources": [
+      {
+        "title": "PubMed/PMC"
+      }
+    ]
   },
   {
     "name": "Valerian",
@@ -456,7 +787,9 @@
     "description": "Valerian is represented here as a monograph-style entry centered on the root; rhizome. Key reported compounds include valerenic acid; valerenol; valerenal; valepotriates (valtrate, isovaltrate); sesquiterpenoids. Typical preparation forms: Dried roots/rhizomes as teas, tinctures, or extracts. Valerenic acid derivatives modulate GABA-A signaling and may inhibit GABA breakdown. Interaction profile: May potentiate sedatives and alcohol. Use caution or avoid in: Pregnancy, breastfeeding, liver disease, concurrent CNS depressants.",
     "mechanism": "Valerenic acid derivatives modulate GABA-A signaling and may inhibit GABA breakdown.",
     "mechanismTags": [
-      "gabaergic"
+      "sedative",
+      "sleep support",
+      "gaba modulation"
     ],
     "activeCompounds": [
       "valerenic-acid",
@@ -471,6 +804,27 @@
     ],
     "dosage": "300–600 mg extract",
     "preparation": "Dried roots/rhizomes as teas, tinctures, or extracts.",
-    "region": "Native to Europe and Asia; naturalized in North America and other temperate regions."
+    "region": "Native to Europe and Asia; naturalized in North America and other temperate regions.",
+    "latin": "Valeriana officinalis",
+    "aliases": [
+      "valerian",
+      "all-heal",
+      "garden heliotrope"
+    ],
+    "contraindications": [
+      "Pregnancy, breastfeeding, liver disease, concurrent CNS depressants."
+    ],
+    "sources": [
+      {
+        "title": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "Workbook citation",
+        "note": "Recovered from prior batch output in this conversation"
+      },
+      {
+        "title": "conversation-recovered"
+      }
+    ]
   }
 ]

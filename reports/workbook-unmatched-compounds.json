@@ -1,1610 +1,402 @@
 [
   {
-    "canonicalCompoundId": "11-keto-beta-boswellic acid",
-    "compoundName": "11-keto-beta-boswellic acid"
+    "canonicalCompoundId": "",
+    "compoundName": "1-deoxynojirimycin"
   },
   {
-    "canonicalCompoundId": "5-hydroxytryptophan",
-    "compoundName": "5-hydroxytryptophan (5-HTP)"
+    "canonicalCompoundId": "",
+    "compoundName": "4-hydroxyderricin"
   },
   {
-    "canonicalCompoundId": "6-gingerol",
-    "compoundName": "6-gingerol"
+    "canonicalCompoundId": "",
+    "compoundName": "6-Shogaol"
   },
   {
-    "canonicalCompoundId": "8-cineole",
-    "compoundName": "8-cineole"
+    "canonicalCompoundId": "",
+    "compoundName": "a-type proanthocyanidins"
   },
   {
-    "canonicalCompoundId": "absinthin",
-    "compoundName": "absinthin"
+    "canonicalCompoundId": "",
+    "compoundName": "acteoside"
   },
   {
-    "canonicalCompoundId": "acetyl-11-keto-beta-boswellic acid",
-    "compoundName": "acetyl-11-keto-beta-boswellic acid (akba)"
+    "canonicalCompoundId": "",
+    "compoundName": "agaric acid"
   },
   {
-    "canonicalCompoundId": "acetyl-beta-boswellic acid",
-    "compoundName": "acetyl-beta-boswellic acid"
+    "canonicalCompoundId": "",
+    "compoundName": "Akuammine"
   },
   {
-    "canonicalCompoundId": "acetyl-l-carnitine",
-    "compoundName": "acetyl-L-carnitine"
+    "canonicalCompoundId": "",
+    "compoundName": "alantolactone"
   },
   {
-    "canonicalCompoundId": "adenosine",
-    "compoundName": "adenosine"
+    "canonicalCompoundId": "",
+    "compoundName": "alpha-mangostin"
   },
   {
-    "canonicalCompoundId": "aegeline",
-    "compoundName": "aegeline"
+    "canonicalCompoundId": "",
+    "compoundName": "Andrographolide"
   },
   {
-    "canonicalCompoundId": "aescin",
-    "compoundName": "aescin"
+    "canonicalCompoundId": "",
+    "compoundName": "angelicin"
   },
   {
-    "canonicalCompoundId": "aesculin",
-    "compoundName": "aesculin"
+    "canonicalCompoundId": "",
+    "compoundName": "arabinoxylans"
   },
   {
-    "canonicalCompoundId": "agnuside",
-    "compoundName": "agnuside"
+    "canonicalCompoundId": "",
+    "compoundName": "Arjunetin"
   },
   {
-    "canonicalCompoundId": "ajmaline",
-    "compoundName": "ajmaline"
+    "canonicalCompoundId": "",
+    "compoundName": "Arjungenin"
   },
   {
-    "canonicalCompoundId": "ajoene",
-    "compoundName": "ajoene"
+    "canonicalCompoundId": "",
+    "compoundName": "Arjunic acid"
   },
   {
-    "canonicalCompoundId": "akba",
-    "compoundName": "akba"
+    "canonicalCompoundId": "",
+    "compoundName": "arjunolic acid"
   },
   {
-    "canonicalCompoundId": "alangine",
-    "compoundName": "alangine"
+    "canonicalCompoundId": "",
+    "compoundName": "avenacosides"
   },
   {
-    "canonicalCompoundId": "allantoin",
-    "compoundName": "allantoin"
+    "canonicalCompoundId": "",
+    "compoundName": "avenanthramides"
   },
   {
-    "canonicalCompoundId": "allicin",
-    "compoundName": "allicin"
+    "canonicalCompoundId": "",
+    "compoundName": "bacopaside ii"
   },
   {
-    "canonicalCompoundId": "allyl isothiocyanate",
-    "compoundName": "allyl isothiocyanate"
+    "canonicalCompoundId": "",
+    "compoundName": "bacoside a"
   },
   {
-    "canonicalCompoundId": "aloe-emodin",
-    "compoundName": "aloe-emodin"
+    "canonicalCompoundId": "",
+    "compoundName": "beta-glucans"
   },
   {
-    "canonicalCompoundId": "aloin",
-    "compoundName": "aloin"
+    "canonicalCompoundId": "",
+    "compoundName": "boldine"
   },
   {
-    "canonicalCompoundId": "alpha-bisabolol",
-    "compoundName": "alpha-bisabolol"
+    "canonicalCompoundId": "",
+    "compoundName": "Carnosol"
   },
   {
-    "canonicalCompoundId": "alpha-gpc l-alpha-glycerylphosphorylcholine",
-    "compoundName": "alpha-GPC (L-alpha-glycerylphosphorylcholine)"
+    "canonicalCompoundId": "",
+    "compoundName": "catalpol"
   },
   {
-    "canonicalCompoundId": "alpha-pinene",
-    "compoundName": "alpha-pinene"
+    "canonicalCompoundId": "",
+    "compoundName": "Catechin"
   },
   {
-    "canonicalCompoundId": "alpha-thujone",
-    "compoundName": "alpha-thujone"
+    "canonicalCompoundId": "",
+    "compoundName": "Chavicine"
   },
   {
-    "canonicalCompoundId": "amarogentin",
-    "compoundName": "amarogentin"
+    "canonicalCompoundId": "",
+    "compoundName": "chrysin"
   },
   {
-    "canonicalCompoundId": "amentoflavone",
-    "compoundName": "amentoflavone"
+    "canonicalCompoundId": "",
+    "compoundName": "Cimicifugoside"
   },
   {
-    "canonicalCompoundId": "anethole",
-    "compoundName": "anethole"
+    "canonicalCompoundId": "",
+    "compoundName": "convolvine"
   },
   {
-    "canonicalCompoundId": "anisomelic acid",
-    "compoundName": "anisomelic acid"
+    "canonicalCompoundId": "",
+    "compoundName": "corosolic acid"
   },
   {
-    "canonicalCompoundId": "annonacin",
-    "compoundName": "annonacin"
+    "canonicalCompoundId": "",
+    "compoundName": "d-pinitol"
   },
   {
-    "canonicalCompoundId": "anonaine",
-    "compoundName": "anonaine"
+    "canonicalCompoundId": "",
+    "compoundName": "Desmethylicaritin"
   },
   {
-    "canonicalCompoundId": "anthocyanins delphinidin",
-    "compoundName": "anthocyanins (delphinidin"
+    "canonicalCompoundId": "",
+    "compoundName": "Dopamine"
   },
   {
-    "canonicalCompoundId": "apomorphine",
-    "compoundName": "apomorphine"
+    "canonicalCompoundId": "",
+    "compoundName": "ecdysterone"
   },
   {
-    "canonicalCompoundId": "arctiin",
-    "compoundName": "arctiin"
+    "canonicalCompoundId": "",
+    "compoundName": "ECG"
   },
   {
-    "canonicalCompoundId": "arecaidine",
-    "compoundName": "arecaidine"
+    "canonicalCompoundId": "",
+    "compoundName": "EGCG"
   },
   {
-    "canonicalCompoundId": "arecoline",
-    "compoundName": "arecoline"
+    "canonicalCompoundId": "",
+    "compoundName": "eleutherosides"
   },
   {
-    "canonicalCompoundId": "armepavine",
-    "compoundName": "armepavine"
+    "canonicalCompoundId": "",
+    "compoundName": "Epimedin A"
   },
   {
-    "canonicalCompoundId": "artemisinin",
-    "compoundName": "artemisinin"
+    "canonicalCompoundId": "",
+    "compoundName": "Epimedin B"
   },
   {
-    "canonicalCompoundId": "asclepiadin",
-    "compoundName": "asclepiadin"
+    "canonicalCompoundId": "",
+    "compoundName": "Epimedin C"
   },
   {
-    "canonicalCompoundId": "ashwagandha withanolides",
-    "compoundName": "ashwagandha (withanolides)"
+    "canonicalCompoundId": "",
+    "compoundName": "erinacines"
   },
   {
-    "canonicalCompoundId": "asiatic acid",
-    "compoundName": "asiatic acid"
+    "canonicalCompoundId": "",
+    "compoundName": "eucalyptol"
   },
   {
-    "canonicalCompoundId": "asiaticoside",
-    "compoundName": "asiaticoside"
+    "canonicalCompoundId": "",
+    "compoundName": "faradiol"
   },
   {
-    "canonicalCompoundId": "asperuloside",
-    "compoundName": "asperuloside"
+    "canonicalCompoundId": "",
+    "compoundName": "faradiol esters"
   },
   {
-    "canonicalCompoundId": "aspidospermine",
-    "compoundName": "aspidospermine"
+    "canonicalCompoundId": "",
+    "compoundName": "galangin"
   },
   {
-    "canonicalCompoundId": "astragaloside iv",
-    "compoundName": "astragaloside iv"
+    "canonicalCompoundId": "",
+    "compoundName": "gastrodin"
   },
   {
-    "canonicalCompoundId": "atractylenolide i",
-    "compoundName": "atractylenolide i"
+    "canonicalCompoundId": "",
+    "compoundName": "geniposidic acid"
   },
   {
-    "canonicalCompoundId": "atractylenolide ii",
-    "compoundName": "atractylenolide ii"
+    "canonicalCompoundId": "",
+    "compoundName": "Ginsenoside RB1"
   },
   {
-    "canonicalCompoundId": "atractylenolide iii",
-    "compoundName": "atractylenolide iii"
+    "canonicalCompoundId": "",
+    "compoundName": "Ginsenoside Rd"
   },
   {
-    "canonicalCompoundId": "atractylon",
-    "compoundName": "atractylon"
+    "canonicalCompoundId": "",
+    "compoundName": "Ginsenoside Re"
   },
   {
-    "canonicalCompoundId": "aucubin",
-    "compoundName": "aucubin"
+    "canonicalCompoundId": "",
+    "compoundName": "Ginsenoside Rf"
   },
   {
-    "canonicalCompoundId": "azadirachtin",
-    "compoundName": "azadirachtin"
+    "canonicalCompoundId": "",
+    "compoundName": "Ginsenoside RG1"
   },
   {
-    "canonicalCompoundId": "baicalein",
-    "compoundName": "baicalein"
+    "canonicalCompoundId": "",
+    "compoundName": "Ginsenoside Rg3"
   },
   {
-    "canonicalCompoundId": "benzyl benzoate",
-    "compoundName": "benzyl benzoate"
+    "canonicalCompoundId": "",
+    "compoundName": "gomisin a"
   },
   {
-    "canonicalCompoundId": "berbamine",
-    "compoundName": "berbamine"
+    "canonicalCompoundId": "",
+    "compoundName": "gymnemic acids"
   },
   {
-    "canonicalCompoundId": "berberine",
-    "compoundName": "berberine"
+    "canonicalCompoundId": "",
+    "compoundName": "hericenone c"
   },
   {
-    "canonicalCompoundId": "beta-amyrin",
-    "compoundName": "beta-amyrin"
+    "canonicalCompoundId": "",
+    "compoundName": "hericenones"
   },
   {
-    "canonicalCompoundId": "beta-asarone low levels",
-    "compoundName": "beta-asarone (low levels)"
+    "canonicalCompoundId": "",
+    "compoundName": "Icariin"
   },
   {
-    "canonicalCompoundId": "beta-boswellic acid",
-    "compoundName": "beta-boswellic acid"
+    "canonicalCompoundId": "",
+    "compoundName": "Icaritin"
   },
   {
-    "canonicalCompoundId": "beta-caryophyllene",
-    "compoundName": "beta-caryophyllene"
+    "canonicalCompoundId": "",
+    "compoundName": "indirubin"
   },
   {
-    "canonicalCompoundId": "beta-lapachone",
-    "compoundName": "beta-lapachone"
+    "canonicalCompoundId": "",
+    "compoundName": "Isoferulic acid"
   },
   {
-    "canonicalCompoundId": "beta-thujone",
-    "compoundName": "beta-thujone"
+    "canonicalCompoundId": "",
+    "compoundName": "Isorhamnetin"
   },
   {
-    "canonicalCompoundId": "betulinic acid",
-    "compoundName": "betulinic acid"
+    "canonicalCompoundId": "",
+    "compoundName": "jujuboside a"
   },
   {
-    "canonicalCompoundId": "bilobalide",
-    "compoundName": "bilobalide"
+    "canonicalCompoundId": "",
+    "compoundName": "kudinlactone"
   },
   {
-    "canonicalCompoundId": "bisabolol",
-    "compoundName": "bisabolol"
+    "canonicalCompoundId": "",
+    "compoundName": "macaenes"
   },
   {
-    "canonicalCompoundId": "bonducin",
-    "compoundName": "bonducin"
+    "canonicalCompoundId": "",
+    "compoundName": "macamides"
   },
   {
-    "canonicalCompoundId": "brunfelsamidine",
-    "compoundName": "brunfelsamidine"
+    "canonicalCompoundId": "",
+    "compoundName": "mahanimbine"
   },
   {
-    "canonicalCompoundId": "bryonin",
-    "compoundName": "bryonin"
+    "canonicalCompoundId": "",
+    "compoundName": "mogroside v"
   },
   {
-    "canonicalCompoundId": "bulbocapnine",
-    "compoundName": "bulbocapnine"
+    "canonicalCompoundId": "",
+    "compoundName": "mogrosides"
   },
   {
-    "canonicalCompoundId": "buphanidrine",
-    "compoundName": "buphanidrine"
+    "canonicalCompoundId": "",
+    "compoundName": "moringin"
   },
   {
-    "canonicalCompoundId": "cafestol",
-    "compoundName": "cafestol"
+    "canonicalCompoundId": "",
+    "compoundName": "myricetin"
   },
   {
-    "canonicalCompoundId": "calotropin",
-    "compoundName": "calotropin"
+    "canonicalCompoundId": "",
+    "compoundName": "myrtenyl acetate"
   },
   {
-    "canonicalCompoundId": "cannabidiol",
-    "compoundName": "cannabidiol"
+    "canonicalCompoundId": "",
+    "compoundName": "Nicotinic acid"
   },
   {
-    "canonicalCompoundId": "capsaicin",
-    "compoundName": "capsaicin"
+    "canonicalCompoundId": "",
+    "compoundName": "notoginsenoside r1"
   },
   {
-    "canonicalCompoundId": "capsanthin",
-    "compoundName": "capsanthin"
+    "canonicalCompoundId": "",
+    "compoundName": "ophiopogonin d"
   },
   {
-    "canonicalCompoundId": "capsorubin",
-    "compoundName": "capsorubin"
+    "canonicalCompoundId": "",
+    "compoundName": "paeoniflorin"
   },
   {
-    "canonicalCompoundId": "cardanol",
-    "compoundName": "cardanol"
+    "canonicalCompoundId": "",
+    "compoundName": "parthenolide"
   },
   {
-    "canonicalCompoundId": "cardol",
-    "compoundName": "cardol"
+    "canonicalCompoundId": "",
+    "compoundName": "perillaldehyde"
   },
   {
-    "canonicalCompoundId": "carnosic acid",
-    "compoundName": "carnosic acid"
+    "canonicalCompoundId": "",
+    "compoundName": "petasin"
   },
   {
-    "canonicalCompoundId": "carpaine",
-    "compoundName": "carpaine"
+    "canonicalCompoundId": "",
+    "compoundName": "pfaffic acid"
   },
   {
-    "canonicalCompoundId": "carvone",
-    "compoundName": "carvone"
+    "canonicalCompoundId": "",
+    "compoundName": "Phyllanthin"
   },
   {
-    "canonicalCompoundId": "casimiroedine",
-    "compoundName": "casimiroedine"
+    "canonicalCompoundId": "",
+    "compoundName": "procyanidin b2"
   },
   {
-    "canonicalCompoundId": "casticin",
-    "compoundName": "casticin"
+    "canonicalCompoundId": "",
+    "compoundName": "psk"
   },
   {
-    "canonicalCompoundId": "cathine",
-    "compoundName": "cathine"
+    "canonicalCompoundId": "",
+    "compoundName": "puerarin"
   },
   {
-    "canonicalCompoundId": "cathinone",
-    "compoundName": "cathinone"
+    "canonicalCompoundId": "",
+    "compoundName": "punicalagins"
   },
   {
-    "canonicalCompoundId": "celapagin",
-    "compoundName": "celapagin"
+    "canonicalCompoundId": "",
+    "compoundName": "quadrangularin a"
   },
   {
-    "canonicalCompoundId": "celapanin",
-    "compoundName": "celapanin"
+    "canonicalCompoundId": "",
+    "compoundName": "saikosaponin a"
   },
   {
-    "canonicalCompoundId": "cepharanthine",
-    "compoundName": "cepharanthine"
+    "canonicalCompoundId": "",
+    "compoundName": "Salvianolic acid B"
   },
   {
-    "canonicalCompoundId": "charantin",
-    "compoundName": "charantin"
+    "canonicalCompoundId": "",
+    "compoundName": "silymarin"
   },
   {
-    "canonicalCompoundId": "chavicol",
-    "compoundName": "chavicol"
+    "canonicalCompoundId": "",
+    "compoundName": "tangshenoside i"
   },
   {
-    "canonicalCompoundId": "chelerythrine",
-    "compoundName": "chelerythrine"
+    "canonicalCompoundId": "",
+    "compoundName": "Tanshinone IIA"
   },
   {
-    "canonicalCompoundId": "chelidonine",
-    "compoundName": "chelidonine"
+    "canonicalCompoundId": "",
+    "compoundName": "tartaric acid"
   },
   {
-    "canonicalCompoundId": "choline",
-    "compoundName": "choline"
+    "canonicalCompoundId": "",
+    "compoundName": "tenuifolin"
   },
   {
-    "canonicalCompoundId": "chrysoeriol",
-    "compoundName": "chrysoeriol"
+    "canonicalCompoundId": "",
+    "compoundName": "terpinyl acetate"
   },
   {
-    "canonicalCompoundId": "chrysophanol",
-    "compoundName": "chrysophanol"
+    "canonicalCompoundId": "",
+    "compoundName": "tocopherols"
   },
   {
-    "canonicalCompoundId": "chymopapain",
-    "compoundName": "chymopapain"
+    "canonicalCompoundId": "",
+    "compoundName": "trans-tiliroside"
   },
   {
-    "canonicalCompoundId": "cinnamaldehyde",
-    "compoundName": "cinnamaldehyde"
+    "canonicalCompoundId": "",
+    "compoundName": "tryptanthrin"
   },
   {
-    "canonicalCompoundId": "cinnamoylcocaine",
-    "compoundName": "cinnamoylcocaine"
+    "canonicalCompoundId": "",
+    "compoundName": "Wogonoside"
   },
   {
-    "canonicalCompoundId": "cis-cinnamoylcocaine",
-    "compoundName": "cis-cinnamoylcocaine"
+    "canonicalCompoundId": "",
+    "compoundName": "xanthoangelol"
   },
   {
-    "canonicalCompoundId": "citicoline cdp-choline",
-    "compoundName": "citicoline (CDP-choline)"
-  },
-  {
-    "canonicalCompoundId": "citric acid",
-    "compoundName": "citric acid"
-  },
-  {
-    "canonicalCompoundId": "citronellal",
-    "compoundName": "citronellal"
-  },
-  {
-    "canonicalCompoundId": "cocaine",
-    "compoundName": "cocaine"
-  },
-  {
-    "canonicalCompoundId": "columbamine",
-    "compoundName": "columbamine"
-  },
-  {
-    "canonicalCompoundId": "conhydrine",
-    "compoundName": "conhydrine"
-  },
-  {
-    "canonicalCompoundId": "coniine",
-    "compoundName": "coniine"
-  },
-  {
-    "canonicalCompoundId": "convallatoxin",
-    "compoundName": "convallatoxin"
-  },
-  {
-    "canonicalCompoundId": "convalloside cardiac glycosides",
-    "compoundName": "convalloside (cardiac glycosides)"
-  },
-  {
-    "canonicalCompoundId": "copalic acid",
-    "compoundName": "copalic acid"
-  },
-  {
-    "canonicalCompoundId": "coptisine",
-    "compoundName": "coptisine"
-  },
-  {
-    "canonicalCompoundId": "cordycepin",
-    "compoundName": "cordycepin"
-  },
-  {
-    "canonicalCompoundId": "corydaline",
-    "compoundName": "corydaline"
-  },
-  {
-    "canonicalCompoundId": "crocetin",
-    "compoundName": "crocetin"
-  },
-  {
-    "canonicalCompoundId": "crocin",
-    "compoundName": "crocin"
-  },
-  {
-    "canonicalCompoundId": "curcumin",
-    "compoundName": "curcumin"
-  },
-  {
-    "canonicalCompoundId": "curcuminoids",
-    "compoundName": "curcuminoids"
-  },
-  {
-    "canonicalCompoundId": "curcuminoids curcumin",
-    "compoundName": "curcuminoids (curcumin)"
-  },
-  {
-    "canonicalCompoundId": "cuscohygrine",
-    "compoundName": "cuscohygrine"
-  },
-  {
-    "canonicalCompoundId": "cyanidin",
-    "compoundName": "cyanidin)"
-  },
-  {
-    "canonicalCompoundId": "cynarin",
-    "compoundName": "cynarin"
-  },
-  {
-    "canonicalCompoundId": "cyperene",
-    "compoundName": "cyperene"
-  },
-  {
-    "canonicalCompoundId": "daidzein",
-    "compoundName": "daidzein)"
-  },
-  {
-    "canonicalCompoundId": "damnacanthal",
-    "compoundName": "damnacanthal"
-  },
-  {
-    "canonicalCompoundId": "dehydrocorybulbine",
-    "compoundName": "dehydrocorybulbine"
-  },
-  {
-    "canonicalCompoundId": "dehydrocorydalmine",
-    "compoundName": "dehydrocorydalmine"
-  },
-  {
-    "canonicalCompoundId": "dendrobine",
-    "compoundName": "dendrobine"
-  },
-  {
-    "canonicalCompoundId": "deoxymiroestrol",
-    "compoundName": "deoxymiroestrol"
-  },
-  {
-    "canonicalCompoundId": "desmethoxyyangonin",
-    "compoundName": "desmethoxyyangonin"
-  },
-  {
-    "canonicalCompoundId": "dibenzyl trisulfide",
-    "compoundName": "dibenzyl trisulfide"
-  },
-  {
-    "canonicalCompoundId": "digitoxin",
-    "compoundName": "digitoxin"
-  },
-  {
-    "canonicalCompoundId": "digoxin",
-    "compoundName": "digoxin"
-  },
-  {
-    "canonicalCompoundId": "dihydrocapsaicin",
-    "compoundName": "dihydrocapsaicin"
-  },
-  {
-    "canonicalCompoundId": "dihydrohelenalin",
-    "compoundName": "dihydrohelenalin"
-  },
-  {
-    "canonicalCompoundId": "dihydrokavain",
-    "compoundName": "dihydrokavain"
-  },
-  {
-    "canonicalCompoundId": "dihydromethysticin",
-    "compoundName": "dihydromethysticin"
-  },
-  {
-    "canonicalCompoundId": "dillapiole",
-    "compoundName": "dillapiole"
-  },
-  {
-    "canonicalCompoundId": "ecliptine",
-    "compoundName": "ecliptine"
-  },
-  {
-    "canonicalCompoundId": "emetine",
-    "compoundName": "emetine"
-  },
-  {
-    "canonicalCompoundId": "emodin",
-    "compoundName": "emodin"
-  },
-  {
-    "canonicalCompoundId": "epicatechin",
-    "compoundName": "epicatechin"
-  },
-  {
-    "canonicalCompoundId": "eryngial",
-    "compoundName": "eryngial"
-  },
-  {
-    "canonicalCompoundId": "esculetin",
-    "compoundName": "esculetin"
-  },
-  {
-    "canonicalCompoundId": "ethyl cinnamate",
-    "compoundName": "ethyl cinnamate"
-  },
-  {
-    "canonicalCompoundId": "eucalyptol cineole",
-    "compoundName": "eucalyptol (cineole)"
-  },
-  {
-    "canonicalCompoundId": "eurycomanone",
-    "compoundName": "eurycomanone"
-  },
-  {
-    "canonicalCompoundId": "evodiamine",
-    "compoundName": "evodiamine"
-  },
-  {
-    "canonicalCompoundId": "fangchinoline",
-    "compoundName": "fangchinoline"
-  },
-  {
-    "canonicalCompoundId": "febrifugine",
-    "compoundName": "febrifugine"
-  },
-  {
-    "canonicalCompoundId": "fenchone",
-    "compoundName": "fenchone"
-  },
-  {
-    "canonicalCompoundId": "ferulenol",
-    "compoundName": "ferulenol"
-  },
-  {
-    "canonicalCompoundId": "formononetin",
-    "compoundName": "formononetin"
-  },
-  {
-    "canonicalCompoundId": "fraxin",
-    "compoundName": "fraxin"
-  },
-  {
-    "canonicalCompoundId": "fucoidan",
-    "compoundName": "fucoidan"
-  },
-  {
-    "canonicalCompoundId": "gamma-aminobutyric acid",
-    "compoundName": "gamma-aminobutyric acid (GABA)"
-  },
-  {
-    "canonicalCompoundId": "gamma-linolenic acid",
-    "compoundName": "gamma-linolenic acid"
-  },
-  {
-    "canonicalCompoundId": "gelsedine",
-    "compoundName": "gelsedine"
-  },
-  {
-    "canonicalCompoundId": "gelsemicine",
-    "compoundName": "gelsemicine"
-  },
-  {
-    "canonicalCompoundId": "gelsemine",
-    "compoundName": "gelsemine"
-  },
-  {
-    "canonicalCompoundId": "gelseminine",
-    "compoundName": "gelseminine"
-  },
-  {
-    "canonicalCompoundId": "gelseverine",
-    "compoundName": "gelseverine"
-  },
-  {
-    "canonicalCompoundId": "geniposide",
-    "compoundName": "geniposide"
-  },
-  {
-    "canonicalCompoundId": "genistein",
-    "compoundName": "genistein"
-  },
-  {
-    "canonicalCompoundId": "gentiopicroside",
-    "compoundName": "gentiopicroside"
-  },
-  {
-    "canonicalCompoundId": "geraniin",
-    "compoundName": "geraniin"
-  },
-  {
-    "canonicalCompoundId": "geraniol",
-    "compoundName": "geraniol"
-  },
-  {
-    "canonicalCompoundId": "ginkgo biloba ginkgolides",
-    "compoundName": "ginkgo biloba (ginkgolides)"
-  },
-  {
-    "canonicalCompoundId": "ginsenosides including rb1",
-    "compoundName": "ginsenosides (including rb1"
-  },
-  {
-    "canonicalCompoundId": "ginsenosides rb1",
-    "compoundName": "ginsenosides (rb1"
-  },
-  {
-    "canonicalCompoundId": "gitoxin",
-    "compoundName": "gitoxin"
-  },
-  {
-    "canonicalCompoundId": "glycyrrhizin",
-    "compoundName": "glycyrrhizin"
-  },
-  {
-    "canonicalCompoundId": "gomisin",
-    "compoundName": "gomisin"
-  },
-  {
-    "canonicalCompoundId": "grindelic acid",
-    "compoundName": "grindelic acid"
-  },
-  {
-    "canonicalCompoundId": "gurmarin",
-    "compoundName": "gurmarin"
-  },
-  {
-    "canonicalCompoundId": "guvacine",
-    "compoundName": "guvacine"
-  },
-  {
-    "canonicalCompoundId": "guvacoline",
-    "compoundName": "guvacoline"
-  },
-  {
-    "canonicalCompoundId": "gypenosides dammarane-type saponins",
-    "compoundName": "gypenosides (dammarane-type saponins)"
-  },
-  {
-    "canonicalCompoundId": "harpagoside",
-    "compoundName": "harpagoside"
-  },
-  {
-    "canonicalCompoundId": "helenalin",
-    "compoundName": "helenalin"
-  },
-  {
-    "canonicalCompoundId": "hesperidin",
-    "compoundName": "hesperidin"
-  },
-  {
-    "canonicalCompoundId": "hibiscus acid",
-    "compoundName": "hibiscus acid"
-  },
-  {
-    "canonicalCompoundId": "hinokiflavone",
-    "compoundName": "hinokiflavone"
-  },
-  {
-    "canonicalCompoundId": "humulone",
-    "compoundName": "humulone"
-  },
-  {
-    "canonicalCompoundId": "hydrastine",
-    "compoundName": "hydrastine"
-  },
-  {
-    "canonicalCompoundId": "hydroxy-alpha-sanshool",
-    "compoundName": "hydroxy-alpha-sanshool"
-  },
-  {
-    "canonicalCompoundId": "hydroxy-beta-sanshool",
-    "compoundName": "hydroxy-beta-sanshool"
-  },
-  {
-    "canonicalCompoundId": "hydroxycitric acid",
-    "compoundName": "hydroxycitric acid (hca)"
-  },
-  {
-    "canonicalCompoundId": "hyperforin",
-    "compoundName": "hyperforin"
-  },
-  {
-    "canonicalCompoundId": "hypericin",
-    "compoundName": "hypericin"
-  },
-  {
-    "canonicalCompoundId": "imperatorin",
-    "compoundName": "imperatorin"
-  },
-  {
-    "canonicalCompoundId": "inotodiol",
-    "compoundName": "inotodiol"
-  },
-  {
-    "canonicalCompoundId": "inulin",
-    "compoundName": "inulin"
-  },
-  {
-    "canonicalCompoundId": "iodine",
-    "compoundName": "iodine"
-  },
-  {
-    "canonicalCompoundId": "iridin",
-    "compoundName": "iridin"
-  },
-  {
-    "canonicalCompoundId": "isocorypalmine",
-    "compoundName": "isocorypalmine"
-  },
-  {
-    "canonicalCompoundId": "isofebrifugine",
-    "compoundName": "isofebrifugine"
-  },
-  {
-    "canonicalCompoundId": "isoflavones genistein",
-    "compoundName": "isoflavones (genistein"
-  },
-  {
-    "canonicalCompoundId": "isomitraphylline",
-    "compoundName": "isomitraphylline"
-  },
-  {
-    "canonicalCompoundId": "jatamansone",
-    "compoundName": "jatamansone"
-  },
-  {
-    "canonicalCompoundId": "jatrorrhizine",
-    "compoundName": "jatrorrhizine"
-  },
-  {
-    "canonicalCompoundId": "juglone",
-    "compoundName": "juglone"
-  },
-  {
-    "canonicalCompoundId": "kahweol",
-    "compoundName": "kahweol"
-  },
-  {
-    "canonicalCompoundId": "kava kavalactones",
-    "compoundName": "kava (kavalactones)"
-  },
-  {
-    "canonicalCompoundId": "kavain",
-    "compoundName": "kavain"
-  },
-  {
-    "canonicalCompoundId": "kotalanol",
-    "compoundName": "kotalanol"
-  },
-  {
-    "canonicalCompoundId": "kurarinone",
-    "compoundName": "kurarinone"
-  },
-  {
-    "canonicalCompoundId": "kutkoside",
-    "compoundName": "kutkoside"
-  },
-  {
-    "canonicalCompoundId": "l-phenylalanine",
-    "compoundName": "L-phenylalanine"
-  },
-  {
-    "canonicalCompoundId": "l-tyrosine",
-    "compoundName": "L-tyrosine"
-  },
-  {
-    "canonicalCompoundId": "lapachol",
-    "compoundName": "lapachol"
-  },
-  {
-    "canonicalCompoundId": "ledol",
-    "compoundName": "ledol"
-  },
-  {
-    "canonicalCompoundId": "ligustilide",
-    "compoundName": "ligustilide"
-  },
-  {
-    "canonicalCompoundId": "linoleic acid",
-    "compoundName": "linoleic acid"
-  },
-  {
-    "canonicalCompoundId": "lithospermic acid",
-    "compoundName": "lithospermic acid"
-  },
-  {
-    "canonicalCompoundId": "lobelanidine",
-    "compoundName": "lobelanidine"
-  },
-  {
-    "canonicalCompoundId": "lobeline",
-    "compoundName": "lobeline"
-  },
-  {
-    "canonicalCompoundId": "loganin",
-    "compoundName": "loganin"
-  },
-  {
-    "canonicalCompoundId": "lsa",
-    "compoundName": "lsa)"
-  },
-  {
-    "canonicalCompoundId": "lsd ergoline derivative",
-    "compoundName": "lsd (ergoline derivative)"
-  },
-  {
-    "canonicalCompoundId": "lupulone",
-    "compoundName": "lupulone"
-  },
-  {
-    "canonicalCompoundId": "lycopene",
-    "compoundName": "lycopene"
-  },
-  {
-    "canonicalCompoundId": "lycopodine",
-    "compoundName": "lycopodine"
-  },
-  {
-    "canonicalCompoundId": "lycorine",
-    "compoundName": "lycorine"
-  },
-  {
-    "canonicalCompoundId": "madecassic acid",
-    "compoundName": "madecassic acid"
-  },
-  {
-    "canonicalCompoundId": "madecassoside",
-    "compoundName": "madecassoside"
-  },
-  {
-    "canonicalCompoundId": "mangiferin",
-    "compoundName": "mangiferin"
-  },
-  {
-    "canonicalCompoundId": "matrine",
-    "compoundName": "matrine"
-  },
-  {
-    "canonicalCompoundId": "mescaline derivative",
-    "compoundName": "mescaline derivative"
-  },
-  {
-    "canonicalCompoundId": "mesembranol",
-    "compoundName": "mesembranol"
-  },
-  {
-    "canonicalCompoundId": "miroestrol",
-    "compoundName": "miroestrol"
-  },
-  {
-    "canonicalCompoundId": "mitrajavine",
-    "compoundName": "mitrajavine"
-  },
-  {
-    "canonicalCompoundId": "mitraphylline",
-    "compoundName": "mitraphylline"
-  },
-  {
-    "canonicalCompoundId": "morroniside",
-    "compoundName": "morroniside"
-  },
-  {
-    "canonicalCompoundId": "myo-inositol",
-    "compoundName": "myo-inositol"
-  },
-  {
-    "canonicalCompoundId": "myrcene",
-    "compoundName": "myrcene"
-  },
-  {
-    "canonicalCompoundId": "n-acetyl-l-tyrosine",
-    "compoundName": "N-acetyl-L-tyrosine"
-  },
-  {
-    "canonicalCompoundId": "n-acetylcysteine",
-    "compoundName": "n-acetylcysteine (nac)"
-  },
-  {
-    "canonicalCompoundId": "n-dimethylhistamine",
-    "compoundName": "n-dimethylhistamine"
-  },
-  {
-    "canonicalCompoundId": "n-methylasimilobine",
-    "compoundName": "n-methylasimilobine"
-  },
-  {
-    "canonicalCompoundId": "n-monomethylhistamine",
-    "compoundName": "n-monomethylhistamine"
-  },
-  {
-    "canonicalCompoundId": "neoquassin",
-    "compoundName": "neoquassin"
-  },
-  {
-    "canonicalCompoundId": "neral",
-    "compoundName": "neral"
-  },
-  {
-    "canonicalCompoundId": "neriine",
-    "compoundName": "neriine"
-  },
-  {
-    "canonicalCompoundId": "nigellone",
-    "compoundName": "nigellone"
-  },
-  {
-    "canonicalCompoundId": "nimbin",
-    "compoundName": "nimbin"
-  },
-  {
-    "canonicalCompoundId": "nordihydrocapsaicin",
-    "compoundName": "nordihydrocapsaicin"
-  },
-  {
-    "canonicalCompoundId": "norephedrine",
-    "compoundName": "norephedrine"
-  },
-  {
-    "canonicalCompoundId": "oleandrin",
-    "compoundName": "oleandrin"
-  },
-  {
-    "canonicalCompoundId": "osthole",
-    "compoundName": "osthole"
-  },
-  {
-    "canonicalCompoundId": "oxyacanthine",
-    "compoundName": "oxyacanthine"
-  },
-  {
-    "canonicalCompoundId": "oxyberberine",
-    "compoundName": "oxyberberine"
-  },
-  {
-    "canonicalCompoundId": "oxymatrine",
-    "compoundName": "oxymatrine"
-  },
-  {
-    "canonicalCompoundId": "pachymic acid",
-    "compoundName": "pachymic acid"
-  },
-  {
-    "canonicalCompoundId": "palmatine",
-    "compoundName": "palmatine"
-  },
-  {
-    "canonicalCompoundId": "palustrol",
-    "compoundName": "palustrol"
-  },
-  {
-    "canonicalCompoundId": "panduratin a",
-    "compoundName": "panduratin a"
-  },
-  {
-    "canonicalCompoundId": "papain",
-    "compoundName": "papain"
-  },
-  {
-    "canonicalCompoundId": "pectin",
-    "compoundName": "pectin"
-  },
-  {
-    "canonicalCompoundId": "pellucidin a",
-    "compoundName": "pellucidin a"
-  },
-  {
-    "canonicalCompoundId": "peruvoside",
-    "compoundName": "peruvoside"
-  },
-  {
-    "canonicalCompoundId": "phosphatidylserine",
-    "compoundName": "phosphatidylserine"
-  },
-  {
-    "canonicalCompoundId": "picrocrocin",
-    "compoundName": "picrocrocin"
-  },
-  {
-    "canonicalCompoundId": "pinostrobin",
-    "compoundName": "pinostrobin"
-  },
-  {
-    "canonicalCompoundId": "piperine",
-    "compoundName": "piperine"
-  },
-  {
-    "canonicalCompoundId": "podophyllotoxin",
-    "compoundName": "podophyllotoxin"
-  },
-  {
-    "canonicalCompoundId": "polygodial",
-    "compoundName": "polygodial"
-  },
-  {
-    "canonicalCompoundId": "polypeptide-p",
-    "compoundName": "polypeptide-p"
-  },
-  {
-    "canonicalCompoundId": "pristimerin",
-    "compoundName": "pristimerin"
-  },
-  {
-    "canonicalCompoundId": "protoanemonin",
-    "compoundName": "protoanemonin"
-  },
-  {
-    "canonicalCompoundId": "protopine",
-    "compoundName": "protopine"
-  },
-  {
-    "canonicalCompoundId": "psilocin",
-    "compoundName": "psilocin"
-  },
-  {
-    "canonicalCompoundId": "psilocybin",
-    "compoundName": "psilocybin"
-  },
-  {
-    "canonicalCompoundId": "punarnavine",
-    "compoundName": "punarnavine"
-  },
-  {
-    "canonicalCompoundId": "quassin",
-    "compoundName": "quassin"
-  },
-  {
-    "canonicalCompoundId": "quebrachine",
-    "compoundName": "quebrachine"
-  },
-  {
-    "canonicalCompoundId": "rb2",
-    "compoundName": "rb2"
-  },
-  {
-    "canonicalCompoundId": "re",
-    "compoundName": "re)"
-  },
-  {
-    "canonicalCompoundId": "reserpine",
-    "compoundName": "reserpine"
-  },
-  {
-    "canonicalCompoundId": "rg1",
-    "compoundName": "rg1)"
-  },
-  {
-    "canonicalCompoundId": "rhodiola salidroside rosavin",
-    "compoundName": "rhodiola (salidroside/rosavin)"
-  },
-  {
-    "canonicalCompoundId": "ricin",
-    "compoundName": "ricin"
-  },
-  {
-    "canonicalCompoundId": "ricinoleic acid",
-    "compoundName": "ricinoleic acid"
-  },
-  {
-    "canonicalCompoundId": "roemerine",
-    "compoundName": "roemerine"
-  },
-  {
-    "canonicalCompoundId": "rosavin",
-    "compoundName": "rosavin"
-  },
-  {
-    "canonicalCompoundId": "rutaecarpine",
-    "compoundName": "rutaecarpine"
-  },
-  {
-    "canonicalCompoundId": "safranal",
-    "compoundName": "safranal"
-  },
-  {
-    "canonicalCompoundId": "salacinol",
-    "compoundName": "salacinol"
-  },
-  {
-    "canonicalCompoundId": "salicin",
-    "compoundName": "salicin"
-  },
-  {
-    "canonicalCompoundId": "salicylic acid",
-    "compoundName": "salicylic acid"
-  },
-  {
-    "canonicalCompoundId": "salidroside",
-    "compoundName": "salidroside"
-  },
-  {
-    "canonicalCompoundId": "salvinorin a",
-    "compoundName": "salvinorin a"
-  },
-  {
-    "canonicalCompoundId": "sambunigrin",
-    "compoundName": "sambunigrin"
-  },
-  {
-    "canonicalCompoundId": "sanguinarine",
-    "compoundName": "sanguinarine"
-  },
-  {
-    "canonicalCompoundId": "saponins hederacoside",
-    "compoundName": "saponins (hederacoside)"
-  },
-  {
-    "canonicalCompoundId": "sarsaponin",
-    "compoundName": "sarsaponin"
-  },
-  {
-    "canonicalCompoundId": "schisandrin",
-    "compoundName": "schisandrin"
-  },
-  {
-    "canonicalCompoundId": "scopadulcic acid",
-    "compoundName": "scopadulcic acid"
-  },
-  {
-    "canonicalCompoundId": "scoparin",
-    "compoundName": "scoparin"
-  },
-  {
-    "canonicalCompoundId": "sempervirine",
-    "compoundName": "sempervirine"
-  },
-  {
-    "canonicalCompoundId": "serpentine",
-    "compoundName": "serpentine"
-  },
-  {
-    "canonicalCompoundId": "silica",
-    "compoundName": "silica"
-  },
-  {
-    "canonicalCompoundId": "silychristin",
-    "compoundName": "silychristin)"
-  },
-  {
-    "canonicalCompoundId": "silydianin",
-    "compoundName": "silydianin"
-  },
-  {
-    "canonicalCompoundId": "silymarin silibinin",
-    "compoundName": "silymarin (silibinin"
-  },
-  {
-    "canonicalCompoundId": "sinigrin",
-    "compoundName": "sinigrin"
-  },
-  {
-    "canonicalCompoundId": "skimmianine",
-    "compoundName": "skimmianine"
-  },
-  {
-    "canonicalCompoundId": "solamargine",
-    "compoundName": "solamargine"
-  },
-  {
-    "canonicalCompoundId": "sulforaphane",
-    "compoundName": "sulforaphane"
-  },
-  {
-    "canonicalCompoundId": "swertiamarin",
-    "compoundName": "swertiamarin"
-  },
-  {
-    "canonicalCompoundId": "synephrine",
-    "compoundName": "synephrine"
-  },
-  {
-    "canonicalCompoundId": "taraxasterol",
-    "compoundName": "taraxasterol"
-  },
-  {
-    "canonicalCompoundId": "taspine",
-    "compoundName": "taspine"
-  },
-  {
-    "canonicalCompoundId": "taurine",
-    "compoundName": "taurine"
-  },
-  {
-    "canonicalCompoundId": "tephrosin",
-    "compoundName": "tephrosin"
-  },
-  {
-    "canonicalCompoundId": "terpinen-4-ol",
-    "compoundName": "terpinen-4-ol"
-  },
-  {
-    "canonicalCompoundId": "tetrahydropalmatine",
-    "compoundName": "tetrahydropalmatine"
-  },
-  {
-    "canonicalCompoundId": "tetramethylpyrazine",
-    "compoundName": "tetramethylpyrazine"
-  },
-  {
-    "canonicalCompoundId": "tetrandrine",
-    "compoundName": "tetrandrine"
-  },
-  {
-    "canonicalCompoundId": "theanine",
-    "compoundName": "theanine"
-  },
-  {
-    "canonicalCompoundId": "thevetin a",
-    "compoundName": "thevetin a"
-  },
-  {
-    "canonicalCompoundId": "thevetin b",
-    "compoundName": "thevetin b"
-  },
-  {
-    "canonicalCompoundId": "thymoquinone",
-    "compoundName": "thymoquinone"
-  },
-  {
-    "canonicalCompoundId": "timosaponin aiii",
-    "compoundName": "timosaponin aiii"
-  },
-  {
-    "canonicalCompoundId": "trans-cinnamoylcocaine",
-    "compoundName": "trans-cinnamoylcocaine"
-  },
-  {
-    "canonicalCompoundId": "trigonelline",
-    "compoundName": "trigonelline"
-  },
-  {
-    "canonicalCompoundId": "triketones leptospermone",
-    "compoundName": "triketones (leptospermone)"
-  },
-  {
-    "canonicalCompoundId": "tropacocaine",
-    "compoundName": "tropacocaine"
-  },
-  {
-    "canonicalCompoundId": "tryptamine",
-    "compoundName": "tryptamine"
-  },
-  {
-    "canonicalCompoundId": "turmerone",
-    "compoundName": "turmerone"
-  },
-  {
-    "canonicalCompoundId": "tussilagone",
-    "compoundName": "tussilagone"
-  },
-  {
-    "canonicalCompoundId": "tylophorine",
-    "compoundName": "tylophorine"
-  },
-  {
-    "canonicalCompoundId": "umckalin",
-    "compoundName": "umckalin"
-  },
-  {
-    "canonicalCompoundId": "unresolved herb level entry",
-    "compoundName": "UNRESOLVED_HERB_LEVEL_ENTRY"
-  },
-  {
-    "canonicalCompoundId": "uridine monophosphate",
-    "compoundName": "uridine monophosphate (UMP)"
-  },
-  {
-    "canonicalCompoundId": "uscharin",
-    "compoundName": "uscharin"
-  },
-  {
-    "canonicalCompoundId": "usnic acid",
-    "compoundName": "usnic acid"
-  },
-  {
-    "canonicalCompoundId": "valeranone",
-    "compoundName": "valeranone"
-  },
-  {
-    "canonicalCompoundId": "valerenol",
-    "compoundName": "valerenol"
-  },
-  {
-    "canonicalCompoundId": "valerian valerenic acid",
-    "compoundName": "valerian (valerenic acid)"
-  },
-  {
-    "canonicalCompoundId": "vanillin",
-    "compoundName": "vanillin"
-  },
-  {
-    "canonicalCompoundId": "vicine",
-    "compoundName": "vicine"
-  },
-  {
-    "canonicalCompoundId": "vincamine",
-    "compoundName": "vincamine"
-  },
-  {
-    "canonicalCompoundId": "viscotoxin",
-    "compoundName": "viscotoxin"
-  },
-  {
-    "canonicalCompoundId": "vitamin c",
-    "compoundName": "vitamin c"
-  },
-  {
-    "canonicalCompoundId": "vitexin",
-    "compoundName": "vitexin"
-  },
-  {
-    "canonicalCompoundId": "withanolide d",
-    "compoundName": "withanolide d)"
-  },
-  {
-    "canonicalCompoundId": "withanolides withaferin a",
-    "compoundName": "withanolides (withaferin a"
-  },
-  {
-    "canonicalCompoundId": "xanthohumol",
-    "compoundName": "xanthohumol"
-  },
-  {
-    "canonicalCompoundId": "xanthotoxol",
-    "compoundName": "xanthotoxol"
-  },
-  {
-    "canonicalCompoundId": "xanthumin",
-    "compoundName": "xanthumin"
-  },
-  {
-    "canonicalCompoundId": "zerumbone",
-    "compoundName": "zerumbone"
-  },
-  {
-    "canonicalCompoundId": "zinc",
-    "compoundName": "zinc"
-  },
-  {
-    "canonicalCompoundId": "zingerone",
-    "compoundName": "zingerone"
-  },
-  {
-    "canonicalCompoundId": "withaferin a",
-    "compoundName": "withaferin A"
-  },
-  {
-    "canonicalCompoundId": "withanolide a",
-    "compoundName": "withanolide A"
-  },
-  {
-    "canonicalCompoundId": "withanoside iv",
-    "compoundName": "withanoside IV"
-  },
-  {
-    "canonicalCompoundId": "actein",
-    "compoundName": "actein"
-  },
-  {
-    "canonicalCompoundId": "23-epi-26-deoxyactein",
-    "compoundName": "23-epi-26-deoxyactein"
-  },
-  {
-    "canonicalCompoundId": "cimifugoside",
-    "compoundName": "cimifugoside"
-  },
-  {
-    "canonicalCompoundId": "fukinolic acid",
-    "compoundName": "fukinolic acid"
-  },
-  {
-    "canonicalCompoundId": "chicoric acid",
-    "compoundName": "chicoric acid"
-  },
-  {
-    "canonicalCompoundId": "echinacoside",
-    "compoundName": "echinacoside"
-  },
-  {
-    "canonicalCompoundId": "diallyl sulfide",
-    "compoundName": "diallyl sulfide"
-  },
-  {
-    "canonicalCompoundId": "diallyl disulfide",
-    "compoundName": "diallyl disulfide"
-  },
-  {
-    "canonicalCompoundId": "diallyl trisulfide",
-    "compoundName": "diallyl trisulfide"
-  },
-  {
-    "canonicalCompoundId": "s-allyl-cysteine",
-    "compoundName": "S-allyl-cysteine"
-  },
-  {
-    "canonicalCompoundId": "ginkgolide a",
-    "compoundName": "ginkgolide A"
-  },
-  {
-    "canonicalCompoundId": "ginkgolide b",
-    "compoundName": "ginkgolide B"
-  },
-  {
-    "canonicalCompoundId": "ginkgolide c",
-    "compoundName": "ginkgolide C"
-  },
-  {
-    "canonicalCompoundId": "ginkgolide j",
-    "compoundName": "ginkgolide J"
-  },
-  {
-    "canonicalCompoundId": "ginkgetin",
-    "compoundName": "ginkgetin"
-  },
-  {
-    "canonicalCompoundId": "bilobetin",
-    "compoundName": "bilobetin"
-  },
-  {
-    "canonicalCompoundId": "sciadopitysin",
-    "compoundName": "sciadopitysin"
-  },
-  {
-    "canonicalCompoundId": "flavokavain a",
-    "compoundName": "flavokavain A"
-  },
-  {
-    "canonicalCompoundId": "flavokavain b",
-    "compoundName": "flavokavain B"
-  },
-  {
-    "canonicalCompoundId": "flavokavain c",
-    "compoundName": "flavokavain C"
-  },
-  {
-    "canonicalCompoundId": "silybin a",
-    "compoundName": "silybin A"
-  },
-  {
-    "canonicalCompoundId": "silybin b",
-    "compoundName": "silybin B"
-  },
-  {
-    "canonicalCompoundId": "isosilybin a",
-    "compoundName": "isosilybin A"
-  },
-  {
-    "canonicalCompoundId": "isosilybin b",
-    "compoundName": "isosilybin B"
-  },
-  {
-    "canonicalCompoundId": "isosilychristin",
-    "compoundName": "isosilychristin"
-  },
-  {
-    "canonicalCompoundId": "isomenthone",
-    "compoundName": "isomenthone"
-  },
-  {
-    "canonicalCompoundId": "1,8-cineole",
-    "compoundName": "1,8-cineole"
-  },
-  {
-    "canonicalCompoundId": "menthofuran",
-    "compoundName": "menthofuran"
-  },
-  {
-    "canonicalCompoundId": "rosarin",
-    "compoundName": "rosarin"
-  },
-  {
-    "canonicalCompoundId": "rosin",
-    "compoundName": "rosin"
-  },
-  {
-    "canonicalCompoundId": "tyrosol",
-    "compoundName": "tyrosol"
-  },
-  {
-    "canonicalCompoundId": "beta-sitosterol",
-    "compoundName": "beta-sitosterol"
-  },
-  {
-    "canonicalCompoundId": "pseudohypericin",
-    "compoundName": "pseudohypericin"
-  },
-  {
-    "canonicalCompoundId": "demethoxycurcumin",
-    "compoundName": "demethoxycurcumin"
-  },
-  {
-    "canonicalCompoundId": "bisdemethoxycurcumin",
-    "compoundName": "bisdemethoxycurcumin"
-  },
-  {
-    "canonicalCompoundId": "valerenal",
-    "compoundName": "valerenal"
-  },
-  {
-    "canonicalCompoundId": "valtrate",
-    "compoundName": "valtrate"
-  },
-  {
-    "canonicalCompoundId": "isovaltrate",
-    "compoundName": "isovaltrate"
-  },
-  {
-    "canonicalCompoundId": "withanone",
-    "compoundName": "withanone"
-  },
-  {
-    "canonicalCompoundId": "triandrin",
-    "compoundName": "triandrin"
-  },
-  {
-    "canonicalCompoundId": "hydroxytyrosol",
-    "compoundName": "hydroxytyrosol"
-  },
-  {
-    "canonicalCompoundId": "sitoindoside ix",
-    "compoundName": "sitoindoside IX"
-  },
-  {
-    "canonicalCompoundId": "sitoindoside x",
-    "compoundName": "sitoindoside X"
-  },
-  {
-    "canonicalCompoundId": "rhodiosin",
-    "compoundName": "rhodiosin"
-  },
-  {
-    "canonicalCompoundId": "rosiridin",
-    "compoundName": "rosiridin"
-  },
-  {
-    "canonicalCompoundId": "withanoside v",
-    "compoundName": "withanoside V"
-  },
-  {
-    "canonicalCompoundId": "hydroxytyrosol acetate",
-    "compoundName": "hydroxytyrosol acetate"
+    "canonicalCompoundId": "",
+    "compoundName": "Yohimbine"
   }
 ]
