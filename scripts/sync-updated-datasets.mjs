@@ -2,9 +2,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { execFileSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 import { resolveWorkbookPath } from './workbook-source.mjs'
 
-const root = process.cwd()
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const root = path.resolve(__dirname, '..')
 const outDir = path.join(root, 'public', 'data')
 
 const UPDATED_DATASETS_DIR = process.env.UPDATED_DATASETS_DIR
