@@ -92,26 +92,26 @@ export default function Home() {
       <section className='ds-section container mx-auto max-w-4xl px-4 pt-2 sm:px-6'>
         <div className='ds-card-grid sm:grid-cols-2'>
           <div className='ds-card h-full'>
-            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/60'>
-              Start here
+            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/55'>
+              First move
             </p>
-            <h2 className='mt-2 text-lg font-semibold text-white'>Find a herb by outcome</h2>
-            <p className='mt-1 text-sm text-white/75'>
-              Use Effect Search for goals like better sleep, calmer mood, or improved focus.
+            <h2 className='mt-2 text-lg font-semibold text-white'>Search by effect, not hype</h2>
+            <p className='mt-1 text-sm text-white/70'>
+              Start with the outcome you want. Then pressure-test safety.
             </p>
-            <a href='#effect-search' className='btn-primary mt-3 inline-flex'>
+            <a href='#effect-search' className='btn-primary mt-4 inline-flex'>
               Open Effect Search
             </a>
           </div>
           <div className='ds-card h-full'>
-            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/60'>
-              Primary actions
+            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/55'>
+              Quick tools
             </p>
-            <h2 className='mt-2 text-lg font-semibold text-white'>Choose your next step</h2>
-            <div className='ds-action-row mt-3'>
+            <h2 className='mt-2 text-lg font-semibold text-white'>Run a second check</h2>
+            <div className='mt-3 flex flex-wrap items-center gap-2 text-sm text-white/70'>
               <Link
                 to='/herbs'
-                className='btn-secondary'
+                className='underline-offset-4 transition hover:text-white hover:underline'
                 onClick={() =>
                   trackHomepageEntityClick({
                     targetType: 'herb',
@@ -122,14 +122,16 @@ export default function Home() {
               >
                 Browse Herbs
               </Link>
-              <Link to='/interactions' className='btn-secondary'>
+              <span className='text-white/35'>•</span>
+              <Link to='/interactions' className='underline-offset-4 transition hover:text-white hover:underline'>
                 Interaction Checker
               </Link>
-              <Link to='/build' className='btn-secondary'>
+              <span className='text-white/35'>•</span>
+              <Link to='/build' className='underline-offset-4 transition hover:text-white hover:underline'>
                 Blend Builder
               </Link>
             </div>
-            <p className='mt-3 text-xs text-white/65'>Most people start with one tool, then compare details.</p>
+            <p className='mt-3 text-xs text-white/60'>One action, then verify.</p>
           </div>
         </div>
       </section>
