@@ -27,6 +27,10 @@ const compoundsPath = path.join(repoRoot, 'public', 'data', 'compounds.json')
 const reportsDir = path.join(repoRoot, 'reports')
 const unmatchedHerbsReportPath = path.join(reportsDir, 'workbook-unmatched-herbs.json')
 const unmatchedCompoundsReportPath = path.join(reportsDir, 'workbook-unmatched-compounds.json')
+const identityDir = path.join(repoRoot, 'data', 'identity')
+const herbIdentityMapPath = path.join(identityDir, 'herb-identity-map.json')
+const compoundIdentityMapPath = path.join(identityDir, 'compound-identity-map.json')
+const identityMapSuggestionsPath = path.join(reportsDir, 'identity-map-suggestions.json')
 
 const citationArtifactPatterns = [/【[^】]*】/g, /\[[\d†\-:A-Za-z]+\]/g]
 const DELIMITED_SPLIT_PATTERN = /[;|]/
@@ -113,7 +117,8 @@ function normalizeIdentityKey(value) {
     .toLowerCase()
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^\p{L}\p{N}]+/gu, '')
+    .replace(/[^\p{L}\p{N}\s]+/gu, ' ')
+    .replace(/\s+/g, ' ')
     .trim()
 }
 
@@ -569,12 +574,6 @@ function resolveHerbPrimary(herbIndex, row) {
   if (slug && herbIndex.bySlug.get(slug)) {
     return { herb: herbIndex.bySlug.get(slug), matchType: 'slug' }
   }
-
-  for (const normalizedName of herbNormalizationVariants(row.name)) {
-    const nameMatch = herbIndex.byNormalizedName.get(normalizedName)
-    if (nameMatch) return { herb: nameMatch, matchType: 'normalized-name' }
-  }
-
   return { herb: null, matchType: 'unmatched' }
 }
 
@@ -740,6 +739,92 @@ function resolveCompoundRetry(compoundIndex, row) {
   return { compound: null, matchType: 'unmatched' }
 }
 
+function readIdentityMap(filePath, { label }) {
+  if (!fs.existsSync(filePath)) return {}
+  const parsed = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new Error(`[import-xlsx-monographs] Expected ${label} to be a JSON object.`)
+  }
+  return parsed
+}
+
+function normalizeIdentityMap(rawMap) {
+  const normalized = new Map()
+  for (const [rawKey, rawValue] of Object.entries(rawMap)) {
+    const key = normalizeIdentityKey(rawKey)
+    const value = cleanText(rawValue).toLowerCase()
+    if (!key || !value) continue
+    normalized.set(key, value)
+  }
+  return normalized
+}
+
+function chooseBestIdentityKey(candidates) {
+  for (const candidate of candidates) {
+    const key = normalizeIdentityKey(candidate)
+    if (key) return key
+  }
+  return ''
+}
+
+function scoreSimilarity(left, right) {
+  const leftTokens = new Set(normalizeIdentityKey(left).split(/\s+/).filter(Boolean))
+  const rightTokens = new Set(normalizeIdentityKey(right).split(/\s+/).filter(Boolean))
+  if (leftTokens.size === 0 || rightTokens.size === 0) return 0
+  let intersection = 0
+  for (const token of leftTokens) {
+    if (rightTokens.has(token)) intersection += 1
+  }
+  const union = new Set([...leftTokens, ...rightTokens]).size
+  return union > 0 ? intersection / union : 0
+}
+
+function classifySuggestion(topScore, runnerUpScore) {
+  if (topScore >= 0.92 && topScore - runnerUpScore >= 0.2) return 'high'
+  if (topScore >= 0.78 && topScore - runnerUpScore >= 0.1) return 'medium'
+  return 'low'
+}
+
+function buildIdentityMapSuggestions({ unmatchedRows, candidates, entityType, targetField }) {
+  const suggestions = []
+  for (const row of unmatchedRows) {
+    const workbookLabel = cleanText(row.name || row.compoundName || row.canonicalCompoundName || row.slug || row.canonicalCompoundId)
+    const workbookScientific = cleanText(row.scientificName || row.latin || '')
+    const keys = dedupeStrings([workbookLabel, workbookScientific]).filter(Boolean)
+    if (keys.length === 0) continue
+
+    let best = null
+    let runnerUp = 0
+    for (const candidate of candidates) {
+      const scoreLabel = scoreSimilarity(workbookLabel, candidate.name)
+      const scoreScientific = workbookScientific ? scoreSimilarity(workbookScientific, candidate.name) : 0
+      const score = Math.max(scoreLabel, scoreScientific)
+      if (!best || score > best.score) {
+        runnerUp = best ? best.score : runnerUp
+        best = { score, candidate }
+      } else if (score > runnerUp) {
+        runnerUp = score
+      }
+    }
+
+    if (!best || best.score < 0.62) continue
+    const confidence = classifySuggestion(best.score, runnerUp)
+    suggestions.push({
+      entityType,
+      workbookKey: chooseBestIdentityKey(keys),
+      workbookLabel,
+      workbookScientificName: workbookScientific || null,
+      suggestedValue: cleanText(best.candidate[targetField] || best.candidate.slug || best.candidate.id).toLowerCase(),
+      suggestedDisplayName: cleanText(best.candidate.name || best.candidate.compoundName || best.candidate.common || ''),
+      confidence,
+      score: Number(best.score.toFixed(3)),
+      autoApply: false,
+      reviewRequired: confidence !== 'high',
+    })
+  }
+  return suggestions
+}
+
 function patchCompound(compound, row, reservedCanonicalIds, fieldPatchCounts) {
   let patched = false
 
@@ -894,12 +979,14 @@ function main() {
 
   const herbIndex = indexHerbs(herbs)
   const compoundIndex = indexCompounds(compounds)
+  const herbIdentityMap = normalizeIdentityMap(readIdentityMap(herbIdentityMapPath, { label: 'data/identity/herb-identity-map.json' }))
+  const compoundIdentityMap = normalizeIdentityMap(readIdentityMap(compoundIdentityMapPath, { label: 'data/identity/compound-identity-map.json' }))
   const fieldPatchCounts = {
     herbs: {},
     compounds: {},
   }
-  const herbMatchTypeCounts = { slug: 0, normalizedName: 0, aliasCommon: 0, unmatched: 0 }
-  const compoundMatchTypeCounts = { canonicalName: 0, normalizedName: 0, unmatched: 0 }
+  const herbMatchTypeCounts = { slug: 0, identityMap: 0, fallback: 0, unmatched: 0 }
+  const compoundMatchTypeCounts = { canonicalName: 0, identityMap: 0, fallback: 0, unmatched: 0 }
   const reservedCanonicalIds = new Set(
     compounds
       .flatMap((compound) => [cleanText(compound.canonicalCompoundId), cleanText(compound.id)])
@@ -933,7 +1020,6 @@ function main() {
       continue
     }
     if (matchType === 'slug') herbMatchTypeCounts.slug += 1
-    else herbMatchTypeCounts.normalizedName += 1
 
     const patched = patchHerb(herb, row, fieldPatchCounts.herbs)
     const payload = {
@@ -952,6 +1038,29 @@ function main() {
   }
 
   for (const row of herbPrimaryUnmatchedRows) {
+    const herbIdentityKey = chooseBestIdentityKey([
+      row.name,
+      row.scientificName,
+      row.slug,
+    ])
+    const mappedHerbSlug = herbIdentityMap.get(herbIdentityKey)
+    const mappedHerb = mappedHerbSlug ? herbIndex.bySlug.get(mappedHerbSlug) : null
+    if (mappedHerb) {
+      herbMatchTypeCounts.identityMap += 1
+      const patched = patchHerb(mappedHerb, row, fieldPatchCounts.herbs)
+      const payload = {
+        rowSlug: cleanText(row.slug),
+        rowName: cleanText(row.name),
+        herbSlug: cleanText(mappedHerb.slug),
+        herbName: cleanText(mappedHerb.name),
+        matchType: 'identity-map',
+        identityKey: herbIdentityKey,
+      }
+      if (patched) herbLog.matchedAndPatched.push(payload)
+      else herbLog.matchedNoChange.push(payload)
+      continue
+    }
+
     const { herb, matchType } = resolveHerbRetry(herbIndex, row)
     if (!herb) {
       herbLog.unmatched.push({
@@ -961,7 +1070,7 @@ function main() {
       })
       continue
     }
-    herbMatchTypeCounts.aliasCommon += 1
+    herbMatchTypeCounts.fallback += 1
     const patched = patchHerb(herb, row, fieldPatchCounts.herbs)
     const payload = {
       rowSlug: cleanText(row.slug),
@@ -1008,6 +1117,40 @@ function main() {
   }
 
   for (const row of compoundPrimaryUnmatchedRows) {
+    const compoundIdentityKey = chooseBestIdentityKey([
+      row.canonicalCompoundName,
+      row.compoundName,
+      row.canonicalCompoundId,
+    ])
+    const mappedCompoundId = compoundIdentityMap.get(compoundIdentityKey)
+    const mappedCompound = mappedCompoundId
+      ? compoundIndex.byNormalizedCanonicalName.get(normalizeCompound(mappedCompoundId)) ||
+        compounds.find(
+          (entry) =>
+            cleanText(entry.canonicalCompoundId || entry.id || entry.slug).toLowerCase() === mappedCompoundId ||
+            cleanText(entry.slug).toLowerCase() === mappedCompoundId
+        ) ||
+        null
+      : null
+    if (mappedCompound) {
+      const compoundKey = cleanText(mappedCompound.canonicalCompoundId || mappedCompound.id || mappedCompound.slug).toLowerCase()
+      if (compoundKey && matchedCompoundSlugs.has(compoundKey)) continue
+      if (compoundKey) matchedCompoundSlugs.add(compoundKey)
+      compoundMatchTypeCounts.identityMap += 1
+      const patched = patchCompound(mappedCompound, row, reservedCanonicalIds, fieldPatchCounts.compounds)
+      const payload = {
+        rowCompoundId: cleanText(row.canonicalCompoundId),
+        rowCompoundName: cleanText(row.compoundName),
+        compoundId: cleanText(mappedCompound.id),
+        compoundName: cleanText(mappedCompound.name),
+        matchType: 'identity-map',
+        identityKey: compoundIdentityKey,
+      }
+      if (patched) compoundLog.matchedAndPatched.push(payload)
+      else compoundLog.matchedNoChange.push(payload)
+      continue
+    }
+
     const { compound, matchType } = resolveCompoundRetry(compoundIndex, row)
     if (!compound) {
       compoundLog.unmatched.push({
@@ -1022,7 +1165,7 @@ function main() {
     }
     if (compoundKey) matchedCompoundSlugs.add(compoundKey)
 
-    compoundMatchTypeCounts.normalizedName += 1
+    compoundMatchTypeCounts.fallback += 1
     const patched = patchCompound(compound, row, reservedCanonicalIds, fieldPatchCounts.compounds)
     const payload = {
       rowCompoundId: cleanText(row.canonicalCompoundId),
@@ -1039,6 +1182,22 @@ function main() {
   ensureReportsDir()
   writeJson(unmatchedHerbsReportPath, herbLog.unmatched)
   writeJson(unmatchedCompoundsReportPath, compoundLog.unmatched)
+  const identityMapSuggestions = {
+    generatedAt: new Date().toISOString(),
+    herbs: buildIdentityMapSuggestions({
+      unmatchedRows: herbLog.unmatched,
+      candidates: herbs,
+      entityType: 'herb',
+      targetField: 'slug',
+    }),
+    compounds: buildIdentityMapSuggestions({
+      unmatchedRows: compoundLog.unmatched,
+      candidates: compounds,
+      entityType: 'compound',
+      targetField: 'canonicalCompoundId',
+    }),
+  }
+  writeJson(identityMapSuggestionsPath, identityMapSuggestions)
 
   if (!options.dryRun) {
     writeJson(herbsPath, herbs)
@@ -1051,8 +1210,8 @@ function main() {
     `[import-xlsx-monographs] ignored non-target sheets: ${diagnostics.ignoredSheets.length > 0 ? diagnostics.ignoredSheets.join(', ') : '(none)'}`
   )
   console.log(`[import-xlsx-monographs] rows read => herbs: ${herbRows.length}, compounds: ${compoundRows.length}`)
-  console.log(`[import-xlsx-monographs] herb matches => matched via slug: ${herbMatchTypeCounts.slug}, matched via normalized name: ${herbMatchTypeCounts.normalizedName}, matched via alias/commonNames: ${herbMatchTypeCounts.aliasCommon}, remaining unmatched: ${herbMatchTypeCounts.unmatched}`)
-  console.log(`[import-xlsx-monographs] compound matches => matched via canonical name: ${compoundMatchTypeCounts.canonicalName}, matched via normalized name: ${compoundMatchTypeCounts.normalizedName}, remaining unmatched: ${compoundMatchTypeCounts.unmatched}`)
+  console.log(`[import-xlsx-monographs] herb matches => matched via slug: ${herbMatchTypeCounts.slug}, matched via identity map: ${herbMatchTypeCounts.identityMap}, matched via fallback: ${herbMatchTypeCounts.fallback}, remaining unmatched: ${herbMatchTypeCounts.unmatched}`)
+  console.log(`[import-xlsx-monographs] compound matches => matched via canonical name: ${compoundMatchTypeCounts.canonicalName}, matched via identity map: ${compoundMatchTypeCounts.identityMap}, matched via fallback: ${compoundMatchTypeCounts.fallback}, remaining unmatched: ${compoundMatchTypeCounts.unmatched}`)
   if (previousUnmatchedHerbsCount !== null) {
     const herbDelta = previousUnmatchedHerbsCount - herbLog.unmatched.length
     const herbPct = previousUnmatchedHerbsCount > 0 ? ((herbDelta / previousUnmatchedHerbsCount) * 100).toFixed(2) : '0.00'
@@ -1083,6 +1242,7 @@ function main() {
   console.log(`[import-xlsx-monographs] compound field patch counts: ${JSON.stringify(fieldPatchCounts.compounds)}`)
   console.log(`[import-xlsx-monographs] unmatched herb report: ${path.relative(repoRoot, unmatchedHerbsReportPath)}`)
   console.log(`[import-xlsx-monographs] unmatched compound report: ${path.relative(repoRoot, unmatchedCompoundsReportPath)}`)
+  console.log(`[import-xlsx-monographs] identity map suggestions: ${path.relative(repoRoot, identityMapSuggestionsPath)}`)
   console.log(`[import-xlsx-monographs] unmatched herbs: ${JSON.stringify(herbLog.unmatched)}`)
   console.log(`[import-xlsx-monographs] unmatched compounds: ${JSON.stringify(compoundLog.unmatched)}`)
   for (const sheetName of TARGET_WORKBOOK_SHEETS) {
