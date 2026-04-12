@@ -2,10 +2,10 @@
   {
     "herbSlug": "ashwagandha",
     "herbName": "Ashwagandha",
-    "rawCompound": "withaferin A",
-    "normalizedAtom": "withaferin A",
-    "canonicalCompoundId": "withaferin a",
-    "canonicalCompoundName": "withaferin A",
+    "rawCompound": "Withaferin A",
+    "normalizedAtom": "withaferin a",
+    "canonicalCompoundId": "withaferin-a",
+    "canonicalCompoundName": "Withaferin A",
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
     "mechanismTags": [
@@ -21,71 +21,12 @@
     ]
   },
   {
-    "herbSlug": "ashwagandha",
-    "herbName": "Ashwagandha",
-    "rawCompound": "withanolide D",
-    "normalizedAtom": "withanolide D",
-    "canonicalCompoundId": "withanolide d",
-    "canonicalCompoundName": "withanolide d)",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "COX/NF-kB inhibition",
-      "GABAergic modulation"
-    ],
-    "pathwayTargets": [
-      "gabaergic_modulation",
-      "inflammatory_pathway_modulation"
-    ]
-  },
-  {
-    "herbSlug": "ashwagandha",
-    "herbName": "Ashwagandha",
-    "rawCompound": "withanolide A",
-    "normalizedAtom": "withanolide A",
-    "canonicalCompoundId": "withanolide a",
-    "canonicalCompoundName": "withanolide A",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "neuroprotective",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "BDNF/TrkB-associated signaling",
-      "Akt",
-      "ERK",
-      "CREB",
-      "Nrf2"
-    ]
-  },
-  {
-    "herbSlug": "ashwagandha",
-    "herbName": "Ashwagandha",
-    "rawCompound": "withanoside IV",
-    "normalizedAtom": "withanoside IV",
-    "canonicalCompoundId": "withanoside iv",
-    "canonicalCompoundName": "withanoside IV",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "neuroprotective",
-      "adaptogen",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "neuroregeneration-related signaling",
-      "unresolved at isolated-compound level"
-    ]
-  },
-  {
     "herbSlug": "black-cohosh",
     "herbName": "Black Cohosh",
     "rawCompound": "triterpene glycosides (actein, 23-epi-26-deoxyactein)",
-    "normalizedAtom": "actein",
-    "canonicalCompoundId": "actein",
-    "canonicalCompoundName": "actein",
+    "normalizedAtom": "triterpene glycosides actein 23 epi 26 deoxyactein",
+    "canonicalCompoundId": "triterpene-glycosides-actein-23-epi-26-deoxyactein",
+    "canonicalCompoundName": "triterpene glycosides (actein, 23-epi-26-deoxyactein)",
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
     "mechanismTags": [
@@ -99,135 +40,23 @@
     ]
   },
   {
-    "herbSlug": "black-cohosh",
-    "herbName": "Black Cohosh",
-    "rawCompound": "triterpene glycosides (actein, 23-epi-26-deoxyactein)",
-    "normalizedAtom": "23-epi-26-deoxyactein",
-    "canonicalCompoundId": "23-epi-26-deoxyactein",
-    "canonicalCompoundName": "23-epi-26-deoxyactein",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "NF-kB",
-      "inflammatory cytokines",
-      "nitric oxide"
-    ]
-  },
-  {
-    "herbSlug": "black-cohosh",
-    "herbName": "Black Cohosh",
-    "rawCompound": "cimifugoside",
-    "normalizedAtom": "cimifugoside",
-    "canonicalCompoundId": "cimifugoside",
-    "canonicalCompoundName": "cimifugoside",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "hormonal"
-    ],
-    "pathwayTargets": [
-      "NF-κB modulation",
-      "inflammatory cytokine signaling"
-    ]
-  },
-  {
-    "herbSlug": "black-cohosh",
-    "herbName": "Black Cohosh",
-    "rawCompound": "fukinolic acid",
-    "normalizedAtom": "fukinolic acid",
-    "canonicalCompoundId": "fukinolic acid",
-    "canonicalCompoundName": "fukinolic acid",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "antioxidant",
-      "anti-inflammatory"
-    ],
-    "pathwayTargets": [
-      "general or unknown targets"
-    ]
-  },
-  {
     "herbSlug": "echinacea-purpurea",
     "herbName": "Echinacea Purpurea",
-    "rawCompound": "chicoric acid",
-    "normalizedAtom": "chicoric acid",
-    "canonicalCompoundId": "chicoric acid",
-    "canonicalCompoundName": "chicoric acid",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "immune modulation",
-      "oxidative_stress_modulation"
-    ],
-    "pathwayTargets": [
-      "immune signaling",
-      "oxidative stress"
-    ]
-  },
-  {
-    "herbSlug": "echinacea-purpurea",
-    "herbName": "Echinacea Purpurea",
-    "rawCompound": "echinacoside",
-    "normalizedAtom": "echinacoside",
-    "canonicalCompoundId": "echinacoside",
-    "canonicalCompoundName": "echinacoside",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "oxidative_stress_modulation",
-      "neuroprotective"
-    ],
-    "pathwayTargets": [
-      "oxidative stress",
-      "neuroprotection pathways"
-    ]
-  },
-  {
-    "herbSlug": "echinacea-purpurea",
-    "herbName": "Echinacea Purpurea",
-    "rawCompound": "caffeic acid",
-    "normalizedAtom": "caffeic acid",
-    "canonicalCompoundId": "caffeic acid",
-    "canonicalCompoundName": "caffeic acid",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "inflammatory_pathway_modulation",
-      "oxidative_stress_modulation"
-    ],
-    "pathwayTargets": [
-      "NFkB",
-      "oxidative stress"
-    ]
-  },
-  {
-    "herbSlug": "echinacea-purpurea",
-    "herbName": "Echinacea Purpurea",
-    "rawCompound": "cynarin",
-    "normalizedAtom": "cynarin",
-    "canonicalCompoundId": "cynarin",
-    "canonicalCompoundName": "cynarin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "general or unknown targets"
-    ]
+    "rawCompound": "alkamides",
+    "normalizedAtom": "alkamides",
+    "canonicalCompoundId": "alkamides",
+    "canonicalCompoundName": "alkamides",
+    "v3MatchType": "no-master-match",
+    "mappingTier": "broad-class-retained",
+    "mechanismTags": [],
+    "pathwayTargets": []
   },
   {
     "herbSlug": "garlic",
     "herbName": "Garlic",
     "rawCompound": "diallyl sulfide",
     "normalizedAtom": "diallyl sulfide",
-    "canonicalCompoundId": "diallyl sulfide",
+    "canonicalCompoundId": "diallyl-sulfide",
     "canonicalCompoundName": "diallyl sulfide",
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
@@ -241,97 +70,12 @@
     ]
   },
   {
-    "herbSlug": "garlic",
-    "herbName": "Garlic",
-    "rawCompound": "diallyl disulfide",
-    "normalizedAtom": "diallyl disulfide",
-    "canonicalCompoundId": "diallyl disulfide",
-    "canonicalCompoundName": "diallyl disulfide",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "inflammatory_pathway_modulation",
-      "oxidative_stress_modulation"
-    ],
-    "pathwayTargets": [
-      "NFkB",
-      "oxidative stress"
-    ]
-  },
-  {
-    "herbSlug": "garlic",
-    "herbName": "Garlic",
-    "rawCompound": "diallyl trisulfide",
-    "normalizedAtom": "diallyl trisulfide",
-    "canonicalCompoundId": "diallyl trisulfide",
-    "canonicalCompoundName": "diallyl trisulfide",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "oxidative_stress_modulation",
-      "apoptosis signaling"
-    ],
-    "pathwayTargets": [
-      "oxidative stress pathways"
-    ]
-  },
-  {
-    "herbSlug": "garlic",
-    "herbName": "Garlic",
-    "rawCompound": "ajoene",
-    "normalizedAtom": "ajoene",
-    "canonicalCompoundId": "ajoene",
-    "canonicalCompoundName": "ajoene",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "general or unknown targets"
-    ]
-  },
-  {
-    "herbSlug": "garlic",
-    "herbName": "Garlic",
-    "rawCompound": "S‑allyl‑cysteine",
-    "normalizedAtom": "S‑allyl‑cysteine",
-    "canonicalCompoundId": "s-allyl-cysteine",
-    "canonicalCompoundName": "S-allyl-cysteine",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "oxidative_stress_modulation",
-      "cardiovascular_support"
-    ],
-    "pathwayTargets": [
-      "oxidative stress pathways",
-      "nitric oxide signaling"
-    ]
-  },
-  {
     "herbSlug": "ginger",
     "herbName": "Ginger",
-    "rawCompound": "[6]-gingerol",
-    "normalizedAtom": "[6]-gingerol",
+    "rawCompound": "6-Gingerol",
+    "normalizedAtom": "6 gingerol",
     "canonicalCompoundId": "6-gingerol",
-    "canonicalCompoundName": "6-gingerol",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "COX/NF-kB inhibition"
-    ],
-    "pathwayTargets": [
-      "inflammatory_pathway_modulation"
-    ]
-  },
-  {
-    "herbSlug": "ginger",
-    "herbName": "Ginger",
-    "rawCompound": "zingerone",
-    "normalizedAtom": "zingerone",
-    "canonicalCompoundId": "zingerone",
-    "canonicalCompoundName": "zingerone",
+    "canonicalCompoundName": "6-Gingerol",
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
     "mechanismTags": [
@@ -345,9 +89,9 @@
     "herbSlug": "ginkgo-biloba",
     "herbName": "Ginkgo Biloba",
     "rawCompound": "ginkgolides A, B, C, J",
-    "normalizedAtom": "ginkgolide A",
-    "canonicalCompoundId": "ginkgolide a",
-    "canonicalCompoundName": "ginkgolide A",
+    "normalizedAtom": "ginkgolides a b c j",
+    "canonicalCompoundId": "ginkgolides-a-b-c-j",
+    "canonicalCompoundName": "ginkgolides A, B, C, J",
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
     "mechanismTags": [
@@ -360,134 +104,12 @@
     ]
   },
   {
-    "herbSlug": "ginkgo-biloba",
-    "herbName": "Ginkgo Biloba",
-    "rawCompound": "ginkgolides A, B, C, J",
-    "normalizedAtom": "ginkgolide B",
-    "canonicalCompoundId": "ginkgolide b",
-    "canonicalCompoundName": "ginkgolide B",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "PAF receptor antagonism",
-      "anti-inflammatory signaling"
-    ],
-    "pathwayTargets": [
-      "PAFR"
-    ]
-  },
-  {
-    "herbSlug": "ginkgo-biloba",
-    "herbName": "Ginkgo Biloba",
-    "rawCompound": "ginkgolides A, B, C, J",
-    "normalizedAtom": "ginkgolide C",
-    "canonicalCompoundId": "ginkgolide c",
-    "canonicalCompoundName": "ginkgolide C",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "PAF receptor antagonism",
-      "anti-inflammatory signaling"
-    ],
-    "pathwayTargets": [
-      "PAFR",
-      "CD40/NF-kappaB"
-    ]
-  },
-  {
-    "herbSlug": "ginkgo-biloba",
-    "herbName": "Ginkgo Biloba",
-    "rawCompound": "ginkgolides A, B, C, J",
-    "normalizedAtom": "ginkgolide J",
-    "canonicalCompoundId": "ginkgolide j",
-    "canonicalCompoundName": "ginkgolide J",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "PAF receptor antagonism",
-      "anti-inflammatory signaling"
-    ],
-    "pathwayTargets": [
-      "PAFR"
-    ]
-  },
-  {
-    "herbSlug": "ginkgo-biloba",
-    "herbName": "Ginkgo Biloba",
-    "rawCompound": "bilobalide",
-    "normalizedAtom": "bilobalide",
-    "canonicalCompoundId": "bilobalide",
-    "canonicalCompoundName": "bilobalide",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "GABAergic modulation"
-    ],
-    "pathwayTargets": [
-      "gabaergic_modulation"
-    ]
-  },
-  {
-    "herbSlug": "ginkgo-biloba",
-    "herbName": "Ginkgo Biloba",
-    "rawCompound": "ginkgetin",
-    "normalizedAtom": "ginkgetin",
-    "canonicalCompoundId": "ginkgetin",
-    "canonicalCompoundName": "ginkgetin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "eicosanoid pathway modulation"
-    ],
-    "pathwayTargets": [
-      "COX-2",
-      "5-lipoxygenase"
-    ]
-  },
-  {
-    "herbSlug": "ginkgo-biloba",
-    "herbName": "Ginkgo Biloba",
-    "rawCompound": "bilobetin",
-    "normalizedAtom": "bilobetin",
-    "canonicalCompoundId": "bilobetin",
-    "canonicalCompoundName": "bilobetin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "redox modulation"
-    ],
-    "pathwayTargets": [
-      "nitric oxide/inflammatory signaling"
-    ]
-  },
-  {
-    "herbSlug": "ginkgo-biloba",
-    "herbName": "Ginkgo Biloba",
-    "rawCompound": "sciadopitysin",
-    "normalizedAtom": "sciadopitysin",
-    "canonicalCompoundId": "sciadopitysin",
-    "canonicalCompoundName": "sciadopitysin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "antioxidant",
-      "redox modulation"
-    ],
-    "pathwayTargets": [
-      "NF-kappaB",
-      "oxidative-stress signaling"
-    ]
-  },
-  {
     "herbSlug": "holy-basil",
     "herbName": "Holy Basil",
-    "rawCompound": "eugenol",
+    "rawCompound": "Eugenol",
     "normalizedAtom": "eugenol",
     "canonicalCompoundId": "eugenol",
-    "canonicalCompoundName": "eugenol",
+    "canonicalCompoundName": "Eugenol",
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
     "mechanismTags": [
@@ -499,47 +121,6 @@
       "COX",
       "prostaglandins",
       "TRPV1"
-    ]
-  },
-  {
-    "herbSlug": "holy-basil",
-    "herbName": "Holy Basil",
-    "rawCompound": "ursolic acid",
-    "normalizedAtom": "ursolic acid",
-    "canonicalCompoundId": "ursolic acid",
-    "canonicalCompoundName": "ursolic acid",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "metabolic modulation",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "NF-kB",
-      "AMPK",
-      "mTOR"
-    ]
-  },
-  {
-    "herbSlug": "holy-basil",
-    "herbName": "Holy Basil",
-    "rawCompound": "rosmarinic acid",
-    "normalizedAtom": "rosmarinic acid",
-    "canonicalCompoundId": "rosmarinic acid",
-    "canonicalCompoundName": "rosmarinic acid",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "antioxidant",
-      "gabaergic modulation"
-    ],
-    "pathwayTargets": [
-      "COX",
-      "LOX",
-      "reactive oxygen species",
-      "GABA metabolism"
     ]
   },
   {
@@ -561,157 +142,12 @@
     ]
   },
   {
-    "herbSlug": "kava",
-    "herbName": "Kava",
-    "rawCompound": "dihydrokavain",
-    "normalizedAtom": "dihydrokavain",
-    "canonicalCompoundId": "dihydrokavain",
-    "canonicalCompoundName": "dihydrokavain",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "GABAergic modulation",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "dopaminergic_modulation",
-      "gabaergic_modulation"
-    ]
-  },
-  {
-    "herbSlug": "kava",
-    "herbName": "Kava",
-    "rawCompound": "methysticin",
-    "normalizedAtom": "methysticin",
-    "canonicalCompoundId": "methysticin",
-    "canonicalCompoundName": "methysticin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "GABAergic modulation",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "dopaminergic_modulation",
-      "gabaergic_modulation"
-    ]
-  },
-  {
-    "herbSlug": "kava",
-    "herbName": "Kava",
-    "rawCompound": "dihydromethysticin",
-    "normalizedAtom": "dihydromethysticin",
-    "canonicalCompoundId": "dihydromethysticin",
-    "canonicalCompoundName": "dihydromethysticin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "dopaminergic_modulation",
-      "gabaergic_modulation"
-    ]
-  },
-  {
-    "herbSlug": "kava",
-    "herbName": "Kava",
-    "rawCompound": "yangonin",
-    "normalizedAtom": "yangonin",
-    "canonicalCompoundId": "yangonin",
-    "canonicalCompoundName": "yangonin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "GABAergic modulation",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "dopaminergic_modulation",
-      "gabaergic_modulation"
-    ]
-  },
-  {
-    "herbSlug": "kava",
-    "herbName": "Kava",
-    "rawCompound": "desmethoxyyangonin",
-    "normalizedAtom": "desmethoxyyangonin",
-    "canonicalCompoundId": "desmethoxyyangonin",
-    "canonicalCompoundName": "desmethoxyyangonin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "GABAergic modulation",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "dopaminergic_modulation",
-      "gabaergic_modulation"
-    ]
-  },
-  {
-    "herbSlug": "kava",
-    "herbName": "Kava",
-    "rawCompound": "flavokavain A/B/C",
-    "normalizedAtom": "flavokavain A",
-    "canonicalCompoundId": "flavokavain a",
-    "canonicalCompoundName": "flavokavain A",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "redox modulation",
-      "cytostatic signaling"
-    ],
-    "pathwayTargets": [
-      "oxidative-stress signaling",
-      "apoptosis-related signaling"
-    ]
-  },
-  {
-    "herbSlug": "kava",
-    "herbName": "Kava",
-    "rawCompound": "flavokavain A/B/C",
-    "normalizedAtom": "flavokavain B",
-    "canonicalCompoundId": "flavokavain b",
-    "canonicalCompoundName": "flavokavain B",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "redox modulation",
-      "cytostatic signaling"
-    ],
-    "pathwayTargets": [
-      "oxidative-stress signaling",
-      "apoptosis-related signaling"
-    ]
-  },
-  {
-    "herbSlug": "kava",
-    "herbName": "Kava",
-    "rawCompound": "flavokavain A/B/C",
-    "normalizedAtom": "flavokavain C",
-    "canonicalCompoundId": "flavokavain c",
-    "canonicalCompoundName": "flavokavain C",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "redox modulation"
-    ],
-    "pathwayTargets": [
-      "oxidative-stress signaling",
-      "inflammatory signaling"
-    ]
-  },
-  {
     "herbSlug": "lemon-balm",
     "herbName": "Lemon Balm",
-    "rawCompound": "rosmarinic acid",
+    "rawCompound": "Rosmarinic acid",
     "normalizedAtom": "rosmarinic acid",
-    "canonicalCompoundId": "rosmarinic acid",
-    "canonicalCompoundName": "rosmarinic acid",
+    "canonicalCompoundId": "rosmarinic-acid",
+    "canonicalCompoundName": "Rosmarinic acid",
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
     "mechanismTags": [
@@ -727,66 +163,24 @@
     ]
   },
   {
-    "herbSlug": "lemon-balm",
-    "herbName": "Lemon Balm",
-    "rawCompound": "citral",
-    "normalizedAtom": "citral",
-    "canonicalCompoundId": "citral",
-    "canonicalCompoundName": "citral",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "GABAergic modulation",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "TNF-a reduction",
-      "TRPM3 modulation",
-      "TRPM8 modulation",
-      "TRPV1 modulation",
-      "gabaergic_modulation",
-      "general or unknown targets"
-    ]
-  },
-  {
-    "herbSlug": "lemon-balm",
-    "herbName": "Lemon Balm",
-    "rawCompound": "citronellal",
-    "normalizedAtom": "citronellal",
-    "canonicalCompoundId": "citronellal",
-    "canonicalCompoundName": "citronellal",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "GABAergic modulation"
-    ],
-    "pathwayTargets": [
-      "gabaergic_modulation"
-    ]
-  },
-  {
-    "herbSlug": "lemon-balm",
-    "herbName": "Lemon Balm",
-    "rawCompound": "linalool",
-    "normalizedAtom": "linalool",
-    "canonicalCompoundId": "linalool",
-    "canonicalCompoundName": "linalool",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "GABAergic modulation"
-    ],
-    "pathwayTargets": [
-      "gabaergic_modulation"
-    ]
+    "herbSlug": "maca",
+    "herbName": "Maca",
+    "rawCompound": "macamides",
+    "normalizedAtom": "macamides",
+    "canonicalCompoundId": "macamides",
+    "canonicalCompoundName": "macamides",
+    "v3MatchType": "no-master-match",
+    "mappingTier": "broad-class-retained",
+    "mechanismTags": [],
+    "pathwayTargets": []
   },
   {
     "herbSlug": "milk-thistle",
     "herbName": "Milk Thistle",
     "rawCompound": "silybin A/B",
-    "normalizedAtom": "silybin A",
-    "canonicalCompoundId": "silybin a",
-    "canonicalCompoundName": "silybin A",
+    "normalizedAtom": "silybin a b",
+    "canonicalCompoundId": "silybin-a-b",
+    "canonicalCompoundName": "silybin A/B",
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
     "mechanismTags": [
@@ -799,128 +193,15 @@
       "Nrf2-associated signaling",
       "NF-kappaB",
       "oxidative-stress signaling"
-    ]
-  },
-  {
-    "herbSlug": "milk-thistle",
-    "herbName": "Milk Thistle",
-    "rawCompound": "silybin A/B",
-    "normalizedAtom": "silybin B",
-    "canonicalCompoundId": "silybin b",
-    "canonicalCompoundName": "silybin B",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "antioxidant",
-      "hepatoprotective",
-      "redox modulation"
-    ],
-    "pathwayTargets": [
-      "Nrf2-associated signaling",
-      "NF-kappaB",
-      "oxidative-stress signaling"
-    ]
-  },
-  {
-    "herbSlug": "milk-thistle",
-    "herbName": "Milk Thistle",
-    "rawCompound": "isosilybin A/B",
-    "normalizedAtom": "isosilybin A",
-    "canonicalCompoundId": "isosilybin a",
-    "canonicalCompoundName": "isosilybin A",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "antioxidant",
-      "cytoprotective",
-      "redox modulation"
-    ],
-    "pathwayTargets": [
-      "NF-kappaB",
-      "oxidative-stress signaling"
-    ]
-  },
-  {
-    "herbSlug": "milk-thistle",
-    "herbName": "Milk Thistle",
-    "rawCompound": "isosilybin A/B",
-    "normalizedAtom": "isosilybin B",
-    "canonicalCompoundId": "isosilybin b",
-    "canonicalCompoundName": "isosilybin B",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "antioxidant",
-      "cytoprotective",
-      "redox modulation"
-    ],
-    "pathwayTargets": [
-      "NF-kappaB",
-      "oxidative-stress signaling"
-    ]
-  },
-  {
-    "herbSlug": "milk-thistle",
-    "herbName": "Milk Thistle",
-    "rawCompound": "silychristin",
-    "normalizedAtom": "silychristin",
-    "canonicalCompoundId": "silychristin",
-    "canonicalCompoundName": "silychristin)",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "general or unknown targets"
-    ]
-  },
-  {
-    "herbSlug": "milk-thistle",
-    "herbName": "Milk Thistle",
-    "rawCompound": "silydianin",
-    "normalizedAtom": "silydianin",
-    "canonicalCompoundId": "silydianin",
-    "canonicalCompoundName": "silydianin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "general or unknown targets"
-    ]
-  },
-  {
-    "herbSlug": "milk-thistle",
-    "herbName": "Milk Thistle",
-    "rawCompound": "isosilychristin",
-    "normalizedAtom": "isosilychristin",
-    "canonicalCompoundId": "isosilychristin",
-    "canonicalCompoundName": "isosilychristin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "antioxidant",
-      "hepatoprotective",
-      "redox modulation"
-    ],
-    "pathwayTargets": [
-      "oxidative-stress signaling",
-      "general or unknown targets"
     ]
   },
   {
     "herbSlug": "peppermint",
     "herbName": "Peppermint",
     "rawCompound": "l‑menthol",
-    "normalizedAtom": "l‑menthol",
-    "canonicalCompoundId": "menthol",
-    "canonicalCompoundName": "menthol",
+    "normalizedAtom": "l menthol",
+    "canonicalCompoundId": "l-menthol",
+    "canonicalCompoundName": "l‑menthol",
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
     "mechanismTags": [
@@ -932,113 +213,12 @@
     ]
   },
   {
-    "herbSlug": "peppermint",
-    "herbName": "Peppermint",
-    "rawCompound": "l‑menthone",
-    "normalizedAtom": "l‑menthone",
-    "canonicalCompoundId": "menthone",
-    "canonicalCompoundName": "menthone",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "general or unknown targets"
-    ]
-  },
-  {
-    "herbSlug": "peppermint",
-    "herbName": "Peppermint",
-    "rawCompound": "isomenthone",
-    "normalizedAtom": "isomenthone",
-    "canonicalCompoundId": "isomenthone",
-    "canonicalCompoundName": "isomenthone",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "trp_channel_modulation"
-    ],
-    "pathwayTargets": [
-      "general ion channel modulation"
-    ]
-  },
-  {
-    "herbSlug": "peppermint",
-    "herbName": "Peppermint",
-    "rawCompound": "menthyl acetate",
-    "normalizedAtom": "menthyl acetate",
-    "canonicalCompoundId": "menthyl acetate",
-    "canonicalCompoundName": "menthyl acetate",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "trp_channel_modulation"
-    ],
-    "pathwayTargets": [
-      "general or unknown targets"
-    ]
-  },
-  {
-    "herbSlug": "peppermint",
-    "herbName": "Peppermint",
-    "rawCompound": "1,8‑cineole (eucalyptol)",
-    "normalizedAtom": "1,8‑cineole",
-    "canonicalCompoundId": "1,8-cineole",
-    "canonicalCompoundName": "1,8-cineole",
-    "v3MatchType": "alias-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "inflammatory_pathway_modulation",
-      "respiratory_support"
-    ],
-    "pathwayTargets": [
-      "NFkB",
-      "cytokine signaling"
-    ]
-  },
-  {
-    "herbSlug": "peppermint",
-    "herbName": "Peppermint",
-    "rawCompound": "menthofuran",
-    "normalizedAtom": "menthofuran",
-    "canonicalCompoundId": "menthofuran",
-    "canonicalCompoundName": "menthofuran",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "hepatotoxicity_risk",
-      "metabolic_activation"
-    ],
-    "pathwayTargets": [
-      "CYP-mediated metabolism",
-      "reactive metabolite formation"
-    ]
-  },
-  {
-    "herbSlug": "peppermint",
-    "herbName": "Peppermint",
-    "rawCompound": "limonene",
-    "normalizedAtom": "limonene",
-    "canonicalCompoundId": "limonene",
-    "canonicalCompoundName": "limonene",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "endocannabinoid_modulation",
-      "general or unknown targets"
-    ]
-  },
-  {
     "herbSlug": "rhodiola-rosea",
     "herbName": "Rhodiola Rosea",
-    "rawCompound": "rosavin",
+    "rawCompound": "Rosavin",
     "normalizedAtom": "rosavin",
     "canonicalCompoundId": "rosavin",
-    "canonicalCompoundName": "rosavin",
+    "canonicalCompoundName": "Rosavin",
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
     "mechanismTags": [
@@ -1052,106 +232,24 @@
     ]
   },
   {
-    "herbSlug": "rhodiola-rosea",
-    "herbName": "Rhodiola Rosea",
-    "rawCompound": "rosarin",
-    "normalizedAtom": "rosarin",
-    "canonicalCompoundId": "rosarin",
-    "canonicalCompoundName": "rosarin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "adaptogen",
-      "antioxidant",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "unresolved at single-compound level"
-    ]
-  },
-  {
-    "herbSlug": "rhodiola-rosea",
-    "herbName": "Rhodiola Rosea",
-    "rawCompound": "rosin",
-    "normalizedAtom": "rosin",
-    "canonicalCompoundId": "rosin",
-    "canonicalCompoundName": "rosin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "adaptogen",
-      "antioxidant",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "unresolved at single-compound level"
-    ]
-  },
-  {
-    "herbSlug": "rhodiola-rosea",
-    "herbName": "Rhodiola Rosea",
-    "rawCompound": "salidroside",
-    "normalizedAtom": "salidroside",
-    "canonicalCompoundId": "salidroside",
-    "canonicalCompoundName": "salidroside",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "adaptogen",
-      "antioxidant",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "AMPK activation",
-      "Nrf2/ARE pathway activation",
-      "PI3K/Akt pathway modulation"
-    ]
-  },
-  {
-    "herbSlug": "rhodiola-rosea",
-    "herbName": "Rhodiola Rosea",
-    "rawCompound": "tyrosol",
-    "normalizedAtom": "tyrosol",
-    "canonicalCompoundId": "tyrosol",
-    "canonicalCompoundName": "tyrosol",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "antioxidant",
-      "cytoprotective",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "Nrf2",
-      "HO-1",
-      "oxidative-stress response pathways"
-    ]
-  },
-  {
     "herbSlug": "saw-palmetto",
     "herbName": "Saw Palmetto",
-    "rawCompound": "phytosterols (beta-sitosterol)",
-    "normalizedAtom": "beta-sitosterol",
-    "canonicalCompoundId": "beta-sitosterol",
-    "canonicalCompoundName": "beta-sitosterol",
-    "v3MatchType": "class-to-specific",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "anti-inflammatory",
-      "hormonal"
-    ],
-    "pathwayTargets": [
-      "5-alpha-reductase-related biology",
-      "inflammatory signaling"
-    ]
+    "rawCompound": "fatty acids",
+    "normalizedAtom": "fatty acids",
+    "canonicalCompoundId": "fatty-acids",
+    "canonicalCompoundName": "fatty acids",
+    "v3MatchType": "no-master-match",
+    "mappingTier": "broad-class-retained",
+    "mechanismTags": [],
+    "pathwayTargets": []
   },
   {
     "herbSlug": "st-johns-wort",
     "herbName": "St Johns Wort",
-    "rawCompound": "hyperforin",
+    "rawCompound": "Hyperforin",
     "normalizedAtom": "hyperforin",
     "canonicalCompoundId": "hyperforin",
-    "canonicalCompoundName": "hyperforin",
+    "canonicalCompoundName": "Hyperforin",
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
     "mechanismTags": [
@@ -1167,103 +265,12 @@
     ]
   },
   {
-    "herbSlug": "st-johns-wort",
-    "herbName": "St Johns Wort",
-    "rawCompound": "hypericin",
-    "normalizedAtom": "hypericin",
-    "canonicalCompoundId": "hypericin",
-    "canonicalCompoundName": "hypericin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "photodynamic activity",
-      "redox modulation"
-    ],
-    "pathwayTargets": [
-      "photosensitization-related pathways",
-      "oxidative-stress signaling"
-    ]
-  },
-  {
-    "herbSlug": "st-johns-wort",
-    "herbName": "St Johns Wort",
-    "rawCompound": "pseudohypericin",
-    "normalizedAtom": "pseudohypericin",
-    "canonicalCompoundId": "pseudohypericin",
-    "canonicalCompoundName": "pseudohypericin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "photodynamic activity",
-      "redox modulation"
-    ],
-    "pathwayTargets": [
-      "photosensitization-related pathways",
-      "oxidative-stress signaling"
-    ]
-  },
-  {
-    "herbSlug": "st-johns-wort",
-    "herbName": "St Johns Wort",
-    "rawCompound": "quercetin",
-    "normalizedAtom": "quercetin",
-    "canonicalCompoundId": "quercetin",
-    "canonicalCompoundName": "quercetin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "multi-target signaling modulation",
-      "muscarinic receptor interaction"
-    ],
-    "pathwayTargets": [
-      "NF-kB pathway inhibition",
-      "Nrf2 pathway activation",
-      "cholinergic_modulation",
-      "general or unknown targets",
-      "xanthine oxidase inhibition"
-    ]
-  },
-  {
-    "herbSlug": "st-johns-wort",
-    "herbName": "St Johns Wort",
-    "rawCompound": "rutin",
-    "normalizedAtom": "rutin",
-    "canonicalCompoundId": "rutin",
-    "canonicalCompoundName": "rutin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "multi-target signaling modulation",
-      "muscarinic receptor interaction"
-    ],
-    "pathwayTargets": [
-      "cholinergic_modulation",
-      "general or unknown targets"
-    ]
-  },
-  {
-    "herbSlug": "st-johns-wort",
-    "herbName": "St Johns Wort",
-    "rawCompound": "kaempferol",
-    "normalizedAtom": "kaempferol",
-    "canonicalCompoundId": "kaempferol",
-    "canonicalCompoundName": "kaempferol",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "general or unknown targets"
-    ]
-  },
-  {
     "herbSlug": "turmeric",
     "herbName": "Turmeric",
-    "rawCompound": "demethoxycurcumin",
+    "rawCompound": "Demethoxycurcumin",
     "normalizedAtom": "demethoxycurcumin",
     "canonicalCompoundId": "demethoxycurcumin",
-    "canonicalCompoundName": "demethoxycurcumin",
+    "canonicalCompoundName": "Demethoxycurcumin",
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
     "mechanismTags": [
@@ -1276,28 +283,11 @@
     ]
   },
   {
-    "herbSlug": "turmeric",
-    "herbName": "Turmeric",
-    "rawCompound": "bisdemethoxycurcumin",
-    "normalizedAtom": "bisdemethoxycurcumin",
-    "canonicalCompoundId": "bisdemethoxycurcumin",
-    "canonicalCompoundName": "bisdemethoxycurcumin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "inflammatory_pathway_modulation",
-      "oxidative_stress_modulation"
-    ],
-    "pathwayTargets": [
-      "oxidative-stress signaling"
-    ]
-  },
-  {
     "herbSlug": "valerian",
     "herbName": "Valerian",
     "rawCompound": "valerenic acid",
     "normalizedAtom": "valerenic acid",
-    "canonicalCompoundId": "valerenic acid",
+    "canonicalCompoundId": "valerenic-acid",
     "canonicalCompoundName": "valerenic acid",
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
@@ -1311,143 +301,3053 @@
     ]
   },
   {
-    "herbSlug": "valerian",
-    "herbName": "Valerian",
-    "rawCompound": "valerenol",
-    "normalizedAtom": "valerenol",
-    "canonicalCompoundId": "valerenol",
-    "canonicalCompoundName": "valerenol",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
+    "herbSlug": "guarana",
+    "herbName": "Guarana",
+    "rawCompound": "Caffeine",
+    "normalizedAtom": "caffeine",
+    "canonicalCompoundId": "caffeine",
+    "canonicalCompoundName": "Caffeine",
+    "v3MatchType": "exact",
+    "mappingTier": "specific",
     "mechanismTags": [
-      "GABAergic modulation"
+      "multi-domain"
     ],
     "pathwayTargets": [
-      "gabaergic_modulation"
+      "unknown"
     ]
   },
   {
-    "herbSlug": "valerian",
-    "herbName": "Valerian",
-    "rawCompound": "valerenal",
-    "normalizedAtom": "valerenal",
-    "canonicalCompoundId": "valerenal",
-    "canonicalCompoundName": "valerenal",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
+    "herbSlug": "yerba-mate",
+    "herbName": "Yerba Mate",
+    "rawCompound": "Apigenin",
+    "normalizedAtom": "apigenin",
+    "canonicalCompoundId": "apigenin",
+    "canonicalCompoundName": "Apigenin",
+    "v3MatchType": "exact",
+    "mappingTier": "specific",
     "mechanismTags": [
-      "gaba_a_modulation",
-      "sedative"
+      "multi-domain"
     ],
     "pathwayTargets": [
-      "GABA_A receptor modulation"
+      "unknown"
     ]
   },
   {
-    "herbSlug": "valerian",
-    "herbName": "Valerian",
-    "rawCompound": "valepotriates (valtrate, isovaltrate)",
-    "normalizedAtom": "valtrate",
-    "canonicalCompoundId": "valtrate",
-    "canonicalCompoundName": "valtrate",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
+    "herbSlug": "damiana",
+    "herbName": "Damiana",
+    "rawCompound": "nuciferine",
+    "normalizedAtom": "nuciferine",
+    "canonicalCompoundId": "nuciferine",
+    "canonicalCompoundName": "nuciferine",
+    "v3MatchType": "exact",
+    "mappingTier": "specific",
     "mechanismTags": [
-      "sedative",
-      "cytotoxic signaling"
+      "multi-domain"
+    ],
+    "pathwayTargets": [
+      "unknown"
+    ]
+  },
+  {
+    "herbSlug": "blue-lotus",
+    "herbName": "Blue Lotus",
+    "rawCompound": "puerarin",
+    "normalizedAtom": "puerarin",
+    "canonicalCompoundId": "puerarin",
+    "canonicalCompoundName": "puerarin",
+    "v3MatchType": "exact",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "multi-domain"
+    ],
+    "pathwayTargets": [
+      "unknown"
+    ]
+  },
+  {
+    "herbSlug": "kudzu",
+    "herbName": "Kudzu",
+    "rawCompound": "parthenolide",
+    "normalizedAtom": "parthenolide",
+    "canonicalCompoundId": "parthenolide",
+    "canonicalCompoundName": "parthenolide",
+    "v3MatchType": "exact",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "multi-domain"
+    ],
+    "pathwayTargets": [
+      "unknown"
+    ]
+  },
+  {
+    "herbSlug": "yarrow",
+    "herbName": "Yarrow",
+    "rawCompound": "petasin",
+    "normalizedAtom": "petasin",
+    "canonicalCompoundId": "petasin",
+    "canonicalCompoundName": "petasin",
+    "v3MatchType": "exact",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "multi-domain"
+    ],
+    "pathwayTargets": [
+      "unknown"
+    ]
+  },
+  {
+    "herbSlug": "feverfew",
+    "herbName": "Feverfew",
+    "rawCompound": "Actein",
+    "normalizedAtom": "actein",
+    "canonicalCompoundId": "actein",
+    "canonicalCompoundName": "Actein",
+    "v3MatchType": "exact",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "multi-domain"
+    ],
+    "pathwayTargets": [
+      "unknown"
+    ]
+  },
+  {
+    "herbSlug": "butterbur",
+    "herbName": "Butterbur",
+    "rawCompound": "ferulic acid",
+    "normalizedAtom": "ferulic acid",
+    "canonicalCompoundId": "ferulic-acid",
+    "canonicalCompoundName": "ferulic acid",
+    "v3MatchType": "exact",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "multi-domain"
+    ],
+    "pathwayTargets": [
+      "unknown"
+    ]
+  },
+  {
+    "herbSlug": "dong-quai",
+    "herbName": "Dong Quai",
+    "rawCompound": "curcumin",
+    "normalizedAtom": "curcumin",
+    "canonicalCompoundId": "curcumin",
+    "canonicalCompoundName": "curcumin",
+    "v3MatchType": "exact",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "multi-domain"
+    ],
+    "pathwayTargets": [
+      "unknown"
+    ]
+  },
+  {
+    "herbSlug": "rosemary",
+    "herbName": "Rosemary",
+    "rawCompound": "thymol",
+    "normalizedAtom": "thymol",
+    "canonicalCompoundId": "thymol",
+    "canonicalCompoundName": "thymol",
+    "v3MatchType": "exact",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "multi-domain"
+    ],
+    "pathwayTargets": [
+      "unknown"
+    ]
+  },
+  {
+    "herbSlug": "sage",
+    "herbName": "Sage",
+    "rawCompound": "carvacrol",
+    "normalizedAtom": "carvacrol",
+    "canonicalCompoundId": "carvacrol",
+    "canonicalCompoundName": "carvacrol",
+    "v3MatchType": "exact",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "multi-domain"
+    ],
+    "pathwayTargets": [
+      "unknown"
+    ]
+  },
+  {
+    "herbSlug": "thyme",
+    "herbName": "Thyme",
+    "rawCompound": "eucalyptol",
+    "normalizedAtom": "eucalyptol",
+    "canonicalCompoundId": "eucalyptol",
+    "canonicalCompoundName": "eucalyptol",
+    "v3MatchType": "exact",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "multi-domain"
+    ],
+    "pathwayTargets": [
+      "unknown"
+    ]
+  },
+  {
+    "herbSlug": "artichoke",
+    "herbName": "Artichoke",
+    "rawCompound": "cynarin",
+    "normalizedAtom": "cynarin",
+    "canonicalCompoundId": "cynarin",
+    "canonicalCompoundName": "cynarin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "hepatobiliary support"
     ],
     "pathwayTargets": [
       "general or unknown targets"
     ]
   },
   {
-    "herbSlug": "valerian",
-    "herbName": "Valerian",
-    "rawCompound": "valepotriates (valtrate, isovaltrate)",
-    "normalizedAtom": "isovaltrate",
-    "canonicalCompoundId": "isovaltrate",
-    "canonicalCompoundName": "isovaltrate",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
+    "herbSlug": "fennel",
+    "herbName": "Fennel",
+    "rawCompound": "anethole",
+    "normalizedAtom": "anethole",
+    "canonicalCompoundId": "anethole",
+    "canonicalCompoundName": "anethole",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
     "mechanismTags": [
-      "sedative"
+      "digestive support",
+      "antispasmodic support"
     ],
     "pathwayTargets": [
       "general or unknown targets"
     ]
   },
   {
-    "herbSlug": "ashwagandha",
-    "herbName": "Ashwagandha",
-    "rawCompound": "withanone",
-    "normalizedAtom": "withanone",
-    "canonicalCompoundId": "withanone",
-    "canonicalCompoundName": "withanone",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
+    "herbSlug": "cinnamon",
+    "herbName": "Cinnamon",
+    "rawCompound": "cinnamaldehyde",
+    "normalizedAtom": "cinnamaldehyde",
+    "canonicalCompoundId": "cinnamaldehyde",
+    "canonicalCompoundName": "cinnamaldehyde",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
     "mechanismTags": [
-      "multi-target signaling modulation",
+      "glycemic support",
+      "antimicrobial support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "dandelion",
+    "herbName": "Dandelion",
+    "rawCompound": "taraxasterol",
+    "normalizedAtom": "taraxasterol",
+    "canonicalCompoundId": "taraxasterol",
+    "canonicalCompoundName": "taraxasterol",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "mild diuretic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "burdock",
+    "herbName": "Burdock",
+    "rawCompound": "arctiin",
+    "normalizedAtom": "arctiin",
+    "canonicalCompoundId": "arctiin",
+    "canonicalCompoundName": "arctiin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional skin support",
+      "anti-inflammatory"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "chamomile",
+    "herbName": "Chamomile",
+    "rawCompound": "Apigenin",
+    "normalizedAtom": "apigenin",
+    "canonicalCompoundId": "apigenin",
+    "canonicalCompoundName": "Apigenin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "calming support",
+      "digestive support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "red-clover",
+    "herbName": "Red Clover",
+    "rawCompound": "genistein",
+    "normalizedAtom": "genistein",
+    "canonicalCompoundId": "genistein",
+    "canonicalCompoundName": "genistein",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "phytoestrogen-adjacent support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "oatstraw",
+    "herbName": "Oatstraw",
+    "rawCompound": "avenanthramides",
+    "normalizedAtom": "avenanthramides",
+    "canonicalCompoundId": "avenanthramides",
+    "canonicalCompoundName": "avenanthramides",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "nutritive support",
+      "calming support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "calendula",
+    "herbName": "Calendula",
+    "rawCompound": "faradiol",
+    "normalizedAtom": "faradiol",
+    "canonicalCompoundId": "faradiol",
+    "canonicalCompoundName": "faradiol",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "topical soothing support",
+      "anti-inflammatory"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "pau-darco",
+    "herbName": "Pau d'Arco",
+    "rawCompound": "lapachol",
+    "normalizedAtom": "lapachol",
+    "canonicalCompoundId": "lapachol",
+    "canonicalCompoundName": "lapachol",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional immune support",
+      "antimicrobial support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "gymnema",
+    "herbName": "Gymnema",
+    "rawCompound": "gymnemic acids",
+    "normalizedAtom": "gymnemic acids",
+    "canonicalCompoundId": "gymnemic-acids",
+    "canonicalCompoundName": "gymnemic acids",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "glycemic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "banaba",
+    "herbName": "Banaba",
+    "rawCompound": "corosolic acid",
+    "normalizedAtom": "corosolic acid",
+    "canonicalCompoundId": "corosolic-acid",
+    "canonicalCompoundName": "corosolic acid",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "glycemic support",
+      "metabolic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "mulberry-leaf",
+    "herbName": "Mulberry Leaf",
+    "rawCompound": "1-deoxynojirimycin",
+    "normalizedAtom": "1 deoxynojirimycin",
+    "canonicalCompoundId": "1-deoxynojirimycin",
+    "canonicalCompoundName": "1-deoxynojirimycin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "glycemic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "neem",
+    "herbName": "Neem",
+    "rawCompound": "nimbin",
+    "normalizedAtom": "nimbin",
+    "canonicalCompoundId": "nimbin",
+    "canonicalCompoundName": "nimbin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional skin support",
+      "antimicrobial support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "mugwort",
+    "herbName": "Mugwort",
+    "rawCompound": "thujone",
+    "normalizedAtom": "thujone",
+    "canonicalCompoundId": "thujone",
+    "canonicalCompoundName": "thujone",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "traditional cycle support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "lemon-verbena",
+    "herbName": "Lemon Verbena",
+    "rawCompound": "verbascoside",
+    "normalizedAtom": "verbascoside",
+    "canonicalCompoundId": "verbascoside",
+    "canonicalCompoundName": "verbascoside",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "calming support",
+      "digestive support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "milky-oats",
+    "herbName": "Milk Oats",
+    "rawCompound": "avenacosides",
+    "normalizedAtom": "avenacosides",
+    "canonicalCompoundId": "avenacosides",
+    "canonicalCompoundName": "avenacosides",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "nutritive support",
+      "calming support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "cissus",
+    "herbName": "Cissus",
+    "rawCompound": "quadrangularin a",
+    "normalizedAtom": "quadrangularin a",
+    "canonicalCompoundId": "quadrangularin-a",
+    "canonicalCompoundName": "quadrangularin a",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "connective tissue support",
+      "recovery support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "ashitaba",
+    "herbName": "Ashitaba",
+    "rawCompound": "4-hydroxyderricin",
+    "normalizedAtom": "4 hydroxyderricin",
+    "canonicalCompoundId": "4-hydroxyderricin",
+    "canonicalCompoundName": "4-hydroxyderricin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "metabolic support",
       "antioxidant"
     ],
     "pathwayTargets": [
-      "p53-related stress signaling",
-      "oxidative stress pathways",
-      "proteostasis-related pathways"
+      "general or unknown targets"
     ]
+  },
+  {
+    "herbSlug": "pomegranate",
+    "herbName": "Pomegranate",
+    "rawCompound": "punicalagins",
+    "normalizedAtom": "punicalagins",
+    "canonicalCompoundId": "punicalagins",
+    "canonicalCompoundName": "punicalagins",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "vascular support",
+      "antioxidant"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "moringa",
+    "herbName": "Moringa",
+    "rawCompound": "moringin",
+    "normalizedAtom": "moringin",
+    "canonicalCompoundId": "moringin",
+    "canonicalCompoundName": "moringin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "nutritive support",
+      "antioxidant",
+      "metabolic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "arjuna",
+    "herbName": "Arjuna",
+    "rawCompound": "arjunolic acid",
+    "normalizedAtom": "arjunolic acid",
+    "canonicalCompoundId": "arjunolic-acid",
+    "canonicalCompoundName": "arjunolic acid",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "cardiovascular support",
+      "vascular support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "noni",
+    "herbName": "Noni",
+    "rawCompound": "damnacanthal",
+    "normalizedAtom": "damnacanthal",
+    "canonicalCompoundId": "damnacanthal",
+    "canonicalCompoundName": "damnacanthal",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional wellness support",
+      "antioxidant"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "cranberry",
+    "herbName": "Cranberry",
+    "rawCompound": "a-type proanthocyanidins",
+    "normalizedAtom": "a type proanthocyanidins",
+    "canonicalCompoundId": "a-type-proanthocyanidins",
+    "canonicalCompoundName": "a-type proanthocyanidins",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "urinary support",
+      "antioxidant"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "rose-hips",
+    "herbName": "Rose Hips",
+    "rawCompound": "trans-tiliroside",
+    "normalizedAtom": "trans tiliroside",
+    "canonicalCompoundId": "trans-tiliroside",
+    "canonicalCompoundName": "trans-tiliroside",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "antioxidant",
+      "nutritive support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "juniper",
+    "herbName": "Juniper",
+    "rawCompound": "alpha-pinene",
+    "normalizedAtom": "alpha pinene",
+    "canonicalCompoundId": "alpha-pinene",
+    "canonicalCompoundName": "alpha-pinene",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "urinary support",
+      "aromatic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "myrtle",
+    "herbName": "Myrtle",
+    "rawCompound": "myrtenyl acetate",
+    "normalizedAtom": "myrtenyl acetate",
+    "canonicalCompoundId": "myrtenyl-acetate",
+    "canonicalCompoundName": "myrtenyl acetate",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "aromatic support",
+      "antioxidant"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "acerola",
+    "herbName": "Acerola",
+    "rawCompound": "ascorbic acid",
+    "normalizedAtom": "ascorbic acid",
+    "canonicalCompoundId": "ascorbic-acid",
+    "canonicalCompoundName": "ascorbic acid",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "antioxidant",
+      "nutritive support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "mangosteen",
+    "herbName": "Mangosteen",
+    "rawCompound": "alpha-mangostin",
+    "normalizedAtom": "alpha mangostin",
+    "canonicalCompoundId": "alpha-mangostin",
+    "canonicalCompoundName": "alpha-mangostin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "antioxidant",
+      "traditional wellness support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "boldo",
+    "herbName": "Boldo",
+    "rawCompound": "boldine",
+    "normalizedAtom": "boldine",
+    "canonicalCompoundId": "boldine",
+    "canonicalCompoundName": "boldine",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "hepatobiliary support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "suma",
+    "herbName": "Suma",
+    "rawCompound": "pfaffic acid",
+    "normalizedAtom": "pfaffic acid",
+    "canonicalCompoundId": "pfaffic-acid",
+    "canonicalCompoundName": "pfaffic acid",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional restorative support",
+      "adaptogenic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "maral-root",
+    "herbName": "Maral Root",
+    "rawCompound": "ecdysterone",
+    "normalizedAtom": "ecdysterone",
+    "canonicalCompoundId": "ecdysterone",
+    "canonicalCompoundName": "ecdysterone",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "adaptogenic support",
+      "recovery support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "jatamansi",
+    "herbName": "Jatamansi",
+    "rawCompound": "jatamansone",
+    "normalizedAtom": "jatamansone",
+    "canonicalCompoundId": "jatamansone",
+    "canonicalCompoundName": "jatamansone",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "calming support",
+      "traditional nervous-system support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "soursop",
+    "herbName": "Soursop",
+    "rawCompound": "annonacin",
+    "normalizedAtom": "annonacin",
+    "canonicalCompoundId": "annonacin",
+    "canonicalCompoundName": "annonacin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional wellness support",
+      "antioxidant"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "ashoka",
+    "herbName": "Ashoka",
+    "rawCompound": "catechins",
+    "normalizedAtom": "catechins",
+    "canonicalCompoundId": "catechins",
+    "canonicalCompoundName": "catechins",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional cycle support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "shankhpushpi",
+    "herbName": "Shankhpushpi",
+    "rawCompound": "convolvine",
+    "normalizedAtom": "convolvine",
+    "canonicalCompoundId": "convolvine",
+    "canonicalCompoundName": "convolvine",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional cognitive support",
+      "calming support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "hops",
+    "herbName": "Hops",
+    "rawCompound": "humulone",
+    "normalizedAtom": "humulone",
+    "canonicalCompoundId": "humulone",
+    "canonicalCompoundName": "humulone",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "calming support",
+      "sleep support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "lemongrass",
+    "herbName": "Lemongrass",
+    "rawCompound": "citral",
+    "normalizedAtom": "citral",
+    "canonicalCompoundId": "citral",
+    "canonicalCompoundName": "citral",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "calming support",
+      "aromatic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "perilla",
+    "herbName": "Perilla",
+    "rawCompound": "perillaldehyde",
+    "normalizedAtom": "perillaldehyde",
+    "canonicalCompoundId": "perillaldehyde",
+    "canonicalCompoundName": "perillaldehyde",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "seasonal support",
+      "antioxidant",
+      "aromatic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "carob",
+    "herbName": "Carob",
+    "rawCompound": "d-pinitol",
+    "normalizedAtom": "d pinitol",
+    "canonicalCompoundId": "d-pinitol",
+    "canonicalCompoundName": "d-pinitol",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "metabolic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "danshen",
+    "herbName": "Danshen",
+    "rawCompound": "Tanshinone IIA",
+    "normalizedAtom": "tanshinone iia",
+    "canonicalCompoundId": "tanshinone-iia",
+    "canonicalCompoundName": "Tanshinone IIA",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "cardiovascular support",
+      "vascular support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "eucommia",
+    "herbName": "Eucommia",
+    "rawCompound": "geniposidic acid",
+    "normalizedAtom": "geniposidic acid",
+    "canonicalCompoundId": "geniposidic-acid",
+    "canonicalCompoundName": "geniposidic acid",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "connective tissue support",
+      "cardiometabolic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "cistanche",
+    "herbName": "Cistanche",
+    "rawCompound": "echinacoside",
+    "normalizedAtom": "echinacoside",
+    "canonicalCompoundId": "echinacoside",
+    "canonicalCompoundName": "echinacoside",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional restorative support",
+      "fatigue support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "jujube",
+    "herbName": "Jujube",
+    "rawCompound": "jujuboside a",
+    "normalizedAtom": "jujuboside a",
+    "canonicalCompoundId": "jujuboside-a",
+    "canonicalCompoundName": "jujuboside a",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "calming support",
+      "nutritive support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "longan",
+    "herbName": "Longan",
+    "rawCompound": "gallic acid",
+    "normalizedAtom": "gallic acid",
+    "canonicalCompoundId": "gallic-acid",
+    "canonicalCompoundName": "gallic acid",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "nutritive support",
+      "calming support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "polygala",
+    "herbName": "Polygala",
+    "rawCompound": "tenuifolin",
+    "normalizedAtom": "tenuifolin",
+    "canonicalCompoundId": "tenuifolin",
+    "canonicalCompoundName": "tenuifolin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional cognitive support",
+      "calming support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "gastrodia",
+    "herbName": "Gastrodia",
+    "rawCompound": "gastrodin",
+    "normalizedAtom": "gastrodin",
+    "canonicalCompoundId": "gastrodin",
+    "canonicalCompoundName": "gastrodin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional nervous-system support",
+      "calming support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "white-peony",
+    "herbName": "White Peony",
+    "rawCompound": "paeoniflorin",
+    "normalizedAtom": "paeoniflorin",
+    "canonicalCompoundId": "paeoniflorin",
+    "canonicalCompoundName": "paeoniflorin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional cycle support",
+      "calming support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "bupleurum",
+    "herbName": "Bupleurum",
+    "rawCompound": "saikosaponin a",
+    "normalizedAtom": "saikosaponin a",
+    "canonicalCompoundId": "saikosaponin-a",
+    "canonicalCompoundName": "saikosaponin a",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional liver support",
+      "traditional stress support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "codonopsis",
+    "herbName": "Codonopsis",
+    "rawCompound": "tangshenoside i",
+    "normalizedAtom": "tangshenoside i",
+    "canonicalCompoundId": "tangshenoside-i",
+    "canonicalCompoundName": "tangshenoside i",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional restorative support",
+      "fatigue support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "dendrobium",
+    "herbName": "Dendrobium",
+    "rawCompound": "dendrobine",
+    "normalizedAtom": "dendrobine",
+    "canonicalCompoundId": "dendrobine",
+    "canonicalCompoundName": "dendrobine",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional restorative support",
+      "mucosal support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "ophiopogon",
+    "herbName": "Ophiopogon",
+    "rawCompound": "ophiopogonin d",
+    "normalizedAtom": "ophiopogonin d",
+    "canonicalCompoundId": "ophiopogonin-d",
+    "canonicalCompoundName": "ophiopogonin d",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "demulcent support",
+      "traditional respiratory support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "houttuynia",
+    "herbName": "Houttuynia",
+    "rawCompound": "quercitrin",
+    "normalizedAtom": "quercitrin",
+    "canonicalCompoundId": "quercitrin",
+    "canonicalCompoundName": "quercitrin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional immune support",
+      "traditional respiratory support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "isatis",
+    "herbName": "Isatis",
+    "rawCompound": "tryptanthrin",
+    "normalizedAtom": "tryptanthrin",
+    "canonicalCompoundId": "tryptanthrin",
+    "canonicalCompoundName": "tryptanthrin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional immune support",
+      "throat support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "sophora-flavescens",
+    "herbName": "Sophora Flavescens",
+    "rawCompound": "matrine",
+    "normalizedAtom": "matrine",
+    "canonicalCompoundId": "matrine",
+    "canonicalCompoundName": "matrine",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional skin support",
+      "GI support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "notoginseng",
+    "herbName": "Notoginseng",
+    "rawCompound": "notoginsenoside r1",
+    "normalizedAtom": "notoginsenoside r1",
+    "canonicalCompoundId": "notoginsenoside-r1",
+    "canonicalCompoundName": "notoginsenoside r1",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "vascular support",
+      "recovery support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "luo-han-guo",
+    "herbName": "Luo Han Guo",
+    "rawCompound": "mogroside v",
+    "normalizedAtom": "mogroside v",
+    "canonicalCompoundId": "mogroside-v",
+    "canonicalCompoundName": "mogroside v",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "throat support",
+      "sweetener-adjacent support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "kuding-tea",
+    "herbName": "Kuding Tea",
+    "rawCompound": "kudinlactone",
+    "normalizedAtom": "kudinlactone",
+    "canonicalCompoundId": "kudinlactone",
+    "canonicalCompoundName": "kudinlactone",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "antioxidant",
+      "cardiometabolic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "atractylodes",
+    "herbName": "Atractylodes",
+    "rawCompound": "atractylenolide i",
+    "normalizedAtom": "atractylenolide i",
+    "canonicalCompoundId": "atractylenolide-i",
+    "canonicalCompoundName": "atractylenolide i",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "traditional restorative support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "schisandra-berry",
+    "herbName": "Schisandra Berry",
+    "rawCompound": "gomisin a",
+    "normalizedAtom": "gomisin a",
+    "canonicalCompoundId": "gomisin-a",
+    "canonicalCompoundName": "gomisin a",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "adaptogenic support",
+      "hepatoprotective support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "catuaba",
+    "herbName": "Catuaba",
+    "rawCompound": "catuabine",
+    "normalizedAtom": "catuabine",
+    "canonicalCompoundId": "catuabine",
+    "canonicalCompoundName": "catuabine",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional vitality support",
+      "mood support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "muira-puama",
+    "herbName": "Muira Puama",
+    "rawCompound": "beta-sitosterol",
+    "normalizedAtom": "beta sitosterol",
+    "canonicalCompoundId": "beta-sitosterol",
+    "canonicalCompoundName": "beta-sitosterol",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional vitality support",
+      "stress support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "maitake-d-fraction",
+    "herbName": "Maitake D-Fraction",
+    "rawCompound": "beta-glucans",
+    "normalizedAtom": "beta glucans",
+    "canonicalCompoundId": "beta-glucans",
+    "canonicalCompoundName": "beta-glucans",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "immune modulation"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "poria",
+    "herbName": "Poria",
+    "rawCompound": "pachymic acid",
+    "normalizedAtom": "pachymic acid",
+    "canonicalCompoundId": "pachymic-acid",
+    "canonicalCompoundName": "pachymic acid",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional fluid-balance support",
+      "calming support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "rehmannia-prepared",
+    "herbName": "Rehmannia Prepared",
+    "rawCompound": "catalpol",
+    "normalizedAtom": "catalpol",
+    "canonicalCompoundId": "catalpol",
+    "canonicalCompoundName": "catalpol",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional restorative support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "agarikon",
+    "herbName": "Agarikon",
+    "rawCompound": "agaric acid",
+    "normalizedAtom": "agaric acid",
+    "canonicalCompoundId": "agaric-acid",
+    "canonicalCompoundName": "agaric acid",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional immune support",
+      "respiratory support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "elecampane",
+    "herbName": "Elecampane",
+    "rawCompound": "alantolactone",
+    "normalizedAtom": "alantolactone",
+    "canonicalCompoundId": "alantolactone",
+    "canonicalCompoundName": "alantolactone",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "traditional respiratory support",
+      "digestive support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "angelica-root",
+    "herbName": "Angelica Root",
+    "rawCompound": "angelicin",
+    "normalizedAtom": "angelicin",
+    "canonicalCompoundId": "angelicin",
+    "canonicalCompoundName": "angelicin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "traditional cycle support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "galangal",
+    "herbName": "Galangal",
+    "rawCompound": "galangin",
+    "normalizedAtom": "galangin",
+    "canonicalCompoundId": "galangin",
+    "canonicalCompoundName": "galangin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "aromatic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "black-pepper",
+    "herbName": "Black Pepper",
+    "rawCompound": "Piperine",
+    "normalizedAtom": "piperine",
+    "canonicalCompoundId": "piperine",
+    "canonicalCompoundName": "Piperine",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "bioavailability support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "cardamom",
+    "herbName": "Cardamom",
+    "rawCompound": "terpinyl acetate",
+    "normalizedAtom": "terpinyl acetate",
+    "canonicalCompoundId": "terpinyl-acetate",
+    "canonicalCompoundName": "terpinyl acetate",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "aromatic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "holy-basil-seed",
+    "herbName": "Holy Basil Seed",
+    "rawCompound": "mucilage",
+    "normalizedAtom": "mucilage",
+    "canonicalCompoundId": "mucilage",
+    "canonicalCompoundName": "mucilage",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "demulcent support",
+      "digestive support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "psyllium",
+    "herbName": "Psyllium",
+    "rawCompound": "mucilage",
+    "normalizedAtom": "mucilage",
+    "canonicalCompoundId": "mucilage",
+    "canonicalCompoundName": "mucilage",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "GI support",
+      "metabolic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "caraway",
+    "herbName": "Caraway",
+    "rawCompound": "carvone",
+    "normalizedAtom": "carvone",
+    "canonicalCompoundId": "carvone",
+    "canonicalCompoundName": "carvone",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "aromatic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "ajwain",
+    "herbName": "Ajwain",
+    "rawCompound": "thymol",
+    "normalizedAtom": "thymol",
+    "canonicalCompoundId": "thymol",
+    "canonicalCompoundName": "thymol",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "aromatic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "holy-basil-purple",
+    "herbName": "Holy Basil Purple",
+    "rawCompound": "Eugenol",
+    "normalizedAtom": "eugenol",
+    "canonicalCompoundId": "eugenol",
+    "canonicalCompoundName": "Eugenol",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "adaptogenic support",
+      "antioxidant"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "curry-leaf",
+    "herbName": "Curry Leaf",
+    "rawCompound": "mahanimbine",
+    "normalizedAtom": "mahanimbine",
+    "canonicalCompoundId": "mahanimbine",
+    "canonicalCompoundName": "mahanimbine",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "antioxidant",
+      "metabolic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "gudmar",
+    "herbName": "Gudmar",
+    "rawCompound": "gymnemic acids",
+    "normalizedAtom": "gymnemic acids",
+    "canonicalCompoundId": "gymnemic-acids",
+    "canonicalCompoundName": "gymnemic acids",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "glycemic support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "roselle-seed",
+    "herbName": "Roselle Seed",
+    "rawCompound": "tocopherols",
+    "normalizedAtom": "tocopherols",
+    "canonicalCompoundId": "tocopherols",
+    "canonicalCompoundName": "tocopherols",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "nutritive support",
+      "antioxidant"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "tamarind",
+    "herbName": "Tamarind",
+    "rawCompound": "tartaric acid",
+    "normalizedAtom": "tartaric acid",
+    "canonicalCompoundId": "tartaric-acid",
+    "canonicalCompoundName": "tartaric acid",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "digestive support",
+      "antioxidant"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "boswellia",
+    "herbName": "Boswellia",
+    "rawCompound": "akba",
+    "normalizedAtom": "akba",
+    "canonicalCompoundId": "akba",
+    "canonicalCompoundName": "akba",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "anti-inflammatory",
+      "mobility support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "hawthorn",
+    "herbName": "Hawthorn",
+    "rawCompound": "procyanidin b2",
+    "normalizedAtom": "procyanidin b2",
+    "canonicalCompoundId": "procyanidin-b2",
+    "canonicalCompoundName": "procyanidin b2",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "cardiovascular support",
+      "vascular support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "astragalus",
+    "herbName": "Astragalus",
+    "rawCompound": "astragaloside iv",
+    "normalizedAtom": "astragaloside iv",
+    "canonicalCompoundId": "astragaloside-iv",
+    "canonicalCompoundName": "astragaloside iv",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "immune modulation",
+      "fatigue support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "nettle-root",
+    "herbName": "Nettle Root",
+    "rawCompound": "beta-sitosterol",
+    "normalizedAtom": "beta sitosterol",
+    "canonicalCompoundId": "beta-sitosterol",
+    "canonicalCompoundName": "beta-sitosterol",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "urinary support",
+      "men's-health support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "rhodiola",
+    "herbName": "Rhodiola",
+    "rawCompound": "Salidroside",
+    "normalizedAtom": "salidroside",
+    "canonicalCompoundId": "salidroside",
+    "canonicalCompoundName": "Salidroside",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "adaptogenic support",
+      "fatigue support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "bacopa",
+    "herbName": "Bacopa",
+    "rawCompound": "bacoside a",
+    "normalizedAtom": "bacoside a",
+    "canonicalCompoundId": "bacoside-a",
+    "canonicalCompoundName": "bacoside a",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "cognitive support",
+      "calming support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "passionflower",
+    "herbName": "Passionflower",
+    "rawCompound": "chrysin",
+    "normalizedAtom": "chrysin",
+    "canonicalCompoundId": "chrysin",
+    "canonicalCompoundName": "chrysin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "calming support",
+      "sleep support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "cordyceps",
+    "herbName": "Cordyceps",
+    "rawCompound": "cordycepin",
+    "normalizedAtom": "cordycepin",
+    "canonicalCompoundId": "cordycepin",
+    "canonicalCompoundName": "cordycepin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "energy support",
+      "immune modulation"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "lions-mane",
+    "herbName": "Lion's Mane",
+    "rawCompound": "hericenone c",
+    "normalizedAtom": "hericenone c",
+    "canonicalCompoundId": "hericenone-c",
+    "canonicalCompoundName": "hericenone c",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "neurocognitive support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "reishi",
+    "herbName": "Reishi",
+    "rawCompound": "beta-glucans",
+    "normalizedAtom": "beta glucans",
+    "canonicalCompoundId": "beta-glucans",
+    "canonicalCompoundName": "beta-glucans",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "immune modulation",
+      "calming support"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "turkey-tail",
+    "herbName": "Turkey Tail",
+    "rawCompound": "psk",
+    "normalizedAtom": "psk",
+    "canonicalCompoundId": "psk",
+    "canonicalCompoundName": "psk",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "immune modulation"
+    ],
+    "pathwayTargets": [
+      "general or unknown targets"
+    ]
+  },
+  {
+    "herbSlug": "Corydalis yanhusuo",
+    "herbName": "Dehydrocorybulbine",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Picralima nitida",
+    "herbName": "Akuammine",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Peganum harmala",
+    "herbName": "Harmine",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Andrographis paniculata",
+    "herbName": "Andrographolide",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Phyllanthus amarus",
+    "herbName": "Phyllanthin",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Justicia adhatoda",
+    "herbName": "Vasicine",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Tabernanthe iboga",
+    "herbName": "Ibogaine",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Boerhavia diffusa",
+    "herbName": "Punarnavine",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Celastrus paniculatus",
+    "herbName": "Celastrine",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "epimedium",
+    "herbName": "Epimedium",
+    "rawCompound": "Icariin",
+    "normalizedAtom": "icariin",
+    "canonicalCompoundId": "icariin",
+    "canonicalCompoundName": "Icariin",
+    "v3MatchType": "exact-normalized",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "vascular modulation",
+      "bone signaling modulation"
+    ],
+    "pathwayTargets": [
+      "eNOS/NO signaling",
+      "PDE-related signaling"
+    ]
+  },
+  {
+    "herbSlug": "yohimbe",
+    "herbName": "Yohimbe",
+    "rawCompound": "Yohimbine",
+    "normalizedAtom": "yohimbine",
+    "canonicalCompoundId": "yohimbine",
+    "canonicalCompoundName": "Yohimbine",
+    "v3MatchType": "exact-normalized",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "adrenergic modulation",
+      "stimulant"
+    ],
+    "pathwayTargets": [
+      "alpha-2 adrenergic receptor antagonism"
+    ]
+  },
+  {
+    "herbSlug": "eleuthero",
+    "herbName": "Eleuthero",
+    "rawCompound": "eleutherosides",
+    "normalizedAtom": "eleutherosides",
+    "canonicalCompoundId": "eleutherosides",
+    "canonicalCompoundName": "eleutherosides",
+    "v3MatchType": "exact-normalized",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "adaptogen",
+      "stress-response modulation"
+    ],
+    "pathwayTargets": [
+      "HPA-axis-related signaling (broad/preclinical)"
+    ]
+  },
+  {
+    "herbSlug": "Salvia miltiorrhiza",
+    "herbName": "Tanshinone IIA",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Epimedium",
+    "herbName": "Icariin",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Pausinystalia yohimbe",
+    "herbName": "Yohimbine",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Mucuna pruriens",
+    "herbName": "Dopamine",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Curcuma longa",
+    "herbName": "Demethoxycurcumin",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Camellia sinensis",
+    "herbName": "Theanine",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Hypericum perforatum",
+    "herbName": "Hypericin",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Ginkgo biloba",
+    "herbName": "Ginkgolide B",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Panax ginseng",
+    "herbName": "Ginsenoside Rg1",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Withania somnifera",
+    "herbName": "Withanolide A",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "turmeric",
+    "herbName": "Turmeric",
+    "rawCompound": "curcumin",
+    "normalizedAtom": "curcumin",
+    "canonicalCompoundId": "curcumin",
+    "canonicalCompoundName": "curcumin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "turmeric",
+    "herbName": "Turmeric",
+    "rawCompound": "Bisdemethoxycurcumin",
+    "normalizedAtom": "bisdemethoxycurcumin",
+    "canonicalCompoundId": "bisdemethoxycurcumin",
+    "canonicalCompoundName": "Bisdemethoxycurcumin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "rawCompound": "Caffeine",
+    "normalizedAtom": "caffeine",
+    "canonicalCompoundId": "caffeine",
+    "canonicalCompoundName": "Caffeine",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "rawCompound": "Theanine",
+    "normalizedAtom": "theanine",
+    "canonicalCompoundId": "theanine",
+    "canonicalCompoundName": "Theanine",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "hypericum-perforatum",
+    "herbName": "Hypericum perforatum",
+    "rawCompound": "Hypericin",
+    "normalizedAtom": "hypericin",
+    "canonicalCompoundId": "hypericin",
+    "canonicalCompoundName": "Hypericin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "hypericum-perforatum",
+    "herbName": "Hypericum perforatum",
+    "rawCompound": "Hyperforin",
+    "normalizedAtom": "hyperforin",
+    "canonicalCompoundId": "hyperforin",
+    "canonicalCompoundName": "Hyperforin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgo Biloba",
+    "rawCompound": "Ginkgolide B",
+    "normalizedAtom": "ginkgolide b",
+    "canonicalCompoundId": "ginkgolide-b",
+    "canonicalCompoundName": "Ginkgolide B",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgo Biloba",
+    "rawCompound": "Bilobalide",
+    "normalizedAtom": "bilobalide",
+    "canonicalCompoundId": "bilobalide",
+    "canonicalCompoundName": "Bilobalide",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "panax-ginseng",
+    "herbName": "Panax Ginseng",
+    "rawCompound": "Ginsenoside RG1",
+    "normalizedAtom": "ginsenoside rg1",
+    "canonicalCompoundId": "ginsenoside-rg1",
+    "canonicalCompoundName": "Ginsenoside RG1",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "panax-ginseng",
+    "herbName": "Panax Ginseng",
+    "rawCompound": "Ginsenoside RB1",
+    "normalizedAtom": "ginsenoside rb1",
+    "canonicalCompoundId": "ginsenoside-rb1",
+    "canonicalCompoundName": "Ginsenoside RB1",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
   },
   {
     "herbSlug": "ashwagandha",
     "herbName": "Ashwagandha",
-    "rawCompound": "sitoindoside IX",
-    "normalizedAtom": "sitoindoside IX",
-    "canonicalCompoundId": "sitoindoside ix",
-    "canonicalCompoundName": "sitoindoside IX",
-    "v3MatchType": "exact-normalized",
+    "rawCompound": "Withanolide A",
+    "normalizedAtom": "withanolide a",
+    "canonicalCompoundId": "withanolide-a",
+    "canonicalCompoundName": "Withanolide A",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "peganum-harmala",
+    "herbName": "Peganum harmala",
+    "rawCompound": "Harmine",
+    "normalizedAtom": "harmine",
+    "canonicalCompoundId": "harmine",
+    "canonicalCompoundName": "Harmine",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "peganum-harmala",
+    "herbName": "Peganum harmala",
+    "rawCompound": "Harmaline",
+    "normalizedAtom": "harmaline",
+    "canonicalCompoundId": "harmaline",
+    "canonicalCompoundName": "Harmaline",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "salvia-miltiorrhiza",
+    "herbName": "Salvia miltiorrhiza",
+    "rawCompound": "Tanshinone IIA",
+    "normalizedAtom": "tanshinone iia",
+    "canonicalCompoundId": "tanshinone-iia",
+    "canonicalCompoundName": "Tanshinone IIA",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "salvia-miltiorrhiza",
+    "herbName": "Salvia miltiorrhiza",
+    "rawCompound": "Salvianolic acid B",
+    "normalizedAtom": "salvianolic acid b",
+    "canonicalCompoundId": "salvianolic-acid-b",
+    "canonicalCompoundName": "Salvianolic acid B",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "justicia-adhatoda",
+    "herbName": "Justicia adhatoda",
+    "rawCompound": "Vasicine",
+    "normalizedAtom": "vasicine",
+    "canonicalCompoundId": "vasicine",
+    "canonicalCompoundName": "Vasicine",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "tabernanthe-iboga",
+    "herbName": "Tabernanthe iboga",
+    "rawCompound": "Ibogaine",
+    "normalizedAtom": "ibogaine",
+    "canonicalCompoundId": "ibogaine",
+    "canonicalCompoundName": "Ibogaine",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "picralima-nitida",
+    "herbName": "Picralima nitida",
+    "rawCompound": "Akuammine",
+    "normalizedAtom": "akuammine",
+    "canonicalCompoundId": "akuammine",
+    "canonicalCompoundName": "Akuammine",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "corydalis-yanhusuo",
+    "herbName": "Corydalis yanhusuo",
+    "rawCompound": "Dehydrocorybulbine",
+    "normalizedAtom": "dehydrocorybulbine",
+    "canonicalCompoundId": "dehydrocorybulbine",
+    "canonicalCompoundName": "Dehydrocorybulbine",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "andrographis-paniculata",
+    "herbName": "Andrographis paniculata",
+    "rawCompound": "Andrographolide",
+    "normalizedAtom": "andrographolide",
+    "canonicalCompoundId": "andrographolide",
+    "canonicalCompoundName": "Andrographolide",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "phyllanthus-amarus",
+    "herbName": "Phyllanthus amarus",
+    "rawCompound": "Phyllanthin",
+    "normalizedAtom": "phyllanthin",
+    "canonicalCompoundId": "phyllanthin",
+    "canonicalCompoundName": "Phyllanthin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "mucuna-pruriens",
+    "herbName": "Mucuna pruriens",
+    "rawCompound": "L-DOPA",
+    "normalizedAtom": "l dopa",
+    "canonicalCompoundId": "l-dopa",
+    "canonicalCompoundName": "L-DOPA",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "mucuna-pruriens",
+    "herbName": "Mucuna pruriens",
+    "rawCompound": "Dopamine",
+    "normalizedAtom": "dopamine",
+    "canonicalCompoundId": "dopamine",
+    "canonicalCompoundName": "Dopamine",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "pausinystalia-yohimbe",
+    "herbName": "Pausinystalia yohimbe",
+    "rawCompound": "Yohimbine",
+    "normalizedAtom": "yohimbine",
+    "canonicalCompoundId": "yohimbine",
+    "canonicalCompoundName": "Yohimbine",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "polygonum-cuspidatum",
+    "herbName": "Polygonum cuspidatum",
+    "rawCompound": "Resveratrol",
+    "normalizedAtom": "resveratrol",
+    "canonicalCompoundId": "resveratrol",
+    "canonicalCompoundName": "Resveratrol",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "rawCompound": "Quercetin",
+    "normalizedAtom": "quercetin",
+    "canonicalCompoundId": "quercetin",
+    "canonicalCompoundName": "Quercetin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgo Biloba",
+    "rawCompound": "Quercetin",
+    "normalizedAtom": "quercetin",
+    "canonicalCompoundId": "quercetin",
+    "canonicalCompoundName": "Quercetin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "hypericum perforatum",
+    "herbName": "Hypericum perforatum",
+    "rawCompound": "Quercetin",
+    "normalizedAtom": "quercetin",
+    "canonicalCompoundId": "quercetin",
+    "canonicalCompoundName": "Quercetin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "petroselinum crispum",
+    "herbName": "Petroselinum crispum",
+    "rawCompound": "Apigenin",
+    "normalizedAtom": "apigenin",
+    "canonicalCompoundId": "apigenin",
+    "canonicalCompoundName": "Apigenin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "vitis vinifera",
+    "herbName": "Vitis vinifera",
+    "rawCompound": "Resveratrol",
+    "normalizedAtom": "resveratrol",
+    "canonicalCompoundId": "resveratrol",
+    "canonicalCompoundName": "Resveratrol",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "ilex paraguariensis",
+    "herbName": "Ilex paraguariensis",
+    "rawCompound": "Caffeine",
+    "normalizedAtom": "caffeine",
+    "canonicalCompoundId": "caffeine",
+    "canonicalCompoundName": "Caffeine",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "rosmarinus-officinalis",
+    "herbName": "Rosmarinus officinalis",
+    "rawCompound": "Rosmarinic acid",
+    "normalizedAtom": "rosmarinic acid",
+    "canonicalCompoundId": "rosmarinic-acid",
+    "canonicalCompoundName": "Rosmarinic acid",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "chinese-skullcap",
+    "herbName": "Chinese Skullcap",
+    "rawCompound": "Baicalin",
+    "normalizedAtom": "baicalin",
+    "canonicalCompoundId": "baicalin",
+    "canonicalCompoundName": "Baicalin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "zingiber-officinale",
+    "herbName": "Zingiber officinale",
+    "rawCompound": "6-Gingerol",
+    "normalizedAtom": "6 gingerol",
+    "canonicalCompoundId": "6-gingerol",
+    "canonicalCompoundName": "6-Gingerol",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "chinese-skullcap",
+    "herbName": "Chinese Skullcap",
+    "rawCompound": "Baicalein",
+    "normalizedAtom": "baicalein",
+    "canonicalCompoundId": "baicalein",
+    "canonicalCompoundName": "Baicalein",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "rosmarinus-officinalis",
+    "herbName": "Rosmarinus officinalis",
+    "rawCompound": "Carnosic acid",
+    "normalizedAtom": "carnosic acid",
+    "canonicalCompoundId": "carnosic-acid",
+    "canonicalCompoundName": "Carnosic acid",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "rosmarinus-officinalis",
+    "herbName": "Rosmarinus officinalis",
+    "rawCompound": "Carnosol",
+    "normalizedAtom": "carnosol",
+    "canonicalCompoundId": "carnosol",
+    "canonicalCompoundName": "Carnosol",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "zingiber-officinale",
+    "herbName": "Zingiber officinale",
+    "rawCompound": "6-Shogaol",
+    "normalizedAtom": "6 shogaol",
+    "canonicalCompoundId": "6-shogaol",
+    "canonicalCompoundName": "6-Shogaol",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "panax-ginseng",
+    "herbName": "Panax Ginseng",
+    "rawCompound": "Ginsenoside Rg3",
+    "normalizedAtom": "ginsenoside rg3",
+    "canonicalCompoundId": "ginsenoside-rg3",
+    "canonicalCompoundName": "Ginsenoside Rg3",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgo Biloba",
+    "rawCompound": "Kaempferol",
+    "normalizedAtom": "kaempferol",
+    "canonicalCompoundId": "kaempferol",
+    "canonicalCompoundName": "Kaempferol",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgo Biloba",
+    "rawCompound": "Isorhamnetin",
+    "normalizedAtom": "isorhamnetin",
+    "canonicalCompoundId": "isorhamnetin",
+    "canonicalCompoundName": "Isorhamnetin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "panax-ginseng",
+    "herbName": "Panax Ginseng",
+    "rawCompound": "Ginsenoside Re",
+    "normalizedAtom": "ginsenoside re",
+    "canonicalCompoundId": "ginsenoside-re",
+    "canonicalCompoundName": "Ginsenoside Re",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "panax-ginseng",
+    "herbName": "Panax Ginseng",
+    "rawCompound": "Ginsenoside Rd",
+    "normalizedAtom": "ginsenoside rd",
+    "canonicalCompoundId": "ginsenoside-rd",
+    "canonicalCompoundName": "Ginsenoside Rd",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "panax-ginseng",
+    "herbName": "Panax Ginseng",
+    "rawCompound": "Ginsenoside Rf",
+    "normalizedAtom": "ginsenoside rf",
+    "canonicalCompoundId": "ginsenoside-rf",
+    "canonicalCompoundName": "Ginsenoside Rf",
+    "v3MatchType": "pass13-real-sweep",
     "mappingTier": "master-linked",
     "mechanismTags": [
-      "neuroprotective",
-      "immunomodulatory",
-      "multi-target signaling modulation"
+      "stress-response modulation",
+      "cognitive modulation"
     ],
     "pathwayTargets": [
-      "unresolved at isolated-compound level"
+      "stress-response modulation",
+      "cognitive modulation"
     ]
   },
   {
-    "herbSlug": "ashwagandha",
+    "herbSlug": "scutellaria-baicalensis",
+    "herbName": "Chinese Skullcap",
+    "rawCompound": "wogonin",
+    "normalizedAtom": "wogonin",
+    "canonicalCompoundId": "wogonin",
+    "canonicalCompoundName": "wogonin",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "NF-kB inhibition",
+      "neuroprotective signaling"
+    ],
+    "pathwayTargets": [
+      "NF-kB inhibition",
+      "neuroprotective signaling"
+    ]
+  },
+  {
+    "herbSlug": "scutellaria-baicalensis",
+    "herbName": "Chinese Skullcap",
+    "rawCompound": "Wogonoside",
+    "normalizedAtom": "wogonoside",
+    "canonicalCompoundId": "wogonoside",
+    "canonicalCompoundName": "Wogonoside",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "NF-kB inhibition"
+    ],
+    "pathwayTargets": [
+      "NF-kB inhibition"
+    ]
+  },
+  {
+    "herbSlug": "chamomile",
+    "herbName": "Chamomile",
+    "rawCompound": "alpha-bisabolol",
+    "normalizedAtom": "alpha bisabolol",
+    "canonicalCompoundId": "alpha-bisabolol",
+    "canonicalCompoundName": "alpha-bisabolol",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "anti-inflammatory signaling",
+      "calming CNS signaling"
+    ],
+    "pathwayTargets": [
+      "anti-inflammatory signaling",
+      "calming CNS signaling"
+    ]
+  },
+  {
+    "herbSlug": "chamomile",
+    "herbName": "Chamomile",
+    "rawCompound": "chamazulene",
+    "normalizedAtom": "chamazulene",
+    "canonicalCompoundId": "chamazulene",
+    "canonicalCompoundName": "chamazulene",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "anti-inflammatory signaling"
+    ],
+    "pathwayTargets": [
+      "anti-inflammatory signaling"
+    ]
+  },
+  {
+    "herbSlug": "epimedium",
+    "herbName": "Epimedium",
+    "rawCompound": "Epimedin A",
+    "normalizedAtom": "epimedin a",
+    "canonicalCompoundId": "epimedin-a",
+    "canonicalCompoundName": "Epimedin A",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "nitric oxide signaling"
+    ],
+    "pathwayTargets": [
+      "nitric oxide signaling"
+    ]
+  },
+  {
+    "herbSlug": "epimedium",
+    "herbName": "Epimedium",
+    "rawCompound": "Epimedin B",
+    "normalizedAtom": "epimedin b",
+    "canonicalCompoundId": "epimedin-b",
+    "canonicalCompoundName": "Epimedin B",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "nitric oxide signaling"
+    ],
+    "pathwayTargets": [
+      "nitric oxide signaling"
+    ]
+  },
+  {
+    "herbSlug": "epimedium",
+    "herbName": "Epimedium",
+    "rawCompound": "Epimedin C",
+    "normalizedAtom": "epimedin c",
+    "canonicalCompoundId": "epimedin-c",
+    "canonicalCompoundName": "Epimedin C",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "nitric oxide signaling"
+    ],
+    "pathwayTargets": [
+      "nitric oxide signaling"
+    ]
+  },
+  {
+    "herbSlug": "camellia-sinensis",
+    "herbName": "Green Tea",
+    "rawCompound": "EGCG",
+    "normalizedAtom": "egcg",
+    "canonicalCompoundId": "egcg",
+    "canonicalCompoundName": "EGCG",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "oxidative stress reduction",
+      "AMPK activation"
+    ],
+    "pathwayTargets": [
+      "oxidative stress reduction",
+      "AMPK activation"
+    ]
+  },
+  {
+    "herbSlug": "camellia-sinensis",
+    "herbName": "Green Tea",
+    "rawCompound": "ECG",
+    "normalizedAtom": "ecg",
+    "canonicalCompoundId": "ecg",
+    "canonicalCompoundName": "ECG",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "oxidative stress reduction"
+    ],
+    "pathwayTargets": [
+      "oxidative stress reduction"
+    ]
+  },
+  {
+    "herbSlug": "camellia-sinensis",
+    "herbName": "Green Tea",
+    "rawCompound": "Catechin",
+    "normalizedAtom": "catechin",
+    "canonicalCompoundId": "catechin",
+    "canonicalCompoundName": "Catechin",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "oxidative stress reduction"
+    ],
+    "pathwayTargets": [
+      "oxidative stress reduction"
+    ]
+  },
+  {
+    "herbSlug": "black-pepper",
+    "herbName": "Black Pepper",
+    "rawCompound": "Chavicine",
+    "normalizedAtom": "chavicine",
+    "canonicalCompoundId": "chavicine",
+    "canonicalCompoundName": "Chavicine",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "bioavailability modulation"
+    ],
+    "pathwayTargets": [
+      "bioavailability modulation"
+    ]
+  },
+  {
+    "herbSlug": "blue-lotus",
+    "herbName": "Blue Lotus",
+    "rawCompound": "nuciferine",
+    "normalizedAtom": "nuciferine",
+    "canonicalCompoundId": "nuciferine",
+    "canonicalCompoundName": "nuciferine",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "dopamine signaling",
+      "calming CNS signaling"
+    ],
+    "pathwayTargets": [
+      "dopamine signaling",
+      "calming CNS signaling"
+    ]
+  },
+  {
+    "herbSlug": "blue-lotus",
+    "herbName": "Blue Lotus",
+    "rawCompound": "apomorphine",
+    "normalizedAtom": "apomorphine",
+    "canonicalCompoundId": "apomorphine",
+    "canonicalCompoundName": "apomorphine",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "dopamine signaling"
+    ],
+    "pathwayTargets": [
+      "dopamine signaling"
+    ]
+  },
+  {
+    "herbSlug": "black-cohosh",
+    "herbName": "Black Cohosh",
+    "rawCompound": "Cimicifugoside",
+    "normalizedAtom": "cimicifugoside",
+    "canonicalCompoundId": "cimicifugoside",
+    "canonicalCompoundName": "Cimicifugoside",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "serotonergic signaling",
+      "anti-inflammatory signaling"
+    ],
+    "pathwayTargets": [
+      "serotonergic signaling",
+      "anti-inflammatory signaling"
+    ]
+  },
+  {
+    "herbSlug": "black-cohosh",
+    "herbName": "Black Cohosh",
+    "rawCompound": "Isoferulic acid",
+    "normalizedAtom": "isoferulic acid",
+    "canonicalCompoundId": "isoferulic-acid",
+    "canonicalCompoundName": "Isoferulic acid",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "oxidative stress reduction",
+      "anti-inflammatory signaling"
+    ],
+    "pathwayTargets": [
+      "oxidative stress reduction",
+      "anti-inflammatory signaling"
+    ]
+  },
+  {
+    "herbSlug": "arjuna",
+    "herbName": "Arjuna",
+    "rawCompound": "Arjunic acid",
+    "normalizedAtom": "arjunic acid",
+    "canonicalCompoundId": "arjunic-acid",
+    "canonicalCompoundName": "Arjunic acid",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "cardiovascular signaling"
+    ],
+    "pathwayTargets": [
+      "cardiovascular signaling"
+    ]
+  },
+  {
+    "herbSlug": "ajwain",
+    "herbName": "Ajwain",
+    "rawCompound": "carvacrol",
+    "normalizedAtom": "carvacrol",
+    "canonicalCompoundId": "carvacrol",
+    "canonicalCompoundName": "carvacrol",
+    "v3MatchType": "pass13-real-sweep",
+    "mappingTier": "master-linked",
+    "mechanismTags": [
+      "gastrointestinal modulation",
+      "antimicrobial signaling"
+    ],
+    "pathwayTargets": [
+      "gastrointestinal modulation",
+      "antimicrobial signaling"
+    ]
+  },
+  {
+    "herbSlug": "Ginkgo Biloba",
+    "herbName": "Ginkgolide A",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Panax Ginseng",
+    "herbName": "Ginsenoside Rg1",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "Green Tea",
+    "herbName": "Epicatechin",
+    "rawCompound": "",
+    "normalizedAtom": "",
+    "canonicalCompoundId": "",
+    "canonicalCompoundName": "",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
+    "herbName": "Holy Basil",
+    "rawCompound": "Ursolic acid",
+    "normalizedAtom": "ursolic acid",
+    "canonicalCompoundId": "ursolic-acid",
+    "canonicalCompoundName": "Ursolic acid",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
+    "herbName": "Holy Basil",
+    "rawCompound": "Rosmarinic acid",
+    "normalizedAtom": "rosmarinic acid",
+    "canonicalCompoundId": "rosmarinic-acid",
+    "canonicalCompoundName": "Rosmarinic acid",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
+    "herbName": "Rhodiola",
+    "rawCompound": "Rosavin",
+    "normalizedAtom": "rosavin",
+    "canonicalCompoundId": "rosavin",
+    "canonicalCompoundName": "Rosavin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
+    "herbName": "Rhodiola",
+    "rawCompound": "Rosarin",
+    "normalizedAtom": "rosarin",
+    "canonicalCompoundId": "rosarin",
+    "canonicalCompoundName": "Rosarin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
+    "herbName": "Rhodiola",
+    "rawCompound": "Rosin",
+    "normalizedAtom": "rosin",
+    "canonicalCompoundId": "rosin",
+    "canonicalCompoundName": "Rosin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
+    "herbName": "Rhodiola",
+    "rawCompound": "Tyrosol",
+    "normalizedAtom": "tyrosol",
+    "canonicalCompoundId": "tyrosol",
+    "canonicalCompoundName": "Tyrosol",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
+    "herbName": "Arjuna",
+    "rawCompound": "Arjungenin",
+    "normalizedAtom": "arjungenin",
+    "canonicalCompoundId": "arjungenin",
+    "canonicalCompoundName": "Arjungenin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
+    "herbName": "Arjuna",
+    "rawCompound": "Arjunetin",
+    "normalizedAtom": "arjunetin",
+    "canonicalCompoundId": "arjunetin",
+    "canonicalCompoundName": "Arjunetin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
+    "herbName": "Black Cohosh",
+    "rawCompound": "Actein",
+    "normalizedAtom": "actein",
+    "canonicalCompoundId": "actein",
+    "canonicalCompoundName": "Actein",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
+    "herbName": "Black Cohosh",
+    "rawCompound": "23-epi-26-deoxyactein",
+    "normalizedAtom": "23 epi 26 deoxyactein",
+    "canonicalCompoundId": "23-epi-26-deoxyactein",
+    "canonicalCompoundName": "23-epi-26-deoxyactein",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
+    "herbName": "Black Cohosh",
+    "rawCompound": "Fukinolic acid",
+    "normalizedAtom": "fukinolic acid",
+    "canonicalCompoundId": "fukinolic-acid",
+    "canonicalCompoundName": "Fukinolic acid",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
     "herbName": "Ashwagandha",
-    "rawCompound": "sitoindoside X",
-    "normalizedAtom": "sitoindoside X",
-    "canonicalCompoundId": "sitoindoside x",
-    "canonicalCompoundName": "sitoindoside X",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "neuroprotective",
-      "adaptogen",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "unresolved at isolated-compound level"
-    ]
+    "rawCompound": "Withanoside IV",
+    "normalizedAtom": "withanoside iv",
+    "canonicalCompoundId": "withanoside-iv",
+    "canonicalCompoundName": "Withanoside IV",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
   },
   {
-    "herbSlug": "rhodiola-rosea",
-    "herbName": "Rhodiola Rosea",
-    "rawCompound": "triandrin",
-    "normalizedAtom": "triandrin",
-    "canonicalCompoundId": "triandrin",
-    "canonicalCompoundName": "triandrin",
-    "v3MatchType": "exact-normalized",
-    "mappingTier": "master-linked",
-    "mechanismTags": [
-      "adaptogen",
-      "multi-target signaling modulation"
-    ],
-    "pathwayTargets": [
-      "cAMP signaling",
-      "PLC signaling",
-      "GPCR-related stress-response signaling"
-    ]
+    "herbSlug": "",
+    "herbName": "Ashwagandha",
+    "rawCompound": "Withanoside V",
+    "normalizedAtom": "withanoside v",
+    "canonicalCompoundId": "withanoside-v",
+    "canonicalCompoundName": "Withanoside V",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
+    "herbName": "Epimedium",
+    "rawCompound": "",
+    "normalizedAtom": "icaritin",
+    "canonicalCompoundId": "icaritin",
+    "canonicalCompoundName": "Icaritin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
+  },
+  {
+    "herbSlug": "",
+    "herbName": "Epimedium",
+    "rawCompound": "",
+    "normalizedAtom": "desmethylicaritin",
+    "canonicalCompoundId": "desmethylicaritin",
+    "canonicalCompoundName": "Desmethylicaritin",
+    "v3MatchType": "",
+    "mappingTier": "",
+    "mechanismTags": [],
+    "pathwayTargets": []
   }
 ]
