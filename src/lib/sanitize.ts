@@ -108,3 +108,59 @@ export function splitClean(value: unknown): string[] {
 
   return []
 }
+
+function normalizeForDedup(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^\w\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function ensureTerminalPunctuation(value: string): string {
+  if (!value) return value
+  return /[.!?]$/.test(value) ? value : `${value}.`
+}
+
+/** Remove duplicated/near-duplicated list entries and cap length when needed. */
+export function uniqueNormalizedList(value: unknown, maxItems?: number): string[] {
+  const unique = new Map<string, string>()
+
+  cleanList(value).forEach(item => {
+    const key = normalizeForDedup(item)
+    if (!key || unique.has(key)) return
+    unique.set(key, item)
+  })
+
+  const values = Array.from(unique.values())
+  return typeof maxItems === 'number' ? values.slice(0, Math.max(0, maxItems)) : values
+}
+
+/** Clean malformed punctuation/spacing and remove repeated sentence fragments in prose strings. */
+export function sanitizeReadableText(value: unknown): string {
+  const base = cleanText(value)
+  if (!base) return ''
+
+  const normalized = base
+    .replace(/\s+/g, ' ')
+    .replace(/\s*([,;:.!?])\s*/g, '$1 ')
+    .replace(/([,;:.!?]){2,}/g, '$1')
+    .replace(/(?:\.\s*){2,}/g, '. ')
+    .replace(/,\s*\./g, '. ')
+    .trim()
+
+  const sentenceParts = normalized
+    .split(/(?<=[.!?])\s+/)
+    .map(part => part.trim())
+    .filter(Boolean)
+
+  const deduped = new Map<string, string>()
+  sentenceParts.forEach(part => {
+    const withPunctuation = ensureTerminalPunctuation(part.replace(/[.!?]+$/g, '').trim())
+    const key = normalizeForDedup(withPunctuation)
+    if (!key || deduped.has(key)) return
+    deduped.set(key, withPunctuation)
+  })
+
+  return Array.from(deduped.values()).join(' ').trim()
+}

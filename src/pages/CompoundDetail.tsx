@@ -1,10 +1,10 @@
-import { type ReactNode } from 'react'
+import { type ReactNode, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
 import { useCompoundDataState, useCompoundDetailState } from '@/lib/compound-data'
 import { useHerbDataState } from '@/lib/herb-data'
-import { splitClean } from '@/lib/sanitize'
+import { sanitizeReadableText, splitClean, uniqueNormalizedList } from '@/lib/sanitize'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { getCompoundDataCompleteness } from '@/utils/getDataCompleteness'
@@ -66,14 +66,29 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   )
 }
 
-function ListSection({ items }: { items: string[] }) {
+function ListSection({ items, maxVisible = 8 }: { items: string[]; maxVisible?: number }) {
+  const [expanded, setExpanded] = useState(false)
   if (!items.length) return null
+  const cappedMax = Math.max(1, maxVisible)
+  const visibleItems = expanded ? items : items.slice(0, cappedMax)
+  const hasOverflow = items.length > cappedMax
   return (
-    <ul className='list-disc space-y-1 pl-5'>
-      {items.map(item => (
-        <li key={item}>{item}</li>
-      ))}
-    </ul>
+    <>
+      <ul className='list-disc space-y-1 pl-5'>
+        {visibleItems.map(item => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      {hasOverflow && (
+        <button
+          type='button'
+          className='mt-2 text-xs font-medium text-emerald-200/90 hover:text-emerald-100'
+          onClick={() => setExpanded(value => !value)}
+        >
+          {expanded ? 'Show less' : `Show ${items.length - cappedMax} more`}
+        </button>
+      )}
+    </>
   )
 }
 
@@ -175,15 +190,22 @@ export default function CompoundDetail() {
     normalizeTextValue(compoundRecord.name) ||
     normalizeTextValue(compoundRecord.id) ||
     'Unknown compound'
-  const evidence = normalizeTextValue(compoundRecord.evidence)
-  const pharmacokinetics = normalizeTextValue(compoundRecord.pharmacokinetics)
-  const pathwayTargets = splitClean(compoundRecord.pathwayTargets)
-  const workbookSources = splitPipeList(compoundRecord.sourceUrls)
-  const relatedHerbSlugs = splitClean(compoundRecord.relatedHerbSlugs)
+  const evidence = sanitizeReadableText(compoundRecord.evidence)
+  const pharmacokinetics = sanitizeReadableText(compoundRecord.pharmacokinetics)
+  const pathwayTargets = uniqueNormalizedList(splitClean(compoundRecord.pathwayTargets))
+  const workbookSources = uniqueNormalizedList(splitPipeList(compoundRecord.sourceUrls))
+  const relatedHerbSlugs = uniqueNormalizedList(splitClean(compoundRecord.relatedHerbSlugs))
+  const compoundEffects = uniqueNormalizedList(compound.effects)
+  const compoundContraindications = uniqueNormalizedList(compound.contraindications)
+  const compoundSideEffects = uniqueNormalizedList(compound.sideEffects)
+  const compoundTherapeuticUses = uniqueNormalizedList(compound.therapeuticUses)
+  const compoundInteractions = uniqueNormalizedList(compound.interactions)
+  const compoundDescription = sanitizeReadableText(compound.description)
+  const compoundMechanism = sanitizeReadableText(compound.mechanism)
   const drugInteractions = normalizeTextValue(compoundRecord.drugInteractions)
   const uniqueDrugInteractionItems = Array.from(
     new Map(
-      [...compound.interactions, ...(drugInteractions ? [drugInteractions] : [])]
+      [...compoundInteractions, ...(drugInteractions ? [sanitizeReadableText(drugInteractions)] : [])]
         .map(item => normalizeTextValue(item))
         .filter(Boolean)
         .map(item => [normalizeKey(item), item]),
@@ -212,8 +234,8 @@ export default function CompoundDetail() {
     })
   })
 
-  const whyItMatters = compound.effects.slice(0, 2).join(' + ')
-  const doesText = compound.mechanism || compound.description
+  const whyItMatters = compoundEffects.slice(0, 2).join(' + ')
+  const doesText = compoundMechanism || compoundDescription
   const premiumDetails = [
     { title: 'Identity', value: compound.identity },
     {
@@ -273,39 +295,39 @@ export default function CompoundDetail() {
   const confidence =
     compound.confidence ??
     calculateCompoundConfidence({
-      mechanism: compound.mechanism,
-      effects: compound.effects,
+      mechanism: compoundMechanism,
+      effects: compoundEffects,
       compounds: compound.herbs,
     })
 
   const completeness = getCompoundDataCompleteness({
-    mechanism: compound.mechanism,
-    effects: compound.effects,
-    contraindications: compound.contraindications,
-    interactions: compound.interactions,
+    mechanism: compoundMechanism,
+    effects: compoundEffects,
+    contraindications: compoundContraindications,
+    interactions: compoundInteractions,
     herbs: compound.herbs,
   })
 
-  const primaryEffects = extractPrimaryEffects(compound.effects, 4)
+  const primaryEffects = extractPrimaryEffects(compoundEffects, 4)
 
   const sourceCount = compound.sources.length
   const cautionCount = countCautionSignals({
-    contraindications: compound.contraindications,
-    interactions: compound.interactions,
-    sideEffects: compound.sideEffects,
+    contraindications: compoundContraindications,
+    interactions: compoundInteractions,
+    sideEffects: compoundSideEffects,
   })
   const { hasInferredContent, hasFallbackContent } = inferContentFlags({
-    description: compound.description,
-    mechanism: compound.mechanism,
-    effects: compound.effects,
-    therapeuticUses: compound.therapeuticUses,
+    description: compoundDescription,
+    mechanism: compoundMechanism,
+    effects: compoundEffects,
+    therapeuticUses: compoundTherapeuticUses,
   })
 
   const keyFields = pickNonEmptyKeys(
     {
-      mechanism: compound.mechanism,
-      effects: compound.effects,
-      contraindications: compound.contraindications,
+      mechanism: compoundMechanism,
+      effects: compoundEffects,
+      contraindications: compoundContraindications,
       herbs: compound.herbs,
     },
     ['mechanism', 'effects', 'contraindications', 'herbs'],
@@ -373,17 +395,17 @@ export default function CompoundDetail() {
       : null
   const fallbackIntro = buildFallbackCompoundIntro({
     compoundName: name,
-    description: compound.description,
-    mechanism: compound.mechanism,
-    therapeuticUses: compound.therapeuticUses,
+    description: compoundDescription,
+    mechanism: compoundMechanism,
+    therapeuticUses: compoundTherapeuticUses,
     primaryEffects,
     linkedHerbCount: linkedHerbs.length,
     confidence,
     sourceCount,
     cautionCount,
-    contraindications: compound.contraindications,
-    interactions: compound.interactions,
-    sideEffects: compound.sideEffects,
+    contraindications: compoundContraindications,
+    interactions: compoundInteractions,
+    sideEffects: compoundSideEffects,
     introFacts,
   })
   const governedIntro = buildGovernedDetailIntro({
@@ -394,7 +416,7 @@ export default function CompoundDetail() {
   })
   const governedReviewFreshness = buildGovernedReviewFreshness(governedResearch)
   const topSummary =
-    governedIntro.whatItIs || governedIntro.commonUse || compound.description || compound.mechanism
+    governedIntro.whatItIs || governedIntro.commonUse || compoundDescription || compoundMechanism
   const enrichmentRecommendations = buildEnrichmentRecommendations('compound', compound.slug)
   const quickCompareSection = buildGovernedQuickCompareSection('compound', compound.slug)
   const recommendationNames = {
@@ -405,12 +427,12 @@ export default function CompoundDetail() {
   // Derive a display class — category only if it's meaningful
   const displayClass =
     compound.className || (compound.category !== 'Uncategorized' ? compound.category : '')
-  const compoundEffectsMetaText = Array.isArray(compound.effects)
-    ? compound.effects.join(', ').slice(0, 155)
+  const compoundEffectsMetaText = Array.isArray(compoundEffects)
+    ? compoundEffects.join(', ').slice(0, 155)
     : ''
   const compoundDescriptionSource = (
-    compound.description ||
-    compound.mechanism ||
+    compoundDescription ||
+    compoundMechanism ||
     compoundEffectsMetaText
   ).trim()
   const baseCompoundMetaDescription = formatMetaDescription(
@@ -484,9 +506,9 @@ export default function CompoundDetail() {
           <div className='flex flex-wrap items-start justify-between gap-3'>
             <h1 className='text-3xl font-semibold leading-tight'>{name}</h1>
           </div>
-          {(compound.description || topSummary) && (
+          {(compoundDescription || topSummary) && (
             <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>
-              {compound.description || topSummary}
+              {compoundDescription || topSummary}
             </p>
           )}
           {(confidence || evidence || sourceCount > 0 || cautionCount > 0) && (
@@ -529,9 +551,9 @@ export default function CompoundDetail() {
         </header>
 
         {/* Core fields — only render when value is present */}
-        {compound.description && compound.description !== topSummary && (
+        {compoundDescription && compoundDescription !== topSummary && (
           <Section title='Overview'>
-            {compound.description}
+            {compoundDescription}
             {topSummary && <p className='mt-3 text-white/80'>{topSummary}</p>}
             {displayClass && (
               <p className='mt-3 text-xs uppercase tracking-[0.12em] text-white/55'>
@@ -575,11 +597,11 @@ export default function CompoundDetail() {
           </Section>
         )}
 
-        {compound.mechanism && <Section title='Mechanism of Action'>{compound.mechanism}</Section>}
+        {compoundMechanism && <Section title='Mechanism of Action'>{compoundMechanism}</Section>}
 
-        {compound.effects.length > 0 && (
+        {compoundEffects.length > 0 && (
           <Section title='Effects'>
-            <ListSection items={compound.effects} />
+            <ListSection items={compoundEffects} maxVisible={6} />
           </Section>
         )}
 
@@ -602,31 +624,31 @@ export default function CompoundDetail() {
           </section>
         )}
 
-        {compound.therapeuticUses.length > 0 && (
+        {compoundTherapeuticUses.length > 0 && (
           <section className='border-white/8 mt-6 border-t pt-5'>
             <Collapse title='Traditional & Therapeutic Use'>
               <div className='text-sm leading-relaxed text-white/85'>
-                <ListSection items={compound.therapeuticUses} />
+                <ListSection items={compoundTherapeuticUses} maxVisible={6} />
               </div>
             </Collapse>
           </section>
         )}
 
         {/* Safety */}
-        {(compound.contraindications.length > 0 ||
-          compound.interactions.length > 0 ||
-          compound.sideEffects.length > 0 ||
+        {(compoundContraindications.length > 0 ||
+          compoundInteractions.length > 0 ||
+          compoundSideEffects.length > 0 ||
           uniqueDrugInteractionItems.length > 0) && (
           <section id='governed-safety-interactions' className='border-white/8 mt-6 border-t pt-5'>
             <Collapse title='Safety Notes'>
               <div className='space-y-4 text-sm leading-relaxed text-white/85'>
-                {compound.contraindications.length > 0 && (
+                {compoundContraindications.length > 0 && (
                   <div>
                     <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
                       Contraindications
                     </h3>
                     <ul className='space-y-2'>
-                      {compound.contraindications.map(item => (
+                      {compoundContraindications.map(item => (
                         <li
                           key={item}
                           className='rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-2 text-rose-100'
@@ -645,15 +667,15 @@ export default function CompoundDetail() {
                     <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
                       Drug Interactions
                     </h3>
-                    <ListSection items={uniqueDrugInteractionItems} />
+                    <ListSection items={uniqueDrugInteractionItems} maxVisible={6} />
                   </div>
                 )}
-                {compound.sideEffects.length > 0 && (
+                {compoundSideEffects.length > 0 && (
                   <div>
                     <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
                       Side Effects
                     </h3>
-                    <ListSection items={compound.sideEffects} />
+                    <ListSection items={compoundSideEffects} maxVisible={6} />
                   </div>
                 )}
               </div>

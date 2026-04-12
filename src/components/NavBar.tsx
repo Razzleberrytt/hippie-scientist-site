@@ -1,7 +1,6 @@
-import { type FormEvent, useEffect, useMemo, useState } from 'react'
+import { type FormEvent, useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
-import { getDailyDiscoverySnippet } from '@/utils/contentSnippets'
 
 const linkBase =
   'inline-flex min-h-11 items-center justify-center rounded-xl px-3.5 text-sm font-medium transition-all duration-200'
@@ -18,7 +17,6 @@ export default function NavBar() {
   const location = useLocation()
   const navigate = useNavigate()
   const isHome = location.pathname === '/'
-  const dailyDiscovery = useMemo(() => getDailyDiscoverySnippet(), [])
   useEffect(() => {
     setMenuOpen(false)
   }, [location])
@@ -208,30 +206,6 @@ export default function NavBar() {
           </div>
         )}
       </nav>
-      <div className='border-white/8 border-t bg-white/[0.03]'>
-        <div className='mx-auto flex max-w-7xl flex-wrap items-center gap-x-5 gap-y-1 px-4 py-1.5 text-[11px] tracking-[0.08em] text-white/55 sm:px-6'>
-          {dailyDiscovery && (
-            <Link
-              to={dailyDiscovery.ctaPath}
-              className='text-emerald-100/80 hover:text-emerald-100'
-            >
-              Today&apos;s discovery: {dailyDiscovery.title}
-            </Link>
-          )}
-          <span className='inline-flex items-center gap-1.5 whitespace-nowrap'>
-            <span aria-hidden='true'>🧪</span>
-            Research-based herbal knowledge
-          </span>
-          <span className='inline-flex items-center gap-1.5 whitespace-nowrap'>
-            <span aria-hidden='true'>⚠️</span>
-            Safety-first, harm-reduction approach
-          </span>
-          <span className='inline-flex items-center gap-1.5 whitespace-nowrap'>
-            <span aria-hidden='true'>↻</span>
-            Continuously updated database
-          </span>
-        </div>
-      </div>
     </header>
   )
 }
