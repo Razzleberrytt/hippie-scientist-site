@@ -603,6 +603,14 @@ export function getSharedRouteManifest() {
     noindex: true,
     reason: 'utility-route',
   })
+  ;['/downloads', '/contribute', '/interactions', '/compare', '/guides/unknown-compound-survival-guide'].forEach(
+    route => {
+      putRouteDirectives(route, {
+        noindex: true,
+        reason: 'thin-static-utility-route',
+      })
+    },
+  )
 
   const goalRoutes = extractGoalRoutes()
   goalRoutes.forEach(route => {

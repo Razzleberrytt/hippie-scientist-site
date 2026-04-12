@@ -210,6 +210,9 @@ function run() {
 
   const routeSets = {
     prerenderRoutes: new Set(prerenderRoutes),
+    sitemapEligiblePrerenderRoutes: new Set(
+      prerenderRoutes.filter(route => routeDirectives.get(route)?.noindex !== true),
+    ),
     sharedSitemapRoutes: new Set(sitemapRoutes),
   }
 
@@ -221,8 +224,16 @@ function run() {
 
   const setDiff = (left, right) => [...left].filter(route => !right.has(route)).sort()
 
-  addMismatch('shared-sitemap-vs-prerender', setDiff(routeSets.sharedSitemapRoutes, routeSets.prerenderRoutes), setDiff(routeSets.prerenderRoutes, routeSets.sharedSitemapRoutes))
-  addMismatch('sitemap-xml-vs-prerender', setDiff(sitemapXmlRoutes, routeSets.prerenderRoutes), setDiff(routeSets.prerenderRoutes, sitemapXmlRoutes))
+  addMismatch(
+    'shared-sitemap-vs-prerender',
+    setDiff(routeSets.sharedSitemapRoutes, routeSets.sitemapEligiblePrerenderRoutes),
+    setDiff(routeSets.sitemapEligiblePrerenderRoutes, routeSets.sharedSitemapRoutes),
+  )
+  addMismatch(
+    'sitemap-xml-vs-prerender',
+    setDiff(sitemapXmlRoutes, routeSets.sitemapEligiblePrerenderRoutes),
+    setDiff(routeSets.sitemapEligiblePrerenderRoutes, sitemapXmlRoutes),
+  )
   addMismatch('dist-html-vs-prerender', setDiff(distRoutes, routeSets.prerenderRoutes), setDiff(routeSets.prerenderRoutes, distRoutes))
   addMismatch('publication-manifest-vs-prerender-entities', setDiff(publicationEntityRoutes, new Set([...routeSets.prerenderRoutes].filter(route => route.startsWith('/herbs/') || route.startsWith('/compounds/')))), setDiff(new Set([...routeSets.prerenderRoutes].filter(route => route.startsWith('/herbs/') || route.startsWith('/compounds/')),), publicationEntityRoutes))
 

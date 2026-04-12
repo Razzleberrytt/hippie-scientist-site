@@ -124,8 +124,9 @@ function verifyHeadTags(route) {
   return { route, ok: true, bodyLength: bodyText.length, titleCount }
 }
 
-const onlyInSitemap = difference(sitemapRoutes, prerenderRoutes)
-const onlyInPrerender = difference(prerenderRoutes, sitemapRoutes)
+const sitemapEligiblePrerenderRoutes = prerenderRoutes.filter(route => routeDirectives.get(route)?.noindex !== true)
+const onlyInSitemap = difference(sitemapRoutes, sitemapEligiblePrerenderRoutes)
+const onlyInPrerender = difference(sitemapEligiblePrerenderRoutes, sitemapRoutes)
 
 const samples = []
 const blogDetail = prerenderRoutes.find(route => route.startsWith('/blog/') && !route.includes('/page/'))

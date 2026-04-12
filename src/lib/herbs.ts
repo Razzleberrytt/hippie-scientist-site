@@ -83,13 +83,14 @@ const allHerbsPromise = Promise.all([workbookHerbsPromise, loadLegacyHerbData()]
   },
 )
 
-export const workbookHerbs: HerbRecord[] = await workbookHerbsPromise
-export const allHerbs: HerbRecord[] = await allHerbsPromise
+export const workbookHerbs: Promise<HerbRecord[]> = workbookHerbsPromise
+export const allHerbs: Promise<HerbRecord[]> = allHerbsPromise
 
-export function getHerbBySlug(slug: string): HerbRecord | undefined {
+export async function getHerbBySlug(slug: string): Promise<HerbRecord | undefined> {
   const slugKey = normalizeSlug(slug)
   if (!slugKey) return undefined
-  return allHerbs.find(herb => normalizeSlug(herb.slug) === slugKey)
+  const herbs = await allHerbsPromise
+  return herbs.find(herb => normalizeSlug(herb.slug) === slugKey)
 }
 
 function normList(value?: ListLike): string[] {

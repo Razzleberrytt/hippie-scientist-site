@@ -231,6 +231,8 @@ function loadEntitySlugSets() {
     herb: path.join(ROOT, 'public', 'data', 'herbs-detail'),
     compound: path.join(ROOT, 'public', 'data', 'compounds-detail'),
   }
+  const aliasFile = path.join(ROOT, 'public', 'data', 'entity-slug-aliases.json')
+  const aliases = fs.existsSync(aliasFile) ? readJson(aliasFile) : {}
 
   return Object.fromEntries(
     Object.entries(entityDirs).map(([entityType, dir]) => {
@@ -240,6 +242,15 @@ function loadEntitySlugSets() {
           .filter(name => name.endsWith('.json'))
           .map(name => name.replace(/\.json$/u, '')),
       )
+
+      const aliasEntries = Object.entries(aliases?.[`${entityType}s`] || {})
+      aliasEntries.forEach(([aliasPath]) => {
+        const aliasSlug = String(aliasPath)
+          .split('/')
+          .filter(Boolean)
+          .at(-1)
+        if (aliasSlug) slugSet.add(aliasSlug)
+      })
       return [entityType, slugSet]
     }),
   )
