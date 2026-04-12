@@ -10,22 +10,58 @@ const repoRoot = process.cwd()
 const workbookPath = resolveWorkbookPath(repoRoot)
 const dataDir = path.join(repoRoot, 'public', 'data')
 const EXPORT_WORKBOOK_SHEETS = ['Herb Monographs', 'Compound Master V3', 'Herb Compound Map V3', 'Production Export V1']
+const OPTIONAL_WORKBOOK_SHEETS = new Set(['Production Export V1'])
+const WEAK_TEXT_VALUES = new Set(['nan', 'null', 'undefined', 'n/a', 'na', 'none', 'nil'])
+const SHEET_REQUIRED_COLUMNS = {
+  'Herb Monographs': ['name', 'publishStatus'],
+  'Compound Master V3': ['compoundName'],
+  'Herb Compound Map V3': ['herbSlug', 'canonicalCompoundId'],
+  'Production Export V1': ['goal'],
+}
+
+function createDiagnostics() {
+  return {
+    sheets: Object.fromEntries(
+      EXPORT_WORKBOOK_SHEETS.map(sheetName => [
+        sheetName,
+        {
+          loadedRows: 0,
+          skippedRows: 0,
+          parseWarnings: [],
+          missingRequiredColumns: [],
+        },
+      ])
+    ),
+  }
+}
 
 function toCleanString(value) {
-  const text = String(value ?? '').replace(/\bnan\b/gi, '').trim()
+  const text = String(value ?? '').trim()
+  if (!text) return ''
+  if (WEAK_TEXT_VALUES.has(text.toLowerCase())) return ''
   return text
 }
 
 function splitList(value, pattern = /[;|]/) {
   const text = toCleanString(value)
   if (!text) return []
-  return [...new Set(text.split(pattern).map(item => toCleanString(item)).filter(item => item && item.toLowerCase() !== 'nan'))]
+  return [...new Set(text.split(pattern).map(item => toCleanString(item)).filter(Boolean))]
 }
 
 function cleanScalar(value) {
   if (value == null) return ''
   if (typeof value === 'string') return toCleanString(value)
   return value
+}
+
+function isMeaningfulValue(value) {
+  if (value == null) return false
+  if (typeof value === 'string') return toCleanString(value) !== ''
+  return true
+}
+
+function splitSemicolonOrCommaList(value) {
+  return splitList(value, /[;,|]/)
 }
 
 function slugify(value) {
@@ -48,23 +84,44 @@ function dedupeBy(records, keyFn) {
   return output
 }
 
-function readSheetRows(workbook, sheetName, { optional = false } = {}) {
+function readSheetRows(workbook, sheetName, diagnostics, { optional = false } = {}) {
+  const sheetDiagnostics = diagnostics.sheets[sheetName]
   const sheet = workbook.Sheets[sheetName]
   if (!sheet) {
-    if (optional) return []
+    if (optional) {
+      sheetDiagnostics.parseWarnings.push('Sheet not present; treated as optional and skipped.')
+      return []
+    }
     throw new Error(`Missing sheet: ${sheetName}`)
   }
+
   const rows = XLSX.utils.sheet_to_json(sheet, {
     defval: '',
     raw: false,
     blankrows: false,
   })
+  sheetDiagnostics.loadedRows = rows.length
 
-  return rows.map(row => canonicalizeWorkbookRow(row, sheetName))
+  const canonicalRows = rows.map(row => canonicalizeWorkbookRow(row, sheetName))
+  const requiredColumns = SHEET_REQUIRED_COLUMNS[sheetName] || []
+  const observedColumns = new Set(canonicalRows.flatMap(row => Object.keys(row || {})))
+  const missingRequiredColumns = requiredColumns.filter(column => !observedColumns.has(column))
+  if (missingRequiredColumns.length > 0) {
+    sheetDiagnostics.missingRequiredColumns = missingRequiredColumns
+    sheetDiagnostics.parseWarnings.push(`Missing required columns: ${missingRequiredColumns.join(', ')}`)
+  }
+
+  const nonEmptyRows = canonicalRows.filter(row => {
+    const hasData = Object.values(row || {}).some(isMeaningfulValue)
+    if (!hasData) sheetDiagnostics.skippedRows += 1
+    return hasData
+  })
+
+  return nonEmptyRows
 }
 
-function exportHerbs(workbook) {
-  const rows = readSheetRows(workbook, 'Herb Monographs')
+function exportHerbs(workbook, diagnostics) {
+  const rows = readSheetRows(workbook, 'Herb Monographs', diagnostics)
 
   const records = rows
     .map(row => ({
@@ -73,18 +130,18 @@ function exportHerbs(workbook) {
       scientificName: cleanScalar(row.scientificName),
       category: cleanScalar(row.category),
       plantPartUsed: cleanScalar(row.plantPartUsed),
-      commonNames: splitList(row.commonNames),
+      commonNames: splitSemicolonOrCommaList(row.commonNames),
       region: cleanScalar(row.region),
       summary: cleanScalar(row.summary),
       description: cleanScalar(row.description),
       mechanism: cleanScalar(row.mechanism),
-      mechanismTags: splitList(row.mechanismTags),
+      mechanismTags: splitSemicolonOrCommaList(row.mechanismTags),
       evidenceLevel: cleanScalar(row.evidenceLevel),
-      activeCompounds: splitList(row.activeCompounds),
-      markerCompounds: splitList(row.markerCompounds),
+      activeCompounds: splitSemicolonOrCommaList(row.activeCompounds),
+      markerCompounds: splitSemicolonOrCommaList(row.markerCompounds),
       safetyNotes: cleanScalar(row.safetyNotes),
-      interactions: splitList(row.interactions),
-      contraindications: splitList(row.contraindications),
+      interactions: splitSemicolonOrCommaList(row.interactions),
+      contraindications: splitSemicolonOrCommaList(row.contraindications),
       preparation: cleanScalar(row.preparation),
       dosage: cleanScalar(row.dosage),
       standardization: cleanScalar(row.standardization),
@@ -96,7 +153,7 @@ function exportHerbs(workbook) {
       completenessPct: cleanScalar(row.completenessPct),
       priorityTier: cleanScalar(row.reviewPriority),
       totalScore: cleanScalar(row.totalScore),
-      pathwayTargets: splitList(row.pathwayTargets),
+      pathwayTargets: splitSemicolonOrCommaList(row.pathwayTargets),
       compound_count: cleanScalar(row.compound_count),
       pathway_count: cleanScalar(row.pathway_count),
       evidence_tier: cleanScalar(row.evidence_tier),
@@ -109,35 +166,39 @@ function exportHerbs(workbook) {
     }))
     .filter(record => Boolean(record.publishStatus))
 
-  return dedupeBy(records, record => record.slug || record.name)
+  const deduped = dedupeBy(records, record => record.slug || record.name)
+  diagnostics.sheets['Herb Monographs'].skippedRows += records.length - deduped.length
+  return deduped
 }
 
-function exportCompounds(workbook) {
-  const rows = readSheetRows(workbook, 'Compound Master V3')
+function exportCompounds(workbook, diagnostics) {
+  const rows = readSheetRows(workbook, 'Compound Master V3', diagnostics)
   const records = rows.map(row => ({
     id: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.canonicalCompoundName || row.Compound),
     name: cleanScalar(row.compoundName || row.canonicalCompoundName || row.Compound),
-    aliases: splitList(row.aliases),
+    aliases: splitSemicolonOrCommaList(row.aliases),
     compoundClass: cleanScalar(row.compoundClass),
     mechanism: cleanScalar(row.mechanism),
-    mechanismTags: splitList(row.mechanismTags),
-    pathwayTargets: splitList(row.pathwayTargets),
+    mechanismTags: splitSemicolonOrCommaList(row.mechanismTags),
+    pathwayTargets: splitSemicolonOrCommaList(row.pathwayTargets),
     pharmacokinetics: cleanScalar(row.pharmacokinetics),
     safetyNotes: cleanScalar(row.safetyNotes),
     drugInteractions: cleanScalar(row.drugInteractions),
     confidence: cleanScalar(row.confidence),
     evidence: cleanScalar(row.evidence),
     sourceUrls: splitList(row.sourceUrls, /\s\|\s/),
-    relatedHerbSlugs: splitList(row.relatedHerbSlugs),
+    relatedHerbSlugs: splitSemicolonOrCommaList(row.relatedHerbSlugs),
     herbCount: cleanScalar(row.herbCount),
     reverseLookupReady: cleanScalar(row.reverseLookupReady),
   }))
 
-  return dedupeBy(records, record => record.id || record.name)
+  const deduped = dedupeBy(records, record => record.id || record.name)
+  diagnostics.sheets['Compound Master V3'].skippedRows += records.length - deduped.length
+  return deduped
 }
 
-function exportHerbCompoundMap(workbook) {
-  const rows = readSheetRows(workbook, 'Herb Compound Map V3')
+function exportHerbCompoundMap(workbook, diagnostics) {
+  const rows = readSheetRows(workbook, 'Herb Compound Map V3', diagnostics)
   const records = rows.map(row => ({
     herbSlug: cleanScalar(row.herbSlug),
     herbName: cleanScalar(row.herbName),
@@ -147,11 +208,13 @@ function exportHerbCompoundMap(workbook) {
     canonicalCompoundName: cleanScalar(row.canonicalCompoundName),
     v3MatchType: cleanScalar(row.v3MatchType),
     mappingTier: cleanScalar(row.mappingTier),
-    mechanismTags: splitList(row.mechanismTags),
-    pathwayTargets: splitList(row.pathwayTargets),
+    mechanismTags: splitSemicolonOrCommaList(row.mechanismTags),
+    pathwayTargets: splitSemicolonOrCommaList(row.pathwayTargets),
   }))
 
-  return dedupeBy(records, record => `${record.herbSlug}::${record.canonicalCompoundId}::${record.rawCompound}`)
+  const deduped = dedupeBy(records, record => `${record.herbSlug}::${record.canonicalCompoundId}::${record.rawCompound}`)
+  diagnostics.sheets['Herb Compound Map V3'].skippedRows += records.length - deduped.length
+  return deduped
 }
 
 function cleanGoalValue(value) {
@@ -161,8 +224,8 @@ function cleanGoalValue(value) {
   return cleanScalar(value)
 }
 
-function exportGoalBundles(workbook) {
-  const rows = readSheetRows(workbook, 'Production Export V1', { optional: true })
+function exportGoalBundles(workbook, diagnostics) {
+  const rows = readSheetRows(workbook, 'Production Export V1', diagnostics, { optional: true })
   const records = rows
     .map(row => ({
       goal: cleanGoalValue(row.goal),
@@ -183,7 +246,9 @@ function exportGoalBundles(workbook) {
     }))
     .filter(record => typeof record.goal === 'string' && record.goal.trim() !== '')
 
-  return dedupeBy(records, record => `${record.goal}::${record.rank}::${record.stack}`)
+  const deduped = dedupeBy(records, record => `${record.goal}::${record.rank}::${record.stack}`)
+  diagnostics.sheets['Production Export V1'].skippedRows += records.length - deduped.length
+  return deduped
 }
 
 function writeJson(filename, records) {
@@ -194,12 +259,34 @@ function writeJson(filename, records) {
 }
 
 function main() {
-  const workbook = XLSX.readFile(workbookPath, { sheets: EXPORT_WORKBOOK_SHEETS })
+  const diagnostics = createDiagnostics()
+  const workbook = XLSX.readFile(workbookPath)
 
-  writeJson('workbook-herbs.json', exportHerbs(workbook))
-  writeJson('workbook-compounds.json', exportCompounds(workbook))
-  writeJson('workbook-herb-compound-map.json', exportHerbCompoundMap(workbook))
-  writeJson('workbook-goal-bundles.json', exportGoalBundles(workbook))
+  for (const sheetName of EXPORT_WORKBOOK_SHEETS) {
+    if (!workbook.Sheets[sheetName] && !OPTIONAL_WORKBOOK_SHEETS.has(sheetName)) {
+      throw new Error(`Missing sheet: ${sheetName}`)
+    }
+  }
+
+  writeJson('workbook-herbs.json', exportHerbs(workbook, diagnostics))
+  writeJson('workbook-compounds.json', exportCompounds(workbook, diagnostics))
+  writeJson('workbook-herb-compound-map.json', exportHerbCompoundMap(workbook, diagnostics))
+  writeJson('workbook-goal-bundles.json', exportGoalBundles(workbook, diagnostics))
+
+  for (const sheetName of EXPORT_WORKBOOK_SHEETS) {
+    const sheetDiagnostics = diagnostics.sheets[sheetName]
+    console.log(
+      `[export][diagnostics] ${sheetName}: loaded=${sheetDiagnostics.loadedRows} skipped=${sheetDiagnostics.skippedRows}`
+    )
+    if (sheetDiagnostics.missingRequiredColumns.length > 0) {
+      console.warn(
+        `[export][diagnostics] ${sheetName}: missing required columns => ${sheetDiagnostics.missingRequiredColumns.join(', ')}`
+      )
+    }
+    for (const warning of sheetDiagnostics.parseWarnings) {
+      console.warn(`[export][diagnostics] ${sheetName}: warning => ${warning}`)
+    }
+  }
 }
 
 main()
