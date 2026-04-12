@@ -962,8 +962,6 @@ function patchCompound(compound, row, reservedCanonicalIds, fieldPatchCounts) {
   const mechanismTags = dedupeStrings(splitSemicolonDelimited(row.mechanismTags))
   if (shouldPatchArray(compound.mechanismTags, mechanismTags, { minItems: 1, minGain: 12 })) {
     patched = patchField(compound, 'mechanismTags', mechanismTags, fieldPatchCounts) || patched
-  } else if (shouldPatchScalar(compound.mechanismTags, mechanismTags.join('; '), { minCandidateLength: 2, minGain: 0 })) {
-    patched = patchField(compound, 'mechanismTags', mechanismTags.join('; '), fieldPatchCounts) || patched
   }
 
   const pathwayTargets = dedupeStrings(splitSemicolonDelimited(row.pathwayTargets))
