@@ -15,11 +15,6 @@
     "scientificName": "Tanacetum parthenium"
   },
   {
-    "slug": "butterbur",
-    "name": "Butterbur",
-    "scientificName": "Petasites hybridus"
-  },
-  {
     "slug": "pau-darco",
     "name": "Pau d'Arco",
     "scientificName": "Handroanthus impetiginosus"
@@ -188,11 +183,6 @@
     "slug": "turkey-tail",
     "name": "Turkey Tail",
     "scientificName": "Trametes versicolor"
-  },
-  {
-    "slug": "nettle-root",
-    "name": "Nettle Root",
-    "scientificName": "Urtica dioica"
   },
   {
     "slug": "epimedium",
