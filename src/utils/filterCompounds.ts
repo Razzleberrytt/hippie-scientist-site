@@ -79,18 +79,25 @@ export function filterCompounds(
     return true
   })
 
-  const browseQuality = applyBrowseQualityGate(filtered, compound =>
-    assessBrowseRecord({
-      name: compound.name,
-      summary: compound.summaryShort || compound.description,
-      description: compound.description,
-      mechanism: compound.mechanism,
-      effects: asStringArray(compound.effects),
-      associations: asStringArray(compound.herbs),
-      sourceCount: compound.sourceCount,
-      hasEvidence: Boolean(compound.researchEnrichmentSummary?.evidenceLabel),
-    }),
-    { rankOnly: true },
+  const isDefaultBrowseView = filters.query.trim().length === 0
+  const browseQuality = applyBrowseQualityGate(
+    filtered,
+    compound =>
+      assessBrowseRecord({
+        name: compound.name,
+        summary: compound.summaryShort || compound.description,
+        description: compound.description,
+        mechanism: compound.mechanism,
+        effects: asStringArray(compound.effects),
+        associations: asStringArray(compound.herbs),
+        sourceCount: compound.sourceCount,
+        hasEvidence: Boolean(compound.researchEnrichmentSummary?.evidenceLabel),
+      }),
+    {
+      // Apply stricter browse cleanup only for default listing pages.
+      // Query-driven search keeps all matches discoverable, including low-quality records.
+      rankOnly: !isDefaultBrowseView,
+    },
   )
 
   const qualityFiltered = browseQuality.items

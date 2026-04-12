@@ -74,18 +74,25 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
     return true
   })
 
-  const browseQuality = applyBrowseQualityGate(filtered, herb =>
-    assessBrowseRecord({
-      name: herb.common || herb.name || herb.scientific || herb.slug,
-      summary: herb.summaryShort || herb.description,
-      description: herb.description,
-      mechanism: herb.mechanism || herb.mechanismOfAction,
-      effects: asStringArray(herb.effects),
-      associations: asStringArray(herb.activeCompounds || herb.active_compounds || herb.compounds),
-      sourceCount: (herb as Record<string, unknown>).sourceCount,
-      hasEvidence: Boolean(herb.researchEnrichmentSummary?.evidenceLabel),
-    }),
-    { rankOnly: true },
+  const isDefaultBrowseView = filters.query.trim().length === 0
+  const browseQuality = applyBrowseQualityGate(
+    filtered,
+    herb =>
+      assessBrowseRecord({
+        name: herb.common || herb.name || herb.scientific || herb.slug,
+        summary: herb.summaryShort || herb.description,
+        description: herb.description,
+        mechanism: herb.mechanism || herb.mechanismOfAction,
+        effects: asStringArray(herb.effects),
+        associations: asStringArray(herb.activeCompounds || herb.active_compounds || herb.compounds),
+        sourceCount: (herb as Record<string, unknown>).sourceCount,
+        hasEvidence: Boolean(herb.researchEnrichmentSummary?.evidenceLabel),
+      }),
+    {
+      // Browse-quality gate only hides/dedupes in the default listing (no query),
+      // so explicit user searches can still surface every matched record.
+      rankOnly: !isDefaultBrowseView,
+    },
   )
 
   const qualityFiltered = browseQuality.items

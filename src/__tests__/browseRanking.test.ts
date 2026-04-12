@@ -6,7 +6,7 @@ import type { Herb } from '@/types'
 import type { CompoundSummaryRecord } from '@/lib/compound-data'
 
 describe('default browse ranking', () => {
-  it('keeps default sort on quality ranking and demotes low-signal herb rows', () => {
+  it('keeps default sort on quality ranking and hides low-signal herb rows from default browse', () => {
     expect(DEFAULT_FILTER_STATE.sort).toBe('browse_quality')
 
     const herbs = [
@@ -38,13 +38,13 @@ describe('default browse ranking', () => {
     ] as Herb[]
 
     const ranked = filterHerbs(herbs, DEFAULT_FILTER_STATE)
-    expect(ranked.map(item => item.slug)).toEqual(['high', 'low'])
+    expect(ranked.map(item => item.slug)).toEqual(['high'])
 
     const searchable = filterHerbs(herbs, { ...DEFAULT_FILTER_STATE, query: 'x1' })
     expect(searchable.map(item => item.slug)).toEqual(['low'])
   })
 
-  it('demotes sparse compounds but keeps them searchable', () => {
+  it('hides sparse compounds from default browse but keeps them searchable', () => {
     const compounds = [
       {
         id: 'rich',
@@ -85,9 +85,46 @@ describe('default browse ranking', () => {
     ] as CompoundSummaryRecord[]
 
     const ranked = filterCompounds(compounds, DEFAULT_FILTER_STATE)
-    expect(ranked.map(item => item.slug)).toEqual(['rich', 'sparse'])
+    expect(ranked.map(item => item.slug)).toEqual(['rich'])
 
     const searchable = filterCompounds(compounds, { ...DEFAULT_FILTER_STATE, query: 'octamethyl' })
     expect(searchable.map(item => item.slug)).toEqual(['sparse'])
+  })
+
+  it('dedupes obvious browse clutter variants on default browse', () => {
+    const compounds = [
+      {
+        id: 'primary',
+        slug: 'rosmarinic-acid',
+        name: 'Rosmarinic Acid',
+        summaryShort: 'Useful summary with practical context.',
+        description: 'Rich metadata and herb associations.',
+        className: 'polyphenol',
+        category: 'phenolic',
+        mechanism: 'Antioxidant pathway modulation.',
+        effects: ['calm'],
+        herbs: ['lemon balm'],
+        sourceCount: 2,
+      },
+      {
+        id: 'variant',
+        slug: 'rosmarinic-acid-extract',
+        name: 'Rosmarinic Acid (L.)',
+        summaryShort: 'N/A',
+        description: 'profile still being expanded',
+        className: 'polyphenol',
+        category: 'phenolic',
+        mechanism: '',
+        effects: [],
+        herbs: [],
+        sourceCount: 0,
+      },
+    ] as CompoundSummaryRecord[]
+
+    const ranked = filterCompounds(compounds, DEFAULT_FILTER_STATE)
+    expect(ranked.map(item => item.slug)).toEqual(['rosmarinic-acid'])
+
+    const searchable = filterCompounds(compounds, { ...DEFAULT_FILTER_STATE, query: 'l.' })
+    expect(searchable.map(item => item.slug)).toEqual(['rosmarinic-acid-extract'])
   })
 })
