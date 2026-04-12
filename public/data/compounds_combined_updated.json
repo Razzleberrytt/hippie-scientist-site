@@ -11478,7 +11478,7 @@
       }
     ],
     "lastUpdated": "2026-04-04",
-    "slug": "niacin",
+    "slug": "niacin-vitamin-b3",
     "id": "niacin",
     "displayName": "Niacin (Vitamin B3)"
   },
@@ -11507,7 +11507,7 @@
       }
     ],
     "lastUpdated": "2026-04-04",
-    "slug": "omega-3-fatty-acids",
+    "slug": "omega-3-fatty-acids-epa-dha",
     "id": "omega-3-fatty-acids",
     "displayName": "Omega-3 Fatty Acids (EPA/DHA)"
   },
@@ -11532,7 +11532,7 @@
       }
     ],
     "lastUpdated": "2026-04-04",
-    "slug": "pyridoxine",
+    "slug": "pyridoxine-vitamin-b6",
     "id": "pyridoxine",
     "displayName": "Pyridoxine (Vitamin B6)"
   },
@@ -11557,7 +11557,7 @@
       }
     ],
     "lastUpdated": "2026-04-04",
-    "slug": "riboflavin",
+    "slug": "riboflavin-vitamin-b2",
     "id": "riboflavin",
     "displayName": "Riboflavin (Vitamin B2)"
   },
@@ -11586,7 +11586,7 @@
       }
     ],
     "lastUpdated": "2026-04-04",
-    "slug": "s-adenosyl-l-methionine",
+    "slug": "s-adenosyl-l-methionine-same",
     "id": "s-adenosyl-l-methionine",
     "displayName": "S-Adenosyl-L-Methionine (SAMe)"
   },
@@ -11614,7 +11614,7 @@
       }
     ],
     "lastUpdated": "2026-04-04",
-    "slug": "vitamin-d",
+    "slug": "vitamin-d-calciferols",
     "id": "vitamin-d",
     "displayName": "Vitamin D (Calciferols)"
   }
