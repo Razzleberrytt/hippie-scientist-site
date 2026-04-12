@@ -1,6 +1,6 @@
 [
   {
-    "slug": "ashwagandha",
+    "slug": "ashwagandha-wb",
     "name": "Ashwagandha",
     "scientificName": "Withania somnifera",
     "latin": "Withania somnifera",
@@ -69,7 +69,7 @@
     ]
   },
   {
-    "slug": "black-cohosh",
+    "slug": "black-cohosh-wb",
     "name": "Black Cohosh",
     "scientificName": "Actaea racemosa",
     "latin": "Actaea racemosa",
@@ -136,7 +136,7 @@
     ]
   },
   {
-    "slug": "echinacea-purpurea",
+    "slug": "echinacea-purpurea-wb",
     "name": "Echinacea Purpurea",
     "scientificName": "Echinacea purpurea",
     "latin": "Echinacea purpurea",
@@ -258,7 +258,7 @@
     ]
   },
   {
-    "slug": "ginger",
+    "slug": "ginger-wb",
     "name": "Ginger",
     "scientificName": "Zingiber officinale",
     "latin": "Zingiber officinale",
@@ -321,7 +321,7 @@
     ]
   },
   {
-    "slug": "ginkgo-biloba",
+    "slug": "ginkgo-biloba-wb",
     "name": "Ginkgo Biloba",
     "scientificName": "Ginkgo biloba",
     "latin": "Ginkgo biloba",
@@ -399,7 +399,7 @@
     ]
   },
   {
-    "slug": "holy-basil",
+    "slug": "holy-basil-wb",
     "name": "Holy Basil",
     "scientificName": "Ocimum tenuiflorum",
     "latin": "Ocimum tenuiflorum",
@@ -456,7 +456,7 @@
     ]
   },
   {
-    "slug": "kava",
+    "slug": "kava-wb",
     "name": "Kava",
     "scientificName": "Piper methysticum",
     "latin": "Piper methysticum",
@@ -523,7 +523,7 @@
     ]
   },
   {
-    "slug": "lemon-balm",
+    "slug": "lemon-balm-wb",
     "name": "Lemon Balm",
     "scientificName": "Melissa officinalis",
     "latin": "Melissa officinalis",
@@ -576,7 +576,7 @@
     ]
   },
   {
-    "slug": "maca",
+    "slug": "maca-wb",
     "name": "Maca",
     "scientificName": "Lepidium meyenii",
     "latin": "Lepidium meyenii",
@@ -684,7 +684,7 @@
     ]
   },
   {
-    "slug": "peppermint",
+    "slug": "peppermint-wb",
     "name": "Peppermint",
     "scientificName": "Mentha × piperita",
     "latin": "Mentha × piperita",
@@ -744,7 +744,7 @@
     ]
   },
   {
-    "slug": "rhodiola-rosea",
+    "slug": "rhodiola-rosea-wb",
     "name": "Rhodiola Rosea",
     "scientificName": "Rhodiola rosea",
     "latin": "Rhodiola rosea",
@@ -931,7 +931,7 @@
     ]
   },
   {
-    "slug": "turmeric",
+    "slug": "turmeric-wb",
     "name": "Turmeric",
     "scientificName": "Curcuma longa",
     "latin": "Curcuma longa",
@@ -992,7 +992,7 @@
     ]
   },
   {
-    "slug": "valerian",
+    "slug": "valerian-wb",
     "name": "Valerian",
     "scientificName": "Valeriana officinalis",
     "latin": "Valeriana officinalis",
@@ -1051,7 +1051,7 @@
     ]
   },
   {
-    "slug": "guarana",
+    "slug": "guarana-wb",
     "name": "Guarana",
     "scientificName": "Paullinia cupana",
     "latin": "Paullinia cupana",
@@ -1099,7 +1099,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "yerba-mate",
+    "slug": "yerba-mate-wb",
     "name": "Yerba Mate",
     "scientificName": "Ilex paraguariensis",
     "latin": "Ilex paraguariensis",
@@ -1148,7 +1148,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "damiana",
+    "slug": "damiana-wb",
     "name": "Damiana",
     "scientificName": "Turnera diffusa",
     "latin": "Turnera diffusa",
@@ -1196,7 +1196,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "blue-lotus",
+    "slug": "blue-lotus-wb",
     "name": "Blue Lotus",
     "scientificName": "Nymphaea caerulea",
     "latin": "Nymphaea caerulea",
@@ -1287,7 +1287,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "yarrow",
+    "slug": "yarrow-wb",
     "name": "Yarrow",
     "scientificName": "Achillea millefolium",
     "latin": "Achillea millefolium",
@@ -1335,7 +1335,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "feverfew",
+    "slug": "feverfew-wb",
     "name": "Feverfew",
     "scientificName": "Tanacetum parthenium",
     "latin": "Tanacetum parthenium",
@@ -1942,7 +1942,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "chamomile",
+    "slug": "chamomile-wb",
     "name": "Chamomile",
     "scientificName": "Matricaria chamomilla",
     "latin": "Matricaria chamomilla",
@@ -2125,7 +2125,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "pau-darco",
+    "slug": "pau-d-arco",
     "name": "Pau d'Arco",
     "scientificName": "Handroanthus impetiginosus",
     "latin": "Handroanthus impetiginosus",
@@ -2213,7 +2213,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "banaba",
+    "slug": "banaba-wb",
     "name": "Banaba",
     "scientificName": "Lagerstroemia speciosa",
     "latin": "Lagerstroemia speciosa",
@@ -2257,7 +2257,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "mulberry-leaf",
+    "slug": "mulberry-leaf-wb",
     "name": "Mulberry Leaf",
     "scientificName": "Morus alba",
     "latin": "Morus alba",
@@ -2346,7 +2346,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "mugwort",
+    "slug": "mugwort-wb",
     "name": "Mugwort",
     "scientificName": "Artemisia vulgaris",
     "latin": "Artemisia vulgaris",
@@ -2436,7 +2436,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "milky-oats",
+    "slug": "milk-oats",
     "name": "Milk Oats",
     "scientificName": "Avena sativa",
     "latin": "Avena sativa",
@@ -2482,7 +2482,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "cissus",
+    "slug": "cissus-wb",
     "name": "Cissus",
     "scientificName": "Cissus quadrangularis",
     "latin": "Cissus quadrangularis",
@@ -2524,7 +2524,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "ashitaba",
+    "slug": "ashitaba-wb",
     "name": "Ashitaba",
     "scientificName": "Angelica keiskei",
     "latin": "Angelica keiskei",
@@ -2664,7 +2664,7 @@
     ]
   },
   {
-    "slug": "arjuna",
+    "slug": "arjuna-wb",
     "name": "Arjuna",
     "scientificName": "Terminalia arjuna",
     "latin": "Terminalia arjuna",
@@ -2763,7 +2763,7 @@
     ]
   },
   {
-    "slug": "cranberry",
+    "slug": "cranberry-wb",
     "name": "Cranberry",
     "scientificName": "Vaccinium macrocarpon",
     "latin": "Vaccinium macrocarpon",
@@ -2907,7 +2907,7 @@
     ]
   },
   {
-    "slug": "myrtle",
+    "slug": "myrtle-wb",
     "name": "Myrtle",
     "scientificName": "Myrtus communis",
     "latin": "Myrtus communis",
@@ -2956,7 +2956,7 @@
     ]
   },
   {
-    "slug": "acerola",
+    "slug": "acerola-wb",
     "name": "Acerola",
     "scientificName": "Malpighia emarginata",
     "latin": "Malpighia emarginata",
@@ -3002,7 +3002,7 @@
     ]
   },
   {
-    "slug": "mangosteen",
+    "slug": "mangosteen-wb",
     "name": "Mangosteen",
     "scientificName": "Garcinia mangostana",
     "latin": "Garcinia mangostana",
@@ -3051,7 +3051,7 @@
     ]
   },
   {
-    "slug": "boldo",
+    "slug": "boldo-wb",
     "name": "Boldo",
     "scientificName": "Peumus boldus",
     "latin": "Peumus boldus",
@@ -3099,7 +3099,7 @@
     ]
   },
   {
-    "slug": "suma",
+    "slug": "suma-wb",
     "name": "Suma",
     "scientificName": "Pfaffia paniculata",
     "latin": "Pfaffia paniculata",
@@ -3149,7 +3149,7 @@
     ]
   },
   {
-    "slug": "maral-root",
+    "slug": "maral-root-wb",
     "name": "Maral Root",
     "scientificName": "Rhaponticum carthamoides",
     "latin": "Rhaponticum carthamoides",
@@ -3295,7 +3295,7 @@
     ]
   },
   {
-    "slug": "ashoka",
+    "slug": "ashoka-wb",
     "name": "Ashoka",
     "scientificName": "Saraca asoca",
     "latin": "Saraca asoca",
@@ -3343,7 +3343,7 @@
     ]
   },
   {
-    "slug": "shankhpushpi",
+    "slug": "shankhpushpi-wb",
     "name": "Shankhpushpi",
     "scientificName": "Convolvulus pluricaulis",
     "latin": "Convolvulus pluricaulis",
@@ -3391,7 +3391,7 @@
     ]
   },
   {
-    "slug": "hops",
+    "slug": "hops-wb",
     "name": "Hops",
     "scientificName": "Humulus lupulus",
     "latin": "Humulus lupulus",
@@ -3541,7 +3541,7 @@
     ]
   },
   {
-    "slug": "carob",
+    "slug": "carob-wb",
     "name": "Carob",
     "scientificName": "Ceratonia siliqua",
     "latin": "Ceratonia siliqua",
@@ -3630,7 +3630,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "eucommia",
+    "slug": "eucommia-wb",
     "name": "Eucommia",
     "scientificName": "Eucommia ulmoides",
     "latin": "Eucommia ulmoides",
@@ -3675,7 +3675,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "cistanche",
+    "slug": "cistanche-wb",
     "name": "Cistanche",
     "scientificName": "Cistanche deserticola",
     "latin": "Cistanche deserticola",
@@ -3720,7 +3720,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "jujube",
+    "slug": "jujube-wb",
     "name": "Jujube",
     "scientificName": "Ziziphus jujuba",
     "latin": "Ziziphus jujuba",
@@ -3763,7 +3763,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "longan",
+    "slug": "longan-wb",
     "name": "Longan",
     "scientificName": "Dimocarpus longan",
     "latin": "Dimocarpus longan",
@@ -3899,7 +3899,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "white-peony",
+    "slug": "white-peony-wb",
     "name": "White Peony",
     "scientificName": "Paeonia lactiflora",
     "latin": "Paeonia lactiflora",
@@ -3984,7 +3984,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "codonopsis",
+    "slug": "codonopsis-wb",
     "name": "Codonopsis",
     "scientificName": "Codonopsis pilosula",
     "latin": "Codonopsis pilosula",
@@ -4072,7 +4072,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "ophiopogon",
+    "slug": "ophiopogon-wb",
     "name": "Ophiopogon",
     "scientificName": "Ophiopogon japonicus",
     "latin": "Ophiopogon japonicus",
@@ -4114,7 +4114,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "houttuynia",
+    "slug": "houttuynia-wb",
     "name": "Houttuynia",
     "scientificName": "Houttuynia cordata",
     "latin": "Houttuynia cordata",
@@ -4159,7 +4159,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "isatis",
+    "slug": "isatis-wb",
     "name": "Isatis",
     "scientificName": "Isatis tinctoria",
     "latin": "Isatis tinctoria",
@@ -4205,7 +4205,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "sophora-flavescens",
+    "slug": "sophora-flavescens-wb",
     "name": "Sophora Flavescens",
     "scientificName": "Sophora flavescens",
     "latin": "Sophora flavescens",
@@ -4250,7 +4250,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "notoginseng",
+    "slug": "notoginseng-wb",
     "name": "Notoginseng",
     "scientificName": "Panax notoginseng",
     "latin": "Panax notoginseng",
@@ -4293,7 +4293,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "luo-han-guo",
+    "slug": "luo-han-guo-wb",
     "name": "Luo Han Guo",
     "scientificName": "Siraitia grosvenorii",
     "latin": "Siraitia grosvenorii",
@@ -4335,7 +4335,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "kuding-tea",
+    "slug": "kuding-tea-wb",
     "name": "Kuding Tea",
     "scientificName": "Ilex kudingcha",
     "latin": "Ilex kudingcha",
@@ -4463,7 +4463,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "catuaba",
+    "slug": "catuba",
     "name": "Catuba",
     "scientificName": "Erythroxylum catuaba",
     "latin": "Erythroxylum catuaba",
@@ -4505,7 +4505,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "muira-puama",
+    "slug": "muira-puama-wb",
     "name": "Muira Puama",
     "scientificName": "Ptychopetalum olacoides",
     "latin": "Ptychopetalum olacoides",
@@ -4550,7 +4550,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "maitake-d-fraction",
+    "slug": "maitake-d-fraction-wb",
     "name": "Maitake D-Fraction",
     "scientificName": "Grifola frondosa",
     "latin": "Grifola frondosa",
@@ -4639,7 +4639,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "rehmannia-prepared",
+    "slug": "rehmannia-prepared-wb",
     "name": "Rehmannia Prepared",
     "scientificName": "Rehmannia glutinosa praeparata",
     "latin": "Rehmannia glutinosa praeparata",
@@ -4684,7 +4684,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "agarikon",
+    "slug": "agarikon-wb",
     "name": "Agarikon",
     "scientificName": "Fomitopsis officinalis",
     "latin": "Fomitopsis officinalis",
@@ -4864,7 +4864,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "black-pepper",
+    "slug": "black-pepper-wb",
     "name": "Black Pepper",
     "scientificName": "Piper nigrum",
     "latin": "Piper nigrum",
@@ -4914,7 +4914,7 @@
     "pathway_count": "3"
   },
   {
-    "slug": "cardamom",
+    "slug": "cardamom-wb",
     "name": "Cardamom",
     "scientificName": "Elettaria cardamomum",
     "latin": "Elettaria cardamomum",
@@ -5045,7 +5045,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "caraway",
+    "slug": "caraway-wb",
     "name": "Caraway",
     "scientificName": "Carum carvi",
     "latin": "Carum carvi",
@@ -5090,7 +5090,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "ajwain",
+    "slug": "ajwain-wb",
     "name": "Ajwain",
     "scientificName": "Trachyspermum ammi",
     "latin": "Trachyspermum ammi",
@@ -5179,7 +5179,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "curry-leaf",
+    "slug": "curry-leaf-wb",
     "name": "Curry Leaf",
     "scientificName": "Murraya koenigii",
     "latin": "Murraya koenigii",
@@ -5357,7 +5357,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "rhodiola",
+    "slug": "rhodiola-wb",
     "name": "Rhodiola",
     "scientificName": "Rhodiola rosea",
     "latin": "Rhodiola rosea",
@@ -5446,7 +5446,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "lions-mane",
+    "slug": "lion-s-mane-wb",
     "name": "Lion's Mane",
     "scientificName": "Hericium erinaceus",
     "latin": "Hericium erinaceus",
@@ -5489,7 +5489,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "panax-ginseng",
+    "slug": "panax-ginseng-wb",
     "name": "Panax Ginseng",
     "scientificName": "Panax ginseng",
     "latin": "Panax ginseng",
@@ -5537,7 +5537,7 @@
     "pathway_count": "8"
   },
   {
-    "slug": "passionflower",
+    "slug": "passionflower-wb",
     "name": "Passionflower",
     "scientificName": "Passiflora incarnata",
     "latin": "Passiflora incarnata",
@@ -5580,7 +5580,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "yohimbe",
+    "slug": "yohimbe-wb",
     "name": "Yohimbe",
     "scientificName": "Pausinystalia johimbe",
     "latin": "Pausinystalia johimbe",
@@ -5623,7 +5623,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "skullcap",
+    "slug": "skullcap-wb",
     "name": "Skullcap",
     "scientificName": "Scutellaria lateriflora",
     "latin": "Scutellaria lateriflora",
@@ -5706,7 +5706,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "gotu-kola",
+    "slug": "gotu-kola-wb",
     "name": "Gotu Kola",
     "scientificName": "Centella asiatica",
     "latin": "Centella asiatica",
@@ -5869,7 +5869,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "turkey-tail",
+    "slug": "turkey-tail-wb",
     "name": "Turkey Tail",
     "scientificName": "Trametes versicolor",
     "latin": "Trametes versicolor",
@@ -6081,7 +6081,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "bacopa",
+    "slug": "bacopa-wb",
     "name": "Bacopa",
     "scientificName": "Bacopa monnieri",
     "latin": "Bacopa monnieri",
@@ -6220,7 +6220,7 @@
     "pathway_count": "3"
   },
   {
-    "slug": "tongkat-ali",
+    "slug": "tongkat-ali-wb",
     "name": "Tongkat Ali",
     "scientificName": "Eurycoma longifolia",
     "latin": "Eurycoma longifolia",
@@ -6309,7 +6309,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "pueraria-mirifica",
+    "slug": "pueraria-mirifica-wb",
     "name": "Pueraria Mirifica",
     "scientificName": "Pueraria mirifica",
     "latin": "Pueraria mirifica",
@@ -6397,7 +6397,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "rooibos",
+    "slug": "rooibos-wb",
     "name": "Rooibos",
     "scientificName": "Aspalathus linearis",
     "latin": "Aspalathus linearis",
@@ -6442,7 +6442,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "cats-claw",
+    "slug": "cat-s-claw",
     "name": "Cat's Claw",
     "scientificName": "Uncaria tomentosa",
     "latin": "Uncaria tomentosa",
@@ -6487,7 +6487,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "lavender",
+    "slug": "lavender-wb",
     "name": "Lavender",
     "scientificName": "Lavandula angustifolia",
     "latin": "Lavandula angustifolia",
@@ -6663,7 +6663,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "aloe-vera",
+    "slug": "aloe-vera-wb",
     "name": "Aloe Vera",
     "scientificName": "Aloe vera",
     "latin": "Aloe vera",
@@ -6712,7 +6712,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "american-ginseng",
+    "slug": "american-ginseng-wb",
     "name": "American Ginseng",
     "scientificName": "Panax quinquefolius",
     "latin": "Panax quinquefolius",
@@ -6755,7 +6755,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "artemisia-annua",
+    "slug": "artemisia-annua-wb",
     "name": "Artemisia Annua",
     "scientificName": "Artemisia annua",
     "latin": "Artemisia annua",
@@ -6804,7 +6804,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "celastrus-paniculatus",
+    "slug": "celastrus-paniculatus-wb",
     "name": "Celastrus Paniculatus",
     "scientificName": "Celastrus paniculatus",
     "latin": "Celastrus paniculatus",
@@ -6850,7 +6850,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "acorus-calamus",
+    "slug": "calamus-wb",
     "name": "Calamus",
     "scientificName": "Acorus calamus",
     "latin": "Acorus calamus",
@@ -6894,7 +6894,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "capsicum-annuum",
+    "slug": "cayenne",
     "name": "Cayenne",
     "scientificName": "Capsicum annuum",
     "latin": "Capsicum annuum",
@@ -6937,7 +6937,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "corydalis-yanhusuo",
+    "slug": "corydalis",
     "name": "Corydalis",
     "scientificName": "Corydalis yanhusuo",
     "latin": "Corydalis yanhusuo",
@@ -6985,7 +6985,7 @@
     "pathway_count": "3"
   },
   {
-    "slug": "scutellaria-baicalensis",
+    "slug": "chinese-skullcap",
     "name": "Chinese Skullcap",
     "scientificName": "Scutellaria baicalensis",
     "latin": "Scutellaria baicalensis",
@@ -7034,7 +7034,7 @@
     "pathway_count": "3"
   },
   {
-    "slug": "phellodendron-amurense",
+    "slug": "phellodendron",
     "name": "Phellodendron",
     "scientificName": "Phellodendron amurense",
     "latin": "Phellodendron amurense",
@@ -7078,7 +7078,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "coptis-chinensis",
+    "slug": "coptis",
     "name": "Coptis",
     "scientificName": "Coptis chinensis",
     "latin": "Coptis chinensis",
@@ -7122,7 +7122,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "crocus-sativus",
+    "slug": "saffron",
     "name": "Saffron",
     "scientificName": "Crocus sativus",
     "latin": "Crocus sativus",
@@ -7165,7 +7165,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "carica-papaya",
+    "slug": "papaya-leaf",
     "name": "Papaya Leaf",
     "scientificName": "Carica papaya",
     "latin": "Carica papaya",
@@ -7208,7 +7208,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "sceletium-tortuosum",
+    "slug": "kanna-wb",
     "name": "Kanna",
     "scientificName": "Sceletium tortuosum",
     "latin": "Sceletium tortuosum",
@@ -7251,7 +7251,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "camellia-sinensis",
+    "slug": "green-tea",
     "name": "Green Tea",
     "scientificName": "Camellia sinensis",
     "latin": "Camellia sinensis",
@@ -7304,7 +7304,7 @@
     "pathway_count": "9"
   },
   {
-    "slug": "hydrastis-canadensis",
+    "slug": "goldenseal",
     "name": "Goldenseal",
     "scientificName": "Hydrastis canadensis",
     "latin": "Hydrastis canadensis",
@@ -7347,7 +7347,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "salacia-reticulata",
+    "slug": "salacia",
     "name": "Salacia",
     "scientificName": "Salacia reticulata",
     "latin": "Salacia reticulata",
@@ -7389,7 +7389,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "ligusticum-chuanxiong",
+    "slug": "chuanxiong",
     "name": "Chuanxiong",
     "scientificName": "Ligusticum chuanxiong",
     "latin": "Ligusticum chuanxiong",
@@ -7438,7 +7438,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "boesenbergia-rotunda",
+    "slug": "fingerroot",
     "name": "Fingerroot",
     "scientificName": "Boesenbergia rotunda",
     "latin": "Boesenbergia rotunda",
@@ -7480,7 +7480,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "artemisia-absinthium",
+    "slug": "wormwood-wb",
     "name": "Wormwood",
     "scientificName": "Artemisia absinthium",
     "latin": "Artemisia absinthium",
@@ -7522,7 +7522,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "aesculus-hippocastanum",
+    "slug": "horse-chestnut",
     "name": "Horse Chestnut",
     "scientificName": "Aesculus hippocastanum",
     "latin": "Aesculus hippocastanum",
@@ -7570,7 +7570,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "aegle-marmelos",
+    "slug": "bael",
     "name": "Bael",
     "scientificName": "Aegle marmelos",
     "latin": "Aegle marmelos",
@@ -7612,7 +7612,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "ilex-guayusa",
+    "slug": "guayusa-wb",
     "name": "Guayusa",
     "scientificName": "Ilex guayusa",
     "latin": "Ilex guayusa",
@@ -7656,7 +7656,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "lonicera-japonica",
+    "slug": "honeysuckle",
     "name": "Honeysuckle",
     "scientificName": "Lonicera japonica",
     "latin": "Lonicera japonica",
@@ -7698,7 +7698,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "cassia-alata",
+    "slug": "cassia-alata-wb",
     "name": "Cassia Alata",
     "scientificName": "Senna alata",
     "latin": "Senna alata",
@@ -7740,7 +7740,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "nelumbo-lutea",
+    "slug": "american-yellow-lotus-wb",
     "name": "American Yellow Lotus",
     "scientificName": "Nelumbo lutea",
     "latin": "Nelumbo lutea",
@@ -7783,7 +7783,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "agastache-foeniculum",
+    "slug": "anise-hyssop",
     "name": "Anise Hyssop",
     "scientificName": "Agastache foeniculum",
     "latin": "Agastache foeniculum",
@@ -7825,7 +7825,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "althaea-officinalis",
+    "slug": "marshmallow",
     "name": "Marshmallow",
     "scientificName": "Althaea officinalis",
     "latin": "Althaea officinalis",
@@ -7872,7 +7872,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "glycyrrhiza-glabra",
+    "slug": "licorice",
     "name": "Licorice",
     "scientificName": "Glycyrrhiza glabra",
     "latin": "Glycyrrhiza glabra",
@@ -7912,7 +7912,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "sambucus-nigra",
+    "slug": "elderberry",
     "name": "Elderberry",
     "scientificName": "Sambucus nigra",
     "latin": "Sambucus nigra",
@@ -7961,7 +7961,7 @@
     "pathway_count": "0"
   },
   {
-    "slug": "boerhavia-diffusa",
+    "slug": "punarnava",
     "name": "Punarnava",
     "scientificName": "Boerhavia diffusa",
     "latin": "Boerhavia diffusa",
@@ -8013,7 +8013,7 @@
     "pathway_count": "1"
   },
   {
-    "slug": "coffee",
+    "slug": "coffee-cherry",
     "name": "Coffee Cherry",
     "scientificName": "Coffea arabica",
     "latin": "Coffea arabica",
