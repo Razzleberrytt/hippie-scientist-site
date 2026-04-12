@@ -5,6 +5,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import XLSX from 'xlsx'
 import { resolveWorkbookPath } from './workbook-source.mjs'
+import { canonicalizeWorkbookRow } from './workbook-column-mapping.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -315,9 +316,9 @@ function buildCompoundSources(row) {
 }
 
 function canonicalizeRow(row) {
-  const out = {}
-  for (const [key, value] of Object.entries(row || {})) {
-    out[String(key).trim()] = typeof value === 'string' ? cleanText(value) : value
+  const out = canonicalizeWorkbookRow(row, 'unknown')
+  for (const [key, value] of Object.entries(out)) {
+    out[key] = typeof value === 'string' ? cleanText(value) : value
   }
   return out
 }
@@ -334,7 +335,15 @@ function parseSheet(workbook, sheetName) {
     blankrows: false,
   })
 
-  return rows.map(canonicalizeRow)
+  return rows.map(row => canonicalizeWorkbookRow(canonicalizeRow(row), sheetName))
+}
+
+function slugify(value) {
+  return cleanText(value)
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 function applyValueIfChanged(record, key, value) {
@@ -467,12 +476,12 @@ function indexCompounds(compounds) {
   const byVariant = new Map()
 
   for (const compound of compounds) {
-    const id = cleanText(compound.id)
-    const name = cleanText(compound.name)
+    const id = cleanText(compound.id || compound.canonicalCompoundId)
+    const name = cleanText(compound.name || compound.compoundName || compound.canonicalCompoundName)
     if (id) addLookupEntry(byId, id, compound)
     if (name) addLookupEntry(byName, name.toLowerCase(), compound)
 
-    for (const value of [compound.id, compound.name]) {
+    for (const value of [compound.id, compound.canonicalCompoundId, compound.name, compound.compoundName]) {
       for (const variant of buildLookupVariants(value)) {
         addLookupEntry(byVariant, variant, compound)
       }
@@ -511,9 +520,28 @@ function resolveCompound(compoundIndex, row) {
 function patchCompound(compound, row) {
   let patched = false
 
+  const canonicalId = cleanText(row.canonicalCompoundId) || slugify(row.compoundName || row.canonicalCompoundName)
+  if (shouldPatchScalar(compound.canonicalCompoundId, canonicalId, { minCandidateLength: 3, minGain: 0 })) {
+    patched = applyValueIfChanged(compound, 'canonicalCompoundId', canonicalId) || patched
+  }
+  if (shouldPatchScalar(compound.id, canonicalId, { minCandidateLength: 3, minGain: 0 })) {
+    patched = applyValueIfChanged(compound, 'id', canonicalId) || patched
+  }
+
+  const compoundName = cleanText(row.compoundName || row.canonicalCompoundName)
+  if (shouldPatchScalar(compound.compoundName, compoundName, { minCandidateLength: 3, minGain: 0 })) {
+    patched = applyValueIfChanged(compound, 'compoundName', compoundName) || patched
+  }
+  if (shouldPatchScalar(compound.name, compoundName, { minCandidateLength: 3, minGain: 0 })) {
+    patched = applyValueIfChanged(compound, 'name', compoundName) || patched
+  }
+
   const classCandidate = cleanText(row.compoundClass)
   if (shouldPatchScalar(compound.category, classCandidate, { minCandidateLength: 4, minGain: 12 })) {
     patched = applyValueIfChanged(compound, 'category', classCandidate) || patched
+  }
+  if (shouldPatchScalar(compound.compoundClass, classCandidate, { minCandidateLength: 3, minGain: 0 })) {
+    patched = applyValueIfChanged(compound, 'compoundClass', classCandidate) || patched
   }
 
   const mechanismCandidate = cleanText(row.mechanism)
@@ -537,14 +565,52 @@ function patchCompound(compound, row) {
     patched = applyValueIfChanged(compound, 'contraindications', contraindicationCandidate) || patched
   }
 
+  const safetyNotes = cleanText(row.safetyNotes)
+  if (shouldPatchScalar(compound.safetyNotes, safetyNotes, { minCandidateLength: 3, minGain: 0 })) {
+    patched = applyValueIfChanged(compound, 'safetyNotes', safetyNotes) || patched
+  }
+
+  const drugInteractions = cleanText(row.drugInteractions)
+  if (shouldPatchScalar(compound.drugInteractions, drugInteractions, { minCandidateLength: 3, minGain: 0 })) {
+    patched = applyValueIfChanged(compound, 'drugInteractions', drugInteractions) || patched
+  }
+
   const herbLinksCandidate = dedupeStrings(splitSemicolonDelimited(row.relatedHerbSlugs))
   if (shouldPatchArray(compound.herbs, herbLinksCandidate, { minItems: 1, minGain: 16 })) {
     patched = applyValueIfChanged(compound, 'herbs', herbLinksCandidate) || patched
+  }
+  if (shouldPatchScalar(compound.relatedHerbSlugs, herbLinksCandidate.join('; '), { minCandidateLength: 3, minGain: 0 })) {
+    patched = applyValueIfChanged(compound, 'relatedHerbSlugs', herbLinksCandidate.join('; ')) || patched
   }
 
   const sourceCandidates = buildCompoundSources(row)
   if (shouldPatchArray(compound.sources, sourceCandidates, { minItems: 1, minGain: 18 })) {
     patched = applyValueIfChanged(compound, 'sources', sourceCandidates) || patched
+  }
+
+  const sourceUrls = dedupeStrings(parseSourceUrls(row.sourceUrls))
+  if (shouldPatchScalar(compound.sourceUrls, sourceUrls.join(' | '), { minCandidateLength: 8, minGain: 0 })) {
+    patched = applyValueIfChanged(compound, 'sourceUrls', sourceUrls.join(' | ')) || patched
+  }
+
+  const confidence = cleanText(row.confidence)
+  if (shouldPatchScalar(compound.confidence, confidence, { minCandidateLength: 2, minGain: 0 })) {
+    patched = applyValueIfChanged(compound, 'confidence', confidence) || patched
+  }
+
+  const evidence = cleanText(row.evidence)
+  if (shouldPatchScalar(compound.evidence, evidence, { minCandidateLength: 2, minGain: 0 })) {
+    patched = applyValueIfChanged(compound, 'evidence', evidence) || patched
+  }
+
+  const mechanismTags = dedupeStrings(splitSemicolonDelimited(row.mechanismTags))
+  if (shouldPatchScalar(compound.mechanismTags, mechanismTags.join('; '), { minCandidateLength: 2, minGain: 0 })) {
+    patched = applyValueIfChanged(compound, 'mechanismTags', mechanismTags.join('; ')) || patched
+  }
+
+  const pathwayTargets = dedupeStrings(splitSemicolonDelimited(row.pathwayTargets))
+  if (shouldPatchScalar(compound.pathwayTargets, pathwayTargets.join('; '), { minCandidateLength: 2, minGain: 0 })) {
+    patched = applyValueIfChanged(compound, 'pathwayTargets', pathwayTargets.join('; ')) || patched
   }
 
   return patched
