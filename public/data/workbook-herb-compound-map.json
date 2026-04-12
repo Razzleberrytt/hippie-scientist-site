@@ -47,9 +47,7 @@
     "canonicalCompoundId": "alkamides",
     "canonicalCompoundName": "alkamides",
     "v3MatchType": "no-master-match",
-    "mappingTier": "broad-class-retained",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "mappingTier": "broad-class-retained"
   },
   {
     "herbSlug": "garlic",
@@ -170,9 +168,7 @@
     "canonicalCompoundId": "macamides",
     "canonicalCompoundName": "macamides",
     "v3MatchType": "no-master-match",
-    "mappingTier": "broad-class-retained",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "mappingTier": "broad-class-retained"
   },
   {
     "herbSlug": "milk-thistle",
@@ -239,9 +235,7 @@
     "canonicalCompoundId": "fatty-acids",
     "canonicalCompoundName": "fatty acids",
     "v3MatchType": "no-master-match",
-    "mappingTier": "broad-class-retained",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "mappingTier": "broad-class-retained"
   },
   {
     "herbSlug": "st-johns-wort",
@@ -2035,112 +2029,40 @@
     ]
   },
   {
-    "herbSlug": "Corydalis yanhusuo",
-    "herbName": "Dehydrocorybulbine",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "corydalis-yanhusuo",
+    "herbName": "Dehydrocorybulbine"
   },
   {
-    "herbSlug": "Picralima nitida",
-    "herbName": "Akuammine",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "picralima-nitida",
+    "herbName": "Akuammine"
   },
   {
-    "herbSlug": "Peganum harmala",
-    "herbName": "Harmine",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "peganum-harmala",
+    "herbName": "Harmine"
   },
   {
-    "herbSlug": "Andrographis paniculata",
-    "herbName": "Andrographolide",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "andrographis-paniculata",
+    "herbName": "Andrographolide"
   },
   {
-    "herbSlug": "Phyllanthus amarus",
-    "herbName": "Phyllanthin",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "phyllanthus-amarus",
+    "herbName": "Phyllanthin"
   },
   {
-    "herbSlug": "Justicia adhatoda",
-    "herbName": "Vasicine",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "justicia-adhatoda",
+    "herbName": "Vasicine"
   },
   {
-    "herbSlug": "Tabernanthe iboga",
-    "herbName": "Ibogaine",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "tabernanthe-iboga",
+    "herbName": "Ibogaine"
   },
   {
-    "herbSlug": "Boerhavia diffusa",
-    "herbName": "Punarnavine",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "boerhavia-diffusa",
+    "herbName": "Punarnavine"
   },
   {
-    "herbSlug": "Celastrus paniculatus",
-    "herbName": "Celastrine",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "celastrus-paniculatus",
+    "herbName": "Celastrine"
   },
   {
     "herbSlug": "epimedium",
@@ -2195,124 +2117,44 @@
     ]
   },
   {
-    "herbSlug": "Salvia miltiorrhiza",
-    "herbName": "Tanshinone IIA",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "salvia-miltiorrhiza",
+    "herbName": "Tanshinone IIA"
   },
   {
-    "herbSlug": "Epimedium",
-    "herbName": "Icariin",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "epimedium",
+    "herbName": "Icariin"
   },
   {
-    "herbSlug": "Pausinystalia yohimbe",
-    "herbName": "Yohimbine",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "pausinystalia-yohimbe",
+    "herbName": "Yohimbine"
   },
   {
-    "herbSlug": "Mucuna pruriens",
-    "herbName": "Dopamine",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "mucuna-pruriens",
+    "herbName": "Dopamine"
   },
   {
-    "herbSlug": "Curcuma longa",
-    "herbName": "Demethoxycurcumin",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "curcuma-longa",
+    "herbName": "Demethoxycurcumin"
   },
   {
-    "herbSlug": "Camellia sinensis",
-    "herbName": "Theanine",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "camellia-sinensis",
+    "herbName": "Theanine"
   },
   {
-    "herbSlug": "Hypericum perforatum",
-    "herbName": "Hypericin",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "hypericum-perforatum",
+    "herbName": "Hypericin"
   },
   {
-    "herbSlug": "Ginkgo biloba",
-    "herbName": "Ginkgolide B",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgolide B"
   },
   {
-    "herbSlug": "Panax ginseng",
-    "herbName": "Ginsenoside Rg1",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "panax-ginseng",
+    "herbName": "Ginsenoside Rg1"
   },
   {
-    "herbSlug": "Withania somnifera",
-    "herbName": "Withanolide A",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "withania-somnifera",
+    "herbName": "Withanolide A"
   },
   {
     "herbSlug": "turmeric",
@@ -2320,11 +2162,7 @@
     "rawCompound": "curcumin",
     "normalizedAtom": "curcumin",
     "canonicalCompoundId": "curcumin",
-    "canonicalCompoundName": "curcumin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "curcumin"
   },
   {
     "herbSlug": "turmeric",
@@ -2332,11 +2170,7 @@
     "rawCompound": "Bisdemethoxycurcumin",
     "normalizedAtom": "bisdemethoxycurcumin",
     "canonicalCompoundId": "bisdemethoxycurcumin",
-    "canonicalCompoundName": "Bisdemethoxycurcumin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Bisdemethoxycurcumin"
   },
   {
     "herbSlug": "green-tea",
@@ -2344,11 +2178,7 @@
     "rawCompound": "Caffeine",
     "normalizedAtom": "caffeine",
     "canonicalCompoundId": "caffeine",
-    "canonicalCompoundName": "Caffeine",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Caffeine"
   },
   {
     "herbSlug": "green-tea",
@@ -2356,11 +2186,7 @@
     "rawCompound": "Theanine",
     "normalizedAtom": "theanine",
     "canonicalCompoundId": "theanine",
-    "canonicalCompoundName": "Theanine",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Theanine"
   },
   {
     "herbSlug": "hypericum-perforatum",
@@ -2368,11 +2194,7 @@
     "rawCompound": "Hypericin",
     "normalizedAtom": "hypericin",
     "canonicalCompoundId": "hypericin",
-    "canonicalCompoundName": "Hypericin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Hypericin"
   },
   {
     "herbSlug": "hypericum-perforatum",
@@ -2380,11 +2202,7 @@
     "rawCompound": "Hyperforin",
     "normalizedAtom": "hyperforin",
     "canonicalCompoundId": "hyperforin",
-    "canonicalCompoundName": "Hyperforin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Hyperforin"
   },
   {
     "herbSlug": "ginkgo-biloba",
@@ -2392,11 +2210,7 @@
     "rawCompound": "Ginkgolide B",
     "normalizedAtom": "ginkgolide b",
     "canonicalCompoundId": "ginkgolide-b",
-    "canonicalCompoundName": "Ginkgolide B",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Ginkgolide B"
   },
   {
     "herbSlug": "ginkgo-biloba",
@@ -2404,11 +2218,7 @@
     "rawCompound": "Bilobalide",
     "normalizedAtom": "bilobalide",
     "canonicalCompoundId": "bilobalide",
-    "canonicalCompoundName": "Bilobalide",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Bilobalide"
   },
   {
     "herbSlug": "panax-ginseng",
@@ -2416,11 +2226,7 @@
     "rawCompound": "Ginsenoside RG1",
     "normalizedAtom": "ginsenoside rg1",
     "canonicalCompoundId": "ginsenoside-rg1",
-    "canonicalCompoundName": "Ginsenoside RG1",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Ginsenoside RG1"
   },
   {
     "herbSlug": "panax-ginseng",
@@ -2428,11 +2234,7 @@
     "rawCompound": "Ginsenoside RB1",
     "normalizedAtom": "ginsenoside rb1",
     "canonicalCompoundId": "ginsenoside-rb1",
-    "canonicalCompoundName": "Ginsenoside RB1",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Ginsenoside RB1"
   },
   {
     "herbSlug": "ashwagandha",
@@ -2440,11 +2242,7 @@
     "rawCompound": "Withanolide A",
     "normalizedAtom": "withanolide a",
     "canonicalCompoundId": "withanolide-a",
-    "canonicalCompoundName": "Withanolide A",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Withanolide A"
   },
   {
     "herbSlug": "peganum-harmala",
@@ -2452,11 +2250,7 @@
     "rawCompound": "Harmine",
     "normalizedAtom": "harmine",
     "canonicalCompoundId": "harmine",
-    "canonicalCompoundName": "Harmine",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Harmine"
   },
   {
     "herbSlug": "peganum-harmala",
@@ -2464,11 +2258,7 @@
     "rawCompound": "Harmaline",
     "normalizedAtom": "harmaline",
     "canonicalCompoundId": "harmaline",
-    "canonicalCompoundName": "Harmaline",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Harmaline"
   },
   {
     "herbSlug": "salvia-miltiorrhiza",
@@ -2476,11 +2266,7 @@
     "rawCompound": "Tanshinone IIA",
     "normalizedAtom": "tanshinone iia",
     "canonicalCompoundId": "tanshinone-iia",
-    "canonicalCompoundName": "Tanshinone IIA",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Tanshinone IIA"
   },
   {
     "herbSlug": "salvia-miltiorrhiza",
@@ -2488,11 +2274,7 @@
     "rawCompound": "Salvianolic acid B",
     "normalizedAtom": "salvianolic acid b",
     "canonicalCompoundId": "salvianolic-acid-b",
-    "canonicalCompoundName": "Salvianolic acid B",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Salvianolic acid B"
   },
   {
     "herbSlug": "justicia-adhatoda",
@@ -2500,11 +2282,7 @@
     "rawCompound": "Vasicine",
     "normalizedAtom": "vasicine",
     "canonicalCompoundId": "vasicine",
-    "canonicalCompoundName": "Vasicine",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Vasicine"
   },
   {
     "herbSlug": "tabernanthe-iboga",
@@ -2512,11 +2290,7 @@
     "rawCompound": "Ibogaine",
     "normalizedAtom": "ibogaine",
     "canonicalCompoundId": "ibogaine",
-    "canonicalCompoundName": "Ibogaine",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Ibogaine"
   },
   {
     "herbSlug": "picralima-nitida",
@@ -2524,11 +2298,7 @@
     "rawCompound": "Akuammine",
     "normalizedAtom": "akuammine",
     "canonicalCompoundId": "akuammine",
-    "canonicalCompoundName": "Akuammine",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Akuammine"
   },
   {
     "herbSlug": "corydalis-yanhusuo",
@@ -2536,11 +2306,7 @@
     "rawCompound": "Dehydrocorybulbine",
     "normalizedAtom": "dehydrocorybulbine",
     "canonicalCompoundId": "dehydrocorybulbine",
-    "canonicalCompoundName": "Dehydrocorybulbine",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Dehydrocorybulbine"
   },
   {
     "herbSlug": "andrographis-paniculata",
@@ -2548,11 +2314,7 @@
     "rawCompound": "Andrographolide",
     "normalizedAtom": "andrographolide",
     "canonicalCompoundId": "andrographolide",
-    "canonicalCompoundName": "Andrographolide",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Andrographolide"
   },
   {
     "herbSlug": "phyllanthus-amarus",
@@ -2560,11 +2322,7 @@
     "rawCompound": "Phyllanthin",
     "normalizedAtom": "phyllanthin",
     "canonicalCompoundId": "phyllanthin",
-    "canonicalCompoundName": "Phyllanthin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Phyllanthin"
   },
   {
     "herbSlug": "mucuna-pruriens",
@@ -2572,11 +2330,7 @@
     "rawCompound": "L-DOPA",
     "normalizedAtom": "l dopa",
     "canonicalCompoundId": "l-dopa",
-    "canonicalCompoundName": "L-DOPA",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "L-DOPA"
   },
   {
     "herbSlug": "mucuna-pruriens",
@@ -2584,11 +2338,7 @@
     "rawCompound": "Dopamine",
     "normalizedAtom": "dopamine",
     "canonicalCompoundId": "dopamine",
-    "canonicalCompoundName": "Dopamine",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Dopamine"
   },
   {
     "herbSlug": "pausinystalia-yohimbe",
@@ -2596,11 +2346,7 @@
     "rawCompound": "Yohimbine",
     "normalizedAtom": "yohimbine",
     "canonicalCompoundId": "yohimbine",
-    "canonicalCompoundName": "Yohimbine",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Yohimbine"
   },
   {
     "herbSlug": "polygonum-cuspidatum",
@@ -2608,11 +2354,7 @@
     "rawCompound": "Resveratrol",
     "normalizedAtom": "resveratrol",
     "canonicalCompoundId": "resveratrol",
-    "canonicalCompoundName": "Resveratrol",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Resveratrol"
   },
   {
     "herbSlug": "green-tea",
@@ -2620,11 +2362,7 @@
     "rawCompound": "Quercetin",
     "normalizedAtom": "quercetin",
     "canonicalCompoundId": "quercetin",
-    "canonicalCompoundName": "Quercetin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Quercetin"
   },
   {
     "herbSlug": "ginkgo-biloba",
@@ -2632,59 +2370,39 @@
     "rawCompound": "Quercetin",
     "normalizedAtom": "quercetin",
     "canonicalCompoundId": "quercetin",
-    "canonicalCompoundName": "Quercetin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Quercetin"
   },
   {
-    "herbSlug": "hypericum perforatum",
+    "herbSlug": "hypericum-perforatum",
     "herbName": "Hypericum perforatum",
     "rawCompound": "Quercetin",
     "normalizedAtom": "quercetin",
     "canonicalCompoundId": "quercetin",
-    "canonicalCompoundName": "Quercetin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Quercetin"
   },
   {
-    "herbSlug": "petroselinum crispum",
+    "herbSlug": "petroselinum-crispum",
     "herbName": "Petroselinum crispum",
     "rawCompound": "Apigenin",
     "normalizedAtom": "apigenin",
     "canonicalCompoundId": "apigenin",
-    "canonicalCompoundName": "Apigenin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Apigenin"
   },
   {
-    "herbSlug": "vitis vinifera",
+    "herbSlug": "vitis-vinifera",
     "herbName": "Vitis vinifera",
     "rawCompound": "Resveratrol",
     "normalizedAtom": "resveratrol",
     "canonicalCompoundId": "resveratrol",
-    "canonicalCompoundName": "Resveratrol",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Resveratrol"
   },
   {
-    "herbSlug": "ilex paraguariensis",
+    "herbSlug": "ilex-paraguariensis",
     "herbName": "Ilex paraguariensis",
     "rawCompound": "Caffeine",
     "normalizedAtom": "caffeine",
     "canonicalCompoundId": "caffeine",
-    "canonicalCompoundName": "Caffeine",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Caffeine"
   },
   {
     "herbSlug": "rosmarinus-officinalis",
@@ -2692,11 +2410,7 @@
     "rawCompound": "Rosmarinic acid",
     "normalizedAtom": "rosmarinic acid",
     "canonicalCompoundId": "rosmarinic-acid",
-    "canonicalCompoundName": "Rosmarinic acid",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Rosmarinic acid"
   },
   {
     "herbSlug": "chinese-skullcap",
@@ -2704,11 +2418,7 @@
     "rawCompound": "Baicalin",
     "normalizedAtom": "baicalin",
     "canonicalCompoundId": "baicalin",
-    "canonicalCompoundName": "Baicalin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Baicalin"
   },
   {
     "herbSlug": "zingiber-officinale",
@@ -2716,11 +2426,7 @@
     "rawCompound": "6-Gingerol",
     "normalizedAtom": "6 gingerol",
     "canonicalCompoundId": "6-gingerol",
-    "canonicalCompoundName": "6-Gingerol",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "6-Gingerol"
   },
   {
     "herbSlug": "chinese-skullcap",
@@ -2728,11 +2434,7 @@
     "rawCompound": "Baicalein",
     "normalizedAtom": "baicalein",
     "canonicalCompoundId": "baicalein",
-    "canonicalCompoundName": "Baicalein",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Baicalein"
   },
   {
     "herbSlug": "rosmarinus-officinalis",
@@ -2740,11 +2442,7 @@
     "rawCompound": "Carnosic acid",
     "normalizedAtom": "carnosic acid",
     "canonicalCompoundId": "carnosic-acid",
-    "canonicalCompoundName": "Carnosic acid",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Carnosic acid"
   },
   {
     "herbSlug": "rosmarinus-officinalis",
@@ -2752,11 +2450,7 @@
     "rawCompound": "Carnosol",
     "normalizedAtom": "carnosol",
     "canonicalCompoundId": "carnosol",
-    "canonicalCompoundName": "Carnosol",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Carnosol"
   },
   {
     "herbSlug": "zingiber-officinale",
@@ -2764,11 +2458,7 @@
     "rawCompound": "6-Shogaol",
     "normalizedAtom": "6 shogaol",
     "canonicalCompoundId": "6-shogaol",
-    "canonicalCompoundName": "6-Shogaol",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "6-Shogaol"
   },
   {
     "herbSlug": "panax-ginseng",
@@ -2776,11 +2466,7 @@
     "rawCompound": "Ginsenoside Rg3",
     "normalizedAtom": "ginsenoside rg3",
     "canonicalCompoundId": "ginsenoside-rg3",
-    "canonicalCompoundName": "Ginsenoside Rg3",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Ginsenoside Rg3"
   },
   {
     "herbSlug": "ginkgo-biloba",
@@ -2788,11 +2474,7 @@
     "rawCompound": "Kaempferol",
     "normalizedAtom": "kaempferol",
     "canonicalCompoundId": "kaempferol",
-    "canonicalCompoundName": "Kaempferol",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Kaempferol"
   },
   {
     "herbSlug": "ginkgo-biloba",
@@ -2800,11 +2482,7 @@
     "rawCompound": "Isorhamnetin",
     "normalizedAtom": "isorhamnetin",
     "canonicalCompoundId": "isorhamnetin",
-    "canonicalCompoundName": "Isorhamnetin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Isorhamnetin"
   },
   {
     "herbSlug": "panax-ginseng",
@@ -2812,11 +2490,7 @@
     "rawCompound": "Ginsenoside Re",
     "normalizedAtom": "ginsenoside re",
     "canonicalCompoundId": "ginsenoside-re",
-    "canonicalCompoundName": "Ginsenoside Re",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Ginsenoside Re"
   },
   {
     "herbSlug": "panax-ginseng",
@@ -2824,11 +2498,7 @@
     "rawCompound": "Ginsenoside Rd",
     "normalizedAtom": "ginsenoside rd",
     "canonicalCompoundId": "ginsenoside-rd",
-    "canonicalCompoundName": "Ginsenoside Rd",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Ginsenoside Rd"
   },
   {
     "herbSlug": "panax-ginseng",
@@ -3135,219 +2805,118 @@
     ]
   },
   {
-    "herbSlug": "Ginkgo Biloba",
-    "herbName": "Ginkgolide A",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgolide A"
   },
   {
-    "herbSlug": "Panax Ginseng",
-    "herbName": "Ginsenoside Rg1",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "panax-ginseng",
+    "herbName": "Ginsenoside Rg1"
   },
   {
-    "herbSlug": "Green Tea",
-    "herbName": "Epicatechin",
-    "rawCompound": "",
-    "normalizedAtom": "",
-    "canonicalCompoundId": "",
-    "canonicalCompoundName": "",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "herbSlug": "green-tea",
+    "herbName": "Epicatechin"
   },
   {
-    "herbSlug": "",
     "herbName": "Holy Basil",
     "rawCompound": "Ursolic acid",
     "normalizedAtom": "ursolic acid",
     "canonicalCompoundId": "ursolic-acid",
-    "canonicalCompoundName": "Ursolic acid",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Ursolic acid"
   },
   {
-    "herbSlug": "",
     "herbName": "Holy Basil",
     "rawCompound": "Rosmarinic acid",
     "normalizedAtom": "rosmarinic acid",
     "canonicalCompoundId": "rosmarinic-acid",
-    "canonicalCompoundName": "Rosmarinic acid",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Rosmarinic acid"
   },
   {
-    "herbSlug": "",
     "herbName": "Rhodiola",
     "rawCompound": "Rosavin",
     "normalizedAtom": "rosavin",
     "canonicalCompoundId": "rosavin",
-    "canonicalCompoundName": "Rosavin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Rosavin"
   },
   {
-    "herbSlug": "",
     "herbName": "Rhodiola",
     "rawCompound": "Rosarin",
     "normalizedAtom": "rosarin",
     "canonicalCompoundId": "rosarin",
-    "canonicalCompoundName": "Rosarin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Rosarin"
   },
   {
-    "herbSlug": "",
     "herbName": "Rhodiola",
     "rawCompound": "Rosin",
     "normalizedAtom": "rosin",
     "canonicalCompoundId": "rosin",
-    "canonicalCompoundName": "Rosin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Rosin"
   },
   {
-    "herbSlug": "",
     "herbName": "Rhodiola",
     "rawCompound": "Tyrosol",
     "normalizedAtom": "tyrosol",
     "canonicalCompoundId": "tyrosol",
-    "canonicalCompoundName": "Tyrosol",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Tyrosol"
   },
   {
-    "herbSlug": "",
     "herbName": "Arjuna",
     "rawCompound": "Arjungenin",
     "normalizedAtom": "arjungenin",
     "canonicalCompoundId": "arjungenin",
-    "canonicalCompoundName": "Arjungenin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Arjungenin"
   },
   {
-    "herbSlug": "",
     "herbName": "Arjuna",
     "rawCompound": "Arjunetin",
     "normalizedAtom": "arjunetin",
     "canonicalCompoundId": "arjunetin",
-    "canonicalCompoundName": "Arjunetin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Arjunetin"
   },
   {
-    "herbSlug": "",
     "herbName": "Black Cohosh",
     "rawCompound": "Actein",
     "normalizedAtom": "actein",
     "canonicalCompoundId": "actein",
-    "canonicalCompoundName": "Actein",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Actein"
   },
   {
-    "herbSlug": "",
     "herbName": "Black Cohosh",
     "rawCompound": "23-epi-26-deoxyactein",
     "normalizedAtom": "23 epi 26 deoxyactein",
     "canonicalCompoundId": "23-epi-26-deoxyactein",
-    "canonicalCompoundName": "23-epi-26-deoxyactein",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "23-epi-26-deoxyactein"
   },
   {
-    "herbSlug": "",
     "herbName": "Black Cohosh",
     "rawCompound": "Fukinolic acid",
     "normalizedAtom": "fukinolic acid",
     "canonicalCompoundId": "fukinolic-acid",
-    "canonicalCompoundName": "Fukinolic acid",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Fukinolic acid"
   },
   {
-    "herbSlug": "",
     "herbName": "Ashwagandha",
     "rawCompound": "Withanoside IV",
     "normalizedAtom": "withanoside iv",
     "canonicalCompoundId": "withanoside-iv",
-    "canonicalCompoundName": "Withanoside IV",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Withanoside IV"
   },
   {
-    "herbSlug": "",
     "herbName": "Ashwagandha",
     "rawCompound": "Withanoside V",
     "normalizedAtom": "withanoside v",
     "canonicalCompoundId": "withanoside-v",
-    "canonicalCompoundName": "Withanoside V",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Withanoside V"
   },
   {
-    "herbSlug": "",
     "herbName": "Epimedium",
-    "rawCompound": "",
     "normalizedAtom": "icaritin",
     "canonicalCompoundId": "icaritin",
-    "canonicalCompoundName": "Icaritin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Icaritin"
   },
   {
-    "herbSlug": "",
     "herbName": "Epimedium",
-    "rawCompound": "",
     "normalizedAtom": "desmethylicaritin",
     "canonicalCompoundId": "desmethylicaritin",
-    "canonicalCompoundName": "Desmethylicaritin",
-    "v3MatchType": "",
-    "mappingTier": "",
-    "mechanismTags": [],
-    "pathwayTargets": []
+    "canonicalCompoundName": "Desmethylicaritin"
   }
 ]
