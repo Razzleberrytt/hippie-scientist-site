@@ -22,7 +22,7 @@ const OPTIONAL_WORKBOOK_SHEETS = new Set(['Production Export V1'])
 const SHEET_REQUIRED_COLUMNS = {
   'Herb Monographs': ['name', 'publishStatus'],
   'Compound Master V3': ['compoundName'],
-  'Herb Compound Map V3': ['herbSlug', 'canonicalCompoundId'],
+  'Herb Compound Map V3': ['herbSlug', 'canonicalCompoundName'],
   'Production Export V1': ['goal'],
 }
 
@@ -65,6 +65,12 @@ function isMeaningfulValue(value) {
 
 function splitSemicolonOrCommaList(value) {
   return splitList(value, /[;,|]/)
+}
+
+function withFallbackList(primaryValue, fallbackValue) {
+  const primary = splitSemicolonOrCommaList(primaryValue)
+  if (primary.length > 0) return primary
+  return splitSemicolonOrCommaList(fallbackValue)
 }
 
 function firstMeaningful(...values) {
@@ -150,7 +156,7 @@ function exportHerbs(workbook, diagnostics) {
       summary: cleanScalar(row.summary),
       description: cleanScalar(row.description),
       mechanism: cleanScalar(row.mechanism),
-      mechanismTags: splitSemicolonOrCommaList(row.mechanismTags),
+      mechanismTags: withFallbackList(row.mechanismTags, row.pathwayTargets),
       evidenceLevel: firstMeaningful(row.evidenceLevel, row.evidence_tier, row.evidenceTier),
       activeCompounds: splitSemicolonOrCommaList(row.activeCompounds),
       topCompounds: splitSemicolonOrCommaList(firstMeaningful(row.topCompounds, row.markerCompounds)),
@@ -201,7 +207,7 @@ function exportCompounds(workbook, diagnostics) {
     compoundClass: cleanScalar(row.compoundClass),
     class: cleanScalar(row.compoundClass),
     mechanism: cleanScalar(row.mechanism),
-    mechanismTags: splitSemicolonOrCommaList(row.mechanismTags),
+    mechanismTags: withFallbackList(row.mechanismTags, row.pathwayTargets),
     pathwayTargets: splitSemicolonOrCommaList(row.pathwayTargets),
     pharmacokinetics: cleanScalar(row.pharmacokinetics),
     safetyNotes: cleanScalar(row.safetyNotes),
@@ -210,7 +216,8 @@ function exportCompounds(workbook, diagnostics) {
     confidenceLevel: firstMeaningful(row.confidenceLevel, row.confidence),
     evidence: cleanScalar(row.evidence),
     evidenceTier: firstMeaningful(row.evidenceTier, row.evidence, row.evidence_tier),
-    score: firstMeaningful(row.score, row.totalScore),
+    score: firstMeaningful(row.score, row.compoundScore, row.totalScore),
+    compoundScore: firstMeaningful(row.compoundScore, row.score, row.totalScore),
     tier: firstMeaningful(row.tier, row.scoreTier),
     sourceUrls: splitList(row.sourceUrls, /\s\|\s/),
     relatedHerbSlugs: splitSemicolonOrCommaList(row.relatedHerbSlugs),
@@ -226,19 +233,26 @@ function exportCompounds(workbook, diagnostics) {
 function exportHerbCompoundMap(workbook, diagnostics) {
   const rows = readSheetRows(workbook, 'Herb Compound Map V3', diagnostics)
   const records = rows.map(row => ({
-    herbSlug: cleanScalar(row.herbSlug),
-    herbName: cleanScalar(row.herbName),
+    herbSlug: firstMeaningful(row.herbSlug, row.slug, row.name ? slugify(row.name) : ''),
+    herbName: firstMeaningful(row.herbName, row.name),
     rawCompound: cleanScalar(row.rawCompound),
     normalizedAtom: cleanScalar(row.normalizedAtom),
-    canonicalCompoundId: cleanScalar(row.canonicalCompoundId),
-    canonicalCompoundName: cleanScalar(row.canonicalCompoundName),
+    canonicalCompoundId: firstMeaningful(
+      row.canonicalCompoundId,
+      row.canonicalCompoundName ? slugify(row.canonicalCompoundName) : '',
+      row.rawCompound ? slugify(row.rawCompound) : ''
+    ),
+    canonicalCompoundName: firstMeaningful(row.canonicalCompoundName, row.rawCompound),
     v3MatchType: cleanScalar(row.v3MatchType),
     mappingTier: cleanScalar(row.mappingTier),
     mechanismTags: splitSemicolonOrCommaList(row.mechanismTags),
     pathwayTargets: splitSemicolonOrCommaList(row.pathwayTargets),
   }))
 
-  const deduped = dedupeBy(records, record => `${record.herbSlug}::${record.canonicalCompoundId}::${record.rawCompound}`)
+  const deduped = dedupeBy(
+    records,
+    record => `${record.herbSlug}::${record.canonicalCompoundId || record.canonicalCompoundName}::${record.rawCompound}`
+  )
   diagnostics.sheets['Herb Compound Map V3'].skippedRows += records.length - deduped.length
   return deduped
 }
