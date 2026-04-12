@@ -10,7 +10,7 @@ import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { getHerbDataCompleteness } from '@/utils/getDataCompleteness'
-import { splitClean } from '@/lib/sanitize'
+import { sanitizeReadableText, splitClean, uniqueNormalizedList } from '@/lib/sanitize'
 import { pushRecentlyViewed, useSavedItems } from '@/lib/growth'
 import {
   breadcrumbJsonLd,
@@ -63,7 +63,8 @@ type SourceRef = { title: string; url: string; note?: string }
 
 function toSources(value: unknown): SourceRef[] {
   if (!Array.isArray(value)) return []
-  return value
+  const unique = new Map<string, SourceRef>()
+  value
     .map(item => {
       if (typeof item === 'string') {
         const t = item.trim()
@@ -78,6 +79,11 @@ function toSources(value: unknown): SourceRef[] {
       return { title: title || url, url: url || title, note: note || undefined }
     })
     .filter((item): item is SourceRef => Boolean(item))
+    .forEach(item => {
+      const key = `${item.url.trim().toLowerCase()}|${item.title.trim().toLowerCase()}`
+      if (!unique.has(key)) unique.set(key, item)
+    })
+  return Array.from(unique.values())
 }
 
 // Only renders if children is a non-empty string, non-empty array, or explicit ReactNode
@@ -92,14 +98,29 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   )
 }
 
-function ListSection({ items }: { items: string[] }) {
+function ListSection({ items, maxVisible = 8 }: { items: string[]; maxVisible?: number }) {
+  const [expanded, setExpanded] = useState(false)
   if (!items.length) return null
+  const cappedMax = Math.max(1, maxVisible)
+  const visibleItems = expanded ? items : items.slice(0, cappedMax)
+  const hasOverflow = items.length > cappedMax
   return (
-    <ul className='list-disc space-y-1 pl-5'>
-      {items.map(item => (
-        <li key={item}>{item}</li>
-      ))}
-    </ul>
+    <>
+      <ul className='list-disc space-y-1 pl-5'>
+        {visibleItems.map(item => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      {hasOverflow && (
+        <button
+          type='button'
+          className='mt-2 text-xs font-medium text-emerald-200/90 hover:text-emerald-100'
+          onClick={() => setExpanded(value => !value)}
+        >
+          {expanded ? 'Show less' : `Show ${items.length - cappedMax} more`}
+        </button>
+      )}
+    </>
   )
 }
 
@@ -243,22 +264,22 @@ export default function HerbDetail() {
   }
 
   // All list fields are already cleaned arrays from herb-data.ts
-  const effects = Array.isArray(herb.effects) ? herb.effects : splitClean(herb.effects)
-  const activeCompounds = Array.isArray(herb.activeCompounds)
-    ? herb.activeCompounds
-    : splitClean(herb.activeCompounds)
-  const contraindications = Array.isArray(herb.contraindications)
-    ? herb.contraindications
-    : splitClean(herb.contraindications)
-  const interactions = Array.isArray(herb.interactions)
-    ? herb.interactions
-    : splitClean(herb.interactions)
-  const therapeuticUses = Array.isArray(herb.therapeuticUses)
-    ? herb.therapeuticUses
-    : splitClean(herb.therapeuticUses)
-  const sideEffects = Array.isArray(herb.sideeffects)
-    ? herb.sideeffects
-    : splitClean(herb.sideeffects)
+  const effects = uniqueNormalizedList(Array.isArray(herb.effects) ? herb.effects : splitClean(herb.effects))
+  const activeCompounds = uniqueNormalizedList(
+    Array.isArray(herb.activeCompounds) ? herb.activeCompounds : splitClean(herb.activeCompounds),
+  )
+  const contraindications = uniqueNormalizedList(
+    Array.isArray(herb.contraindications) ? herb.contraindications : splitClean(herb.contraindications),
+  )
+  const interactions = uniqueNormalizedList(
+    Array.isArray(herb.interactions) ? herb.interactions : splitClean(herb.interactions),
+  )
+  const therapeuticUses = uniqueNormalizedList(
+    Array.isArray(herb.therapeuticUses) ? herb.therapeuticUses : splitClean(herb.therapeuticUses),
+  )
+  const sideEffects = uniqueNormalizedList(
+    Array.isArray(herb.sideeffects) ? herb.sideeffects : splitClean(herb.sideeffects),
+  )
   const sources = toSources(herb.sources)
   const primaryEffects = extractPrimaryEffects(effects, 4)
   const compoundByName = new Map(compounds.map(compound => [normalizeKey(compound.name), compound]))
@@ -356,20 +377,24 @@ export default function HerbDetail() {
     : `${herbDisplayName} Herb Guide: Effects, Uses & Safety`
 
   // Scalar fields already cleaned by normalization
-  const description = herb.description || ''
-  const mechanism = herb.mechanism || ''
+  const description = sanitizeReadableText(herb.description)
+  const mechanism = sanitizeReadableText(herb.mechanism)
   const intensity = herb.intensity || ''
   const region = herb.region || ''
-  const duration = herb.duration || ''
-  const dosage = herb.dosage || ''
-  const preparation = herb.preparation || ''
+  const duration = sanitizeReadableText(herb.duration)
+  const dosage = sanitizeReadableText(herb.dosage)
+  const preparation = sanitizeReadableText(herb.preparation)
   const standardization = String(herb.standardization || '').trim()
   const legalStatus = herb.legalStatus || ''
-  const qualityConcerns = String(herb.qualityConcerns || '').trim()
-  const herbClass = String(herb.class || herb.category || '')
+  const qualityConcerns = sanitizeReadableText(herb.qualityConcerns)
+  const herbClass = sanitizeReadableText(herb.class || herb.category)
   const evidenceLevel = String(herb.evidenceLevel || '').trim()
-  const mechanismTags = Array.isArray(herb.mechanismTags) ? splitClean(herb.mechanismTags) : []
-  const pathwayTargets = Array.isArray(herb.pathwayTargets) ? splitClean(herb.pathwayTargets) : []
+  const mechanismTags = Array.isArray(herb.mechanismTags)
+    ? uniqueNormalizedList(splitClean(herb.mechanismTags))
+    : []
+  const pathwayTargets = Array.isArray(herb.pathwayTargets)
+    ? uniqueNormalizedList(splitClean(herb.pathwayTargets))
+    : []
   const compoundCount =
     typeof herb.compound_count === 'number' && Number.isFinite(herb.compound_count)
       ? herb.compound_count
@@ -952,19 +977,19 @@ export default function HerbDetail() {
 
         {therapeuticUses.length > 0 && (
           <Section title='What it’s used for'>
-            <ListSection items={therapeuticUses} />
+            <ListSection items={therapeuticUses} maxVisible={6} />
           </Section>
         )}
 
         {contraindications.length > 0 && (
           <Section title='Who should be careful'>
-            <ListSection items={contraindications} />
+            <ListSection items={contraindications} maxVisible={6} />
           </Section>
         )}
 
         {sideEffects.length > 0 && (
           <Section title='Possible side effects'>
-            <ListSection items={sideEffects} />
+            <ListSection items={sideEffects} maxVisible={6} />
           </Section>
         )}
 
@@ -1192,7 +1217,7 @@ export default function HerbDetail() {
 
         {effects.length > 0 && (
           <Section title='Effects'>
-            <ListSection items={effects} />
+            <ListSection items={effects} maxVisible={6} />
           </Section>
         )}
 
@@ -1200,7 +1225,7 @@ export default function HerbDetail() {
           <section className='border-white/8 mt-6 border-t pt-5'>
             <Collapse title='Drug interactions'>
               <div className='text-sm leading-relaxed text-white/85'>
-                <ListSection items={interactions} />
+                <ListSection items={interactions} maxVisible={6} />
               </div>
             </Collapse>
           </section>

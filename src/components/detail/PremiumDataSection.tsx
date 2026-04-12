@@ -28,11 +28,27 @@ export default function PremiumDataSection({
   details = [],
   relationGroups = [],
 }: PremiumDataSectionProps) {
-  const visibleDetails = details.filter(detail => detail.value.trim())
+  const visibleDetails = details
+    .map(detail => ({
+      ...detail,
+      title: detail.title.trim(),
+      value: detail.value.trim(),
+    }))
+    .filter(detail => detail.value)
   const visibleRelationGroups = relationGroups
     .map(group => ({
       ...group,
-      items: group.items.filter(item => item.label.trim()),
+      items: Array.from(
+        new Map(
+          group.items
+            .map(item => ({ ...item, label: item.label.trim(), to: item.to?.trim() }))
+            .filter(item => item.label)
+            .map(item => [
+              `${item.label.toLowerCase()}|${(item.to || '').toLowerCase()}`,
+              item,
+            ]),
+        ).values(),
+      ),
     }))
     .filter(group => group.items.length > 0)
 
