@@ -49,7 +49,7 @@ function HerbCard({
   compact = false,
 }: HerbCardProps) {
   const mergedTags = Array.from(new Set([...tags, ...mechanismTags].filter(Boolean)))
-  const visibleTags = compact ? mergedTags.slice(0, 2) : mergedTags
+  const visibleTags = mergedTags.slice(0, 2)
   const hasCompoundCount = typeof compound_count === 'number' && compound_count > 0
   const normalizedEvidenceTier = (evidence_tier || '').trim()
   const fallbackEvidence = normalizedEvidenceTier ? '' : (evidenceLevel || '').trim()
@@ -62,7 +62,7 @@ function HerbCard({
       <div className='HerbCardGlow pointer-events-none absolute inset-0 rounded-[1.25rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100' />
       <Card
         className={`card-pad border-white/12 relative flex h-full flex-col bg-white/[0.05] transition duration-200 ease-out group-hover:border-white/20 group-hover:bg-white/[0.07] ${
-          compact ? 'gap-3 p-3.5' : 'gap-5 p-5'
+          compact ? 'gap-2 p-2.5' : 'gap-3 p-3'
         }`}
       >
         <header className={compact ? 'space-y-1' : 'space-y-2'}>
@@ -78,9 +78,9 @@ function HerbCard({
           </h2>
         </header>
 
-        <section className={compact ? 'space-y-2 text-white/80' : 'space-y-4 text-white/80'}>
+        <section className={compact ? 'space-y-1.5 text-white/80' : 'space-y-2 text-white/80'}>
           <p
-            className={`line-clamp-2 text-sm text-white/70 ${compact ? 'leading-5' : 'leading-6'}`}
+            className={`line-clamp-2 text-sm text-white/70 ${compact ? 'leading-tight' : 'leading-5'}`}
           >
             {summary}
           </p>
@@ -97,7 +97,7 @@ function HerbCard({
             </div>
           )}
           {showMetadata && (
-            <div className='flex min-h-0 flex-wrap items-center gap-1.5'>
+            <div className='flex min-h-0 flex-wrap items-center gap-1'>
               {hasCompoundCount && (
                 <span className='inline-flex items-center gap-1 text-[11px] text-white/55'>
                   <FlaskConical className='h-3 w-3' aria-hidden='true' />
@@ -126,7 +126,7 @@ function HerbCard({
         <footer className='mt-auto flex items-center justify-end text-sm'>
           <Link
             to={detailUrl}
-            className='inline-flex min-h-8 items-center rounded-md border border-white/20 bg-white/[0.06] px-2.5 py-1.5 text-xs font-medium text-white/85 transition duration-200 ease-out hover:border-white/35 hover:bg-white/[0.12] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300'
+            className='inline-flex min-h-7 items-center rounded-md border border-white/15 bg-white/[0.04] px-2 py-1 text-[11px] font-medium text-white/75 transition duration-200 ease-out hover:border-white/30 hover:bg-white/[0.08] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300'
           >
             View details
           </Link>
