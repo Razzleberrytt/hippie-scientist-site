@@ -72,6 +72,7 @@ function normalizeEnrichmentSummary(value: unknown): PublishSafeEnrichmentSummar
 }
 
 let herbSummariesPromise: Promise<HerbSummary[]> | null = null
+let canonicalHerbSummariesPromise: Promise<HerbSummary[]> | null = null
 let workbookHerbsPromise: Promise<Record<string, unknown>[]> | null = null
 const herbDetailPromiseBySlug = new Map<string, Promise<Herb | null>>()
 
@@ -118,6 +119,26 @@ function loadWorkbookHerbRows(): Promise<Record<string, unknown>[]> {
   return workbookHerbsPromise
 }
 
+function loadCanonicalHerbSummaryRows(): Promise<HerbSummary[]> {
+  if (!canonicalHerbSummariesPromise) {
+    canonicalHerbSummariesPromise = fetch('/data/herbs-summary.json', { cache: 'no-store' })
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load /data/herbs-summary.json')
+        return response.json()
+      })
+      .then(payload => {
+        const rows = Array.isArray(payload) ? payload : []
+        return rows.map(row => normalizeHerbSummaryRow(row as Record<string, unknown>))
+      })
+      .catch(error => {
+        canonicalHerbSummariesPromise = null
+        throw error
+      })
+  }
+
+  return canonicalHerbSummariesPromise
+}
+
 async function loadWorkbookHerbDetailBySlug(slug: string): Promise<Herb | null> {
   const needle = normalizeSlugCandidate(slug)
   if (!needle) return null
@@ -149,6 +170,26 @@ async function resolveHerbDetailSlug(slug: string): Promise<string | null> {
   if (!needle) return null
 
   const summaries = await loadHerbSummaryData()
+  const match = summaries.find(item => {
+    const candidates = [
+      item.slug,
+      item.id,
+      item.common,
+      item.scientific,
+      item.name,
+      ...item.aliases,
+    ]
+    return candidates.some(candidate => normalizeSlugCandidate(candidate) === needle)
+  })
+
+  return match?.slug || null
+}
+
+async function resolveCanonicalHerbDetailSlug(slug: string): Promise<string | null> {
+  const needle = normalizeSlugCandidate(slug)
+  if (!needle) return null
+
+  const summaries = await loadCanonicalHerbSummaryRows()
   const match = summaries.find(item => {
     const candidates = [
       item.slug,
@@ -249,6 +290,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   const identity = cleanText(data.identity) || ''
   const categoryUseContext = cleanText(data.categoryUseContext ?? data.category_use_context) || ''
   const evidenceLevel = cleanText(data.evidenceLevel ?? data.evidence_level) || ''
+  const benefits = splitClean(data.benefits ?? data.effects)
 
   return {
     ...(data as Herb),
@@ -264,6 +306,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     region,
     mechanism,
     effects,
+    benefits,
     therapeuticUses,
     contraindications,
     interactions,
@@ -404,32 +447,23 @@ export async function loadHerbDetailBySlug(slug: string): Promise<Herb | null> {
   const cached = herbDetailPromiseBySlug.get(slugKey)
   if (cached) return cached
 
-  const request = fetch(`/data/herbs-detail/${encodeURIComponent(slugKey)}.json`, {
-    cache: 'no-store',
-  })
-    .then(async response => {
-      if (response.status === 404) {
-        const resolvedSlug = await resolveHerbDetailSlug(slugKey)
-        if (resolvedSlug && resolvedSlug !== slugKey) {
-          const fallbackResponse = await fetch(
-            `/data/herbs-detail/${encodeURIComponent(resolvedSlug)}.json`,
-            {
-              cache: 'no-store',
-            },
-          )
-          if (fallbackResponse.ok) {
-            return fallbackResponse.json()
-          }
-          if (fallbackResponse.status !== 404) {
-            throw new Error(`Failed to load /data/herbs-detail/${resolvedSlug}.json`)
-          }
+  const request = resolveCanonicalHerbDetailSlug(slugKey)
+    .then(async resolvedCanonicalSlug => {
+      if (resolvedCanonicalSlug) {
+        const canonicalResponse = await fetch(
+          `/data/herbs-detail/${encodeURIComponent(resolvedCanonicalSlug)}.json`,
+          { cache: 'no-store' },
+        )
+        if (canonicalResponse.ok) {
+          return canonicalResponse.json()
         }
-        return loadWorkbookHerbDetailBySlug(resolvedSlug || slugKey)
+        if (canonicalResponse.status !== 404) {
+          throw new Error(`Failed to load /data/herbs-detail/${resolvedCanonicalSlug}.json`)
+        }
       }
-      if (!response.ok) {
-        throw new Error(`Failed to load /data/herbs-detail/${slugKey}.json`)
-      }
-      return response.json()
+
+      const resolvedSlug = await resolveHerbDetailSlug(slugKey)
+      return loadWorkbookHerbDetailBySlug(resolvedSlug || slugKey)
     })
     .then(payload => {
       if (!payload || typeof payload !== 'object') return null
