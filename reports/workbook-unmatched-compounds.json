@@ -729,19 +729,11 @@
   },
   {
     "canonicalCompoundId": "",
-    "compoundName": "ECG"
-  },
-  {
-    "canonicalCompoundId": "",
     "compoundName": "echinacoside"
   },
   {
     "canonicalCompoundId": "",
     "compoundName": "ecliptine"
-  },
-  {
-    "canonicalCompoundId": "",
-    "compoundName": "EGCG"
   },
   {
     "canonicalCompoundId": "",
@@ -1162,10 +1154,6 @@
   {
     "canonicalCompoundId": "",
     "compoundName": "kava kavalactones"
-  },
-  {
-    "canonicalCompoundId": "",
-    "compoundName": "kavain"
   },
   {
     "canonicalCompoundId": "",
