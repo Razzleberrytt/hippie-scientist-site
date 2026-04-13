@@ -57,6 +57,12 @@ function createDiagnostics() {
   }
 }
 
+function parseArgs(argv) {
+  return {
+    allowLegacyFallback: argv.includes('--allow-legacy-fallback'),
+  }
+}
+
 function toCleanString(value) {
   const cleaned = normalizeWorkbookCell(value)
   if (cleaned === '') return ''
@@ -183,40 +189,40 @@ function readSheetRows(workbook, sheetName, diagnostics, { optional = false } = 
   return nonEmptyRows
 }
 
-function mergePrimaryRowsWithFallback(primaryRows, fallbackRows, getKey) {
-  const fallbackByKey = new Map()
-  for (const row of fallbackRows) {
-    const key = toCleanString(getKey(row))
-    if (!key || fallbackByKey.has(key)) continue
-    fallbackByKey.set(key, row)
+function rowsByPrimaryWithOptionalFallback({ primaryRows, fallbackRows, getKey, allowLegacyFallback, entityType }) {
+  if (!allowLegacyFallback) {
+    return { rows: primaryRows, fallbackUsage: [] }
   }
 
-  const matchedFallbackKeys = new Set()
-  const mergedRows = []
-  for (const row of primaryRows) {
-    const key = toCleanString(getKey(row))
-    const fallback = key ? fallbackByKey.get(key) : null
-    if (key && fallback) matchedFallbackKeys.add(key)
-    mergedRows.push({ ...(fallback || {}), ...row })
-  }
+  const primaryKeys = new Set(primaryRows.map(row => toCleanString(getKey(row)).toLowerCase()).filter(Boolean))
+  const fallbackUsage = []
+  const rows = [...primaryRows]
 
   for (const row of fallbackRows) {
-    const key = toCleanString(getKey(row))
-    if (primaryRows.length > 0 && key && matchedFallbackKeys.has(key)) continue
-    mergedRows.push(row)
+    const key = toCleanString(getKey(row)).toLowerCase()
+    if (!key || primaryKeys.has(key)) continue
+    rows.push(row)
+    fallbackUsage.push({
+      entityType,
+      key,
+      reason: 'missing_site_export_alignment',
+      sourceSheet: entityType === 'herb' ? LEGACY_HERB_SHEET : LEGACY_COMPOUND_SHEET,
+    })
   }
 
-  return mergedRows
+  return { rows, fallbackUsage }
 }
 
-function exportHerbs(workbook, diagnostics) {
+function exportHerbs(workbook, diagnostics, options) {
   const primaryRows = readSheetRows(workbook, PRIMARY_HERB_SHEET, diagnostics, { optional: true })
   const fallbackRows = readSheetRows(workbook, LEGACY_HERB_SHEET, diagnostics)
-  const rows = mergePrimaryRowsWithFallback(
+  const { rows, fallbackUsage } = rowsByPrimaryWithOptionalFallback({
     primaryRows,
     fallbackRows,
-    row => firstMeaningful(row.slug, row.herbSlug, row.name ? slugify(row.name) : '')
-  )
+    getKey: row => firstMeaningful(row.slug, row.herbSlug, row.name ? slugify(row.name) : ''),
+    allowLegacyFallback: options.allowLegacyFallback,
+    entityType: 'herb',
+  })
 
   const records = rows
     .map(row => ({
@@ -270,17 +276,19 @@ function exportHerbs(workbook, diagnostics) {
     return removeEmptyValues(withNormalizedSlug)
   })
   diagnostics.sheets[PRIMARY_HERB_SHEET].skippedRows += records.length - deduped.length
-  return deduped
+  return { records: deduped, fallbackUsage }
 }
 
-function exportCompounds(workbook, diagnostics) {
+function exportCompounds(workbook, diagnostics, options) {
   const primaryRows = readSheetRows(workbook, PRIMARY_COMPOUND_SHEET, diagnostics, { optional: true })
   const fallbackRows = readSheetRows(workbook, LEGACY_COMPOUND_SHEET, diagnostics)
-  const rows = mergePrimaryRowsWithFallback(
+  const { rows, fallbackUsage } = rowsByPrimaryWithOptionalFallback({
     primaryRows,
     fallbackRows,
-    row => firstMeaningful(row.canonicalCompoundId, row.compoundName, row.canonicalCompoundName)
-  )
+    getKey: row => firstMeaningful(row.canonicalCompoundId, row.compoundName, row.canonicalCompoundName),
+    allowLegacyFallback: options.allowLegacyFallback,
+    entityType: 'compound',
+  })
 
   const records = rows.map(row => ({
     id: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.canonicalCompoundName || row.Compound),
@@ -323,7 +331,7 @@ function exportCompounds(workbook, diagnostics) {
     return removeEmptyValues(cleaned)
   })
   diagnostics.sheets[PRIMARY_COMPOUND_SHEET].skippedRows += records.length - deduped.length
-  return deduped
+  return { records: deduped, fallbackUsage }
 }
 
 function exportHerbCompoundMap(workbook, diagnostics) {
@@ -400,7 +408,15 @@ function writeJson(filename, records) {
   console.log(`[export] ${filename}: ${records.length} records written`)
 }
 
+function writeReportJson(relativePath, records) {
+  const outputPath = path.join(repoRoot, relativePath)
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true })
+  fs.writeFileSync(outputPath, `${JSON.stringify(records, null, 2)}\n`)
+  console.log(`[export] ${relativePath}: ${records.length} records written`)
+}
+
 function main() {
+  const options = parseArgs(process.argv.slice(2))
   const diagnostics = createDiagnostics()
   const workbook = XLSX.readFile(workbookPath, { sheets: EXPORT_WORKBOOK_SHEETS })
   const ignoredSheets = workbook.SheetNames.filter(sheetName => !EXPORT_WORKBOOK_SHEETS.includes(sheetName))
@@ -411,10 +427,18 @@ function main() {
     }
   }
 
-  writeJson('workbook-herbs.json', exportHerbs(workbook, diagnostics))
-  writeJson('workbook-compounds.json', exportCompounds(workbook, diagnostics))
+  const herbsExport = exportHerbs(workbook, diagnostics, options)
+  const compoundsExport = exportCompounds(workbook, diagnostics, options)
+  const fallbackUsage = [...herbsExport.fallbackUsage, ...compoundsExport.fallbackUsage]
+
+  writeJson('workbook-herbs.json', herbsExport.records)
+  writeJson('workbook-compounds.json', compoundsExport.records)
   writeJson('workbook-herb-compound-map.json', exportHerbCompoundMap(workbook, diagnostics))
   writeJson('workbook-goal-bundles.json', exportGoalBundles(workbook, diagnostics))
+  writeReportJson('reports/workbook-fallback-usage.json', fallbackUsage)
+  if (options.allowLegacyFallback) {
+    console.warn(`[export] legacy fallback enabled via --allow-legacy-fallback. fallback rows used=${fallbackUsage.length}`)
+  }
 
   console.log(
     `[export][diagnostics] ignored non-target sheets: ${ignoredSheets.length > 0 ? ignoredSheets.join(', ') : '(none)'}`
