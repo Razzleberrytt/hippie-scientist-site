@@ -14,7 +14,7 @@ export default function SiteLayout({ children, ambientEnabled = true }: SiteLayo
   const shouldAnimate = ambientEnabled && trippyEnabled && level !== 'off' && enabled
 
   return (
-    <div className='relative min-h-svh overflow-x-hidden'>
+    <div className='relative isolate min-h-svh overflow-x-hidden'>
       <CosmicBackground animated={shouldAnimate} />
       <div className='relative z-10 flex min-h-svh flex-col'>{children}</div>
     </div>
