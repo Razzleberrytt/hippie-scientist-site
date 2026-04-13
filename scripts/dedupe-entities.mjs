@@ -354,6 +354,29 @@ function dedupeDataset(config) {
     return left.localeCompare(right)
   })
 
+  const usedSlugs = new Set()
+  for (const record of deduped) {
+    const originalSlug = text(record.slug)
+    if (!originalSlug) continue
+    if (!usedSlugs.has(originalSlug)) {
+      usedSlugs.add(originalSlug)
+      continue
+    }
+
+    let suffix = 2
+    let candidateSlug = `${originalSlug}-${suffix}`
+    while (usedSlugs.has(candidateSlug)) {
+      suffix += 1
+      candidateSlug = `${originalSlug}-${suffix}`
+    }
+
+    record.slug = candidateSlug
+    if (text(record.id) === originalSlug) {
+      record.id = candidateSlug
+    }
+    usedSlugs.add(candidateSlug)
+  }
+
   stats.after = deduped.length
 
   return {
