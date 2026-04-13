@@ -38,6 +38,12 @@ const JUNK_WHOLE_VALUE: RegExp[] = [
 
 const NUMERIC_ONLY = /^\d+(?:[\s.,/-]\d+)*$/
 const BROKEN_TOKEN = /^(anti|sedat|anxiol|analg|adapt|stimul|effect|effects?)$/i
+const FILLER_CHIP_PATTERNS = [
+  /^reported in\b/i,
+  /^currently mentions\b/i,
+  /^related herbs?\b/i,
+  /^contextual inference\b/i,
+]
 
 /** True if a string is entirely junk — should not be rendered at all. */
 export function isJunk(value: unknown): boolean {
@@ -185,6 +191,27 @@ function looksBroken(value: string): boolean {
   return false
 }
 
+function normalizeEffectFragment(value: string): string {
+  const normalized = value
+    .trim()
+    .replace(/^contextual inference:\s*/i, '')
+    .replace(/^reported in\s+/i, '')
+    .replace(/^currently mentions\s+/i, '')
+    .replace(/^related herbs?:?\s*/i, '')
+    .replace(/\s+/g, ' ')
+
+  if (normalized.toLowerCase() === 'anti inflammatory') return 'anti-inflammatory'
+  if (normalized.toLowerCase() === 'anti anxiety') return 'anti-anxiety'
+  if (normalized.toLowerCase() === 'anti oxidant') return 'antioxidant'
+  return normalized
+}
+
+function shouldDropChip(value: string): boolean {
+  if (looksBroken(value)) return true
+  if (value.split(/\s+/).length > 3) return true
+  return FILLER_CHIP_PATTERNS.some(pattern => pattern.test(value))
+}
+
 export function normalizePresentationLabel(value: unknown): string {
   const cleaned = sanitizeReadableText(value)
     .replace(/^contextual inference:\s*/i, '')
@@ -207,6 +234,36 @@ export function dedupePresentationList(value: unknown, maxItems = 8): string[] {
       seen.add(key)
       output.push(entry)
     })
+  return output.slice(0, Math.max(0, maxItems))
+}
+
+export function cleanEffectChips(value: unknown, maxItems = 5): string[] {
+  const parts = splitClean(value)
+  const seen = new Set<string>()
+  const output: string[] = []
+
+  for (let index = 0; index < parts.length; index += 1) {
+    const current = normalizeEffectFragment(parts[index] || '')
+    const next = normalizeEffectFragment(parts[index + 1] || '')
+
+    if (current.toLowerCase() === 'anti' && next.toLowerCase() === 'inflammatory') {
+      const merged = 'anti-inflammatory'
+      if (!seen.has(merged)) {
+        seen.add(merged)
+        output.push(merged)
+      }
+      index += 1
+      continue
+    }
+
+    const normalized = normalizePresentationLabel(current)
+    if (!normalized || shouldDropChip(normalized)) continue
+    const key = normalizeGuardKey(normalized)
+    if (!key || seen.has(key)) continue
+    seen.add(key)
+    output.push(normalized)
+  }
+
   return output.slice(0, Math.max(0, maxItems))
 }
 

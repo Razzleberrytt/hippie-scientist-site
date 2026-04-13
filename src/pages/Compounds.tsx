@@ -18,6 +18,7 @@ import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calcu
 import type { EnrichmentFilter } from '@/types/enrichmentDiscovery'
 import { trackGovernedEvent } from '@/lib/governedAnalytics'
 import { formatBrowseTitle } from '@/utils/titleDisplay'
+import { cleanEffectChips, sanitizeSummaryText } from '@/lib/sanitize'
 
 const ENRICHMENT_FILTER_OPTIONS: Array<{ value: EnrichmentFilter; label: string }> = [
   { value: 'all', label: 'All research states' },
@@ -40,11 +41,10 @@ function confidenceBadgeClass(level: ConfidenceLevel) {
 }
 
 function summarize(compound: { description: string; effects: string[] }) {
-  if (compound.description) {
-    const firstSentence = compound.description.split(/(?<=[.!?])\s+/)[0] || compound.description
-    return firstSentence
-  }
-  if (compound.effects.length) return compound.effects.slice(0, 2).join(' · ')
+  const cleanedDescription = sanitizeSummaryText(compound.description, 1)
+  if (cleanedDescription) return cleanedDescription
+  const chipFallback = cleanEffectChips(compound.effects, 2)
+  if (chipFallback.length) return chipFallback.join(' · ')
   return 'Profile in progress.'
 }
 
@@ -259,7 +259,7 @@ export default function CompoundsPage() {
                 effects: compound.effects,
                 compounds: compound.herbs,
               })
-            const primaryEffects = extractPrimaryEffects(compound.effects, 3)
+            const primaryEffects = cleanEffectChips(extractPrimaryEffects(compound.effects, 8), 2)
 
             const title = formatBrowseTitle(compound.name, 58)
             const chips = [

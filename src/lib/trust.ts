@@ -73,7 +73,7 @@ export function getTrustNote({
   hasFallbackContent,
 }: TrustNoteInput): string {
   if (hasFallbackContent) {
-    return 'Some copy is fallback-derived or placeholder-adjacent. Treat claims as provisional.'
+    return 'Some insights are inferred and require further validation.'
   }
   if (hasInferredContent) {
     return 'Some statements are inferred from indirect evidence; certainty is limited.'
