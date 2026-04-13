@@ -12,11 +12,23 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 
 const workbookPath = resolveWorkbookPath(repoRoot)
-const REQUIRED_WORKBOOK_SHEETS = ['Herb Monographs', 'Compound Master V3']
-const TARGET_WORKBOOK_SHEETS = ['Herb Monographs', 'Compound Master V3', 'Herb Compound Map V3', 'Production Export V1']
+const PRIMARY_HERB_SHEET = 'Site Export Herbs'
+const LEGACY_HERB_SHEET = 'Herb Monographs'
+const PRIMARY_COMPOUND_SHEET = 'Site Export Compounds'
+const LEGACY_COMPOUND_SHEET = 'Compound Master V3'
+const TARGET_WORKBOOK_SHEETS = [
+  PRIMARY_HERB_SHEET,
+  LEGACY_HERB_SHEET,
+  PRIMARY_COMPOUND_SHEET,
+  LEGACY_COMPOUND_SHEET,
+  'Herb Compound Map V3',
+  'Production Export V1',
+]
 const OPTIONAL_WORKBOOK_SHEETS = new Set(['Production Export V1'])
 const SHEET_REQUIRED_COLUMNS = {
+  'Site Export Herbs': ['name'],
   'Herb Monographs': ['name'],
+  'Site Export Compounds': ['compoundName'],
   'Compound Master V3': ['compoundName'],
   'Herb Compound Map V3': ['herbSlug', 'canonicalCompoundId'],
   'Production Export V1': ['goal'],
@@ -475,6 +487,32 @@ function parseSheet(workbook, sheetName, diagnostics, { optional = false } = {})
     if (!hasData) sheetDiagnostics.skippedRows += 1
     return hasData
   })
+}
+
+function mergePrimaryRowsWithFallback(primaryRows, fallbackRows, getKey) {
+  const fallbackByKey = new Map()
+  for (const row of fallbackRows) {
+    const key = cleanText(getKey(row))
+    if (!key || fallbackByKey.has(key)) continue
+    fallbackByKey.set(key, row)
+  }
+
+  const matchedKeys = new Set()
+  const mergedRows = []
+  for (const row of primaryRows) {
+    const key = cleanText(getKey(row))
+    const fallback = key ? fallbackByKey.get(key) : null
+    if (key && fallback) matchedKeys.add(key)
+    mergedRows.push({ ...(fallback || {}), ...row })
+  }
+
+  for (const row of fallbackRows) {
+    const key = cleanText(getKey(row))
+    if (primaryRows.length > 0 && key && matchedKeys.has(key)) continue
+    mergedRows.push(row)
+  }
+
+  return mergedRows
 }
 
 function slugify(value) {
@@ -994,8 +1032,21 @@ function main() {
 
   const workbook = XLSX.readFile(workbookPath, { sheets: TARGET_WORKBOOK_SHEETS })
   diagnostics.ignoredSheets = workbook.SheetNames.filter(sheetName => !TARGET_WORKBOOK_SHEETS.includes(sheetName))
-  const herbRows = parseSheet(workbook, REQUIRED_WORKBOOK_SHEETS[0], diagnostics)
-  const compoundRows = parseSheet(workbook, REQUIRED_WORKBOOK_SHEETS[1], diagnostics)
+  const primaryHerbRows = parseSheet(workbook, PRIMARY_HERB_SHEET, diagnostics, { optional: true })
+  const fallbackHerbRows = parseSheet(workbook, LEGACY_HERB_SHEET, diagnostics)
+  const herbRows = mergePrimaryRowsWithFallback(
+    primaryHerbRows,
+    fallbackHerbRows,
+    row => cleanText(row.slug || row.herbSlug || row.name)
+  )
+
+  const primaryCompoundRows = parseSheet(workbook, PRIMARY_COMPOUND_SHEET, diagnostics, { optional: true })
+  const fallbackCompoundRows = parseSheet(workbook, LEGACY_COMPOUND_SHEET, diagnostics)
+  const compoundRows = mergePrimaryRowsWithFallback(
+    primaryCompoundRows,
+    fallbackCompoundRows,
+    row => cleanText(row.canonicalCompoundId || row.compoundName || row.canonicalCompoundName)
+  )
   parseSheet(workbook, 'Herb Compound Map V3', diagnostics)
   parseSheet(workbook, 'Production Export V1', diagnostics, { optional: OPTIONAL_WORKBOOK_SHEETS.has('Production Export V1') })
 

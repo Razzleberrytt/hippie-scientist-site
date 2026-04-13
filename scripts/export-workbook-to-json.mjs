@@ -17,12 +17,27 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 const workbookPath = resolveWorkbookPath(repoRoot)
 const dataDir = path.join(repoRoot, 'public', 'data')
-const EXPORT_WORKBOOK_SHEETS = ['Herb Monographs', 'Compound Master V3', 'Herb Compound Map V3', 'Production Export V1']
+const PRIMARY_HERB_SHEET = 'Site Export Herbs'
+const LEGACY_HERB_SHEET = 'Herb Monographs'
+const PRIMARY_COMPOUND_SHEET = 'Site Export Compounds'
+const LEGACY_COMPOUND_SHEET = 'Compound Master V3'
+const HERB_COMPOUND_MAP_SHEET = 'Herb Compound Map V3'
+const LEGACY_GOAL_BUNDLE_SHEET = 'Production Export V1'
+const EXPORT_WORKBOOK_SHEETS = [
+  LEGACY_HERB_SHEET,
+  LEGACY_COMPOUND_SHEET,
+  HERB_COMPOUND_MAP_SHEET,
+  PRIMARY_HERB_SHEET,
+  PRIMARY_COMPOUND_SHEET,
+  LEGACY_GOAL_BUNDLE_SHEET,
+]
 const OPTIONAL_WORKBOOK_SHEETS = new Set(['Production Export V1'])
 const SHEET_REQUIRED_COLUMNS = {
-  'Herb Monographs': ['name', 'publishStatus'],
+  'Herb Monographs': ['name'],
   'Compound Master V3': ['compoundName'],
   'Herb Compound Map V3': ['herbSlug', 'canonicalCompoundName'],
+  'Site Export Herbs': ['name'],
+  'Site Export Compounds': ['compoundName'],
   'Production Export V1': ['goal'],
 }
 
@@ -168,8 +183,40 @@ function readSheetRows(workbook, sheetName, diagnostics, { optional = false } = 
   return nonEmptyRows
 }
 
+function mergePrimaryRowsWithFallback(primaryRows, fallbackRows, getKey) {
+  const fallbackByKey = new Map()
+  for (const row of fallbackRows) {
+    const key = toCleanString(getKey(row))
+    if (!key || fallbackByKey.has(key)) continue
+    fallbackByKey.set(key, row)
+  }
+
+  const matchedFallbackKeys = new Set()
+  const mergedRows = []
+  for (const row of primaryRows) {
+    const key = toCleanString(getKey(row))
+    const fallback = key ? fallbackByKey.get(key) : null
+    if (key && fallback) matchedFallbackKeys.add(key)
+    mergedRows.push({ ...(fallback || {}), ...row })
+  }
+
+  for (const row of fallbackRows) {
+    const key = toCleanString(getKey(row))
+    if (primaryRows.length > 0 && key && matchedFallbackKeys.has(key)) continue
+    mergedRows.push(row)
+  }
+
+  return mergedRows
+}
+
 function exportHerbs(workbook, diagnostics) {
-  const rows = readSheetRows(workbook, 'Herb Monographs', diagnostics)
+  const primaryRows = readSheetRows(workbook, PRIMARY_HERB_SHEET, diagnostics, { optional: true })
+  const fallbackRows = readSheetRows(workbook, LEGACY_HERB_SHEET, diagnostics)
+  const rows = mergePrimaryRowsWithFallback(
+    primaryRows,
+    fallbackRows,
+    row => firstMeaningful(row.slug, row.herbSlug, row.name ? slugify(row.name) : '')
+  )
 
   const records = rows
     .map(row => ({
@@ -222,12 +269,19 @@ function exportHerbs(workbook, diagnostics) {
     const withNormalizedSlug = { ...record, slug: normalizeRecordSlug(record, 'slug') }
     return removeEmptyValues(withNormalizedSlug)
   })
-  diagnostics.sheets['Herb Monographs'].skippedRows += records.length - deduped.length
+  diagnostics.sheets[PRIMARY_HERB_SHEET].skippedRows += records.length - deduped.length
   return deduped
 }
 
 function exportCompounds(workbook, diagnostics) {
-  const rows = readSheetRows(workbook, 'Compound Master V3', diagnostics)
+  const primaryRows = readSheetRows(workbook, PRIMARY_COMPOUND_SHEET, diagnostics, { optional: true })
+  const fallbackRows = readSheetRows(workbook, LEGACY_COMPOUND_SHEET, diagnostics)
+  const rows = mergePrimaryRowsWithFallback(
+    primaryRows,
+    fallbackRows,
+    row => firstMeaningful(row.canonicalCompoundId, row.compoundName, row.canonicalCompoundName)
+  )
+
   const records = rows.map(row => ({
     id: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.canonicalCompoundName || row.Compound),
     slug: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.canonicalCompoundName || row.Compound),
@@ -268,7 +322,7 @@ function exportCompounds(workbook, diagnostics) {
     }
     return removeEmptyValues(cleaned)
   })
-  diagnostics.sheets['Compound Master V3'].skippedRows += records.length - deduped.length
+  diagnostics.sheets[PRIMARY_COMPOUND_SHEET].skippedRows += records.length - deduped.length
   return deduped
 }
 
@@ -313,7 +367,7 @@ function cleanGoalValue(value) {
 }
 
 function exportGoalBundles(workbook, diagnostics) {
-  const rows = readSheetRows(workbook, 'Production Export V1', diagnostics, { optional: true })
+  const rows = readSheetRows(workbook, LEGACY_GOAL_BUNDLE_SHEET, diagnostics, { optional: true })
   const records = rows
     .map(row => ({
       goal: cleanGoalValue(row.goal),
