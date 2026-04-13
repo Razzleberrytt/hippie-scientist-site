@@ -309,6 +309,7 @@ export default function CompoundDetail() {
   })
 
   const primaryEffects = extractPrimaryEffects(compoundEffects, 4)
+  const decisionEffects = primaryEffects.slice(0, 2)
 
   const sourceCount = compound.sources.length
   const cautionCount = countCautionSignals({
@@ -511,6 +512,43 @@ export default function CompoundDetail() {
               {compoundDescription || topSummary}
             </p>
           )}
+          {(doesText || whyItMatters || foundInHerbLinks.length > 0) && (
+            <div className='mt-4 grid gap-3 sm:grid-cols-3'>
+              <div className='rounded-lg border border-white/12 bg-white/[0.02] p-3'>
+                <p className='text-[10px] font-semibold uppercase tracking-[0.14em] text-white/55'>What it is</p>
+                <p className='mt-1 line-clamp-3 text-xs text-white/78'>{compoundDescription || 'Active plant constituent.'}</p>
+              </div>
+              <div className='rounded-lg border border-white/12 bg-white/[0.02] p-3'>
+                <p className='text-[10px] font-semibold uppercase tracking-[0.14em] text-white/55'>Why it matters</p>
+                <p className='mt-1 line-clamp-3 text-xs text-white/78'>
+                  {whyItMatters ? `Tracked outcomes: ${whyItMatters}.` : 'Mechanism and effect context is still being expanded.'}
+                </p>
+              </div>
+              <div className='rounded-lg border border-white/12 bg-white/[0.02] p-3'>
+                <p className='text-[10px] font-semibold uppercase tracking-[0.14em] text-white/55'>Where it appears</p>
+                <p className='mt-1 line-clamp-3 text-xs text-white/78'>
+                  {foundInHerbLinks.length > 0
+                    ? foundInHerbLinks.slice(0, 3).map(item => item.label).join(', ')
+                    : 'Herb mapping in progress.'}
+                </p>
+              </div>
+            </div>
+          )}
+          {decisionEffects.length > 0 && (
+            <div className='mt-4 flex flex-wrap gap-1'>
+              {decisionEffects.map(effect => (
+                <span key={effect} className='ds-pill'>{effect}</span>
+              ))}
+            </div>
+          )}
+          <section className='mt-3 rounded-lg border border-amber-300/30 bg-amber-500/10 p-3'>
+            <p className='text-[10px] font-semibold uppercase tracking-[0.14em] text-amber-100'>Safety context</p>
+            <p className='mt-1 text-xs text-amber-50/90'>
+              {compoundContraindications[0]
+                ? `Watch for: ${compoundContraindications[0]}.`
+                : 'Use interaction checking before combining with other agents.'}
+            </p>
+          </section>
           {(confidence || evidence || sourceCount > 0 || cautionCount > 0) && (
             <div className='mt-3 flex flex-wrap gap-1.5'>
               {confidence && (
@@ -551,51 +589,7 @@ export default function CompoundDetail() {
         </header>
 
         {/* Core fields — only render when value is present */}
-        {compoundDescription && compoundDescription !== topSummary && (
-          <Section title='Overview'>
-            {compoundDescription}
-            {topSummary && <p className='mt-3 text-white/80'>{topSummary}</p>}
-            {displayClass && (
-              <p className='mt-3 label-specimen'>
-                Category: {displayClass}
-              </p>
-            )}
-          </Section>
-        )}
-
-        {/* Primary effects pills */}
-        {primaryEffects.length > 0 && (
-          <div className='mt-5 flex flex-wrap gap-2'>
-            {primaryEffects.map(effect => (
-              <span
-                key={effect}
-                className='rounded-full border border-cyan-300/30 bg-cyan-500/10 px-2.5 py-1 text-xs text-cyan-100'
-              >
-                {effect}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {(doesText || whyItMatters) && (
-          <Section title='Why This Compound Matters'>
-            <div className='space-y-2'>
-              {doesText && (
-                <p>
-                  <span className='font-semibold text-white'>What it does:</span> {doesText}
-                </p>
-              )}
-              {whyItMatters && (
-                <p>
-                  <span className='font-semibold text-white'>Why it matters:</span> This helps
-                  explain why {name} is discussed in herbal profiles for{' '}
-                  {linkedHerbs.length > 0 ? `${linkedHerbs.length} herb(s)` : 'multiple herbs'}.
-                  Commonly tracked outcomes include {whyItMatters}.
-                </p>
-              )}
-            </div>
-          </Section>
-        )}
+        {displayClass && <Section title='Category'>{displayClass}</Section>}
 
         {compoundMechanism && <Section title='Mechanism of Action'>{compoundMechanism}</Section>}
 
@@ -678,7 +672,7 @@ export default function CompoundDetail() {
         {/* Found in */}
         {foundInHerbLinks.length > 0 && (
           <section id='related-herbs' className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title={`Found In (${foundInHerbLinks.length})`}>
+            <Collapse title={`Related herbs (${foundInHerbLinks.length})`}>
               <div className='space-y-4 text-sm leading-relaxed text-white/85'>
                 {linkedHerbCards.length > 0 && (
                   <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
@@ -693,22 +687,6 @@ export default function CompoundDetail() {
                     ))}
                   </div>
                 )}
-                <div>
-                  <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
-                    Quick Links
-                  </h3>
-                  <div className='flex flex-wrap gap-2.5'>
-                    {foundInHerbLinks.map(item => (
-                      <Link
-                        key={item.to}
-                        to={item.to}
-                        className='inline-flex items-center rounded-full border border-white/12 bg-white/[0.05] px-3 py-1.5 text-xs font-medium tracking-[0.01em] text-white/86 transition duration-200 hover:border-white/24 hover:bg-white/[0.085] hover:text-white'
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
               </div>
             </Collapse>
           </section>

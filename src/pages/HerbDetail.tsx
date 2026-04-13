@@ -300,6 +300,7 @@ export default function HerbDetail() {
   )
   const sources = toSources(herb.sources)
   const primaryEffects = extractPrimaryEffects(effects, 5)
+  const decisionEffects = primaryEffects.slice(0, 2)
   const compoundByName = new Map(compounds.map(compound => [normalizeKey(compound.name), compound]))
   const herbByKey = new Map<string, { label: string; slug: string }>()
 
@@ -677,16 +678,6 @@ export default function HerbDetail() {
           { label: herbDisplayName },
         ]}
       />
-      <nav className='mb-2 text-xs text-white/60'>
-        <Link to='/' className='hover:text-white'>
-          Home
-        </Link>{' '}
-        &gt;{' '}
-        <Link to='/herbs' className='hover:text-white'>
-          Herbs
-        </Link>{' '}
-        &gt; <span className='text-white/80'>{herbDisplayName}</span>
-      </nav>
       <div className='flex flex-wrap items-center gap-2'>
         <Link to='/herbs' className='btn-secondary inline-flex items-center'>
           ← Back to herbs
@@ -725,25 +716,32 @@ export default function HerbDetail() {
               )}
             </div>
           </div>
-          {/* Primary effects are elevated directly under the name. */}
-          {primaryEffects.length > 0 && (
-            <ul className='mt-3 list-disc space-y-1 pl-5 text-sm text-white/85'>
-              {primaryEffects.map(effect => (
-                <li key={effect}>{effect}</li>
-              ))}
-            </ul>
-          )}
           {/* Keep summary concise above the fold; deep explanation is pushed lower. */}
           {(shortSummary || description) && (
             <p className='mt-4 max-w-3xl text-sm leading-relaxed text-white/80'>
               {shortSummary}
             </p>
           )}
-          {contraindications.length > 0 && (
-            <div className='mt-3 rounded-xl border border-amber-300/35 bg-amber-500/10 px-3 py-2 text-xs text-amber-100'>
-              Safety callout: {contraindications[0]}
-            </div>
+          {decisionEffects.length > 0 && (
+            <section className='mt-4'>
+              <p className='text-xs font-semibold uppercase tracking-[0.16em] text-white/55'>Key effects</p>
+              <ul className='mt-2 list-disc space-y-1 pl-5 text-sm text-white/85'>
+                {decisionEffects.map(effect => (
+                  <li key={effect}>{effect}</li>
+                ))}
+              </ul>
+            </section>
           )}
+          <section className='mt-4 rounded-lg border border-amber-300/30 bg-amber-500/10 p-3'>
+            <p className='text-xs font-semibold uppercase tracking-[0.16em] text-amber-100'>
+              Should you use this?
+            </p>
+            <p className='mt-1 text-xs text-amber-50/90'>
+              {contraindications[0]
+                ? `Use caution if ${contraindications[0].toLowerCase()}.`
+                : 'Review interactions and your context before use.'}
+            </p>
+          </section>
 
           <div className='mt-3 flex flex-wrap gap-1.5'>
             {evidenceLevel && (
@@ -778,9 +776,9 @@ export default function HerbDetail() {
         </header>
 
         {/* Core content */}
-        {description && (
+        {description && description !== shortSummary && (
           <section className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='Summary' defaultOpen>
+            <Collapse title='Deep dive summary'>
               {description}
             </Collapse>
           </section>

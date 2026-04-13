@@ -105,9 +105,9 @@ export default function CompoundsPage() {
       />
 
       <header className='ds-card-lg mb-8'>
-        <h1 className='text-3xl font-semibold sm:text-4xl'>Compounds</h1>
+        <h1 className='text-3xl font-semibold sm:text-4xl'>Compound Context Guide</h1>
         <p className='mt-2 max-w-3xl text-sm text-white/76 sm:text-base'>
-          Search compounds by mechanism and effects, then filter by confidence and category.
+          See what each compound is, why it matters, and which herbs it appears in.
         </p>
       </header>
 
@@ -269,7 +269,7 @@ export default function CompoundsPage() {
             ].slice(0, 2)
 
             return (
-              <article key={compound.id} className='ds-card flex h-full flex-col gap-2 p-3'>
+              <article key={compound.id} className='ds-card flex h-full flex-col gap-2.5 p-3'>
                 <div className='flex items-start justify-between gap-2'>
                   <h2
                     title={compound.name}
@@ -277,11 +277,6 @@ export default function CompoundsPage() {
                   >
                     {title}
                   </h2>
-                  <span
-                    className={`shrink-0 rounded-full border px-1.5 py-0 text-[10px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
-                  >
-                    {confidence}
-                  </span>
                 </div>
                 <p className='line-clamp-2 text-xs leading-[1.35] text-white/72'>{summarize(compound)}</p>
                 {chips.length > 0 && (
@@ -296,17 +291,21 @@ export default function CompoundsPage() {
                     ))}
                   </div>
                 )}
-                <div className='text-[11px] text-white/56'>
-                  <p>
-                    {compound.herbs.length} {compound.herbs.length === 1 ? 'herb' : 'herbs'}{' '}
-                    associated
+                <div className='flex items-center justify-between gap-2'>
+                  <span
+                    className={`shrink-0 rounded-full border px-1.5 py-0 text-[10px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
+                  >
+                    {confidence}
+                  </span>
+                  <p className='text-[11px] text-white/56'>
+                    In {compound.herbs.length} {compound.herbs.length === 1 ? 'herb' : 'herbs'}
                   </p>
                 </div>
                 <Link
                   to={`/compounds/${compound.slug}`}
-                  className='mt-auto inline-flex w-fit items-center rounded-md border border-white/15 bg-white/[0.03] px-2 py-1 text-[11px] font-medium text-white/80 transition hover:border-cyan-300/45 hover:text-white'
+                  className='btn-secondary mt-auto inline-flex w-fit text-[11px]'
                 >
-                  View details
+                  Open context
                 </Link>
               </article>
             )

@@ -20,6 +20,7 @@ import type { EnrichmentFilter } from '@/types/enrichmentDiscovery'
 import { trackGovernedEvent } from '@/lib/governedAnalytics'
 import { slugify } from '@/lib/slug'
 import { Link } from 'react-router-dom'
+import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 
 const CARD_PLACEHOLDER_PATTERN = /Herb profile|reference profile|No direct|Contextual inference/i
 
@@ -111,9 +112,9 @@ export default function HerbsPage() {
       />
 
       <header className='ds-card-lg mb-8'>
-        <h1 className='text-3xl font-semibold sm:text-4xl'>Herb Knowledge Database</h1>
+        <h1 className='text-3xl font-semibold sm:text-4xl'>Herb Decision Guide</h1>
         <p className='mt-2 max-w-3xl text-sm text-white/76 sm:text-base'>
-          Search and filter herbs by effect tags, confidence, and class to quickly compare entries.
+          Compare what each herb does, how strong the evidence is, and whether it fits your goal.
         </p>
       </header>
 
@@ -273,20 +274,27 @@ export default function HerbsPage() {
           {visibleHerbs.map((herb, index) => (
             <article
               key={herb.slug || herb.id || `${herb.common}-${index}`}
-              className='rounded-2xl border border-white/10 bg-white/[0.03] p-4'
+              className='ds-card flex h-full flex-col gap-2.5 p-3'
             >
-              <h2 className='text-lg font-semibold text-white'>
+              <h2 className='line-clamp-2 text-base font-semibold text-white'>
                 {toTitleCase(String(herb.common || herb.scientific || herb.name || 'Herb'))}
               </h2>
-              <p className='mt-2 text-sm text-white/75'>
+              <p className='line-clamp-2 text-xs text-white/75'>
                 {cleanSummary(String(herb.summary || herb.description || herb.mechanism || ''))}
               </p>
-              {String(herb.qualityTier || '').toLowerCase() === 'strong' && (
-                <span className='mt-3 inline-flex rounded-full border border-emerald-300/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] text-emerald-100'>
-                  Well Documented
+              <div className='flex flex-wrap gap-1'>
+                {extractPrimaryEffects(Array.isArray(herb.effects) ? herb.effects : [], 2).map(effect => (
+                  <span key={`${herb.slug || herb.id}-${effect}`} className='ds-pill'>
+                    {effect}
+                  </span>
+                ))}
+              </div>
+              <div className='flex items-center justify-between gap-2'>
+                <span className='ds-pill'>
+                  {String(herb.qualityTier || '').toLowerCase() === 'strong'
+                    ? 'Well documented'
+                    : 'Early evidence'}
                 </span>
-              )}
-              <div className='mt-4'>
                 <Link
                   to={
                     herb.slug
@@ -295,9 +303,9 @@ export default function HerbsPage() {
                           slugify(String(herb.common || herb.scientific || herb.name || '')),
                         )}`
                   }
-                  className='text-sm font-medium text-cyan-200 hover:text-cyan-100'
+                  className='btn-secondary ml-auto text-[11px]'
                 >
-                  Open herb profile →
+                  Should I use this?
                 </Link>
               </div>
             </article>
