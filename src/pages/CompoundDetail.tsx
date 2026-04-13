@@ -65,7 +65,7 @@ const ISSUE_TEMPLATE_URL =
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className='border-white/8 mt-6 border-t pt-5'>
+    <section className='detail-panel fade-in-surface mt-6'>
       <h2 className='mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/50'>
         {title}
       </h2>
@@ -568,18 +568,18 @@ export default function CompoundDetail() {
             </p>
           )}
           <div className='mt-4 grid gap-3 sm:grid-cols-3'>
-            <section className='rounded-lg border border-white/10 bg-black/20 p-3'>
+            <section className='detail-panel rounded-lg p-3'>
               <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56'>Why it matters</h2>
               <p className='mt-1 text-xs text-white/80'>
                 {whyItMatters || 'Tracked for mechanism context and potential outcomes.'}
               </p>
             </section>
-            <section className='rounded-lg border border-white/10 bg-black/20 p-3'>
-              <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56'>Key effects</h2>
+            <section className='detail-panel rounded-lg p-3'>
+              <h2 className='text-[11px] font-semibold uppercase tracking-[0.16em] text-white/62'>Key effects</h2>
               <div className='mt-1 flex flex-wrap gap-1.5'>
                 {topEffects.length > 0 ? (
                   topEffects.map(effect => (
-                    <span key={`top-effect-${effect}`} className='ds-pill text-[11px]'>
+                    <span key={`top-effect-${effect}`} className='ds-pill neo-pill text-[11px]'>
                       {effect}
                     </span>
                   ))
@@ -588,7 +588,7 @@ export default function CompoundDetail() {
                 )}
               </div>
             </section>
-            <section className='rounded-lg border border-white/10 bg-black/20 p-3'>
+            <section className='detail-panel rounded-lg p-3'>
               <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56'>Where it appears</h2>
               <p className='mt-1 text-xs text-white/80'>
                 {whereAppears.join(', ') || 'Related herbs listed below.'}
@@ -640,7 +640,7 @@ export default function CompoundDetail() {
             {primaryEffects.map(effect => (
               <span
                 key={effect}
-                className='rounded-full border border-cyan-300/30 bg-cyan-500/10 px-2.5 py-1 text-xs text-cyan-100'
+                className='neo-pill rounded-full border px-2.5 py-1 text-xs'
               >
                 {effect}
               </span>
@@ -666,7 +666,7 @@ export default function CompoundDetail() {
         {pharmacokinetics && <Section title='Pharmacokinetics'>{pharmacokinetics}</Section>}
 
         {pathwayTargets.length > 0 && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
+          <section className='detail-panel fade-in-surface mt-6'>
             <Collapse title='Pathway Targets'>
               <div className='flex flex-wrap gap-2 text-sm text-white/85'>
                 {pathwayTargets.map(target => (
@@ -680,7 +680,7 @@ export default function CompoundDetail() {
         )}
 
         {compoundTherapeuticUses.length > 0 && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
+          <section className='detail-panel fade-in-surface mt-6'>
             <Collapse title='Traditional & Therapeutic Use'>
               <div className='text-sm leading-relaxed text-white/85'>
                 <ListSection items={compoundTherapeuticUses} maxVisible={6} />
@@ -694,7 +694,7 @@ export default function CompoundDetail() {
           compoundInteractions.length > 0 ||
           compoundSideEffects.length > 0 ||
           uniqueDrugInteractionItems.length > 0) && (
-          <section id='governed-safety-interactions' className='border-white/8 mt-6 border-t pt-5'>
+          <section id='governed-safety-interactions' className='detail-panel fade-in-surface mt-6'>
             <Collapse title='Safety Notes'>
               <div className='space-y-4 text-sm leading-relaxed text-white/85'>
                 {compoundContraindications.length > 0 && (
@@ -732,7 +732,7 @@ export default function CompoundDetail() {
 
         {/* Found in */}
         {foundInHerbLinks.length > 0 && (
-          <section id='related-herbs' className='border-white/8 mt-6 border-t pt-5'>
+          <section id='related-herbs' className='detail-panel fade-in-surface mt-6'>
             <Collapse title={`Found In (${foundInHerbLinks.length})`}>
               <div className='space-y-4 text-sm leading-relaxed text-white/85'>
                 {linkedHerbCards.length > 0 && (
@@ -770,7 +770,7 @@ export default function CompoundDetail() {
         )}
 
         {relatedCollections.length > 0 && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
+          <section className='detail-panel fade-in-surface mt-6'>
             <Collapse title='Compare in Related Collections'>
               <div className='space-y-2 text-sm text-white/85'>
                 <p className='text-xs text-white/65'>
@@ -804,7 +804,7 @@ export default function CompoundDetail() {
         {governedResearch && governedFaq && governedRelatedQuestions && (
           <>
             {showRawDebug && compound.rawData && (
-              <section className='rounded-2xl border border-amber-200/20 bg-black/20 p-4'>
+              <section className='detail-panel rounded-2xl border-amber-200/30 p-4'>
                 <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-100/80'>
                   Debug raw data
                 </h2>
@@ -1040,7 +1040,7 @@ export default function CompoundDetail() {
         {compound.duration && <Section title='Duration'>{compound.duration}</Section>}
         {/* Sources */}
         {(compound.sources.length > 0 || workbookSources.length > 0) && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
+          <section className='detail-panel fade-in-surface mt-6'>
             <Collapse title='Sources'>
               <ol className='list-decimal space-y-1 pl-5 text-sm leading-relaxed text-white/85'>
                 {compound.sources.map((source, index) => (
