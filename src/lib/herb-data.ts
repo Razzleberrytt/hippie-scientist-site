@@ -1,3 +1,4 @@
+// UPDATED: Added safety note normalization for clean deduplicated herb safety arrays.
 import { useEffect, useState } from 'react'
 import { slugify } from '@/lib/slug'
 import type { Herb } from '@/types'
@@ -229,6 +230,25 @@ function normalizeSources(value: unknown): SourceRef[] {
     .filter((entry): entry is SourceRef => entry !== null)
 }
 
+
+function normalizeSafetyNotes(...values: unknown[]): string[] {
+  const seen = new Set<string>()
+  const notes: string[] = []
+
+  values
+    .flatMap(value => splitClean(value))
+    .map(value => value.replace(/\s+/g, ' ').trim())
+    .filter(value => value.length >= 5)
+    .forEach(value => {
+      const key = value.toLowerCase()
+      if (!key || seen.has(key)) return
+      seen.add(key)
+      notes.push(value)
+    })
+
+  return notes
+}
+
 function normalizeProductRecommendations(value: unknown): ProductRecommendation[] {
   if (!Array.isArray(value)) return []
   return value
@@ -260,6 +280,13 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   const contraindications = splitClean(data.contraindications)
   const interactions = splitClean(data.interactions)
   const sideeffects = splitClean(data.sideEffects ?? data.sideeffects)
+  const safetyNotes = normalizeSafetyNotes(
+    data.safetyNotes,
+    data.safety,
+    data.contraindications,
+    data.interactions,
+    data.sideEffects ?? data.sideeffects,
+  )
   const rawInteractionTags = splitClean(data.interactionTags)
   const rawInteractionNotes = splitClean(data.interactionNotes)
   const therapeuticUses = splitClean(data.therapeuticUses)
@@ -310,6 +337,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     therapeuticUses,
     contraindications,
     interactions,
+    safetyNotes,
     interactionTags: mergedInteraction.interactionTags,
     interactionNotes: mergedInteraction.interactionNotes,
     dosage,

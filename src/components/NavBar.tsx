@@ -1,4 +1,4 @@
-// Simplified primary navigation to core destinations with a toggled search icon and mobile hamburger menu.
+// UPDATED: Streamlined dark-mode primary nav to home, herbs, compounds, blog, and search toggle.
 import { type FormEvent, useEffect, useState } from 'react'
 import { Menu, Search, X } from 'lucide-react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
@@ -46,7 +46,7 @@ export default function NavBar() {
               Compounds
             </NavLink>
             <NavLink to='/blog' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : linkDim}`}>
-              Research Notebook
+              Blog
             </NavLink>
             <button
               type='button'
@@ -102,7 +102,7 @@ export default function NavBar() {
               Compounds
             </NavLink>
             <NavLink to='/blog' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : linkDim} justify-start`}>
-              Research Notebook
+              Blog
             </NavLink>
             {searchOpen && (
               <form onSubmit={handleSearchSubmit}>
