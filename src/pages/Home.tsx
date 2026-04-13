@@ -89,7 +89,7 @@ export default function Home() {
 
       <Hero />
 
-      <section className='container mx-auto max-w-4xl px-4 pt-8 sm:px-6 sm:pt-12'>
+      <section className='container mx-auto max-w-4xl px-4 pt-6 sm:px-6 sm:pt-8'>
         <div className='grid gap-8 sm:grid-cols-2 sm:gap-10'>
           <div className='h-full space-y-2'>
             <p className='label-specimen'>
@@ -139,7 +139,7 @@ export default function Home() {
       <EffectExplorer herbs={homepageData.effectExplorerHerbs} />
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
-        <div className='ds-card-lg border-amber-300/30 bg-amber-500/10'>
+        <div className='ds-card-lg'>
           <p className='text-xs font-semibold uppercase tracking-[0.24em] text-amber-100/80'>
             Trust & safety
           </p>
@@ -182,7 +182,7 @@ export default function Home() {
                 <a
                   key={effect}
                   href='#effect-search'
-                  className='rounded-full border border-violet-300/40 bg-violet-500/10 px-3 py-1.5 text-xs font-medium capitalize text-violet-100 transition hover:border-violet-200/60 hover:bg-violet-500/15'
+                  className='rounded-full border border-white/12 bg-white/[0.02] px-3 py-1 text-xs font-medium capitalize text-white/80 transition hover:border-cyan-300/35 hover:text-white'
                 >
                   {effect}
                 </a>

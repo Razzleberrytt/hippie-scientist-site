@@ -662,7 +662,7 @@ export default function HerbDetail() {
         </Link>
         <button
           type='button'
-          className='inline-flex rounded-full border border-white/20 px-3 py-1 text-sm text-white/85 transition hover:border-white/35 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300'
+          className='inline-flex rounded-full border border-white/20 px-3 py-1 text-sm text-white/85 transition hover:border-white/35 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300'
           onClick={() =>
             toggle({
               type: 'herb',
@@ -694,7 +694,7 @@ export default function HerbDetail() {
               {primaryEffects.map(effect => (
                 <span
                   key={effect}
-                  className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
+                  className='rounded-full border border-cyan-300/30 bg-cyan-500/10 px-2.5 py-1 text-xs text-cyan-100'
                 >
                   {effect}
                 </span>
@@ -748,13 +748,9 @@ export default function HerbDetail() {
         )}
 
         {isDataIncomplete && (
-          <div className='bg-amber-500/8 mt-4 rounded-xl border border-amber-300/30 p-3 text-sm text-amber-100'>
-            <p className='font-semibold'>Incomplete profile</p>
-            <p className='mt-1 text-amber-50/80'>
-              Key evidence fields are missing. Treat this as a draft — cross-check before making
-              decisions.
-            </p>
-          </div>
+          <p className='mt-3 text-xs text-white/58'>
+            Note: key evidence fields are still being completed for this profile.
+          </p>
         )}
 
         {/* Confidence explanations are now hidden by default to reduce initial clutter. */}
@@ -993,12 +989,7 @@ export default function HerbDetail() {
           </Section>
         )}
 
-        {qualityConcerns && (
-          <div className='mt-4 rounded-xl border border-amber-300/35 bg-amber-500/12 p-3 text-sm text-amber-100'>
-            <p className='font-semibold'>⚠ Quality concerns</p>
-            <p className='mt-1 text-amber-50/90'>{qualityConcerns}</p>
-          </div>
-        )}
+        {qualityConcerns && <Section title='Quality concerns'>{qualityConcerns}</Section>}
 
         <PremiumDataSection details={premiumDetails} />
 
