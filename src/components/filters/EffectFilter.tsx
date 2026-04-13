@@ -29,29 +29,29 @@ export default function EffectFilter({ options, selected, onToggle }: EffectFilt
     return () => window.removeEventListener(MORE_FILTERS_EVENT, handleChange as EventListener)
   }, [])
 
-  const hasOverflow = options.length > 18
+  const hasOverflow = options.length > 16
   const visible = useMemo(() => {
     if (expanded || !hasOverflow) return options
-    return options.slice(0, 18)
+    return options.slice(0, 16)
   }, [expanded, hasOverflow, options])
 
   if (!moreFiltersOpen) return null
 
   return (
-    <section className='rounded-2xl border border-white/10 bg-white/[0.03] p-3'>
+    <section className='rounded-xl border border-white/10 bg-white/[0.02] p-2.5'>
       <div className='mb-2 flex items-center justify-between gap-2'>
         <h3 className='text-sm font-semibold text-white'>Effects</h3>
         {hasOverflow && (
           <button
             type='button'
             onClick={() => setExpanded(value => !value)}
-            className='text-xs text-white/75 underline underline-offset-4 hover:text-white'
+            className='text-xs text-white/70 underline underline-offset-4 hover:text-white'
           >
             {expanded ? 'Show less' : `Show all (${options.length})`}
           </button>
         )}
       </div>
-      <div className='flex flex-wrap gap-2'>
+      <div className='flex flex-wrap gap-1.5'>
         {visible.map(effect => {
           const active = selected.includes(effect)
           return (
@@ -59,10 +59,10 @@ export default function EffectFilter({ options, selected, onToggle }: EffectFilt
               key={effect}
               type='button'
               onClick={() => onToggle(effect)}
-              className={`rounded-full border px-3 py-1 text-xs transition ${
+              className={`rounded-full border px-2.5 py-1 text-xs transition ${
                 active
-                  ? 'border-violet-300/60 bg-violet-500/25 text-violet-100 shadow-[0_0_14px_rgba(139,92,246,0.3)]'
-                  : 'border-white/15 bg-white/[0.03] text-white/80 hover:bg-white/10'
+                  ? 'border-cyan-300/45 bg-cyan-500/12 text-cyan-100'
+                  : 'border-white/14 bg-white/[0.02] text-white/78 hover:bg-white/[0.07]'
               }`}
             >
               {effect}

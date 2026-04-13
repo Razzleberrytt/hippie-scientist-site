@@ -569,7 +569,7 @@ export default function CompoundDetail() {
             {primaryEffects.map(effect => (
               <span
                 key={effect}
-                className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
+                className='rounded-full border border-cyan-300/30 bg-cyan-500/10 px-2.5 py-1 text-xs text-cyan-100'
               >
                 {effect}
               </span>
@@ -647,17 +647,9 @@ export default function CompoundDetail() {
                     <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
                       Contraindications
                     </h3>
-                    <ul className='space-y-2'>
+                    <ul className='list-disc space-y-1 pl-5'>
                       {compoundContraindications.map(item => (
-                        <li
-                          key={item}
-                          className='rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-2 text-rose-100'
-                        >
-                          <span aria-hidden='true' className='mr-1'>
-                            ⚠
-                          </span>
-                          {item}
-                        </li>
+                        <li key={item}>{item}</li>
                       ))}
                     </ul>
                   </div>

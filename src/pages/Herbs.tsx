@@ -96,17 +96,17 @@ export default function HerbsPage() {
         path='/herbs'
       />
 
-      <header className='ds-card-lg mb-10'>
+      <header className='ds-card-lg mb-8'>
         <h1 className='text-3xl font-semibold sm:text-4xl'>Herb Knowledge Database</h1>
         <p className='mt-2 max-w-3xl text-sm text-white/76 sm:text-base'>
           Search and filter herbs by effect tags, confidence, and class to quickly compare entries.
         </p>
       </header>
 
-      <section className='mb-10 rounded-2xl border border-violet-300/20 bg-violet-500/8 p-3.5 sm:p-4'>
+      <section className='mb-8 rounded-xl border border-white/10 bg-white/[0.02] p-3'>
         <div className='flex flex-wrap items-center justify-between gap-3'>
           <div>
-            <h2 className='text-lg font-semibold text-violet-100'>Effect Explorer</h2>
+            <h2 className='text-lg font-semibold text-white'>Effect Explorer</h2>
             <p className='text-sm text-white/75'>
               Open on demand for ranked matches by outcome (sleep, focus, relaxation).
             </p>
@@ -123,7 +123,7 @@ export default function HerbsPage() {
         {showEffectExplorer && <EffectExplorer herbs={decoratedHerbs} />}
       </section>
 
-      <section className='mb-9 space-y-3'>
+      <section className='mb-8 space-y-2.5'>
         <SearchBar
           value={filters.query}
           onChange={value => {
@@ -246,7 +246,7 @@ export default function HerbsPage() {
         />
       </section>
 
-      <p className='mb-5 text-xs text-white/60 sm:text-sm'>
+      <p className='mb-4 text-xs text-white/60 sm:text-sm'>
         {filtered.length} results · {effectIndex.size} indexed effects
       </p>
 
@@ -255,7 +255,7 @@ export default function HerbsPage() {
           No herbs match your current filters.
         </div>
       ) : (
-        <section className='grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3'>
+        <section className='grid gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3'>
           {visibleHerbs.map((herb, index) => (
             <HerbCard
               key={herb.slug || herb.id || `${herb.common}-${index}`}
