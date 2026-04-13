@@ -19,6 +19,7 @@ import EffectExplorer from '@/components/EffectExplorer'
 import type { EnrichmentFilter } from '@/types/enrichmentDiscovery'
 import { trackGovernedEvent } from '@/lib/governedAnalytics'
 import { slugify } from '@/lib/slug'
+import { dedupePresentationList, sanitizeSummaryText } from '@/lib/sanitize'
 import { Link } from 'react-router-dom'
 
 
@@ -47,19 +48,20 @@ const toTitleCase = (value: string) =>
     .replace(/\b\w/g, letter => letter.toUpperCase())
 
 const cleanSummary = (value: string, herbName = '') => {
-  const normalized = String(value || '').replace(/\s+/g, ' ').trim()
+  const normalized = sanitizeSummaryText(value, 2)
   if (!normalized) return 'Profile in progress'
   if (isPlaceholder(normalized, herbName)) return 'Profile in progress'
-  const firstSentence = normalized.split(/(?<=[.!?])\s+/)[0] || normalized
-  if (firstSentence.length <= 120) return firstSentence
+  if (normalized.length <= 120) return normalized
   return `${normalized.slice(0, 117).trimEnd()}...`
 }
 
 const getKeyEffects = (herb: Record<string, unknown>) =>
-  (Array.isArray(herb.primaryEffects) ? herb.primaryEffects : Array.isArray(herb.effects) ? herb.effects : [])
-    .map(effect => toTitleCase(String(effect || '').trim()))
-    .filter(Boolean)
-    .slice(0, 2)
+  dedupePresentationList(
+    Array.isArray(herb.primaryEffects) ? herb.primaryEffects : Array.isArray(herb.effects) ? herb.effects : [],
+    3,
+  )
+    .map(toTitleCase)
+    .slice(0, 3)
 
 const getStatusTag = (herb: Record<string, unknown>) => {
   const tier = String(herb.qualityTier || herb.evidenceLevel || '').toLowerCase()
