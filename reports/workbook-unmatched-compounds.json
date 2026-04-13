@@ -21,10 +21,6 @@
   },
   {
     "canonicalCompoundId": "",
-    "compoundName": "5-hydroxytryptophan"
-  },
-  {
-    "canonicalCompoundId": "",
     "compoundName": "5-hydroxytryptophan (5-HTP)"
   },
   {
@@ -729,11 +725,19 @@
   },
   {
     "canonicalCompoundId": "",
+    "compoundName": "ECG"
+  },
+  {
+    "canonicalCompoundId": "",
     "compoundName": "echinacoside"
   },
   {
     "canonicalCompoundId": "",
     "compoundName": "ecliptine"
+  },
+  {
+    "canonicalCompoundId": "",
+    "compoundName": "EGCG"
   },
   {
     "canonicalCompoundId": "",

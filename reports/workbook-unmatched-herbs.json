@@ -1,12 +1,457 @@
 [
   {
-    "slug": "kudzu",
-    "name": "Kudzu",
-    "scientificName": "Pueraria lobata"
+    "slug": "",
+    "name": "Angelica Root",
+    "scientificName": ""
   },
   {
-    "slug": "coleus-forskohlii",
+    "slug": "",
+    "name": "Anise Hyssop",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Artichoke",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Astragalus",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Atractylodes",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Bael",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Berberis",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Bitter Melon",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Boswellia",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Bupleurum",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Burdock",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Butterbur",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Cacao",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Calendula",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Cat's Claw",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Catuba",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Cayenne",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Chaga",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Chinese Skullcap",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Chuanxiong",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Cinnamon",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Coffee Cherry",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
     "name": "Coleus Forskohlii",
-    "scientificName": "Coleus forskohlii"
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Coptis",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Cordyceps",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Corydalis",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Dandelion",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Danshen",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Dendrobium",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Dong Quai",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Elderberry",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Elecampane",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Eleuthero",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Epimedium",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Eucalyptus",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Fennel",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Fingerroot",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Galangal",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Garlic",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Gastrodia",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Goldenseal",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Green Tea",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Guarana",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Gudmar",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Gymnema",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Hawthorn",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Holy Basil Purple",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Holy Basil Seed",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Honeysuckle",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Horse Chestnut",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Jatamansi",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Juniper",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Kudzu",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Lemon Verbena",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Lemongrass",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Licorice",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Marshmallow",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Milk Oats",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Milk Thistle",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Moringa",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Mucuna",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Neem",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Nettle Root",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Noni",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Oatstraw",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Oregano",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Papaya Leaf",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Perilla",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Phellodendron",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Polygala",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Pomegranate",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Poria",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Psyllium",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Punarnava",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Red Clover",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Reishi",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Rose Hips",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Roselle Seed",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Rosemary",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Saffron",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Sage",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Salacia",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Saw Palmetto",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Schisandra",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Schisandra Berry",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Shatavari",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Soursop",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "St Johns Wort",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Tamarind",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Thyme",
+    "scientificName": ""
+  },
+  {
+    "slug": "",
+    "name": "Yerba Mate",
+    "scientificName": ""
   }
 ]
