@@ -82,18 +82,19 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
     <motion.article
       whileHover={{ scale: 1.003 }}
       title={compound.herbsFound.map(h => h.name).join(', ')}
-      className='ds-card relative flex h-full flex-col gap-2 rounded-xl border-white/12 bg-white/[0.02] p-3 text-left'
+      className='neo-card fade-in-surface ds-card relative flex h-full flex-col gap-2.5 rounded-xl border-white/12 p-3.5 text-left'
     >
+      <div aria-hidden className='pointer-events-none absolute -bottom-10 -left-8 h-20 w-20 rounded-full bg-cyan-300/10 blur-2xl' />
       <h2
         title={isTitleTruncated ? compound.name : undefined}
         className='line-clamp-2 min-h-[2.2rem] break-all text-[0.95rem] font-semibold leading-tight text-white sm:text-base'
       >
         {title}
       </h2>
-      <p className='line-clamp-2 text-xs leading-[1.35] text-white/72'>{summary}</p>
+      <p className='line-clamp-2 text-xs leading-[1.45] text-white/76'>{summary}</p>
       <div className='flex flex-wrap gap-1'>
-        <span className='ds-pill'>{normalizeChip(confidence)}</span>
-        {primaryEffects[0] && <span className='ds-pill'>{primaryEffects[0]}</span>}
+        <span className='ds-pill neo-pill'>{normalizeChip(confidence)}</span>
+        {primaryEffects[0] && <span className='ds-pill neo-pill'>{primaryEffects[0]}</span>}
       </div>
       <p className='line-clamp-1 text-[11px] text-white/56'>{sourceLine}</p>
       <div className='mt-auto' />

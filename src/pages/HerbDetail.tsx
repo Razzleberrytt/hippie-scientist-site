@@ -105,7 +105,7 @@ function DisclosureSection({ title, defaultOpen = false, children }: DisclosureP
   const [open, setOpen] = useState(defaultOpen)
 
   return (
-    <section className='rounded-2xl border border-white/10 bg-white/[0.02]'>
+    <section className='detail-panel fade-in-surface'>
       <button
         type='button'
         className='flex w-full items-center justify-between px-4 py-3 text-left'
@@ -290,7 +290,7 @@ export default function HerbDetail() {
           <ul>{safetyNotes.map(note => <li key={`static-safety-${note}`}>{note}</li>)}</ul>
         </div>
 
-        <header className='rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-4'>
+        <header className='detail-panel fade-in-surface p-4 sm:p-5'>
           <h1 className='text-3xl font-semibold sm:text-4xl'>{herbName}</h1>
           {scientificName && <p className='mt-1 text-sm italic text-white/55'>{scientificName}</p>}
           {!descriptionIsPlaceholder && (
@@ -298,13 +298,13 @@ export default function HerbDetail() {
           )}
 
           <section className='mt-3'>
-            <h2 className='text-xs font-semibold uppercase tracking-[0.14em] text-white/58'>Key effects</h2>
+            <h2 className='text-xs font-semibold uppercase tracking-[0.16em] text-white/62'>Key effects</h2>
             <div className='mt-2 flex flex-wrap gap-2'>
               {keyEffects.length > 0 ? (
                 keyEffects.map(effect => (
                   <span
                     key={effect}
-                    className='rounded-full border border-cyan-300/30 bg-cyan-500/10 px-2.5 py-1 text-xs text-cyan-100'
+                    className='neo-pill rounded-full border px-2.5 py-1 text-xs'
                   >
                     {effect}
                   </span>
@@ -315,12 +315,12 @@ export default function HerbDetail() {
             </div>
           </section>
 
-          <div className='mt-3 inline-flex rounded-full border border-white/20 bg-white/5 px-2.5 py-1 text-xs text-white/80'>
+          <div className='mt-3 inline-flex rounded-full border border-white/20 bg-white/5 px-2.5 py-1 text-xs text-white/84'>
             Evidence strength: {confidenceLabel}
           </div>
         </header>
 
-        <section className='rounded-2xl border border-white/10 bg-white/[0.02] p-4'>
+        <section className='detail-panel fade-in-surface p-4 sm:p-5'>
           <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/85'>Use case</h2>
           <ul className='mt-2 list-disc space-y-1 pl-5 text-sm text-white/85'>
             {useCasePoints.slice(0, 3).map(point => (
@@ -352,7 +352,7 @@ export default function HerbDetail() {
         </DisclosureSection>
 
         {coreInsight && coreInsight !== summary && (
-          <section className='rounded-2xl border border-white/10 bg-white/[0.02] p-4'>
+          <section className='detail-panel fade-in-surface p-4 sm:p-5'>
             <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/85'>Core insight</h2>
             <p className='mt-2 text-sm leading-relaxed text-white/85'>{coreInsight}</p>
           </section>

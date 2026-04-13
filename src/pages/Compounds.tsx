@@ -278,20 +278,20 @@ export default function CompoundsPage() {
             ].slice(0, 2)
 
             return (
-              <article key={compound.id} className='ds-card flex h-full flex-col gap-1.5 rounded-lg p-3'>
+              <article key={compound.id} className='neo-card fade-in-surface ds-card flex h-full flex-col gap-2 rounded-lg p-3.5'>
                 <h2
                   title={compound.name}
                   className='line-clamp-2 min-h-[2.2rem] break-all text-[0.95rem] font-semibold leading-tight text-white sm:text-base'
                 >
                   {title}
                 </h2>
-                <p className='line-clamp-1 text-xs leading-[1.35] text-white/72'>{summarize({ description: compound.curatedData?.summary || '', effects: compound.curatedData?.keyEffects || [] })}</p>
+                <p className='line-clamp-1 text-xs leading-[1.45] text-white/78'>{summarize({ description: compound.curatedData?.summary || '', effects: compound.curatedData?.keyEffects || [] })}</p>
                 {chips.length > 0 && (
                   <div className='flex flex-wrap gap-1'>
                     {chips.map(chip => (
                       <span
                         key={`${compound.id}-${chip.label}`}
-                        className='ds-pill'
+                        className='ds-pill neo-pill'
                       >
                         {chip.label}
                       </span>
@@ -305,7 +305,7 @@ export default function CompoundsPage() {
                 </span>
                 <Link
                   to={`/compounds/${compound.slug}`}
-                  className='mt-auto inline-flex w-fit items-center rounded-md border border-white/15 bg-white/[0.03] px-2 py-1 text-[11px] font-medium text-white/80 transition hover:border-cyan-300/45 hover:text-white'
+                  className='mt-auto inline-flex w-fit items-center rounded-md border border-white/15 bg-white/[0.03] px-2 py-1 text-[11px] font-medium text-white/80 transition duration-300 hover:border-cyan-300/45 hover:text-white'
                 >
                   View context page
                 </Link>

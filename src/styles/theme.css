@@ -7,15 +7,18 @@
   --font-mono: 'DM Mono', 'Fira Code', monospace;
   --radius: 0.75rem;
 
-  --accent-h: 186;
-  --accent-s: 62%;
-  --accent-l: 50%;
+  --accent-h: 190;
+  --accent-s: 88%;
+  --accent-l: 58%;
   --accent: hsl(var(--accent-h) var(--accent-s) var(--accent-l));
 
-  --bg: 220 25% 4%;
-  --surface: 215 22% 8%;
-  --card: 215 20% 11%;
-  --text: 210 22% 96%;
+  --accent-magenta: 312 84% 64%;
+  --primary-violet: 252 74% 62%;
+
+  --bg: 244 40% 6%;
+  --surface: 238 30% 11%;
+  --card: 234 24% 14%;
+  --text: 220 26% 94%;
   --fg: 210 22% 96%;
   --mute: 210 10% 64%;
   --muted: 210 10% 64%;

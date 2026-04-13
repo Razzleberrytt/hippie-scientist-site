@@ -46,7 +46,7 @@ body {
   line-height: 1.55;
   letter-spacing: 0;
   overscroll-behavior-y: none;
-  background: #05070a;
+  background: #060711;
   @apply antialiased;
 }
 
@@ -121,7 +121,65 @@ a:hover {
   .ds-card-paper,
   .ds-card-tight,
   .ds-card-lg {
-    @apply rounded-xl border border-white/10 bg-white/[0.02] shadow-none;
+    @apply rounded-xl border border-white/10 bg-white/[0.03] shadow-none;
+    backdrop-filter: blur(8px);
+  }
+
+  .neo-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(174, 210, 255, 0.2);
+    background:
+      linear-gradient(160deg, rgba(127, 93, 255, 0.08), rgba(0, 229, 255, 0.03) 34%, rgba(255, 88, 227, 0.05)),
+      rgba(255, 255, 255, 0.03);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.12) inset,
+      0 20px 48px -36px rgba(126, 71, 255, 0.65),
+      0 24px 42px -40px rgba(1, 194, 255, 0.6);
+    transition: transform 260ms ease, border-color 240ms ease, box-shadow 260ms ease, background 260ms ease;
+  }
+
+  .neo-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(130deg, rgba(147, 51, 234, 0.14), rgba(34, 211, 238, 0.06), transparent 58%);
+    opacity: 0.58;
+    transition: opacity 260ms ease;
+  }
+
+  .neo-card:hover {
+    transform: translateY(-2px) scale(1.01);
+    border-color: rgba(87, 238, 255, 0.5);
+    box-shadow:
+      0 0 0 1px rgba(103, 232, 249, 0.18),
+      0 18px 44px -28px rgba(87, 238, 255, 0.5),
+      0 24px 54px -30px rgba(216, 73, 255, 0.42);
+  }
+
+  .neo-card:hover::before {
+    opacity: 0.82;
+  }
+
+  .neo-pill {
+    border-color: rgba(134, 239, 255, 0.32);
+    background: linear-gradient(140deg, rgba(34, 211, 238, 0.12), rgba(236, 72, 153, 0.11));
+    color: rgba(232, 248, 255, 0.92);
+  }
+
+  .detail-panel {
+    @apply rounded-2xl border p-4;
+    border-color: rgba(255, 255, 255, 0.12);
+    background:
+      linear-gradient(170deg, rgba(123, 97, 255, 0.07), rgba(0, 186, 255, 0.03) 46%, rgba(255, 255, 255, 0.02)),
+      rgba(5, 8, 18, 0.42);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 12px 34px -26px rgba(0, 0, 0, 0.8);
+  }
+
+  .fade-in-surface {
+    animation: fade-surface 320ms ease both;
   }
 
   .ds-card {
@@ -228,4 +286,15 @@ a:hover {
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+@keyframes fade-surface {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

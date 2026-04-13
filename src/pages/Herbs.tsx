@@ -312,19 +312,19 @@ export default function HerbsPage() {
           {visibleHerbs.map((herb, index) => (
             <article
               key={herb.slug || herb.id || `${herb.common}-${index}`}
-              className='flex h-full flex-col rounded-lg border border-white/12 bg-white/[0.02] p-3'
+              className='neo-card fade-in-surface flex h-full flex-col rounded-lg border border-white/12 p-3.5 transition duration-300'
             >
               <h2 className='text-base font-semibold text-white'>
                 {toTitleCase(String(herb.common || herb.scientific || herb.name || 'Herb'))}
               </h2>
-              <p className='mt-1 line-clamp-1 text-xs text-white/72'>
+              <p className='mt-1 line-clamp-1 text-xs text-white/78'>
                 {cleanSummary(String((herb.curatedData as Record<string, unknown> | undefined)?.summary || ''), String(herb.common || herb.name || ''))}
               </p>
               <div className='mt-2 flex flex-wrap gap-1'>
                 {getKeyEffects(herb).map(effect => (
                   <span
                     key={`${herb.slug}-${effect}`}
-                    className='inline-flex rounded-full border border-cyan-300/28 bg-cyan-500/10 px-2 py-0.5 text-[10px] text-cyan-100'
+                    className='neo-pill inline-flex rounded-full border px-2 py-0.5 text-[10px]'
                   >
                     {effect}
                   </span>
@@ -342,7 +342,7 @@ export default function HerbsPage() {
                           slugify(String(herb.common || herb.scientific || herb.name || '')),
                         )}`
                   }
-                  className='inline-flex items-center rounded-md border border-white/15 bg-white/[0.03] px-2 py-1 text-[11px] font-medium text-white/80 transition hover:border-cyan-300/45 hover:text-white'
+                  className='inline-flex items-center rounded-md border border-white/15 bg-white/[0.03] px-2 py-1 text-[11px] font-medium text-white/80 transition duration-300 hover:border-cyan-300/45 hover:text-white'
                 >
                   View decision page
                 </Link>
