@@ -409,17 +409,22 @@
   {
     "herbSlug": "butterbur",
     "herbName": "Butterbur",
-    "rawCompound": "ferulic acid",
-    "normalizedAtom": "ferulic acid",
-    "canonicalCompoundId": "ferulic-acid",
-    "canonicalCompoundName": "ferulic acid",
-    "v3MatchType": "exact",
+    "rawCompound": "petasin",
+    "normalizedAtom": "petasin",
+    "canonicalCompoundId": "petasin",
+    "canonicalCompoundName": "petasin",
+    "v3MatchType": "exact_canonical_id",
     "mappingTier": "specific",
     "mechanismTags": [
-      "multi-domain"
+      "migraine support",
+      "anti-inflammatory",
+      "TRPA1/TRPV1 modulation",
+      "CGRP modulation"
     ],
     "pathwayTargets": [
-      "unknown"
+      "TRPA1",
+      "TRPV1",
+      "CGRP signaling"
     ]
   },
   {
@@ -665,10 +670,13 @@
     "v3MatchType": "exact_canonical_id",
     "mappingTier": "specific",
     "mechanismTags": [
-      "glycemic support"
+      "glycemic support",
+      "sweet taste suppression",
+      "T1R2/T1R3 modulation"
     ],
     "pathwayTargets": [
-      "general or unknown targets"
+      "T1R2/T1R3 sweet receptor",
+      "intestinal glucose transport"
     ]
   },
   {
@@ -1718,11 +1726,14 @@
     "v3MatchType": "exact_canonical_id",
     "mappingTier": "specific",
     "mechanismTags": [
+      "bulk laxative",
       "GI support",
-      "metabolic support"
+      "cholesterol support"
     ],
     "pathwayTargets": [
-      "general or unknown targets"
+      "gel-forming fiber",
+      "stool water retention",
+      "stool bulk"
     ]
   },
   {
@@ -1956,10 +1967,12 @@
     "mappingTier": "specific",
     "mechanismTags": [
       "calming support",
-      "sleep support"
+      "sleep support",
+      "traditional-use sedative"
     ],
     "pathwayTargets": [
-      "general or unknown targets"
+      "possible GABAergic signaling",
+      "low target specificity"
     ]
   },
   {
@@ -1972,11 +1985,14 @@
     "v3MatchType": "exact_canonical_id",
     "mappingTier": "specific",
     "mechanismTags": [
-      "energy support",
-      "immune modulation"
+      "immune modulation",
+      "anti-inflammatory",
+      "NF-kappaB modulation"
     ],
     "pathwayTargets": [
-      "general or unknown targets"
+      "NF-kappaB",
+      "Nrf2/HO-1",
+      "RIP2/Caspase-1"
     ]
   },
   {
@@ -2074,8 +2090,8 @@
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
     "mechanismTags": [
-      "vascular modulation",
-      "bone signaling modulation"
+      "PDE-related signaling",
+      "nitric oxide signaling"
     ],
     "pathwayTargets": [
       "eNOS/NO signaling",
@@ -2092,8 +2108,8 @@
     "v3MatchType": "exact-normalized",
     "mappingTier": "master-linked",
     "mechanismTags": [
-      "adrenergic modulation",
-      "stimulant"
+      "adrenergic signaling",
+      "alpha-2 adrenergic antagonism"
     ],
     "pathwayTargets": [
       "alpha-2 adrenergic receptor antagonism"
@@ -2122,7 +2138,11 @@
   },
   {
     "herbSlug": "epimedium",
-    "herbName": "Icariin"
+    "herbName": "Icariin",
+    "mechanismTags": [
+      "flavonoid activity",
+      "nitric oxide signaling"
+    ]
   },
   {
     "herbSlug": "pausinystalia-yohimbe",
@@ -2596,6 +2616,7 @@
     "v3MatchType": "pass13-real-sweep",
     "mappingTier": "master-linked",
     "mechanismTags": [
+      "flavonoid activity",
       "nitric oxide signaling"
     ],
     "pathwayTargets": [
@@ -2612,6 +2633,7 @@
     "v3MatchType": "pass13-real-sweep",
     "mappingTier": "master-linked",
     "mechanismTags": [
+      "flavonoid activity",
       "nitric oxide signaling"
     ],
     "pathwayTargets": [
@@ -2628,6 +2650,7 @@
     "v3MatchType": "pass13-real-sweep",
     "mappingTier": "master-linked",
     "mechanismTags": [
+      "flavonoid activity",
       "nitric oxide signaling"
     ],
     "pathwayTargets": [
@@ -2918,5 +2941,26 @@
     "normalizedAtom": "desmethylicaritin",
     "canonicalCompoundId": "desmethylicaritin",
     "canonicalCompoundName": "Desmethylicaritin"
+  },
+  {
+    "herbSlug": "butterbur",
+    "herbName": "Butterbur",
+    "rawCompound": "isopetasin",
+    "normalizedAtom": "isopetasin",
+    "canonicalCompoundId": "isopetasin",
+    "canonicalCompoundName": "isopetasin",
+    "v3MatchType": "exact_canonical_id",
+    "mappingTier": "specific",
+    "mechanismTags": [
+      "migraine support",
+      "anti-inflammatory",
+      "TRPA1/TRPV1 modulation",
+      "CGRP modulation"
+    ],
+    "pathwayTargets": [
+      "TRPA1",
+      "TRPV1",
+      "CGRP signaling"
+    ]
   }
 ]

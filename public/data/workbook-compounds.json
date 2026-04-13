@@ -107,7 +107,7 @@
   },
   {
     "id": "5-meo-dmt",
-    "slug": "5-meo-dmt-wb",
+    "slug": "5-meo-dmt",
     "canonicalCompoundId": "5-meo-dmt",
     "name": "5-meo-dmt",
     "compoundName": "5-meo-dmt",
@@ -155,7 +155,7 @@
   },
   {
     "id": "7-hydroxymitragynine",
-    "slug": "7-hydroxymitragynine-wb",
+    "slug": "7-hydroxymitragynine",
     "canonicalCompoundId": "7-hydroxymitragynine",
     "name": "7-hydroxymitragynine",
     "compoundName": "7-hydroxymitragynine",
@@ -260,7 +260,7 @@
   },
   {
     "id": "aconitine",
-    "slug": "aconitine-wb",
+    "slug": "aconitine",
     "canonicalCompoundId": "aconitine",
     "name": "aconitine",
     "compoundName": "aconitine",
@@ -396,7 +396,7 @@
   },
   {
     "id": "agrimoniin",
-    "slug": "agrimoniin-wb",
+    "slug": "agrimoniin",
     "canonicalCompoundId": "agrimoniin",
     "name": "agrimoniin",
     "compoundName": "agrimoniin",
@@ -502,7 +502,7 @@
   },
   {
     "id": "alchorneine",
-    "slug": "alchorneine-wb",
+    "slug": "alchorneine",
     "canonicalCompoundId": "alchorneine",
     "name": "alchorneine",
     "compoundName": "alchorneine",
@@ -592,7 +592,7 @@
   },
   {
     "id": "alpha-asarone",
-    "slug": "alpha-asarone-wb",
+    "slug": "alpha-asarone",
     "canonicalCompoundId": "alpha-asarone",
     "name": "alpha-asarone",
     "compoundName": "alpha-asarone",
@@ -727,7 +727,7 @@
   },
   {
     "id": "anabasine",
-    "slug": "anabasine-wb",
+    "slug": "anabasine",
     "canonicalCompoundId": "anabasine",
     "name": "anabasine",
     "compoundName": "anabasine",
@@ -848,7 +848,7 @@
   },
   {
     "id": "apigenin",
-    "slug": "apigenin-wb",
+    "slug": "apigenin",
     "canonicalCompoundId": "apigenin",
     "name": "Apigenin",
     "compoundName": "Apigenin",
@@ -896,7 +896,7 @@
   },
   {
     "id": "arbutin",
-    "slug": "arbutin-wb",
+    "slug": "arbutin",
     "canonicalCompoundId": "arbutin",
     "name": "arbutin",
     "compoundName": "arbutin",
@@ -1211,7 +1211,7 @@
   },
   {
     "id": "atropine",
-    "slug": "atropine-wb",
+    "slug": "atropine",
     "canonicalCompoundId": "atropine",
     "name": "atropine",
     "compoundName": "atropine",
@@ -1333,7 +1333,7 @@
   },
   {
     "id": "baicalin",
-    "slug": "baicalin-wb",
+    "slug": "baicalin",
     "canonicalCompoundId": "baicalin",
     "name": "Baicalin",
     "compoundName": "Baicalin",
@@ -1365,7 +1365,7 @@
   },
   {
     "id": "benzyl-isothiocyanate",
-    "slug": "benzyl-isothiocyanate-wb",
+    "slug": "benzyl-isothiocyanate",
     "canonicalCompoundId": "benzyl-isothiocyanate",
     "name": "benzyl isothiocyanate",
     "compoundName": "benzyl isothiocyanate",
@@ -1425,7 +1425,7 @@
   },
   {
     "id": "beta-asarone",
-    "slug": "beta-asarone-wb",
+    "slug": "beta-asarone",
     "canonicalCompoundId": "beta-asarone",
     "name": "beta-asarone",
     "compoundName": "beta-asarone",
@@ -1622,7 +1622,7 @@
   },
   {
     "id": "boldine",
-    "slug": "boldine-wb",
+    "slug": "boldine",
     "canonicalCompoundId": "boldine",
     "name": "boldine",
     "compoundName": "boldine",
@@ -1682,7 +1682,7 @@
   },
   {
     "id": "bufotenin",
-    "slug": "bufotenin-wb",
+    "slug": "bufotenin",
     "canonicalCompoundId": "bufotenin",
     "name": "bufotenin",
     "compoundName": "bufotenin",
@@ -1742,7 +1742,7 @@
   },
   {
     "id": "caffeic-acid",
-    "slug": "caffeic-acid-wb",
+    "slug": "caffeic-acid",
     "canonicalCompoundId": "caffeic-acid",
     "name": "caffeic acid",
     "compoundName": "caffeic acid",
@@ -1757,7 +1757,7 @@
   },
   {
     "id": "caffeine",
-    "slug": "caffeine-wb",
+    "slug": "caffeine",
     "canonicalCompoundId": "caffeine",
     "name": "Caffeine",
     "compoundName": "Caffeine",
@@ -1790,7 +1790,7 @@
   },
   {
     "id": "camphor",
-    "slug": "camphor-wb",
+    "slug": "camphor",
     "canonicalCompoundId": "camphor",
     "name": "camphor",
     "compoundName": "camphor",
@@ -1943,7 +1943,7 @@
   },
   {
     "id": "carvacrol",
-    "slug": "carvacrol-wb",
+    "slug": "carvacrol",
     "canonicalCompoundId": "carvacrol",
     "name": "carvacrol",
     "compoundName": "carvacrol",
@@ -2018,7 +2018,7 @@
   },
   {
     "id": "catechin",
-    "slug": "catechin-wb",
+    "slug": "catechin",
     "canonicalCompoundId": "catechin",
     "name": "Catechin",
     "compoundName": "Catechin",
@@ -2033,7 +2033,7 @@
   },
   {
     "id": "catechins",
-    "slug": "catechins-wb",
+    "slug": "catechins",
     "canonicalCompoundId": "catechins",
     "name": "catechins",
     "compoundName": "catechins",
@@ -2078,7 +2078,7 @@
   },
   {
     "id": "cbd",
-    "slug": "cbd-wb",
+    "slug": "cbd",
     "canonicalCompoundId": "cbd",
     "name": "cbd",
     "compoundName": "cbd",
@@ -2123,7 +2123,7 @@
   },
   {
     "id": "celastrine",
-    "slug": "celastrine-wb",
+    "slug": "celastrine",
     "canonicalCompoundId": "celastrine",
     "name": "Celastrine",
     "compoundName": "Celastrine",
@@ -2138,7 +2138,7 @@
   },
   {
     "id": "cephaeline",
-    "slug": "cephaeline-wb",
+    "slug": "cephaeline",
     "canonicalCompoundId": "cephaeline",
     "name": "cephaeline",
     "compoundName": "cephaeline",
@@ -2168,7 +2168,7 @@
   },
   {
     "id": "chamazulene",
-    "slug": "chamazulene-wb",
+    "slug": "chamazulene",
     "canonicalCompoundId": "chamazulene",
     "name": "chamazulene",
     "compoundName": "chamazulene",
@@ -2273,7 +2273,7 @@
   },
   {
     "id": "chlorogenic-acid",
-    "slug": "chlorogenic-acid-wb",
+    "slug": "chlorogenic-acid",
     "canonicalCompoundId": "chlorogenic-acid",
     "name": "chlorogenic acid",
     "compoundName": "chlorogenic acid",
@@ -2308,13 +2308,31 @@
     "name": "chrysin",
     "compoundName": "chrysin",
     "canonicalCompoundName": "chrysin",
-    "compoundClass": "chrysin",
-    "class": "chrysin",
-    "mechanism": "flavonoid",
+    "compoundClass": "flavonoid",
+    "class": "flavonoid",
+    "mechanism": "Flavonoid constituent sometimes discussed in relation to calming relevance, but constituent-level specificity is stronger than whole-herb clinical certainty.",
     "mechanismTags": [
-      "unclassified"
+      "flavonoid",
+      "calming support hypothesis",
+      "anti-inflammatory",
+      "antioxidant"
     ],
-    "evidenceTier": "Unknown"
+    "pathwayTargets": [
+      "possible GABAergic signaling",
+      "low target specificity"
+    ],
+    "confidence": "Low-Medium",
+    "confidenceLevel": "Low-Medium",
+    "evidence": "Preclinical",
+    "evidenceTier": "Preclinical",
+    "sourceUrls": [
+      "https://www.ema.europa.eu/en/medicines/herbal/passiflorae-herba|https://pubmed.ncbi.nlm.nih.gov/40872553/"
+    ],
+    "relatedHerbSlugs": [
+      "passionflower"
+    ],
+    "herbCount": "1",
+    "reverseLookupReady": "Yes"
   },
   {
     "id": "chrysoeriol",
@@ -2394,7 +2412,7 @@
   },
   {
     "id": "cineole",
-    "slug": "cineole-wb",
+    "slug": "cineole",
     "canonicalCompoundId": "cineole",
     "name": "cineole",
     "compoundName": "cineole",
@@ -2469,7 +2487,7 @@
   },
   {
     "id": "citral",
-    "slug": "citral-wb",
+    "slug": "citral",
     "canonicalCompoundId": "citral",
     "name": "citral",
     "compoundName": "citral",
@@ -2529,7 +2547,7 @@
   },
   {
     "id": "codeine",
-    "slug": "codeine-wb",
+    "slug": "codeine",
     "canonicalCompoundId": "codeine",
     "name": "codeine",
     "compoundName": "codeine",
@@ -2669,17 +2687,36 @@
     "name": "cordycepin",
     "compoundName": "cordycepin",
     "canonicalCompoundName": "cordycepin",
-    "compoundClass": "cordycepin",
-    "class": "cordycepin",
-    "mechanism": "polysaccharides",
+    "compoundClass": "nucleoside analogue",
+    "class": "nucleoside analogue",
+    "mechanism": "Cordycepin is a nucleoside analogue highlighted in cordyceps literature for anti-inflammatory and immunomodulatory signaling effects; evidence is strongest in preclinical systems.",
     "mechanismTags": [
-      "unclassified"
+      "anti-inflammatory",
+      "immune modulation",
+      "NF-kappaB modulation",
+      "Nrf2/HO-1"
     ],
-    "evidenceTier": "Unknown"
+    "pathwayTargets": [
+      "NF-kappaB",
+      "Nrf2/HO-1",
+      "RIP2/Caspase-1"
+    ],
+    "confidence": "Medium",
+    "confidenceLevel": "Medium",
+    "evidence": "Preclinical",
+    "evidenceTier": "Preclinical",
+    "sourceUrls": [
+      "https://pubmed.ncbi.nlm.nih.gov/34828915/|https://pubmed.ncbi.nlm.nih.gov/33090621/"
+    ],
+    "relatedHerbSlugs": [
+      "cordyceps"
+    ],
+    "herbCount": "1",
+    "reverseLookupReady": "Yes"
   },
   {
     "id": "coronaridine",
-    "slug": "coronaridine-wb",
+    "slug": "coronaridine",
     "canonicalCompoundId": "coronaridine",
     "name": "coronaridine",
     "compoundName": "coronaridine",
@@ -2754,7 +2791,7 @@
   },
   {
     "id": "cryogenine-vertine",
-    "slug": "cryogenine-vertine-wb",
+    "slug": "cryogenine-vertine",
     "canonicalCompoundId": "cryogenine-vertine",
     "name": "cryogenine vertine",
     "compoundName": "cryogenine vertine",
@@ -3185,7 +3222,7 @@
   },
   {
     "id": "dmt",
-    "slug": "dmt-wb",
+    "slug": "dmt",
     "canonicalCompoundId": "dmt",
     "name": "dmt",
     "compoundName": "dmt",
@@ -3306,7 +3343,7 @@
   },
   {
     "id": "ellagic-acid",
-    "slug": "ellagic-acid-wb",
+    "slug": "ellagic-acid",
     "canonicalCompoundId": "ellagic-acid",
     "name": "ellagic acid",
     "compoundName": "ellagic acid",
@@ -3351,7 +3388,7 @@
   },
   {
     "id": "ephedrine",
-    "slug": "ephedrine-wb",
+    "slug": "ephedrine",
     "canonicalCompoundId": "ephedrine",
     "name": "ephedrine",
     "compoundName": "ephedrine",
@@ -3389,10 +3426,13 @@
     "canonicalCompoundName": "Epimedin A",
     "compoundClass": "Flavonoid",
     "class": "Flavonoid",
-    "mechanism": "Nitric oxide and libido support",
+    "mechanism": "prenylated flavonoid glycoside",
     "mechanismTags": [
       "nitric oxide signaling"
     ],
+    "confidence": "Low-Medium",
+    "confidenceLevel": "Low-Medium",
+    "evidence": "preclinical + traditional-use context",
     "evidenceTier": "Preclinical"
   },
   {
@@ -3404,10 +3444,13 @@
     "canonicalCompoundName": "Epimedin B",
     "compoundClass": "Flavonoid",
     "class": "Flavonoid",
-    "mechanism": "Nitric oxide and libido support",
+    "mechanism": "prenylated flavonoid glycoside",
     "mechanismTags": [
       "nitric oxide signaling"
     ],
+    "confidence": "Low-Medium",
+    "confidenceLevel": "Low-Medium",
+    "evidence": "preclinical + traditional-use context",
     "evidenceTier": "Preclinical"
   },
   {
@@ -3419,15 +3462,18 @@
     "canonicalCompoundName": "Epimedin C",
     "compoundClass": "Flavonoid",
     "class": "Flavonoid",
-    "mechanism": "Nitric oxide and libido support",
+    "mechanism": "prenylated flavonoid glycoside",
     "mechanismTags": [
       "nitric oxide signaling"
     ],
+    "confidence": "Low-Medium",
+    "confidenceLevel": "Low-Medium",
+    "evidence": "preclinical + traditional-use context",
     "evidenceTier": "Preclinical"
   },
   {
     "id": "ergine",
-    "slug": "ergine-wb",
+    "slug": "ergine",
     "canonicalCompoundId": "ergine",
     "name": "ergine",
     "compoundName": "ergine",
@@ -3487,7 +3533,7 @@
   },
   {
     "id": "estragole",
-    "slug": "estragole-wb",
+    "slug": "estragole",
     "canonicalCompoundId": "estragole",
     "name": "estragole",
     "compoundName": "estragole",
@@ -3517,7 +3563,7 @@
   },
   {
     "id": "eucalyptol",
-    "slug": "eucalyptol-wb",
+    "slug": "eucalyptol",
     "canonicalCompoundId": "eucalyptol",
     "name": "eucalyptol",
     "compoundName": "eucalyptol",
@@ -3547,7 +3593,7 @@
   },
   {
     "id": "eugenol",
-    "slug": "eugenol-wb",
+    "slug": "eugenol",
     "canonicalCompoundId": "eugenol",
     "name": "Eugenol",
     "compoundName": "Eugenol",
@@ -3683,7 +3729,7 @@
   },
   {
     "id": "ferulic-acid",
-    "slug": "ferulic-acid-wb",
+    "slug": "ferulic-acid",
     "canonicalCompoundId": "ferulic-acid",
     "name": "ferulic acid",
     "compoundName": "ferulic acid",
@@ -3819,7 +3865,7 @@
   },
   {
     "id": "gallic-acid",
-    "slug": "gallic-acid-wb",
+    "slug": "gallic-acid",
     "canonicalCompoundId": "gallic-acid",
     "name": "gallic acid",
     "compoundName": "gallic acid",
@@ -4014,7 +4060,7 @@
   },
   {
     "id": "geranial",
-    "slug": "geranial-wb",
+    "slug": "geranial",
     "canonicalCompoundId": "geranial",
     "name": "geranial",
     "compoundName": "geranial",
@@ -4356,7 +4402,7 @@
   },
   {
     "id": "gramine",
-    "slug": "gramine-wb",
+    "slug": "gramine",
     "canonicalCompoundId": "gramine",
     "name": "gramine",
     "compoundName": "gramine",
@@ -4431,18 +4477,37 @@
   },
   {
     "id": "gymnemic-acids",
-    "slug": "gymnemic-acids-wb",
+    "slug": "gymnemic-acids",
     "canonicalCompoundId": "gymnemic-acids",
     "name": "gymnemic acids",
     "compoundName": "gymnemic acids",
     "canonicalCompoundName": "gymnemic acids",
-    "compoundClass": "gymnemic acids",
-    "class": "gymnemic acids",
-    "mechanism": "triterpene saponins",
+    "compoundClass": "triterpene glycosides",
+    "class": "triterpene glycosides",
+    "mechanism": "Gymnemic acids are triterpene glycosides associated with sweet-taste suppression and reduced intestinal glucose uptake, making them the clearest mechanism anchor for gymnema.",
     "mechanismTags": [
-      "unclassified"
+      "sweet taste suppression",
+      "T1R2/T1R3 modulation",
+      "glucose absorption modulation",
+      "glycemic support"
     ],
-    "evidenceTier": "Unknown"
+    "pathwayTargets": [
+      "T1R2/T1R3 sweet receptor",
+      "intestinal glucose transport"
+    ],
+    "confidence": "Medium",
+    "confidenceLevel": "Medium",
+    "evidence": "Mixed",
+    "evidenceTier": "Mixed",
+    "sourceUrls": [
+      "https://pubmed.ncbi.nlm.nih.gov/31736747/|https://pubmed.ncbi.nlm.nih.gov/25056955/|https://pubmed.ncbi.nlm.nih.gov/9152931/"
+    ],
+    "relatedHerbSlugs": [
+      "gymnema",
+      "gudmar"
+    ],
+    "herbCount": "2",
+    "reverseLookupReady": "Yes"
   },
   {
     "id": "gypenosides-dammarane-type-saponins",
@@ -4461,7 +4526,7 @@
   },
   {
     "id": "harmaline",
-    "slug": "harmaline-wb",
+    "slug": "harmaline",
     "canonicalCompoundId": "harmaline",
     "name": "Harmaline",
     "compoundName": "Harmaline",
@@ -4478,7 +4543,7 @@
   },
   {
     "id": "harmalol",
-    "slug": "harmalol-wb",
+    "slug": "harmalol",
     "canonicalCompoundId": "harmalol",
     "name": "harmalol",
     "compoundName": "harmalol",
@@ -4493,7 +4558,7 @@
   },
   {
     "id": "harmine",
-    "slug": "harmine-wb",
+    "slug": "harmine",
     "canonicalCompoundId": "harmine",
     "name": "Harmine",
     "compoundName": "Harmine",
@@ -4615,7 +4680,7 @@
   },
   {
     "id": "histamine",
-    "slug": "histamine-wb",
+    "slug": "histamine",
     "canonicalCompoundId": "histamine",
     "name": "histamine",
     "compoundName": "histamine",
@@ -4645,7 +4710,7 @@
   },
   {
     "id": "huperzine-a",
-    "slug": "huperzine-a-wb",
+    "slug": "huperzine-a",
     "canonicalCompoundId": "huperzine-a",
     "name": "huperzine a",
     "compoundName": "huperzine a",
@@ -4750,7 +4815,7 @@
   },
   {
     "id": "hyoscyamine",
-    "slug": "hyoscyamine-wb",
+    "slug": "hyoscyamine",
     "canonicalCompoundId": "hyoscyamine",
     "name": "hyoscyamine",
     "compoundName": "hyoscyamine",
@@ -4765,7 +4830,7 @@
   },
   {
     "id": "hypaconitine",
-    "slug": "hypaconitine-wb",
+    "slug": "hypaconitine",
     "canonicalCompoundId": "hypaconitine",
     "name": "hypaconitine",
     "compoundName": "hypaconitine",
@@ -4814,7 +4879,7 @@
   },
   {
     "id": "ibogaine",
-    "slug": "ibogaine-wb",
+    "slug": "ibogaine",
     "canonicalCompoundId": "ibogaine",
     "name": "Ibogaine",
     "compoundName": "Ibogaine",
@@ -4833,7 +4898,7 @@
   },
   {
     "id": "ibotenic-acid",
-    "slug": "ibotenic-acid-wb",
+    "slug": "ibotenic-acid",
     "canonicalCompoundId": "ibotenic-acid",
     "name": "ibotenic acid",
     "compoundName": "ibotenic acid",
@@ -4855,12 +4920,15 @@
     "canonicalCompoundName": "Icariin",
     "compoundClass": "Flavonoid",
     "class": "Flavonoid",
-    "mechanism": "prenylated flavonol glycoside",
+    "mechanism": "prenylated flavonol glycoside; PDE-related and nitric-oxide-linked signaling relevance",
     "mechanismTags": [
       "nitric oxide signaling",
       "pde5-related signaling",
       "unclassified"
     ],
+    "confidence": "Medium",
+    "confidenceLevel": "Medium",
+    "evidence": "preclinical + traditional-use context",
     "evidenceTier": "Unknown"
   },
   {
@@ -4979,7 +5047,7 @@
   },
   {
     "id": "isoergine",
-    "slug": "isoergine-wb",
+    "slug": "isoergine",
     "canonicalCompoundId": "isoergine",
     "name": "isoergine",
     "compoundName": "isoergine",
@@ -5070,7 +5138,7 @@
   },
   {
     "id": "isorhamnetin",
-    "slug": "isorhamnetin-wb",
+    "slug": "isorhamnetin",
     "canonicalCompoundId": "isorhamnetin",
     "name": "Isorhamnetin",
     "compoundName": "Isorhamnetin",
@@ -5130,7 +5198,7 @@
   },
   {
     "id": "isovaleric-acid",
-    "slug": "isovaleric-acid-wb",
+    "slug": "isovaleric-acid",
     "canonicalCompoundId": "isovaleric-acid",
     "name": "isovaleric acid",
     "compoundName": "isovaleric acid",
@@ -5220,7 +5288,7 @@
   },
   {
     "id": "kaempferol",
-    "slug": "kaempferol-wb",
+    "slug": "kaempferol",
     "canonicalCompoundId": "kaempferol",
     "name": "Kaempferol",
     "compoundName": "Kaempferol",
@@ -5357,7 +5425,7 @@
   },
   {
     "id": "l-theanine",
-    "slug": "l-theanine-wb",
+    "slug": "l-theanine",
     "canonicalCompoundId": "l-theanine",
     "name": "l-theanine",
     "compoundName": "l-theanine",
@@ -5372,7 +5440,7 @@
   },
   {
     "id": "l-tryptophan",
-    "slug": "l-tryptophan-wb",
+    "slug": "l-tryptophan",
     "canonicalCompoundId": "l-tryptophan",
     "name": "l-tryptophan",
     "compoundName": "l-tryptophan",
@@ -5402,7 +5470,7 @@
   },
   {
     "id": "lactucin",
-    "slug": "lactucin-wb",
+    "slug": "lactucin",
     "canonicalCompoundId": "lactucin",
     "name": "lactucin",
     "compoundName": "lactucin",
@@ -5417,7 +5485,7 @@
   },
   {
     "id": "lactucopicrin",
-    "slug": "lactucopicrin-wb",
+    "slug": "lactucopicrin",
     "canonicalCompoundId": "lactucopicrin",
     "name": "lactucopicrin",
     "compoundName": "lactucopicrin",
@@ -5462,7 +5530,7 @@
   },
   {
     "id": "leonurine",
-    "slug": "leonurine-wb",
+    "slug": "leonurine",
     "canonicalCompoundId": "leonurine",
     "name": "leonurine",
     "compoundName": "leonurine",
@@ -5492,7 +5560,7 @@
   },
   {
     "id": "limonene",
-    "slug": "limonene-wb",
+    "slug": "limonene",
     "canonicalCompoundId": "limonene",
     "name": "limonene",
     "compoundName": "limonene",
@@ -5507,7 +5575,7 @@
   },
   {
     "id": "linalool",
-    "slug": "linalool-wb",
+    "slug": "linalool",
     "canonicalCompoundId": "linalool",
     "name": "linalool",
     "compoundName": "linalool",
@@ -5522,7 +5590,7 @@
   },
   {
     "id": "linalyl-acetate",
-    "slug": "linalyl-acetate-wb",
+    "slug": "linalyl-acetate",
     "canonicalCompoundId": "linalyl-acetate",
     "name": "linalyl acetate",
     "compoundName": "linalyl acetate",
@@ -5642,7 +5710,7 @@
   },
   {
     "id": "lupeol",
-    "slug": "lupeol-wb",
+    "slug": "lupeol",
     "canonicalCompoundId": "lupeol",
     "name": "lupeol",
     "compoundName": "lupeol",
@@ -5672,7 +5740,7 @@
   },
   {
     "id": "luteolin",
-    "slug": "luteolin-wb",
+    "slug": "luteolin",
     "canonicalCompoundId": "luteolin",
     "name": "Luteolin",
     "compoundName": "Luteolin",
@@ -5732,7 +5800,7 @@
   },
   {
     "id": "lythrine",
-    "slug": "lythrine-wb",
+    "slug": "lythrine",
     "canonicalCompoundId": "lythrine",
     "name": "lythrine",
     "compoundName": "lythrine",
@@ -5807,7 +5875,7 @@
   },
   {
     "id": "magnesium",
-    "slug": "magnesium-wb",
+    "slug": "magnesium",
     "canonicalCompoundId": "magnesium",
     "name": "magnesium",
     "compoundName": "magnesium",
@@ -5837,7 +5905,7 @@
   },
   {
     "id": "maltol",
-    "slug": "maltol-wb",
+    "slug": "maltol",
     "canonicalCompoundId": "maltol",
     "name": "maltol",
     "compoundName": "maltol",
@@ -5867,7 +5935,7 @@
   },
   {
     "id": "marmelosin",
-    "slug": "marmelosin-wb",
+    "slug": "marmelosin",
     "canonicalCompoundId": "marmelosin",
     "name": "marmelosin",
     "compoundName": "marmelosin",
@@ -5897,7 +5965,7 @@
   },
   {
     "id": "melatonin",
-    "slug": "melatonin-wb",
+    "slug": "melatonin",
     "canonicalCompoundId": "melatonin",
     "name": "melatonin",
     "compoundName": "melatonin",
@@ -5927,7 +5995,7 @@
   },
   {
     "id": "menthol",
-    "slug": "menthol-wb",
+    "slug": "menthol",
     "canonicalCompoundId": "menthol",
     "name": "menthol",
     "compoundName": "menthol",
@@ -5942,7 +6010,7 @@
   },
   {
     "id": "menthone",
-    "slug": "menthone-wb",
+    "slug": "menthone",
     "canonicalCompoundId": "menthone",
     "name": "menthone",
     "compoundName": "menthone",
@@ -5957,7 +6025,7 @@
   },
   {
     "id": "menthyl-acetate",
-    "slug": "menthyl-acetate-wb",
+    "slug": "menthyl-acetate",
     "canonicalCompoundId": "menthyl-acetate",
     "name": "menthyl acetate",
     "compoundName": "menthyl acetate",
@@ -5972,7 +6040,7 @@
   },
   {
     "id": "mesaconitine",
-    "slug": "mesaconitine-wb",
+    "slug": "mesaconitine",
     "canonicalCompoundId": "mesaconitine",
     "name": "mesaconitine",
     "compoundName": "mesaconitine",
@@ -5987,7 +6055,7 @@
   },
   {
     "id": "mescaline",
-    "slug": "mescaline-wb",
+    "slug": "mescaline",
     "canonicalCompoundId": "mescaline",
     "name": "mescaline",
     "compoundName": "mescaline",
@@ -6032,7 +6100,7 @@
   },
   {
     "id": "mesembrenol",
-    "slug": "mesembrenol-wb",
+    "slug": "mesembrenol",
     "canonicalCompoundId": "mesembrenol",
     "name": "mesembrenol",
     "compoundName": "mesembrenol",
@@ -6047,7 +6115,7 @@
   },
   {
     "id": "mesembrenone",
-    "slug": "mesembrenone-wb",
+    "slug": "mesembrenone",
     "canonicalCompoundId": "mesembrenone",
     "name": "mesembrenone",
     "compoundName": "mesembrenone",
@@ -6062,7 +6130,7 @@
   },
   {
     "id": "mesembrine",
-    "slug": "mesembrine-wb",
+    "slug": "mesembrine",
     "canonicalCompoundId": "mesembrine",
     "name": "mesembrine",
     "compoundName": "mesembrine",
@@ -6077,7 +6145,7 @@
   },
   {
     "id": "methyl-salicylate",
-    "slug": "methyl-salicylate-wb",
+    "slug": "methyl-salicylate",
     "canonicalCompoundId": "methyl-salicylate",
     "name": "methyl salicylate",
     "compoundName": "methyl salicylate",
@@ -6092,7 +6160,7 @@
   },
   {
     "id": "methysticin",
-    "slug": "methysticin-wb",
+    "slug": "methysticin",
     "canonicalCompoundId": "methysticin",
     "name": "methysticin",
     "compoundName": "methysticin",
@@ -6122,7 +6190,7 @@
   },
   {
     "id": "mitragynine",
-    "slug": "mitragynine-wb",
+    "slug": "mitragynine",
     "canonicalCompoundId": "mitragynine",
     "name": "mitragynine",
     "compoundName": "mitragynine",
@@ -6212,7 +6280,7 @@
   },
   {
     "id": "morphine",
-    "slug": "morphine-wb",
+    "slug": "morphine",
     "canonicalCompoundId": "morphine",
     "name": "morphine",
     "compoundName": "morphine",
@@ -6242,7 +6310,7 @@
   },
   {
     "id": "muscimol",
-    "slug": "muscimol-wb",
+    "slug": "muscimol",
     "canonicalCompoundId": "muscimol",
     "name": "muscimol",
     "compoundName": "muscimol",
@@ -6287,7 +6355,7 @@
   },
   {
     "id": "myricetin",
-    "slug": "myricetin-wb",
+    "slug": "myricetin",
     "canonicalCompoundId": "myricetin",
     "name": "myricetin",
     "compoundName": "myricetin",
@@ -6302,7 +6370,7 @@
   },
   {
     "id": "myristicin",
-    "slug": "myristicin-wb",
+    "slug": "myristicin",
     "canonicalCompoundId": "myristicin",
     "name": "myristicin",
     "compoundName": "myristicin",
@@ -6407,7 +6475,7 @@
   },
   {
     "id": "n-methyltryptamine",
-    "slug": "n-methyltryptamine-wb",
+    "slug": "n-methyltryptamine",
     "canonicalCompoundId": "n-methyltryptamine",
     "name": "n-methyltryptamine",
     "compoundName": "n-methyltryptamine",
@@ -6482,7 +6550,7 @@
   },
   {
     "id": "nesodine",
-    "slug": "nesodine-wb",
+    "slug": "nesodine",
     "canonicalCompoundId": "nesodine",
     "name": "nesodine",
     "compoundName": "nesodine",
@@ -6512,7 +6580,7 @@
   },
   {
     "id": "nicotine",
-    "slug": "nicotine-wb",
+    "slug": "nicotine",
     "canonicalCompoundId": "nicotine",
     "name": "nicotine",
     "compoundName": "nicotine",
@@ -6602,7 +6670,7 @@
   },
   {
     "id": "nornicotine",
-    "slug": "nornicotine-wb",
+    "slug": "nornicotine",
     "canonicalCompoundId": "nornicotine",
     "name": "nornicotine",
     "compoundName": "nornicotine",
@@ -6632,7 +6700,7 @@
   },
   {
     "id": "nuciferine",
-    "slug": "nuciferine-wb",
+    "slug": "nuciferine",
     "canonicalCompoundId": "nuciferine",
     "name": "nuciferine",
     "compoundName": "nuciferine",
@@ -6827,7 +6895,7 @@
   },
   {
     "id": "paniculatin",
-    "slug": "paniculatin-wb",
+    "slug": "paniculatin",
     "canonicalCompoundId": "paniculatin",
     "name": "paniculatin",
     "compoundName": "paniculatin",
@@ -6902,7 +6970,7 @@
   },
   {
     "id": "perillaldehyde",
-    "slug": "perillaldehyde-wb",
+    "slug": "perillaldehyde",
     "canonicalCompoundId": "perillaldehyde",
     "name": "perillaldehyde",
     "compoundName": "perillaldehyde",
@@ -6932,18 +7000,36 @@
   },
   {
     "id": "petasin",
-    "slug": "petasin-wb",
+    "slug": "petasin",
     "canonicalCompoundId": "petasin",
     "name": "petasin",
     "compoundName": "petasin",
     "canonicalCompoundName": "petasin",
-    "compoundClass": "petasin",
-    "class": "petasin",
-    "mechanism": "sesquiterpene",
+    "compoundClass": "sesquiterpene ester",
+    "class": "sesquiterpene ester",
+    "mechanism": "Sesquiterpene ester linked to butterbur pharmacology; preclinical work suggests TRPA1/TRPV1-relevant modulation with downstream reduction of CGRP release, supporting the herb's migraine-oriented positioning.",
     "mechanismTags": [
-      "unclassified"
+      "TRPA1/TRPV1 modulation",
+      "CGRP modulation",
+      "anti-inflammatory"
     ],
-    "evidenceTier": "Unknown"
+    "pathwayTargets": [
+      "TRPA1",
+      "TRPV1",
+      "CGRP signaling"
+    ],
+    "confidence": "Medium",
+    "confidenceLevel": "Medium",
+    "evidence": "Preclinical",
+    "evidenceTier": "Preclinical",
+    "sourceUrls": [
+      "https://www.nccih.nih.gov/health/butterbur|https://pubmed.ncbi.nlm.nih.gov/35427728/|https://pubmed.ncbi.nlm.nih.gov/33849430/"
+    ],
+    "relatedHerbSlugs": [
+      "butterbur"
+    ],
+    "herbCount": "1",
+    "reverseLookupReady": "Yes"
   },
   {
     "id": "pfaffic-acid",
@@ -7007,7 +7093,7 @@
   },
   {
     "id": "pinene",
-    "slug": "pinene-wb",
+    "slug": "pinene",
     "canonicalCompoundId": "pinene",
     "name": "pinene",
     "compoundName": "pinene",
@@ -7022,7 +7108,7 @@
   },
   {
     "id": "pinocembrin",
-    "slug": "pinocembrin-wb",
+    "slug": "pinocembrin",
     "canonicalCompoundId": "pinocembrin",
     "name": "pinocembrin",
     "compoundName": "pinocembrin",
@@ -7129,7 +7215,7 @@
   },
   {
     "id": "probiotics",
-    "slug": "probiotics-wb",
+    "slug": "probiotics",
     "canonicalCompoundId": "probiotics",
     "name": "probiotics",
     "compoundName": "probiotics",
@@ -7189,7 +7275,7 @@
   },
   {
     "id": "pseudoephedrine",
-    "slug": "pseudoephedrine-wb",
+    "slug": "pseudoephedrine",
     "canonicalCompoundId": "pseudoephedrine",
     "name": "pseudoephedrine",
     "compoundName": "pseudoephedrine",
@@ -7279,7 +7365,7 @@
   },
   {
     "id": "pulegone",
-    "slug": "pulegone-wb",
+    "slug": "pulegone",
     "canonicalCompoundId": "pulegone",
     "name": "pulegone",
     "compoundName": "pulegone",
@@ -7384,7 +7470,7 @@
   },
   {
     "id": "quercetin",
-    "slug": "quercetin-wb",
+    "slug": "quercetin",
     "canonicalCompoundId": "quercetin",
     "name": "Quercetin",
     "compoundName": "Quercetin",
@@ -7402,7 +7488,7 @@
   },
   {
     "id": "quercitrin",
-    "slug": "quercitrin-wb",
+    "slug": "quercitrin",
     "canonicalCompoundId": "quercitrin",
     "name": "quercitrin",
     "compoundName": "quercitrin",
@@ -7447,7 +7533,7 @@
   },
   {
     "id": "resveratrol",
-    "slug": "resveratrol-wb",
+    "slug": "resveratrol",
     "canonicalCompoundId": "resveratrol",
     "name": "Resveratrol",
     "compoundName": "Resveratrol",
@@ -7618,7 +7704,7 @@
   },
   {
     "id": "rosmarinic-acid",
-    "slug": "rosmarinic-acid-wb",
+    "slug": "rosmarinic-acid",
     "canonicalCompoundId": "rosmarinic-acid",
     "name": "Rosmarinic acid",
     "compoundName": "Rosmarinic acid",
@@ -7651,7 +7737,7 @@
   },
   {
     "id": "rutin",
-    "slug": "rutin-wb",
+    "slug": "rutin",
     "canonicalCompoundId": "rutin",
     "name": "rutin",
     "compoundName": "rutin",
@@ -7711,7 +7797,7 @@
   },
   {
     "id": "safrole",
-    "slug": "safrole-wb",
+    "slug": "safrole",
     "canonicalCompoundId": "safrole",
     "name": "safrole",
     "compoundName": "safrole",
@@ -7954,7 +8040,7 @@
   },
   {
     "id": "scopolamine",
-    "slug": "scopolamine-wb",
+    "slug": "scopolamine",
     "canonicalCompoundId": "scopolamine",
     "name": "scopolamine",
     "compoundName": "scopolamine",
@@ -7969,7 +8055,7 @@
   },
   {
     "id": "scopoletin",
-    "slug": "scopoletin-wb",
+    "slug": "scopoletin",
     "canonicalCompoundId": "scopoletin",
     "name": "scopoletin",
     "compoundName": "scopoletin",
@@ -7984,7 +8070,7 @@
   },
   {
     "id": "scutellarin",
-    "slug": "scutellarin-wb",
+    "slug": "scutellarin",
     "canonicalCompoundId": "scutellarin",
     "name": "scutellarin",
     "compoundName": "scutellarin",
@@ -7999,7 +8085,7 @@
   },
   {
     "id": "selenium",
-    "slug": "selenium-wb",
+    "slug": "selenium",
     "canonicalCompoundId": "selenium",
     "name": "selenium",
     "compoundName": "selenium",
@@ -8029,7 +8115,7 @@
   },
   {
     "id": "serotonin",
-    "slug": "serotonin-wb",
+    "slug": "serotonin",
     "canonicalCompoundId": "serotonin",
     "name": "serotonin",
     "compoundName": "serotonin",
@@ -8239,7 +8325,7 @@
   },
   {
     "id": "solanine",
-    "slug": "solanine-wb",
+    "slug": "solanine",
     "canonicalCompoundId": "solanine",
     "name": "solanine",
     "compoundName": "solanine",
@@ -8254,7 +8340,7 @@
   },
   {
     "id": "spilanthol",
-    "slug": "spilanthol-wb",
+    "slug": "spilanthol",
     "canonicalCompoundId": "spilanthol",
     "name": "spilanthol",
     "compoundName": "spilanthol",
@@ -8269,7 +8355,7 @@
   },
   {
     "id": "stachydrine",
-    "slug": "stachydrine-wb",
+    "slug": "stachydrine",
     "canonicalCompoundId": "stachydrine",
     "name": "stachydrine",
     "compoundName": "stachydrine",
@@ -8376,7 +8462,7 @@
   },
   {
     "id": "tartaric-acid",
-    "slug": "tartaric-acid-wb",
+    "slug": "tartaric-acid",
     "canonicalCompoundId": "tartaric-acid",
     "name": "tartaric acid",
     "compoundName": "tartaric acid",
@@ -8481,7 +8567,7 @@
   },
   {
     "id": "tetrahydroharmine",
-    "slug": "tetrahydroharmine-wb",
+    "slug": "tetrahydroharmine",
     "canonicalCompoundId": "tetrahydroharmine",
     "name": "tetrahydroharmine",
     "compoundName": "tetrahydroharmine",
@@ -8541,7 +8627,7 @@
   },
   {
     "id": "thc",
-    "slug": "thc-wb",
+    "slug": "thc",
     "canonicalCompoundId": "thc",
     "name": "thc",
     "compoundName": "thc",
@@ -8574,7 +8660,7 @@
   },
   {
     "id": "thebaine",
-    "slug": "thebaine-wb",
+    "slug": "thebaine",
     "canonicalCompoundId": "thebaine",
     "name": "thebaine",
     "compoundName": "thebaine",
@@ -8589,7 +8675,7 @@
   },
   {
     "id": "theobromine",
-    "slug": "theobromine-wb",
+    "slug": "theobromine",
     "canonicalCompoundId": "theobromine",
     "name": "theobromine",
     "compoundName": "theobromine",
@@ -8604,7 +8690,7 @@
   },
   {
     "id": "theophylline",
-    "slug": "theophylline-wb",
+    "slug": "theophylline",
     "canonicalCompoundId": "theophylline",
     "name": "theophylline",
     "compoundName": "theophylline",
@@ -8649,7 +8735,7 @@
   },
   {
     "id": "thujone",
-    "slug": "thujone-wb",
+    "slug": "thujone",
     "canonicalCompoundId": "thujone",
     "name": "thujone",
     "compoundName": "thujone",
@@ -8664,7 +8750,7 @@
   },
   {
     "id": "thymol",
-    "slug": "thymol-wb",
+    "slug": "thymol",
     "canonicalCompoundId": "thymol",
     "name": "thymol",
     "compoundName": "thymol",
@@ -8905,7 +8991,7 @@
   },
   {
     "id": "umbelliferone",
-    "slug": "umbelliferone-wb",
+    "slug": "umbelliferone",
     "canonicalCompoundId": "umbelliferone",
     "name": "umbelliferone",
     "compoundName": "umbelliferone",
@@ -8965,7 +9051,7 @@
   },
   {
     "id": "ursolic-acid",
-    "slug": "ursolic-acid-wb",
+    "slug": "ursolic-acid",
     "canonicalCompoundId": "ursolic-acid",
     "name": "Ursolic acid",
     "compoundName": "Ursolic acid",
@@ -9041,7 +9127,7 @@
   },
   {
     "id": "valerenic-acid",
-    "slug": "valerenic-acid-wb",
+    "slug": "valerenic-acid",
     "canonicalCompoundId": "valerenic-acid",
     "name": "valerenic acid",
     "compoundName": "valerenic acid",
@@ -9116,7 +9202,7 @@
   },
   {
     "id": "vasicine",
-    "slug": "vasicine-wb",
+    "slug": "vasicine",
     "canonicalCompoundId": "vasicine",
     "name": "Vasicine",
     "compoundName": "Vasicine",
@@ -9133,7 +9219,7 @@
   },
   {
     "id": "vasicinone",
-    "slug": "vasicinone-wb",
+    "slug": "vasicinone",
     "canonicalCompoundId": "vasicinone",
     "name": "vasicinone",
     "compoundName": "vasicinone",
@@ -9148,7 +9234,7 @@
   },
   {
     "id": "verbascoside",
-    "slug": "verbascoside-wb",
+    "slug": "verbascoside",
     "canonicalCompoundId": "verbascoside",
     "name": "verbascoside",
     "compoundName": "verbascoside",
@@ -9253,7 +9339,7 @@
   },
   {
     "id": "voacangine",
-    "slug": "voacangine-wb",
+    "slug": "voacangine",
     "canonicalCompoundId": "voacangine",
     "name": "voacangine",
     "compoundName": "voacangine",
@@ -9379,7 +9465,7 @@
   },
   {
     "id": "wogonin",
-    "slug": "wogonin-wb",
+    "slug": "wogonin",
     "canonicalCompoundId": "wogonin",
     "name": "wogonin",
     "compoundName": "wogonin",
@@ -9469,7 +9555,7 @@
   },
   {
     "id": "yangonin",
-    "slug": "yangonin-wb",
+    "slug": "yangonin",
     "canonicalCompoundId": "yangonin",
     "name": "yangonin",
     "compoundName": "yangonin",
@@ -9484,19 +9570,24 @@
   },
   {
     "id": "yohimbine",
-    "slug": "yohimbine-wb",
+    "slug": "yohimbine",
     "canonicalCompoundId": "yohimbine",
     "name": "Yohimbine",
     "compoundName": "Yohimbine",
     "canonicalCompoundName": "Yohimbine",
     "compoundClass": "yohimbine",
     "class": "yohimbine",
-    "mechanism": "Adrenergic antagonist",
+    "mechanism": "indole alkaloid; alpha-2 adrenergic antagonist",
     "mechanismTags": [
       "adrenergic signaling",
       "alpha-2 adrenergic antagonism",
       "unclassified"
     ],
+    "safetyNotes": "Can amplify anxiety, blood-pressure instability, tachycardia, and overstimulation; not appropriate as a casual wellness compound.",
+    "drugInteractions": "Potential interaction concern with stimulants, antidepressants, blood-pressure agents, vasopressors, and other mood/cardiovascular-active compounds.",
+    "confidence": "Medium",
+    "confidenceLevel": "Medium",
+    "evidence": "limited human + strong safety signal",
     "evidenceTier": "Unknown"
   },
   {
@@ -9543,5 +9634,38 @@
       "unclassified"
     ],
     "evidenceTier": "Unknown"
+  },
+  {
+    "id": "isopetasin",
+    "slug": "isopetasin",
+    "canonicalCompoundId": "isopetasin",
+    "name": "isopetasin",
+    "compoundName": "isopetasin",
+    "canonicalCompoundName": "isopetasin",
+    "compoundClass": "sesquiterpene ester",
+    "class": "sesquiterpene ester",
+    "mechanism": "Sesquiterpene ester related to petasin and discussed in butterbur mechanistic literature as part of the herb's CGRP-relevant migraine-support pharmacology.",
+    "mechanismTags": [
+      "TRPA1/TRPV1 modulation",
+      "CGRP modulation",
+      "anti-inflammatory"
+    ],
+    "pathwayTargets": [
+      "TRPA1",
+      "TRPV1",
+      "CGRP signaling"
+    ],
+    "confidence": "Medium",
+    "confidenceLevel": "Medium",
+    "evidence": "Preclinical",
+    "evidenceTier": "Preclinical",
+    "sourceUrls": [
+      "https://www.nccih.nih.gov/health/butterbur|https://pubmed.ncbi.nlm.nih.gov/35427728/|https://pubmed.ncbi.nlm.nih.gov/33849430/"
+    ],
+    "relatedHerbSlugs": [
+      "butterbur"
+    ],
+    "herbCount": "1",
+    "reverseLookupReady": "Yes"
   }
 ]
