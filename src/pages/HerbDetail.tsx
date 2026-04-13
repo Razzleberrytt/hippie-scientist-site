@@ -159,6 +159,7 @@ export default function HerbDetail() {
   const summary = sentenceClamp(description, 3)
 
   const effects = dedupeCaseInsensitive(splitTextList(herb.primaryEffects || herb.effects)).slice(0, 6)
+  const keyEffects = effects.slice(0, 2)
   const activeCompounds = dedupeCaseInsensitive(splitTextList(herb.activeCompounds || herb.compounds))
   const mechanism = String(herb.mechanism || herb.mechanismOfAction || '').trim()
   const dosage = String(herb.dosage || '').trim()
@@ -184,6 +185,11 @@ export default function HerbDetail() {
 
   const sources = toSources(herb.sources)
   const confidenceLabel = toTitleCase(String(herb.evidenceLevel || herb.confidence || 'Limited'))
+  const shouldUseSummary =
+    priorityWarning ||
+    (confidenceLabel.toLowerCase().includes('limited')
+      ? 'Use cautiously when evidence is limited and start with conservative dosing.'
+      : 'May be useful when the target effects match your goal and safety notes are clear.')
   const pagePath = `/herbs/${herb.slug}`
   const relatedHerbs = herbs
     .filter(item => item.slug && item.slug !== herb.slug)
@@ -249,35 +255,37 @@ export default function HerbDetail() {
         <header className='rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-5'>
           <h1 className='text-3xl font-semibold sm:text-4xl'>{herbName}</h1>
           {scientificName && <p className='mt-1 text-sm italic text-white/55'>{scientificName}</p>}
-
-          <div className='mt-3 flex flex-wrap gap-2'>
-            {effects.map(effect => (
-              <span
-                key={effect}
-                className='rounded-full border border-emerald-300/30 bg-emerald-500/10 px-2.5 py-1 text-xs text-emerald-100'
-              >
-                {effect}
-              </span>
-            ))}
-          </div>
-
-          {descriptionIsPlaceholder ? (
-            <p className='mt-4 rounded-xl border border-cyan-300/30 bg-cyan-500/10 px-3 py-2 text-sm text-cyan-100'>
-              Full research profile coming soon. Check back for mechanism notes, dosage guidance, and source citations.
-            </p>
-          ) : (
-            <p className='mt-4 max-w-3xl text-sm leading-relaxed text-white/80'>{summary}</p>
+          {!descriptionIsPlaceholder && (
+            <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>{summary}</p>
           )}
 
-          {priorityWarning && (
-            <div className='mt-4 rounded-xl border border-amber-300/35 bg-amber-500/10 px-3 py-2 text-sm text-amber-100'>
-              Safety warning: {priorityWarning}
+          <section className='mt-4'>
+            <h2 className='text-xs font-semibold uppercase tracking-[0.14em] text-white/58'>Key effects</h2>
+            <div className='mt-2 flex flex-wrap gap-2'>
+              {keyEffects.length > 0 ? (
+                keyEffects.map(effect => (
+                  <span
+                    key={effect}
+                    className='rounded-full border border-cyan-300/30 bg-cyan-500/10 px-2.5 py-1 text-xs text-cyan-100'
+                  >
+                    {effect}
+                  </span>
+                ))
+              ) : (
+                <span className='text-sm text-white/65'>Effects being reviewed.</span>
+              )}
             </div>
-          )}
+          </section>
 
-          <div className='mt-4 inline-flex rounded-full border border-white/20 bg-white/5 px-2.5 py-1 text-xs text-white/80'>
-            Evidence: {confidenceLabel}
-          </div>
+          <section className='mt-4 rounded-xl border border-white/10 bg-black/20 p-3'>
+            <h2 className='text-xs font-semibold uppercase tracking-[0.14em] text-white/58'>
+              Should you use this?
+            </h2>
+            <p className='mt-2 text-sm text-white/82'>{shouldUseSummary}</p>
+            <div className='mt-2 inline-flex rounded-full border border-white/20 bg-white/5 px-2.5 py-1 text-xs text-white/80'>
+              Evidence: {confidenceLabel}
+            </div>
+          </section>
         </header>
 
         <DisclosureSection title='Effects' defaultOpen>
@@ -292,13 +300,11 @@ export default function HerbDetail() {
           )}
         </DisclosureSection>
 
-        <DisclosureSection title='Full Description'>
-          {descriptionIsPlaceholder ? (
-            <p>Profile in progress.</p>
-          ) : (
+        {!descriptionIsPlaceholder && (
+          <DisclosureSection title='Full Description'>
             <p>{description}</p>
-          )}
-        </DisclosureSection>
+          </DisclosureSection>
+        )}
 
         <DisclosureSection title='Active Compounds'>
           {activeCompounds.length > 0 ? (

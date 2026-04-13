@@ -40,9 +40,18 @@ function confidenceBadgeClass(level: ConfidenceLevel) {
 }
 
 function summarize(compound: { description: string; effects: string[] }) {
-  if (compound.description) return compound.description
+  if (compound.description) {
+    const firstSentence = compound.description.split(/(?<=[.!?])\s+/)[0] || compound.description
+    return firstSentence
+  }
   if (compound.effects.length) return compound.effects.slice(0, 2).join(' · ')
-  return 'Mechanism and effects are still being researched.'
+  return 'Profile in progress.'
+}
+
+function getStatusTag(level: ConfidenceLevel) {
+  if (level === 'high') return 'Well supported'
+  if (level === 'medium') return 'Moderate evidence'
+  return 'Limited evidence'
 }
 
 export default function CompoundsPage() {
@@ -241,7 +250,7 @@ export default function CompoundsPage() {
           No compounds match your current filters.
         </div>
       ) : (
-        <section className='grid gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3'>
+        <section className='grid gap-2 sm:grid-cols-2 lg:grid-cols-3'>
           {visibleCompounds.map(compound => {
             const confidence =
               compound.confidence ??
@@ -269,21 +278,14 @@ export default function CompoundsPage() {
             ].slice(0, 2)
 
             return (
-              <article key={compound.id} className='ds-card flex h-full flex-col gap-2 p-3'>
-                <div className='flex items-start justify-between gap-2'>
-                  <h2
-                    title={compound.name}
-                    className='line-clamp-2 min-h-[2.2rem] break-all text-[0.95rem] font-semibold leading-tight text-white sm:text-base'
-                  >
-                    {title}
-                  </h2>
-                  <span
-                    className={`shrink-0 rounded-full border px-1.5 py-0 text-[10px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
-                  >
-                    {confidence}
-                  </span>
-                </div>
-                <p className='line-clamp-2 text-xs leading-[1.35] text-white/72'>{summarize(compound)}</p>
+              <article key={compound.id} className='ds-card flex h-full flex-col gap-1.5 rounded-lg p-3'>
+                <h2
+                  title={compound.name}
+                  className='line-clamp-2 min-h-[2.2rem] break-all text-[0.95rem] font-semibold leading-tight text-white sm:text-base'
+                >
+                  {title}
+                </h2>
+                <p className='line-clamp-1 text-xs leading-[1.35] text-white/72'>{summarize(compound)}</p>
                 {chips.length > 0 && (
                   <div className='flex flex-wrap gap-1'>
                     {chips.map(chip => (
@@ -296,17 +298,16 @@ export default function CompoundsPage() {
                     ))}
                   </div>
                 )}
-                <div className='text-[11px] text-white/56'>
-                  <p>
-                    {compound.herbs.length} {compound.herbs.length === 1 ? 'herb' : 'herbs'}{' '}
-                    associated
-                  </p>
-                </div>
+                <span
+                  className={`mt-1 inline-flex w-fit rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] ${confidenceBadgeClass(confidence)}`}
+                >
+                  {getStatusTag(confidence)}
+                </span>
                 <Link
                   to={`/compounds/${compound.slug}`}
                   className='mt-auto inline-flex w-fit items-center rounded-md border border-white/15 bg-white/[0.03] px-2 py-1 text-[11px] font-medium text-white/80 transition hover:border-cyan-300/45 hover:text-white'
                 >
-                  View details
+                  View context page
                 </Link>
               </article>
             )
