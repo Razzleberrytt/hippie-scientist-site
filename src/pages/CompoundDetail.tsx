@@ -417,6 +417,8 @@ export default function CompoundDetail() {
   const governedReviewFreshness = buildGovernedReviewFreshness(governedResearch)
   const topSummary =
     governedIntro.whatItIs || governedIntro.commonUse || compoundDescription || compoundMechanism
+  const topEffects = primaryEffects.slice(0, 2)
+  const whereAppears = foundInHerbLinks.slice(0, 3).map(item => item.label)
   const enrichmentRecommendations = buildEnrichmentRecommendations('compound', compound.slug)
   const quickCompareSection = buildGovernedQuickCompareSection('compound', compound.slug)
   const recommendationNames = {
@@ -506,33 +508,39 @@ export default function CompoundDetail() {
           <div className='flex flex-wrap items-start justify-between gap-3'>
             <h1 className='text-3xl font-semibold leading-tight'>{name}</h1>
           </div>
-          {(compoundDescription || topSummary) && (
+          {(topSummary || compoundDescription) && (
             <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>
-              {compoundDescription || topSummary}
+              {topSummary || compoundDescription}
             </p>
           )}
-          {(confidence || evidence || sourceCount > 0 || cautionCount > 0) && (
+          <div className='mt-4 grid gap-3 sm:grid-cols-3'>
+            <section className='rounded-lg border border-white/10 bg-black/20 p-3'>
+              <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56'>Why it matters</h2>
+              <p className='mt-1 text-xs text-white/80'>
+                {whyItMatters || 'Tracked for mechanism context and potential outcomes.'}
+              </p>
+            </section>
+            <section className='rounded-lg border border-white/10 bg-black/20 p-3'>
+              <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56'>Key effects</h2>
+              <p className='mt-1 text-xs text-white/80'>{topEffects.join(' · ') || 'Effects being reviewed.'}</p>
+            </section>
+            <section className='rounded-lg border border-white/10 bg-black/20 p-3'>
+              <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56'>Where it appears</h2>
+              <p className='mt-1 text-xs text-white/80'>
+                {whereAppears.join(', ') || 'Related herbs listed below.'}
+              </p>
+            </section>
+          </div>
+          {(confidence || sourceCount > 0 || cautionCount > 0) && (
             <div className='mt-3 flex flex-wrap gap-1.5'>
-              {confidence && (
-                <span className='inline-flex items-center gap-1.5 rounded-sm border border-emerald-400/35 bg-emerald-500/8 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-200'>
-                  <span aria-hidden='true'>✓</span> Confidence: {confidence}
-                </span>
-              )}
-              {evidence && (
-                <span className='inline-flex items-center gap-1.5 rounded-sm border border-emerald-400/35 bg-emerald-500/8 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-200'>
-                  <span aria-hidden='true'>✓</span> Evidence: {evidence}
-                </span>
-              )}
+              {confidence && <span className='ds-pill'>Confidence: {confidence}</span>}
               {sourceCount > 0 && (
-                <span className='inline-flex items-center gap-1.5 rounded-sm border border-emerald-400/35 bg-emerald-500/8 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-200'>
-                  <span aria-hidden='true'>✓</span> {sourceCount} source{sourceCount === 1 ? '' : 's'}
+                <span className='ds-pill'>
+                  {sourceCount} source{sourceCount === 1 ? '' : 's'}
                 </span>
               )}
-              {cautionCount > 0 && (
-                <span className='inline-flex items-center gap-1.5 rounded-sm border border-amber-400/40 bg-amber-500/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-amber-200'>
-                  <span aria-hidden='true'>⚠</span> {cautionCount} caution signal{cautionCount === 1 ? '' : 's'}
-                </span>
-              )}
+              {cautionCount > 0 && <span className='ds-pill'>Cautions: {cautionCount}</span>}
+              {evidence && <span className='ds-pill'>{evidence}</span>}
             </div>
           )}
           <Link
@@ -577,25 +585,7 @@ export default function CompoundDetail() {
           </div>
         )}
 
-        {(doesText || whyItMatters) && (
-          <Section title='Why This Compound Matters'>
-            <div className='space-y-2'>
-              {doesText && (
-                <p>
-                  <span className='font-semibold text-white'>What it does:</span> {doesText}
-                </p>
-              )}
-              {whyItMatters && (
-                <p>
-                  <span className='font-semibold text-white'>Why it matters:</span> This helps
-                  explain why {name} is discussed in herbal profiles for{' '}
-                  {linkedHerbs.length > 0 ? `${linkedHerbs.length} herb(s)` : 'multiple herbs'}.
-                  Commonly tracked outcomes include {whyItMatters}.
-                </p>
-              )}
-            </div>
-          </Section>
-        )}
+        {doesText && <Section title='Mechanism Context'>{doesText}</Section>}
 
         {compoundMechanism && <Section title='Mechanism of Action'>{compoundMechanism}</Section>}
 

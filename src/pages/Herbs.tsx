@@ -55,6 +55,19 @@ const cleanSummary = (value: string, herbName = '') => {
   return `${normalized.slice(0, 117).trimEnd()}...`
 }
 
+const getKeyEffects = (herb: Record<string, unknown>) =>
+  (Array.isArray(herb.primaryEffects) ? herb.primaryEffects : Array.isArray(herb.effects) ? herb.effects : [])
+    .map(effect => toTitleCase(String(effect || '').trim()))
+    .filter(Boolean)
+    .slice(0, 2)
+
+const getStatusTag = (herb: Record<string, unknown>) => {
+  const tier = String(herb.qualityTier || herb.evidenceLevel || '').toLowerCase()
+  if (tier.includes('strong') || tier.includes('high')) return 'Well documented'
+  if (tier.includes('medium') || tier.includes('moderate')) return 'Moderate evidence'
+  return 'Limited evidence'
+}
+
 const ENRICHMENT_FILTER_OPTIONS: Array<{ value: EnrichmentFilter; label: string }> = [
   { value: 'all', label: 'All research states' },
   { value: 'enriched_reviewed', label: 'Enriched & reviewed' },
@@ -287,38 +300,32 @@ export default function HerbsPage() {
           No herbs match your current filters.
         </div>
       ) : (
-        <section className='grid gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3'>
+        <section className='grid gap-2 sm:grid-cols-2 lg:grid-cols-3'>
           {visibleHerbs.map((herb, index) => (
             <article
               key={herb.slug || herb.id || `${herb.common}-${index}`}
-              className='rounded-2xl border border-white/10 bg-white/[0.03] p-4'
+              className='flex h-full flex-col rounded-lg border border-white/12 bg-white/[0.02] p-3'
             >
-              <h2 className='text-lg font-semibold text-white'>
+              <h2 className='text-base font-semibold text-white'>
                 {toTitleCase(String(herb.common || herb.scientific || herb.name || 'Herb'))}
               </h2>
-              <p className='mt-2 text-sm text-white/75'>
+              <p className='mt-1 line-clamp-1 text-xs text-white/72'>
                 {cleanSummary(String(herb.summary || herb.description || herb.mechanism || ''), String(herb.common || herb.name || ''))}
               </p>
-              <div className='mt-3 flex flex-wrap gap-1.5'>
-                {(Array.isArray(herb.primaryEffects) ? herb.primaryEffects : Array.isArray(herb.effects) ? herb.effects : [])
-                  .map(effect => String(effect || '').trim())
-                  .filter(Boolean)
-                  .slice(0, 3)
-                  .map(effect => (
-                    <span
-                      key={`${herb.slug}-${effect}`}
-                      className='inline-flex rounded-full border border-cyan-300/30 bg-cyan-500/10 px-2 py-0.5 text-[11px] text-cyan-100'
-                    >
-                      {toTitleCase(effect)}
-                    </span>
-                  ))}
+              <div className='mt-2 flex flex-wrap gap-1'>
+                {getKeyEffects(herb).map(effect => (
+                  <span
+                    key={`${herb.slug}-${effect}`}
+                    className='inline-flex rounded-full border border-cyan-300/28 bg-cyan-500/10 px-2 py-0.5 text-[10px] text-cyan-100'
+                  >
+                    {effect}
+                  </span>
+                ))}
               </div>
-              {String(herb.qualityTier || '').toLowerCase() === 'strong' && (
-                <span className='mt-2 inline-flex rounded-full border border-emerald-300/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] text-emerald-100'>
-                  Well Documented
-                </span>
-              )}
-              <div className='mt-4'>
+              <span className='mt-2 inline-flex w-fit rounded-full border border-white/18 bg-white/[0.04] px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-white/75'>
+                {getStatusTag(herb)}
+              </span>
+              <div className='mt-auto pt-2'>
                 <Link
                   to={
                     herb.slug
@@ -327,9 +334,9 @@ export default function HerbsPage() {
                           slugify(String(herb.common || herb.scientific || herb.name || '')),
                         )}`
                   }
-                  className='text-sm font-medium text-cyan-200 hover:text-cyan-100'
+                  className='inline-flex items-center rounded-md border border-white/15 bg-white/[0.03] px-2 py-1 text-[11px] font-medium text-white/80 transition hover:border-cyan-300/45 hover:text-white'
                 >
-                  Open herb profile →
+                  View decision page
                 </Link>
               </div>
             </article>
