@@ -36,8 +36,8 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
 
   return (
     <section id='effect-search' className='container mx-auto max-w-4xl px-4 pt-5 sm:px-6'>
-      <div className='ds-card-lg border-violet-300/30 bg-violet-500/10'>
-        <p className='label-specimen text-violet-100/85'>
+      <div className='ds-card-lg border-emerald-200/20 bg-emerald-400/[0.06]'>
+        <p className='label-specimen text-emerald-100/80'>
           Effect search
         </p>
         <h2 className='mt-2 text-2xl font-semibold'>What outcome are you looking for?</h2>
@@ -56,7 +56,7 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
             value={query}
             onChange={event => setQuery(event.target.value)}
             placeholder='Try “relaxation”, “focus”, “sleep”…'
-            className='w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/45 focus:border-violet-300/40 focus:outline-none'
+            className='w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/45 focus:border-emerald-300/40 focus:outline-none'
           />
           <datalist id='effect-explorer-suggestions'>
             {suggestions.map(suggestion => (
@@ -64,9 +64,9 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
             ))}
           </datalist>
           {!normalizedQuery && (
-            <p className='mt-2 text-xs text-violet-100/75'>
+            <p className='mt-2 text-xs text-emerald-100/75'>
               Showing top matches for{' '}
-              <span className='font-semibold text-violet-100'>relaxation</span> to help you start
+              <span className='font-semibold text-emerald-100'>relaxation</span> to help you start
               quickly.
             </p>
           )}
@@ -124,14 +124,14 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
                   key={`${slug}-${index}`}
                   className={`ds-card flex h-full flex-col gap-3 p-4 ${
                     isTopThree
-                      ? 'border-violet-200/45 bg-violet-500/15 shadow-lg shadow-violet-900/30'
+                      ? 'border-emerald-200/35 bg-emerald-400/[0.09]'
                       : ''
                   }`}
                 >
                   <div className='flex items-start justify-between gap-2'>
                     <h3 className='text-base font-semibold text-white'>{herbLabel}</h3>
                     <span
-                      className={`rounded-full border px-2 py-0.5 text-xs ${isTopThree ? 'border-violet-200/60 bg-violet-400/20 text-violet-50' : 'border-violet-300/40 bg-violet-500/10 text-violet-100'}`}
+                      className={`rounded-full border px-2 py-0.5 text-xs ${isTopThree ? 'border-emerald-200/55 bg-emerald-300/15 text-emerald-50' : 'border-emerald-300/35 bg-emerald-500/10 text-emerald-100'}`}
                     >
                       #{index + 1} {isTopThree ? 'Top match' : ''}
                     </span>
@@ -144,7 +144,7 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
                       {tags.map(tag => (
                         <span
                           key={`${slug}-${tag}`}
-                          className='rounded-full border border-fuchsia-300/35 bg-fuchsia-500/10 px-2.5 py-1 text-[11px] text-fuchsia-100'
+                          className='rounded-full border border-white/20 bg-white/[0.04] px-2.5 py-1 text-[11px] text-white/80'
                         >
                           {tag}
                         </span>
@@ -156,7 +156,7 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
                     {topEffects.slice(0, 3).map(effect => (
                       <span
                         key={`${slug}-${effect}`}
-                        className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100'
+                        className='rounded-full border border-emerald-300/30 bg-emerald-500/12 px-2.5 py-1 text-[11px] text-emerald-100'
                       >
                         {effect}
                       </span>
@@ -199,7 +199,7 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
                     {slug && (
                       <Link
                         to={`/herbs/${encodeURIComponent(slug)}`}
-                        className='inline-flex text-sm text-violet-200 underline underline-offset-4 hover:text-violet-100'
+                        className='inline-flex text-sm text-emerald-200 underline underline-offset-4 hover:text-emerald-100'
                       >
                         View herb details
                       </Link>
@@ -210,22 +210,22 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
             })}
           </div>
 
-          <div className='mt-5 rounded-xl border border-violet-300/35 bg-violet-500/10 p-4'>
-            <p className='label-specimen text-violet-100/85'>
+          <div className='mt-5 rounded-xl border border-white/15 bg-white/[0.03] p-4'>
+            <p className='label-specimen text-emerald-100/80'>
               Next actions
             </p>
             <div className='mt-3 grid gap-2 text-sm'>
               <Link
-                className='underline underline-offset-4 hover:text-violet-100'
+                className='underline underline-offset-4 hover:text-emerald-100'
                 to='/build-blend'
               >
                 Build a blend with these herbs
               </Link>
-              <Link className='underline underline-offset-4 hover:text-violet-100' to='/compare'>
+              <Link className='underline underline-offset-4 hover:text-emerald-100' to='/compare'>
                 Compare top herbs
               </Link>
               <Link
-                className='underline underline-offset-4 hover:text-violet-100'
+                className='underline underline-offset-4 hover:text-emerald-100'
                 to='/interactions'
               >
                 Check interactions

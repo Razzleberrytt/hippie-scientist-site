@@ -59,7 +59,7 @@ body::before {
   z-index: 1;
   background:
     radial-gradient(120% 100% at 50% 42%, rgba(3, 5, 12, 0) 48%, rgba(1, 2, 8, 0.68) 100%),
-    radial-gradient(80% 58% at 50% 22%, rgba(90, 42, 138, 0.07) 0%, rgba(5, 8, 20, 0) 72%);
+    radial-gradient(82% 60% at 50% 20%, rgba(22, 36, 56, 0.05) 0%, rgba(5, 8, 20, 0) 72%);
 }
 
 .prerender-content.sr-only {
@@ -124,8 +124,8 @@ a:hover {
   .ds-card {
     @apply rounded-2xl border border-white/14 bg-white/[0.03] p-3 sm:p-3 backdrop-blur-md transition-all duration-150;
     box-shadow:
-      0 8px 20px -20px rgba(16, 185, 129, 0.26),
-      0 12px 24px -24px rgba(0, 0, 0, 0.75);
+      0 8px 20px -22px rgba(20, 30, 46, 0.45),
+      0 14px 30px -26px rgba(0, 0, 0, 0.8);
   }
 
   .ds-card:hover {
@@ -225,23 +225,22 @@ a:hover {
   }
 
   .btn-primary {
-    border-color: rgba(182, 104, 242, 0.34);
-    background: linear-gradient(180deg, rgba(122, 54, 150, 0.82), rgba(71, 40, 118, 0.84));
-    color: rgba(249, 241, 255, 0.94);
+    border-color: rgba(70, 178, 161, 0.42);
+    background: linear-gradient(180deg, rgba(22, 99, 90, 0.92), rgba(16, 72, 68, 0.9));
+    color: rgba(236, 251, 248, 0.96);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.14),
-      0 0 0 1px rgba(205, 123, 255, 0.08),
-      0 12px 34px -24px rgba(205, 123, 255, 0.42);
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 0 0 1px rgba(70, 178, 161, 0.12),
+      0 10px 24px -20px rgba(14, 82, 76, 0.5);
   }
 
   .btn-primary:hover {
-    border-color: rgba(209, 132, 255, 0.48);
-    background: linear-gradient(180deg, rgba(132, 60, 165, 0.86), rgba(79, 44, 132, 0.88));
+    border-color: rgba(92, 202, 182, 0.5);
+    background: linear-gradient(180deg, rgba(24, 110, 101, 0.94), rgba(18, 80, 74, 0.92));
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.14),
-      0 0 0 1px rgba(208, 133, 255, 0.14),
-      0 0 26px -14px rgba(230, 126, 255, 0.62),
-      0 12px 30px -22px rgba(78, 214, 246, 0.34);
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 0 0 1px rgba(94, 206, 186, 0.18),
+      0 12px 24px -20px rgba(16, 92, 84, 0.56);
   }
 
   .btn-secondary,
@@ -254,11 +253,9 @@ a:hover {
 
   .btn-secondary:hover,
   .btn-ghost:hover {
-    border-color: rgba(174, 214, 255, 0.36);
+    border-color: rgba(112, 188, 176, 0.34);
     background: rgba(255, 255, 255, 0.055);
-    box-shadow:
-      0 0 18px -14px rgba(112, 223, 255, 0.42),
-      0 0 22px -16px rgba(224, 122, 255, 0.28);
+    box-shadow: 0 10px 22px -24px rgba(10, 30, 46, 0.62);
     transform: translateY(-1px);
   }
 
@@ -289,11 +286,10 @@ a:hover {
     z-index: -1;
     pointer-events: none;
     background:
-      radial-gradient(60% 48% at 50% 44%, rgba(235, 86, 204, 0.22) 0%, rgba(235, 86, 204, 0.08) 40%, rgba(235, 86, 204, 0) 72%),
-      radial-gradient(56% 52% at 57% 46%, rgba(146, 96, 255, 0.24) 0%, rgba(146, 96, 255, 0.1) 40%, rgba(146, 96, 255, 0) 76%),
-      radial-gradient(42% 36% at 43% 56%, rgba(86, 222, 248, 0.14) 0%, rgba(86, 222, 248, 0.06) 34%, rgba(86, 222, 248, 0) 74%);
-    filter: blur(40px) saturate(110%);
-    opacity: 0.74;
+      radial-gradient(56% 44% at 50% 44%, rgba(46, 138, 126, 0.16) 0%, rgba(46, 138, 126, 0.06) 40%, rgba(46, 138, 126, 0) 72%),
+      radial-gradient(54% 46% at 57% 46%, rgba(56, 126, 164, 0.1) 0%, rgba(56, 126, 164, 0.04) 40%, rgba(56, 126, 164, 0) 76%);
+    filter: blur(34px) saturate(104%);
+    opacity: 0.5;
   }
 }
 
