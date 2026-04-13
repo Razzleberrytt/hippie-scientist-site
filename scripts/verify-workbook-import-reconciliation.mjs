@@ -11,9 +11,11 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 const workbookPath = resolveWorkbookPath(repoRoot)
-const REQUIRED_WORKBOOK_SHEETS = ['Herb Monographs', 'Compound Master V3']
+const REQUIRED_WORKBOOK_SHEETS = ['Site Export Herbs', 'Site Export Compounds']
 const herbsPath = path.join(repoRoot, 'public', 'data', 'herbs.json')
 const compoundsPath = path.join(repoRoot, 'public', 'data', 'compounds.json')
+const workbookHerbsPath = path.join(repoRoot, 'public', 'data', 'workbook-herbs.json')
+const workbookCompoundsPath = path.join(repoRoot, 'public', 'data', 'workbook-compounds.json')
 
 function clean(value) {
   return String(value ?? '').trim().toLowerCase()
@@ -53,7 +55,20 @@ function baselineCounts() {
     if (hit) compoundMatches += 1
   }
 
-  return { herbRows: herbRows.length, herbMatches, compoundRows: compoundRows.length, compoundMatches }
+  const missingRequiredHerbFields = herbRows
+    .map((row, index) => ({
+      row: index + 2,
+      missing: ['name', 'hero', 'coreInsight'].filter((field) => !String(row[field] ?? '').trim()),
+    }))
+    .filter((entry) => entry.missing.length > 0)
+
+  return {
+    herbRows: herbRows.length,
+    herbMatches,
+    compoundRows: compoundRows.length,
+    compoundMatches,
+    missingRequiredHerbFields,
+  }
 }
 
 function runDryImport() {
@@ -78,6 +93,13 @@ function runDryImport() {
   }
 }
 
+function runWorkbookExport() {
+  execFileSync('node', ['scripts/export-workbook-to-json.mjs'], {
+    cwd: repoRoot,
+    encoding: 'utf8',
+  })
+}
+
 function assert(condition, message) {
   if (!condition) {
     throw new Error(`[verify-workbook-import-reconciliation] ${message}`)
@@ -85,11 +107,32 @@ function assert(condition, message) {
 }
 
 function main() {
+  runWorkbookExport()
   const baseline = baselineCounts()
   const reconciled = runDryImport()
+  const workbookHerbs = JSON.parse(fs.readFileSync(workbookHerbsPath, 'utf8'))
+  const workbookCompounds = JSON.parse(fs.readFileSync(workbookCompoundsPath, 'utf8'))
 
-  assert(reconciled.herbMatched >= baseline.herbMatches, 'Herb reconciliation reduced match coverage.')
-  assert(reconciled.compoundMatched > baseline.compoundMatches, 'Compound reconciliation did not improve match coverage.')
+  assert(reconciled.herbMatched <= baseline.herbRows, 'Suspicious over-matching detected for herbs.')
+  assert(reconciled.compoundMatched <= baseline.compoundRows, 'Suspicious over-matching detected for compounds.')
+  assert(baseline.herbRows > 0, 'Site Export Herbs has zero rows.')
+  assert(baseline.compoundRows > 0, 'Site Export Compounds has zero rows.')
+  assert(Array.isArray(workbookHerbs) && workbookHerbs.length > 0, 'workbook-herbs.json export is empty.')
+  assert(Array.isArray(workbookCompounds) && workbookCompounds.length > 0, 'workbook-compounds.json export is empty.')
+  assert(baseline.herbRows >= workbookHerbs.length, 'Workbook herb row count must be >= exported herb count.')
+  assert(baseline.compoundRows >= workbookCompounds.length, 'Workbook compound row count must be >= exported compound count.')
+  assert(baseline.missingRequiredHerbFields.length === 0, `Missing required Site Export Herbs fields: ${JSON.stringify(baseline.missingRequiredHerbFields.slice(0, 10))}`)
+
+  const duplicateHerbSlugs = workbookHerbs
+    .map(item => String(item?.slug ?? '').trim().toLowerCase())
+    .filter(Boolean)
+    .filter((slug, index, arr) => arr.indexOf(slug) !== index)
+  const duplicateCompoundSlugs = workbookCompounds
+    .map(item => String(item?.slug ?? item?.id ?? '').trim().toLowerCase())
+    .filter(Boolean)
+    .filter((slug, index, arr) => arr.indexOf(slug) !== index)
+  assert(duplicateHerbSlugs.length === 0, `Duplicate herb slugs in workbook export: ${JSON.stringify([...new Set(duplicateHerbSlugs)].slice(0, 10))}`)
+  assert(duplicateCompoundSlugs.length === 0, `Duplicate compound slugs in workbook export: ${JSON.stringify([...new Set(duplicateCompoundSlugs)].slice(0, 10))}`)
 
   const unmatchedHerbsReport = path.join(repoRoot, 'reports', 'workbook-unmatched-herbs.json')
   const unmatchedCompoundsReport = path.join(repoRoot, 'reports', 'workbook-unmatched-compounds.json')

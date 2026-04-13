@@ -50,18 +50,13 @@ function toSlugMap(records) {
   return map
 }
 
-function isHerbEligible(workbookHerb, legacyHerb) {
+function isHerbEligible(workbookHerb) {
   const frontendReady = String(workbookHerb?.frontendReadyFlag ?? '').trim() === 'Yes'
   const ready = String(workbookHerb?.readinessFlag ?? '').trim() === 'Ready'
   const nearReady = String(workbookHerb?.readinessFlag ?? '').trim() === 'Near ready'
   const completenessPct = parsePercent(workbookHerb?.completenessPct)
   const nearReadyWithCoverage = nearReady && completenessPct >= 60
-
-  const legacyDescription = hasNonEmptyText(legacyHerb?.description)
-  const legacyCompounds = Array.isArray(legacyHerb?.activeCompounds) ? legacyHerb.activeCompounds.length > 0 : false
-  const legacyCovered = Boolean(legacyHerb) && legacyDescription && legacyCompounds
-
-  return frontendReady || ready || nearReadyWithCoverage || legacyCovered
+  return frontendReady || ready || nearReadyWithCoverage
 }
 
 function isCompoundEligible(compound) {
@@ -84,15 +79,12 @@ function run() {
   const previousCompounds = Array.isArray(previousManifest?.entities?.compounds) ? previousManifest.entities.compounds : []
 
   const workbookHerbs = readJsonArray('workbook-herbs.json')
-  const legacyHerbs = readJsonArray('herbs.json')
   const workbookCompounds = readJsonArray('workbook-compounds.json')
 
   const workbookHerbsBySlug = toSlugMap(workbookHerbs)
-  const legacyHerbsBySlug = toSlugMap(legacyHerbs)
-
-  const allHerbSlugs = [...new Set([...workbookHerbsBySlug.keys(), ...legacyHerbsBySlug.keys()])]
+  const allHerbSlugs = [...new Set([...workbookHerbsBySlug.keys()])]
   const eligibleHerbs = allHerbSlugs
-    .filter(slug => isHerbEligible(workbookHerbsBySlug.get(slug), legacyHerbsBySlug.get(slug)))
+    .filter(slug => isHerbEligible(workbookHerbsBySlug.get(slug)))
     .sort((a, b) => a.localeCompare(b))
 
   const eligibleCompounds = workbookCompounds
@@ -104,7 +96,7 @@ function run() {
 
   const manifest = {
     generatedAt: new Date().toISOString(),
-    source: 'workbook+legacy',
+    source: 'workbook',
     entities: {
       herbs: eligibleHerbs,
       compounds: uniqueEligibleCompounds,
@@ -124,7 +116,7 @@ function run() {
     stdio: 'inherit',
   })
 
-  console.log('[publication-manifest] source=workbook+legacy')
+  console.log('[publication-manifest] source=workbook')
   console.log(`[publication-manifest] herbs before=${previousHerbs.length} after=${eligibleHerbs.length} delta=${eligibleHerbs.length - previousHerbs.length}`)
   console.log(`[publication-manifest] compounds before=${previousCompounds.length} after=${uniqueEligibleCompounds.length} delta=${uniqueEligibleCompounds.length - previousCompounds.length}`)
   console.log(`[publication-manifest] totals herbs=${allHerbSlugs.length} compounds=${workbookCompounds.length}`)

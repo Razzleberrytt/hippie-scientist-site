@@ -100,26 +100,7 @@ let compoundsSummaryPromise: Promise<CompoundSummaryRecord[]> | null = null
 let canonicalCompoundsSummaryPromise: Promise<CompoundSummaryRecord[]> | null = null
 let workbookCompoundsPromise: Promise<Record<string, unknown>[]> | null = null
 const compoundDetailPromiseBySlug = new Map<string, Promise<CompoundRecord | null>>()
-
-function isPresent(value: unknown): boolean {
-  if (value == null) return false
-  if (typeof value === 'string') return value.trim().length > 0
-  if (Array.isArray(value)) return value.length > 0
-  return true
-}
-
-function mergeCompoundSummaryRows(
-  existing: CompoundSummaryRecord,
-  workbook: CompoundSummaryRecord,
-): CompoundSummaryRecord {
-  const merged: CompoundSummaryRecord = { ...existing }
-  for (const [key, value] of Object.entries(workbook)) {
-    if (!isPresent(merged[key as keyof CompoundSummaryRecord]) && isPresent(value)) {
-      ;(merged as Record<string, unknown>)[key] = value
-    }
-  }
-  return merged
-}
+const ENABLE_LEGACY_SUMMARY_FALLBACK = import.meta.env.VITE_ENABLE_LEGACY_SUMMARY_FALLBACK === 'true'
 
 function normalizeSlugCandidate(value: string): string {
   return value
@@ -375,39 +356,23 @@ export function isRenderableCompound(raw: Record<string, unknown>): boolean {
 
 export async function loadCompoundSummaryData(): Promise<CompoundSummaryRecord[]> {
   if (!compoundsSummaryPromise) {
-    compoundsSummaryPromise = Promise.all([
-      fetch('/data/compounds-summary.json', { cache: 'no-store' }).then(response => {
-        if (!response.ok) throw new Error('Failed to load /data/compounds-summary.json')
+    compoundsSummaryPromise = fetch('/data/workbook-compounds.json', { cache: 'no-store' })
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load /data/workbook-compounds.json')
         return response.json()
-      }),
-      fetch('/data/workbook-compounds.json', { cache: 'no-store' })
-        .then(response => {
-          if (!response.ok) throw new Error('Failed to load /data/workbook-compounds.json')
+      })
+      .then(async workbookPayload => {
+        const workbookRows = Array.isArray(workbookPayload) ? workbookPayload : []
+        if (workbookRows.length > 0 || !ENABLE_LEGACY_SUMMARY_FALLBACK) {
+          return workbookRows.map(row => normalizeCompoundSummary(row as Record<string, unknown>)).filter(row => Boolean(row.slug))
+        }
+
+        const legacySummaryPayload = await fetch('/data/compounds-summary.json', { cache: 'no-store' }).then(response => {
+          if (!response.ok) throw new Error('Failed to load /data/compounds-summary.json')
           return response.json()
         })
-        .catch(() => []),
-    ])
-      .then(([summaryPayload, workbookPayload]) => {
-        const summaryRows = Array.isArray(summaryPayload) ? summaryPayload : []
-        const workbookRows = Array.isArray(workbookPayload) ? workbookPayload : []
-        const mergedBySlug = new Map<string, CompoundSummaryRecord>()
-
-        summaryRows
-          .map(row => normalizeCompoundSummary(row as Record<string, unknown>))
-          .forEach(row => {
-            if (!row.slug) return
-            mergedBySlug.set(row.slug, row)
-          })
-
-        workbookRows
-          .map(row => normalizeCompoundSummary(row as Record<string, unknown>))
-          .forEach(row => {
-            if (!row.slug) return
-            const existing = mergedBySlug.get(row.slug)
-            mergedBySlug.set(row.slug, existing ? mergeCompoundSummaryRows(existing, row) : row)
-          })
-
-        return Array.from(mergedBySlug.values())
+        const summaryRows = Array.isArray(legacySummaryPayload) ? legacySummaryPayload : []
+        return summaryRows.map(row => normalizeCompoundSummary(row as Record<string, unknown>)).filter(row => Boolean(row.slug))
       })
       .catch(error => {
         compoundsSummaryPromise = null

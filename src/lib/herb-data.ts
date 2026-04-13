@@ -79,23 +79,7 @@ let herbSummariesPromise: Promise<HerbSummary[]> | null = null
 let canonicalHerbSummariesPromise: Promise<HerbSummary[]> | null = null
 let workbookHerbsPromise: Promise<Record<string, unknown>[]> | null = null
 const herbDetailPromiseBySlug = new Map<string, Promise<Herb | null>>()
-
-function isPresent(value: unknown): boolean {
-  if (value == null) return false
-  if (typeof value === 'string') return value.trim().length > 0
-  if (Array.isArray(value)) return value.length > 0
-  return true
-}
-
-function mergeHerbSummaryRows(existing: HerbSummary, workbook: HerbSummary): HerbSummary {
-  const merged: HerbSummary = { ...existing }
-  for (const [key, value] of Object.entries(workbook)) {
-    if (!isPresent(merged[key]) && isPresent(value)) {
-      merged[key] = value
-    }
-  }
-  return merged
-}
+const ENABLE_LEGACY_SUMMARY_FALLBACK = import.meta.env.VITE_ENABLE_LEGACY_SUMMARY_FALLBACK === 'true'
 
 function normalizeSlugCandidate(value: string): string {
   return value
@@ -464,39 +448,23 @@ export function isRenderableHerbRow(raw: Record<string, unknown>): boolean {
 
 export async function loadHerbSummaryData(): Promise<HerbSummary[]> {
   if (!herbSummariesPromise) {
-    herbSummariesPromise = Promise.all([
-      fetch('/data/herbs-summary.json', { cache: 'no-store' }).then(response => {
-        if (!response.ok) throw new Error('Failed to load /data/herbs-summary.json')
+    herbSummariesPromise = fetch('/data/workbook-herbs.json', { cache: 'no-store' })
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load /data/workbook-herbs.json')
         return response.json()
-      }),
-      fetch('/data/workbook-herbs.json', { cache: 'no-store' })
-        .then(response => {
-          if (!response.ok) throw new Error('Failed to load /data/workbook-herbs.json')
+      })
+      .then(async workbookPayload => {
+        const workbookRows = Array.isArray(workbookPayload) ? workbookPayload : []
+        if (workbookRows.length > 0 || !ENABLE_LEGACY_SUMMARY_FALLBACK) {
+          return workbookRows.map(row => normalizeHerbSummaryRow(row as Record<string, unknown>)).filter(row => Boolean(row.slug))
+        }
+
+        const legacySummaryPayload = await fetch('/data/herbs-summary.json', { cache: 'no-store' }).then(response => {
+          if (!response.ok) throw new Error('Failed to load /data/herbs-summary.json')
           return response.json()
         })
-        .catch(() => []),
-    ])
-      .then(([summaryPayload, workbookPayload]) => {
-        const summaryRows = Array.isArray(summaryPayload) ? summaryPayload : []
-        const workbookRows = Array.isArray(workbookPayload) ? workbookPayload : []
-        const mergedBySlug = new Map<string, HerbSummary>()
-
-        summaryRows
-          .map(row => normalizeHerbSummaryRow(row as Record<string, unknown>))
-          .forEach(row => {
-            if (!row.slug) return
-            mergedBySlug.set(row.slug, row)
-          })
-
-        workbookRows
-          .map(row => normalizeHerbSummaryRow(row as Record<string, unknown>))
-          .forEach(row => {
-            if (!row.slug) return
-            const existing = mergedBySlug.get(row.slug)
-            mergedBySlug.set(row.slug, existing ? mergeHerbSummaryRows(existing, row) : row)
-          })
-
-        return Array.from(mergedBySlug.values())
+        const summaryRows = Array.isArray(legacySummaryPayload) ? legacySummaryPayload : []
+        return summaryRows.map(row => normalizeHerbSummaryRow(row as Record<string, unknown>)).filter(row => Boolean(row.slug))
       })
       .catch(error => {
         herbSummariesPromise = null
