@@ -259,7 +259,7 @@ export default function CompoundsPage() {
                 effects: compound.effects,
                 compounds: compound.herbs,
               })
-            const primaryEffects = cleanEffectChips(extractPrimaryEffects(compound.effects, 8), 2)
+            const primaryEffects = cleanEffectChips(extractPrimaryEffects(compound.curatedData?.keyEffects || compound.effects, 8), 2)
 
             const title = formatBrowseTitle(compound.name, 58)
             const chips = [
@@ -285,7 +285,7 @@ export default function CompoundsPage() {
                 >
                   {title}
                 </h2>
-                <p className='line-clamp-1 text-xs leading-[1.35] text-white/72'>{summarize(compound)}</p>
+                <p className='line-clamp-1 text-xs leading-[1.35] text-white/72'>{summarize({ description: compound.curatedData?.summary || '', effects: compound.curatedData?.keyEffects || [] })}</p>
                 {chips.length > 0 && (
                   <div className='flex flex-wrap gap-1'>
                     {chips.map(chip => (

@@ -57,7 +57,13 @@ const cleanSummary = (value: string, herbName = '') => {
 
 const getKeyEffects = (herb: Record<string, unknown>) =>
   dedupePresentationList(
-    Array.isArray(herb.primaryEffects) ? herb.primaryEffects : Array.isArray(herb.effects) ? herb.effects : [],
+    Array.isArray((herb.curatedData as Record<string, unknown> | undefined)?.keyEffects)
+      ? ((herb.curatedData as Record<string, unknown>).keyEffects as string[])
+      : Array.isArray(herb.primaryEffects)
+        ? herb.primaryEffects
+        : Array.isArray(herb.effects)
+          ? herb.effects
+          : [],
     3,
   )
     .map(toTitleCase)
@@ -312,7 +318,7 @@ export default function HerbsPage() {
                 {toTitleCase(String(herb.common || herb.scientific || herb.name || 'Herb'))}
               </h2>
               <p className='mt-1 line-clamp-1 text-xs text-white/72'>
-                {cleanSummary(String(herb.summary || herb.description || herb.mechanism || ''), String(herb.common || herb.name || ''))}
+                {cleanSummary(String((herb.curatedData as Record<string, unknown> | undefined)?.summary || ''), String(herb.common || herb.name || ''))}
               </p>
               <div className='mt-2 flex flex-wrap gap-1'>
                 {getKeyEffects(herb).map(effect => (

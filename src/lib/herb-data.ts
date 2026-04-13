@@ -7,6 +7,7 @@ import { cleanText, splitClean } from '@/lib/sanitize'
 import { getHerbSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
 import { hasInvalidEntityName, sanitizeHerbRecord } from '@/utils/sanitizeData'
 import { normalizeResearchEnrichment } from '@/lib/researchEnrichment'
+import { getCuratedData, type CuratedData } from '@/lib/semanticCompression'
 import type { PublishSafeEnrichmentSummary } from '@/types/enrichmentDiscovery'
 
 type SourceRef = { title: string; url?: string; note?: string }
@@ -47,6 +48,8 @@ export type HerbSummary = {
   image: string
   aliases: string[]
   researchEnrichmentSummary?: PublishSafeEnrichmentSummary
+  curatedData: CuratedData
+  rawData?: Record<string, unknown>
   [key: string]: unknown
 }
 
@@ -357,6 +360,20 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     researchEnrichment: researchEnrichment || undefined,
     productRecommendations,
     confidence: calculateHerbConfidence({ mechanism, effects, compounds: activeCompounds }),
+    curatedData: getCuratedData({
+      name: common || scientific || slug,
+      summary: description,
+      description,
+      whyItMatters: cleanText(data.whyItMatters) || description,
+      primaryEffects: splitClean(data.primaryEffects ?? effects),
+      effects,
+      contraindications,
+      interactions,
+      sideEffects: sideeffects,
+      safetyNotes,
+      mechanism,
+    }),
+    rawData: data as Record<string, unknown>,
   }
 }
 
@@ -415,6 +432,8 @@ function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
     image: cleanText(raw.image) || '',
     aliases: splitClean(raw.aliases),
     researchEnrichmentSummary: normalizeEnrichmentSummary(raw.researchEnrichmentSummary),
+    curatedData: getCuratedData(raw),
+    rawData: raw,
   }
 }
 

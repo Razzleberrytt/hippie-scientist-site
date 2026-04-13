@@ -7,6 +7,7 @@ import { hasInvalidEntityName, sanitizeCompoundRecord } from '@/utils/sanitizeDa
 import { normalizeResearchEnrichment } from '@/lib/researchEnrichment'
 import type { PublishSafeEnrichmentSummary } from '@/types/enrichmentDiscovery'
 import type { ResearchEnrichment } from '@/types/researchEnrichment'
+import { getCuratedData, type CuratedData } from '@/lib/semanticCompression'
 
 export type SourceRef = { title: string; url: string; note?: string }
 
@@ -47,6 +48,8 @@ export type CompoundRecord = {
   sourceCount?: number
   compounds?: string[]
   benefits?: string[]
+  curatedData: CuratedData
+  rawData?: Record<string, unknown>
 }
 
 export type CompoundSummaryRecord = {
@@ -67,6 +70,8 @@ export type CompoundSummaryRecord = {
   aliases: string[]
   sourceCount?: number
   researchEnrichmentSummary?: PublishSafeEnrichmentSummary
+  curatedData: CuratedData
+  rawData?: Record<string, unknown>
 }
 
 function normalizeEnrichmentSummary(value: unknown): PublishSafeEnrichmentSummary | undefined {
@@ -294,6 +299,20 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     researchEnrichmentSummary: normalizeEnrichmentSummary(data.researchEnrichmentSummary),
     sourceCount: sources.length,
     lastUpdated: String(data.lastUpdated || data.updatedAt || '').trim(),
+    curatedData: getCuratedData({
+      name,
+      summary: cleanText(data.summary) || cleanText(data.description) || '',
+      description: cleanText(data.description ?? data.summary) || '',
+      whyItMatters: cleanText(data.whyItMatters) || '',
+      primaryEffects: splitClean(data.primaryEffects ?? effects),
+      effects,
+      contraindications: splitClean(data.contraindications),
+      interactions: splitClean(data.interactions),
+      sideEffects: splitClean(data.sideEffects),
+      safety: splitClean(data.safety),
+      mechanism,
+    }),
+    rawData: data as Record<string, unknown>,
   }
 }
 
@@ -324,6 +343,8 @@ function normalizeCompoundSummary(raw: Record<string, unknown>): CompoundSummary
     aliases: splitClean(raw.aliases),
     sourceCount: Number.isFinite(Number(raw.sourceCount)) ? Number(raw.sourceCount) : undefined,
     researchEnrichmentSummary: normalizeEnrichmentSummary(raw.researchEnrichmentSummary),
+    curatedData: getCuratedData(raw),
+    rawData: raw,
   }
 }
 

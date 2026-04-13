@@ -1,7 +1,7 @@
 // UPDATED: Rebuilt herb detail with sr-only prerender block, placeholder/safety cleanup, and progressive disclosure sections.
 import { useState, type ReactNode } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import { useCompoundDataState } from '@/lib/compound-data'
 import { useHerbDataState, useHerbDetailState } from '@/lib/herb-data'
@@ -12,6 +12,7 @@ import {
 } from '@/lib/sanitize'
 import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { SITE_URL, breadcrumbJsonLd, herbJsonLd } from '@/lib/seo'
+import { shouldShowRawDebug } from '@/lib/semanticCompression'
 
 type SourceRef = { title: string; url: string; note?: string }
 
@@ -127,6 +128,8 @@ function DisclosureSection({ title, defaultOpen = false, children }: DisclosureP
 
 export default function HerbDetail() {
   const { slug = '' } = useParams()
+  const location = useLocation()
+  const showRawDebug = shouldShowRawDebug(location.search)
   const { herb, isLoading } = useHerbDetailState(slug)
   const { herbs } = useHerbDataState()
   const { compounds } = useCompoundDataState()
@@ -146,15 +149,15 @@ export default function HerbDetail() {
 
   const herbName = toTitleCase(herb.commonName || herb.common || herb.name || herb.slug)
   const scientificName = String(herb.scientific || herb.latinName || '').trim()
-  const description = String(herb.description || herb.summary || '').trim()
+  const curatedData = herb.curatedData
+  const description = String(curatedData.summary || '').trim()
   const descriptionIsPlaceholder = isPlaceholder(description, herbName)
   const summary = sanitizeSummaryText(description, 2)
 
-  const effects = dedupePresentationList(splitTextList(herb.primaryEffects || herb.effects), 8)
-    .map(toTitleCase)
+  const effects = dedupePresentationList(splitTextList(curatedData.keyEffects), 8).map(toTitleCase)
   const keyEffects = effects.slice(0, 4)
   const activeCompounds = dedupePresentationList(splitTextList(herb.activeCompounds || herb.compounds), 10)
-  const mechanism = String(herb.mechanism || herb.mechanismOfAction || '').trim()
+  const mechanism = String(curatedData.mechanism || '').trim()
   const dosage = String(herb.dosage || '').trim()
   const duration = String(herb.duration || '').trim()
   const preparation = String(herb.preparation || '').trim()
@@ -245,7 +248,7 @@ export default function HerbDetail() {
       <article className='space-y-3'>
         <div className='sr-only' aria-hidden='true'>
           <h1>{herbName}</h1>
-          <p>{description}</p>
+          <p>{curatedData.summary}</p>
           <ul>{safetyNotes.map(note => <li key={`static-safety-${note}`}>{note}</li>)}</ul>
         </div>
 
@@ -312,7 +315,7 @@ export default function HerbDetail() {
 
         {!descriptionIsPlaceholder && (
           <DisclosureSection title='Full Description'>
-            <p>{description}</p>
+            <p>{curatedData.summary}</p>
           </DisclosureSection>
         )}
 
@@ -357,6 +360,14 @@ export default function HerbDetail() {
             <p>Primary source citations are being added.</p>
           )}
         </DisclosureSection>
+
+        {showRawDebug && herb.rawData && (
+          <DisclosureSection title='Debug Raw Data'>
+            <pre className='overflow-auto rounded-lg border border-amber-200/20 bg-black/30 p-3 text-[11px] text-amber-100/90'>
+              {JSON.stringify(herb.rawData, null, 2)}
+            </pre>
+          </DisclosureSection>
+        )}
 
         <DisclosureSection title='Related Herbs & Compounds'>
           <div className='space-y-3'>
