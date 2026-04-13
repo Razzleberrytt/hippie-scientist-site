@@ -549,15 +549,13 @@ export default function EntityDatabasePage({
               name={String(item.common || item.scientific || item.name || 'Herb')}
               summary={
                 buildCardSummary({
-                  effects: item.effects,
-                  mechanism: item.mechanism,
-                  description: item.description,
-                  activeCompounds: item.compounds,
-                  therapeuticUses: item.therapeuticUses,
+                  effects: (item.curatedData?.keyEffects || item.effects) as unknown,
+                  mechanism: item.curatedData?.mechanism || item.mechanism,
+                  description: item.curatedData?.summary || '',
                   maxLen: 130,
                 }) || 'Learn more about this herb and its potential uses.'
               }
-              tags={extractPrimaryEffects(Array.isArray(item.effects) ? item.effects : [], 2)}
+              tags={extractPrimaryEffects(Array.isArray(item.curatedData?.keyEffects) ? item.curatedData.keyEffects : [], 2)}
               detailUrl={
                 hasVal(item.slug)
                   ? `${kind === 'compound' ? '/compounds' : '/herbs'}/${encodeURIComponent(String(item.slug))}`

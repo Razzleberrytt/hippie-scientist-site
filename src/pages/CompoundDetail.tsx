@@ -1,5 +1,5 @@
 import { type ReactNode, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
 import { useCompoundDataState, useCompoundDetailState } from '@/lib/compound-data'
@@ -50,6 +50,7 @@ import { buildGovernedQuickCompareSection } from '@/lib/governedQuickCompare'
 import { buildFallbackCompoundIntro, buildGovernedDetailIntro } from '@/lib/governedIntro'
 import { resolveGovernedCtaDecision } from '@/lib/governedCta'
 import { buildGovernedReviewFreshness } from '@/lib/governedReviewFreshness'
+import { shouldShowRawDebug } from '@/lib/semanticCompression'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -160,6 +161,8 @@ function buildSourceLabel(rawUrl: string, fallbackTitle: string) {
 
 export default function CompoundDetail() {
   const { slug = '' } = useParams()
+  const location = useLocation()
+  const showRawDebug = shouldShowRawDebug(location.search)
   const { compounds, isLoading: isCompoundsLoading } = useCompoundDataState()
   const slugNeedle = normalizeKey(slug)
   const detailLookupSlug =
@@ -201,13 +204,14 @@ export default function CompoundDetail() {
   const pathwayTargets = uniqueNormalizedList(splitClean(compoundRecord.pathwayTargets))
   const workbookSources = uniqueNormalizedList(splitPipeList(compoundRecord.sourceUrls))
   const relatedHerbSlugs = uniqueNormalizedList(splitClean(compoundRecord.relatedHerbSlugs))
-  const compoundEffects = cleanEffectChips(compound.effects, 12)
+  const curatedData = compound.curatedData
+  const compoundEffects = cleanEffectChips(curatedData.keyEffects, 12)
   const compoundContraindications = uniqueNormalizedList(compound.contraindications)
   const compoundSideEffects = uniqueNormalizedList(compound.sideEffects)
   const compoundTherapeuticUses = uniqueNormalizedList(compound.therapeuticUses)
   const compoundInteractions = uniqueNormalizedList(compound.interactions)
-  const compoundDescription = sanitizeSummaryText(compound.description, 2)
-  const compoundMechanism = sanitizeReadableText(compound.mechanism)
+  const compoundDescription = sanitizeSummaryText(curatedData.summary, 2)
+  const compoundMechanism = sanitizeReadableText(curatedData.mechanism)
   const drugInteractions = normalizeTextValue(compoundRecord.drugInteractions)
   const uniqueDrugInteractionItems = Array.from(
     new Map(
@@ -240,7 +244,7 @@ export default function CompoundDetail() {
     })
   })
 
-  const whyItMatters = sanitizeSummaryText(compoundEffects.slice(0, 2).join(' + '), 1)
+  const whyItMatters = sanitizeSummaryText(curatedData.whyItMatters || compoundEffects.slice(0, 2).join(' + '), 1)
   const premiumDetails = [
     { title: 'Identity', value: compound.identity },
     {
@@ -751,16 +755,29 @@ export default function CompoundDetail() {
         )}
 
         {governedResearch && governedFaq && governedRelatedQuestions && (
-          <GovernedResearchSections
-            enrichment={governedResearch}
-            governedFaq={governedFaq}
-            relatedQuestions={governedRelatedQuestions}
-            analyticsContext={{
-              pageType: 'compound_detail',
-              entityType: 'compound',
-              entitySlug: compound.slug,
-            }}
-          />
+          <>
+            {showRawDebug && compound.rawData && (
+              <section className='rounded-2xl border border-amber-200/20 bg-black/20 p-4'>
+                <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-100/80'>
+                  Debug raw data
+                </h2>
+                <pre className='mt-2 overflow-auto rounded-lg border border-amber-200/20 bg-black/30 p-3 text-[11px] text-amber-100/90'>
+                  {JSON.stringify(compound.rawData, null, 2)}
+                </pre>
+              </section>
+            )}
+
+            <GovernedResearchSections
+              enrichment={governedResearch}
+              governedFaq={governedFaq}
+              relatedQuestions={governedRelatedQuestions}
+              analyticsContext={{
+                pageType: 'compound_detail',
+                entityType: 'compound',
+                entitySlug: compound.slug,
+              }}
+            />
+          </>
         )}
 
         <DataTrustPanel
