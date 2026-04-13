@@ -88,7 +88,7 @@ function HerbCard({
     <div className='HerbCardTilt group relative h-full transition-transform duration-200 ease-out hover:scale-[1.004]'>
       <div className='HerbCardGlow pointer-events-none absolute inset-0 rounded-[1.25rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100' />
       <Card
-        className={`card-pad border-white/12 relative flex h-full flex-col bg-white/[0.05] transition duration-200 ease-out group-hover:border-white/20 group-hover:bg-white/[0.07] ${
+        className={`ds-card-paper card-pad border-white/12 relative flex h-full flex-col bg-white/[0.05] transition duration-200 ease-out group-hover:border-white/20 group-hover:bg-white/[0.07] ${
           compact ? 'gap-1 p-1.5' : 'gap-1.5 p-2 sm:p-2.5'
         }`}
       >

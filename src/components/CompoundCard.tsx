@@ -77,7 +77,7 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
     <motion.article
       whileHover={{ scale: 1.005 }}
       title={compound.herbsFound.map(h => h.name).join(', ')}
-      className='ds-card relative flex flex-col rounded-2xl p-2 text-left transition hover:border-white/25 sm:p-2.5'
+      className='ds-card ds-card-paper relative flex flex-col rounded-2xl p-2 text-left transition hover:border-white/25 sm:p-2.5'
     >
       <h2
         title={isTitleTruncated ? compound.name : undefined}

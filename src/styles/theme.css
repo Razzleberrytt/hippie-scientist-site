@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
 :root {
   color-scheme: dark;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-display: 'Inter', system-ui, sans-serif;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', 'Fira Code', monospace;
   --radius: 1rem;
   --space-unit: 0.25rem;
 
@@ -22,14 +25,19 @@
   --space-hero-y: clamp(1.25rem, 5vw, 3.5rem);
   --space-hero-gap: clamp(0.5rem, 2vw, 1.25rem);
 
-  --bg: 220 15% 8%;
-  --surface: 220 14% 11%;
-  --card: 220 14% 13%;
+  --amber-h: 38;
+  --amber-s: 92%;
+  --amber-l: 58%;
+  --amber: hsl(var(--amber-h) var(--amber-s) var(--amber-l));
+
+  --bg: 28 8% 7%;
+  --surface: 30 7% 10%;
+  --card: 30 7% 12%;
   --text: 210 10% 96%;
   --fg: 210 10% 96%;
-  --mute: 210 6% 65%;
-  --muted: 210 6% 65%;
-  --border: 220 12% 22%;
+  --mute: 35 10% 60%;
+  --muted: 35 10% 60%;
+  --border: 30 8% 20%;
   --ring: 166 70% 52%;
 
   --bg-c: hsl(var(--bg));
@@ -162,12 +170,19 @@ main {
 }
 
 h1,
-h2,
+h2 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--text-c);
+}
+
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   letter-spacing: -0.01em;
   line-height: 1.2;
   font-weight: 600;
@@ -184,6 +199,14 @@ h3 {
   font-size: 1.2rem;
 }
 
+.label-specimen {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
 * {
   border-color: color-mix(in oklab, var(--border-c) 70%, transparent 30%);
 }
@@ -196,9 +219,9 @@ h3 {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(70% 60% at 25% 30%, hsl(var(--accent-h) 85% 40% / 0.15), transparent 70%),
-    radial-gradient(60% 40% at 80% 25%, hsl(260 90% 60% / 0.12), transparent 70%),
-    radial-gradient(50% 50% at 60% 75%, hsl(130 65% 55% / 0.1), transparent 70%);
+    radial-gradient(70% 60% at 25% 30%, hsl(166 85% 40% / 0.12), transparent 70%),
+    radial-gradient(60% 40% at 80% 25%, hsl(38 90% 55% / 0.09), transparent 70%),
+    radial-gradient(50% 50% at 60% 75%, hsl(130 65% 45% / 0.08), transparent 70%);
   animation: aurora-move 40s ease-in-out infinite alternate;
   background-attachment: fixed;
   filter: blur(45px) saturate(115%);

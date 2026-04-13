@@ -133,6 +133,30 @@ a:hover {
     transform: translateY(-1px) scale(1.003);
   }
 
+  .ds-card-paper {
+    background: color-mix(in oklab, hsl(var(--card)) 85%, hsl(38 30% 14%) 15%);
+    border: 1px solid color-mix(in oklab, hsl(var(--border)) 60%, hsl(38 50% 30%) 40%);
+    border-radius: var(--radius);
+    box-shadow:
+      0 0 0 1px rgba(255, 200, 80, 0.04),
+      0 12px 40px -8px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 210, 100, 0.06);
+    position: relative;
+  }
+
+  .ds-card-paper::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 18px;
+    height: 18px;
+    border-top: 1px solid hsl(var(--amber-h) var(--amber-s) var(--amber-l) / 0.25);
+    border-right: 1px solid hsl(var(--amber-h) var(--amber-s) var(--amber-l) / 0.25);
+    border-radius: 0 4px 0 0;
+    pointer-events: none;
+  }
+
   .ds-card-lg {
     @apply ds-card p-3.5 sm:p-4;
   }
@@ -245,6 +269,13 @@ a:hover {
     transform: translateY(0);
   }
 
+  .effect-pill-active {
+    background: hsl(var(--amber-h) var(--amber-s) var(--amber-l) / 0.15);
+    border-color: hsl(var(--amber-h) var(--amber-s) var(--amber-l) / 0.45);
+    color: hsl(38 92% 80%);
+    box-shadow: 0 0 12px -4px hsl(38 92% 58% / 0.3);
+  }
+
   .hero-focus-glow {
     isolation: isolate;
   }
@@ -304,4 +335,19 @@ a:hover {
   .ambient-cursor {
     display: none;
   }
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(var(--bg)); }
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--amber-h) var(--amber-s) var(--amber-l) / 0.35);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--amber-h) var(--amber-s) var(--amber-l) / 0.55);
+}
+
+::selection {
+  background: hsl(166 70% 52% / 0.25);
+  color: hsl(166 80% 90%);
 }

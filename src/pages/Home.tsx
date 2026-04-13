@@ -92,7 +92,7 @@ export default function Home() {
       <section className='container mx-auto max-w-4xl px-4 pt-8 sm:px-6 sm:pt-12'>
         <div className='grid gap-8 sm:grid-cols-2 sm:gap-10'>
           <div className='h-full space-y-2'>
-            <p className='text-[11px] font-semibold uppercase tracking-[0.2em] text-white/45'>
+            <p className='label-specimen'>
               First move
             </p>
             <h2 className='text-base font-medium text-white/82'>Search by effect, not hype</h2>
@@ -104,7 +104,7 @@ export default function Home() {
             </a>
           </div>
           <div className='h-full space-y-2'>
-            <p className='text-[11px] font-semibold uppercase tracking-[0.2em] text-white/45'>
+            <p className='label-specimen'>
               Quick tools
             </p>
             <h2 className='text-base font-medium text-white/82'>Run a second check</h2>
@@ -190,8 +190,8 @@ export default function Home() {
             </div>
             <div className='ds-card-grid sm:grid-cols-3'>
               {curated.map(item => (
-                <article key={`starter-${item.kind}-${item.slug}`} className='ds-card h-full'>
-                  <p className='text-xs uppercase tracking-[0.12em] text-white/55'>
+                <article key={`starter-${item.kind}-${item.slug}`} className='ds-card ds-card-paper h-full'>
+                  <p className='label-specimen'>
                     starter profile
                   </p>
                   <h3 className='mt-1 text-sm font-semibold text-white'>{item.name}</h3>
@@ -227,7 +227,7 @@ export default function Home() {
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
         <div className='ds-card-lg ds-stack'>
-          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
+          <p className='label-specimen'>
             Knowledge scope
           </p>
           <p className='text-sm text-white/75'>
@@ -272,7 +272,7 @@ export default function Home() {
 
       {dailyDiscovery && (
         <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
-          <div className='ds-card-lg border-emerald-200/20 bg-emerald-400/5'>
+          <div className='ds-card-lg ds-card-paper border-emerald-200/20 bg-emerald-400/5'>
             <p className='text-xs font-semibold uppercase tracking-[0.24em] text-emerald-100/80'>
               Today&apos;s discovery
             </p>
@@ -312,7 +312,7 @@ export default function Home() {
       {items.length > 0 && (
         <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
           <div className='ds-card-lg ds-stack'>
-            <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
+            <p className='label-specimen'>
               Saved items
             </p>
             <h2 className='ds-heading'>Pick up where you left off</h2>
