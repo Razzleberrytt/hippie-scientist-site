@@ -4,7 +4,7 @@
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  background: #02050e;
+  background: #04050b;
 }
 
 .cosmic-layer {
@@ -15,46 +15,46 @@
 
 .cosmic-base {
   background:
-    radial-gradient(130% 95% at 78% -8%, rgba(56, 90, 166, 0.26) 0%, rgba(17, 30, 58, 0.18) 42%, rgba(3, 7, 18, 0) 74%),
-    radial-gradient(105% 95% at -8% 72%, rgba(24, 86, 104, 0.18) 0%, rgba(4, 14, 24, 0) 62%),
-    linear-gradient(162deg, rgba(2, 5, 13, 0.98) 0%, rgba(4, 8, 20, 0.97) 50%, rgba(2, 6, 16, 0.99) 100%),
-    #02050e;
+    radial-gradient(140% 90% at 50% -12%, rgba(37, 22, 64, 0.22) 0%, rgba(13, 13, 28, 0.1) 48%, rgba(5, 6, 12, 0) 78%),
+    radial-gradient(105% 92% at -10% 72%, rgba(11, 44, 68, 0.14) 0%, rgba(4, 12, 20, 0) 64%),
+    linear-gradient(168deg, rgba(3, 4, 10, 0.99) 0%, rgba(5, 7, 14, 0.98) 52%, rgba(3, 5, 11, 0.99) 100%),
+    #04050b;
 }
 
 .cosmic-aurora {
   inset: -16%;
-  filter: blur(128px) saturate(108%);
+  filter: blur(136px) saturate(104%);
   mix-blend-mode: screen;
 }
 
 .cosmic-aurora--one {
-  opacity: 0.34;
+  opacity: 0.23;
   background:
-    radial-gradient(52% 42% at 82% 22%, rgba(89, 123, 210, 0.44) 0%, rgba(82, 66, 164, 0.32) 36%, rgba(8, 14, 34, 0) 78%),
-    radial-gradient(38% 34% at 28% 66%, rgba(28, 122, 118, 0.24) 0%, rgba(10, 30, 42, 0) 82%);
+    radial-gradient(50% 38% at 76% 26%, rgba(156, 94, 255, 0.28) 0%, rgba(86, 58, 170, 0.2) 42%, rgba(8, 10, 26, 0) 80%),
+    radial-gradient(38% 34% at 26% 68%, rgba(34, 152, 192, 0.18) 0%, rgba(10, 28, 42, 0) 84%);
 }
 
 .cosmic-aurora--two {
-  opacity: 0.28;
+  opacity: 0.19;
   background:
-    radial-gradient(46% 40% at 64% 74%, rgba(39, 138, 124, 0.26) 0%, rgba(22, 78, 96, 0.16) 40%, rgba(4, 16, 28, 0) 80%),
-    radial-gradient(48% 34% at 14% 24%, rgba(78, 92, 170, 0.28) 0%, rgba(48, 56, 122, 0.16) 38%, rgba(7, 12, 30, 0) 84%);
+    radial-gradient(42% 34% at 66% 72%, rgba(53, 198, 228, 0.2) 0%, rgba(24, 84, 110, 0.14) 44%, rgba(4, 16, 28, 0) 82%),
+    radial-gradient(46% 34% at 16% 24%, rgba(224, 88, 188, 0.18) 0%, rgba(86, 42, 122, 0.13) 42%, rgba(7, 10, 26, 0) 86%);
 }
 
 .cosmic-glow {
   inset: -10%;
-  opacity: 0.32;
-  filter: blur(92px);
+  opacity: 0.2;
+  filter: blur(98px);
   mix-blend-mode: soft-light;
   background:
-    radial-gradient(44% 32% at 70% 34%, rgba(78, 134, 174, 0.22) 0%, rgba(30, 72, 98, 0) 88%),
-    radial-gradient(52% 46% at 38% 84%, rgba(66, 115, 136, 0.18) 0%, rgba(16, 36, 54, 0) 86%);
+    radial-gradient(42% 30% at 72% 30%, rgba(174, 72, 186, 0.16) 0%, rgba(42, 20, 70, 0) 88%),
+    radial-gradient(48% 40% at 36% 82%, rgba(48, 152, 186, 0.14) 0%, rgba(14, 30, 48, 0) 86%);
 }
 
 .cosmic-vignette {
   background:
-    linear-gradient(108deg, rgba(1, 4, 10, 0.64) 0%, rgba(2, 6, 14, 0.34) 30%, rgba(4, 9, 18, 0.24) 54%, rgba(5, 10, 20, 0.4) 100%),
-    radial-gradient(132% 102% at 50% 46%, rgba(2, 7, 16, 0) 54%, rgba(1, 4, 10, 0.68) 100%);
+    linear-gradient(108deg, rgba(2, 3, 8, 0.72) 0%, rgba(2, 5, 12, 0.36) 30%, rgba(4, 8, 16, 0.24) 54%, rgba(4, 8, 16, 0.52) 100%),
+    radial-gradient(132% 102% at 50% 46%, rgba(2, 7, 16, 0) 52%, rgba(2, 4, 10, 0.8) 100%);
 }
 
 .cosmic-background.is-animated .cosmic-aurora--one {
