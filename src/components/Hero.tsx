@@ -6,7 +6,7 @@ export default function Hero() {
   const reduceMotion = useReducedMotion()
 
   return (
-    <section className='relative mx-auto mt-2 max-w-6xl px-4 py-16 sm:mt-4 sm:px-6 sm:py-24'>
+    <section className='hero-focus-glow relative mx-auto mt-2 max-w-6xl px-4 py-16 sm:mt-4 sm:px-6 sm:py-24'>
 
       <Tilt maxTilt={4} perspective={900} className='relative'>
         <motion.div
