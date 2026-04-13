@@ -7,20 +7,13 @@ export default function Hero() {
 
   return (
     <section className='relative mx-auto mt-2 max-w-6xl px-4 py-16 sm:mt-4 sm:px-6 sm:py-24'>
-      <div
-        aria-hidden
-        className='pointer-events-none absolute inset-0 -z-10 grid place-items-center overflow-hidden'
-      >
-        <div className='animate-breathe h-[42rem] w-[76rem] rounded-full bg-[radial-gradient(circle,rgba(16,185,129,0.14)_0%,rgba(192,132,252,0.1)_52%,rgba(99,102,241,0.08)_100%)] blur-[120px]' />
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.08),rgba(11,15,23,0)_58%)]' />
-      </div>
 
       <Tilt maxTilt={4} perspective={900} className='relative'>
         <motion.div
           initial={reduceMotion ? undefined : { opacity: 0, y: 16, scale: 0.99 }}
           animate={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
           transition={reduceMotion ? undefined : { duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className='relative overflow-hidden'
+          className='relative'
         >
           <div className='relative space-y-10 py-6 sm:space-y-14 sm:py-10'>
             <div className='space-y-2.5 sm:space-y-4.5'>
