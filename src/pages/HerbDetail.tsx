@@ -41,6 +41,18 @@ function splitTextList(value: unknown): string[] {
     .filter(Boolean)
 }
 
+function readRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === 'object' ? (value as Record<string, unknown>) : {}
+}
+
+function readWorkbookText(raw: Record<string, unknown>, ...keys: string[]): string {
+  for (const key of keys) {
+    const value = String(raw[key] || '').trim()
+    if (value) return value
+  }
+  return ''
+}
+
 function toEvidenceStrengthLabel(value: string) {
   const normalized = String(value || '').trim().toLowerCase()
   if (!normalized) return 'Limited'
@@ -150,14 +162,29 @@ export default function HerbDetail() {
   const herbName = toTitleCase(herb.commonName || herb.common || herb.name || herb.slug)
   const scientificName = String(herb.scientific || herb.latinName || '').trim()
   const curatedData = herb.curatedData
-  const description = String(curatedData.summary || '').trim()
+  const rawRecord = readRecord(herb.rawData)
+  const contextRecord = readRecord(rawRecord.context)
+  const safetyRecord = readRecord(rawRecord.safety)
+  const description = readWorkbookText(rawRecord, 'hero', 'summary', 'description') || String(curatedData.summary || '').trim()
   const descriptionIsPlaceholder = isPlaceholder(description, herbName)
   const summary = sanitizeSummaryText(description, 2)
+  const coreInsight = sanitizeSummaryText(
+    readWorkbookText(rawRecord, 'coreInsight', 'overview', 'whyItMatters') || curatedData.whyItMatters,
+    1,
+  )
 
-  const effects = dedupePresentationList(splitTextList(curatedData.keyEffects), 8).map(toTitleCase)
+  const effects = dedupePresentationList(
+    splitTextList(rawRecord.effects || rawRecord.keyEffects || curatedData.keyEffects),
+    8,
+  ).map(toTitleCase)
   const keyEffects = effects.slice(0, 4)
   const activeCompounds = dedupePresentationList(splitTextList(herb.activeCompounds || herb.compounds), 10)
-  const mechanism = String(curatedData.mechanism || '').trim()
+  const mechanism =
+    readWorkbookText(rawRecord, 'mechanisms', 'mechanism') || String(curatedData.mechanism || '').trim()
+  const contextSummary = sanitizeSummaryText(
+    readWorkbookText(contextRecord, 'summary', 'overview', 'notes') || readWorkbookText(rawRecord, 'context'),
+    2,
+  )
   const dosage = String(herb.dosage || '').trim()
   const duration = String(herb.duration || '').trim()
   const preparation = String(herb.preparation || '').trim()
@@ -165,7 +192,14 @@ export default function HerbDetail() {
   const contraindications = splitTextList(herb.contraindications)
   const interactions = splitTextList(herb.interactions)
   const sideEffects = splitTextList(herb.sideeffects || herb.sideEffects)
-  const safety = splitTextList((herb as Record<string, unknown>).safetyNotes || (herb as Record<string, unknown>).safety)
+  const safety = splitTextList(
+    safetyRecord.notes ||
+      safetyRecord.summary ||
+      safetyRecord.caution ||
+      rawRecord.safety ||
+      (herb as Record<string, unknown>).safetyNotes ||
+      (herb as Record<string, unknown>).safety,
+  )
 
   const safetyNotes = dedupePresentationList([
     ...contraindications,
@@ -182,6 +216,7 @@ export default function HerbDetail() {
   const sources = toSources(herb.sources)
   const confidenceLabel = toEvidenceStrengthLabel(String(herb.evidenceLevel || herb.confidence || 'Limited'))
   const useCasePoints = [
+    contextSummary || coreInsight,
     effects[0] ? `Best for ${effects[0].toLowerCase()} goals when you want a gentler herbal option.` : '',
     effects[1] ? `May also support ${effects[1].toLowerCase()} depending on preparation and dose.` : '',
     confidenceLabel === 'Traditional'
@@ -248,7 +283,7 @@ export default function HerbDetail() {
       <article className='space-y-3'>
         <div className='sr-only' aria-hidden='true'>
           <h1>{herbName}</h1>
-          <p>{curatedData.summary}</p>
+          <p>{summary}</p>
           <ul>{safetyNotes.map(note => <li key={`static-safety-${note}`}>{note}</li>)}</ul>
         </div>
 
@@ -313,15 +348,28 @@ export default function HerbDetail() {
           )}
         </DisclosureSection>
 
+        {coreInsight && coreInsight !== summary && (
+          <section className='rounded-2xl border border-white/10 bg-white/[0.02] p-4'>
+            <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/85'>Core insight</h2>
+            <p className='mt-2 text-sm leading-relaxed text-white/85'>{coreInsight}</p>
+          </section>
+        )}
+
         {!descriptionIsPlaceholder && (
           <DisclosureSection title='Full Description'>
-            <p>{curatedData.summary}</p>
+            <p>{summary}</p>
           </DisclosureSection>
         )}
 
         <DisclosureSection title='Mechanism of Action'>
           <p>{mechanism || 'Mechanism notes are being expanded.'}</p>
         </DisclosureSection>
+
+        {contextSummary && contextSummary !== summary && (
+          <DisclosureSection title='Context'>
+            <p>{contextSummary}</p>
+          </DisclosureSection>
+        )}
 
         <DisclosureSection title='Dosage & Usage'>
           <ul className='list-disc space-y-1 pl-5'>

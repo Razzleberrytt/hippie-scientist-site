@@ -9,6 +9,9 @@ interface HerbCardProps {
   summary: string
   tags?: string[]
   mechanismTags?: string[]
+  hero?: string
+  effects?: string[]
+  coreInsight?: string
   compound_count?: number
   evidence_tier?: string
   evidenceLevel?: string
@@ -16,25 +19,40 @@ interface HerbCardProps {
   compact?: boolean
 }
 
+function normalizeChip(value: string): string {
+  return value
+    .replace(/[.,/#!$%^&*;:{}=\-_`~()]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
 function HerbCard({
   name,
   summary,
   tags = [],
   mechanismTags = [],
+  hero,
+  effects = [],
+  coreInsight,
   compound_count,
   evidence_tier,
   evidenceLevel,
   detailUrl,
   compact = false,
 }: HerbCardProps) {
-  const mergedTags = Array.from(new Set([...tags, ...mechanismTags].filter(Boolean)))
+  const mergedTags = Array.from(new Set([...effects, ...tags, ...mechanismTags].filter(Boolean)))
+    .map(tag => normalizeChip(String(tag)))
+    .filter(Boolean)
   const primaryTag = mergedTags[0]
   const hasCompoundCount = typeof compound_count === 'number' && compound_count > 0
   const title = formatBrowseTitle(name, 60)
   const isTitleTruncated = title !== name
-  const summaryText = summary?.trim() || 'Overview coming soon.'
+  const summaryText = hero?.trim() || coreInsight?.trim() || summary?.trim() || 'Overview coming soon.'
 
-  const chipItems = [evidence_tier || evidenceLevel || '', primaryTag || ''].filter(Boolean).slice(0, 2)
+  const chipItems = [evidence_tier || evidenceLevel || '', primaryTag || '']
+    .map(chip => normalizeChip(String(chip)))
+    .filter(Boolean)
+    .slice(0, 2)
 
   return (
     <Card
