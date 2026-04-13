@@ -57,6 +57,32 @@ function dedupeCaseInsensitive(values: string[]) {
   return unique
 }
 
+function cleanReadableLabel(value: string) {
+  return String(value || '')
+    .replace(/\([^)]*\)/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function isMalformedEffectLabel(value: string) {
+  const normalized = cleanReadableLabel(value).toLowerCase()
+  if (!normalized) return true
+  if (normalized.length < 5) return true
+  if (/^[a-z]+$/.test(normalized) && normalized.length <= 6) return true
+  if (/^(anti|sedat|anxiol|analg|adapt|stimul)$/i.test(normalized)) return true
+  if (!/[a-z]/i.test(normalized)) return true
+  return false
+}
+
+function toEvidenceStrengthLabel(value: string) {
+  const normalized = String(value || '').trim().toLowerCase()
+  if (!normalized) return 'Limited'
+  if (/(high|strong|clinical)/.test(normalized)) return 'Clinical'
+  if (/(moderate|mixed|emerging|promising|some)/.test(normalized)) return 'Limited'
+  if (/(low|minimal|weak|traditional|insufficient|unclear)/.test(normalized)) return 'Traditional'
+  return toTitleCase(normalized)
+}
+
 function isPlaceholder(text: string, herbName?: string) {
   const value = String(text || '').trim().toLowerCase()
   if (!value) return false
@@ -156,10 +182,14 @@ export default function HerbDetail() {
   const scientificName = String(herb.scientific || herb.latinName || '').trim()
   const description = String(herb.description || herb.summary || '').trim()
   const descriptionIsPlaceholder = isPlaceholder(description, herbName)
-  const summary = sentenceClamp(description, 3)
+  const summary = sentenceClamp(description, 2)
 
-  const effects = dedupeCaseInsensitive(splitTextList(herb.primaryEffects || herb.effects)).slice(0, 6)
-  const keyEffects = effects.slice(0, 2)
+  const effects = dedupeCaseInsensitive(splitTextList(herb.primaryEffects || herb.effects))
+    .map(cleanReadableLabel)
+    .filter(effect => !isMalformedEffectLabel(effect))
+    .map(toTitleCase)
+    .slice(0, 8)
+  const keyEffects = effects.slice(0, 4)
   const activeCompounds = dedupeCaseInsensitive(splitTextList(herb.activeCompounds || herb.compounds))
   const mechanism = String(herb.mechanism || herb.mechanismOfAction || '').trim()
   const dosage = String(herb.dosage || '').trim()
@@ -184,12 +214,17 @@ export default function HerbDetail() {
   const priorityWarning = safetyNotes.find(note => /(pregnancy|cardiac|avoid)/i.test(note))
 
   const sources = toSources(herb.sources)
-  const confidenceLabel = toTitleCase(String(herb.evidenceLevel || herb.confidence || 'Limited'))
-  const shouldUseSummary =
-    priorityWarning ||
-    (confidenceLabel.toLowerCase().includes('limited')
-      ? 'Use cautiously when evidence is limited and start with conservative dosing.'
-      : 'May be useful when the target effects match your goal and safety notes are clear.')
+  const confidenceLabel = toEvidenceStrengthLabel(String(herb.evidenceLevel || herb.confidence || 'Limited'))
+  const useCasePoints = [
+    effects[0] ? `Best for ${effects[0].toLowerCase()} goals when you want a gentler herbal option.` : '',
+    effects[1] ? `May also support ${effects[1].toLowerCase()} depending on preparation and dose.` : '',
+    confidenceLabel === 'Traditional'
+      ? 'Evidence is mostly traditional or early-stage, so reliability may vary between people.'
+      : confidenceLabel === 'Limited'
+        ? 'Evidence is limited, so treat this as supportive rather than first-line care.'
+        : 'Clinical evidence exists, but responses still vary by product quality and consistency.',
+    priorityWarning ? `Use caution: ${priorityWarning}.` : 'Avoid if safety context, medications, or medical status are unclear.',
+  ].filter(Boolean)
   const pagePath = `/herbs/${herb.slug}`
   const relatedHerbs = herbs
     .filter(item => item.slug && item.slug !== herb.slug)
@@ -244,7 +279,7 @@ export default function HerbDetail() {
         &gt; <span className='text-white/85'>{herbName}</span>
       </div>
 
-      <article className='space-y-4'>
+      <article className='space-y-3'>
         <div className='sr-only' aria-hidden='true'>
           <h1>{herbName}</h1>
           <p>{description}</p>
@@ -252,14 +287,14 @@ export default function HerbDetail() {
           <ul>{safetyNotes.map(note => <li key={`static-safety-${note}`}>{note}</li>)}</ul>
         </div>
 
-        <header className='rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-5'>
+        <header className='rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-4'>
           <h1 className='text-3xl font-semibold sm:text-4xl'>{herbName}</h1>
           {scientificName && <p className='mt-1 text-sm italic text-white/55'>{scientificName}</p>}
           {!descriptionIsPlaceholder && (
             <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>{summary}</p>
           )}
 
-          <section className='mt-4'>
+          <section className='mt-3'>
             <h2 className='text-xs font-semibold uppercase tracking-[0.14em] text-white/58'>Key effects</h2>
             <div className='mt-2 flex flex-wrap gap-2'>
               {keyEffects.length > 0 ? (
@@ -277,36 +312,31 @@ export default function HerbDetail() {
             </div>
           </section>
 
-          <section className='mt-4 rounded-xl border border-white/10 bg-black/20 p-3'>
-            <h2 className='text-xs font-semibold uppercase tracking-[0.14em] text-white/58'>
-              Should you use this?
-            </h2>
-            <p className='mt-2 text-sm text-white/82'>{shouldUseSummary}</p>
-            <div className='mt-2 inline-flex rounded-full border border-white/20 bg-white/5 px-2.5 py-1 text-xs text-white/80'>
-              Evidence: {confidenceLabel}
-            </div>
-          </section>
+          <div className='mt-3 inline-flex rounded-full border border-white/20 bg-white/5 px-2.5 py-1 text-xs text-white/80'>
+            Evidence strength: {confidenceLabel}
+          </div>
         </header>
 
-        <DisclosureSection title='Effects' defaultOpen>
-          {effects.length > 0 ? (
+        <section className='rounded-2xl border border-white/10 bg-white/[0.02] p-4'>
+          <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/85'>Use case</h2>
+          <ul className='mt-2 list-disc space-y-1 pl-5 text-sm text-white/85'>
+            {useCasePoints.slice(0, 3).map(point => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        </section>
+
+        {safetyNotes.length > 0 && (
+          <DisclosureSection title='Safety & Interactions' defaultOpen={Boolean(priorityWarning)}>
             <ul className='list-disc space-y-1 pl-5'>
-              {effects.map(effect => (
-                <li key={`effect-${effect}`}>{effect}</li>
+              {safetyNotes.map(note => (
+                <li key={`safety-${note}`}>{note}</li>
               ))}
             </ul>
-          ) : (
-            <p>Effects profile is being expanded.</p>
-          )}
-        </DisclosureSection>
-
-        {!descriptionIsPlaceholder && (
-          <DisclosureSection title='Full Description'>
-            <p>{description}</p>
           </DisclosureSection>
         )}
 
-        <DisclosureSection title='Active Compounds'>
+        <DisclosureSection title='Active Compounds' defaultOpen>
           {activeCompounds.length > 0 ? (
             <ul className='list-disc space-y-1 pl-5'>
               {activeCompounds.map(compound => (
@@ -317,6 +347,12 @@ export default function HerbDetail() {
             <p>Compound list is being expanded.</p>
           )}
         </DisclosureSection>
+
+        {!descriptionIsPlaceholder && (
+          <DisclosureSection title='Full Description'>
+            <p>{description}</p>
+          </DisclosureSection>
+        )}
 
         <DisclosureSection title='Mechanism of Action'>
           <p>{mechanism || 'Mechanism notes are being expanded.'}</p>
@@ -332,18 +368,6 @@ export default function HerbDetail() {
               <li>Dosage guidance is still being reviewed.</li>
             )}
           </ul>
-        </DisclosureSection>
-
-        <DisclosureSection title='Safety & Interactions' defaultOpen={Boolean(priorityWarning)}>
-          {safetyNotes.length > 0 ? (
-            <ul className='list-disc space-y-1 pl-5'>
-              {safetyNotes.map(note => (
-                <li key={`safety-${note}`}>{note}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>Safety notes are being compiled.</p>
-          )}
         </DisclosureSection>
 
         <DisclosureSection title='Research & Sources'>
