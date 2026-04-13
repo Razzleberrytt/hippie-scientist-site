@@ -1,3 +1,4 @@
+// Restructured herb detail for single visible render, above-fold clarity, and collapsible progressive disclosure sections.
 import { type ReactNode, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
@@ -213,6 +214,23 @@ function buildShortSummary(therapeuticUses: string[]) {
   return `${conciseUses[0]}. ${conciseUses[1]}`
 }
 
+function toTitleCase(value: string) {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\b\w/g, letter => letter.toUpperCase())
+}
+
+function toMaxSentences(text: string, max = 3) {
+  const cleaned = String(text || '').replace(/\s+/g, ' ').trim()
+  if (!cleaned) return ''
+  const parts = cleaned.match(/[^.!?]+[.!?]?/g) || [cleaned]
+  return parts
+    .slice(0, max)
+    .map(part => part.trim())
+    .join(' ')
+}
+
 function getEvidenceBadgeTone(evidenceLevel: string) {
   const normalized = evidenceLevel.trim().toLowerCase()
   if (!normalized) return 'border-white/20 bg-white/6 text-white/75'
@@ -281,7 +299,7 @@ export default function HerbDetail() {
     Array.isArray(herb.sideeffects) ? herb.sideeffects : splitClean(herb.sideeffects),
   )
   const sources = toSources(herb.sources)
-  const primaryEffects = extractPrimaryEffects(effects, 4)
+  const primaryEffects = extractPrimaryEffects(effects, 5)
   const compoundByName = new Map(compounds.map(compound => [normalizeKey(compound.name), compound]))
   const herbByKey = new Map<string, { label: string; slug: string }>()
 
@@ -357,9 +375,12 @@ export default function HerbDetail() {
     },
   ].filter(group => group.items.length > 0)
 
-  const herbDisplayName = herb.commonName || herb.common || herb.name || herb.slug
+  const herbDisplayName = toTitleCase(herb.commonName || herb.common || herb.name || herb.slug)
   const primaryUse = String(therapeuticUses[0] || effects[0] || '').trim()
-  const shortSummary = buildShortSummary(therapeuticUses)
+  const shortSummary = toMaxSentences(
+    buildShortSummary(therapeuticUses) || String(herb.summary || herb.description || ''),
+    3,
+  )
   const herbMetaDescriptionSource = (
     herb.summary ||
     herb.description ||
@@ -656,6 +677,16 @@ export default function HerbDetail() {
           { label: herbDisplayName },
         ]}
       />
+      <nav className='mb-2 text-xs text-white/60'>
+        <Link to='/' className='hover:text-white'>
+          Home
+        </Link>{' '}
+        &gt;{' '}
+        <Link to='/herbs' className='hover:text-white'>
+          Herbs
+        </Link>{' '}
+        &gt; <span className='text-white/80'>{herbDisplayName}</span>
+      </nav>
       <div className='flex flex-wrap items-center gap-2'>
         <Link to='/herbs' className='btn-secondary inline-flex items-center'>
           ← Back to herbs
@@ -678,11 +709,17 @@ export default function HerbDetail() {
       </div>
 
       <article className='ds-card-lg mt-4'>
+        <section className='sr-only' aria-hidden='true'>
+          <h1>{herbDisplayName}</h1>
+          <p>{description}</p>
+          <ul>{primaryEffects.map(effect => <li key={`static-${effect}`}>{effect}</li>)}</ul>
+          <ul>{contraindications.slice(0, 3).map(item => <li key={`safety-${item}`}>{item}</li>)}</ul>
+        </section>
         {/* Refactor: move highest-signal content to the very top for immediate scanning. */}
         <header>
           <div className='flex flex-col gap-2'>
             <div>
-              <h1 className='text-3xl font-semibold leading-tight'>{herb.common || herb.name}</h1>
+              <h1 className='text-3xl font-semibold leading-tight sm:text-4xl'>{herbDisplayName}</h1>
               {herb.scientific && (
                 <p className='mt-1 text-sm italic text-white/55'>{herb.scientific}</p>
               )}
@@ -690,22 +727,22 @@ export default function HerbDetail() {
           </div>
           {/* Primary effects are elevated directly under the name. */}
           {primaryEffects.length > 0 && (
-            <div className='mt-3 flex flex-wrap gap-2'>
+            <ul className='mt-3 list-disc space-y-1 pl-5 text-sm text-white/85'>
               {primaryEffects.map(effect => (
-                <span
-                  key={effect}
-                  className='rounded-full border border-cyan-300/30 bg-cyan-500/10 px-2.5 py-1 text-xs text-cyan-100'
-                >
-                  {effect}
-                </span>
+                <li key={effect}>{effect}</li>
               ))}
-            </div>
+            </ul>
           )}
           {/* Keep summary concise above the fold; deep explanation is pushed lower. */}
           {(shortSummary || description) && (
             <p className='mt-4 max-w-3xl text-sm leading-relaxed text-white/80'>
-              {shortSummary || description}
+              {shortSummary}
             </p>
+          )}
+          {contraindications.length > 0 && (
+            <div className='mt-3 rounded-xl border border-amber-300/35 bg-amber-500/10 px-3 py-2 text-xs text-amber-100'>
+              Safety callout: {contraindications[0]}
+            </div>
           )}
 
           <div className='mt-3 flex flex-wrap gap-1.5'>
@@ -741,10 +778,12 @@ export default function HerbDetail() {
         </header>
 
         {/* Core content */}
-        {description && description !== shortSummary && (
-          <Section title='Overview'>
-            {description}
-          </Section>
+        {description && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Summary' defaultOpen>
+              {description}
+            </Collapse>
+          </section>
         )}
 
         {isDataIncomplete && (
@@ -755,7 +794,7 @@ export default function HerbDetail() {
 
         {/* Confidence explanations are now hidden by default to reduce initial clutter. */}
         <section className='border-white/8 mt-6 border-t pt-5'>
-          <Collapse title='Confidence & data quality'>
+            <Collapse title='Confidence score + explanation'>
             <div className='space-y-4'>
               <GovernedReviewFreshnessPanel
                 decision={governedReviewFreshness}
@@ -996,7 +1035,7 @@ export default function HerbDetail() {
         {relationGroups.length > 0 && (
           <section className='border-white/8 mt-6 border-t pt-5'>
             {/* Related entities are grouped into a dedicated accordion for cleaner information hierarchy. */}
-            <Collapse title='Related herbs & compounds'>
+            <Collapse title='Related herbs and compounds'>
               <div className='space-y-4'>
                 {relationGroups.map(group => (
                   <div key={group.title}>
@@ -1073,7 +1112,7 @@ export default function HerbDetail() {
         {herbClass && <Section title='Class'>{herbClass}</Section>}
 
         {mechanism && (
-          <Section title='Mechanism of Action'>
+          <Section title='Mechanism of action'>
             <div className='space-y-3'>
               <p>{mechanism}</p>
               {mechanismTags.length > 0 && (
@@ -1105,7 +1144,7 @@ export default function HerbDetail() {
 
         {linkedCompounds.length > 0 && (
           <section id='key-active-compounds' className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='Key Active Compounds'>
+            <Collapse title='Active compounds'>
               <div className='space-y-3 text-sm leading-relaxed text-white/85'>
                 <div className='flex flex-wrap gap-2'>
                   {linkedCompounds.map(compound =>
@@ -1207,14 +1246,16 @@ export default function HerbDetail() {
         )}
 
         {effects.length > 0 && (
-          <Section title='Effects'>
-            <ListSection items={effects} maxVisible={6} />
-          </Section>
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Effects' defaultOpen>
+              <ListSection items={effects} maxVisible={6} />
+            </Collapse>
+          </section>
         )}
 
         {interactions.length > 0 && (
           <section className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='Drug interactions'>
+            <Collapse title='Interactions'>
               <div className='text-sm leading-relaxed text-white/85'>
                 <ListSection items={interactions} maxVisible={6} />
               </div>
@@ -1224,9 +1265,11 @@ export default function HerbDetail() {
 
         {/* Practical info — merged for faster scanning */}
         {practicalInfo.length > 0 && (
-          <Section title='How to use'>
-            <ListSection items={practicalInfo} />
-          </Section>
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Dosage information'>
+              <ListSection items={practicalInfo} />
+            </Collapse>
+          </section>
         )}
         {region && <Section title='Region'>{region}</Section>}
         {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
@@ -1234,7 +1277,7 @@ export default function HerbDetail() {
         {(sources.length > 0 || (governedResearch && governedFaq && governedRelatedQuestions)) && (
           <section className='border-white/8 mt-6 border-t pt-5'>
             {/* Research bundle moved to bottom to avoid overload above the fold. */}
-            <Collapse title='Research'>
+            <Collapse title='Sources and citations'>
               <div className='space-y-4'>
                 {governedResearch && governedFaq && governedRelatedQuestions && (
                   <GovernedResearchSections

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// Prerender now keeps SEO content in an sr-only container while leaving #root empty for visible React hydration.
 import fs from 'node:fs'
 import path from 'node:path'
 import { getPrerenderPlan } from './prerender-routes.mjs'
@@ -573,10 +574,12 @@ function render(route) {
     ? html.replace('<!--prerender-head-->', head)
     : html.replace('</head>', `    ${head}\n  </head>`)
 
+  const hiddenPrerender = `<div id="prerender-static-content" class="sr-only" aria-hidden="true">${bodyContent}</div>`
+  const rootNode = '<div id="root"></div>'
   if (html.includes('<div id="root"></div>')) {
-    html = html.replace('<div id="root"></div>', `<div id="root">${bodyContent}</div>`)
+    html = html.replace('<div id="root"></div>', `${hiddenPrerender}\n    ${rootNode}`)
   } else {
-    html = html.replace(/<div id="root">[\s\S]*?<\/div>/, `<div id="root">${bodyContent}</div>`)
+    html = html.replace(/<div id="root">[\s\S]*?<\/div>/, `${hiddenPrerender}\n    ${rootNode}`)
   }
 
   if (noscriptContent) {

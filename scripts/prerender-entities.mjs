@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// Generated entity pages now render prerendered SEO content as sr-only to avoid duplicate visible content.
 import fs from 'node:fs'
 import path from 'node:path'
 
@@ -41,9 +42,12 @@ function renderPage(kind, item) {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${title} | The Hippie Scientist</title>
   <meta name="description" content="${summary.replace(/"/g, '&quot;')}" />
+  <style>
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
 </head>
 <body style="font-family: Inter, system-ui, sans-serif; background:#070b12; color:#f8fafc; margin:0; padding:24px;">
-  <main style="max-width:760px;margin:0 auto;line-height:1.6;">
+  <main class="sr-only" style="max-width:760px;margin:0 auto;line-height:1.6;">
     <p><a href="/${kind}" style="color:#93c5fd">← Back to ${kind}</a></p>
     <h1>${title}</h1>
     ${scientific ? `<p><em>${scientific}</em></p>` : ''}
