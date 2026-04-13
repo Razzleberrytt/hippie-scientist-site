@@ -4,7 +4,13 @@ import Meta from '@/components/Meta'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
 import { useCompoundDataState, useCompoundDetailState } from '@/lib/compound-data'
 import { useHerbDataState } from '@/lib/herb-data'
-import { sanitizeReadableText, splitClean, uniqueNormalizedList } from '@/lib/sanitize'
+import {
+  cleanEffectChips,
+  sanitizeReadableText,
+  sanitizeSummaryText,
+  splitClean,
+  uniqueNormalizedList,
+} from '@/lib/sanitize'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { getCompoundDataCompleteness } from '@/utils/getDataCompleteness'
@@ -195,12 +201,12 @@ export default function CompoundDetail() {
   const pathwayTargets = uniqueNormalizedList(splitClean(compoundRecord.pathwayTargets))
   const workbookSources = uniqueNormalizedList(splitPipeList(compoundRecord.sourceUrls))
   const relatedHerbSlugs = uniqueNormalizedList(splitClean(compoundRecord.relatedHerbSlugs))
-  const compoundEffects = uniqueNormalizedList(compound.effects)
+  const compoundEffects = cleanEffectChips(compound.effects, 12)
   const compoundContraindications = uniqueNormalizedList(compound.contraindications)
   const compoundSideEffects = uniqueNormalizedList(compound.sideEffects)
   const compoundTherapeuticUses = uniqueNormalizedList(compound.therapeuticUses)
   const compoundInteractions = uniqueNormalizedList(compound.interactions)
-  const compoundDescription = sanitizeReadableText(compound.description)
+  const compoundDescription = sanitizeSummaryText(compound.description, 2)
   const compoundMechanism = sanitizeReadableText(compound.mechanism)
   const drugInteractions = normalizeTextValue(compoundRecord.drugInteractions)
   const uniqueDrugInteractionItems = Array.from(
@@ -234,8 +240,7 @@ export default function CompoundDetail() {
     })
   })
 
-  const whyItMatters = compoundEffects.slice(0, 2).join(' + ')
-  const doesText = compoundMechanism || compoundDescription
+  const whyItMatters = sanitizeSummaryText(compoundEffects.slice(0, 2).join(' + '), 1)
   const premiumDetails = [
     { title: 'Identity', value: compound.identity },
     {
@@ -308,7 +313,7 @@ export default function CompoundDetail() {
     herbs: compound.herbs,
   })
 
-  const primaryEffects = extractPrimaryEffects(compoundEffects, 4)
+  const primaryEffects = cleanEffectChips(extractPrimaryEffects(compoundEffects, 8), 5)
 
   const sourceCount = compound.sources.length
   const cautionCount = countCautionSignals({
@@ -415,9 +420,11 @@ export default function CompoundDetail() {
     sourceCount,
   })
   const governedReviewFreshness = buildGovernedReviewFreshness(governedResearch)
-  const topSummary =
-    governedIntro.whatItIs || governedIntro.commonUse || compoundDescription || compoundMechanism
-  const topEffects = primaryEffects.slice(0, 2)
+  const topSummary = sanitizeSummaryText(
+    governedIntro.whatItIs || governedIntro.commonUse || compoundDescription || compoundMechanism,
+    1,
+  )
+  const topEffects = primaryEffects.slice(0, 4)
   const whereAppears = foundInHerbLinks.slice(0, 3).map(item => item.label)
   const enrichmentRecommendations = buildEnrichmentRecommendations('compound', compound.slug)
   const quickCompareSection = buildGovernedQuickCompareSection('compound', compound.slug)
@@ -508,9 +515,9 @@ export default function CompoundDetail() {
           <div className='flex flex-wrap items-start justify-between gap-3'>
             <h1 className='text-3xl font-semibold leading-tight'>{name}</h1>
           </div>
-          {(topSummary || compoundDescription) && (
+          {topSummary && (
             <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>
-              {topSummary || compoundDescription}
+              {topSummary}
             </p>
           )}
           <div className='mt-4 grid gap-3 sm:grid-cols-3'>
@@ -522,7 +529,17 @@ export default function CompoundDetail() {
             </section>
             <section className='rounded-lg border border-white/10 bg-black/20 p-3'>
               <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56'>Key effects</h2>
-              <p className='mt-1 text-xs text-white/80'>{topEffects.join(' · ') || 'Effects being reviewed.'}</p>
+              <div className='mt-1 flex flex-wrap gap-1.5'>
+                {topEffects.length > 0 ? (
+                  topEffects.map(effect => (
+                    <span key={`top-effect-${effect}`} className='ds-pill text-[11px]'>
+                      {effect}
+                    </span>
+                  ))
+                ) : (
+                  <p className='text-xs text-white/80'>Effects being reviewed.</p>
+                )}
+              </div>
             </section>
             <section className='rounded-lg border border-white/10 bg-black/20 p-3'>
               <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56'>Where it appears</h2>
@@ -562,7 +579,6 @@ export default function CompoundDetail() {
         {compoundDescription && compoundDescription !== topSummary && (
           <Section title='Overview'>
             {compoundDescription}
-            {topSummary && <p className='mt-3 text-white/80'>{topSummary}</p>}
             {displayClass && (
               <p className='mt-3 label-specimen'>
                 Category: {displayClass}
@@ -585,13 +601,11 @@ export default function CompoundDetail() {
           </div>
         )}
 
-        {doesText && <Section title='Mechanism Context'>{doesText}</Section>}
-
         {compoundMechanism && <Section title='Mechanism of Action'>{compoundMechanism}</Section>}
 
         {compoundEffects.length > 0 && (
           <Section title='Effects'>
-            <ListSection items={compoundEffects} maxVisible={6} />
+            <ListSection items={compoundEffects} maxVisible={5} />
           </Section>
         )}
 
