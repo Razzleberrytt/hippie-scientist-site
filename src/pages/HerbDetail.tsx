@@ -5,11 +5,8 @@ import { Link, useLocation, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import { useCompoundDataState } from '@/lib/compound-data'
 import { useHerbDataState, useHerbDetailState } from '@/lib/herb-data'
-import {
-  dedupePresentationList,
-  normalizePresentationLabel,
-  sanitizeSummaryText,
-} from '@/lib/sanitize'
+import { dedupePresentationList, normalizePresentationLabel, sanitizeReadableText, sanitizeSummaryText } from '@/lib/sanitize'
+import { buildUniqueDetailCopy, sanitizeRenderChips, sanitizeRenderList } from '@/lib/renderGuard'
 import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { SITE_URL, breadcrumbJsonLd, herbJsonLd } from '@/lib/seo'
 import { shouldShowRawDebug } from '@/lib/semanticCompression'
@@ -168,23 +165,29 @@ export default function HerbDetail() {
   const description = readWorkbookText(rawRecord, 'hero', 'summary', 'description') || String(curatedData.summary || '').trim()
   const descriptionIsPlaceholder = isPlaceholder(description, herbName)
   const summary = sanitizeSummaryText(description, 2)
-  const coreInsight = sanitizeSummaryText(
-    readWorkbookText(rawRecord, 'coreInsight', 'overview', 'whyItMatters') || curatedData.whyItMatters,
-    1,
-  )
+  const fullDescription = sanitizeReadableText(description)
+  const uniqueCopy = buildUniqueDetailCopy({
+    hero: summary,
+    overview: sanitizeSummaryText(
+      readWorkbookText(rawRecord, 'coreInsight', 'overview', 'whyItMatters') || curatedData.whyItMatters,
+      1,
+    ),
+    context: sanitizeSummaryText(
+      readWorkbookText(contextRecord, 'summary', 'overview', 'notes') || readWorkbookText(rawRecord, 'context'),
+      2,
+    ),
+    mechanism: readWorkbookText(rawRecord, 'mechanisms', 'mechanism') || String(curatedData.mechanism || '').trim(),
+  })
+  const coreInsight = uniqueCopy.overview
 
-  const effects = dedupePresentationList(
-    splitTextList(rawRecord.effects || rawRecord.keyEffects || curatedData.keyEffects),
+  const effects = sanitizeRenderChips(
+    dedupePresentationList(splitTextList(rawRecord.effects || rawRecord.keyEffects || curatedData.keyEffects), 8),
     8,
   ).map(toTitleCase)
   const keyEffects = effects.slice(0, 4)
-  const activeCompounds = dedupePresentationList(splitTextList(herb.activeCompounds || herb.compounds), 10)
-  const mechanism =
-    readWorkbookText(rawRecord, 'mechanisms', 'mechanism') || String(curatedData.mechanism || '').trim()
-  const contextSummary = sanitizeSummaryText(
-    readWorkbookText(contextRecord, 'summary', 'overview', 'notes') || readWorkbookText(rawRecord, 'context'),
-    2,
-  )
+  const activeCompounds = sanitizeRenderList(splitTextList(herb.activeCompounds || herb.compounds), 10)
+  const mechanism = uniqueCopy.mechanism
+  const contextSummary = uniqueCopy.context
   const dosage = String(herb.dosage || '').trim()
   const duration = String(herb.duration || '').trim()
   const preparation = String(herb.preparation || '').trim()
@@ -355,9 +358,9 @@ export default function HerbDetail() {
           </section>
         )}
 
-        {!descriptionIsPlaceholder && (
+        {!descriptionIsPlaceholder && fullDescription && fullDescription !== summary && (
           <DisclosureSection title='Full Description'>
-            <p>{summary}</p>
+            <p>{fullDescription}</p>
           </DisclosureSection>
         )}
 
