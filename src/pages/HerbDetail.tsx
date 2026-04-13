@@ -708,18 +708,18 @@ export default function HerbDetail() {
             </p>
           )}
 
-          <div className='mt-3 flex flex-wrap gap-1.5 text-[11px] text-white/65'>
+          <div className='mt-3 flex flex-wrap gap-1.5'>
             {evidenceLevel && (
-              <span className='rounded-full border border-white/20 bg-white/[0.03] px-2 py-0.5'>
-                {evidenceLevel}
+              <span className='inline-flex items-center gap-1.5 rounded-sm border border-emerald-400/35 bg-emerald-500/8 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-200'>
+                <span aria-hidden='true'>✓</span> {evidenceLevel}
               </span>
             )}
-            <span className='rounded-full border border-white/20 bg-white/[0.03] px-2 py-0.5'>
-              {sourceCount} source{sourceCount === 1 ? '' : 's'}
+            <span className='inline-flex items-center gap-1.5 rounded-sm border border-emerald-400/35 bg-emerald-500/8 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-200'>
+              <span aria-hidden='true'>✓</span> {sourceCount} source{sourceCount === 1 ? '' : 's'}
             </span>
             {cautionCount > 0 && (
-              <span className='rounded-full border border-amber-300/25 bg-amber-500/8 px-2 py-0.5 text-amber-100/85'>
-                {cautionCount} caution signal{cautionCount === 1 ? '' : 's'}
+              <span className='inline-flex items-center gap-1.5 rounded-sm border border-amber-400/40 bg-amber-500/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-amber-200'>
+                <span aria-hidden='true'>⚠</span> {cautionCount} caution signal{cautionCount === 1 ? '' : 's'}
               </span>
             )}
           </div>

@@ -34,10 +34,31 @@ export default function NavBar() {
         <div className='flex items-center justify-between gap-2 py-2 sm:py-2.5'>
           <Link
             to='/'
-            className={`shrink-0 rounded-xl px-2 py-1.5 font-semibold tracking-tight transition hover:text-white ${isHome ? 'text-sm text-white/70 sm:text-base' : 'text-base text-white/95 sm:text-lg'}`}
+            className='shrink-0 rounded-xl px-2 py-1.5 transition hover:text-white'
             onClick={() => setMenuOpen(false)}
           >
-            Hippie Scientist
+            <span className='flex items-center gap-2'>
+              <svg width='18' height='18' viewBox='0 0 18 18' fill='none' aria-hidden='true'>
+                <path
+                  d='M9 2C5 2 2 6 2 10c0 3 2 5 5 5 2 0 4-1 5-3 1-2 1-5-1-7'
+                  stroke='currentColor'
+                  strokeWidth='1.5'
+                  strokeLinecap='round'
+                  className='text-emerald-400'
+                />
+                <path
+                  d='M9 16V9M9 9C9 6 11 4 14 3'
+                  stroke='currentColor'
+                  strokeWidth='1.25'
+                  strokeLinecap='round'
+                  strokeDasharray='2 2'
+                  className='text-emerald-400/60'
+                />
+              </svg>
+              <span className={`font-display text-lg italic tracking-tight ${isHome ? 'text-white/80' : 'text-white'}`}>
+                The Hippie Scientist
+              </span>
+            </span>
           </Link>
 
           <button

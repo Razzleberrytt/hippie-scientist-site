@@ -79,9 +79,7 @@ export default function EmailCapture({
 
         <div className='relative space-y-5'>
           <div className='space-y-2'>
-            <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/75'>
-              Research notes
-            </p>
+            <p className='label-specimen mb-2'>Field Notes — Daily Dispatch</p>
             <h2 className='text-[1.4rem] font-semibold tracking-tight text-white sm:text-3xl'>
               {title || 'Get a beginner-safe herbal blend guide (free)'}
             </h2>
@@ -119,7 +117,7 @@ export default function EmailCapture({
             <button
               type='submit'
               disabled={status === 'pending'}
-              className='min-h-11 rounded-xl border border-emerald-200/35 bg-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200/80 disabled:cursor-not-allowed disabled:opacity-70'
+              className='btn-primary min-h-11 rounded-xl border border-transparent bg-amber-500 px-4 py-2.5 text-sm font-semibold text-amber-950 shadow-[0_6px_18px_-8px_hsl(38_92%_58%/0.6)] transition hover:bg-amber-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/80 disabled:cursor-not-allowed disabled:opacity-70'
             >
               {status === 'pending' ? 'Submitting…' : buttonLabel || CTA.conversion.getGuide}
             </button>

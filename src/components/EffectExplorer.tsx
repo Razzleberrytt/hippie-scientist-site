@@ -37,7 +37,7 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
   return (
     <section id='effect-search' className='container mx-auto max-w-4xl px-4 pt-5 sm:px-6'>
       <div className='ds-card-lg border-violet-300/30 bg-violet-500/10'>
-        <p className='text-xs font-semibold uppercase tracking-[0.24em] text-violet-100/85'>
+        <p className='label-specimen text-violet-100/85'>
           Effect search
         </p>
         <h2 className='mt-2 text-2xl font-semibold'>What outcome are you looking for?</h2>
@@ -78,7 +78,7 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
               key={chip}
               type='button'
               onClick={() => setQuery(chip)}
-              className='rounded-full border border-violet-300/40 bg-violet-500/10 px-3 py-1.5 text-xs font-medium capitalize text-violet-100 transition hover:border-violet-200/60 hover:bg-violet-500/15'
+              className='effect-pill-active rounded-full border px-3 py-1.5 text-xs font-medium capitalize transition hover:border-amber-200/60 hover:bg-amber-500/20'
             >
               {chip}
             </button>
@@ -211,7 +211,7 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
           </div>
 
           <div className='mt-5 rounded-xl border border-violet-300/35 bg-violet-500/10 p-4'>
-            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-violet-100/85'>
+            <p className='label-specimen text-violet-100/85'>
               Next actions
             </p>
             <div className='mt-3 grid gap-2 text-sm'>
