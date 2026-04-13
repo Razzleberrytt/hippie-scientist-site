@@ -11,6 +11,7 @@ import {
   splitClean,
   uniqueNormalizedList,
 } from '@/lib/sanitize'
+import { buildUniqueDetailCopy, sanitizeRenderChips, sanitizeRenderList } from '@/lib/renderGuard'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { getCompoundDataCompleteness } from '@/utils/getDataCompleteness'
@@ -216,42 +217,51 @@ export default function CompoundDetail() {
     'Unknown compound'
   const evidence = sanitizeReadableText(compoundRecord.evidence)
   const pharmacokinetics = sanitizeReadableText(compoundRecord.pharmacokinetics)
-  const pathwayTargets = uniqueNormalizedList(splitClean(compoundRecord.pathwayTargets))
-  const workbookSources = uniqueNormalizedList(splitPipeList(compoundRecord.sourceUrls))
+  const pathwayTargets = sanitizeRenderList(splitClean(compoundRecord.pathwayTargets))
+  const workbookSources = sanitizeRenderList(splitPipeList(compoundRecord.sourceUrls))
   const relatedHerbSlugs = uniqueNormalizedList(splitClean(compoundRecord.relatedHerbSlugs))
   const curatedData = compound.curatedData
-  const compoundEffects = cleanEffectChips(rawRecord.effects || curatedData.keyEffects || compound.effects, 12)
-  const compoundContraindications = uniqueNormalizedList(compound.contraindications)
-  const compoundSideEffects = uniqueNormalizedList(compound.sideEffects)
-  const compoundTherapeuticUses = uniqueNormalizedList(compound.therapeuticUses)
-  const compoundInteractions = uniqueNormalizedList(compound.interactions)
+  const compoundEffects = sanitizeRenderChips(
+    cleanEffectChips(rawRecord.effects || curatedData.keyEffects || compound.effects, 12),
+    12,
+  )
+  const compoundContraindications = sanitizeRenderList(compound.contraindications)
+  const compoundSideEffects = sanitizeRenderList(compound.sideEffects)
+  const compoundTherapeuticUses = sanitizeRenderList(compound.therapeuticUses)
+  const compoundInteractions = sanitizeRenderList(compound.interactions)
   const heroSummary = sanitizeSummaryText(
     readWorkbookText(rawRecord, 'hero', 'summary', 'description') || curatedData.summary,
     2,
   )
-  const coreInsight = sanitizeSummaryText(
-    readWorkbookText(rawRecord, 'coreInsight', 'whyItMatters', 'overview') || curatedData.whyItMatters,
-    1,
-  )
-  const contextSummary = sanitizeSummaryText(
-    readWorkbookText(contextRecord, 'summary', 'overview', 'notes') || readWorkbookText(rawRecord, 'context'),
-    2,
-  )
-  const compoundDescription = heroSummary
-  const compoundMechanism = sanitizeReadableText(
-    readWorkbookText(rawRecord, 'mechanisms', 'mechanism') || curatedData.mechanism,
-  )
-  const workbookSafety = uniqueNormalizedList(
+  const uniqueCopy = buildUniqueDetailCopy({
+    hero: heroSummary,
+    overview: sanitizeSummaryText(
+      readWorkbookText(rawRecord, 'coreInsight', 'whyItMatters', 'overview') || curatedData.whyItMatters,
+      1,
+    ),
+    context: sanitizeSummaryText(
+      readWorkbookText(contextRecord, 'summary', 'overview', 'notes') || readWorkbookText(rawRecord, 'context'),
+      2,
+    ),
+    mechanism: sanitizeReadableText(readWorkbookText(rawRecord, 'mechanisms', 'mechanism') || curatedData.mechanism),
+  })
+  const coreInsight = uniqueCopy.overview
+  const contextSummary = uniqueCopy.context
+  const compoundDescription = uniqueCopy.hero
+  const compoundMechanism = uniqueCopy.mechanism
+  const workbookSafety = sanitizeRenderList(
     splitClean(safetyRecord.notes || safetyRecord.summary || safetyRecord.caution || rawRecord.safety),
   )
   const drugInteractions = normalizeTextValue(compoundRecord.drugInteractions)
-  const uniqueDrugInteractionItems = Array.from(
-    new Map(
-      [...workbookSafety, ...compoundInteractions, ...(drugInteractions ? [sanitizeReadableText(drugInteractions)] : [])]
-        .map(item => normalizeTextValue(item))
-        .filter(Boolean)
-        .map(item => [normalizeKey(item), item]),
-    ).values(),
+  const uniqueDrugInteractionItems = sanitizeRenderList(
+    Array.from(
+      new Map(
+        [...workbookSafety, ...compoundInteractions, ...(drugInteractions ? [sanitizeReadableText(drugInteractions)] : [])]
+          .map(item => normalizeTextValue(item))
+          .filter(Boolean)
+          .map(item => [normalizeKey(item), item]),
+      ).values(),
+    ),
   )
 
   const linkedHerbs = mapRelatedHerbsForCompound(compound, herbs)
