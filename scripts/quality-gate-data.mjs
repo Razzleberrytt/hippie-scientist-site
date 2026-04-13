@@ -1,3 +1,4 @@
+// Expanded publication quality gate checks for placeholders, corrupted effects, and title-cased display names.
 import fs from 'node:fs'
 import path from 'node:path'
 import { countBootstrapSources, sourceCountBuckets } from './source-normalization.mjs'
@@ -10,17 +11,23 @@ const QUALITY_THRESHOLDS = {
   publishableDescriptionLength: 80,
   publishableMinSources: 1,
   minSlugLength: 2,
+  maxEffectLength: 200,
 }
 
 const PLACEHOLDER_PATTERNS = [
   /\bno direct\b/i,
+  /\bno\s+direct\b/i,
   /\bcontextual inference\b/i,
+  /\bherb profile\b/i,
+  /\breference profile\b/i,
+  /\bmechanismofaction\b/i,
   /\bnot established\b/i,
   /\binsufficient data\b/i,
   /\bunknown\b/i,
   /\[object\s+object\]/i,
   /\bplaceholder\b/i,
 ]
+const FRAGMENTED_EFFECT_PATTERN = /\.\s+[A-Z]/
 
 const NAN_PATTERN = /(^|[^a-z0-9])nan([^a-z0-9]|$)/i
 const INVALID_NAME_PATTERN = /^(?:nan|null|undefined|n\/a)$/i
@@ -96,8 +103,17 @@ const toTitle = value =>
   asText(value)
     .split(/\s+/)
     .filter(Boolean)
-    .map(chunk => chunk.charAt(0).toUpperCase() + chunk.slice(1))
+    .map(chunk => {
+      const normalized = chunk.toLowerCase()
+      return normalized.charAt(0).toUpperCase() + normalized.slice(1)
+    })
     .join(' ')
+
+function hasCorruptedEffects(record) {
+  const effects = asArray(record?.effects).map(asText).filter(Boolean)
+  if (!effects.length) return false
+  return effects.some(effect => effect.length > QUALITY_THRESHOLDS.maxEffectLength || FRAGMENTED_EFFECT_PATTERN.test(effect))
+}
 
 function normalizeDate(value) {
   if (!value) return null
@@ -236,6 +252,8 @@ function countEffects(record) {
     .map(asText)
     .filter(Boolean)
     .filter(text => !NAN_PATTERN.test(text))
+    .filter(text => text.length <= QUALITY_THRESHOLDS.maxEffectLength)
+    .filter(text => !FRAGMENTED_EFFECT_PATTERN.test(text))
     .filter(text => !PLACEHOLDER_PATTERNS.some(pattern => pattern.test(text))).length
 }
 
@@ -377,6 +395,7 @@ function auditEntity(record, type, usedSlugs = new Set()) {
     sourceCount: countSources(record),
     sourceQualityScore: sourceQualityScore(record),
     effectCount: countEffects(record),
+    hasCorruptedEffects: hasCorruptedEffects(record),
   }
 
   const descriptionLength = stripCitationBrackets(record?.description).length
@@ -385,7 +404,8 @@ function auditEntity(record, type, usedSlugs = new Set()) {
   const supportingFields = supportingFieldCount(record)
   const hasUsefulSupportingField = supportingFields > 0
   const hasMeaningfulLinkedContext = hasLinkedContext(record)
-  const stronglyCorrupted = flags.hasNanArtifacts || /^\[object\s+object\]$/i.test(asText(record?.description))
+  const stronglyCorrupted =
+    flags.hasNanArtifacts || flags.hasCorruptedEffects || /^\[object\s+object\]$/i.test(asText(record?.description))
   const hasAnyUsefulContent = descriptionLength > 0 || hasSummary || sourceCountNormalized > 0 || hasUsefulSupportingField
 
   const isStrong =
@@ -402,7 +422,16 @@ function auditEntity(record, type, usedSlugs = new Set()) {
 
   const completenessScore = scoreRecord(record)
   const tier = tierFromScore(completenessScore)
-  const qualityTier = shouldExclude ? 'excluded' : isStrong ? 'strong' : isPublishable ? 'publishable' : 'needs_work'
+  const blockedForPlaceholders = flags.hasPlaceholderText || flags.hasCorruptedEffects
+  const qualityTier = shouldExclude
+    ? 'excluded'
+    : blockedForPlaceholders
+      ? 'needs_work'
+      : isStrong
+        ? 'strong'
+        : isPublishable
+          ? 'publishable'
+          : 'needs_work'
   const publicationEligible = qualityTier === 'strong' || qualityTier === 'publishable'
 
   const exclusionReasons = []
@@ -427,7 +456,9 @@ function auditEntity(record, type, usedSlugs = new Set()) {
 
 
 function buildPublicationEntry(record, type, audit) {
-  const displayName = asText(record?.commonName || record?.common || record?.name || record?.latinName || record?.latin || audit.slug)
+  const displayName = toTitle(
+    asText(record?.commonName || record?.common || record?.name || record?.latinName || record?.latin || audit.slug)
+  )
   const descriptionCandidate = asText(record?.summary || record?.description || record?.mechanism)
   const description = clip(
     PLACEHOLDER_PATTERNS.some(pattern => pattern.test(descriptionCandidate)) || NAN_PATTERN.test(descriptionCandidate)

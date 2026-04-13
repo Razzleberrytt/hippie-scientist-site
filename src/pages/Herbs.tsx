@@ -1,6 +1,6 @@
+// Reworked herb cards to sanitize placeholder copy, enforce title-casing, and present concise CTA-focused summaries.
 import { useEffect, useMemo, useState } from 'react'
 import Meta from '@/components/Meta'
-import HerbCard from '@/components/HerbCard'
 import ActiveFiltersBar from '@/components/filters/ActiveFiltersBar'
 import ConfidenceFilter from '@/components/filters/ConfidenceFilter'
 import EffectFilter from '@/components/filters/EffectFilter'
@@ -18,10 +18,24 @@ import { buildEffectIndex } from '@/utils/effectSearch'
 import EffectExplorer from '@/components/EffectExplorer'
 import type { EnrichmentFilter } from '@/types/enrichmentDiscovery'
 import { trackGovernedEvent } from '@/lib/governedAnalytics'
-import { buildCardSummary } from '@/lib/summary'
-import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
-import { hasVal } from '@/lib/pretty'
 import { slugify } from '@/lib/slug'
+import { Link } from 'react-router-dom'
+
+const CARD_PLACEHOLDER_PATTERN = /Herb profile|reference profile|No direct|Contextual inference/i
+
+const toTitleCase = (value: string) =>
+  String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\b\w/g, letter => letter.toUpperCase())
+
+const cleanSummary = (value: string) => {
+  const normalized = String(value || '').replace(/\s+/g, ' ').trim()
+  if (!normalized) return 'Profile in progress'
+  if (CARD_PLACEHOLDER_PATTERN.test(normalized)) return 'Profile in progress'
+  if (normalized.length <= 120) return normalized
+  return `${normalized.slice(0, 117).trimEnd()}...`
+}
 
 const ENRICHMENT_FILTER_OPTIONS: Array<{ value: EnrichmentFilter; label: string }> = [
   { value: 'all', label: 'All research states' },
@@ -257,29 +271,36 @@ export default function HerbsPage() {
       ) : (
         <section className='grid gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3'>
           {visibleHerbs.map((herb, index) => (
-            <HerbCard
+            <article
               key={herb.slug || herb.id || `${herb.common}-${index}`}
-              name={String(herb.common || herb.scientific || herb.name || 'Herb')}
-              summary={
-                buildCardSummary({
-                  effects: herb.effects,
-                  mechanism: herb.mechanism,
-                  description: herb.description,
-                  activeCompounds: herb.compounds,
-                  therapeuticUses: herb.therapeuticUses,
-                  maxLen: 110,
-                }) || 'Learn more about this herb and its potential uses.'
-              }
-              tags={extractPrimaryEffects(Array.isArray(herb.effects) ? herb.effects : [], 2)}
-              compact
-              detailUrl={
-                hasVal(herb.slug)
-                  ? `/herbs/${encodeURIComponent(String(herb.slug))}`
-                  : `/herbs/${encodeURIComponent(
-                      slugify(String(herb.common || herb.scientific || herb.name || '')),
-                    )}`
-              }
-            />
+              className='rounded-2xl border border-white/10 bg-white/[0.03] p-4'
+            >
+              <h2 className='text-lg font-semibold text-white'>
+                {toTitleCase(String(herb.common || herb.scientific || herb.name || 'Herb'))}
+              </h2>
+              <p className='mt-2 text-sm text-white/75'>
+                {cleanSummary(String(herb.summary || herb.description || herb.mechanism || ''))}
+              </p>
+              {String(herb.qualityTier || '').toLowerCase() === 'strong' && (
+                <span className='mt-3 inline-flex rounded-full border border-emerald-300/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] text-emerald-100'>
+                  Well Documented
+                </span>
+              )}
+              <div className='mt-4'>
+                <Link
+                  to={
+                    herb.slug
+                      ? `/herbs/${encodeURIComponent(String(herb.slug))}`
+                      : `/herbs/${encodeURIComponent(
+                          slugify(String(herb.common || herb.scientific || herb.name || '')),
+                        )}`
+                  }
+                  className='text-sm font-medium text-cyan-200 hover:text-cyan-100'
+                >
+                  Open herb profile →
+                </Link>
+              </div>
+            </article>
           ))}
         </section>
       )}
