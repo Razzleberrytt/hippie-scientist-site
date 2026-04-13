@@ -21,10 +21,10 @@ export default function GuideDownloadCard({
 }: GuideDownloadCardProps) {
   return (
     <section
-      className={`ds-card-lg border border-violet-200/20 bg-gradient-to-br from-violet-500/10 via-slate-900/80 to-emerald-500/10 shadow-[0_0_36px_-24px_rgba(139,92,246,0.8)] ${className}`.trim()}
+      className={`ds-card-lg border border-white/14 bg-gradient-to-br from-slate-950/90 via-slate-900/84 to-slate-950/92 ${className}`.trim()}
     >
       {eyebrow && (
-        <p className='text-xs font-semibold uppercase tracking-[0.22em] text-violet-100/80'>
+        <p className='text-xs font-semibold uppercase tracking-[0.22em] text-emerald-100/80'>
           {eyebrow}
         </p>
       )}

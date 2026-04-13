@@ -139,8 +139,8 @@ export default function Home() {
       <EffectExplorer herbs={homepageData.effectExplorerHerbs} />
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
-        <div className='ds-card-lg border-amber-300/30 bg-amber-500/10'>
-          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-amber-100/80'>
+        <div className='ds-card-lg border-white/14 bg-white/[0.03]'>
+          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-emerald-100/80'>
             Trust & safety
           </p>
           <h2 className='mt-2 text-2xl font-semibold text-white'>
@@ -182,7 +182,7 @@ export default function Home() {
                 <a
                   key={effect}
                   href='#effect-search'
-                  className='rounded-full border border-violet-300/40 bg-violet-500/10 px-3 py-1.5 text-xs font-medium capitalize text-violet-100 transition hover:border-violet-200/60 hover:bg-violet-500/15'
+                  className='rounded-full border border-emerald-300/35 bg-emerald-500/10 px-3 py-1.5 text-xs font-medium capitalize text-emerald-100 transition hover:border-emerald-200/55 hover:bg-emerald-500/15'
                 >
                   {effect}
                 </a>

@@ -9,8 +9,8 @@
   --space-unit: 0.25rem;
 
   --accent-h: 166;
-  --accent-s: 70%;
-  --accent-l: 52%;
+  --accent-s: 58%;
+  --accent-l: 44%;
   --accent: hsl(var(--accent-h) var(--accent-s) var(--accent-l));
   --accent-rgb: 35 212 177;
 
@@ -30,22 +30,22 @@
   --amber-l: 58%;
   --amber: hsl(var(--amber-h) var(--amber-s) var(--amber-l));
 
-  --bg: 28 8% 7%;
-  --surface: 30 7% 10%;
-  --card: 30 7% 12%;
+  --bg: 220 22% 6%;
+  --surface: 220 20% 10%;
+  --card: 220 18% 12%;
   --text: 210 10% 96%;
   --fg: 210 10% 96%;
   --mute: 35 10% 60%;
   --muted: 35 10% 60%;
-  --border: 30 8% 20%;
-  --ring: 166 70% 52%;
+  --border: 220 14% 22%;
+  --ring: 166 58% 44%;
 
   --bg-c: hsl(var(--bg));
-  --surface-c: hsla(220, 18%, 20%, 0.68);
-  --card-c: hsla(220, 18%, 22%, 0.78);
+  --surface-c: hsla(220, 20%, 14%, 0.72);
+  --card-c: hsla(220, 18%, 16%, 0.82);
   --text-c: hsl(var(--text));
   --muted-c: hsla(210, 6%, 72%, 0.85);
-  --border-c: hsla(220, 16%, 28%, 0.55);
+  --border-c: hsla(220, 14%, 26%, 0.58);
 }
 
 [data-theme='light'] {
