@@ -1,4 +1,4 @@
-// Reworked herb cards to sanitize placeholder copy, enforce title-casing, and present concise CTA-focused summaries.
+// UPDATED: Cleaned herb cards with placeholder filtering, concise summaries, and effect badges.
 import { useEffect, useMemo, useState } from 'react'
 import Meta from '@/components/Meta'
 import ActiveFiltersBar from '@/components/filters/ActiveFiltersBar'
@@ -21,7 +21,24 @@ import { trackGovernedEvent } from '@/lib/governedAnalytics'
 import { slugify } from '@/lib/slug'
 import { Link } from 'react-router-dom'
 
-const CARD_PLACEHOLDER_PATTERN = /Herb profile|reference profile|No direct|Contextual inference/i
+
+function isPlaceholder(text: string, herbName = ''): boolean {
+  const value = String(text || '').trim().toLowerCase()
+  if (!value) return false
+  const escaped = String(herbName || '')
+    .trim()
+    .toLowerCase()
+    .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const patterns = [
+    /^herb profile\.?$/i,
+    /^reference profile\.?$/i,
+    /^no direct/i,
+    /^contextual inference/i,
+    escaped ? new RegExp(`^${escaped}\\s+herb\\s+profile\\.?$`, 'i') : null,
+    escaped ? new RegExp(`^${escaped}\\s+reference\\s+profile\\.?$`, 'i') : null,
+  ].filter(Boolean) as RegExp[]
+  return patterns.some(pattern => pattern.test(value))
+}
 
 const toTitleCase = (value: string) =>
   String(value || '')
@@ -29,11 +46,12 @@ const toTitleCase = (value: string) =>
     .toLowerCase()
     .replace(/\b\w/g, letter => letter.toUpperCase())
 
-const cleanSummary = (value: string) => {
+const cleanSummary = (value: string, herbName = '') => {
   const normalized = String(value || '').replace(/\s+/g, ' ').trim()
   if (!normalized) return 'Profile in progress'
-  if (CARD_PLACEHOLDER_PATTERN.test(normalized)) return 'Profile in progress'
-  if (normalized.length <= 120) return normalized
+  if (isPlaceholder(normalized, herbName)) return 'Profile in progress'
+  const firstSentence = normalized.split(/(?<=[.!?])\s+/)[0] || normalized
+  if (firstSentence.length <= 120) return firstSentence
   return `${normalized.slice(0, 117).trimEnd()}...`
 }
 
@@ -279,10 +297,24 @@ export default function HerbsPage() {
                 {toTitleCase(String(herb.common || herb.scientific || herb.name || 'Herb'))}
               </h2>
               <p className='mt-2 text-sm text-white/75'>
-                {cleanSummary(String(herb.summary || herb.description || herb.mechanism || ''))}
+                {cleanSummary(String(herb.summary || herb.description || herb.mechanism || ''), String(herb.common || herb.name || ''))}
               </p>
+              <div className='mt-3 flex flex-wrap gap-1.5'>
+                {(Array.isArray(herb.primaryEffects) ? herb.primaryEffects : Array.isArray(herb.effects) ? herb.effects : [])
+                  .map(effect => String(effect || '').trim())
+                  .filter(Boolean)
+                  .slice(0, 3)
+                  .map(effect => (
+                    <span
+                      key={`${herb.slug}-${effect}`}
+                      className='inline-flex rounded-full border border-cyan-300/30 bg-cyan-500/10 px-2 py-0.5 text-[11px] text-cyan-100'
+                    >
+                      {toTitleCase(effect)}
+                    </span>
+                  ))}
+              </div>
               {String(herb.qualityTier || '').toLowerCase() === 'strong' && (
-                <span className='mt-3 inline-flex rounded-full border border-emerald-300/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] text-emerald-100'>
+                <span className='mt-2 inline-flex rounded-full border border-emerald-300/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] text-emerald-100'>
                   Well Documented
                 </span>
               )}
