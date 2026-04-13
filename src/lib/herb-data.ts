@@ -270,8 +270,20 @@ function normalizeProductRecommendations(value: unknown): ProductRecommendation[
     .slice(0, 2)
 }
 
+function readContextRecord(data: Record<string, unknown>): Record<string, unknown> {
+  const context = data.context
+  return context && typeof context === 'object' ? (context as Record<string, unknown>) : {}
+}
+
+function readSafetyRecord(data: Record<string, unknown>): Record<string, unknown> {
+  const safety = data.safety
+  return safety && typeof safety === 'object' ? (safety as Record<string, unknown>) : {}
+}
+
 function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   const { data } = sanitizeHerbRecord(raw, { debug: import.meta.env.DEV })
+  const context = readContextRecord(data)
+  const safetyRecord = readSafetyRecord(data)
   const common = cleanText(data.common ?? data.commonName ?? data.name) || ''
   const scientific =
     cleanText(data.scientific ?? data.latin ?? data.latinName ?? data.scientificName) || ''
@@ -279,11 +291,14 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     .trim()
     .toLowerCase()
 
-  const effects = splitClean(data.effects)
+  const effects = splitClean(data.effects ?? data.keyEffects)
   const contraindications = splitClean(data.contraindications)
   const interactions = splitClean(data.interactions)
   const sideeffects = splitClean(data.sideEffects ?? data.sideeffects)
   const safetyNotes = normalizeSafetyNotes(
+    safetyRecord.caution,
+    safetyRecord.notes,
+    safetyRecord.summary,
     data.safetyNotes,
     data.safety,
     data.contraindications,
@@ -306,8 +321,9 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     seed: seededInteraction,
   })
 
-  const mechanism = cleanText(data.mechanism ?? data.mechanismOfAction) || ''
-  const description = cleanText(data.description ?? data.summary) || ''
+  const mechanism = cleanText(data.mechanism ?? data.mechanisms ?? data.mechanismOfAction) || ''
+  const description =
+    cleanText(data.description ?? data.summary ?? data.hero ?? data.intro ?? data.coreInsight) || ''
   const duration = cleanText(data.duration) || ''
   const dosage = cleanText(data.dosage) || ''
   const preparation = cleanText(data.preparation) || ''
@@ -315,11 +331,13 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   const region = cleanText(data.region) || ''
   const category = cleanText(data.class ?? data.category) || ''
   const intensity = cleanText(data.intensity) || ''
-  const relatedEntities = splitClean(data.relatedEntities)
-  const relatedCompounds = splitClean(data.relatedCompounds)
+  const relatedEntities = splitClean(data.relatedEntities ?? context.foundIn)
+  const relatedCompounds = splitClean(data.relatedCompounds ?? context.relatedCompounds)
   const identity = cleanText(data.identity) || ''
   const categoryUseContext = cleanText(data.categoryUseContext ?? data.category_use_context) || ''
-  const evidenceLevel = cleanText(data.evidenceLevel ?? data.evidence_level) || ''
+  const evidenceLevel =
+    cleanText(data.evidenceLevel ?? data.evidence_level ?? safetyRecord.evidence ?? safetyRecord.confidence) ||
+    ''
   const benefits = splitClean(data.benefits ?? data.effects)
 
   return {
@@ -364,8 +382,8 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
       name: common || scientific || slug,
       summary: description,
       description,
-      whyItMatters: cleanText(data.whyItMatters) || description,
-      primaryEffects: splitClean(data.primaryEffects ?? effects),
+      whyItMatters: cleanText(data.whyItMatters ?? data.coreInsight ?? data.overview) || description,
+      primaryEffects: splitClean(data.primaryEffects ?? data.keyEffects ?? effects),
       effects,
       contraindications,
       interactions,
@@ -378,12 +396,14 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
 }
 
 function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
+  const context = readContextRecord(raw)
+  const safetyRecord = readSafetyRecord(raw)
   const slug = String(raw.slug || '')
     .trim()
     .toLowerCase()
   const common = cleanText(raw.common ?? raw.commonName ?? raw.name) || ''
   const scientific = cleanText(raw.scientific ?? raw.latin ?? raw.scientificName) || ''
-  const effects = splitClean(raw.effects)
+  const effects = splitClean(raw.effects ?? raw.keyEffects)
   const activeCompounds = splitClean(raw.activeCompounds ?? raw.compounds)
   const confidence = String(raw.confidence || '').toLowerCase()
   const confidenceLevel: Herb['confidence'] =
@@ -398,11 +418,11 @@ function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
     category: cleanText(raw.category) || '',
     class: cleanText(raw.class) || '',
     confidence: confidenceLevel,
-    summaryShort: cleanText(raw.summaryShort ?? raw.description) || '',
-    description: cleanText(raw.description ?? raw.summaryShort) || '',
-    mechanism: cleanText(raw.mechanism) || '',
+    summaryShort: cleanText(raw.summaryShort ?? raw.description ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
+    description: cleanText(raw.description ?? raw.summaryShort ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
+    mechanism: cleanText(raw.mechanism ?? raw.mechanisms) || '',
     effects,
-    primaryEffects: splitClean(raw.primaryEffects ?? effects).slice(0, 4),
+    primaryEffects: splitClean(raw.primaryEffects ?? raw.keyEffects ?? effects).slice(0, 4),
     activeCompounds,
     compounds: activeCompounds,
     interactionTags: splitClean(raw.interactionTags),
@@ -410,11 +430,11 @@ function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
     interactions: splitClean(raw.interactions),
     contraindications: splitClean(raw.contraindications),
     mechanismOfAction: cleanText(raw.mechanismOfAction) || '',
-    safety: cleanText(raw.safety) || '',
+    safety: cleanText(raw.safety ?? safetyRecord.caution ?? safetyRecord.summary) || '',
     sideEffects: cleanText(raw.sideEffects) || '',
     toxicity: cleanText(raw.toxicity) || '',
     tags: splitClean(raw.tags),
-    region: cleanText(raw.region) || '',
+    region: cleanText(raw.region ?? context.region) || '',
     legalstatus: cleanText(raw.legalstatus) || '',
     commonName: cleanText(raw.commonName) || '',
     activeConstituents: Array.isArray(raw.activeConstituents)

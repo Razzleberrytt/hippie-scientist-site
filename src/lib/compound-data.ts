@@ -236,13 +236,27 @@ function normalizeSources(value: unknown): SourceRef[] {
     .filter((item): item is SourceRef => Boolean(item))
 }
 
+function readContextRecord(data: Record<string, unknown>): Record<string, unknown> {
+  const context = data.context
+  return context && typeof context === 'object' ? (context as Record<string, unknown>) : {}
+}
+
+function readSafetyRecord(data: Record<string, unknown>): Record<string, unknown> {
+  const safety = data.safety
+  return safety && typeof safety === 'object' ? (safety as Record<string, unknown>) : {}
+}
+
 function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   const { data } = sanitizeCompoundRecord(raw, { debug: import.meta.env.DEV })
+  const context = readContextRecord(data)
+  const safetyRecord = readSafetyRecord(data)
   const name = cleanText(data.name ?? data.commonName ?? data.id) || ''
   const slug = String(data.slug || slugify(name))
-  const effects = splitClean(data.effects)
-  const herbs = splitClean(data.associatedHerbs ?? data.foundInHerbs ?? data.herbs ?? data.foundIn)
-  const mechanism = cleanText(data.mechanism ?? data.mechanismOfAction) || ''
+  const effects = splitClean(data.effects ?? data.keyEffects)
+  const herbs = splitClean(
+    data.associatedHerbs ?? data.foundInHerbs ?? data.herbs ?? data.foundIn ?? context.foundIn,
+  )
+  const mechanism = cleanText(data.mechanism ?? data.mechanisms ?? data.mechanismOfAction) || ''
   const researchEnrichment = normalizeResearchEnrichment(data.researchEnrichment)
   const rawInteractionTags = splitClean(data.interactionTags)
   const rawInteractionNotes = splitClean(data.interactionNotes)
@@ -254,9 +268,11 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   })
   const identity = cleanText(data.identity) || ''
   const categoryUseContext = cleanText(data.categoryUseContext ?? data.category_use_context) || ''
-  const evidenceLevel = cleanText(data.evidenceLevel ?? data.evidence_level) || ''
-  const relatedEntities = splitClean(data.relatedEntities)
-  const relatedCompounds = splitClean(data.relatedCompounds)
+  const evidenceLevel =
+    cleanText(data.evidenceLevel ?? data.evidence_level ?? safetyRecord.evidence ?? safetyRecord.confidence) ||
+    ''
+  const relatedEntities = splitClean(data.relatedEntities ?? context.foundIn)
+  const relatedCompounds = splitClean(data.relatedCompounds ?? context.relatedCompounds)
   const linkedHerbs = splitClean(data.linkedHerbs)
   const compounds = splitClean(data.compounds ?? data.relatedCompounds)
   const benefits = splitClean(data.benefits ?? data.effects)
@@ -266,7 +282,8 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     id: String(data.id || slug),
     slug,
     name,
-    description: cleanText(data.description ?? data.summary) || '',
+    description:
+      cleanText(data.description ?? data.summary ?? data.hero ?? data.intro ?? data.coreInsight) || '',
     className: cleanText(data.class ?? data.type ?? data.className) || '',
     category: cleanText(data.category ?? data.class ?? data.type ?? data.className) || '',
     intensity: cleanText(data.intensity) || '',
@@ -301,15 +318,17 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     lastUpdated: String(data.lastUpdated || data.updatedAt || '').trim(),
     curatedData: getCuratedData({
       name,
-      summary: cleanText(data.summary) || cleanText(data.description) || '',
-      description: cleanText(data.description ?? data.summary) || '',
-      whyItMatters: cleanText(data.whyItMatters) || '',
-      primaryEffects: splitClean(data.primaryEffects ?? effects),
+      summary:
+        cleanText(data.summary ?? data.description ?? data.hero ?? data.intro ?? data.coreInsight) || '',
+      description:
+        cleanText(data.description ?? data.summary ?? data.hero ?? data.intro ?? data.coreInsight) || '',
+      whyItMatters: cleanText(data.whyItMatters ?? data.coreInsight ?? data.overview) || '',
+      primaryEffects: splitClean(data.primaryEffects ?? data.keyEffects ?? effects),
       effects,
       contraindications: splitClean(data.contraindications),
       interactions: splitClean(data.interactions),
       sideEffects: splitClean(data.sideEffects),
-      safety: splitClean(data.safety),
+      safety: splitClean(data.safety ?? safetyRecord.caution ?? safetyRecord.notes ?? safetyRecord.summary),
       mechanism,
     }),
     rawData: data as Record<string, unknown>,
@@ -317,8 +336,9 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
 }
 
 function normalizeCompoundSummary(raw: Record<string, unknown>): CompoundSummaryRecord {
-  const effects = splitClean(raw.effects)
-  const herbs = splitClean(raw.herbs)
+  const context = readContextRecord(raw)
+  const effects = splitClean(raw.effects ?? raw.keyEffects)
+  const herbs = splitClean(raw.herbs ?? raw.foundIn ?? context.foundIn)
   const confidence = String(raw.confidence || '')
     .trim()
     .toLowerCase()
@@ -329,13 +349,13 @@ function normalizeCompoundSummary(raw: Record<string, unknown>): CompoundSummary
       .trim()
       .toLowerCase(),
     name: cleanText(raw.name) || '',
-    summaryShort: cleanText(raw.summaryShort ?? raw.description) || '',
-    description: cleanText(raw.description ?? raw.summaryShort) || '',
+    summaryShort: cleanText(raw.summaryShort ?? raw.description ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
+    description: cleanText(raw.description ?? raw.summaryShort ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
     className: cleanText(raw.className) || '',
     category: cleanText(raw.category ?? raw.className) || '',
-    mechanism: cleanText(raw.mechanism) || '',
+    mechanism: cleanText(raw.mechanism ?? raw.mechanisms) || '',
     effects,
-    primaryEffects: splitClean(raw.primaryEffects ?? effects).slice(0, 4),
+    primaryEffects: splitClean(raw.primaryEffects ?? raw.keyEffects ?? effects).slice(0, 4),
     herbs,
     confidence: confidence === 'high' || confidence === 'medium' ? confidence : 'low',
     hasInteractionData: Boolean(raw.hasInteractionData),
