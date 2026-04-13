@@ -5,6 +5,11 @@ import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import { useCompoundDataState } from '@/lib/compound-data'
 import { useHerbDataState, useHerbDetailState } from '@/lib/herb-data'
+import {
+  dedupePresentationList,
+  normalizePresentationLabel,
+  sanitizeSummaryText,
+} from '@/lib/sanitize'
 import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { SITE_URL, breadcrumbJsonLd, herbJsonLd } from '@/lib/seo'
 
@@ -23,16 +28,6 @@ function toTitleCase(value: string) {
     .replace(/\b\w/g, letter => letter.toUpperCase())
 }
 
-function sentenceClamp(text: string, maxSentences = 3) {
-  const cleaned = String(text || '').replace(/\s+/g, ' ').trim()
-  if (!cleaned) return ''
-  const sentences = cleaned.match(/[^.!?]+[.!?]?/g) || [cleaned]
-  return sentences
-    .slice(0, maxSentences)
-    .map(s => s.trim())
-    .join(' ')
-}
-
 function splitTextList(value: unknown): string[] {
   if (Array.isArray(value)) {
     return value
@@ -43,35 +38,6 @@ function splitTextList(value: unknown): string[] {
     .split(/[;,]/)
     .map(item => item.trim())
     .filter(Boolean)
-}
-
-function dedupeCaseInsensitive(values: string[]) {
-  const seen = new Set<string>()
-  const unique: string[] = []
-  values.forEach(value => {
-    const key = value.trim().toLowerCase()
-    if (!key || seen.has(key)) return
-    seen.add(key)
-    unique.push(value.trim())
-  })
-  return unique
-}
-
-function cleanReadableLabel(value: string) {
-  return String(value || '')
-    .replace(/\([^)]*\)/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-}
-
-function isMalformedEffectLabel(value: string) {
-  const normalized = cleanReadableLabel(value).toLowerCase()
-  if (!normalized) return true
-  if (normalized.length < 5) return true
-  if (/^[a-z]+$/.test(normalized) && normalized.length <= 6) return true
-  if (/^(anti|sedat|anxiol|analg|adapt|stimul)$/i.test(normalized)) return true
-  if (!/[a-z]/i.test(normalized)) return true
-  return false
 }
 
 function toEvidenceStrengthLabel(value: string) {
@@ -182,15 +148,12 @@ export default function HerbDetail() {
   const scientificName = String(herb.scientific || herb.latinName || '').trim()
   const description = String(herb.description || herb.summary || '').trim()
   const descriptionIsPlaceholder = isPlaceholder(description, herbName)
-  const summary = sentenceClamp(description, 2)
+  const summary = sanitizeSummaryText(description, 2)
 
-  const effects = dedupeCaseInsensitive(splitTextList(herb.primaryEffects || herb.effects))
-    .map(cleanReadableLabel)
-    .filter(effect => !isMalformedEffectLabel(effect))
+  const effects = dedupePresentationList(splitTextList(herb.primaryEffects || herb.effects), 8)
     .map(toTitleCase)
-    .slice(0, 8)
   const keyEffects = effects.slice(0, 4)
-  const activeCompounds = dedupeCaseInsensitive(splitTextList(herb.activeCompounds || herb.compounds))
+  const activeCompounds = dedupePresentationList(splitTextList(herb.activeCompounds || herb.compounds), 10)
   const mechanism = String(herb.mechanism || herb.mechanismOfAction || '').trim()
   const dosage = String(herb.dosage || '').trim()
   const duration = String(herb.duration || '').trim()
@@ -201,14 +164,14 @@ export default function HerbDetail() {
   const sideEffects = splitTextList(herb.sideeffects || herb.sideEffects)
   const safety = splitTextList((herb as Record<string, unknown>).safetyNotes || (herb as Record<string, unknown>).safety)
 
-  const safetyNotes = dedupeCaseInsensitive([
+  const safetyNotes = dedupePresentationList([
     ...contraindications,
     ...interactions,
     ...sideEffects,
     ...safety,
-  ])
-    .map(note => note.replace(/\s+/g, ' ').trim())
-    .filter(note => note.length >= 5)
+  ], 8)
+    .map(note => normalizePresentationLabel(note))
+    .filter(Boolean)
     .map(toTitleCase)
 
   const priorityWarning = safetyNotes.find(note => /(pregnancy|cardiac|avoid)/i.test(note))
@@ -283,7 +246,6 @@ export default function HerbDetail() {
         <div className='sr-only' aria-hidden='true'>
           <h1>{herbName}</h1>
           <p>{description}</p>
-          <ul>{effects.map(effect => <li key={`static-effect-${effect}`}>{effect}</li>)}</ul>
           <ul>{safetyNotes.map(note => <li key={`static-safety-${note}`}>{note}</li>)}</ul>
         </div>
 

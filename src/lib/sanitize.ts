@@ -37,6 +37,7 @@ const JUNK_WHOLE_VALUE: RegExp[] = [
 ]
 
 const NUMERIC_ONLY = /^\d+(?:[\s.,/-]\d+)*$/
+const BROKEN_TOKEN = /^(anti|sedat|anxiol|analg|adapt|stimul|effect|effects?)$/i
 
 /** True if a string is entirely junk — should not be rendered at all. */
 export function isJunk(value: unknown): boolean {
@@ -163,4 +164,56 @@ export function sanitizeReadableText(value: unknown): string {
   })
 
   return Array.from(deduped.values()).join(' ').trim()
+}
+
+function normalizeGuardKey(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/^contextual inference:\s*/i, '')
+    .replace(/\([^)]*\)/g, ' ')
+    .replace(/[^\w\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function looksBroken(value: string): boolean {
+  const normalized = value.trim()
+  if (!normalized) return true
+  if (normalized.length < 4) return true
+  if (BROKEN_TOKEN.test(normalized)) return true
+  if (!/[a-z]/i.test(normalized)) return true
+  return false
+}
+
+export function normalizePresentationLabel(value: unknown): string {
+  const cleaned = sanitizeReadableText(value)
+    .replace(/^contextual inference:\s*/i, '')
+    .replace(/\(inferred from related species\)/gi, '(inferred)')
+    .replace(/\s+/g, ' ')
+    .trim()
+  if (!cleaned || looksBroken(cleaned)) return ''
+  return cleaned
+}
+
+export function dedupePresentationList(value: unknown, maxItems = 8): string[] {
+  const seen = new Set<string>()
+  const output: string[] = []
+  splitClean(value)
+    .map(entry => normalizePresentationLabel(entry))
+    .filter(Boolean)
+    .forEach(entry => {
+      const key = normalizeGuardKey(entry)
+      if (!key || seen.has(key)) return
+      seen.add(key)
+      output.push(entry)
+    })
+  return output.slice(0, Math.max(0, maxItems))
+}
+
+export function sanitizeSummaryText(value: unknown, maxSentences = 2): string {
+  const cleaned = sanitizeReadableText(value)
+  if (!cleaned) return ''
+  const sentences = cleaned.match(/[^.!?]+[.!?]?/g) || [cleaned]
+  const kept = dedupePresentationList(sentences, maxSentences)
+  return kept.join(' ').trim()
 }
