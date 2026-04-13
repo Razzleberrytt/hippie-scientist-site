@@ -85,6 +85,7 @@ const SHEET_HEADER_ALIASES = {
     scoretier: 'scoreTier',
   },
   'Site Export Compounds': {
+    name: 'compoundName',
     compound: 'compoundName',
     canonicalcompoundname: 'canonicalCompoundName',
     canonicalcompoundid: 'canonicalCompoundId',

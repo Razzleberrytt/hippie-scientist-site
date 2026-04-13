@@ -757,7 +757,7 @@ function resolveCompoundPrimary(compoundIndex, row) {
 }
 
 function resolveCompoundRetry(compoundIndex, row) {
-  const nameCandidates = [cleanText(row.compoundName), cleanText(row.canonicalCompoundName)]
+  const nameCandidates = [cleanText(row.compoundName), cleanText(row.name), cleanText(row.canonicalCompoundName)]
   for (const candidate of nameCandidates) {
     for (const normalizedName of compoundNormalizationVariants(candidate)) {
       const nameMatch = compoundIndex.byNormalizedCompoundName.get(normalizedName)
@@ -881,7 +881,7 @@ function patchCompound(compound, row, reservedCanonicalIds, fieldPatchCounts) {
   let patched = false
 
   const workbookCanonicalId = cleanText(row.canonicalCompoundId)
-  const fallbackCanonicalId = slugify(row.compoundName || row.canonicalCompoundName)
+  const fallbackCanonicalId = slugify(row.compoundName || row.name || row.canonicalCompoundName)
   const canonicalId = workbookCanonicalId || fallbackCanonicalId
   const canPatchCanonicalId =
     (workbookCanonicalId && isStableSlug(workbookCanonicalId)) ||
@@ -904,7 +904,7 @@ function patchCompound(compound, row, reservedCanonicalIds, fieldPatchCounts) {
     reservedCanonicalIds.add(canonicalId)
   }
 
-  const compoundName = cleanText(row.compoundName || row.canonicalCompoundName)
+  const compoundName = cleanText(row.compoundName || row.name || row.canonicalCompoundName)
   if (shouldPatchScalar(compound.compoundName, compoundName, { minCandidateLength: 3, minGain: 0 })) {
     patched = patchField(compound, 'compoundName', compoundName, fieldPatchCounts) || patched
   }
@@ -1030,7 +1030,7 @@ function main() {
   const { rows: compoundRows, fallbackUsage: compoundFallbackUsage } = rowsByPrimaryWithOptionalFallback({
     primaryRows: primaryCompoundRows,
     fallbackRows: fallbackCompoundRows,
-    getKey: row => cleanText(row.canonicalCompoundId || row.compoundName || row.canonicalCompoundName),
+    getKey: row => cleanText(row.canonicalCompoundId || row.compoundName || row.name || row.canonicalCompoundName),
     allowLegacyFallback: options.allowLegacyFallback,
     entityType: 'compound',
   })

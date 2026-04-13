@@ -236,6 +236,10 @@ function exportHerbs(workbook, diagnostics, options) {
       commonNames: splitSemicolonOrCommaList(row.commonNames),
       region: cleanScalar(row.region),
       summary: cleanScalar(row.summary),
+      hero: cleanScalar(row.hero),
+      coreInsight: cleanScalar(row.coreInsight),
+      effects: splitSemicolonOrCommaList(row.effects),
+      mechanisms: splitSemicolonOrCommaList(row.mechanisms),
       description: cleanScalar(row.description),
       mechanism: cleanScalar(row.mechanism),
       mechanismTags: withFallbackList(row.mechanismTags, row.pathwayTargets),
@@ -269,7 +273,7 @@ function exportHerbs(workbook, diagnostics, options) {
         row.interactionCitations,
       ].filter(Boolean).join(';')),
     }))
-    .filter(record => Boolean(record.publishStatus))
+    .filter(record => Boolean(record.name))
 
   const deduped = dedupeBy(records, record => record.slug || record.name).map(record => {
     const withNormalizedSlug = { ...record, slug: normalizeRecordSlug(record, 'slug') }
@@ -291,12 +295,16 @@ function exportCompounds(workbook, diagnostics, options) {
   })
 
   const records = rows.map(row => ({
-    id: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.canonicalCompoundName || row.Compound),
-    slug: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.canonicalCompoundName || row.Compound),
-    canonicalCompoundId: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.canonicalCompoundName || row.Compound),
-    name: cleanScalar(row.compoundName || row.canonicalCompoundName || row.Compound),
-    compoundName: cleanScalar(row.compoundName || row.canonicalCompoundName || row.Compound),
-    canonicalCompoundName: cleanScalar(row.canonicalCompoundName || row.compoundName || row.Compound),
+    id: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.name || row.canonicalCompoundName || row.Compound),
+    slug: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.name || row.canonicalCompoundName || row.Compound),
+    canonicalCompoundId: cleanScalar(row.canonicalCompoundId) || slugify(row.compoundName || row.name || row.canonicalCompoundName || row.Compound),
+    name: cleanScalar(row.compoundName || row.name || row.canonicalCompoundName || row.Compound),
+    compoundName: cleanScalar(row.compoundName || row.name || row.canonicalCompoundName || row.Compound),
+    canonicalCompoundName: cleanScalar(row.canonicalCompoundName || row.compoundName || row.name || row.Compound),
+    hero: cleanScalar(row.hero),
+    coreInsight: cleanScalar(row.coreInsight),
+    effects: splitSemicolonOrCommaList(row.effects),
+    mechanisms: splitSemicolonOrCommaList(row.mechanisms),
     aliases: splitSemicolonOrCommaList(row.aliases),
     compoundClass: cleanScalar(row.compoundClass),
     class: cleanScalar(row.compoundClass),
@@ -319,7 +327,7 @@ function exportCompounds(workbook, diagnostics, options) {
     reverseLookupReady: cleanScalar(row.reverseLookupReady),
   }))
 
-  const deduped = dedupeBy(records, record => record.id || record.name).map(record => {
+  const deduped = dedupeBy(records.filter(record => Boolean(record.name)), record => record.id || record.name).map(record => {
     const slug = normalizeRecordSlug(record, 'slug')
     const canonicalCompoundId = normalizeRecordSlug({ canonicalCompoundId: record.canonicalCompoundId || record.id }, 'canonicalCompoundId')
     const cleaned = {
