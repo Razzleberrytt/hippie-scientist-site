@@ -130,6 +130,18 @@ function normalizeTextValue(value: unknown): string {
   return String(value || '').trim()
 }
 
+function readRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === 'object' ? (value as Record<string, unknown>) : {}
+}
+
+function readWorkbookText(record: Record<string, unknown>, ...keys: string[]): string {
+  for (const key of keys) {
+    const value = normalizeTextValue(record[key])
+    if (value) return value
+  }
+  return ''
+}
+
 function splitPipeList(value: unknown): string[] {
   if (Array.isArray(value)) {
     return value.map(item => normalizeTextValue(item)).filter(Boolean)
@@ -194,6 +206,9 @@ export default function CompoundDetail() {
   }
 
   const compoundRecord = compound as unknown as Record<string, unknown>
+  const rawRecord = readRecord(compound.rawData)
+  const contextRecord = readRecord(rawRecord.context)
+  const safetyRecord = readRecord(rawRecord.safety)
   const name =
     normalizeTextValue(compoundRecord.compoundName) ||
     normalizeTextValue(compoundRecord.name) ||
@@ -205,17 +220,34 @@ export default function CompoundDetail() {
   const workbookSources = uniqueNormalizedList(splitPipeList(compoundRecord.sourceUrls))
   const relatedHerbSlugs = uniqueNormalizedList(splitClean(compoundRecord.relatedHerbSlugs))
   const curatedData = compound.curatedData
-  const compoundEffects = cleanEffectChips(curatedData.keyEffects, 12)
+  const compoundEffects = cleanEffectChips(rawRecord.effects || curatedData.keyEffects || compound.effects, 12)
   const compoundContraindications = uniqueNormalizedList(compound.contraindications)
   const compoundSideEffects = uniqueNormalizedList(compound.sideEffects)
   const compoundTherapeuticUses = uniqueNormalizedList(compound.therapeuticUses)
   const compoundInteractions = uniqueNormalizedList(compound.interactions)
-  const compoundDescription = sanitizeSummaryText(curatedData.summary, 2)
-  const compoundMechanism = sanitizeReadableText(curatedData.mechanism)
+  const heroSummary = sanitizeSummaryText(
+    readWorkbookText(rawRecord, 'hero', 'summary', 'description') || curatedData.summary,
+    2,
+  )
+  const coreInsight = sanitizeSummaryText(
+    readWorkbookText(rawRecord, 'coreInsight', 'whyItMatters', 'overview') || curatedData.whyItMatters,
+    1,
+  )
+  const contextSummary = sanitizeSummaryText(
+    readWorkbookText(contextRecord, 'summary', 'overview', 'notes') || readWorkbookText(rawRecord, 'context'),
+    2,
+  )
+  const compoundDescription = heroSummary
+  const compoundMechanism = sanitizeReadableText(
+    readWorkbookText(rawRecord, 'mechanisms', 'mechanism') || curatedData.mechanism,
+  )
+  const workbookSafety = uniqueNormalizedList(
+    splitClean(safetyRecord.notes || safetyRecord.summary || safetyRecord.caution || rawRecord.safety),
+  )
   const drugInteractions = normalizeTextValue(compoundRecord.drugInteractions)
   const uniqueDrugInteractionItems = Array.from(
     new Map(
-      [...compoundInteractions, ...(drugInteractions ? [sanitizeReadableText(drugInteractions)] : [])]
+      [...workbookSafety, ...compoundInteractions, ...(drugInteractions ? [sanitizeReadableText(drugInteractions)] : [])]
         .map(item => normalizeTextValue(item))
         .filter(Boolean)
         .map(item => [normalizeKey(item), item]),
@@ -244,7 +276,8 @@ export default function CompoundDetail() {
     })
   })
 
-  const whyItMatters = sanitizeSummaryText(curatedData.whyItMatters || compoundEffects.slice(0, 2).join(' + '), 1)
+  const whyItMatters = coreInsight ||
+    sanitizeSummaryText(curatedData.whyItMatters || compoundEffects.slice(0, 2).join(' + '), 1)
   const premiumDetails = [
     { title: 'Identity', value: compound.identity },
     {
@@ -425,7 +458,7 @@ export default function CompoundDetail() {
   })
   const governedReviewFreshness = buildGovernedReviewFreshness(governedResearch)
   const topSummary = sanitizeSummaryText(
-    governedIntro.whatItIs || governedIntro.commonUse || compoundDescription || compoundMechanism,
+    compoundDescription || coreInsight || governedIntro.whatItIs || governedIntro.commonUse || compoundMechanism,
     1,
   )
   const topEffects = primaryEffects.slice(0, 4)
@@ -606,6 +639,10 @@ export default function CompoundDetail() {
         )}
 
         {compoundMechanism && <Section title='Mechanism of Action'>{compoundMechanism}</Section>}
+
+        {contextSummary && contextSummary !== topSummary && (
+          <Section title='Context'>{contextSummary}</Section>
+        )}
 
         {compoundEffects.length > 0 && (
           <Section title='Effects'>
