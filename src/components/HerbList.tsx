@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from '@/lib/motion'
 import type { Herb } from '../types'
 import HerbCard from './HerbCard'
 import { buildCardSummary } from '@/lib/summary'
-import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { hasVal } from '@/lib/pretty'
 import { slugify } from '@/lib/slug'
 
@@ -67,7 +66,13 @@ const HerbList: React.FC<Props> = ({
                     maxLen: 130,
                   }) || 'Learn more about this herb and its potential uses.'
                 }
-                tags={extractPrimaryEffects(Array.isArray(h.effects) ? h.effects : [], 2)}
+                primary_effects={Array.isArray((h as Record<string, unknown>).primary_effects)
+                  ? ((h as Record<string, unknown>).primary_effects as string[])
+                  : Array.isArray((h as Record<string, unknown>).primaryEffects)
+                    ? ((h as Record<string, unknown>).primaryEffects as string[])
+                    : []}
+                profile_status={String((h as Record<string, unknown>).profile_status || (h as Record<string, unknown>).profileStatus || '')}
+                summary_quality={String((h as Record<string, unknown>).summary_quality || (h as Record<string, unknown>).summaryQuality || '')}
                 detailUrl={
                   hasVal(h.slug)
                     ? `/herbs/${encodeURIComponent(String(h.slug))}`

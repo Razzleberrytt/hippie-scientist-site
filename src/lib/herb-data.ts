@@ -256,6 +256,18 @@ function normalizeProductRecommendations(value: unknown): ProductRecommendation[
 
 function readContextRecord(data: Record<string, unknown>): Record<string, unknown> {
   const context = data.context
+  if (typeof context === 'string') {
+    const trimmed = context.trim()
+    if (!trimmed) return {}
+    try {
+      const parsed = JSON.parse(trimmed)
+      return parsed && typeof parsed === 'object' && !Array.isArray(parsed)
+        ? (parsed as Record<string, unknown>)
+        : {}
+    } catch {
+      return {}
+    }
+  }
   return context && typeof context === 'object' ? (context as Record<string, unknown>) : {}
 }
 
@@ -305,7 +317,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     seed: seededInteraction,
   })
 
-  const mechanism = cleanText(data.mechanism ?? data.mechanisms ?? data.mechanismOfAction) || ''
+  const mechanism = cleanText(data.mechanism ?? splitClean(data.mechanisms).join('; ') ?? data.mechanismOfAction) || ''
   const description =
     cleanText(data.description ?? data.summary ?? data.hero ?? data.intro ?? data.coreInsight) || ''
   const duration = cleanText(data.duration) || ''
@@ -367,7 +379,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
       summary: description,
       description,
       whyItMatters: cleanText(data.whyItMatters ?? data.coreInsight ?? data.overview) || description,
-      primaryEffects: splitClean(data.primaryEffects ?? data.keyEffects ?? effects),
+      primaryEffects: splitClean(data.primary_effects ?? data.primaryEffects ?? data.keyEffects ?? effects),
       effects,
       contraindications,
       interactions,
@@ -404,9 +416,9 @@ function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
     confidence: confidenceLevel,
     summaryShort: cleanText(raw.summaryShort ?? raw.description ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
     description: cleanText(raw.description ?? raw.summaryShort ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
-    mechanism: cleanText(raw.mechanism ?? raw.mechanisms) || '',
+    mechanism: cleanText(raw.mechanism ?? splitClean(raw.mechanisms).join('; ')) || '',
     effects,
-    primaryEffects: splitClean(raw.primaryEffects ?? raw.keyEffects ?? effects).slice(0, 4),
+    primaryEffects: splitClean(raw.primary_effects ?? raw.primaryEffects ?? raw.keyEffects ?? effects).slice(0, 4),
     activeCompounds,
     compounds: activeCompounds,
     interactionTags: splitClean(raw.interactionTags),

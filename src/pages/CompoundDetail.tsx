@@ -16,7 +16,6 @@ import { normalizeTagList } from '@/lib/tagNormalization'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { getCompoundDataCompleteness } from '@/utils/getDataCompleteness'
-import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { CompoundDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { mapRelatedHerbsForCompound } from '@/lib/compoundHerbRelations'
 import HerbCard from '@/components/HerbCard'
@@ -53,6 +52,7 @@ import { buildFallbackCompoundIntro, buildGovernedDetailIntro } from '@/lib/gove
 import { resolveGovernedCtaDecision } from '@/lib/governedCta'
 import { buildGovernedReviewFreshness } from '@/lib/governedReviewFreshness'
 import { shouldShowRawDebug } from '@/lib/semanticCompression'
+import { getPrimaryEffects, getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -133,6 +133,18 @@ function normalizeTextValue(value: unknown): string {
 }
 
 function readRecord(value: unknown): Record<string, unknown> {
+  if (typeof value === 'string') {
+    const trimmed = value.trim()
+    if (!trimmed) return {}
+    try {
+      const parsed = JSON.parse(trimmed)
+      return parsed && typeof parsed === 'object' && !Array.isArray(parsed)
+        ? (parsed as Record<string, unknown>)
+        : {}
+    } catch {
+      return {}
+    }
+  }
   return value && typeof value === 'object' ? (value as Record<string, unknown>) : {}
 }
 
@@ -208,6 +220,9 @@ export default function CompoundDetail() {
   const rawRecord = readRecord(compound.rawData)
   const contextRecord = readRecord(rawRecord.context)
   const safetyRecord = readRecord(rawRecord.safety)
+  const profileStatus = getProfileStatus(rawRecord)
+  const summaryQuality = getSummaryQuality(rawRecord)
+  const isMinimalProfile = profileStatus === 'minimal'
   const name =
     normalizeTextValue(compoundRecord.compoundName) ||
     normalizeTextValue(compoundRecord.name) ||
@@ -362,7 +377,7 @@ export default function CompoundDetail() {
     herbs: compound.herbs,
   })
 
-  const primaryEffects = cleanEffectChips(extractPrimaryEffects(compoundEffects, 8), 5)
+  const primaryEffects = cleanEffectChips(getPrimaryEffects(rawRecord, 5), 5)
 
   const sourceCount = compound.sources.length
   const cautionCount = countCautionSignals({
@@ -564,18 +579,18 @@ export default function CompoundDetail() {
           <div className='flex flex-wrap items-start justify-between gap-3'>
             <h1 className='text-3xl font-semibold leading-tight'>{name}</h1>
           </div>
-          {topSummary && (
+          {shouldRenderSummary(profileStatus, summaryQuality) && topSummary && (
             <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>
               {topSummary}
             </p>
           )}
           <div className='mt-4 grid gap-3 sm:grid-cols-3'>
-            <section className='detail-panel rounded-lg p-3'>
+            {!isMinimalProfile && <section className='detail-panel rounded-lg p-3'>
               <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56'>Why it matters</h2>
               <p className='mt-1 text-xs text-white/80'>
                 {whyItMatters || 'Tracked for mechanism context and potential outcomes.'}
               </p>
-            </section>
+            </section>}
             <section className='detail-panel rounded-lg p-3'>
               <h2 className='text-[11px] font-semibold uppercase tracking-[0.16em] text-white/62'>Key effects</h2>
               <div className='mt-1 flex flex-wrap gap-1.5'>
@@ -585,17 +600,15 @@ export default function CompoundDetail() {
                       {effect}
                     </span>
                   ))
-                ) : (
-                  <p className='text-xs text-white/80'>Effects being reviewed.</p>
-                )}
+                ) : null}
               </div>
             </section>
-            <section className='detail-panel rounded-lg p-3'>
+            {!isMinimalProfile && <section className='detail-panel rounded-lg p-3'>
               <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56'>Where it appears</h2>
               <p className='mt-1 text-xs text-white/80'>
                 {whereAppears.join(', ') || 'Related herbs listed below.'}
               </p>
-            </section>
+            </section>}
           </div>
           {(confidence || sourceCount > 0 || cautionCount > 0) && (
             <div className='mt-3 flex flex-wrap gap-1.5'>
@@ -625,7 +638,7 @@ export default function CompoundDetail() {
         </header>
 
         {/* Core fields — only render when value is present */}
-        {compoundDescription && compoundDescription !== topSummary && (
+        {!isMinimalProfile && compoundDescription && compoundDescription !== topSummary && (
           <Section title='Overview'>
             {compoundDescription}
             {displayClass && (
@@ -650,9 +663,9 @@ export default function CompoundDetail() {
           </div>
         )}
 
-        {compoundMechanism && <Section title='Mechanism of Action'>{compoundMechanism}</Section>}
+        {!isMinimalProfile && compoundMechanism && <Section title='Mechanism of Action'>{compoundMechanism}</Section>}
 
-        {contextSummary && contextSummary !== topSummary && (
+        {!isMinimalProfile && contextSummary && contextSummary !== topSummary && (
           <Section title='Context'>{contextSummary}</Section>
         )}
 
@@ -665,9 +678,9 @@ export default function CompoundDetail() {
         <PremiumDataSection details={premiumDetails} relationGroups={relationGroups} />
 
 
-        {pharmacokinetics && <Section title='Pharmacokinetics'>{pharmacokinetics}</Section>}
+        {!isMinimalProfile && pharmacokinetics && <Section title='Pharmacokinetics'>{pharmacokinetics}</Section>}
 
-        {pathwayTargets.length > 0 && (
+        {!isMinimalProfile && pathwayTargets.length > 0 && (
           <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
             <Collapse title='Pathway Targets'>
               <div className='flex flex-wrap gap-2 text-sm text-white/85'>
@@ -681,7 +694,7 @@ export default function CompoundDetail() {
           </section>
         )}
 
-        {compoundTherapeuticUses.length > 0 && (
+        {!isMinimalProfile && compoundTherapeuticUses.length > 0 && (
           <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
             <Collapse title='Traditional & Therapeutic Use'>
               <div className='text-sm leading-relaxed text-white/85'>
@@ -692,7 +705,7 @@ export default function CompoundDetail() {
         )}
 
         {/* Safety */}
-        {(compoundContraindications.length > 0 ||
+        {!isMinimalProfile && (compoundContraindications.length > 0 ||
           compoundInteractions.length > 0 ||
           compoundSideEffects.length > 0 ||
           uniqueDrugInteractionItems.length > 0) && (
@@ -733,7 +746,7 @@ export default function CompoundDetail() {
         )}
 
         {/* Found in */}
-        {foundInHerbLinks.length > 0 && (
+        {!isMinimalProfile && foundInHerbLinks.length > 0 && (
           <section id='related-herbs' className='detail-panel fade-in-surface mt-6'>
             <Collapse title={`Found In (${foundInHerbLinks.length})`}>
               <div className='space-y-4 text-sm leading-relaxed text-white/85'>
@@ -744,7 +757,13 @@ export default function CompoundDetail() {
                         key={herb.slug}
                         name={herb.name}
                         summary={herb.descriptor || 'Learn more about this herb and its potential uses.'}
-                        tags={extractPrimaryEffects(herb.effects, 2)}
+                        primary_effects={Array.isArray((herb as Record<string, unknown>).primary_effects)
+                          ? ((herb as Record<string, unknown>).primary_effects as string[])
+                          : Array.isArray((herb as Record<string, unknown>).primaryEffects)
+                            ? ((herb as Record<string, unknown>).primaryEffects as string[])
+                            : []}
+                        profile_status={String((herb as Record<string, unknown>).profile_status || (herb as Record<string, unknown>).profileStatus || '')}
+                        summary_quality={String((herb as Record<string, unknown>).summary_quality || (herb as Record<string, unknown>).summaryQuality || '')}
                         detailUrl={`/herbs/${encodeURIComponent(herb.slug)}`}
                       />
                     ))}
@@ -771,7 +790,7 @@ export default function CompoundDetail() {
           </section>
         )}
 
-        {relatedCollections.length > 0 && (
+        {!isMinimalProfile && relatedCollections.length > 0 && (
           <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
             <Collapse title='Compare in Related Collections'>
               <div className='space-y-2 text-sm text-white/85'>
@@ -803,7 +822,7 @@ export default function CompoundDetail() {
           </section>
         )}
 
-        {governedResearch && governedFaq && governedRelatedQuestions && (
+        {!isMinimalProfile && governedResearch && governedFaq && governedRelatedQuestions && (
           <>
             {showRawDebug && compound.rawData && (
               <section className='detail-panel rounded-2xl border-amber-200/30 p-4'>

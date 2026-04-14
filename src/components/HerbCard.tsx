@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Card from './ui/Card'
 import { formatBrowseTitle } from '@/utils/titleDisplay'
 import { normalizeTagList } from '@/lib/tagNormalization'
+import { getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
 
 interface HerbCardProps {
   name: string
@@ -18,6 +19,9 @@ interface HerbCardProps {
   evidenceLevel?: string
   detailUrl: string
   compact?: boolean
+  profile_status?: string
+  summary_quality?: string
+  primary_effects?: string[]
 }
 
 function HerbCard({
@@ -33,13 +37,22 @@ function HerbCard({
   evidenceLevel,
   detailUrl,
   compact = false,
+  profile_status,
+  summary_quality,
+  primary_effects = [],
 }: HerbCardProps) {
-  const mergedTags = normalizeTagList([...effects, ...tags, ...mechanismTags], { caseStyle: 'title', maxItems: 6 })
-  const primaryTag = mergedTags[0]
+  const profileStatus = getProfileStatus({ profile_status })
+  const summaryQuality = getSummaryQuality({ summary_quality })
+  const showSummary = shouldRenderSummary(profileStatus, summaryQuality)
+  const isMinimal = profileStatus === 'minimal'
+  const isPartial = profileStatus === 'partial'
+  const pills = normalizeTagList(primary_effects, { caseStyle: 'title', maxItems: 2 })
+  const fallbackTags = normalizeTagList([...tags, ...mechanismTags], { caseStyle: 'title', maxItems: 2 })
+  const primaryTag = pills[0] || fallbackTags[0]
   const hasCompoundCount = typeof compound_count === 'number' && compound_count > 0
   const title = formatBrowseTitle(name, 60)
   const isTitleTruncated = title !== name
-  const summaryText = hero?.trim() || coreInsight?.trim() || summary?.trim() || 'Overview coming soon.'
+  const summaryText = hero?.trim() || summary?.trim() || (summaryQuality === 'strong' ? coreInsight?.trim() : '')
 
   const chipItems = normalizeTagList([evidence_tier || evidenceLevel || '', primaryTag || ''], {
     caseStyle: 'title',
@@ -60,11 +73,13 @@ function HerbCard({
         </h2>
       </header>
 
-      <p className='line-clamp-2 text-xs leading-[1.45] text-white/78'>{summaryText}</p>
+      {showSummary && summaryText ? (
+        <p className='line-clamp-2 text-xs leading-[1.45] text-white/78'>{summaryText}</p>
+      ) : null}
 
-      {mergedTags.length > 0 && (
+      {pills.length > 0 && (
         <div className='flex flex-wrap gap-1'>
-          {mergedTags.slice(0, 2).map(tag => (
+          {pills.map(tag => (
             <span key={tag} className='ds-pill neo-pill'>
               {tag}
             </span>
@@ -74,13 +89,15 @@ function HerbCard({
 
       <div className='flex items-center justify-between gap-2 text-[11px] text-white/58'>
         <div className='truncate'>
-          {hasCompoundCount ? (
+          {isMinimal ? (
+            <span>Minimal profile</span>
+          ) : hasCompoundCount ? (
             <span className='inline-flex items-center gap-1'>
               <FlaskConical className='h-3 w-3' aria-hidden='true' />
               {compound_count} compounds
             </span>
           ) : (
-            <span>Profile</span>
+            <span>{isPartial ? 'Partial profile' : 'Profile'}</span>
           )}
         </div>
         {chipItems.length > 0 && (

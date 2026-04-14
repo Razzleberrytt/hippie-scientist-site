@@ -6,6 +6,7 @@ import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { formatBrowseTitle } from '@/utils/titleDisplay'
 import { cleanEffectChips, sanitizeSummaryText } from '@/lib/sanitize'
 import { normalizeTagList } from '@/lib/tagNormalization'
+import { getPrimaryEffects, getProfileStatus, getSummaryQuality, resolveHeroSummary, shouldRenderSummary } from '@/lib/workbookRender'
 
 interface HerbRef {
   name: string
@@ -41,8 +42,13 @@ function getWorkbookHero(compound: CompoundWithRefs): string {
 
 export default function CompoundCard({ compound }: { compound: CompoundWithRefs }) {
   const mechanism = getMechanism(compound)
+  const rawRecord = (compound.rawData as Record<string, unknown> | undefined) || {}
+  const profileStatus = getProfileStatus(rawRecord)
+  const summaryQuality = getSummaryQuality(rawRecord)
+  const isMinimal = profileStatus === 'minimal'
+  const showSummary = shouldRenderSummary(profileStatus, summaryQuality)
   const workbookEffects = cleanEffectChips(
-    (compound.rawData as Record<string, unknown> | undefined)?.effects ||
+    rawRecord.effects ||
       compound.curatedData?.keyEffects ||
       compound.effects ||
       [],
@@ -54,20 +60,26 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
     effects,
     compounds: compound.herbsFound.map(h => h.name),
   })
-  const primaryEffects = normalizeTagList(extractPrimaryEffects(effects, 2), { caseStyle: 'title', maxItems: 2 })
+  const primaryEffects = normalizeTagList(
+    getPrimaryEffects(rawRecord, 2).length ? getPrimaryEffects(rawRecord, 2) : extractPrimaryEffects(effects, 2),
+    { caseStyle: 'title', maxItems: 2 },
+  )
   const visibleHerbs = compound.herbsFound.slice(0, 2)
   const hiddenHerbCount = Math.max(compound.herbsFound.length - visibleHerbs.length, 0)
   const title = formatBrowseTitle(compound.name, 60)
   const isTitleTruncated = title !== compound.name
-  const summary = getWorkbookHero(compound) ||
-    buildCardSummary({
-      effects,
-      mechanism,
-      description: compound.description,
-      activeCompounds: compound.herbsFound.map(h => h.name),
-      maxLen: 120,
-    })?.trim() ||
-    'Summary coming soon.'
+  const summary =
+    resolveHeroSummary(rawRecord, 1) ||
+    getWorkbookHero(compound) ||
+    (summaryQuality === 'strong'
+      ? buildCardSummary({
+          effects,
+          mechanism,
+          description: compound.description,
+          activeCompounds: compound.herbsFound.map(h => h.name),
+          maxLen: 120,
+        })?.trim()
+      : '')
   const sourceLine =
     visibleHerbs.length > 0
       ? `Found in ${visibleHerbs.map(h => h.name).join(', ')}${hiddenHerbCount > 0 ? ` +${hiddenHerbCount}` : ''}`
@@ -86,12 +98,12 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
       >
         {title}
       </h2>
-      <p className='line-clamp-2 text-xs leading-[1.45] text-white/76'>{summary}</p>
+      {showSummary && summary ? <p className='line-clamp-2 text-xs leading-[1.45] text-white/76'>{summary}</p> : null}
       <div className='flex flex-wrap gap-1'>
         <span className='ds-pill neo-pill'>{normalizeTagList(confidence, { caseStyle: 'title', maxItems: 1 })[0] || confidence}</span>
         {primaryEffects[0] && <span className='ds-pill neo-pill'>{primaryEffects[0]}</span>}
       </div>
-      <p className='line-clamp-1 text-[11px] text-white/56'>{sourceLine}</p>
+      {!isMinimal && <p className='line-clamp-1 text-[11px] text-white/56'>{sourceLine}</p>}
       <div className='mt-auto' />
     </motion.article>
   )

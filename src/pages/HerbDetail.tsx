@@ -11,6 +11,7 @@ import { normalizeTagList } from '@/lib/tagNormalization'
 import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { SITE_URL, breadcrumbJsonLd, herbJsonLd } from '@/lib/seo'
 import { shouldShowRawDebug } from '@/lib/semanticCompression'
+import { getPrimaryEffects, getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
 
 type SourceRef = { title: string; url: string; note?: string }
 
@@ -32,6 +33,18 @@ function splitTextList(value: unknown): string[] {
 }
 
 function readRecord(value: unknown): Record<string, unknown> {
+  if (typeof value === 'string') {
+    const trimmed = value.trim()
+    if (!trimmed) return {}
+    try {
+      const parsed = JSON.parse(trimmed)
+      return parsed && typeof parsed === 'object' && !Array.isArray(parsed)
+        ? (parsed as Record<string, unknown>)
+        : {}
+    } catch {
+      return {}
+    }
+  }
   return value && typeof value === 'object' ? (value as Record<string, unknown>) : {}
 }
 
@@ -155,6 +168,10 @@ export default function HerbDetail() {
   const rawRecord = readRecord(herb.rawData)
   const contextRecord = readRecord(rawRecord.context)
   const safetyRecord = readRecord(rawRecord.safety)
+  const profileStatus = getProfileStatus(rawRecord)
+  const summaryQuality = getSummaryQuality(rawRecord)
+  const isMinimalProfile = profileStatus === 'minimal'
+  const showSummaryRegion = shouldRenderSummary(profileStatus, summaryQuality)
   const description = readWorkbookText(rawRecord, 'hero', 'summary', 'description') || String(curatedData.summary || '').trim()
   const descriptionIsPlaceholder = isPlaceholder(description, herbName)
   const summary = sanitizeSummaryText(description, 2)
@@ -177,7 +194,7 @@ export default function HerbDetail() {
     dedupePresentationList(splitTextList(rawRecord.effects || rawRecord.keyEffects || curatedData.keyEffects), 8),
     8,
   )
-  const keyEffects = effects.slice(0, 4)
+  const keyEffects = getPrimaryEffects(rawRecord, 4)
   const activeCompounds = sanitizeRenderList(splitTextList(herb.activeCompounds || herb.compounds), 10)
   const mechanism = uniqueCopy.mechanism
   const contextSummary = uniqueCopy.context
@@ -286,7 +303,7 @@ export default function HerbDetail() {
         <header className='premium-panel fade-in-surface p-5 sm:p-7'>
           <p className='section-label'>Herb profile</p><h1 className='mt-2 text-4xl font-semibold sm:text-5xl'>{herbName}</h1>
           {scientificName && <p className='mt-1 text-sm italic text-white/55'>{scientificName}</p>}
-          {!descriptionIsPlaceholder && (
+          {showSummaryRegion && !descriptionIsPlaceholder && (
             <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>{summary}</p>
           )}
 
@@ -302,9 +319,7 @@ export default function HerbDetail() {
                     {effect}
                   </span>
                 ))
-              ) : (
-                <span className='text-sm text-white/65'>Effects being reviewed.</span>
-              )}
+              ) : null}
             </div>
           </section>
 
@@ -313,14 +328,14 @@ export default function HerbDetail() {
           </div>
         </header>
 
-        <section className='browse-shell fade-in-surface p-5 sm:p-6'>
+        {!isMinimalProfile && <section className='browse-shell fade-in-surface p-5 sm:p-6'>
           <h2 className='section-label text-white/82'>Use case framework</h2>
           <ul className='mt-2 list-disc space-y-1 pl-5 text-sm text-white/85'>
             {useCasePoints.slice(0, 3).map(point => (
               <li key={point}>{point}</li>
             ))}
           </ul>
-        </section>
+        </section>}
 
         {safetyNotes.length > 0 && (
           <DisclosureSection title='Safety & Interactions' defaultOpen={Boolean(priorityWarning)}>
@@ -332,7 +347,7 @@ export default function HerbDetail() {
           </DisclosureSection>
         )}
 
-        <DisclosureSection title='Active Compounds' defaultOpen>
+        {!isMinimalProfile && <DisclosureSection title='Active Compounds' defaultOpen>
           {activeCompounds.length > 0 ? (
             <ul className='list-disc space-y-1 pl-5'>
               {activeCompounds.map(compound => (
@@ -342,42 +357,41 @@ export default function HerbDetail() {
           ) : (
             <p>Compound list is being expanded.</p>
           )}
-        </DisclosureSection>
+        </DisclosureSection>}
 
-        {coreInsight && coreInsight !== summary && (
+        {!isMinimalProfile && summaryQuality === 'strong' && coreInsight && coreInsight !== summary && (
           <section className='browse-shell fade-in-surface p-5 sm:p-6'>
             <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/85'>Core insight</h2>
             <p className='mt-2 text-sm leading-relaxed text-white/85'>{coreInsight}</p>
           </section>
         )}
 
-        {!descriptionIsPlaceholder && fullDescription && fullDescription !== summary && (
+        {!isMinimalProfile && !descriptionIsPlaceholder && fullDescription && fullDescription !== summary && (
           <DisclosureSection title='Full Description'>
             <p>{fullDescription}</p>
           </DisclosureSection>
         )}
 
-        <DisclosureSection title='Mechanism of Action'>
-          <p>{mechanism || 'Mechanism notes are being expanded.'}</p>
-        </DisclosureSection>
+        {!isMinimalProfile && mechanism && (
+          <DisclosureSection title='Mechanism of Action'>
+            <p>{mechanism}</p>
+          </DisclosureSection>
+        )}
 
-        {contextSummary && contextSummary !== summary && (
+        {!isMinimalProfile && contextSummary && contextSummary !== summary && (
           <DisclosureSection title='Context'>
             <p>{contextSummary}</p>
           </DisclosureSection>
         )}
 
-        <DisclosureSection title='Dosage & Usage'>
+        {!isMinimalProfile && (dosage || duration || preparation || standardization) && <DisclosureSection title='Dosage & Usage'>
           <ul className='list-disc space-y-1 pl-5'>
             {dosage && <li>Dosage: {dosage}</li>}
             {duration && <li>Duration: {duration}</li>}
             {preparation && <li>Preparation: {preparation}</li>}
             {standardization && <li>Standardization: {standardization}</li>}
-            {!dosage && !duration && !preparation && !standardization && (
-              <li>Dosage guidance is still being reviewed.</li>
-            )}
           </ul>
-        </DisclosureSection>
+        </DisclosureSection>}
 
         <DisclosureSection title='Research & Sources'>
           {sources.length > 0 ? (
@@ -400,9 +414,7 @@ export default function HerbDetail() {
                 </li>
               ))}
             </ol>
-          ) : (
-            <p>Primary source citations are being added.</p>
-          )}
+          ) : null}
         </DisclosureSection>
 
         {showRawDebug && herb.rawData && (
@@ -413,7 +425,7 @@ export default function HerbDetail() {
           </DisclosureSection>
         )}
 
-        <DisclosureSection title='Related Herbs & Compounds'>
+        {!isMinimalProfile && <DisclosureSection title='Related Herbs & Compounds'>
           <div className='space-y-3'>
             {relatedHerbs.length > 0 && (
               <div>
@@ -439,11 +451,8 @@ export default function HerbDetail() {
                 </div>
               </div>
             )}
-            {relatedHerbs.length === 0 && relatedCompounds.length === 0 && (
-              <p>Related entities will appear here as coverage expands.</p>
-            )}
           </div>
-        </DisclosureSection>
+        </DisclosureSection>}
       </article>
     </main>
   )

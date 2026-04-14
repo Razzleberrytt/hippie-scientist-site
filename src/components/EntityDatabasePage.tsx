@@ -11,7 +11,6 @@ import type { Herb } from '@/types'
 import { trackEvent } from '@/lib/growth'
 import { CTA } from '@/lib/cta'
 import { buildCardSummary } from '@/lib/summary'
-import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { hasVal } from '@/lib/pretty'
 import { slugify } from '@/lib/slug'
 
@@ -544,7 +543,7 @@ export default function EntityDatabasePage({
 
         <section className='ds-section grid gap-4 pb-8 md:grid-cols-2'>
           {filtered.map((item, index) => (
-            <HerbCard
+              <HerbCard
               key={item.slug ?? item.id ?? `${kind}-${index}`}
               name={String(item.common || item.scientific || item.name || 'Herb')}
               summary={
@@ -555,7 +554,13 @@ export default function EntityDatabasePage({
                   maxLen: 130,
                 }) || 'Learn more about this herb and its potential uses.'
               }
-              tags={extractPrimaryEffects(Array.isArray(item.curatedData?.keyEffects) ? item.curatedData.keyEffects : [], 2)}
+              primary_effects={Array.isArray((item as Record<string, unknown>).primary_effects)
+                ? ((item as Record<string, unknown>).primary_effects as string[])
+                : Array.isArray((item as Record<string, unknown>).primaryEffects)
+                  ? ((item as Record<string, unknown>).primaryEffects as string[])
+                  : []}
+              profile_status={String((item as Record<string, unknown>).profile_status || (item as Record<string, unknown>).profileStatus || '')}
+              summary_quality={String((item as Record<string, unknown>).summary_quality || (item as Record<string, unknown>).summaryQuality || '')}
               detailUrl={
                 hasVal(item.slug)
                   ? `${kind === 'compound' ? '/compounds' : '/herbs'}/${encodeURIComponent(String(item.slug))}`
