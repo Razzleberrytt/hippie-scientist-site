@@ -32,11 +32,11 @@ export default function ActiveFiltersBar({
 
   if (!hasActive) return null
 
-  const chipClass = 'rounded-full border border-white/15 bg-white/[0.03] px-2.5 py-1 text-xs text-white/82'
+  const chipClass = 'rounded-full border border-white/20 bg-white/[0.03] px-2.5 py-1 text-xs text-white/84'
 
   return (
-    <div className='flex flex-wrap items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.02] p-2.5'>
-      <span className='mr-1 text-[11px] uppercase tracking-wide text-white/50'>Active</span>
+    <div className='browse-shell flex flex-wrap items-center gap-1.5 p-2.5'>
+      <span className='mr-1 text-[11px] uppercase tracking-wide text-white/55'>Active</span>
       {state.query && (
         <button type='button' onClick={onClearQuery} className={chipClass}>
           Query: {state.query} ×
@@ -62,11 +62,7 @@ export default function ActiveFiltersBar({
           Research: {enrichmentLabel || state.enrichment} ×
         </button>
       )}
-      <button
-        type='button'
-        onClick={onClear}
-        className='ml-auto rounded-full border border-cyan-300/35 bg-cyan-500/10 px-2.5 py-1 text-xs font-semibold text-cyan-100'
-      >
+      <button type='button' onClick={onClear} className='btn-primary ml-auto px-3 py-1 text-xs'>
         Clear all
       </button>
     </div>

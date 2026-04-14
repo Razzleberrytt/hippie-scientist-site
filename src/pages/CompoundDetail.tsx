@@ -66,8 +66,8 @@ const ISSUE_TEMPLATE_URL =
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className='detail-panel fade-in-surface mt-6'>
-      <h2 className='mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/50'>
+    <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
+      <h2 className='section-label mb-2'>
         {title}
       </h2>
       <div className='text-sm leading-relaxed text-white/85'>{children}</div>
@@ -195,7 +195,7 @@ export default function CompoundDetail() {
 
   if (!compound) {
     return (
-      <main className='container mx-auto max-w-3xl px-4 py-10 text-white'>
+      <main className='container mx-auto max-w-4xl px-4 py-10 text-white'>
         <p className='text-white/60'>Compound profile not found.</p>
         <Link to='/compounds' className='btn-secondary mt-4 inline-flex'>
           ← Back to compounds
@@ -668,7 +668,7 @@ export default function CompoundDetail() {
         {pharmacokinetics && <Section title='Pharmacokinetics'>{pharmacokinetics}</Section>}
 
         {pathwayTargets.length > 0 && (
-          <section className='detail-panel fade-in-surface mt-6'>
+          <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
             <Collapse title='Pathway Targets'>
               <div className='flex flex-wrap gap-2 text-sm text-white/85'>
                 {pathwayTargets.map(target => (
@@ -682,7 +682,7 @@ export default function CompoundDetail() {
         )}
 
         {compoundTherapeuticUses.length > 0 && (
-          <section className='detail-panel fade-in-surface mt-6'>
+          <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
             <Collapse title='Traditional & Therapeutic Use'>
               <div className='text-sm leading-relaxed text-white/85'>
                 <ListSection items={compoundTherapeuticUses} maxVisible={6} />
@@ -772,7 +772,7 @@ export default function CompoundDetail() {
         )}
 
         {relatedCollections.length > 0 && (
-          <section className='detail-panel fade-in-surface mt-6'>
+          <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
             <Collapse title='Compare in Related Collections'>
               <div className='space-y-2 text-sm text-white/85'>
                 <p className='text-xs text-white/65'>
@@ -1042,7 +1042,7 @@ export default function CompoundDetail() {
         {compound.duration && <Section title='Duration'>{compound.duration}</Section>}
         {/* Sources */}
         {(compound.sources.length > 0 || workbookSources.length > 0) && (
-          <section className='detail-panel fade-in-surface mt-6'>
+          <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
             <Collapse title='Sources'>
               <ol className='list-decimal space-y-1 pl-5 text-sm leading-relaxed text-white/85'>
                 {compound.sources.map((source, index) => (
