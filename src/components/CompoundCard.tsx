@@ -5,6 +5,7 @@ import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { formatBrowseTitle } from '@/utils/titleDisplay'
 import { cleanEffectChips, sanitizeSummaryText } from '@/lib/sanitize'
+import { normalizeTagList } from '@/lib/tagNormalization'
 
 interface HerbRef {
   name: string
@@ -37,12 +38,6 @@ function getWorkbookHero(compound: CompoundWithRefs): string {
   )
 }
 
-function normalizeChip(value: string): string {
-  return value
-    .replace(/[.,/#!$%^&*;:{}=\-_`~()]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-}
 
 export default function CompoundCard({ compound }: { compound: CompoundWithRefs }) {
   const mechanism = getMechanism(compound)
@@ -59,7 +54,7 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
     effects,
     compounds: compound.herbsFound.map(h => h.name),
   })
-  const primaryEffects = extractPrimaryEffects(effects, 2).map(normalizeChip).filter(Boolean)
+  const primaryEffects = normalizeTagList(extractPrimaryEffects(effects, 2), { caseStyle: 'title', maxItems: 2 })
   const visibleHerbs = compound.herbsFound.slice(0, 2)
   const hiddenHerbCount = Math.max(compound.herbsFound.length - visibleHerbs.length, 0)
   const title = formatBrowseTitle(compound.name, 60)
@@ -93,7 +88,7 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
       </h2>
       <p className='line-clamp-2 text-xs leading-[1.45] text-white/76'>{summary}</p>
       <div className='flex flex-wrap gap-1'>
-        <span className='ds-pill neo-pill'>{normalizeChip(confidence)}</span>
+        <span className='ds-pill neo-pill'>{normalizeTagList(confidence, { caseStyle: 'title', maxItems: 1 })[0] || confidence}</span>
         {primaryEffects[0] && <span className='ds-pill neo-pill'>{primaryEffects[0]}</span>}
       </div>
       <p className='line-clamp-1 text-[11px] text-white/56'>{sourceLine}</p>

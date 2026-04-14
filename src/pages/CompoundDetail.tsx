@@ -12,6 +12,7 @@ import {
   uniqueNormalizedList,
 } from '@/lib/sanitize'
 import { buildUniqueDetailCopy, sanitizeRenderChips, sanitizeRenderList } from '@/lib/renderGuard'
+import { normalizeTagList } from '@/lib/tagNormalization'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { getCompoundDataCompleteness } from '@/utils/getDataCompleteness'
@@ -144,13 +145,10 @@ function readWorkbookText(record: Record<string, unknown>, ...keys: string[]): s
 }
 
 function splitPipeList(value: unknown): string[] {
-  if (Array.isArray(value)) {
-    return value.map(item => normalizeTextValue(item)).filter(Boolean)
-  }
-  return normalizeTextValue(value)
-    .split('|')
-    .map(item => item.trim())
-    .filter(Boolean)
+  return normalizeTagList(
+    Array.isArray(value) ? value : normalizeTextValue(value).split('|'),
+    { caseStyle: 'none', minLength: 1, maxItems: 50 },
+  )
 }
 
 function toTitleCase(value: string): string {
@@ -249,18 +247,22 @@ export default function CompoundDetail() {
   const contextSummary = uniqueCopy.context
   const compoundDescription = uniqueCopy.hero
   const compoundMechanism = uniqueCopy.mechanism
-  const workbookSafety = sanitizeRenderList(
+  const workbookSafety = sanitizeRenderChips(
     splitClean(safetyRecord.notes || safetyRecord.summary || safetyRecord.caution || rawRecord.safety),
+    8,
   )
   const drugInteractions = normalizeTextValue(compoundRecord.drugInteractions)
   const uniqueDrugInteractionItems = sanitizeRenderList(
-    Array.from(
-      new Map(
-        [...workbookSafety, ...compoundInteractions, ...(drugInteractions ? [sanitizeReadableText(drugInteractions)] : [])]
-          .map(item => normalizeTextValue(item))
-          .filter(Boolean)
-          .map(item => [normalizeKey(item), item]),
-      ).values(),
+    normalizeTagList(
+      Array.from(
+        new Map(
+          [...workbookSafety, ...compoundInteractions, ...(drugInteractions ? [sanitizeReadableText(drugInteractions)] : [])]
+            .map(item => normalizeTextValue(item))
+            .filter(Boolean)
+            .map(item => [normalizeKey(item), item]),
+        ).values(),
+      ),
+      { caseStyle: 'sentence', maxItems: 8 },
     ),
   )
 
