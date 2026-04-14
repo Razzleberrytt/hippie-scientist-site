@@ -244,7 +244,7 @@ export default function HerbDetail() {
     .filter((item): item is { label: string; to: string } => Boolean(item))
 
   return (
-    <main className='container mx-auto max-w-5xl px-4 py-6 text-white sm:py-8'>
+    <main className='container mx-auto max-w-5xl px-4 py-8 text-white sm:py-10'>
       <Meta
         title={`${herbName} Herb Guide | The Hippie Scientist`}
         description={`${herbName} effects, dosage context, safety notes, and sources.`}
@@ -276,15 +276,15 @@ export default function HerbDetail() {
         &gt; <span className='text-white/85'>{herbName}</span>
       </div>
 
-      <article className='space-y-3'>
+      <article className='space-y-5'>
         <div className='sr-only' aria-hidden='true'>
           <h1>{herbName}</h1>
           <p>{summary}</p>
           <ul>{safetyNotes.map(note => <li key={`static-safety-${note}`}>{note}</li>)}</ul>
         </div>
 
-        <header className='detail-panel fade-in-surface p-4 sm:p-5'>
-          <h1 className='text-3xl font-semibold sm:text-4xl'>{herbName}</h1>
+        <header className='premium-panel fade-in-surface p-5 sm:p-7'>
+          <p className='section-label'>Herb profile</p><h1 className='mt-2 text-4xl font-semibold sm:text-5xl'>{herbName}</h1>
           {scientificName && <p className='mt-1 text-sm italic text-white/55'>{scientificName}</p>}
           {!descriptionIsPlaceholder && (
             <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>{summary}</p>
@@ -313,8 +313,8 @@ export default function HerbDetail() {
           </div>
         </header>
 
-        <section className='detail-panel fade-in-surface p-4 sm:p-5'>
-          <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/85'>Use case</h2>
+        <section className='browse-shell fade-in-surface p-5 sm:p-6'>
+          <h2 className='section-label text-white/82'>Use case framework</h2>
           <ul className='mt-2 list-disc space-y-1 pl-5 text-sm text-white/85'>
             {useCasePoints.slice(0, 3).map(point => (
               <li key={point}>{point}</li>
@@ -345,7 +345,7 @@ export default function HerbDetail() {
         </DisclosureSection>
 
         {coreInsight && coreInsight !== summary && (
-          <section className='detail-panel fade-in-surface p-4 sm:p-5'>
+          <section className='browse-shell fade-in-surface p-5 sm:p-6'>
             <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/85'>Core insight</h2>
             <p className='mt-2 text-sm leading-relaxed text-white/85'>{coreInsight}</p>
           </section>

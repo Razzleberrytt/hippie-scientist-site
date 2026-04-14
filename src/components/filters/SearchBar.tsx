@@ -14,20 +14,20 @@ export default function SearchBar({ value, onChange, placeholder, className = ''
 
   return (
     <div className={`sticky top-2 z-20 ${className}`}>
-      <div className='rounded-xl border border-white/12 bg-black/30 p-2'>
-        <div className='mb-1 px-1 text-[11px] font-medium uppercase tracking-wide text-white/55'>Search</div>
+      <div className='browse-shell p-3'>
+        <div className='section-label mb-1 px-1'>Search archive</div>
         <div className='flex items-center gap-2'>
           <input
             value={value}
             onChange={handleChange}
             placeholder={placeholder}
-            className='w-full rounded-lg border border-white/12 bg-white/[0.02] px-3 py-2 text-sm text-white placeholder:text-white/45 focus:outline-none focus:ring-2 focus:ring-cyan-400/35'
+            className='w-full rounded-xl border border-white/20 bg-white/[0.03] px-3 py-2.5 text-sm text-white placeholder:text-white/45 focus:outline-none focus:ring-2 focus:ring-cyan-400/40'
             aria-label='Search entries'
           />
           {value && (
             <button
               type='button'
-              className='rounded-lg border border-white/20 bg-white/[0.03] px-3 py-2 text-xs font-medium text-white/80 transition hover:bg-white/[0.08]'
+              className='btn-secondary px-3 py-2 text-xs'
               onClick={() => onChange('')}
             >
               Clear

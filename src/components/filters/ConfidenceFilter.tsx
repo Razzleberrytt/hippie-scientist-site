@@ -17,14 +17,10 @@ export default function ConfidenceFilter({ value, onChange }: ConfidenceFilterPr
 
   useEffect(() => {
     if (typeof window === 'undefined') return undefined
-
     const handleChange = (event: Event) => {
       const detail = (event as CustomEvent<{ open?: boolean }>).detail
-      if (typeof detail?.open === 'boolean') {
-        setMoreOpen(detail.open)
-      }
+      if (typeof detail?.open === 'boolean') setMoreOpen(detail.open)
     }
-
     window.addEventListener(MORE_FILTERS_EVENT, handleChange as EventListener)
     return () => window.removeEventListener(MORE_FILTERS_EVENT, handleChange as EventListener)
   }, [])
@@ -39,20 +35,20 @@ export default function ConfidenceFilter({ value, onChange }: ConfidenceFilterPr
   }
 
   return (
-    <section className='rounded-2xl border border-white/10 bg-white/[0.03] p-3'>
+    <section className='browse-shell p-3'>
       <button
         type='button'
         onClick={toggleMoreFilters}
-        className='flex w-full items-center justify-between gap-2 rounded-xl border border-white/15 bg-white/[0.03] px-3 py-2 text-left transition hover:bg-white/10'
+        className='flex w-full items-center justify-between rounded-xl border border-white/20 bg-white/[0.03] px-3 py-2 text-left'
         aria-expanded={moreOpen}
       >
-        <span className='text-sm font-semibold text-white'>More filters</span>
+        <span className='section-label text-white/80'>Advanced filters</span>
         <span className='text-xs text-white/70'>{moreOpen ? 'Hide' : 'Show'}</span>
       </button>
 
       {moreOpen && (
         <div className='mt-3'>
-          <h3 className='mb-2 text-sm font-semibold text-white'>Confidence</h3>
+          <h3 className='section-label mb-2'>Evidence confidence</h3>
           <div className='flex flex-wrap gap-2'>
             {OPTIONS.map(option => {
               const active = value === option
@@ -63,8 +59,8 @@ export default function ConfidenceFilter({ value, onChange }: ConfidenceFilterPr
                   onClick={() => onChange(option)}
                   className={`rounded-full border px-3 py-1 text-xs uppercase tracking-wide transition ${
                     active
-                      ? 'border-cyan-300/60 bg-cyan-500/20 text-cyan-100'
-                      : 'border-white/15 bg-white/[0.03] text-white/80 hover:bg-white/10'
+                      ? 'border-cyan-300/60 bg-cyan-500/16 text-cyan-100'
+                      : 'border-white/20 bg-white/[0.02] text-white/82 hover:bg-white/[0.08]'
                   }`}
                 >
                   {option}

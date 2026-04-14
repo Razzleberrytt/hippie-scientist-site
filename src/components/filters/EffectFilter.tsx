@@ -38,9 +38,9 @@ export default function EffectFilter({ options, selected, onToggle }: EffectFilt
   if (!moreFiltersOpen) return null
 
   return (
-    <section className='rounded-xl border border-white/10 bg-white/[0.02] p-2.5'>
+    <section className='browse-shell p-3'>
       <div className='mb-2 flex items-center justify-between gap-2'>
-        <h3 className='text-sm font-semibold text-white'>Effects</h3>
+        <h3 className='section-label'>Effect tags</h3>
         {hasOverflow && (
           <button
             type='button'
@@ -61,8 +61,8 @@ export default function EffectFilter({ options, selected, onToggle }: EffectFilt
               onClick={() => onToggle(effect)}
               className={`rounded-full border px-2.5 py-1 text-xs transition ${
                 active
-                  ? 'border-cyan-300/45 bg-cyan-500/12 text-cyan-100'
-                  : 'border-white/14 bg-white/[0.02] text-white/78 hover:bg-white/[0.07]'
+                  ? 'border-cyan-300/55 bg-cyan-500/18 text-cyan-100'
+                  : 'border-white/20 bg-white/[0.02] text-white/80 hover:bg-white/[0.08]'
               }`}
             >
               {effect}

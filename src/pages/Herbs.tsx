@@ -1,4 +1,3 @@
-// UPDATED: Cleaned herb cards with placeholder filtering, concise summaries, and effect badges.
 import { useEffect, useMemo, useState } from 'react'
 import Meta from '@/components/Meta'
 import ActiveFiltersBar from '@/components/filters/ActiveFiltersBar'
@@ -22,37 +21,21 @@ import { slugify } from '@/lib/slug'
 import { dedupePresentationList, sanitizeSummaryText } from '@/lib/sanitize'
 import { Link } from 'react-router-dom'
 
-
 function isPlaceholder(text: string, herbName = ''): boolean {
   const value = String(text || '').trim().toLowerCase()
   if (!value) return false
-  const escaped = String(herbName || '')
-    .trim()
-    .toLowerCase()
-    .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  const patterns = [
-    /^herb profile\.?$/i,
-    /^reference profile\.?$/i,
-    /^no direct/i,
-    /^contextual inference/i,
-    escaped ? new RegExp(`^${escaped}\\s+herb\\s+profile\\.?$`, 'i') : null,
-    escaped ? new RegExp(`^${escaped}\\s+reference\\s+profile\\.?$`, 'i') : null,
-  ].filter(Boolean) as RegExp[]
+  const escaped = String(herbName || '').trim().toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const patterns = [/^herb profile\.?$/i, /^reference profile\.?$/i, /^no direct/i, /^contextual inference/i, escaped ? new RegExp(`^${escaped}\\s+herb\\s+profile\\.?$`, 'i') : null, escaped ? new RegExp(`^${escaped}\\s+reference\\s+profile\\.?$`, 'i') : null].filter(Boolean) as RegExp[]
   return patterns.some(pattern => pattern.test(value))
 }
 
-const toTitleCase = (value: string) =>
-  String(value || '')
-    .trim()
-    .toLowerCase()
-    .replace(/\b\w/g, letter => letter.toUpperCase())
+const toTitleCase = (value: string) => String(value || '').trim().toLowerCase().replace(/\b\w/g, letter => letter.toUpperCase())
 
 const cleanSummary = (value: string, herbName = '') => {
   const normalized = sanitizeSummaryText(value, 2)
-  if (!normalized) return 'Profile in progress'
-  if (isPlaceholder(normalized, herbName)) return 'Profile in progress'
-  if (normalized.length <= 120) return normalized
-  return `${normalized.slice(0, 117).trimEnd()}...`
+  if (!normalized || isPlaceholder(normalized, herbName)) return 'Profile in progress'
+  if (normalized.length <= 130) return normalized
+  return `${normalized.slice(0, 127).trimEnd()}...`
 }
 
 const getKeyEffects = (herb: Record<string, unknown>) =>
@@ -102,247 +85,93 @@ export default function HerbsPage() {
   const filtered = useMemo(() => filterHerbs(decoratedHerbs, filters), [decoratedHerbs, filters])
   const visibleHerbs = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount])
   const hasMore = filtered.length > visibleCount
+  useEffect(() => setVisibleCount(INITIAL_RESULTS), [filters])
+
   useEffect(() => {
-    setVisibleCount(INITIAL_RESULTS)
-  }, [filters])
-  useEffect(() => {
-    trackGovernedEvent({
-      type: 'governed_card_summary_visible',
-      eventAction: 'visible',
-      pageType: 'herbs_index',
-      entityType: 'herb',
-      surfaceId: 'herbs_search_index',
-      componentType: 'browse_cards',
-      item: String(filtered.length),
-      reviewedStatus: 'not_applicable',
-      freshnessState: 'not_applicable',
-    })
+    trackGovernedEvent({ type: 'governed_card_summary_visible', eventAction: 'visible', pageType: 'herbs_index', entityType: 'herb', surfaceId: 'herbs_search_index', componentType: 'browse_cards', item: String(filtered.length), reviewedStatus: 'not_applicable', freshnessState: 'not_applicable' })
   }, [filtered.length])
 
-  const toggleEffect = (effect: string) => {
-    setFilters(prev => ({
-      ...prev,
-      selectedEffects: prev.selectedEffects.includes(effect)
-        ? prev.selectedEffects.filter(item => item !== effect)
-        : [...prev.selectedEffects, effect],
-    }))
-    trackGovernedEvent({
-      type: 'governed_browse_filter_change',
-      eventAction: 'change',
-      pageType: 'herbs_index',
-      entityType: 'herb',
-      surfaceId: 'herbs_search_index',
-      componentType: 'effect_filter',
-      item: effect,
-      reviewedStatus: 'not_applicable',
-      freshnessState: 'not_applicable',
-    })
-  }
-
-  const clearAll = () => setFilters(DEFAULT_FILTER_STATE)
+  const toggleEffect = (effect: string) => setFilters(prev => ({ ...prev, selectedEffects: prev.selectedEffects.includes(effect) ? prev.selectedEffects.filter(item => item !== effect) : [...prev.selectedEffects, effect] }))
 
   return (
     <main className='container mx-auto max-w-6xl px-4 py-8 text-white sm:py-10'>
-      <Meta
-        title='Herb Knowledge Database | The Hippie Scientist'
-        description='Search effects, classification, confidence, and safety context across the herb library.'
-        path='/herbs'
-      />
+      <Meta title='Herb Knowledge Database | The Hippie Scientist' description='Search effects, classification, confidence, and safety context across the herb library.' path='/herbs' />
 
-      <header className='ds-card-lg mb-8'>
-        <h1 className='text-3xl font-semibold sm:text-4xl'>Herb Knowledge Database</h1>
-        <p className='mt-2 max-w-3xl text-sm text-white/76 sm:text-base'>
-          Search and filter herbs by effect tags, confidence, and class to quickly compare entries.
-        </p>
+      <header className='premium-panel mb-8 p-5 sm:p-7'>
+        <p className='section-label'>Botanical Archive</p>
+        <h1 className='mt-2 text-3xl font-semibold sm:text-5xl'>Herb knowledge database</h1>
+        <p className='mt-3 max-w-3xl text-sm text-white/76 sm:text-base'>Search and compare herbs by effects, confidence, and class with an evidence-first view.</p>
       </header>
 
-      <section className='mb-8 rounded-xl border border-white/10 bg-white/[0.02] p-3'>
+      <section className='browse-shell mb-6 p-4 sm:p-5'>
         <div className='flex flex-wrap items-center justify-between gap-3'>
           <div>
-            <h2 className='text-lg font-semibold text-white'>Effect Explorer</h2>
-            <p className='text-sm text-white/75'>
-              Open on demand for ranked matches by outcome (sleep, focus, relaxation).
-            </p>
+            <p className='section-label'>Decision tool</p>
+            <h2 className='mt-1 text-xl text-white'>Effect Explorer</h2>
           </div>
-          <button
-            type='button'
-            className='btn-secondary'
-            onClick={() => setShowEffectExplorer(value => !value)}
-            aria-expanded={showEffectExplorer}
-          >
+          <button type='button' className='btn-secondary' onClick={() => setShowEffectExplorer(value => !value)} aria-expanded={showEffectExplorer}>
             {showEffectExplorer ? 'Hide explorer' : 'Open explorer'}
           </button>
         </div>
-        {showEffectExplorer && <EffectExplorer herbs={decoratedHerbs} />}
+        {showEffectExplorer && <div className='mt-4'><EffectExplorer herbs={decoratedHerbs} /></div>}
       </section>
 
       <section className='mb-8 space-y-2.5'>
-        <SearchBar
-          value={filters.query}
-          onChange={value => {
-            setFilters(prev => ({ ...prev, query: value }))
-            trackGovernedEvent({
-              type: 'governed_browse_filter_change',
-              eventAction: 'change',
-              pageType: 'herbs_index',
-              entityType: 'herb',
-              surfaceId: 'herbs_search_index',
-              componentType: 'search_bar',
-              item: value ? 'query:set' : 'query:clear',
-              reviewedStatus: 'not_applicable',
-              freshnessState: 'not_applicable',
-            })
-          }}
-          placeholder='Search herbs, effects, compounds...'
-        />
+        <SearchBar value={filters.query} onChange={value => setFilters(prev => ({ ...prev, query: value }))} placeholder='Search herbs, effects, compounds...' />
 
         <div className='grid gap-2.5 lg:grid-cols-2'>
-          <ConfidenceFilter
-            value={filters.confidence}
-            onChange={value => {
-              setFilters(prev => ({ ...prev, confidence: value }))
-              trackGovernedEvent({
-                type: 'governed_browse_filter_change',
-                eventAction: 'change',
-                pageType: 'herbs_index',
-                entityType: 'herb',
-                surfaceId: 'herbs_search_index',
-                componentType: 'confidence_filter',
-                item: value,
-                reviewedStatus: 'not_applicable',
-                freshnessState: 'not_applicable',
-              })
-            }}
-          />
-          <SortSelect
-            value={filters.sort}
-            onChange={value => {
-              setFilters(prev => ({ ...prev, sort: value }))
-              trackGovernedEvent({
-                type: 'governed_browse_filter_change',
-                eventAction: 'change',
-                pageType: 'herbs_index',
-                entityType: 'herb',
-                surfaceId: 'herbs_search_index',
-                componentType: 'sort_select',
-                item: value,
-                reviewedStatus: 'not_applicable',
-                freshnessState: 'not_applicable',
-              })
-            }}
-          />
+          <ConfidenceFilter value={filters.confidence} onChange={value => setFilters(prev => ({ ...prev, confidence: value }))} />
+          <SortSelect value={filters.sort} onChange={value => setFilters(prev => ({ ...prev, sort: value }))} />
         </div>
         <Collapse title='More filters'>
           <div className='space-y-3 pt-2'>
-            <TypeFilter
-              label='Class'
-              options={options.classes}
-              value={filters.type}
-              onChange={value => {
-                setFilters(prev => ({ ...prev, type: value }))
-                trackGovernedEvent({
-                  type: 'governed_browse_filter_change',
-                  eventAction: 'change',
-                  pageType: 'herbs_index',
-                  entityType: 'herb',
-                  surfaceId: 'herbs_search_index',
-                  componentType: 'type_filter',
-                  item: value,
-                  reviewedStatus: 'not_applicable',
-                  freshnessState: 'not_applicable',
-                })
-              }}
-            />
+            <TypeFilter label='Class' options={options.classes} value={filters.type} onChange={value => setFilters(prev => ({ ...prev, type: value }))} />
             <TypeFilter
               label='Research signal'
               options={ENRICHMENT_FILTER_OPTIONS.map(option => option.label)}
-              value={
-                ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)
-                  ?.label || ENRICHMENT_FILTER_OPTIONS[0].label
-              }
+              value={ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label || ENRICHMENT_FILTER_OPTIONS[0].label}
               onChange={label => {
                 const next = ENRICHMENT_FILTER_OPTIONS.find(option => option.label === label)
                 setFilters(prev => ({ ...prev, enrichment: next?.value || 'all' }))
-                trackGovernedEvent({
-                  type: 'governed_browse_filter_change',
-                  eventAction: 'change',
-                  pageType: 'herbs_index',
-                  entityType: 'herb',
-                  surfaceId: 'herbs_search_index',
-                  componentType: 'enrichment_filter',
-                  item: next?.value || 'all',
-                  reviewedStatus: 'not_applicable',
-                  freshnessState: 'not_applicable',
-                })
               }}
             />
 
-            <EffectFilter
-              options={options.effects}
-              selected={filters.selectedEffects}
-              onToggle={toggleEffect}
-            />
+            <EffectFilter options={options.effects} selected={filters.selectedEffects} onToggle={toggleEffect} />
           </div>
         </Collapse>
         <ActiveFiltersBar
           state={filters}
           typeLabel='Class'
           onRemoveEffect={toggleEffect}
-          onClear={clearAll}
+          onClear={() => setFilters(DEFAULT_FILTER_STATE)}
           onClearQuery={() => setFilters(prev => ({ ...prev, query: '' }))}
           onClearType={() => setFilters(prev => ({ ...prev, type: 'all' }))}
           onClearConfidence={() => setFilters(prev => ({ ...prev, confidence: 'all' }))}
           onClearEnrichment={() => setFilters(prev => ({ ...prev, enrichment: 'all' }))}
-          enrichmentLabel={
-            ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label
-          }
+          enrichmentLabel={ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label}
         />
       </section>
 
-      <p className='mb-4 text-xs text-white/60 sm:text-sm'>
-        {filtered.length} results · {effectIndex.size} indexed effects
-      </p>
+      <p className='mb-4 text-xs text-white/60 sm:text-sm'>{filtered.length} results · {effectIndex.size} indexed effects</p>
 
       {filtered.length === 0 ? (
-        <div className='rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center text-white/80'>
-          No herbs match your current filters.
-        </div>
+        <div className='browse-shell p-6 text-center text-white/80'>No herbs match your current filters.</div>
       ) : (
-        <section className='grid gap-2 sm:grid-cols-2 lg:grid-cols-3'>
+        <section className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
           {visibleHerbs.map((herb, index) => (
-            <article
-              key={herb.slug || herb.id || `${herb.common}-${index}`}
-              className='neo-card fade-in-surface flex h-full flex-col rounded-lg border border-white/12 p-3.5 transition duration-300'
-            >
-              <h2 className='text-base font-semibold text-white'>
-                {toTitleCase(String(herb.common || herb.scientific || herb.name || 'Herb'))}
-              </h2>
-              <p className='mt-1 line-clamp-1 text-xs text-white/78'>
-                {cleanSummary(String((herb.curatedData as Record<string, unknown> | undefined)?.summary || ''), String(herb.common || herb.name || ''))}
-              </p>
-              <div className='mt-2 flex flex-wrap gap-1'>
+            <article key={herb.slug || herb.id || `${herb.common}-${index}`} className='premium-panel fade-in-surface flex h-full flex-col p-4'>
+              <p className='section-label'>{getStatusTag(herb)}</p>
+              <h2 className='mt-2 text-xl leading-tight text-white'>{toTitleCase(String(herb.common || herb.scientific || herb.name || 'Herb'))}</h2>
+              <p className='mt-2 line-clamp-3 text-sm text-white/75'>{cleanSummary(String((herb.curatedData as Record<string, unknown> | undefined)?.summary || ''), String(herb.common || herb.name || ''))}</p>
+              <div className='mt-3 flex flex-wrap gap-1.5'>
                 {getKeyEffects(herb).map(effect => (
-                  <span
-                    key={`${herb.slug}-${effect}`}
-                    className='neo-pill inline-flex rounded-full border px-2 py-0.5 text-[10px]'
-                  >
-                    {effect}
-                  </span>
+                  <span key={`${herb.slug}-${effect}`} className='neo-pill inline-flex rounded-full border px-2 py-0.5 text-[10px]'>{effect}</span>
                 ))}
               </div>
-              <span className='mt-2 inline-flex w-fit rounded-full border border-white/18 bg-white/[0.04] px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] text-white/75'>
-                {getStatusTag(herb)}
-              </span>
-              <div className='mt-auto pt-2'>
+              <div className='mt-auto pt-4'>
                 <Link
-                  to={
-                    herb.slug
-                      ? `/herbs/${encodeURIComponent(String(herb.slug))}`
-                      : `/herbs/${encodeURIComponent(
-                          slugify(String(herb.common || herb.scientific || herb.name || '')),
-                        )}`
-                  }
-                  className='inline-flex items-center rounded-md border border-white/15 bg-white/[0.03] px-2 py-1 text-[11px] font-medium text-white/80 transition duration-300 hover:border-cyan-300/45 hover:text-white'
+                  to={herb.slug ? `/herbs/${encodeURIComponent(String(herb.slug))}` : `/herbs/${encodeURIComponent(slugify(String(herb.common || herb.scientific || herb.name || '')))}`}
+                  className='btn-secondary inline-flex w-fit'
                 >
                   View decision page
                 </Link>
@@ -352,12 +181,8 @@ export default function HerbsPage() {
         </section>
       )}
       {hasMore && (
-        <div className='mt-6 flex justify-center'>
-          <button
-            type='button'
-            className='btn-primary'
-            onClick={() => setVisibleCount(prev => prev + LOAD_MORE_STEP)}
-          >
+        <div className='mt-8 flex justify-center'>
+          <button type='button' className='btn-primary' onClick={() => setVisibleCount(prev => prev + LOAD_MORE_STEP)}>
             Load more herbs ({filtered.length - visibleCount} remaining)
           </button>
         </div>
