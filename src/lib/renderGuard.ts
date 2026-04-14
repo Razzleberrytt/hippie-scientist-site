@@ -1,4 +1,5 @@
 import { dedupePresentationList, normalizePresentationLabel, sanitizeReadableText, splitClean } from '@/lib/sanitize'
+import { normalizeTagList } from '@/lib/tagNormalization'
 
 type UniqueCopyInput = {
   hero?: unknown
@@ -52,18 +53,11 @@ export function sanitizeRenderList(value: unknown, maxItems = 8): string[] {
  * - Strips trailing punctuation artefacts ("focus..." => "focus")
  */
 export function sanitizeRenderChips(value: unknown, maxItems = 8): string[] {
-  const seen = new Set<string>()
-  const output: string[] = []
+  const stripped = sanitizeRenderList(value, maxItems * 2).map(item =>
+    normalizePresentationLabel(stripChipTrailingPunctuation(item)),
+  )
 
-  sanitizeRenderList(value, maxItems * 2).forEach(item => {
-    const normalized = normalizePresentationLabel(stripChipTrailingPunctuation(item))
-    const key = normalizeMeaningKey(normalized)
-    if (!normalized || isBrokenFragment(normalized) || !key || seen.has(key)) return
-    seen.add(key)
-    output.push(normalized)
-  })
-
-  return output.slice(0, Math.max(0, maxItems))
+  return normalizeTagList(stripped, { maxItems, caseStyle: 'title' })
 }
 
 /**

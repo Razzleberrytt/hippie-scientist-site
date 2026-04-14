@@ -5,6 +5,7 @@ import type { Herb } from '@/types'
 import { asStringArray } from '@/utils/asStringArray'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import RecommendedProducts from '@/components/RecommendedProducts'
+import { normalizeTagList } from '@/lib/tagNormalization'
 
 type EffectExplorerProps = {
   herbs: Herb[]
@@ -100,16 +101,20 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
               const herb = result.herb
               const herbLabel = herb.common || herb.name || herb.scientific || 'Herb'
               const slug = String(herb.slug || '').trim()
-              const topEffects = extractPrimaryEffects(asStringArray(herb.effects), 4)
+              const topEffects = normalizeTagList(extractPrimaryEffects(asStringArray(herb.effects), 4), {
+                caseStyle: 'title',
+                maxItems: 4,
+              })
               const summary =
                 String(herb.effectsSummary || herb.description || herb.mechanism || '')
                   .replace(/\s+/g, ' ')
                   .trim() || 'Traditionally used for relaxation and nervous-system support.'
               const safetyNote =
-                String(herb.safety || herb.sideEffects || herb.contraindicationsText || '')
-                  .replace(/\s+/g, ' ')
-                  .trim() || 'Review contraindications and interactions before use.'
-              const tags = asStringArray(herb.tags).slice(0, 3)
+                normalizeTagList(herb.safety || herb.sideEffects || herb.contraindicationsText || '', {
+                  caseStyle: 'sentence',
+                  maxItems: 1,
+                })[0] || 'Review contraindications and interactions before use.'
+              const tags = normalizeTagList(asStringArray(herb.tags), { caseStyle: 'title', maxItems: 3 })
               const confidenceLabel =
                 result.confidence === 'high'
                   ? 'high'
@@ -164,7 +169,9 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
                   </div>
 
                   <p className='text-xs text-white/75'>
-                    Match: {result.matchedEffects.slice(0, 2).join(', ') || result.normalizedQuery}
+                    Match:{' '}
+                    {normalizeTagList(result.matchedEffects.slice(0, 2), { caseStyle: 'title', maxItems: 2 }).join(', ') ||
+                      normalizeTagList(result.normalizedQuery, { caseStyle: 'title', maxItems: 1 })[0]}
                   </p>
 
                   <div className='flex flex-wrap items-center gap-2'>
@@ -181,29 +188,31 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
                   <p className='line-clamp-2 text-xs text-white/65'>Safety: {safetyNote}</p>
 
                   <div className='mt-auto space-y-2'>
-                    <button
-                      type='button'
-                      onClick={() =>
-                        setExpandedProducts(prev => ({
-                          ...prev,
-                          [productKey]: !prev[productKey],
-                        }))
-                      }
-                      className='inline-flex text-xs text-white/75 underline underline-offset-4 hover:text-white'
-                    >
-                      {showProducts ? 'Hide products' : 'View products'}
-                    </button>
+                    <div className='flex flex-wrap items-center gap-3'>
+                      <button
+                        type='button'
+                        onClick={() =>
+                          setExpandedProducts(prev => ({
+                            ...prev,
+                            [productKey]: !prev[productKey],
+                          }))
+                        }
+                        className='inline-flex text-xs text-white/75 underline underline-offset-4 hover:text-white'
+                      >
+                        {showProducts ? 'Hide products' : 'View products'}
+                      </button>
+
+                      {slug && (
+                        <Link
+                          to={`/herbs/${encodeURIComponent(slug)}`}
+                          className='inline-flex text-sm text-violet-200 underline underline-offset-4 hover:text-violet-100'
+                        >
+                          View herb details
+                        </Link>
+                      )}
+                    </div>
 
                     {showProducts && <RecommendedProducts herb={herb} compact />}
-
-                    {slug && (
-                      <Link
-                        to={`/herbs/${encodeURIComponent(slug)}`}
-                        className='inline-flex text-sm text-violet-200 underline underline-offset-4 hover:text-violet-100'
-                      >
-                        View herb details
-                      </Link>
-                    )}
                   </div>
                 </article>
               )

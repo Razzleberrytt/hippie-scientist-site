@@ -3,6 +3,7 @@ import { FlaskConical } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Card from './ui/Card'
 import { formatBrowseTitle } from '@/utils/titleDisplay'
+import { normalizeTagList } from '@/lib/tagNormalization'
 
 interface HerbCardProps {
   name: string
@@ -19,13 +20,6 @@ interface HerbCardProps {
   compact?: boolean
 }
 
-function normalizeChip(value: string): string {
-  return value
-    .replace(/[.,/#!$%^&*;:{}=\-_`~()]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-}
-
 function HerbCard({
   name,
   summary,
@@ -40,19 +34,17 @@ function HerbCard({
   detailUrl,
   compact = false,
 }: HerbCardProps) {
-  const mergedTags = Array.from(new Set([...effects, ...tags, ...mechanismTags].filter(Boolean)))
-    .map(tag => normalizeChip(String(tag)))
-    .filter(Boolean)
+  const mergedTags = normalizeTagList([...effects, ...tags, ...mechanismTags], { caseStyle: 'title', maxItems: 6 })
   const primaryTag = mergedTags[0]
   const hasCompoundCount = typeof compound_count === 'number' && compound_count > 0
   const title = formatBrowseTitle(name, 60)
   const isTitleTruncated = title !== name
   const summaryText = hero?.trim() || coreInsight?.trim() || summary?.trim() || 'Overview coming soon.'
 
-  const chipItems = [evidence_tier || evidenceLevel || '', primaryTag || '']
-    .map(chip => normalizeChip(String(chip)))
-    .filter(Boolean)
-    .slice(0, 2)
+  const chipItems = normalizeTagList([evidence_tier || evidenceLevel || '', primaryTag || ''], {
+    caseStyle: 'title',
+    maxItems: 2,
+  })
 
   return (
     <Card

@@ -7,6 +7,7 @@ import { useCompoundDataState } from '@/lib/compound-data'
 import { useHerbDataState, useHerbDetailState } from '@/lib/herb-data'
 import { dedupePresentationList, normalizePresentationLabel, sanitizeReadableText, sanitizeSummaryText } from '@/lib/sanitize'
 import { buildUniqueDetailCopy, sanitizeRenderChips, sanitizeRenderList } from '@/lib/renderGuard'
+import { normalizeTagList } from '@/lib/tagNormalization'
 import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { SITE_URL, breadcrumbJsonLd, herbJsonLd } from '@/lib/seo'
 import { shouldShowRawDebug } from '@/lib/semanticCompression'
@@ -27,15 +28,7 @@ function toTitleCase(value: string) {
 }
 
 function splitTextList(value: unknown): string[] {
-  if (Array.isArray(value)) {
-    return value
-      .map(item => String(item || '').trim())
-      .filter(Boolean)
-  }
-  return String(value || '')
-    .split(/[;,]/)
-    .map(item => item.trim())
-    .filter(Boolean)
+  return normalizeTagList(value, { caseStyle: 'none', minLength: 1, maxItems: 50 })
 }
 
 function readRecord(value: unknown): Record<string, unknown> {
@@ -183,7 +176,7 @@ export default function HerbDetail() {
   const effects = sanitizeRenderChips(
     dedupePresentationList(splitTextList(rawRecord.effects || rawRecord.keyEffects || curatedData.keyEffects), 8),
     8,
-  ).map(toTitleCase)
+  )
   const keyEffects = effects.slice(0, 4)
   const activeCompounds = sanitizeRenderList(splitTextList(herb.activeCompounds || herb.compounds), 10)
   const mechanism = uniqueCopy.mechanism
@@ -204,7 +197,7 @@ export default function HerbDetail() {
       (herb as Record<string, unknown>).safety,
   )
 
-  const safetyNotes = dedupePresentationList([
+  const rawSafetyNotes = dedupePresentationList([
     ...contraindications,
     ...interactions,
     ...sideEffects,
@@ -212,7 +205,7 @@ export default function HerbDetail() {
   ], 8)
     .map(note => normalizePresentationLabel(note))
     .filter(Boolean)
-    .map(toTitleCase)
+  const safetyNotes = normalizeTagList(rawSafetyNotes, { caseStyle: 'title', maxItems: 8 })
 
   const priorityWarning = safetyNotes.find(note => /(pregnancy|cardiac|avoid)/i.test(note))
 
