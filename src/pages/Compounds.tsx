@@ -54,6 +54,34 @@ function getStatusTag(level: ConfidenceLevel) {
   return 'Limited evidence'
 }
 
+function formatChipLabel(value: string) {
+  const trimmed = String(value || '').trim()
+  if (!trimmed) return ''
+
+  let decoded = trimmed
+  if (
+    (decoded.startsWith('["') && decoded.endsWith('"]')) ||
+    (decoded.startsWith("['") && decoded.endsWith("']"))
+  ) {
+    try {
+      const parsed = JSON.parse(decoded.replace(/'/g, '"'))
+      decoded = Array.isArray(parsed) ? String(parsed[0] || '') : decoded
+    } catch {
+      decoded = decoded.replace(/^\[+|\]+$/g, '')
+    }
+  }
+
+  const normalized = decoded
+    .replace(/^\[+|\]+$/g, '')
+    .replace(/^['"]+|['"]+$/g, '')
+    .replace(/\s*-\s*/g, '-')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  if (!normalized) return ''
+  return normalized.charAt(0).toUpperCase() + normalized.slice(1)
+}
+
 export default function CompoundsPage() {
   const INITIAL_RESULTS = 18
   const LOAD_MORE_STEP = 18
@@ -275,19 +303,27 @@ export default function CompoundsPage() {
                       : []),
                   ]
                 : []),
-            ].slice(0, 2)
+            ]
+              .map(chip => ({ ...chip, label: formatChipLabel(chip.label) }))
+              .filter(chip => Boolean(chip.label))
+              .slice(0, 2)
 
             return (
-              <article key={compound.id} className='neo-card fade-in-surface ds-card flex h-full flex-col gap-2 rounded-lg p-3.5'>
+              <article key={compound.id} className='neo-card fade-in-surface ds-card flex h-full flex-col gap-2.5 rounded-lg p-4'>
                 <h2
                   title={compound.name}
-                  className='line-clamp-2 min-h-[2.2rem] break-all text-[0.95rem] font-semibold leading-tight text-white sm:text-base'
+                  className='line-clamp-2 min-h-[2.4rem] break-all text-[1.04rem] font-semibold leading-tight text-white sm:text-[1.12rem]'
                 >
                   {title}
                 </h2>
-                <p className='line-clamp-1 text-xs leading-[1.45] text-white/78'>{summarize({ description: compound.curatedData?.summary || '', effects: compound.curatedData?.keyEffects || [] })}</p>
+                <p className='line-clamp-2 text-[0.74rem] leading-[1.5] text-white/72'>
+                  {summarize({
+                    description: compound.curatedData?.summary || '',
+                    effects: compound.curatedData?.keyEffects || [],
+                  })}
+                </p>
                 {chips.length > 0 && (
-                  <div className='flex flex-wrap gap-1'>
+                  <div className='flex flex-wrap gap-1.5'>
                     {chips.map(chip => (
                       <span
                         key={`${compound.id}-${chip.label}`}
@@ -299,13 +335,13 @@ export default function CompoundsPage() {
                   </div>
                 )}
                 <span
-                  className={`mt-1 inline-flex w-fit rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-[0.08em] ${confidenceBadgeClass(confidence)}`}
+                  className={`mt-1 inline-flex w-fit rounded-full border px-2 py-0.5 text-[9px] uppercase tracking-[0.11em] ${confidenceBadgeClass(confidence)}`}
                 >
                   {getStatusTag(confidence)}
                 </span>
                 <Link
                   to={`/compounds/${compound.slug}`}
-                  className='mt-auto inline-flex w-fit items-center rounded-md border border-white/15 bg-white/[0.03] px-2 py-1 text-[11px] font-medium text-white/80 transition duration-300 hover:border-cyan-300/45 hover:text-white'
+                  className='compound-context-link mt-auto inline-flex w-fit items-center rounded-md border border-white/20 bg-white/[0.04] px-2.5 py-1 text-[11px] font-medium text-white/82 transition duration-500 hover:border-cyan-200/75 hover:text-white'
                 >
                   View context page
                 </Link>
