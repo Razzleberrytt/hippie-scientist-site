@@ -6,9 +6,9 @@ import { useGoalBundles } from '@/hooks/useGoalBundles'
 import {
   buildEffectCollectionFeed,
   EFFECT_COLLECTION_CONFIGS,
-  effectCollectionChips,
   type EffectCollectionIntent,
 } from '@/utils/effectCollections'
+import { getPrimaryEffects, getProfileStatus, getSummaryQuality, resolveHeroSummary, shouldRenderSummary } from '@/lib/workbookRender'
 
 const COLLECTION_ORDER: EffectCollectionIntent[] = ['sleep', 'focus', 'relaxation']
 
@@ -97,6 +97,12 @@ export default function HerbGoalPage() {
         <ol className='mt-3 space-y-3'>
           {ranked.map(item => {
             const slug = String(item.herb.slug || '').trim()
+            const rawHerb = (item.herb.rawData as Record<string, unknown> | undefined) || (item.herb as unknown as Record<string, unknown>)
+            const profileStatus = getProfileStatus(rawHerb)
+            const summaryQuality = getSummaryQuality(rawHerb)
+            const showSummary = shouldRenderSummary(profileStatus, summaryQuality)
+            const summary = resolveHeroSummary(rawHerb, 1) || (summaryQuality === 'strong' ? item.summary : '')
+            const primaryEffects = getPrimaryEffects(rawHerb, profileStatus === 'minimal' ? 1 : 3)
             return (
               <li
                 key={slug || item.rank}
@@ -126,13 +132,13 @@ export default function HerbGoalPage() {
                   </span>
                 </div>
 
-                <p className='mt-2 text-sm text-white/80'>{item.summary}</p>
+                {showSummary && summary && <p className='mt-2 text-sm text-white/80'>{summary}</p>}
                 <p className='mt-2 text-xs text-white/65'>
                   Matched effects: {item.matchedEffects.slice(0, 3).join(', ') || config.query}
                 </p>
 
                 <div className='mt-2 flex flex-wrap gap-1.5'>
-                  {effectCollectionChips(item.herb).map(effect => (
+                  {primaryEffects.map(effect => (
                     <span
                       key={`${slug}-${effect}`}
                       className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100'

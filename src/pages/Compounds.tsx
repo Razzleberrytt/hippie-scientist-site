@@ -19,6 +19,7 @@ import type { EnrichmentFilter } from '@/types/enrichmentDiscovery'
 import { trackGovernedEvent } from '@/lib/governedAnalytics'
 import { formatBrowseTitle } from '@/utils/titleDisplay'
 import { cleanEffectChips, sanitizeSummaryText } from '@/lib/sanitize'
+import { getPrimaryEffects, getProfileStatus, getSummaryQuality, resolveCoreInsight, resolveHeroSummary, shouldRenderSummary } from '@/lib/workbookRender'
 
 const ENRICHMENT_FILTER_OPTIONS: Array<{ value: EnrichmentFilter; label: string }> = [
   { value: 'all', label: 'All research states' },
@@ -38,12 +39,14 @@ function confidenceBadgeClass(level: ConfidenceLevel) {
   return 'border-rose-300/35 bg-rose-500/10 text-rose-100/90'
 }
 
-function summarize(compound: { description: string; effects: string[] }) {
-  const cleanedDescription = sanitizeSummaryText(compound.description, 1)
-  if (cleanedDescription) return cleanedDescription
-  const chipFallback = cleanEffectChips(compound.effects, 2)
-  if (chipFallback.length) return chipFallback.join(' · ')
-  return 'Profile in progress.'
+function summarize(compound: Record<string, unknown>) {
+  const profileStatus = getProfileStatus(compound)
+  const summaryQuality = getSummaryQuality(compound)
+  if (!shouldRenderSummary(profileStatus, summaryQuality)) return ''
+  const hero = sanitizeSummaryText(resolveHeroSummary(compound, 1), 1)
+  if (hero) return hero
+  if (summaryQuality === 'strong') return sanitizeSummaryText(resolveCoreInsight(compound, 1), 1)
+  return ''
 }
 
 function getStatusTag(level: ConfidenceLevel) {
@@ -130,8 +133,20 @@ export default function CompoundsPage() {
       ) : (
         <section className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
           {visibleCompounds.map(compound => {
+            const rawCompound = (compound.rawData as Record<string, unknown> | undefined) || {}
             const confidence = compound.confidence ?? calculateCompoundConfidence({ mechanism: compound.mechanism, effects: compound.effects, compounds: compound.herbs })
-            const primaryEffects = cleanEffectChips(extractPrimaryEffects(compound.curatedData?.keyEffects || compound.effects, 8), 2)
+            const primaryEffects = cleanEffectChips(
+              getPrimaryEffects(rawCompound, 2).length
+                ? getPrimaryEffects(rawCompound, 2)
+                : extractPrimaryEffects(compound.curatedData?.keyEffects || compound.effects, 8),
+              2,
+            )
+            const profileStatus = getProfileStatus(rawCompound)
+            const summary = summarize({
+              ...rawCompound,
+              description: compound.curatedData?.summary || compound.description || '',
+              effects: compound.curatedData?.keyEffects || compound.effects || [],
+            })
 
             const title = formatBrowseTitle(compound.name, 58)
             const chips = [
@@ -148,13 +163,14 @@ export default function CompoundsPage() {
               <article key={compound.id} className='premium-panel fade-in-surface flex h-full flex-col gap-2.5 p-4'>
                 <p className='section-label'>Compound profile</p>
                 <h2 title={compound.name} className='line-clamp-2 min-h-[2.4rem] text-xl leading-tight text-white'>{title}</h2>
-                <p className='line-clamp-3 text-sm leading-[1.5] text-white/72'>
-                  {summarize({ description: compound.curatedData?.summary || '', effects: compound.curatedData?.keyEffects || [] })}
-                </p>
+                {summary && <p className='line-clamp-3 text-sm leading-[1.5] text-white/72'>{summary}</p>}
                 {chips.length > 0 && (
                   <div className='flex flex-wrap gap-1.5'>
                     {chips.map(chip => <span key={`${compound.id}-${chip.label}`} className='ds-pill neo-pill'>{chip.label}</span>)}
                   </div>
+                )}
+                {profileStatus === 'minimal' && (
+                  <span className='mt-1 text-[10px] uppercase tracking-[0.11em] text-white/60'>Minimal profile</span>
                 )}
                 <span className={`mt-1 inline-flex w-fit rounded-full border px-2 py-0.5 text-[9px] uppercase tracking-[0.11em] ${confidenceBadgeClass(confidence)}`}>
                   {getStatusTag(confidence)}

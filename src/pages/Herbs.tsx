@@ -20,6 +20,7 @@ import { trackGovernedEvent } from '@/lib/governedAnalytics'
 import { slugify } from '@/lib/slug'
 import { dedupePresentationList, sanitizeSummaryText } from '@/lib/sanitize'
 import { Link } from 'react-router-dom'
+import { getPrimaryEffects, getProfileStatus, getSummaryQuality, resolveCoreInsight, resolveHeroSummary, shouldRenderSummary } from '@/lib/workbookRender'
 
 function isPlaceholder(text: string, herbName = ''): boolean {
   const value = String(text || '').trim().toLowerCase()
@@ -33,26 +34,20 @@ const toTitleCase = (value: string) => String(value || '').trim().toLowerCase().
 
 const cleanSummary = (value: string, herbName = '') => {
   const normalized = sanitizeSummaryText(value, 2)
-  if (!normalized || isPlaceholder(normalized, herbName)) return 'Profile in progress'
+  if (!normalized || isPlaceholder(normalized, herbName)) return ''
   if (normalized.length <= 130) return normalized
   return `${normalized.slice(0, 127).trimEnd()}...`
 }
 
 const getKeyEffects = (herb: Record<string, unknown>) =>
-  dedupePresentationList(
-    Array.isArray((herb.curatedData as Record<string, unknown> | undefined)?.keyEffects)
-      ? ((herb.curatedData as Record<string, unknown>).keyEffects as string[])
-      : Array.isArray(herb.primaryEffects)
-        ? herb.primaryEffects
-        : Array.isArray(herb.effects)
-          ? herb.effects
-          : [],
-    3,
-  )
+  dedupePresentationList(getPrimaryEffects(herb, 3), 3)
     .map(toTitleCase)
     .slice(0, 3)
 
 const getStatusTag = (herb: Record<string, unknown>) => {
+  const status = getProfileStatus(herb)
+  if (status === 'minimal') return 'Minimal profile'
+  if (status === 'partial') return 'Partial profile'
   const tier = String(herb.qualityTier || herb.evidenceLevel || '').toLowerCase()
   if (tier.includes('strong') || tier.includes('high')) return 'Well documented'
   if (tier.includes('medium') || tier.includes('moderate')) return 'Moderate evidence'
@@ -160,11 +155,23 @@ export default function HerbsPage() {
         <section className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
           {visibleHerbs.map((herb, index) => (
             <article key={herb.slug || herb.id || `${herb.common}-${index}`} className='premium-panel fade-in-surface flex h-full flex-col p-4'>
+              {(() => {
+                const rawHerb = herb as unknown as Record<string, unknown>
+                const profileStatus = getProfileStatus(rawHerb)
+                const summaryQuality = getSummaryQuality(rawHerb)
+                const hero = cleanSummary(resolveHeroSummary(rawHerb, 2), String(herb.common || herb.name || ''))
+                const coreInsight = cleanSummary(resolveCoreInsight(rawHerb, 1), String(herb.common || herb.name || ''))
+                const summary = hero || (summaryQuality === 'strong' ? coreInsight : '')
+                const keyEffects = getKeyEffects(rawHerb)
+                const showSummary = shouldRenderSummary(profileStatus, summaryQuality) && Boolean(summary)
+                const chips = profileStatus === 'minimal' ? keyEffects.slice(0, 1) : keyEffects
+                return (
+                  <>
               <p className='section-label'>{getStatusTag(herb)}</p>
               <h2 className='mt-2 text-xl leading-tight text-white'>{toTitleCase(String(herb.common || herb.scientific || herb.name || 'Herb'))}</h2>
-              <p className='mt-2 line-clamp-3 text-sm text-white/75'>{cleanSummary(String((herb.curatedData as Record<string, unknown> | undefined)?.summary || ''), String(herb.common || herb.name || ''))}</p>
+              {showSummary && <p className='mt-2 line-clamp-3 text-sm text-white/75'>{summary}</p>}
               <div className='mt-3 flex flex-wrap gap-1.5'>
-                {getKeyEffects(herb).map(effect => (
+                {chips.map(effect => (
                   <span key={`${herb.slug}-${effect}`} className='neo-pill inline-flex rounded-full border px-2 py-0.5 text-[10px]'>{effect}</span>
                 ))}
               </div>
@@ -176,6 +183,9 @@ export default function HerbsPage() {
                   View decision page
                 </Link>
               </div>
+                  </>
+                )
+              })()}
             </article>
           ))}
         </section>

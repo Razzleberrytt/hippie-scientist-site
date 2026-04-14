@@ -108,6 +108,18 @@ export function splitClean(value: unknown): string[] {
   if (Array.isArray(value)) return cleanList(value)
 
   if (typeof value === 'string') {
+    const trimmed = value.trim()
+    if (!trimmed) return []
+
+    if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
+      try {
+        const parsed = JSON.parse(trimmed)
+        return Array.isArray(parsed) ? cleanList(parsed) : []
+      } catch {
+        return []
+      }
+    }
+
     const parts = value
       .split(/[\n,;|]/)
       .map(part => part.trim())
