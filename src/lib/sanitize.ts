@@ -38,6 +38,11 @@ const JUNK_WHOLE_VALUE: RegExp[] = [
   /^data pending$/i,
   /^n\/?a$/i,
   /^none$/i,
+  /^.{0,120} appears in records as a compound reported in/i,
+  /^.{0,120} appears in records/i,
+  /currently mentions/i,
+  /source coverage is limited and still developing/i,
+  /^related herbs listed below\.?$/i,
 ]
 
 const NUMERIC_ONLY = /^\d+(?:[\s.,/-]\d+)*$/
