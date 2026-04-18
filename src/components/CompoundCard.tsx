@@ -89,9 +89,12 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
     <motion.article
       whileHover={{ scale: 1.003 }}
       title={compound.herbsFound.map(h => h.name).join(', ')}
-      className='neo-card fade-in-surface ds-card relative flex h-full flex-col gap-2.5 rounded-xl border-white/12 p-3.5 text-left'
+      className='group relative flex h-full flex-col gap-2.5 rounded-[var(--radius-lg)] border border-white/8 bg-white/[0.03] p-4 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-white/16 hover:bg-white/[0.055] hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
     >
-      <div aria-hidden className='pointer-events-none absolute -bottom-10 -left-8 h-20 w-20 rounded-full bg-cyan-300/10 blur-2xl' />
+      <div
+        aria-hidden
+        className='pointer-events-none absolute inset-0 rounded-[var(--radius-lg)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 shadow-[inset_0_0_0_1px_rgba(14,207,179,0.12)]'
+      />
       <h2
         title={isTitleTruncated ? compound.name : undefined}
         className='line-clamp-2 min-h-[2.2rem] break-all text-[0.95rem] font-semibold leading-tight text-white sm:text-base'
@@ -100,8 +103,14 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
       </h2>
       {showSummary && summary ? <p className='line-clamp-2 text-xs leading-[1.45] text-white/76'>{summary}</p> : null}
       <div className='flex flex-wrap gap-1'>
-        <span className='ds-pill neo-pill'>{normalizeTagList(confidence, { caseStyle: 'title', maxItems: 1 })[0] || confidence}</span>
-        {primaryEffects[0] && <span className='ds-pill neo-pill'>{primaryEffects[0]}</span>}
+        <span className='inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[0.68rem] font-medium text-white/55'>
+          {normalizeTagList(confidence, { caseStyle: 'title', maxItems: 1 })[0] || confidence}
+        </span>
+        {primaryEffects[0] && (
+          <span className='inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[0.68rem] font-medium text-white/55'>
+            {primaryEffects[0]}
+          </span>
+        )}
       </div>
       {!isMinimal && <p className='line-clamp-1 text-[11px] text-white/56'>{sourceLine}</p>}
       <div className='mt-auto' />
