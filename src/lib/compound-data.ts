@@ -108,9 +108,7 @@ function normalizeEnrichmentSummary(value: unknown): PublishSafeEnrichmentSummar
 
 let compoundsSummaryPromise: Promise<CompoundSummaryRecord[]> | null = null
 let canonicalCompoundsSummaryPromise: Promise<CompoundSummaryRecord[]> | null = null
-let workbookCompoundsPromise: Promise<Record<string, unknown>[]> | null = null
 const compoundDetailPromiseBySlug = new Map<string, Promise<CompoundRecord | null>>()
-const ENABLE_LEGACY_SUMMARY_FALLBACK = import.meta.env.VITE_ENABLE_LEGACY_SUMMARY_FALLBACK === 'true'
 
 function normalizeSlugCandidate(value: string): string {
   return value
@@ -119,23 +117,6 @@ function normalizeSlugCandidate(value: string): string {
     .toLowerCase()
     .replace(/\band\b/g, '')
     .replace(/[^a-z0-9]+/g, '')
-}
-
-function loadWorkbookCompoundRows(): Promise<Record<string, unknown>[]> {
-  if (!workbookCompoundsPromise) {
-    workbookCompoundsPromise = fetch('/data/workbook-compounds.json', { cache: 'no-store' })
-      .then(response => {
-        if (!response.ok) throw new Error('Failed to load /data/workbook-compounds.json')
-        return response.json()
-      })
-      .then(payload => (Array.isArray(payload) ? (payload as Record<string, unknown>[]) : []))
-      .catch(error => {
-        workbookCompoundsPromise = null
-        throw error
-      })
-  }
-
-  return workbookCompoundsPromise
 }
 
 function loadCanonicalCompoundSummaryRows(): Promise<CompoundSummaryRecord[]> {
@@ -156,43 +137,6 @@ function loadCanonicalCompoundSummaryRows(): Promise<CompoundSummaryRecord[]> {
   }
 
   return canonicalCompoundsSummaryPromise
-}
-
-async function loadWorkbookCompoundDetailBySlug(slug: string): Promise<CompoundRecord | null> {
-  const needle = normalizeSlugCandidate(slug)
-  if (!needle) return null
-
-  const workbookRows = await loadWorkbookCompoundRows().catch(() => [])
-  const match = workbookRows.find(row => {
-    const record = row as Record<string, unknown>
-    const aliases = splitClean(record.aliases)
-    const candidates = [
-      String(record.slug || ''),
-      String(record.id || ''),
-      String(record.name || ''),
-      String(record.compoundName || ''),
-      String(record.canonicalCompoundId || ''),
-      String(record.canonicalCompoundName || ''),
-      ...aliases,
-    ]
-    return candidates.some(candidate => normalizeSlugCandidate(candidate) === needle)
-  })
-
-  if (!match) return null
-  return normalizeCompound(match)
-}
-
-async function resolveCompoundDetailSlug(slug: string): Promise<string | null> {
-  const needle = normalizeSlugCandidate(slug)
-  if (!needle) return null
-
-  const summaries = await loadCompoundSummaryData()
-  const match = summaries.find(item => {
-    const candidates = [item.slug, item.id, item.name, ...item.aliases]
-    return candidates.some(candidate => normalizeSlugCandidate(candidate) === needle)
-  })
-
-  return match?.slug || null
 }
 
 async function resolveCanonicalCompoundDetailSlug(slug: string): Promise<string | null> {
@@ -394,23 +338,14 @@ export function isRenderableCompound(raw: Record<string, unknown>): boolean {
 
 export async function loadCompoundSummaryData(): Promise<CompoundSummaryRecord[]> {
   if (!compoundsSummaryPromise) {
-    compoundsSummaryPromise = fetch('/data/workbook-compounds.json', { cache: 'no-store' })
+    compoundsSummaryPromise = fetch('/data/compounds-summary.json', { cache: 'no-store' })
       .then(response => {
-        if (!response.ok) throw new Error('Failed to load /data/workbook-compounds.json')
+        if (!response.ok) throw new Error('Failed to load /data/compounds-summary.json')
         return response.json()
       })
-      .then(async workbookPayload => {
-        const workbookRows = Array.isArray(workbookPayload) ? workbookPayload : []
-        if (workbookRows.length > 0 || !ENABLE_LEGACY_SUMMARY_FALLBACK) {
-          return workbookRows.map(row => normalizeCompoundSummary(row as Record<string, unknown>)).filter(row => Boolean(row.slug))
-        }
-
-        const legacySummaryPayload = await fetch('/data/compounds-summary.json', { cache: 'no-store' }).then(response => {
-          if (!response.ok) throw new Error('Failed to load /data/compounds-summary.json')
-          return response.json()
-        })
-        const summaryRows = Array.isArray(legacySummaryPayload) ? legacySummaryPayload : []
-        return summaryRows.map(row => normalizeCompoundSummary(row as Record<string, unknown>)).filter(row => Boolean(row.slug))
+      .then(payload => {
+        const rows = Array.isArray(payload) ? payload : []
+        return rows.map(row => normalizeCompoundSummary(row as Record<string, unknown>)).filter(row => Boolean(row.slug))
       })
       .catch(error => {
         compoundsSummaryPromise = null
@@ -430,21 +365,16 @@ export async function loadCompoundDetailBySlug(slug: string): Promise<CompoundRe
 
   const request = resolveCanonicalCompoundDetailSlug(slugKey)
     .then(async resolvedCanonicalSlug => {
-      if (resolvedCanonicalSlug) {
-        const canonicalResponse = await fetch(
-          `/data/compounds-detail/${encodeURIComponent(resolvedCanonicalSlug)}.json`,
-          { cache: 'no-store' },
-        )
-        if (canonicalResponse.ok) {
-          return canonicalResponse.json()
-        }
-        if (canonicalResponse.status !== 404) {
-          throw new Error(`Failed to load /data/compounds-detail/${resolvedCanonicalSlug}.json`)
-        }
+      if (!resolvedCanonicalSlug) return null
+      const canonicalResponse = await fetch(
+        `/data/compounds-detail/${encodeURIComponent(resolvedCanonicalSlug)}.json`,
+        { cache: 'no-store' },
+      )
+      if (canonicalResponse.ok) {
+        return canonicalResponse.json()
       }
-
-      const resolvedSlug = await resolveCompoundDetailSlug(slugKey)
-      return loadWorkbookCompoundDetailBySlug(resolvedSlug || slugKey)
+      if (canonicalResponse.status === 404) return null
+      throw new Error(`Failed to load /data/compounds-detail/${resolvedCanonicalSlug}.json`)
     })
     .then(payload => {
       if (!payload || typeof payload !== 'object') return null
