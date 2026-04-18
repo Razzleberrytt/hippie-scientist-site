@@ -162,8 +162,8 @@ export default function HerbDetail() {
     )
   }
 
-  const herbName = toTitleCase(herb.commonName || herb.common || herb.name || herb.slug)
-  const scientificName = String(herb.scientific || herb.latinName || '').trim()
+  const herbName = toTitleCase(herb.name || herb.slug)
+  const scientificName = String(herb.scientificName || herb.scientific || '').trim()
   const curatedData = herb.curatedData
   const rawRecord = readRecord(herb.rawData)
   const contextRecord = readRecord(rawRecord.context)
@@ -187,21 +187,21 @@ export default function HerbDetail() {
       2,
     ),
     mechanism:
-      splitTextList((herb as Record<string, unknown>).mechanisms).join('; ') ||
-      readWorkbookText(rawRecord, 'mechanisms', 'mechanism') ||
+      splitTextList(herb.mechanisms).join('; ') ||
+      readWorkbookText(rawRecord, 'mechanism') ||
       String(curatedData.mechanism || '').trim(),
   })
   const coreInsight = uniqueCopy.overview
 
   const primaryActions = sanitizeRenderChips(
     dedupePresentationList(
-      splitTextList((herb as Record<string, unknown>).primaryActions || rawRecord.primaryActions || curatedData.keyEffects),
+      splitTextList(herb.primaryActions || curatedData.keyEffects),
       8,
     ),
     8,
   )
   const keyEffects = primaryActions.slice(0, 4)
-  const activeCompounds = sanitizeRenderList(splitTextList(herb.activeCompounds || herb.compounds), 10)
+  const activeCompounds = sanitizeRenderList(splitTextList(herb.activeCompounds), 10)
   const mechanism = uniqueCopy.mechanism
   const contextSummary = uniqueCopy.context
   const dosage = String(herb.dosage || '').trim()
@@ -210,14 +210,12 @@ export default function HerbDetail() {
   const standardization = String(herb.standardization || '').trim()
   const contraindications = splitTextList(herb.contraindications)
   const interactions = splitTextList(herb.interactions)
-  const sideEffects = splitTextList(herb.sideeffects || herb.sideEffects)
+  const sideEffects = splitTextList(herb.sideEffects)
   const safety = splitTextList(
     safetyRecord.notes ||
       safetyRecord.summary ||
       safetyRecord.caution ||
-      rawRecord.safety ||
-      (herb as Record<string, unknown>).safetyNotes ||
-      (herb as Record<string, unknown>).safety,
+      herb.safetyNotes,
   )
 
   const rawSafetyNotes = dedupePresentationList([
@@ -246,7 +244,7 @@ export default function HerbDetail() {
     priorityWarning ? `Use caution: ${priorityWarning}.` : 'Avoid if safety context, medications, or medical status are unclear.',
   ].filter(Boolean)
   const pagePath = `/herbs/${herb.slug}`
-  const relatedHerbSlugs = splitTextList((herb as Record<string, unknown>).relatedHerbs)
+  const relatedHerbSlugs = splitTextList(herb.relatedHerbs)
   const relatedHerbs = herbs
     .filter(item => item.slug && item.slug !== herb.slug && (relatedHerbSlugs.length === 0 || relatedHerbSlugs.includes(item.slug)))
     .slice(0, 4)

@@ -9,7 +9,6 @@ import {
   sanitizeReadableText,
   sanitizeSummaryText,
   splitClean,
-  uniqueNormalizedList,
 } from '@/lib/sanitize'
 import { buildUniqueDetailCopy, sanitizeRenderChips, sanitizeRenderList } from '@/lib/renderGuard'
 import { normalizeTagList } from '@/lib/tagNormalization'
@@ -166,21 +165,6 @@ function readWorkbookText(record: Record<string, unknown>, ...keys: string[]): s
   return ''
 }
 
-function splitPipeList(value: unknown): string[] {
-  return normalizeTagList(
-    Array.isArray(value) ? value : normalizeTextValue(value).split('|'),
-    { caseStyle: 'none', minLength: 1, maxItems: 50 },
-  )
-}
-
-function toTitleCase(value: string): string {
-  return value
-    .replace(/[-_]+/g, ' ')
-    .trim()
-    .replace(/\s+/g, ' ')
-    .replace(/\b\w/g, letter => letter.toUpperCase())
-}
-
 function buildSourceLabel(rawUrl: string, fallbackTitle: string) {
   const title = normalizeTextValue(fallbackTitle)
   const genericTitle = !title || /^(source|link|reference|article|study)$/i.test(title)
@@ -197,18 +181,7 @@ export default function CompoundDetail() {
   const location = useLocation()
   const showRawDebug = shouldShowRawDebug(location.search)
   const { compounds, isLoading: isCompoundsLoading } = useCompoundDataState()
-  const slugNeedle = normalizeKey(slug)
-  const detailLookupSlug =
-    compounds.find(item => {
-      const record = item as unknown as Record<string, unknown>
-      const candidates = [
-        item.slug,
-        item.id,
-        normalizeTextValue(record.canonicalCompoundId),
-      ]
-      return candidates.some(candidate => normalizeKey(String(candidate || '')) === slugNeedle)
-    })?.slug || slug
-  const { compound, isLoading: isCompoundLoading } = useCompoundDetailState(detailLookupSlug)
+  const { compound, isLoading: isCompoundLoading } = useCompoundDetailState(slug)
   const { herbs, isLoading: isHerbLoading } = useHerbDataState()
 
   if (isCompoundLoading || isCompoundsLoading || isHerbLoading) {
@@ -233,19 +206,13 @@ export default function CompoundDetail() {
   const profileStatus = getProfileStatus(rawRecord)
   const summaryQuality = getSummaryQuality(rawRecord)
   const isMinimalProfile = profileStatus === 'minimal'
-  const name =
-    normalizeTextValue(compoundRecord.compoundName) ||
-    normalizeTextValue(compoundRecord.name) ||
-    normalizeTextValue(compoundRecord.id) ||
-    'Unknown compound'
+  const name = normalizeTextValue(compound.name) || normalizeTextValue(compound.id) || 'Unknown compound'
   const evidence = sanitizeReadableText(compoundRecord.evidence)
   const pharmacokinetics = sanitizeReadableText(compoundRecord.pharmacokinetics)
-  const pathwayTargets = sanitizeRenderList(splitClean(compound.pathways || compoundRecord.pathwayTargets))
-  const workbookSources = sanitizeRenderList(splitPipeList(compoundRecord.sourceUrls))
-  const relatedHerbSlugs = uniqueNormalizedList(splitClean(compound.foundIn || compoundRecord.relatedHerbSlugs))
+  const pathwayTargets = sanitizeRenderList(splitClean(compound.pathways))
   const curatedData = compound.curatedData
   const compoundEffects = sanitizeRenderChips(
-    cleanEffectChips((compound as Record<string, unknown>).primaryActions || rawRecord.primaryActions || curatedData.keyEffects || compound.effects, 12),
+    cleanEffectChips(compound.effects || curatedData.keyEffects, 12),
     12,
   )
   const compoundContraindications = sanitizeRenderList(compound.contraindications)
@@ -268,7 +235,7 @@ export default function CompoundDetail() {
     ),
     mechanism: sanitizeReadableText(
       splitClean(compound.mechanisms).join('; ') ||
-      readWorkbookText(rawRecord, 'mechanisms', 'mechanism') ||
+      readWorkbookText(rawRecord, 'mechanism') ||
       curatedData.mechanism,
     ),
   })
@@ -280,12 +247,11 @@ export default function CompoundDetail() {
     splitClean(safetyRecord.notes || safetyRecord.summary || safetyRecord.caution || rawRecord.safety),
     8,
   )
-  const drugInteractions = normalizeTextValue(compoundRecord.drugInteractions)
   const uniqueDrugInteractionItems = sanitizeRenderList(
     normalizeTagList(
       Array.from(
         new Map(
-          [...workbookSafety, ...compoundInteractions, ...(drugInteractions ? [sanitizeReadableText(drugInteractions)] : [])]
+          [...workbookSafety, ...compoundInteractions]
             .map(item => normalizeTextValue(item))
             .filter(Boolean)
             .map(item => [normalizeKey(item), item]),
@@ -366,14 +332,6 @@ export default function CompoundDetail() {
       to: `/herbs/${encodeURIComponent(herb.slug)}`,
     })),
     ...premiumRelatedHerbs,
-    ...relatedHerbSlugs.map(entry => {
-      const normalized = herbByKey.get(normalizeKey(entry))
-      const resolvedSlug = normalized?.slug || entry
-      return {
-        label: normalized?.label || toTitleCase(entry),
-        to: `/herbs/${encodeURIComponent(resolvedSlug)}`,
-      }
-    }),
   ])
   const relatedCompoundLinks = dedupeRelatedLinks(premiumRelatedCompounds)
   const relationGroups = [
