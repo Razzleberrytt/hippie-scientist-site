@@ -24,16 +24,20 @@ export type HerbSummary = {
   confidence: Herb['confidence']
   summaryShort: string
   description: string
-  mechanism: string
-  effects: string[]
-  primaryEffects: string[]
+  primaryActions: string[]
+  primaryEffects?: string[]
+  mechanisms: string[]
   activeCompounds: string[]
   compounds: string[]
   interactionTags: string[]
   interactionNotes?: string[]
   interactions?: string[] | string
   contraindications?: string[] | string
-  mechanismOfAction?: string
+  traditionalUses?: string[]
+  relatedHerbs?: string[]
+  relatedCompounds?: string[]
+  mechanism?: string
+  effects?: string[]
   safety?: string
   sideEffects?: string
   toxicity?: string
@@ -236,6 +240,12 @@ function normalizeSafetyNotes(...values: unknown[]): string[] {
   return notes
 }
 
+function normalizeMechanisms(...values: unknown[]): string[] {
+  const mechanisms = values.flatMap(value => splitClean(value))
+  if (mechanisms.length > 0) return mechanisms
+  return []
+}
+
 function normalizeProductRecommendations(value: unknown): ProductRecommendation[] {
   if (!Array.isArray(value)) return []
   return value
@@ -287,7 +297,9 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     .trim()
     .toLowerCase()
 
-  const effects = splitClean(data.effects ?? data.keyEffects)
+  const primaryActions = splitClean(
+    data.primaryActions ?? data.actions ?? data.effects ?? data.keyEffects ?? data.benefits,
+  )
   const contraindications = splitClean(data.contraindications)
   const interactions = splitClean(data.interactions)
   const sideeffects = splitClean(data.sideEffects ?? data.sideeffects)
@@ -303,7 +315,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   )
   const rawInteractionTags = splitClean(data.interactionTags)
   const rawInteractionNotes = splitClean(data.interactionNotes)
-  const therapeuticUses = splitClean(data.therapeuticUses)
+  const traditionalUses = splitClean(data.traditionalUses ?? data.therapeuticUses)
   const activeCompounds = splitClean(
     data.activeCompounds ?? data.active_compounds ?? data.compounds,
   )
@@ -317,7 +329,13 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     seed: seededInteraction,
   })
 
-  const mechanism = cleanText(data.mechanism ?? splitClean(data.mechanisms).join('; ') ?? data.mechanismOfAction) || ''
+  const mechanisms = normalizeMechanisms(
+    data.mechanisms,
+    data.mechanism,
+    data.mechanismOfAction,
+    data.pathwayTargets,
+  )
+  const mechanism = mechanisms.join('; ')
   const description =
     cleanText(data.description ?? data.summary ?? data.hero ?? data.intro ?? data.coreInsight) || ''
   const duration = cleanText(data.duration) || ''
@@ -329,6 +347,12 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   const intensity = cleanText(data.intensity) || ''
   const relatedEntities = splitClean(data.relatedEntities ?? context.foundIn)
   const relatedCompounds = splitClean(data.relatedCompounds ?? context.relatedCompounds)
+  const relatedHerbs = splitClean(data.relatedHerbs).concat(
+    relatedEntities
+      .filter(entry => entry.toLowerCase().startsWith('herb:'))
+      .map(entry => entry.split(':')[1] || '')
+      .filter(Boolean),
+  )
   const identity = cleanText(data.identity) || ''
   const categoryUseContext = cleanText(data.categoryUseContext ?? data.category_use_context) || ''
   const evidenceLevel =
@@ -348,10 +372,12 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     class: cleanText(data.class) || '',
     intensity,
     region,
+    primaryActions,
+    mechanisms,
     mechanism,
-    effects,
+    effects: primaryActions,
     benefits,
-    therapeuticUses,
+    traditionalUses,
     contraindications,
     interactions,
     safetyNotes,
@@ -369,18 +395,19 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     categoryUseContext,
     evidenceLevel,
     relatedEntities,
+    relatedHerbs,
     relatedCompounds,
     sources,
     researchEnrichment: researchEnrichment || undefined,
     productRecommendations,
-    confidence: calculateHerbConfidence({ mechanism, effects, compounds: activeCompounds }),
+    confidence: calculateHerbConfidence({ mechanism, effects: primaryActions, compounds: activeCompounds }),
     curatedData: getCuratedData({
       name: common || scientific || slug,
       summary: description,
       description,
       whyItMatters: cleanText(data.whyItMatters ?? data.coreInsight ?? data.overview) || description,
-      primaryEffects: splitClean(data.primary_effects ?? data.primaryEffects ?? data.keyEffects ?? effects),
-      effects,
+      primaryEffects: splitClean(data.primary_effects ?? data.primaryEffects ?? data.keyEffects ?? primaryActions),
+      effects: primaryActions,
       contraindications,
       interactions,
       sideEffects: sideeffects,
@@ -399,7 +426,10 @@ function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
     .toLowerCase()
   const common = cleanText(raw.common ?? raw.commonName ?? raw.name) || ''
   const scientific = cleanText(raw.scientific ?? raw.latin ?? raw.scientificName) || ''
-  const effects = splitClean(raw.effects ?? raw.keyEffects)
+  const primaryActions = splitClean(
+    raw.primaryActions ?? raw.actions ?? raw.effects ?? raw.keyEffects ?? raw.benefits,
+  )
+  const mechanisms = normalizeMechanisms(raw.mechanisms, raw.mechanism, raw.mechanismOfAction, raw.pathwayTargets)
   const activeCompounds = splitClean(raw.activeCompounds ?? raw.compounds)
   const confidence = String(raw.confidence || '').toLowerCase()
   const confidenceLevel: Herb['confidence'] =
@@ -416,9 +446,11 @@ function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
     confidence: confidenceLevel,
     summaryShort: cleanText(raw.summaryShort ?? raw.description ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
     description: cleanText(raw.description ?? raw.summaryShort ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
-    mechanism: cleanText(raw.mechanism ?? splitClean(raw.mechanisms).join('; ')) || '',
-    effects,
-    primaryEffects: splitClean(raw.primary_effects ?? raw.primaryEffects ?? raw.keyEffects ?? effects).slice(0, 4),
+    primaryActions,
+    mechanisms,
+    mechanism: cleanText(raw.mechanism ?? mechanisms.join('; ')) || '',
+    effects: primaryActions,
+    primaryEffects: splitClean(raw.primary_effects ?? raw.primaryEffects ?? raw.keyEffects ?? primaryActions).slice(0, 4),
     activeCompounds,
     compounds: activeCompounds,
     interactionTags: splitClean(raw.interactionTags),

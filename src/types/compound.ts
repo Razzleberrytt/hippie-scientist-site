@@ -4,11 +4,18 @@ import type { PublishSafeEnrichmentSummary } from './enrichmentDiscovery'
 
 export type CanonicalCompound = {
   name: string
-  category: string
-  mechanism: string
-  effects: string[]
-  safety: string[]
-  herbs: string[]
+  slug: string
+  summary: string
+  description: string
+  compoundClass: string
+  mechanisms: string[]
+  targets: string[]
+  pathways: string[]
+  foundIn: string[]
+  bioavailability: string
+  safetyNotes: string
+  evidenceLevel: string
+  relatedCompounds: string[]
   confidence?: ConfidenceLevel
 }
 
