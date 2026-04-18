@@ -52,7 +52,7 @@ import { buildFallbackCompoundIntro, buildGovernedDetailIntro } from '@/lib/gove
 import { resolveGovernedCtaDecision } from '@/lib/governedCta'
 import { buildGovernedReviewFreshness } from '@/lib/governedReviewFreshness'
 import { shouldShowRawDebug } from '@/lib/semanticCompression'
-import { getPrimaryEffects, getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
+import { getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -240,12 +240,12 @@ export default function CompoundDetail() {
     'Unknown compound'
   const evidence = sanitizeReadableText(compoundRecord.evidence)
   const pharmacokinetics = sanitizeReadableText(compoundRecord.pharmacokinetics)
-  const pathwayTargets = sanitizeRenderList(splitClean(compoundRecord.pathwayTargets))
+  const pathwayTargets = sanitizeRenderList(splitClean(compound.pathways || compoundRecord.pathwayTargets))
   const workbookSources = sanitizeRenderList(splitPipeList(compoundRecord.sourceUrls))
-  const relatedHerbSlugs = uniqueNormalizedList(splitClean(compoundRecord.relatedHerbSlugs))
+  const relatedHerbSlugs = uniqueNormalizedList(splitClean(compound.foundIn || compoundRecord.relatedHerbSlugs))
   const curatedData = compound.curatedData
   const compoundEffects = sanitizeRenderChips(
-    cleanEffectChips(rawRecord.effects || curatedData.keyEffects || compound.effects, 12),
+    cleanEffectChips((compound as Record<string, unknown>).primaryActions || rawRecord.primaryActions || curatedData.keyEffects || compound.effects, 12),
     12,
   )
   const compoundContraindications = sanitizeRenderList(compound.contraindications)
@@ -266,7 +266,11 @@ export default function CompoundDetail() {
       readWorkbookText(contextRecord, 'summary', 'overview', 'notes') || readWorkbookText(rawRecord, 'context'),
       2,
     ),
-    mechanism: sanitizeReadableText(readWorkbookText(rawRecord, 'mechanisms', 'mechanism') || curatedData.mechanism),
+    mechanism: sanitizeReadableText(
+      splitClean(compound.mechanisms).join('; ') ||
+      readWorkbookText(rawRecord, 'mechanisms', 'mechanism') ||
+      curatedData.mechanism,
+    ),
   })
   const coreInsight = uniqueCopy.overview
   const contextSummary = uniqueCopy.context
@@ -388,7 +392,7 @@ export default function CompoundDetail() {
     calculateCompoundConfidence({
       mechanism: compoundMechanism,
       effects: compoundEffects,
-      compounds: compound.herbs,
+      compounds: compound.foundIn,
     })
 
   const completeness = getCompoundDataCompleteness({
@@ -396,10 +400,10 @@ export default function CompoundDetail() {
     effects: compoundEffects,
     contraindications: compoundContraindications,
     interactions: compoundInteractions,
-    herbs: compound.herbs,
+    herbs: compound.foundIn,
   })
 
-  const primaryEffects = cleanEffectChips(getPrimaryEffects(rawRecord, 5), 5)
+  const primaryEffects = cleanEffectChips(compoundEffects, 5)
 
   const sourceCount = compound.sources.length
   const cautionCount = countCautionSignals({
@@ -419,7 +423,7 @@ export default function CompoundDetail() {
       mechanism: compoundMechanism,
       effects: compoundEffects,
       contraindications: compoundContraindications,
-      herbs: compound.herbs,
+      herbs: compound.foundIn,
     },
     ['mechanism', 'effects', 'contraindications', 'herbs'],
   )

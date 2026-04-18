@@ -18,7 +18,11 @@ export type CompoundRecord = {
   description: string
   className: string
   category: string
+  compoundClass: string
   intensity: string
+  mechanisms: string[]
+  targets: string[]
+  pathways: string[]
   mechanism: string
   activeCompounds: string[]
   effects: string[]
@@ -33,6 +37,7 @@ export type CompoundRecord = {
   sideEffects: string[]
   interactionTags?: string[]
   interactionNotes?: string[]
+  foundIn: string[]
   herbs: string[]
   sources: SourceRef[]
   lastUpdated: string
@@ -60,9 +65,14 @@ export type CompoundSummaryRecord = {
   description: string
   className: string
   category: string
+  compoundClass: string
+  mechanisms: string[]
+  targets: string[]
+  pathways: string[]
   mechanism: string
   effects: string[]
   primaryEffects: string[]
+  foundIn: string[]
   herbs: string[]
   confidence: ConfidenceLevel
   hasInteractionData: boolean
@@ -245,11 +255,14 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   const safetyRecord = readSafetyRecord(data)
   const name = cleanText(data.name ?? data.commonName ?? data.id) || ''
   const slug = String(data.slug || slugify(name))
-  const effects = splitClean(data.effects ?? data.keyEffects)
-  const herbs = splitClean(
+  const primaryActions = splitClean(data.primaryActions ?? data.effects ?? data.actions ?? data.benefits ?? data.keyEffects)
+  const foundIn = splitClean(
     data.associatedHerbs ?? data.foundInHerbs ?? data.herbs ?? data.foundIn ?? context.foundIn,
   )
-  const mechanism = cleanText(data.mechanism ?? splitClean(data.mechanisms).join('; ') ?? data.mechanismOfAction) || ''
+  const mechanisms = splitClean(data.mechanisms ?? data.mechanism ?? data.mechanismOfAction)
+  const targets = splitClean(data.targets ?? data.mechanismTargets)
+  const pathways = splitClean(data.pathways ?? data.pathwayTargets)
+  const mechanism = cleanText(data.mechanism ?? mechanisms.join('; ') ?? data.mechanismOfAction) || ''
   const researchEnrichment = normalizeResearchEnrichment(data.researchEnrichment)
   const rawInteractionTags = splitClean(data.interactionTags)
   const rawInteractionNotes = splitClean(data.interactionNotes)
@@ -277,12 +290,16 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     name,
     description:
       cleanText(data.description ?? data.summary ?? data.hero ?? data.intro ?? data.coreInsight) || '',
-    className: cleanText(data.class ?? data.type ?? data.className) || '',
-    category: cleanText(data.category ?? data.class ?? data.type ?? data.className) || '',
+    className: cleanText(data.class ?? data.type ?? data.className ?? data.compoundClass) || '',
+    category: cleanText(data.category ?? data.class ?? data.type ?? data.className ?? data.compoundClass) || '',
+    compoundClass: cleanText(data.compoundClass ?? data.class ?? data.className ?? data.type) || '',
+    mechanisms,
+    targets,
+    pathways,
     intensity: cleanText(data.intensity) || '',
     mechanism,
     activeCompounds: splitClean(data.activeCompounds),
-    effects,
+    effects: primaryActions,
     benefits,
     therapeuticUses: splitClean(data.therapeuticUses),
     contraindications: splitClean(data.contraindications),
@@ -295,7 +312,8 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     preparation: cleanText(data.preparation) || '',
     legalStatus: cleanText(data.legalStatus) || '',
     sideEffects: splitClean(data.sideEffects),
-    herbs,
+    foundIn,
+    herbs: foundIn,
     identity,
     categoryUseContext,
     evidenceLevel,
@@ -303,7 +321,7 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     relatedCompounds,
     compounds,
     linkedHerbs,
-    confidence: calculateCompoundConfidence({ mechanism, effects, compounds: herbs }),
+    confidence: calculateCompoundConfidence({ mechanism, effects: primaryActions, compounds: foundIn }),
     sources,
     researchEnrichment: researchEnrichment || undefined,
     researchEnrichmentSummary: normalizeEnrichmentSummary(data.researchEnrichmentSummary),
@@ -316,8 +334,8 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
       description:
         cleanText(data.description ?? data.summary ?? data.hero ?? data.intro ?? data.coreInsight) || '',
       whyItMatters: cleanText(data.whyItMatters ?? data.coreInsight ?? data.overview) || '',
-      primaryEffects: splitClean(data.primary_effects ?? data.primaryEffects ?? data.keyEffects ?? effects),
-      effects,
+      primaryEffects: splitClean(data.primary_effects ?? data.primaryEffects ?? data.keyEffects ?? primaryActions),
+      effects: primaryActions,
       contraindications: splitClean(data.contraindications),
       interactions: splitClean(data.interactions),
       sideEffects: splitClean(data.sideEffects),
@@ -330,8 +348,11 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
 
 function normalizeCompoundSummary(raw: Record<string, unknown>): CompoundSummaryRecord {
   const context = readContextRecord(raw)
-  const effects = splitClean(raw.effects ?? raw.keyEffects)
-  const herbs = splitClean(raw.herbs ?? raw.foundIn ?? context.foundIn)
+  const effects = splitClean(raw.primaryActions ?? raw.effects ?? raw.actions ?? raw.benefits ?? raw.keyEffects)
+  const foundIn = splitClean(raw.foundIn ?? raw.herbs ?? context.foundIn)
+  const mechanisms = splitClean(raw.mechanisms ?? raw.mechanism ?? raw.mechanismOfAction)
+  const targets = splitClean(raw.targets ?? raw.mechanismTargets)
+  const pathways = splitClean(raw.pathways ?? raw.pathwayTargets)
   const confidence = String(raw.confidence || '')
     .trim()
     .toLowerCase()
@@ -344,12 +365,17 @@ function normalizeCompoundSummary(raw: Record<string, unknown>): CompoundSummary
     name: cleanText(raw.name) || '',
     summaryShort: cleanText(raw.summaryShort ?? raw.description ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
     description: cleanText(raw.description ?? raw.summaryShort ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
-    className: cleanText(raw.className) || '',
-    category: cleanText(raw.category ?? raw.className) || '',
-    mechanism: cleanText(raw.mechanism ?? splitClean(raw.mechanisms).join('; ')) || '',
+    className: cleanText(raw.className ?? raw.compoundClass) || '',
+    category: cleanText(raw.category ?? raw.className ?? raw.compoundClass) || '',
+    compoundClass: cleanText(raw.compoundClass ?? raw.className ?? raw.category) || '',
+    mechanisms,
+    targets,
+    pathways,
+    mechanism: cleanText(raw.mechanism ?? mechanisms.join('; ')) || '',
     effects,
     primaryEffects: splitClean(raw.primary_effects ?? raw.primaryEffects ?? raw.keyEffects ?? effects).slice(0, 4),
-    herbs,
+    foundIn,
+    herbs: foundIn,
     confidence: confidence === 'high' || confidence === 'medium' ? confidence : 'low',
     hasInteractionData: Boolean(raw.hasInteractionData),
     hasEvidenceNotes: Boolean(raw.hasEvidenceNotes),

@@ -11,7 +11,7 @@ import { normalizeTagList } from '@/lib/tagNormalization'
 import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { SITE_URL, breadcrumbJsonLd, herbJsonLd } from '@/lib/seo'
 import { shouldShowRawDebug } from '@/lib/semanticCompression'
-import { getPrimaryEffects, getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
+import { getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
 
 type SourceRef = { title: string; url: string; note?: string }
 
@@ -186,15 +186,21 @@ export default function HerbDetail() {
       readWorkbookText(contextRecord, 'summary', 'overview', 'notes') || readWorkbookText(rawRecord, 'context'),
       2,
     ),
-    mechanism: readWorkbookText(rawRecord, 'mechanisms', 'mechanism') || String(curatedData.mechanism || '').trim(),
+    mechanism:
+      splitTextList((herb as Record<string, unknown>).mechanisms).join('; ') ||
+      readWorkbookText(rawRecord, 'mechanisms', 'mechanism') ||
+      String(curatedData.mechanism || '').trim(),
   })
   const coreInsight = uniqueCopy.overview
 
-  const effects = sanitizeRenderChips(
-    dedupePresentationList(splitTextList(rawRecord.effects || rawRecord.keyEffects || curatedData.keyEffects), 8),
+  const primaryActions = sanitizeRenderChips(
+    dedupePresentationList(
+      splitTextList((herb as Record<string, unknown>).primaryActions || rawRecord.primaryActions || curatedData.keyEffects),
+      8,
+    ),
     8,
   )
-  const keyEffects = getPrimaryEffects(rawRecord, 4)
+  const keyEffects = primaryActions.slice(0, 4)
   const activeCompounds = sanitizeRenderList(splitTextList(herb.activeCompounds || herb.compounds), 10)
   const mechanism = uniqueCopy.mechanism
   const contextSummary = uniqueCopy.context
@@ -230,8 +236,8 @@ export default function HerbDetail() {
   const confidenceLabel = toEvidenceStrengthLabel(String(herb.evidenceLevel || herb.confidence || 'Limited'))
   const useCasePoints = [
     contextSummary || coreInsight,
-    effects[0] ? `Best for ${effects[0].toLowerCase()} goals when you want a gentler herbal option.` : '',
-    effects[1] ? `May also support ${effects[1].toLowerCase()} depending on preparation and dose.` : '',
+    primaryActions[0] ? `Best for ${primaryActions[0].toLowerCase()} goals when you want a gentler herbal option.` : '',
+    primaryActions[1] ? `May also support ${primaryActions[1].toLowerCase()} depending on preparation and dose.` : '',
     confidenceLabel === 'Traditional'
       ? 'Evidence is mostly traditional or early-stage, so reliability may vary between people.'
       : confidenceLabel === 'Limited'
@@ -240,8 +246,9 @@ export default function HerbDetail() {
     priorityWarning ? `Use caution: ${priorityWarning}.` : 'Avoid if safety context, medications, or medical status are unclear.',
   ].filter(Boolean)
   const pagePath = `/herbs/${herb.slug}`
+  const relatedHerbSlugs = splitTextList((herb as Record<string, unknown>).relatedHerbs)
   const relatedHerbs = herbs
-    .filter(item => item.slug && item.slug !== herb.slug)
+    .filter(item => item.slug && item.slug !== herb.slug && (relatedHerbSlugs.length === 0 || relatedHerbSlugs.includes(item.slug)))
     .slice(0, 4)
     .map(item => ({
       label: toTitleCase(item.common || item.name || item.slug),

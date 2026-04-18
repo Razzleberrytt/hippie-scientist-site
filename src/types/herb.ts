@@ -2,12 +2,20 @@ import type { ConfidenceLevel } from './confidence'
 
 export type CanonicalHerb = {
   name: string
-  class: string
+  slug: string
+  summary: string
+  description: string
+  primaryActions: string[]
+  mechanisms: string[]
   activeCompounds: string[]
-  mechanism: string
-  effects: string[]
+  safetyNotes: string
   contraindications: string[]
-  description?: string
+  interactions: string[]
+  preparation: string
+  traditionalUses: string[]
+  evidenceLevel: string
+  relatedHerbs: string[]
+  region: string
   confidence?: ConfidenceLevel
 }
 
