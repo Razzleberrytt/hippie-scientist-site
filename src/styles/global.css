@@ -10,7 +10,9 @@
 
   html,
   body {
+    height: 100%;
     overflow-x: hidden;
+    background: transparent;
   }
 
   main {
@@ -47,6 +49,92 @@
     background-color: rgba(255, 255, 255, 0.06);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
   }
+
+  .premium-panel {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .browse-shell {
+    background: rgba(14, 207, 179, 0.04);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1;
+    background: var(--accent-teal, var(--accent-primary));
+    color: #07080f;
+    transition: filter var(--duration-base), transform var(--duration-base), border-color var(--duration-base), color var(--duration-base);
+  }
+
+  .btn-primary:hover {
+    filter: brightness(1.08);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-default);
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1;
+    background: transparent;
+    color: var(--text-secondary);
+    transition: border-color var(--duration-base), color var(--duration-base), background-color var(--duration-base);
+  }
+
+  .btn-secondary:hover {
+    border-color: color-mix(in oklab, var(--accent-teal, var(--accent-primary)) 40%, transparent);
+    color: var(--text-primary);
+  }
+
+  .lux-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media (min-width: 640px) {
+    .lux-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lux-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
 }
 
 /* If some 3rd-party element still bleeds, this keeps it invisible horizontally */
@@ -60,12 +148,6 @@
   --glow-sm: 0 10px 24px -18px rgba(45, 212, 191, 0.45);
   --glow-lg: 0 20px 45px -36px rgba(16, 185, 129, 0.65);
   color-scheme: dark;
-}
-
-html,
-body {
-  height: 100%;
-  background: transparent;
 }
 
 body {

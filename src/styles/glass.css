@@ -1,9 +1,9 @@
 /* --- Stats (professional symmetric counters) --- */
 .stats-grid {
   --pill-h: 48px;
-  --pill-bg: rgba(255, 255, 255, 0.06);
-  --pill-ring: rgba(255, 255, 255, 0.22);
-  --value-bg: rgba(255, 255, 255, 0.12);
+  --pill-bg: color-mix(in oklab, var(--surface-2) 72%, transparent);
+  --pill-ring: var(--border-default);
+  --value-bg: color-mix(in oklab, var(--surface-3) 80%, transparent);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
@@ -22,9 +22,7 @@
   backdrop-filter: saturate(120%) blur(8px);
   -webkit-backdrop-filter: saturate(120%) blur(8px);
   border: 1px solid var(--pill-ring);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.12) inset,
-    0 8px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-card);
 }
 
 .stat-value {
@@ -35,13 +33,14 @@
   place-items: center;
   font-weight: 700;
   letter-spacing: 0.2px;
+  color: var(--text-primary);
   background: var(--value-bg);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--border-default);
 }
 
 .stat-label {
   font-weight: 500;
-  opacity: 0.9;
+  color: var(--text-secondary);
   white-space: nowrap;
 }
 
@@ -59,12 +58,21 @@
 }
 
 .glass-card {
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  background: rgba(20, 22, 26, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.08) inset,
-    0 24px 60px rgba(0, 0, 0, 0.36),
-    0 0 28px rgba(56, 189, 248, 0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-card), var(--shadow-glow-teal);
+}
+
+.neo-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  transition: transform var(--duration-base) var(--ease-out-expo), border-color var(--duration-base) var(--ease-out-expo);
+}
+
+.neo-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-default);
 }
