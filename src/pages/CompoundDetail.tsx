@@ -132,6 +132,16 @@ function normalizeTextValue(value: unknown): string {
   return String(value || '').trim()
 }
 
+function createSectionBodyTracker() {
+  const renderedBodies = new Set<string>()
+  return (value: unknown): string => {
+    const body = normalizeTextValue(value)
+    if (!body || renderedBodies.has(body)) return ''
+    renderedBodies.add(body)
+    return body
+  }
+}
+
 function readRecord(value: unknown): Record<string, unknown> {
   if (typeof value === 'string') {
     const trimmed = value.trim()
@@ -305,6 +315,18 @@ export default function CompoundDetail() {
 
   const whyItMatters = coreInsight ||
     sanitizeSummaryText(curatedData.whyItMatters || compoundEffects.slice(0, 2).join(' + '), 1)
+  const consumeSectionBody = createSectionBodyTracker()
+  const whyItMattersBody = !isMinimalProfile
+    ? consumeSectionBody(whyItMatters || 'Tracked for mechanism context and potential outcomes.')
+    : ''
+  const overviewBody = !isMinimalProfile && compoundDescription !== topSummary
+    ? consumeSectionBody(compoundDescription)
+    : ''
+  const mechanismBody = !isMinimalProfile ? consumeSectionBody(compoundMechanism) : ''
+  const contextBody = !isMinimalProfile && contextSummary !== topSummary ? consumeSectionBody(contextSummary) : ''
+  const pharmacokineticsBody = !isMinimalProfile ? consumeSectionBody(pharmacokinetics) : ''
+  const dosageBody = consumeSectionBody(compound.dosage)
+  const durationBody = consumeSectionBody(compound.duration)
   const premiumDetails = [
     { title: 'Identity', value: compound.identity },
     {
@@ -585,10 +607,10 @@ export default function CompoundDetail() {
             </p>
           )}
           <div className='mt-4 grid gap-3 sm:grid-cols-3'>
-            {!isMinimalProfile && <section className='detail-panel rounded-lg p-3'>
+            {whyItMattersBody && <section className='detail-panel rounded-lg p-3'>
               <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56'>Why it matters</h2>
               <p className='mt-1 text-xs text-white/80'>
-                {whyItMatters || 'Tracked for mechanism context and potential outcomes.'}
+                {whyItMattersBody}
               </p>
             </section>}
             <section className='detail-panel rounded-lg p-3'>
@@ -638,9 +660,9 @@ export default function CompoundDetail() {
         </header>
 
         {/* Core fields — only render when value is present */}
-        {!isMinimalProfile && compoundDescription && compoundDescription !== topSummary && (
+        {overviewBody && (
           <Section title='Overview'>
-            {compoundDescription}
+            {overviewBody}
             {displayClass && (
               <p className='mt-3 label-specimen'>
                 Category: {displayClass}
@@ -663,10 +685,10 @@ export default function CompoundDetail() {
           </div>
         )}
 
-        {!isMinimalProfile && compoundMechanism && <Section title='Mechanism of Action'>{compoundMechanism}</Section>}
+        {mechanismBody && <Section title='Mechanism of Action'>{mechanismBody}</Section>}
 
-        {!isMinimalProfile && contextSummary && contextSummary !== topSummary && (
-          <Section title='Context'>{contextSummary}</Section>
+        {contextBody && (
+          <Section title='Context'>{contextBody}</Section>
         )}
 
         {compoundEffects.length > 0 && (
@@ -678,7 +700,7 @@ export default function CompoundDetail() {
         <PremiumDataSection details={premiumDetails} relationGroups={relationGroups} />
 
 
-        {!isMinimalProfile && pharmacokinetics && <Section title='Pharmacokinetics'>{pharmacokinetics}</Section>}
+        {pharmacokineticsBody && <Section title='Pharmacokinetics'>{pharmacokineticsBody}</Section>}
 
         {!isMinimalProfile && pathwayTargets.length > 0 && (
           <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
@@ -1057,8 +1079,8 @@ export default function CompoundDetail() {
         </section>
 
         {/* Practical info */}
-        {compound.dosage && <Section title='Dosage'>{compound.dosage}</Section>}
-        {compound.duration && <Section title='Duration'>{compound.duration}</Section>}
+        {dosageBody && <Section title='Dosage'>{dosageBody}</Section>}
+        {durationBody && <Section title='Duration'>{durationBody}</Section>}
         {/* Sources */}
         {(compound.sources.length > 0 || workbookSources.length > 0) && (
           <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
