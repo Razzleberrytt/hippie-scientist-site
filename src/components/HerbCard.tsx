@@ -59,28 +59,33 @@ function HerbCard({
     maxItems: 2,
   })
 
+  const chipClass =
+    'inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[0.68rem] font-medium text-white/55'
+
   return (
-    <Card
-      className={`neo-card fade-in-surface ds-card relative flex h-full flex-col border-white/12 ${compact ? 'gap-2 p-2.5' : 'gap-2.5 p-3.5'}`}
-    >
-      <div aria-hidden className='pointer-events-none absolute -right-10 -top-14 h-24 w-24 rounded-full bg-fuchsia-400/10 blur-2xl' />
+    <Card className='group relative flex h-full flex-col gap-2.5 rounded-[var(--radius-lg)] border border-white/8 bg-white/[0.03] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/16 hover:bg-white/[0.055] hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)]'>
+      <div
+        aria-hidden
+        className='pointer-events-none absolute inset-0 rounded-[var(--radius-lg)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 shadow-[inset_0_0_0_1px_rgba(14,207,179,0.12)]'
+      />
+
       <header>
         <h2
           title={isTitleTruncated ? name : undefined}
-          className='line-clamp-2 min-h-[2.2rem] break-all text-[0.95rem] font-semibold leading-tight text-white sm:text-base'
+          className='line-clamp-2 text-sm font-semibold leading-snug text-white sm:text-[0.95rem]'
         >
           {title}
         </h2>
       </header>
 
       {showSummary && summaryText ? (
-        <p className='line-clamp-2 text-xs leading-[1.45] text-white/78'>{summaryText}</p>
+        <p className='mt-1 line-clamp-2 text-xs leading-[1.5] text-white/62'>{summaryText}</p>
       ) : null}
 
       {pills.length > 0 && (
         <div className='flex flex-wrap gap-1'>
           {pills.map(tag => (
-            <span key={tag} className='ds-pill neo-pill'>
+            <span key={tag} className={chipClass}>
               {tag}
             </span>
           ))}
@@ -92,7 +97,7 @@ function HerbCard({
           {isMinimal ? (
             <span>Minimal profile</span>
           ) : hasCompoundCount ? (
-            <span className='inline-flex items-center gap-1'>
+            <span className='inline-flex items-center gap-1 font-mono text-[0.68rem] text-[var(--accent-teal)]/80'>
               <FlaskConical className='h-3 w-3' aria-hidden='true' />
               {compound_count} compounds
             </span>
@@ -103,7 +108,7 @@ function HerbCard({
         {chipItems.length > 0 && (
           <div className='flex items-center gap-1'>
             {chipItems.map(chip => (
-              <span key={chip} className='ds-pill max-w-[92px] truncate'>
+              <span key={chip} className={`${chipClass} max-w-[92px] truncate`}>
                 {chip}
               </span>
             ))}
