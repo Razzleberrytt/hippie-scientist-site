@@ -29,17 +29,8 @@ export function HerbDetailSkeleton() {
           </header>
 
           <section className='space-y-4'>
-            <SkeletonBlock className='h-5 w-24' />
             <SkeletonBlock className='h-24 w-full rounded-xl' />
-          </section>
-
-          <section className='space-y-4'>
-            <SkeletonBlock className='h-5 w-28' />
             <SkeletonBlock className='h-20 w-full rounded-xl' />
-          </section>
-
-          <section className='space-y-4'>
-            <SkeletonBlock className='h-5 w-20' />
             <SkeletonBlock className='h-28 w-full rounded-xl' />
           </section>
         </article>
