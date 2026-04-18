@@ -24,6 +24,8 @@ const JUNK_PATTERNS: RegExp[] = [
 
 const JUNK_WHOLE_VALUE: RegExp[] = [
   /^[\s;,.|nan]+$/i,
+  /^\.$/,
+  /^[.\s]+$/,
   /^no direct/i,
   /^contextual inference/i,
   /^\[object\s+object\]$/i,

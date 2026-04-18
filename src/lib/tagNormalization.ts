@@ -56,6 +56,7 @@ function cleanTagToken(token: string): string {
     .replace(COLLAPSE_PUNCTUATION, '$1')
     .replace(/^[\s"'`,.[{(]+/, '')
     .replace(/[\s"'`,.\])}]+$/, '')
+    .replace(/\.+$/, '')
     .replace(/\s+/g, ' ')
     .trim()
 }
@@ -84,6 +85,7 @@ export function normalizeTagList(value: unknown, options: NormalizeTagOptions = 
     .flatMap(entry => parseTagSegments(entry))
     .map(entry => cleanTagToken(entry))
     .filter(entry => isRenderableTag(entry, minLength))
+    .filter(token => !token.endsWith('.'))
     .forEach(entry => {
       const cased = applyCaseStyle(entry, caseStyle)
       const key = cased.toLowerCase()
