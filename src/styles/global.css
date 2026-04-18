@@ -51,8 +51,8 @@
   }
 
   .premium-panel {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-default);
+    background: rgba(8, 9, 16, 0.80);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-lg);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
@@ -60,8 +60,8 @@
   }
 
   .browse-shell {
-    background: rgba(14, 207, 179, 0.04);
-    border: 1px solid var(--border-default);
+    background: rgba(8, 12, 16, 0.78);
+    border: 1px solid rgba(14, 207, 179, 0.12);
     border-radius: var(--radius-lg);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);

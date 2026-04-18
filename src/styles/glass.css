@@ -58,16 +58,18 @@
 }
 
 .glass-card {
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-default);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  background: rgba(10, 11, 18, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: var(--shadow-card), var(--shadow-glow-teal);
 }
 
 .neo-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
+  background: rgba(10, 11, 18, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-radius: var(--radius);
   transition: transform var(--duration-base) var(--ease-out-expo), border-color var(--duration-base) var(--ease-out-expo);
 }
