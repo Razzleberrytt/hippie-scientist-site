@@ -18,31 +18,15 @@ html {
 :root {
   --headerH: 64px;
   --footerH: 280px;
-  color-scheme: dark;
 }
 
-html,
-body,
-#root {
-  height: 100%;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
+html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    'Segoe UI',
-    Roboto,
-    Helvetica,
-    Arial,
-    'Apple Color Emoji',
-    'Segoe UI Emoji';
+  font-family: var(--font-body);
   line-height: 1.55;
   letter-spacing: 0;
   overscroll-behavior-y: none;
@@ -57,10 +41,9 @@ body::before {
   pointer-events: none;
   z-index: 1;
   background:
-    radial-gradient(78% 62% at 16% 8%, rgba(97, 73, 255, 0.18), rgba(97, 73, 255, 0) 68%),
-    radial-gradient(72% 68% at 88% 82%, rgba(6, 211, 255, 0.13), rgba(6, 211, 255, 0) 74%),
-    radial-gradient(90% 92% at 54% 48%, rgba(154, 87, 255, 0.08), rgba(154, 87, 255, 0) 74%),
-    linear-gradient(180deg, rgba(6, 7, 17, 0.34), rgba(3, 4, 13, 0.7));
+    radial-gradient(74% 66% at 12% 10%, color-mix(in oklab, var(--accent-teal, var(--accent-primary)) 100%, transparent) 0%, transparent 72%),
+    radial-gradient(76% 70% at 88% 84%, color-mix(in oklab, var(--accent-violet, var(--accent-secondary)) 100%, transparent) 0%, transparent 74%);
+  opacity: 0.12;
   animation: ambient-shift 24s ease-in-out infinite alternate;
 }
 
@@ -128,51 +111,6 @@ a:hover {
   .ds-card-lg {
     @apply rounded-xl border border-white/10 bg-white/[0.03] shadow-none;
     backdrop-filter: blur(8px);
-  }
-
-  .neo-card {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(174, 210, 255, 0.24);
-    background:
-      linear-gradient(
-        164deg,
-        rgba(127, 93, 255, 0.12),
-        rgba(0, 229, 255, 0.055) 36%,
-        rgba(255, 88, 227, 0.08)
-      ),
-      rgba(255, 255, 255, 0.03);
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.14) inset,
-      inset 0 10px 20px -18px rgba(228, 239, 255, 0.28),
-      0 0 0 1px rgba(160, 232, 255, 0.06),
-      0 24px 58px -42px rgba(126, 71, 255, 0.62),
-      0 24px 50px -40px rgba(1, 194, 255, 0.54);
-    transition: transform 260ms ease, border-color 240ms ease, box-shadow 260ms ease, background 260ms ease;
-  }
-
-  .neo-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(130deg, rgba(147, 51, 234, 0.14), rgba(34, 211, 238, 0.06), transparent 58%);
-    opacity: 0.62;
-    transition: opacity 260ms ease;
-  }
-
-  .neo-card:hover {
-    transform: translateY(-2px) scale(1.016);
-    border-color: rgba(87, 238, 255, 0.56);
-    box-shadow:
-      0 0 0 1px rgba(103, 232, 249, 0.2),
-      inset 0 10px 20px -18px rgba(236, 245, 255, 0.3),
-      0 18px 44px -28px rgba(87, 238, 255, 0.56),
-      0 28px 64px -32px rgba(216, 73, 255, 0.5);
-  }
-
-  .neo-card:hover::before {
-    opacity: 0.82;
   }
 
   .neo-pill {
@@ -244,113 +182,6 @@ a:hover {
     border-color: rgba(255, 255, 255, 0.16);
     background: rgba(255, 255, 255, 0.03);
     color: rgba(244, 246, 251, 0.78);
-  }
-
-
-
-  .premium-panel {
-    position: relative;
-    border: 1px solid rgba(181, 206, 255, 0.24);
-    border-radius: 1.2rem;
-    background:
-      linear-gradient(158deg, rgba(146, 108, 255, 0.16), rgba(7, 181, 223, 0.06) 44%, rgba(255, 255, 255, 0.02)),
-      rgba(10, 12, 28, 0.64);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-      0 26px 56px -42px rgba(17, 214, 255, 0.65),
-      0 28px 72px -48px rgba(125, 64, 252, 0.7);
-    backdrop-filter: blur(10px);
-  }
-
-  .premium-panel::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    background: linear-gradient(120deg, rgba(166, 213, 255, 0.12), transparent 35%, rgba(153, 120, 255, 0.1) 78%, transparent);
-    opacity: 0.8;
-  }
-
-  .section-label {
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgba(210, 220, 255, 0.68);
-  }
-
-  .lux-grid {
-    @apply grid gap-4 sm:gap-5;
-  }
-
-  .browse-shell {
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 1rem;
-    background: rgba(8, 11, 22, 0.72);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 18px 40px -35px rgba(73, 198, 255, 0.5);
-  }
-
-  .btn,
-  .btn-primary,
-  .btn-secondary,
-  .btn-ghost {
-    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border px-4 py-2 text-xs font-semibold leading-none transition-all duration-300;
-  }
-
-  .btn-primary {
-    border-color: rgba(93, 241, 255, 0.66);
-    color: rgba(240, 253, 255, 0.96);
-    background: linear-gradient(132deg, rgba(39, 213, 255, 0.3), rgba(113, 76, 245, 0.52));
-    box-shadow: 0 0 0 1px rgba(135, 230, 255, 0.24), 0 16px 42px -28px rgba(57, 206, 255, 0.72);
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 0 0 1px rgba(157, 241, 255, 0.36), 0 22px 48px -30px rgba(57, 206, 255, 0.8);
-  }
-
-  .btn-secondary {
-    border-color: rgba(179, 202, 255, 0.36);
-    color: rgba(241, 244, 255, 0.92);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
-  }
-
-  .btn-secondary:hover {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06));
-  }
-
-  .btn-ghost {
-    border-color: transparent;
-    background: transparent;
-    color: rgba(197, 240, 255, 0.9);
-  }
-
-
-  .btn,
-  .btn-secondary,
-  .btn-ghost {
-    border-color: rgba(255, 255, 255, 0.16);
-    background: rgba(255, 255, 255, 0.03);
-    color: rgba(241, 245, 249, 0.86);
-  }
-
-  .btn:hover,
-  .btn-secondary:hover,
-  .btn-ghost:hover {
-    border-color: rgba(255, 255, 255, 0.24);
-    background: rgba(255, 255, 255, 0.055);
-  }
-
-  .btn-primary {
-    border-color: hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.48);
-    background: hsl(var(--accent-h) var(--accent-s) 37%);
-    color: rgb(236 255 252 / 0.95);
-  }
-
-  .btn-primary:hover {
-    border-color: hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.62);
-    background: hsl(var(--accent-h) var(--accent-s) 41%);
   }
 
   .effect-pill-active {
