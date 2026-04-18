@@ -4,11 +4,9 @@ import { Menu, Search, X } from 'lucide-react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 
 const linkBase =
-  'inline-flex min-h-11 items-center justify-center rounded-xl px-3.5 text-sm font-medium transition-all duration-200'
-const linkDim =
-  'border border-transparent text-white/72 hover:border-white/15 hover:bg-white/8 hover:text-white'
+  'inline-flex min-h-11 items-center justify-center rounded-lg px-3.5 py-2 text-sm font-medium text-white/65 transition-all duration-150 hover:bg-white/6 hover:text-white'
 const linkActive =
-  'border border-emerald-400/40 bg-emerald-500/10 text-emerald-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]'
+  'border border-white/12 bg-white/8 text-white'
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -31,28 +29,28 @@ export default function NavBar() {
   }
 
   return (
-    <header className='sticky top-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur-xl supports-[backdrop-filter]:bg-black/40'>
+    <header className='sticky top-0 z-50 border-b border-white/8 bg-[#07080F]/80 backdrop-blur-2xl'>
       <nav className='mx-auto max-w-7xl px-4 sm:px-6'>
         <div className='flex items-center justify-between gap-2 py-2 sm:py-2.5'>
-          <Link to='/' className='shrink-0 rounded-xl px-2 py-1.5 transition hover:text-white'>
-            <span className='font-display text-lg italic tracking-tight text-white'>The Hippie Scientist</span>
+          <Link to='/' className='shrink-0 rounded-xl px-2 py-1.5 transition hover:text-[var(--accent-teal)]'>
+            <span className='font-display text-xl italic tracking-tight text-white'>🌿 The Hippie Scientist</span>
           </Link>
 
           <div className='hidden items-center gap-1.5 md:flex'>
-            <NavLink to='/herbs' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : linkDim}`}>
+            <NavLink to='/herbs' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : ''}`}>
               Herbs
             </NavLink>
-            <NavLink to='/compounds' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : linkDim}`}>
+            <NavLink to='/compounds' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : ''}`}>
               Compounds
             </NavLink>
-            <NavLink to='/blog' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : linkDim}`}>
+            <NavLink to='/blog' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : ''}`}>
               Blog
             </NavLink>
             <button
               type='button'
               aria-label='Toggle search'
               onClick={() => setSearchOpen(v => !v)}
-              className='inline-flex min-h-10 min-w-10 items-center justify-center rounded-xl border border-white/15 bg-white/7 text-white/85 transition hover:border-white/30 hover:bg-white/12'
+              className='inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-white/14 bg-white/5 text-white/85 transition hover:border-[var(--accent-teal)]/40'
             >
               <Search size={16} />
             </button>
@@ -80,28 +78,28 @@ export default function NavBar() {
               value={searchQuery}
               onChange={event => setSearchQuery(event.target.value)}
               placeholder='Search herbs...'
-              className='min-h-11 w-full rounded-xl border border-white/15 bg-white/7 px-3 text-sm text-white placeholder:text-white/45 focus:border-emerald-300/45 focus:outline-none'
+              className='min-h-11 w-full rounded-xl border border-white/12 bg-white/5 px-3 text-sm text-white placeholder:text-white/35 focus:border-[var(--accent-teal)]/50 focus:outline-none'
             />
           </form>
         )}
 
         {menuOpen && (
-          <div className='border-white/12 mb-2 grid gap-2 rounded-2xl border bg-black/40 p-2.5 backdrop-blur-xl md:hidden'>
+          <div className='mb-2 grid gap-2 rounded-2xl border border-white/10 bg-[#0C0D17]/95 p-2.5 backdrop-blur-xl md:hidden'>
             <button
               type='button'
               onClick={() => setSearchOpen(v => !v)}
-              className={`${linkBase} ${linkDim} justify-start`}
+              className={`${linkBase} justify-start`}
             >
               <Search size={15} className='mr-2' />
               Search
             </button>
-            <NavLink to='/herbs' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : linkDim} justify-start`}>
+            <NavLink to='/herbs' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : ''} justify-start`}>
               Herbs
             </NavLink>
-            <NavLink to='/compounds' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : linkDim} justify-start`}>
+            <NavLink to='/compounds' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : ''} justify-start`}>
               Compounds
             </NavLink>
-            <NavLink to='/blog' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : linkDim} justify-start`}>
+            <NavLink to='/blog' className={({ isActive }) => `${linkBase} ${isActive ? linkActive : ''} justify-start`}>
               Blog
             </NavLink>
             {searchOpen && (
@@ -115,7 +113,7 @@ export default function NavBar() {
                   value={searchQuery}
                   onChange={event => setSearchQuery(event.target.value)}
                   placeholder='Search herbs...'
-                  className='min-h-11 w-full rounded-xl border border-white/15 bg-white/7 px-3 text-sm text-white placeholder:text-white/45 focus:border-emerald-300/45 focus:outline-none'
+                  className='min-h-11 w-full rounded-xl border border-white/12 bg-white/5 px-3 text-sm text-white placeholder:text-white/35 focus:border-[var(--accent-teal)]/50 focus:outline-none'
                 />
               </form>
             )}
