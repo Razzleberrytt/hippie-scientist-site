@@ -4,7 +4,6 @@ import Meta from '../components/Meta'
 import EmailCapture from '@/components/EmailCapture'
 import Hero from '@/components/Hero'
 import EffectExplorer from '@/components/EffectExplorer'
-import StatPill from '@/components/StatPill'
 import { getHomepageData, type HomepageFeaturedItem } from '@/lib/homepage-data'
 import { useRecentlyViewed, useSavedItems } from '@/lib/growth'
 import { readStorage } from '@/utils/storageState'
@@ -52,6 +51,10 @@ export default function Home() {
       ).filter((collection): collection is (typeof SEO_COLLECTIONS)[number] => Boolean(collection)),
     []
   )
+  const recentHerbs = useMemo(
+    () => recent.filter(item => item.type === 'herb').slice(0, 12),
+    [recent]
+  )
 
   return (
     <>
@@ -65,25 +68,56 @@ export default function Home() {
 
       <Hero />
 
-      <section className='container mx-auto max-w-6xl px-4 pb-4 sm:px-6'>
+      <section className='container mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16'>
         <div className='grid gap-4 md:grid-cols-[1.35fr_1fr]'>
           <div className='premium-panel p-5 sm:p-6'>
             <p className='section-label'>Immediate next step</p>
-            <h2 className='mt-3 text-2xl font-semibold text-white sm:text-3xl'>Search by outcome, then pressure-test safety.</h2>
+            <h2 className='mt-3 text-2xl font-semibold text-white sm:text-3xl'>Where to start</h2>
             <p className='mt-3 max-w-2xl text-sm text-white/74 sm:text-base'>
-              Use the effect explorer to shortlist candidates, then move into interactions and detailed context pages before experimenting.
+              Search by outcome first, then pressure-test safety using interactions and full context pages before experimenting.
             </p>
             <div className='mt-5 flex flex-wrap gap-2.5'>
               <a href='#effect-search' className='btn-primary'>Open Effect Search</a>
               <Link to='/interactions' className='btn-secondary'>Run Interaction Check</Link>
             </div>
           </div>
+
           <div className='browse-shell p-5 sm:p-6'>
             <p className='section-label'>Knowledge scope</p>
             <nav aria-label='Site stats' className='mt-3 grid grid-cols-1 gap-2.5'>
-              <StatPill to='/herbs' value={homepageData.counts.herbs} label='psychoactive herbs' testId='pill-herbs' />
-              <StatPill to='/compounds' value={homepageData.counts.compounds} label='active compounds' testId='pill-compounds' />
-              <StatPill to='/blog' value={homepageData.counts.articles} label='research notes' testId='pill-articles' />
+              <Link
+                to='/herbs'
+                className='group flex items-center gap-3 rounded-xl border border-white/12 bg-white/[0.035] px-4 py-3 text-sm text-white/85 transition-all duration-200 hover:border-white/24 hover:bg-white/[0.07]'
+                aria-label={`${homepageData.counts.herbs} psychoactive herbs`}
+              >
+                <span className='font-mono text-base font-medium tabular-nums text-amber-300'>{homepageData.counts.herbs}+</span>
+                <span className='leading-tight text-white/82'>psychoactive herbs</span>
+                <span aria-hidden className='ml-auto text-white/55 transition group-hover:text-white/85'>
+                  →
+                </span>
+              </Link>
+              <Link
+                to='/compounds'
+                className='group flex items-center gap-3 rounded-xl border border-white/12 bg-white/[0.035] px-4 py-3 text-sm text-white/85 transition-all duration-200 hover:border-white/24 hover:bg-white/[0.07]'
+                aria-label={`${homepageData.counts.compounds} active compounds`}
+              >
+                <span className='font-mono text-base font-medium tabular-nums text-amber-300'>{homepageData.counts.compounds}+</span>
+                <span className='leading-tight text-white/82'>active compounds</span>
+                <span aria-hidden className='ml-auto text-white/55 transition group-hover:text-white/85'>
+                  →
+                </span>
+              </Link>
+              <Link
+                to='/blog'
+                className='group flex items-center gap-3 rounded-xl border border-white/12 bg-white/[0.035] px-4 py-3 text-sm text-white/85 transition-all duration-200 hover:border-white/24 hover:bg-white/[0.07]'
+                aria-label={`${homepageData.counts.articles} research notes`}
+              >
+                <span className='font-mono text-base font-medium tabular-nums text-amber-300'>{homepageData.counts.articles}+</span>
+                <span className='leading-tight text-white/82'>research notes</span>
+                <span aria-hidden className='ml-auto text-white/55 transition group-hover:text-white/85'>
+                  →
+                </span>
+              </Link>
             </nav>
           </div>
         </div>
@@ -92,12 +126,14 @@ export default function Home() {
       <EffectExplorer herbs={homepageData.effectExplorerHerbs} />
 
       <section className='container mx-auto max-w-6xl px-4 py-10 sm:px-6'>
+        <p className='section-label'>Editor curation</p>
+        <h2 className='font-display mb-6 text-2xl text-white sm:text-3xl'>Editor&apos;s Picks</h2>
         <div className='lux-grid sm:grid-cols-2 lg:grid-cols-3'>
           {curated.slice(0, 3).map(item => (
             <Link
               key={`starter-${item.kind}-${item.slug}`}
               to={item.kind === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`}
-              className='premium-panel block h-full p-5 transition hover:-translate-y-0.5'
+              className='premium-panel block h-full p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20'
               onClick={() =>
                 trackHomepageEntityClick({
                   targetType: item.kind,
@@ -146,40 +182,39 @@ export default function Home() {
       </section>
 
       <section className='container mx-auto max-w-6xl px-4 py-10 sm:px-6'>
+        <h2 className='font-display mb-6 text-2xl text-white sm:text-3xl'>Browse Collections</h2>
         <div className='grid gap-4 sm:grid-cols-2'>
           {featuredCollections.map(collection => (
-            <Link key={collection.slug} to={`/collections/${collection.slug}`} className='browse-shell p-4 text-sm font-medium text-white/88 hover:text-white'>
+            <Link
+              key={collection.slug}
+              to={`/collections/${collection.slug}`}
+              className='neo-card block p-4 text-sm font-medium text-white/88 transition-colors hover:text-white'
+            >
               {collection.title}
             </Link>
           ))}
         </div>
       </section>
 
-      {(items.length > 0 || recent.length > 0 || recentBlends.length > 0 || recentChecks.length > 0) && (
+      {items.length > 0 && (
         <section className='container mx-auto max-w-6xl px-4 pb-8 sm:px-6'>
-          <div className='browse-shell p-5 sm:p-6'>
-            <p className='section-label'>Recent activity</p>
-            <div className='mt-4 grid gap-4 sm:grid-cols-3'>
-              <div>
-                <p className='text-xs uppercase tracking-[0.14em] text-white/58'>Viewed herbs</p>
-                <div className='mt-2 grid gap-1.5'>
-                  {recent.filter(item => item.type === 'herb').slice(0, 3).map(item => <Link key={item.id} to={item.href} className='text-sm text-white/88 hover:text-white'>{item.title}</Link>)}
-                </div>
-              </div>
-              <div>
-                <p className='text-xs uppercase tracking-[0.14em] text-white/58'>Recent blends</p>
-                <div className='mt-2 grid gap-1.5'>
-                  {recentBlends.slice(0, 3).map(item => <Link key={item.id} to='/build' className='text-sm text-white/88 hover:text-white'>{item.intent} · {item.herbSlugs.length} herbs</Link>)}
-                </div>
-              </div>
-              <div>
-                <p className='text-xs uppercase tracking-[0.14em] text-white/58'>Interaction checks</p>
-                <div className='mt-2 grid gap-1.5'>
-                  {recentChecks.slice(0, 3).map(item => <Link key={item.id} to='/interactions' className='text-sm text-white/88 hover:text-white'>{item.herbSlugs.length} herbs · {item.warningCount} warnings</Link>)}
-                </div>
-              </div>
-            </div>
+          <p className='section-label'>Recently Viewed</p>
+          <div className='mt-3 flex gap-2 overflow-x-auto pb-1'>
+            {recentHerbs.map(item => (
+              <Link
+                key={`${item.type}-${item.slug}`}
+                to={item.href}
+                className='shrink-0 rounded-full border border-white/12 bg-white/[0.035] px-3 py-1.5 text-xs font-medium text-white/85 transition-colors hover:border-white/24 hover:text-white'
+              >
+                {item.title}
+              </Link>
+            ))}
           </div>
+          {(recentBlends.length > 0 || recentChecks.length > 0) && (
+            <p className='mt-3 text-xs text-white/48'>
+              Also tracked: {recentBlends.length} recent blends and {recentChecks.length} interaction checks.
+            </p>
+          )}
         </section>
       )}
 
