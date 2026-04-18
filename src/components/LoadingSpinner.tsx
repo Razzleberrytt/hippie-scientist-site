@@ -21,16 +21,7 @@ const LoadingSpinner: React.FC<{ size?: LoadingSpinnerSize }> = ({ size = 'md' }
       role='status'
       aria-label='Loading'
     >
-      <circle
-        cx='12'
-        cy='12'
-        r='10'
-        stroke='var(--accent-teal)'
-        strokeWidth='2'
-        strokeLinecap='round'
-        strokeDasharray='56'
-        strokeDashoffset='18'
-      />
+      <circle cx='12' cy='12' r='10' stroke='var(--accent-teal)' strokeWidth='2' />
     </svg>
   )
 }
