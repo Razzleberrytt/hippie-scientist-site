@@ -166,6 +166,18 @@ export function normalizeHerbDetails(herb: Herb) {
   }
 }
 
+const getEvidenceTierClass = (tier: string) => {
+  switch (tier.toLowerCase()) {
+    case 'high':
+      return 'bg-emerald-500/15 text-emerald-300 border-emerald-500/25'
+    case 'moderate':
+    case 'medium':
+      return 'bg-amber-500/15 text-amber-300 border-amber-500/25'
+    default:
+      return 'bg-white/8 text-white/55 border-white/15'
+  }
+}
+
 export default function HerbDetails({ herb }: { herb: Herb }) {
   const details = normalizeHerbDetails(herb)
   const rows: Array<[string, React.ReactNode]> = []
@@ -189,7 +201,19 @@ export default function HerbDetails({ herb }: { herb: Herb }) {
   if (details.region) rows.push(['Region', details.region])
 
   if (details.active_compounds.length)
-    rows.push(['Active Compounds', details.active_compounds.join(', ')])
+    rows.push([
+      'Active Compounds',
+      <div className='flex flex-wrap gap-1'>
+        {details.active_compounds.map(compound => (
+          <span
+            key={compound}
+            className='inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[0.68rem] font-medium text-white/55'
+          >
+            {compound}
+          </span>
+        ))}
+      </div>,
+    ])
 
   if (details.preparation) rows.push(['Preparation & Forms', details.preparation])
 
@@ -204,9 +228,9 @@ export default function HerbDetails({ herb }: { herb: Herb }) {
   if (details.sources.length)
     rows.push([
       'Sources',
-      <ul className='ml-5 list-disc space-y-1'>
+      <ul className='space-y-2'>
         {details.sources.map((s, i) => (
-          <li key={i}>
+          <li key={i} className='border-l-2 border-white/12 pl-3 text-xs font-mono text-white/40'>
             {/^(https?:)/i.test(s) ? (
               <a className='link' href={s} target='_blank' rel='noopener noreferrer'>
                 {s}
@@ -221,14 +245,70 @@ export default function HerbDetails({ herb }: { herb: Herb }) {
 
   if (!rows.length) return null
 
+  const herbName = firstText(
+    herb.name,
+    herb.common,
+    herb.commonName,
+    herb.slug?.replace(/-/g, ' ')
+  )
+  const latinName = firstText(herb.latinName, herb.scientific, herb.scientificname)
+  const evidenceTier = firstText(herb.evidence_tier, herb.evidenceLevel, herb.confidence)
+  const summary = firstText(herb.summary, details.description)
+  const confidence = firstText(herb.confidence, herb.evidenceLevel)
+  const primaryEffects = normalizeList((herb as any).primary_effects ?? herb.effects)
+
   return (
-    <dl className='space-y-3'>
-      {rows.map(([k, v]) => (
-        <div key={k}>
-          <dt className='font-semibold text-white'>{k}:</dt>
-          <dd className='text-white/85'>{v}</dd>
+    <div className='space-y-8'>
+      <section className='grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] lg:items-start'>
+        <div className='space-y-3'>
+          {herbName ? <h1 className='font-display text-4xl font-normal sm:text-5xl'>{herbName}</h1> : null}
+          {latinName ? <p className='mt-1 font-mono text-sm italic text-white/45'>{latinName}</p> : null}
+          {evidenceTier ? (
+            <span
+              className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium capitalize ${getEvidenceTierClass(
+                evidenceTier
+              )}`}
+            >
+              {evidenceTier} evidence
+            </span>
+          ) : null}
+          {summary ? <p className='max-w-2xl text-sm leading-relaxed text-white/80'>{summary}</p> : null}
         </div>
-      ))}
-    </dl>
+
+        <aside className='rounded-xl border border-white/10 bg-white/[0.02] p-4'>
+          <h2 className='mb-3 text-lg font-semibold text-white'>Key Stats</h2>
+          <dl className='space-y-3 text-sm'>
+            <div className='flex items-start justify-between gap-4'>
+              <dt className='text-white/55'>Compound count</dt>
+              <dd className='font-mono text-white/85'>{details.active_compounds.length || '—'}</dd>
+            </div>
+            <div className='flex items-start justify-between gap-4'>
+              <dt className='text-white/55'>Primary effects</dt>
+              <dd className='text-right text-white/85'>
+                {primaryEffects.length ? primaryEffects.slice(0, 3).join(', ') : '—'}
+              </dd>
+            </div>
+            <div className='flex items-start justify-between gap-4'>
+              <dt className='text-white/55'>Confidence</dt>
+              <dd className='capitalize text-white/85'>{confidence || '—'}</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <hr className='my-8 border-white/8' />
+
+      <section className='space-y-6'>
+        {rows.map(([k, v], index) => (
+          <React.Fragment key={k}>
+            <div>
+              <h2 className='mb-3 text-lg font-semibold text-white'>{k}</h2>
+              <div className='text-white/85'>{v}</div>
+            </div>
+            {index < rows.length - 1 ? <hr className='my-8 border-white/8' /> : null}
+          </React.Fragment>
+        ))}
+      </section>
+    </div>
   )
 }
