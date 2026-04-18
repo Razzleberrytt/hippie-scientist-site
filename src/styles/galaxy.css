@@ -5,8 +5,8 @@
   pointer-events: none;
   overflow: hidden;
   background:
-    radial-gradient(120% 120% at 12% 12%, rgba(104, 87, 255, 0.2), transparent 56%),
-    radial-gradient(90% 100% at 88% 78%, rgba(0, 217, 255, 0.12), transparent 62%),
+    radial-gradient(120% 120% at 12% 12%, rgba(104, 87, 255, 0.07), transparent 56%),
+    radial-gradient(90% 100% at 88% 78%, rgba(0, 217, 255, 0.05), transparent 62%),
     linear-gradient(170deg, #060711 0%, #09071a 42%, #05070d 100%);
 }
 
@@ -17,9 +17,9 @@
 
 .cosmic-base {
   background:
-    radial-gradient(75% 65% at 30% 30%, rgba(130, 80, 255, 0.14), transparent 66%),
-    radial-gradient(80% 60% at 72% 74%, rgba(255, 70, 214, 0.1), transparent 74%);
-  filter: blur(2px) saturate(115%);
+    radial-gradient(75% 65% at 30% 30%, rgba(130, 80, 255, 0.05), transparent 66%),
+    radial-gradient(80% 60% at 72% 74%, rgba(255, 70, 214, 0.04), transparent 74%);
+  filter: blur(4px) saturate(100%);
 }
 
 .cosmic-base::before,
@@ -36,7 +36,7 @@
   height: 58vw;
   left: -12vw;
   top: -18vw;
-  background: radial-gradient(circle, rgba(84, 255, 240, 0.16) 0%, rgba(84, 255, 240, 0) 72%);
+  background: radial-gradient(circle, rgba(84, 255, 240, 0.06) 0%, rgba(84, 255, 240, 0) 72%);
   filter: blur(20px);
 }
 
@@ -45,7 +45,7 @@
   height: 54vw;
   right: -10vw;
   bottom: -20vw;
-  background: radial-gradient(circle, rgba(216, 73, 255, 0.16) 0%, rgba(216, 73, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(216, 73, 255, 0.05) 0%, rgba(216, 73, 255, 0) 70%);
   filter: blur(28px);
 }
 
@@ -55,7 +55,7 @@
 }
 
 .cosmic-vignette {
-  background: radial-gradient(110% 90% at 50% 48%, rgba(5, 7, 10, 0) 58%, rgba(2, 4, 8, 0.64) 100%);
+  background: radial-gradient(110% 90% at 50% 48%, rgba(5, 7, 10, 0) 58%, rgba(2, 4, 8, 0.82) 100%);
 }
 
 .cosmic-layer.cosmic-noise {
@@ -93,21 +93,21 @@
 @keyframes glow-float-a {
   0% {
     transform: translate3d(0, 0, 0);
-    opacity: 0.55;
+    opacity: 0.3;
   }
   100% {
     transform: translate3d(6vw, 3vh, 0) scale(1.06);
-    opacity: 0.84;
+    opacity: 0.5;
   }
 }
 
 @keyframes glow-float-b {
   0% {
     transform: translate3d(0, 0, 0);
-    opacity: 0.48;
+    opacity: 0.25;
   }
   100% {
     transform: translate3d(-7vw, -4vh, 0) scale(1.04);
-    opacity: 0.78;
+    opacity: 0.45;
   }
 }

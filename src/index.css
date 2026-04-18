@@ -43,7 +43,7 @@ body::before {
   background:
     radial-gradient(74% 66% at 12% 10%, color-mix(in oklab, var(--accent-teal, var(--accent-primary)) 100%, transparent) 0%, transparent 72%),
     radial-gradient(76% 70% at 88% 84%, color-mix(in oklab, var(--accent-violet, var(--accent-secondary)) 100%, transparent) 0%, transparent 74%);
-  opacity: 0.12;
+  opacity: 0.05;
   animation: ambient-shift 24s ease-in-out infinite alternate;
 }
 
