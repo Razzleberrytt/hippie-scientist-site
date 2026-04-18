@@ -59,10 +59,10 @@ export default function EffectFilter({ options, selected, onToggle }: EffectFilt
               key={effect}
               type='button'
               onClick={() => onToggle(effect)}
-              className={`rounded-full border px-2.5 py-1 text-xs transition ${
+              className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all duration-150 ${
                 active
-                  ? 'border-cyan-300/55 bg-cyan-500/18 text-cyan-100'
-                  : 'border-white/20 bg-white/[0.02] text-white/80 hover:bg-white/[0.08]'
+                  ? 'border-[var(--accent-teal)]/40 bg-[var(--accent-teal)]/8 text-[var(--accent-teal)]'
+                  : 'border-white/12 bg-transparent text-white/55 hover:border-white/24 hover:text-white/80'
               }`}
             >
               {effect}
