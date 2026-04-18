@@ -46,19 +46,24 @@ export default function Footer() {
   }
 
   return (
-    <footer className='relative mx-auto mt-8 w-full max-w-screen-lg px-4 pb-8 pt-4'>
-      <div className='border-white/12 ring-white/8 rounded-2xl border bg-white/5 p-5 ring-1 backdrop-blur-xl sm:p-6'>
-        <div className='grid gap-6 sm:grid-cols-3 sm:gap-8'>
+    <footer className='mt-8 w-full border-t border-white/8 bg-[#07080F] px-4 py-12'>
+      <div className='mx-auto w-full max-w-screen-lg'>
+        <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4'>
+          <div>
+            <p className='font-display text-lg italic text-white'>The Hippie Scientist</p>
+            <p className='mt-2 text-xs text-white/45'>
+              Science-first harm reduction for psychoactive botany.
+            </p>
+          </div>
+
           <NonEmpty>
             {exploreLinks.length > 0 && (
               <div>
-                <h4 className='text-white/62 mb-3 text-xs font-semibold uppercase tracking-[0.24em]'>
-                  Explore
-                </h4>
-                <ul className='text-white/78 space-y-2 text-sm'>
+                <h4 className='section-label mb-3'>Explore</h4>
+                <ul className='space-y-2'>
                   {exploreLinks.map(link => (
                     <li key={link.href}>
-                      <Link className='transition hover:text-white' to={link.href}>
+                      <Link className='text-sm text-white/55 transition-colors hover:text-white' to={link.href}>
                         {link.label}
                       </Link>
                     </li>
@@ -67,23 +72,22 @@ export default function Footer() {
               </div>
             )}
           </NonEmpty>
+
           <NonEmpty>
             {safetyLinks.length > 0 && (
               <div>
-                <h4 className='text-white/62 mb-3 text-xs font-semibold uppercase tracking-[0.24em]'>
-                  Safety
-                </h4>
-                <ul className='text-white/78 space-y-2 text-sm'>
+                <h4 className='section-label mb-3'>Safety</h4>
+                <ul className='space-y-2'>
                   {safetyLinks.map(link => (
                     <li key={link.href}>
-                      <Link className='transition hover:text-white' to={link.href}>
+                      <Link className='text-sm text-white/55 transition-colors hover:text-white' to={link.href}>
                         {link.label}
                       </Link>
                     </li>
                   ))}
                   <li>
                     <button
-                      className='text-white/72 underline decoration-dotted underline-offset-4 transition hover:text-white'
+                      className='text-sm text-white/55 transition-colors hover:text-white'
                       type='button'
                       onClick={() => setOpen(true)}
                     >
@@ -94,16 +98,15 @@ export default function Footer() {
               </div>
             )}
           </NonEmpty>
+
           <NonEmpty>
             {availableLegalLinks.length > 0 && (
               <div>
-                <h4 className='text-white/62 mb-3 text-xs font-semibold uppercase tracking-[0.24em]'>
-                  Legal
-                </h4>
-                <ul className='text-white/78 space-y-2 text-sm'>
+                <h4 className='section-label mb-3'>Legal</h4>
+                <ul className='space-y-2'>
                   {availableLegalLinks.map(link => (
                     <li key={link.href}>
-                      <Link className='transition hover:text-white' to={link.href}>
+                      <Link className='text-sm text-white/55 transition-colors hover:text-white' to={link.href}>
                         {link.label}
                       </Link>
                     </li>
@@ -114,10 +117,10 @@ export default function Footer() {
           </NonEmpty>
         </div>
 
-        <div className='mt-6 border-t border-white/10 pt-3 text-xs text-white/55'>
-          © 2026 The Hippie Scientist — Educational use only · Not medical advice
+        <div className='mt-10 flex flex-col justify-between gap-2 border-t border-white/8 pt-4 text-xs text-white/30 sm:flex-row'>
+          <div>Build {versionStampParts.join(' · ')}</div>
+          <div>© 2026 The Hippie Scientist — Educational use only · Not medical advice</div>
         </div>
-        <div className='mt-1 text-[11px] text-white/35'>Build {versionStampParts.join(' · ')}</div>
       </div>
       <ConsentManager open={open} onClose={() => setOpen(false)} />
     </footer>
