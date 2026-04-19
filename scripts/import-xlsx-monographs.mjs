@@ -12,25 +12,23 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 
 const workbookPath = resolveWorkbookPath(repoRoot)
-const PRIMARY_HERB_SHEET = 'Site Export Herbs'
-const LEGACY_HERB_SHEET = 'Herb Monographs'
-const PRIMARY_COMPOUND_SHEET = 'Site Export Compounds'
-const LEGACY_COMPOUND_SHEET = 'Compound Master V3'
+const SHEET_MAP = {
+  herbs: ['Herb Master'],
+  compounds: ['Compound Master'],
+  herbCompoundMap: ['Herb Compound Map'],
+}
+const REQUIRED_SHEET_KEYS = ['herbs', 'compounds', 'herbCompoundMap']
+const RESOLVED_REQUIRED_COLUMNS = {
+  herbs: ['name'],
+  compounds: ['compoundName'],
+  herbCompoundMap: ['herbSlug', 'canonicalCompoundId'],
+}
 const TARGET_WORKBOOK_SHEETS = [
-  PRIMARY_HERB_SHEET,
-  LEGACY_HERB_SHEET,
-  PRIMARY_COMPOUND_SHEET,
-  LEGACY_COMPOUND_SHEET,
-  'Herb Compound Map V3',
+  ...REQUIRED_SHEET_KEYS.flatMap(sheetKey => SHEET_MAP[sheetKey]),
   'Production Export V1',
 ]
 const OPTIONAL_WORKBOOK_SHEETS = new Set(['Production Export V1'])
 const SHEET_REQUIRED_COLUMNS = {
-  'Site Export Herbs': ['name'],
-  'Herb Monographs': ['name'],
-  'Site Export Compounds': ['compoundName'],
-  'Compound Master V3': ['compoundName'],
-  'Herb Compound Map V3': ['herbSlug', 'canonicalCompoundId'],
   'Production Export V1': ['goal'],
 }
 
@@ -456,7 +454,23 @@ function createDiagnostics() {
   }
 }
 
-function parseSheet(workbook, sheetName, diagnostics, { optional = false } = {}) {
+function resolveWorkbookSheets(workbook) {
+  const resolvedSheets = {}
+  for (const sheetKey of REQUIRED_SHEET_KEYS) {
+    const candidates = SHEET_MAP[sheetKey]
+    const resolvedName = candidates.find(sheetName => Boolean(workbook.Sheets[sheetName]))
+    if (!resolvedName) {
+      throw new Error(
+        `[import-xlsx-monographs] Missing required worksheet for "${sheetKey}". Expected one of: ${candidates.join(', ')}`
+      )
+    }
+    resolvedSheets[sheetKey] = resolvedName
+    console.log(`[import-xlsx-monographs][sheets] ${sheetKey}: ${resolvedName}`)
+  }
+  return resolvedSheets
+}
+
+function parseSheet(workbook, sheetName, diagnostics, { optional = false, requiredColumns = null } = {}) {
   const sheetDiagnostics = diagnostics.sheets[sheetName]
   const sheet = workbook.Sheets[sheetName]
   if (!sheet) {
@@ -475,9 +489,9 @@ function parseSheet(workbook, sheetName, diagnostics, { optional = false } = {})
   sheetDiagnostics.loadedRows = rows.length
 
   const canonicalRows = rows.map(row => canonicalizeWorkbookRow(canonicalizeRow(row), sheetName))
-  const requiredColumns = SHEET_REQUIRED_COLUMNS[sheetName] || []
+  const requiredColumnsToCheck = requiredColumns || SHEET_REQUIRED_COLUMNS[sheetName] || []
   const observedColumns = new Set(canonicalRows.flatMap(row => Object.keys(row || {})))
-  const missingRequiredColumns = requiredColumns.filter(column => !observedColumns.has(column))
+  const missingRequiredColumns = requiredColumnsToCheck.filter(column => !observedColumns.has(column))
   if (missingRequiredColumns.length > 0) {
     sheetDiagnostics.missingRequiredColumns = missingRequiredColumns
     sheetDiagnostics.parseWarnings.push(`Missing required columns: ${missingRequiredColumns.join(', ')}`)
@@ -488,40 +502,6 @@ function parseSheet(workbook, sheetName, diagnostics, { optional = false } = {})
     if (!hasData) sheetDiagnostics.skippedRows += 1
     return hasData
   })
-}
-
-function rowsByPrimaryWithOptionalFallback({ primaryRows, fallbackRows, getKey, allowLegacyFallback, entityType }) {
-  if (!allowLegacyFallback) {
-    return { rows: primaryRows, fallbackUsage: [] }
-  }
-
-  const fallbackByKey = new Map()
-  for (const row of fallbackRows) {
-    const key = cleanText(getKey(row)).toLowerCase()
-    if (!key || fallbackByKey.has(key)) continue
-    fallbackByKey.set(key, row)
-  }
-
-  const primaryKeys = new Set(
-    primaryRows
-      .map((row) => cleanText(getKey(row)).toLowerCase())
-      .filter(Boolean)
-  )
-  const fallbackUsage = []
-  const rows = [...primaryRows]
-
-  for (const [key, row] of fallbackByKey.entries()) {
-    if (primaryKeys.has(key)) continue
-    rows.push(row)
-    fallbackUsage.push({
-      entityType,
-      key,
-      reason: 'missing_site_export_alignment',
-      sourceSheet: entityType === 'herb' ? LEGACY_HERB_SHEET : LEGACY_COMPOUND_SHEET,
-    })
-  }
-
-  return { rows, fallbackUsage }
 }
 
 function slugify(value) {
@@ -1014,27 +994,18 @@ function main() {
   }
 
   const workbook = XLSX.readFile(workbookPath, { sheets: TARGET_WORKBOOK_SHEETS })
+  const resolvedSheets = resolveWorkbookSheets(workbook)
   diagnostics.ignoredSheets = workbook.SheetNames.filter(sheetName => !TARGET_WORKBOOK_SHEETS.includes(sheetName))
-  const primaryHerbRows = parseSheet(workbook, PRIMARY_HERB_SHEET, diagnostics, { optional: true })
-  const fallbackHerbRows = parseSheet(workbook, LEGACY_HERB_SHEET, diagnostics)
-  const { rows: herbRows, fallbackUsage: herbFallbackUsage } = rowsByPrimaryWithOptionalFallback({
-    primaryRows: primaryHerbRows,
-    fallbackRows: fallbackHerbRows,
-    getKey: row => cleanText(row.slug || row.herbSlug || row.name),
-    allowLegacyFallback: options.allowLegacyFallback,
-    entityType: 'herb',
+  const herbRows = parseSheet(workbook, resolvedSheets.herbs, diagnostics, {
+    requiredColumns: RESOLVED_REQUIRED_COLUMNS.herbs,
   })
 
-  const primaryCompoundRows = parseSheet(workbook, PRIMARY_COMPOUND_SHEET, diagnostics, { optional: true })
-  const fallbackCompoundRows = parseSheet(workbook, LEGACY_COMPOUND_SHEET, diagnostics)
-  const { rows: compoundRows, fallbackUsage: compoundFallbackUsage } = rowsByPrimaryWithOptionalFallback({
-    primaryRows: primaryCompoundRows,
-    fallbackRows: fallbackCompoundRows,
-    getKey: row => cleanText(row.canonicalCompoundId || row.compoundName || row.name || row.canonicalCompoundName),
-    allowLegacyFallback: options.allowLegacyFallback,
-    entityType: 'compound',
+  const compoundRows = parseSheet(workbook, resolvedSheets.compounds, diagnostics, {
+    requiredColumns: RESOLVED_REQUIRED_COLUMNS.compounds,
   })
-  parseSheet(workbook, 'Herb Compound Map V3', diagnostics)
+  parseSheet(workbook, resolvedSheets.herbCompoundMap, diagnostics, {
+    requiredColumns: RESOLVED_REQUIRED_COLUMNS.herbCompoundMap,
+  })
   parseSheet(workbook, 'Production Export V1', diagnostics, { optional: OPTIONAL_WORKBOOK_SHEETS.has('Production Export V1') })
 
   const herbs = JSON.parse(fs.readFileSync(herbsPath, 'utf8'))
@@ -1083,7 +1054,7 @@ function main() {
     ? JSON.parse(fs.readFileSync(unmatchedCompoundsReportPath, 'utf8')).length
     : null
 
-  const totalFallbackUsage = herbFallbackUsage.length + compoundFallbackUsage.length
+  const totalFallbackUsage = 0
   if (options.allowLegacyFallback) {
     console.warn(`[import-xlsx-monographs] legacy fallback enabled via --allow-legacy-fallback. fallback rows used=${totalFallbackUsage}`)
   }
@@ -1202,7 +1173,7 @@ function main() {
   writeJson(unmatchedHerbsReportPath, herbLog.unmatched)
   writeJson(unmatchedCompoundsReportPath, compoundLog.unmatched)
   const fallbackUsageReportPath = path.join(reportsDir, 'workbook-fallback-usage.json')
-  writeJson(fallbackUsageReportPath, [...herbFallbackUsage, ...compoundFallbackUsage])
+  writeJson(fallbackUsageReportPath, [])
   const identityMapSuggestions = {
     generatedAt: new Date().toISOString(),
     herbs: buildIdentityMapSuggestions({
