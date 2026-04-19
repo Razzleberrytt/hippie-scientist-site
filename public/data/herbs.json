@@ -2808,8 +2808,8 @@
     "name": "annona muricata",
     "latin": "Annona muricata",
     "class": null,
-    "intensity": "No direct intensity data. Contextual inference: Anticancer claims, antimicrobial, sedative (folk use). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anticancer claims, antimicrobial, sedative (folk use). No direct region data. Contextual inference: Anticancer claims, antimicrobial, sedative (folk use). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anticancer claims, antimicrobial, sedative (folk use). none. ; nan; nan. ; nan; nan",
-    "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+    "intensity": "Traditionally used as a mild calming and digestive-support botanical; disease-treatment claims remain unproven.",
+    "mechanism": "Acetogenins and polyphenols show cytotoxic and antimicrobial signals in preclinical models, but clinical efficacy and dose-safety windows are unresolved.",
     "activeCompounds": [
       "annonacin"
     ],
@@ -2820,17 +2820,9 @@
     ],
     "contraindications": [],
     "safetyNotes": [
-      "Neurotoxicity at high doses (annonacin)",
-      "potential movement disorders",
-      "GI upset",
-      "No direct toxicity data. Contextual inference: Anticancer claims",
-      "antimicrobial",
-      "sedative (folk use). Herbs often act via neurotransmitter modulation",
-      "antioxidant effects",
-      "or enzyme inhibition.. None.",
-      "nan.. Herbs often act via neurotransmitter modulation",
-      "or enzyme inhibition.. Anticancer claims",
-      "sedative (folk use). none."
+      "Prolonged high exposure to annonacin-rich preparations may increase neurotoxicity risk.",
+      "Avoid replacing evidence-based cancer treatment with soursop products.",
+      "Use caution in pregnancy, lactation, and in people with neurologic vulnerability."
     ],
     "sources": [
       {
@@ -2851,18 +2843,9 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "description": "Anticancer claims, antimicrobial, sedative (folk use). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+    "description": "Soursop (Annona muricata) is used in traditional medicine for digestive and calming support, while modern evidence remains largely preclinical rather than confirmatory human trial data.",
     "dosage": [
-      "No direct dosage data. Contextual inference: Anticancer claims",
-      "antimicrobial",
-      "sedative (folk use). Herbs often act via neurotransmitter modulation",
-      "antioxidant effects",
-      "or enzyme inhibition.. None.",
-      "nan.. Herbs often act via neurotransmitter modulation",
-      "or enzyme inhibition.. Anticancer claims",
-      "sedative (folk use). No direct region data. Contextual inference: Anticancer claims",
-      "sedative (folk use). none.",
-      "nan."
+      "No standardized therapeutic dose is established; non-food concentrated extracts should be approached cautiously."
     ],
     "duration": "4–6 hours",
     "interactions": [
@@ -2870,9 +2853,9 @@
     ],
     "legalStatus": "Legal; but regulated in some jurisdictions for safety",
     "preparation": "Leaves and bark decocted; fruit eaten raw; caution with seeds due to potential neurotoxins",
-    "region": "No direct region data. Contextual inference: Anticancer claims, antimicrobial, sedative (folk use). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anticancer claims, antimicrobial, sedative (folk use). none. ; nan; nan",
+    "region": "Native to tropical Americas and cultivated across tropical Africa, Asia, and the Caribbean.",
     "therapeuticUses": [],
-    "traditionalUse": "; nan; nan",
+    "traditionalUse": "Leaf, fruit, and bark preparations are used in traditional systems for digestive discomfort and general wellness support.",
     "sideEffects": [
       "Neurotoxicity at high doses (annonacin)",
       "potential movement disorders",
@@ -37548,8 +37531,8 @@
     "name": "serenoa repens",
     "latin": "Serenoa repens",
     "class": null,
-    "intensity": "No direct intensity data. Contextual inference: Antiandrogenic, used for bph support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiandrogenic, used for BPH support. No direct region data. Contextual inference: Antiandrogenic, used for bph support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiandrogenic, used for BPH support. none. ; nan; nan. ; nan; nan",
-    "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+    "intensity": "Generally characterized as mild-to-moderate symptomatic support for lower urinary tract complaints.",
+    "mechanism": "Lipid sterols and fatty acids are studied for 5-alpha-reductase modulation and local anti-inflammatory signaling in prostatic tissue.",
     "activeCompounds": [
       "fatty acids",
       "phytosterols (beta-sitosterol)",
@@ -37563,17 +37546,9 @@
       "Pregnancy"
     ],
     "safetyNotes": [
-      "safe",
-      "GI upset",
-      "headache",
-      "dizziness",
-      "No direct toxicity data. Contextual inference: Antiandrogenic",
-      "used for bph support. Herbs often act via neurotransmitter modulation",
-      "antioxidant effects",
-      "or enzyme inhibition.. None.",
-      "nan.. Herbs often act via neurotransmitter modulation",
-      "or enzyme inhibition.. Antiandrogenic",
-      "used for BPH support. none."
+      "Usually well tolerated; possible gastrointestinal upset, headache, or dizziness.",
+      "Use caution with anticoagulant/antiplatelet therapy and before surgery due to possible bleeding-risk interactions.",
+      "Avoid use in pregnancy and lactation unless supervised by a qualified clinician."
     ],
     "sources": [
       {
@@ -37613,9 +37588,9 @@
     ],
     "legalStatus": "Legal globally",
     "preparation": "Fruit dried and extracted into lipophilic extracts or tinctures; used for benign prostatic hyperplasia (BPH)",
-    "region": "No direct region data. Contextual inference: Antiandrogenic, used for bph support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiandrogenic, used for BPH support. none. ; nan; nan",
+    "region": "Southeastern United States; berry extracts are used globally in commercial preparations.",
     "therapeuticUses": [],
-    "traditionalUse": "; nan; nan",
+    "traditionalUse": "Historically used for urinary and reproductive health support in traditional and modern herbal practice.",
     "sideEffects": [
       "GI upset",
       "headache",
@@ -48333,16 +48308,12 @@
       "adjunct joint symptom support (limited evidence)"
     ],
     "dosage": [
-      "No direct dosage data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan. No direct effects data. Contextual inference:",
-      "nan.",
-      "nan. No direct region data. Contextual inference:"
+      "Leaf tea: 2-4 g dried leaf up to 3 times daily.",
+      "Root extract products vary; follow standardized-label dosing used in clinical studies."
     ],
-    "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "duration": "Typically trialed for 4-12 weeks, then reassessed against symptom response and tolerability.",
+    "region": "Native to Europe, Asia, and North Africa; now naturalized widely in temperate regions.",
+    "preparation": "Leaf is prepared as tea or encapsulated powder; root is commonly extracted for urinary-symptom products.",
     "legalStatus": "legal",
     "interactions": [
       "Use caution with urinary medications."
@@ -48359,7 +48330,8 @@
     "mechanismTags": [
       "men's-health support",
       "urinary support"
-    ]
+    ],
+    "traditionalUse": "Traditionally used as a spring nutritive tonic and for urinary or joint discomfort support."
   },
   {
     "name": "valeriana officinalis",

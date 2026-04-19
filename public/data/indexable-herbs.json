@@ -1,5 +1,33 @@
 [
   {
+    "slug": "urtica-dioica",
+    "route": "/herbs/urtica-dioica",
+    "name": "Urtica Dioica",
+    "kind": "herb",
+    "title": "Urtica Dioica | The Hippie Scientist",
+    "description": "Traditional nettle herb with mixed but suggestive human evidence for selected inflammatory and urinary indications.",
+    "completenessScore": 28,
+    "tier": "partial",
+    "qualityTier": "publishable",
+    "sourceCountNormalized": 4,
+    "publicationEligible": true,
+    "lastmod": "2026-04-19"
+  },
+  {
+    "slug": "annona-muricata",
+    "route": "/herbs/annona-muricata",
+    "name": "Annona Muricata",
+    "kind": "herb",
+    "title": "Annona Muricata | The Hippie Scientist",
+    "description": "Soursop (Annona muricata) is used in traditional medicine for digestive and calming support, while modern evidence remains largely preclinical rather than ",
+    "completenessScore": 19,
+    "tier": "stub",
+    "qualityTier": "publishable",
+    "sourceCountNormalized": 3,
+    "publicationEligible": true,
+    "lastmod": "2026-04-19"
+  },
+  {
     "slug": "allium-sativum",
     "route": "/herbs/allium-sativum",
     "name": "Allium Sativum",
@@ -11,7 +39,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 0.5,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "tylophora-indica",
@@ -25,7 +53,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "muira-puama",
@@ -39,7 +67,21 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
+  },
+  {
+    "slug": "serenoa-repens",
+    "route": "/herbs/serenoa-repens",
+    "name": "Serenoa Repens",
+    "kind": "herb",
+    "title": "Serenoa Repens | The Hippie Scientist",
+    "description": "Saw Palmetto is represented here as a monograph-style entry centered on the berry. Key reported compounds include fatty acids; phytosterols (beta-sitostero",
+    "completenessScore": 13,
+    "tier": "stub",
+    "qualityTier": "strong",
+    "sourceCountNormalized": 4,
+    "publicationEligible": true,
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "arjuna",
@@ -53,7 +95,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 3,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "cranberry",
@@ -67,7 +109,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 3,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "myrtle",
@@ -81,7 +123,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 3,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "acerola",
@@ -95,7 +137,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 3,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "mangosteen",
@@ -109,7 +151,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 3,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "suma",
@@ -123,7 +165,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 3,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "maral-root",
@@ -137,7 +179,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 3,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "ashoka",
@@ -151,7 +193,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 3,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "carob",
@@ -165,7 +207,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 3,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "mistletoe",
@@ -179,7 +221,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "lavender",
@@ -193,7 +235,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "skullcap",
@@ -207,7 +249,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "black-cohosh",
@@ -221,7 +263,7 @@
     "qualityTier": "strong",
     "sourceCountNormalized": 4,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "gotu-kola",
@@ -235,7 +277,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "theobroma-cacao",
@@ -249,7 +291,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "sceletium-tortuosum",
@@ -263,7 +305,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "black-pepper",
@@ -277,7 +319,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "pau-darco",
@@ -291,7 +333,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "banaba",
@@ -305,7 +347,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "mulberry-leaf",
@@ -319,7 +361,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "cissus",
@@ -333,7 +375,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "ashitaba",
@@ -347,7 +389,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "eucommia",
@@ -361,7 +403,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "cistanche",
@@ -375,7 +417,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "white-peony",
@@ -389,7 +431,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "ophiopogon",
@@ -403,7 +445,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "houttuynia",
@@ -417,7 +459,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "notoginseng",
@@ -431,7 +473,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "luo-han-guo",
@@ -445,7 +487,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "kuding-tea",
@@ -459,7 +501,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "maitake-d-fraction",
@@ -473,7 +515,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "rehmannia-prepared",
@@ -487,7 +529,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "agarikon",
@@ -501,7 +543,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "cardamom",
@@ -515,7 +557,7 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
   },
   {
     "slug": "ajwain",
@@ -529,6 +571,48 @@
     "qualityTier": "publishable",
     "sourceCountNormalized": 1,
     "publicationEligible": true,
-    "lastmod": "2026-04-13"
+    "lastmod": "2026-04-19"
+  },
+  {
+    "slug": "ocimum-sanctum",
+    "route": "/herbs/ocimum-sanctum",
+    "name": "Ocimum Sanctum",
+    "kind": "herb",
+    "title": "Ocimum Sanctum | The Hippie Scientist",
+    "description": "Ocimum Sanctum reference profile.",
+    "completenessScore": 6,
+    "tier": "stub",
+    "qualityTier": "publishable",
+    "sourceCountNormalized": 0,
+    "publicationEligible": true,
+    "lastmod": "2026-04-19"
+  },
+  {
+    "slug": "peganum-harmala",
+    "route": "/herbs/peganum-harmala",
+    "name": "Peganum Harmala",
+    "kind": "herb",
+    "title": "Peganum Harmala | The Hippie Scientist",
+    "description": "Peganum Harmala reference profile.",
+    "completenessScore": 5,
+    "tier": "stub",
+    "qualityTier": "publishable",
+    "sourceCountNormalized": 0,
+    "publicationEligible": true,
+    "lastmod": "2026-04-19"
+  },
+  {
+    "slug": "valeriana-officinalis",
+    "route": "/herbs/valeriana-officinalis",
+    "name": "Valeriana Officinalis",
+    "kind": "herb",
+    "title": "Valeriana Officinalis | The Hippie Scientist",
+    "description": "Valeriana Officinalis reference profile.",
+    "completenessScore": 5,
+    "tier": "stub",
+    "qualityTier": "publishable",
+    "sourceCountNormalized": 0,
+    "publicationEligible": true,
+    "lastmod": "2026-04-19"
   }
 ]

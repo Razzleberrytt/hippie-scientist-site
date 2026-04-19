@@ -1965,30 +1965,9 @@
     ],
     "effects": [
       "Mental alertness",
-      "energy",
-      "appetite suppression",
-      "Increased alertness",
-      "mood enhancement",
-      "stimulation",
-      "Stimulant",
-      "cognitive enhancer",
-      "antioxidant",
-      "Mental stimulation",
-      "increased alertness",
-      "mild diuretic",
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan.",
-      "Alertness",
-      "calm focus",
-      "mood lift",
-      "Euphoria",
-      "alertness",
-      "heart opening",
-      "mild euphoriant",
-      "contains theobromine and caffeine",
-      "No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America."
+      "Reduced fatigue perception",
+      "Mild performance enhancement",
+      "Transient appetite suppression"
     ],
     "contraindications": [
       "Anxiety",
@@ -2019,7 +1998,12 @@
       "adenosine a2a antagonism",
       "stimulant cns signaling",
       "unclassified"
-    ]
+    ],
+    "description": "Caffeine is a methylxanthine alkaloid found in coffee- and tea-like plants that promotes wakefulness, vigilance, and reduced fatigue through central adenosine-receptor antagonism.",
+    "safetyNotes": [
+      "Higher intake can worsen anxiety, palpitations, insomnia, or reflux; sensitivity varies widely by person and dose timing."
+    ],
+    "evidenceLevel": "moderate"
   },
   {
     "name": "caffeine-like alkaloids",
@@ -9322,7 +9306,13 @@
       "nf-kb inhibition",
       "oxidative stress reduction",
       "unclassified"
-    ]
+    ],
+    "description": "Quercetin is a dietary flavonol studied for antioxidant and inflammatory-pathway modulation, with early human data but limited high-certainty outcomes for major indications.",
+    "mechanism": "Influences NF-kB-linked inflammatory signaling and may reduce mast-cell mediator release in preclinical and early translational work.",
+    "safetyNotes": [
+      "Long-term high-dose use has limited safety certainty; potential transporter/enzyme interactions should be reviewed case by case."
+    ],
+    "evidenceLevel": "limited"
   },
   {
     "name": "quercetin derivatives",
@@ -9390,22 +9380,10 @@
       "holy-basil"
     ],
     "effects": [
-      "Mild sedation",
-      "relaxation",
-      "antispasmodic",
-      "Mild sedative",
-      "carminative",
-      "Stress relief",
-      "respiratory support",
-      "antioxidant",
-      "mild energy boost",
-      "Adaptogen",
-      "anti-stress",
-      "immune support",
-      "Subtle clarity",
-      "mild stimulation",
-      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine",
-      "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
+      "Mild calming support",
+      "Antioxidant pathway support",
+      "Inflammatory signaling modulation",
+      "Upper-respiratory symptom support (adjunct)"
     ],
     "contraindications": [
       "Pregnancy",
@@ -9446,7 +9424,11 @@
       "oxidative stress reduction",
       "reinforcement",
       "unclassified"
-    ]
+    ],
+    "safetyNotes": [
+      "Typically well tolerated in food-level exposure; concentrated products may cause mild gastrointestinal upset in sensitive users."
+    ],
+    "evidenceLevel": "limited"
   },
   {
     "name": "Rutarin",
@@ -12106,7 +12088,13 @@
     "compoundClass": "magnesium",
     "mechanismTags": [
       "unclassified"
-    ]
+    ],
+    "description": "Magnesium is an essential mineral cofactor for hundreds of enzymes involved in ATP handling, neuromuscular function, and electrolyte-dependent cellular signaling.",
+    "mechanism": "Stabilizes ATP-dependent reactions and modulates ion-channel excitability in nerve and muscle tissue.",
+    "safetyNotes": [
+      "Excess supplemental magnesium can cause diarrhea; renal impairment increases risk of accumulation and should prompt medical supervision."
+    ],
+    "evidenceLevel": "moderate"
   },
   {
     "name": "Pyridoxine (Vitamin B6)",
@@ -12162,7 +12150,13 @@
     "lastUpdated": "2026-04-04",
     "slug": "riboflavin-vitamin-b2",
     "id": "riboflavin",
-    "displayName": "Riboflavin (Vitamin B2)"
+    "displayName": "Riboflavin (Vitamin B2)",
+    "description": "Riboflavin (vitamin B2) is an essential water-soluble micronutrient that forms FMN and FAD cofactors for cellular energy metabolism and antioxidant enzyme activity.",
+    "mechanism": "Converted to FMN/FAD cofactors that support mitochondrial redox reactions and glutathione recycling pathways.",
+    "safetyNotes": [
+      "Generally safe at nutritional doses; high supplemental doses can cause bright-yellow urine and occasional mild GI discomfort."
+    ],
+    "evidenceLevel": "moderate"
   },
   {
     "name": "Selenium",
@@ -12296,7 +12290,13 @@
     "compoundClass": "melatonin",
     "mechanismTags": [
       "unclassified"
-    ]
+    ],
+    "description": "Melatonin is an endogenous indoleamine hormone used as a supplement to support circadian phase alignment, sleep-onset timing, and jet-lag symptom reduction in selected settings.",
+    "mechanism": "Acts primarily at MT1 and MT2 receptors in the suprachiasmatic nucleus to shift circadian timing signals.",
+    "safetyNotes": [
+      "May cause next-day drowsiness in some users; review interactions with sedatives and anticoagulants before routine use."
+    ],
+    "evidenceLevel": "moderate"
   },
   {
     "name": "Niacin (Vitamin B3)",
@@ -12326,7 +12326,13 @@
     "lastUpdated": "2026-04-04",
     "slug": "niacin-vitamin-b3",
     "id": "niacin",
-    "displayName": "Niacin (Vitamin B3)"
+    "displayName": "Niacin (Vitamin B3)",
+    "description": "Niacin (vitamin B3) is a precursor to NAD/NADP coenzymes central to energy transfer, and pharmacologic doses are used clinically for lipid effects under medical supervision.",
+    "mechanism": "Supports NAD/NADP-dependent redox metabolism; high-dose nicotinic acid also activates GPR109A signaling relevant to lipid modulation.",
+    "safetyNotes": [
+      "Pharmacologic doses can cause flushing and hepatotoxicity risk; use high-dose protocols only with clinician monitoring."
+    ],
+    "evidenceLevel": "moderate"
   },
   {
     "name": "Omega-3 Fatty Acids (EPA/DHA)",
@@ -12360,10 +12366,15 @@
     "canonicalCompoundId": "omega-3-fatty-acids",
     "compoundName": "omega-3 fatty acids",
     "compoundClass": "omega-3 fatty acids",
-    "mechanism": "polyunsaturated fatty acids",
+    "mechanism": "Compete with arachidonic-acid pathways and generate specialized pro-resolving mediators that shift inflammatory signaling tone.",
     "mechanismTags": [
       "unclassified"
-    ]
+    ],
+    "description": "EPA and DHA are long-chain omega-3 fatty acids that contribute to membrane signaling, inflammation-resolution pathways, and cardiovascular-risk modification in selected populations.",
+    "safetyNotes": [
+      "May increase bleeding tendency at higher doses or with anticoagulants; product quality and oxidation control are important."
+    ],
+    "evidenceLevel": "moderate"
   },
   {
     "name": "Probiotics",
@@ -12494,7 +12505,13 @@
     "lastUpdated": "2026-04-04",
     "slug": "niacin-vitamin-b3",
     "id": "niacin",
-    "displayName": "Niacin (Vitamin B3)"
+    "displayName": "Niacin (Vitamin B3)",
+    "description": "Niacin (vitamin B3) is a precursor to NAD/NADP coenzymes central to energy transfer, and pharmacologic doses are used clinically for lipid effects under medical supervision.",
+    "mechanism": "Supports NAD/NADP-dependent redox metabolism; high-dose nicotinic acid also activates GPR109A signaling relevant to lipid modulation.",
+    "safetyNotes": [
+      "Pharmacologic doses can cause flushing and hepatotoxicity risk; use high-dose protocols only with clinician monitoring."
+    ],
+    "evidenceLevel": "moderate"
   },
   {
     "name": "Omega-3 Fatty Acids (EPA/DHA)",
@@ -12523,7 +12540,13 @@
     "lastUpdated": "2026-04-04",
     "slug": "omega-3-fatty-acids-epa-dha",
     "id": "omega-3-fatty-acids",
-    "displayName": "Omega-3 Fatty Acids (EPA/DHA)"
+    "displayName": "Omega-3 Fatty Acids (EPA/DHA)",
+    "description": "EPA and DHA are long-chain omega-3 fatty acids that contribute to membrane signaling, inflammation-resolution pathways, and cardiovascular-risk modification in selected populations.",
+    "mechanism": "Compete with arachidonic-acid pathways and generate specialized pro-resolving mediators that shift inflammatory signaling tone.",
+    "safetyNotes": [
+      "May increase bleeding tendency at higher doses or with anticoagulants; product quality and oxidation control are important."
+    ],
+    "evidenceLevel": "moderate"
   },
   {
     "name": "Pyridoxine (Vitamin B6)",
@@ -12573,7 +12596,13 @@
     "lastUpdated": "2026-04-04",
     "slug": "riboflavin-vitamin-b2",
     "id": "riboflavin",
-    "displayName": "Riboflavin (Vitamin B2)"
+    "displayName": "Riboflavin (Vitamin B2)",
+    "description": "Riboflavin (vitamin B2) is an essential water-soluble micronutrient that forms FMN and FAD cofactors for cellular energy metabolism and antioxidant enzyme activity.",
+    "mechanism": "Converted to FMN/FAD cofactors that support mitochondrial redox reactions and glutathione recycling pathways.",
+    "safetyNotes": [
+      "Generally safe at nutritional doses; high supplemental doses can cause bright-yellow urine and occasional mild GI discomfort."
+    ],
+    "evidenceLevel": "moderate"
   },
   {
     "name": "S-Adenosyl-L-Methionine (SAMe)",
