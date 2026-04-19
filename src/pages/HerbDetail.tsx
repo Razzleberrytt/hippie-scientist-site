@@ -172,7 +172,7 @@ export default function HerbDetail() {
   const summaryQuality = getSummaryQuality(rawRecord)
   const isMinimalProfile = profileStatus === 'minimal'
   const showSummaryRegion = shouldRenderSummary(profileStatus, summaryQuality)
-  const description = readWorkbookText(rawRecord, 'hero', 'summary', 'description') || String(curatedData.summary || '').trim()
+  const description = String(herb.summary || herb.description || '').trim() || String(curatedData.summary || '').trim()
   const descriptionIsPlaceholder = isPlaceholder(description, herbName)
   const summary = sanitizeSummaryText(description, 2)
   const fullDescription = sanitizeReadableText(description)
@@ -188,7 +188,7 @@ export default function HerbDetail() {
     ),
     mechanism:
       splitTextList(herb.mechanisms).join('; ') ||
-      readWorkbookText(rawRecord, 'mechanism') ||
+      String(herb.mechanism || '').trim() ||
       String(curatedData.mechanism || '').trim(),
   })
   const coreInsight = uniqueCopy.overview
@@ -254,7 +254,7 @@ export default function HerbDetail() {
     }))
 
   const compoundIndex = new Map(compounds.map(compound => [String(compound.name || '').toLowerCase(), compound]))
-  const relatedCompounds = activeCompounds
+  const relatedCompounds = [...activeCompounds, ...splitTextList(herb.relatedCompounds)]
     .map(name => {
       const match = compoundIndex.get(name.toLowerCase())
       if (!match?.slug) return null

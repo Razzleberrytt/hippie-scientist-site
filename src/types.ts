@@ -26,6 +26,8 @@ export type Herb = {
   legalstatusClean?: string | null
   schedule?: string
   description?: string
+  primaryActions?: string[]
+  mechanisms?: string[]
   effects?: string[] | string
   effectsSummary?: string | null
   mechanism?: string
@@ -39,6 +41,8 @@ export type Herb = {
   activeConstituents?: { name: string }[]
   preparations?: string[]
   preparation?: string | null
+  traditionalUses?: string[]
+  relatedHerbs?: string[]
   preparationsText?: string
   interactions?: string[] | string
   interactionsText?: string

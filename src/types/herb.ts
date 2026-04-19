@@ -32,6 +32,8 @@ export type HerbRecord = {
   // Content
   summary?: string
   description?: string
+  primaryActions?: string[]
+  mechanisms?: string[]
   mechanism?: string
   mechanismTags?: string[]
   evidenceLevel?: string
@@ -41,6 +43,8 @@ export type HerbRecord = {
   interactions?: string[] | string
   contraindications?: string[] | string
   preparation?: string | null
+  traditionalUses?: string[]
+  relatedHerbs?: string[]
   dosage?: string
   standardization?: string
   qualityConcerns?: string

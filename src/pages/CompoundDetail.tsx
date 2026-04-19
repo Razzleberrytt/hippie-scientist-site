@@ -212,7 +212,7 @@ export default function CompoundDetail() {
   const pathwayTargets = sanitizeRenderList(splitClean(compound.pathways))
   const curatedData = compound.curatedData
   const compoundEffects = sanitizeRenderChips(
-    cleanEffectChips(compound.effects || curatedData.keyEffects, 12),
+    cleanEffectChips(compound.primaryActions || compound.effects || curatedData.keyEffects, 12),
     12,
   )
   const compoundContraindications = sanitizeRenderList(compound.contraindications)
@@ -220,7 +220,7 @@ export default function CompoundDetail() {
   const compoundTherapeuticUses = sanitizeRenderList(compound.therapeuticUses)
   const compoundInteractions = sanitizeRenderList(compound.interactions)
   const heroSummary = sanitizeSummaryText(
-    readWorkbookText(rawRecord, 'hero', 'summary', 'description') || curatedData.summary,
+    compound.summary || compound.description || curatedData.summary,
     2,
   )
   const uniqueCopy = buildUniqueDetailCopy({
@@ -235,7 +235,7 @@ export default function CompoundDetail() {
     ),
     mechanism: sanitizeReadableText(
       splitClean(compound.mechanisms).join('; ') ||
-      readWorkbookText(rawRecord, 'mechanism') ||
+      compound.mechanism ||
       curatedData.mechanism,
     ),
   })
@@ -483,7 +483,7 @@ export default function CompoundDetail() {
 
   // Derive a display class — category only if it's meaningful
   const displayClass =
-    compound.className || (compound.category !== 'Uncategorized' ? compound.category : '')
+    compound.compoundClass || compound.className || (compound.category !== 'Uncategorized' ? compound.category : '')
   const compoundEffectsMetaText = Array.isArray(compoundEffects)
     ? compoundEffects.join(', ').slice(0, 155)
     : ''
@@ -521,7 +521,7 @@ export default function CompoundDetail() {
             name,
             slug: compound.slug,
             description: compoundMetaDescription,
-            category: compound.category,
+            category: compound.compoundClass || compound.category,
             breadcrumbId,
             governedSummary: compound.researchEnrichmentSummary,
           }),
