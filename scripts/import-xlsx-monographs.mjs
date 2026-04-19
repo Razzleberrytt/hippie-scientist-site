@@ -21,7 +21,30 @@ const REQUIRED_SHEET_KEYS = ['herbs', 'compounds', 'herbCompoundMap']
 const RESOLVED_REQUIRED_COLUMNS = {
   herbs: ['name'],
   compounds: ['compoundName'],
-  herbCompoundMap: ['herbSlug', 'canonicalCompoundId'],
+  herbCompoundMap: ['herbName', 'canonicalCompoundName'],
+}
+const COLUMN_ALIASES = {
+  default: {
+    slug: ['slug'],
+    description: ['description', 'summary'],
+    mechanism: ['mechanism', 'mechanisms', 'moa'],
+    safetyNotes: ['safetynotes', 'safety', 'safety_notes'],
+    scientificName: ['scientificname', 'scientific_name', 'latin', 'latinname', 'latin_name'],
+    compoundClass: ['compoundclass', 'class', 'category'],
+    canonicalCompoundName: ['canonicalcompoundname', 'canonical_compound_name'],
+    canonicalCompoundId: ['canonicalcompoundid', 'canonical_compound_id'],
+  },
+  'Herb Master': {
+    name: ['name', 'herb', 'herbname', 'herb_name'],
+  },
+  'Compound Master': {
+    compoundName: ['compoundname', 'compound_name', 'compound', 'name'],
+    name: ['compoundname', 'compound_name', 'compound', 'name'],
+  },
+  'Herb Compound Map': {
+    herbName: ['herbname', 'herb_name'],
+    canonicalCompoundName: ['compoundname', 'compound_name'],
+  },
 }
 const TARGET_WORKBOOK_SHEETS = [
   ...REQUIRED_SHEET_KEYS.flatMap(sheetKey => SHEET_MAP[sheetKey]),
@@ -83,6 +106,24 @@ const COMPOUND_EXPLICIT_ALIASES = {
   'omega 3 fatty acids': 'omega-3-fatty-acids',
   omega3: 'omega-3-fatty-acids',
   'vitamin d': 'vitamin-d',
+}
+
+function normalizeHeaderKey(value) {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '')
+}
+
+function buildColumnAliasLookup(sheetName) {
+  const aliasGroups = [COLUMN_ALIASES.default || {}, COLUMN_ALIASES[sheetName] || {}]
+  return Object.fromEntries(
+    aliasGroups.flatMap(group =>
+      Object.entries(group).flatMap(([canonicalKey, aliases]) =>
+        aliases.map(alias => [normalizeHeaderKey(alias), canonicalKey])
+      )
+    )
+  )
 }
 
 function parseArgs(argv) {
@@ -429,8 +470,23 @@ function buildCompoundSources(row) {
   return dedupeSources(sources)
 }
 
-function canonicalizeRow(row) {
-  const out = canonicalizeWorkbookRow(row, 'unknown')
+function canonicalizeRow(row, sheetName) {
+  const aliasLookup = buildColumnAliasLookup(sheetName)
+  const aliasedRow = {}
+  for (const [rawKey, value] of Object.entries(row || {})) {
+    const normalizedKey = normalizeHeaderKey(rawKey)
+    const canonicalKey = aliasLookup[normalizedKey] || rawKey
+    aliasedRow[canonicalKey] = value
+  }
+
+  const out = canonicalizeWorkbookRow(aliasedRow, sheetName)
+  if (sheetName === 'Compound Master' && !out.compoundName && out.name) {
+    out.compoundName = out.name
+  }
+  if (sheetName === 'Herb Compound Map') {
+    if (!out.herbName && out.name) out.herbName = out.name
+    if (!out.canonicalCompoundName && out.compoundName) out.canonicalCompoundName = out.compoundName
+  }
   for (const [key, value] of Object.entries(out)) {
     if (typeof value === 'string') {
       const cleaned = cleanText(value)
@@ -488,7 +544,7 @@ function parseSheet(workbook, sheetName, diagnostics, { optional = false, requir
   })
   sheetDiagnostics.loadedRows = rows.length
 
-  const canonicalRows = rows.map(row => canonicalizeWorkbookRow(canonicalizeRow(row), sheetName))
+  const canonicalRows = rows.map(row => canonicalizeRow(row, sheetName))
   const requiredColumnsToCheck = requiredColumns || SHEET_REQUIRED_COLUMNS[sheetName] || []
   const observedColumns = new Set(canonicalRows.flatMap(row => Object.keys(row || {})))
   const missingRequiredColumns = requiredColumnsToCheck.filter(column => !observedColumns.has(column))
@@ -776,14 +832,17 @@ function chooseBestIdentityKey(candidates) {
   return ''
 }
 
-function resolveMappedHerb(herbIndex, mappedHerbSlug) {
-  if (!mappedHerbSlug) return null
+function resolveMappedHerb(herbIndex, mappedHerbSlug, mappedHerbName) {
   const slugKey = cleanText(mappedHerbSlug).toLowerCase()
-  return (
-    herbIndex.bySlug.get(slugKey) ||
-    herbIndex.byNormalizedSlug.get(normalizeString(slugKey)) ||
-    null
-  )
+  if (slugKey) {
+    const herbBySlug = herbIndex.bySlug.get(slugKey) || herbIndex.byNormalizedSlug.get(normalizeString(slugKey))
+    if (herbBySlug) return herbBySlug
+  }
+  for (const normalizedName of herbNormalizationVariants(mappedHerbName)) {
+    const herbByName = herbIndex.byNormalizedName.get(normalizedName)
+    if (herbByName) return herbByName
+  }
+  return null
 }
 
 function resolveMappedCompound(compoundIndex, compounds, mappedCompoundId) {
@@ -1003,7 +1062,7 @@ function main() {
   const compoundRows = parseSheet(workbook, resolvedSheets.compounds, diagnostics, {
     requiredColumns: RESOLVED_REQUIRED_COLUMNS.compounds,
   })
-  parseSheet(workbook, resolvedSheets.herbCompoundMap, diagnostics, {
+  const herbCompoundMapRows = parseSheet(workbook, resolvedSheets.herbCompoundMap, diagnostics, {
     requiredColumns: RESOLVED_REQUIRED_COLUMNS.herbCompoundMap,
   })
   parseSheet(workbook, 'Production Export V1', diagnostics, { optional: OPTIONAL_WORKBOOK_SHEETS.has('Production Export V1') })
@@ -1044,6 +1103,10 @@ function main() {
   const compoundLog = {
     matchedAndPatched: [],
     matchedNoChange: [],
+    unmatched: [],
+  }
+  const herbCompoundMapLog = {
+    matched: 0,
     unmatched: [],
   }
 
@@ -1169,6 +1232,42 @@ function main() {
   }
   compoundMatchTypeCounts.unmatched = compoundLog.unmatched.length
 
+  for (const row of herbCompoundMapRows) {
+    const mappedHerbSlug = cleanText(row.herbSlug)
+    const mappedHerbName = cleanText(row.herbName || row.name)
+    const mappedCompoundId = cleanText(row.canonicalCompoundId || row.canonicalCompoundName || row.compoundName)
+    const herb = resolveMappedHerb(herbIndex, mappedHerbSlug, mappedHerbName)
+    const compound = resolveMappedCompound(compoundIndex, compounds, mappedCompoundId)
+
+    if (!herb || !compound) {
+      herbCompoundMapLog.unmatched.push({
+        herbSlug: mappedHerbSlug,
+        herbName: mappedHerbName,
+        canonicalCompoundId: cleanText(row.canonicalCompoundId),
+        canonicalCompoundName: cleanText(row.canonicalCompoundName || row.compoundName),
+      })
+      continue
+    }
+
+    const herbCompoundName = cleanText(compound.name || compound.compoundName || row.canonicalCompoundName || row.compoundName)
+    if (herbCompoundName) {
+      const mergedHerbCompounds = dedupeStrings([...(Array.isArray(herb.activeCompounds) ? herb.activeCompounds : []), herbCompoundName])
+      if (applyValueIfChanged(herb, 'activeCompounds', mergedHerbCompounds)) {
+        fieldPatchCounts.herbs.activeCompounds = (fieldPatchCounts.herbs.activeCompounds || 0) + 1
+      }
+    }
+
+    const herbSlug = cleanText(herb.slug)
+    if (herbSlug) {
+      const mergedCompoundHerbs = dedupeStrings([...(Array.isArray(compound.herbs) ? compound.herbs : []), herbSlug])
+      if (applyValueIfChanged(compound, 'herbs', mergedCompoundHerbs)) {
+        fieldPatchCounts.compounds.herbs = (fieldPatchCounts.compounds.herbs || 0) + 1
+      }
+    }
+
+    herbCompoundMapLog.matched += 1
+  }
+
   ensureReportsDir()
   writeJson(unmatchedHerbsReportPath, herbLog.unmatched)
   writeJson(unmatchedCompoundsReportPath, compoundLog.unmatched)
@@ -1202,8 +1301,10 @@ function main() {
     `[import-xlsx-monographs] ignored non-target sheets: ${diagnostics.ignoredSheets.length > 0 ? diagnostics.ignoredSheets.join(', ') : '(none)'}`
   )
   console.log(`[import-xlsx-monographs] rows read => herbs: ${herbRows.length}, compounds: ${compoundRows.length}`)
+  console.log(`[import-xlsx-monographs] herb-compound-map rows processed: ${herbCompoundMapRows.length}`)
   console.log(`[import-xlsx-monographs] herb matches => matched via slug: ${herbMatchTypeCounts.slug}, matched via normalized name: ${herbMatchTypeCounts.normalizedName}, remaining unmatched: ${herbMatchTypeCounts.unmatched}`)
   console.log(`[import-xlsx-monographs] compound matches => matched via canonical: ${compoundMatchTypeCounts.canonicalName}, matched via normalized: ${compoundMatchTypeCounts.normalizedName}, remaining unmatched: ${compoundMatchTypeCounts.unmatched}`)
+  console.log(`[import-xlsx-monographs] herb-compound-map matches => matched: ${herbCompoundMapLog.matched}, unmatched: ${herbCompoundMapLog.unmatched.length}`)
   console.log(`[import-xlsx-monographs] fallback usage count: ${totalFallbackUsage}`)
   if (previousUnmatchedHerbsCount !== null) {
     const herbDelta = previousUnmatchedHerbsCount - herbLog.unmatched.length
@@ -1239,6 +1340,7 @@ function main() {
   console.log(`[import-xlsx-monographs] identity map suggestions: ${path.relative(repoRoot, identityMapSuggestionsPath)}`)
   console.log(`[import-xlsx-monographs] unmatched herbs: ${JSON.stringify(herbLog.unmatched)}`)
   console.log(`[import-xlsx-monographs] unmatched compounds: ${JSON.stringify(compoundLog.unmatched)}`)
+  console.log(`[import-xlsx-monographs] unmatched herb-compound-map rows: ${JSON.stringify(herbCompoundMapLog.unmatched)}`)
   for (const sheetName of TARGET_WORKBOOK_SHEETS) {
     const sheetDiagnostics = diagnostics.sheets[sheetName]
     console.log(`[import-xlsx-monographs][diagnostics] ${sheetName}: loaded=${sheetDiagnostics.loadedRows} skipped=${sheetDiagnostics.skippedRows}`)
