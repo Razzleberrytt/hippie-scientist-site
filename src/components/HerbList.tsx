@@ -61,8 +61,8 @@ const HerbList: React.FC<Props> = ({
                     effects: h.effects,
                     mechanism: h.mechanism,
                     description: h.description,
-                    activeCompounds: h.compounds,
-                    therapeuticUses: h.therapeuticUses,
+                    activeCompounds: h.activeCompounds,
+                    therapeuticUses: h.traditionalUses,
                     maxLen: 130,
                   }) || 'Learn more about this herb and its potential uses.'
                 }

@@ -27,8 +27,7 @@ function getMechanism(compound: CompoundWithRefs): string {
     return compound.mechanism
   }
 
-  const legacyMechanism = (compound as Record<string, unknown>).mechanismOfAction
-  return typeof legacyMechanism === 'string' ? legacyMechanism : ''
+  return ''
 }
 
 function getWorkbookHero(compound: CompoundWithRefs): string {

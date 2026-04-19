@@ -29,7 +29,7 @@ export default function NotFound() {
           h.scientific,
           h.effects,
           (h.tags || []).join(' '),
-          (h.compounds || []).join(' '),
+          (h.activeCompounds || []).join(' '),
         ]
           .join(' ')
           .toLowerCase()
