@@ -1,5 +1,4 @@
 import React from 'react'
-import { motion } from '@/lib/motion'
 
 interface Props {
   children: React.ReactNode
@@ -7,12 +6,11 @@ interface Props {
 }
 
 const CardShell: React.FC<Props> = ({ children, className }) => (
-  <motion.div
-    whileHover={{ scale: 1.05 }}
-    className={`glass-card focus-within:shadow-glow relative rounded-lg bg-gradient-to-br from-white/5 to-white/10 p-4 ${className ?? ''}`}
+  <div
+    className={`relative rounded-[var(--radius-lg)] border border-[var(--border-default)] bg-[var(--surface-2)] p-4 ${className ?? ''}`}
   >
     {children}
-  </motion.div>
+  </div>
 )
 
 export default CardShell
