@@ -76,8 +76,8 @@
   "slug": "5-meo-dmt",
   "id": "5-meo-dmt",
   "displayName": "5-MeO-DMT",
-  "description": "5-MeO-DMT appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
-  "summary": "5-MeO-DMT appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
+  "description": "5-MeO-DMT is a short-acting psychedelic tryptamine found in some plants and toad secretions, with intense and rapidly onset alterations in perception and self-processing.",
+  "summary": "5-MeO-DMT is a potent short-acting psychedelic tryptamine with rapid onset and high acute psychological intensity.",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "compound_level",
@@ -85,5 +85,6 @@
   "linkedHerbs": [
     "nan"
   ],
-  "mechanism": "Tryptamines act on serotonergic receptors, especially 5-HT2A, producing psychedelic effects."
+  "mechanism": "Primary mechanism is serotonergic receptor agonism, especially strong 5-HT1A activity with additional 5-HT2A-mediated psychedelic effects.",
+  "safetyNotes": "Explicit risks include panic, severe confusion, accidents, emesis/aspiration risk, and dangerous behavior during acute intoxication. Interaction categories: serotonergic drugs (SSRIs/SNRIs/MAOIs/triptans; serotonin-toxicity risk), sympathomimetics/stimulants (cardiovascular stress), and other psychoactives/CNS depressants that impair judgment."
 }

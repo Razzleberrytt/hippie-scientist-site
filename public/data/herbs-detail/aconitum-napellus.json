@@ -3,7 +3,7 @@
   "latin": "Aconitum napellus",
   "class": "Herb",
   "intensity": "No direct intensity data. Contextual inference: Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Potent analgesic and anti-inflammatory; extremely toxic. No direct region data. Contextual inference: Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Potent analgesic and anti-inflammatory; extremely toxic. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Toxic diterpenoid alkaloids such as aconitine open voltage-gated sodium channels, increasing sodium influx and delaying repolarization, causing cardiotoxicity and neurotoxicity【472555319349189†L263-L265】【472555319349189†L307-L310】.",
+  "mechanism": "Aconitine-type alkaloids bind voltage-gated sodium channels and keep them in an activated state, causing persistent depolarization. This drives major cardiotoxic and neurotoxic effects, especially malignant ventricular arrhythmias.",
   "activeCompounds": [
     "aconitine",
     "mesaconitine",
@@ -28,7 +28,7 @@
   "contraindications": [
     "Highly toxic; ingestion can cause severe arrhythmias, paralysis and death; avoid internal use; handling requires caution."
   ],
-  "safetyNotes": "Toxic – avoid oral use; No direct toxicity data. Contextual inference: Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Potent analgesic and anti-inflammatory; extremely toxic. none.",
+  "safetyNotes": "High poisoning risk: paresthesias, vomiting, hypotension, ventricular arrhythmias, and death. Interaction categories: other cardiotoxic or sodium-channel-active drugs, cardiac glycosides, and agents that worsen hypotension or conduction abnormalities. Internal use should be treated as unsafe outside specialized clinical contexts.",
   "sources": [
     {
       "title": "Inferred from scientific name:"
@@ -39,7 +39,7 @@
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Aconitum napellus (monkshood) contains highly toxic diterpenoid alkaloids and is unsafe for unsupervised internal use; severe poisoning can occur with small dosing errors.",
   "dosage": "Toxic; used in homeopathy only",
   "duration": "4–8 hours",
   "interactions": [],

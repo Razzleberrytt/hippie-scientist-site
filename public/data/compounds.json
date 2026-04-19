@@ -110,7 +110,10 @@
     "compoundClass": "5-meo-dmt",
     "mechanismTags": [
       "unclassified"
-    ]
+    ],
+    "description": "5-MeO-DMT is a short-acting psychedelic tryptamine found in some plants and toad secretions, with intense and rapidly onset alterations in perception and self-processing.",
+    "mechanism": "Primary mechanism is serotonergic receptor agonism, especially strong 5-HT1A activity with additional 5-HT2A-mediated psychedelic effects.",
+    "safetyNotes": "Explicit risks include panic, severe confusion, accidents, emesis/aspiration risk, and dangerous behavior during acute intoxication. Interaction categories: serotonergic drugs (SSRIs/SNRIs/MAOIs/triptans; serotonin-toxicity risk), sympathomimetics/stimulants (cardiovascular stress), and other psychoactives/CNS depressants that impair judgment."
   },
   {
     "name": "7-hydroxymitragynine",
@@ -142,7 +145,10 @@
     "compoundClass": "7-hydroxymitragynine",
     "mechanismTags": [
       "unclassified"
-    ]
+    ],
+    "description": "7-Hydroxymitragynine is a kratom alkaloid present at low natural levels but with high opioid-receptor potency relative to mitragynine.",
+    "mechanism": "Acts primarily as a μ-opioid receptor partial agonist and drives opioid-like analgesic and respiratory-depressant effects.",
+    "safetyNotes": "Key risks include sedation, respiratory depression, dependence, and withdrawal with repeated exposure. Interaction categories: other CNS depressants (opioids, benzodiazepines, alcohol, gabapentinoids), sedating antihistamines, and additional opioid agonists with additive overdose risk."
   },
   {
     "name": "7α-hydroxybaruol",
@@ -213,7 +219,10 @@
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "slug": "acetylcholine"
+    "slug": "acetylcholine",
+    "description": "Acetylcholine is a core human neurotransmitter released at muscarinic and nicotinic synapses, including autonomic ganglia, parasympathetic targets, and the neuromuscular junction.",
+    "mechanism": "Activates muscarinic and nicotinic acetylcholine receptors; signaling is rapidly terminated by acetylcholinesterase hydrolysis in the synaptic cleft.",
+    "safetyNotes": "Acetylcholine excess produces cholinergic toxicity patterns (bradycardia, bronchospasm, diarrhea, sweating, salivation, muscle weakness). Interaction categories: cholinergic agonists/acetylcholinesterase inhibitors (additive cholinergic effects) and anticholinergics (pharmacologic antagonism)."
   },
   {
     "name": "aconine",

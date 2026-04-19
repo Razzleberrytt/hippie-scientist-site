@@ -2,7 +2,7 @@
   "name": "acorus americanus",
   "latin": "acorus americanus",
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "Contains asarone-related phenylpropanoids and other volatile constituents, but no high-confidence human mechanism is established. Reported CNS and digestive effects are based mainly on traditional use and preclinical pharmacology.",
   "activeCompounds": [
     "Alpha-asarone",
     "Alpha",
@@ -18,10 +18,10 @@
     "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
     "discontinue if hypersensitivity or allergic symptoms occur"
   ],
-  "safetyNotes": "caution; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
+  "safetyNotes": "Safety data are limited; possible adverse effects include GI upset and dizziness with concentrated preparations. Interaction categories: CNS-active sedatives/intoxicants (possible additive sedation) and medications with narrow safety margins due to uncertain pharmacokinetics. Avoid in pregnancy/lactation pending better safety data.",
   "sources": [],
   "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
+  "description": "Acorus americanus (American sweet flag) is a North American aromatic wetland herb used traditionally for digestive and calming purposes; modern human clinical evidence is limited.",
   "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
   "interactions": [],
