@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-13T11:48:29.442Z",
+  "generatedAt": "2026-04-19T21:33:26.660Z",
   "thresholds": {
     "strongDescriptionLength": 200,
     "strongMinSources": 2,
@@ -10,6 +10,34 @@
   },
   "entities": {
     "herbs": [
+      {
+        "slug": "urtica-dioica",
+        "route": "/herbs/urtica-dioica",
+        "name": "Urtica Dioica",
+        "kind": "herb",
+        "title": "Urtica Dioica | The Hippie Scientist",
+        "description": "Traditional nettle herb with mixed but suggestive human evidence for selected inflammatory and urinary indications.",
+        "completenessScore": 28,
+        "tier": "partial",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 4,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "annona-muricata",
+        "route": "/herbs/annona-muricata",
+        "name": "Annona Muricata",
+        "kind": "herb",
+        "title": "Annona Muricata | The Hippie Scientist",
+        "description": "Soursop (Annona muricata) is used in traditional medicine for digestive and calming support, while modern evidence remains largely preclinical rather than ",
+        "completenessScore": 19,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 3,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
+      },
       {
         "slug": "allium-sativum",
         "route": "/herbs/allium-sativum",
@@ -22,7 +50,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0.5,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "tylophora-indica",
@@ -36,7 +64,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "muira-puama",
@@ -50,7 +78,21 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "serenoa-repens",
+        "route": "/herbs/serenoa-repens",
+        "name": "Serenoa Repens",
+        "kind": "herb",
+        "title": "Serenoa Repens | The Hippie Scientist",
+        "description": "Saw Palmetto is represented here as a monograph-style entry centered on the berry. Key reported compounds include fatty acids; phytosterols (beta-sitostero",
+        "completenessScore": 13,
+        "tier": "stub",
+        "qualityTier": "strong",
+        "sourceCountNormalized": 4,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "arjuna",
@@ -64,7 +106,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 3,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "cranberry",
@@ -78,7 +120,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 3,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "myrtle",
@@ -92,7 +134,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 3,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "acerola",
@@ -106,7 +148,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 3,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "mangosteen",
@@ -120,7 +162,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 3,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "suma",
@@ -134,7 +176,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 3,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "maral-root",
@@ -148,7 +190,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 3,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "ashoka",
@@ -162,7 +204,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 3,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "carob",
@@ -176,7 +218,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 3,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "mistletoe",
@@ -190,7 +232,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "lavender",
@@ -204,7 +246,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "skullcap",
@@ -218,7 +260,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "black-cohosh",
@@ -232,7 +274,7 @@
         "qualityTier": "strong",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "gotu-kola",
@@ -246,7 +288,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "theobroma-cacao",
@@ -260,7 +302,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "sceletium-tortuosum",
@@ -274,7 +316,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "black-pepper",
@@ -288,7 +330,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "pau-darco",
@@ -302,7 +344,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "banaba",
@@ -316,7 +358,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "mulberry-leaf",
@@ -330,7 +372,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "cissus",
@@ -344,7 +386,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "ashitaba",
@@ -358,7 +400,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "eucommia",
@@ -372,7 +414,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "cistanche",
@@ -386,7 +428,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "white-peony",
@@ -400,7 +442,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "ophiopogon",
@@ -414,7 +456,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "houttuynia",
@@ -428,7 +470,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "notoginseng",
@@ -442,7 +484,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "luo-han-guo",
@@ -456,7 +498,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "kuding-tea",
@@ -470,7 +512,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "maitake-d-fraction",
@@ -484,7 +526,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "rehmannia-prepared",
@@ -498,7 +540,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "agarikon",
@@ -512,7 +554,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "cardamom",
@@ -526,7 +568,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "ajwain",
@@ -540,10 +582,66 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "ocimum-sanctum",
+        "route": "/herbs/ocimum-sanctum",
+        "name": "Ocimum Sanctum",
+        "kind": "herb",
+        "title": "Ocimum Sanctum | The Hippie Scientist",
+        "description": "Ocimum Sanctum reference profile.",
+        "completenessScore": 6,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "peganum-harmala",
+        "route": "/herbs/peganum-harmala",
+        "name": "Peganum Harmala",
+        "kind": "herb",
+        "title": "Peganum Harmala | The Hippie Scientist",
+        "description": "Peganum Harmala reference profile.",
+        "completenessScore": 5,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "valeriana-officinalis",
+        "route": "/herbs/valeriana-officinalis",
+        "name": "Valeriana Officinalis",
+        "kind": "herb",
+        "title": "Valeriana Officinalis | The Hippie Scientist",
+        "description": "Valeriana Officinalis reference profile.",
+        "completenessScore": 5,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 0,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
       }
     ],
     "compounds": [
+      {
+        "slug": "limonene",
+        "route": "/compounds/limonene",
+        "name": "Limonene",
+        "kind": "compound",
+        "title": "Limonene | The Hippie Scientist",
+        "description": "limonene is a constituent reported in acorus tatarinowii, peppermint, agastache foeniculum, and related herbs. Current site data links it to limonene, but ",
+        "completenessScore": 46,
+        "tier": "partial",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 8.5,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
+      },
       {
         "slug": "mesembrenone",
         "route": "/compounds/mesembrenone",
@@ -556,21 +654,21 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 7,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
-        "slug": "limonene",
-        "route": "/compounds/limonene",
-        "name": "Limonene",
+        "slug": "ursolic-acid",
+        "route": "/compounds/ursolic-acid",
+        "name": "Ursolic Acid",
         "kind": "compound",
-        "title": "Limonene | The Hippie Scientist",
-        "description": "Limonene reference profile.",
-        "completenessScore": 32,
+        "title": "Ursolic Acid | The Hippie Scientist",
+        "description": "ursolic acid is a constituent reported in holy-basil, ocimum-sanctum, holy basil, and related herbs. Current site data links it to Triterpenoid, but eviden",
+        "completenessScore": 33,
         "tier": "partial",
         "qualityTier": "publishable",
-        "sourceCountNormalized": 6,
+        "sourceCountNormalized": 10,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "mesembrenol",
@@ -584,7 +682,49 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 7,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "caffeine",
+        "route": "/compounds/caffeine",
+        "name": "Caffeine",
+        "kind": "compound",
+        "title": "Caffeine | The Hippie Scientist",
+        "description": "Caffeine is a constituent reported in yerba mate, camellia sinensis, ilex-paraguariensis, and related herbs. Current site data links it to Alkaloid, but ev",
+        "completenessScore": 30,
+        "tier": "partial",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 8,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "harmaline",
+        "route": "/compounds/harmaline",
+        "name": "Harmaline)",
+        "kind": "compound",
+        "title": "Harmaline) | The Hippie Scientist",
+        "description": "Harmaline) reference profile.",
+        "completenessScore": 27,
+        "tier": "partial",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 8.5,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "carvacrol",
+        "route": "/compounds/carvacrol",
+        "name": "Carvacrol",
+        "kind": "compound",
+        "title": "Carvacrol | The Hippie Scientist",
+        "description": "Carvacrol reference profile.",
+        "completenessScore": 25,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 6,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "gallic-acid",
@@ -598,21 +738,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 5,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "carvacrol",
-        "route": "/compounds/carvacrol",
-        "name": "Carvacrol",
-        "kind": "compound",
-        "title": "Carvacrol | The Hippie Scientist",
-        "description": "Carvacrol reference profile.",
-        "completenessScore": 22,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 5,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "ephedrine",
@@ -626,7 +752,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "menthol",
@@ -640,21 +766,21 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 2,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
-        "slug": "ursolic-acid",
-        "route": "/compounds/ursolic-acid",
-        "name": "Ursolic Acid",
+        "slug": "rosmarinic-acid",
+        "route": "/compounds/rosmarinic-acid",
+        "name": "Rosmarinic Acid",
         "kind": "compound",
-        "title": "Ursolic Acid | The Hippie Scientist",
-        "description": "Ursolic Acid reference profile.",
-        "completenessScore": 22,
+        "title": "Rosmarinic Acid | The Hippie Scientist",
+        "description": "rosmarinic acid is a constituent reported in perilla frutescens, salvia apiana, lemon-balm, and related herbs. Current site data links it to rosmarinic aci",
+        "completenessScore": 21,
         "tier": "stub",
         "qualityTier": "publishable",
-        "sourceCountNormalized": 8,
+        "sourceCountNormalized": 2,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "sesquiterpene-lactones",
@@ -668,7 +794,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 5,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "triterpenes",
@@ -682,7 +808,35 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 8,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "catechin",
+        "route": "/compounds/catechin",
+        "name": "Catechin",
+        "kind": "compound",
+        "title": "Catechin | The Hippie Scientist",
+        "description": "catechin is a constituent reported in agrimonia eupatoria, alchemilla vulgaris, camellia-sinensis, and related herbs. Current site data links it to Polyphe",
+        "completenessScore": 20,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 2,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "isorhamnetin",
+        "route": "/compounds/isorhamnetin",
+        "name": "Isorhamnetin",
+        "kind": "compound",
+        "title": "Isorhamnetin | The Hippie Scientist",
+        "description": "isorhamnetin is a constituent reported in aerva lanata, ginkgo-biloba, ginkgo biloba. Current site data links it to Flavonoid, but evidence depth is still ",
+        "completenessScore": 20,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 3,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "phenolic-acids",
@@ -696,7 +850,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 6,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "harmalol",
@@ -710,7 +864,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "tetrahydroharmine-beta-carbolines",
@@ -724,7 +878,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "valerenic-acid",
@@ -738,7 +892,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 2,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "luteolin",
@@ -752,7 +906,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "nmt",
@@ -766,7 +920,35 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "riboflavin-vitamin-b2",
+        "route": "/compounds/riboflavin-vitamin-b2",
+        "name": "Riboflavin (vitamin B2)",
+        "kind": "compound",
+        "title": "Riboflavin (vitamin B2) | The Hippie Scientist",
+        "description": "Riboflavin (vitamin B2) reference profile.",
+        "completenessScore": 18,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 2,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "niacin-vitamin-b3",
+        "route": "/compounds/niacin-vitamin-b3",
+        "name": "Niacin (vitamin B3)",
+        "kind": "compound",
+        "title": "Niacin (vitamin B3) | The Hippie Scientist",
+        "description": "Niacin (vitamin B3) reference profile.",
+        "completenessScore": 18,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 2,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "omega-3-fatty-acids-epa-dha",
@@ -780,7 +962,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 2,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "alkylamides",
@@ -794,7 +976,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "asarone",
@@ -808,7 +990,21 @@
         "qualityTier": "strong",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "caffeic-acid",
+        "route": "/compounds/caffeic-acid",
+        "name": "Caffeic Acid",
+        "kind": "compound",
+        "title": "Caffeic Acid | The Hippie Scientist",
+        "description": "caffeic acid is a constituent reported in alchemilla vulgaris, echinacea-purpurea, coffee, and related herbs. Current site data links it to caffeic acid, b",
+        "completenessScore": 17,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 1.5,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "coumarins",
@@ -822,7 +1018,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "long-chain-fatty-acids",
@@ -836,7 +1032,21 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 5,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "methyl-eugenol",
+        "route": "/compounds/methyl-eugenol",
+        "name": "Methyl Eugenol",
+        "kind": "compound",
+        "title": "Methyl Eugenol | The Hippie Scientist",
+        "description": "methyl eugenol is a constituent reported in acorus tatarinowii, holy-basil, holy basil. Current site data links it to Herb, but evidence depth is still lim",
+        "completenessScore": 17,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 4,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "muirapuamine",
@@ -850,7 +1060,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 5,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "spilanthol",
@@ -864,7 +1074,21 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "melatonin",
+        "route": "/compounds/melatonin",
+        "name": "Melatonin",
+        "kind": "compound",
+        "title": "Melatonin | The Hippie Scientist",
+        "description": "Melatonin reference profile.",
+        "completenessScore": 17,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 2,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "probiotics",
@@ -878,7 +1102,49 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 2,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "niacin",
+        "route": "/compounds/niacin",
+        "name": "Niacin (vitamin B3)",
+        "kind": "compound",
+        "title": "Niacin (vitamin B3) | The Hippie Scientist",
+        "description": "Niacin (vitamin B3) reference profile.",
+        "completenessScore": 17,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 2,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "omega-3-fatty-acids",
+        "route": "/compounds/omega-3-fatty-acids",
+        "name": "Omega-3 Fatty Acids (epa/dha)",
+        "kind": "compound",
+        "title": "Omega-3 Fatty Acids (epa/dha) | The Hippie Scientist",
+        "description": "Omega-3 Fatty Acids (epa/dha) reference profile.",
+        "completenessScore": 17,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 2,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "chamazulene",
+        "route": "/compounds/chamazulene",
+        "name": "Chamazulene",
+        "kind": "compound",
+        "title": "Chamazulene | The Hippie Scientist",
+        "description": "Chamazulene is a constituent reported in chamomile, matricaria-chamomilla, matricaria chamomilla, and related herbs. Current site data links it to chamazul",
+        "completenessScore": 16,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 5,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "ferulic-acid",
@@ -886,13 +1152,13 @@
         "name": "Ferulic Acid",
         "kind": "compound",
         "title": "Ferulic Acid | The Hippie Scientist",
-        "description": "ferulic acid is a constituent reported in adenostoma fasciculatum, angelica sinensis, ligusticum chuanxiong. Current site data links it to ferulic acid, bu",
+        "description": "ferulic acid is a constituent reported in adenostoma fasciculatum, angelica-sinensis, angelica sinensis, and related herbs. Current site data links it to f",
         "completenessScore": 16,
         "tier": "stub",
-        "qualityTier": "publishable",
+        "qualityTier": "strong",
         "sourceCountNormalized": 2,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "menthone",
@@ -906,7 +1172,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "menthyl-acetate",
@@ -920,7 +1186,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "nepetaefolin",
@@ -934,7 +1200,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "theophylline",
@@ -948,7 +1214,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "yohimbine",
@@ -962,21 +1228,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 5,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "riboflavin-vitamin-b2",
-        "route": "/compounds/riboflavin-vitamin-b2",
-        "name": "Riboflavin (vitamin B2)",
-        "kind": "compound",
-        "title": "Riboflavin (vitamin B2) | The Hippie Scientist",
-        "description": "Riboflavin (vitamin B2) reference profile.",
-        "completenessScore": 16,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 2,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "vitamin-d-calciferols",
@@ -990,21 +1242,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 2,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "niacin-vitamin-b3",
-        "route": "/compounds/niacin-vitamin-b3",
-        "name": "Niacin (vitamin B3)",
-        "kind": "compound",
-        "title": "Niacin (vitamin B3) | The Hippie Scientist",
-        "description": "Niacin (vitamin B3) reference profile.",
-        "completenessScore": 16,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 2,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "s-adenosyl-l-methionine-same",
@@ -1018,7 +1256,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 2,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "boswellic-acids",
@@ -1032,7 +1270,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 5,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "cephaeline",
@@ -1046,7 +1284,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "codeine",
@@ -1060,7 +1298,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "lignans",
@@ -1074,7 +1312,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 5,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "maltol",
@@ -1088,7 +1326,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "mesembrine-analogues-suspected",
@@ -1102,7 +1340,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "morphine",
@@ -1116,7 +1354,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "papaverine",
@@ -1130,7 +1368,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "pseudoephedrine",
@@ -1144,7 +1382,21 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "quercetin",
+        "route": "/compounds/quercetin",
+        "name": "Quercetin",
+        "kind": "compound",
+        "title": "Quercetin | The Hippie Scientist",
+        "description": "Quercetin is a constituent reported in ginkgo-biloba, hypericum-perforatum, acacia nilotica, and related herbs. Current site data links it to compound, but",
+        "completenessScore": 15,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 1,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "thebaine",
@@ -1158,49 +1410,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "melatonin",
-        "route": "/compounds/melatonin",
-        "name": "Melatonin",
-        "kind": "compound",
-        "title": "Melatonin | The Hippie Scientist",
-        "description": "Melatonin reference profile.",
-        "completenessScore": 15,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 2,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "niacin",
-        "route": "/compounds/niacin",
-        "name": "Niacin (vitamin B3)",
-        "kind": "compound",
-        "title": "Niacin (vitamin B3) | The Hippie Scientist",
-        "description": "Niacin (vitamin B3) reference profile.",
-        "completenessScore": 15,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 2,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "omega-3-fatty-acids",
-        "route": "/compounds/omega-3-fatty-acids",
-        "name": "Omega-3 Fatty Acids (epa/dha)",
-        "kind": "compound",
-        "title": "Omega-3 Fatty Acids (epa/dha) | The Hippie Scientist",
-        "description": "Omega-3 Fatty Acids (epa/dha) reference profile.",
-        "completenessScore": 15,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 2,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "s-adenosyl-l-methionine",
@@ -1214,7 +1424,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 2,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "vitamin-d",
@@ -1228,7 +1438,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 2,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "7-hydroxymitragynine",
@@ -1242,7 +1452,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "aescin-escin",
@@ -1256,35 +1466,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "caffeic-acid",
-        "route": "/compounds/caffeic-acid",
-        "name": "Caffeic Acid",
-        "kind": "compound",
-        "title": "Caffeic Acid | The Hippie Scientist",
-        "description": "caffeic acid is a constituent reported in alchemilla vulgaris, echinacea purpurea. Current site data links it to caffeic acid, but evidence depth is still ",
-        "completenessScore": 14,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 0.5,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "catechin",
-        "route": "/compounds/catechin",
-        "name": "Catechin",
-        "kind": "compound",
-        "title": "Catechin | The Hippie Scientist",
-        "description": "catechin is a constituent reported in agrimonia eupatoria, alchemilla vulgaris. Current site data links it to Polyphenol, but evidence depth is still limit",
-        "completenessScore": 14,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 0,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "ellagic-acid",
@@ -1298,7 +1480,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "estragole",
@@ -1312,7 +1494,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "mitragynine",
@@ -1326,7 +1508,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "other-saponins",
@@ -1340,7 +1522,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "phenylethylamine",
@@ -1354,7 +1536,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "pulegone",
@@ -1368,7 +1550,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "speciogynine",
@@ -1382,7 +1564,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "agrimoniin",
@@ -1396,7 +1578,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "alamarckine",
@@ -1410,7 +1592,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "alamaridine",
@@ -1424,7 +1606,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "alamarine",
@@ -1438,7 +1620,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "alangamide",
@@ -1452,7 +1634,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "alangimaridine",
@@ -1466,7 +1648,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "alangimarin",
@@ -1480,7 +1662,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "alangimarine",
@@ -1494,7 +1676,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "alangiside",
@@ -1508,7 +1690,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "alkaloids-uncharacterized",
@@ -1522,7 +1704,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "deoxytubulosine",
@@ -1536,7 +1718,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "emetin",
@@ -1550,7 +1732,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "flavonoids-vitexin",
@@ -1564,7 +1746,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "harman-alkaloids",
@@ -1578,7 +1760,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "isocephaeline",
@@ -1592,7 +1774,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "isovaleric-acid",
@@ -1606,7 +1788,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "isovitexin",
@@ -1620,7 +1802,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "n-methylcephaeline-alamarckine",
@@ -1634,7 +1816,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "noscapine",
@@ -1648,7 +1830,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "p-coumaric-acid",
@@ -1662,7 +1844,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "psychotrin",
@@ -1676,7 +1858,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "salsoline",
@@ -1690,7 +1872,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "sulfur-compounds",
@@ -1704,7 +1886,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "trithiolanes",
@@ -1718,7 +1900,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "venoterpine",
@@ -1732,7 +1914,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "beta-carbolines",
@@ -1746,7 +1928,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "ellagitannins",
@@ -1760,7 +1942,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "harmala-alkaloids-harmine",
@@ -1774,21 +1956,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "harmaline",
-        "route": "/compounds/harmaline",
-        "name": "Harmaline)",
-        "kind": "compound",
-        "title": "Harmaline) | The Hippie Scientist",
-        "description": "Harmaline) reference profile.",
-        "completenessScore": 12,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 4,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "ibogamine",
@@ -1802,7 +1970,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "lsa-ergine",
@@ -1816,7 +1984,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "phytosterols",
@@ -1830,7 +1998,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "salicylic-acid-derivatives",
@@ -1844,7 +2012,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "solanine",
@@ -1858,7 +2026,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "unverified-cannabinoids",
@@ -1872,7 +2040,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "2-4-5-trimethoxybenzaldehyde",
@@ -1886,7 +2054,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "aervine",
@@ -1900,7 +2068,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "aervolanine",
@@ -1914,7 +2082,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "aervoside",
@@ -1928,7 +2096,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "apigenin-glycosides",
@@ -1942,7 +2110,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "azulene",
@@ -1956,7 +2124,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "benzoic-acid",
@@ -1970,7 +2138,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "borneol",
@@ -1984,7 +2152,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "camphene",
@@ -1998,21 +2166,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "chamazulene",
-        "route": "/compounds/chamazulene",
-        "name": "Chamazulene",
-        "kind": "compound",
-        "title": "Chamazulene | The Hippie Scientist",
-        "description": "Chamazulene reference profile.",
-        "completenessScore": 11,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 4,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "cis-methylisoeugenol",
@@ -2026,7 +2180,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "corynanthine",
@@ -2040,7 +2194,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "ervine",
@@ -2054,7 +2208,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "ervolanine",
@@ -2068,7 +2222,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "ervoside",
@@ -2082,7 +2236,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "indole-alkaloids",
@@ -2096,7 +2250,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "isoquercetin",
@@ -2110,21 +2264,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "isorhamnetin",
-        "route": "/compounds/isorhamnetin",
-        "name": "Isorhamnetin",
-        "kind": "compound",
-        "title": "Isorhamnetin | The Hippie Scientist",
-        "description": "isorhamnetin is a constituent reported in aerva lanata. Current site data links it to Flavonoid, but evidence depth is still limited.",
-        "completenessScore": 11,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 0,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "kaempferol-glycosides",
@@ -2138,7 +2278,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "limonoids",
@@ -2152,7 +2292,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "lupeol-acetate",
@@ -2166,7 +2306,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "methaervine",
@@ -2180,21 +2320,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "methyl-eugenol",
-        "route": "/compounds/methyl-eugenol",
-        "name": "Methyl Eugenol",
-        "kind": "compound",
-        "title": "Methyl Eugenol | The Hippie Scientist",
-        "description": "methyl eugenol is a constituent reported in acorus tatarinowii. Current site data links it to Herb, but evidence depth is still limited.",
-        "completenessScore": 11,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 0,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "methyl-grevillate",
@@ -2208,7 +2334,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "methylervine",
@@ -2222,7 +2348,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "o-cymene",
@@ -2236,7 +2362,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "persinol",
@@ -2250,7 +2376,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "persinosides-a",
@@ -2264,7 +2390,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "persinosides-b",
@@ -2278,7 +2404,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "procyanidin-oligomers",
@@ -2292,21 +2418,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "quercetin",
-        "route": "/compounds/quercetin",
-        "name": "Quercetin",
-        "kind": "compound",
-        "title": "Quercetin | The Hippie Scientist",
-        "description": "Quercetin reference profile.",
-        "completenessScore": 11,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 1,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "quercetin-derivatives",
@@ -2320,7 +2432,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "tannic-acid",
@@ -2334,7 +2446,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "terpenoids",
@@ -2348,7 +2460,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "trans-methylisoeugenol",
@@ -2362,7 +2474,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "calacorene",
@@ -2376,7 +2488,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "pinene",
@@ -2390,7 +2502,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "terpinene",
@@ -2404,7 +2516,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "terpineol",
@@ -2418,7 +2530,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "caryophyllene",
@@ -2432,7 +2544,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "sitosteryl-acetate",
@@ -2446,7 +2558,21 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "magnesium",
+        "route": "/compounds/magnesium",
+        "name": "Magnesium",
+        "kind": "compound",
+        "title": "Magnesium | The Hippie Scientist",
+        "description": "Magnesium reference profile.",
+        "completenessScore": 11,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 1,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "selenium",
@@ -2460,7 +2586,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "l-tryptophan",
@@ -2474,7 +2600,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "resveratrol",
@@ -2488,7 +2614,21 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
+      },
+      {
+        "slug": "riboflavin",
+        "route": "/compounds/riboflavin",
+        "name": "Riboflavin (vitamin B2)",
+        "kind": "compound",
+        "title": "Riboflavin (vitamin B2) | The Hippie Scientist",
+        "description": "Riboflavin (vitamin B2) reference profile.",
+        "completenessScore": 11,
+        "tier": "stub",
+        "qualityTier": "publishable",
+        "sourceCountNormalized": 1,
+        "publicationEligible": true,
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "aconine",
@@ -2502,7 +2642,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "aconitine",
@@ -2516,7 +2656,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "anabasine",
@@ -2530,7 +2670,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "benzaconine",
@@ -2544,7 +2684,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "deoxyaconitine",
@@ -2558,7 +2698,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "hypaconitine",
@@ -2572,7 +2712,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "indaconitine",
@@ -2586,7 +2726,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "jesaconitine",
@@ -2600,7 +2740,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "lucidine",
@@ -2614,7 +2754,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "mesaconitine",
@@ -2628,7 +2768,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "napelline",
@@ -2642,7 +2782,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "neoline",
@@ -2656,7 +2796,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "parquine",
@@ -2670,7 +2810,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "picraconitine",
@@ -2684,7 +2824,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "songoramine",
@@ -2698,7 +2838,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "pyridoxine-vitamin-b6",
@@ -2712,7 +2852,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "budmunchiamines-l1-l6",
@@ -2726,7 +2866,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "echinocystic-acid-acacic-acid",
@@ -2740,7 +2880,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "geraldone",
@@ -2754,7 +2894,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "isookanin",
@@ -2768,7 +2908,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "lebbeckalysin",
@@ -2782,7 +2922,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "lebbeckoside-c",
@@ -2796,7 +2936,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "lebbeckosides-a-and-b",
@@ -2810,7 +2950,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "leucopelargonidin",
@@ -2824,7 +2964,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "melanoxetin",
@@ -2838,7 +2978,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "okanine",
@@ -2852,7 +2992,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "oleanolic-acid",
@@ -2866,7 +3006,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "phenolics",
@@ -2880,7 +3020,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "pinitol",
@@ -2894,7 +3034,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "prenylated-isoflavonoids",
@@ -2908,7 +3048,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 4,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "saponins-lebbekanin-a-h",
@@ -2922,21 +3062,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "magnesium",
-        "route": "/compounds/magnesium",
-        "name": "Magnesium",
-        "kind": "compound",
-        "title": "Magnesium | The Hippie Scientist",
-        "description": "Magnesium reference profile.",
-        "completenessScore": 9,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 1,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "pyridoxine",
@@ -2950,21 +3076,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 1,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
-      },
-      {
-        "slug": "riboflavin",
-        "route": "/compounds/riboflavin",
-        "name": "Riboflavin (vitamin B2)",
-        "kind": "compound",
-        "title": "Riboflavin (vitamin B2) | The Hippie Scientist",
-        "description": "Riboflavin (vitamin B2) reference profile.",
-        "completenessScore": 9,
-        "tier": "stub",
-        "qualityTier": "publishable",
-        "sourceCountNormalized": 1,
-        "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "7-hydroxybaruol",
@@ -2978,7 +3090,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "campesterol",
@@ -2992,7 +3104,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "geranial",
@@ -3006,7 +3118,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "glutinol",
@@ -3020,7 +3132,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "hydroquinone",
@@ -3034,7 +3146,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "p-hydroxybenzoic-acid",
@@ -3048,7 +3160,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "phlorizin",
@@ -3062,7 +3174,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "suberosol",
@@ -3076,7 +3188,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "syringic-acid",
@@ -3090,7 +3202,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "thaliandiol",
@@ -3104,7 +3216,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "thalianol",
@@ -3118,7 +3230,7 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       },
       {
         "slug": "vanillic-acid",
@@ -3132,15 +3244,18 @@
         "qualityTier": "publishable",
         "sourceCountNormalized": 0,
         "publicationEligible": true,
-        "lastmod": "2026-04-13"
+        "lastmod": "2026-04-19"
       }
     ]
   },
   "routes": {
     "herbs": [
+      "/herbs/urtica-dioica",
+      "/herbs/annona-muricata",
       "/herbs/allium-sativum",
       "/herbs/tylophora-indica",
       "/herbs/muira-puama",
+      "/herbs/serenoa-repens",
       "/herbs/arjuna",
       "/herbs/cranberry",
       "/herbs/myrtle",
@@ -3175,42 +3290,56 @@
       "/herbs/rehmannia-prepared",
       "/herbs/agarikon",
       "/herbs/cardamom",
-      "/herbs/ajwain"
+      "/herbs/ajwain",
+      "/herbs/ocimum-sanctum",
+      "/herbs/peganum-harmala",
+      "/herbs/valeriana-officinalis"
     ],
     "compounds": [
-      "/compounds/mesembrenone",
       "/compounds/limonene",
+      "/compounds/mesembrenone",
+      "/compounds/ursolic-acid",
       "/compounds/mesembrenol",
-      "/compounds/gallic-acid",
+      "/compounds/caffeine",
+      "/compounds/harmaline",
       "/compounds/carvacrol",
+      "/compounds/gallic-acid",
       "/compounds/ephedrine",
       "/compounds/menthol",
-      "/compounds/ursolic-acid",
+      "/compounds/rosmarinic-acid",
       "/compounds/sesquiterpene-lactones",
       "/compounds/triterpenes",
+      "/compounds/catechin",
+      "/compounds/isorhamnetin",
       "/compounds/phenolic-acids",
       "/compounds/harmalol",
       "/compounds/tetrahydroharmine-beta-carbolines",
       "/compounds/valerenic-acid",
       "/compounds/luteolin",
       "/compounds/nmt",
+      "/compounds/riboflavin-vitamin-b2",
+      "/compounds/niacin-vitamin-b3",
       "/compounds/omega-3-fatty-acids-epa-dha",
       "/compounds/alkylamides",
       "/compounds/asarone",
+      "/compounds/caffeic-acid",
       "/compounds/coumarins",
       "/compounds/long-chain-fatty-acids",
+      "/compounds/methyl-eugenol",
       "/compounds/muirapuamine",
       "/compounds/spilanthol",
+      "/compounds/melatonin",
       "/compounds/probiotics",
+      "/compounds/niacin",
+      "/compounds/omega-3-fatty-acids",
+      "/compounds/chamazulene",
       "/compounds/ferulic-acid",
       "/compounds/menthone",
       "/compounds/menthyl-acetate",
       "/compounds/nepetaefolin",
       "/compounds/theophylline",
       "/compounds/yohimbine",
-      "/compounds/riboflavin-vitamin-b2",
       "/compounds/vitamin-d-calciferols",
-      "/compounds/niacin-vitamin-b3",
       "/compounds/s-adenosyl-l-methionine-same",
       "/compounds/boswellic-acids",
       "/compounds/cephaeline",
@@ -3221,16 +3350,12 @@
       "/compounds/morphine",
       "/compounds/papaverine",
       "/compounds/pseudoephedrine",
+      "/compounds/quercetin",
       "/compounds/thebaine",
-      "/compounds/melatonin",
-      "/compounds/niacin",
-      "/compounds/omega-3-fatty-acids",
       "/compounds/s-adenosyl-l-methionine",
       "/compounds/vitamin-d",
       "/compounds/7-hydroxymitragynine",
       "/compounds/aescin-escin",
-      "/compounds/caffeic-acid",
-      "/compounds/catechin",
       "/compounds/ellagic-acid",
       "/compounds/estragole",
       "/compounds/mitragynine",
@@ -3266,7 +3391,6 @@
       "/compounds/beta-carbolines",
       "/compounds/ellagitannins",
       "/compounds/harmala-alkaloids-harmine",
-      "/compounds/harmaline",
       "/compounds/ibogamine",
       "/compounds/lsa-ergine",
       "/compounds/phytosterols",
@@ -3282,7 +3406,6 @@
       "/compounds/benzoic-acid",
       "/compounds/borneol",
       "/compounds/camphene",
-      "/compounds/chamazulene",
       "/compounds/cis-methylisoeugenol",
       "/compounds/corynanthine",
       "/compounds/ervine",
@@ -3290,12 +3413,10 @@
       "/compounds/ervoside",
       "/compounds/indole-alkaloids",
       "/compounds/isoquercetin",
-      "/compounds/isorhamnetin",
       "/compounds/kaempferol-glycosides",
       "/compounds/limonoids",
       "/compounds/lupeol-acetate",
       "/compounds/methaervine",
-      "/compounds/methyl-eugenol",
       "/compounds/methyl-grevillate",
       "/compounds/methylervine",
       "/compounds/o-cymene",
@@ -3303,7 +3424,6 @@
       "/compounds/persinosides-a",
       "/compounds/persinosides-b",
       "/compounds/procyanidin-oligomers",
-      "/compounds/quercetin",
       "/compounds/quercetin-derivatives",
       "/compounds/tannic-acid",
       "/compounds/terpenoids",
@@ -3314,9 +3434,11 @@
       "/compounds/terpineol",
       "/compounds/caryophyllene",
       "/compounds/sitosteryl-acetate",
+      "/compounds/magnesium",
       "/compounds/selenium",
       "/compounds/l-tryptophan",
       "/compounds/resveratrol",
+      "/compounds/riboflavin",
       "/compounds/aconine",
       "/compounds/aconitine",
       "/compounds/anabasine",
@@ -3348,9 +3470,7 @@
       "/compounds/pinitol",
       "/compounds/prenylated-isoflavonoids",
       "/compounds/saponins-lebbekanin-a-h",
-      "/compounds/magnesium",
       "/compounds/pyridoxine",
-      "/compounds/riboflavin",
       "/compounds/7-hydroxybaruol",
       "/compounds/campesterol",
       "/compounds/geranial",
@@ -3368,12 +3488,12 @@
   "summaries": {
     "herbs": {
       "total": 849,
-      "indexable": 38,
+      "indexable": 44,
       "excluded": 415,
       "tierCounts": {
-        "strong": 1,
-        "publishable": 37,
-        "needs_work": 396,
+        "strong": 2,
+        "publishable": 42,
+        "needs_work": 390,
         "excluded": 415
       },
       "excludedByReason": {
@@ -3383,17 +3503,17 @@
     },
     "compounds": {
       "total": 407,
-      "indexable": 185,
-      "excluded": 222,
+      "indexable": 187,
+      "excluded": 220,
       "tierCounts": {
-        "strong": 1,
-        "publishable": 184,
+        "strong": 2,
+        "publishable": 185,
         "needs_work": 0,
-        "excluded": 222
+        "excluded": 220
       },
       "excludedByReason": {
         "invalidNameOrSlug": 12,
-        "corruptedContent": 219
+        "corruptedContent": 217
       }
     },
     "blogIndex": {

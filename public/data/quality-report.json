@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-13T11:48:29.442Z",
+  "generatedAt": "2026-04-19T21:33:26.660Z",
   "thresholds": {
     "strongDescriptionLength": 200,
     "strongMinSources": 2,
@@ -10,12 +10,12 @@
   },
   "herbs": {
     "total": 849,
-    "indexable": 38,
+    "indexable": 44,
     "excluded": 415,
     "tierCounts": {
-      "strong": 1,
-      "publishable": 37,
-      "needs_work": 396,
+      "strong": 2,
+      "publishable": 42,
+      "needs_work": 390,
       "excluded": 415
     },
     "excludedByReason": {
@@ -25,17 +25,17 @@
   },
   "compounds": {
     "total": 407,
-    "indexable": 185,
-    "excluded": 222,
+    "indexable": 187,
+    "excluded": 220,
     "tierCounts": {
-      "strong": 1,
-      "publishable": 184,
+      "strong": 2,
+      "publishable": 185,
       "needs_work": 0,
-      "excluded": 222
+      "excluded": 220
     },
     "excludedByReason": {
       "invalidNameOrSlug": 12,
-      "corruptedContent": 219
+      "corruptedContent": 217
     }
   },
   "blogIndex": {
