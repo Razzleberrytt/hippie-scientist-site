@@ -1,0 +1,9184 @@
+{
+  "upgraded": [
+    {
+      "type": "compound",
+      "slug": "l-tryptophan"
+    },
+    {
+      "type": "compound",
+      "slug": "linalyl-acetate"
+    },
+    {
+      "type": "compound",
+      "slug": "magnesium"
+    },
+    {
+      "type": "compound",
+      "slug": "marmelosin"
+    },
+    {
+      "type": "compound",
+      "slug": "melatonin"
+    },
+    {
+      "type": "compound",
+      "slug": "methyl-salicylate"
+    },
+    {
+      "type": "compound",
+      "slug": "niacin"
+    },
+    {
+      "type": "compound",
+      "slug": "omega-3-fatty-acids"
+    },
+    {
+      "type": "compound",
+      "slug": "paniculatin"
+    },
+    {
+      "type": "compound",
+      "slug": "probiotics"
+    },
+    {
+      "type": "compound",
+      "slug": "pyridoxine"
+    },
+    {
+      "type": "compound",
+      "slug": "quercetin"
+    },
+    {
+      "type": "compound",
+      "slug": "resveratrol"
+    },
+    {
+      "type": "compound",
+      "slug": "rutin"
+    },
+    {
+      "type": "compound",
+      "slug": "s-adenosyl-l-methionine"
+    },
+    {
+      "type": "compound",
+      "slug": "stachydrine"
+    },
+    {
+      "type": "compound",
+      "slug": "verbascoside"
+    }
+  ],
+  "rejected": [
+    {
+      "type": "herb",
+      "slug": "acacia-confusa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "acacia-maidenii",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "acacia-nilotica",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "acacia-phlebophylla",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "achillea-millefolium",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "acmella-oleracea",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aconitum-ferox",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aconitum-napellus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "acorus-americanus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "acorus-calamus-var-angustatus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "acorus-calamus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "acorus-gramineus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "acorus-tatarinowii",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "adenium-obesum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "adenostoma-fasciculatum",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "adhatoda-vasica",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aegle-marmelos",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aerva-lanata",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aesculus-hippocastanum",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "african-dream-root",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "agastache-foeniculum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "agrimonia-eupatoria",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "alangium-salvifolium",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "albizia-julibrissin",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "albizia-lebbeck",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "alchemilla-vulgaris",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "alchornea-castaneifolia",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "alchornea-floribunda",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "alectra-sessiliflora",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aletris-farinosa",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "allium-sativum",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "alnus-rubra",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aloe-vera",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aloysia-citrodora",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "alpinia-galanga",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "althaea-officinalis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "alyxia-stellata",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "amanita-muscaria",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "amanita-pantherina",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "american-ginseng",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "american-yellow-lotus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "amorpha-fruticosa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "amphipterygium-adstringens",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "anacardium-occidentale",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "anadenanthera-colubrina-ceb-l",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "anadenanthera-colubrina",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "anadenanthera-peregrina",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "anemarrhena-asphodeloides",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "anemone-pulsatilla",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "angelica-archangelica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "angelica-sinensis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aniseia-martinicensis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "anisomeles-indica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "anisoptera-thurifera",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "annona-muricata",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "apium-graveolens",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aquilaria-agallocha",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aquilaria-malaccensis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aquilegia-vulgaris",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "arctium-lappa",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "areca-catechu",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "argemone-mexicana",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "argyreia-nervosa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "argyreia-speciosa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aristolochia-argentina",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aristolochia-grandiflora",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aristolochia-indica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "armoracia-rusticana",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "arnica-montana",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "artemisia-abrotanum",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "artemisia-absinthium",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "artemisia-annua",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "artemisia-glacialis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "artemisia-gmelinii",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "artemisia-herba-alba",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "artemisia-judaica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "artemisia-ludoviciana",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "artemisia-tilesii",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "artemisia-vulgaris-mugwort",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "artemisia-vulgaris",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "arundo-donax",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "asarum-canadense",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "asclepias-syriaca",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "asclepias-tuberosa",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ashwagandha",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "asian-ginseng",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "asparagus-racemosus",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "aspidosperma-quebracho-blanco",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "astragalus-membranaceus",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "atractylodes-macrocephala",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "atropa-belladonna",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "avena-sativa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ayahuasca",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "azadirachta-indica",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "bacopa-monnieri",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "bacopa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "banisteriopsis-caapi",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "baptisia-tinctoria",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "barringtonia-asiatica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "baybean",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "belladonna",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "berberis-vulgaris",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "betel-nut",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "betula-lenta",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "bidens-pilosa",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "black-cohosh",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "blue-lotus-nymphaea-caerulea",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "blue-lotus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "blue-vervain",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "bobinsana",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "boerhavia-diffusa",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "boesenbergia-rotunda",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "boldo",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "bolivian-torch",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "boophone-disticha",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "borago-officinalis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "boswellia-sacra",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "boswellia-serrata",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "brugmansia-sanguinea",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "brugmansia-suaveolens",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "brugmansia",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "brunfelsia-americana",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "brunfelsia-grandiflora",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "bryonia-alba",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "bupleurum-falcatum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "bursera-graveolens",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "byrsonima-crassifolia",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "caapi",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "caesalpinia-bonduc",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "caesalpinia-sepiaria",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "calamus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "calea-ternifolia",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "calea-zacatechichi",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "calendula-officinalis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "california-poppy",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "calliandra-angustifolia",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "calliandra-anomala",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "calliandra-haematocephala",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "calliandra-portoricensis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "calotropis-procera",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "camellia-japonica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "camellia-sinensis",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "campsiandra-angustifolia",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cananga-odorata",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cannabis-indica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cannabis-ruderalis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cannabis-sativa-african-varieties",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cannabis-sativa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "capparis-erythrocarpos",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "capparis-spinosa",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "capraria-biflora",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "capsella-bursa-pastoris",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "capsicum-annuum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "carica-papaya",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "carolina-jessamine",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "casimiroa-edulis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cassia-alata",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cassia-occidentalis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "catha-edulis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "catnip",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "catuaba",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cbd",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ceanothus-integerrimus",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cecropia-peltata",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "celastrus-paniculatus-intellect-tree",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "celastrus-paniculatus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "centaurium-erythraea",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "centella-asiatica",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cephaelis-ipecacuanha",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cestrum-nocturnum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "chacruna",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "chaga-inonotus-obliquus",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "chaliponga",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "chamomile",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "chaste-tree",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "chelidonium-majus",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "chimaphila-umbellata",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "chiric-sanango",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cichorium-intybus",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cinnamomum-verum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cissampelos-pareira",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "citrus-aurantium",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "citrus-limon",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "claviceps-purpurea",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "clavo-huasca",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "clematis-vitalba",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "clerodendrum-glabrum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "clinopodium-vulgare",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "clitoria-ternatea",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "club-moss",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cnidium-monnieri",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "coca-leaf",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "coca",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cocculus-hirsutus",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "codiaeum-variegatum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "coffea-arabica",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "coffee",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cola-acuminata",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cola-nitida",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "coleus-blumei",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "coltsfoot",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "combretum-micranthum",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "combretum-quadrangulare",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "commiphora-myrrha",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "conium-maculatum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "convallaria-majalis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "convolvulus-arvensis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "convolvulus-pluricaulis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "copaifera-officinalis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "copal",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "coptis-chinensis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cordyceps-sinensis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cordyline-fruticosa",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "corn-silk",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cornus-officinalis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "corydalis-cava",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "corydalis-yanhusuo",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "corymbia-terminalis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cramp-bark",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "crataegus-monogyna",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "crocus-sativus",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "croton-lechleri",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "curcuma-longa",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cymbopogon-citratus",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cynara-scolymus",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cynodon-dactylon",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cyperus-articulatus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cyperus-rotundus",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "cytisus-scoparius",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "dactylorhiza-hatagirea",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "damiana",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "datura-ferox",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "datura-inoxia",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "datura-metel",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "datura-stramonium",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "datura-wrightii",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "delosperma-bosseranum",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "delosperma-cooperi",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "delphinium-brunonianum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "dendrobium-nobile",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "derris-elliptica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "desfontainia-spinosa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "desmanthus-illinoensis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "desmodium-adscendens",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "desmodium-gangeticum",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "dichroa-febrifuga",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "dioscorea-villosa",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "diplopterys-cabrerana",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "dodonaea-viscosa",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "dracocephalum-moldavica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "duboisia-hopwoodii",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "duboisia-myoporoides",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "dwarf-nettle",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "dysphania-ambrosioides",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "echinacea-purpurea",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "echinopsis-pachanoi",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "eclipta-prostrata",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "elaeagnus-angustifolia",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "elaeagnus-umbellata",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "elephantopus-mollis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "eleutherococcus-senticosus-siberian-ginseng",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "eleutherococcus-senticosus",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "elsholtzia-ciliata",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "entada-rheedii",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ephedra-sinica",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "equisetum-arvense",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "eremophila-longifolia",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "erigeron-canadensis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ervatamia-coronaria",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "eryngium-foetidum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "erythrina-americana",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "erythrina-flabelliformis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "erythrina-mulungu",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "erythrina-subumbrans",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "erythrina-variegata",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "erythrina-vespertilio",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "erythroxylum-catuaba",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "erythroxylum-coca",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "erythroxylum-novogranatense",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "eschscholzia-californica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "espeletia-grandiflora",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "eucalyptus-globulus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "eupatorium-perfoliatum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "european-mandrake",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "fagraea-berteroana",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ferula-assa-foetida",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ferula-communis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ficus-religiosa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ficus-tinctoria",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "five-leaved-chaste-tree",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "flame-lily",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "foeniculum-vulgare",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "foxglove",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "frankincense-boswellia",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "fucus-vesiculosus",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "galbulimima-belgraveana",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "galium-aparine",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "galphimia-glauca",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "garcinia-cambogia",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "garden-balsam",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "gardenia-jasminoides",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "garlic",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "gastrodia-elata",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "gelsemium-sempervirens",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "genipa-americana",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "gentiana-lutea",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "geranium-robertianum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "giant-reed",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ginger",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ginkgo-biloba",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "glechoma-hederacea",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "gliricidia-sepium",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "glycyrrhiza-glabra",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "gorse",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "grains-of-selim",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "grape-seed",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "griffonia-simplicifolia",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "grindelia-robusta",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "guarana",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "guayusa",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "gymnema-sylvestre",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "gynostemma-pentaphyllum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "hamamelis-virginiana",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "harpagophytum-procumbens",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "hawaiian-baby-woodrose",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "heartsease",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "hedera-helix",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "heimia-myrtifolia",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "heimia-salicifolia",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "heimia",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "helichrysum-odoratissimum",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "helinus-integrifolius",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "heliotropium-indicum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "henbane",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "hibiscus-sabdariffa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "hibiscus-tiliaceus",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "himalayan-valerian",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "holy-basil",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "hop-flowers",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "horny-goat-weed",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "humulus-lupulus",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "huperzia-serrata",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "hydrastis-canadensis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "hyoscyamus-niger",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "hypericum-perforatum",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "hyssopus-officinalis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ilex-guayusa",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ilex-paraguariensis",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ilex-vomitoria",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "indian-lotus",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "indian-pipe",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "inula-helenium",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ipomoea-tricolor-heavenly-blue",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ipomoea-tricolor",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "iresine-herbstii",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "iris-germanica",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "jatropha-podagrica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "jimson-weed",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "juglans-nigra",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "jujube",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "juniperus-communis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "juniperus-sibirica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "justicia-adhatoda",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "justicia-pectoralis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "justicia-secunda",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "kaempferia-galanga",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "kanna",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "kava",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "khat",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "kieli",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "kra-thum-na-kok",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "kratom-hybrids",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "kratom",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lactuca-canadensis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lactuca-virosa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lagochilus-inebrians",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "laminaria-digitata",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "laurus-nobilis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lavandula-angustifolia",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lemon-balm",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "leonotis-leonurus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "leonotis-nepetifolia",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "leonurus-cardiaca",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "leonurus-japonicus",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "leonurus-sibiricus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lepidium-meyenii",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "leptospermum-scoparium",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lesser-periwinkle",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ligusticum-chuanxiong",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lilium-candidum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "linden",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "linum-usitatissimum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lion-s-mane",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lippia-alba",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lobelia-inflata",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lobelia-tupa",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lomatium-dissectum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lonicera-japonica",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lophophora-williamsii",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lsd",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lycopodium-clavatum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "lycopus-virginicus",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "maca",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "macaranga-tanarius",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "maconha-brava",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "macropiper-excelsum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "maerua-angolensis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "malouetia-tamaquarina",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "malva-sylvestris",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mandrake-root",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mandrake",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "marrubium-vulgare",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "marshmallow-root",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "matricaria-chamomilla",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "melaleuca-alternifolia",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "melissa-officinalis-lemon-balm",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "melissa-officinalis",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mentha-piperita",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "menyanthes-trifoliata",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mescaline",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mexican-pepperleaf",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mexican-tarragon",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "micromelum-minutum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "milk-thistle",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mimosa-hostilis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mimosa-pudica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mistletoe",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mitchella-repens",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mitragyna-hirsuta",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mitragyna-javanica",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mitragyna-parvifolia",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mitragyna-speciosa",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mitragyna-stipulosa",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "momordica-charantia",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "monarda-fistulosa",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "morinda-citrifolia",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "moringa-oleifera",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mormon-tea",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "morning-glory-heavenly-blue",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "motherwort",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mucuna-pruriens",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mugwort",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "muira-puama",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "mullein",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "myristica-fragrans",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "myroxylon-balsamum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "nan",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "nardostachys-jatamansi",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "nelumbo-nucifera",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "nepeta-cataria",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "nerium-oleander",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "nicotiana-rustica",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "nicotiana-tabacum",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "nigella-sativa",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "nymphaea-ampla",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "nymphaea-caerulea",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "nymphaea-lotus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "nymphaea-nouchali",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "nymphaea-rubra",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ocimum-sanctum-holy-basil-tulsi",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ocimum-sanctum",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "oenothera-biennis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ononis-spinosa",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "opium-poppy",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "origanum-vulgare",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "panax-ginseng",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "panax-quinquefolius",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "pandanus-tectorius",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "papaver-somniferum",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "passiflora-incarnata",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "passionflower",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "paullinia-cupana",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "paullinia-pinnata",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "paullinia-yoco",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "pausinystalia-yohimbe",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "pedicularis-densiflora-indian-warrior",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "pedicularis-densiflora",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "pedicularis-groenlandica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "peganum-harmala",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "pelargonium-sidoides",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "peperomia-pellucida",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "peppermint",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "perilla-frutescens",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "peruvian-torch",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "petasites-hybridus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "petiveria-alliacea",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "peumus-boldus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "phalaris-arundinacea",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "phellodendron-amurense",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "picrorhiza-kurroa",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "pimenta-dioica",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "pimenta-racemosa",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "pimpinella-anisum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "pinkroot",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "piper-auritum-root-beer-plant",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "piper-auritum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "piper-methysticum",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "piptadenia-peregrina",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "pipturus-albidus",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "plantago-major",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "podophyllum-peltatum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "pogostemon-cablin",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "polygala-tenuifolia",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "polygonum-multiflorum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "polynesian-nicotiana-spp",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "poria-cocos",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "prestonia-amazonica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "prickly-ash",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "primula-veris",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "prunella-vulgaris",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "psilocybe-mexicana",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "psilocybin",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "psychotria-carthagenensis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "psychotria-carthaginensis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "psychotria-viridis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "psyllium-plantago-ovata",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ptychopetalum-olacoides",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "pueraria-mirifica",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "punica-granatum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "quassia-amara",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "rauvolfia-serpentina",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "rauvolfia-vomitoria",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "red-blue-water-lily",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "reishi-mushroom",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "rheum-palmatum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "rhizophora-mangle",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "rhizophora-stylosa",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "rhodiola-rosea",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "rhododendron-anthopogon",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "rhododendron-tomentosum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "rhynchosia-phaseoloides",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ricinus-communis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "rivea-corymbosa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "rosa-canina",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "rosmarinus-officinalis",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "rubus-idaeus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ruta-chalepensis",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "ruta-graveolens",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sacred-basil",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sakae-naa",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "salacia-reticulata",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "salix-alba",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "salvia-apiana",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "salvia-divinorum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "salvia-dorrii",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "salvia-miltiorrhiza",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "salvia-officinalis",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec",
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "salvia-sclarea",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sambucus-nigra",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sanango",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sanguinaria-canadensis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sassafras",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "saw-palmetto",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "scaevola-taccada",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sceletium-expansum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sceletium-tortuosum-kanna",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sceletium-tortuosum",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "schisandra-chinensis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "scoparia-dulcis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "scopolia-carniolica",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "scullcap-scutellaria",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "scutellaria-baicalensis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "scutellaria-lateriflora",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "selaginella-tamariscina",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "selinum-tenuifolium",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "senna-alexandrina",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "serenoa-repens",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "shampoo-ginger",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "shankhpushpi",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sichuan-pepper",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sida-acuta",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sida-cordifolia",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "silene-capensis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "silene-undulata",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "silphium-extinct",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "silybum-marianum",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sinicuichi",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "smilax-ornata",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "solandra-maxima",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "solanum-nigrum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "solidago-virgaurea",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sophora-flavescens",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sophora-secundiflora",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "st-johns-wort",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "stachytarpheta-cayennensis",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "stephania-cepharantha",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "stephania-tetrandra",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sweet-acacia",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sweet-violet",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "sweetgrass",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "symphytum-officinale",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "synaptolepis-kirkii",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "syrian-rue",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "syzygium-aromaticum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tabebuia-impetiginosa",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tabernaemontana-africana",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tabernaemontana-divaricata",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tabernaemontana-sananho",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tabernaemontana-spp",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tabernaemontana-undulata",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tabernanthe-iboga",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tagetes-lucida-mexican-tarragon",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tagetes-lucida",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tamarindus-indica",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tanaecium-nocturnum",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "taraxacum-officinale",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tasmannia-lanceolata",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tetradenia-riparia",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tetradium-ruticarpum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tetrapleura-tetraptera",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tetrapterys-methystica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "teucrium-chamaedrys",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "thc",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "theobroma-bicolor",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "theobroma-cacao",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "thevetia-peruviana",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "thymus-vulgaris",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tilia-europaea-linden-flower",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tilia-tomentosa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "toloache",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tongkat-ali",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "toothache-plant",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tragia-involucrata",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "trichilia-catigua",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "trichilia-emetica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "trichocereus-bridgesii",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "trifolium-pratense",
+      "reasons": [
+        "missing_safety_note",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tropaeolum-majus",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tulsi",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "turbina-corymbosa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "turmeric",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "turnera-diffusa-var-aphrodisiaca",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "turnera-diffusa",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "turnera-ulmifolia",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tussilago-farfara",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "twinleaf-zornia",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tylophora-indica",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "tynanthus-panurensis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "uncaria-rhynchophylla",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "uncaria-tomentosa",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "urtica-dioica",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "usnea-barbata",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "uva-ursi",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "valerian-root",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "valerian",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "valeriana-jatamansi",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "valeriana-officinalis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "verbascum-thapsus",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "verbena-officinalis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "veronicastrum-virginicum",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "viburnum-opulus",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "vinca-minor",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "viola-odorata-sweet-violet",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "viola-odorata",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "virola-calophylla",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "virola-elongata",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "virola-sebifera",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "virola-spp",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "virola-theiodora",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "vitex-agnus-castus",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "vitex-trifolia",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "voacanga-africana",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "white-lily",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "white-sage",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "wild-dagga",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "wild-jujube-seed",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "wild-lettuce",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "withania-somnifera-ashwagandha",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "withania-somnifera",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "wormwood",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "xanthium-strumarium",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "yarrow",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "yellow-horned-poppy",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "yerba-mate",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "yohimbe",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "yopo",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "yucca-schidigera",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "zanthoxylum-capense",
+      "reasons": [
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "zanthoxylum-clava-herculis",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "zingiber-officinale",
+      "reasons": [
+        "missing_safety_note",
+        "missing_active_compound",
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "herb",
+      "slug": "zornia-latifolia",
+      "reasons": [
+        "invalid_evidenceLevel"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "1-8-cineole",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "11-keto-beta-boswellic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "23-epi-26-deoxyactein",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "5-hydroxytryptophan",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "5-meo-dmt",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "6-gingerol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "7-hydroxymitragynine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "8-cineole",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "absinthin",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "acetyl-11-keto-beta-boswellic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "acetyl-beta-boswellic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "acetyl-l-carnitine",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "aconitine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "actein",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "adenosine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "aegeline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "aescin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "aesculin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "agnuside",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "agrimoniin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ajmaline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ajoene",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "akba",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "alangine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "alchorneine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "allantoin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "allicin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "allyl-isothiocyanate",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "aloe-emodin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "aloin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "alpha-asarone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "alpha-bisabolol",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "alpha-gpc-l-alpha-glycerylphosphorylcholine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "alpha-pinene",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "alpha-terpineol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "alpha-thujone",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "amarogentin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "amentoflavone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "anabasine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "anethole",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "anisomelic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "annonacin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "anonaine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "anthocyanins-delphinidin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "apigenin",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "apomorphine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "arbutin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "arctiin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "arecaidine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "arecoline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "armepavine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "artemisinin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "asclepiadin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ashwagandha-withanolides",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "asiatic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "asiaticoside",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "asperuloside",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "aspidospermine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "astragaloside-iv",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "atractylenolide-i",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "atractylenolide-ii",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "atractylenolide-iii",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "atractylon",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "atropine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "aucubin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "azadirachtin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "baicalein",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "baicalin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "benzyl-benzoate",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "benzyl-isothiocyanate",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "berbamine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "berberine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "beta-amyrin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "beta-asarone-low-levels",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "beta-asarone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "beta-boswellic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "beta-caryophyllene",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "beta-lapachone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "beta-sitosterol",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "beta-thujone",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "betulinic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "bilobalide",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "bilobetin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "bisabolol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "bisdemethoxycurcumin",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "bonducin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "brunfelsamidine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "bryonin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "bufotenin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "bulbocapnine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "buphanidrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cafestol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "caffeic-acid",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "caffeine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "calotropin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "camphor",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cannabidiol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "capsaicin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "capsanthin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "capsorubin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cardanol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cardol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "carnosic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "carpaine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "carvacrol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "carvone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "casimiroedine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "casticin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "catechins",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cathine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cathinone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cbd",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "celapagin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "celapanin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "celastrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cephaeline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cepharanthine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "chamazulene",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "charantin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "chavicol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "chelerythrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "chelidonine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "chicoric-acid",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "chlorogenic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "choline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "chrysoeriol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "chrysophanol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "chymopapain",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cimifugoside",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cineole",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cinnamaldehyde",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cinnamoylcocaine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cis-cinnamoylcocaine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "citicoline-cdp-choline",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "citral",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "citric-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "citronellal",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cocaine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "codeine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "columbamine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "conhydrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "coniine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "convallatoxin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "convalloside-cardiac-glycosides",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "copalic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "coptisine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cordycepin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "coronaridine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "corydaline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "crocetin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "crocin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cryogenine-vertine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "curcumin",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "curcuminoids-curcumin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "curcuminoids",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cuscohygrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cyanidin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cynarin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "cyperene",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "daidzein",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "damnacanthal",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "dehydrocorybulbine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "dehydrocorydalmine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "demethoxycurcumin",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "dendrobine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "deoxymiroestrol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "desmethoxyyangonin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "diallyl-disulfide",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "diallyl-sulfide",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "diallyl-trisulfide",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "dibenzyl-trisulfide",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "digitoxin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "digoxin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "dihydrocapsaicin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "dihydrohelenalin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "dihydrokavain",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "dihydromethysticin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "dillapiole",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "dmt",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "echinacoside",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ecliptine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ellagic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "emetine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "emodin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ephedrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "epicatechin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ergine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "eryngial",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "esculetin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "estragole",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ethyl-cinnamate",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "eucalyptol-cineole",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "eugenol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "eurycomanone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "evodiamine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "fangchinoline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "febrifugine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "fenchone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ferulenol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ferulic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "flavokavain-a",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "flavokavain-b",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "flavokavain-c",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "formononetin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "fraxin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "fucoidan",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "fukinolic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gallic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gamma-aminobutyric-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gamma-linolenic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gelsedine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gelsemicine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gelsemine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gelseminine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gelseverine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "geniposide",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "genistein",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gentiopicroside",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "geranial",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "geraniin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "geraniol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ginkgetin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ginkgo-biloba-ginkgolides",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ginkgolide-a",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ginkgolide-b",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ginkgolide-c",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ginkgolide-j",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ginsenosides-including-rb1",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ginsenosides-rb1",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gitoxin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "glycyrrhizin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gomisin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gramine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "grindelic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gurmarin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "guvacine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "guvacoline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "gypenosides-dammarane-type-saponins",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "harmaline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "harmalol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "harmine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "harpagoside",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "helenalin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "hesperidin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "hibiscus-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "hinokiflavone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "histamine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "humulone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "huperzine-a",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "hydrastine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "hydroxy-alpha-sanshool",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "hydroxy-beta-sanshool",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "hydroxycitric-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "hydroxytyrosol-acetate",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "hydroxytyrosol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "hyoscyamine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "hypaconitine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "hyperforin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "hypericin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ibogaine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ibotenic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "imperatorin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "inotodiol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "inulin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "iodine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "iridin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "isocorypalmine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "isoergine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "isofebrifugine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "isoflavones-genistein",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "isomenthone",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "isomitraphylline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "isosilybin-a",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "isosilybin-b",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "isosilychristin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "isovaleric-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "isovaltrate",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "jatamansone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "jatrorrhizine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "juglone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "kaempferol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "kahweol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "kava-kavalactones",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "kavain",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "kotalanol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "kurarinone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "kutkoside",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "l-phenylalanine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "l-theanine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "l-tyrosine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lactucin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lactucopicrin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lapachol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ledol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "leonurine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ligustilide",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "limonene",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "linalool",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "linoleic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lithospermic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lobelanidine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lobeline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "loganin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lsa",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lsd-ergoline-derivative",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lupeol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lupulone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "luteolin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lycopene",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lycopodine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lycorine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "lythrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "madecassic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "madecassoside",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "maltol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "mangiferin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "matrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "menthofuran",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "menthol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "menthone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "menthyl-acetate",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "mesaconitine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "mescaline-derivative",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "mescaline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "mesembranol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "mesembrenol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "mesembrenone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "mesembrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "methysticin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "miroestrol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "mitragynine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "mitrajavine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "mitraphylline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "morphine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "morroniside",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "muscimol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "myo-inositol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "myrcene",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "myristicin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "n-acetyl-l-tyrosine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "n-acetylcysteine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "n-dimethylhistamine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "n-dimethyltryptamine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "n-methylasimilobine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "n-methyltryptamine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "n-monomethylhistamine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "neoquassin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "neral",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "neriine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "nesodine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "nicotine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "nigellone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "nimbin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "nordihydrocapsaicin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "norephedrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "nornicotine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "nuciferine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "oleandrin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "osthole",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "oxyacanthine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "oxyberberine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "oxymatrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "pachymic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "palmatine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "palustrol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "panduratin-a",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "papain",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "pectin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "pellucidin-a",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "peruvoside",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "phosphatidylserine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "picrocrocin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "pinene",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "pinocembrin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "pinostrobin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "piperine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "podophyllotoxin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "polygodial",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "polypeptide-p",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "pristimerin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "protoanemonin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "protopine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "pseudoephedrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "pseudohypericin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "psilocin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "psilocybin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "pulegone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "punarnavine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "quassin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "quebrachine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "quercitrin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "rb2",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "re",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "reserpine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "rg1",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "rhodiola-salidroside-rosavin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "rhodiosin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "riboflavin",
+      "reasons": [
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ricin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ricinoleic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "roemerine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "rosarin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "rosavin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "rosin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "rosiridin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "rosmarinic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "rutaecarpine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "s-allyl-cysteine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "safranal",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "safrole",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "salacinol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "salicin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "salicylic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "salidroside",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "salvinorin-a",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "sambunigrin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "sanguinarine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "saponins-hederacoside",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "sarsaponin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "schisandrin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "sciadopitysin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "scopadulcic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "scoparin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "scopolamine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "scopoletin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "scutellarin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "selenium",
+      "reasons": [
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "sempervirine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "serotonin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "serpentine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "silica",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "silybin-a",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "silybin-b",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "silychristin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "silydianin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "silymarin-silibinin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "sinigrin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "sitoindoside-ix",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "sitoindoside-x",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "skimmianine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "solamargine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "solanine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "spilanthol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "sulforaphane",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "swertiamarin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "synephrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "taraxasterol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "taspine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "taurine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "tephrosin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "terpinen-4-ol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "tetrahydroharmine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "tetrahydropalmatine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "tetramethylpyrazine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "tetrandrine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "thc",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "theanine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "thebaine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "theobromine",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "theophylline",
+      "reasons": [
+        "mechanism_out_of_spec",
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "thevetin-a",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "thevetin-b",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "thujone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "thymol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "thymoquinone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "timosaponin-aiii",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "trans-cinnamoylcocaine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "triandrin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "trigonelline",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "triketones-leptospermone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "tropacocaine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "tryptamine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "turmerone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "tussilagone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "tylophorine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "tyrosol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "umbelliferone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "umckalin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "unresolved-herb-level-entry",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "uridine-monophosphate",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "ursolic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "uscharin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "usnic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "valeranone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "valerenal",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "valerenic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "valerenol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "valerian-valerenic-acid",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "valtrate",
+      "reasons": [
+        "missing_summary",
+        "description_out_of_spec",
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "vanillin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "vasicine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "vasicinone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "vicine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "vincamine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "viscotoxin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "vitamin-c",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "vitamin-d",
+      "reasons": [
+        "mechanism_out_of_spec"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "vitexin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "voacangine",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "withaferin-a",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "withanolide-a",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "withanolide-d",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "withanolides-withaferin-a",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "withanone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "withanoside-iv",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "withanoside-v",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "wogonin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "xanthohumol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "xanthotoxol",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "xanthumin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "yangonin",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "zerumbone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "zinc",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    },
+    {
+      "type": "compound",
+      "slug": "zingerone",
+      "reasons": [
+        "missing_safety_or_limited_data"
+      ]
+    }
+  ],
+  "mostCommonFailureReasons": [
+    {
+      "reason": "invalid_evidenceLevel",
+      "count": 681
+    },
+    {
+      "reason": "missing_safety_or_limited_data",
+      "count": 500
+    },
+    {
+      "reason": "missing_active_compound",
+      "count": 444
+    },
+    {
+      "reason": "missing_safety_note",
+      "count": 187
+    },
+    {
+      "reason": "mechanism_out_of_spec",
+      "count": 48
+    },
+    {
+      "reason": "missing_summary",
+      "count": 25
+    },
+    {
+      "reason": "description_out_of_spec",
+      "count": 25
+    }
+  ]
+}

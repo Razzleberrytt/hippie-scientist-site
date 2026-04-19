@@ -25,5 +25,12 @@
   "linkedHerbs": [
     "salvia-sclarea"
   ],
-  "mechanism": "insufficient evidence"
+  "mechanism": "insufficient evidence",
+  "mechanisms": [
+    "insufficient evidence"
+  ],
+  "compoundClass": "other",
+  "safetyNotes": [
+    "Limited data."
+  ]
 }

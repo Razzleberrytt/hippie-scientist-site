@@ -52,5 +52,10 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanisms": [
+    "Nutritional role: NAD/NADP precursor",
+    "Pharmacologic role: GPR109A-related lipolysis/lipid effects"
+  ],
+  "compoundClass": "nutrient"
 }

@@ -22,5 +22,12 @@
   "linkedHerbs": [
     "aegle-marmelos"
   ],
-  "mechanism": "insufficient evidence"
+  "mechanism": "insufficient evidence",
+  "mechanisms": [
+    "insufficient evidence"
+  ],
+  "compoundClass": "coumarins",
+  "safetyNotes": [
+    "Limited data."
+  ]
 }

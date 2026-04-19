@@ -51,5 +51,9 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanisms": [
+    "Acts at MT1/MT2 receptors to shift circadian phase and support sleep onset"
+  ],
+  "compoundClass": "supplement"
 }
