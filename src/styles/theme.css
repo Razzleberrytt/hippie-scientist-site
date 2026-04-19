@@ -1,63 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @layer theme.tokens {
   :root {
     color-scheme: dark;
 
-    /* Typography */
-    --font-display: 'DM Serif Display', Georgia, serif;
-    --font-body: 'Instrument Sans', system-ui, sans-serif;
-    --font-mono: 'DM Mono', 'Fira Code', monospace;
+    --font-body: 'Inter', 'Instrument Sans', system-ui, -apple-system, sans-serif;
+    --font-display: var(--font-body);
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
-    /* Radius */
     --radius-sm: 0.5rem;
     --radius: 0.75rem;
-    --radius-lg: 1.25rem;
-    --radius-xl: 1.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.25rem;
 
-    /* Motion */
-    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-    --duration-fast: 150ms;
-    --duration-base: 220ms;
-    --duration-slow: 380ms;
+    --duration-fast: 140ms;
+    --duration-base: 200ms;
 
-    /* Accent palette */
-    --accent-primary: #0ecfb3;
-    --accent-secondary: #7b5cf5;
-    --accent-warning: #f59e0b;
+    /* trust-first dark system */
+    --bg: #0b1220;
+    --surface-1: #111a2a;
+    --surface-2: #162133;
+    --surface-3: #1b283b;
+    --surface-4: #223149;
 
-    /* Surface scale */
-    --bg: #07080f;
-    --surface-1: #0d0f1a;
-    --surface-2: #141826;
-    --surface-3: #1c2233;
-    --surface-4: #252d41;
-    --surface-5: #2f3850;
+    --text-primary: #eef4ff;
+    --text-secondary: #c3cddd;
+    --text-muted: #8d99ad;
+    --text-disabled: #667186;
 
-    /* Text scale */
-    --text-primary: rgb(255 255 255 / 98%);
-    --text-secondary: rgb(255 255 255 / 72%);
-    --text-muted: rgb(255 255 255 / 48%);
-    --text-disabled: rgb(255 255 255 / 30%);
+    --border-subtle: rgb(154 171 196 / 16%);
+    --border-default: rgb(154 171 196 / 24%);
+    --border-strong: rgb(154 171 196 / 34%);
 
-    /* Border scale */
-    --border-subtle: rgb(255 255 255 / 8%);
-    --border-default: rgb(255 255 255 / 14%);
-    --border-strong: rgb(255 255 255 / 24%);
+    --accent-primary: #77a7ff;
+    --accent-secondary: #95b7ff;
+    --accent-warning: #f5c36b;
+    --accent-success: #5fc59c;
+    --accent-danger: #f08a8a;
 
-    /* Shadow scale */
-    --shadow-card: 0 10px 30px rgb(0 0 0 / 30%);
-    --shadow-elevated: 0 18px 48px rgb(0 0 0 / 44%);
-    --shadow-glow-teal: 0 0 42px rgb(14 207 179 / 28%);
-    --shadow-glow-violet: 0 0 54px rgb(123 92 245 / 30%);
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 36%), 0 8px 20px rgb(0 0 0 / 22%);
+    --shadow-elevated: 0 14px 30px rgb(0 0 0 / 28%);
 
-    /* Legacy aliases for existing components */
-    --accent-h: 171;
-    --accent-s: 87%;
-    --accent-l: 43%;
+    --accent-h: 217;
+    --accent-s: 92%;
+    --accent-l: 73%;
     --accent: var(--accent-primary);
-    --accent-magenta: 312 84% 64%;
-    --primary-violet: 252 89% 66%;
 
     --surface: var(--surface-2);
     --card: var(--surface-3);
@@ -88,9 +75,9 @@
   body {
     font-family: var(--font-body);
     color: var(--text-primary);
-    line-height: 1.58;
-    letter-spacing: 0.002em;
-    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-size: 16px;
     background: var(--bg);
   }
 
@@ -101,46 +88,39 @@
   }
 
   h1,
-  h2 {
-    font-family: var(--font-display);
-    letter-spacing: -0.01em;
-    line-height: 1.08;
-    font-weight: 400;
-    color: var(--text-c);
-  }
-
+  h2,
   h3,
   h4,
   h5,
   h6 {
     font-family: var(--font-body);
     letter-spacing: -0.01em;
-    line-height: 1.25;
+    line-height: 1.2;
     font-weight: 600;
     color: var(--text-c);
   }
 
   h1 {
-    font-size: clamp(1.95rem, 1.45rem + 1.5vw, 3.1rem);
+    font-size: clamp(2rem, 1.55rem + 1.35vw, 2.9rem);
   }
 
   h2 {
-    font-size: clamp(1.35rem, 1.05rem + 0.9vw, 2rem);
+    font-size: clamp(1.45rem, 1.12rem + 0.8vw, 2rem);
   }
 
   h3 {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
   }
 
   .label-specimen {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    opacity: 0.6;
+    opacity: 0.72;
   }
 
   * {
-    border-color: color-mix(in oklab, var(--border-c) 78%, transparent 22%);
+    border-color: color-mix(in oklab, var(--border-c) 84%, transparent 16%);
   }
 }

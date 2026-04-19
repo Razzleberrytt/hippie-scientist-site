@@ -26,7 +26,7 @@ export default function SearchBar({ value, onChange, placeholder, className = ''
             strokeLinecap='round'
             strokeLinejoin='round'
             aria-hidden='true'
-            className='pointer-events-none absolute left-3.5 top-1/2 size-[15px] -translate-y-1/2 text-white/40'
+            className='pointer-events-none absolute left-3.5 top-1/2 size-[15px] -translate-y-1/2 text-[var(--text-muted)]'
           >
             <circle cx='11' cy='11' r='8' />
             <path d='m21 21-4.3-4.3' />
@@ -35,13 +35,13 @@ export default function SearchBar({ value, onChange, placeholder, className = ''
             value={value}
             onChange={handleChange}
             placeholder={placeholder}
-            className='h-11 w-full rounded-xl border border-white/12 bg-white/5 px-4 pl-10 text-sm text-white placeholder:text-white/35 transition-colors focus:border-[var(--accent-teal)]/50 focus:outline-none focus:ring-0'
+            className='h-11 w-full rounded-xl border border-[var(--border-default)] bg-[var(--surface-1)] px-4 pl-10 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] transition-colors focus:border-[var(--accent-primary)]/55 focus:outline-none focus:ring-0'
             aria-label='Search entries'
           />
           {value && (
             <button
               type='button'
-              className='absolute right-3 top-1/2 -translate-y-1/2 text-white/40 transition-colors hover:text-white'
+              className='absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] transition-colors hover:text-[var(--text-primary)]'
               onClick={() => onChange('')}
               aria-label='Clear search'
             >

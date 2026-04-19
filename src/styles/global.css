@@ -1,5 +1,4 @@
 @layer base {
-  /* Prevent horizontal bleed on mobile (root cause of the “slides sideways”). */
   html,
   body,
   #root {
@@ -20,7 +19,6 @@
     padding-right: max(16px, env(safe-area-inset-right, 0));
   }
 
-  /* Ensure layout shells never exceed the viewport width */
   .site-shell,
   .main,
   .page-wrap {
@@ -31,91 +29,77 @@
 }
 
 @layer components {
-  /* Safer containers */
   .container-safe {
     @apply mx-auto w-full max-w-screen-lg px-4 sm:px-6 lg:px-8;
   }
 
-  /* Compact pill counters (one line; no wrap) */
   .pill {
-    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-[13px] leading-none text-white/90;
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-[13px] leading-none;
     white-space: nowrap;
-    background-color: rgba(255, 255, 255, 0.06);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    color: var(--text-secondary);
+    background-color: var(--surface-2);
+    border: 1px solid var(--border-default);
   }
 
   .pill .count {
-    @apply inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full px-2 text-[12px] font-semibold text-white/90;
-    background-color: rgba(255, 255, 255, 0.06);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    @apply inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full px-2 text-[12px] font-semibold;
+    color: var(--text-primary);
+    background-color: var(--surface-3);
+    border: 1px solid var(--border-default);
   }
 
-  .premium-panel {
-    background: rgba(8, 9, 16, 0.80);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: var(--radius-lg);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    box-shadow: var(--shadow-card);
-  }
-
+  .premium-panel,
   .browse-shell {
-    background: rgba(8, 12, 16, 0.78);
-    border: 1px solid rgba(14, 207, 179, 0.12);
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
     border-radius: var(--radius-lg);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    box-shadow: var(--shadow-card);
+    box-shadow: none;
   }
 
   .section-label {
     font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--text-muted);
     font-family: var(--font-mono);
   }
 
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.4rem;
-    border-radius: var(--radius);
-    border: 1px solid transparent;
-    font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 1;
-    background: var(--accent-teal, var(--accent-primary));
-    color: #07080f;
-    transition: filter var(--duration-base), transform var(--duration-base), border-color var(--duration-base), color var(--duration-base);
-  }
-
-  .btn-primary:hover {
-    filter: brightness(1.08);
-  }
-
+  .btn-primary,
   .btn-secondary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.6rem 1.4rem;
+    padding: 0.62rem 1.1rem;
     border-radius: var(--radius);
-    border: 1px solid var(--border-default);
+    border: 1px solid;
     font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 1;
-    background: transparent;
+    font-size: 0.9rem;
+    line-height: 1.1;
+    transition: background-color var(--duration-base), border-color var(--duration-base), color var(--duration-base);
+  }
+
+  .btn-primary {
+    border-color: color-mix(in oklab, var(--accent-primary) 55%, var(--border-default));
+    background: var(--accent-primary);
+    color: #08101d;
+  }
+
+  .btn-primary:hover {
+    background: color-mix(in oklab, var(--accent-primary) 88%, white 12%);
+  }
+
+  .btn-secondary {
+    border-color: var(--border-default);
+    background: var(--surface-1);
     color: var(--text-secondary);
-    transition: border-color var(--duration-base), color var(--duration-base), background-color var(--duration-base);
   }
 
   .btn-secondary:hover {
-    border-color: color-mix(in oklab, var(--accent-teal, var(--accent-primary)) 40%, transparent);
+    border-color: color-mix(in oklab, var(--accent-primary) 35%, var(--border-default));
     color: var(--text-primary);
+    background: var(--surface-2);
   }
 
   .lux-grid {
@@ -137,21 +121,9 @@
   }
 }
 
-/* If some 3rd-party element still bleeds, this keeps it invisible horizontally */
 .no-x-bleed {
   max-width: 100%;
   overflow-x: hidden;
-}
-
-:root {
-  --hs-card: 255 255 255;
-  --glow-sm: 0 10px 24px -18px rgba(45, 212, 191, 0.45);
-  --glow-lg: 0 20px 45px -36px rgba(16, 185, 129, 0.65);
-  color-scheme: dark;
-}
-
-body {
-  color: rgb(240 240 245 / 0.92);
 }
 
 .safe {
@@ -198,12 +170,18 @@ body {
     display: none;
   }
   .backdrop-glass {
-    @apply bg-white/8 border border-white/15 backdrop-blur-xl;
+    @apply border;
+    border-color: var(--border-default);
+    background: var(--surface-2);
+    backdrop-filter: none;
   }
   .glass-pill {
     @apply backdrop-glass rounded-full;
   }
   .kpi-num {
-    @apply bg-white/14 grid h-10 w-10 place-items-center rounded-full border border-white/20 font-semibold [font-variant-numeric:tabular-nums];
+    @apply grid h-10 w-10 place-items-center rounded-full border font-semibold [font-variant-numeric:tabular-nums];
+    color: var(--text-primary);
+    border-color: var(--border-default);
+    background: var(--surface-2);
   }
 }

@@ -23,7 +23,6 @@ const Contribute = lazy(() => import('./pages/Contribute'))
 import Footer from './components/Footer'
 import AppToaster from './components/ui/Toaster'
 import ConsentBanner from './components/ConsentBanner'
-import AmbientCursor from './components/AmbientCursor'
 import ErrorBoundary from './components/ErrorBoundary'
 import SiteLayout from '@/components/SiteLayout'
 import NavBar from './components/NavBar'
@@ -48,10 +47,8 @@ const UnknownCompoundSurvivalGuide = lazy(() => import('./pages/UnknownCompoundS
 const DevAnalyticsViewer = import.meta.env.DEV
   ? lazy(() => import('@/dev/AnalyticsViewer'))
   : null
-import { useTrippy } from '@/lib/trippy'
 import { useGrowthTracking } from '@/lib/growth'
 import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
-import { getAmbientRoutePolicy, useAmbientEnvironmentGate } from '@/lib/ambientEffects'
 // Import other pages as needed
 
 function ChunkErrorFallback() {
@@ -70,22 +67,13 @@ export default function App() {
   useGA()
   useGrowthTracking()
   const location = useLocation()
-  const { level, enabled: trippyEnabled } = useTrippy()
-  const { disableAmbientEffects } = useAmbientEnvironmentGate()
-  const ambientRoutePolicy = getAmbientRoutePolicy(location.pathname)
-
-  const enableAmbientBackground =
-    trippyEnabled && level !== 'off' && ambientRoutePolicy.background && !disableAmbientEffects
-  const enableAmbientCursor =
-    trippyEnabled && level !== 'off' && ambientRoutePolicy.cursor && !disableAmbientEffects
 
   return (
     <div id='app-root'>
-      <SiteLayout ambientEnabled={enableAmbientBackground}>
+      <SiteLayout>
         <NavBar />
         <div className='relative z-10 flex-1'>
           <RedirectHandler />
-          {enableAmbientCursor && <AmbientCursor />}
           <ErrorBoundary fallback={<ChunkErrorFallback />}>
             <Suspense fallback={<div className='container-page py-8 text-white/75'>Loading…</div>}>
               <Routes>

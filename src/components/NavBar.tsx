@@ -1,12 +1,11 @@
-// UPDATED: Streamlined dark-mode primary nav to home, herbs, compounds, blog, and search toggle.
 import { type FormEvent, useEffect, useState } from 'react'
 import { Menu, Search, X } from 'lucide-react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 
 const linkBase =
-  'inline-flex min-h-11 items-center justify-center rounded-lg px-3.5 py-2 text-sm font-medium text-white/65 transition-all duration-150 hover:bg-white/6 hover:text-white'
+  'inline-flex min-h-11 items-center justify-center rounded-lg px-3.5 py-2 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-2)] hover:text-[var(--text-primary)]'
 const linkActive =
-  'border border-white/12 bg-white/8 text-white'
+  'border border-[var(--border-default)] bg-[var(--surface-2)] text-[var(--text-primary)]'
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -29,11 +28,11 @@ export default function NavBar() {
   }
 
   return (
-    <header className='sticky top-0 z-50 border-b border-white/8 bg-[#07080F]/80 backdrop-blur-2xl'>
+    <header className='sticky top-0 z-50 border-b border-[var(--border-subtle)] bg-[color:rgb(11_18_32/92%)] backdrop-blur-md'>
       <nav className='mx-auto max-w-7xl px-4 sm:px-6'>
         <div className='flex items-center justify-between gap-2 py-2 sm:py-2.5'>
-          <Link to='/' className='shrink-0 rounded-xl px-2 py-1.5 transition hover:text-[var(--accent-teal)]'>
-            <span className='font-display text-xl italic tracking-tight text-white'>🌿 The Hippie Scientist</span>
+          <Link to='/' className='shrink-0 rounded-xl px-2 py-1.5 text-[var(--text-primary)] transition-colors hover:text-[var(--accent-primary)]'>
+            <span className='text-xl font-semibold tracking-tight'>🌿 The Hippie Scientist</span>
           </Link>
 
           <div className='hidden items-center gap-1.5 md:flex'>
@@ -50,7 +49,7 @@ export default function NavBar() {
               type='button'
               aria-label='Toggle search'
               onClick={() => setSearchOpen(v => !v)}
-              className='inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-white/14 bg-white/5 text-white/85 transition hover:border-[var(--accent-teal)]/40'
+              className='inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-[var(--border-default)] bg-[var(--surface-1)] text-[var(--text-secondary)] transition-colors hover:border-[var(--accent-primary)]/45 hover:text-[var(--text-primary)]'
             >
               <Search size={16} />
             </button>
@@ -58,7 +57,7 @@ export default function NavBar() {
 
           <button
             type='button'
-            className='inline-flex min-h-10 min-w-10 items-center justify-center rounded-xl border border-white/15 bg-white/7 px-3 text-sm font-medium text-white/92 transition hover:border-lime-400/30 hover:bg-white/12 md:hidden'
+            className='inline-flex min-h-10 min-w-10 items-center justify-center rounded-xl border border-[var(--border-default)] bg-[var(--surface-1)] px-3 text-sm font-medium text-[var(--text-primary)] transition-colors hover:bg-[var(--surface-2)] md:hidden'
             aria-label='Toggle navigation menu'
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(open => !open)}
@@ -78,13 +77,13 @@ export default function NavBar() {
               value={searchQuery}
               onChange={event => setSearchQuery(event.target.value)}
               placeholder='Search herbs...'
-              className='min-h-11 w-full rounded-xl border border-white/12 bg-white/5 px-3 text-sm text-white placeholder:text-white/35 focus:border-[var(--accent-teal)]/50 focus:outline-none'
+              className='min-h-11 w-full rounded-xl border border-[var(--border-default)] bg-[var(--surface-1)] px-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-primary)]/55 focus:outline-none'
             />
           </form>
         )}
 
         {menuOpen && (
-          <div className='mb-2 grid gap-2 rounded-2xl border border-white/10 bg-[#0C0D17]/95 p-2.5 backdrop-blur-xl md:hidden'>
+          <div className='mb-2 grid gap-2 rounded-2xl border border-[var(--border-default)] bg-[var(--surface-1)] p-2.5 md:hidden'>
             <button
               type='button'
               onClick={() => setSearchOpen(v => !v)}
@@ -113,7 +112,7 @@ export default function NavBar() {
                   value={searchQuery}
                   onChange={event => setSearchQuery(event.target.value)}
                   placeholder='Search herbs...'
-                  className='min-h-11 w-full rounded-xl border border-white/12 bg-white/5 px-3 text-sm text-white placeholder:text-white/35 focus:border-[var(--accent-teal)]/50 focus:outline-none'
+                  className='min-h-11 w-full rounded-xl border border-[var(--border-default)] bg-[var(--surface-2)] px-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-primary)]/55 focus:outline-none'
                 />
               </form>
             )}

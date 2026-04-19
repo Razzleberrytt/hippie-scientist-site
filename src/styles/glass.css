@@ -1,9 +1,8 @@
-/* --- Stats (professional symmetric counters) --- */
 .stats-grid {
   --pill-h: 48px;
-  --pill-bg: color-mix(in oklab, var(--surface-2) 72%, transparent);
+  --pill-bg: var(--surface-2);
   --pill-ring: var(--border-default);
-  --value-bg: color-mix(in oklab, var(--surface-3) 80%, transparent);
+  --value-bg: var(--surface-3);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
@@ -19,10 +18,8 @@
   padding: 0 14px;
   border-radius: 999px;
   background: var(--pill-bg);
-  backdrop-filter: saturate(120%) blur(8px);
-  -webkit-backdrop-filter: saturate(120%) blur(8px);
   border: 1px solid var(--pill-ring);
-  box-shadow: var(--shadow-card);
+  box-shadow: none;
 }
 
 .stat-value {
@@ -44,7 +41,6 @@
   white-space: nowrap;
 }
 
-/* mobile: keep in one row when space allows; otherwise wrap to two neat rows */
 @media (max-width: 420px) {
   .stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -57,24 +53,14 @@
   }
 }
 
-.glass-card {
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  background: rgba(10, 11, 18, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: var(--shadow-card), var(--shadow-glow-teal);
-}
-
+.glass-card,
 .neo-card {
-  background: rgba(10, 11, 18, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--surface-2);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius);
-  transition: transform var(--duration-base) var(--ease-out-expo), border-color var(--duration-base) var(--ease-out-expo);
+  box-shadow: none;
 }
 
 .neo-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--border-default);
+  border-color: var(--border-strong);
 }
