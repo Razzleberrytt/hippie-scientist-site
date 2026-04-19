@@ -46,11 +46,9 @@ function countPresent(flags: boolean[]): number {
 }
 
 export function getHerbDataCompleteness(entry: Record<string, unknown>): HerbCompleteness {
-  const mechanism = entry.mechanism ?? entry.mechanismOfAction ?? entry.mechanismofaction
+  const mechanism = entry.mechanism
   const effects = toStringList(entry.effects)
-  const activeCompounds = toStringList(
-    entry.activeCompounds ?? entry.active_compounds ?? entry.compounds
-  )
+  const activeCompounds = toStringList(entry.activeCompounds)
   const contraindications = toStringList(entry.contraindications)
 
   const hasMechanism = isNonEmptyString(mechanism)
@@ -78,12 +76,10 @@ export function getHerbDataCompleteness(entry: Record<string, unknown>): HerbCom
 }
 
 export function getCompoundDataCompleteness(entry: Record<string, unknown>): CompoundCompleteness {
-  const mechanism = entry.mechanism ?? entry.mechanismOfAction
+  const mechanism = entry.mechanism
   const effects = toStringList(entry.effects)
   const safety = toStringList(entry.contraindications ?? entry.interactions ?? entry.safety)
-  const herbs = toStringList(
-    entry.herbs ?? entry.associatedHerbs ?? entry.foundInHerbs ?? entry.foundIn
-  )
+  const herbs = toStringList(entry.foundIn)
 
   const hasMechanism = isNonEmptyString(mechanism)
   const hasEffects = effects.length > 0

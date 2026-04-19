@@ -10,8 +10,8 @@ type Intensity = 'MILD' | 'MODERATE' | 'STRONG'
 export type Entity = {
   id: string
   kind: 'herb' | 'compound'
-  commonName?: string
-  latinName: string
+  name: string
+  scientificName?: string
   summary?: string
   description?: string
   tags?: string[]
@@ -67,30 +67,23 @@ function toEntity(item: unknown, kind: 'herb' | 'compound'): Entity | null {
   const record = asRecord(item)
   if (!record) return null
 
-  const commonName = isNonEmptyString(record.commonName)
-    ? record.commonName
-    : isNonEmptyString(record.common)
-      ? record.common
-      : isNonEmptyString(record.name)
-        ? record.name
-        : undefined
-  const latinName = isNonEmptyString(record.latinName)
-    ? record.latinName
+  const name = isNonEmptyString(record.common)
+    ? record.common
+    : isNonEmptyString(record.name)
+      ? record.name
+      : null
+  if (!name) return null
+  const scientificName = isNonEmptyString(record.scientificName)
+    ? record.scientificName
     : isNonEmptyString(record.scientific)
       ? record.scientific
-      : isNonEmptyString(record.scientificName)
-        ? record.scientificName
-        : isNonEmptyString(commonName)
-          ? commonName
-          : null
-
-  if (!latinName) return null
+      : undefined
 
   const id = isNonEmptyString(record.id)
     ? record.id
     : isNonEmptyString(record.slug)
       ? record.slug
-      : latinName
+      : name
 
   const summary = isNonEmptyString(record.summary)
     ? record.summary
@@ -101,8 +94,8 @@ function toEntity(item: unknown, kind: 'herb' | 'compound'): Entity | null {
   return {
     id,
     kind,
-    commonName,
-    latinName,
+    name,
+    scientificName,
     summary,
     description: isNonEmptyString(record.description) ? record.description : undefined,
     tags: asStringArray(record.tags),

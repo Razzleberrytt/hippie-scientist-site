@@ -42,10 +42,10 @@ function getFreshnessRank(herb: Herb) {
 export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
   const searched = searchEntries(herbs, filters.query, herb => ({
     name: herb.common || herb.name || herb.scientific || herb.slug,
-    type: String((herb as Record<string, unknown>).class || herb.category || ''),
-    mechanism: asStringArray(herb.mechanisms).join('; ') || herb.mechanism || herb.mechanismOfAction || herb.mechanismofaction,
+    type: String(herb.category || ''),
+    mechanism: asStringArray(herb.mechanisms).join('; ') || herb.mechanism,
     effects: asStringArray(herb.primaryActions ?? herb.effects),
-    activeCompounds: asStringArray(herb.activeCompounds || herb.active_compounds || herb.compounds),
+    activeCompounds: asStringArray(herb.activeCompounds),
     contraindications: asStringArray(herb.contraindications),
     safety: asStringArray(herb.safety),
   })).map(result => result.entry)
@@ -58,9 +58,7 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
       normalizeText(effect),
     )
     const confidence = getHerbConfidence(herb)
-    const herbType = normalizeText(
-      String((herb as Record<string, unknown>).class || herb.category || ''),
-    )
+    const herbType = normalizeText(String(herb.category || ''))
 
     if (effectNeedles.length > 0) {
       const hasAllEffects = effectNeedles.every(effect =>
@@ -83,10 +81,9 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
         name: herb.common || herb.name || herb.scientific || herb.slug,
         summary: herb.summaryShort || herb.description,
         description: herb.description,
-        mechanism:
-          asStringArray(herb.mechanisms).join('; ') || herb.mechanism || herb.mechanismOfAction,
+        mechanism: asStringArray(herb.mechanisms).join('; ') || herb.mechanism,
         effects: asStringArray(herb.primaryActions ?? herb.effects),
-        associations: asStringArray(herb.activeCompounds || herb.active_compounds || herb.compounds),
+        associations: asStringArray(herb.activeCompounds),
         sourceCount: (herb as Record<string, unknown>).sourceCount,
         hasEvidence: Boolean(herb.researchEnrichmentSummary?.evidenceLabel),
         confidenceLevel: getHerbConfidence(herb),

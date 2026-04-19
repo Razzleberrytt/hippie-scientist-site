@@ -123,9 +123,7 @@ export function rankHerbsByEffect(herbs: Herb[], query: string): RankedEffectHer
       const multiEffectScore = matchedEffects.length * 18
       const fuzzyMatchScore = Math.max(fuzzyMatches, 0) * 6
 
-      const compounds = asStringArray(
-        herb.activeCompounds || herb.active_compounds || herb.compounds || herb.compoundsDetailed
-      )
+      const compounds = asStringArray(herb.activeCompounds)
       const compoundSupportCount = compounds.length
       const compoundStrength = Math.min(compoundSupportCount, 6) * 5
 

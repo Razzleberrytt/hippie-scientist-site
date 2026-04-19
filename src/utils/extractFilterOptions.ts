@@ -39,11 +39,11 @@ export function extractFilterOptions(input: { herbs?: Herb[]; compounds?: Compou
   const compoundEffects = (input.compounds || []).flatMap(compound => splitList(compound.effects))
 
   const classes = (input.herbs || [])
-    .map(herb => String((herb as Record<string, unknown>).class || herb.category || '').trim())
+    .map(herb => String(herb.category || '').trim())
     .filter(Boolean)
 
   const categories = (input.compounds || [])
-    .map(compound => String((compound.category || compound.className || '').trim()))
+    .map(compound => String((compound.category || compound.compoundClass || '').trim()))
     .filter(Boolean)
 
   return {
