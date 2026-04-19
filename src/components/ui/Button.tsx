@@ -15,8 +15,10 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 const variantClasses: Record<ButtonVariant, string> = {
   primary: 'btn-primary',
   secondary: 'btn-secondary',
-  ghost: 'border border-[var(--border-default)] bg-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]',
-  danger: 'border border-[var(--accent-danger)]/40 bg-[var(--accent-danger)]/14 text-[var(--accent-danger)] hover:bg-[var(--accent-danger)]/20',
+  ghost:
+    'border border-[var(--border-default)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]',
+  danger:
+    'border border-[var(--accent-danger)]/50 bg-[var(--accent-danger)]/12 text-[var(--text-primary)] hover:bg-[var(--accent-danger)]/18',
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -51,7 +53,7 @@ export function Button({
     <MotionButton
       whileTap={{ scale: 0.99 }}
       disabled={isDisabled}
-      className={`inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors ${variantClasses[variant]} ${sizeClasses[size]} ${loading ? 'cursor-not-allowed opacity-60' : ''} ${className}`.trim()}
+      className={`inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors ${variantClasses[variant]} ${sizeClasses[size]} ${loading ? 'cursor-not-allowed opacity-60' : ''} ${className}`.trim()}
       {...props}
     >
       {loading && <Spinner />}
