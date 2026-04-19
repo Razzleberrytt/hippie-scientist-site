@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 const workbookPath = resolveWorkbookPath(repoRoot)
-const REQUIRED_WORKBOOK_SHEETS = ['Site Export Herbs', 'Site Export Compounds']
+const REQUIRED_WORKBOOK_SHEETS = ['Herb Master', 'Compound Master']
 const herbsPath = path.join(repoRoot, 'public', 'data', 'herbs.json')
 const compoundsPath = path.join(repoRoot, 'public', 'data', 'compounds.json')
 const workbookHerbsPath = path.join(repoRoot, 'public', 'data', 'workbook-herbs.json')
@@ -51,14 +51,14 @@ function baselineCounts() {
 
   let compoundMatches = 0
   for (const row of compoundRows) {
-    const hit = compoundById.get(String(row.canonicalCompoundId ?? '').trim()) || compoundByName.get(clean(row.compoundName))
+    const hit = compoundById.get(String(row.canonicalCompoundId ?? row.id ?? row.slug ?? '').trim()) || compoundByName.get(clean(row.compoundName ?? row.name))
     if (hit) compoundMatches += 1
   }
 
   const missingRequiredHerbFields = herbRows
     .map((row, index) => ({
       row: index + 2,
-      missing: ['name', 'hero', 'coreInsight'].filter((field) => !String(row[field] ?? '').trim()),
+      missing: ['name'].filter((field) => !String(row[field] ?? '').trim()),
     }))
     .filter((entry) => entry.missing.length > 0)
 
@@ -68,7 +68,76 @@ function baselineCounts() {
     compoundRows: compoundRows.length,
     compoundMatches,
     missingRequiredHerbFields,
+    herbRowsData: herbRows,
+    compoundRowsData: compoundRows,
   }
+}
+
+function buildMap(records, keyFn) {
+  const map = new Map()
+  for (const record of records) {
+    const key = keyFn(record)
+    if (!key) continue
+    map.set(key, record)
+  }
+  return map
+}
+
+function countDistinctKeys(records, keyFn) {
+  const keys = new Set()
+  for (const record of records) {
+    const key = keyFn(record)
+    if (!key) continue
+    keys.add(key)
+  }
+  return keys.size
+}
+
+function detectMissingEntries(sheetRows, exportedRows, keyLabel, keyFn) {
+  const exportedMap = buildMap(exportedRows, keyFn)
+  const missing = []
+  for (const row of sheetRows) {
+    const key = keyFn(row)
+    if (!key) continue
+    if (!exportedMap.has(key)) {
+      missing.push({ [keyLabel]: key })
+    }
+  }
+  return missing
+}
+
+function detectFieldMismatches(sheetRows, exportedRows, keyFn, fields, entityLabel) {
+  const exportedMap = buildMap(exportedRows, keyFn)
+  const mismatches = []
+
+  for (const row of sheetRows) {
+    const key = keyFn(row)
+    if (!key) continue
+    const exported = exportedMap.get(key)
+    if (!exported) continue
+
+    const fieldDiffs = fields
+      .map((field) => {
+        const sourceValue = String(row?.[field] ?? '').trim()
+        const exportedValue = String(exported?.[field] ?? '').trim()
+        if (clean(sourceValue) === clean(exportedValue)) return null
+        return {
+          field,
+          source: sourceValue,
+          exported: exportedValue,
+        }
+      })
+      .filter(Boolean)
+
+    if (fieldDiffs.length > 0) {
+      mismatches.push({
+        [entityLabel]: key,
+        fields: fieldDiffs,
+      })
+    }
+  }
+
+  return mismatches
 }
 
 function runDryImport() {
@@ -112,16 +181,67 @@ function main() {
   const reconciled = runDryImport()
   const workbookHerbs = JSON.parse(fs.readFileSync(workbookHerbsPath, 'utf8'))
   const workbookCompounds = JSON.parse(fs.readFileSync(workbookCompoundsPath, 'utf8'))
+  const herbName = record => record?.name ?? record?.herbName
+  const herbSlug = record => record?.slug ?? record?.herbSlug ?? (herbName(record) ? String(herbName(record)) : '')
+  const compoundName = record => record?.compoundName ?? record?.name ?? record?.canonicalCompoundName ?? record?.compound
+  const compoundId = record => record?.canonicalCompoundId ?? record?.id ?? record?.slug
+  const herbKey = record => clean(herbSlug(record)) || clean(herbName(record))
+  const compoundKey = record => clean(compoundId(record)) || clean(compoundName(record))
+  const herbSourceDistinctCount = countDistinctKeys(baseline.herbRowsData, herbKey)
+  const compoundSourceDistinctCount = countDistinctKeys(baseline.compoundRowsData, compoundKey)
 
   assert(reconciled.herbMatched <= baseline.herbRows, 'Suspicious over-matching detected for herbs.')
   assert(reconciled.compoundMatched <= baseline.compoundRows, 'Suspicious over-matching detected for compounds.')
-  assert(baseline.herbRows > 0, 'Site Export Herbs has zero rows.')
-  assert(baseline.compoundRows > 0, 'Site Export Compounds has zero rows.')
+  assert(baseline.herbRows > 0, 'Herb Master has zero rows.')
+  assert(baseline.compoundRows > 0, 'Compound Master has zero rows.')
   assert(Array.isArray(workbookHerbs) && workbookHerbs.length > 0, 'workbook-herbs.json export is empty.')
   assert(Array.isArray(workbookCompounds) && workbookCompounds.length > 0, 'workbook-compounds.json export is empty.')
-  assert(baseline.herbRows >= workbookHerbs.length, 'Workbook herb row count must be >= exported herb count.')
-  assert(baseline.compoundRows >= workbookCompounds.length, 'Workbook compound row count must be >= exported compound count.')
-  assert(baseline.missingRequiredHerbFields.length === 0, `Missing required Site Export Herbs fields: ${JSON.stringify(baseline.missingRequiredHerbFields.slice(0, 10))}`)
+  assert(
+    baseline.herbRows === reconciled.herbMatched + reconciled.herbUnmatched,
+    `Row count parity failed for herbs: Herb Master rows=${baseline.herbRows}, dry-run matched+unmatched=${reconciled.herbMatched + reconciled.herbUnmatched}.`,
+  )
+  assert(
+    baseline.compoundRows === reconciled.compoundMatched + reconciled.compoundUnmatched,
+    `Row count parity failed for compounds: Compound Master rows=${baseline.compoundRows}, dry-run matched+unmatched=${reconciled.compoundMatched + reconciled.compoundUnmatched}.`,
+  )
+  assert(
+    baseline.missingRequiredHerbFields.length === 0,
+    `Missing required Herb Master fields: ${JSON.stringify(baseline.missingRequiredHerbFields.slice(0, 10))}`,
+  )
+
+  const missingHerbEntries = detectMissingEntries(baseline.herbRowsData, workbookHerbs, 'slugOrName', herbKey)
+  const missingCompoundEntries = detectMissingEntries(baseline.compoundRowsData, workbookCompounds, 'canonicalCompoundIdOrName', compoundKey)
+  assert(
+    missingHerbEntries.length === 0,
+    `Missing herb entries in workbook-herbs.json (sample): ${JSON.stringify(missingHerbEntries.slice(0, 10))}`,
+  )
+  assert(
+    missingCompoundEntries.length === 0,
+    `Missing compound entries in workbook-compounds.json (sample): ${JSON.stringify(missingCompoundEntries.slice(0, 10))}`,
+  )
+
+  const herbFieldMismatches = detectFieldMismatches(
+    baseline.herbRowsData,
+    workbookHerbs,
+    herbKey,
+    ['name', 'hero', 'coreInsight'],
+    'slugOrName',
+  )
+  const compoundFieldMismatches = detectFieldMismatches(
+    baseline.compoundRowsData,
+    workbookCompounds,
+    compoundKey,
+    ['name', 'slug'],
+    'canonicalCompoundIdOrName',
+  )
+  assert(
+    herbFieldMismatches.length === 0,
+    `Herb field mismatch detected between Herb Master and workbook-herbs.json (sample): ${JSON.stringify(herbFieldMismatches.slice(0, 10))}`,
+  )
+  assert(
+    compoundFieldMismatches.length === 0,
+    `Compound field mismatch detected between Compound Master and workbook-compounds.json (sample): ${JSON.stringify(compoundFieldMismatches.slice(0, 10))}`,
+  )
 
   const duplicateHerbSlugs = workbookHerbs
     .map(item => String(item?.slug ?? '').trim().toLowerCase())
