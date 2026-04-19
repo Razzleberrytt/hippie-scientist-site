@@ -24,7 +24,7 @@ function confidenceRank(level: string): number {
 function scoreHerbCompleteness(herb: Herb): number {
   const count = [
     herb.description,
-    herb.mechanism || herb.mechanismOfAction || herb.mechanismofaction,
+    splitClean(herb.mechanisms).join('; ') || herb.mechanism || herb.mechanismOfAction || herb.mechanismofaction,
     herb.primaryActions ?? herb.effects,
     herb.active_compounds,
     herb.compounds,
@@ -37,9 +37,9 @@ function scoreHerbCompleteness(herb: Herb): number {
 function scoreCompoundCompleteness(compound: CompoundRecord): number {
   const count = [
     compound.description,
-    compound.mechanism,
+    splitClean(compound.mechanisms).join('; ') || compound.mechanism,
     compound.primaryActions ?? compound.effects,
-    compound.foundIn,
+    compound.foundIn ?? compound.herbs,
     compound.legalStatus,
   ].filter(value => splitClean(value).length > 0 || normalizeText(value).length > 0).length
 
@@ -54,9 +54,9 @@ function getHerbConfidence(herb: Herb): string {
 
 function getCompoundConfidence(compound: CompoundRecord): string {
   return calculateCompoundConfidence({
-    mechanism: compound.mechanism,
+    mechanism: splitClean(compound.mechanisms).join('; ') || compound.mechanism,
     effects: compound.primaryActions ?? compound.effects,
-    compounds: compound.foundIn,
+    compounds: compound.foundIn ?? compound.herbs,
   })
 }
 
@@ -64,7 +64,7 @@ function herbHasSparseData(herb: Herb): boolean {
   const essentialFields = [
     herb.description,
     herb.primaryActions ?? herb.effects,
-    herb.mechanism || herb.mechanismOfAction || herb.mechanismofaction,
+    splitClean(herb.mechanisms).join('; ') || herb.mechanism || herb.mechanismOfAction || herb.mechanismofaction,
   ]
 
   const present = essentialFields.filter(value => normalizeText(value).length > 0).length
@@ -72,7 +72,11 @@ function herbHasSparseData(herb: Herb): boolean {
 }
 
 function compoundHasSparseData(compound: CompoundRecord): boolean {
-  const essentialFields = [compound.description, compound.primaryActions ?? compound.effects, compound.mechanism]
+  const essentialFields = [
+    compound.description,
+    compound.primaryActions ?? compound.effects,
+    splitClean(compound.mechanisms).join('; ') || compound.mechanism,
+  ]
   const present = essentialFields.filter(
     value => splitClean(value).length > 0 || normalizeText(value).length > 0
   ).length
@@ -124,7 +128,7 @@ function matchesCompound(config: SeoLandingConfig, compound: CompoundRecord): bo
 
   const effectFields = [compound.primaryActions ?? compound.effects, compound.description]
   const classFields = [compound.compoundClass, compound.className, compound.category]
-  const compoundRefFields = [compound.name, compound.foundIn]
+  const compoundRefFields = [compound.name, compound.foundIn ?? compound.herbs]
 
   if (config.kind === 'effect') {
     return effectFields.some(field => isNeedleMatch(field, target))

@@ -203,13 +203,15 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   const safetyRecord = readSafetyRecord(data)
   const name = cleanText(data.name ?? data.commonName ?? data.id) || ''
   const slug = String(data.slug || slugify(name))
-  const primaryActions = splitClean(data.primaryActions ?? data.effects ?? data.actions ?? data.benefits ?? data.keyEffects)
+  const primaryActions = splitClean(
+    data.primaryActions ?? data.effects ?? data.actions ?? data.benefits ?? data.keyEffects,
+  )
   const foundIn = splitClean(
-    data.associatedHerbs ?? data.foundInHerbs ?? data.herbs ?? data.foundIn ?? context.foundIn,
+    data.foundIn ?? data.herbs ?? data.associatedHerbs ?? data.foundInHerbs ?? context.foundIn,
   )
   const mechanisms = splitClean(data.mechanisms ?? data.mechanism ?? data.mechanismOfAction)
-  const targets = splitClean(data.targets ?? data.mechanismTargets)
-  const pathways = splitClean(data.pathways ?? data.pathwayTargets)
+  const targets = splitClean(data.targets ?? data.mechanismTargets ?? context.targets)
+  const pathways = splitClean(data.pathways ?? data.pathwayTargets ?? context.pathways)
   const mechanism = cleanText(data.mechanism ?? mechanisms.join('; ') ?? data.mechanismOfAction) || ''
   const researchEnrichment = normalizeResearchEnrichment(data.researchEnrichment)
   const rawInteractionTags = splitClean(data.interactionTags)
@@ -225,7 +227,7 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   const evidenceLevel =
     cleanText(data.evidenceLevel ?? data.evidence_level ?? safetyRecord.evidence ?? safetyRecord.confidence) ||
     ''
-  const relatedEntities = splitClean(data.relatedEntities ?? context.foundIn)
+  const relatedEntities = splitClean(data.relatedEntities)
   const relatedCompounds = splitClean(data.relatedCompounds ?? context.relatedCompounds)
   const linkedHerbs = splitClean(data.linkedHerbs)
   const compounds = splitClean(data.compounds ?? data.relatedCompounds)
@@ -300,7 +302,9 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
 
 function normalizeCompoundSummary(raw: Record<string, unknown>): CompoundSummaryRecord {
   const context = readContextRecord(raw)
-  const effects = splitClean(raw.primaryActions ?? raw.effects ?? raw.actions ?? raw.benefits ?? raw.keyEffects)
+  const effects = splitClean(
+    raw.primaryActions ?? raw.effects ?? raw.actions ?? raw.benefits ?? raw.keyEffects,
+  )
   const foundIn = splitClean(raw.foundIn ?? raw.herbs ?? context.foundIn)
   const mechanisms = splitClean(raw.mechanisms ?? raw.mechanism ?? raw.mechanismOfAction)
   const targets = splitClean(raw.targets ?? raw.mechanismTargets)
