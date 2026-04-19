@@ -1,5 +1,20 @@
 const HEADER_NORMALIZATION_PATTERN = /[^a-z0-9]+/g
 const WEAK_TEXT_VALUES = new Set(['nan', 'null', 'undefined', 'n/a', 'na', 'none', 'nil'])
+const CANONICAL_WORKBOOK_KEYS = new Set(['name', 'slug', 'description', 'mechanisms', 'safetyNotes'])
+
+const COLUMN_ALIASES = {
+  name: ['name', 'herb_name', 'compound_name', 'herb', 'compound'],
+  slug: ['slug'],
+  description: ['description', 'summary'],
+  mechanisms: ['mechanisms', 'mechanism', 'moa'],
+  safetyNotes: ['safetynotes', 'safety', 'safety_notes'],
+}
+
+const NORMALIZED_COLUMN_ALIAS_LOOKUP = Object.fromEntries(
+  Object.entries(COLUMN_ALIASES).flatMap(([canonicalKey, aliases]) =>
+    aliases.map(alias => [normalizeHeaderKey(alias), canonicalKey]),
+  ),
+)
 
 const SHEET_HEADER_ALIASES = {
   'Herb Monographs': {
@@ -155,14 +170,34 @@ export function normalizeWorkbookMultiValue(value, splitPattern = /[;|]/) {
 export function canonicalizeWorkbookRow(row, sheetName) {
   const aliases = SHEET_HEADER_ALIASES[sheetName] || {}
   const out = {}
+  const unmappedColumns = []
 
   for (const [rawKey, value] of Object.entries(row || {})) {
     const trimmedKey = String(rawKey || '').trim()
     if (!trimmedKey) continue
 
     const normalizedKey = normalizeHeaderKey(trimmedKey)
-    const mappedKey = aliases[normalizedKey] || trimmedKey
+    const sheetMappedKey = aliases[normalizedKey] || trimmedKey
+    const canonicalKey = NORMALIZED_COLUMN_ALIAS_LOOKUP[normalizeHeaderKey(sheetMappedKey)]
+    const mappedKey = canonicalKey || sheetMappedKey
+    const isKnownKey =
+      Boolean(aliases[normalizedKey]) ||
+      Boolean(canonicalKey) ||
+      CANONICAL_WORKBOOK_KEYS.has(sheetMappedKey)
+
+    if (!isKnownKey) {
+      unmappedColumns.push(trimmedKey)
+    }
+
     out[mappedKey] = normalizeWorkbookCell(value)
+  }
+
+  if (unmappedColumns.length > 0) {
+    console.warn(
+      `[workbook-column-mapping] Unmapped columns on "${sheetName}": ${[
+        ...new Set(unmappedColumns),
+      ].join(', ')}`,
+    )
   }
 
   return out
