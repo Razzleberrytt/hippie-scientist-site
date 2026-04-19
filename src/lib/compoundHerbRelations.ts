@@ -6,7 +6,7 @@ export type RelatedHerb = {
   name: string
   descriptor: string
   confidence?: Herb['confidence']
-  effects?: string[]
+  primaryActions?: string[]
 }
 
 function normalizeKey(value: unknown) {
@@ -20,10 +20,12 @@ function pickHerbName(herb: Herb) {
 }
 
 function pickDescriptor(herb: Herb) {
-  const effects = Array.isArray(herb.effects)
-    ? herb.effects.filter(effect => typeof effect === 'string' && effect.trim())
-    : []
-  if (effects.length > 0) return effects[0]
+  const primaryActions = Array.isArray(herb.primaryActions)
+    ? herb.primaryActions.filter(effect => typeof effect === 'string' && effect.trim())
+    : Array.isArray(herb.effects)
+      ? herb.effects.filter(effect => typeof effect === 'string' && effect.trim())
+      : []
+  if (primaryActions.length > 0) return primaryActions[0]
 
   const description = String(herb.description || '').trim()
   if (description.length > 0) return description.slice(0, 80)
@@ -54,7 +56,11 @@ export function mapRelatedHerbsForCompound(compound: CompoundRecord, herbs: Herb
           name: pickHerbName(existing),
           descriptor: pickDescriptor(existing),
           confidence: existing.confidence,
-          effects: Array.isArray(existing.effects) ? existing.effects : [],
+          primaryActions: Array.isArray(existing.primaryActions)
+            ? existing.primaryActions
+            : Array.isArray(existing.effects)
+              ? existing.effects
+              : [],
         } satisfies RelatedHerb
       }
       
@@ -78,7 +84,11 @@ export function mapRelatedHerbsForCompound(compound: CompoundRecord, herbs: Herb
       name: pickHerbName(herb),
       descriptor: pickDescriptor(herb),
       confidence: herb.confidence,
-      effects: Array.isArray(herb.effects) ? herb.effects : [],
+      primaryActions: Array.isArray(herb.primaryActions)
+        ? herb.primaryActions
+        : Array.isArray(herb.effects)
+          ? herb.effects
+          : [],
     }))
 
   const merged = new Map<string, RelatedHerb>()

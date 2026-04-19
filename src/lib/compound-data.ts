@@ -15,38 +15,40 @@ export type CompoundRecord = {
   id: string
   slug: string
   name: string
+  summary: string
   description: string
   className: string
   category: string
   compoundClass: string
-  intensity: string
+  primaryActions: string[]
   mechanisms: string[]
   targets: string[]
   pathways: string[]
+  foundIn: string[]
+  bioavailability: string
+  safetyNotes: string
+  evidenceLevel: string
+  relatedCompounds: string[]
   mechanism: string
-  activeCompounds: string[]
   effects: string[]
-  therapeuticUses: string[]
-  contraindications: string[]
+  herbs: string[]
   interactions: string[]
+  contraindications: string[]
+  interactionTags?: string[]
+  interactionNotes?: string[]
+  therapeuticUses: string[]
+  sideEffects: string[]
   dosage: string
   duration: string
   region: string
   preparation: string
   legalStatus: string
-  sideEffects: string[]
-  interactionTags?: string[]
-  interactionNotes?: string[]
-  foundIn: string[]
-  herbs: string[]
   sources: SourceRef[]
   lastUpdated: string
   confidence: ConfidenceLevel
   identity: string
   categoryUseContext: string
-  evidenceLevel: string
   relatedEntities: string[]
-  relatedCompounds: string[]
   linkedHerbs: string[]
   researchEnrichment?: ResearchEnrichment
   researchEnrichmentSummary?: PublishSafeEnrichmentSummary
@@ -61,11 +63,13 @@ export type CompoundSummaryRecord = {
   id: string
   slug: string
   name: string
+  summary: string
   summaryShort: string
   description: string
   className: string
   category: string
   compoundClass: string
+  primaryActions: string[]
   mechanisms: string[]
   targets: string[]
   pathways: string[]
@@ -232,11 +236,13 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     id: String(data.id || slug),
     slug,
     name,
+    summary: cleanText(data.summary ?? data.description ?? data.hero ?? data.intro ?? data.coreInsight) || '',
     description:
       cleanText(data.description ?? data.summary ?? data.hero ?? data.intro ?? data.coreInsight) || '',
     className: cleanText(data.class ?? data.type ?? data.className ?? data.compoundClass) || '',
     category: cleanText(data.category ?? data.class ?? data.type ?? data.className ?? data.compoundClass) || '',
     compoundClass: cleanText(data.compoundClass ?? data.class ?? data.className ?? data.type) || '',
+    primaryActions,
     mechanisms,
     targets,
     pathways,
@@ -265,6 +271,8 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     relatedCompounds,
     compounds,
     linkedHerbs,
+    bioavailability: cleanText(data.bioavailability ?? data.absorption ?? data.pkSummary) || '',
+    safetyNotes: splitClean(data.safetyNotes ?? safetyRecord.notes ?? safetyRecord.summary ?? safetyRecord.caution).join('; '),
     confidence: calculateCompoundConfidence({ mechanism, effects: primaryActions, compounds: foundIn }),
     sources,
     researchEnrichment: researchEnrichment || undefined,
@@ -307,11 +315,13 @@ function normalizeCompoundSummary(raw: Record<string, unknown>): CompoundSummary
       .trim()
       .toLowerCase(),
     name: cleanText(raw.name) || '',
+    summary: cleanText(raw.summary ?? raw.description ?? raw.summaryShort ?? raw.hero ?? raw.coreInsight) || '',
     summaryShort: cleanText(raw.summaryShort ?? raw.description ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
     description: cleanText(raw.description ?? raw.summaryShort ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
     className: cleanText(raw.className ?? raw.compoundClass) || '',
     category: cleanText(raw.category ?? raw.className ?? raw.compoundClass) || '',
     compoundClass: cleanText(raw.compoundClass ?? raw.className ?? raw.category) || '',
+    primaryActions: effects,
     mechanisms,
     targets,
     pathways,

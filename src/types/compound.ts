@@ -21,6 +21,17 @@ export type CanonicalCompound = {
 
 export type CompoundRecord = {
   name: string
+  slug?: string
+  summary?: string
+  description?: string
+  compoundClass?: string
+  primaryActions?: string[]
+  mechanisms?: string[]
+  targets?: string[]
+  pathways?: string[]
+  foundIn?: string[]
+  bioavailability?: string
+  safetyNotes?: string
   category?: string
   mechanism?: string
   effects?: string[]
@@ -38,7 +49,6 @@ export type CompoundRecord = {
   linkedHerbs?: string[]
   researchEnrichment?: ResearchEnrichment
   researchEnrichmentSummary?: PublishSafeEnrichmentSummary
-  foundIn?: string[]
   [key: string]: unknown
 }
 
