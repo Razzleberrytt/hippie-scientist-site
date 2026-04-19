@@ -3,7 +3,7 @@
   "latin": "acacia nilotica",
   "class": "Tree",
   "intensity": "mild",
-  "mechanism": "High tannin content gives potent astringent properties; flavonoids and tannins provide antioxidant and anti-inflammatory effects; polysaccharide-rich gum arabic may have immunomodulatory benefits.",
+  "mechanism": "Primary activity is astringency from high tannin content (protein-precipitating effects on mucosa). Polyphenols such as catechin/quercetin contribute antioxidant and anti-inflammatory signaling seen mainly in preclinical models.",
   "activeCompounds": [
     "tannins (gallic acid, ellagic acid, catechin)",
     "quercetin",
@@ -20,10 +20,10 @@
     "Avoid during pregnancy or lactation due to potential anti-fertility effects",
     "Not recommended for children under 12"
   ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
+  "safetyNotes": "Most use is oral/astringent and can cause GI irritation, nausea, or constipation at higher intake. Tannin-rich preparations may reduce absorption of oral drugs and minerals (interaction category: oral medications/supplements, especially iron). Avoid use in pregnancy/lactation due to limited safety data.",
   "sources": [],
   "lastUpdated": "2026-03-21",
-  "description": "Folk medicine.",
+  "description": "Acacia nilotica is an astringent medicinal tree used in traditional systems for oral, skin, and gastrointestinal applications; its bark and pods are rich in tannins and other polyphenols.",
   "dosage": "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
   "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
   "interactions": [],

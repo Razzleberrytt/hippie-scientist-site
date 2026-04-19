@@ -4,7 +4,7 @@
     "latin": "acacia nilotica",
     "class": "Tree",
     "intensity": "mild",
-    "mechanism": "High tannin content gives potent astringent properties; flavonoids and tannins provide antioxidant and anti-inflammatory effects; polysaccharide-rich gum arabic may have immunomodulatory benefits.",
+    "mechanism": "Primary activity is astringency from high tannin content (protein-precipitating effects on mucosa). Polyphenols such as catechin/quercetin contribute antioxidant and anti-inflammatory signaling seen mainly in preclinical models.",
     "activeCompounds": [
       "tannins (gallic acid, ellagic acid, catechin)",
       "quercetin",
@@ -21,13 +21,10 @@
       "Avoid during pregnancy or lactation due to potential anti-fertility effects",
       "Not recommended for children under 12"
     ],
-    "safetyNotes": [
-      "safe",
-      "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
-    ],
+    "safetyNotes": "Most use is oral/astringent and can cause GI irritation, nausea, or constipation at higher intake. Tannin-rich preparations may reduce absorption of oral drugs and minerals (interaction category: oral medications/supplements, especially iron). Avoid use in pregnancy/lactation due to limited safety data.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "Folk medicine.",
+    "description": "Acacia nilotica is an astringent medicinal tree used in traditional systems for oral, skin, and gastrointestinal applications; its bark and pods are rich in tannins and other polyphenols.",
     "dosage": [
       "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine"
     ],
@@ -115,7 +112,7 @@
     "latin": "Aconitum napellus",
     "class": "Herb",
     "intensity": "No direct intensity data. Contextual inference: Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Potent analgesic and anti-inflammatory; extremely toxic. No direct region data. Contextual inference: Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Potent analgesic and anti-inflammatory; extremely toxic. none. ; nan; nan. ; nan; nan",
-    "mechanism": "Toxic diterpenoid alkaloids such as aconitine open voltage-gated sodium channels, increasing sodium influx and delaying repolarization, causing cardiotoxicity and neurotoxicity【472555319349189†L263-L265】【472555319349189†L307-L310】.",
+    "mechanism": "Aconitine-type alkaloids bind voltage-gated sodium channels and keep them in an activated state, causing persistent depolarization. This drives major cardiotoxic and neurotoxic effects, especially malignant ventricular arrhythmias.",
     "activeCompounds": [
       "aconitine",
       "mesaconitine",
@@ -138,16 +135,7 @@
       "inflammatory"
     ],
     "contraindications": "Highly toxic; ingestion can cause severe arrhythmias, paralysis and death; avoid internal use; handling requires caution.",
-    "safetyNotes": [
-      "Toxic – avoid oral use",
-      "No direct toxicity data. Contextual inference: Potent analgesic and anti-inflammatory",
-      "extremely toxic. Herbs often act via neurotransmitter modulation",
-      "antioxidant effects",
-      "or enzyme inhibition.. None.",
-      "nan.. Herbs often act via neurotransmitter modulation",
-      "or enzyme inhibition.. Potent analgesic and anti-inflammatory",
-      "extremely toxic. none."
-    ],
+    "safetyNotes": "High poisoning risk: paresthesias, vomiting, hypotension, ventricular arrhythmias, and death. Interaction categories: other cardiotoxic or sodium-channel-active drugs, cardiac glycosides, and agents that worsen hypotension or conduction abnormalities. Internal use should be treated as unsafe outside specialized clinical contexts.",
     "sources": [
       {
         "title": "Inferred from scientific name:"
@@ -158,7 +146,7 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "description": "Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+    "description": "Aconitum napellus (monkshood) contains highly toxic diterpenoid alkaloids and is unsafe for unsupervised internal use; severe poisoning can occur with small dosing errors.",
     "dosage": [
       "Toxic",
       "used in homeopathy only"
@@ -177,7 +165,7 @@
     "latin": "acorus americanus",
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+    "mechanism": "Contains asarone-related phenylpropanoids and other volatile constituents, but no high-confidence human mechanism is established. Reported CNS and digestive effects are based mainly on traditional use and preclinical pharmacology.",
     "activeCompounds": [
       "Alpha-asarone",
       "Alpha",
@@ -193,17 +181,10 @@
       "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
       "discontinue if hypersensitivity or allergic symptoms occur"
     ],
-    "safetyNotes": [
-      "caution",
-      "No direct toxicity data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan. No direct effects data. Contextual inference:",
-      "nan."
-    ],
+    "safetyNotes": "Safety data are limited; possible adverse effects include GI upset and dizziness with concentrated preparations. Interaction categories: CNS-active sedatives/intoxicants (possible additive sedation) and medications with narrow safety margins due to uncertain pharmacokinetics. Avoid in pregnancy/lactation pending better safety data.",
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Acorus americanus (American sweet flag) is a North American aromatic wetland herb used traditionally for digestive and calming purposes; modern human clinical evidence is limited.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
