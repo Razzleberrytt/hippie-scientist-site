@@ -1021,7 +1021,7 @@
     "name": "Alpha-asarone",
     "herbs": [
       "acorus americanus",
-      "nan"
+      "calamus"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -1148,7 +1148,7 @@
     "name": "apigenin",
     "herbs": [
       "alchemilla vulgaris",
-      "nan"
+      "chamomile"
     ],
     "effects": [
       "Uterine tonic",
@@ -1386,7 +1386,8 @@
   {
     "name": "Astragalin",
     "herbs": [
-      "desmodium adscendens"
+      "desmodium adscendens",
+      "astragalus-membranaceus"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used to treat asthma",
@@ -1400,7 +1401,10 @@
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "slug": "astragalin"
+    "slug": "astragalin",
+    "canonicalCompoundId": "astragalin",
+    "id": "astragalin",
+    "compoundName": "Astragalin"
   },
   {
     "name": "Atropine",
@@ -1499,8 +1503,9 @@
   {
     "name": "Baicalin",
     "herbs": [
-      "nan",
-      "scutellaria lateriflora"
+      "scutellaria lateriflora",
+      "skullcap",
+      "scutellaria-baicalensis"
     ],
     "effects": [
       "Mild sedation",
@@ -1713,7 +1718,8 @@
   {
     "name": "Boldine",
     "herbs": [
-      "peumus boldus"
+      "peumus boldus",
+      "boldo"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -1767,7 +1773,7 @@
   {
     "name": "Boswellic acids",
     "herbs": [
-      "nan"
+      "boswellia-serrata"
     ],
     "effects": [
       "Joint pain relief",
@@ -1779,7 +1785,10 @@
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "slug": "boswellic-acids"
+    "slug": "boswellic-acids",
+    "canonicalCompoundId": "boswellic-acid",
+    "id": "boswellic-acid",
+    "compoundName": "Boswellic acid"
   },
   {
     "name": "budmunchiamines L1-L6",
@@ -1911,7 +1920,9 @@
   {
     "name": "caffeic acid",
     "herbs": [
-      "alchemilla vulgaris"
+      "alchemilla vulgaris",
+      "echinacea-purpurea",
+      "coffee"
     ],
     "effects": [
       "Uterine tonic",
@@ -1947,9 +1958,10 @@
   {
     "name": "Caffeine",
     "herbs": [
-      "nan",
       "yerba mate",
-      "camellia sinensis"
+      "camellia sinensis",
+      "ilex-paraguariensis",
+      "guayusa"
     ],
     "effects": [
       "Mental alertness",
@@ -2260,7 +2272,7 @@
   {
     "name": "carvacrol",
     "herbs": [
-      "nan"
+      "ajwain"
     ],
     "effects": [
       "Stress relief",
@@ -2311,7 +2323,8 @@
     "name": "catechin",
     "herbs": [
       "agrimonia eupatoria",
-      "alchemilla vulgaris"
+      "alchemilla vulgaris",
+      "camellia-sinensis"
     ],
     "effects": [
       "Astringent",
@@ -2353,7 +2366,7 @@
     "herbs": [
       "albizia lebbeck",
       "byrsonima crassifolia",
-      "nan"
+      "ashoka"
     ],
     "effects": [
       "Used in Ayurveda for asthma",
@@ -2548,7 +2561,8 @@
   {
     "name": "Chamazulene",
     "herbs": [
-      "nan"
+      "chamomile",
+      "matricaria-chamomilla"
     ],
     "effects": [
       "Anti-inflammatory",
@@ -2576,7 +2590,9 @@
   {
     "name": "Chlorogenic acid",
     "herbs": [
-      "yerba mate"
+      "yerba mate",
+      "coffee",
+      "coffea-arabica"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America."
@@ -3504,8 +3520,8 @@
   {
     "name": "elemicin",
     "herbs": [
-      "nan",
-      "myristica fragrans"
+      "myristica fragrans",
+      "myristica-fragrans"
     ],
     "effects": [
       "Euphoria",
@@ -3534,7 +3550,10 @@
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "slug": "elemicin"
+    "slug": "elemicin",
+    "canonicalCompoundId": "elemicin",
+    "id": "elemicin",
+    "compoundName": "Elemicin"
   },
   {
     "name": "ellagic acid",
@@ -4077,7 +4096,7 @@
   {
     "name": "Eucalyptol",
     "herbs": [
-      "nan"
+      "peppermint"
     ],
     "effects": [
       "Clarity",
@@ -4104,9 +4123,11 @@
   {
     "name": "eugenol",
     "herbs": [
-      "nan",
       "pimenta dioica",
-      "tynanthus panurensis"
+      "tynanthus panurensis",
+      "holy-basil",
+      "calamus",
+      "syzygium-aromaticum"
     ],
     "effects": [
       "Euphoria",
@@ -4186,8 +4207,8 @@
     "name": "Farnesol",
     "herbs": [
       "linden",
-      "nan",
-      "Silver Linden"
+      "Silver Linden",
+      "matricaria-chamomilla"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used as a calming tea for sleep",
@@ -4213,7 +4234,10 @@
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "slug": "farnesol"
+    "slug": "farnesol",
+    "canonicalCompoundId": "farnesol",
+    "id": "farnesol",
+    "compoundName": "Farnesol"
   },
   {
     "name": "fatty acids",
@@ -4245,7 +4269,8 @@
   {
     "name": "ferulic acid",
     "herbs": [
-      "adenostoma fasciculatum"
+      "adenostoma fasciculatum",
+      "angelica-sinensis"
     ],
     "effects": [
       "Traditional uses include skin and respiratory conditions",
@@ -4662,7 +4687,7 @@
     "name": "gallic acid",
     "herbs": [
       "alchemilla vulgaris",
-      "nan"
+      "longan"
     ],
     "effects": [
       "Uterine tonic",
@@ -4951,7 +4976,7 @@
   {
     "name": "harmaline)",
     "herbs": [
-      "nan"
+      "peganum-harmala"
     ],
     "effects": [
       "Intense stimulation",
@@ -5074,8 +5099,8 @@
   {
     "name": "harmine",
     "herbs": [
-      "nan",
-      "banisteriopsis caapi"
+      "banisteriopsis caapi",
+      "peganum-harmala"
     ],
     "effects": [
       "Altered perception",
@@ -5207,7 +5232,8 @@
   {
     "name": "Huperzine A",
     "herbs": [
-      "huperzia serrata"
+      "huperzia serrata",
+      "huperzia-serrata"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
@@ -5398,8 +5424,8 @@
   {
     "name": "Ibogaine",
     "herbs": [
-      "nan",
-      "tabernanthe iboga"
+      "tabernanthe iboga",
+      "tabernanthe-iboga"
     ],
     "effects": [
       "Intense visions",
@@ -5766,7 +5792,8 @@
   {
     "name": "isorhamnetin",
     "herbs": [
-      "aerva lanata"
+      "aerva lanata",
+      "ginkgo-biloba"
     ],
     "effects": [
       "Diuretic",
@@ -5903,7 +5930,8 @@
       "aerva lanata",
       "albizia lebbeck",
       "alchemilla vulgaris",
-      "linden"
+      "linden",
+      "ginkgo-biloba"
     ],
     "effects": [
       "Diuretic",
@@ -5984,7 +6012,8 @@
   {
     "name": "Kavalactones (kavain",
     "herbs": [
-      "nan"
+      "kava",
+      "piper-methysticum"
     ],
     "effects": [
       "Euphoria",
@@ -6339,7 +6368,7 @@
     "name": "limonene",
     "herbs": [
       "acorus tatarinowii",
-      "nan"
+      "peppermint"
     ],
     "effects": [
       "CNS stimulant",
@@ -6412,8 +6441,9 @@
     "name": "linalool",
     "herbs": [
       "acorus tatarinowii",
-      "nan",
-      "Silver Linden"
+      "Silver Linden",
+      "lavender",
+      "lavandula-angustifolia"
     ],
     "effects": [
       "CNS stimulant",
@@ -7169,7 +7199,7 @@
   {
     "name": "mesembrenone",
     "herbs": [
-      "nan"
+      "kanna"
     ],
     "effects": [
       "Euphoria",
@@ -7210,8 +7240,7 @@
   {
     "name": "Mesembrine",
     "herbs": [
-      "kanna",
-      "nan"
+      "kanna"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -7315,7 +7344,8 @@
   {
     "name": "methyl eugenol",
     "herbs": [
-      "acorus tatarinowii"
+      "acorus tatarinowii",
+      "holy-basil"
     ],
     "effects": [
       "CNS stimulant",
@@ -7335,12 +7365,14 @@
     "category": null,
     "sources": [
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
-    "slug": "methyl-eugenol"
+    "slug": "methyl-eugenol",
+    "canonicalCompoundId": "methyleugenol",
+    "id": "methyleugenol",
+    "compoundName": "methyl eugenol"
   },
   {
     "name": "methyl grevillate",
@@ -7429,7 +7461,7 @@
   {
     "name": "methysticin",
     "herbs": [
-      "nan"
+      "piper-methysticum"
     ],
     "effects": [
       "Euphoria",
@@ -7692,8 +7724,8 @@
   {
     "name": "Myristicin",
     "herbs": [
-      "nan",
-      "myristica fragrans"
+      "myristica fragrans",
+      "myristica-fragrans"
     ],
     "effects": [
       "Euphoria",
@@ -8007,8 +8039,8 @@
   {
     "name": "Nicotine",
     "herbs": [
-      "nan",
-      "nicotiana rustica"
+      "nicotiana rustica",
+      "nicotiana-tabacum"
     ],
     "effects": [
       "Stimulation",
@@ -8236,8 +8268,9 @@
     "name": "Nuciferine",
     "herbs": [
       "blue lotus",
-      "nan",
-      "nelumbo nucifera"
+      "nelumbo nucifera",
+      "damiana",
+      "blue-lotus"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement.",
@@ -8438,12 +8471,14 @@
     "category": null,
     "sources": [
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
-    "slug": "oleanolic-acid"
+    "slug": "oleanolic-acid",
+    "canonicalCompoundId": "oleanolic-acid",
+    "id": "oleanolic-acid",
+    "compoundName": "Oleanolic acid"
   },
   {
     "name": "other saponins",
@@ -8787,8 +8822,8 @@
   {
     "name": "Petasin",
     "herbs": [
-      "nan",
-      "petasites hybridus"
+      "petasites hybridus",
+      "yarrow"
     ],
     "effects": [
       "Mild sedation",
@@ -9255,7 +9290,8 @@
   {
     "name": "Quercetin",
     "herbs": [
-      "nan"
+      "ginkgo-biloba",
+      "hypericum-perforatum"
     ],
     "effects": [
       "mast-cell modulation",
@@ -9318,7 +9354,8 @@
   {
     "name": "quercitrin",
     "herbs": [
-      "albizia julibrissin"
+      "albizia julibrissin",
+      "houttuynia"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -9346,9 +9383,11 @@
   {
     "name": "rosmarinic acid",
     "herbs": [
-      "nan",
       "perilla frutescens",
-      "salvia apiana"
+      "salvia apiana",
+      "lemon-balm",
+      "rosmarinus-officinalis",
+      "holy-basil"
     ],
     "effects": [
       "Mild sedation",
@@ -9762,7 +9801,7 @@
   {
     "name": "scopoletin",
     "herbs": [
-      "nan"
+      "morinda-citrifolia"
     ],
     "effects": [
       "Relaxation",
@@ -10823,7 +10862,8 @@
       "artemisia abrotanum",
       "artemisia absinthium",
       "artemisia ludoviciana",
-      "nan"
+      "mugwort",
+      "artemisia-absinthium"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
@@ -10872,8 +10912,8 @@
   {
     "name": "thymol",
     "herbs": [
-      "nan",
-      "thymus vulgaris"
+      "thymus vulgaris",
+      "ajwain"
     ],
     "effects": [
       "Mild sedation",
@@ -11166,7 +11206,7 @@
     "name": "umbelliferone",
     "herbs": [
       "adenostoma fasciculatum",
-      "nan"
+      "angelica-archangelica"
     ],
     "effects": [
       "Traditional uses include skin and respiratory conditions",
@@ -11240,7 +11280,8 @@
   {
     "name": "ursolic acid",
     "herbs": [
-      "nan"
+      "holy-basil",
+      "ocimum-sanctum"
     ],
     "effects": [
       "Stress relief",
@@ -11289,7 +11330,8 @@
   {
     "name": "Valerenic acid",
     "herbs": [
-      "nan"
+      "valerian",
+      "valeriana-officinalis"
     ],
     "effects": [
       "Sedation",
@@ -11361,7 +11403,8 @@
     "name": "vasicine",
     "herbs": [
       "adhatoda vasica",
-      "justicia adhatoda"
+      "justicia adhatoda",
+      "justicia-adhatoda"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -11689,7 +11732,8 @@
   {
     "name": "wogonin",
     "herbs": [
-      "nan"
+      "skullcap",
+      "scutellaria-baicalensis"
     ],
     "effects": [
       "Mild sedation",
@@ -11745,7 +11789,7 @@
   {
     "name": "yangonin)",
     "herbs": [
-      "nan"
+      "piper-methysticum"
     ],
     "effects": [
       "Euphoria",
@@ -11775,7 +11819,8 @@
   {
     "name": "Yohimbine",
     "herbs": [
-      "nan"
+      "yohimbe",
+      "pausinystalia-yohimbe"
     ],
     "effects": [
       "Stimulation",

@@ -1574,7 +1574,9 @@
     "activeCompounds": [
       "acemannan",
       "aloe-emodin",
-      "aloin"
+      "aloin",
+      "Emodin",
+      "Rhein"
     ],
     "effects": [
       "Laxative",
@@ -1954,7 +1956,10 @@
     "activeCompounds": [
       "ginsenosides (including rb1",
       "rg1)",
-      "rb2"
+      "rb2",
+      "Ginsenoside Rb1",
+      "Ginsenoside Rg1",
+      "Ginsenoside Rg3"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -2373,7 +2378,10 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Antipyretic, anti-inflammatory, and antidiabetic; used in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antipyretic, anti-inflammatory, and antidiabetic; used in TCM. No direct region data. Contextual inference: Antipyretic, anti-inflammatory, and antidiabetic; used in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antipyretic, anti-inflammatory, and antidiabetic; used in TCM. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Timosaponin AIII",
+      "Mangiferin aglycone"
+    ],
     "effects": [
       "Antipyretic",
       "anti-inflammatory",
@@ -2402,8 +2410,7 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -2436,6 +2443,9 @@
     "sideEffects": [
       "allergic rash or itching in sensitive individuals",
       "mild gastrointestinal upset (nausea, cramping, or loose stool)"
+    ],
+    "aliases": [
+      "Anemarrhena asphodeloides"
     ]
   },
   {
@@ -2488,7 +2498,8 @@
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
     "activeCompounds": [
       "angelicin",
-      "essential oils"
+      "essential oils",
+      "umbelliferone"
     ],
     "effects": [
       "Carminative",
@@ -2558,7 +2569,10 @@
     "intensity": "No direct intensity data. Contextual inference: Blood tonic, hormone modulator, menstrual regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Blood tonic, hormone modulator, menstrual regulator. No direct region data. Contextual inference: Blood tonic, hormone modulator, menstrual regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Blood tonic, hormone modulator, menstrual regulator. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
     "activeCompounds": [
-      "ferulic acid"
+      "Ferulic acid",
+      "Ligustilide",
+      "Senkyunolide A",
+      "Butylidenephthalide"
     ],
     "effects": [
       "Blood tonic",
@@ -3704,7 +3718,8 @@
     "activeCompounds": [
       "alpha-thujone",
       "absinthin",
-      "beta-thujone"
+      "beta-thujone",
+      "Thujone"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation."
@@ -4363,7 +4378,10 @@
     "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "mechanism": "Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways.",
     "activeCompounds": [
-      "withanolides"
+      "withanolides",
+      "Withaferin A",
+      "Withanolide A",
+      "withanoside IV"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -4627,8 +4645,10 @@
     "intensity": "No direct intensity data. Contextual inference: Immunostimulant, adaptogen, antiviral. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immunostimulant, adaptogen, antiviral. No direct region data. Contextual inference: Immunostimulant, adaptogen, antiviral. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Immunostimulant, adaptogen, antiviral. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
     "activeCompounds": [
-      "astragaloside IV",
-      "polysaccharides"
+      "Astragaloside IV",
+      "Calycosin",
+      "Formononetin",
+      "Astragalin"
     ],
     "effects": [
       "Immunostimulant",
@@ -4701,7 +4721,9 @@
     "intensity": "No direct intensity data. Contextual inference: Tonic for spleen and digestion in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic for spleen and digestion in TCM. No direct region data. Contextual inference: Tonic for spleen and digestion in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic for spleen and digestion in TCM. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
     "activeCompounds": [
-      "atractylenolide I"
+      "Atractylenolide I",
+      "Atractylenolide II",
+      "Atractylenolide III"
     ],
     "effects": [
       "Tonic for spleen and digestion in TCM"
@@ -5125,7 +5147,7 @@
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -5148,6 +5170,9 @@
     "sideEffects": [
       "mild gastrointestinal upset (nausea, cramping, or loose stool)",
       "headache (more likely with higher intake)"
+    ],
+    "aliases": [
+      "Bacopa monnieri"
     ]
   },
   {
@@ -6275,8 +6300,11 @@
     "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, analgesic, arthritic support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, arthritic support. No direct region data. Contextual inference: Anti-inflammatory, analgesic, arthritic support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, arthritic support. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
     "activeCompounds": [
-      "boswellic acids",
-      "AKBA"
+      "Boswellic acid",
+      "Acetyl-beta-boswellic acid",
+      "11-keto-beta-boswellic acid",
+      "Acetyl-11-keto-beta-boswellic acid",
+      "Boswellic acids"
     ],
     "effects": [
       "Anti-inflammatory",
@@ -6873,7 +6901,11 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "eugenol",
+      "alpha-asarone",
+      "beta-asarone"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -6893,7 +6925,7 @@
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Internal cross-linking supports Calamus through compounds such as eugenol, alpha-asarone, beta-asarone.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -6916,6 +6948,9 @@
     "sideEffects": [
       "allergic rash or itching in sensitive individuals",
       "mild gastrointestinal upset (nausea, cramping, or loose stool)"
+    ],
+    "aliases": [
+      "Calamus"
     ]
   },
   {
@@ -8803,7 +8838,12 @@
     "class": null,
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Asiatic acid",
+      "Madecassic acid",
+      "Asiaticoside",
+      "Madecassoside"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine",
       "Cognitive enhancer",
@@ -8835,7 +8875,7 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "description": "Folk medicine.",
+    "description": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
     "dosage": [
       "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine"
     ],
@@ -8853,7 +8893,10 @@
       "anxiety."
     ],
     "traditionalUse": "Folk medicine",
-    "slug": "centella-asiatica"
+    "slug": "centella-asiatica",
+    "aliases": [
+      "Centella asiatica"
+    ]
   },
   {
     "name": "cephaelis ipecacuanha",
@@ -9135,7 +9178,8 @@
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
     "activeCompounds": [
-      "apigenin"
+      "apigenin",
+      "Chamazulene"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -9408,7 +9452,9 @@
     "class": null,
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Esculetin"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -9429,7 +9475,7 @@
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Cichorium intybus lean monograph row enriched in bulk mode.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -9452,6 +9498,9 @@
     "sideEffects": [
       "dry mouth",
       "allergic rash or itching in sensitive individuals"
+    ],
+    "aliases": [
+      "Cichorium intybus"
     ]
   },
   {
@@ -10050,7 +10099,11 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Aphrodisiac, antipruritic, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, antipruritic, antifungal. No direct region data. Contextual inference: Aphrodisiac, antipruritic, antifungal. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Aphrodisiac, antipruritic, antifungal. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Osthole",
+      "Imperatorin",
+      "Isoimperatorin"
+    ],
     "effects": [
       "Aphrodisiac",
       "antipruritic",
@@ -10075,8 +10128,7 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -10097,7 +10149,10 @@
       "Possible skin irritation",
       "avoid during pregnancy due to uterine stimulation"
     ],
-    "slug": "cnidium-monnieri"
+    "slug": "cnidium-monnieri",
+    "aliases": [
+      "Cnidium monnieri"
+    ]
   },
   {
     "name": "coca",
@@ -10329,7 +10384,9 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Stimulant, cognitive enhancer, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, cognitive enhancer, antioxidant. No direct region data. Contextual inference: Stimulant, cognitive enhancer, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant, cognitive enhancer, antioxidant. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Chlorogenic acid"
+    ],
     "effects": [
       "Stimulant",
       "cognitive enhancer",
@@ -10398,7 +10455,9 @@
       "caffeine",
       "trigonelline",
       "cafestol",
-      "kahweol"
+      "kahweol",
+      "Chlorogenic acid",
+      "caffeic acid"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -11374,7 +11433,10 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Astringent, kidney and liver tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent, kidney and liver tonic, antioxidant. No direct region data. Contextual inference: Astringent, kidney and liver tonic, antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Astringent, kidney and liver tonic, antioxidant. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Loganin",
+      "Morroniside"
+    ],
     "effects": [
       "Astringent",
       "kidney and liver tonic",
@@ -11398,8 +11460,7 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -11427,7 +11488,10 @@
       "Generally safe",
       "may cause mild GI upset or dizziness in sensitive individuals"
     ],
-    "slug": "cornus-officinalis"
+    "slug": "cornus-officinalis",
+    "aliases": [
+      "Cornus officinalis"
+    ]
   },
   {
     "name": "corydalis cava",
@@ -11859,7 +11923,10 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, liver protective. No direct region data. Contextual inference: Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, liver protective. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Demethoxycurcumin",
+      "Bisdemethoxycurcumin"
+    ],
     "effects": [
       "Anti-inflammatory",
       "antioxidant",
@@ -11888,8 +11955,7 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -11912,7 +11978,10 @@
       "or diarrhea",
       "gallbladder stimulation noted"
     ],
-    "slug": "curcuma-longa"
+    "slug": "curcuma-longa",
+    "aliases": [
+      "Curcuma longa"
+    ]
   },
   {
     "name": "cymbopogon citratus",
@@ -12352,7 +12421,8 @@
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
     "activeCompounds": [
       "flavonoids",
-      "apigenin"
+      "apigenin",
+      "Nuciferine"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -16118,12 +16188,17 @@
     "intensity": "mild",
     "mechanism": "The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways.",
     "activeCompounds": [
-      "ginkgolides A, B, C, J",
+      "ginkgolides A",
+      "B",
+      "C",
+      "J",
       "bilobalide",
       "ginkgetin",
       "bilobetin",
       "sciadopitysin",
-      "ginkgolides"
+      "Quercetin",
+      "Kaempferol",
+      "isorhamnetin"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -16296,7 +16371,8 @@
     "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, expectorant, adrenal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, expectorant, adrenal support. No direct region data. Contextual inference: Anti-inflammatory, expectorant, adrenal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, expectorant, adrenal support. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
     "activeCompounds": [
-      "glycyrrhizin"
+      "Glycyrrhizin",
+      "Glycyrrhetinic acid"
     ],
     "effects": [
       "Anti-inflammatory",
@@ -16756,7 +16832,10 @@
     "class": null,
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "caffeine",
+      "theobromine"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -16793,7 +16872,10 @@
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "therapeuticUses": "Energy, focus, lucid dreaming support",
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "guayusa"
+    "slug": "guayusa",
+    "aliases": [
+      "Guayusa"
+    ]
   },
   {
     "name": "gymnema sylvestre",
@@ -16976,7 +17058,9 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, analgesic, osteoarthritis relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, osteoarthritis relief. No direct region data. Contextual inference: Anti-inflammatory, analgesic, osteoarthritis relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, osteoarthritis relief. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Harpagoside"
+    ],
     "effects": [
       "Anti-inflammatory",
       "analgesic",
@@ -17003,8 +17087,7 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -17034,7 +17117,10 @@
       "diarrhea",
       "caution with ulcers and anticoagulants"
     ],
-    "slug": "harpagophytum-procumbens"
+    "slug": "harpagophytum-procumbens",
+    "aliases": [
+      "Harpagophytum procumbens"
+    ]
   },
   {
     "name": "hawaiian baby woodrose",
@@ -17685,7 +17771,8 @@
     "activeCompounds": [
       "eugenol",
       "ursolic acid",
-      "rosmarinic acid"
+      "rosmarinic acid",
+      "methyl eugenol"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
@@ -18004,7 +18091,8 @@
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine",
     "activeCompounds": [
-      "Huperzine A"
+      "Huperzine A",
+      "Huperzine B"
     ],
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
@@ -18019,7 +18107,7 @@
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "Folk medicine.",
+    "description": "Huperzia serrata contains Huperzine A and is linked here to acetylcholinesterase inhibition.",
     "dosage": [
       "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine"
     ],
@@ -18037,6 +18125,9 @@
     "sideEffects": [
       "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
       "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ],
+    "aliases": [
+      "Huperzia serrata"
     ]
   },
   {
@@ -18399,7 +18490,9 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Stimulant; rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; rich in caffeine and theobromine (yerba mate). No direct region data. Contextual inference: Stimulant; rich in caffeine and theobromine (yerba mate). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Stimulant; rich in caffeine and theobromine (yerba mate). none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Caffeine"
+    ],
     "effects": [
       "Stimulant",
       "rich in caffeine and theobromine (yerba mate)",
@@ -19465,7 +19558,10 @@
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
     "activeCompounds": [
-      "Mesembrine"
+      "mesembrenone",
+      "mesembranol",
+      "mesembrine",
+      "mesembrenol"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -19487,7 +19583,7 @@
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Internal cross-linking supports Kanna through compounds such as mesembrenone, mesembranol, mesembrine.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -19510,6 +19606,9 @@
     "sideEffects": [
       "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
       "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ],
+    "aliases": [
+      "Kanna"
     ]
   },
   {
@@ -19526,7 +19625,8 @@
       "yangonin",
       "desmethoxyyangonin",
       "flavokavain A/B/C",
-      "total kavalactones"
+      "total kavalactones",
+      "Kavalactones (kavain"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -20043,7 +20143,9 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Linalool"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -20082,7 +20184,7 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Lean bulk ingestion row for Lavandula angustifolia. Key active compounds include Linalool.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -20105,7 +20207,10 @@
       "calming effects."
     ],
     "traditionalUse": "; nan; nan",
-    "slug": "lavandula-angustifolia"
+    "slug": "lavandula-angustifolia",
+    "aliases": [
+      "Lavandula angustifolia"
+    ]
   },
   {
     "name": "ledum palustre",
@@ -21068,7 +21173,9 @@
     "class": null,
     "intensity": "moderate",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Lobeline"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -21089,7 +21196,7 @@
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Lobelia inflata contains Lobeline and is linked here to nicotinic acetylcholine receptor modulation.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -21112,6 +21219,9 @@
     "sideEffects": [
       "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
       "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ],
+    "aliases": [
+      "Lobelia inflata"
     ]
   },
   {
@@ -22213,7 +22323,11 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Calming, anti-inflammatory, digestive support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, anti-inflammatory, digestive support. No direct region data. Contextual inference: Calming, anti-inflammatory, digestive support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, anti-inflammatory, digestive support. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Farnesol",
+      "Bisabolol",
+      "Chamazulene"
+    ],
     "effects": [
       "Calming",
       "anti-inflammatory",
@@ -22240,8 +22354,7 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -22264,7 +22377,10 @@
       "especially in Asteraceae",
       "sensitive individuals"
     ],
-    "slug": "matricaria-chamomilla"
+    "slug": "matricaria-chamomilla",
+    "aliases": [
+      "Matricaria chamomilla"
+    ]
   },
   {
     "name": "melaleuca alternifolia",
@@ -23276,7 +23392,8 @@
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
     "activeCompounds": [
       "damnacanthal",
-      "iridoids"
+      "iridoids",
+      "scopoletin"
     ],
     "effects": [
       "Immune support",
@@ -31702,7 +31819,10 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Anatabine",
+      "Nicotine"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -31720,7 +31840,7 @@
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Nicotiana tabacum contains Anatabine and is linked here to nicotinic acetylcholine receptor modulation.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -31736,7 +31856,10 @@
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
     "therapeuticUses": "Traditional ritual use, appetite suppression",
     "traditionalUse": "; nan; nan",
-    "slug": "nicotiana-tabacum"
+    "slug": "nicotiana-tabacum",
+    "aliases": [
+      "Nicotiana tabacum"
+    ]
   },
   {
     "name": "nigella sativa",
@@ -31744,7 +31867,9 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antioxidant, immune modulating. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, immune modulating. No direct region data. Contextual inference: Anti-inflammatory, antioxidant, immune modulating. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, immune modulating. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Thymoquinone"
+    ],
     "effects": [
       "Anti-inflammatory",
       "antioxidant",
@@ -31772,8 +31897,7 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -31795,7 +31919,10 @@
       "allergic reactions",
       "avoid high doses in pregnancy"
     ],
-    "slug": "nigella-sativa"
+    "slug": "nigella-sativa",
+    "aliases": [
+      "Nigella sativa"
+    ]
   },
   {
     "name": "nymphaea ampla",
@@ -32239,7 +32366,9 @@
     "intensity": "No direct intensity data. Contextual inference: Adaptogen, energy booster, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, energy booster, cognitive enhancer. No direct region data. Contextual inference: Adaptogen, energy booster, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, energy booster, cognitive enhancer. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
     "activeCompounds": [
-      "ginsenosides"
+      "Ginsenoside Rb1",
+      "Ginsenoside Rg1",
+      "Ginsenoside Rg3"
     ],
     "effects": [
       "Adaptogen",
@@ -32452,7 +32581,7 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "EMA supports passionflower for relief of mild mental stress and to aid sleep on the basis of long-standing traditional use. That is useful, but it is weaker than strong modern clinical efficacy. Keep the positioning around traditional calming use and avoid overclaiming a clean single-target GABA story.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -32550,7 +32679,9 @@
     "class": null,
     "intensity": "moderate",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Yohimbine"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -32858,7 +32989,9 @@
     "intensity": "mild",
     "mechanism": "Peppermint oil contains more than 80 constituents; menthol is the main bioactive component. Menthol acts as a smooth‑muscle relaxant by blocking L‑type calcium channels and activating transient receptor potential channels (TRPM8 and TRPA1). These actions underlie the spasmolytic and analgesic properties of peppermint oil. Peppermint oil also has antimicrobial, antiviral and anti‑inflammatory effects.",
     "activeCompounds": [
-      "menthol"
+      "menthol",
+      "Eucalyptol",
+      "limonene"
     ],
     "effects": [
       "May reduce IBS abdominal pain and global symptom burden",
@@ -33737,7 +33870,9 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, wound healing, demulcent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, demulcent. No direct region data. Contextual inference: Anti-inflammatory, wound healing, demulcent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, demulcent. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Aucubin"
+    ],
     "effects": [
       "Anti-inflammatory",
       "wound healing",
@@ -33764,8 +33899,7 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -33786,7 +33920,10 @@
       "Generally safe",
       "rare allergic skin reactions"
     ],
-    "slug": "plantago-major"
+    "slug": "plantago-major",
+    "aliases": [
+      "Plantago major"
+    ]
   },
   {
     "name": "podophyllum peltatum",
@@ -35165,7 +35302,10 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Laxative, digestive aid, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, digestive aid, antimicrobial. No direct region data. Contextual inference: Laxative, digestive aid, antimicrobial. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, digestive aid, antimicrobial. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Emodin",
+      "Rhein"
+    ],
     "effects": [
       "Laxative",
       "digestive aid",
@@ -35191,8 +35331,7 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -35214,7 +35353,10 @@
       "abdominal cramps",
       "electrolyte imbalance"
     ],
-    "slug": "rheum-palmatum"
+    "slug": "rheum-palmatum",
+    "aliases": [
+      "Rheum palmatum"
+    ]
   },
   {
     "name": "rhizophora mangle",
@@ -37236,7 +37378,9 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-aging effects; traditional Chinese medicine. No direct region data. Contextual inference: Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-aging effects; traditional Chinese medicine. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "ginkgetin"
+    ],
     "effects": [
       "Antioxidant and anti-aging effects",
       "traditional Chinese medicine",
@@ -37261,8 +37405,7 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -37293,6 +37436,9 @@
     "sideEffects": [
       "mild gastrointestinal upset (nausea, cramping, or loose stool)",
       "allergic rash or itching in sensitive individuals"
+    ],
+    "aliases": [
+      "Selaginella tamariscina"
     ]
   },
   {
@@ -38345,7 +38491,9 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Traditionally used in chinese medicine for inflammation and pain relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used in Chinese medicine for inflammation and pain relief. No direct region data. Contextual inference: Traditionally used in chinese medicine for inflammation and pain relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used in Chinese medicine for inflammation and pain relief. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Cepharanthine"
+    ],
     "effects": [
       "Traditionally used in Chinese medicine for inflammation and pain relief"
     ],
@@ -38365,8 +38513,7 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -38394,6 +38541,9 @@
     "sideEffects": [
       "mild gastrointestinal upset (nausea, cramping, or loose stool)",
       "allergic rash or itching in sensitive individuals"
+    ],
+    "aliases": [
+      "Stephania cepharantha"
     ]
   },
   {
@@ -38402,7 +38552,9 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antihypertensive, used in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antihypertensive, used in TCM. No direct region data. Contextual inference: Anti-inflammatory, antihypertensive, used in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antihypertensive, used in TCM. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Tetrandrine"
+    ],
     "effects": [
       "Anti-inflammatory",
       "antihypertensive",
@@ -38429,8 +38581,7 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -38460,7 +38611,10 @@
       "dizziness",
       "GI effects"
     ],
-    "slug": "stephania-tetrandra"
+    "slug": "stephania-tetrandra",
+    "aliases": [
+      "Stephania tetrandra"
+    ]
   },
   {
     "name": "sweet acacia",
@@ -38790,7 +38944,9 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Antiseptic, analgesic (especially dental), antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, analgesic (especially dental), antioxidant. No direct region data. Contextual inference: Antiseptic, analgesic (especially dental), antioxidant. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, analgesic (especially dental), antioxidant. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Eugenol"
+    ],
     "effects": [
       "Antiseptic",
       "analgesic (especially dental)",
@@ -38814,8 +38970,7 @@
         "title": "Inferred from scientific name:"
       },
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -38843,7 +38998,10 @@
       "Allergic reactions",
       "clove oil may cause mucosal irritation"
     ],
-    "slug": "syzygium-aromaticum"
+    "slug": "syzygium-aromaticum",
+    "aliases": [
+      "Syzygium aromaticum"
+    ]
   },
   {
     "name": "tabebuia impetiginosa",
@@ -41650,6 +41808,9 @@
       "mild gastrointestinal upset (nausea, cramping, or loose stool)",
       "headache (more likely with higher intake)",
       "allergic rash or itching in sensitive individuals"
+    ],
+    "aliases": [
+      "Verbena officinalis"
     ]
   },
   {
@@ -42665,7 +42826,11 @@
     "class": null,
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "alpha-thujone",
+      "absinthin",
+      "beta-thujone"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -42689,7 +42854,7 @@
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "Used in ritual, dreaming or folk medicine.",
+    "description": "Internal cross-linking supports Wormwood through compounds such as alpha-thujone, absinthin, beta-thujone.",
     "dosage": [
       "No direct dosage data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -42714,6 +42879,9 @@
       "mild gastrointestinal upset (nausea, cramping, or loose stool)",
       "headache (more likely with higher intake)",
       "allergic rash or itching in sensitive individuals"
+    ],
+    "aliases": [
+      "Wormwood"
     ]
   },
   {
@@ -42786,7 +42954,8 @@
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
     "activeCompounds": [
       "flavonoids",
-      "apigenin"
+      "apigenin",
+      "Petasin"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -42970,7 +43139,8 @@
     "intensity": "moderate",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
     "activeCompounds": [
-      "yohimbine"
+      "yohimbine",
+      "rauwolscine"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -42983,21 +43153,14 @@
       "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
       "discontinue if hypersensitivity or allergic symptoms occur"
     ],
-    "safetyNotes": [
-      "caution",
-      "No direct toxicity data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan. No direct effects data. Contextual inference:",
-      "nan."
-    ],
+    "safetyNotes": "High-caution herb. Prioritize cardiovascular and psychiatric risk review. Avoid escalation framing, avoid use in people prone to panic, hypertension, arrhythmia, or seizure, and avoid positioning as a routine tonic.",
     "sources": [
       {
         "title": "Internal workbook cross-link"
       }
     ],
     "lastUpdated": "2026-03-21",
-    "description": "; nan; nan.",
+    "description": "Yohimbe is represented here as a bark-derived monograph anchored to yohimbine, an alpha-2 adrenergic antagonist with sympathomimetic effects. The herb is more appropriately framed around safety review than routine recommendation. Potential effects include increased alertness and sexual-function relevance, but tolerability can be poor and adverse effects may include anxiety, tachycardia, blood-pressure elevation, agitation, insomnia, and gastrointestinal distress. Use should be conservative and exclusion-heavy in people with cardiovascular, psychiatric, seizure, renal, or hepatic vulnerability.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -44198,7 +44361,8 @@
     "activeCompounds": [
       "caffeine",
       "theanine",
-      "catechins (egcg)"
+      "catechins (egcg)",
+      "catechin"
     ],
     "effects": [
       "No direct effects data. Contextual inference:",
@@ -45081,7 +45245,8 @@
     "intensity": "No direct intensity data. Contextual inference: Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. Boosts collagen synthesis, modulates gaba and blood flow.. ; nan; nan.. Boosts collagen synthesis, modulates GABA and blood flow.. Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. No direct region data. Contextual inference: Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. Boosts collagen synthesis, modulates gaba and blood flow.. ; nan; nan.. Boosts collagen synthesis, modulates GABA and blood flow.. Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. ; nan; nan. ; nan; nan",
     "mechanism": "Boosts collagen synthesis, modulates GABA and blood flow.",
     "activeCompounds": [
-      "asiaticoside"
+      "asiaticoside",
+      "Madecassoside"
     ],
     "effects": [
       "Cognitive enhancer",
@@ -46084,7 +46249,10 @@
       "headache (more likely with higher intake)",
       "allergic rash or itching in sensitive individuals"
     ],
-    "slug": "myristica-fragrans"
+    "slug": "myristica-fragrans",
+    "aliases": [
+      "Myristica fragrans"
+    ]
   },
   {
     "name": "nelumbo nucifera",
@@ -46125,7 +46293,10 @@
       "headache (more likely with higher intake)",
       "allergic rash or itching in sensitive individuals"
     ],
-    "slug": "nelumbo-nucifera"
+    "slug": "nelumbo-nucifera",
+    "aliases": [
+      "Nelumbo nucifera"
+    ]
   },
   {
     "name": "nepeta cataria",
@@ -46305,7 +46476,9 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Adaptogen, anti-stress, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-stress, immune support. No direct region data. Contextual inference: Adaptogen, anti-stress, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-stress, immune support. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Ursolic acid"
+    ],
     "effects": [
       "Adaptogen",
       "anti",
@@ -46316,8 +46489,7 @@
     "safetyNotes": [],
     "sources": [
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -46338,7 +46510,10 @@
       "drowsiness",
       "caution with anticoagulants"
     ],
-    "slug": "ocimum-sanctum"
+    "slug": "ocimum-sanctum",
+    "aliases": [
+      "Ocimum sanctum"
+    ]
   },
   {
     "name": "papaver somniferum",
@@ -46517,7 +46692,10 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Mao inhibitor, antispasmodic, psychoactive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. MAO inhibitor, antispasmodic, psychoactive. No direct region data. Contextual inference: Mao inhibitor, antispasmodic, psychoactive. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. MAO inhibitor, antispasmodic, psychoactive. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "harmine",
+      "harmaline)"
+    ],
     "effects": [
       "MAO inhibitor",
       "antispasmodic",
@@ -46724,7 +46902,14 @@
     "class": null,
     "intensity": "moderate",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Kavalactones",
+      "Kavain",
+      "Yangonin",
+      "Methysticin",
+      "Kavalactones (kavain",
+      "yangonin)"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -46756,13 +46941,16 @@
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "legalStatus": "restricted",
     "interactions": [],
-    "description": "; nan; nan.",
+    "description": "Piper methysticum contains Kavalactones and is linked here to GABA-A modulation.",
     "sideEffects": [
       "mild gastrointestinal upset (nausea, cramping, or loose stool)",
       "headache (more likely with higher intake)",
       "allergic rash or itching in sensitive individuals"
     ],
-    "slug": "piper-methysticum"
+    "slug": "piper-methysticum",
+    "aliases": [
+      "Piper methysticum"
+    ]
   },
   {
     "name": "pituri",
@@ -47528,7 +47716,9 @@
     "intensity": "No direct intensity data. Contextual inference: Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. Flavonoids modulate gaba receptors; offers calming and anxiolytic effects.. ; nan; nan.. Flavonoids modulate GABA receptors; offers calming and anxiolytic effects.. Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. No direct region data. Contextual inference: Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. Flavonoids modulate gaba receptors; offers calming and anxiolytic effects.. ; nan; nan.. Flavonoids modulate GABA receptors; offers calming and anxiolytic effects.. Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. ; nan; nan. ; nan; nan",
     "mechanism": "Flavonoids modulate GABA receptors; offers calming and anxiolytic effects.",
     "activeCompounds": [
-      "baicalin"
+      "baicalin",
+      "Baicalein",
+      "Wogonin"
     ],
     "effects": [
       "Nervine",
@@ -48177,7 +48367,11 @@
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Sedative, anxiolytic, sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anxiolytic, sleep aid. No direct region data. Contextual inference: Sedative, anxiolytic, sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anxiolytic, sleep aid. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Valerenic acid",
+      "Valerenol",
+      "Valepotriates"
+    ],
     "effects": [
       "Sedative",
       "anxiolytic",
@@ -48187,8 +48381,7 @@
     "safetyNotes": [],
     "sources": [
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "note": "Inferred from scientific name:"
       }
     ],
     "lastUpdated": "2026-03-21",
@@ -48210,7 +48403,10 @@
       "vivid dreams",
       "avoid with sedatives"
     ],
-    "slug": "valeriana-officinalis"
+    "slug": "valeriana-officinalis",
+    "aliases": [
+      "Valeriana officinalis"
+    ]
   },
   {
     "name": "virola calophylla",
@@ -49668,7 +49864,8 @@
       "ajwain"
     ],
     "activeCompounds": [
-      "thymol"
+      "thymol",
+      "carvacrol"
     ],
     "interactions": [
       "Avoid overextended antimicrobial claims."
