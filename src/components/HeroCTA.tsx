@@ -7,20 +7,20 @@ export default function HeroCTA() {
   return (
     <div className='w-full space-y-3'>
       <div className='flex flex-col gap-2 sm:flex-row'>
-        <a href='#effect-search' className={`${baseButtonClasses} btn-primary`}>
-          Start Effect Search
-        </a>
-        <Link to='/herbs' className={`${baseButtonClasses} btn-secondary`}>
-          Browse Archive
+        <Link to='/herbs' className={`${baseButtonClasses} btn-primary`}>
+          Browse herbs
+        </Link>
+        <Link to='/compounds' className={`${baseButtonClasses} btn-secondary`}>
+          Browse compounds
         </Link>
       </div>
       <div className='flex flex-wrap gap-3 text-xs text-white/62'>
-        <Link to='/interactions' className='transition hover:text-white'>
-          Interaction Checker
-        </Link>
+        <a href='#mechanism-explorer' className='transition hover:text-white'>
+          Mechanism explorer
+        </a>
         <span>•</span>
-        <Link to='/build' className='transition hover:text-white'>
-          Blend Builder
+        <Link to='/interactions' className='transition hover:text-white'>
+          Interaction checker
         </Link>
       </div>
     </div>
