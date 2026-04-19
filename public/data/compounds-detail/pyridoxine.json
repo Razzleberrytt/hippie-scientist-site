@@ -48,5 +48,9 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanisms": [
+    "B6 enzymes support transamination/decarboxylation and neurotransmitter pathways; non-deficiency benefits are mixed"
+  ],
+  "compoundClass": "nutrient"
 }

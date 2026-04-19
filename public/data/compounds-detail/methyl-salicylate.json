@@ -33,5 +33,12 @@
     "betula-lenta",
     "sweet-violet"
   ],
-  "mechanism": "insufficient evidence"
+  "mechanism": "insufficient evidence",
+  "mechanisms": [
+    "insufficient evidence"
+  ],
+  "compoundClass": "Arbutin, tannins, methyl salicylate",
+  "safetyNotes": [
+    "Limited data."
+  ]
 }

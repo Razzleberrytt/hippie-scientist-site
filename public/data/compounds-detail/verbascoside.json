@@ -25,5 +25,12 @@
   "linkedHerbs": [
     "aloysia-citrodora"
   ],
-  "mechanism": "insufficient evidence"
+  "mechanism": "insufficient evidence",
+  "mechanisms": [
+    "insufficient evidence"
+  ],
+  "compoundClass": "iridoid glycosides; flavonoids",
+  "safetyNotes": [
+    "Limited data."
+  ]
 }

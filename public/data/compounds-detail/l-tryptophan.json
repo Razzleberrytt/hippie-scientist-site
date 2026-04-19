@@ -47,5 +47,9 @@
   "relatedEntities": [],
   "linkedHerbs": [
     "nan"
-  ]
+  ],
+  "mechanisms": [
+    "Proposed: precursor loading may modestly increase serotonin/melatonin signaling, but human efficacy evidence is weak"
+  ],
+  "compoundClass": "nutrient"
 }
