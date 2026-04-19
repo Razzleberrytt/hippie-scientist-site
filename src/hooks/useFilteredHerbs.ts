@@ -41,7 +41,6 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
           { name: 'common', weight: 0.8 },
           { name: 'nameNorm', weight: 0.7 },
           { name: 'scientific', weight: 0.7 },
-          { name: 'scientificname', weight: 0.6 },
           { name: 'compounds', weight: 0.5 },
           { name: 'tags', weight: 0.4 },
         ],

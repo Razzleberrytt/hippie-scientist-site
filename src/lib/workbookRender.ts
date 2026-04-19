@@ -35,7 +35,7 @@ export function resolveHeroSummary(
   input: Record<string, unknown> | undefined | null,
   maxSentences = 1,
 ): string {
-  const summary = sanitizeSummaryText(input?.hero || input?.summary || input?.description || '', maxSentences)
+  const summary = sanitizeSummaryText(input?.summary || input?.description || '', maxSentences)
   return isJunk(summary) ? '' : summary
 }
 
@@ -43,6 +43,6 @@ export function resolveCoreInsight(
   input: Record<string, unknown> | undefined | null,
   maxSentences = 1,
 ): string {
-  const insight = sanitizeSummaryText(input?.coreInsight || input?.overview || input?.whyItMatters || '', maxSentences)
+  const insight = sanitizeSummaryText(input?.whyItMatters || '', maxSentences)
   return isJunk(insight) ? '' : insight
 }
