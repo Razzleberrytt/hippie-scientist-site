@@ -13,6 +13,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -20,31 +21,15 @@ html {
   --footerH: 280px;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   font-family: var(--font-body);
-  line-height: 1.55;
+  line-height: 1.6;
   letter-spacing: 0;
   overscroll-behavior-y: none;
-  background: #060711;
+  background: var(--bg);
+  color: var(--text-primary);
   @apply antialiased;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  background:
-    radial-gradient(74% 66% at 12% 10%, color-mix(in oklab, var(--accent-teal, var(--accent-primary)) 100%, transparent) 0%, transparent 72%),
-    radial-gradient(76% 70% at 88% 84%, color-mix(in oklab, var(--accent-violet, var(--accent-secondary)) 100%, transparent) 0%, transparent 74%);
-  opacity: 0.05;
-  animation: ambient-shift 24s ease-in-out infinite alternate;
 }
 
 .prerender-content.sr-only {
@@ -82,13 +67,13 @@ svg {
 }
 
 a {
-  color: color-mix(in oklab, var(--accent) 86%, white 14%);
+  color: color-mix(in oklab, var(--accent) 82%, white 18%);
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 a:hover {
-  color: color-mix(in oklab, var(--accent) 76%, white 24%);
+  color: color-mix(in oklab, var(--accent) 70%, white 30%);
   text-decoration: underline;
 }
 
@@ -98,7 +83,8 @@ a:hover {
   }
 
   .ds-section {
-    @apply mb-10 border-t border-white/10 pt-6 sm:mb-12 sm:pt-8;
+    @apply mb-10 border-t pt-6 sm:mb-12 sm:pt-8;
+    border-color: var(--border-subtle);
   }
 
   .ds-stack {
@@ -109,38 +95,9 @@ a:hover {
   .ds-card-paper,
   .ds-card-tight,
   .ds-card-lg {
-    @apply rounded-xl border border-white/10 bg-white/[0.03] shadow-none;
-    backdrop-filter: blur(8px);
-  }
-
-  .neo-pill {
-    border-color: rgba(134, 239, 255, 0.42);
-    background: linear-gradient(140deg, rgba(34, 211, 238, 0.18), rgba(168, 85, 247, 0.16));
-    color: rgba(238, 250, 255, 0.98);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 0 12px rgba(91, 224, 255, 0.18);
-  }
-
-  .compound-context-link {
-    box-shadow: 0 0 0 rgba(88, 233, 255, 0);
-  }
-
-  .compound-context-link:hover {
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 18px rgba(88, 233, 255, 0.22);
-  }
-
-  .detail-panel {
-    @apply rounded-2xl border p-4;
-    border-color: rgba(255, 255, 255, 0.12);
-    background:
-      linear-gradient(170deg, rgba(123, 97, 255, 0.07), rgba(0, 186, 255, 0.03) 46%, rgba(255, 255, 255, 0.02)),
-      rgba(5, 8, 18, 0.42);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 12px 34px -26px rgba(0, 0, 0, 0.8);
-  }
-
-  .fade-in-surface {
-    animation: fade-surface 320ms ease both;
+    @apply rounded-xl border shadow-none;
+    border-color: var(--border-default);
+    background: var(--surface-2);
   }
 
   .ds-card {
@@ -149,6 +106,7 @@ a:hover {
 
   .ds-card-lg {
     @apply p-4;
+    background: var(--surface-3);
   }
 
   .ds-card-grid {
@@ -161,34 +119,49 @@ a:hover {
   }
 
   .ds-heading {
-    @apply text-lg font-semibold tracking-tight text-white;
+    @apply text-lg font-semibold tracking-tight;
+    color: var(--text-primary);
   }
 
   .ds-subheading {
-    @apply text-sm font-semibold tracking-tight text-white/90;
+    @apply text-sm font-semibold tracking-tight;
+    color: var(--text-secondary);
   }
 
   .ds-text {
-    @apply max-w-[64ch] text-sm leading-[1.5] text-white/80;
+    @apply max-w-[64ch] text-sm leading-[1.6];
+    color: var(--text-secondary);
   }
 
   .ds-text-muted {
-    @apply max-w-[64ch] text-sm leading-[1.48] text-white/70;
+    @apply max-w-[64ch] text-sm leading-[1.58];
+    color: var(--text-muted);
   }
 
   .ds-pill,
   .pill {
-    @apply inline-flex items-center rounded-full border px-2 py-0.5 text-[0.68rem] font-medium;
-    border-color: rgba(255, 255, 255, 0.16);
-    background: rgba(255, 255, 255, 0.03);
-    color: rgba(244, 246, 251, 0.78);
+    @apply inline-flex items-center rounded-full border px-2 py-0.5 text-[0.72rem] font-medium;
+    border-color: var(--border-default);
+    background: var(--surface-1);
+    color: var(--text-secondary);
   }
 
   .effect-pill-active {
-    background: hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.14);
-    border-color: hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.4);
-    color: hsl(var(--accent-h) 72% 86%);
+    background: color-mix(in oklab, var(--accent-primary) 20%, var(--surface-1));
+    border-color: color-mix(in oklab, var(--accent-primary) 45%, var(--border-default));
+    color: var(--text-primary);
     box-shadow: none;
+  }
+
+  .detail-panel {
+    @apply rounded-2xl border p-4;
+    border-color: var(--border-default);
+    background: var(--surface-2);
+    box-shadow: none;
+  }
+
+  .fade-in-surface {
+    animation: fade-surface 240ms ease both;
   }
 
   .hero-focus-glow::before {
@@ -219,21 +192,10 @@ a:hover {
 @keyframes fade-surface {
   from {
     opacity: 0;
-    transform: translateY(5px);
+    transform: translateY(4px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes ambient-shift {
-  0% {
-    filter: saturate(100%) hue-rotate(0deg);
-    opacity: 0.95;
-  }
-  100% {
-    filter: saturate(112%) hue-rotate(8deg);
-    opacity: 1;
   }
 }
