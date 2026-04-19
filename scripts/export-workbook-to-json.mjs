@@ -17,27 +17,24 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 const workbookPath = resolveWorkbookPath(repoRoot)
 const dataDir = path.join(repoRoot, 'public', 'data')
-const PRIMARY_HERB_SHEET = 'Site Export Herbs'
-const LEGACY_HERB_SHEET = 'Herb Monographs'
-const PRIMARY_COMPOUND_SHEET = 'Site Export Compounds'
-const LEGACY_COMPOUND_SHEET = 'Compound Master V3'
-const HERB_COMPOUND_MAP_SHEET = 'Herb Compound Map V3'
+const SHEET_MAP = {
+  herbs: ['Herb Master'],
+  compounds: ['Compound Master'],
+  herbCompoundMap: ['Herb Compound Map'],
+}
+const REQUIRED_SHEET_KEYS = ['herbs', 'compounds', 'herbCompoundMap']
+const RESOLVED_REQUIRED_COLUMNS = {
+  herbs: ['name'],
+  compounds: ['compoundName'],
+  herbCompoundMap: ['herbSlug', 'canonicalCompoundName'],
+}
 const LEGACY_GOAL_BUNDLE_SHEET = 'Production Export V1'
 const EXPORT_WORKBOOK_SHEETS = [
-  LEGACY_HERB_SHEET,
-  LEGACY_COMPOUND_SHEET,
-  HERB_COMPOUND_MAP_SHEET,
-  PRIMARY_HERB_SHEET,
-  PRIMARY_COMPOUND_SHEET,
+  ...REQUIRED_SHEET_KEYS.flatMap(sheetKey => SHEET_MAP[sheetKey]),
   LEGACY_GOAL_BUNDLE_SHEET,
 ]
 const OPTIONAL_WORKBOOK_SHEETS = new Set(['Production Export V1'])
 const SHEET_REQUIRED_COLUMNS = {
-  'Herb Monographs': ['name'],
-  'Compound Master V3': ['compoundName'],
-  'Herb Compound Map V3': ['herbSlug', 'canonicalCompoundName'],
-  'Site Export Herbs': ['name'],
-  'Site Export Compounds': ['compoundName'],
   'Production Export V1': ['goal'],
 }
 
@@ -55,6 +52,22 @@ function createDiagnostics() {
       ])
     ),
   }
+}
+
+function resolveWorkbookSheets(workbook) {
+  const resolvedSheets = {}
+  for (const sheetKey of REQUIRED_SHEET_KEYS) {
+    const candidates = SHEET_MAP[sheetKey]
+    const resolvedName = candidates.find(sheetName => Boolean(workbook.Sheets[sheetName]))
+    if (!resolvedName) {
+      throw new Error(
+        `[export] Missing required sheet for "${sheetKey}". Expected one of: ${candidates.join(', ')}`
+      )
+    }
+    resolvedSheets[sheetKey] = resolvedName
+    console.log(`[export][sheets] ${sheetKey}: ${resolvedName}`)
+  }
+  return resolvedSheets
 }
 
 function parseArgs(argv) {
@@ -153,7 +166,7 @@ function normalizeRecordSlug(record, fieldName) {
   return slugify(raw)
 }
 
-function readSheetRows(workbook, sheetName, diagnostics, { optional = false } = {}) {
+function readSheetRows(workbook, sheetName, diagnostics, { optional = false, requiredColumns = null } = {}) {
   const sheetDiagnostics = diagnostics.sheets[sheetName]
   const sheet = workbook.Sheets[sheetName]
   if (!sheet) {
@@ -172,9 +185,9 @@ function readSheetRows(workbook, sheetName, diagnostics, { optional = false } = 
   sheetDiagnostics.loadedRows = rows.length
 
   const canonicalRows = rows.map(row => canonicalizeWorkbookRow(row, sheetName))
-  const requiredColumns = SHEET_REQUIRED_COLUMNS[sheetName] || []
+  const requiredColumnsToCheck = requiredColumns || SHEET_REQUIRED_COLUMNS[sheetName] || []
   const observedColumns = new Set(canonicalRows.flatMap(row => Object.keys(row || {})))
-  const missingRequiredColumns = requiredColumns.filter(column => !observedColumns.has(column))
+  const missingRequiredColumns = requiredColumnsToCheck.filter(column => !observedColumns.has(column))
   if (missingRequiredColumns.length > 0) {
     sheetDiagnostics.missingRequiredColumns = missingRequiredColumns
     sheetDiagnostics.parseWarnings.push(`Missing required columns: ${missingRequiredColumns.join(', ')}`)
@@ -189,39 +202,9 @@ function readSheetRows(workbook, sheetName, diagnostics, { optional = false } = 
   return nonEmptyRows
 }
 
-function rowsByPrimaryWithOptionalFallback({ primaryRows, fallbackRows, getKey, allowLegacyFallback, entityType }) {
-  if (!allowLegacyFallback) {
-    return { rows: primaryRows, fallbackUsage: [] }
-  }
-
-  const primaryKeys = new Set(primaryRows.map(row => toCleanString(getKey(row)).toLowerCase()).filter(Boolean))
-  const fallbackUsage = []
-  const rows = [...primaryRows]
-
-  for (const row of fallbackRows) {
-    const key = toCleanString(getKey(row)).toLowerCase()
-    if (!key || primaryKeys.has(key)) continue
-    rows.push(row)
-    fallbackUsage.push({
-      entityType,
-      key,
-      reason: 'missing_site_export_alignment',
-      sourceSheet: entityType === 'herb' ? LEGACY_HERB_SHEET : LEGACY_COMPOUND_SHEET,
-    })
-  }
-
-  return { rows, fallbackUsage }
-}
-
-function exportHerbs(workbook, diagnostics, options) {
-  const primaryRows = readSheetRows(workbook, PRIMARY_HERB_SHEET, diagnostics, { optional: true })
-  const fallbackRows = readSheetRows(workbook, LEGACY_HERB_SHEET, diagnostics)
-  const { rows, fallbackUsage } = rowsByPrimaryWithOptionalFallback({
-    primaryRows,
-    fallbackRows,
-    getKey: row => firstMeaningful(row.slug, row.herbSlug, row.name ? slugify(row.name) : ''),
-    allowLegacyFallback: options.allowLegacyFallback,
-    entityType: 'herb',
+function exportHerbs(workbook, diagnostics, resolvedSheets) {
+  const rows = readSheetRows(workbook, resolvedSheets.herbs, diagnostics, {
+    requiredColumns: RESOLVED_REQUIRED_COLUMNS.herbs,
   })
 
   const records = rows
@@ -281,19 +264,13 @@ function exportHerbs(workbook, diagnostics, options) {
     const withNormalizedSlug = { ...record, slug: normalizeRecordSlug(record, 'slug') }
     return removeEmptyValues(withNormalizedSlug)
   })
-  diagnostics.sheets[PRIMARY_HERB_SHEET].skippedRows += records.length - deduped.length
-  return { records: deduped, fallbackUsage }
+  diagnostics.sheets[resolvedSheets.herbs].skippedRows += records.length - deduped.length
+  return { records: deduped, fallbackUsage: [] }
 }
 
-function exportCompounds(workbook, diagnostics, options) {
-  const primaryRows = readSheetRows(workbook, PRIMARY_COMPOUND_SHEET, diagnostics, { optional: true })
-  const fallbackRows = readSheetRows(workbook, LEGACY_COMPOUND_SHEET, diagnostics)
-  const { rows, fallbackUsage } = rowsByPrimaryWithOptionalFallback({
-    primaryRows,
-    fallbackRows,
-    getKey: row => firstMeaningful(row.canonicalCompoundId, row.compoundName, row.canonicalCompoundName),
-    allowLegacyFallback: options.allowLegacyFallback,
-    entityType: 'compound',
+function exportCompounds(workbook, diagnostics, resolvedSheets) {
+  const rows = readSheetRows(workbook, resolvedSheets.compounds, diagnostics, {
+    requiredColumns: RESOLVED_REQUIRED_COLUMNS.compounds,
   })
 
   const records = rows.map(row => ({
@@ -345,12 +322,14 @@ function exportCompounds(workbook, diagnostics, options) {
     }
     return removeEmptyValues(cleaned)
   })
-  diagnostics.sheets[PRIMARY_COMPOUND_SHEET].skippedRows += records.length - deduped.length
-  return { records: deduped, fallbackUsage }
+  diagnostics.sheets[resolvedSheets.compounds].skippedRows += records.length - deduped.length
+  return { records: deduped, fallbackUsage: [] }
 }
 
-function exportHerbCompoundMap(workbook, diagnostics) {
-  const rows = readSheetRows(workbook, 'Herb Compound Map V3', diagnostics)
+function exportHerbCompoundMap(workbook, diagnostics, resolvedSheets) {
+  const rows = readSheetRows(workbook, resolvedSheets.herbCompoundMap, diagnostics, {
+    requiredColumns: RESOLVED_REQUIRED_COLUMNS.herbCompoundMap,
+  })
   const records = rows.map(row => ({
     herbSlug: firstMeaningful(row.herbSlug, row.slug, row.name ? slugify(row.name) : ''),
     herbName: firstMeaningful(row.herbName, row.name),
@@ -378,7 +357,7 @@ function exportHerbCompoundMap(workbook, diagnostics) {
       canonicalCompoundId: normalizeRecordSlug(record, 'canonicalCompoundId'),
     })
   )
-  diagnostics.sheets['Herb Compound Map V3'].skippedRows += records.length - deduped.length
+  diagnostics.sheets[resolvedSheets.herbCompoundMap].skippedRows += records.length - deduped.length
   return deduped
 }
 
@@ -434,6 +413,7 @@ function main() {
   const options = parseArgs(process.argv.slice(2))
   const diagnostics = createDiagnostics()
   const workbook = XLSX.readFile(workbookPath, { sheets: EXPORT_WORKBOOK_SHEETS })
+  const resolvedSheets = resolveWorkbookSheets(workbook)
   const ignoredSheets = workbook.SheetNames.filter(sheetName => !EXPORT_WORKBOOK_SHEETS.includes(sheetName))
 
   for (const sheetName of EXPORT_WORKBOOK_SHEETS) {
@@ -442,13 +422,13 @@ function main() {
     }
   }
 
-  const herbsExport = exportHerbs(workbook, diagnostics, options)
-  const compoundsExport = exportCompounds(workbook, diagnostics, options)
+  const herbsExport = exportHerbs(workbook, diagnostics, resolvedSheets)
+  const compoundsExport = exportCompounds(workbook, diagnostics, resolvedSheets)
   const fallbackUsage = [...herbsExport.fallbackUsage, ...compoundsExport.fallbackUsage]
 
   writeJson('workbook-herbs.json', herbsExport.records)
   writeJson('workbook-compounds.json', compoundsExport.records)
-  writeJson('workbook-herb-compound-map.json', exportHerbCompoundMap(workbook, diagnostics))
+  writeJson('workbook-herb-compound-map.json', exportHerbCompoundMap(workbook, diagnostics, resolvedSheets))
   writeJson('workbook-goal-bundles.json', exportGoalBundles(workbook, diagnostics))
   writeReportJson('reports/workbook-fallback-usage.json', fallbackUsage)
   if (options.allowLegacyFallback) {
