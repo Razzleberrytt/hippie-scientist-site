@@ -110,17 +110,13 @@ export default function EntityDatabasePage({
       const regions = [item.region, ...(item.regiontags || [])].filter(Boolean)
       regions.forEach(entry => regionSet.add(String(entry)))
 
-      const mechanisms = String(item.mechanism || (item as any).mechanismOfAction || '')
+      const mechanisms = String(item.mechanism || '')
         .split(/[;|]/)
         .map(entry => entry.trim())
         .filter(Boolean)
       mechanisms.forEach(entry => mechanismSet.add(entry))
 
-      const compounds = [
-        ...((item as any).activeCompounds || []),
-        ...(item.active_compounds || []),
-        ...(item.compounds || []),
-      ]
+      const compounds = [...((item as any).activeCompounds || [])]
         .map(entry => String(entry).trim())
         .filter(Boolean)
       compounds.forEach(entry => activeCompoundSet.add(entry))
@@ -134,7 +130,7 @@ export default function EntityDatabasePage({
       ].filter(Boolean)
       interactions.forEach(entry => interactionSet.add(String(entry)))
 
-      const legalValues = [item.legalStatus, item.legalstatus, item.legal].filter(Boolean)
+      const legalValues = [item.legalStatus].filter(Boolean)
       legalValues.forEach(entry => legalSet.add(String(entry)))
 
       const categories = [
@@ -205,19 +201,13 @@ export default function EntityDatabasePage({
       }
 
       if (mechanismFilter.length > 0) {
-        const mechanism = String(
-          item.mechanism || (item as any).mechanismOfAction || ''
-        ).toLowerCase()
+        const mechanism = String(item.mechanism || '').toLowerCase()
         const hasAny = mechanismFilter.some(entry => mechanism.includes(entry.toLowerCase()))
         if (!hasAny) return false
       }
 
       if (compoundFilter.length > 0) {
-        const compounds = [
-          ...((item as any).activeCompounds || []),
-          ...(item.active_compounds || []),
-          ...(item.compounds || []),
-        ]
+        const compounds = [...((item as any).activeCompounds || [])]
           .join(' ')
           .toLowerCase()
         const hasAny = compoundFilter.some(entry => compounds.includes(entry.toLowerCase()))
@@ -233,7 +223,7 @@ export default function EntityDatabasePage({
       }
 
       if (legalFilter.length > 0) {
-        const legal = String(item.legalStatus || item.legalstatus || item.legal || '').toLowerCase()
+        const legal = String(item.legalStatus || '').toLowerCase()
         const hasAny = legalFilter.some(entry => legal.includes(entry.toLowerCase()))
         if (!hasAny) return false
       }

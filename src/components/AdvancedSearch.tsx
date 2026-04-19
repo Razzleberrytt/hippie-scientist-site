@@ -6,7 +6,7 @@ export type AdvancedHerb = {
   scientific?: string
   effects?: string
   tags?: string[]
-  compounds?: string[]
+  activeCompounds?: string[]
   contraindications?: string[] | string
   interactions?: string[] | string
   intensity?: string | number | null
@@ -122,7 +122,7 @@ export default function AdvancedSearch({
         herb.effects,
         (herb as Record<string, unknown>).description,
         (herb.tags || []).join(' '),
-        (herb.compounds || []).join(' '),
+        (herb.activeCompounds || []).join(' '),
       ]
       const haystack = norm(fields.join(' '))
       if (query && !haystack.includes(query)) return false
