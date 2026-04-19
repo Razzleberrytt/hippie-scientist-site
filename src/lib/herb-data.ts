@@ -199,32 +199,8 @@ function normalizeProductRecommendations(value: unknown): ProductRecommendation[
     .slice(0, 2)
 }
 
-function readContextRecord(data: Record<string, unknown>): Record<string, unknown> {
-  const context = data.context
-  if (typeof context === 'string') {
-    const trimmed = context.trim()
-    if (!trimmed) return {}
-    try {
-      const parsed = JSON.parse(trimmed)
-      return parsed && typeof parsed === 'object' && !Array.isArray(parsed)
-        ? (parsed as Record<string, unknown>)
-        : {}
-    } catch {
-      return {}
-    }
-  }
-  return context && typeof context === 'object' ? (context as Record<string, unknown>) : {}
-}
-
-function readSafetyRecord(data: Record<string, unknown>): Record<string, unknown> {
-  const safety = data.safety
-  return safety && typeof safety === 'object' ? (safety as Record<string, unknown>) : {}
-}
-
 function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   const { data } = sanitizeHerbRecord(raw, { debug: import.meta.env.DEV })
-  const context = readContextRecord(data)
-  const safetyRecord = readSafetyRecord(data)
   const common = cleanText(data.name) || ''
   const scientific = cleanText(data.scientificName) || ''
   const slug = String(data.slug || data.id || slugify(common || scientific || ''))
@@ -236,9 +212,6 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   const interactions = splitClean(data.interactions)
   const sideeffects = splitClean(data.sideEffects)
   const safetyNotes = normalizeSafetyNotes(
-    safetyRecord.caution,
-    safetyRecord.notes,
-    safetyRecord.summary,
     data.safetyNotes,
     data.contraindications,
     data.interactions,
@@ -263,8 +236,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     data.mechanism,
   )
   const mechanism = mechanisms.join('; ')
-  const description =
-    cleanText(data.description ?? data.summary ?? data.hero ?? data.intro ?? data.coreInsight) || ''
+  const description = cleanText(data.description ?? data.summary) || ''
   const duration = cleanText(data.duration) || ''
   const dosage = cleanText(data.dosage) || ''
   const preparation = cleanText(data.preparation) || ''
@@ -272,8 +244,8 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   const region = cleanText(data.region) || ''
   const category = cleanText(data.category) || ''
   const intensity = cleanText(data.intensity) || ''
-  const relatedEntities = splitClean(data.relatedEntities ?? context.foundIn)
-  const relatedCompounds = splitClean(data.relatedCompounds ?? context.relatedCompounds)
+  const relatedEntities = splitClean(data.relatedEntities)
+  const relatedCompounds = splitClean(data.relatedCompounds)
   const relatedHerbs = splitClean(data.relatedHerbs).concat(
     relatedEntities
       .filter(entry => entry.toLowerCase().startsWith('herb:'))
@@ -282,7 +254,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   )
   const identity = cleanText(data.identity) || ''
   const categoryUseContext = cleanText(data.categoryUseContext) || ''
-  const evidenceLevel = cleanText(data.evidenceLevel ?? safetyRecord.evidence ?? safetyRecord.confidence) || ''
+  const evidenceLevel = cleanText(data.evidenceLevel) || ''
   const benefits = splitClean(data.benefits ?? data.effects)
 
   return {
@@ -328,8 +300,8 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
       name: common || scientific || slug,
       summary: description,
       description,
-      whyItMatters: cleanText(data.whyItMatters ?? data.coreInsight ?? data.overview) || description,
-      primaryEffects: splitClean(data.primaryEffects ?? data.keyEffects ?? primaryActions),
+      whyItMatters: cleanText(data.whyItMatters) || description,
+      primaryEffects: splitClean(data.primaryEffects ?? primaryActions),
       effects: primaryActions,
       contraindications,
       interactions,
@@ -342,8 +314,6 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
 }
 
 function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
-  const context = readContextRecord(raw)
-  const safetyRecord = readSafetyRecord(raw)
   const slug = String(raw.slug || '')
     .trim()
     .toLowerCase()
@@ -365,14 +335,14 @@ function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
     category: cleanText(raw.category) || '',
     class: '',
     confidence: confidenceLevel,
-    summaryShort: cleanText(raw.summaryShort ?? raw.description ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
-    description: cleanText(raw.description ?? raw.summaryShort ?? raw.summary ?? raw.hero ?? raw.coreInsight) || '',
+    summaryShort: cleanText(raw.summaryShort ?? raw.description ?? raw.summary) || '',
+    description: cleanText(raw.description ?? raw.summaryShort ?? raw.summary) || '',
     primaryActions,
     mechanisms,
     mechanism: cleanText(raw.mechanism ?? mechanisms.join('; ')) || '',
     effects: primaryActions,
     activeCompounds,
-    safetyNotes: cleanText(raw.safetyNotes ?? safetyRecord.summary ?? safetyRecord.caution) || '',
+    safetyNotes: cleanText(raw.safetyNotes) || '',
     traditionalUses: splitClean(raw.traditionalUses),
     evidenceLevel: cleanText(raw.evidenceLevel ?? raw.confidence) || '',
     relatedHerbs: splitClean(raw.relatedHerbs),
@@ -380,11 +350,11 @@ function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
     interactionNotes: splitClean(raw.interactionNotes),
     interactions: splitClean(raw.interactions),
     contraindications: splitClean(raw.contraindications),
-    safety: cleanText(raw.safety ?? safetyRecord.caution ?? safetyRecord.summary) || '',
+    safety: cleanText(raw.safety) || '',
     sideEffects: cleanText(raw.sideEffects) || '',
     toxicity: cleanText(raw.toxicity) || '',
     tags: splitClean(raw.tags),
-    region: cleanText(raw.region ?? context.region) || '',
+    region: cleanText(raw.region) || '',
     sourceCount: Number.isFinite(Number(raw.sourceCount)) ? Number(raw.sourceCount) : undefined,
     hasInteractionData: Boolean(raw.hasInteractionData),
     hasEvidenceNotes: Boolean(raw.hasEvidenceNotes),
