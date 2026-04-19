@@ -202,6 +202,7 @@ export default function HerbDetail() {
   )
   const keyEffects = primaryActions.slice(0, 4)
   const activeCompounds = sanitizeRenderList(splitTextList(herb.activeCompounds), 10)
+  const traditionalUses = sanitizeRenderList(splitTextList(herb.traditionalUses), 8)
   const mechanism = uniqueCopy.mechanism
   const contextSummary = uniqueCopy.context
   const dosage = String(herb.dosage || '').trim()
@@ -312,43 +313,29 @@ export default function HerbDetail() {
             <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>{summary}</p>
           )}
 
-          <section className='mt-3'>
-            <h2 className='text-xs font-semibold uppercase tracking-[0.16em] text-white/62'>Key effects</h2>
-            <div className='mt-2 flex flex-wrap gap-2'>
-              {keyEffects.length > 0 ? (
-                keyEffects.map(effect => (
-                  <span
-                    key={effect}
-                    className='neo-pill rounded-full border px-2.5 py-1 text-xs'
-                  >
-                    {effect}
-                  </span>
-                ))
-              ) : null}
-            </div>
-          </section>
-
           <div className='mt-3 inline-flex rounded-full border border-white/20 bg-white/5 px-2.5 py-1 text-xs text-white/84'>
             Evidence strength: {confidenceLabel}
           </div>
         </header>
 
-        {!isMinimalProfile && <section className='browse-shell fade-in-surface p-5 sm:p-6'>
-          <h2 className='section-label text-white/82'>Use case framework</h2>
-          <ul className='mt-2 list-disc space-y-1 pl-5 text-sm text-white/85'>
-            {useCasePoints.slice(0, 3).map(point => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
-        </section>}
+        <section className='browse-shell fade-in-surface p-5 sm:p-6'>
+          <h2 className='section-label text-white/82'>Primary Actions</h2>
+          <div className='mt-2 flex flex-wrap gap-2'>
+            {keyEffects.length > 0 ? (
+              keyEffects.map(effect => (
+                <span key={effect} className='neo-pill rounded-full border px-2.5 py-1 text-xs'>
+                  {effect}
+                </span>
+              ))
+            ) : (
+              <p className='text-sm text-white/72'>Primary action tags are being expanded.</p>
+            )}
+          </div>
+        </section>
 
-        {safetyNotes.length > 0 && (
-          <DisclosureSection title='Safety & Interactions' defaultOpen={Boolean(priorityWarning)}>
-            <ul className='list-disc space-y-1 pl-5'>
-              {safetyNotes.map(note => (
-                <li key={`safety-${note}`}>{note}</li>
-              ))}
-            </ul>
+        {!isMinimalProfile && mechanism && (
+          <DisclosureSection title='Mechanisms' defaultOpen>
+            <p>{mechanism}</p>
           </DisclosureSection>
         )}
 
@@ -364,6 +351,55 @@ export default function HerbDetail() {
           )}
         </DisclosureSection>}
 
+        {!isMinimalProfile && traditionalUses.length > 0 && (
+          <DisclosureSection title='Traditional Uses'>
+            <ul className='list-disc space-y-1 pl-5'>
+              {traditionalUses.map(use => (
+                <li key={use}>{use}</li>
+              ))}
+            </ul>
+          </DisclosureSection>
+        )}
+
+        {!isMinimalProfile && (dosage || duration || preparation || standardization) && <DisclosureSection title='Preparation'>
+          <ul className='list-disc space-y-1 pl-5'>
+            {preparation && <li>Preparation: {preparation}</li>}
+            {dosage && <li>Dosage: {dosage}</li>}
+            {duration && <li>Duration: {duration}</li>}
+            {standardization && <li>Standardization: {standardization}</li>}
+          </ul>
+        </DisclosureSection>}
+
+        {safetyNotes.length > 0 && (
+          <DisclosureSection title='Safety Notes' defaultOpen={Boolean(priorityWarning)}>
+            <ul className='list-disc space-y-1 pl-5'>
+              {safetyNotes.map(note => (
+                <li key={`safety-${note}`}>{note}</li>
+              ))}
+            </ul>
+          </DisclosureSection>
+        )}
+
+        {!isMinimalProfile && contraindications.length > 0 && (
+          <DisclosureSection title='Contraindications'>
+            <ul className='list-disc space-y-1 pl-5'>
+              {contraindications.map(item => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </DisclosureSection>
+        )}
+
+        {!isMinimalProfile && interactions.length > 0 && (
+          <DisclosureSection title='Interactions'>
+            <ul className='list-disc space-y-1 pl-5'>
+              {interactions.map(item => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </DisclosureSection>
+        )}
+
         {!isMinimalProfile && summaryQuality === 'strong' && coreInsight && coreInsight !== summary && (
           <section className='browse-shell fade-in-surface p-5 sm:p-6'>
             <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/85'>Core insight</h2>
@@ -377,26 +413,20 @@ export default function HerbDetail() {
           </DisclosureSection>
         )}
 
-        {!isMinimalProfile && mechanism && (
-          <DisclosureSection title='Mechanism of Action'>
-            <p>{mechanism}</p>
-          </DisclosureSection>
-        )}
-
         {!isMinimalProfile && contextSummary && contextSummary !== summary && (
           <DisclosureSection title='Context'>
             <p>{contextSummary}</p>
           </DisclosureSection>
         )}
 
-        {!isMinimalProfile && (dosage || duration || preparation || standardization) && <DisclosureSection title='Dosage & Usage'>
-          <ul className='list-disc space-y-1 pl-5'>
-            {dosage && <li>Dosage: {dosage}</li>}
-            {duration && <li>Duration: {duration}</li>}
-            {preparation && <li>Preparation: {preparation}</li>}
-            {standardization && <li>Standardization: {standardization}</li>}
+        {!isMinimalProfile && <section className='browse-shell fade-in-surface p-5 sm:p-6'>
+          <h2 className='section-label text-white/82'>Use case framework</h2>
+          <ul className='mt-2 list-disc space-y-1 pl-5 text-sm text-white/85'>
+            {useCasePoints.slice(0, 3).map(point => (
+              <li key={point}>{point}</li>
+            ))}
           </ul>
-        </DisclosureSection>}
+        </section>}
 
         <DisclosureSection title='Research & Sources'>
           {sources.length > 0 ? (
@@ -430,7 +460,7 @@ export default function HerbDetail() {
           </DisclosureSection>
         )}
 
-        {!isMinimalProfile && <DisclosureSection title='Related Herbs & Compounds'>
+        {!isMinimalProfile && <DisclosureSection title='Related Herbs'>
           <div className='space-y-3'>
             {relatedHerbs.length > 0 && (
               <div>

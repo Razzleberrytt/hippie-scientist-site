@@ -209,6 +209,8 @@ export default function CompoundDetail() {
   const name = normalizeTextValue(compound.name) || normalizeTextValue(compound.id) || 'Unknown compound'
   const evidence = sanitizeReadableText(compoundRecord.evidence)
   const pharmacokinetics = sanitizeReadableText(compoundRecord.pharmacokinetics)
+  const bioavailability = sanitizeReadableText(compound.bioavailability)
+  const targetList = sanitizeRenderList(splitClean(compound.targets))
   const pathwayTargets = sanitizeRenderList(splitClean(compound.pathways))
   const curatedData = compound.curatedData
   const compoundEffects = sanitizeRenderChips(
@@ -240,7 +242,6 @@ export default function CompoundDetail() {
     ),
   })
   const coreInsight = uniqueCopy.overview
-  const contextSummary = uniqueCopy.context
   const compoundDescription = uniqueCopy.hero
   const compoundMechanism = uniqueCopy.mechanism
   const workbookSafety = sanitizeRenderChips(
@@ -285,15 +286,15 @@ export default function CompoundDetail() {
 
   const whyItMatters = coreInsight ||
     sanitizeSummaryText(curatedData.whyItMatters || compoundEffects.slice(0, 2).join(' + '), 1)
+  const topSummary = sanitizeSummaryText(
+    compoundDescription || coreInsight || compoundMechanism,
+    1,
+  )
   const consumeSectionBody = createSectionBodyTracker()
   const whyItMattersBody = !isMinimalProfile
     ? consumeSectionBody(whyItMatters || 'Tracked for mechanism context and potential outcomes.')
     : ''
-  const overviewBody = !isMinimalProfile && compoundDescription !== topSummary
-    ? consumeSectionBody(compoundDescription)
-    : ''
   const mechanismBody = !isMinimalProfile ? consumeSectionBody(compoundMechanism) : ''
-  const contextBody = !isMinimalProfile && contextSummary !== topSummary ? consumeSectionBody(contextSummary) : ''
   const pharmacokineticsBody = !isMinimalProfile ? consumeSectionBody(pharmacokinetics) : ''
   const dosageBody = consumeSectionBody(compound.dosage)
   const durationBody = consumeSectionBody(compound.duration)
@@ -468,10 +469,6 @@ export default function CompoundDetail() {
     sourceCount,
   })
   const governedReviewFreshness = buildGovernedReviewFreshness(governedResearch)
-  const topSummary = sanitizeSummaryText(
-    compoundDescription || coreInsight || governedIntro.whatItIs || governedIntro.commonUse || compoundMechanism,
-    1,
-  )
   const topEffects = primaryEffects.slice(0, 4)
   const whereAppears = foundInHerbLinks.slice(0, 3).map(item => item.label)
   const enrichmentRecommendations = buildEnrichmentRecommendations('compound', compound.slug)
@@ -482,8 +479,9 @@ export default function CompoundDetail() {
   }
 
   // Derive a display class — category only if it's meaningful
-  const displayClass =
-    compound.compoundClass || compound.className || (compound.category !== 'Uncategorized' ? compound.category : '')
+  const displayClass = compound.compoundClass
+  const evidenceLevel = sanitizeReadableText(compound.evidenceLevel)
+  const workbookSources = sanitizeRenderList(splitClean(rawRecord.sources))
   const compoundEffectsMetaText = Array.isArray(compoundEffects)
     ? compoundEffects.join(', ').slice(0, 155)
     : ''
@@ -621,52 +619,27 @@ export default function CompoundDetail() {
           </Link>
         </header>
 
-        {/* Core fields — only render when value is present */}
-        {overviewBody && (
-          <Section title='Overview'>
-            {overviewBody}
-            {displayClass && (
-              <p className='mt-3 label-specimen'>
-                Category: {displayClass}
-              </p>
-            )}
+        {/* Compound class */}
+        {displayClass && (
+          <Section title='Compound Class'>
+            <p>{displayClass}</p>
           </Section>
         )}
 
-        {/* Primary effects pills */}
-        {primaryEffects.length > 0 && (
-          <div className='mt-5 flex flex-wrap gap-2'>
-            {primaryEffects.map(effect => (
-              <span
-                key={effect}
-                className='neo-pill rounded-full border px-2.5 py-1 text-xs'
-              >
-                {effect}
-              </span>
-            ))}
-          </div>
-        )}
+        {/* Mechanisms */}
+        {mechanismBody && <Section title='Mechanisms'>{mechanismBody}</Section>}
 
-        {mechanismBody && <Section title='Mechanism of Action'>{mechanismBody}</Section>}
-
-        {contextBody && (
-          <Section title='Context'>{contextBody}</Section>
-        )}
-
-        {compoundEffects.length > 0 && (
-          <Section title='Effects'>
-            <ListSection items={compoundEffects} maxVisible={5} />
+        {/* Targets */}
+        {!isMinimalProfile && targetList.length > 0 && (
+          <Section title='Targets'>
+            <ListSection items={targetList} maxVisible={6} />
           </Section>
         )}
 
-        <PremiumDataSection details={premiumDetails} relationGroups={relationGroups} />
-
-
-        {pharmacokineticsBody && <Section title='Pharmacokinetics'>{pharmacokineticsBody}</Section>}
-
+        {/* Pathways */}
         {!isMinimalProfile && pathwayTargets.length > 0 && (
           <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
-            <Collapse title='Pathway Targets'>
+            <Collapse title='Pathways'>
               <div className='flex flex-wrap gap-2 text-sm text-white/85'>
                 {pathwayTargets.map(target => (
                   <span key={target} className='ds-pill'>
@@ -678,17 +651,55 @@ export default function CompoundDetail() {
           </section>
         )}
 
-        {!isMinimalProfile && compoundTherapeuticUses.length > 0 && (
-          <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
-            <Collapse title='Traditional & Therapeutic Use'>
-              <div className='text-sm leading-relaxed text-white/85'>
-                <ListSection items={compoundTherapeuticUses} maxVisible={6} />
+        {/* Found in */}
+        {!isMinimalProfile && foundInHerbLinks.length > 0 && (
+          <section id='related-herbs' className='detail-panel fade-in-surface mt-6'>
+            <Collapse title={`Found In (${foundInHerbLinks.length})`}>
+              <div className='space-y-4 text-sm leading-relaxed text-white/85'>
+                {linkedHerbCards.length > 0 && (
+                  <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+                    {linkedHerbCards.map(herb => (
+                      <HerbCard
+                        key={herb.slug}
+                        name={herb.name}
+                        summary={herb.descriptor || 'Learn more about this herb and its potential uses.'}
+                        primary_effects={Array.isArray(herb.primaryEffects) ? herb.primaryEffects : []}
+                        profile_status={String(herb.profileStatus || '')}
+                        summary_quality={String(herb.summaryQuality || '')}
+                        detailUrl={`/herbs/${encodeURIComponent(herb.slug)}`}
+                      />
+                    ))}
+                  </div>
+                )}
+                <div>
+                  <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
+                    Quick Links
+                  </h3>
+                  <div className='flex flex-wrap gap-2.5'>
+                    {foundInHerbLinks.map(item => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        className='inline-flex items-center rounded-full border border-white/12 bg-white/[0.05] px-3 py-1.5 text-xs font-medium tracking-[0.01em] text-white/86 transition duration-200 hover:border-white/24 hover:bg-white/[0.085] hover:text-white'
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
             </Collapse>
           </section>
         )}
 
-        {/* Safety */}
+        {/* Bioavailability */}
+        {(bioavailability || pharmacokineticsBody) && (
+          <Section title='Bioavailability'>
+            {bioavailability || pharmacokineticsBody}
+          </Section>
+        )}
+
+        {/* Safety notes */}
         {!isMinimalProfile && (compoundContraindications.length > 0 ||
           compoundInteractions.length > 0 ||
           compoundSideEffects.length > 0 ||
@@ -729,50 +740,25 @@ export default function CompoundDetail() {
           </section>
         )}
 
-        {/* Found in */}
-        {!isMinimalProfile && foundInHerbLinks.length > 0 && (
-          <section id='related-herbs' className='detail-panel fade-in-surface mt-6'>
-            <Collapse title={`Found In (${foundInHerbLinks.length})`}>
-              <div className='space-y-4 text-sm leading-relaxed text-white/85'>
-                {linkedHerbCards.length > 0 && (
-                  <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
-                    {linkedHerbCards.map(herb => (
-                      <HerbCard
-                        key={herb.slug}
-                        name={herb.name}
-                        summary={herb.descriptor || 'Learn more about this herb and its potential uses.'}
-                        primary_effects={Array.isArray((herb as Record<string, unknown>).primary_effects)
-                          ? ((herb as Record<string, unknown>).primary_effects as string[])
-                          : Array.isArray((herb as Record<string, unknown>).primaryEffects)
-                            ? ((herb as Record<string, unknown>).primaryEffects as string[])
-                            : []}
-                        profile_status={String((herb as Record<string, unknown>).profile_status || (herb as Record<string, unknown>).profileStatus || '')}
-                        summary_quality={String((herb as Record<string, unknown>).summary_quality || (herb as Record<string, unknown>).summaryQuality || '')}
-                        detailUrl={`/herbs/${encodeURIComponent(herb.slug)}`}
-                      />
-                    ))}
-                  </div>
-                )}
-                <div>
-                  <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
-                    Quick Links
-                  </h3>
-                  <div className='flex flex-wrap gap-2.5'>
-                    {foundInHerbLinks.map(item => (
-                      <Link
-                        key={item.to}
-                        to={item.to}
-                        className='inline-flex items-center rounded-full border border-white/12 bg-white/[0.05] px-3 py-1.5 text-xs font-medium tracking-[0.01em] text-white/86 transition duration-200 hover:border-white/24 hover:bg-white/[0.085] hover:text-white'
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+        {/* Evidence level */}
+        {evidenceLevel && <Section title='Evidence Level'>{evidenceLevel}</Section>}
+
+        {/* Related compounds */}
+        {!isMinimalProfile && relatedCompoundLinks.length > 0 && (
+          <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
+            <Collapse title={`Related Compounds (${relatedCompoundLinks.length})`}>
+              <div className='flex flex-wrap gap-2'>
+                {relatedCompoundLinks.map(item => (
+                  <Link key={item.to} to={item.to} className='btn-secondary text-xs'>
+                    {item.label}
+                  </Link>
+                ))}
               </div>
             </Collapse>
           </section>
         )}
+
+        <PremiumDataSection details={premiumDetails} relationGroups={relationGroups} />
 
         {!isMinimalProfile && relatedCollections.length > 0 && (
           <section className='browse-shell fade-in-surface mt-6 p-4 sm:p-5'>
