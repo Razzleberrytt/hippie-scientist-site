@@ -5,13 +5,9 @@ export function herbName(herb: Partial<Herb> | null | undefined): string {
   if (typeof herb.common === 'string' && herb.common.trim()) return herb.common.trim()
   if (typeof herb.name === 'string' && herb.name.trim()) return herb.name.trim()
   if (typeof herb.nameNorm === 'string' && herb.nameNorm.trim()) return herb.nameNorm.trim()
-  if (typeof (herb as any).commonName === 'string' && (herb as any).commonName.trim())
-    return (herb as any).commonName.trim()
   if (typeof herb.commonnames === 'string' && herb.commonnames.trim())
     return herb.commonnames.trim()
   if (typeof herb.scientific === 'string' && herb.scientific.trim()) return herb.scientific.trim()
-  if (typeof herb.scientificname === 'string' && herb.scientificname.trim())
-    return herb.scientificname.trim()
   return (herb.id as string) || ''
 }
 

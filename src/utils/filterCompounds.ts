@@ -17,7 +17,7 @@ function getCompoundConfidence(compound: CompoundSummaryRecord) {
   return calculateCompoundConfidence({
     mechanism: asStringArray(compound.mechanisms).join('; ') || compound.mechanism,
     effects: asStringArray(compound.primaryActions ?? compound.effects),
-    compounds: asStringArray(compound.foundIn ?? compound.herbs),
+    compounds: asStringArray(compound.foundIn),
   })
 }
 
@@ -48,10 +48,10 @@ export function filterCompounds(
 ): CompoundSummaryRecord[] {
   const searched = searchEntries(compounds, filters.query, compound => ({
     name: compound.name,
-    type: compound.category || compound.className,
+    type: compound.category || compound.compoundClass,
     mechanism: asStringArray(compound.mechanisms).join('; ') || compound.mechanism,
     effects: asStringArray(compound.primaryActions ?? compound.effects),
-    activeCompounds: asStringArray(compound.foundIn ?? compound.herbs),
+    activeCompounds: asStringArray(compound.foundIn),
     contraindications: [],
     safety: [],
   })).map(result => result.entry)
@@ -64,7 +64,7 @@ export function filterCompounds(
       normalizeText(effect),
     )
     const confidence = getCompoundConfidence(compound)
-    const category = normalizeText(compound.category || compound.className)
+    const category = normalizeText(compound.category || compound.compoundClass)
 
     if (effectNeedles.length > 0) {
       const hasAllEffects = effectNeedles.every(effect =>
@@ -90,7 +90,7 @@ export function filterCompounds(
         description: compound.description,
         mechanism: asStringArray(compound.mechanisms).join('; ') || compound.mechanism,
         effects: asStringArray(compound.primaryActions ?? compound.effects),
-        associations: asStringArray(compound.foundIn ?? compound.herbs),
+        associations: asStringArray(compound.foundIn),
         sourceCount: compound.sourceCount,
         hasEvidence: Boolean(compound.researchEnrichmentSummary?.evidenceLabel),
         confidenceLevel: getCompoundConfidence(compound),

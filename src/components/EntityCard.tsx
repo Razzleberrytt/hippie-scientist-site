@@ -14,9 +14,9 @@ export default function EntityCard({ e }: { e: Entity }) {
         className='pointer-events-none absolute inset-0 rounded-[var(--radius-lg)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 shadow-[inset_0_0_0_1px_rgba(14,207,179,0.12)]'
       />
       <h3 className='text-xl font-semibold text-white md:text-2xl'>
-        {e.commonName ?? e.latinName}
+        {e.name}
       </h3>
-      {e.commonName && <p className='mt-1 italic text-white/60'>{e.latinName}</p>}
+      {e.scientificName && <p className='mt-1 italic text-white/60'>{e.scientificName}</p>}
       <p className='mt-3 text-white/80'>{summary}</p>
       {e.tags?.length ? (
         <div className='mt-4 flex flex-wrap gap-2'>
