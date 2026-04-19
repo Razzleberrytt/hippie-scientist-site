@@ -17,12 +17,12 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 const workbookPath = resolveWorkbookPath(repoRoot)
 const dataDir = path.join(repoRoot, 'public', 'data')
-const SHEET_MAP = {
-  herbs: ['Herb Master'],
-  compounds: ['Compound Master'],
-  herbCompoundMap: ['Herb Compound Map'],
+const REQUIRED_WORKBOOK_SHEETS = {
+  herbs: 'Herb Master',
+  compounds: 'Compound Master',
+  herbCompoundMap: 'Herb Compound Map',
 }
-const REQUIRED_SHEET_KEYS = ['herbs', 'compounds', 'herbCompoundMap']
+const REQUIRED_SHEET_KEYS = Object.keys(REQUIRED_WORKBOOK_SHEETS)
 const RESOLVED_REQUIRED_COLUMNS = {
   herbs: ['name'],
   compounds: ['compoundName'],
@@ -30,7 +30,7 @@ const RESOLVED_REQUIRED_COLUMNS = {
 }
 const LEGACY_GOAL_BUNDLE_SHEET = 'Production Export V1'
 const EXPORT_WORKBOOK_SHEETS = [
-  ...REQUIRED_SHEET_KEYS.flatMap(sheetKey => SHEET_MAP[sheetKey]),
+  ...REQUIRED_SHEET_KEYS.map(sheetKey => REQUIRED_WORKBOOK_SHEETS[sheetKey]),
   LEGACY_GOAL_BUNDLE_SHEET,
 ]
 const OPTIONAL_WORKBOOK_SHEETS = new Set(['Production Export V1'])
@@ -57,15 +57,12 @@ function createDiagnostics() {
 function resolveWorkbookSheets(workbook) {
   const resolvedSheets = {}
   for (const sheetKey of REQUIRED_SHEET_KEYS) {
-    const candidates = SHEET_MAP[sheetKey]
-    const resolvedName = candidates.find(sheetName => Boolean(workbook.Sheets[sheetName]))
-    if (!resolvedName) {
-      throw new Error(
-        `[export] Missing required sheet for "${sheetKey}". Expected one of: ${candidates.join(', ')}`
-      )
+    const requiredSheetName = REQUIRED_WORKBOOK_SHEETS[sheetKey]
+    if (!workbook.Sheets[requiredSheetName]) {
+      throw new Error(`[export] Missing required sheet "${requiredSheetName}" for "${sheetKey}".`)
     }
-    resolvedSheets[sheetKey] = resolvedName
-    console.log(`[export][sheets] ${sheetKey}: ${resolvedName}`)
+    resolvedSheets[sheetKey] = requiredSheetName
+    console.log(`[export][sheets] ${sheetKey}: ${requiredSheetName}`)
   }
   return resolvedSheets
 }
