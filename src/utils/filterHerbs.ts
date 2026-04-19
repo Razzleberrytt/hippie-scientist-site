@@ -43,8 +43,8 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
   const searched = searchEntries(herbs, filters.query, herb => ({
     name: herb.common || herb.name || herb.scientific || herb.slug,
     type: String((herb as Record<string, unknown>).class || herb.category || ''),
-    mechanism: herb.mechanism || herb.mechanismOfAction || herb.mechanismofaction,
-    effects: asStringArray(herb.effects),
+    mechanism: asStringArray(herb.mechanisms).join('; ') || herb.mechanism || herb.mechanismOfAction || herb.mechanismofaction,
+    effects: asStringArray(herb.primaryActions ?? herb.effects),
     activeCompounds: asStringArray(herb.activeCompounds || herb.active_compounds || herb.compounds),
     contraindications: asStringArray(herb.contraindications),
     safety: asStringArray(herb.safety),
@@ -54,7 +54,9 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
   const typeNeedle = normalizeText(filters.type)
 
   const filtered = searched.filter(herb => {
-    const herbEffects = asStringArray(herb.effects).map(effect => normalizeText(effect))
+    const herbEffects = asStringArray(herb.primaryActions ?? herb.effects).map(effect =>
+      normalizeText(effect),
+    )
     const confidence = getHerbConfidence(herb)
     const herbType = normalizeText(
       String((herb as Record<string, unknown>).class || herb.category || ''),
@@ -81,8 +83,9 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
         name: herb.common || herb.name || herb.scientific || herb.slug,
         summary: herb.summaryShort || herb.description,
         description: herb.description,
-        mechanism: herb.mechanism || herb.mechanismOfAction,
-        effects: asStringArray(herb.effects),
+        mechanism:
+          asStringArray(herb.mechanisms).join('; ') || herb.mechanism || herb.mechanismOfAction,
+        effects: asStringArray(herb.primaryActions ?? herb.effects),
         associations: asStringArray(herb.activeCompounds || herb.active_compounds || herb.compounds),
         sourceCount: (herb as Record<string, unknown>).sourceCount,
         hasEvidence: Boolean(herb.researchEnrichmentSummary?.evidenceLabel),
@@ -141,7 +144,9 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
       (browseQuality.assessments.get(a)?.rankScore ?? 0)
     if (rankScoreDiff !== 0) return rankScoreDiff
 
-    const effectCountDiff = asStringArray(b.effects).length - asStringArray(a.effects).length
+    const effectCountDiff =
+      asStringArray(b.primaryActions ?? b.effects).length -
+      asStringArray(a.primaryActions ?? a.effects).length
     if (effectCountDiff !== 0) return effectCountDiff
 
     return String(a.common || a.name || a.scientific || '').localeCompare(

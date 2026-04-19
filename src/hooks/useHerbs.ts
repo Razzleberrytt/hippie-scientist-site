@@ -25,7 +25,7 @@ export function useHerbs(): Herb[] {
     herbList.forEach(h => {
       const missing: string[] = []
       if (!h.description) missing.push('description')
-      if (!h.mechanism) missing.push('mechanism')
+      if (!(Array.isArray(h.mechanisms) && h.mechanisms.length) && !h.mechanism) missing.push('mechanisms')
       if (!(Array.isArray(h.activeCompounds) && h.activeCompounds.length)) missing.push('activeCompounds')
       if (missing.length) {
         recordDevMessage('warning', `${herbName(h)} missing: ${missing.join(', ')}`)

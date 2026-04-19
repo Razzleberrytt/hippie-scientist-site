@@ -207,7 +207,9 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     .trim()
     .toLowerCase()
 
-  const primaryActions = splitClean(data.primaryActions ?? data.effects)
+  const primaryActions = splitClean(
+    data.primaryActions ?? data.effects ?? data.actions ?? data.benefits,
+  )
   const contraindications = splitClean(data.contraindications)
   const interactions = splitClean(data.interactions)
   const sideeffects = splitClean(data.sideEffects)
@@ -219,7 +221,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   )
   const rawInteractionTags = splitClean(data.interactionTags)
   const rawInteractionNotes = splitClean(data.interactionNotes)
-  const traditionalUses = splitClean(data.traditionalUses)
+  const traditionalUses = splitClean(data.traditionalUses ?? data.traditionalUse)
   const activeCompounds = splitClean(data.activeCompounds)
   const sources = normalizeSources(data.sources)
   const researchEnrichment = normalizeResearchEnrichment(data.researchEnrichment)
@@ -231,10 +233,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     seed: seededInteraction,
   })
 
-  const mechanisms = normalizeMechanisms(
-    data.mechanisms,
-    data.mechanism,
-  )
+  const mechanisms = normalizeMechanisms(data.mechanisms, data.mechanism, data.mechanismOfAction)
   const mechanism = mechanisms.join('; ')
   const description = cleanText(data.description ?? data.summary) || ''
   const duration = cleanText(data.duration) || ''

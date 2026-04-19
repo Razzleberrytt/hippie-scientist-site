@@ -43,9 +43,9 @@ const FIELD_ALIASES: Record<SanitizedEntityKind, Record<string, string>> = {
     compounds: 'activeCompounds',
   },
   compound: {
-    foundIn: 'herbs',
-    foundInHerbs: 'herbs',
-    associatedHerbs: 'herbs',
+    herbs: 'foundIn',
+    foundInHerbs: 'foundIn',
+    associatedHerbs: 'foundIn',
     type: 'className',
     class: 'className',
     mechanismOfAction: 'mechanism',
@@ -150,8 +150,8 @@ function reportIssues(kind: SanitizedEntityKind, data: Record<string, unknown>):
     issues.push('Invalid display name')
   }
 
-  if (kind === 'compound' && normalizeToArray(data.herbs).length === 0) {
-    issues.push('No linked herbs')
+  if (kind === 'compound' && normalizeToArray(data.foundIn).length === 0) {
+    issues.push('No foundIn links')
   }
 
   return issues
