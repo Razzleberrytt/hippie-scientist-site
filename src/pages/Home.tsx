@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom'
 import Meta from '../components/Meta'
 import { organizationJsonLd, websiteJsonLd } from '@/lib/seo'
+import herbsData from '../../public/data/herbs.json'
+import type { HerbRecord } from '@/types/herb'
+import { sanitizeSummaryText } from '@/lib/sanitize'
+import { sanitizeRenderChips } from '@/lib/renderGuard'
 
 const FEATURED_HERBS = [
   'Curcuma longa',
@@ -36,6 +40,32 @@ const TRUST_ITEMS = ['Evidence-linked entries', 'Safety framing on every profile
 
 function encodedQuery(name: string) {
   return encodeURIComponent(name)
+}
+
+const HERB_FALLBACK_SUMMARY = 'Science-first herbal reference profile.'
+
+const herbLookup = new Map(
+  (herbsData as HerbRecord[]).map(herb => [String(herb.name || '').trim().toLowerCase(), herb] as const),
+)
+
+function truncateCardLine(value: string, maxLength = 110) {
+  if (value.length <= maxLength) return value
+  return `${value.slice(0, maxLength).replace(/\s+\S*$/, '').trim()}…`
+}
+
+function buildHerbSummary(herb: HerbRecord | undefined) {
+  const preferred = sanitizeSummaryText(herb?.summary, 1)
+  if (preferred) return truncateCardLine(preferred)
+
+  const fallbackDescription = sanitizeSummaryText(herb?.description, 1)
+  if (fallbackDescription) return truncateCardLine(fallbackDescription)
+
+  return HERB_FALLBACK_SUMMARY
+}
+
+function buildMechanismChips(herb: HerbRecord | undefined) {
+  const chips = sanitizeRenderChips([herb?.mechanismTags, herb?.mechanisms], 4)
+  return chips.filter(chip => chip.length >= 3 && chip.length <= 28).slice(0, 2)
 }
 
 export default function Home() {
@@ -100,12 +130,34 @@ export default function Home() {
           </Link>
         </div>
         <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
-          {FEATURED_HERBS.map(name => (
-            <Link key={name} to={`/herbs?query=${encodedQuery(name)}`} className='premium-panel p-4 transition-colors hover:border-white/20'>
-              <h3 className='text-base font-semibold text-white'>{name}</h3>
-              <p className='mt-2 text-sm text-white/73'>Open profile and review mechanism, confidence, and safety details.</p>
-            </Link>
-          ))}
+          {FEATURED_HERBS.map(name => {
+            const herb = herbLookup.get(name.toLowerCase())
+            const summary = buildHerbSummary(herb)
+            const mechanismChips = buildMechanismChips(herb)
+
+            return (
+              <Link
+                key={name}
+                to={`/herbs?query=${encodedQuery(name)}`}
+                className='premium-panel p-4 transition-colors hover:border-white/20'
+              >
+                <h3 className='text-base font-semibold text-white'>{name}</h3>
+                <p className='mt-2 text-sm text-white/73'>{summary}</p>
+                {mechanismChips.length > 0 ? (
+                  <div className='mt-2 flex flex-wrap gap-1.5'>
+                    {mechanismChips.map(chip => (
+                      <span
+                        key={`${name}-${chip}`}
+                        className='rounded-full border border-white/15 bg-white/5 px-2 py-0.5 text-[11px] font-medium text-white/74'
+                      >
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </Link>
+            )
+          })}
         </div>
       </section>
 
