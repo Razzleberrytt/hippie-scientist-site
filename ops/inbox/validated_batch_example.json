@@ -1,0 +1,53 @@
+{
+  "batch_id": "validated_batch_2026_04_20_ashwagandha_rhodiola",
+  "created_at": "2026-04-20",
+  "source": "validation_gpt",
+  "notes": "Validated rows approved for production merge.",
+  "herbs": [
+    {
+      "name": "Ashwagandha",
+      "slug": "ashwagandha",
+      "summary": "Adaptogenic herb used in traditional medicine.",
+      "description": "Withania somnifera is studied for stress-related and neuroendocrine effects.",
+      "primaryActions": "adaptogenic, stress support",
+      "mechanisms": "HPA-axis modulation, anti-inflammatory signaling",
+      "safetyNotes": "May cause GI upset in some people.",
+      "contraindications": "pregnancy, hyperthyroid states (caution)",
+      "interactions": "sedatives, thyroid medications",
+      "dosage": "",
+      "preparation": "powder, extract",
+      "traditionalUses": "stress, vitality, sleep",
+      "evidenceLevel": "mixed",
+      "region": "south-asia",
+      "review_status": "partial",
+      "source_status": "partial"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Withanolide A",
+      "slug": "withanolide-a",
+      "summary": "Steroidal lactone associated with ashwagandha.",
+      "description": "One of the withanolides studied in Withania somnifera.",
+      "compoundClass": "steroidal-lactone",
+      "mechanisms": "cell signaling modulation",
+      "targets": "",
+      "foundIn": "ashwagandha",
+      "safetyNotes": "Limited isolated safety data.",
+      "evidenceLevel": "low",
+      "review_status": "partial",
+      "source_status": "partial"
+    }
+  ],
+  "map_rows": [
+    {
+      "herb_name": "Ashwagandha",
+      "herb_slug": "ashwagandha",
+      "compound_name": "Withanolide A",
+      "compound_slug": "withanolide-a",
+      "confidence": "medium",
+      "source_status": "partial",
+      "notes": ""
+    }
+  ]
+}
