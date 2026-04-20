@@ -28,6 +28,13 @@ function toTitleCase(value: string) {
     .replace(/\b\w/g, letter => letter.toUpperCase())
 }
 
+function normalizeEntityKey(value: unknown): string {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '')
+}
+
 function splitTextList(value: unknown): string[] {
   return normalizeTagList(value, { caseStyle: 'none', minLength: 1, maxItems: 50 })
 }
@@ -246,21 +253,43 @@ export default function HerbDetail() {
   ].filter(Boolean)
   const pagePath = `/herbs/${herb.slug}`
   const relatedHerbSlugs = splitTextList(herb.relatedHerbs)
+  const herbIndex = new Map<string, string>()
+  herbs.forEach(item => {
+    ;[item.slug, item.id, item.common, item.name, item.scientific, ...(item.aliases || [])].forEach(candidate => {
+      const key = normalizeEntityKey(candidate)
+      if (!key) return
+      herbIndex.set(key, item.slug)
+    })
+  })
+  const relatedHerbKeys = new Set(
+    relatedHerbSlugs
+      .map(entry => herbIndex.get(normalizeEntityKey(entry)) || normalizeEntityKey(entry))
+      .filter(Boolean),
+  )
   const relatedHerbs = herbs
-    .filter(item => item.slug && item.slug !== herb.slug && (relatedHerbSlugs.length === 0 || relatedHerbSlugs.includes(item.slug)))
+    .filter(item => item.slug && item.slug !== herb.slug)
+    .filter(item => relatedHerbKeys.size > 0 && relatedHerbKeys.has(normalizeEntityKey(item.slug)))
     .slice(0, 4)
     .map(item => ({
       label: toTitleCase(item.common || item.name || item.slug),
       to: `/herbs/${item.slug}`,
     }))
 
-  const compoundIndex = new Map(compounds.map(compound => [String(compound.name || '').toLowerCase(), compound]))
+  const compoundIndex = new Map<string, { label: string; slug: string }>()
+  compounds.forEach(compound => {
+    const label = toTitleCase(compound.name || compound.slug)
+    ;[compound.slug, compound.id, compound.name, ...(compound.aliases || [])].forEach(candidate => {
+      const key = normalizeEntityKey(candidate)
+      if (!key) return
+      compoundIndex.set(key, { label, slug: compound.slug })
+    })
+  })
   const relatedCompounds = [...activeCompounds, ...splitTextList(herb.relatedCompounds)]
-    .map(name => {
-      const match = compoundIndex.get(name.toLowerCase())
-      if (!match?.slug) return null
+    .map(entry => {
+      const match = compoundIndex.get(normalizeEntityKey(entry))
+      if (!match) return null
       return {
-        label: toTitleCase(match.name),
+        label: match.label,
         to: `/compounds/${match.slug}`,
       }
     })
@@ -343,7 +372,17 @@ export default function HerbDetail() {
           {activeCompounds.length > 0 ? (
             <ul className='list-disc space-y-1 pl-5'>
               {activeCompounds.map(compound => (
-                <li key={compound}>{compound}</li>
+                <li key={compound}>
+                  {(() => {
+                    const match = compoundIndex.get(normalizeEntityKey(compound))
+                    if (!match) return compound
+                    return (
+                      <Link to={`/compounds/${match.slug}`} className='text-cyan-200 hover:text-cyan-100'>
+                        {match.label}
+                      </Link>
+                    )
+                  })()}
+                </li>
               ))}
             </ul>
           ) : (
