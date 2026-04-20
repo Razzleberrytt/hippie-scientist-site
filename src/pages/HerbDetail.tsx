@@ -10,7 +10,7 @@ import { buildUniqueDetailCopy, sanitizeRenderChips, sanitizeRenderList } from '
 import { normalizeTagList } from '@/lib/tagNormalization'
 import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { SITE_URL, breadcrumbJsonLd, herbJsonLd } from '@/lib/seo'
-import { shouldShowRawDebug } from '@/lib/semanticCompression'
+import { getCuratedData, shouldShowRawDebug } from '@/lib/semanticCompression'
 import { getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
 import { isPublishQualityDetailPage } from '@/lib/publishQuality'
 
@@ -172,7 +172,7 @@ export default function HerbDetail() {
 
   const herbName = toTitleCase(herb.name || herb.slug)
   const scientificName = String(herb.scientificName || herb.scientific || '').trim()
-  const curatedData = herb.curatedData
+  const curatedData = herb.curatedData ?? getCuratedData(herb)
   const rawRecord = readRecord(herb.rawData)
   const contextRecord = readRecord(rawRecord.context)
   const safetyRecord = readRecord(rawRecord.safety)
@@ -504,7 +504,7 @@ export default function HerbDetail() {
           ) : null}
         </DisclosureSection>
 
-        {showRawDebug && herb.rawData && (
+        {showRawDebug && Boolean(herb.rawData) && (
           <DisclosureSection title='Debug Raw Data'>
             <pre className='overflow-auto rounded-lg border border-amber-200/20 bg-black/30 p-3 text-[11px] text-amber-100/90'>
               {JSON.stringify(herb.rawData, null, 2)}
