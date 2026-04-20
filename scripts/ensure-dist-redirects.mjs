@@ -42,23 +42,25 @@ async function appendEntityAliasRedirects() {
   }
 
   const existing = await readFile(target, 'utf8')
-  const existingLines = new Set(
-    existing
-      .split(/\r?\n/)
-      .map(line => line.trim())
-      .filter(Boolean)
-  )
+  const catchAllRule = '/* /index.html 200'
+  const existingRules = existing
+    .split(/\r?\n/)
+    .map(line => line.trim())
+    .filter(Boolean)
+  const existingLines = new Set(existingRules)
 
   const rulesToAppend = aliasRules.filter(rule => !existingLines.has(rule))
-  if (rulesToAppend.length === 0) {
-    console.log('[ensure-dist-redirects] alias redirects already present')
-    return
-  }
+  const baseRules = existingRules.filter(
+    line => !/^\/\*\s+\/index\.html\s+200$/.test(line)
+  )
 
-  const separator = existing.endsWith('\n') ? '' : '\n'
-  const appended = `${existing}${separator}${rulesToAppend.join('\n')}\n`
-  await writeFile(target, appended, 'utf8')
-  console.log(`[ensure-dist-redirects] appended ${rulesToAppend.length} entity alias redirects`)
+  const updatedRules = [...baseRules, ...rulesToAppend, catchAllRule]
+  await writeFile(target, `${updatedRules.join('\n')}\n`, 'utf8')
+  if (rulesToAppend.length === 0) {
+    console.log('[ensure-dist-redirects] alias redirects already present; normalized catch-all ordering')
+  } else {
+    console.log(`[ensure-dist-redirects] appended ${rulesToAppend.length} entity alias redirects`)
+  }
 }
 
 await ensureBaseRedirects()
