@@ -25,7 +25,19 @@
       "thyroid-active therapy",
       "or immunomodulators."
     ],
-    "preparation": "Root powder and extracts are most common; higher-extract products shift compound ratios."
+    "preparation": "Root powder and extracts are most common; higher-extract products shift compound ratios.",
+    "affiliateProducts": [
+      {
+        "name": "Ashwagandha Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=ashwagandha+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Ashwagandha Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=ashwagandha+extract&tag=razzleberry02-20"
+      }
+    ]
   },
   {
     "slug": "black-cohosh",
@@ -79,6 +91,18 @@
     "primaryActions": [
       "immunomodulatory",
       "hepatoprotective"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Echinacea Tea",
+        "type": "tea",
+        "affiliateUrl": "https://www.amazon.com/s?k=echinacea+purpurea+tea&tag=razzleberry02-20"
+      },
+      {
+        "name": "Echinacea Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=echinacea+purpurea+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -99,7 +123,19 @@
       "ajoene",
       "S‐allyl‐cysteine"
     ],
-    "safetyNotes": "Oral garlic preparations are generally safe when used for up to seven years; side effects include breath and body odour, abdominal pain, flatulence and nausea. Because garlic can inhibit platelet aggregation it may increase the risk of bleeding, especially when combined with anticoagulants or antiplatelet drugs. Raw garlic applied to the skin can cause severe irritation or burns. The safety of garlic supplements during pregnancy or breastfeeding is uncertain【945608786527328†L190-L207】."
+    "safetyNotes": "Oral garlic preparations are generally safe when used for up to seven years; side effects include breath and body odour, abdominal pain, flatulence and nausea. Because garlic can inhibit platelet aggregation it may increase the risk of bleeding, especially when combined with anticoagulants or antiplatelet drugs. Raw garlic applied to the skin can cause severe irritation or burns. The safety of garlic supplements during pregnancy or breastfeeding is uncertain【945608786527328†L190-L207】.",
+    "affiliateProducts": [
+      {
+        "name": "Garlic Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=garlic+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Garlic Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=garlic+extract&tag=razzleberry02-20"
+      }
+    ]
   },
   {
     "slug": "ginger",
@@ -125,6 +161,18 @@
       "immunomodulatory",
       "antioxidant",
       "glycemic support"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Ginger Powder",
+        "type": "powder",
+        "affiliateUrl": "https://www.amazon.com/s?k=ginger+powder&tag=razzleberry02-20"
+      },
+      {
+        "name": "Ginger Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=ginger+capsules&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -162,6 +210,18 @@
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "primaryActions": [
       "nootropic"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Ginkgo Biloba Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=ginkgo+biloba+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Ginkgo Biloba Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=ginkgo+biloba+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -291,7 +351,19 @@
     "interactions": [
       "May affect drug transport and metabolism in susceptible users."
     ],
-    "preparation": "Seed extract is more practical than whole seed; standardized silymarin products are common."
+    "preparation": "Seed extract is more practical than whole seed; standardized silymarin products are common.",
+    "affiliateProducts": [
+      {
+        "name": "Milk Thistle Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=milk+thistle+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Milk Thistle Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=milk+thistle+extract&tag=razzleberry02-20"
+      }
+    ]
   },
   {
     "slug": "peppermint",
@@ -313,6 +385,18 @@
       "hepatoprotective",
       "antimicrobial",
       "analgesic"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Peppermint Tea",
+        "type": "tea",
+        "affiliateUrl": "https://www.amazon.com/s?k=mentha+piperita+tea&tag=razzleberry02-20"
+      },
+      {
+        "name": "Peppermint Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=mentha+piperita+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -341,6 +425,18 @@
       "adaptogenic",
       "sedative",
       "antioxidant"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Rhodiola Rosea Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=rhodiola+rosea+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Rhodiola Rosea Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=rhodiola+rosea+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -597,7 +693,19 @@
     "interactions": [
       "Caution with concentrated extracts alongside anticoagulants."
     ],
-    "preparation": "Leaf infusion for mild use; extracts provide higher diterpene exposure."
+    "preparation": "Leaf infusion for mild use; extracts provide higher diterpene exposure.",
+    "affiliateProducts": [
+      {
+        "name": "Rosemary Tea",
+        "type": "tea",
+        "affiliateUrl": "https://www.amazon.com/s?k=rosemary+tea&tag=razzleberry02-20"
+      },
+      {
+        "name": "Rosemary Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=rosemary+extract&tag=razzleberry02-20"
+      }
+    ]
   },
   {
     "slug": "sage",
@@ -719,7 +827,19 @@
     "interactions": [
       "Possible estrogenic interaction concerns with concentrated use."
     ],
-    "preparation": "Tea or crushed seed is traditional; extracts concentrate volatile constituents."
+    "preparation": "Tea or crushed seed is traditional; extracts concentrate volatile constituents.",
+    "affiliateProducts": [
+      {
+        "name": "Fennel Tea",
+        "type": "tea",
+        "affiliateUrl": "https://www.amazon.com/s?k=fennel+tea&tag=razzleberry02-20"
+      },
+      {
+        "name": "Fennel Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=foeniculum+vulgare+extract&tag=razzleberry02-20"
+      }
+    ]
   },
   {
     "slug": "cinnamon",
@@ -743,7 +863,19 @@
     "interactions": [
       "Use caution with anticoagulants and glucose-lowering therapy."
     ],
-    "preparation": "Bark powder or extract; species matters for coumarin exposure."
+    "preparation": "Bark powder or extract; species matters for coumarin exposure.",
+    "affiliateProducts": [
+      {
+        "name": "Ceylon Cinnamon Powder",
+        "type": "powder",
+        "affiliateUrl": "https://www.amazon.com/s?k=ceylon+cinnamon+powder&tag=razzleberry02-20"
+      },
+      {
+        "name": "Ceylon Cinnamon Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=ceylon+cinnamon+capsules&tag=razzleberry02-20"
+      }
+    ]
   },
   {
     "slug": "dandelion",
@@ -757,7 +889,19 @@
       "taraxasterol",
       "sesquiterpene lactones"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "affiliateProducts": [
+      {
+        "name": "Dandelion Tea",
+        "type": "tea",
+        "affiliateUrl": "https://www.amazon.com/s?k=taraxacum+officinale+tea&tag=razzleberry02-20"
+      },
+      {
+        "name": "Dandelion Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=taraxacum+officinale+extract&tag=razzleberry02-20"
+      }
+    ]
   },
   {
     "slug": "burdock",
@@ -1049,7 +1193,19 @@
     "interactions": [
       "Use caution with glucose-lowering therapy when using concentrated extracts."
     ],
-    "preparation": "Leaf powder is common; myrosinase-active processing changes glucosinolate conversion."
+    "preparation": "Leaf powder is common; myrosinase-active processing changes glucosinolate conversion.",
+    "affiliateProducts": [
+      {
+        "name": "Moringa Powder",
+        "type": "powder",
+        "affiliateUrl": "https://www.amazon.com/s?k=moringa+powder&tag=razzleberry02-20"
+      },
+      {
+        "name": "Moringa Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=moringa+capsules&tag=razzleberry02-20"
+      }
+    ]
   },
   {
     "slug": "arjuna",
@@ -2062,6 +2218,18 @@
       "adaptogenic",
       "antioxidant",
       "nootropic"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Panax Ginseng Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=panax+ginseng+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Panax Ginseng Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=panax+ginseng+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -2154,7 +2322,19 @@
     "interactions": [
       "Use caution with stimulants or blood pressure-active agents."
     ],
-    "preparation": "Root decoction or extract; standardized eleutheroside products are common."
+    "preparation": "Root decoction or extract; standardized eleutheroside products are common.",
+    "affiliateProducts": [
+      {
+        "name": "Eleuthero Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=eleutherococcus+senticosus+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Eleuthero Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=eleutherococcus+senticosus+extract&tag=razzleberry02-20"
+      }
+    ]
   },
   {
     "slug": "gotu-kola",
@@ -2307,7 +2487,19 @@
       "beta-sitosterol",
       "lignans"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "affiliateProducts": [
+      {
+        "name": "Nettle Root Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=urtica+dioica+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Nettle Root Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=urtica+dioica+extract&tag=razzleberry02-20"
+      }
+    ]
   },
   {
     "slug": "bacopa",
@@ -2847,7 +3039,19 @@
     "interactions": [
       "May interact with stimulants and iron absorption timing."
     ],
-    "preparation": "Infusion or standardized extract; lower-temperature steeping preserves catechins and theanine balance."
+    "preparation": "Infusion or standardized extract; lower-temperature steeping preserves catechins and theanine balance.",
+    "affiliateProducts": [
+      {
+        "name": "Green Tea",
+        "type": "tea",
+        "affiliateUrl": "https://www.amazon.com/s?k=green+tea+bags&tag=razzleberry02-20"
+      },
+      {
+        "name": "Green Tea Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=green+tea+extract&tag=razzleberry02-20"
+      }
+    ]
   },
   {
     "slug": "goldenseal",
@@ -3337,6 +3541,18 @@
       "anti-inflammatory",
       "immunomodulatory",
       "antioxidant"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Black Seed Oil Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=nigella+sativa+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Black Seed Powder",
+        "type": "powder",
+        "affiliateUrl": "https://www.amazon.com/s?k=nigella+sativa+powder&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -3372,7 +3588,19 @@
       "Crocetin"
     ],
     "safetyNotes": "Audit later.",
-    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine"
+    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+    "affiliateProducts": [
+      {
+        "name": "Saffron Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=crocus+sativus+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Saffron Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=crocus+sativus+extract&tag=razzleberry02-20"
+      }
+    ]
   },
   {
     "slug": "glycyrrhiza-glabra",
@@ -3392,6 +3620,18 @@
       "anti-inflammatory",
       "antioxidant",
       "nootropic"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Licorice Tea",
+        "type": "tea",
+        "affiliateUrl": "https://www.amazon.com/s?k=glycyrrhiza+glabra+tea&tag=razzleberry02-20"
+      },
+      {
+        "name": "Licorice Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=glycyrrhiza+glabra+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -3435,6 +3675,18 @@
       "adaptogenic",
       "antioxidant",
       "hepatoprotective"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Schisandra Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=schisandra+chinensis+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Schisandra Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=schisandra+chinensis+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -4212,6 +4464,18 @@
       "anxiolytic",
       "sedative",
       "antioxidant"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Valerian Tea",
+        "type": "tea",
+        "affiliateUrl": "https://www.amazon.com/s?k=valeriana+officinalis+tea&tag=razzleberry02-20"
+      },
+      {
+        "name": "Valerian Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=valeriana+officinalis+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -4256,6 +4520,18 @@
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "primaryActions": [
       "nootropic"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "St Johns Wort Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=hypericum+perforatum+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "St Johns Wort Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=hypericum+perforatum+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -4458,6 +4734,18 @@
       "adaptogenic",
       "antioxidant",
       "nootropic"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Astragalus Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=astragalus+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Astragalus Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=astragalus+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -4553,6 +4841,18 @@
       "anti-inflammatory",
       "antioxidant",
       "hepatoprotective"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Turmeric Powder",
+        "type": "powder",
+        "affiliateUrl": "https://www.amazon.com/s?k=turmeric+powder&tag=razzleberry02-20"
+      },
+      {
+        "name": "Turmeric Curcumin Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=turmeric+curcumin+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -4687,6 +4987,18 @@
     ],
     "primaryActions": [
       "digestive support"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Black Pepper Powder",
+        "type": "powder",
+        "affiliateUrl": "https://www.amazon.com/s?k=black+pepper+powder&tag=razzleberry02-20"
+      },
+      {
+        "name": "Black Pepper Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=black+pepper+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -4728,6 +5040,18 @@
       "anti-inflammatory",
       "anxiolytic",
       "antioxidant"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Chamomile Tea",
+        "type": "tea",
+        "affiliateUrl": "https://www.amazon.com/s?k=matricaria+chamomilla+tea&tag=razzleberry02-20"
+      },
+      {
+        "name": "Chamomile Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=matricaria+chamomilla+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -4819,6 +5143,18 @@
       "adaptogenic",
       "immunomodulatory",
       "antioxidant"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Holy Basil Tea",
+        "type": "tea",
+        "affiliateUrl": "https://www.amazon.com/s?k=holy+basil+tea&tag=razzleberry02-20"
+      },
+      {
+        "name": "Holy Basil Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=holy+basil+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -4844,6 +5180,18 @@
       "anxiolytic",
       "cardiovascular support",
       "nootropic"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Gotu Kola Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=centella+asiatica+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Gotu Kola Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=centella+asiatica+extract&tag=razzleberry02-20"
+      }
     ]
   },
   {
@@ -4952,6 +5300,18 @@
     "preparation": "Fruit dried and extracted into lipophilic extracts or tinctures; used for benign prostatic hyperplasia (BPH)",
     "primaryActions": [
       "anti-inflammatory"
+    ],
+    "affiliateProducts": [
+      {
+        "name": "Saw Palmetto Capsules",
+        "type": "capsule",
+        "affiliateUrl": "https://www.amazon.com/s?k=serenoa+repens+capsules&tag=razzleberry02-20"
+      },
+      {
+        "name": "Saw Palmetto Extract",
+        "type": "extract",
+        "affiliateUrl": "https://www.amazon.com/s?k=serenoa+repens+extract&tag=razzleberry02-20"
+      }
     ]
   }
 ]
