@@ -1,10 +1,10 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
-import { motion } from '@/lib/motion'
+import type { ReactNode } from 'react'
+import { motion, type HTMLMotionProps } from '@/lib/motion'
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger'
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'default'
 type ButtonSize = 'sm' | 'md' | 'lg'
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = HTMLMotionProps<'button'> & {
   children: ReactNode
   variant?: ButtonVariant
   size?: ButtonSize
@@ -14,6 +14,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary: 'btn-primary',
+  default: 'btn-primary',
   secondary: 'btn-secondary',
   ghost:
     'border border-[var(--border-default)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]',
