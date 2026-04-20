@@ -1,83 +1,184 @@
 # AGENTS.md
 
-## Repository expectations
+## Project
+TheHippieScientist.net
 
-This repository no longer uses a required queue-driven Codex backlog.
-Use Codex manually for the task requested by the user/reviewer.
+This repository contains the production data pipeline for the herb and compound database used by the site.
 
-## Required working style
+## Primary Goal
+Safely grow the production database without corrupting existing rows or weakening data quality.
 
-- Read relevant files before editing.
-- Plan first for changes that touch more than one file, workflows, build scripts, data scripts, or enrichment pipeline code.
-- Make the smallest correct diff.
-- Reuse existing project patterns and helpers.
-- Do not change unrelated files.
-- Do not merge pull requests. Codex may prepare, update, and validate a PR, but a human decides whether to merge.
-- If blocked, stop and provide a concise blocker report instead of improvising a workaround.
-- Never silently weaken validation to make a command pass.
+## Canonical Production Workbook
+`hs_production_db.xlsx`
 
-## Safety and review rules
+## Canonical Sheets
+1. `Herb Master Clean`
+2. `Compound Master Clean`
+3. `Herb Compound Map Clean`
 
-- Preserve lane safety expectations.
-- Lane B work requires human review before merge.
-- Lane C work must never be auto-applied or auto-merged.
-- Any task touching safety-critical data, source verification, or interaction severity should stop for human review unless explicit human instructions say otherwise.
-- Do not remove schema/domain validation or patch/apply safeguards.
+## Canonical Sheet Contracts
 
-## Repository map
+### Herb Master Clean
+Columns:
+- `name`
+- `slug`
+- `summary`
+- `description`
+- `primaryActions`
+- `mechanisms`
+- `safetyNotes`
+- `contraindications`
+- `interactions`
+- `dosage`
+- `preparation`
+- `traditionalUses`
+- `evidenceLevel`
+- `region`
+- `review_status`
+- `source_status`
 
-- `public/data/` — published herb and compound JSON plus derived JSON outputs.
-- `scripts/enrichment/` — enrichment planner, batch runner, validators, apply flow, coverage, evals.
-- `prompts/` — prompt task packs.
-- `schemas/` — JSON schemas and vocab files.
-- `providers/` — provider adapter layer.
-- `ops/` — manifests, rollback manifests, reports, SQLite metadata.
-- `.github/workflows/` — CI, Codex automation, data audit, deploy flows.
-- `content/blog/` — blog MDX sources.
-- `scripts/` — site and data scripts outside the enrichment pipeline.
+Primary key:
+- `slug`
 
-## Commands Codex may need
+### Compound Master Clean
+Columns:
+- `name`
+- `slug`
+- `summary`
+- `description`
+- `compoundClass`
+- `mechanisms`
+- `targets`
+- `foundIn`
+- `safetyNotes`
+- `evidenceLevel`
+- `review_status`
+- `source_status`
 
-Use only the narrowest commands relevant to the requested task.
+Primary key:
+- `slug`
 
-### Core app / CI
-- `npm ci`
-- `npm run build`
-- `npm run prebuild`
-- `npm run verify:redirects`
+### Herb Compound Map Clean
+Columns:
+- `herb_name`
+- `herb_slug`
+- `compound_name`
+- `compound_slug`
+- `confidence`
+- `source_status`
+- `notes`
 
-### Blog / SEO
-- `npm run sync:blog`
-- `node scripts/generate-sitemap.mjs public`
-- `node scripts/generate-rss.mjs`
+Unique key:
+- `(herb_slug, compound_slug)`
 
-### Data audit
-- `npm run prebuild:validate`
-- `npm run audit:data`
-- `npm run data:report`
+## Merge Policy
 
-### Local-only operator refresh
-- `npm run data:refresh`
+### General
+- Never invent scientific content, citations, DOI, PMID, PMCID, URLs, study designs, or safety claims.
+- Never overwrite strong existing non-empty production values with weaker, empty, or lower-confidence data.
+- Prefer filling blanks over rewriting populated fields.
+- Preserve existing structure and column order exactly.
+- Slugs must remain lowercase-hyphenated.
+- Lists must use `comma + space` delimiters only.
+- Reject malformed values such as:
+  - `nan`
+  - `[object Object]`
+  - empty delimiter strings
+  - corrupted or obviously malformed characters
 
-Important:
-- `npm run data:refresh` depends on operator-local herb CSV inputs and should not be treated as a required CI command unless those CSV files are present.
-- In CI, prefer validation of checked-in derived JSON when local CSV inputs are absent.
+### Herb Row Merge
+Match by `slug`.
 
-### Enrichment pipeline
-- `node scripts/enrichment/plan-run.mjs ...`
-- `node scripts/enrichment/run-batch.mjs ...`
-- `node scripts/enrichment/validate-schema.mjs ...`
-- `node scripts/enrichment/validate-domain.mjs ...`
-- `node scripts/enrichment/apply-patches.mjs ...`
-- `node scripts/enrichment/report-coverage.mjs ...`
-- `node scripts/enrichment/run-evals.mjs ...`
+If row exists:
+- fill missing blank fields only
+- only replace a populated field if the new value is clearly more complete and still conservative
+- do not casually rewrite:
+  - `summary`
+  - `description`
+  - `safetyNotes`
 
-## Required end-of-task output
+If row does not exist:
+- insert a new row using canonical column order
 
-At the end of every Codex run, include:
+### Compound Row Merge
+Match by `slug`.
 
-1. changed-file list
-2. key diffs
-3. commands run
-4. verification results
-5. risks or follow-ups
+If row exists:
+- fill missing blank fields only
+- do not downgrade quality or remove existing information
+
+If row does not exist:
+- insert a new row using canonical column order
+
+### Map Row Merge
+Match by `(herb_slug, compound_slug)`.
+
+If row exists:
+- keep the higher confidence value using this order:
+  - `high` > `medium` > `low`
+- update `source_status` only if improved
+- append to `notes` only if useful and non-duplicative
+
+If row does not exist:
+- insert the new row
+
+## Validation Rules
+
+Reject any incoming herb or compound row if:
+- `name` is missing
+- `slug` is missing
+- `slug` is malformed
+- required schema columns are missing
+- row contains obvious junk placeholders
+
+Reject any map row if:
+- `herb_slug` is missing
+- `compound_slug` is missing
+- either slug is malformed
+
+Flag but do not necessarily reject if:
+- `review_status` is `needs_source`
+- `source_status` is `weak`
+- descriptions are sparse but non-junk
+
+## Production Safety Rules
+- Production is the source of truth.
+- Production should stay boring, stable, and import-safe.
+- Do not use production sheets for scratch notes, research batches, workflow queues, or experiments.
+- Do not rename canonical sheets.
+- Do not reorder canonical columns unless explicitly instructed.
+
+## Intake Path
+Validated batches should arrive in:
+`ops/inbox/`
+
+Processed batches should be moved to:
+`ops/archive/`
+
+## Expected Batch Format
+Preferred formats:
+- JSON
+- CSV
+- XLSX
+
+Preferred JSON structure:
+- `herbs`
+- `compounds`
+- `map_rows`
+
+## Recommended Codex Task Behavior
+When asked to merge a validated batch:
+1. Read latest file from `ops/inbox/`
+2. Validate schema and required keys
+3. Merge into `hs_production_db.xlsx`
+4. Save workbook
+5. Optionally regenerate downstream JSON artifacts if repository scripts exist
+6. Run validation/build checks if available
+7. Summarize changes clearly
+8. Prefer opening a PR or branch-based change over directly modifying `main`
+
+## Forbidden Behavior
+- Do not fabricate evidence
+- Do not perform speculative enrichment during merge
+- Do not silently delete rows
+- Do not rewrite the workbook structure during a normal merge
