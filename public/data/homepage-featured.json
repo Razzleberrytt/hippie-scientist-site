@@ -1,0 +1,158 @@
+{
+  "generatedAt": "2026-04-20T14:08:55.504Z",
+  "herbs": [
+    {
+      "name": "Curcuma longa",
+      "slug": "curcuma-longa",
+      "summary": "Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation,…",
+      "tags": []
+    },
+    {
+      "name": "Camellia sinensis",
+      "slug": "camellia-sinensis",
+      "summary": "Internal cross-linking supports Green Tea through compounds such as caffeine, theanine, catechins (egcg).",
+      "tags": [
+        "adenosine_antagonism",
+        "adora1"
+      ]
+    },
+    {
+      "name": "Withania somnifera",
+      "slug": "withania-somnifera",
+      "summary": "Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant…",
+      "tags": []
+    },
+    {
+      "name": "Panax ginseng",
+      "slug": "panax-ginseng",
+      "summary": "Adaptogen, energy booster, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant…",
+      "tags": [
+        "ampk"
+      ]
+    },
+    {
+      "name": "Ginkgo biloba",
+      "slug": "ginkgo-biloba",
+      "summary": "Ginkgo Biloba is represented here as a monograph-style entry centered on the leaf. Key reported compounds…",
+      "tags": [
+        "antioxidant",
+        "cholinergic"
+      ]
+    },
+    {
+      "name": "Rosmarinus officinalis",
+      "slug": "rosmarinus-officinalis",
+      "summary": "Cognitive support, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant…",
+      "tags": [
+        "antioxidant",
+        "cognition"
+      ]
+    },
+    {
+      "name": "Glycyrrhiza glabra",
+      "slug": "glycyrrhiza-glabra",
+      "summary": "Anti-inflammatory, expectorant, adrenal support. Herbs often act via neurotransmitter modulation, antioxidant…",
+      "tags": [
+        "general or unknown targets"
+      ]
+    },
+    {
+      "name": "Nigella sativa",
+      "slug": "nigella-sativa",
+      "summary": "Anti-inflammatory, antioxidant, immune modulating. Herbs often act via neurotransmitter modulation,…",
+      "tags": []
+    },
+    {
+      "name": "Centella asiatica",
+      "slug": "centella-asiatica",
+      "summary": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
+      "tags": []
+    },
+    {
+      "name": "Zingiber officinale",
+      "slug": "zingiber-officinale",
+      "summary": "Digestive stimulant, anti-nausea, anti-inflammatory. Herbs often act via neurotransmitter modulation,…",
+      "tags": []
+    },
+    {
+      "name": "Silybum marianum",
+      "slug": "silybum-marianum",
+      "summary": "Milk Thistle is represented here as a monograph-style entry centered on the seed; fruit. Key reported…",
+      "tags": [
+        "antioxidant",
+        "hepatoprotection"
+      ]
+    },
+    {
+      "name": "Rhodiola rosea",
+      "slug": "rhodiola-rosea",
+      "summary": "Rhodiola Rosea is represented here as a monograph-style entry centered on the root. Key reported compounds…",
+      "tags": [
+        "adaptogen",
+        "antioxidant"
+      ]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Curcumin",
+      "slug": "curcumin",
+      "summary": "Open profile and review mechanism, confidence, and safety details."
+    },
+    {
+      "name": "Epigallocatechin gallate",
+      "slug": "epigallocatechin-gallate",
+      "summary": "Open profile and review mechanism, confidence, and safety details."
+    },
+    {
+      "name": "Withaferin A",
+      "slug": "withaferin-a",
+      "summary": "Open profile and review mechanism, confidence, and safety details."
+    },
+    {
+      "name": "Ginsenoside Rg1",
+      "slug": "ginsenoside-rg1",
+      "summary": "Open profile and review mechanism, confidence, and safety details."
+    },
+    {
+      "name": "Ginkgolide B",
+      "slug": "ginkgolide-b",
+      "summary": "Open profile and review mechanism, confidence, and safety details."
+    },
+    {
+      "name": "Carnosic acid",
+      "slug": "carnosic-acid",
+      "summary": "Open profile and review mechanism, confidence, and safety details."
+    },
+    {
+      "name": "Glycyrrhizin",
+      "slug": "glycyrrhizin",
+      "summary": "Open profile and review mechanism, confidence, and safety details."
+    },
+    {
+      "name": "Thymoquinone",
+      "slug": "thymoquinone",
+      "summary": "Open profile and review mechanism, confidence, and safety details."
+    },
+    {
+      "name": "Asiatic acid",
+      "slug": "asiatic-acid",
+      "summary": "Open profile and review mechanism, confidence, and safety details."
+    },
+    {
+      "name": "Berberine",
+      "slug": "berberine",
+      "summary": "Open profile and review mechanism, confidence, and safety details."
+    },
+    {
+      "name": "Quercetin",
+      "slug": "quercetin",
+      "summary": "Plant flavonoid supplement with limited clinical efficacy and bioavailability constraints."
+    },
+    {
+      "name": "Resveratrol",
+      "slug": "resveratrol",
+      "summary": "Grape-derived polyphenol with speculative anti-aging/cardiometabolic claims and low bioavailability."
+    }
+  ]
+}

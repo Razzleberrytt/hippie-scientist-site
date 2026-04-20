@@ -15,7 +15,7 @@
     "data:validate": "npm run validate:data",
     "check:images": "node tools/check-images.mjs",
     "rebuild:data": "npm run data:refresh",
-    "prebuild": "node scripts/sync-updated-datasets.mjs && npm run clean:source-refs && node scripts/dedupe-entities.mjs && node scripts/quality-gate-data.mjs && node scripts/generate-publication-index.mjs && node scripts/generate-indexable-herbs.mjs && node scripts/generate-indexable-compounds.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-site-counts.mjs && node scripts/generate-homepage-data.mjs && node scripts/generate-rss.mjs && npm run verify:affiliate-products",
+    "prebuild": "node scripts/sync-updated-datasets.mjs && npm run clean:source-refs && node scripts/dedupe-entities.mjs && node scripts/quality-gate-data.mjs && node scripts/generate-publication-index.mjs && node scripts/generate-indexable-herbs.mjs && node scripts/generate-indexable-compounds.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-site-counts.mjs && node scripts/generate-homepage-data.mjs && node scripts/generate-homepage-featured.mjs && node scripts/generate-rss.mjs && npm run verify:affiliate-products",
     "build:compile": "vite build",
     "build": "npm run build:compile",
     "postbuild": "node scripts/prerender-static.mjs && node scripts/generate-sitemap.mjs dist && node scripts/assert-publication-counts.mjs && node scripts/ensure-dist-redirects.mjs && npm run verify:enrichment-editorial && node scripts/verify-prerender.mjs && node scripts/verify-publishing.mjs && node scripts/validate-structured-data-smoke.mjs && node scripts/generate-version-json.mjs",

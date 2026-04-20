@@ -1,40 +1,7 @@
 import { Link } from 'react-router-dom'
 import Meta from '../components/Meta'
 import { organizationJsonLd, websiteJsonLd } from '@/lib/seo'
-import herbsData from '../../public/data/herbs.json'
-import type { HerbRecord } from '@/types/herb'
-import { sanitizeSummaryText } from '@/lib/sanitize'
-import { sanitizeRenderChips } from '@/lib/renderGuard'
-
-const FEATURED_HERBS = [
-  'Curcuma longa',
-  'Camellia sinensis',
-  'Withania somnifera',
-  'Panax ginseng',
-  'Ginkgo biloba',
-  'Rosmarinus officinalis',
-  'Glycyrrhiza glabra',
-  'Nigella sativa',
-  'Centella asiatica',
-  'Zingiber officinale',
-  'Silybum marianum',
-  'Rhodiola rosea',
-] as const
-
-const FEATURED_COMPOUNDS = [
-  'Curcumin',
-  'Epigallocatechin gallate',
-  'Withaferin A',
-  'Ginsenoside Rg1',
-  'Ginkgolide B',
-  'Carnosic acid',
-  'Glycyrrhizin',
-  'Thymoquinone',
-  'Asiatic acid',
-  'Berberine',
-  'Quercetin',
-  'Resveratrol',
-] as const
+import featuredData from '../../public/data/homepage-featured.json'
 
 const TRUST_ITEMS = ['Evidence-linked entries', 'Safety framing on every profile', 'Methods and assumptions published']
 
@@ -42,31 +9,15 @@ function encodedQuery(name: string) {
   return encodeURIComponent(name)
 }
 
-const HERB_FALLBACK_SUMMARY = 'Science-first herbal reference profile.'
-
-const herbLookup = new Map(
-  (herbsData as HerbRecord[]).map(herb => [String(herb.name || '').trim().toLowerCase(), herb] as const),
-)
-
-function truncateCardLine(value: string, maxLength = 110) {
-  if (value.length <= maxLength) return value
-  return `${value.slice(0, maxLength).replace(/\s+\S*$/, '').trim()}…`
+type HomeFeaturedItem = {
+  name: string
+  slug: string
+  summary: string
+  tags?: string[]
 }
 
-function buildHerbSummary(herb: HerbRecord | undefined) {
-  const preferred = sanitizeSummaryText(herb?.summary, 1)
-  if (preferred) return truncateCardLine(preferred)
-
-  const fallbackDescription = sanitizeSummaryText(herb?.description, 1)
-  if (fallbackDescription) return truncateCardLine(fallbackDescription)
-
-  return HERB_FALLBACK_SUMMARY
-}
-
-function buildMechanismChips(herb: HerbRecord | undefined) {
-  const chips = sanitizeRenderChips([herb?.mechanismTags, herb?.mechanisms], 4)
-  return chips.filter(chip => chip.length >= 3 && chip.length <= 28).slice(0, 2)
-}
+const featuredHerbs = ((featuredData as { herbs?: HomeFeaturedItem[] }).herbs || []).slice(0, 12)
+const featuredCompounds = ((featuredData as { compounds?: HomeFeaturedItem[] }).compounds || []).slice(0, 12)
 
 export default function Home() {
   return (
@@ -130,24 +81,22 @@ export default function Home() {
           </Link>
         </div>
         <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
-          {FEATURED_HERBS.map(name => {
-            const herb = herbLookup.get(name.toLowerCase())
-            const summary = buildHerbSummary(herb)
-            const mechanismChips = buildMechanismChips(herb)
+          {featuredHerbs.map(herb => {
+            const mechanismChips = Array.isArray(herb.tags) ? herb.tags : []
 
             return (
               <Link
-                key={name}
-                to={`/herbs?query=${encodedQuery(name)}`}
+                key={herb.slug}
+                to={`/herbs?query=${encodedQuery(herb.name)}`}
                 className='premium-panel p-4 transition-colors hover:border-white/20'
               >
-                <h3 className='text-base font-semibold text-white'>{name}</h3>
-                <p className='mt-2 text-sm text-white/73'>{summary}</p>
+                <h3 className='text-base font-semibold text-white'>{herb.name}</h3>
+                <p className='mt-2 text-sm text-white/73'>{herb.summary}</p>
                 {mechanismChips.length > 0 ? (
                   <div className='mt-2 flex flex-wrap gap-1.5'>
                     {mechanismChips.map(chip => (
                       <span
-                        key={`${name}-${chip}`}
+                        key={`${herb.slug}-${chip}`}
                         className='rounded-full border border-white/15 bg-white/5 px-2 py-0.5 text-[11px] font-medium text-white/74'
                       >
                         {chip}
@@ -169,14 +118,14 @@ export default function Home() {
           </Link>
         </div>
         <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
-          {FEATURED_COMPOUNDS.map(name => (
+          {featuredCompounds.map(compound => (
             <Link
-              key={name}
-              to={`/compounds?query=${encodedQuery(name)}`}
+              key={compound.slug}
+              to={`/compounds?query=${encodedQuery(compound.name)}`}
               className='premium-panel p-4 transition-colors hover:border-white/20'
             >
-              <h3 className='text-base font-semibold text-white'>{name}</h3>
-              <p className='mt-2 text-sm text-white/73'>Open profile and review mechanism, confidence, and safety details.</p>
+              <h3 className='text-base font-semibold text-white'>{compound.name}</h3>
+              <p className='mt-2 text-sm text-white/73'>{compound.summary}</p>
             </Link>
           ))}
         </div>
