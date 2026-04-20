@@ -12,6 +12,7 @@ import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { SITE_URL, breadcrumbJsonLd, herbJsonLd } from '@/lib/seo'
 import { shouldShowRawDebug } from '@/lib/semanticCompression'
 import { getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
+import { isPublishQualityDetailPage } from '@/lib/publishQuality'
 
 type SourceRef = { title: string; url: string; note?: string }
 
@@ -252,6 +253,17 @@ export default function HerbDetail() {
     priorityWarning ? `Use caution: ${priorityWarning}.` : 'Avoid if safety context, medications, or medical status are unclear.',
   ].filter(Boolean)
   const pagePath = `/herbs/${herb.slug}`
+  const isPublishQuality = isPublishQualityDetailPage({
+    name: herbName,
+    summary: description,
+    description,
+    sources,
+    sourceCount: herb.sourceCount,
+    reviewedMeta: herb.researchEnrichmentSummary,
+    safety: safetyNotes,
+    contraindications,
+    interactions,
+  })
   const relatedHerbSlugs = splitTextList(herb.relatedHerbs)
   const herbIndex = new Map<string, string>()
   herbs.forEach(item => {
@@ -301,6 +313,7 @@ export default function HerbDetail() {
         title={`${herbName} Herb Guide | The Hippie Scientist`}
         description={`${herbName} effects, dosage context, safety notes, and sources.`}
         path={pagePath}
+        noindex={!isPublishQuality}
         image={`/og/herb/${herb.slug}.png`}
         jsonLd={[
           herbJsonLd({

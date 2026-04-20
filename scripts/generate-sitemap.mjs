@@ -43,6 +43,29 @@ function readJson(relativePath) {
   }
 }
 
+function hasPlaceholderText(value) {
+  const text = String(value || '').trim().toLowerCase()
+  if (!text) return false
+  return text === 'nan' || text.includes('no direct effects data') || text.includes('contextual inference')
+}
+
+function isPublishQualityIndexEntry(entry) {
+  if (!entry || typeof entry !== 'object') return false
+  const title = String(entry.title || entry.name || '').trim()
+  if (!title || hasPlaceholderText(title)) return false
+  if (hasPlaceholderText(entry.description)) return false
+
+  const sourceCount = Number(entry.sourceCountNormalized ?? entry.sourceCount ?? 0)
+  const reviewed = Boolean(
+    entry.reviewed ||
+      entry.reviewedAt ||
+      entry.lastReviewedAt ||
+      entry.publicationEligible === true,
+  )
+
+  return sourceCount >= 2 || reviewed
+}
+
 function normalizeDate(value) {
   if (!value) return null
   const date = new Date(value)
@@ -113,8 +136,20 @@ function buildSitemap() {
   const indexableCompounds = readJson('public/data/indexable-compounds.json')
 
   const blogEntries = getBlogEntries(readJson('public/blogdata/index.json'))
-  const herbRoutes = normalizeRoutes(indexableHerbs.map(getHerbSlug).filter(Boolean).map(slug => `/herbs/${slug}`))
-  const compoundRoutes = normalizeRoutes(indexableCompounds.map(getCompoundSlug).filter(Boolean).map(slug => `/compounds/${slug}`))
+  const herbRoutes = normalizeRoutes(
+    indexableHerbs
+      .filter(isPublishQualityIndexEntry)
+      .map(getHerbSlug)
+      .filter(Boolean)
+      .map(slug => `/herbs/${slug}`),
+  )
+  const compoundRoutes = normalizeRoutes(
+    indexableCompounds
+      .filter(isPublishQualityIndexEntry)
+      .map(getCompoundSlug)
+      .filter(Boolean)
+      .map(slug => `/compounds/${slug}`),
+  )
 
   const blockedRoutes = new Set(disallowedRoutes.map(route => normalizePathname(route)))
   const staticRoutes = normalizeRoutes(sitemapRoutes).filter(route => !blockedRoutes.has(route))
