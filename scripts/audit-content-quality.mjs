@@ -3,8 +3,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const ROOT = process.cwd()
-const HERBS_FILE = path.join(ROOT, 'public/data/herbs.json')
-const COMPOUNDS_FILE = path.join(ROOT, 'public/data/compounds.json')
+const HERBS_FILE_CANDIDATES = ['public/data/herbs-summary.json', 'public/data/herbs.json']
+const COMPOUNDS_FILE_CANDIDATES = ['public/data/compounds-summary.json', 'public/data/compounds.json']
 const HERBS_DETAIL_DIR = path.join(ROOT, 'public/data/herbs-detail')
 const COMPOUNDS_DETAIL_DIR = path.join(ROOT, 'public/data/compounds-detail')
 
@@ -12,6 +12,25 @@ const PLACEHOLDERS = ['nan', 'No direct effects data', 'Contextual inference']
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
+}
+
+function resolveFirstExistingFile(candidates) {
+  for (const relativePath of candidates) {
+    const absolutePath = path.join(ROOT, relativePath)
+    if (fs.existsSync(absolutePath)) {
+      return absolutePath
+    }
+  }
+  throw new Error(`Missing expected source file. Checked: ${candidates.join(', ')}`)
+}
+
+function parseArgs(argv) {
+  const args = { herbs: null, compounds: null }
+  for (const raw of argv.slice(2)) {
+    if (raw.startsWith('--herbs=')) args.herbs = raw.split('=')[1] || null
+    if (raw.startsWith('--compounds=')) args.compounds = raw.split('=')[1] || null
+  }
+  return args
 }
 
 function readJsonFiles(dirPath) {
@@ -72,19 +91,24 @@ function normalizeSources(value) {
 }
 
 function main() {
-  const herbs = readJson(HERBS_FILE)
-  const compounds = readJson(COMPOUNDS_FILE)
+  const args = parseArgs(process.argv)
+  const herbsFilePath = args.herbs ? path.resolve(ROOT, args.herbs) : resolveFirstExistingFile(HERBS_FILE_CANDIDATES)
+  const compoundsFilePath = args.compounds
+    ? path.resolve(ROOT, args.compounds)
+    : resolveFirstExistingFile(COMPOUNDS_FILE_CANDIDATES)
+  const herbs = readJson(herbsFilePath)
+  const compounds = readJson(compoundsFilePath)
   const herbsDetail = readJsonFiles(HERBS_DETAIL_DIR)
   const compoundsDetail = readJsonFiles(COMPOUNDS_DETAIL_DIR)
 
   const duplicateSlugGroups = [
     ...findDuplicateSlugsInCollection(
-      herbs.map((item, index) => ({ slug: item.slug, location: `public/data/herbs.json#${index}` })),
-      'herbs.json'
+      herbs.map((item, index) => ({ slug: item.slug, location: `${path.relative(ROOT, herbsFilePath)}#${index}` })),
+      path.basename(herbsFilePath)
     ),
     ...findDuplicateSlugsInCollection(
-      compounds.map((item, index) => ({ slug: item.slug, location: `public/data/compounds.json#${index}` })),
-      'compounds.json'
+      compounds.map((item, index) => ({ slug: item.slug, location: `${path.relative(ROOT, compoundsFilePath)}#${index}` })),
+      path.basename(compoundsFilePath)
     ),
     ...findDuplicateSlugsInCollection(
       herbsDetail.map(item => ({ slug: item.data?.slug, location: path.relative(ROOT, item.filePath) })),
@@ -97,8 +121,8 @@ function main() {
   ]
 
   const allRecords = [
-    { filePath: HERBS_FILE, data: herbs },
-    { filePath: COMPOUNDS_FILE, data: compounds },
+    { filePath: herbsFilePath, data: herbs },
+    { filePath: compoundsFilePath, data: compounds },
     ...herbsDetail,
     ...compoundsDetail,
   ]
