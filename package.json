@@ -36,6 +36,7 @@
     "report:ops": "npm run data:report && npm run report:entity-route-payloads",
     "audit:data": "tsx scripts/validate-datasets.ts",
     "audit:blog-content": "node scripts/audit-blog-content.mjs",
+    "audit:content": "node scripts/audit-content-quality.mjs",
     "data:refresh": "npm run prebuild:data && npm run autofill:data && npm run data:validate",
     "data:refresh+build": "npm run data:refresh && npm run build",
     "data:merge": "node scripts/merge-herbs.mjs",
