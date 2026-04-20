@@ -1,0 +1,233 @@
+{
+  "generatedAt": "2026-04-19T23:49:12.468Z",
+  "source": "public/data/workbook-herbs.json",
+  "totalRows": 285,
+  "scoreCounts": {
+    "0": 0,
+    "1": 0,
+    "2": 272,
+    "3": 7,
+    "4": 6,
+    "5": 0
+  },
+  "score4Rows": [
+    {
+      "slug": "ashwagandha",
+      "name": "Ashwagandha",
+      "score": 4,
+      "issues": [
+        "description contains placeholder language"
+      ]
+    },
+    {
+      "slug": "milk-thistle",
+      "name": "Milk Thistle",
+      "score": 4,
+      "issues": [
+        "description contains placeholder language"
+      ]
+    },
+    {
+      "slug": "rosemary",
+      "name": "Rosemary",
+      "score": 4,
+      "issues": [
+        "description too short"
+      ]
+    },
+    {
+      "slug": "cinnamon",
+      "name": "Cinnamon",
+      "score": 4,
+      "issues": [
+        "description too short"
+      ]
+    },
+    {
+      "slug": "pomegranate",
+      "name": "Pomegranate",
+      "score": 4,
+      "issues": [
+        "description too short",
+        "safety notes too brief"
+      ]
+    },
+    {
+      "slug": "eleuthero",
+      "name": "Eleuthero",
+      "score": 4,
+      "issues": [
+        "description too short",
+        "safety notes too brief"
+      ]
+    }
+  ],
+  "score3Rows": [
+    {
+      "slug": "rhodiola-rosea",
+      "name": "Rhodiola Rosea",
+      "score": 3,
+      "issues": [
+        "missing interactions",
+        "missing preparation",
+        "missing primary actions"
+      ]
+    },
+    {
+      "slug": "fennel",
+      "name": "Fennel",
+      "score": 3,
+      "issues": [
+        "description too short",
+        "description contains placeholder language",
+        "safety notes too brief",
+        "preparation contains placeholder language"
+      ]
+    },
+    {
+      "slug": "moringa",
+      "name": "Moringa",
+      "score": 3,
+      "issues": [
+        "description too short",
+        "description contains placeholder language",
+        "safety notes too brief",
+        "preparation contains placeholder language"
+      ]
+    },
+    {
+      "slug": "cordyceps",
+      "name": "Cordyceps",
+      "score": 3,
+      "issues": [
+        "missing interactions",
+        "missing preparation",
+        "missing primary actions"
+      ]
+    },
+    {
+      "slug": "schisandra",
+      "name": "Schisandra",
+      "score": 3,
+      "issues": [
+        "description too short",
+        "safety notes too brief",
+        "preparation contains placeholder language"
+      ]
+    },
+    {
+      "slug": "saffron",
+      "name": "Saffron",
+      "score": 3,
+      "issues": [
+        "description too short",
+        "description contains placeholder language",
+        "preparation contains placeholder language"
+      ]
+    },
+    {
+      "slug": "green-tea",
+      "name": "Green Tea",
+      "score": 3,
+      "issues": [
+        "description too short",
+        "description contains placeholder language"
+      ]
+    }
+  ],
+  "commonIssuesByTier": {
+    "0": [],
+    "1": [],
+    "2": [
+      {
+        "issue": "missing interactions",
+        "count": 272
+      },
+      {
+        "issue": "missing preparation",
+        "count": 272
+      },
+      {
+        "issue": "missing primary actions",
+        "count": 272
+      },
+      {
+        "issue": "description too short",
+        "count": 247
+      },
+      {
+        "issue": "description contains placeholder language",
+        "count": 105
+      },
+      {
+        "issue": "safety notes too brief",
+        "count": 104
+      },
+      {
+        "issue": "missing safety notes",
+        "count": 100
+      },
+      {
+        "issue": "active compounds too thin",
+        "count": 89
+      },
+      {
+        "issue": "mechanisms too thin",
+        "count": 22
+      },
+      {
+        "issue": "missing description",
+        "count": 1
+      },
+      {
+        "issue": "missing mechanisms",
+        "count": 1
+      }
+    ],
+    "3": [
+      {
+        "issue": "description too short",
+        "count": 5
+      },
+      {
+        "issue": "description contains placeholder language",
+        "count": 4
+      },
+      {
+        "issue": "preparation contains placeholder language",
+        "count": 4
+      },
+      {
+        "issue": "safety notes too brief",
+        "count": 3
+      },
+      {
+        "issue": "missing interactions",
+        "count": 2
+      },
+      {
+        "issue": "missing preparation",
+        "count": 2
+      },
+      {
+        "issue": "missing primary actions",
+        "count": 2
+      }
+    ],
+    "4": [
+      {
+        "issue": "description too short",
+        "count": 4
+      },
+      {
+        "issue": "description contains placeholder language",
+        "count": 2
+      },
+      {
+        "issue": "safety notes too brief",
+        "count": 2
+      }
+    ],
+    "5": []
+  }
+}
