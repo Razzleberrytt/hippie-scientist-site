@@ -1,6 +1,6 @@
 const HEADER_NORMALIZATION_PATTERN = /[^a-z0-9]+/g
 const WEAK_TEXT_VALUES = new Set(['nan', 'null', 'undefined', 'n/a', 'na', 'none', 'nil'])
-const CANONICAL_WORKBOOK_KEYS = new Set(['name', 'slug', 'description', 'mechanisms', 'safetyNotes'])
+const CANONICAL_WORKBOOK_KEYS = new Set(['name', 'slug', 'description', 'mechanisms', 'safetyNotes', 'affiliateProducts'])
 
 const COLUMN_ALIASES = {
   name: ['name', 'herb_name', 'compound_name', 'herb', 'compound'],
@@ -8,6 +8,7 @@ const COLUMN_ALIASES = {
   description: ['description', 'summary'],
   mechanisms: ['mechanisms', 'mechanism', 'moa'],
   safetyNotes: ['safetynotes', 'safety', 'safety_notes'],
+  affiliateProducts: ['affiliateproducts', 'affiliate_products'],
 }
 
 const NORMALIZED_COLUMN_ALIAS_LOOKUP = Object.fromEntries(

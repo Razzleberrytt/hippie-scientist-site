@@ -157,6 +157,39 @@ function removeEmptyValues(input) {
   return input
 }
 
+const AFFILIATE_PRODUCT_TYPES = new Set(['capsule', 'powder', 'tincture', 'tea', 'extract'])
+
+function normalizeAffiliateProducts(value) {
+  if (!isMeaningfulValue(value)) return []
+
+  let parsed = value
+  if (typeof value === 'string') {
+    const text = value.trim()
+    if (!text) return []
+    try {
+      parsed = JSON.parse(text)
+    } catch {
+      return []
+    }
+  }
+
+  if (!Array.isArray(parsed)) return []
+
+  return parsed
+    .map(item => ({
+      name: cleanScalar(item?.name),
+      type: String(cleanScalar(item?.type)).toLowerCase(),
+      affiliateUrl: cleanScalar(item?.affiliateUrl),
+    }))
+    .filter(
+      item =>
+        Boolean(item.name) &&
+        AFFILIATE_PRODUCT_TYPES.has(item.type) &&
+        typeof item.affiliateUrl === 'string' &&
+        item.affiliateUrl.startsWith('https://www.amazon.com/s?k='),
+    )
+}
+
 function normalizeRecordSlug(record, fieldName) {
   const raw = toCleanString(record[fieldName])
   if (!raw) return ''
@@ -245,6 +278,7 @@ function exportHerbs(workbook, diagnostics, resolvedSheets) {
       totalScore: cleanScalar(row.totalScore),
       pathwayTargets: splitSemicolonOrCommaList(row.pathwayTargets),
       relatedHerbs: splitSemicolonOrCommaList(row.relatedHerbs),
+      affiliateProducts: normalizeAffiliateProducts(row.affiliateProducts),
       compound_count: cleanScalar(row.compound_count),
       pathway_count: cleanScalar(row.pathway_count),
       evidence_tier: cleanScalar(row.evidence_tier),
