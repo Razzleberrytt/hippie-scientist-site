@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-
-const ForceGraph2D = React.lazy(() => import('react-force-graph-2d'))
 import Meta from '../components/Meta'
 import { recordDevMessage } from '../utils/devMessages'
 
@@ -27,6 +25,9 @@ type ForceGraphNode = GraphNode & {
   y?: number
 }
 
+
+type ForceGraph2DComponent = (typeof import('react-force-graph-2d'))['default']
+
 function isGraphNode(node: unknown): node is GraphNode {
   if (!node || typeof node !== 'object') return false
   const record = node as Record<string, unknown>
@@ -51,6 +52,7 @@ export default function GraphPage() {
   }))
   const [graphData, setGraphData] = useState<GraphData | null>(null)
   const [isDataMissing, setIsDataMissing] = useState(false)
+  const [ForceGraph2DComponent, setForceGraph2D] = useState<ForceGraph2DComponent | null>(null)
 
   const openInNewTab = (path: string) => {
     const newWindow = window.open(path, '_blank', 'noopener,noreferrer')
@@ -130,6 +132,29 @@ export default function GraphPage() {
     }
   }, [])
 
+  useEffect(() => {
+    if (!graphData || isDataMissing || ForceGraph2DComponent) return
+
+    let isMounted = true
+
+    const loadForceGraph = async () => {
+      try {
+        const module = await import('react-force-graph-2d')
+        if (isMounted) {
+          setForceGraph2D(() => module.default)
+        }
+      } catch (error) {
+        recordDevMessage('warning', 'Graph visualization library failed to load', error)
+      }
+    }
+
+    loadForceGraph()
+
+    return () => {
+      isMounted = false
+    }
+  }, [ForceGraph2DComponent, graphData, isDataMissing])
+
   return (
     <>
       <Meta
@@ -141,66 +166,59 @@ export default function GraphPage() {
       />
       <main className='relative h-screen w-full overflow-hidden bg-black/40 text-white backdrop-blur'>
         <h1 className='sr-only'>NeuroHerbGraph interactive map</h1>
-        <React.Suspense
-          fallback={
-            <div className='absolute inset-0 flex items-center justify-center bg-black/70 text-sm text-white/70'>
-              Loading graph visualization…
-            </div>
-          }
-        >
-          {graphData && !isDataMissing ? (
-            <ForceGraph2D
-              width={dims.w}
-              height={dims.h}
-              graphData={graphData}
-              nodeLabel={node => (isGraphNode(node) ? node.name : '')}
-              nodeAutoColorBy='group'
-              linkColor={() => 'rgba(255,255,255,0.1)'}
-              linkDirectionalParticles={0}
-              backgroundColor='rgba(0,0,0,0)'
-              onNodeClick={node => {
-                if (!isGraphNode(node)) return
-                if (node.group === 'herb') {
-                  openInNewTab(`/herb/${node.slug}`)
-                } else if (node.group === 'post') {
-                  openInNewTab(`/blog/${node.slug}/`)
-                }
-              }}
-              nodeCanvasObject={(node, ctx, globalScale) => {
-                const graphNode = node as ForceGraphNode
-                if (!isGraphNode(graphNode)) return
+        {graphData && !isDataMissing && ForceGraph2DComponent ? (
+          <ForceGraph2DComponent
+            width={dims.w}
+            height={dims.h}
+            graphData={graphData}
+            nodeLabel={node => (isGraphNode(node) ? node.name : '')}
+            nodeAutoColorBy='group'
+            linkColor={() => 'rgba(255,255,255,0.1)'}
+            linkDirectionalParticles={0}
+            backgroundColor='rgba(0,0,0,0)'
+            onNodeClick={node => {
+              if (!isGraphNode(node)) return
+              if (node.group === 'herb') {
+                openInNewTab(`/herb/${node.slug}`)
+              } else if (node.group === 'post') {
+                openInNewTab(`/blog/${node.slug}/`)
+              }
+            }}
+            nodeCanvasObject={(node, ctx, globalScale) => {
+              const graphNode = node as ForceGraphNode
+              if (!isGraphNode(graphNode)) return
 
-                if (typeof graphNode.x !== 'number' || typeof graphNode.y !== 'number') {
-                  return
-                }
-                const x = graphNode.x
-                const y = graphNode.y
+              if (typeof graphNode.x !== 'number' || typeof graphNode.y !== 'number') {
+                return
+              }
+              const x = graphNode.x
+              const y = graphNode.y
 
-                const label = graphNode.name
-                const fontSize = 12 / globalScale
-                ctx.font = `${fontSize}px Inter, sans-serif`
-                ctx.fillStyle = graphNode.group === 'herb' ? '#7aff9d' : '#74d7ff'
-                const textWidth = ctx.measureText(label).width
-                const paddingX = 6
-                const paddingY = 4
-                const bckgDimensions: [number, number] = [textWidth + paddingX, fontSize + paddingY]
-                ctx.fillRect(
-                  x - bckgDimensions[0] / 2,
-                  y - bckgDimensions[1] / 2,
-                  ...bckgDimensions
-                )
-                ctx.textAlign = 'center'
-                ctx.textBaseline = 'middle'
-                ctx.fillStyle = '#000'
-                ctx.fillText(label, x, y)
-              }}
-            />
-          ) : null}
-        </React.Suspense>
+              const label = graphNode.name
+              const fontSize = 12 / globalScale
+              ctx.font = `${fontSize}px Inter, sans-serif`
+              ctx.fillStyle = graphNode.group === 'herb' ? '#7aff9d' : '#74d7ff'
+              const textWidth = ctx.measureText(label).width
+              const paddingX = 6
+              const paddingY = 4
+              const bckgDimensions: [number, number] = [textWidth + paddingX, fontSize + paddingY]
+              ctx.fillRect(x - bckgDimensions[0] / 2, y - bckgDimensions[1] / 2, ...bckgDimensions)
+              ctx.textAlign = 'center'
+              ctx.textBaseline = 'middle'
+              ctx.fillStyle = '#000'
+              ctx.fillText(label, x, y)
+            }}
+          />
+        ) : null}
         <div className='absolute left-3 top-3 z-10 rounded-lg border border-white/10 bg-black/50 px-3 py-2 text-xs text-white/70'>
           <b>Legend:</b> 🟢 herbs · 🔵 posts
           <span className='ml-2 opacity-75'>Click nodes to open pages</span>
         </div>
+        {graphData && !isDataMissing && !ForceGraph2DComponent ? (
+          <div className='absolute inset-0 flex items-center justify-center bg-black/70 text-sm text-white/70'>
+            Loading graph visualization…
+          </div>
+        ) : null}
         {!graphData && !isDataMissing ? (
           <div className='absolute inset-0 flex items-center justify-center bg-black/70 text-sm text-white/70'>
             Loading graph data…
