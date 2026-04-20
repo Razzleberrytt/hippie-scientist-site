@@ -1,6 +1,7 @@
 import type { ResearchEnrichment } from './researchEnrichment'
 import type { ConfidenceLevel } from './confidence'
 import type { PublishSafeEnrichmentSummary } from './enrichmentDiscovery'
+import type { CuratedData } from '@/lib/semanticCompression'
 
 export type CanonicalCompound = {
   name: string
@@ -47,6 +48,7 @@ export type CompoundRecord = {
   relatedEntities?: string[]
   relatedCompounds?: string[]
   linkedHerbs?: string[]
+  curatedData?: CuratedData
   researchEnrichment?: ResearchEnrichment
   researchEnrichmentSummary?: PublishSafeEnrichmentSummary
   [key: string]: unknown

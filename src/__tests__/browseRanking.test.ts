@@ -83,7 +83,7 @@ describe('default browse ranking', () => {
         aliases: [],
         sourceCount: 0,
       },
-    ] as CompoundSummaryRecord[]
+    ] as unknown as CompoundSummaryRecord[]
 
     const ranked = filterCompounds(compounds, DEFAULT_FILTER_STATE)
     expect(ranked.map(item => item.slug)).toEqual(['rich'])

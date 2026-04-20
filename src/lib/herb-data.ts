@@ -272,7 +272,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     mechanisms,
     mechanism,
     effects: primaryActions,
-    benefits,
+    benefits: benefits.join('; '),
     traditionalUses,
     contraindications,
     interactions,

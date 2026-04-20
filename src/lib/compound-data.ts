@@ -24,6 +24,8 @@ export type CompoundRecord = {
   mechanisms: string[]
   targets: string[]
   pathways: string[]
+  intensity?: string
+  activeCompounds?: string[]
   foundIn: string[]
   bioavailability: string
   safetyNotes: string

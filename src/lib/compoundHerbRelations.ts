@@ -7,6 +7,9 @@ export type RelatedHerb = {
   descriptor: string
   confidence?: Herb['confidence']
   primaryActions?: string[]
+  primaryEffects?: string[]
+  profileStatus?: string
+  summaryQuality?: string
 }
 
 function normalizeKey(value: unknown) {
@@ -61,6 +64,13 @@ export function mapRelatedHerbsForCompound(compound: CompoundRecord, herbs: Herb
             : Array.isArray(existing.effects)
               ? existing.effects
               : [],
+          primaryEffects: Array.isArray(existing.primary_effects)
+            ? existing.primary_effects
+            : Array.isArray(existing.primaryEffects)
+              ? existing.primaryEffects
+              : [],
+          profileStatus: String(existing.profile_status || existing.profileStatus || '').trim() || undefined,
+          summaryQuality: String(existing.summary_quality || existing.summaryQuality || '').trim() || undefined,
         } satisfies RelatedHerb
       }
       
@@ -89,6 +99,13 @@ export function mapRelatedHerbsForCompound(compound: CompoundRecord, herbs: Herb
         : Array.isArray(herb.effects)
           ? herb.effects
           : [],
+      primaryEffects: Array.isArray(herb.primary_effects)
+        ? herb.primary_effects
+        : Array.isArray(herb.primaryEffects)
+          ? herb.primaryEffects
+          : [],
+      profileStatus: String(herb.profile_status || herb.profileStatus || '').trim() || undefined,
+      summaryQuality: String(herb.summary_quality || herb.summaryQuality || '').trim() || undefined,
     }))
 
   const merged = new Map<string, RelatedHerb>()
