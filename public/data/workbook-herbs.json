@@ -8,25 +8,18 @@
       "inflammatory modulation"
     ],
     "mechanisms": [
-      "adaptogen",
-      "stress modulation",
-      "cortisol regulation",
-      "NF-κB inhibition",
-      "HSP90 inhibition",
-      "apoptosis pathway modulation",
-      "PI3K/Akt modulation",
-      "cholinergic modulation",
-      "BDNF upregulation",
-      "neurite outgrowth promotion"
+      "HPA-axis stress signaling modulation",
+      "GABAergic signaling modulation",
+      "NF-κB pathway modulation"
     ],
-    "description": "Ashwagandha centers on the root. Key reported compounds include withaferin A; withanolide D; withanolide A; withanoside IV; sitoindosides; alkaloids. Typical preparation forms: Root powders and standardized extracts. Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways. Interaction profile: May potentiate sedatives, antihypertensives, antidiabetics, thyroid hormones, and immunosuppressants. Use caution or avoid in: Pregnancy, breastfeeding, autoimmune disease, thyroid disorders, liver disease.",
+    "description": "Ashwagandha (Withania somnifera) is an adaptogenic root used most often as powder or standardized extract for stress and sleep support. Human studies are mixed but suggest modest improvements in perceived stress and sleep quality in some adults. Benefits and tolerability depend on extract standardization, dose, and concurrent medications.",
     "activeCompounds": [
       "withanolides",
       "Withaferin A",
       "Withanolide A",
       "withanoside IV"
     ],
-    "safetyNotes": "Short-term use appears safe; side effects include drowsiness and GI upset. Rare liver injury has been reported.",
+    "safetyNotes": "Usually tolerated in short-term use, but adverse effects can include drowsiness, GI upset, and headache. Rare clinically apparent liver injury has been reported after supplement use. It can add to sedative effects and may alter thyroid or glucose-related therapy, so medication review is advised.",
     "interactions": [
       "Use caution with sedatives",
       "thyroid-active therapy",
@@ -216,18 +209,11 @@
       "antifibrotic signaling"
     ],
     "mechanisms": [
-      "liver support",
-      "antioxidant",
-      "hepatoprotection",
-      "STAT3 inhibition",
-      "NF-κB inhibition",
-      "PI3K/Akt modulation",
-      "Nrf2 activation",
-      "TGF-β modulation",
-      "ABC transporter modulation",
-      "hepatocyte protection"
+      "Nrf2 antioxidant response activation",
+      "NF-κB inflammatory signaling modulation",
+      "hepatocyte membrane stabilization"
     ],
-    "description": "Milk Thistle centers on the seed; fruit. Key reported compounds include silybin A/B; isosilybin A/B; silychristin; silydianin; isosilychristin. Typical preparation forms: Seed/fruit extracts standardized to silymarin. Silymarin flavonolignans exhibit antioxidant, anti-inflammatory and antifibrotic activity relevant to hepatoprotection. Interaction profile: Possible CYP2C9/CYP3A4 interaction risk; may affect warfarin and some other drugs. Use caution or avoid in: Asteraceae allergy; caution in pregnancy/breastfeeding.",
+    "description": "Milk thistle seed extract supplies silymarin compounds, often used for liver support. Study results show mixed clinical effect, though lab work suggests antioxidant and anti-inflammatory activity. Most use relies on fixed-dose extract products.",
     "activeCompounds": [
       "silymarin",
       "Silibinin",
@@ -235,7 +221,7 @@
       "silychristin",
       "silydianin"
     ],
-    "safetyNotes": "Generally well tolerated; mild GI side effects and occasional allergic reactions.",
+    "safetyNotes": "Generally well tolerated, with mild nausea, bloating, or loose stools as the most common adverse effects. Allergic reactions can occur, especially in people with Asteraceae (ragweed/daisy family) sensitivity. Potential CYP-mediated interaction risk warrants caution with narrow-therapeutic-index drugs such as warfarin.",
     "interactions": [
       "May affect drug transport and metabolism in susceptible users."
     ],
@@ -477,16 +463,11 @@
       "cognitive and digestive support"
     ],
     "mechanisms": [
-      "cognition",
-      "antioxidant",
-      "digestive support",
-      "Nrf2 activation",
-      "NF-κB inhibition",
-      "STAT3 inhibition",
-      "AMPK activation",
-      "PI3K/Akt modulation"
+      "Nrf2 antioxidant pathway activation",
+      "NF-κB inflammatory signaling modulation",
+      "acetylcholinesterase inhibition"
     ],
-    "description": "Conservative evidence framing applied. Lean bulk enrichment added: Carnosic acid.",
+    "description": "Rosemary leaf is used as food herb plus extract forms rich in carnosic acid and rosmarinic acid. Evidence supports antioxidant and anti-inflammatory bioactivity, while clinical effect in people is modest. Use is best framed as food use or well-characterized extract use.",
     "activeCompounds": [
       "rosmarinic acid",
       "Carnosic acid",
@@ -494,7 +475,7 @@
       "Oleanolic acid",
       "carnosol"
     ],
-    "safetyNotes": "Generally well tolerated; review concentrated extract use.",
+    "safetyNotes": "Food-level use is usually well tolerated, but concentrated products can cause GI irritation, and essential oil should not be ingested undiluted. High-exposure preparations may increase adverse-effect risk in people with seizure disorders. Review use with antihypertensive or antiplatelet regimens when using concentrated extracts.",
     "interactions": [
       "Caution with concentrated extracts alongside anticoagulants."
     ],
@@ -631,17 +612,16 @@
       "sensory channel activity"
     ],
     "mechanisms": [
-      "glycemic support",
-      "antimicrobial support",
-      "AMPK activation",
-      "NF-κB inhibition"
+      "AMPK pathway activation",
+      "intestinal alpha-glucosidase inhibition",
+      "insulin receptor signaling sensitization"
     ],
-    "description": "It is best framed conservatively because product form and species matter, especially around coumarin exposure in non-verum types.",
+    "description": "This spice varies by species; C. verum tends to have less coumarin than cassia types. Trials suggest small glucose-related benefit in some groups, with effect tied to dose and product quality. It should be used as support, not as sole glycemic therapy.",
     "activeCompounds": [
       "cinnamaldehyde",
       "polyphenols"
     ],
-    "safetyNotes": "Generally well tolerated in culinary ranges.",
+    "safetyNotes": "Culinary intake is usually safe, but chronic high intake of cassia cinnamon can increase coumarin exposure and liver risk. Concentrated supplements may add to glucose-lowering medication effects and raise hypoglycemia risk. Monitor liver symptoms and glycemic response when using high-dose products.",
     "interactions": [
       "Use caution with anticoagulants and glucose-lowering therapy."
     ],
@@ -889,21 +869,18 @@
       "vascular support"
     ],
     "mechanisms": [
-      "vascular support",
-      "antioxidant",
-      "Nrf2 activation",
-      "NF-κB inhibition",
-      "MAPK pathway modulation",
-      "ellagitannin-mediated antioxidant signaling"
+      "Nrf2 antioxidant response activation",
+      "NF-κB inflammatory signaling modulation",
+      "endothelial nitric oxide bioavailability support"
     ],
-    "description": "It is best framed as a polyphenol-rich fruit botanical with food-form relevance and moderate evidence.",
+    "description": "This fruit is polyphenol-rich with ellagitannin-derived metabolites of cardio-metabolic interest. Clinical data suggest modest shifts in vascular and inflammatory markers, with results tied to dose and product type. Food use offers the most reliable baseline option.",
     "activeCompounds": [
       "punicalagins",
       "ellagic acid",
       "Gallic acid",
       "punicalagin"
     ],
-    "safetyNotes": "Generally well tolerated.",
+    "safetyNotes": "Usually well tolerated, though GI upset can occur with concentrated juice or extract intake. It may modestly lower blood pressure, which can add to antihypertensive effects in susceptible users. Check medication compatibility before using concentrated extracts alongside cardiometabolic therapies.",
     "interactions": [
       "Polyphenol-rich extracts may alter drug metabolism in some contexts."
     ],
@@ -1874,19 +1851,17 @@
       "immune modulation"
     ],
     "mechanisms": [
-      "HPA axis",
-      "HPA-axis modulation",
-      "immune modulation",
-      "AMPK activation",
-      "stress response modulation"
+      "HPA-axis stress signaling modulation",
+      "sympathoadrenal stress-response modulation",
+      "innate immune signaling modulation"
     ],
-    "description": "Stress resilience.",
+    "description": "Eleuthero (Eleutherococcus senticosus) is an adaptogenic root used for fatigue and stress resilience. Clinical evidence is limited to modest, variable benefits and is sensitive to extract composition and dosing. It is best positioned as conservative supportive care rather than a primary treatment.",
     "activeCompounds": [
       "eleutherosides",
       "eleutheroside B",
       "eleutheroside E"
     ],
-    "safetyNotes": "Safe",
+    "safetyNotes": "Reported adverse effects include insomnia, irritability, headache, and occasional palpitations, especially with stimulating combinations. Blood-pressure and heart-rate effects are possible in sensitive users, so caution is warranted in uncontrolled hypertension or arrhythmia. Review concurrent stimulant, anticoagulant, and cardiometabolic medications before use.",
     "interactions": [
       "Use caution with stimulants or blood pressure-active agents."
     ],
