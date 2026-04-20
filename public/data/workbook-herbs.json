@@ -43,7 +43,15 @@
       "caffeic acid derivatives",
       "fukinolic acid"
     ],
-    "safetyNotes": "Generally well tolerated in short-term studies, but rare cases of liver injury have been reported. Product contamination or misidentification is a known issue."
+    "safetyNotes": "Generally well tolerated in short-term studies, but rare cases of liver injury have been reported. Product contamination or misidentification is a known issue.",
+    "interactions": [
+      "serotonergic medications"
+    ],
+    "preparation": "Root and rhizome used in standardized extracts, capsules, tablets, and tinctures",
+    "primaryActions": [
+      "anti-inflammatory",
+      "hepatoprotective"
+    ]
   },
   {
     "slug": "echinacea-purpurea",
@@ -62,7 +70,16 @@
       "caffeic acid",
       "cynarin"
     ],
-    "safetyNotes": "Short‐term use of echinacea extracts appears safe for most adults. Reported side effects include digestive upset and rash; allergic reactions can occur, especially in individuals sensitive to plants in the Asteraceae family. Some children have developed rashes after echinacea use. Safety during pregnancy or breastfeeding is not established. There is conflicting evidence about whether echinacea alters the metabolism of drugs processed by the liver; theoretical interactions with immunosuppressants or caffeine have been proposed【246299874455786†L194-L213】."
+    "safetyNotes": "Short‐term use of echinacea extracts appears safe for most adults. Reported side effects include digestive upset and rash; allergic reactions can occur, especially in individuals sensitive to plants in the Asteraceae family. Some children have developed rashes after echinacea use. Safety during pregnancy or breastfeeding is not established. There is conflicting evidence about whether echinacea alters the metabolism of drugs processed by the liver; theoretical interactions with immunosuppressants or caffeine have been proposed【246299874455786†L194-L213】.",
+    "interactions": [
+      "immunosuppressants",
+      "CYP-metabolized medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "immunomodulatory",
+      "hepatoprotective"
+    ]
   },
   {
     "slug": "garlic",
@@ -97,7 +114,18 @@
       "gingerol",
       "shogaol"
     ],
-    "safetyNotes": "Ginger is widely consumed as a food and supplement and is generally regarded as safe. Research suggests it may help with mild nausea and menstrual cramps. Reported side effects at high doses include abdominal discomfort, heartburn, diarrhoea and irritation of the mouth or throat【799387966105800†L29-L56】. Clinical studies using up to 1 000 mg/day of dried powdered extract report adverse event rates similar to placebo【739669106228210†L96-L133】. The safety of high‐dose ginger during pregnancy has not been conclusively established."
+    "safetyNotes": "Ginger is widely consumed as a food and supplement and is generally regarded as safe. Research suggests it may help with mild nausea and menstrual cramps. Reported side effects at high doses include abdominal discomfort, heartburn, diarrhoea and irritation of the mouth or throat【799387966105800†L29-L56】. Clinical studies using up to 1 000 mg/day of dried powdered extract report adverse event rates similar to placebo【739669106228210†L96-L133】. The safety of high‐dose ginger during pregnancy has not been conclusively established.",
+    "interactions": [
+      "anticoagulants/antiplatelets",
+      "antihypertensives",
+      "antidiabetic medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+    "primaryActions": [
+      "immunomodulatory",
+      "antioxidant",
+      "glycemic support"
+    ]
   },
   {
     "slug": "ginkgo-biloba",
@@ -125,7 +153,16 @@
       "Quercetin",
       "Kaempferol"
     ],
-    "safetyNotes": "Appears safe at recommended doses, but fresh seeds are toxic. May increase bleeding risk and lower seizure threshold."
+    "safetyNotes": "Appears safe at recommended doses, but fresh seeds are toxic. May increase bleeding risk and lower seizure threshold.",
+    "interactions": [
+      "anticoagulants/antiplatelets",
+      "serotonergic medications",
+      "antidiabetic medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "nootropic"
+    ]
   },
   {
     "slug": "holy-basil",
@@ -149,7 +186,16 @@
       "rosmarinic acid",
       "methyl eugenol"
     ],
-    "safetyNotes": "Generally safe; possible mild GI upset"
+    "safetyNotes": "Generally safe; possible mild GI upset",
+    "interactions": [
+      "anticoagulants/antiplatelets",
+      "antidiabetic medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+    "primaryActions": [
+      "anti-inflammatory",
+      "adaptogenic"
+    ]
   },
   {
     "slug": "kava",
@@ -169,7 +215,16 @@
       "desmethoxyyangonin",
       "flavokavain A/B/C"
     ],
-    "safetyNotes": "Rare but serious liver injury has been reported, especially with nontraditional extracts or concurrent alcohol/hepatotoxic drug use."
+    "safetyNotes": "Rare but serious liver injury has been reported, especially with nontraditional extracts or concurrent alcohol/hepatotoxic drug use.",
+    "interactions": [
+      "CNS depressants"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "anxiolytic",
+      "sedative",
+      "hepatoprotective"
+    ]
   },
   {
     "slug": "lemon-balm",
@@ -183,7 +238,17 @@
     "activeCompounds": [
       "rosmarinic acid"
     ],
-    "safetyNotes": "Generally safe; mild sedation possible"
+    "safetyNotes": "Generally safe; mild sedation possible",
+    "interactions": [
+      "CNS depressants",
+      "thyroid medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "cholinergic modulation",
+      "anxiolytic",
+      "sedative"
+    ]
   },
   {
     "slug": "maca",
@@ -198,7 +263,8 @@
       "macaenes",
       "glucosinolates"
     ],
-    "safetyNotes": "Generally safe; mild GI upset possible"
+    "safetyNotes": "Generally safe; mild GI upset possible",
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan"
   },
   {
     "slug": "milk-thistle",
@@ -238,7 +304,16 @@
     "activeCompounds": [
       "menthol"
     ],
-    "safetyNotes": "Menthol is generally regarded as safe. Enteric‐coated peppermint oil is well tolerated; the most common adverse effects reported in clinical trials are heartburn, nausea, abdominal pain and dry mouth【220193048567304†L45-L53】. High doses of minor constituents such as pulegone or menthofuran can cause hepatotoxicity in animals, but typical medicinal doses contain negligible amounts and no cases of human hepatotoxicity have been reported【271856535371736†L1296-L1354】. Peppermint oil should not be applied near the faces of infants or young children because menthol inhalation can cause serious adverse reactions【220193048567304†L45-L53】."
+    "safetyNotes": "Menthol is generally regarded as safe. Enteric‐coated peppermint oil is well tolerated; the most common adverse effects reported in clinical trials are heartburn, nausea, abdominal pain and dry mouth【220193048567304†L45-L53】. High doses of minor constituents such as pulegone or menthofuran can cause hepatotoxicity in animals, but typical medicinal doses contain negligible amounts and no cases of human hepatotoxicity have been reported【271856535371736†L1296-L1354】. Peppermint oil should not be applied near the faces of infants or young children because menthol inhalation can cause serious adverse reactions【220193048567304†L45-L53】.",
+    "interactions": [
+      "CYP-metabolized medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "hepatoprotective",
+      "antimicrobial",
+      "analgesic"
+    ]
   },
   {
     "slug": "rhodiola-rosea",
@@ -257,7 +332,16 @@
       "salidroside",
       "tyrosol"
     ],
-    "safetyNotes": "Generally well tolerated; possible dizziness; dry mouth; insomnia"
+    "safetyNotes": "Generally well tolerated; possible dizziness; dry mouth; insomnia",
+    "interactions": [
+      "serotonergic medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "adaptogenic",
+      "sedative",
+      "antioxidant"
+    ]
   },
   {
     "slug": "saw-palmetto",
@@ -309,7 +393,18 @@
       "curcumin",
       "demethoxycurcumin"
     ],
-    "safetyNotes": "Conventional oral preparations of turmeric or curcumin appear safe for up to 2-3 months. Reported adverse effects include nausea, vomiting, acid reflux, stomach upset, diarrhoea or constipation. Highly bioavailable curcumin products have been linked to liver damage in rare cases. The safety of turmeric supplements during pregnancy or breastfeeding is uncertain【628537290338832†L207-L223】."
+    "safetyNotes": "Conventional oral preparations of turmeric or curcumin appear safe for up to 2-3 months. Reported adverse effects include nausea, vomiting, acid reflux, stomach upset, diarrhoea or constipation. Highly bioavailable curcumin products have been linked to liver damage in rare cases. The safety of turmeric supplements during pregnancy or breastfeeding is uncertain【628537290338832†L207-L223】.",
+    "interactions": [
+      "anticoagulants/antiplatelets",
+      "antidiabetic medications",
+      "CYP-metabolized medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "anti-inflammatory",
+      "antioxidant",
+      "analgesic"
+    ]
   },
   {
     "slug": "valerian",
@@ -323,7 +418,16 @@
     "activeCompounds": [
       "valerenic acid"
     ],
-    "safetyNotes": "Short-term use appears safe; side effects include headache, GI upset, mental dullness, excitability, vivid dreams. Rare liver injury reported."
+    "safetyNotes": "Short-term use appears safe; side effects include headache, GI upset, mental dullness, excitability, vivid dreams. Rare liver injury reported.",
+    "interactions": [
+      "CNS depressants"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "anxiolytic",
+      "sedative",
+      "hepatoprotective"
+    ]
   },
   {
     "slug": "guarana",
@@ -333,11 +437,12 @@
       "cognition",
       "metabolic support"
     ],
-    "description": "Conservative evidence framing applied.",
+    "description": "Guarana is typically used as a supplemental botanical with context-dependent effects. It is commonly discussed around caffeine, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "caffeine"
     ],
-    "safetyNotes": "Use caution with stimulant sensitivity, anxiety, or insomnia-prone contexts."
+    "safetyNotes": "Use caution with stimulant sensitivity, anxiety, or insomnia-prone contexts.",
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan"
   },
   {
     "slug": "yerba-mate",
@@ -347,12 +452,13 @@
       "cognition",
       "metabolic support"
     ],
-    "description": "Conservative evidence framing applied.",
+    "description": "Yerba Mate is typically used as a supplemental botanical with context-dependent effects. It is commonly discussed around caffeine and polyphenols, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "caffeine",
       "polyphenols"
     ],
-    "safetyNotes": "Use caution with stimulant sensitivity or insomnia-prone contexts."
+    "safetyNotes": "Use caution with stimulant sensitivity or insomnia-prone contexts.",
+    "preparation": "No direct preparation data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. No direct region data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America"
   },
   {
     "slug": "damiana",
@@ -362,11 +468,12 @@
       "calming support",
       "libido support"
     ],
-    "description": "Conservative evidence framing applied.",
+    "description": "Damiana is typically used as a supplemental botanical with context-dependent effects. It is commonly discussed around flavonoids, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "flavonoids"
     ],
-    "safetyNotes": "General use caution; review stimulating vs calming stack context."
+    "safetyNotes": "General use caution; review stimulating vs calming stack context.",
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan"
   },
   {
     "slug": "blue-lotus",
@@ -376,11 +483,15 @@
       "mood support",
       "sleep support"
     ],
-    "description": "Conservative evidence framing applied.",
+    "description": "Blue Lotus is typically used as a supplemental botanical with context-dependent effects. It is commonly discussed around aporphine alkaloids, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "aporphine alkaloids"
     ],
-    "safetyNotes": "Use caution with sedative-sensitive contexts and stacked calming formulas."
+    "safetyNotes": "Use caution with sedative-sensitive contexts and stacked calming formulas.",
+    "interactions": [
+      "CNS depressants"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. No direct effects data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. No direct region data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. No direct effects data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement"
   },
   {
     "slug": "kudzu",
@@ -402,11 +513,15 @@
       "anti-inflammatory",
       "women's health"
     ],
-    "description": "Conservative evidence framing applied.",
+    "description": "Yarrow is typically used as a supplemental botanical with context-dependent effects. It is commonly discussed around flavonoids, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "flavonoids"
     ],
-    "safetyNotes": "Review interactions and contraindications."
+    "safetyNotes": "Review interactions and contraindications.",
+    "interactions": [
+      "anticoagulants/antiplatelets"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan"
   },
   {
     "slug": "feverfew",
@@ -416,12 +531,15 @@
       "headache support",
       "vascular modulation"
     ],
-    "description": "Conservative evidence framing applied.",
+    "description": "Feverfew is typically used as a supplemental botanical with context-dependent effects. It is commonly discussed around parthenolide and flavonoids, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "parthenolide",
       "flavonoids"
     ],
-    "safetyNotes": "Review interactions and contraindications"
+    "safetyNotes": "Review interactions and contraindications",
+    "interactions": [
+      "anticoagulants/antiplatelets"
+    ]
   },
   {
     "slug": "butterbur",
@@ -669,7 +787,11 @@
     "activeCompounds": [
       "apigenin"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "anxiolytic"
+    ]
   },
   {
     "slug": "red-clover",
@@ -731,7 +853,10 @@
       "lapachol",
       "naphthoquinones"
     ],
-    "safetyNotes": "Use conservatively; concentrated use may be irritating."
+    "safetyNotes": "Use conservatively; concentrated use may be irritating.",
+    "primaryActions": [
+      "antimicrobial"
+    ]
   },
   {
     "slug": "gymnema",
@@ -761,7 +886,13 @@
     "activeCompounds": [
       "corosolic acid"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "interactions": [
+      "antidiabetic medications"
+    ],
+    "primaryActions": [
+      "glycemic support"
+    ]
   },
   {
     "slug": "mulberry-leaf",
@@ -774,7 +905,10 @@
       "1-deoxynojirimycin",
       "flavonoids"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "interactions": [
+      "antidiabetic medications"
+    ]
   },
   {
     "slug": "neem",
@@ -802,7 +936,8 @@
       "volatile oils",
       "flavonoids"
     ],
-    "safetyNotes": "Use caution with concentrated preparations."
+    "safetyNotes": "Use caution with concentrated preparations.",
+    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine"
   },
   {
     "slug": "lemon-verbena",
@@ -858,7 +993,10 @@
       "xanthoangelol",
       "4-hydroxyderricin"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "antioxidant"
+    ]
   },
   {
     "slug": "pomegranate",
@@ -925,7 +1063,14 @@
       "arjunolic acid",
       "triterpenes"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "interactions": [
+      "antihypertensives"
+    ],
+    "primaryActions": [
+      "antioxidant",
+      "cardiovascular support"
+    ]
   },
   {
     "slug": "noni",
@@ -952,7 +1097,14 @@
     "activeCompounds": [
       "A-type proanthocyanidins"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "interactions": [
+      "anticoagulants/antiplatelets"
+    ],
+    "primaryActions": [
+      "antioxidant",
+      "antimicrobial"
+    ]
   },
   {
     "slug": "rose-hips",
@@ -995,7 +1147,10 @@
       "myrtenyl acetate",
       "myricetin"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "antioxidant"
+    ]
   },
   {
     "slug": "acerola",
@@ -1009,7 +1164,10 @@
       "ascorbic acid",
       "carotenoids"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "antioxidant"
+    ]
   },
   {
     "slug": "mangosteen",
@@ -1023,7 +1181,11 @@
       "alpha-mangostin",
       "xanthones"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "anti-inflammatory",
+      "antioxidant"
+    ]
   },
   {
     "slug": "boldo",
@@ -1036,7 +1198,11 @@
     "activeCompounds": [
       "boldine"
     ],
-    "safetyNotes": "Use cautiously in concentrated forms."
+    "safetyNotes": "Use cautiously in concentrated forms.",
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "digestive support"
+    ]
   },
   {
     "slug": "suma",
@@ -1050,7 +1216,10 @@
       "pfaffic acid",
       "saponins"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "adaptogenic"
+    ]
   },
   {
     "slug": "maral-root",
@@ -1063,7 +1232,10 @@
     "activeCompounds": [
       "ecdysterone"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "adaptogenic"
+    ]
   },
   {
     "slug": "jatamansi",
@@ -1115,7 +1287,11 @@
     "activeCompounds": [
       "convolvine"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "nootropic"
+    ]
   },
   {
     "slug": "hops",
@@ -1129,7 +1305,16 @@
       "humulone",
       "xanthohumol"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "interactions": [
+      "CNS depressants"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Sedative, hypnotic, digestive bitter; used in beer and herbal medicine. Gaba-a receptor modulation and sedative flavonoids.. ; nan; nan.. GABA-A receptor modulation and sedative flavonoids.. Sedative, hypnotic, digestive bitter; used in beer and herbal medicine. No direct region data. Contextual inference: Sedative, hypnotic, digestive bitter; used in beer and herbal medicine. Gaba-a receptor modulation and sedative flavonoids.. ; nan; nan.. GABA-A receptor modulation and sedative flavonoids.. Sedative, hypnotic, digestive bitter; used in beer and herbal medicine. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "anxiolytic",
+      "sedative",
+      "digestive support"
+    ]
   },
   {
     "slug": "lemongrass",
@@ -1175,7 +1360,10 @@
       "D-pinitol",
       "polyphenols"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "digestive support"
+    ]
   },
   {
     "slug": "danshen",
@@ -1217,7 +1405,10 @@
       "echinacoside",
       "acteoside"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "antioxidant"
+    ]
   },
   {
     "slug": "jujube",
@@ -1231,7 +1422,11 @@
       "jujubosides",
       "flavonoids"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "interactions": [
+      "CNS depressants"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine"
   },
   {
     "slug": "longan",
@@ -1245,7 +1440,10 @@
       "polyphenols",
       "gallic acid"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "antioxidant"
+    ]
   },
   {
     "slug": "polygala",
@@ -1285,7 +1483,13 @@
     "activeCompounds": [
       "paeoniflorin"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "interactions": [
+      "anticoagulants/antiplatelets"
+    ],
+    "primaryActions": [
+      "anxiolytic"
+    ]
   },
   {
     "slug": "bupleurum",
@@ -1356,7 +1560,10 @@
       "quercitrin",
       "volatile oils"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "immunomodulatory"
+    ]
   },
   {
     "slug": "isatis",
@@ -1372,7 +1579,10 @@
       "indirubin",
       "tryptanthrin"
     ],
-    "safetyNotes": "Use cautiously."
+    "safetyNotes": "Use cautiously.",
+    "primaryActions": [
+      "immunomodulatory"
+    ]
   },
   {
     "slug": "sophora-flavescens",
@@ -1386,7 +1596,13 @@
       "matrine",
       "oxymatrine"
     ],
-    "safetyNotes": "Use cautiously."
+    "safetyNotes": "Use cautiously.",
+    "preparation": "Root dried and decocted in TCM (Ku Shen); anti-parasitic and anti-inflammatory uses",
+    "primaryActions": [
+      "anti-inflammatory",
+      "antioxidant",
+      "nootropic"
+    ]
   },
   {
     "slug": "notoginseng",
@@ -1400,7 +1616,13 @@
       "notoginsenoside R1",
       "ginsenosides"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "interactions": [
+      "anticoagulants/antiplatelets"
+    ],
+    "primaryActions": [
+      "cardiovascular support"
+    ]
   },
   {
     "slug": "luo-han-guo",
@@ -1427,7 +1649,11 @@
       "triterpenoid saponins",
       "polyphenols"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "antioxidant",
+      "digestive support"
+    ]
   },
   {
     "slug": "atractylodes",
@@ -1482,7 +1708,15 @@
       "sterols",
       "terpenes"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "interactions": [
+      "serotonergic medications"
+    ],
+    "preparation": "Decoction from root bark; also used in tinctures or powdered extract",
+    "primaryActions": [
+      "adaptogenic",
+      "nootropic"
+    ]
   },
   {
     "slug": "maitake-d-fraction",
@@ -1494,7 +1728,10 @@
     "activeCompounds": [
       "beta-glucans"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "immunomodulatory"
+    ]
   },
   {
     "slug": "poria",
@@ -1535,7 +1772,10 @@
       "agaric acid",
       "polysaccharides"
     ],
-    "safetyNotes": "Use cautiously."
+    "safetyNotes": "Use cautiously.",
+    "primaryActions": [
+      "immunomodulatory"
+    ]
   },
   {
     "slug": "elecampane",
@@ -1591,7 +1831,10 @@
     "activeCompounds": [
       "piperine"
     ],
-    "safetyNotes": "Generally well tolerated; use caution with concentrated extracts."
+    "safetyNotes": "Generally well tolerated; use caution with concentrated extracts.",
+    "primaryActions": [
+      "digestive support"
+    ]
   },
   {
     "slug": "cardamom",
@@ -1606,7 +1849,10 @@
       "8-cineole",
       "terpinyl acetate"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "digestive support"
+    ]
   },
   {
     "slug": "holy-basil-seed",
@@ -1650,7 +1896,10 @@
       "carvone",
       "limonene"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "digestive support"
+    ]
   },
   {
     "slug": "ajwain",
@@ -1663,7 +1912,11 @@
     "activeCompounds": [
       "thymol"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "digestive support",
+      "antimicrobial"
+    ]
   },
   {
     "slug": "holy-basil-purple",
@@ -1691,7 +1944,10 @@
       "mahanimbine",
       "carbazole alkaloids"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "antioxidant"
+    ]
   },
   {
     "slug": "gudmar",
@@ -1741,12 +1997,20 @@
       "fatigue resistance",
       "cognitive support"
     ],
-    "description": "Adaptogenic stress modulation.",
+    "description": "Rhodiola is typically used for adaptogenic and nootropic support, with effects depending on dose and extract profile. It is commonly discussed around rosavins and salidroside, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "rosavins",
       "salidroside"
     ],
-    "safetyNotes": "Safe"
+    "safetyNotes": "Safe",
+    "interactions": [
+      "serotonergic medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "adaptogenic",
+      "nootropic"
+    ]
   },
   {
     "slug": "cordyceps",
@@ -1774,12 +2038,13 @@
       "NGF induction",
       "ERK/CREB pathway modulation"
     ],
-    "description": "NGF stimulation.",
+    "description": "Lion's Mane is typically used as a supplemental botanical with context-dependent effects. It is commonly discussed around hericenones and erinacines, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "hericenones",
       "erinacines"
     ],
-    "safetyNotes": "Safe"
+    "safetyNotes": "Safe",
+    "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine"
   },
   {
     "slug": "panax-ginseng",
@@ -1787,11 +2052,17 @@
     "mechanisms": [
       "AMPK"
     ],
-    "description": "Energy + stress.",
+    "description": "Panax Ginseng is typically used for adaptogenic and antioxidant support, with effects depending on dose and extract profile. It is commonly discussed around ginsenosides, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "ginsenosides"
     ],
-    "safetyNotes": "Safe"
+    "safetyNotes": "Safe",
+    "preparation": "Roots dried and decocted, tinctured, or powdered; tonic and adaptogen for energy and vitality",
+    "primaryActions": [
+      "adaptogenic",
+      "antioxidant",
+      "nootropic"
+    ]
   },
   {
     "slug": "passionflower",
@@ -1806,7 +2077,12 @@
     "activeCompounds": [
       "chrysin"
     ],
-    "safetyNotes": "EMA reported no side effects at the time of assessment, but prudence still supports sedative-stacking caution."
+    "safetyNotes": "EMA reported no side effects at the time of assessment, but prudence still supports sedative-stacking caution.",
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "anxiolytic",
+      "sedative"
+    ]
   },
   {
     "slug": "yohimbe",
@@ -1822,7 +2098,12 @@
       "yohimbine",
       "rauwolscine"
     ],
-    "safetyNotes": "High-caution herb. Prioritize cardiovascular and psychiatric risk review. Avoid escalation framing, avoid use in people prone to panic, hypertension, arrhythmia, or seizure, and avoid positioning as a routine tonic."
+    "safetyNotes": "High-caution herb. Prioritize cardiovascular and psychiatric risk review. Avoid escalation framing, avoid use in people prone to panic, hypertension, arrhythmia, or seizure, and avoid positioning as a routine tonic.",
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "cardiovascular support",
+      "hepatoprotective"
+    ]
   },
   {
     "slug": "skullcap",
@@ -1834,13 +2115,21 @@
       "COX inhibition",
       "MAPK pathway modulation"
     ],
-    "description": "GABAergic.",
+    "description": "Skullcap is typically used for anti-inflammatory and anxiolytic support, with effects depending on dose and extract profile. It is commonly discussed around baicalin and Baicalein, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "baicalin",
       "Baicalein",
       "Wogonin"
     ],
-    "safetyNotes": "Safe"
+    "safetyNotes": "Safe",
+    "interactions": [
+      "CNS depressants"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. Flavonoids modulate gaba receptors; offers calming and anxiolytic effects.. ; nan; nan.. Flavonoids modulate GABA receptors; offers calming and anxiolytic effects.. Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. No direct region data. Contextual inference: Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. Flavonoids modulate gaba receptors; offers calming and anxiolytic effects.. ; nan; nan.. Flavonoids modulate GABA receptors; offers calming and anxiolytic effects.. Nervine, anxiolytic, anti-inflammatory; used for insomnia and anxiety. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "anti-inflammatory",
+      "anxiolytic"
+    ]
   },
   {
     "slug": "eleuthero",
@@ -1876,12 +2165,21 @@
       "MAPK pathway modulation",
       "NF-κB inhibition"
     ],
-    "description": "NO support.",
+    "description": "Gotu Kola is typically used for anxiolytic and cardiovascular support support, with effects depending on dose and extract profile. It is commonly discussed around asiaticoside and Madecassoside, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "asiaticoside",
       "Madecassoside"
     ],
-    "safetyNotes": "Safe"
+    "safetyNotes": "Safe",
+    "interactions": [
+      "CNS depressants"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. Boosts collagen synthesis, modulates gaba and blood flow.. ; nan; nan.. Boosts collagen synthesis, modulates GABA and blood flow.. Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. No direct region data. Contextual inference: Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. Boosts collagen synthesis, modulates gaba and blood flow.. ; nan; nan.. Boosts collagen synthesis, modulates GABA and blood flow.. Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "anxiolytic",
+      "cardiovascular support",
+      "nootropic"
+    ]
   },
   {
     "slug": "schisandra",
@@ -1941,7 +2239,7 @@
     "mechanisms": [
       "NFkB"
     ],
-    "description": "Immune modulation.",
+    "description": "Turkey Tail is typically used as a supplemental botanical with context-dependent effects. It is commonly discussed around PSK, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "PSK"
     ],
@@ -2025,7 +2323,11 @@
       "bacoside A",
       "bacopaside II"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "nootropic"
+    ]
   },
   {
     "slug": "mucuna",
@@ -2072,7 +2374,11 @@
       "eurycomanone",
       "quassinoids"
     ],
-    "safetyNotes": "May be activating and is not ideal for anxiety-prone or sleep-fragile users."
+    "safetyNotes": "May be activating and is not ideal for anxiety-prone or sleep-fragile users.",
+    "interactions": [
+      "antidiabetic medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Aphrodisiac, testosterone booster, and energy tonic. Boosts free testosterone; reduces cortisol.. ; nan; nan.. Boosts free testosterone; reduces cortisol.. Aphrodisiac, testosterone booster, and energy tonic. No direct region data. Contextual inference: Aphrodisiac, testosterone booster, and energy tonic. Boosts free testosterone; reduces cortisol.. ; nan; nan.. Boosts free testosterone; reduces cortisol.. Aphrodisiac, testosterone booster, and energy tonic. ; nan; nan. ; nan; nan"
   },
   {
     "slug": "shatavari",
@@ -2101,7 +2407,12 @@
       "miroestrol",
       "deoxymiroestrol"
     ],
-    "safetyNotes": "Use caution or avoid in hormone-sensitive conditions, pregnancy, and breastfeeding."
+    "safetyNotes": "Use caution or avoid in hormone-sensitive conditions, pregnancy, and breastfeeding.",
+    "preparation": "Root powdered or tinctured; used in traditional Thai medicine and supplements for phytoestrogenic effects",
+    "primaryActions": [
+      "antioxidant",
+      "nootropic"
+    ]
   },
   {
     "slug": "cacao",
@@ -2139,7 +2450,10 @@
       "nothofagin",
       "flavonoids"
     ],
-    "safetyNotes": "Generally well tolerated."
+    "safetyNotes": "Generally well tolerated.",
+    "primaryActions": [
+      "antioxidant"
+    ]
   },
   {
     "slug": "cat-s-claw",
@@ -2169,7 +2483,17 @@
       "linalool",
       "linalyl acetate"
     ],
-    "safetyNotes": "Can be sedating in some users."
+    "safetyNotes": "Can be sedating in some users.",
+    "interactions": [
+      "CNS depressants",
+      "serotonergic medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways; anxiolytic and sedative.. ; nan; nan.. Linalool modulates GABA and serotonin pathways; anxiolytic and sedative.. Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. No direct region data. Contextual inference: Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways; anxiolytic and sedative.. ; nan; nan.. Linalool modulates GABA and serotonin pathways; anxiolytic and sedative.. Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "anti-inflammatory",
+      "anxiolytic",
+      "sedative"
+    ]
   },
   {
     "slug": "berberis",
@@ -2240,7 +2564,15 @@
       "Emodin",
       "Rhein"
     ],
-    "safetyNotes": "General use caution; distinguish inner gel from latex-rich stimulant-laxative fractions"
+    "safetyNotes": "General use caution; distinguish inner gel from latex-rich stimulant-laxative fractions",
+    "interactions": [
+      "antidiabetic medications"
+    ],
+    "preparation": "Fresh gel applied topically or taken internally (juice form); latex processed separately for laxative use",
+    "primaryActions": [
+      "antioxidant",
+      "nootropic"
+    ]
   },
   {
     "slug": "american-ginseng",
@@ -2264,7 +2596,8 @@
       "Ginsenoside Rg1",
       "Ginsenoside Rg3"
     ],
-    "safetyNotes": "Safety review required before publication."
+    "safetyNotes": "Safety review required before publication.",
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan"
   },
   {
     "slug": "artemisia-annua",
@@ -2280,7 +2613,16 @@
       "arteannuin B",
       "chrysosplenetin"
     ],
-    "safetyNotes": "Review interactions and contraindications"
+    "safetyNotes": "Review interactions and contraindications",
+    "interactions": [
+      "CYP-metabolized medications"
+    ],
+    "preparation": "Leaves and aerial parts used in decoctions or standardized extracts (e.g., artemisinin)",
+    "primaryActions": [
+      "immunomodulatory",
+      "antioxidant",
+      "nootropic"
+    ]
   },
   {
     "slug": "celastrus-paniculatus",
@@ -2295,7 +2637,11 @@
       "lupeol",
       "celapanin"
     ],
-    "safetyNotes": "Safety review required before publication."
+    "safetyNotes": "Safety review required before publication.",
+    "preparation": "No direct preparation data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning",
+    "primaryActions": [
+      "nootropic"
+    ]
   },
   {
     "slug": "calamus",
@@ -2313,7 +2659,8 @@
       "alpha-asarone",
       "beta-asarone"
     ],
-    "safetyNotes": "Safety review required before publication."
+    "safetyNotes": "Safety review required before publication.",
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan"
   },
   {
     "slug": "cayenne",
@@ -2454,7 +2801,8 @@
       "mesembrine",
       "mesembrenol"
     ],
-    "safetyNotes": "Safety review required before publication."
+    "safetyNotes": "Safety review required before publication.",
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan"
   },
   {
     "slug": "green-tea",
@@ -2578,7 +2926,8 @@
       "absinthin",
       "beta-thujone"
     ],
-    "safetyNotes": "Safety review required before publication."
+    "safetyNotes": "Safety review required before publication.",
+    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine"
   },
   {
     "slug": "horse-chestnut",
@@ -2625,7 +2974,8 @@
       "caffeine",
       "theobromine"
     ],
-    "safetyNotes": "Safety review required before publication."
+    "safetyNotes": "Safety review required before publication.",
+    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine"
   },
   {
     "slug": "honeysuckle",
@@ -2653,7 +3003,13 @@
       "aloe-emodin",
       "chrysophanol"
     ],
-    "safetyNotes": "Safety review required before publication."
+    "safetyNotes": "Safety review required before publication.",
+    "preparation": "No direct preparation data. Contextual inference: Antifungal and laxative properties; used for skin infections. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antifungal and laxative properties; used for skin infections. No direct region data. Contextual inference: Antifungal and laxative properties; used for skin infections. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antifungal and laxative properties; used for skin infections. none. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "antioxidant",
+      "nootropic",
+      "antimicrobial"
+    ]
   },
   {
     "slug": "american-yellow-lotus",
@@ -2668,7 +3024,8 @@
       "n-methylasimilobine",
       "armepavine"
     ],
-    "safetyNotes": "Safety review required before publication."
+    "safetyNotes": "Safety review required before publication.",
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan"
   },
   {
     "slug": "anise-hyssop",
@@ -2800,6 +3157,11 @@
     "description": "Minimum source-backed intake for ginkgetin and 5-lipoxygenase inhibition cluster completion.",
     "activeCompounds": [
       "ginkgetin"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-aging effects; traditional Chinese medicine. No direct region data. Contextual inference: Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-aging effects; traditional Chinese medicine. none. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "antioxidant",
+      "nootropic"
     ]
   },
   {
@@ -2950,7 +3312,13 @@
       "Baicalein",
       "Wogonin"
     ],
-    "safetyNotes": "Audit later."
+    "safetyNotes": "Audit later.",
+    "preparation": "Root dried and decocted or tinctured; used in TCM for heat-clearing and inflammation (Huang Qin)",
+    "primaryActions": [
+      "anti-inflammatory",
+      "antioxidant",
+      "hepatoprotective"
+    ]
   },
   {
     "slug": "nigella-sativa",
@@ -2963,7 +3331,13 @@
     "activeCompounds": [
       "Thymoquinone"
     ],
-    "safetyNotes": "Audit later."
+    "safetyNotes": "Audit later.",
+    "preparation": "Seeds used whole, ground, or as extracted oil (black seed oil); immune and anti-inflammatory support",
+    "primaryActions": [
+      "anti-inflammatory",
+      "immunomodulatory",
+      "antioxidant"
+    ]
   },
   {
     "slug": "olea-europaea",
@@ -2997,7 +3371,8 @@
       "Crocin",
       "Crocetin"
     ],
-    "safetyNotes": "Audit later."
+    "safetyNotes": "Audit later.",
+    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine"
   },
   {
     "slug": "glycyrrhiza-glabra",
@@ -3011,7 +3386,13 @@
       "Glycyrrhizin",
       "Glycyrrhetinic acid"
     ],
-    "safetyNotes": "Audit later."
+    "safetyNotes": "Audit later.",
+    "preparation": "Roots dried and decocted or powdered; commonly used in teas, extracts, and tablets",
+    "primaryActions": [
+      "anti-inflammatory",
+      "antioxidant",
+      "nootropic"
+    ]
   },
   {
     "slug": "rheum-palmatum",
@@ -3026,7 +3407,13 @@
       "Emodin",
       "Rhein"
     ],
-    "safetyNotes": "Audit later."
+    "safetyNotes": "Audit later.",
+    "preparation": "Root dried and decocted in small doses; purgative and liver-stimulating; common in TCM (Chinese rhubarb)",
+    "primaryActions": [
+      "antioxidant",
+      "digestive support",
+      "nootropic"
+    ]
   },
   {
     "slug": "schisandra-chinensis",
@@ -3039,7 +3426,16 @@
     "activeCompounds": [
       "Schisandrin"
     ],
-    "safetyNotes": "Audit later."
+    "safetyNotes": "Audit later.",
+    "interactions": [
+      "CYP-metabolized medications"
+    ],
+    "preparation": "Berries dried and decocted, infused, or tinctured; adaptogenic tonic in TCM for vitality and liver support",
+    "primaryActions": [
+      "adaptogenic",
+      "antioxidant",
+      "hepatoprotective"
+    ]
   },
   {
     "slug": "tripterygium-wilfordii",
@@ -3065,7 +3461,13 @@
     "activeCompounds": [
       "Eugenol"
     ],
-    "safetyNotes": "Audit later."
+    "safetyNotes": "Audit later.",
+    "preparation": "Dried flower buds (clove) used as spice, infusion, tincture, or essential oil; analgesic and antiseptic",
+    "primaryActions": [
+      "antioxidant",
+      "nootropic",
+      "analgesic"
+    ]
   },
   {
     "slug": "lavandula-angustifolia",
@@ -3078,7 +3480,17 @@
     "activeCompounds": [
       "Linalool"
     ],
-    "safetyNotes": "Audit later."
+    "safetyNotes": "Audit later.",
+    "interactions": [
+      "CNS depressants",
+      "serotonergic medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "anti-inflammatory",
+      "anxiolytic",
+      "sedative"
+    ]
   },
   {
     "slug": "bupleurum-falcatum",
@@ -3091,7 +3503,13 @@
     "activeCompounds": [
       "Saikosaponin A"
     ],
-    "safetyNotes": "Audit later."
+    "safetyNotes": "Audit later.",
+    "preparation": "Roots decocted or extracted in Traditional Chinese Medicine",
+    "primaryActions": [
+      "anti-inflammatory",
+      "immunomodulatory",
+      "antioxidant"
+    ]
   },
   {
     "slug": "citrus-sinensis",
@@ -3118,6 +3536,17 @@
     "activeCompounds": [
       "Berberine",
       "Columbamine"
+    ],
+    "interactions": [
+      "anticoagulants/antiplatelets",
+      "antidiabetic medications",
+      "CYP-metabolized medications"
+    ],
+    "preparation": "Root bark decocted or tinctured; berries sometimes eaten or juiced",
+    "primaryActions": [
+      "antioxidant",
+      "digestive support",
+      "hepatoprotective"
     ]
   },
   {
@@ -3134,6 +3563,12 @@
       "Berberine",
       "Palmatine",
       "Jatrorrhizine"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Anti-inflammatory and antimicrobial; contains berberine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains berberine. No direct region data. Contextual inference: Anti-inflammatory and antimicrobial; contains berberine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains berberine. none. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "anti-inflammatory",
+      "antioxidant",
+      "nootropic"
     ]
   },
   {
@@ -3150,6 +3585,12 @@
       "Palmatine",
       "Columbamine",
       "Magnoflorine"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Rich in berberine; antimicrobial, anti-diabetic, and digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Rich in berberine; antimicrobial, anti-diabetic, and digestive tonic. No direct region data. Contextual inference: Rich in berberine; antimicrobial, anti-diabetic, and digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Rich in berberine; antimicrobial, anti-diabetic, and digestive tonic. none. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "antioxidant",
+      "digestive support",
+      "nootropic"
     ]
   },
   {
@@ -3220,7 +3661,8 @@
     "activeCompounds": [
       "Bacoside A",
       "Bacoside B"
-    ]
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan"
   },
   {
     "slug": "bayberry",
@@ -3351,12 +3793,20 @@
       "NF-κB inhibition",
       "MAPK pathway modulation"
     ],
-    "description": "Conservative evidence framing applied.",
+    "description": "Angelica sinensis is typically used for antioxidant and nootropic support, with effects depending on dose and extract profile. It is commonly discussed around Ferulic acid and Ligustilide, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "Ferulic acid",
       "Ligustilide",
       "Senkyunolide A",
       "Butylidenephthalide"
+    ],
+    "interactions": [
+      "anticoagulants/antiplatelets"
+    ],
+    "preparation": "Roots sliced, dried, decocted or tinctured; often used in TCM formulas",
+    "primaryActions": [
+      "antioxidant",
+      "nootropic"
     ]
   },
   {
@@ -3381,12 +3831,13 @@
       "MAPK pathway modulation",
       "Nrf2 activation"
     ],
-    "description": "Conservative evidence framing applied.",
+    "description": "Coffee is typically used as a supplemental botanical with context-dependent effects. It is commonly discussed around Chlorogenic acid and Caffeic acid, while human evidence remains mixed across indications.",
     "activeCompounds": [
       "Chlorogenic acid",
       "Caffeic acid",
       "trigonelline"
-    ]
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan"
   },
   {
     "slug": "cnidium-monnieri",
@@ -3403,6 +3854,12 @@
       "Osthole",
       "Imperatorin",
       "Isoimperatorin"
+    ],
+    "preparation": "Seeds (She Chuang Zi) decocted or powdered; used in Traditional Chinese Medicine, topically or internally",
+    "primaryActions": [
+      "antioxidant",
+      "nootropic",
+      "antimicrobial"
     ]
   },
   {
@@ -3472,6 +3929,12 @@
     "activeCompounds": [
       "Angelicin",
       "Umbelliferone"
+    ],
+    "preparation": "Roots and seeds decocted, used in tinctures, or added to liquors and tonics",
+    "primaryActions": [
+      "sedative",
+      "antioxidant",
+      "digestive support"
     ]
   },
   {
@@ -3496,6 +3959,12 @@
     "description": "Morinda citrifolia lean monograph row enriched in bulk mode.",
     "activeCompounds": [
       "Scopoletin"
+    ],
+    "preparation": "Fruit juice fermented or taken fresh; commonly called noni; used in Polynesian medicine",
+    "primaryActions": [
+      "anti-inflammatory",
+      "immunomodulatory",
+      "antioxidant"
     ]
   },
   {
@@ -3524,7 +3993,8 @@
     "description": "Cichorium intybus lean monograph row enriched in bulk mode.",
     "activeCompounds": [
       "Esculetin"
-    ]
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan"
   },
   {
     "slug": "fraxinus-rhynchophylla",
@@ -3598,6 +4068,12 @@
     "description": "Stephania tetrandra lean monograph row enriched in bulk mode.",
     "activeCompounds": [
       "Tetrandrine"
+    ],
+    "preparation": "Root decocted in TCM (Han Fang Ji); used for edema, inflammation, and hypertension",
+    "primaryActions": [
+      "anti-inflammatory",
+      "antioxidant",
+      "nootropic"
     ]
   },
   {
@@ -3622,6 +4098,12 @@
     "description": "Stephania cepharantha lean monograph row enriched in bulk mode.",
     "activeCompounds": [
       "Cepharanthine"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Traditionally used in chinese medicine for inflammation and pain relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used in Chinese medicine for inflammation and pain relief. No direct region data. Contextual inference: Traditionally used in chinese medicine for inflammation and pain relief. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used in Chinese medicine for inflammation and pain relief. none. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "antioxidant",
+      "nootropic",
+      "analgesic"
     ]
   },
   {
@@ -3646,6 +4128,10 @@
     "description": "Nelumbo nucifera lean monograph row enriched in bulk mode.",
     "activeCompounds": [
       "Magnoflorine"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. No direct region data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion",
+    "primaryActions": [
+      "anxiolytic"
     ]
   },
   {
@@ -3662,6 +4148,15 @@
       "Ligustilide",
       "Senkyunolide A",
       "Butylidenephthalide"
+    ],
+    "interactions": [
+      "anticoagulants/antiplatelets"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Invigorates blood, relieves pain; key herb in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Invigorates blood, relieves pain; key herb in TCM. No direct region data. Contextual inference: Invigorates blood, relieves pain; key herb in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Invigorates blood, relieves pain; key herb in TCM. none. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "antioxidant",
+      "nootropic",
+      "analgesic"
     ]
   },
   {
@@ -3690,6 +4185,12 @@
       "Acetyl-beta-boswellic acid",
       "11-keto-beta-boswellic acid",
       "Acetyl-11-keto-beta-boswellic acid"
+    ],
+    "preparation": "Resin (frankincense) collected and used in capsules, extracts, or chewed directly",
+    "primaryActions": [
+      "anti-inflammatory",
+      "antioxidant",
+      "nootropic"
     ]
   },
   {
@@ -3705,6 +4206,12 @@
       "Valerenic acid",
       "Valerenol",
       "Valepotriates"
+    ],
+    "preparation": "Root dried and used in teas, tinctures, or capsules; sedative and anxiolytic properties",
+    "primaryActions": [
+      "anxiolytic",
+      "sedative",
+      "antioxidant"
     ]
   },
   {
@@ -3722,6 +4229,10 @@
       "Kavain",
       "Yangonin",
       "Methysticin"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "anxiolytic"
     ]
   },
   {
@@ -3737,6 +4248,14 @@
     "activeCompounds": [
       "Hyperforin",
       "Hypericin"
+    ],
+    "interactions": [
+      "anticoagulants/antiplatelets",
+      "serotonergic medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "nootropic"
     ]
   },
   {
@@ -3749,6 +4268,12 @@
     "description": "Plantago major contains Aucubin and is linked here to NF-κB inhibition.",
     "activeCompounds": [
       "Aucubin"
+    ],
+    "preparation": "Leaves fresh or dried for teas, poultices, or tinctures; seeds also used for mucilage (demulcent)",
+    "primaryActions": [
+      "anti-inflammatory",
+      "antioxidant",
+      "nootropic"
     ]
   },
   {
@@ -3773,6 +4298,12 @@
     "description": "Harpagophytum procumbens contains Harpagoside and is linked here to COX inhibition.",
     "activeCompounds": [
       "Harpagoside"
+    ],
+    "preparation": "Dried root tubers decocted or powdered; available in capsules or teas (devil’s claw)",
+    "primaryActions": [
+      "anti-inflammatory",
+      "antioxidant",
+      "nootropic"
     ]
   },
   {
@@ -3786,6 +4317,12 @@
     "activeCompounds": [
       "Loganin",
       "Morroniside"
+    ],
+    "preparation": "Fruit decocted or dried and consumed in Traditional Chinese Medicine (Shan Zhu Yu); often paired with tonic herbs",
+    "primaryActions": [
+      "antioxidant",
+      "hepatoprotective",
+      "nootropic"
     ]
   },
   {
@@ -3798,6 +4335,9 @@
     "description": "Cistanche deserticola contains Echinacoside and is linked here to PI3K/Akt modulation.",
     "activeCompounds": [
       "Echinacoside"
+    ],
+    "primaryActions": [
+      "antioxidant"
     ]
   },
   {
@@ -3810,7 +4350,8 @@
     "description": "Verbena officinalis contains Acteoside and is linked here to NF-κB inhibition.",
     "activeCompounds": [
       "Acteoside"
-    ]
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. No direct region data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming"
   },
   {
     "slug": "plantago-lanceolata",
@@ -3885,6 +4426,10 @@
     "description": "Artemisia absinthium contains Thujone and is linked here to GABA-A receptor antagonism.",
     "activeCompounds": [
       "Thujone"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. No direct region data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation",
+    "primaryActions": [
+      "digestive support"
     ]
   },
   {
@@ -3904,6 +4449,15 @@
       "Calycosin",
       "Formononetin",
       "Astragalin"
+    ],
+    "interactions": [
+      "immunosuppressants"
+    ],
+    "preparation": "Roots sliced and decocted or simmered in soups; also extracted in capsules and tinctures",
+    "primaryActions": [
+      "adaptogenic",
+      "antioxidant",
+      "nootropic"
     ]
   },
   {
@@ -3948,6 +4502,10 @@
     "activeCompounds": [
       "Mangostin",
       "Alpha-mangostin"
+    ],
+    "primaryActions": [
+      "anti-inflammatory",
+      "antioxidant"
     ]
   },
   {
@@ -3989,6 +4547,12 @@
     "activeCompounds": [
       "Demethoxycurcumin",
       "Bisdemethoxycurcumin"
+    ],
+    "preparation": "Rhizome dried and powdered (turmeric); also decocted or extracted in oil or alcohol-based preparations",
+    "primaryActions": [
+      "anti-inflammatory",
+      "antioxidant",
+      "hepatoprotective"
     ]
   },
   {
@@ -4004,6 +4568,12 @@
     "activeCompounds": [
       "Paeoniflorin",
       "Albiflorin"
+    ],
+    "interactions": [
+      "anticoagulants/antiplatelets"
+    ],
+    "primaryActions": [
+      "anxiolytic"
     ]
   },
   {
@@ -4031,6 +4601,12 @@
     "activeCompounds": [
       "Timosaponin AIII",
       "Mangiferin aglycone"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Antipyretic, anti-inflammatory, and antidiabetic; used in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antipyretic, anti-inflammatory, and antidiabetic; used in TCM. No direct region data. Contextual inference: Antipyretic, anti-inflammatory, and antidiabetic; used in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antipyretic, anti-inflammatory, and antidiabetic; used in TCM. none. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "anti-inflammatory",
+      "antioxidant",
+      "nootropic"
     ]
   },
   {
@@ -4043,6 +4619,10 @@
     "description": "Lobelia inflata contains Lobeline and is linked here to nicotinic acetylcholine receptor modulation.",
     "activeCompounds": [
       "Lobeline"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "cholinergic modulation"
     ]
   },
   {
@@ -4056,6 +4636,10 @@
     "activeCompounds": [
       "Huperzine A",
       "Huperzine B"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+    "primaryActions": [
+      "cholinergic modulation"
     ]
   },
   {
@@ -4071,6 +4655,10 @@
     "activeCompounds": [
       "Anatabine",
       "Nicotine"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "cholinergic modulation"
     ]
   },
   {
@@ -4096,6 +4684,9 @@
     "activeCompounds": [
       "Beta-caryophyllene",
       "Caryophyllene oxide"
+    ],
+    "primaryActions": [
+      "digestive support"
     ]
   },
   {
@@ -4108,6 +4699,12 @@
     "description": "Cymbopogon citratus contains Nerolidol and is linked here to GABA-A modulation.",
     "activeCompounds": [
       "Nerolidol"
+    ],
+    "preparation": "Leaves used fresh or dried in teas and infusions; also distilled for lemongrass oil",
+    "primaryActions": [
+      "anxiolytic",
+      "antioxidant",
+      "digestive support"
     ]
   },
   {
@@ -4125,6 +4722,12 @@
       "Farnesol",
       "Bisabolol",
       "Chamazulene"
+    ],
+    "preparation": "Flowers dried and infused for tea or tincture; widely used for calming and digestive support",
+    "primaryActions": [
+      "anti-inflammatory",
+      "anxiolytic",
+      "antioxidant"
     ]
   },
   {
@@ -4140,6 +4743,12 @@
       "Atractylenolide I",
       "Atractylenolide II",
       "Atractylenolide III"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Tonic for spleen and digestion in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic for spleen and digestion in TCM. No direct region data. Contextual inference: Tonic for spleen and digestion in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic for spleen and digestion in TCM. none. ; nan; nan. ; nan; nan",
+    "primaryActions": [
+      "antioxidant",
+      "digestive support",
+      "nootropic"
     ]
   },
   {
@@ -4166,7 +4775,8 @@
     "activeCompounds": [
       "Elemicin",
       "Myristicin"
-    ]
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. No direct effects data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. No direct region data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. No direct effects data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals... Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals.. Used in spice blends, aphrodisiacs, and as a psychoactive in folk rituals"
   },
   {
     "slug": "ocotea-odorifera",
@@ -4203,6 +4813,12 @@
     "description": "Ocimum sanctum contains Ursolic acid and is linked here to AMPK activation.",
     "activeCompounds": [
       "Ursolic acid"
+    ],
+    "preparation": "Leaves used fresh or dried in teas, decoctions, tinctures; sacred basil with adaptogenic effects",
+    "primaryActions": [
+      "adaptogenic",
+      "immunomodulatory",
+      "antioxidant"
     ]
   },
   {
@@ -4219,6 +4835,15 @@
       "Madecassic acid",
       "Asiaticoside",
       "Madecassoside"
+    ],
+    "interactions": [
+      "CNS depressants"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+    "primaryActions": [
+      "anxiolytic",
+      "cardiovascular support",
+      "nootropic"
     ]
   },
   {
@@ -4233,7 +4858,11 @@
     "activeCompounds": [
       "Gymnemagenin",
       "Gurmarin"
-    ]
+    ],
+    "interactions": [
+      "antidiabetic medications"
+    ],
+    "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan"
   },
   {
     "slug": "lagerstroemia-speciosa",
@@ -4248,6 +4877,12 @@
     "activeCompounds": [
       "Corosolic acid",
       "Lagerstroemin"
+    ],
+    "interactions": [
+      "antidiabetic medications"
+    ],
+    "primaryActions": [
+      "glycemic support"
     ]
   },
   {
@@ -4264,6 +4899,9 @@
       "Mulberroside A",
       "Oxyresveratrol",
       "Morin"
+    ],
+    "interactions": [
+      "antidiabetic medications"
     ]
   },
   {
@@ -4307,6 +4945,13 @@
     "activeCompounds": [
       "Beta-sitosterol",
       "Stigmasterol"
+    ],
+    "interactions": [
+      "anticoagulants/antiplatelets"
+    ],
+    "preparation": "Fruit dried and extracted into lipophilic extracts or tinctures; used for benign prostatic hyperplasia (BPH)",
+    "primaryActions": [
+      "anti-inflammatory"
     ]
   }
 ]
