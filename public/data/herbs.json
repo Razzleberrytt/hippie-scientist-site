@@ -42,7 +42,8 @@
     ],
     "traditionalUse": "Folk medicine",
     "slug": "acacia-nilotica",
-    "confidenceTier": "medium"
+    "confidenceTier": "low",
+    "sourceCount": 0
   },
   {
     "name": "aconitum ferox",
@@ -95,7 +96,8 @@
       "fatal in small doses"
     ],
     "slug": "aconitum-ferox",
-    "confidenceTier": "high"
+    "confidenceTier": "medium",
+    "sourceCount": 2
   },
   {
     "name": "aconitum napellus",
@@ -146,7 +148,8 @@
     "therapeuticUses": "Historically used in homeopathy and herbal medicine for pain, fever and inflammation; due to high toxicity, medicinal use is extremely limited and requires expert supervision.",
     "traditionalUse": "; nan; nan",
     "slug": "aconitum-napellus",
-    "confidenceTier": "high"
+    "confidenceTier": "medium",
+    "sourceCount": 2
   },
   {
     "name": "acorus americanus",
@@ -189,7 +192,8 @@
       "dry mouth",
       "allergic rash or itching in sensitive individuals"
     ],
-    "confidenceTier": "medium"
+    "confidenceTier": "low",
+    "sourceCount": 0
   },
   {
     "name": "acorus calamus var. angustatus",
@@ -243,7 +247,8 @@
       "nausea, confusion, or anxiety with higher intake",
       "allergic reaction in sensitive individuals"
     ],
-    "confidenceTier": "medium"
+    "confidenceTier": "low",
+    "sourceCount": 0
   },
   {
     "name": "acorus tatarinowii",
@@ -312,7 +317,8 @@
     "therapeuticUses": "Used in traditional Chinese medicine for treating phlegm, epilepsy, mental disorders, and digestive problems.",
     "traditionalUse": "; nan; nan",
     "slug": "acorus-tatarinowii",
-    "confidenceTier": "high"
+    "confidenceTier": "medium",
+    "sourceCount": 2
   },
   {
     "name": "adenium obesum",
@@ -367,7 +373,8 @@
       "arrhythmia"
     ],
     "slug": "adenium-obesum",
-    "confidenceTier": "high"
+    "confidenceTier": "medium",
+    "sourceCount": 2
   },
   {
     "name": "adenostoma fasciculatum",
@@ -427,7 +434,8 @@
     "therapeuticUses": "Used traditionally for skin wounds, coughs, and as a tea for colds and stomach ailments.",
     "traditionalUse": "; nan; nan",
     "slug": "adenostoma-fasciculatum",
-    "confidenceTier": "high"
+    "confidenceTier": "medium",
+    "sourceCount": 2
   },
   {
     "name": "adhatoda vasica",
@@ -476,7 +484,8 @@
     ],
     "traditionalUse": "; nan; nan",
     "slug": "adhatoda-vasica",
-    "confidenceTier": "medium"
+    "confidenceTier": "low",
+    "sourceCount": 0
   },
   {
     "name": "aegle marmelos",
@@ -531,7 +540,8 @@
     "mechanismTags": [
       "general or unknown targets"
     ],
-    "confidenceTier": "high"
+    "confidenceTier": "medium",
+    "sourceCount": 1
   },
   {
     "name": "aerva lanata",
@@ -615,7 +625,8 @@
       "may cause diuresis or mild GI upset in sensitive individuals"
     ],
     "slug": "aerva-lanata",
-    "confidenceTier": "high"
+    "confidenceTier": "medium",
+    "sourceCount": 2
   },
   {
     "name": "aesculus hippocastanum",
@@ -698,7 +709,8 @@
       "inflammation support",
       "venous support"
     ],
-    "confidenceTier": "high"
+    "confidenceTier": "high",
+    "sourceCount": 3
   },
   {
     "name": "african dream root",
@@ -749,7 +761,8 @@
     ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
     "slug": "african-dream-root",
-    "confidenceTier": "medium"
+    "confidenceTier": "low",
+    "sourceCount": 0
   },
   {
     "name": "agastache foeniculum",
@@ -814,7 +827,8 @@
     "mechanismTags": [
       "endocannabinoid_modulation"
     ],
-    "confidenceTier": "high"
+    "confidenceTier": "high",
+    "sourceCount": 3
   },
   {
     "name": "agrimonia eupatoria",
@@ -884,7 +898,8 @@
       "rare allergic responses reported"
     ],
     "slug": "agrimonia-eupatoria",
-    "confidenceTier": "high"
+    "confidenceTier": "medium",
+    "sourceCount": 2
   },
   {
     "name": "alangium salvifolium",
@@ -950,7 +965,8 @@
     "therapeuticUses": "Used in traditional medicine for treating pain, fever, cough, and as a purgative; seeds used for emetic effect; bark used for respiratory ailments.",
     "traditionalUse": "; nan; nan",
     "slug": "alangium-salvifolium",
-    "confidenceTier": "high"
+    "confidenceTier": "medium",
+    "sourceCount": 2
   },
   {
     "name": "albizia julibrissin",
@@ -995,7 +1011,8 @@
     "therapeuticUses": "Traditional antidepressant and anxiolytic; used to relieve stress, anxiety, depression and insomnia; also exhibits anti‑inflammatory, antioxidant and immunomodulatory properties.",
     "traditionalUse": "; nan; nan",
     "slug": "albizia-julibrissin",
-    "confidenceTier": "medium"
+    "confidenceTier": "low",
+    "sourceCount": 0
   },
   {
     "name": "albizia lebbeck",
@@ -1061,7 +1078,8 @@
     "therapeuticUses": "Used in traditional medicine for asthma, allergies, inflammatory conditions, and coughs; bark extracts show antitumor and antiproliferative effects.",
     "traditionalUse": "; nan; nan",
     "slug": "albizia-lebbeck",
-    "confidenceTier": "high"
+    "confidenceTier": "medium",
+    "sourceCount": 2
   },
   {
     "name": "alchemilla vulgaris",
@@ -1130,7 +1148,9 @@
       "caution in people with hormone",
       "sensitive conditions"
     ],
-    "slug": "alchemilla-vulgaris"
+    "slug": "alchemilla-vulgaris",
+    "sourceCount": 2,
+    "confidenceTier": "medium"
   },
   {
     "name": "alchornea castaneifolia",
@@ -1170,7 +1190,8 @@
     "therapeuticUses": "Traditional Amazonian remedy for rheumatism, arthritis, colds, muscle pains and diarrhoea; aphrodisiac and reproductive tonic; used as a component of ayahuasca.",
     "traditionalUse": "Used in traditional Amazonian medicine for arthritis and pain.",
     "slug": "alchornea-castaneifolia",
-    "confidenceTier": "medium"
+    "confidenceTier": "low",
+    "sourceCount": 0
   },
   {
     "name": "alectra sessiliflora",
@@ -1216,7 +1237,9 @@
       "Limited data",
       "no common adverse effects reported"
     ],
-    "slug": "alectra-sessiliflora"
+    "slug": "alectra-sessiliflora",
+    "sourceCount": 2,
+    "confidenceTier": "medium"
   },
   {
     "name": "aletris farinosa",
@@ -1266,7 +1289,9 @@
       "avoid during pregnancy",
       "nausea at high doses"
     ],
-    "slug": "aletris-farinosa"
+    "slug": "aletris-farinosa",
+    "sourceCount": 2,
+    "confidenceTier": "medium"
   },
   {
     "name": "allium sativum",
@@ -1334,7 +1359,9 @@
       "anti-inflammatory",
       "antioxidant",
       "immunomodulatory"
-    ]
+    ],
+    "sourceCount": 3,
+    "confidenceTier": "high"
   },
   {
     "name": "alnus rubra",
@@ -1386,7 +1413,9 @@
       "Rare allergic reactions",
       "excessive use may cause nausea or dizziness"
     ],
-    "slug": "alnus-rubra"
+    "slug": "alnus-rubra",
+    "sourceCount": 2,
+    "confidenceTier": "medium"
   },
   {
     "name": "aloe vera",
@@ -1461,7 +1490,9 @@
       "anti-inflammatory",
       "demulcent",
       "digestive support"
-    ]
+    ],
+    "sourceCount": 3,
+    "confidenceTier": "high"
   },
   {
     "name": "aloysia citrodora",
@@ -1522,7 +1553,9 @@
     "mechanismTags": [
       "calming support",
       "digestive support"
-    ]
+    ],
+    "sourceCount": 1,
+    "confidenceTier": "medium"
   },
   {
     "name": "alpinia galanga",
@@ -1573,7 +1606,9 @@
     "mechanismTags": [
       "aromatic support",
       "digestive support"
-    ]
+    ],
+    "sourceCount": 1,
+    "confidenceTier": "medium"
   },
   {
     "name": "althaea officinalis",
@@ -1643,7 +1678,9 @@
       "demulcent",
       "digestive support",
       "throat support"
-    ]
+    ],
+    "sourceCount": 3,
+    "confidenceTier": "high"
   },
   {
     "name": "alyxia stellata",
@@ -1688,7 +1725,9 @@
       "Limited data",
       "may cause nausea or dizziness in high doses or sensitive individuals"
     ],
-    "slug": "alyxia-stellata"
+    "slug": "alyxia-stellata",
+    "sourceCount": 2,
+    "confidenceTier": "medium"
   },
   {
     "name": "amanita pantherina",
@@ -1724,7 +1763,8 @@
     "therapeuticUses": "Traditional Siberian shamanic use; rarely employed medically",
     "traditionalUse": "; nan; nan",
     "slug": "amanita-pantherina",
-    "confidenceTier": "medium"
+    "confidenceTier": "low",
+    "sourceCount": 0
   },
   {
     "name": "american ginseng",
