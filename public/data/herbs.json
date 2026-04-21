@@ -41,7 +41,8 @@
       "Immune support"
     ],
     "traditionalUse": "Folk medicine",
-    "slug": "acacia-nilotica"
+    "slug": "acacia-nilotica",
+    "confidenceTier": "medium"
   },
   {
     "name": "aconitum ferox",
@@ -93,7 +94,8 @@
       "neurotoxicity",
       "fatal in small doses"
     ],
-    "slug": "aconitum-ferox"
+    "slug": "aconitum-ferox",
+    "confidenceTier": "high"
   },
   {
     "name": "aconitum napellus",
@@ -143,7 +145,8 @@
     "region": "No direct region data. Contextual inference: Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Potent analgesic and anti-inflammatory; extremely toxic. none. ; nan; nan",
     "therapeuticUses": "Historically used in homeopathy and herbal medicine for pain, fever and inflammation; due to high toxicity, medicinal use is extremely limited and requires expert supervision.",
     "traditionalUse": "; nan; nan",
-    "slug": "aconitum-napellus"
+    "slug": "aconitum-napellus",
+    "confidenceTier": "high"
   },
   {
     "name": "acorus americanus",
@@ -185,7 +188,8 @@
     "sideEffects": [
       "dry mouth",
       "allergic rash or itching in sensitive individuals"
-    ]
+    ],
+    "confidenceTier": "medium"
   },
   {
     "name": "acorus calamus var. angustatus",
@@ -238,7 +242,8 @@
       "drowsiness, dizziness, or slowed reaction time",
       "nausea, confusion, or anxiety with higher intake",
       "allergic reaction in sensitive individuals"
-    ]
+    ],
+    "confidenceTier": "medium"
   },
   {
     "name": "acorus tatarinowii",
@@ -306,7 +311,8 @@
     "region": "No direct region data. Contextual inference: Cns stimulant, memory aid, and anti-epileptic in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. CNS stimulant, memory aid, and anti-epileptic in TCM. none. ; nan; nan",
     "therapeuticUses": "Used in traditional Chinese medicine for treating phlegm, epilepsy, mental disorders, and digestive problems.",
     "traditionalUse": "; nan; nan",
-    "slug": "acorus-tatarinowii"
+    "slug": "acorus-tatarinowii",
+    "confidenceTier": "high"
   },
   {
     "name": "adenium obesum",
@@ -360,7 +366,8 @@
       "vomiting",
       "arrhythmia"
     ],
-    "slug": "adenium-obesum"
+    "slug": "adenium-obesum",
+    "confidenceTier": "high"
   },
   {
     "name": "adenostoma fasciculatum",
@@ -419,7 +426,8 @@
     "region": "No direct region data. Contextual inference: Traditional uses include skin and respiratory conditions; contains tannins. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditional uses include skin and respiratory conditions; contains tannins. none. ; nan; nan",
     "therapeuticUses": "Used traditionally for skin wounds, coughs, and as a tea for colds and stomach ailments.",
     "traditionalUse": "; nan; nan",
-    "slug": "adenostoma-fasciculatum"
+    "slug": "adenostoma-fasciculatum",
+    "confidenceTier": "high"
   },
   {
     "name": "adhatoda vasica",
@@ -467,7 +475,8 @@
       "Traditional Ayurvedic and Unani medicine for lung health"
     ],
     "traditionalUse": "; nan; nan",
-    "slug": "adhatoda-vasica"
+    "slug": "adhatoda-vasica",
+    "confidenceTier": "medium"
   },
   {
     "name": "aegle marmelos",
@@ -521,7 +530,8 @@
     ],
     "mechanismTags": [
       "general or unknown targets"
-    ]
+    ],
+    "confidenceTier": "high"
   },
   {
     "name": "aerva lanata",
@@ -604,7 +614,8 @@
       "Rarely associated with side effects",
       "may cause diuresis or mild GI upset in sensitive individuals"
     ],
-    "slug": "aerva-lanata"
+    "slug": "aerva-lanata",
+    "confidenceTier": "high"
   },
   {
     "name": "aesculus hippocastanum",
@@ -686,7 +697,8 @@
       "cardiovascular support",
       "inflammation support",
       "venous support"
-    ]
+    ],
+    "confidenceTier": "high"
   },
   {
     "name": "african dream root",
@@ -736,7 +748,8 @@
       "Possible support for cholesterol and blood sugar regulation"
     ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "african-dream-root"
+    "slug": "african-dream-root",
+    "confidenceTier": "medium"
   },
   {
     "name": "agastache foeniculum",
@@ -800,7 +813,8 @@
     ],
     "mechanismTags": [
       "endocannabinoid_modulation"
-    ]
+    ],
+    "confidenceTier": "high"
   },
   {
     "name": "agrimonia eupatoria",
@@ -869,7 +883,8 @@
       "May cause constipation or dry mouth",
       "rare allergic responses reported"
     ],
-    "slug": "agrimonia-eupatoria"
+    "slug": "agrimonia-eupatoria",
+    "confidenceTier": "high"
   },
   {
     "name": "alangium salvifolium",
@@ -934,7 +949,8 @@
     "region": "No direct region data. Contextual inference: Used in ayurveda for anti-epileptic, anti-inflammatory, and analgesic properties. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Ayurveda for anti-epileptic, anti-inflammatory, and analgesic properties. none. ; nan; nan",
     "therapeuticUses": "Used in traditional medicine for treating pain, fever, cough, and as a purgative; seeds used for emetic effect; bark used for respiratory ailments.",
     "traditionalUse": "; nan; nan",
-    "slug": "alangium-salvifolium"
+    "slug": "alangium-salvifolium",
+    "confidenceTier": "high"
   },
   {
     "name": "albizia julibrissin",
@@ -978,7 +994,8 @@
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
     "therapeuticUses": "Traditional antidepressant and anxiolytic; used to relieve stress, anxiety, depression and insomnia; also exhibits anti‑inflammatory, antioxidant and immunomodulatory properties.",
     "traditionalUse": "; nan; nan",
-    "slug": "albizia-julibrissin"
+    "slug": "albizia-julibrissin",
+    "confidenceTier": "medium"
   },
   {
     "name": "albizia lebbeck",
@@ -1043,7 +1060,8 @@
     "region": "No direct region data. Contextual inference: Used in ayurveda for asthma, allergies, and anxiety. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in Ayurveda for asthma, allergies, and anxiety. none. ; nan; nan",
     "therapeuticUses": "Used in traditional medicine for asthma, allergies, inflammatory conditions, and coughs; bark extracts show antitumor and antiproliferative effects.",
     "traditionalUse": "; nan; nan",
-    "slug": "albizia-lebbeck"
+    "slug": "albizia-lebbeck",
+    "confidenceTier": "high"
   },
   {
     "name": "alchemilla vulgaris",
@@ -1151,7 +1169,8 @@
     "region": "No direct region data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
     "therapeuticUses": "Traditional Amazonian remedy for rheumatism, arthritis, colds, muscle pains and diarrhoea; aphrodisiac and reproductive tonic; used as a component of ayahuasca.",
     "traditionalUse": "Used in traditional Amazonian medicine for arthritis and pain.",
-    "slug": "alchornea-castaneifolia"
+    "slug": "alchornea-castaneifolia",
+    "confidenceTier": "medium"
   },
   {
     "name": "alectra sessiliflora",
@@ -1704,7 +1723,8 @@
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
     "therapeuticUses": "Traditional Siberian shamanic use; rarely employed medically",
     "traditionalUse": "; nan; nan",
-    "slug": "amanita-pantherina"
+    "slug": "amanita-pantherina",
+    "confidenceTier": "medium"
   },
   {
     "name": "american ginseng",
@@ -1899,7 +1919,8 @@
     "sideEffects": [
       "headache (more likely with higher intake)",
       "dry mouth"
-    ]
+    ],
+    "confidenceTier": "medium"
   },
   {
     "name": "amphipterygium adstringens",
@@ -2088,7 +2109,8 @@
       "dry mouth",
       "allergic skin reaction in sensitive individuals",
       "drowsiness"
-    ]
+    ],
+    "confidenceTier": "medium"
   },
   {
     "name": "anadenanthera colubrina (cebíl)",
@@ -31350,7 +31372,8 @@
     "region": "Asia, Europe",
     "therapeuticUses": [],
     "traditionalUse": null,
-    "slug": "nan"
+    "slug": "nan",
+    "confidenceTier": "low"
   },
   {
     "name": "nan",
@@ -48520,7 +48543,8 @@
       {
         "title": "Internal workbook + enrichment queue"
       }
-    ]
+    ],
+    "confidenceTier": "low"
   },
   {
     "id": "pau-darco",
@@ -49669,7 +49693,8 @@
       {
         "title": "Internal workbook + enrichment queue"
       }
-    ]
+    ],
+    "confidenceTier": "low"
   },
   {
     "id": "rooibos",
