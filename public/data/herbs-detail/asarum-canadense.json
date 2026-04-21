@@ -55,12 +55,8 @@
   "displayScientificName": "Asarum canadense",
   "scientificNormalized": "asarum canadense",
   "id": "asarum-canadense",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

@@ -81,14 +81,8 @@
   "displayScientificName": "Amanita muscaria",
   "scientificNormalized": "amanita muscaria",
   "id": "amanita-muscaria",
-  "aliases": [
-    "nan",
-    "fly agaric"
-  ],
-  "slugAliases": [
-    "fly-agaric",
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

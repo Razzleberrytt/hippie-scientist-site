@@ -80,12 +80,8 @@
   "displayScientificName": "Acmella oleracea",
   "scientificNormalized": "acmella oleracea",
   "id": "acmella-oleracea",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

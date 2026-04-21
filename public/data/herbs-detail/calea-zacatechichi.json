@@ -59,12 +59,8 @@
   "displayScientificName": "Calea zacatechichi",
   "scientificNormalized": "calea zacatechichi",
   "id": "calea-zacatechichi",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

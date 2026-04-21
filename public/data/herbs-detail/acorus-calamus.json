@@ -104,14 +104,8 @@
   "displayScientificName": "Acorus calamus",
   "scientificNormalized": "acorus calamus",
   "id": "acorus-calamus",
-  "aliases": [
-    "nan",
-    "sweet flag"
-  ],
-  "slugAliases": [
-    "sweet-flag",
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

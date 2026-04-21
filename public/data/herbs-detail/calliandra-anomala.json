@@ -59,12 +59,8 @@
   "displayScientificName": "Calliandra anomala",
   "scientificNormalized": "calliandra anomala",
   "id": "calliandra-anomala",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

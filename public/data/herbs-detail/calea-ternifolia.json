@@ -94,14 +94,8 @@
   "displayScientificName": "Calea ternifolia",
   "scientificNormalized": "calea ternifolia",
   "id": "calea-ternifolia",
-  "aliases": [
-    "nan",
-    "dream herb"
-  ],
-  "slugAliases": [
-    "dream-herb",
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

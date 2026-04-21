@@ -67,12 +67,8 @@
   "displayScientificName": "Acacia confusa",
   "scientificNormalized": "acacia confusa",
   "id": "acacia-confusa",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

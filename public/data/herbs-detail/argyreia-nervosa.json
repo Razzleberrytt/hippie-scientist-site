@@ -71,12 +71,8 @@
   "displayScientificName": "Argyreia nervosa",
   "scientificNormalized": "argyreia nervosa",
   "id": "argyreia-nervosa",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
