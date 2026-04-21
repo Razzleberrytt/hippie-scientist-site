@@ -1,20 +1,20 @@
 # Data Audit Report
 
-- Generated: 2026-04-08T17:16:34.570Z
-- Herb list records: 675
-- Herb detail records: 676
-- Compound records: 399
-- Structural-hard issues: 2559
-- Enrichment-soft issues: 5583
-- Herb hard-required gaps: 0
-- Herb recommended gaps: 3578
-- Herb research-backlog gaps: 2005
+- Generated: 2026-04-21T02:47:12.141Z
+- Herb list records: 849
+- Herb detail records: 681
+- Compound records: 407
+- Structural-hard issues: 12
+- Enrichment-soft issues: 8776
+- Herb hard-required gaps: 2
+- Herb recommended gaps: 4155
+- Herb research-backlog gaps: 2165
 
 ## Dataset coverage
 
-- `public/data/herbs.json`: 675 records
-- `public/data/herbs-detail/*.json`: 676 files
-- `public/data/compounds.json`: 399 records
+- `public/data/herbs.json`: 849 records
+- `public/data/herbs-detail/*.json`: 681 files
+- `public/data/compounds.json`: 407 records
 
 ## Split rationale
 
@@ -23,57 +23,61 @@
 
 ## Issue counts by code (all)
 
-- missing-recommended-field: 3578
-- missing-research-backlog-field: 2005
-- missing-required-field: 1811
-- herb-list-detail-mismatch: 463
-- unresolved-active-compound-reference: 216
-- invalid-field-type: 33
-- placeholder-value: 26
-- invalid-slug: 5
-- duplicate-name: 2
-- missing-herb-list-record: 2
-- duplicate-slug: 1
+- missing-recommended-field: 4403
+- missing-research-backlog-field: 2165
+- invalid-field-type: 1521
+- unresolved-active-compound-reference: 458
+- herb-list-detail-mismatch: 126
+- missing-herb-detail-record: 66
+- duplicate-name: 17
+- placeholder-value: 15
+- missing-herb-list-record: 7
+- invalid-slug: 6
+- missing-hard-required-field: 2
+- duplicate-slug: 2
 
 ## STRUCTURAL_HARD breakdown by code
 
-- missing-required-field: 1811
-- herb-list-detail-mismatch: 463
-- unresolved-active-compound-reference: 216
-- invalid-field-type: 33
-- placeholder-value: 26
-- invalid-slug: 5
-- duplicate-name: 2
-- missing-herb-list-record: 2
-- duplicate-slug: 1
+- invalid-slug: 6
+- missing-hard-required-field: 2
+- placeholder-value: 2
+- duplicate-slug: 2
 
 ## ENRICHMENT_SOFT breakdown by code
 
-- missing-recommended-field: 3578
-- missing-research-backlog-field: 2005
+- missing-recommended-field: 4403
+- missing-research-backlog-field: 2165
+- invalid-field-type: 1521
+- unresolved-active-compound-reference: 458
+- herb-list-detail-mismatch: 126
+- missing-herb-detail-record: 66
+- duplicate-name: 17
+- placeholder-value: 13
+- missing-herb-list-record: 7
 
 ## Issue counts by dataset
 
-- compound: 1832
-- herb-detail: 3568
-- herb-list: 2742
+- compound: 258
+- herb-detail: 3321
+- herb-list: 5209
 
 ## Herb missing-field tiers
 
-- HARD_REQUIRED: 0
-- RECOMMENDED: 3578
-- RESEARCH_BACKLOG: 2005
+- HARD_REQUIRED: 2
+- RECOMMENDED: 4155
+- RESEARCH_BACKLOG: 2165
 
 ### HARD_REQUIRED
-- No gaps.
+- slug: 1
+- name: 1
 
 ### RECOMMENDED
-- sources: 3159
-- contraindications: 419
+- sources: 3650
+- contraindications: 505
 
 ### RESEARCH_BACKLOG
-- class: 1107
-- activeCompounds: 898
+- class: 1260
+- activeCompounds: 905
 
 ## Tier rationale (from completeness + recoverability triage)
 
@@ -87,55 +91,55 @@
 
 ## Before/after missing-field comparison
 
-- Previous model missing-required-field count (legacy herb required set): 3215
-- Current model hard-required gap count: 0
-- Reduction in hard-fail missing-field load: 3215
+- Previous model missing-required-field count (legacy herb required set): 3386
+- Current model hard-required gap count: 2
+- Reduction in hard-fail missing-field load: 3384
 
 ## Sample findings
 
 
 ## Structural status snapshot
 
-- Structurally broken records (at least one STRUCTURAL_HARD issue): 584
-- Structurally valid but enrichment-thin records (ENRICHMENT_SOFT only): 1165
+- Structurally broken records (at least one STRUCTURAL_HARD issue): 8
+- Structurally valid but enrichment-thin records (ENRICHMENT_SOFT only): 1547
 
-- [enrichment-soft] herb-list acacia-confusa (sources): Source entry 0 is missing a url.
-- [enrichment-soft] herb-list acacia-confusa (sources): Source entry 1 is missing a url.
-- [enrichment-soft] herb-list acacia-confusa (sources): Source entry 2 is missing a url.
-- [enrichment-soft] herb-list acacia-maidenii (sources): Source entry 0 is missing a url.
-- [enrichment-soft] herb-list acacia-maidenii (sources): Source entry 1 is missing a url.
-- [enrichment-soft] herb-list acacia-maidenii (sources): Source entry 2 is missing a url.
 - [enrichment-soft] herb-list acacia-nilotica (sources): Missing recommended field 'sources'.
+- [enrichment-soft] herb-list acacia-nilotica (dosage): Field 'dosage' must be a string.
 - [enrichment-soft] herb-list acacia-nilotica (sources): Field 'sources' must not be empty.
-- [enrichment-soft] herb-list acacia-phlebophylla (sources): Missing recommended field 'sources'.
-- [enrichment-soft] herb-list acacia-phlebophylla (sources): Field 'sources' must not be empty.
-- [enrichment-soft] herb-list acmella-oleracea (sources): Source entry 0 is missing a url.
-- [enrichment-soft] herb-list acmella-oleracea (sources): Source entry 1 is missing a url.
-- [enrichment-soft] herb-list acmella-oleracea (sources): Source entry 2 is missing a url.
 - [enrichment-soft] herb-list aconitum-ferox (contraindications): Missing recommended field 'contraindications'.
-- [enrichment-soft] herb-list aconitum-ferox (sources): Missing recommended field 'sources'.
 - [enrichment-soft] herb-list aconitum-ferox (class): Missing research_backlog field 'class'.
 - [enrichment-soft] herb-list aconitum-ferox (activeCompounds): Missing research_backlog field 'activeCompounds'.
-- [enrichment-soft] herb-list aconitum-ferox (sources): Field 'sources' must not be empty.
-- [enrichment-soft] herb-list aconitum-napellus (sources): Missing recommended field 'sources'.
-- [enrichment-soft] herb-list aconitum-napellus (sources): Field 'sources' must not be empty.
+- [enrichment-soft] herb-list aconitum-ferox (dosage): Field 'dosage' must be a string.
+- [enrichment-soft] herb-list aconitum-ferox (safetyNotes): Field 'safetyNotes' must be a string.
+- [enrichment-soft] herb-list aconitum-ferox (sources): Source entry 0 is missing a url.
+- [enrichment-soft] herb-list aconitum-ferox (sources): Source entry 1 is missing a title.
+- [enrichment-soft] herb-list aconitum-ferox (sources): Source entry 1 is missing a url.
+- [enrichment-soft] herb-list aconitum-napellus (dosage): Field 'dosage' must be a string.
+- [enrichment-soft] herb-list aconitum-napellus (contraindications): Field 'contraindications' must be an array of strings.
+- [enrichment-soft] herb-list aconitum-napellus (therapeuticUses): Field 'therapeuticUses' must be an array of strings.
+- [enrichment-soft] herb-list aconitum-napellus (sources): Source entry 0 is missing a url.
+- [enrichment-soft] herb-list aconitum-napellus (sources): Source entry 1 is missing a title.
+- [enrichment-soft] herb-list aconitum-napellus (sources): Source entry 1 is missing a url.
 - [enrichment-soft] herb-list acorus-americanus (sources): Missing recommended field 'sources'.
 - [enrichment-soft] herb-list acorus-americanus (class): Missing research_backlog field 'class'.
+- [enrichment-soft] herb-list acorus-americanus (dosage): Field 'dosage' must be a string.
 - [enrichment-soft] herb-list acorus-americanus (sources): Field 'sources' must not be empty.
-- [enrichment-soft] herb-list acorus-calamus (sources): Source entry 0 is missing a url.
-- [enrichment-soft] herb-list acorus-calamus (sources): Source entry 1 is missing a url.
-- [enrichment-soft] herb-list acorus-calamus (sources): Source entry 2 is missing a url.
 - [enrichment-soft] herb-list acorus-calamus-var-angustatus (sources): Missing recommended field 'sources'.
 - [enrichment-soft] herb-list acorus-calamus-var-angustatus (class): Missing research_backlog field 'class'.
+- [enrichment-soft] herb-list acorus-calamus-var-angustatus (dosage): Field 'dosage' must be a string.
+- [enrichment-soft] herb-list acorus-calamus-var-angustatus (safetyNotes): Field 'safetyNotes' must be a string.
 - [enrichment-soft] herb-list acorus-calamus-var-angustatus (sources): Field 'sources' must not be empty.
-- [enrichment-soft] herb-list acorus-gramineus (sources): Source entry 0 is missing a url.
-- [enrichment-soft] herb-list acorus-tatarinowii (sources): Missing recommended field 'sources'.
-- [enrichment-soft] herb-list acorus-tatarinowii (sources): Field 'sources' must not be empty.
+- [enrichment-soft] herb-list acorus-tatarinowii (dosage): Field 'dosage' must be a string.
+- [enrichment-soft] herb-list acorus-tatarinowii (safetyNotes): Field 'safetyNotes' must be a string.
+- [enrichment-soft] herb-list acorus-tatarinowii (contraindications): Field 'contraindications' must be an array of strings.
+- [enrichment-soft] herb-list acorus-tatarinowii (therapeuticUses): Field 'therapeuticUses' must be an array of strings.
+- [enrichment-soft] herb-list acorus-tatarinowii (sources): Source entry 0 is missing a url.
+- [enrichment-soft] herb-list acorus-tatarinowii (sources): Source entry 1 is missing a title.
+- [enrichment-soft] herb-list acorus-tatarinowii (sources): Source entry 1 is missing a url.
 - [enrichment-soft] herb-list adenium-obesum (contraindications): Missing recommended field 'contraindications'.
-- [enrichment-soft] herb-list adenium-obesum (sources): Missing recommended field 'sources'.
 - [enrichment-soft] herb-list adenium-obesum (class): Missing research_backlog field 'class'.
 - [enrichment-soft] herb-list adenium-obesum (activeCompounds): Missing research_backlog field 'activeCompounds'.
-- [enrichment-soft] herb-list adenium-obesum (sources): Field 'sources' must not be empty.
-- [enrichment-soft] herb-list adenostoma-fasciculatum (sources): Missing recommended field 'sources'.
-- [enrichment-soft] herb-list adenostoma-fasciculatum (sources): Field 'sources' must not be empty.
-- [enrichment-soft] herb-list adhatoda-vasica (sources): Missing recommended field 'sources'.
+- [enrichment-soft] herb-list adenium-obesum (dosage): Field 'dosage' must be a string.
+- [enrichment-soft] herb-list adenium-obesum (safetyNotes): Field 'safetyNotes' must be a string.
+- [enrichment-soft] herb-list adenium-obesum (sources): Source entry 0 is missing a url.
+- [enrichment-soft] herb-list adenium-obesum (sources): Source entry 1 is missing a title.
