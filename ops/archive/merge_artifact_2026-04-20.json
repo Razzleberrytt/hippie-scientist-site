@@ -1,0 +1,28 @@
+{
+  "intake_batch": "ops/inbox/validated_batch_example.json",
+  "production_workbook": "hs_production_db.xlsx",
+  "counts": {
+    "herb_rows_inserted": 1,
+    "herb_rows_updated": 0,
+    "compound_rows_inserted": 1,
+    "compound_rows_updated": 0,
+    "map_rows_inserted": 1,
+    "map_rows_updated": 0,
+    "rejected_rows": 0
+  },
+  "slugs_affected": {
+    "herb_slugs": [
+      "ashwagandha"
+    ],
+    "compound_slugs": [
+      "withanolide-a"
+    ],
+    "map_keys": [
+      {
+        "herb_slug": "ashwagandha",
+        "compound_slug": "withanolide-a"
+      }
+    ]
+  },
+  "rejected": []
+}
