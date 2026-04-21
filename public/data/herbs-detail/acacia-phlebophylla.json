@@ -51,12 +51,8 @@
   "displayScientificName": "Acacia phlebophylla",
   "scientificNormalized": "acacia phlebophylla",
   "id": "acacia-phlebophylla",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

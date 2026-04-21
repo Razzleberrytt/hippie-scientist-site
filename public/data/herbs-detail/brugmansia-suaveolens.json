@@ -60,12 +60,8 @@
   "displayScientificName": "Brugmansia suaveolens",
   "scientificNormalized": "brugmansia suaveolens",
   "id": "brugmansia-suaveolens",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

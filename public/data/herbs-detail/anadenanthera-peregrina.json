@@ -77,12 +77,8 @@
   "displayScientificName": "Anadenanthera peregrina",
   "scientificNormalized": "anadenanthera peregrina",
   "id": "anadenanthera-peregrina",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

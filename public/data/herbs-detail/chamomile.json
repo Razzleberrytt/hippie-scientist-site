@@ -1,7 +1,7 @@
 {
   "name": "chamomile",
   "latin": "chamomile",
-  "class": null,
+  "class": "",
   "intensity": "mild",
   "mechanism": "Proposed activity includes flavonoids (for example apigenin) and volatile constituents with anti-inflammatory and possible GABA-modulating effects. These are mechanistic hypotheses with partial clinical support rather than definitive human mechanism proof.",
   "activeCompounds": [

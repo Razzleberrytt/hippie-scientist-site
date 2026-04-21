@@ -63,12 +63,8 @@
   "displayScientificName": "Cannabis sativa",
   "scientificNormalized": "cannabis sativa",
   "id": "cannabis-sativa",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

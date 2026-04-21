@@ -64,12 +64,8 @@
   "displayScientificName": "Brugmansia sanguinea",
   "scientificNormalized": "brugmansia sanguinea",
   "id": "brugmansia-sanguinea",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

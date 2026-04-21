@@ -1,7 +1,7 @@
 {
   "name": "chaste tree",
   "latin": "chaste tree",
-  "class": null,
+  "class": "",
   "intensity": "mild",
   "mechanism": "Evidence supports a proposed dopaminergic effect (especially D2-related pathways) that may influence prolactin signaling and menstrual-symptom patterns. This remains a proposed clinical mechanism rather than a universally confirmed one.",
   "activeCompounds": [

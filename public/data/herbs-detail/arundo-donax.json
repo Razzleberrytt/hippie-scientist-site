@@ -57,12 +57,8 @@
   "displayScientificName": "Arundo donax",
   "scientificNormalized": "arundo donax",
   "id": "arundo-donax",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

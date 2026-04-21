@@ -1,5 +1,5 @@
 {
-  "name": "nan",
+  "name": "",
   "latin": "Achillea millefolium L.",
   "class": "Medicinal, Aromatic, Traditional Herb",
   "intensity": "Mild to moderate",
@@ -71,16 +71,14 @@
     "digestion"
   ],
   "slug": "achillea-millefolium",
-  "displayName": "nan",
+  "displayName": "",
   "displayScientificName": "Achillea millefolium L.",
   "scientificNormalized": "achillea millefolium",
   "id": "achillea-millefolium",
   "aliases": [
     "Achillea millefolium"
   ],
-  "slugAliases": [
-    "nan"
-  ],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",

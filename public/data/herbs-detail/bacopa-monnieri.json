@@ -1,7 +1,7 @@
 {
   "name": "bacopa monnieri",
   "latin": "bacopa monnieri",
-  "class": null,
+  "class": "",
   "intensity": "mild",
   "mechanism": "Proposed mechanisms are based mainly on preclinical and translational studies: bacoside-rich extracts may influence cholinergic signaling, antioxidant defenses, and synaptic plasticity. These mechanisms are plausible but not fully established as clinical mechanisms in humans.",
   "activeCompounds": [

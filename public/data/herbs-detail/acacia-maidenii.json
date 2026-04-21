@@ -63,12 +63,8 @@
   "displayScientificName": "Acacia maidenii",
   "scientificNormalized": "acacia maidenii",
   "id": "acacia-maidenii",
-  "aliases": [
-    "nan"
-  ],
-  "slugAliases": [
-    "nan"
-  ],
+  "aliases": [],
+  "slugAliases": [],
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
