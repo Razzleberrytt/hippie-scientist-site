@@ -755,8 +755,7 @@ export default function CollectionPage() {
               Governed enrichment overview (collection-level)
             </h2>
             <p className='mt-2 text-xs leading-6 text-indigo-50/90'>
-              This summary only uses publish-approved governed enrichment. Items without approved
-              enrichment are excluded from evidence/safety comparisons.
+              This summary uses governed enrichment signals directly from the dataset.
             </p>
             <div className='mt-3 grid gap-2 text-xs text-indigo-50/95 sm:grid-cols-2 lg:grid-cols-3'>
               <p>
@@ -846,8 +845,7 @@ export default function CollectionPage() {
                 Governed discovery controls
               </h2>
               <p className='text-[11px] text-white/65'>
-                Eligible governed entries: {activeDiscovery.eligibility.governedEligible}/
-                {activeDiscovery.eligibility.total}
+                Entries in this collection: {activeDiscovery.eligibility.total}
               </p>
             </div>
             <p className='mt-2 text-[11px] text-white/70'>
@@ -878,7 +876,7 @@ export default function CollectionPage() {
                   className='rounded-lg border border-white/20 bg-slate-950/80 px-2 py-1 text-xs text-white'
                 >
                   <option value='all'>All entries</option>
-                  <option value='governed_reviewed'>Enriched + reviewed only</option>
+                  <option value='governed_reviewed'>All governed summaries</option>
                   <option value='human_support'>Human-support evidence labels</option>
                   <option value='review_fresh'>Reviewed recently</option>
                   <option value='safety_present'>Safety cautions present</option>
@@ -915,12 +913,9 @@ export default function CollectionPage() {
                 </select>
               </label>
             </div>
-            {activeDiscovery.eligibility.governedEligible < 2 ? (
-              <p className='mt-2 text-[11px] text-amber-100/90'>
-                Governed coverage is sparse here, so controls stay conservative and may return few
-                or no matches for governed-only filters.
-              </p>
-            ) : null}
+            <p className='mt-2 text-[11px] text-white/70'>
+              Filters and sorting operate on all dataset-backed entries shown on this page.
+            </p>
           </section>
         ) : null}
 
@@ -1397,7 +1392,7 @@ export default function CollectionPage() {
       activeDiscovery &&
       activeDiscovery.items.length === 0 ? (
         <section className='mt-6 rounded-xl border border-amber-300/35 bg-amber-500/10 p-4 text-sm text-amber-100'>
-          No entries match the current governed filter. Try a broader filter to include more
+          No entries match the current filter. Try a broader filter to include more
           entities.
         </section>
       ) : null}

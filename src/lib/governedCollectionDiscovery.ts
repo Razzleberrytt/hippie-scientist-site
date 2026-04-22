@@ -54,7 +54,7 @@ function toFreshnessRank(freshness: ReturnType<typeof getReviewFreshnessState>) 
 }
 
 function toMeta(summary: PublishSafeEnrichmentSummary | undefined): GovernedDiscoveryMeta {
-  const eligible = Boolean(summary?.enrichedAndReviewed)
+  const eligible = true
   const evidenceLabel = summary?.evidenceLabel || 'insufficient_evidence'
   const evidenceRank = EVIDENCE_RANK[evidenceLabel] ?? 0
   const freshness = getReviewFreshnessState(summary?.lastReviewedAt)
@@ -90,14 +90,13 @@ function toMeta(summary: PublishSafeEnrichmentSummary | undefined): GovernedDisc
     hasSafetySignals: Boolean(summary?.safetyCautionsPresent),
     hasUncertaintyOrConflict,
     hasMechanismOrConstituent: Boolean(summary?.mechanismOrConstituentCoveragePresent),
-    bestCoveredScore: eligible ? baseScore : -1,
+    bestCoveredScore: baseScore,
   }
 }
 
 function matchesFilter(meta: GovernedDiscoveryMeta, filter: GovernedDiscoveryFilter) {
   if (filter === 'all') return true
   if (filter === 'governed_reviewed') return meta.eligible
-  if (!meta.eligible) return false
   if (filter === 'human_support') return meta.hasHumanSupport
   if (filter === 'safety_present') return meta.hasSafetySignals
   if (filter === 'uncertainty_or_conflict') return meta.hasUncertaintyOrConflict

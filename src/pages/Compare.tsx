@@ -124,8 +124,7 @@ export default function Compare() {
               Governed comparison context
             </h2>
             <p className='mt-2 text-white/85'>
-              Only publish-approved governed enrichment is used here. Unreviewed, blocked, or
-              partial enrichment is excluded from comparison signals.
+              This comparison uses governed enrichment signals directly from the dataset.
             </p>
             <ul className='mt-3 list-disc space-y-1 pl-5 text-white/80'>
               <li>
@@ -181,7 +180,7 @@ export default function Compare() {
                   className='rounded-lg border border-white/20 bg-slate-950/80 px-2 py-1 text-xs text-white'
                 >
                   <option value='all'>All selected herbs</option>
-                  <option value='governed_reviewed'>Enriched + reviewed only</option>
+                  <option value='governed_reviewed'>All governed summaries</option>
                   <option value='human_support'>Human-support evidence labels</option>
                   <option value='review_fresh'>Reviewed recently</option>
                   <option value='safety_present'>Safety cautions present</option>
@@ -218,14 +217,13 @@ export default function Compare() {
               </label>
             </div>
             <p className='mt-2 text-[11px] text-white/70'>
-              Governed-eligible in current selection: {governedDiscovery.eligibility.governedEligible}/
-              {governedDiscovery.eligibility.total}
+              Entries in current selection: {governedDiscovery.eligibility.total}
             </p>
           </section>
 
           {visibleHerbs.length === 0 ? (
             <p className='rounded-xl border border-amber-300/35 bg-amber-500/10 p-3 text-sm text-amber-100'>
-              No herbs match this governed filter. Widen the filter to keep side-by-side coverage.
+              No herbs match this filter. Widen the filter to keep side-by-side coverage.
             </p>
           ) : null}
 

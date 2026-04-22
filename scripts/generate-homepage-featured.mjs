@@ -4,7 +4,7 @@ import path from 'node:path'
 
 const root = process.cwd()
 const herbsPath = path.join(root, 'public/data/herbs.json')
-const compoundsSummaryPath = path.join(root, 'public/data/compounds-summary.json')
+const compoundsPath = path.join(root, 'public/data/compounds.json')
 const outPath = path.join(root, 'public/data/homepage-featured.json')
 
 const FEATURED_HERBS = [
@@ -37,7 +37,7 @@ const FEATURED_COMPOUNDS = [
   'Resveratrol',
 ]
 
-const FALLBACK_SUMMARY = 'Open profile and review mechanism, confidence, and safety details.'
+const FALLBACK_SUMMARY = 'Open profile to review mechanism, confidence, and safety details.'
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'))
@@ -125,7 +125,7 @@ function buildCompoundsPayload(compounds) {
 }
 
 const herbs = readJson(herbsPath)
-const compounds = readJson(compoundsSummaryPath)
+const compounds = readJson(compoundsPath)
 
 const payload = {
   generatedAt: new Date().toISOString(),

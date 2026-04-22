@@ -50,17 +50,6 @@ function readJson(relativePath) {
   }
 }
 
-function readObject(relativePath) {
-  const file = path.join(ROOT, relativePath)
-  if (!fs.existsSync(file)) return {}
-  try {
-    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'))
-    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {}
-  } catch {
-    return {}
-  }
-}
-
 function pickDataFile(primary, fallback) {
   const primaryData = readJson(primary)
   if (primaryData.length > 0) return primaryData
@@ -70,9 +59,6 @@ function pickDataFile(primary, fallback) {
 const blogPosts = readJson('src/data/blog/posts.json')
 const herbs = pickDataFile('public/data/herbs_combined_updated.json', 'public/data/herbs.json')
 const compounds = pickDataFile('public/data/compounds_combined_updated.json', 'public/data/compounds.json')
-const publicationManifest = readObject('public/data/publication-manifest.json')
-const manifestHerbs = Array.isArray(publicationManifest?.entities?.herbs) ? publicationManifest.entities.herbs : []
-const manifestCompounds = Array.isArray(publicationManifest?.entities?.compounds) ? publicationManifest.entities.compounds : []
 
 const blogBySlug = new Map(blogPosts.map(post => [String(post?.slug || ''), post]))
 const herbBySlug = new Map(
@@ -88,26 +74,20 @@ const compoundBySlug = new Map(
   })
 )
 
-const herbCardsFromManifest = manifestHerbs
+const herbCardsFromManifest = herbs
   .map(item => {
-    const route = String(item?.route || '').trim()
-    const slugFromRoute = route.startsWith('/herbs/') ? route.slice('/herbs/'.length) : ''
-    const slug = String(item?.slug || slugFromRoute).trim()
+    const slug = String(item?.slug || '').trim()
     if (!slug) return null
-    const herb = herbBySlug.get(slug) || item
-    return { slug, herb }
+    return { slug, herb: item }
   })
   .filter(Boolean)
   .slice(0, 20)
 
-const compoundCardsFromManifest = manifestCompounds
+const compoundCardsFromManifest = compounds
   .map(item => {
-    const route = String(item?.route || '').trim()
-    const slugFromRoute = route.startsWith('/compounds/') ? route.slice('/compounds/'.length) : ''
-    const slug = String(item?.slug || slugFromRoute).trim()
+    const slug = String(item?.slug || '').trim()
     if (!slug) return null
-    const compound = compoundBySlug.get(slug) || item
-    return { slug, compound }
+    return { slug, compound: item }
   })
   .filter(Boolean)
   .slice(0, 20)

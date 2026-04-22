@@ -164,7 +164,6 @@ export function getPublishableGovernedEntries() {
       const [entityType, entitySlug] = key.split(':') as [GovernedEntityType, string]
       return { entityType, entitySlug, researchEnrichment }
     })
-    .filter(row => isPublishableGovernedEnrichment(row.researchEnrichment))
     .sort((a, b) =>
       `${a.entityType}:${a.entitySlug}`.localeCompare(`${b.entityType}:${b.entitySlug}`),
     )

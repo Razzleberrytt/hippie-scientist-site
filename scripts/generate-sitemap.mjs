@@ -43,17 +43,6 @@ function readJson(relativePath) {
   }
 }
 
-function readObject(relativePath, fallback = {}) {
-  const full = path.resolve(__dirname, '..', relativePath)
-  if (!fs.existsSync(full)) return fallback
-  try {
-    const parsed = JSON.parse(fs.readFileSync(full, 'utf-8'))
-    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : fallback
-  } catch {
-    return fallback
-  }
-}
-
 function normalizeDate(value) {
   if (!value) return null
   const date = new Date(value)
@@ -118,19 +107,25 @@ function getCompoundSlug(entry) {
   return ''
 }
 
+function pickEntityData(primaryPath, fallbackPath) {
+  const primary = readJson(primaryPath)
+  if (primary.length > 0) return primary
+  return readJson(fallbackPath)
+}
+
 function buildSitemap() {
   const { sitemapRoutes, sitemapMeta, disallowedRoutes } = getSharedRouteManifest()
-  const publicationManifest = readObject('public/data/publication-manifest.json', {})
-
+  const herbs = pickEntityData('public/data/herbs_combined_updated.json', 'public/data/herbs.json')
+  const compounds = pickEntityData('public/data/compounds_combined_updated.json', 'public/data/compounds.json')
   const blogEntries = getBlogEntries(readJson('public/blogdata/index.json'))
   const herbRoutes = normalizeRoutes(
-    (Array.isArray(publicationManifest?.entities?.herbs) ? publicationManifest.entities.herbs : [])
+    herbs
       .map(getHerbSlug)
       .filter(Boolean)
       .map(slug => `/herbs/${slug}`),
   )
   const compoundRoutes = normalizeRoutes(
-    (Array.isArray(publicationManifest?.entities?.compounds) ? publicationManifest.entities.compounds : [])
+    compounds
       .map(getCompoundSlug)
       .filter(Boolean)
       .map(slug => `/compounds/${slug}`),

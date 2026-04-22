@@ -237,35 +237,10 @@ const readJson = relativePath => {
   }
 }
 
-const readObject = (relativePath, fallback = {}) => {
-  const fullPath = path.join(ROOT, relativePath)
-  if (!fs.existsSync(fullPath)) return fallback
-  try {
-    const parsed = JSON.parse(fs.readFileSync(fullPath, 'utf8'))
-    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : fallback
-  } catch {
-    return fallback
-  }
-}
-
-function readPublicationManifest() {
-  const manifest = readObject('public/data/publication-manifest.json', {})
-  const herbs = Array.isArray(manifest?.entities?.herbs) ? manifest.entities.herbs : []
-  const compounds = Array.isArray(manifest?.entities?.compounds) ? manifest.entities.compounds : []
-  const herbRoutes = Array.isArray(manifest?.routes?.herbs) ? manifest.routes.herbs : herbs.map(item => item?.route)
-  const compoundRoutes = Array.isArray(manifest?.routes?.compounds)
-    ? manifest.routes.compounds
-    : compounds.map(item => item?.route)
-
-  return {
-    generatedAt: manifest?.generatedAt || null,
-    thresholds: manifest?.thresholds || null,
-    summaries: manifest?.summaries || {},
-    herbs,
-    compounds,
-    herbRoutes: dedupe(herbRoutes.map(normalizePath).filter(route => route.startsWith('/herbs/'))),
-    compoundRoutes: dedupe(compoundRoutes.map(normalizePath).filter(route => route.startsWith('/compounds/'))),
-  }
+function pickDataFile(primaryPath, fallbackPath) {
+  const primary = readJson(primaryPath)
+  if (primary.length > 0) return primary
+  return readJson(fallbackPath)
 }
 
 const readText = relativePath => {
@@ -715,7 +690,8 @@ export function getSharedRouteManifest() {
   })
 
   const learningAllowlist = extractLearningRouteAllowlist()
-  const publicationManifest = readPublicationManifest()
+  const herbRecords = pickDataFile('public/data/herbs_combined_updated.json', 'public/data/herbs.json')
+  const compoundRecords = pickDataFile('public/data/compounds_combined_updated.json', 'public/data/compounds.json')
   const prioritizeAllowlist = (entries, allowlist) => {
     const byRoute = new Map(entries.map(entry => [entry.route, entry]))
     const prioritized = []
@@ -770,7 +746,7 @@ export function getSharedRouteManifest() {
     })
     return {
       route,
-      score: Number(entry?.completenessScore || 0),
+      score: Number(entry?.score || 0),
       title: governedSeo.title,
       description: governedSeo.description,
       kind: fallbackKind,
@@ -779,11 +755,15 @@ export function getSharedRouteManifest() {
   }
 
   const herbEntries = prioritizeAllowlist(
-    publicationManifest.herbs.map(entry => toRouteEntry(entry, 'herb')).filter(Boolean),
+    pickTopEntities(herbRecords, '/herbs', [], DEFAULT_ENTITY_CAP, 'herb')
+      .map(entry => toRouteEntry(entry, 'herb'))
+      .filter(Boolean),
     learningAllowlist
   ).slice(0, DEFAULT_ENTITY_CAP)
   const compoundEntries = prioritizeAllowlist(
-    publicationManifest.compounds.map(entry => toRouteEntry(entry, 'compound')).filter(Boolean),
+    pickTopEntities(compoundRecords, '/compounds', [], DEFAULT_ENTITY_CAP, 'compound')
+      .map(entry => toRouteEntry(entry, 'compound'))
+      .filter(Boolean),
     learningAllowlist
   ).slice(0, DEFAULT_ENTITY_CAP)
 
@@ -835,15 +815,15 @@ export function getSharedRouteManifest() {
       compoundAllowlist: compoundEntries
         .map(entry => entry.route)
         .filter(route => learningAllowlist.includes(route)),
-      herbCandidatesBeforeQuality: publicationManifest.herbs.length,
-      compoundCandidatesBeforeQuality: publicationManifest.compounds.length,
+      herbCandidatesBeforeQuality: herbRecords.length,
+      compoundCandidatesBeforeQuality: compoundRecords.length,
       herbRoutesAfterQuality: herbEntries.length,
       compoundRoutesAfterQuality: compoundEntries.length,
-      qualityThresholds: publicationManifest.thresholds,
-      publicationManifestGeneratedAt: publicationManifest.generatedAt,
+      qualityThresholds: null,
+      publicationManifestGeneratedAt: null,
       qualityExclusions: {
-        herbs: publicationManifest?.summaries?.herbs?.excludedByReason || {},
-        compounds: publicationManifest?.summaries?.compounds?.excludedByReason || {},
+        herbs: {},
+        compounds: {},
         collections: collectionQuality.audits
           .filter(audit => !audit.approved)
           .reduce((acc, audit) => {
