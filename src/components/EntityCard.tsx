@@ -4,7 +4,7 @@ import { buildCardSummary } from '@/lib/summary'
 export default function EntityCard({ e }: { e: Entity }) {
   const summary = buildCardSummary({
     description: e.summary,
-    fallback: 'Profile still being expanded. Review detail page for currently verified data.',
+    fallback: 'Profile still being expanded. Review the detail page for currently available data.',
   })
 
   return (

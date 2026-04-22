@@ -33,7 +33,7 @@ export type GovernedQuickCompareExclusion = {
   targetSlug: string
   reason:
     | 'same_entity'
-    | 'not_publishable_governed'
+    | 'missing_governed_enrichment'
     | 'no_supported_governed_dimensions'
     | 'candidate_limit_reached'
 }
@@ -159,10 +159,6 @@ export function buildGovernedQuickCompareSection(
   const source = getGovernedResearchEnrichment(entityType, entitySlug)
   if (!source) return null
 
-  const publishable = new Set(
-    getPublishableGovernedEntries().map(row => `${row.entityType}:${row.entitySlug}`),
-  )
-
   const recommendationBundle = buildEnrichmentRecommendations(entityType, entitySlug)
   const recommendationCandidates = [
     ...recommendationBundle.compareContrast,
@@ -186,7 +182,7 @@ export function buildGovernedQuickCompareSection(
         targetType: candidate.entityType,
         targetSlug: candidate.entitySlug,
         signalType: 'evidence_strength_comparison',
-        reason: 'Publishable governed page available for cautious side-by-side evidence and safety context review.',
+        reason: 'Governed page available for cautious side-by-side evidence and safety context review.',
         score: 10,
       })
     }
@@ -205,22 +201,12 @@ export function buildGovernedQuickCompareSection(
       continue
     }
 
-    const key = `${recommendation.targetType}:${recommendation.targetSlug}`
-    if (!publishable.has(key)) {
-      exclusions.push({
-        targetType: recommendation.targetType,
-        targetSlug: recommendation.targetSlug,
-        reason: 'not_publishable_governed',
-      })
-      continue
-    }
-
     const target = getGovernedResearchEnrichment(recommendation.targetType, recommendation.targetSlug)
     if (!target) {
       exclusions.push({
         targetType: recommendation.targetType,
         targetSlug: recommendation.targetSlug,
-        reason: 'not_publishable_governed',
+        reason: 'missing_governed_enrichment',
       })
       continue
     }

@@ -52,7 +52,7 @@ export default function EnrichmentRecommendationBlocks({
       id: 'enrichment-related-herbs',
       title: 'Related herbs (governed signals)',
       description:
-        'These links are chosen from approved/publishable enrichment signals and are intended for comparison, not endorsement.',
+        'These links are chosen from enrichment signals in the dataset and are intended for comparison, not endorsement.',
       items: bundle.relatedHerbs,
     },
     {

@@ -52,7 +52,6 @@ import { resolveGovernedCtaDecision } from '@/lib/governedCta'
 import { buildGovernedReviewFreshness } from '@/lib/governedReviewFreshness'
 import { shouldShowRawDebug } from '@/lib/semanticCompression'
 import { getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
-import { isPublishQualityDetailPage } from '@/lib/publishQuality'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -508,17 +507,6 @@ export default function CompoundDetail() {
   )
   const pagePath = `/compounds/${compound.slug}`
   const breadcrumbId = `${SITE_URL}${pagePath}#breadcrumb`
-  const isPublishQuality = isPublishQualityDetailPage({
-    name,
-    summary: compoundDescription,
-    description: compoundMetaDescription,
-    sources: compound.sources,
-    sourceCount: compound.sourceCount,
-    reviewedMeta: compound.researchEnrichmentSummary,
-    safety: workbookSafety,
-    contraindications: compoundContraindications,
-    interactions: compoundInteractions,
-  })
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
@@ -526,7 +514,7 @@ export default function CompoundDetail() {
         title={compoundMetaTitle}
         description={compoundMetaDescription}
         path={pagePath}
-        noindex={!isPublishQuality}
+        noindex={false}
         jsonLd={[
           compoundJsonLd({
             name,

@@ -9,10 +9,6 @@ const herbsSummaryPath = path.join(root, 'public/data/herbs-summary.json')
 const compoundsPath = path.join(root, 'public/data/compounds.json')
 const compoundsSummaryPath = path.join(root, 'public/data/compounds-summary.json')
 const governedPath = path.join(root, 'public/data/enrichment-governed.json')
-const indexableHerbsPath = path.join(root, 'public/data/indexable-herbs.json')
-const indexableCompoundsPath = path.join(root, 'public/data/indexable-compounds.json')
-const publicationManifestPath = path.join(root, 'public/data/publication-manifest.json')
-const publicationIndexPath = path.join(root, 'public/data/publication-index.json')
 const wave2bReportPath = path.join(root, 'ops/reports/enrichment-wave-2b.json')
 const healthReportPath = path.join(root, 'ops/reports/enrichment-health.json')
 const backlogReportPath = path.join(root, 'ops/reports/enrichment-backlog.json')
@@ -91,7 +87,7 @@ function hasGenericHomepageSummary(value) {
   return [
     'reference profile',
     'profile still being expanded',
-    'review detail page for currently verified data',
+    'review detail page for currently available data',
     'why it matters:',
   ].some(phrase => text.includes(phrase))
 }
@@ -122,7 +118,7 @@ function buildCardSummary({ effects, mechanism, description, activeCompounds, th
   const firstUsable = candidates.find(Boolean)
   if (firstUsable) return shorten(firstUsable)
 
-  return 'Profile still being expanded. Review detail page for currently verified data.'
+  return 'Profile still being expanded. Review detail page for currently available data.'
 }
 
 function buildHomepageSummary({ effects, mechanism, description, activeCompounds, therapeuticUses, maxLen = 150 }) {
@@ -311,46 +307,16 @@ function formatReviewDate(isoString) {
   return date.toISOString().slice(0, 10)
 }
 
-function slugSetFromRows(rows) {
-  const set = new Set()
-  for (const row of Array.isArray(rows) ? rows : []) {
-    const slug = cleanText(row?.slug)
-    if (slug) set.add(slug)
-  }
-  return set
-}
-
-function slugSetFromManifest(manifest, kind) {
-  const rows = Array.isArray(manifest?.entities?.[kind]) ? manifest.entities[kind] : []
-  return slugSetFromRows(rows)
-}
-
-function mapPublicationEntities(manifest, publicationIndex) {
-  const entries = []
-  for (const source of [manifest, publicationIndex]) {
-    const herbs = Array.isArray(source?.entities?.herbs) ? source.entities.herbs : []
-    const compounds = Array.isArray(source?.entities?.compounds) ? source.entities.compounds : []
-    entries.push(
-      ...herbs.map(row => ({ ...row, kind: 'herb' })),
-      ...compounds.map(row => ({ ...row, kind: 'compound' })),
-    )
-  }
-  return new Map(entries.map(row => [`${cleanText(row.kind)}:${cleanText(row.slug)}`, row]))
-}
-
 function featuredRankScore(item) {
-  const sourceCountNormalized = Number(item.publicationSignals?.sourceCountNormalized || 0)
-  const qualityTier = cleanText(item.publicationSignals?.qualityTier)
-  const qualityTierBoost = qualityTier === 'strong' ? 16 : qualityTier === 'publishable' ? 8 : 0
-  const strongDescriptionBoost = hasStrongDescription(item.publicationSignals?.description) ? 10 : 0
+  const sourceCountNormalized = Number(item.quality?.score || 0) / 20
+  const strongDescriptionBoost = hasStrongDescription(item.blurb) ? 10 : 0
   const fallbackPenalty = hasGenericHomepageSummary(item.blurb) ? 30 : 0
-  const shortDescriptionPenalty = hasStrongDescription(item.publicationSignals?.description) ? 0 : 10
+  const shortDescriptionPenalty = hasStrongDescription(item.blurb) ? 0 : 10
   const shortBlurbPenalty = cleanText(item.blurb).length < 48 ? 12 : 0
 
   return (
     Number(item.quality?.score || 0) +
     sourceCountNormalized * 5 +
-    qualityTierBoost +
     strongDescriptionBoost -
     fallbackPenalty -
     shortDescriptionPenalty -
@@ -362,9 +328,6 @@ function rankFeaturedItems(items) {
   return [...items].sort((a, b) => {
     const delta = featuredRankScore(b) - featuredRankScore(a)
     if (delta !== 0) return delta
-    const sourceDelta =
-      Number(b.publicationSignals?.sourceCountNormalized || 0) - Number(a.publicationSignals?.sourceCountNormalized || 0)
-    if (sourceDelta !== 0) return sourceDelta
     const qualityDelta = Number(b.quality?.score || 0) - Number(a.quality?.score || 0)
     if (qualityDelta !== 0) return qualityDelta
     return cleanText(a.slug).localeCompare(cleanText(b.slug))
@@ -419,46 +382,17 @@ function buildHomepageData() {
   const compounds = readJson(compoundsPath)
   const compoundsSummary = readJson(compoundsSummaryPath)
   const governed = readJson(governedPath)
-  const indexableHerbs = readJson(indexableHerbsPath)
-  const indexableCompounds = readJson(indexableCompoundsPath)
-  const publicationManifest = readJson(publicationManifestPath)
-  const publicationIndex = fs.existsSync(publicationIndexPath) ? readJson(publicationIndexPath) : null
 
   const counts = fs.existsSync(siteCountsPath)
     ? readJson(siteCountsPath)
     : { herbs: herbs.length, compounds: compounds.length, articles: 0 }
 
   const { publishableByEntity, blockedByEntity } = getGovernedMap(governed)
-  const publicationHerbSlugs = (() => {
-    const fromManifest = slugSetFromManifest(publicationManifest, 'herbs')
-    if (fromManifest.size > 0) return fromManifest
-    return slugSetFromManifest(publicationIndex, 'herbs')
-  })()
-  const publicationCompoundSlugs = (() => {
-    const fromManifest = slugSetFromManifest(publicationManifest, 'compounds')
-    if (fromManifest.size > 0) return fromManifest
-    return slugSetFromManifest(publicationIndex, 'compounds')
-  })()
-  const indexableHerbSlugs = slugSetFromRows(indexableHerbs)
-  const indexableCompoundSlugs = slugSetFromRows(indexableCompounds)
-  const homepageHerbSlugs =
-    indexableHerbSlugs.size > 0 ? new Set([...indexableHerbSlugs].filter(slug => publicationHerbSlugs.has(slug))) : publicationHerbSlugs
-  const homepageCompoundSlugs =
-    indexableCompoundSlugs.size > 0
-      ? new Set([...indexableCompoundSlugs].filter(slug => publicationCompoundSlugs.has(slug)))
-      : publicationCompoundSlugs
-
-  const indexableSet = new Set([
-    ...[...indexableHerbSlugs].map(slug => `herb:${slug}`),
-    ...[...indexableCompoundSlugs].map(slug => `compound:${slug}`),
-  ])
-  const publicationEntityMap = mapPublicationEntities(publicationManifest, publicationIndex)
 
   const herbItemBySlug = new Map((Array.isArray(herbsSummary) ? herbsSummary : []).map(item => [cleanText(item.slug), item]))
   const compoundItemBySlug = new Map((Array.isArray(compoundsSummary) ? compoundsSummary : []).map(item => [cleanText(item.slug), item]))
   const effectExplorerHerbs = (Array.isArray(herbsSummary) ? herbsSummary : [])
     .filter(herb => isRenderableEntity(herb.slug, herb.common || herb.name || herb.scientific))
-    .filter(herb => homepageHerbSlugs.has(cleanText(herb.slug)))
     .map(herb => ({
       slug: cleanText(herb.slug),
       id: cleanText(herb.id || herb.slug),
@@ -490,7 +424,6 @@ function buildHomepageData() {
     const key = `herb:${herb.slug}`
     const quality = scoreHerbQuality(herb)
     const summaryCarrier = herbItemBySlug.get(herb.slug)
-    const publicationSignals = publicationEntityMap.get(key) || null
     const governedSummary = publishableByEntity.has(key)
       ? toEvidenceBadge(summaryCarrier?.researchEnrichmentSummary)
       : null
@@ -502,7 +435,7 @@ function buildHomepageData() {
       blurb: governedCardSummary || buildHomepageSummary({
         effects: herb.effects,
         mechanism: herb.mechanism,
-        description: cleanText(publicationSignals?.description) || herb.description,
+        description: herb.description,
         activeCompounds: herb.activeCompounds,
         maxLen: 150,
       }),
@@ -512,21 +445,17 @@ function buildHomepageData() {
       qualityBadge: toQualityBadge(quality, governedSummary),
       governedSummary,
       governedEligible: publishableByEntity.has(key),
-      publicationIndexed: indexableSet.has(key),
       governanceSource: governedSummary ? 'approved_governed_rollup' : 'none',
-      publicationSignals,
     }
   })
 
   const compoundItems = (Array.isArray(compoundsSummary) ? compoundsSummary : [])
     .filter(compound => isRenderableEntity(compound.slug, compound.name))
-    .filter(compound => homepageCompoundSlugs.has(cleanText(compound.slug)))
     .map(compound => {
       const slug = cleanText(compound.slug)
       const key = `compound:${slug}`
       const quality = scoreCompoundQuality(compound)
       const summaryCarrier = compoundItemBySlug.get(slug)
-      const publicationSignals = publicationEntityMap.get(key) || null
       const governedSummary = publishableByEntity.has(key)
         ? toEvidenceBadge(summaryCarrier?.researchEnrichmentSummary)
         : null
@@ -538,7 +467,7 @@ function buildHomepageData() {
         blurb: governedCardSummary || buildHomepageSummary({
           effects: splitClean(compound.effects),
           mechanism: cleanText(compound.mechanism || compound.mechanismOfAction),
-          description: cleanText(publicationSignals?.description) || cleanText(compound.description),
+          description: cleanText(compound.description),
           activeCompounds: splitClean(compound.activeCompounds),
           therapeuticUses: splitClean(compound.therapeuticUses),
           maxLen: 150,
@@ -549,9 +478,7 @@ function buildHomepageData() {
         qualityBadge: toQualityBadge(quality, governedSummary),
         governedSummary,
         governedEligible: publishableByEntity.has(key),
-        publicationIndexed: indexableSet.has(key),
         governanceSource: governedSummary ? 'approved_governed_rollup' : 'none',
-        publicationSignals,
       }
     })
 
@@ -565,9 +492,7 @@ function buildHomepageData() {
     all.filter(
       item =>
         !item.quality.flags.hasPlaceholderText &&
-        (item.quality.score >= MIN_FALLBACK_FEATURE_QUALITY ||
-          cleanText(item.publicationSignals?.qualityTier) === 'strong' ||
-          cleanText(item.publicationSignals?.qualityTier) === 'publishable') &&
+        item.quality.score >= MIN_FALLBACK_FEATURE_QUALITY &&
         !hasGenericHomepageSummary(item.blurb),
     ),
   )
@@ -606,9 +531,9 @@ function buildHomepageData() {
   })()
 
   const trustBadges = [
-    `Governed enrichment on entry points: ${governedHighlights.length} approved, publishable profiles (blocked/unreviewed excluded).`,
-    'Evidence labels are framing cues, not treatment claims; preclinical/traditional-only signals remain conservative.',
-    'Safety cues and conflict markers display only when approved governed data is present; missing data degrades gracefully.',
+    `Evidence-linked entries: ${all.length} herb and compound profiles available.`,
+    'Confidence labels are framing cues, not treatment claims.',
+    'Safety cues and conflict markers display when supporting data is available.',
   ]
 
   const entityExclusions = []
@@ -648,15 +573,11 @@ function buildHomepageData() {
         governed: 'public/data/enrichment-governed.json',
         herbsSummary: 'public/data/herbs-summary.json',
         compoundsSummary: 'public/data/compounds-summary.json',
-        publicationManifest: 'public/data/publication-manifest.json',
-        publicationIndex: 'public/data/publication-index.json',
       },
       publishableEntityCount: publishableByEntity.size,
       blockedEntityCount: blockedByEntity.size,
-      indexableEntityCount: indexableSet.size,
-      indexablePublishableEntityCount: governedHighlights.filter(item => item.publicationIndexed).length,
       modules,
-      publicationManifestGeneratedAt: cleanText(publicationManifest.generatedAt || publicationIndex?.generatedAt),
+      publicationManifestGeneratedAt: null,
     },
   }
 
@@ -672,7 +593,7 @@ function buildHomepageData() {
       curated,
       modules,
       entityExclusions,
-      publicationManifestGeneratedAt: cleanText(publicationManifest.generatedAt || publicationIndex?.generatedAt),
+      publicationManifestGeneratedAt: null,
       reportInputs: {
         wave2b: fs.existsSync(wave2bReportPath) ? cleanText(readJson(wave2bReportPath).generatedAt) : null,
         enrichmentHealth: fs.existsSync(healthReportPath) ? cleanText(readJson(healthReportPath).generatedAt) : null,

@@ -52,7 +52,7 @@ export default function GovernedQuickCompareBlock({
         Governed quick compare
       </h2>
       <p className='text-xs text-white/65'>
-        Compact comparisons across approved governed pages only. This is not a ranking and does not
+        Compact comparisons across governed pages in the dataset. This is not a ranking and does not
         replace interaction/safety review.
       </p>
       <p className='mt-1 text-xs text-white/55'>
@@ -112,7 +112,7 @@ export default function GovernedQuickCompareBlock({
                   })
                 }}
               >
-                Open full governed profile →
+                Open full profile →
               </Link>
             </p>
             <dl className='mt-2 space-y-1 text-xs text-white/80'>
