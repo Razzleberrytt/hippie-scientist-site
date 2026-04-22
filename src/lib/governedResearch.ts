@@ -139,7 +139,7 @@ export function getGovernedResearchEnrichment(
 ): ResearchEnrichment | null {
   const enrichment = rollupMap.get(`${entityType}:${entitySlug}`)
   if (!enrichment) return null
-  return isPublishableGovernedEnrichment(enrichment) ? enrichment : null
+  return enrichment
 }
 
 export function getGovernedEnrichmentSummary(entityType: GovernedEntityType, entitySlug: string) {

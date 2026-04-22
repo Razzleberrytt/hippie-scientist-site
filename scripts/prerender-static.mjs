@@ -71,8 +71,8 @@ const blogPosts = readJson('src/data/blog/posts.json')
 const herbs = pickDataFile('public/data/herbs_combined_updated.json', 'public/data/herbs.json')
 const compounds = pickDataFile('public/data/compounds_combined_updated.json', 'public/data/compounds.json')
 const publicationManifest = readObject('public/data/publication-manifest.json')
-const indexableHerbs = Array.isArray(publicationManifest?.entities?.herbs) ? publicationManifest.entities.herbs : []
-const indexableCompounds = Array.isArray(publicationManifest?.entities?.compounds) ? publicationManifest.entities.compounds : []
+const manifestHerbs = Array.isArray(publicationManifest?.entities?.herbs) ? publicationManifest.entities.herbs : []
+const manifestCompounds = Array.isArray(publicationManifest?.entities?.compounds) ? publicationManifest.entities.compounds : []
 
 const blogBySlug = new Map(blogPosts.map(post => [String(post?.slug || ''), post]))
 const herbBySlug = new Map(
@@ -88,7 +88,7 @@ const compoundBySlug = new Map(
   })
 )
 
-const indexableHerbCards = indexableHerbs
+const herbCardsFromManifest = manifestHerbs
   .map(item => {
     const route = String(item?.route || '').trim()
     const slugFromRoute = route.startsWith('/herbs/') ? route.slice('/herbs/'.length) : ''
@@ -100,7 +100,7 @@ const indexableHerbCards = indexableHerbs
   .filter(Boolean)
   .slice(0, 20)
 
-const indexableCompoundCards = indexableCompounds
+const compoundCardsFromManifest = manifestCompounds
   .map(item => {
     const route = String(item?.route || '').trim()
     const slugFromRoute = route.startsWith('/compounds/') ? route.slice('/compounds/'.length) : ''
@@ -329,14 +329,14 @@ function renderRouteContent(route) {
   }
 
   if (route === '/herbs') {
-    const herbCards = indexableHerbCards.map(item => {
+    const herbCards = herbCardsFromManifest.map(item => {
       const slug = escapeHtml(item.slug)
       const name = escapeHtml(textFrom(item.herb?.common, item.herb?.commonName, item.herb?.name, slug))
       const description = escapeHtml(textFrom(item.herb?.summary, item.herb?.description, 'Herb profile'))
       return `<li><article><h2><a href="/herbs/${slug}">${name}</a></h2><p>${description}</p></article></li>`
     })
 
-    return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1>${makeCardList(herbCards, 'Indexable herb profiles are currently unavailable.')}</main>`
+    return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1>${makeCardList(herbCards, 'Herb profiles are currently unavailable.')}</main>`
   }
 
   if (route.startsWith('/herbs/')) {
@@ -354,14 +354,14 @@ function renderRouteContent(route) {
   }
 
   if (route === '/compounds') {
-    const compoundCards = indexableCompoundCards.map(item => {
+    const compoundCards = compoundCardsFromManifest.map(item => {
       const slug = escapeHtml(item.slug)
       const name = escapeHtml(textFrom(item.compound?.name, slug))
       const description = escapeHtml(textFrom(item.compound?.description, item.compound?.summary, 'Compound profile'))
       return `<li><article><h2><a href="/compounds/${slug}">${name}</a></h2><p>${description}</p></article></li>`
     })
 
-    return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1><p>Compound pages are published only after meeting route-quality thresholds for description quality, effect coverage, and source completeness.</p>${makeCardList(compoundCards, 'No compounds currently meet publication thresholds; this index remains available for canonical routing and metadata stability.')}</main>`
+    return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1><p>Compound pages include educational summaries, safety context, and evidence-aware metadata for discovery and routing stability.</p>${makeCardList(compoundCards, 'Compound profiles are currently unavailable; this index remains available for canonical routing and metadata stability.')}</main>`
   }
 
   if (route.startsWith('/compounds/')) {
@@ -377,7 +377,7 @@ function renderRouteContent(route) {
 
   if (route.startsWith('/best-herbs-for-')) {
     const intentName = route.replace('/best-herbs-for-', '').replace(/-/g, ' ')
-    const herbCards = indexableHerbCards.slice(0, 10).map(item => {
+    const herbCards = herbCardsFromManifest.slice(0, 10).map(item => {
       const slug = escapeHtml(item.slug)
       const name = escapeHtml(textFrom(item.herb?.common, item.herb?.commonName, item.herb?.name, slug))
       const description = escapeHtml(textFrom(item.herb?.summary, item.herb?.description, 'Evidence-aware herb profile'))
@@ -386,12 +386,12 @@ function renderRouteContent(route) {
 
     return `<main id="main" class="container-page py-8 text-white"><article><h1>${heading}</h1><p>This entry page is designed for readers searching for the best herbs for ${escapeHtml(
       intentName
-    )}. It provides a fast shortlist of commonly compared options and links to full herb profiles with interactions, contraindications, and evidence context.</p><section><h2>How to use this page</h2><p>Start with one herb that fits your routine, read the detailed safety notes, and avoid stacking multiple new products at once. These summaries are educational and should be paired with conservative decision-making.</p></section><section><h2>Herbs to compare first</h2>${makeCardList(herbCards, 'No herb profiles currently satisfy publication thresholds for this entry page.')}</section></article></main>`
+    )}. It provides a fast shortlist of commonly compared options and links to full herb profiles with interactions, contraindications, and evidence context.</p><section><h2>How to use this page</h2><p>Start with one herb that fits your routine, read the detailed safety notes, and avoid stacking multiple new products at once. These summaries are educational and should be paired with conservative decision-making.</p></section><section><h2>Herbs to compare first</h2>${makeCardList(herbCards, 'No herb profiles are currently available for this entry page.')}</section></article></main>`
   }
 
   if (route.startsWith('/herbs-for-')) {
     const goalName = route.replace('/herbs-for-', '').replace(/-/g, ' ')
-    const herbCards = indexableHerbCards.slice(0, 10).map(item => {
+    const herbCards = herbCardsFromManifest.slice(0, 10).map(item => {
       const slug = escapeHtml(item.slug)
       const name = escapeHtml(textFrom(item.herb?.common, item.herb?.commonName, item.herb?.name, slug))
       const description = escapeHtml(textFrom(item.herb?.summary, item.herb?.description, 'Evidence-aware herb profile'))
@@ -399,7 +399,7 @@ function renderRouteContent(route) {
     })
     return `<main id="main" class="container-page py-8 text-white"><article><h1>${heading}</h1><p>This goal route curates herbs linked to ${escapeHtml(
       goalName
-    )} signals and routes readers toward full safety notes, interactions, and mechanism context.</p><section><h2>Related indexable herbs</h2>${makeCardList(herbCards, 'No herb profiles currently satisfy publication thresholds for this goal route.')}</section></article></main>`
+    )} signals and routes readers toward full safety notes, interactions, and mechanism context.</p><section><h2>Related herbs</h2>${makeCardList(herbCards, 'No herb profiles are currently available for this goal route.')}</section></article></main>`
   }
 
   if (route.startsWith('/collections/')) {
@@ -442,20 +442,20 @@ function renderRouteContent(route) {
               )}</a></li>`
           )
       : []
-    const topHerbs = indexableHerbCards
+    const topHerbs = herbCardsFromManifest
       .slice(0, 8)
       .map(item => {
         const name = escapeHtml(textFrom(item.herb?.common, item.herb?.commonName, item.herb?.name, item.slug))
         return `<li><a href="/herbs/${escapeHtml(item.slug)}">${name}</a></li>`
       })
-    const topCompounds = indexableCompoundCards
+    const topCompounds = compoundCardsFromManifest
       .slice(0, 8)
       .map(item => {
         const name = escapeHtml(textFrom(item.compound?.name, item.slug))
         return `<li><a href="/compounds/${escapeHtml(item.slug)}">${name}</a></li>`
       })
 
-    return `<main id="main" class="container-page py-8 text-white"><article><h1>${heading}</h1><p>${routeDescription || intro}</p><p>${intro}</p><p>${description}</p><section><h2>Who this page is for</h2><p>${whoFor || 'Audience guidance is being revised.'}</p></section><section><h2>How items were selected</h2><p>${selectionRationale || 'Selection criteria are being revised.'}</p></section><section><h2>Cautions and scope</h2>${makeCardList([...cautions, ...exclusions], 'Caution framing is being reviewed before publication.')}</section><section><h2>What to do next</h2><p>${ctaLabel || 'Open the interaction checker before trying combinations.'}</p></section><section><h2>Related alternatives</h2>${makeCardList(alternatives, 'Related alternatives are being curated.')}</section><section><h2>Related collections</h2>${makeCardList(relatedLinks, 'Related collections are being curated.')}</section><section><h2>Indexable herb profiles</h2>${makeCardList(topHerbs, 'No herb profiles currently meet publication thresholds.')}</section><section><h2>Indexable compound profiles</h2>${makeCardList(topCompounds, 'No compound profiles currently meet publication thresholds.')}</section></article></main>`
+    return `<main id="main" class="container-page py-8 text-white"><article><h1>${heading}</h1><p>${routeDescription || intro}</p><p>${intro}</p><p>${description}</p><section><h2>Who this page is for</h2><p>${whoFor || 'Audience guidance is being revised.'}</p></section><section><h2>How items were selected</h2><p>${selectionRationale || 'Selection criteria are being revised.'}</p></section><section><h2>Cautions and scope</h2>${makeCardList([...cautions, ...exclusions], 'Caution framing is being reviewed before publication.')}</section><section><h2>What to do next</h2><p>${ctaLabel || 'Open the interaction checker before trying combinations.'}</p></section><section><h2>Related alternatives</h2>${makeCardList(alternatives, 'Related alternatives are being curated.')}</section><section><h2>Related collections</h2>${makeCardList(relatedLinks, 'Related collections are being curated.')}</section><section><h2>Herb profiles</h2>${makeCardList(topHerbs, 'No herb profiles are currently available.')}</section><section><h2>Compound profiles</h2>${makeCardList(topCompounds, 'No compound profiles are currently available.')}</section></article></main>`
   }
 
   return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1><p>This route is prerendered for SEO metadata. Interactive content loads after hydration.</p></main>`

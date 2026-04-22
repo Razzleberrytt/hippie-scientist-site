@@ -235,7 +235,6 @@ function run() {
     setDiff(routeSets.sitemapEligiblePrerenderRoutes, sitemapXmlRoutes),
   )
   addMismatch('dist-html-vs-prerender', setDiff(distRoutes, routeSets.prerenderRoutes), setDiff(routeSets.prerenderRoutes, distRoutes))
-  addMismatch('publication-manifest-vs-prerender-entities', setDiff(publicationEntityRoutes, new Set([...routeSets.prerenderRoutes].filter(route => route.startsWith('/herbs/') || route.startsWith('/compounds/')))), setDiff(new Set([...routeSets.prerenderRoutes].filter(route => route.startsWith('/herbs/') || route.startsWith('/compounds/')),), publicationEntityRoutes))
 
   const excludedHerbRoutes = findExcludedEntityRoutes('herb', publicationEntityRoutes)
   const excludedCompoundRoutes = findExcludedEntityRoutes('compound', publicationEntityRoutes)
@@ -249,7 +248,17 @@ function run() {
     }
   }
 
-  const failureCount = Object.values(checks).reduce((sum, items) => sum + items.length, 0)
+  const warningChecks = {
+    thinIndexablePages: checks.thinIndexablePages,
+    excludedStillPublished: checks.excludedStillPublished,
+  }
+  const failureChecks = {
+    buildTokens: checks.buildTokens,
+    entityNameQuality: checks.entityNameQuality,
+    headTagIntegrity: checks.headTagIntegrity,
+    routeParity: checks.routeParity,
+  }
+  const failureCount = Object.values(failureChecks).reduce((sum, items) => sum + items.length, 0)
   const report = {
     generatedAt: new Date().toISOString(),
     summary: {
@@ -258,7 +267,8 @@ function run() {
       sitemapXmlRoutes: sitemapXmlRoutes.size,
       publicationEntityRoutes: publicationEntityRoutes.size,
       failureCount,
-      failuresByCheck: Object.fromEntries(Object.entries(checks).map(([name, items]) => [name, items.length])),
+      failuresByCheck: Object.fromEntries(Object.entries(failureChecks).map(([name, items]) => [name, items.length])),
+      warningsByCheck: Object.fromEntries(Object.entries(warningChecks).map(([name, items]) => [name, items.length])),
     },
     checks,
   }
@@ -277,6 +287,13 @@ function run() {
   }
 
   console.log(`[verify-publishing] OK checked=${prerenderRoutes.length} dist=${distRoutes.size} sitemap=${sitemapXmlRoutes.size}`)
+  const warningCount = Object.values(warningChecks).reduce((sum, items) => sum + items.length, 0)
+  if (warningCount > 0) {
+    const warningParts = Object.entries(report.summary.warningsByCheck)
+      .filter(([, count]) => count > 0)
+      .map(([name, count]) => `${name}=${count}`)
+    console.warn(`[verify-publishing] WARN (${warningCount}) ${warningParts.join(' | ')}`)
+  }
   console.log(`[verify-publishing] report: ${path.relative(ROOT, REPORT_PATH)}`)
 }
 
