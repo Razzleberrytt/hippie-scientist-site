@@ -716,14 +716,6 @@ export function getSharedRouteManifest() {
 
   const learningAllowlist = extractLearningRouteAllowlist()
   const publicationManifest = readPublicationManifest()
-  const indexableHerbRoutes = new Set(publicationManifest.herbRoutes)
-  const indexableCompoundRoutes = new Set(publicationManifest.compoundRoutes)
-  const isIndexableEntityRoute = route => {
-    if (route.startsWith('/herbs/')) return indexableHerbRoutes.has(route)
-    if (route.startsWith('/compounds/')) return indexableCompoundRoutes.has(route)
-    return true
-  }
-
   const prioritizeAllowlist = (entries, allowlist) => {
     const byRoute = new Map(entries.map(entry => [entry.route, entry]))
     const prioritized = []
@@ -815,11 +807,9 @@ export function getSharedRouteManifest() {
     ...compoundEntries.map(entry => entry.route),
   ])
     .filter(route => !DISALLOWED_ROUTES.includes(route))
-    .filter(isIndexableEntityRoute)
 
-  const prerenderRoutes = approvedRoutes.filter(isIndexableEntityRoute)
+  const prerenderRoutes = approvedRoutes
   const sitemapRoutes = approvedRoutes.filter(route => {
-    if (!isIndexableEntityRoute(route)) return false
     return routeDirectives.get(route)?.noindex !== true
   })
 

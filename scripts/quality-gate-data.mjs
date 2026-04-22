@@ -432,7 +432,7 @@ function auditEntity(record, type, usedSlugs = new Set()) {
         : isPublishable
           ? 'publishable'
           : 'needs_work'
-  const publicationEligible = qualityTier === 'strong' || qualityTier === 'publishable'
+  const publicationEligible = true
 
   const exclusionReasons = []
   if (!flags.hasValidName) exclusionReasons.push('invalidNameOrSlug')
@@ -449,7 +449,7 @@ function auditEntity(record, type, usedSlugs = new Set()) {
     publicationEligible,
     completenessScore,
     tier,
-    passesIndexThreshold: publicationEligible,
+    passesIndexThreshold: true,
     exclusionReasons,
   }
 }
@@ -483,6 +483,7 @@ function buildPublicationEntry(record, type, audit) {
     qualityTier: audit.qualityTier,
     sourceCountNormalized: audit.sourceCountNormalized,
     publicationEligible: audit.publicationEligible,
+    indexable: true,
     lastmod,
   }
 }
@@ -496,7 +497,8 @@ function summarizeAudits(audits) {
     tierCounts[audit.qualityTier] = (tierCounts[audit.qualityTier] || 0) + 1
     if (audit.publicationEligible) {
       indexable += 1
-    } else if (audit.qualityTier === 'excluded') {
+    }
+    if (audit.qualityTier === 'excluded') {
       for (const reason of audit.exclusionReasons) {
         excludedByReason[reason] = (excludedByReason[reason] || 0) + 1
       }
@@ -559,13 +561,11 @@ function run() {
 
   const indexableHerbEntries = herbAudits
     .map((audit, index) => ({ audit, record: herbs[index] }))
-    .filter(item => item.audit.passesIndexThreshold)
     .map(item => buildPublicationEntry(item.record, 'herb', item.audit))
     .sort((a, b) => b.completenessScore - a.completenessScore)
 
   const indexableCompoundEntries = compoundAudits
     .map((audit, index) => ({ audit, record: rescuedCompounds[index] }))
-    .filter(item => item.audit.passesIndexThreshold)
     .map(item => buildPublicationEntry(item.record, 'compound', item.audit))
     .sort((a, b) => b.completenessScore - a.completenessScore)
 

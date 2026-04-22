@@ -43,27 +43,15 @@ function readJson(relativePath) {
   }
 }
 
-function hasPlaceholderText(value) {
-  const text = String(value || '').trim().toLowerCase()
-  if (!text) return false
-  return text === 'nan' || text.includes('no direct effects data') || text.includes('contextual inference')
-}
-
-function isPublishQualityIndexEntry(entry) {
-  if (!entry || typeof entry !== 'object') return false
-  const title = String(entry.title || entry.name || '').trim()
-  if (!title || hasPlaceholderText(title)) return false
-  if (hasPlaceholderText(entry.description)) return false
-
-  const sourceCount = Number(entry.sourceCountNormalized ?? entry.sourceCount ?? 0)
-  const reviewed = Boolean(
-    entry.reviewed ||
-      entry.reviewedAt ||
-      entry.lastReviewedAt ||
-      entry.publicationEligible === true,
-  )
-
-  return sourceCount >= 2 || reviewed
+function readObject(relativePath, fallback = {}) {
+  const full = path.resolve(__dirname, '..', relativePath)
+  if (!fs.existsSync(full)) return fallback
+  try {
+    const parsed = JSON.parse(fs.readFileSync(full, 'utf-8'))
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : fallback
+  } catch {
+    return fallback
+  }
 }
 
 function normalizeDate(value) {
@@ -132,20 +120,17 @@ function getCompoundSlug(entry) {
 
 function buildSitemap() {
   const { sitemapRoutes, sitemapMeta, disallowedRoutes } = getSharedRouteManifest()
-  const indexableHerbs = readJson('public/data/indexable-herbs.json')
-  const indexableCompounds = readJson('public/data/indexable-compounds.json')
+  const publicationManifest = readObject('public/data/publication-manifest.json', {})
 
   const blogEntries = getBlogEntries(readJson('public/blogdata/index.json'))
   const herbRoutes = normalizeRoutes(
-    indexableHerbs
-      .filter(isPublishQualityIndexEntry)
+    (Array.isArray(publicationManifest?.entities?.herbs) ? publicationManifest.entities.herbs : [])
       .map(getHerbSlug)
       .filter(Boolean)
       .map(slug => `/herbs/${slug}`),
   )
   const compoundRoutes = normalizeRoutes(
-    indexableCompounds
-      .filter(isPublishQualityIndexEntry)
+    (Array.isArray(publicationManifest?.entities?.compounds) ? publicationManifest.entities.compounds : [])
       .map(getCompoundSlug)
       .filter(Boolean)
       .map(slug => `/compounds/${slug}`),

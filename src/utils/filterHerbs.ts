@@ -3,7 +3,7 @@ import { normalizeText } from './normalizeText'
 import { searchEntries } from './searchEntries'
 import type { EntryFilterState } from './filterModel'
 import { asStringArray } from './asStringArray'
-import { getReviewFreshnessState, matchesEnrichmentFilter } from '@/lib/enrichmentDiscovery'
+import { getReviewFreshnessState } from '@/lib/enrichmentDiscovery'
 import { applyBrowseQualityGate, assessBrowseRecord } from '@/utils/browseQuality'
 
 function getConfidenceRank(level: string) {
@@ -69,8 +69,6 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
 
     if (filters.confidence !== 'all' && confidence !== filters.confidence) return false
     if (typeNeedle !== 'all' && typeNeedle && herbType !== typeNeedle) return false
-    if (!matchesEnrichmentFilter(herb.researchEnrichmentSummary, filters.enrichment)) return false
-
     return true
   })
 

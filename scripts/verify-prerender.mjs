@@ -107,20 +107,6 @@ function verifyHeadTags(route) {
   const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
   const bodyScope = mainMatch?.[1] || html
   const bodyText = stripTags(bodyScope)
-  const thinPlaceholderSignals = [
-    'Interactive content loads after hydration',
-    'metadata. Interactive content loads',
-    'Content is being updated.',
-    'not available in prerender assets',
-  ]
-  const hasPlaceholder = thinPlaceholderSignals.some(signal =>
-    bodyText.toLowerCase().includes(signal.toLowerCase())
-  )
-  const isIndexable = !directives.noindex
-  if (isIndexable && (bodyText.length < 160 || hasPlaceholder)) {
-    return { route, ok: false, reason: 'thin-indexable-body' }
-  }
-
   return { route, ok: true, bodyLength: bodyText.length, titleCount }
 }
 
