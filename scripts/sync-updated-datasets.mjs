@@ -28,11 +28,11 @@ const CANDIDATE_DIRS = [...PORTABLE_CANDIDATE_DIRS, ...LEGACY_CANDIDATE_DIRS].fi
 const FILES = [
   {
     source: 'herbs_combined_updated.json',
-    targets: ['herbs.json', 'herbs_combined_updated.json'],
+    targets: ['herbs.json'],
   },
   {
     source: 'compounds_combined_updated.json',
-    targets: ['compounds.json', 'compounds_combined_updated.json'],
+    targets: ['compounds.json'],
   },
 ]
 
@@ -155,9 +155,7 @@ function ingestPublishInputIfAvailable({ required = false } = {}) {
   )
 
   writeJson(path.join(outDir, 'herbs.json'), herbs)
-  writeJson(path.join(outDir, 'herbs_combined_updated.json'), herbs)
   writeJson(path.join(outDir, 'compounds.json'), compounds)
-  writeJson(path.join(outDir, 'compounds_combined_updated.json'), compounds)
   writeJson(path.join(outDir, 'goal-pages.json'), goals)
 
   console.log(`[data-sync] Ingested publish input from ${path.relative(root, publishInputDir)}`)
@@ -219,8 +217,8 @@ if (!usedPublishInput) {
   }
 }
 
-hydrateUpdatedDatasetSlugs('herbs_combined_updated.json', 'herbs')
-hydrateUpdatedDatasetSlugs('compounds_combined_updated.json', 'compounds')
+hydrateUpdatedDatasetSlugs('herbs.json', 'herbs')
+hydrateUpdatedDatasetSlugs('compounds.json', 'compounds')
 
 if (!options.skipWorkbookOverlay) {
   const workbookPath = resolveWorkbookPath(root)
