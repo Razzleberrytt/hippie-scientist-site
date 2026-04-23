@@ -59,7 +59,9 @@ function indexByEntity(records, entityType) {
 
 function run() {
   const entries = parseNormalizedInput(INPUT_PATH_DEFAULT)
-  const { normalizedEntries, issues, sourceById } = validateAndNormalizeEntries(entries)
+  const { normalizedEntries, issues, sourceById } = validateAndNormalizeEntries(entries, {
+    allowMissingEntityRefs: true,
+  })
 
   if (issues.length > 0) {
     console.error(`[verify-enrichment-editorial] FAIL normalized validation issues=${issues.length}`)

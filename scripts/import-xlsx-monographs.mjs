@@ -13,15 +13,15 @@ const repoRoot = path.resolve(__dirname, '..')
 
 const workbookPath = resolveWorkbookPath(repoRoot)
 const SHEET_MAP = {
-  herbs: ['Herb Master'],
-  compounds: ['Compound Master'],
-  herbCompoundMap: ['Herb Compound Map'],
+  herbs: ['Herb Monographs', 'Herb Master'],
+  compounds: ['Compound Master V3', 'Compound Master'],
+  herbCompoundMap: ['Herb Compound Map V3', 'Herb Compound Map'],
 }
 const REQUIRED_SHEET_KEYS = ['herbs', 'compounds', 'herbCompoundMap']
 const RESOLVED_REQUIRED_COLUMNS = {
   herbs: ['name'],
-  compounds: ['compoundName'],
-  herbCompoundMap: ['herbName', 'canonicalCompoundName'],
+  compounds: ['name'],
+  herbCompoundMap: ['herbName', 'canonicalCompoundId'],
 }
 const COLUMN_ALIASES = {
   default: {
@@ -37,13 +37,25 @@ const COLUMN_ALIASES = {
   'Herb Master': {
     name: ['name', 'herb', 'herbname', 'herb_name'],
   },
+  'Herb Monographs': {
+    name: ['name', 'herb', 'herbname', 'herb_name'],
+  },
   'Compound Master': {
+    compoundName: ['compoundname', 'compound_name', 'compound', 'name'],
+    name: ['compoundname', 'compound_name', 'compound', 'name'],
+  },
+  'Compound Master V3': {
     compoundName: ['compoundname', 'compound_name', 'compound', 'name'],
     name: ['compoundname', 'compound_name', 'compound', 'name'],
   },
   'Herb Compound Map': {
     herbName: ['herbname', 'herb_name'],
     canonicalCompoundName: ['compoundname', 'compound_name'],
+  },
+  'Herb Compound Map V3': {
+    herbName: ['herbname', 'herb_name'],
+    canonicalCompoundName: ['compoundname', 'compound_name'],
+    canonicalCompoundId: ['compoundslug', 'compound_slug', 'canonicalcompoundid'],
   },
 }
 const TARGET_WORKBOOK_SHEETS = [
@@ -480,10 +492,10 @@ function canonicalizeRow(row, sheetName) {
   }
 
   const out = canonicalizeWorkbookRow(aliasedRow, sheetName)
-  if (sheetName === 'Compound Master' && !out.compoundName && out.name) {
+  if ((sheetName === 'Compound Master' || sheetName === 'Compound Master V3') && !out.compoundName && out.name) {
     out.compoundName = out.name
   }
-  if (sheetName === 'Herb Compound Map') {
+  if (sheetName === 'Herb Compound Map' || sheetName === 'Herb Compound Map V3') {
     if (!out.herbName && out.name) out.herbName = out.name
     if (!out.canonicalCompoundName && out.compoundName) out.canonicalCompoundName = out.compoundName
   }
