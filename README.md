@@ -49,6 +49,13 @@ Run:
 npm run publish-data
 ```
 
+This **extends** the existing data sync script used by the build chain:
+
+- existing build path: `npm run build` → `prebuild` → `scripts/sync-updated-datasets.mjs`
+- publish path: `npm run publish-data` → `scripts/sync-updated-datasets.mjs --from-publish-input --skip-workbook-overlay`
+
+In other words, workbook-export ingestion is an additional input mode of the same sync pipeline, not a separate parallel system.
+
 The publish script fails hard on:
 
 - blank slug / route key
