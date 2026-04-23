@@ -53,6 +53,18 @@ const FILLER_CHIP_PATTERNS = [
   /^related herbs?\b/i,
   /^contextual inference\b/i,
 ]
+const LOW_QUALITY_PROSE_PATTERNS: RegExp[] = [
+  /\bis a compound reported in\b/i,
+  /\bappears in records as a compound reported in\b/i,
+  /available references are still early and incomplete/i,
+  /source coverage is limited and still developing/i,
+  /usage context is still being expanded/i,
+  /\bprovisional_from\b/i,
+  /\bappears in records\b/i,
+  /\bcurrently mentions\b/i,
+  /\brelated herbs listed below\b/i,
+  /\btracked for mechanism context and potential outcomes\b/i,
+]
 
 /** True if a string is entirely junk — should not be rendered at all. */
 export function isJunk(value: unknown): boolean {
@@ -265,4 +277,11 @@ export function sanitizeSummaryText(value: unknown, maxSentences = 2): string {
   const sentences = cleaned.match(/[^.!?]+[.!?]?/g) || [cleaned]
   const kept = dedupePresentationList(sentences, maxSentences)
   return kept.join(' ').trim()
+}
+
+export function isLowQualityProse(value: unknown): boolean {
+  const cleaned = sanitizeReadableText(value)
+  if (!cleaned) return true
+  if (isJunk(cleaned)) return true
+  return LOW_QUALITY_PROSE_PATTERNS.some(pattern => pattern.test(cleaned))
 }
