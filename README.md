@@ -31,6 +31,31 @@ When ingesting refreshed datasets:
 npm run update-data
 ```
 
+## Workbook publish pipeline (minimal)
+
+Place workbook-derived JSON exports in:
+
+`ops/publish-input/`
+
+Required input file names:
+
+- `API_PAYLOAD.json` → publishes `public/data/herbs.json`
+- `COMPOUND_API_PAYLOAD.json` → publishes `public/data/compounds.json`
+- `Goal Page Copy.json` → publishes `public/data/goal-pages.json`
+
+Run:
+
+```bash
+npm run publish-data
+```
+
+The publish script fails hard on:
+
+- blank slug / route key
+- duplicate slug / route key
+- blank required names/titles
+- invalid goal route keys (must be lowercase kebab-case)
+
 ## Learning routes
 
 Primary learning page is `/learning`.
