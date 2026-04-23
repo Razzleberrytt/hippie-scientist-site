@@ -1,4 +1,4 @@
-import { cleanEffectChips, isJunk, sanitizeSummaryText, splitClean } from '@/lib/sanitize'
+import { cleanEffectChips, isJunk, isLowQualityProse, sanitizeSummaryText, splitClean } from '@/lib/sanitize'
 
 export type ProfileStatus = 'complete' | 'partial' | 'minimal'
 export type SummaryQuality = 'strong' | 'weak' | 'none'
@@ -36,7 +36,7 @@ export function resolveHeroSummary(
   maxSentences = 1,
 ): string {
   const summary = sanitizeSummaryText(input?.summary || input?.description || '', maxSentences)
-  return isJunk(summary) ? '' : summary
+  return isJunk(summary) || isLowQualityProse(summary) ? '' : summary
 }
 
 export function resolveCoreInsight(
@@ -44,5 +44,5 @@ export function resolveCoreInsight(
   maxSentences = 1,
 ): string {
   const insight = sanitizeSummaryText(input?.whyItMatters || '', maxSentences)
-  return isJunk(insight) ? '' : insight
+  return isJunk(insight) || isLowQualityProse(insight) ? '' : insight
 }

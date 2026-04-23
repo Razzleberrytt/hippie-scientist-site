@@ -5,7 +5,13 @@ import { Link, useLocation, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import { useCompoundDataState } from '@/lib/compound-data'
 import { useHerbDataState, useHerbDetailState } from '@/lib/herb-data'
-import { dedupePresentationList, normalizePresentationLabel, sanitizeReadableText, sanitizeSummaryText } from '@/lib/sanitize'
+import {
+  dedupePresentationList,
+  isLowQualityProse,
+  normalizePresentationLabel,
+  sanitizeReadableText,
+  sanitizeSummaryText,
+} from '@/lib/sanitize'
 import { buildUniqueDetailCopy, sanitizeRenderChips, sanitizeRenderList } from '@/lib/renderGuard'
 import { normalizeTagList } from '@/lib/tagNormalization'
 import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
@@ -199,6 +205,11 @@ export default function HerbDetail() {
       String(curatedData.mechanism || '').trim(),
   })
   const coreInsight = uniqueCopy.overview
+  const hasRenderableSummary = Boolean(summary) && !isLowQualityProse(summary)
+  const hasRenderableCoreInsight = Boolean(coreInsight) && !isLowQualityProse(coreInsight)
+  const hasRenderableFullDescription = Boolean(fullDescription) && !isLowQualityProse(fullDescription)
+  const hasRenderableMechanism = Boolean(uniqueCopy.mechanism) && !isLowQualityProse(uniqueCopy.mechanism)
+  const hasRenderableContext = Boolean(uniqueCopy.context) && !isLowQualityProse(uniqueCopy.context)
 
   const primaryActions = sanitizeRenderChips(
     dedupePresentationList(
@@ -210,7 +221,6 @@ export default function HerbDetail() {
   const keyEffects = primaryActions.slice(0, 4)
   const activeCompounds = sanitizeRenderList(splitTextList(herb.activeCompounds), 10)
   const traditionalUses = sanitizeRenderList(splitTextList(herb.traditionalUses), 8)
-  const mechanism = uniqueCopy.mechanism
   const contextSummary = uniqueCopy.context
   const dosage = String(herb.dosage || '').trim()
   const duration = String(herb.duration || '').trim()
@@ -332,14 +342,14 @@ export default function HerbDetail() {
       <article className='space-y-5'>
         <div className='sr-only' aria-hidden='true'>
           <h1>{herbName}</h1>
-          <p>{summary}</p>
+          {hasRenderableSummary && <p>{summary}</p>}
           <ul>{safetyNotes.map(note => <li key={`static-safety-${note}`}>{note}</li>)}</ul>
         </div>
 
         <header className='premium-panel fade-in-surface p-5 sm:p-7'>
           <p className='section-label'>Herb profile</p><h1 className='mt-2 text-4xl font-semibold sm:text-5xl'>{herbName}</h1>
           {scientificName && <p className='mt-1 text-sm italic text-white/55'>{scientificName}</p>}
-          {showSummaryRegion && !descriptionIsPlaceholder && (
+          {showSummaryRegion && !descriptionIsPlaceholder && hasRenderableSummary && (
             <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>{summary}</p>
           )}
 
@@ -363,9 +373,9 @@ export default function HerbDetail() {
           </div>
         </section>
 
-        {!isMinimalProfile && mechanism && (
+        {!isMinimalProfile && hasRenderableMechanism && (
           <DisclosureSection title='Mechanisms' defaultOpen>
-            <p>{mechanism}</p>
+            <p>{uniqueCopy.mechanism}</p>
           </DisclosureSection>
         )}
 
@@ -440,20 +450,20 @@ export default function HerbDetail() {
           </DisclosureSection>
         )}
 
-        {!isMinimalProfile && summaryQuality === 'strong' && coreInsight && coreInsight !== summary && (
+        {!isMinimalProfile && summaryQuality === 'strong' && hasRenderableCoreInsight && coreInsight !== summary && (
           <section className='browse-shell fade-in-surface p-5 sm:p-6'>
             <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/85'>Core insight</h2>
             <p className='mt-2 text-sm leading-relaxed text-white/85'>{coreInsight}</p>
           </section>
         )}
 
-        {!isMinimalProfile && !descriptionIsPlaceholder && fullDescription && fullDescription !== summary && (
+        {!isMinimalProfile && !descriptionIsPlaceholder && hasRenderableFullDescription && fullDescription !== summary && (
           <DisclosureSection title='Full Description'>
             <p>{fullDescription}</p>
           </DisclosureSection>
         )}
 
-        {!isMinimalProfile && contextSummary && contextSummary !== summary && (
+        {!isMinimalProfile && hasRenderableContext && contextSummary !== summary && (
           <DisclosureSection title='Context'>
             <p>{contextSummary}</p>
           </DisclosureSection>

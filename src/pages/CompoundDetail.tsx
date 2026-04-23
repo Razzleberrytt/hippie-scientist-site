@@ -6,6 +6,7 @@ import { useCompoundDataState, useCompoundDetailState } from '@/lib/compound-dat
 import { useHerbDataState } from '@/lib/herb-data'
 import {
   cleanEffectChips,
+  isLowQualityProse,
   sanitizeReadableText,
   sanitizeSummaryText,
   splitClean,
@@ -244,6 +245,7 @@ export default function CompoundDetail() {
   const coreInsight = uniqueCopy.overview
   const compoundDescription = uniqueCopy.hero
   const compoundMechanism = uniqueCopy.mechanism
+  const contextSummary = uniqueCopy.context
   const workbookSafety = sanitizeRenderChips(
     splitClean(safetyRecord.notes || safetyRecord.summary || safetyRecord.caution || rawRecord.safety),
     8,
@@ -290,11 +292,16 @@ export default function CompoundDetail() {
     compoundDescription || coreInsight || compoundMechanism,
     1,
   )
+  const hasRenderableTopSummary = Boolean(topSummary) && !isLowQualityProse(topSummary)
+  const hasRenderableWhyItMatters = Boolean(whyItMatters) && !isLowQualityProse(whyItMatters)
+  const hasRenderableMechanism = Boolean(compoundMechanism) && !isLowQualityProse(compoundMechanism)
+  const hasRenderableContext = Boolean(contextSummary) && !isLowQualityProse(contextSummary)
   const consumeSectionBody = createSectionBodyTracker()
   const whyItMattersBody = !isMinimalProfile
-    ? consumeSectionBody(whyItMatters || 'Tracked for mechanism context and potential outcomes.')
+    ? consumeSectionBody(hasRenderableWhyItMatters ? whyItMatters : '')
     : ''
-  const mechanismBody = !isMinimalProfile ? consumeSectionBody(compoundMechanism) : ''
+  const mechanismBody = !isMinimalProfile ? consumeSectionBody(hasRenderableMechanism ? compoundMechanism : '') : ''
+  const contextBody = !isMinimalProfile ? consumeSectionBody(hasRenderableContext ? contextSummary : '') : ''
   const pharmacokineticsBody = !isMinimalProfile ? consumeSectionBody(pharmacokinetics) : ''
   const dosageBody = consumeSectionBody(compound.dosage)
   const durationBody = consumeSectionBody(compound.duration)
@@ -562,7 +569,7 @@ export default function CompoundDetail() {
           <div className='flex flex-wrap items-start justify-between gap-3'>
             <h1 className='text-3xl font-semibold leading-tight'>{name}</h1>
           </div>
-          {shouldRenderSummary(profileStatus, summaryQuality) && topSummary && (
+          {shouldRenderSummary(profileStatus, summaryQuality) && hasRenderableTopSummary && (
             <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>
               {topSummary}
             </p>
@@ -586,10 +593,10 @@ export default function CompoundDetail() {
                 ) : null}
               </div>
             </section>
-            {!isMinimalProfile && <section className='detail-panel rounded-lg p-3'>
+            {!isMinimalProfile && whereAppears.length > 0 && <section className='detail-panel rounded-lg p-3'>
               <h2 className='text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56'>Where it appears</h2>
               <p className='mt-1 text-xs text-white/80'>
-                {whereAppears.join(', ') || 'Related herbs listed below.'}
+                {whereAppears.join(', ')}
               </p>
             </section>}
           </div>
@@ -629,6 +636,7 @@ export default function CompoundDetail() {
 
         {/* Mechanisms */}
         {mechanismBody && <Section title='Mechanisms'>{mechanismBody}</Section>}
+        {contextBody && <Section title='Context'>{contextBody}</Section>}
 
         {/* Targets */}
         {!isMinimalProfile && targetList.length > 0 && (
