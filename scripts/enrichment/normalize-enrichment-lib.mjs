@@ -361,6 +361,7 @@ export function validateAndNormalizeEntries(entries, options = {}) {
   const sourceById = new Map(sourceRegistry.map(source => [source.sourceId, source]))
   const entitySlugs = loadEntitySlugSets()
   const includeNearDuplicateCheck = options.includeNearDuplicateCheck !== false
+  const allowMissingEntityRefs = options.allowMissingEntityRefs === true
 
   const issues = []
   const normalizedEntries = []
@@ -391,7 +392,11 @@ export function validateAndNormalizeEntries(entries, options = {}) {
     }
 
     if (!entitySlugs[entry.entityType]?.has(entry.entitySlug)) {
-      issues.push(`${prefix} entity reference ${entry.entityType}:${entry.entitySlug} was not found in detail data.`)
+      if (!allowMissingEntityRefs) {
+        issues.push(`${prefix} entity reference ${entry.entityType}:${entry.entitySlug} was not found in detail data.`)
+      } else {
+        continue
+      }
     }
 
     const findingNormalizedLc = entry.findingTextNormalized.toLowerCase()

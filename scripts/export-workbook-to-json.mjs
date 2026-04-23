@@ -18,19 +18,19 @@ const repoRoot = path.resolve(__dirname, '..')
 const workbookPath = resolveWorkbookPath(repoRoot)
 const dataDir = path.join(repoRoot, 'public', 'data')
 const REQUIRED_WORKBOOK_SHEETS = {
-  herbs: 'Herb Master',
-  compounds: 'Compound Master',
-  herbCompoundMap: 'Herb Compound Map',
+  herbs: ['Herb Monographs', 'Herb Master'],
+  compounds: ['Compound Master V3', 'Compound Master'],
+  herbCompoundMap: ['Herb Compound Map V3', 'Herb Compound Map'],
 }
 const REQUIRED_SHEET_KEYS = Object.keys(REQUIRED_WORKBOOK_SHEETS)
 const RESOLVED_REQUIRED_COLUMNS = {
   herbs: ['name'],
-  compounds: ['compoundName'],
-  herbCompoundMap: ['herbSlug', 'canonicalCompoundName'],
+  compounds: ['name'],
+  herbCompoundMap: ['herbSlug', 'canonicalCompoundId'],
 }
 const LEGACY_GOAL_BUNDLE_SHEET = 'Production Export V1'
 const EXPORT_WORKBOOK_SHEETS = [
-  ...REQUIRED_SHEET_KEYS.map(sheetKey => REQUIRED_WORKBOOK_SHEETS[sheetKey]),
+  ...REQUIRED_SHEET_KEYS.flatMap(sheetKey => REQUIRED_WORKBOOK_SHEETS[sheetKey]),
   LEGACY_GOAL_BUNDLE_SHEET,
 ]
 const OPTIONAL_WORKBOOK_SHEETS = new Set(['Production Export V1'])
@@ -57,9 +57,12 @@ function createDiagnostics() {
 function resolveWorkbookSheets(workbook) {
   const resolvedSheets = {}
   for (const sheetKey of REQUIRED_SHEET_KEYS) {
-    const requiredSheetName = REQUIRED_WORKBOOK_SHEETS[sheetKey]
+    const candidates = REQUIRED_WORKBOOK_SHEETS[sheetKey]
+    const requiredSheetName = candidates.find(name => workbook.Sheets[name])
     if (!workbook.Sheets[requiredSheetName]) {
-      throw new Error(`[export] Missing required sheet "${requiredSheetName}" for "${sheetKey}".`)
+      throw new Error(
+        `[export] Missing required sheet for "${sheetKey}". Expected one of: ${candidates.join(', ')}`,
+      )
     }
     resolvedSheets[sheetKey] = requiredSheetName
     console.log(`[export][sheets] ${sheetKey}: ${requiredSheetName}`)
@@ -448,6 +451,8 @@ function main() {
   const ignoredSheets = workbook.SheetNames.filter(sheetName => !EXPORT_WORKBOOK_SHEETS.includes(sheetName))
 
   for (const sheetName of EXPORT_WORKBOOK_SHEETS) {
+    const isRequiredAlias = REQUIRED_SHEET_KEYS.some(sheetKey => REQUIRED_WORKBOOK_SHEETS[sheetKey].includes(sheetName))
+    if (isRequiredAlias) continue
     if (!workbook.Sheets[sheetName] && !OPTIONAL_WORKBOOK_SHEETS.has(sheetName)) {
       throw new Error(`Missing sheet: ${sheetName}`)
     }
