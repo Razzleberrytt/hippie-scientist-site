@@ -31,6 +31,38 @@ When ingesting refreshed datasets:
 npm run update-data
 ```
 
+## Workbook publish pipeline (minimal)
+
+Place workbook-derived JSON exports in:
+
+`ops/publish-input/`
+
+Required input file names:
+
+- `API_PAYLOAD.json` → publishes `public/data/herbs.json`
+- `COMPOUND_API_PAYLOAD.json` → publishes `public/data/compounds.json`
+- `Goal Page Copy.json` → publishes `public/data/goal-pages.json`
+
+Run:
+
+```bash
+npm run publish-data
+```
+
+This **extends** the existing data sync script used by the build chain:
+
+- existing build path: `npm run build` → `prebuild` → `scripts/sync-updated-datasets.mjs`
+- publish path: `npm run publish-data` → `scripts/sync-updated-datasets.mjs --from-publish-input --skip-workbook-overlay`
+
+In other words, workbook-export ingestion is an additional input mode of the same sync pipeline, not a separate parallel system.
+
+The publish script fails hard on:
+
+- blank slug / route key
+- duplicate slug / route key
+- blank required names/titles
+- invalid goal route keys (must be lowercase kebab-case)
+
 ## Learning routes
 
 Primary learning page is `/learning`.

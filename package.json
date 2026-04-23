@@ -7,6 +7,7 @@
     "update-data": "node scripts/update-data.js",
     "dev:data": "node scripts/convert-herbs.mjs",
     "data:generate": "npm run prebuild:data",
+    "publish-data": "node scripts/sync-updated-datasets.mjs --from-publish-input --skip-workbook-overlay",
     "prebuild:data": "node scripts/convert-herbs.mjs && npm run data:enrich",
     "autofill:data": "node scripts/autofill-herbs.mjs",
     "prebuild:validate": "node scripts/validate-herbs.mjs && npm run verify:affiliate-products",
