@@ -356,10 +356,11 @@ export function evaluateEntryReadiness(entry, source, validationIssues = []) {
 }
 
 export function validateAndNormalizeEntries(entries, options = {}) {
-  const validate = compileValidator()
-  const sourceRegistry = readJson(SOURCE_REGISTRY_PATH)
+  const runtimeSafetyOnly = options.runtimeSafetyOnly === true
+  const validate = runtimeSafetyOnly ? null : compileValidator()
+  const sourceRegistry = fs.existsSync(SOURCE_REGISTRY_PATH) ? readJson(SOURCE_REGISTRY_PATH) : []
   const sourceById = new Map(sourceRegistry.map(source => [source.sourceId, source]))
-  const entitySlugs = loadEntitySlugSets()
+  const entitySlugs = runtimeSafetyOnly ? null : loadEntitySlugSets()
   const includeNearDuplicateCheck = options.includeNearDuplicateCheck !== false
   const allowMissingEntityRefs = options.allowMissingEntityRefs === true
 
@@ -373,6 +374,35 @@ export function validateAndNormalizeEntries(entries, options = {}) {
     const entry = normalizeEntry(rawEntry)
     const idPart = entry.enrichmentId ?? `row-${index + 1}`
     const prefix = `[entry:${index}:${idPart}]`
+
+    if (runtimeSafetyOnly) {
+      if (!entry || typeof entry !== 'object') {
+        issues.push(`${prefix} entry must be an object.`)
+        continue
+      }
+      if (!['herb', 'compound'].includes(entry.entityType)) {
+        issues.push(`${prefix} entityType must be herb|compound.`)
+        continue
+      }
+      if (!isNonEmptyText(entry.entitySlug)) {
+        issues.push(`${prefix} entitySlug is required.`)
+        continue
+      }
+      if (!isNonEmptyText(entry.sourceId)) {
+        issues.push(`${prefix} sourceId is required.`)
+        continue
+      }
+      if (!isNonEmptyText(entry.topicType) || !TOPIC_TO_ROLLUP_FIELD[entry.topicType]) {
+        issues.push(`${prefix} topicType is required and must be supported by rollup.`)
+        continue
+      }
+      if (!isNonEmptyText(entry.findingTextNormalized)) {
+        issues.push(`${prefix} findingTextNormalized is required.`)
+        continue
+      }
+      normalizedEntries.push(entry)
+      continue
+    }
 
     if (!validate(entry)) {
       issues.push(`${prefix} schema invalid: ${JSON.stringify(validate.errors ?? [])}`)
