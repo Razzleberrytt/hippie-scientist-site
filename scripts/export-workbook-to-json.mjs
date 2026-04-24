@@ -18,7 +18,7 @@ const repoRoot = path.resolve(__dirname, '..')
 const workbookPath = resolveWorkbookPath(repoRoot)
 const dataDir = path.join(repoRoot, 'public', 'data')
 const REQUIRED_WORKBOOK_SHEETS = {
-  herbs: ['Herb Monographs', 'Herb Master'],
+  herbs: ['Herb Monographs', 'Herb Master', 'Herb Master Clean'],
   compounds: ['Compound Master V3', 'Compound Master'],
   herbCompoundMap: ['Herb Compound Map V3', 'Herb Compound Map'],
 }

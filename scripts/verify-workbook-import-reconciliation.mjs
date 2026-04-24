@@ -11,7 +11,10 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 const workbookPath = resolveWorkbookPath(repoRoot)
-const REQUIRED_WORKBOOK_SHEETS = ['Herb Master', 'Compound Master']
+const REQUIRED_WORKBOOK_SHEETS = {
+  herbs: ['Herb Monographs', 'Herb Master', 'Herb Master Clean'],
+  compounds: ['Compound Master V3', 'Compound Master'],
+}
 const herbsPath = path.join(repoRoot, 'public', 'data', 'herbs.json')
 const compoundsPath = path.join(repoRoot, 'public', 'data', 'compounds.json')
 const workbookHerbsPath = path.join(repoRoot, 'public', 'data', 'workbook-herbs.json')
@@ -21,10 +24,24 @@ function clean(value) {
   return String(value ?? '').trim().toLowerCase()
 }
 
+function resolveWorkbookSheet(workbook, candidates, label) {
+  const resolved = candidates.find(name => workbook.Sheets[name])
+  if (!resolved) {
+    throw new Error(
+      `[verify-workbook-import-reconciliation] Missing required sheet for "${label}". Expected one of: ${candidates.join(', ')}`
+    )
+  }
+  return resolved
+}
+
 function baselineCounts() {
-  const workbook = XLSX.readFile(workbookPath, { sheets: REQUIRED_WORKBOOK_SHEETS })
-  const herbRows = XLSX.utils.sheet_to_json(workbook.Sheets[REQUIRED_WORKBOOK_SHEETS[0]], { defval: '', raw: false, blankrows: false })
-  const compoundRows = XLSX.utils.sheet_to_json(workbook.Sheets[REQUIRED_WORKBOOK_SHEETS[1]], { defval: '', raw: false, blankrows: false })
+  const workbook = XLSX.readFile(workbookPath, {
+    sheets: [...REQUIRED_WORKBOOK_SHEETS.herbs, ...REQUIRED_WORKBOOK_SHEETS.compounds],
+  })
+  const herbsSheet = resolveWorkbookSheet(workbook, REQUIRED_WORKBOOK_SHEETS.herbs, 'herbs')
+  const compoundsSheet = resolveWorkbookSheet(workbook, REQUIRED_WORKBOOK_SHEETS.compounds, 'compounds')
+  const herbRows = XLSX.utils.sheet_to_json(workbook.Sheets[herbsSheet], { defval: '', raw: false, blankrows: false })
+  const compoundRows = XLSX.utils.sheet_to_json(workbook.Sheets[compoundsSheet], { defval: '', raw: false, blankrows: false })
 
   const herbs = JSON.parse(fs.readFileSync(herbsPath, 'utf8'))
   const compounds = JSON.parse(fs.readFileSync(compoundsPath, 'utf8'))
