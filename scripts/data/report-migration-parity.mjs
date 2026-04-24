@@ -23,9 +23,51 @@ const OUTPUTS = {
   md: path.join(repoRoot, 'reports', 'data-next-parity-report.md'),
 }
 
-const REQUIRED_FIELDS = {
-  herbs: ['name', 'slug', 'summary'],
-  compounds: ['name', 'slug', 'summary'],
+const ROUTE_CONTRACT_FIELDS = {
+  herbs: {
+    required: [
+      'name',
+      'slug',
+      'summary',
+      'description',
+      'mechanisms',
+      'safetyNotes',
+      'contraindications',
+      'interactions',
+      'dosage',
+      'preparation',
+      'evidenceLevel',
+      'review_status',
+      'source_status',
+      'sourceCount',
+      'confidenceTier',
+    ],
+    recommended: ['latin', 'region', 'activeCompounds', 'sources', 'traditionalUses', 'primaryActions'],
+  },
+  compounds: {
+    required: [
+      'name',
+      'slug',
+      'summary',
+      'description',
+      'compoundClass',
+      'mechanisms',
+      'targets',
+      'foundIn',
+      'safetyNotes',
+      'evidenceLevel',
+      'review_status',
+      'source_status',
+      'sourceCount',
+      'confidenceTier',
+    ],
+    recommended: ['herbs', 'linkedHerbs', 'sources', 'evidenceType', 'confidenceReason'],
+  },
+}
+
+const DETAIL_DIRS = {
+  herbs: path.join(repoRoot, 'public', 'data-next', 'herbs-detail'),
+  compounds: path.join(repoRoot, 'public', 'data-next', 'compounds-detail'),
 }
 
 const WORKBOOK_SHEETS = {
@@ -142,15 +184,15 @@ function buildSlugSet(records) {
   return new Set(records.map(record => normalizeSlug(record?.slug)).filter(Boolean))
 }
 
-function assessRequiredFields(records, requiredFields) {
+function assessFieldCoverage(records, fields) {
   const missingByField = {}
-  for (const field of requiredFields) {
+  for (const field of fields) {
     missingByField[field] = []
   }
 
   for (const record of records) {
     const slug = normalizeSlug(record?.slug) || '(missing-slug)'
-    for (const field of requiredFields) {
+    for (const field of fields) {
       const value = record?.[field]
       const missing =
         value === null ||
@@ -165,7 +207,7 @@ function assessRequiredFields(records, requiredFields) {
   }
 
   const totals = {}
-  for (const field of requiredFields) {
+  for (const field of fields) {
     totals[field] = {
       missingCount: missingByField[field].length,
       completeCount: Math.max(records.length - missingByField[field].length, 0),
@@ -341,7 +383,111 @@ function analyzeSlugParity(entityName, currentRecords, nextRecords, workbookRows
   }
 }
 
-function buildEntityParity(entityName, currentRecords, nextRecords, workbookRows) {
+function readDetailRecords(entityName) {
+  const detailDir = DETAIL_DIRS[entityName]
+  if (!detailDir || !fs.existsSync(detailDir)) {
+    return { present: false, records: [] }
+  }
+
+  const files = fs
+    .readdirSync(detailDir, { withFileTypes: true })
+    .filter(entry => entry.isFile() && entry.name.endsWith('.json'))
+    .map(entry => path.join(detailDir, entry.name))
+
+  const records = []
+  for (const filePath of files) {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        records.push(parsed)
+      }
+    } catch (error) {
+      throw new Error(`Invalid JSON in ${path.relative(repoRoot, filePath)}: ${error.message}`)
+    }
+  }
+
+  return { present: true, records }
+}
+
+function combineMissingCounts(primaryTotals, secondaryTotals) {
+  const combined = {}
+  const allFields = new Set([...Object.keys(primaryTotals || {}), ...Object.keys(secondaryTotals || {})])
+  for (const field of allFields) {
+    combined[field] = {
+      missingCount: (primaryTotals?.[field]?.missingCount || 0) + (secondaryTotals?.[field]?.missingCount || 0),
+      completeCount: (primaryTotals?.[field]?.completeCount || 0) + (secondaryTotals?.[field]?.completeCount || 0),
+    }
+  }
+  return combined
+}
+
+function topMissingFields(requiredTotals, recommendedTotals) {
+  return [...Object.entries(requiredTotals || {}).map(([field, stats]) => ({ field, group: 'required', missingCount: stats.missingCount })), ...Object.entries(recommendedTotals || {}).map(([field, stats]) => ({ field, group: 'recommended', missingCount: stats.missingCount }))]
+    .filter(item => item.missingCount > 0)
+    .sort((a, b) => b.missingCount - a.missingCount || a.field.localeCompare(b.field))
+}
+
+function buildRouteContractGaps(entityName, aggregateRecords, detailRecords) {
+  const fieldConfig = ROUTE_CONTRACT_FIELDS[entityName]
+
+  const aggregateRequired = assessFieldCoverage(aggregateRecords, fieldConfig.required)
+  const aggregateRecommended = assessFieldCoverage(aggregateRecords, fieldConfig.recommended)
+
+  const detailRequired = assessFieldCoverage(detailRecords, fieldConfig.required)
+  const detailRecommended = assessFieldCoverage(detailRecords, fieldConfig.recommended)
+
+  const allRecords = [
+    ...aggregateRecords.map(record => ({ source: 'aggregate', record })),
+    ...detailRecords.map(record => ({ source: 'detail', record })),
+  ]
+
+  const perSlug = allRecords
+    .map(({ source, record }) => {
+      const slug = normalizeSlug(record?.slug) || '(missing-slug)'
+      const coverage = assessFieldCoverage(record ? [record] : [], [...fieldConfig.required, ...fieldConfig.recommended])
+      const missingRequired = fieldConfig.required.filter(field => coverage.totals[field].missingCount > 0)
+      const missingRecommended = fieldConfig.recommended.filter(field => coverage.totals[field].missingCount > 0)
+
+      return {
+        slug,
+        name: String(record?.name || ''),
+        source,
+        missingRequiredCount: missingRequired.length,
+        missingRecommendedCount: missingRecommended.length,
+        totalMissingCount: missingRequired.length + missingRecommended.length,
+        missingRequired,
+        missingRecommended,
+      }
+    })
+    .filter(item => item.totalMissingCount > 0)
+    .sort((a, b) => b.totalMissingCount - a.totalMissingCount || b.missingRequiredCount - a.missingRequiredCount || a.slug.localeCompare(b.slug))
+
+  const combinedRequiredTotals = combineMissingCounts(aggregateRequired.totals, detailRequired.totals)
+  const combinedRecommendedTotals = combineMissingCounts(aggregateRecommended.totals, detailRecommended.totals)
+
+  return {
+    fields: fieldConfig,
+    aggregate: {
+      recordsChecked: aggregateRecords.length,
+      required: aggregateRequired,
+      recommended: aggregateRecommended,
+    },
+    detail: {
+      recordsChecked: detailRecords.length,
+      required: detailRequired,
+      recommended: detailRecommended,
+    },
+    combined: {
+      recordsChecked: aggregateRecords.length + detailRecords.length,
+      requiredTotals: combinedRequiredTotals,
+      recommendedTotals: combinedRecommendedTotals,
+      topSlugsWithMostGaps: perSlug.slice(0, 25),
+      fieldsMissingMostOften: topMissingFields(combinedRequiredTotals, combinedRecommendedTotals).slice(0, 25),
+    },
+  }
+}
+
+function buildEntityParity(entityName, currentRecords, nextRecords, workbookRows, detailRecords) {
   const slugParity = analyzeSlugParity(entityName, currentRecords, nextRecords, workbookRows)
 
   return {
@@ -365,9 +511,10 @@ function buildEntityParity(entityName, currentRecords, nextRecords, workbookRows
       rootCauseBuckets: slugParity.rootCauseBuckets,
     },
     requiredFields: {
-      current: assessRequiredFields(currentRecords, REQUIRED_FIELDS[entityName]),
-      next: assessRequiredFields(nextRecords, REQUIRED_FIELDS[entityName]),
+      current: assessFieldCoverage(currentRecords, ['name', 'slug', 'summary']),
+      next: assessFieldCoverage(nextRecords, ['name', 'slug', 'summary']),
     },
+    routeContractGaps: buildRouteContractGaps(entityName, nextRecords, detailRecords),
     duplicateSlugs: {
       current: findDuplicateSlugs(currentRecords),
       next: findDuplicateSlugs(nextRecords),
@@ -384,6 +531,36 @@ function formatTopList(items, label, count = 25) {
   const lines = [`### ${label}`, '']
   for (const item of sliced) {
     lines.push(`- ${item.slug}${item.name ? ` (${item.name})` : ''} [${item.rootCause}]`)
+  }
+  lines.push('')
+  return lines
+}
+
+function formatRouteContractTopGaps(entityName, reportEntity) {
+  const rows = reportEntity.routeContractGaps.combined.topSlugsWithMostGaps
+  const label = `${entityName} top 25 slugs with most route payload gaps`
+  if (rows.length === 0) {
+    return [`### ${label}`, '', '- none', '']
+  }
+
+  const lines = [`### ${label}`, '']
+  for (const row of rows) {
+    lines.push(`- ${row.slug}${row.name ? ` (${row.name})` : ''} [${row.source}] required=${row.missingRequiredCount} recommended=${row.missingRecommendedCount}`)
+  }
+  lines.push('')
+  return lines
+}
+
+function formatRouteContractTopFields(entityName, reportEntity) {
+  const rows = reportEntity.routeContractGaps.combined.fieldsMissingMostOften
+  const label = `${entityName} fields missing most often`
+  if (rows.length === 0) {
+    return [`### ${label}`, '', '- none', '']
+  }
+
+  const lines = [`### ${label}`, '']
+  for (const row of rows) {
+    lines.push(`- ${row.field} (${row.group}) missing=${row.missingCount}`)
   }
   lines.push('')
   return lines
@@ -426,7 +603,7 @@ function writeOutputs(report) {
     `- Herbs: ${rootCauseLines('herbs')}`,
     `- Compounds: ${rootCauseLines('compounds')}`,
     '',
-    '## Required field gaps (data-next)',
+    '## Required field gaps (data-next aggregate)',
     '',
     `- Herbs: ${Object.entries(report.herbs.requiredFields.next.totals)
       .map(([field, stats]) => `${field} missing=${stats.missingCount}`)
@@ -435,8 +612,22 @@ function writeOutputs(report) {
       .map(([field, stats]) => `${field} missing=${stats.missingCount}`)
       .join(', ')}`,
     '',
-    '## Duplicate slug counts',
+    '## Route payload contract gaps (aggregate + detail)',
     '',
+    `- Herbs detail payloads present: ${report.herbs.detailPayloadsPresent ? 'yes' : 'no'} (records=${report.herbs.routeContractGaps.detail.recordsChecked})`,
+    `- Compounds detail payloads present: ${report.compounds.detailPayloadsPresent ? 'yes' : 'no'} (records=${report.compounds.routeContractGaps.detail.recordsChecked})`,
+    '',
+    `- Herbs required missing (aggregate/detail/combined): ${Object.values(report.herbs.routeContractGaps.aggregate.required.totals).reduce((sum, stats) => sum + stats.missingCount, 0)}/${Object.values(report.herbs.routeContractGaps.detail.required.totals).reduce((sum, stats) => sum + stats.missingCount, 0)}/${Object.values(report.herbs.routeContractGaps.combined.requiredTotals).reduce((sum, stats) => sum + stats.missingCount, 0)}`,
+    `- Herbs recommended missing (aggregate/detail/combined): ${Object.values(report.herbs.routeContractGaps.aggregate.recommended.totals).reduce((sum, stats) => sum + stats.missingCount, 0)}/${Object.values(report.herbs.routeContractGaps.detail.recommended.totals).reduce((sum, stats) => sum + stats.missingCount, 0)}/${Object.values(report.herbs.routeContractGaps.combined.recommendedTotals).reduce((sum, stats) => sum + stats.missingCount, 0)}`,
+    `- Compounds required missing (aggregate/detail/combined): ${Object.values(report.compounds.routeContractGaps.aggregate.required.totals).reduce((sum, stats) => sum + stats.missingCount, 0)}/${Object.values(report.compounds.routeContractGaps.detail.required.totals).reduce((sum, stats) => sum + stats.missingCount, 0)}/${Object.values(report.compounds.routeContractGaps.combined.requiredTotals).reduce((sum, stats) => sum + stats.missingCount, 0)}`,
+    `- Compounds recommended missing (aggregate/detail/combined): ${Object.values(report.compounds.routeContractGaps.aggregate.recommended.totals).reduce((sum, stats) => sum + stats.missingCount, 0)}/${Object.values(report.compounds.routeContractGaps.detail.recommended.totals).reduce((sum, stats) => sum + stats.missingCount, 0)}/${Object.values(report.compounds.routeContractGaps.combined.recommendedTotals).reduce((sum, stats) => sum + stats.missingCount, 0)}`,
+    '',
+    ...formatRouteContractTopGaps('Herbs', report.herbs),
+    ...formatRouteContractTopGaps('Compounds', report.compounds),
+    ...formatRouteContractTopFields('Herbs', report.herbs),
+    ...formatRouteContractTopFields('Compounds', report.compounds),
+    '## Duplicate slug counts',
+
     `- Herbs current/data-next: ${report.herbs.duplicateSlugs.current.length}/${report.herbs.duplicateSlugs.next.length}`,
     `- Compounds current/data-next: ${report.compounds.duplicateSlugs.current.length}/${report.compounds.duplicateSlugs.next.length}`,
     '',
@@ -472,10 +663,19 @@ function run() {
   const workbookHerbs = readWorkbookRows('herbs')
   const workbookCompounds = readWorkbookRows('compounds')
 
+  const nextHerbDetails = readDetailRecords('herbs')
+  const nextCompoundDetails = readDetailRecords('compounds')
+
   const report = {
     generatedAt: new Date().toISOString(),
-    herbs: buildEntityParity('herbs', currentHerbs, nextHerbs, workbookHerbs),
-    compounds: buildEntityParity('compounds', currentCompounds, nextCompounds, workbookCompounds),
+    herbs: {
+      ...buildEntityParity('herbs', currentHerbs, nextHerbs, workbookHerbs, nextHerbDetails.records),
+      detailPayloadsPresent: nextHerbDetails.present,
+    },
+    compounds: {
+      ...buildEntityParity('compounds', currentCompounds, nextCompounds, workbookCompounds, nextCompoundDetails.records),
+      detailPayloadsPresent: nextCompoundDetails.present,
+    },
   }
 
   writeOutputs(report)
