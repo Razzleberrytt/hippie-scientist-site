@@ -18,6 +18,7 @@ import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { SITE_URL, breadcrumbJsonLd, herbJsonLd } from '@/lib/seo'
 import { getCuratedData, shouldShowRawDebug } from '@/lib/semanticCompression'
 import { getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
+import { hasPlaceholderText, sanitizeSurfaceText } from '@/lib/summary'
 
 type SourceRef = { title: string; url: string; note?: string }
 
@@ -63,10 +64,16 @@ function readRecord(value: unknown): Record<string, unknown> {
 
 function readWorkbookText(raw: Record<string, unknown>, ...keys: string[]): string {
   for (const key of keys) {
-    const value = String(raw[key] || '').trim()
+    const value = sanitizeSurfaceText(raw[key])
     if (value) return value
   }
   return ''
+}
+
+function sanitizeDisplayText(value: unknown): string {
+  const text = sanitizeSurfaceText(value)
+  if (!text) return ''
+  return /^(undefined|null|nan|\[object object\])$/i.test(text) ? '' : text
 }
 
 function toEvidenceStrengthLabel(value: string) {
@@ -190,6 +197,8 @@ export default function HerbDetail() {
   const description = rawSummary || rawDescription
   const descriptionIsPlaceholder = isPlaceholder(description, herbName)
   const summary = sanitizeSummaryText(description, 2)
+  const hasValidSummary = Boolean(summary) && !descriptionIsPlaceholder && !hasPlaceholderText(summary)
+  const renderSummary = hasValidSummary ? summary : 'Profile pending review'
   const fullDescription =
     rawDescription && rawDescription !== rawSummary ? sanitizeReadableText(rawDescription) : ''
   const uniqueCopy = buildUniqueDetailCopy({
@@ -225,10 +234,10 @@ export default function HerbDetail() {
   const activeCompounds = sanitizeRenderList(splitTextList(herb.activeCompounds), 10)
   const traditionalUses = sanitizeRenderList(splitTextList(herb.traditionalUses), 8)
   const contextSummary = uniqueCopy.context
-  const dosage = String(herb.dosage || '').trim()
-  const duration = String(herb.duration || '').trim()
-  const preparation = String(herb.preparation || '').trim()
-  const standardization = String(herb.standardization || '').trim()
+  const dosage = sanitizeDisplayText(herb.dosage)
+  const duration = sanitizeDisplayText(herb.duration)
+  const preparation = sanitizeDisplayText(herb.preparation)
+  const standardization = sanitizeDisplayText(herb.standardization)
   const contraindications = splitTextList(herb.contraindications)
   const interactions = splitTextList(herb.interactions)
   const sideEffects = splitTextList(herb.sideEffects)
@@ -265,6 +274,9 @@ export default function HerbDetail() {
     priorityWarning ? `Use caution: ${priorityWarning}.` : 'Avoid if safety context, medications, or medical status are unclear.',
   ].filter(Boolean)
   const pagePath = `/herbs/${herb.slug}`
+  const seoDescription = hasValidSummary
+    ? sanitizeSurfaceText(summary)
+    : `${herbName} profile from The Hippie Scientist.`
   const relatedHerbSlugs = splitTextList(herb.relatedHerbs)
   const herbIndex = new Map<string, string>()
   herbs.forEach(item => {
@@ -312,7 +324,7 @@ export default function HerbDetail() {
     <main className='container mx-auto max-w-5xl px-4 py-8 text-white sm:py-10'>
       <Meta
         title={`${herbName} Herb Guide | The Hippie Scientist`}
-        description={`${herbName} effects, dosage context, safety notes, and sources.`}
+        description={seoDescription}
         path={pagePath}
         noindex={false}
         image={`/og/herb/${herb.slug}.png`}
@@ -320,7 +332,7 @@ export default function HerbDetail() {
           herbJsonLd({
             name: herbName,
             slug: herb.slug,
-            description: description || `${herbName} herb profile`,
+            description: hasValidSummary ? description : `${herbName} profile from The Hippie Scientist.`,
             latinName: scientificName,
           }),
           breadcrumbJsonLd([
@@ -352,8 +364,8 @@ export default function HerbDetail() {
         <header className='premium-panel fade-in-surface p-5 sm:p-7'>
           <p className='section-label'>Herb profile</p><h1 className='mt-2 text-4xl font-semibold sm:text-5xl'>{herbName}</h1>
           {scientificName && <p className='mt-1 text-sm italic text-white/55'>{scientificName}</p>}
-          {showSummaryRegion && !descriptionIsPlaceholder && hasRenderableSummary && (
-            <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>{summary}</p>
+          {showSummaryRegion && (
+            <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>{renderSummary}</p>
           )}
 
           <div className='mt-3 inline-flex rounded-full border border-white/20 bg-white/5 px-2.5 py-1 text-xs text-white/84'>
@@ -382,7 +394,7 @@ export default function HerbDetail() {
           </DisclosureSection>
         )}
 
-        {!isMinimalProfile && <DisclosureSection title='Active Compounds' defaultOpen>
+        {!isMinimalProfile && activeCompounds.length > 0 && <DisclosureSection title='Active Compounds' defaultOpen>
           {activeCompounds.length > 0 ? (
             <ul className='list-disc space-y-1 pl-5'>
               {activeCompounds.map(compound => (
@@ -399,9 +411,7 @@ export default function HerbDetail() {
                 </li>
               ))}
             </ul>
-          ) : (
-            <p>Compound list is being expanded.</p>
-          )}
+          ) : null}
         </DisclosureSection>}
 
         {!isMinimalProfile && traditionalUses.length > 0 && (
@@ -481,7 +491,7 @@ export default function HerbDetail() {
           </ul>
         </section>}
 
-        <DisclosureSection title='Research & Sources'>
+        {sources.length > 0 && <DisclosureSection title='Research & Sources'>
           {sources.length > 0 ? (
             <ol className='list-decimal space-y-1 pl-5'>
               {sources.map(source => (
@@ -503,7 +513,7 @@ export default function HerbDetail() {
               ))}
             </ol>
           ) : null}
-        </DisclosureSection>
+        </DisclosureSection>}
 
         {showRawDebug && Boolean(herb.rawData) && (
           <DisclosureSection title='Debug Raw Data'>
@@ -513,7 +523,7 @@ export default function HerbDetail() {
           </DisclosureSection>
         )}
 
-        {!isMinimalProfile && <DisclosureSection title='Related Herbs'>
+        {!isMinimalProfile && (relatedHerbs.length > 0 || relatedCompounds.length > 0) && <DisclosureSection title='Related Herbs'>
           <div className='space-y-3'>
             {relatedHerbs.length > 0 && (
               <div>

@@ -7,6 +7,7 @@ import { formatBrowseTitle } from '@/utils/titleDisplay'
 import { cleanEffectChips, sanitizeSummaryText } from '@/lib/sanitize'
 import { normalizeTagList } from '@/lib/tagNormalization'
 import { getPrimaryEffects, getProfileStatus, getSummaryQuality, resolveHeroSummary, shouldRenderSummary } from '@/lib/workbookRender'
+import { hasPlaceholderText, sanitizeSurfaceText } from '@/lib/summary'
 
 interface HerbRef {
   name: string
@@ -67,7 +68,7 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
   const hiddenHerbCount = Math.max(compound.herbsFound.length - visibleHerbs.length, 0)
   const title = formatBrowseTitle(compound.name, 60)
   const isTitleTruncated = title !== compound.name
-  const summary =
+  const summaryCandidate = sanitizeSurfaceText(
     resolveHeroSummary(rawRecord, 1) ||
     getWorkbookHero(compound) ||
     (summaryQuality === 'strong'
@@ -79,6 +80,11 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
           maxLen: 120,
         })?.trim()
       : '')
+  )
+  const summary =
+    summaryCandidate && !hasPlaceholderText(summaryCandidate)
+      ? summaryCandidate
+      : 'Profile pending review'
   const sourceLine =
     visibleHerbs.length > 0
       ? `Found in ${visibleHerbs.map(h => h.name).join(', ')}${hiddenHerbCount > 0 ? ` +${hiddenHerbCount}` : ''}`
@@ -100,7 +106,7 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
       >
         {title}
       </h2>
-      {showSummary && summary ? <p className='line-clamp-2 text-xs leading-[1.45] text-white/76'>{summary}</p> : null}
+      {showSummary ? <p className='line-clamp-2 text-xs leading-[1.45] text-white/76'>{summary}</p> : null}
       <div className='flex flex-wrap gap-1'>
         <span className='inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[0.68rem] font-medium text-white/55'>
           {normalizeTagList(confidence, { caseStyle: 'title', maxItems: 1 })[0] || confidence}

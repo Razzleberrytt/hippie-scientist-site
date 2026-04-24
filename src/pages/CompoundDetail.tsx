@@ -53,6 +53,7 @@ import { resolveGovernedCtaDecision } from '@/lib/governedCta'
 import { buildGovernedReviewFreshness } from '@/lib/governedReviewFreshness'
 import { shouldShowRawDebug } from '@/lib/semanticCompression'
 import { getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
+import { hasPlaceholderText, sanitizeSurfaceText } from '@/lib/summary'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -129,7 +130,13 @@ function dedupeRelatedLinks(items: Array<RelatedLinkItem | null | undefined>) {
 
 
 function normalizeTextValue(value: unknown): string {
-  return String(value || '').trim()
+  if (typeof value === 'string' || typeof value === 'number') {
+    const text = sanitizeSurfaceText(value)
+    if (!text) return ''
+    if (/^(undefined|null|nan|\[object object\])$/i.test(text)) return ''
+    return text
+  }
+  return ''
 }
 
 function createSectionBodyTracker() {
@@ -293,6 +300,8 @@ export default function CompoundDetail() {
     1,
   )
   const hasRenderableTopSummary = Boolean(topSummary) && !isLowQualityProse(topSummary)
+  const hasValidTopSummary = hasRenderableTopSummary && !hasPlaceholderText(topSummary)
+  const renderTopSummary = hasValidTopSummary ? topSummary : 'Profile pending review'
   const hasRenderableWhyItMatters = Boolean(whyItMatters) && !isLowQualityProse(whyItMatters)
   const hasRenderableMechanism = Boolean(compoundMechanism) && !isLowQualityProse(compoundMechanism)
   const hasRenderableContext = Boolean(contextSummary) && !isLowQualityProse(contextSummary)
@@ -492,15 +501,10 @@ export default function CompoundDetail() {
   const compoundEffectsMetaText = Array.isArray(compoundEffects)
     ? compoundEffects.join(', ').slice(0, 155)
     : ''
-  const compoundDescriptionSource = (
-    compoundDescription ||
-    compoundMechanism ||
-    compoundEffectsMetaText
-  ).trim()
-  const baseCompoundMetaDescription = formatMetaDescription(
-    compoundDescriptionSource,
-    `${name} compound guide with pharmacology, effects, and safety notes.`,
-  )
+  const compoundDescriptionSource = sanitizeSurfaceText(compoundDescription || compoundMechanism || compoundEffectsMetaText)
+  const baseCompoundMetaDescription = hasValidTopSummary && compoundDescriptionSource
+    ? formatMetaDescription(compoundDescriptionSource, `${name} profile from The Hippie Scientist.`)
+    : `${name} profile from The Hippie Scientist.`
   const baseCompoundMetaTitle = `${name} Compound Guide: Mechanism, Effects & Safety`
   const compoundMetaTitle = buildGovernedMetaTitle(
     baseCompoundMetaTitle,
@@ -569,9 +573,9 @@ export default function CompoundDetail() {
           <div className='flex flex-wrap items-start justify-between gap-3'>
             <h1 className='text-3xl font-semibold leading-tight'>{name}</h1>
           </div>
-          {shouldRenderSummary(profileStatus, summaryQuality) && hasRenderableTopSummary && (
+          {shouldRenderSummary(profileStatus, summaryQuality) && (
             <p className='mt-3 max-w-3xl text-sm leading-relaxed text-white/80'>
-              {topSummary}
+              {renderTopSummary}
             </p>
           )}
           <div className='mt-4 grid gap-3 sm:grid-cols-3'>
