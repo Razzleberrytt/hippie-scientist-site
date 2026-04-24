@@ -182,7 +182,8 @@
     "data:build:next": "node scripts/data/build-runtime-from-workbook.mjs",
     "data:parity:report": "node scripts/data/report-migration-parity.mjs",
     "typecheck": "tsc --noEmit",
-    "check": "npm run lint && npm run typecheck && npm run build"
+    "check": "npm run lint && npm run typecheck && npm run build",
+    "data:validate:next": "node scripts/data/validate-data-next.mjs"
   },
   "engines": {
     "node": ">=20 <21"
