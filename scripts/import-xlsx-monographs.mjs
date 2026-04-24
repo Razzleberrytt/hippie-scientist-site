@@ -979,6 +979,26 @@ function patchCompound(compound, row, reservedCanonicalIds, fieldPatchCounts) {
     patched = patchField(compound, 'mechanism', mechanismCandidate, fieldPatchCounts) || patched
   }
 
+  const descriptionCandidate = cleanText(row.description || row.summary)
+  if (shouldPatchScalar(compound.description, descriptionCandidate, { minCandidateLength: 20, minGain: 0 })) {
+    patched = patchField(compound, 'description', descriptionCandidate, fieldPatchCounts) || patched
+  }
+
+  const summaryCandidate = cleanText(row.summary || row.description)
+  if (shouldPatchScalar(compound.summary, summaryCandidate, { minCandidateLength: 20, minGain: 0 })) {
+    patched = patchField(compound, 'summary', summaryCandidate, fieldPatchCounts) || patched
+  }
+
+  const foundInCandidate = dedupeStrings(splitSemicolonDelimited(row.foundIn))
+  if (shouldPatchArray(compound.foundIn, foundInCandidate, { minItems: 1, minGain: 0 })) {
+    patched = patchField(compound, 'foundIn', foundInCandidate, fieldPatchCounts) || patched
+  }
+
+  const targetsCandidate = dedupeStrings(splitSemicolonDelimited(row.targets))
+  if (shouldPatchArray(compound.targets, targetsCandidate, { minItems: 1, minGain: 0 })) {
+    patched = patchField(compound, 'targets', targetsCandidate, fieldPatchCounts) || patched
+  }
+
   const effectsCandidate = dedupeStrings([
     ...splitSemicolonDelimited(row.mechanismTags),
     ...splitSemicolonDelimited(row.pathwayTargets),
