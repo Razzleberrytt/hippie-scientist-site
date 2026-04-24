@@ -64,6 +64,16 @@ function pickFirstDataFile(paths) {
   return []
 }
 
+function readDetailJson(dir, slug) {
+  const file = path.join(ROOT, 'public', 'data', dir, `${slug}.json`)
+  if (!fs.existsSync(file)) return null
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8'))
+  } catch {
+    return null
+  }
+}
+
 const blogPosts = readJson('src/data/blog/posts.json')
 const herbs = pickFirstDataFile([
   'public/data/herbs_combined_updated.json',
@@ -352,7 +362,7 @@ function renderRouteContent(route) {
 
   if (route.startsWith('/herbs/')) {
     const slug = route.split('/').pop() || ''
-    const herb = herbBySlug.get(slug)
+    const herb = readDetailJson('herbs-detail', slug) || herbBySlug.get(slug)
     const displayName = safeStr(herb?.common) || safeStr(herb?.commonName) || safeStr(herb?.name) || slug
     const name = escapeHtml(displayName)
     const description = escapeHtml(
@@ -378,7 +388,7 @@ function renderRouteContent(route) {
 
   if (route.startsWith('/compounds/')) {
     const slug = route.split('/').pop() || ''
-    const compound = compoundBySlug.get(slug)
+    const compound = readDetailJson('compounds-detail', slug) || compoundBySlug.get(slug)
     const name = escapeHtml(textFrom(compound?.name, slug))
     const description = escapeHtml(inferCompoundDescription(compound, textFrom(compound?.name, slug)))
     const effects = textList(compound?.effects, 8)
@@ -481,7 +491,7 @@ function renderPrerenderNoscript(route) {
 
   if (route.startsWith('/herbs/')) {
     const slug = route.split('/').pop() || ''
-    const herb = herbBySlug.get(slug)
+    const herb = readDetailJson('herbs-detail', slug) || herbBySlug.get(slug)
     const displayName = safeStr(herb?.common) || safeStr(herb?.commonName) || safeStr(herb?.name) || slug
     const description = trimToChars(
       safeStr(herb?.description) || safeStr(herb?.summary) || `${displayName} herb profile.`,
@@ -530,7 +540,7 @@ function renderPrerenderNoscript(route) {
 
   if (route.startsWith('/compounds/')) {
     const slug = route.split('/').pop() || ''
-    const compound = compoundBySlug.get(slug)
+    const compound = readDetailJson('compounds-detail', slug) || compoundBySlug.get(slug)
     const name = textFrom(compound?.name, slug)
     const description = trimToChars(
       textFrom(compound?.description, compound?.summary, `${name || slug} compound profile.`),
