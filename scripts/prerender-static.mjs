@@ -64,6 +64,28 @@ function pickFirstDataFile(paths) {
   return []
 }
 
+function readDetailDataFiles(dir) {
+  const fullDir = path.join(ROOT, 'public', 'data', dir)
+  if (!fs.existsSync(fullDir)) return []
+  const files = fs
+    .readdirSync(fullDir, { withFileTypes: true })
+    .filter(entry => entry.isFile() && entry.name.endsWith('.json'))
+    .map(entry => path.join(fullDir, entry.name))
+
+  const records = []
+  for (const filePath of files) {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        records.push(parsed)
+      }
+    } catch {
+      // ignore unreadable detail records
+    }
+  }
+  return records
+}
+
 function readDetailJson(dir, slug) {
   const file = path.join(ROOT, 'public', 'data', dir, `${slug}.json`)
   if (!fs.existsSync(file)) return null
@@ -76,31 +98,31 @@ function readDetailJson(dir, slug) {
 
 const blogPosts = readJson('src/data/blog/posts.json')
 const herbs = pickFirstDataFile([
-  'public/data/workbook-herbs.json',
-  'public/data/herbs_combined_updated.json',
   'public/data/herbs.json',
+  'public/data/herbs-summary.json',
 ])
+const herbRecords = herbs.length > 0 ? herbs : readDetailDataFiles('herbs-detail')
 const compounds = pickFirstDataFile([
-  'public/data/workbook-compounds.json',
-  'public/data/compounds_combined_updated.json',
   'public/data/compounds.json',
+  'public/data/compounds-summary.json',
 ])
+const compoundRecords = compounds.length > 0 ? compounds : readDetailDataFiles('compounds-detail')
 
 const blogBySlug = new Map(blogPosts.map(post => [String(post?.slug || ''), post]))
 const herbBySlug = new Map(
-  herbs.map(record => {
+  herbRecords.map(record => {
     const slug = String(record?.slug || '').trim()
     return [slug, record]
   })
 )
 const compoundBySlug = new Map(
-  compounds.map(record => {
+  compoundRecords.map(record => {
     const slug = String(record?.slug || '').trim()
     return [slug, record]
   })
 )
 
-const herbCardsFromManifest = herbs
+const herbCardsFromManifest = herbRecords
   .map(item => {
     const slug = String(item?.slug || '').trim()
     if (!slug) return null
@@ -109,7 +131,7 @@ const herbCardsFromManifest = herbs
   .filter(Boolean)
   .slice(0, 20)
 
-const compoundCardsFromManifest = compounds
+const compoundCardsFromManifest = compoundRecords
   .map(item => {
     const slug = String(item?.slug || '').trim()
     if (!slug) return null

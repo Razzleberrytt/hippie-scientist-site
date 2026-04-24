@@ -113,23 +113,26 @@ function pickEntityData(primaryPath, fallbackPath) {
   return readJson(fallbackPath)
 }
 
+function readDetailSlugs(detailDir) {
+  const fullDir = path.resolve(__dirname, '..', 'public', 'data', detailDir)
+  if (!fs.existsSync(fullDir)) return []
+  return fs
+    .readdirSync(fullDir, { withFileTypes: true })
+    .filter(entry => entry.isFile() && entry.name.endsWith('.json'))
+    .map(entry => entry.name.replace(/\.json$/i, '').trim())
+    .filter(Boolean)
+}
+
 function buildSitemap() {
   const { sitemapRoutes, sitemapMeta, disallowedRoutes } = getSharedRouteManifest()
-  const herbs = pickEntityData('public/data/herbs_combined_updated.json', 'public/data/herbs.json')
-  const compounds = pickEntityData('public/data/compounds_combined_updated.json', 'public/data/compounds.json')
+  const herbs = pickEntityData('public/data/herbs.json', 'public/data/herbs-summary.json')
+  const compounds = pickEntityData('public/data/compounds.json', 'public/data/compounds-summary.json')
   const blogEntries = getBlogEntries(readJson('public/blogdata/index.json'))
-  const herbRoutes = normalizeRoutes(
-    herbs
-      .map(getHerbSlug)
-      .filter(Boolean)
-      .map(slug => `/herbs/${slug}`),
-  )
-  const compoundRoutes = normalizeRoutes(
-    compounds
-      .map(getCompoundSlug)
-      .filter(Boolean)
-      .map(slug => `/compounds/${slug}`),
-  )
+  const herbSlugs = herbs.length > 0 ? herbs.map(getHerbSlug).filter(Boolean) : readDetailSlugs('herbs-detail')
+  const compoundSlugs =
+    compounds.length > 0 ? compounds.map(getCompoundSlug).filter(Boolean) : readDetailSlugs('compounds-detail')
+  const herbRoutes = normalizeRoutes(herbSlugs.map(slug => `/herbs/${slug}`))
+  const compoundRoutes = normalizeRoutes(compoundSlugs.map(slug => `/compounds/${slug}`))
 
   const blockedRoutes = new Set(disallowedRoutes.map(route => normalizePathname(route)))
   const staticRoutes = normalizeRoutes(sitemapRoutes).filter(route => !blockedRoutes.has(route))

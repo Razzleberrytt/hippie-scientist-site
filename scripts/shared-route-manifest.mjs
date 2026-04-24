@@ -251,6 +251,27 @@ function pickFirstDataFile(paths) {
   return []
 }
 
+function readDetailDataFiles(dir) {
+  const fullDir = path.join(ROOT, 'public', 'data', dir)
+  if (!fs.existsSync(fullDir)) return []
+  const files = fs
+    .readdirSync(fullDir, { withFileTypes: true })
+    .filter(entry => entry.isFile() && entry.name.endsWith('.json'))
+    .map(entry => path.join(fullDir, entry.name))
+  const records = []
+  for (const filePath of files) {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        records.push(parsed)
+      }
+    } catch {
+      // ignore malformed detail files
+    }
+  }
+  return records
+}
+
 const readText = relativePath => {
   const fullPath = path.join(ROOT, relativePath)
   return fs.existsSync(fullPath) ? fs.readFileSync(fullPath, 'utf8') : ''
@@ -704,16 +725,14 @@ export function getSharedRouteManifest() {
   })
 
   const learningAllowlist = extractLearningRouteAllowlist()
-  const herbRecords = pickFirstDataFile([
-    'public/data/herbs_combined_updated.json',
-    'public/data/workbook-herbs.json',
-    'public/data/herbs.json',
-  ])
-  const compoundRecords = pickFirstDataFile([
-    'public/data/workbook-compounds.json',
-    'public/data/compounds_combined_updated.json',
+  const herbSeedRecords = pickFirstDataFile(['public/data/herbs.json', 'public/data/herbs-summary.json'])
+  const herbRecords = herbSeedRecords.length > 0 ? herbSeedRecords : readDetailDataFiles('herbs-detail')
+  const compoundSeedRecords = pickFirstDataFile([
     'public/data/compounds.json',
+    'public/data/compounds-summary.json',
   ])
+  const compoundRecords =
+    compoundSeedRecords.length > 0 ? compoundSeedRecords : readDetailDataFiles('compounds-detail')
   const prioritizeAllowlist = (entries, allowlist) => {
     const byRoute = new Map(entries.map(entry => [entry.route, entry]))
     const prioritized = []
