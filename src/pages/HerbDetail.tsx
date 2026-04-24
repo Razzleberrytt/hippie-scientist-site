@@ -185,10 +185,13 @@ export default function HerbDetail() {
   const summaryQuality = getSummaryQuality(rawRecord)
   const isMinimalProfile = profileStatus === 'minimal'
   const showSummaryRegion = shouldRenderSummary(profileStatus, summaryQuality)
-  const description = String(herb.summary || herb.description || '').trim() || String(curatedData.summary || '').trim()
+  const rawSummary = String(herb.summary || '').trim() || String(curatedData.summary || '').trim()
+  const rawDescription = String(herb.description || '').trim()
+  const description = rawSummary || rawDescription
   const descriptionIsPlaceholder = isPlaceholder(description, herbName)
   const summary = sanitizeSummaryText(description, 2)
-  const fullDescription = sanitizeReadableText(description)
+  const fullDescription =
+    rawDescription && rawDescription !== rawSummary ? sanitizeReadableText(rawDescription) : ''
   const uniqueCopy = buildUniqueDetailCopy({
     hero: summary,
     overview: sanitizeSummaryText(
