@@ -183,7 +183,8 @@
     "data:parity:report": "node scripts/data/report-migration-parity.mjs",
     "typecheck": "tsc --noEmit",
     "check": "npm run lint && npm run typecheck && npm run build",
-    "data:validate:next": "node scripts/data/validate-data-next.mjs"
+    "data:validate:next": "node scripts/data/validate-data-next.mjs",
+    "data:coverage:next": "node scripts/data/report-workbook-parser-coverage.mjs"
   },
   "engines": {
     "node": ">=20 <21"
