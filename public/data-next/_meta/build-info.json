@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-04-24T16:22:42.535Z",
+  "source": {
+    "workbookPath": "/workspace/hippie-scientist-site/data-sources/herb_monograph_master.xlsx",
+    "sheets": {
+      "herbs": "Herb Master Clean",
+      "compounds": "Compound Master V3",
+      "herbCompoundMap": "Herb Compound Map V3",
+      "claimRows": "Claim Rows"
+    }
+  },
+  "counts": {
+    "herbs": 285,
+    "compounds": 235,
+    "herbsSummary": 285,
+    "compoundsSummary": 235,
+    "claimRows": 4349,
+    "skippedHerbs": 0,
+    "skippedCompounds": 0
+  }
+}

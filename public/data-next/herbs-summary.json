@@ -1,0 +1,2852 @@
+[
+  {
+    "name": "acerola",
+    "slug": "acerola",
+    "summary": "It is best framed as a vitamin-C-rich fruit botanical with food/supplement relevance.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "agarikon",
+    "slug": "agarikon",
+    "summary": "It should be framed modestly because traditional use is much stronger than modern evidence.",
+    "evidenceLevel": "traditional",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "ajwain",
+    "slug": "ajwain",
+    "summary": "It is best framed as a culinary-medicinal seed with strong traditional GI positioning.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "aloe vera",
+    "slug": "aloe-vera",
+    "summary": "Internal cross-linking supports Aloe Vera through compounds such as aloin.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 17,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "american ginseng",
+    "slug": "american-ginseng",
+    "summary": "Internal cross-linking supports American Ginseng through compounds such as ginsenosides (including rb1, rg1), rb2.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 17,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "american yellow lotus",
+    "slug": "american-yellow-lotus",
+    "summary": "Internal cross-linking supports American Yellow Lotus through compounds such as nuciferine, roemerine, n-methylasimilobine.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "andrographis paniculata",
+    "slug": "andrographis-paniculata",
+    "summary": "Andrographis paniculata lean herb row for high-speed phytochemical ingestion.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "anemarrhena asphodeloides",
+    "slug": "anemarrhena-asphodeloides",
+    "summary": "Anemarrhena asphodeloides contains Timosaponin AIII and is linked here to PI3K/Akt modulation.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "angelica archangelica",
+    "slug": "angelica-archangelica",
+    "summary": "Angelica archangelica lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "angelica dahurica",
+    "slug": "angelica-dahurica",
+    "summary": "Angelica dahurica lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "angelica pubescens",
+    "slug": "angelica-pubescens",
+    "summary": "Angelica pubescens lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "angelica root",
+    "slug": "angelica-root",
+    "summary": "It should be framed carefully because furanocoumarin context matters for some use cases.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "angelica sinensis",
+    "slug": "angelica-sinensis",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 11,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "anise hyssop",
+    "slug": "anise-hyssop",
+    "summary": "Internal cross-linking supports Anise Hyssop through compounds such as limonene, anethole, estragole.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "arjuna",
+    "slug": "arjuna",
+    "summary": "It is best framed around bark polyphenols and triterpenes with specific cardiotonic-support positioning.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "artemisia absinthium",
+    "slug": "artemisia-absinthium",
+    "summary": "Artemisia absinthium contains Thujone and is linked here to GABA-A receptor antagonism.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "artemisia annua",
+    "slug": "artemisia-annua",
+    "summary": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 17,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "artemisia capillaris",
+    "slug": "artemisia-capillaris",
+    "summary": "Artemisia capillaris lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "artichoke",
+    "slug": "artichoke",
+    "summary": "It is best framed around bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 12,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "ashitaba",
+    "slug": "ashitaba",
+    "summary": "It is best framed around chalcone-rich chemistry with modest translational evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "ashoka",
+    "slug": "ashoka",
+    "summary": "It should be framed conservatively because traditional gynecologic use is much stronger than modern evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "ashwagandha",
+    "slug": "ashwagandha",
+    "summary": "Ashwagandha centers on the root.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 33,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "astragalus",
+    "slug": "astragalus",
+    "summary": "It is best framed around astragalosides and polysaccharides.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "astragalus membranaceus",
+    "slug": "astragalus-membranaceus",
+    "summary": "Astragalus membranaceus contains Astragaloside IV and is linked here to PI3K/Akt modulation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 15,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "atractylodes",
+    "slug": "atractylodes",
+    "summary": "It is best framed as a digestive-tonic rhizome with traditional-system relevance.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "atractylodes macrocephala",
+    "slug": "atractylodes-macrocephala",
+    "summary": "Atractylodes macrocephala contains Atractylenolide I and is linked here to PI3K/Akt modulation.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "bacopa",
+    "slug": "bacopa",
+    "summary": "It is best framed around bacosides with slower-onset cognitive relevance.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "bacopa monnieri",
+    "slug": "bacopa-monnieri",
+    "summary": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 15,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "bael",
+    "slug": "bael",
+    "summary": "Internal cross-linking supports Bael through compounds such as skimmianine, aegeline, marmelosin.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "banaba",
+    "slug": "banaba",
+    "summary": "It is best framed conservatively because evidence quality and standardization vary across products.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "bayberry",
+    "slug": "bayberry",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "berberis",
+    "slug": "berberis",
+    "summary": "It is best framed around berberine-bearing root bark with GI and medication-interaction caution.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "berberis vulgaris",
+    "slug": "berberis-vulgaris",
+    "summary": "Berberis vulgaris lean herb row for high-speed phytochemical ingestion.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 16,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "bitter melon",
+    "slug": "bitter-melon",
+    "summary": "It is best framed as a food-medicine with hypoglycemia-aware caution.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 12,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "black cohosh",
+    "slug": "black-cohosh",
+    "summary": "Black Cohosh centers on the root; rhizome.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 22,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "black pepper",
+    "slug": "black-pepper",
+    "summary": "It should be framed specifically around piperine and digestive relevance rather than as a stand-alone tonic.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "black seed",
+    "slug": "black-seed",
+    "summary": "Bulk-ingested support row carrying Thymoquinone with pathway-level mechanism coverage.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "black tea",
+    "slug": "black-tea",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "blue lotus",
+    "slug": "blue-lotus",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "blueberry",
+    "slug": "blueberry",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "boldo",
+    "slug": "boldo",
+    "summary": "It is best framed as an aromatic bitter leaf botanical with modest human evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "boswellia",
+    "slug": "boswellia",
+    "summary": "It is best framed around boswellic acids with inflammatory-pathway relevance.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "boswellia carterii",
+    "slug": "boswellia-carterii",
+    "summary": "It is best framed around boswellic acids with 5-lipoxygenase relevance.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "boswellia serrata",
+    "slug": "boswellia-serrata",
+    "summary": "Boswellia serrata contains Boswellic acid and is linked here to 5-lipoxygenase inhibition.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "brassica juncea",
+    "slug": "brassica-juncea",
+    "summary": "Minimum source-backed intake for Brassica juncea.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "brassica oleracea",
+    "slug": "brassica-oleracea",
+    "summary": "Minimum source-backed intake for Brassica oleracea.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "buckwheat",
+    "slug": "buckwheat",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "bupleurum",
+    "slug": "bupleurum",
+    "summary": "It should be framed conservatively because traditional-system context matters more than casual wellness claims.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "bupleurum falcatum",
+    "slug": "bupleurum-falcatum",
+    "summary": "Lean bulk ingestion row for Bupleurum falcatum.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "burdock",
+    "slug": "burdock",
+    "summary": "It is best framed as a traditional root botanical with modest modern evidence rather than a definitive detox herb.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "butterbur",
+    "slug": "butterbur",
+    "summary": "Butterbur is a sesquiterpene-rich herb usually discussed around standardized root extracts.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 13,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "cacao",
+    "slug": "cacao",
+    "summary": "It is best framed around flavanols and methylxanthines with stimulant awareness.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 14,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "calamus",
+    "slug": "calamus",
+    "summary": "Internal cross-linking supports Calamus through compounds such as eugenol, alpha-asarone, beta-asarone.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 11,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "calendula",
+    "slug": "calendula",
+    "summary": "It is best framed around topical and tissue-soothing use rather than overextended systemic claims.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "capsicum frutescens",
+    "slug": "capsicum-frutescens",
+    "summary": "Pepper species used for topical and metabolic effects.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 4,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "caraway",
+    "slug": "caraway",
+    "summary": "It is best framed as an aromatic seed with traditional GI relevance.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "cardamom",
+    "slug": "cardamom",
+    "summary": "It is best framed as an aromatic culinary seed with modest translational evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "carob",
+    "slug": "carob",
+    "summary": "It is best framed as a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "cassia alata",
+    "slug": "cassia-alata",
+    "summary": "Internal cross-linking supports Cassia Alata through compounds such as aloe-emodin, chrysophanol.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "cat's claw",
+    "slug": "cat-s-claw",
+    "summary": "It is best framed around oxindole alkaloids with autoimmune and transplant-related caution.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "catuba",
+    "slug": "catuba",
+    "summary": "It should be framed conservatively because traditional aphrodisiac narratives exceed modern evidence depth.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "cayenne",
+    "slug": "cayenne",
+    "summary": "Internal cross-linking supports Cayenne through compounds such as capsaicin, capsorubin, dihydrocapsaicin.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "celastrus paniculatus",
+    "slug": "celastrus-paniculatus",
+    "summary": "Internal cross-linking supports Celastrus Paniculatus through compounds such as beta-amyrin, celastrine, lupeol.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "centella asiatica",
+    "slug": "centella-asiatica",
+    "summary": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 18,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "chaga",
+    "slug": "chaga",
+    "summary": "Oxidative stress.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "chamomile",
+    "slug": "chamomile",
+    "summary": "It is best handled as a gentle calming botanical with broad traditional use and modest clinical depth.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "chinese skullcap",
+    "slug": "chinese-skullcap",
+    "summary": "Internal cross-linking supports Chinese Skullcap through compounds such as baicalein, baicalin, wogonin.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "chuanxiong",
+    "slug": "chuanxiong",
+    "summary": "Internal cross-linking supports Chuanxiong through compounds such as ligustilide, ferulic acid, tetramethylpyrazine.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "cichorium intybus",
+    "slug": "cichorium-intybus",
+    "summary": "Cichorium intybus lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "cinnamon",
+    "slug": "cinnamon",
+    "summary": "It is best framed conservatively because product form and species matter, especially around coumarin exposure in non-verum types.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 15,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "cissus",
+    "slug": "cissus",
+    "summary": "It is best framed conservatively because evidence is mixed and product positioning often outruns the data.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "cistanche",
+    "slug": "cistanche",
+    "summary": "It should be framed conservatively because traditional-system use is broader than modern clinical depth.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "cistanche deserticola",
+    "slug": "cistanche-deserticola",
+    "summary": "Cistanche deserticola contains Echinacoside and is linked here to PI3K/Akt modulation.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "citrus bergamia",
+    "slug": "citrus-bergamia",
+    "summary": "Citrus bergamia lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "citrus sinensis",
+    "slug": "citrus-sinensis",
+    "summary": "Lean bulk ingestion row for Citrus sinensis.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "clove",
+    "slug": "clove",
+    "summary": "Bulk-ingested support row carrying Eugenol with pathway-level mechanism coverage.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "cnidium monnieri",
+    "slug": "cnidium-monnieri",
+    "summary": "Cnidium monnieri lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "codonopsis",
+    "slug": "codonopsis",
+    "summary": "It is best framed as a gentler tonic-style root with modest modern evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "coffee",
+    "slug": "coffee",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "coffee cherry",
+    "slug": "coffee-cherry",
+    "summary": "Internal cross-linking supports Coffee Cherry through compounds such as caffeine, trigonelline, cafestol.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 13,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "coleus forskohlii",
+    "slug": "coleus-forskohlii",
+    "summary": "Coleus forskohlii contains Forskolin and is linked here to adenylyl cyclase activation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "commiphora mukul",
+    "slug": "commiphora-mukul",
+    "summary": "Commiphora mukul contains Guggulsterone and is linked here to FXR antagonism.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "coptis",
+    "slug": "coptis",
+    "summary": "Internal cross-linking supports Coptis through compounds such as berberine, palmatine, coptisine.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 11,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "coptis chinensis",
+    "slug": "coptis-chinensis",
+    "summary": "Coptis chinensis lean herb row for high-speed phytochemical ingestion.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "cordyceps",
+    "slug": "cordyceps",
+    "summary": "Cordyceps militaris is most often discussed around cordycepin plus polysaccharides and related nucleosides.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 12,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "coriandrum sativum",
+    "slug": "coriandrum-sativum",
+    "summary": "Coriandrum sativum lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "cornus officinalis",
+    "slug": "cornus-officinalis",
+    "summary": "Cornus officinalis contains Loganin and is linked here to PI3K/Akt modulation.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "corydalis",
+    "slug": "corydalis",
+    "summary": "Internal cross-linking supports Corydalis through compounds such as corydaline, isocorypalmine, dehydrocorybulbine.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "cranberry",
+    "slug": "cranberry",
+    "summary": "It is best framed around proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "crocus sativus",
+    "slug": "crocus-sativus",
+    "summary": "Lean bulk ingestion row for Crocus sativus.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "curcuma longa",
+    "slug": "curcuma-longa",
+    "summary": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "curcuma wenyujin",
+    "slug": "curcuma-wenyujin",
+    "summary": "Curcuma wenyujin contains Beta-elemene and is linked here to PI3K/Akt modulation.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "curcuma zedoaria",
+    "slug": "curcuma-zedoaria",
+    "summary": "Curcuma zedoaria contains Curcumol and is linked here to NF-κB inhibition.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "curry leaf",
+    "slug": "curry-leaf",
+    "summary": "It is best framed as a culinary-medicinal leaf with food-form relevance.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "cyclea peltata",
+    "slug": "cyclea-peltata",
+    "summary": "Cyclea peltata lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "cymbopogon citratus",
+    "slug": "cymbopogon-citratus",
+    "summary": "Cymbopogon citratus contains Nerolidol and is linked here to GABA-A modulation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "damiana",
+    "slug": "damiana",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "dandelion",
+    "slug": "dandelion",
+    "summary": "It is best framed as a traditional food-like bitter herb rather than a strong cleansing intervention.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 3,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "danshen",
+    "slug": "danshen",
+    "summary": "It is best framed around tanshinones and salvianolic acids with specific vascular-support positioning.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "daphne odora",
+    "slug": "daphne-odora",
+    "summary": "Daphne odora lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "dendrobium",
+    "slug": "dendrobium",
+    "summary": "It should be framed conservatively because luxury-tonic narratives often exceed evidence depth.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "dong quai",
+    "slug": "dong-quai",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "echinacea purpurea",
+    "slug": "echinacea-purpurea",
+    "summary": "Echinacea Purpurea centers on the unspecified.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 3,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "elderberry",
+    "slug": "elderberry",
+    "summary": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "elecampane",
+    "slug": "elecampane",
+    "summary": "It is best framed as a bitter aromatic root with traditional bronchial relevance.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "elephantopus scaber",
+    "slug": "elephantopus-scaber",
+    "summary": "Elephantopus scaber contains Deoxyelephantopin and is linked here to NF-κB inhibition.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "eleuthero",
+    "slug": "eleuthero",
+    "summary": "Stress resilience.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 17,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "embelia ribes",
+    "slug": "embelia-ribes",
+    "summary": "Embelia ribes contains Embelin and is linked here to XIAP inhibition.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "epimedium",
+    "slug": "epimedium",
+    "summary": "Epimedium is represented here primarily through icariin and related prenylated flavonoids such as epimedin A, B, and C.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 14,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "epimedium brevicornum",
+    "slug": "epimedium-brevicornum",
+    "summary": "Minimum source-backed intake for Epimedium brevicornum.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 11,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "eucalyptus",
+    "slug": "eucalyptus",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "eucommia",
+    "slug": "eucommia",
+    "summary": "It is best framed conservatively because traditional tonic use is broader than modern evidence quality.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "fennel",
+    "slug": "fennel",
+    "summary": "It is best handled as an aromatic seed botanical with traditional GI-support use and modest mechanistic confidence.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 15,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "fenugreek",
+    "slug": "fenugreek",
+    "summary": "Fenugreek lean herb row for high-speed phytochemical ingestion.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "feverfew",
+    "slug": "feverfew",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "ficus carica",
+    "slug": "ficus-carica",
+    "summary": "Ficus carica lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "fingerroot",
+    "slug": "fingerroot",
+    "summary": "Internal cross-linking supports Fingerroot through compounds such as pinostrobin, pinocembrin, panduratin a.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "fraxinus rhynchophylla",
+    "slug": "fraxinus-rhynchophylla",
+    "summary": "Fraxinus rhynchophylla lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "galangal",
+    "slug": "galangal",
+    "summary": "It is best framed as a culinary-medicinal rhizome with traditional GI relevance.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "garcinia indica",
+    "slug": "garcinia-indica",
+    "summary": "Garcinia indica contains Garcinol and is linked here to NF-κB inhibition.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "garcinia mangostana",
+    "slug": "garcinia-mangostana",
+    "summary": "Garcinia mangostana contains Mangostin and is linked here to NF-κB inhibition.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "garlic",
+    "slug": "garlic",
+    "summary": "Garlic centers on the unspecified.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 2,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "gastrodia",
+    "slug": "gastrodia",
+    "summary": "It should be framed conservatively because traditional neurologic use is broader than modern evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "ginger",
+    "slug": "ginger",
+    "summary": "Ginger centers on the unspecified.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 2,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "ginkgo biloba",
+    "slug": "ginkgo-biloba",
+    "summary": "Ginkgo Biloba centers on the leaf.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 43,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "glycyrrhiza glabra",
+    "slug": "glycyrrhiza-glabra",
+    "summary": "Lean bulk ingestion row for Glycyrrhiza glabra.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 24,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "goldenseal",
+    "slug": "goldenseal",
+    "summary": "Internal cross-linking supports Goldenseal through compounds such as berberine, hydrastine.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 13,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "gotu kola",
+    "slug": "gotu-kola",
+    "summary": "NO support.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "grape",
+    "slug": "grape",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "grapefruit",
+    "slug": "grapefruit",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "green tea",
+    "slug": "green-tea",
+    "summary": "Internal cross-linking supports Green Tea through compounds such as caffeine, theanine, catechins (egcg).",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 39,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "guarana",
+    "slug": "guarana",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "guayusa",
+    "slug": "guayusa",
+    "summary": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "gudmar",
+    "slug": "gudmar",
+    "summary": "It should be framed consistently with gymnema while preserving alternate-name discoverability.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "gymnema",
+    "slug": "gymnema",
+    "summary": "Gymnema leaf is mainly anchored by gymnemic acids, a triterpene-glycoside cluster.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 12,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "gymnema sylvestre",
+    "slug": "gymnema-sylvestre",
+    "summary": "Gymnema sylvestre contains Gymnemagenin and is linked here to glucose absorption modulation.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "harpagophytum procumbens",
+    "slug": "harpagophytum-procumbens",
+    "summary": "Harpagophytum procumbens contains Harpagoside and is linked here to COX inhibition.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "hawthorn",
+    "slug": "hawthorn",
+    "summary": "It is best framed around procyanidins and flavonoids.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 2,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "holy basil",
+    "slug": "holy-basil",
+    "summary": "Holy Basil centers on the leaf; aerial parts.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 28,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "holy basil purple",
+    "slug": "holy-basil-purple",
+    "summary": "It should be framed similarly to tulsi while noting cultivar/form distinctions are secondary to constituent variability.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "holy basil seed",
+    "slug": "holy-basil-seed",
+    "summary": "It should be framed distinctly from holy basil leaf because fiber and mucilage drive different use-cases.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "honeysuckle",
+    "slug": "honeysuckle",
+    "summary": "Internal cross-linking supports Honeysuckle through compounds such as luteolin, chlorogenic acid.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "hops",
+    "slug": "hops",
+    "summary": "It is best framed around bitter-resin and prenylflavonoid chemistry with modest selected human evidence.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "horse chestnut",
+    "slug": "horse-chestnut",
+    "summary": "Internal cross-linking supports Horse Chestnut through compounds such as aesculin, aescin, fraxin.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "houttuynia",
+    "slug": "houttuynia",
+    "summary": "It should be framed cautiously because strong folklore claims exceed the evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "huperzia serrata",
+    "slug": "huperzia-serrata",
+    "summary": "Huperzia serrata contains Huperzine A and is linked here to acetylcholinesterase inhibition.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "hypericum perforatum",
+    "slug": "hypericum-perforatum",
+    "summary": "Hypericum perforatum contains Hyperforin and is linked here to TRPC6 channel modulation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 25,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "isatis",
+    "slug": "isatis",
+    "summary": "It is best framed as a traditional-use herb with limited modern clinical depth.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "japanese knotweed",
+    "slug": "japanese-knotweed",
+    "summary": "Bulk-ingested support row carrying Emodin with pathway-level mechanism coverage.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "jatamansi",
+    "slug": "jatamansi",
+    "summary": "It should be framed as a traditional aromatic rhizome with modest clinical depth.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "jujube",
+    "slug": "jujube",
+    "summary": "It is best framed as a food-like fruit/seed botanical with gentle traditional positioning.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "juniper",
+    "slug": "juniper",
+    "summary": "It should be framed as an aromatic berry botanical with traditional GI and urinary relevance.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "kanna",
+    "slug": "kanna",
+    "summary": "Internal cross-linking supports Kanna through compounds such as mesembrenone, mesembranol, mesembrine.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "kava",
+    "slug": "kava",
+    "summary": "Kava centers on the root; rhizome.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 23,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "kuding tea",
+    "slug": "kuding-tea",
+    "summary": "It should be framed as a bitter tea botanical with food-form relevance and modest modern evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "kudzu",
+    "slug": "kudzu",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "lagerstroemia speciosa",
+    "slug": "lagerstroemia-speciosa",
+    "summary": "Lagerstroemia speciosa contains Corosolic acid and is linked here to AMPK activation.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "lavandula angustifolia",
+    "slug": "lavandula-angustifolia",
+    "summary": "Lean bulk ingestion row for Lavandula angustifolia.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "lavender",
+    "slug": "lavender",
+    "summary": "It is best framed around volatile oils with sedation-aware positioning.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "lawsonia inermis",
+    "slug": "lawsonia-inermis",
+    "summary": "Lawsonia inermis contains Lawsone and is linked here to MAPK pathway modulation.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "lemon balm",
+    "slug": "lemon-balm",
+    "summary": "Lemon Balm centers on the leaf; aerial parts.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 14,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "lemon verbena",
+    "slug": "lemon-verbena",
+    "summary": "It is best framed as a gentle aromatic botanical with modest evidence and pleasant tolerability.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "lemongrass",
+    "slug": "lemongrass",
+    "summary": "It is best framed as an aromatic culinary-medicinal grass with modest clinical depth.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "licorice",
+    "slug": "licorice",
+    "summary": "Internal cross-linking supports Licorice through compounds such as glycyrrhizin.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "ligusticum chuanxiong",
+    "slug": "ligusticum-chuanxiong",
+    "summary": "Ligusticum chuanxiong lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "lion's mane",
+    "slug": "lion-s-mane",
+    "summary": "NGF stimulation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "lithospermum erythrorhizon",
+    "slug": "lithospermum-erythrorhizon",
+    "summary": "Lithospermum erythrorhizon contains Shikonin and is linked here to PKM2 inhibition.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "lobelia inflata",
+    "slug": "lobelia-inflata",
+    "summary": "Lobelia inflata contains Lobeline and is linked here to nicotinic acetylcholine receptor modulation.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "longan",
+    "slug": "longan",
+    "summary": "It should be framed as a food-like fruit botanical with modest modern evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "luo han guo",
+    "slug": "luo-han-guo",
+    "summary": "It is best framed as a fruit botanical with sweet mogrosides and soothing traditional use.",
+    "evidenceLevel": "traditional",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "maca",
+    "slug": "maca",
+    "summary": "Maca centers on the root; hypocotyl.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 15,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "maitake d-fraction",
+    "slug": "maitake-d-fraction",
+    "summary": "It should be framed distinctly from whole maitake because extract-standardization claims can exceed the underlying evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "mangifera indica",
+    "slug": "mangifera-indica",
+    "summary": "Mangifera indica contains Mangiferin and is linked here to AMPK activation.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "mangosteen",
+    "slug": "mangosteen",
+    "summary": "It should be framed conservatively because broad anti-inflammatory and disease claims outrun the evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "maral root",
+    "slug": "maral-root",
+    "summary": "It is best framed carefully because ecdysteroid narratives often outpace evidence quality.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "marshmallow",
+    "slug": "marshmallow",
+    "summary": "Internal cross-linking supports Marshmallow through compounds such as pectin.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "matricaria chamomilla",
+    "slug": "matricaria-chamomilla",
+    "summary": "Matricaria chamomilla contains Farnesol and is linked here to PPAR activation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "milk oats",
+    "slug": "milk-oats",
+    "summary": "They are best framed as a gentle traditional tonic rather than a strong acute intervention.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "milk thistle",
+    "slug": "milk-thistle",
+    "summary": "Milk Thistle centers on the seed; fruit.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 35,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "morinda citrifolia",
+    "slug": "morinda-citrifolia",
+    "summary": "Morinda citrifolia lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "moringa",
+    "slug": "moringa",
+    "summary": "It is best framed as a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood cure-all.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 17,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "morus alba",
+    "slug": "morus-alba",
+    "summary": "Morus alba contains Mulberroside A and is linked here to glucose absorption modulation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "mucuna",
+    "slug": "mucuna",
+    "summary": "It is best framed around L-DOPA-rich seeds with clear neurologic and stimulation-related caution.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "mugwort",
+    "slug": "mugwort",
+    "summary": "It is best framed conservatively because strong folklore and ritual associations often outrun clinical evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "muira puama",
+    "slug": "muira-puama",
+    "summary": "It is best framed as a traditional Amazonian botanical with modest modern evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "mulberry leaf",
+    "slug": "mulberry-leaf",
+    "summary": "It is best framed around alpha-glucosidase-adjacent positioning rather than generalized wellness language.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "myristica fragrans",
+    "slug": "myristica-fragrans",
+    "summary": "Myristica fragrans contains Elemicin and is linked here to monoamine oxidase inhibition.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "myrtle",
+    "slug": "myrtle",
+    "summary": "It is best framed as an aromatic Mediterranean leaf botanical with modest modern evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "neem",
+    "slug": "neem",
+    "summary": "It should be framed carefully because topical, oral, and seed-oil contexts differ substantially in safety relevance.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "nelumbo nucifera",
+    "slug": "nelumbo-nucifera",
+    "summary": "Nelumbo nucifera lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "nettle root",
+    "slug": "nettle-root",
+    "summary": "It is best framed distinctly from nettle leaf.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "nicotiana glauca",
+    "slug": "nicotiana-glauca",
+    "summary": "Nicotiana glauca contains Anabasine and is linked here to nicotinic acetylcholine receptor modulation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 4,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "nicotiana tabacum",
+    "slug": "nicotiana-tabacum",
+    "summary": "Nicotiana tabacum contains Anatabine and is linked here to nicotinic acetylcholine receptor modulation.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "nigella sativa",
+    "slug": "nigella-sativa",
+    "summary": "Lean bulk ingestion row for Nigella sativa.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 18,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "noni",
+    "slug": "noni",
+    "summary": "It should be framed conservatively because broad folk claims exceed the strength of modern evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "notoginseng",
+    "slug": "notoginseng",
+    "summary": "It is best framed as a saponin-rich Panax relative with specific vascular-support positioning.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "oatstraw",
+    "slug": "oatstraw",
+    "summary": "It is best framed as a gentle nutritive herb with limited high-signal clinical depth.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "ocimum basilicum",
+    "slug": "ocimum-basilicum",
+    "summary": "Ocimum basilicum contains Methyleugenol and is linked here to TRP channel modulation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "ocimum sanctum",
+    "slug": "ocimum-sanctum",
+    "summary": "Ocimum sanctum contains Ursolic acid and is linked here to AMPK activation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "ocotea odorifera",
+    "slug": "ocotea-odorifera",
+    "summary": "Ocotea odorifera contains Safrole and is linked here to TRP channel modulation.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "olea europaea",
+    "slug": "olea-europaea",
+    "summary": "Lean bulk ingestion row for Olea europaea.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 18,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "olive leaf",
+    "slug": "olive-leaf",
+    "summary": "Bulk-ingested support row carrying Oleuropein with pathway-level mechanism coverage.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "ophiopogon",
+    "slug": "ophiopogon",
+    "summary": "It is best framed as a moistening tonic-style root with traditional-system relevance.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "orange peel",
+    "slug": "orange-peel",
+    "summary": "Bulk-ingested support row carrying Hesperidin with pathway-level mechanism coverage.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "oregano",
+    "slug": "oregano",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 13,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "paeonia lactiflora",
+    "slug": "paeonia-lactiflora",
+    "summary": "Paeonia lactiflora contains Paeoniflorin and is linked here to PI3K/Akt modulation.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "paeonia suffruticosa",
+    "slug": "paeonia-suffruticosa",
+    "summary": "Paeonia suffruticosa contains Paeonol and is linked here to NF-κB inhibition.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "panax ginseng",
+    "slug": "panax-ginseng",
+    "summary": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 29,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "papaya leaf",
+    "slug": "papaya-leaf",
+    "summary": "Internal cross-linking supports Papaya Leaf through compounds such as carpaine, papain, benzyl isothiocyanate.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "parsley",
+    "slug": "parsley",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "passionflower",
+    "slug": "passionflower",
+    "summary": "EMA supports passionflower for relief of mild mental stress and to aid sleep on the basis of long-standing traditional use.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "pastinaca sativa",
+    "slug": "pastinaca-sativa",
+    "summary": "Pastinaca sativa lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "pau d'arco",
+    "slug": "pau-d-arco",
+    "summary": "It should be framed conservatively because popular claims often exceed the evidence and preparation differences matter.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "peppermint",
+    "slug": "peppermint",
+    "summary": "Peppermint centers on the unspecified.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 14,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "perilla",
+    "slug": "perilla",
+    "summary": "It is best framed as a culinary-medicinal herb with modest but relevant translational evidence.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "phellodendron",
+    "slug": "phellodendron",
+    "summary": "Internal cross-linking supports Phellodendron through compounds such as berberine, jatrorrhizine, palmatine.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "phellodendron amurense",
+    "slug": "phellodendron-amurense",
+    "summary": "Phellodendron amurense lean herb row for high-speed phytochemical ingestion.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "piper longum",
+    "slug": "piper-longum",
+    "summary": "Minimum source-backed intake for Piper longum.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 11,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "piper methysticum",
+    "slug": "piper-methysticum",
+    "summary": "Piper methysticum contains Kavalactones and is linked here to GABA-A modulation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "piper nigrum",
+    "slug": "piper-nigrum",
+    "summary": "Piper nigrum contains Beta-caryophyllene and is linked here to CB2 receptor agonism.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "plantago lanceolata",
+    "slug": "plantago-lanceolata",
+    "summary": "Plantago lanceolata contains Verbascoside and is linked here to NF-κB inhibition.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "plantago major",
+    "slug": "plantago-major",
+    "summary": "Plantago major contains Aucubin and is linked here to NF-κB inhibition.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "plumbago zeylanica",
+    "slug": "plumbago-zeylanica",
+    "summary": "Plumbago zeylanica contains Plumbagin and is linked here to NF-κB inhibition.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "polygala",
+    "slug": "polygala",
+    "summary": "It is best framed as a traditional nootropic-style root with limited modern clinical depth.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "pomegranate",
+    "slug": "pomegranate",
+    "summary": "It is best framed as a polyphenol-rich fruit botanical with food-form relevance and moderate evidence.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 18,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "poria",
+    "slug": "poria",
+    "summary": "It is best framed as a traditional medicinal fungus with modest modern clinical depth.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "psoralea corylifolia",
+    "slug": "psoralea-corylifolia",
+    "summary": "Psoralea corylifolia lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "psyllium",
+    "slug": "psyllium",
+    "summary": "Psyllium is not a classic phytochemical-heavy herb; its value comes from gel-forming husk fiber.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 13,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "pueraria lobata",
+    "slug": "pueraria-lobata",
+    "summary": "Pueraria lobata contains Puerarin and is linked here to PI3K/Akt modulation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "pueraria mirifica",
+    "slug": "pueraria-mirifica",
+    "summary": "It is best framed very cautiously due to potent estrogenic positioning.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "punarnava",
+    "slug": "punarnava",
+    "summary": "Internal cross-linking supports Punarnava through compounds such as punarnavine.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "raspberry leaf",
+    "slug": "raspberry-leaf",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "red clover",
+    "slug": "red-clover",
+    "summary": "It should be framed conservatively because endocrine-adjacent claims outrun the evidence in many product contexts.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 13,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "rehmannia glutinosa",
+    "slug": "rehmannia-glutinosa",
+    "summary": "Rehmannia glutinosa contains Catalpol and is linked here to PI3K/Akt modulation.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "rehmannia prepared",
+    "slug": "rehmannia-prepared",
+    "summary": "It should be framed distinctly from raw rehmannia because processed-form use-cases differ materially.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "reishi",
+    "slug": "reishi",
+    "summary": "Immune modulation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "rheum palmatum",
+    "slug": "rheum-palmatum",
+    "summary": "Lean bulk ingestion row for Rheum palmatum.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "rhodiola",
+    "slug": "rhodiola",
+    "summary": "Adaptogenic stress modulation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "rhodiola rosea",
+    "slug": "rhodiola-rosea",
+    "summary": "Rhodiola rosea contains Rosavin and is linked here to AMPK activation.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 40,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "rice bran",
+    "slug": "rice-bran",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "rooibos",
+    "slug": "rooibos",
+    "summary": "It is best framed as a mild tea herb with low-intensity wellness positioning.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 10,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "rose hips",
+    "slug": "rose-hips",
+    "summary": "They are best framed as polyphenol- and vitamin-rich fruit material with modest but relevant human evidence.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "roselle seed",
+    "slug": "roselle-seed",
+    "summary": "It should be framed distinctly from hibiscus calyx because seed and calyx use-cases differ.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "rosemary",
+    "slug": "rosemary",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 27,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "saffron",
+    "slug": "saffron",
+    "summary": "Internal cross-linking supports Saffron through compounds such as picrocrocin, crocin, safranal.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 19,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "sage",
+    "slug": "sage",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 17,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "salacia",
+    "slug": "salacia",
+    "summary": "Internal cross-linking supports Salacia through compounds such as mangiferin, kotalanol, salacinol.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "saw palmetto",
+    "slug": "saw-palmetto",
+    "summary": "Saw Palmetto centers on the berry.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 13,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "schisandra",
+    "slug": "schisandra",
+    "summary": "Liver + stress.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 16,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "schisandra berry",
+    "slug": "schisandra-berry",
+    "summary": "It is best framed specifically around berry lignans and traditional stress-support positioning.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "schisandra chinensis",
+    "slug": "schisandra-chinensis",
+    "summary": "Lean bulk ingestion row for Schisandra chinensis.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "scutellaria baicalensis",
+    "slug": "scutellaria-baicalensis",
+    "summary": "Lean bulk ingestion row for Scutellaria baicalensis.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 22,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "selaginella tamariscina",
+    "slug": "selaginella-tamariscina",
+    "summary": "Minimum source-backed intake for ginkgetin and 5-lipoxygenase inhibition cluster completion.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 4,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "serenoa repens",
+    "slug": "serenoa-repens",
+    "summary": "Serenoa repens contains Beta-sitosterol and is linked here to PPAR activation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "shankhpushpi",
+    "slug": "shankhpushpi",
+    "summary": "It is best framed as a traditional cognitive-support herb with limited modern clinical depth.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "shatavari",
+    "slug": "shatavari",
+    "summary": "It is best framed around steroidal saponins with hormonal-context caution.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "skullcap",
+    "slug": "skullcap",
+    "summary": "GABAergic.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 11,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "sophora alopecuroides",
+    "slug": "sophora-alopecuroides",
+    "summary": "Sophora alopecuroides lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "sophora flavescens",
+    "slug": "sophora-flavescens",
+    "summary": "Sophora flavescens lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 12,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "soursop",
+    "slug": "soursop",
+    "summary": "It must be framed carefully because anticancer folklore claims greatly exceed evidence and safety certainty.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "soybean",
+    "slug": "soybean",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 9,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "st johns wort",
+    "slug": "st-johns-wort",
+    "summary": "St.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 20,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "stellera chamaejasme",
+    "slug": "stellera-chamaejasme",
+    "summary": "Stellera chamaejasme lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "stephania cepharantha",
+    "slug": "stephania-cepharantha",
+    "summary": "Stephania cepharantha lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "stephania japonica",
+    "slug": "stephania-japonica",
+    "summary": "Stephania japonica lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "stephania tetrandra",
+    "slug": "stephania-tetrandra",
+    "summary": "Stephania tetrandra lean monograph row enriched in bulk mode.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "suma",
+    "slug": "suma",
+    "summary": "It should be framed conservatively because traditional-use breadth exceeds evidence depth.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "syzygium aromaticum",
+    "slug": "syzygium-aromaticum",
+    "summary": "Lean bulk ingestion row for Syzygium aromaticum.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "tamarind",
+    "slug": "tamarind",
+    "summary": "It is best framed as a food-form fruit with digestive and polyphenol relevance.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "thunder god vine",
+    "slug": "thunder-god-vine",
+    "summary": "Bulk-ingested support row carrying Celastrol with pathway-level mechanism coverage.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "thyme",
+    "slug": "thyme",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 15,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "tongkat ali",
+    "slug": "tongkat-ali",
+    "summary": "It is best framed as a bitter root extract with endocrine and stimulation-related caution.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "tribulus terrestris",
+    "slug": "tribulus-terrestris",
+    "summary": "Tribulus terrestris lean herb row for high-speed phytochemical ingestion.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "tripterygium wilfordii",
+    "slug": "tripterygium-wilfordii",
+    "summary": "Lean bulk ingestion row for Tripterygium wilfordii.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "turkey tail",
+    "slug": "turkey-tail",
+    "summary": "Immune modulation.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "turmeric",
+    "slug": "turmeric",
+    "summary": "Turmeric centers on the unspecified.",
+    "evidenceLevel": "meta_analysis",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 17,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "valerian",
+    "slug": "valerian",
+    "summary": "Valerian centers on the root; rhizome.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 14,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "valeriana officinalis",
+    "slug": "valeriana-officinalis",
+    "summary": "Valeriana officinalis contains Valerenic acid and is linked here to GABA-A modulation.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 14,
+    "confidenceTier": "moderate"
+  },
+  {
+    "name": "verbena officinalis",
+    "slug": "verbena-officinalis",
+    "summary": "Verbena officinalis contains Acteoside and is linked here to NF-κB inhibition.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "white peony",
+    "slug": "white-peony",
+    "summary": "It is best framed as a paeoniflorin-rich root with traditional-system relevance.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 6,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "wild yam",
+    "slug": "wild-yam",
+    "summary": "Wild Yam lean herb row for high-speed phytochemical ingestion.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 5,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "wormwood",
+    "slug": "wormwood",
+    "summary": "Internal cross-linking supports Wormwood through compounds such as alpha-thujone, absinthin, beta-thujone.",
+    "evidenceLevel": "in_vitro",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "yarrow",
+    "slug": "yarrow",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 7,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "yerba mate",
+    "slug": "yerba-mate",
+    "summary": "Conservative evidence framing applied.",
+    "evidenceLevel": "human_limited",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 8,
+    "confidenceTier": "low"
+  },
+  {
+    "name": "yohimbe",
+    "slug": "yohimbe",
+    "summary": "Yohimbe is represented here as a bark-derived monograph anchored to yohimbine, an alpha-2 adrenergic antagonist with sympathomimetic effects.",
+    "evidenceLevel": "none",
+    "review_status": "partial",
+    "source_status": "partial",
+    "sourceCount": 12,
+    "confidenceTier": "moderate"
+  }
+]

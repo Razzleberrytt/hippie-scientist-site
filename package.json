@@ -179,6 +179,7 @@
     "verify:deploy-readiness": "node scripts/ci/validate-deploy-readiness.mjs",
     "verify:workbook-import": "node scripts/verify-workbook-import-reconciliation.mjs",
     "data:project:monographs": "node scripts/generate-monograph-projection.mjs",
+    "data:build:next": "node scripts/data/build-runtime-from-workbook.mjs",
     "typecheck": "tsc --noEmit",
     "check": "npm run lint && npm run typecheck && npm run build"
   },
