@@ -243,6 +243,14 @@ function pickDataFile(primaryPath, fallbackPath) {
   return readJson(fallbackPath)
 }
 
+function pickFirstDataFile(paths) {
+  for (const relativePath of paths) {
+    const records = readJson(relativePath)
+    if (records.length > 0) return records
+  }
+  return []
+}
+
 const readText = relativePath => {
   const fullPath = path.join(ROOT, relativePath)
   return fs.existsSync(fullPath) ? fs.readFileSync(fullPath, 'utf8') : ''
@@ -290,9 +298,15 @@ function pickTopEntities(records, basePath, explicitAllowlist, cap, label) {
         safeStr(record?.latinName) ||
         safeStr(record?.latin) ||
         slug
-      const description = clip(
-        safeStr(record?.summary) || safeStr(record?.description) || `${displayName} reference profile.`
-      )
+      const inferredCompoundSummary = [
+        safeStr(record?.mechanism),
+        ...(Array.isArray(record?.mechanisms) ? record.mechanisms.map(safeStr) : []),
+      ]
+        .filter(Boolean)
+        .slice(0, 2)
+        .join('. ')
+      const inferredSummary = safeStr(record?.summary) || safeStr(record?.description) || inferredCompoundSummary
+      const description = clip(inferredSummary || `${displayName} profile.`)
       const resolvedDate =
         normalizeDate(record?.updated_at) || normalizeDate(record?.lastmod) || normalizeDate(record?.date) || fallbackLastmod
       return {
@@ -690,8 +704,16 @@ export function getSharedRouteManifest() {
   })
 
   const learningAllowlist = extractLearningRouteAllowlist()
-  const herbRecords = pickDataFile('public/data/herbs_combined_updated.json', 'public/data/herbs.json')
-  const compoundRecords = pickDataFile('public/data/compounds_combined_updated.json', 'public/data/compounds.json')
+  const herbRecords = pickFirstDataFile([
+    'public/data/herbs_combined_updated.json',
+    'public/data/workbook-herbs.json',
+    'public/data/herbs.json',
+  ])
+  const compoundRecords = pickFirstDataFile([
+    'public/data/workbook-compounds.json',
+    'public/data/compounds_combined_updated.json',
+    'public/data/compounds.json',
+  ])
   const prioritizeAllowlist = (entries, allowlist) => {
     const byRoute = new Map(entries.map(entry => [entry.route, entry]))
     const prioritized = []
@@ -721,7 +743,7 @@ export function getSharedRouteManifest() {
     const fallbackTitle =
       safeStr(entry?.title) || `${safeStr(entry?.name) || route.split('/').pop()} | The Hippie Scientist`
     const fallbackDescription = clip(
-      safeStr(entry?.description) || `${safeStr(entry?.name) || route.split('/').pop()} reference profile.`,
+      safeStr(entry?.description) || `${safeStr(entry?.name) || route.split('/').pop()} profile.`,
     )
     const summary =
       fallbackKind === 'herb'
