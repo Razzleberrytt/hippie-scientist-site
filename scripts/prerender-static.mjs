@@ -76,8 +76,8 @@ function readDetailJson(dir, slug) {
 
 const blogPosts = readJson('src/data/blog/posts.json')
 const herbs = pickFirstDataFile([
-  'public/data/herbs_combined_updated.json',
   'public/data/workbook-herbs.json',
+  'public/data/herbs_combined_updated.json',
   'public/data/herbs.json',
 ])
 const compounds = pickFirstDataFile([
