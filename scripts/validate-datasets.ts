@@ -144,6 +144,10 @@ const COMPOUND_ARRAY_FIELDS = new Set([
   'sources',
 ])
 
+const INVALID_DISPLAY_NAME_VALUES = new Set(['[object object]', 'nan', 'null', 'undefined'])
+const NUMERIC_ONLY_DISPLAY_NAME_PATTERN = /^\d+(?:[\s.,/-]\d+)*$/
+const ALLOWED_SINGLE_CHARACTER_DISPLAY_NAMES = new Set<string>()
+
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
 }
@@ -422,6 +426,86 @@ function validateStringField(
   return []
 }
 
+function validateDisplayNameQuality(
+  value: unknown,
+  dataset: DatasetType,
+  recordId: string,
+  field: string,
+): AuditIssue[] {
+  const entityType = dataset === 'compound' ? 'compound' : 'herb'
+  const location = recordId || '(unknown-record)'
+
+  if (typeof value !== 'string') {
+    return [
+      issue(
+        'structural-hard',
+        'invalid-display-name',
+        dataset,
+        recordId,
+        `Invalid ${entityType} ${field} at '${location}': rejected value '${String(value)}' (reason: non-string).`,
+        { field, details: { value, reason: 'non-string' } },
+      ),
+    ]
+  }
+
+  const raw = value
+  const trimmed = value.trim()
+  if (!trimmed) {
+    return [
+      issue(
+        'structural-hard',
+        'invalid-display-name',
+        dataset,
+        recordId,
+        `Invalid ${entityType} ${field} at '${location}': rejected value '${raw}' (reason: empty/whitespace-only).`,
+        { field, details: { value: raw, reason: 'empty/whitespace-only' } },
+      ),
+    ]
+  }
+
+  const normalized = trimmed.toLowerCase()
+  if (INVALID_DISPLAY_NAME_VALUES.has(normalized)) {
+    return [
+      issue(
+        'structural-hard',
+        'invalid-display-name',
+        dataset,
+        recordId,
+        `Invalid ${entityType} ${field} at '${location}': rejected value '${trimmed}' (reason: known junk token).`,
+        { field, details: { value: trimmed, reason: 'known-junk-token' } },
+      ),
+    ]
+  }
+
+  if (NUMERIC_ONLY_DISPLAY_NAME_PATTERN.test(trimmed)) {
+    return [
+      issue(
+        'structural-hard',
+        'invalid-display-name',
+        dataset,
+        recordId,
+        `Invalid ${entityType} ${field} at '${location}': rejected value '${trimmed}' (reason: numeric-only).`,
+        { field, details: { value: trimmed, reason: 'numeric-only' } },
+      ),
+    ]
+  }
+
+  if (trimmed.length === 1 && !ALLOWED_SINGLE_CHARACTER_DISPLAY_NAMES.has(normalized)) {
+    return [
+      issue(
+        'structural-hard',
+        'invalid-display-name',
+        dataset,
+        recordId,
+        `Invalid ${entityType} ${field} at '${location}': rejected value '${trimmed}' (reason: one-character degenerate name).`,
+        { field, details: { value: trimmed, reason: 'one-character-degenerate-name' } },
+      ),
+    ]
+  }
+
+  return []
+}
+
 function validateStringArrayField(
   value: unknown,
   dataset: DatasetType,
@@ -635,6 +719,8 @@ function validateHerbRecordShape(
     }
   }
 
+  findings.push(...validateDisplayNameQuality(record.name, dataset, recordId, 'name'))
+
   return findings
 }
 
@@ -654,6 +740,8 @@ function validateCompoundRecordShape(record: GenericRecord, recordId: string): A
       findings.push(...validateStringArrayField(record[field], 'compound', recordId, field, requiredSet.has(field)))
     }
   }
+
+  findings.push(...validateDisplayNameQuality(record.name, 'compound', recordId, 'name'))
 
   return findings
 }
