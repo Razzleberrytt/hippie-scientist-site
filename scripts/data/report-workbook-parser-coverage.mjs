@@ -16,17 +16,37 @@ const SHEETS = {
   herbCompoundMap: 'Herb Compound Map V3',
 }
 
-const INPUTS = {
-  herbs: path.join(repoRoot, 'public', 'data-next', 'herbs.json'),
-  compounds: path.join(repoRoot, 'public', 'data-next', 'compounds.json'),
-}
-
 const OUTPUTS = {
   json: path.join(repoRoot, 'reports', 'data-next-workbook-parser-coverage.json'),
   md: path.join(repoRoot, 'reports', 'data-next-workbook-parser-coverage.md'),
 }
 
 const PLACEHOLDER_TOKENS = new Set(['', 'unknown', 'nan', 'null', 'undefined', '[object object]'])
+
+function parseArgs(argv) {
+  const args = argv.slice(2)
+  let dataDir = path.join('public', 'data-next')
+
+  for (let index = 0; index < args.length; index += 1) {
+    const arg = args[index]
+    if (arg === '--data-dir') {
+      dataDir = args[index + 1] || ''
+      index += 1
+      continue
+    }
+
+    if (arg.startsWith('--data-dir=')) {
+      dataDir = arg.slice('--data-dir='.length)
+    }
+  }
+
+  const normalized = String(dataDir || '').trim()
+  if (!normalized) {
+    throw new Error('[data-coverage-next] Missing value for --data-dir')
+  }
+
+  return path.resolve(repoRoot, normalized)
+}
 
 function normalizeText(value) {
   if (value === null || value === undefined) return ''
@@ -323,6 +343,11 @@ function writeReport(report) {
 }
 
 function run() {
+  const dataDir = parseArgs(process.argv)
+  const inputs = {
+    herbs: path.join(dataDir, 'herbs.json'),
+    compounds: path.join(dataDir, 'compounds.json'),
+  }
   const workbookPath = resolveWorkbookPath(repoRoot)
   const workbook = XLSX.readFile(workbookPath)
 
@@ -330,8 +355,8 @@ function run() {
   const compoundRows = readSheetRows(workbook, SHEETS.compounds)
   const herbCompoundMapRows = readSheetRows(workbook, SHEETS.herbCompoundMap)
 
-  const emittedHerbs = readJsonArray(INPUTS.herbs)
-  const emittedCompounds = readJsonArray(INPUTS.compounds)
+  const emittedHerbs = readJsonArray(inputs.herbs)
+  const emittedCompounds = readJsonArray(inputs.compounds)
 
   const herbs = analyzeEntity({
     entityName: 'herbs',
