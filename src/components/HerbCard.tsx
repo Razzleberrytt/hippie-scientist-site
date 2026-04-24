@@ -5,6 +5,7 @@ import Card from './ui/Card'
 import { formatBrowseTitle } from '@/utils/titleDisplay'
 import { normalizeTagList } from '@/lib/tagNormalization'
 import { getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
+import { hasPlaceholderText, sanitizeSurfaceText } from '@/lib/summary'
 
 interface HerbCardProps {
   name: string
@@ -52,7 +53,11 @@ function HerbCard({
   const hasCompoundCount = typeof compound_count === 'number' && compound_count > 0
   const title = formatBrowseTitle(name, 60)
   const isTitleTruncated = title !== name
-  const summaryText = hero?.trim() || summary?.trim() || (summaryQuality === 'strong' ? coreInsight?.trim() : '')
+  const summaryCandidate = sanitizeSurfaceText(
+    hero?.trim() || summary?.trim() || (summaryQuality === 'strong' ? coreInsight?.trim() : ''),
+  )
+  const summaryText =
+    summaryCandidate && !hasPlaceholderText(summaryCandidate) ? summaryCandidate : 'Profile pending review'
 
   const chipItems = normalizeTagList([evidence_tier || evidenceLevel || '', primaryTag || ''], {
     caseStyle: 'title',
@@ -78,7 +83,7 @@ function HerbCard({
         </h2>
       </header>
 
-      {showSummary && summaryText ? (
+      {showSummary ? (
         <p className='mt-1 line-clamp-2 text-xs leading-[1.5] text-white/62'>{summaryText}</p>
       ) : null}
 
