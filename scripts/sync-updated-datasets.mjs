@@ -100,22 +100,33 @@ function isPlaceholderToken(value) {
   return PLACEHOLDER_TOKENS.has(asText(value).toLowerCase())
 }
 
-function isInvalidCanonicalEntityRecord(record, entityType) {
+function getInvalidEntityReason(record, entity) {
   const name = asText(record?.name ?? record?.common ?? record?.commonName)
   const slug = normalizeSlug(record?.slug)
-  const tooShort = name.length === 1 || slug.length === 1
-  const numericOnlyForCompounds =
-    entityType === 'compounds' && (NUMERIC_ONLY_PATTERN.test(name) || NUMERIC_ONLY_PATTERN.test(slug))
+  if (isPlaceholderToken(name)) return 'placeholder-name'
+  if (isPlaceholderToken(slug)) return 'placeholder-slug'
+  if (name.length === 1) return 'single-character-name'
+  if (slug.length === 1) return 'single-character-slug'
+  if (entity === 'compounds' && NUMERIC_ONLY_PATTERN.test(name)) return 'numeric-only-name'
+  if (entity === 'compounds' && NUMERIC_ONLY_PATTERN.test(slug)) return 'numeric-only-slug'
+  return null
+}
 
-  return {
-    invalid:
-      isPlaceholderToken(name) ||
-      isPlaceholderToken(slug) ||
-      tooShort ||
-      numericOnlyForCompounds,
-    name,
-    slug,
-  }
+function sanitizeEntityRecords(records, entity, source) {
+  if (!Array.isArray(records)) return records
+  return records.filter((record, index) => {
+    if (!record || typeof record !== 'object') return false
+    const name = asText(record?.name ?? record?.common ?? record?.commonName)
+    const slug = normalizeSlug(record?.slug)
+    const reason = getInvalidEntityReason(record, entity)
+    if (reason) {
+      console.warn(
+        `[data-sync] Skipping invalid ${entity} row: source=${source} index=${index} name=${name} slug=${slug} reason=${reason}`
+      )
+      return false
+    }
+    return true
+  })
 }
 
 function assertUnique(values, label) {
@@ -166,26 +177,26 @@ function ingestPublishInputIfAvailable({ required = false } = {}) {
   const herbs = readJsonArray(herbPath, 'herbs')
     .map(normalizePublishHerbRecord)
     .filter((record, index) => {
-      const validation = isInvalidCanonicalEntityRecord(record, 'herbs')
-      if (validation.invalid) {
-        console.warn(
-          `[data-sync] Skipping invalid canonical herbs row from ${PUBLISH_INPUT_FILES.herbs} index=${index} name="${validation.name}" slug="${validation.slug}"`
-        )
-        return false
-      }
-      return true
+      const reason = getInvalidEntityReason(record, 'herbs')
+      if (!reason) return true
+      const name = asText(record?.name ?? record?.common ?? record?.commonName)
+      const slug = normalizeSlug(record?.slug)
+      console.warn(
+        `[data-sync] Skipping invalid herbs row: source=${PUBLISH_INPUT_FILES.herbs} index=${index} name=${name} slug=${slug} reason=${reason}`
+      )
+      return false
     })
   const compounds = readJsonArray(compoundPath, 'compounds')
     .map(normalizePublishCompoundRecord)
     .filter((record, index) => {
-      const validation = isInvalidCanonicalEntityRecord(record, 'compounds')
-      if (validation.invalid) {
-        console.warn(
-          `[data-sync] Skipping invalid canonical compounds row from ${PUBLISH_INPUT_FILES.compounds} index=${index} name="${validation.name}" slug="${validation.slug}"`
-        )
-        return false
-      }
-      return true
+      const reason = getInvalidEntityReason(record, 'compounds')
+      if (!reason) return true
+      const name = asText(record?.name ?? record?.common ?? record?.commonName)
+      const slug = normalizeSlug(record?.slug)
+      console.warn(
+        `[data-sync] Skipping invalid compounds row: source=${PUBLISH_INPUT_FILES.compounds} index=${index} name=${name} slug=${slug} reason=${reason}`
+      )
+      return false
     })
   const goals = readJsonArray(goalsPath, 'goals').map(normalizePublishGoalRecord)
   assertUnique(
@@ -210,21 +221,10 @@ function ingestPublishInputIfAvailable({ required = false } = {}) {
   return true
 }
 
-function withSlugs(records, entity) {
+function withSlugs(records, entity, source) {
   if (!Array.isArray(records)) return records
 
-  return records
-    .filter((record, index) => {
-      if (!record || typeof record !== 'object') return false
-      const validation = isInvalidCanonicalEntityRecord(record, entity)
-      if (validation.invalid) {
-        console.warn(
-          `[data-sync] Skipping invalid canonical ${entity} row from ${entity}.json index=${index} name="${validation.name}" slug="${validation.slug}"`
-        )
-        return false
-      }
-      return true
-    })
+  return sanitizeEntityRecords(records, entity, source)
     .map(record => {
     if (!record || typeof record !== 'object') return record
 
@@ -248,7 +248,7 @@ function hydrateUpdatedDatasetSlugs(fileName, entity) {
   }
 
   const records = readJson(filePath)
-  const hydrated = withSlugs(records, entity)
+  const hydrated = withSlugs(records, entity, fileName)
   writeJson(filePath, hydrated)
   console.log(`[data-sync] Hydrated ${entity} slugs in ${filePath}`)
 }
@@ -270,7 +270,10 @@ if (!usedPublishInput) {
 
     for (const target of file.targets) {
       const targetPath = path.join(outDir, target)
-      fs.copyFileSync(sourcePath, targetPath)
+      const records = readJsonArray(sourcePath, file.source)
+      const entity = target === 'herbs.json' ? 'herbs' : 'compounds'
+      const sanitized = sanitizeEntityRecords(records, entity, file.source)
+      writeJson(targetPath, sanitized)
       console.log(`[data-sync] Copied ${sourcePath} -> ${targetPath}`)
     }
   }
