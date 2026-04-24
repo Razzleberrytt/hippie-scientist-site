@@ -56,9 +56,25 @@ function pickDataFile(primary, fallback) {
   return readJson(fallback)
 }
 
+function pickFirstDataFile(paths) {
+  for (const relativePath of paths) {
+    const records = readJson(relativePath)
+    if (records.length > 0) return records
+  }
+  return []
+}
+
 const blogPosts = readJson('src/data/blog/posts.json')
-const herbs = pickDataFile('public/data/herbs_combined_updated.json', 'public/data/herbs.json')
-const compounds = pickDataFile('public/data/compounds_combined_updated.json', 'public/data/compounds.json')
+const herbs = pickFirstDataFile([
+  'public/data/herbs_combined_updated.json',
+  'public/data/workbook-herbs.json',
+  'public/data/herbs.json',
+])
+const compounds = pickFirstDataFile([
+  'public/data/workbook-compounds.json',
+  'public/data/compounds_combined_updated.json',
+  'public/data/compounds.json',
+])
 
 const blogBySlug = new Map(blogPosts.map(post => [String(post?.slug || ''), post]))
 const herbBySlug = new Map(
@@ -120,6 +136,21 @@ function safeStr(value) {
   const normalized = String(value).trim()
   if (!normalized || NAN_TOKEN_PATTERN.test(normalized)) return ''
   return normalized
+}
+
+function inferCompoundDescription(compound, fallbackName) {
+  const base = textFrom(compound?.description, compound?.summary)
+  if (base) return base
+
+  const mechanism = textFrom(compound?.mechanism, Array.isArray(compound?.mechanisms) ? compound.mechanisms.join('; ') : '')
+  if (mechanism) return mechanism
+
+  const pathways = Array.isArray(compound?.pathways) ? compound.pathways.map(safeStr).filter(Boolean).slice(0, 2) : []
+  const targets = Array.isArray(compound?.targets) ? compound.targets.map(safeStr).filter(Boolean).slice(0, 2) : []
+  const signalParts = [...pathways, ...targets]
+  if (signalParts.length > 0) return signalParts.join('; ')
+
+  return `${fallbackName} profile.`
 }
 
 function blogPostJsonLd(post, route, title, description) {
@@ -330,7 +361,8 @@ function renderRouteContent(route) {
     const effects = textList(herb?.effects, 8).map(effect => `<li>${escapeHtml(effect)}</li>`)
     const warnings = textList(herb?.contraindications, 6).map(item => `<li>${escapeHtml(item)}</li>`)
 
-    return `<main id="main" class="container-page py-8 text-white"><article><h1>${name}</h1><p>${routeDescription || description}</p><p>${description}</p><p>This static profile is generated from the publication manifest and is intended to give search crawlers a readable summary before hydration adds interactive evidence controls.</p><section><h2>Tracked effects</h2>${makeCardList(effects, 'Effect data pending; editorial review continues as new references are validated.')}</section><section><h2>Safety notes</h2>${makeCardList(warnings, 'No contraindications listed in the source dataset yet. Use conservative assumptions and review interactions.')}</section></article></main>`
+    const intro = routeDescription && routeDescription !== description ? `<p>${routeDescription}</p>` : ''
+    return `<main id="main" class="container-page py-8 text-white"><article><h1>${name}</h1>${intro}<p>${description}</p><section><h2>Tracked effects</h2>${makeCardList(effects, 'Effect data pending; editorial review continues as new references are validated.')}</section><section><h2>Safety notes</h2>${makeCardList(warnings, 'No contraindications listed in the source dataset yet. Use conservative assumptions and review interactions.')}</section></article></main>`
   }
 
   if (route === '/compounds') {
@@ -348,11 +380,13 @@ function renderRouteContent(route) {
     const slug = route.split('/').pop() || ''
     const compound = compoundBySlug.get(slug)
     const name = escapeHtml(textFrom(compound?.name, slug))
-    const description = escapeHtml(textFrom(compound?.description, compound?.summary, 'Compound profile'))
-    const effects = textList(compound?.effects, 8).map(effect => `<li>${escapeHtml(effect)}</li>`)
+    const description = escapeHtml(inferCompoundDescription(compound, textFrom(compound?.name, slug)))
+    const effects = textList(compound?.effects, 8)
+      .filter(effect => !/(^|\b)(adaptogen|stress relief|anti-stress|immune support)\b/i.test(effect))
+      .map(effect => `<li>${escapeHtml(effect)}</li>`)
     const interactions = textList(compound?.interactions, 6).map(item => `<li>${escapeHtml(item)}</li>`)
-
-    return `<main id="main" class="container-page py-8 text-white"><article><h1>${name}</h1><p>${routeDescription || description}</p><p>${description}</p><p>This prerendered route preserves canonical publication metadata and a static narrative snapshot for indexing while interactive analysis tools load after hydration.</p><section><h2>Tracked effects</h2>${makeCardList(effects, 'Effect data pending while this compound remains under active evidence review.')}</section><section><h2>Interaction notes</h2>${makeCardList(interactions, 'No interactions listed in the source dataset yet; verify with primary references before use decisions.')}</section></article></main>`
+    const intro = routeDescription && routeDescription !== description ? `<p>${routeDescription}</p>` : ''
+    return `<main id="main" class="container-page py-8 text-white"><article><h1>${name}</h1>${intro}<p>${description}</p><section><h2>Tracked effects</h2>${makeCardList(effects, 'Effect data pending while this compound remains under active evidence review.')}</section><section><h2>Interaction notes</h2>${makeCardList(interactions, 'No interactions listed in the source dataset yet; verify with primary references before use decisions.')}</section></article></main>`
   }
 
   if (route.startsWith('/best-herbs-for-')) {
