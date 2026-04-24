@@ -20,16 +20,16 @@ npm run build
 Production data is generated from a single workbook source of truth:
 
 - Source of truth workbook: `data-sources/herb_monograph_master.xlsx`
-- Generated runtime output: `public/data/*`
+- `public/data` is generated output
 - Do not manually edit generated JSON in `public/data`
-- Production data build command: `npm run data:build`
+- Production data is built with: `npm run data:build`
 
 Build path summary:
 
 - `npm run build` runs `prebuild`
 - `prebuild` runs `npm run data:build` before compile/prerender steps
 
-Legacy rollback path (temporary only):
+Legacy rollback path (temporary rollback only):
 
 - `npm run data:build:legacy`
 - Use only for rollback while migration hardening continues
