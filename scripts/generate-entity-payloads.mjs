@@ -88,46 +88,12 @@ function formatEvidenceContext(governedSummary, hasEvidence, seed) {
 }
 
 function buildCompoundNarrative(record, governedSummary) {
-  const name = asText(record.name || record.commonName || record.slug || 'This compound')
-  const herbs = splitList(record.herbs || record.foundInHerbs || record.associatedHerbs)
-  const category = normalizeCategoryLabel(record)
-  const mechanism = cleanNarrative(record.mechanism || record.mechanismOfAction)
   const existingDescription = cleanNarrative(record.description)
   const existingSummary = cleanNarrative(record.summary)
-  const evidenceContext = formatEvidenceContext(governedSummary, hasEvidenceNotes(record), name)
-  const identityWithCategoryAndHerb = `${name} is ${withIndefiniteArticle(category)} compound ${formatHerbContext(herbs)}.`
-  const identityWithCategoryOnly = `${name} is ${withIndefiniteArticle(category)} compound.`
-  const identityWithHerbOnlyOptions = [
-    `${name} is a compound ${formatHerbContext(herbs)}.`,
-    `${name} appears in records as a compound ${formatHerbContext(herbs)}.`,
-  ]
-  const identityFallbackOptions = [
-    `${name} is listed as a compound in this profile.`,
-    `${name} is currently cataloged as a compound entry.`,
-  ]
+  const mechanism = cleanNarrative(record.mechanism || record.mechanismOfAction)
 
-  const identitySentence =
-    category && formatHerbContext(herbs)
-      ? identityWithCategoryAndHerb
-      : category
-        ? identityWithCategoryOnly
-        : formatHerbContext(herbs)
-          ? chooseVariant(name, identityWithHerbOnlyOptions)
-          : chooseVariant(name, identityFallbackOptions)
-
-  const mechanismSentence = mechanism
-    ? chooseVariant(name, [
-        `Mechanism notes currently mention ${mechanism.charAt(0).toLowerCase()}${mechanism.slice(1)}.`,
-        `Available mechanism notes describe ${mechanism.charAt(0).toLowerCase()}${mechanism.slice(1)}.`,
-      ])
-    : ''
-
-  const generatedDescription = clip(
-    [identitySentence, mechanismSentence, evidenceContext].filter(Boolean).join(' '),
-    320,
-  )
-  const description = existingDescription || generatedDescription
-  const summary = existingSummary || clip(existingDescription || generatedDescription, 180)
+  const description = existingDescription || mechanism || ''
+  const summary = existingSummary || clip(existingDescription || mechanism || '', 180)
 
   return { description, summary }
 }
