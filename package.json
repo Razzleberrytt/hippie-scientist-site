@@ -13,7 +13,8 @@
     "prebuild:validate": "node scripts/validate-herbs.mjs && npm run verify:affiliate-products",
     "clean:source-refs": "node scripts/clean-source-refs.mjs",
     "validate:data": "tsx scripts/validate-datasets.ts --fail-on-error",
-    "data:validate": "npm run validate:data",
+    "data:build": "npm run data:build:next",
+    "data:validate": "npm run data:validate:next",
     "check:images": "node tools/check-images.mjs",
     "rebuild:data": "npm run data:refresh",
     "prebuild": "node scripts/sync-updated-datasets.mjs && npm run clean:source-refs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-site-counts.mjs && node scripts/generate-homepage-data.mjs && node scripts/generate-homepage-featured.mjs && node scripts/generate-rss.mjs && npm run verify:affiliate-products",
@@ -184,7 +185,8 @@
     "typecheck": "tsc --noEmit",
     "check": "npm run lint && npm run typecheck && npm run build",
     "data:validate:next": "node scripts/data/validate-data-next.mjs",
-    "data:coverage:next": "node scripts/data/report-workbook-parser-coverage.mjs"
+    "data:coverage:next": "node scripts/data/report-workbook-parser-coverage.mjs",
+    "data:report:quality": "npm run data:coverage:next"
   },
   "engines": {
     "node": ">=20 <21"
