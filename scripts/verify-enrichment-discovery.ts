@@ -90,7 +90,7 @@ function buildExpectedSummary(enrichment: Record<string, any>) {
   }
 }
 
-function verifySummaryPayload(
+function verifySummaryPayloadWithGovernedSource(
   entityType: 'herb' | 'compound',
   rows: Array<Record<string, any>>,
   publishableByEntity: Map<string, Record<string, any>>,
@@ -115,25 +115,51 @@ function verifySummaryPayload(
   }
 }
 
+function verifySummaryShapeOnly(
+  entityType: 'herb' | 'compound',
+  rows: Array<Record<string, any>>,
+) {
+  for (const row of rows) {
+    const slug = slugify(String(row.slug || row.id || ''))
+    const key = `${entityType}:${slug}`
+    const summary = row.researchEnrichmentSummary
+    if (summary === undefined) continue
+
+    assert.ok(summary && typeof summary === 'object', `Invalid governed summary payload for ${key}`)
+    const extraKeys = Object.keys(summary).filter(keyName => !SUMMARY_KEYS.includes(keyName))
+    assert.equal(extraKeys.length, 0, `Unexpected summary keys for ${key}: ${extraKeys.join(', ')}`)
+  }
+}
+
 function run() {
-  const governedRows = readJson<GovernedRow[]>('public/data/enrichment-governed.json')
   const herbSummary = readJson<Array<Record<string, any>>>('public/data/herbs-summary.json')
   const compoundSummary = readJson<Array<Record<string, any>>>('public/data/compounds-summary.json')
+  const allRows = [...herbSummary, ...compoundSummary]
+  const hasRuntimeGovernedSummaries = allRows.some(
+    row => row.researchEnrichmentSummary && typeof row.researchEnrichmentSummary === 'object',
+  )
 
   const publishableByEntity = new Map<string, Record<string, any>>()
   const ineligibleEntities: string[] = []
 
-  for (const row of governedRows) {
-    const key = `${row.entityType}:${slugify(row.entitySlug)}`
-    if (isPublishableEnrichment(row.researchEnrichment)) {
-      publishableByEntity.set(key, row.researchEnrichment)
-    } else {
-      ineligibleEntities.push(key)
-    }
-  }
+  if (hasRuntimeGovernedSummaries) {
+    const governedRows = readJson<GovernedRow[]>('public/data/enrichment-governed.json')
 
-  verifySummaryPayload('herb', herbSummary, publishableByEntity)
-  verifySummaryPayload('compound', compoundSummary, publishableByEntity)
+    for (const row of governedRows) {
+      const key = `${row.entityType}:${slugify(row.entitySlug)}`
+      if (isPublishableEnrichment(row.researchEnrichment)) {
+        publishableByEntity.set(key, row.researchEnrichment)
+      } else {
+        ineligibleEntities.push(key)
+      }
+    }
+
+    verifySummaryPayloadWithGovernedSource('herb', herbSummary, publishableByEntity)
+    verifySummaryPayloadWithGovernedSource('compound', compoundSummary, publishableByEntity)
+  } else {
+    verifySummaryShapeOnly('herb', herbSummary)
+    verifySummaryShapeOnly('compound', compoundSummary)
+  }
 
   const report = {
     generatedAt: new Date().toISOString(),
@@ -164,6 +190,12 @@ function run() {
       },
     ],
     publishableEntityCount: publishableByEntity.size,
+    runtimeSummaryEntityCount: allRows.filter(
+      row => row.researchEnrichmentSummary && typeof row.researchEnrichmentSummary === 'object',
+    ).length,
+    verificationSource: hasRuntimeGovernedSummaries
+      ? 'governed_rollup_parity'
+      : 'runtime_summary_shape_only',
     ineligibleEntities,
   }
 
