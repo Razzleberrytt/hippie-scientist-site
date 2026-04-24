@@ -1081,11 +1081,32 @@ function writeJson(filePath, data) {
 
 function cleanCompoundEffects(effects) {
   if (!Array.isArray(effects)) return []
-  const CORRUPT = [/\bno direct\b/i, /\bcontextual inference\b/i, /\bnan\b/, /\bprovisional_from\b/i, /\[object/i]
+  const CORRUPT = [
+    /\bno direct\b/i,
+    /\bcontextual inference\b/i,
+    /\bnan\b/,
+    /\bprovisional_from\b/i,
+    /\[object/i,
+  ]
+  const GENERIC_GOALS = new Set([
+    'stress relief', 'anti-stress', 'adaptogen',
+    'immune support', 'immunomodulator', 'general wellness',
+    'energy support', 'mood support', 'cognitive support',
+  ])
   return effects.filter(item => {
     const s = String(item || '').trim()
     if (!s) return false
-    return !CORRUPT.some(p => p.test(s))
+    if (CORRUPT.some(p => p.test(s))) return false
+    if (GENERIC_GOALS.has(s.toLowerCase())) return false
+    return true
+  })
+}
+
+function cleanSlugList(arr) {
+  if (!Array.isArray(arr)) return []
+  return arr.filter(item => {
+    const s = String(item || '').trim()
+    return s.length > 0 && !/^nan$/i.test(s)
   })
 }
 
@@ -1334,7 +1355,13 @@ function main() {
     }),
   }
   writeJson(identityMapSuggestionsPath, identityMapSuggestions)
-  compounds = compounds.map(c => ({ ...c, effects: cleanCompoundEffects(c.effects) }))
+  compounds = compounds.map(c => ({
+    ...c,
+    effects: cleanCompoundEffects(c.effects),
+    herbs: cleanSlugList(c.herbs),
+    foundIn: cleanSlugList(c.foundIn),
+    linkedHerbs: cleanSlugList(c.linkedHerbs),
+  }))
 
   if (!options.dryRun) {
     writeJson(herbsPath, herbs)
