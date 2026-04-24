@@ -768,6 +768,7 @@ function patchHerb(herb, row, fieldPatchCounts) {
 }
 
 function indexCompounds(compounds) {
+  const bySlug = new Map()
   const byCanonicalId = new Map()
   const byNormalizedCanonicalId = new Map()
   const byNormalizedCanonicalName = new Map()
@@ -775,6 +776,8 @@ function indexCompounds(compounds) {
   const compoundIdentity = (compound) => cleanText(compound.canonicalCompoundId || compound.id || compound.slug).toLowerCase()
 
   for (const compound of compounds) {
+    const slug = cleanText(compound.slug).toLowerCase()
+    if (slug) addUniqueLookupEntry(bySlug, slug, compound, compoundIdentity)
     const canonicalId = cleanText(compound.canonicalCompoundId || compound.id || compound.slug).toLowerCase()
     if (canonicalId) addUniqueLookupEntry(byCanonicalId, canonicalId, compound, compoundIdentity)
     const normalizedCanonicalId = normalizeString(canonicalId)
@@ -787,10 +790,14 @@ function indexCompounds(compounds) {
     }
   }
 
-  return { byCanonicalId, byNormalizedCanonicalId, byNormalizedCanonicalName, byNormalizedCompoundName }
+  return { bySlug, byCanonicalId, byNormalizedCanonicalId, byNormalizedCanonicalName, byNormalizedCompoundName }
 }
 
 function resolveCompoundPrimary(compoundIndex, row) {
+  const workbookSlug = cleanText(row.slug || row.canonicalCompoundId || '')
+  const bySlug = workbookSlug ? compoundIndex.bySlug.get(workbookSlug.toLowerCase()) : null
+  if (bySlug) return { compound: bySlug, matchType: 'slug' }
+
   const canonicalNameCandidates = [
     cleanText(row.canonicalCompoundId),
     cleanText(row.canonicalCompoundName),
@@ -1149,7 +1156,7 @@ function main() {
     compounds: {},
   }
   const herbMatchTypeCounts = { slug: 0, normalizedName: 0, unmatched: 0 }
-  const compoundMatchTypeCounts = { canonicalName: 0, normalizedName: 0, unmatched: 0 }
+  const compoundMatchTypeCounts = { slug: 0, canonicalName: 0, normalizedName: 0, unmatched: 0 }
   const identityDebug = {
     herbs: { hits: [], misses: [] },
     compounds: { hits: [], misses: [] },
@@ -1251,7 +1258,8 @@ function main() {
     }
     if (compoundKey) matchedCompoundSlugs.add(compoundKey)
 
-    compoundMatchTypeCounts.canonicalName += 1
+    if (matchType === 'slug') compoundMatchTypeCounts.slug += 1
+    else compoundMatchTypeCounts.canonicalName += 1
 
     const patched = patchCompound(compound, row, reservedCanonicalIds, fieldPatchCounts.compounds)
     const payload = {
@@ -1376,7 +1384,7 @@ function main() {
   console.log(`[import-xlsx-monographs] rows read => herbs: ${herbRows.length}, compounds: ${compoundRows.length}`)
   console.log(`[import-xlsx-monographs] herb-compound-map rows processed: ${herbCompoundMapRows.length}`)
   console.log(`[import-xlsx-monographs] herb matches => matched via slug: ${herbMatchTypeCounts.slug}, matched via normalized name: ${herbMatchTypeCounts.normalizedName}, remaining unmatched: ${herbMatchTypeCounts.unmatched}`)
-  console.log(`[import-xlsx-monographs] compound matches => matched via canonical: ${compoundMatchTypeCounts.canonicalName}, matched via normalized: ${compoundMatchTypeCounts.normalizedName}, remaining unmatched: ${compoundMatchTypeCounts.unmatched}`)
+  console.log(`[import-xlsx-monographs] compound matches => matched via slug: ${compoundMatchTypeCounts.slug}, matched via canonical: ${compoundMatchTypeCounts.canonicalName}, matched via normalized: ${compoundMatchTypeCounts.normalizedName}, remaining unmatched: ${compoundMatchTypeCounts.unmatched}`)
   console.log(`[import-xlsx-monographs] herb-compound-map matches => matched: ${herbCompoundMapLog.matched}, unmatched: ${herbCompoundMapLog.unmatched.length}`)
   console.log(`[import-xlsx-monographs] fallback usage count: ${totalFallbackUsage}`)
   if (previousUnmatchedHerbsCount !== null) {
