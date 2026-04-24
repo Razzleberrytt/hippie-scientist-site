@@ -117,7 +117,7 @@ export const curatedProductRecommendations: CuratedProductRecommendation[] = [
   },
   {
     entityType: 'herb',
-    entitySlug: 'reishi-mushroom',
+    entitySlug: 'reishi',
     productId: 'reishi-fruiting-body-capsules',
     productTitle: 'Organic Reishi Mushroom Fruiting Body Capsules',
     brand: 'Real Mushrooms',
@@ -142,7 +142,7 @@ export const curatedProductRecommendations: CuratedProductRecommendation[] = [
   },
   {
     entityType: 'herb',
-    entitySlug: 'reishi-mushroom',
+    entitySlug: 'reishi',
     productId: 'reishi-liquid-dual-extract',
     productTitle: 'Reishi Mushroom Liquid Dual Extract',
     brand: 'Hawaii Pharm',
@@ -167,7 +167,7 @@ export const curatedProductRecommendations: CuratedProductRecommendation[] = [
   },
   {
     entityType: 'herb',
-    entitySlug: 'reishi-mushroom',
+    entitySlug: 'reishi',
     productId: 'reishi-tea-bags',
     productTitle: 'Organic Reishi Mushroom Tea Bags',
     brand: 'FGO',
