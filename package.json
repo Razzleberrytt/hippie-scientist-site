@@ -180,6 +180,7 @@
     "verify:workbook-import": "node scripts/verify-workbook-import-reconciliation.mjs",
     "data:project:monographs": "node scripts/generate-monograph-projection.mjs",
     "data:build:next": "node scripts/data/build-runtime-from-workbook.mjs",
+    "data:parity:report": "node scripts/data/report-migration-parity.mjs",
     "typecheck": "tsc --noEmit",
     "check": "npm run lint && npm run typecheck && npm run build"
   },
