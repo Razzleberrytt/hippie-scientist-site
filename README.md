@@ -15,54 +15,26 @@ Build production bundle:
 npm run build
 ```
 
-## Data pipeline (canonical)
+## Data pipeline (production default)
 
-The app now uses a single canonical runtime pipeline:
+Production data is generated from a single workbook source of truth:
 
-- Herb data source: `public/data/herbs.json`
-- Compound data source: `public/data/compounds.json`
-- Herb normalization + hooks: `src/lib/herb-data.ts`
-- Compound normalization + hooks: `src/lib/compound-data.ts`
-- Shared sanitization helpers: `src/lib/sanitize.ts`
-- Workbook-only migration contract: `docs/workbook-only-data-contract.md`
+- Source of truth workbook: `data-sources/herb_monograph_master.xlsx`
+- Generated runtime output: `public/data/*`
+- Do not manually edit generated JSON in `public/data`
+- Production data build command: `npm run data:build`
 
-When ingesting refreshed datasets:
+Build path summary:
 
-```bash
-npm run update-data
-```
+- `npm run build` runs `prebuild`
+- `prebuild` runs `npm run data:build` before compile/prerender steps
 
-## Workbook publish pipeline (minimal)
+Legacy rollback path (temporary only):
 
-Place workbook-derived JSON exports in:
+- `npm run data:build:legacy`
+- Use only for rollback while migration hardening continues
 
-`ops/publish-input/`
-
-Required input file names:
-
-- `API_PAYLOAD.json` → publishes `public/data/herbs.json`
-- `COMPOUND_API_PAYLOAD.json` → publishes `public/data/compounds.json`
-- `Goal Page Copy.json` → publishes `public/data/goal-pages.json`
-
-Run:
-
-```bash
-npm run publish-data
-```
-
-This **extends** the existing data sync script used by the build chain:
-
-- existing build path: `npm run build` → `prebuild` → `scripts/sync-updated-datasets.mjs`
-- publish path: `npm run publish-data` → `scripts/sync-updated-datasets.mjs --from-publish-input --skip-workbook-overlay`
-
-In other words, workbook-export ingestion is an additional input mode of the same sync pipeline, not a separate parallel system.
-
-The publish script fails hard on:
-
-- blank slug / route key
-- duplicate slug / route key
-- blank required names/titles
-- invalid goal route keys (must be lowercase kebab-case)
+See also: `docs/workbook-only-data-contract.md`.
 
 ## Learning routes
 
