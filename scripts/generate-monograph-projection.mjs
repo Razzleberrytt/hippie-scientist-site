@@ -284,9 +284,12 @@ function sanitizeHerbCompoundMapRows(rows, { herbSlugSet, compoundSlugSet, compo
 
 function readWorkbookSheets(workbookPath) {
   const workbook = XLSX.readFile(workbookPath)
-  const herbRows = parseSheet(workbook, 'Herb Monographs')
+  const herbSheet =
+    ['Herb Monographs', 'Herb Master', 'Herb Master Clean'].find((sheetName) => workbook.Sheets[sheetName]) ||
+    'Herb Monographs'
+  const herbRows = parseSheet(workbook, herbSheet)
   if (herbRows.length === 0) {
-    throw new Error('Missing worksheet rows: Herb Monographs')
+    throw new Error(`Missing worksheet rows: ${herbSheet}`)
   }
 
   return {

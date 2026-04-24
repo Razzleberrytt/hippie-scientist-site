@@ -13,7 +13,7 @@ const repoRoot = path.resolve(__dirname, '..')
 
 const workbookPath = resolveWorkbookPath(repoRoot)
 const SHEET_MAP = {
-  herbs: ['Herb Monographs', 'Herb Master'],
+  herbs: ['Herb Monographs', 'Herb Master', 'Herb Master Clean'],
   compounds: ['Compound Master V3', 'Compound Master'],
   herbCompoundMap: ['Herb Compound Map V3', 'Herb Compound Map'],
 }
@@ -38,6 +38,9 @@ const COLUMN_ALIASES = {
     name: ['name', 'herb', 'herbname', 'herb_name'],
   },
   'Herb Monographs': {
+    name: ['name', 'herb', 'herbname', 'herb_name'],
+  },
+  'Herb Master Clean': {
     name: ['name', 'herb', 'herbname', 'herb_name'],
   },
   'Compound Master': {
