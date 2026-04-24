@@ -93,6 +93,48 @@ function normalizeSlug(value) {
   return asText(value).toLowerCase()
 }
 
+const INVALID_PLACEHOLDER_TOKENS = new Set([
+  '',
+  'unknown',
+  'nan',
+  'null',
+  'undefined',
+  '[object object]',
+])
+
+function isPlaceholderToken(value) {
+  return INVALID_PLACEHOLDER_TOKENS.has(asText(value).toLowerCase())
+}
+
+function isInvalidCanonicalEntityRecord(record, entityType) {
+  if (!record || typeof record !== 'object') return true
+
+  const name = asText(record.name ?? record.common ?? record.commonName ?? '')
+  const slug = normalizeSlug(record.slug)
+
+  if (isPlaceholderToken(name) || isPlaceholderToken(slug)) return true
+  if (name.length === 1 || slug.length === 1) return true
+  if (entityType === 'compounds' && (/^\d+$/.test(name) || /^\d+$/.test(slug))) return true
+
+  return false
+}
+
+function filterInvalidCanonicalRecords(records, entityType, sourceFile) {
+  const skipped = []
+  const filtered = records.filter((record, index) => {
+    if (!isInvalidCanonicalEntityRecord(record, entityType)) return true
+    const name = asText(record?.name ?? record?.common ?? record?.commonName ?? '')
+    const slug = normalizeSlug(record?.slug)
+    const details = { entityType, sourceFile, index, name, slug }
+    skipped.push(details)
+    console.warn(
+      `[data-sync] Skipping invalid canonical ${entityType} row (source=${sourceFile}, index=${index}, name="${name}", slug="${slug}")`
+    )
+    return false
+  })
+  return { filtered, skipped }
+}
+
 function assertUnique(values, label) {
   const seen = new Set()
   values.forEach(value => {
@@ -138,8 +180,18 @@ function ingestPublishInputIfAvailable({ required = false } = {}) {
 
   if (!hasAny && !required) return false
 
-  const herbs = readJsonArray(herbPath, 'herbs').map(normalizePublishHerbRecord)
-  const compounds = readJsonArray(compoundPath, 'compounds').map(normalizePublishCompoundRecord)
+  const normalizedHerbs = readJsonArray(herbPath, 'herbs').map(normalizePublishHerbRecord)
+  const normalizedCompounds = readJsonArray(compoundPath, 'compounds').map(normalizePublishCompoundRecord)
+  const { filtered: herbs } = filterInvalidCanonicalRecords(
+    normalizedHerbs,
+    'herbs',
+    path.relative(root, herbPath),
+  )
+  const { filtered: compounds } = filterInvalidCanonicalRecords(
+    normalizedCompounds,
+    'compounds',
+    path.relative(root, compoundPath),
+  )
   const goals = readJsonArray(goalsPath, 'goals').map(normalizePublishGoalRecord)
   assertUnique(
     herbs.map(record => record.slug),
@@ -189,7 +241,12 @@ function hydrateUpdatedDatasetSlugs(fileName, entity) {
   }
 
   const records = readJson(filePath)
-  const hydrated = withSlugs(records, entity)
+  const { filtered } = filterInvalidCanonicalRecords(
+    records,
+    entity,
+    path.relative(root, filePath),
+  )
+  const hydrated = withSlugs(filtered, entity)
   writeJson(filePath, hydrated)
   console.log(`[data-sync] Hydrated ${entity} slugs in ${filePath}`)
 }

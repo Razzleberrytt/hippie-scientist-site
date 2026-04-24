@@ -51,20 +51,6 @@
     "slug": "2-4-5-trimethoxybenzaldehyde"
   },
   {
-    "name": "5",
-    "herbs": [
-      "virola theiodora"
-    ],
-    "effects": [
-      "No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals."
-    ],
-    "contraindications": [],
-    "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21",
-    "slug": "5"
-  },
-  {
     "name": "5-MeO-DMT",
     "herbs": [
       "nan"
@@ -172,32 +158,6 @@
     ],
     "lastUpdated": "2026-03-21",
     "slug": "7-hydroxybaruol"
-  },
-  {
-    "name": "[object Object]",
-    "herbs": [
-      "kratom hybrids",
-      "nan",
-      "yarrow"
-    ],
-    "effects": [
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan.",
-      "Clarity",
-      "calm",
-      "subtle mood lift",
-      "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
-    ],
-    "contraindications": [
-      "Avoid during pregnancy",
-      "neurotoxic in high doses"
-    ],
-    "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21",
-    "slug": "object-object"
   },
   {
     "name": "acetylcholine",
@@ -7757,25 +7717,6 @@
     ]
   },
   {
-    "name": "N",
-    "herbs": [
-      "nan"
-    ],
-    "effects": [
-      "Closed-eye visuals",
-      "altered cognition",
-      "spiritual insight (when used with MAOI)",
-      "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use"
-    ],
-    "contraindications": [
-      "Use with SSRIs or MAOIs without supervision"
-    ],
-    "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21",
-    "slug": "n"
-  },
-  {
     "name": "N-Dimethyltryptamine (DMT)",
     "herbs": [
       "nan"
@@ -8500,24 +8441,6 @@
     ],
     "lastUpdated": "2026-03-21",
     "slug": "other-saponins"
-  },
-  {
-    "name": "p",
-    "herbs": [
-      "dysphania ambrosioides"
-    ],
-    "effects": [
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
-    ],
-    "contraindications": [],
-    "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21",
-    "slug": "p"
   },
   {
     "name": "p-coumaric acid",
