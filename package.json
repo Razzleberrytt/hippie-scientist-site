@@ -179,6 +179,7 @@
     "import:xlsx:monographs": "node scripts/import-xlsx-monographs.mjs",
     "verify:deploy-readiness": "node scripts/ci/validate-deploy-readiness.mjs",
     "verify:workbook-import": "node scripts/verify-workbook-import-reconciliation.mjs",
+    "verify:workbook-only-path": "node scripts/data/verify-workbook-only-path.mjs",
     "data:project:monographs": "node scripts/generate-monograph-projection.mjs",
     "data:build:next": "node scripts/data/build-runtime-from-workbook.mjs",
     "data:build:workbook": "node scripts/data/build-runtime-from-workbook.mjs --out public/data",
