@@ -9,8 +9,6 @@ import { resolveWorkbookPath } from '../workbook-source.mjs'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '../..')
-const outputDir = path.join(repoRoot, 'public', 'data-next')
-const metaDir = path.join(outputDir, '_meta')
 
 const REQUIRED_SHEETS = {
   herbs: 'Herb Master Clean',
@@ -23,6 +21,36 @@ const OPTIONAL_SHEETS = {
 }
 
 const PLACEHOLDER_TOKENS = new Set(['', 'unknown', 'nan', 'null', 'undefined', '[object object]'])
+const DEFAULT_SUMMARY = 'Profile pending review'
+
+function parseArgs(argv) {
+  const defaultOut = path.join('public', 'data-next')
+  const args = argv.slice(2)
+  let relativeOut = defaultOut
+
+  for (let index = 0; index < args.length; index += 1) {
+    const arg = args[index]
+    if (arg === '--out') {
+      relativeOut = args[index + 1] || ''
+      index += 1
+      continue
+    }
+
+    if (arg.startsWith('--out=')) {
+      relativeOut = arg.slice('--out='.length)
+    }
+  }
+
+  const normalizedOut = String(relativeOut || '').trim()
+  if (!normalizedOut) {
+    throw new Error('[data-next] Missing value for --out')
+  }
+
+  return {
+    outputDir: path.resolve(repoRoot, normalizedOut),
+    outputLabel: normalizedOut,
+  }
+}
 
 function normalizeText(value) {
   if (value === null || value === undefined) return ''
@@ -31,6 +59,10 @@ function normalizeText(value) {
   if (!text) return ''
   if (isPlaceholderToken(text)) return ''
   return text
+}
+
+function normalizeOptionalString(value) {
+  return normalizeText(value)
 }
 
 function normalizeList(value) {
@@ -103,6 +135,7 @@ function isValidIdentity(name, slug) {
   const normalizedSlug = normalizeSlug(slug)
   if (!normalizedName || !normalizedSlug) return false
   if (isPlaceholderToken(normalizedName) || isPlaceholderToken(normalizedSlug)) return false
+  if (normalizedName.length <= 1 || normalizedSlug.length <= 1) return false
   return true
 }
 
@@ -111,8 +144,11 @@ function isValidCompoundIdentity(name, slug) {
   const normalizedName = normalizeText(name)
   const normalizedSlug = normalizeSlug(slug)
   if (/^\d+$/.test(normalizedName) || /^\d+$/.test(normalizedSlug)) return false
-  if (normalizedName.length <= 1 || normalizedSlug.length <= 1) return false
   return true
+}
+
+function withSummaryFallback(summary) {
+  return normalizeOptionalString(summary) || DEFAULT_SUMMARY
 }
 
 function createHerbRecord(row) {
@@ -121,19 +157,19 @@ function createHerbRecord(row) {
   return {
     name,
     slug,
-    summary: firstNonEmpty(row, ['summary', 'hero']),
-    description: firstNonEmpty(row, ['description']),
+    summary: withSummaryFallback(firstNonEmpty(row, ['summary', 'hero'])),
+    description: normalizeOptionalString(firstNonEmpty(row, ['description'])),
     mechanisms: normalizeList(firstNonEmpty(row, ['mechanisms', 'mechanism', 'pathwayTargets'])),
-    safetyNotes: firstNonEmpty(row, ['safetyNotes', 'safety']),
+    safetyNotes: normalizeOptionalString(firstNonEmpty(row, ['safetyNotes', 'safety'])),
     contraindications: normalizeList(firstNonEmpty(row, ['contraindications'])),
     interactions: normalizeList(firstNonEmpty(row, ['interactions'])),
-    dosage: firstNonEmpty(row, ['dosage', 'dose']),
-    preparation: firstNonEmpty(row, ['preparation']),
-    evidenceLevel: firstNonEmpty(row, ['evidenceLevel', 'evidenceTier', 'evidence_tier']),
-    review_status: firstNonEmpty(row, ['review_status', 'reviewStatus']),
-    source_status: firstNonEmpty(row, ['source_status', 'sourceStatus']),
+    dosage: normalizeOptionalString(firstNonEmpty(row, ['dosage', 'dose'])),
+    preparation: normalizeOptionalString(firstNonEmpty(row, ['preparation'])),
+    evidenceLevel: normalizeOptionalString(firstNonEmpty(row, ['evidenceLevel', 'evidenceTier', 'evidence_tier'])),
+    review_status: normalizeOptionalString(firstNonEmpty(row, ['review_status', 'reviewStatus'])),
+    source_status: normalizeOptionalString(firstNonEmpty(row, ['source_status', 'sourceStatus'])),
     sourceCount: parseSourceCount(row),
-    confidenceTier: firstNonEmpty(row, ['confidenceTier', 'confidenceLevel']),
+    confidenceTier: normalizeOptionalString(firstNonEmpty(row, ['confidenceTier', 'confidenceLevel'])),
   }
 }
 
@@ -143,18 +179,31 @@ function createCompoundRecord(row, foundIn) {
   return {
     name,
     slug,
-    summary: firstNonEmpty(row, ['summary']),
-    description: firstNonEmpty(row, ['description']),
-    compoundClass: firstNonEmpty(row, ['compoundClass', 'class']),
+    summary: withSummaryFallback(firstNonEmpty(row, ['summary'])),
+    description: normalizeOptionalString(firstNonEmpty(row, ['description'])),
+    compoundClass: normalizeOptionalString(firstNonEmpty(row, ['compoundClass', 'class'])),
     mechanisms: normalizeList(firstNonEmpty(row, ['mechanisms', 'mechanism', 'mechanismTags'])),
     targets: normalizeList(firstNonEmpty(row, ['targets', 'pathwayTargets'])),
-    foundIn,
-    safetyNotes: firstNonEmpty(row, ['safetyNotes', 'safety']),
-    evidenceLevel: firstNonEmpty(row, ['evidenceLevel', 'evidenceTier', 'evidence_tier']),
-    review_status: firstNonEmpty(row, ['review_status', 'reviewStatus']),
-    source_status: firstNonEmpty(row, ['source_status', 'sourceStatus']),
+    foundIn: Array.isArray(foundIn) ? foundIn : [],
+    safetyNotes: normalizeOptionalString(firstNonEmpty(row, ['safetyNotes', 'safety'])),
+    evidenceLevel: normalizeOptionalString(firstNonEmpty(row, ['evidenceLevel', 'evidenceTier', 'evidence_tier'])),
+    review_status: normalizeOptionalString(firstNonEmpty(row, ['review_status', 'reviewStatus'])),
+    source_status: normalizeOptionalString(firstNonEmpty(row, ['source_status', 'sourceStatus'])),
     sourceCount: parseSourceCount(row),
-    confidenceTier: firstNonEmpty(row, ['confidenceTier', 'confidenceLevel']),
+    confidenceTier: normalizeOptionalString(firstNonEmpty(row, ['confidenceTier', 'confidenceLevel'])),
+  }
+}
+
+function toSummaryRecord(record) {
+  return {
+    name: record.name,
+    slug: record.slug,
+    summary: withSummaryFallback(record.summary),
+    evidenceLevel: normalizeOptionalString(record.evidenceLevel),
+    review_status: normalizeOptionalString(record.review_status),
+    source_status: normalizeOptionalString(record.source_status),
+    sourceCount: Number.isFinite(Number(record.sourceCount)) ? Number(record.sourceCount) : 0,
+    confidenceTier: normalizeOptionalString(record.confidenceTier),
   }
 }
 
@@ -164,6 +213,8 @@ function writeJson(filePath, payload) {
 }
 
 function run() {
+  const { outputDir, outputLabel } = parseArgs(process.argv)
+  const metaDir = path.join(outputDir, '_meta')
   const workbookPath = resolveWorkbookPath(repoRoot)
   const workbook = XLSX.readFile(workbookPath)
 
@@ -203,6 +254,7 @@ function run() {
   }
 
   const compounds = []
+  const compoundSlugSet = new Set()
   let skippedCompounds = 0
 
   for (const row of compoundRows) {
@@ -211,7 +263,8 @@ function run() {
       skippedCompounds += 1
       continue
     }
-    if (compounds.some(compound => compound.slug === draft.slug)) continue
+    if (compoundSlugSet.has(draft.slug)) continue
+    compoundSlugSet.add(draft.slug)
     draft.foundIn = (foundInByCompoundSlug.get(draft.slug) || []).sort((a, b) => a.localeCompare(b))
     compounds.push(draft)
   }
@@ -219,32 +272,21 @@ function run() {
   herbs.sort((a, b) => a.slug.localeCompare(b.slug))
   compounds.sort((a, b) => a.slug.localeCompare(b.slug))
 
-  const herbsSummary = herbs.map(herb => ({
-    name: herb.name,
-    slug: herb.slug,
-    summary: herb.summary,
-    evidenceLevel: herb.evidenceLevel,
-    review_status: herb.review_status,
-    source_status: herb.source_status,
-    sourceCount: herb.sourceCount,
-    confidenceTier: herb.confidenceTier,
-  }))
-
-  const compoundsSummary = compounds.map(compound => ({
-    name: compound.name,
-    slug: compound.slug,
-    summary: compound.summary,
-    evidenceLevel: compound.evidenceLevel,
-    review_status: compound.review_status,
-    source_status: compound.source_status,
-    sourceCount: compound.sourceCount,
-    confidenceTier: compound.confidenceTier,
-  }))
+  const herbsSummary = herbs.map(toSummaryRecord)
+  const compoundsSummary = compounds.map(toSummaryRecord)
 
   writeJson(path.join(outputDir, 'herbs.json'), herbs)
   writeJson(path.join(outputDir, 'compounds.json'), compounds)
   writeJson(path.join(outputDir, 'herbs-summary.json'), herbsSummary)
   writeJson(path.join(outputDir, 'compounds-summary.json'), compoundsSummary)
+
+  for (const herb of herbs) {
+    writeJson(path.join(outputDir, 'herbs-detail', `${herb.slug}.json`), herb)
+  }
+
+  for (const compound of compounds) {
+    writeJson(path.join(outputDir, 'compounds-detail', `${compound.slug}.json`), compound)
+  }
 
   const buildInfo = {
     generatedAt: new Date().toISOString(),
@@ -257,11 +299,14 @@ function run() {
         claimRows: workbook.Sheets[OPTIONAL_SHEETS.claimRows] ? OPTIONAL_SHEETS.claimRows : null,
       },
     },
+    output: outputLabel,
     counts: {
       herbs: herbs.length,
       compounds: compounds.length,
       herbsSummary: herbsSummary.length,
       compoundsSummary: compoundsSummary.length,
+      herbDetails: herbs.length,
+      compoundDetails: compounds.length,
       claimRows: claimRows.length,
       skippedHerbs,
       skippedCompounds,
@@ -270,7 +315,9 @@ function run() {
 
   writeJson(path.join(metaDir, 'build-info.json'), buildInfo)
 
+  console.log(`[data-next] out=${outputLabel}`)
   console.log(`[data-next] wrote herbs=${herbs.length} compounds=${compounds.length}`)
+  console.log(`[data-next] detail files herbs=${herbs.length} compounds=${compounds.length}`)
   console.log(`[data-next] skipped herbs=${skippedHerbs} compounds=${skippedCompounds}`)
   console.log(`[data-next] claim rows loaded=${claimRows.length}`)
 }
