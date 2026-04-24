@@ -82,8 +82,16 @@ function toCleanString(value) {
   return String(cleaned).trim()
 }
 
+const JUNK_LIST_TOKENS = new Set(['', 'nan', 'null', 'undefined', '[object object]'])
+
+function isJunkListToken(value) {
+  return JUNK_LIST_TOKENS.has(toCleanString(value).toLowerCase())
+}
+
 function splitList(value, pattern = /[;|]/) {
-  return normalizeWorkbookMultiValue(value, pattern).map(item => toCleanString(item)).filter(Boolean)
+  return normalizeWorkbookMultiValue(value, pattern)
+    .map(item => toCleanString(item))
+    .filter(item => !isJunkListToken(item))
 }
 
 function cleanScalar(value) {
