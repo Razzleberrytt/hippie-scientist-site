@@ -24,6 +24,7 @@ The app now uses a single canonical runtime pipeline:
 - Herb normalization + hooks: `src/lib/herb-data.ts`
 - Compound normalization + hooks: `src/lib/compound-data.ts`
 - Shared sanitization helpers: `src/lib/sanitize.ts`
+- Workbook-only migration contract: `docs/workbook-only-data-contract.md`
 
 When ingesting refreshed datasets:
 
