@@ -21,12 +21,36 @@ function isPlaceholder(value) {
   return PLACEHOLDER_VALUES.has(normalized)
 }
 
-function readDataset(relativePath) {
-  const filePath = path.join(repoRoot, relativePath)
+function parseArgs(argv) {
+  const args = argv.slice(2)
+  let dataDir = path.join('public', 'data-next')
+
+  for (let index = 0; index < args.length; index += 1) {
+    const arg = args[index]
+    if (arg === '--data-dir') {
+      dataDir = args[index + 1] || ''
+      index += 1
+      continue
+    }
+
+    if (arg.startsWith('--data-dir=')) {
+      dataDir = arg.slice('--data-dir='.length)
+    }
+  }
+
+  const normalized = String(dataDir || '').trim()
+  if (!normalized) {
+    throw new Error('[data-next-validate] Missing value for --data-dir')
+  }
+
+  return path.resolve(repoRoot, normalized)
+}
+
+function readDataset(filePath) {
   const raw = fs.readFileSync(filePath, 'utf8')
   const parsed = JSON.parse(raw)
   if (!Array.isArray(parsed)) {
-    throw new Error(`[data-next-validate] Dataset must be an array: ${relativePath}`)
+    throw new Error(`[data-next-validate] Dataset must be an array: ${path.relative(repoRoot, filePath)}`)
   }
   return parsed
 }
@@ -105,8 +129,9 @@ function printErrors(errors) {
 }
 
 function run() {
-  const herbs = readDataset(path.join('public', 'data-next', 'herbs.json'))
-  const compounds = readDataset(path.join('public', 'data-next', 'compounds.json'))
+  const dataDir = parseArgs(process.argv)
+  const herbs = readDataset(path.join(dataDir, 'herbs.json'))
+  const compounds = readDataset(path.join(dataDir, 'compounds.json'))
 
   const errors = []
   validateDataset('herbs', herbs, 'herb', errors)
@@ -118,7 +143,7 @@ function run() {
     process.exit(1)
   }
 
-  console.log('[data-next-validate] PASS herbs+compounds structural validation')
+  console.log(`[data-next-validate] PASS herbs+compounds structural validation (${path.relative(repoRoot, dataDir)})`)
 }
 
 run()

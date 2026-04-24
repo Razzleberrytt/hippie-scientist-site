@@ -13,11 +13,11 @@
     "prebuild:validate": "node scripts/validate-herbs.mjs && npm run verify:affiliate-products",
     "clean:source-refs": "node scripts/clean-source-refs.mjs",
     "validate:data": "tsx scripts/validate-datasets.ts --fail-on-error",
-    "data:build": "npm run data:build:next",
-    "data:validate": "npm run data:validate:next",
+    "data:build": "node scripts/data/build-runtime-from-workbook.mjs --out public/data",
+    "data:validate": "node scripts/data/validate-data-next.mjs --data-dir public/data",
     "check:images": "node tools/check-images.mjs",
     "rebuild:data": "npm run data:refresh",
-    "prebuild": "node scripts/sync-updated-datasets.mjs && npm run clean:source-refs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-site-counts.mjs && node scripts/generate-homepage-data.mjs && node scripts/generate-homepage-featured.mjs && node scripts/generate-rss.mjs && npm run verify:affiliate-products",
+    "prebuild": "npm run data:build && npm run clean:source-refs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-site-counts.mjs && node scripts/generate-homepage-data.mjs && node scripts/generate-homepage-featured.mjs && node scripts/generate-rss.mjs && npm run verify:affiliate-products",
     "build:compile": "vite build",
     "build": "npm run build:compile",
     "postbuild": "node scripts/prerender-static.mjs && node scripts/generate-sitemap.mjs dist && node scripts/ensure-dist-redirects.mjs && npm run verify:enrichment-editorial && node scripts/validate-structured-data-smoke.mjs && node scripts/generate-version-json.mjs",
@@ -187,7 +187,8 @@
     "check": "npm run lint && npm run typecheck && npm run build",
     "data:validate:next": "node scripts/data/validate-data-next.mjs",
     "data:coverage:next": "node scripts/data/report-workbook-parser-coverage.mjs",
-    "data:report:quality": "npm run data:coverage:next"
+    "data:report:quality": "node scripts/data/report-workbook-parser-coverage.mjs --data-dir public/data",
+    "data:build:legacy": "node scripts/sync-updated-datasets.mjs && npm run clean:source-refs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-site-counts.mjs && node scripts/generate-homepage-data.mjs && node scripts/generate-homepage-featured.mjs && node scripts/generate-rss.mjs && npm run verify:affiliate-products"
   },
   "engines": {
     "node": ">=20 <21"
