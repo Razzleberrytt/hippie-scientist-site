@@ -1079,6 +1079,16 @@ function writeJson(filePath, data) {
   fs.writeFileSync(filePath, `${JSON.stringify(data, null, 2)}\n`, 'utf8')
 }
 
+function cleanCompoundEffects(effects) {
+  if (!Array.isArray(effects)) return []
+  const CORRUPT = [/\bno direct\b/i, /\bcontextual inference\b/i, /\bnan\b/, /\bprovisional_from\b/i, /\[object/i]
+  return effects.filter(item => {
+    const s = String(item || '').trim()
+    if (!s) return false
+    return !CORRUPT.some(p => p.test(s))
+  })
+}
+
 function main() {
   const options = parseArgs(process.argv.slice(2))
   const diagnostics = createDiagnostics()
@@ -1103,7 +1113,7 @@ function main() {
   parseSheet(workbook, 'Production Export V1', diagnostics, { optional: OPTIONAL_WORKBOOK_SHEETS.has('Production Export V1') })
 
   const herbs = JSON.parse(fs.readFileSync(herbsPath, 'utf8'))
-  const compounds = JSON.parse(fs.readFileSync(compoundsPath, 'utf8'))
+  let compounds = JSON.parse(fs.readFileSync(compoundsPath, 'utf8'))
 
   if (!Array.isArray(herbs) || !Array.isArray(compounds)) {
     throw new Error('[import-xlsx-monographs] Expected herbs.json and compounds.json to be arrays.')
@@ -1324,6 +1334,7 @@ function main() {
     }),
   }
   writeJson(identityMapSuggestionsPath, identityMapSuggestions)
+  compounds = compounds.map(c => ({ ...c, effects: cleanCompoundEffects(c.effects) }))
 
   if (!options.dryRun) {
     writeJson(herbsPath, herbs)
