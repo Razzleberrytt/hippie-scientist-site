@@ -14,6 +14,11 @@ Outputs are generated side-by-side under:
 - `public/data/projections/monograph-runtime/herbs-summary.json`
 - `public/data/projections/monograph-runtime/herbs-detail/*.json`
 
+Archived migration note:
+
+- The prior migration-era snapshot has been moved to `archive/legacy-data/public/data/projections/monograph-runtime/`.
+- Files in `archive/legacy-data` are migration artifacts and are not part of the default production data path.
+
 ## Runtime field mapping
 
 Source worksheet: `Herb Monographs`

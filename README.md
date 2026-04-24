@@ -34,6 +34,12 @@ Legacy rollback path (temporary rollback only):
 - `npm run data:build:legacy`
 - Use only for rollback while migration hardening continues
 
+Archived migration artifacts:
+
+- Legacy migration-only artifacts are stored under `archive/legacy-data/`.
+- Current archived snapshot: `archive/legacy-data/public/data/projections/monograph-runtime/`.
+- These archived files are retained for audit/history and are not part of the default production path.
+
 See also: `docs/workbook-only-data-contract.md`.
 
 ## Learning routes
