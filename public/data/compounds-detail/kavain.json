@@ -1,36 +1,24 @@
 {
-  "slug": "kavain",
   "id": "kavain",
+  "slug": "kavain",
   "name": "kavain",
-  "effects": [
-    "gaba_a_modulation",
-    "multi-target signaling modulation"
+  "summary": "Major kavalactone with calming and channel-modulating pharmacology.",
+  "description": "Major kavalactone with calming and channel-modulating pharmacology.",
+  "compoundClass": "kavalactone",
+  "mechanisms": [
+    "GABA-A modulation",
+    "voltage-gated sodium channel modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=kava"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=piper%20methysticum"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=kavain"
-    }
+  "targets": [
+    "GABAergic signaling",
+    "voltage-gated ion channels",
+    "monoamine signaling",
+    "CYP enzymes"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "Kavalactones modulate GABA_A receptor activity, inhibit voltage-gated sodium and calcium channels, and influence dopamine signaling.",
-  "herbs": [
-    "kava"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "Kavalactones modulate GABA_A receptor activity, inhibit voltage-gated sodium and calcium channels, and influence dopamine signaling.",
-  "description": "Kavalactones modulate GABA_A receptor activity, inhibit voltage-gated sodium and calcium channels, and influence dopamine signaling.",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
 }

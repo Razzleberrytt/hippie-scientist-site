@@ -1,61 +1,35 @@
 {
   "name": "glycyrrhiza glabra",
-  "latin": "Glycyrrhiza glabra",
-  "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, expectorant, adrenal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, expectorant, adrenal support. No direct region data. Contextual inference: Anti-inflammatory, expectorant, adrenal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, expectorant, adrenal support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Proposed mechanism (for major safety effects): glycyrrhizin-containing licorice can lead to water retention, hypokalemia, hypertension, and cardiac rhythm disorders—effects repeatedly emphasized in EMA monograph safety warnings and NCCIH safety summary.",
-  "activeCompounds": [
-    "Glycyrrhizin / glycyrrhizic acid (explicitly named by NCCIH as the component associated with serious adverse effects)."
-  ],
-  "effects": [
-    "Anti-inflammatory",
-    "expectorant",
-    "adrenal support",
-    "Anti",
-    "inflammatory"
-  ],
-  "contraindications": [],
-  "safetyNotes": "EMA warns not to take other licorice-containing products concurrently; serious adverse events can occur (water retention, hypokalemia, hypertension, rhythm disorders). Not recommended in patients with hypertension, kidney disease, liver/cardiovascular disorders, or hypokalemia. Duration: not to be used >4 weeks. NCCIH notes glycyrrhizin can cause serious effects including irregular heartbeat/cardiac arrest; DGL products may be safe up to ~4 months (short-term). Pregnancy: NCCIH flags high intake as unsafe and associated with earlier delivery risk; EMA does not recommend use in pregnancy/lactation due to insufficient data.",
-  "sources": [
-    {
-      "title": "Licorice Root: Usefulness and Safety (NCCIH)",
-      "url": "https://www.nccih.nih.gov/health/licorice-root"
-    },
-    {
-      "title": "Community herbal monograph on *Glycyrrhiza glabra/inflata/uralensis*, radix (EMA)",
-      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-glycyrrhiza-glabra-l-andor-glycyrrhiza-inflata-bat-andor-glycyrrhiza-uralensis-fisch-radix-first-version_en.pdf"
-    },
-    {
-      "title": "POWO: *Glycyrrhiza glabra* L.",
-      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:496941-1"
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "description": "Perennial herb cultivated widely; many U.S. \"licorice\" products may not contain true licorice; licorice contains glycyrrhizin/glycyrrhizic acid associated with serious adverse effects at higher or prolonged intakes.",
-  "dosage": "EMA posology (adults/elderly): - Digestive indication: tea 1.5–2 g in 150 mL boiling water (infusion) 2–4×/day or decoction 2–4×/day; soft extract (DER 1:0.4–0.5) 32 mg 2–3×/day (max 160 mg/day). - Cough/cold indication: tea 1.5 g in 150 mL 2×/day (infusion or decoction); soft extract (DER 3:1) 1.2–1.5 g 3–4×/day. Duration limits and age restrictions apply (under 18 not recommended).",
-  "duration": "4–6 hours",
-  "interactions": [
-    "EMA: may counteract antihypertensive medications; not to be used with diuretics, cardiac glycosides, corticosteroids, stimulant laxatives, or other meds aggravating electrolyte imbalance. NCCIH notes interactions with corticosteroids have been reported."
-  ],
-  "legalStatus": "Legal with warnings for chronic use",
-  "preparation": "Comminuted root as herbal tea (infusion/decoction); soft extracts and corresponding dry extracts; oral use.",
-  "region": "*Glycyrrhiza glabra* native range (POWO): Central Mediterranean to Mongolia and Pakistan; cultivated/introduced elsewhere (NCCIH characterizes cultivation throughout Europe, Asia, Middle East).",
-  "therapeuticUses": [],
-  "traditionalUse": "; nan; nan",
-  "sideEffects": [
-    "Hypertension",
-    "hypokalemia",
-    "edema with chronic or high",
-    "dose use"
-  ],
   "slug": "glycyrrhiza-glabra",
-  "id": "glycyrrhiza-glabra",
-  "displayName": "glycyrrhiza glabra",
-  "displayScientificName": "Glycyrrhiza glabra",
-  "scientificNormalized": "glycyrrhiza glabra",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "Traditional herbal medicinal product (EU): relief of digestive symptoms including burning sensation/dyspepsia and as an expectorant for cough associated with cold; traditional-use basis."
+  "summary": "Lean bulk ingestion row for Glycyrrhiza glabra.",
+  "description": "Lean bulk ingestion row for Glycyrrhiza glabra. Key active compounds include Glycyrrhizin.",
+  "primaryActions": [],
+  "mechanisms": [
+    "glycyrrhizin/glycyrrhetinic-acid 11β-HSD2 inhibition",
+    "mineralocorticoid pathway activation",
+    "anti-inflammatory signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Real risk of hypertension, hypokalemia, edema, arrhythmia; avoid with hypertension, kidney disease, pregnancy, diuretics, digoxin.",
+  "contraindications": [
+    "Hypertension",
+    "kidney disease",
+    "hypokalemia",
+    "heart disease",
+    "pregnancy",
+    "use with diuretics/corticosteroids/digoxin without review"
+  ],
+  "interactions": [
+    "High-risk with diuretics",
+    "corticosteroids",
+    "digoxin",
+    "antihypertensives",
+    "antiarrhythmics",
+    "and stimulant laxatives."
+  ],
+  "preparation": "Whole root, deglycyrrhizinated licorice (DGL), extracts, teas, and TCM formula components differ in glycyrrhizin exposure.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

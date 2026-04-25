@@ -1,37 +1,25 @@
 {
-  "slug": "madecassoside",
   "id": "madecassoside",
+  "slug": "madecassoside",
   "name": "madecassoside",
-  "effects": [
-    "cox/nf-kb inhibition",
-    "multi-target signaling modulation"
+  "summary": "Centella triterpene glycoside associated with inflammatory and tissue-repair signaling.",
+  "description": "Centella triterpene glycoside associated with inflammatory and tissue-repair signaling.",
+  "compoundClass": "triterpenoid saponin glycoside",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "TGF-β signaling modulation",
+    "PI3K/Akt modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Centella%20asiatica"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=centella%20asiatica"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=madecassoside"
-    }
+  "targets": [
+    "TGF-β",
+    "collagen remodeling",
+    "NF-κB",
+    "wound-healing and barrier pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "centella-asiatica",
-    "gotu-kola"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly Centella/topical-derived evidence. Caution with liver disease, sedatives, pregnancy, and prolonged high-dose extracts.",
+  "evidenceLevel": "human_indirect_from_centella; preclinical",
+  "relatedCompounds": []
 }

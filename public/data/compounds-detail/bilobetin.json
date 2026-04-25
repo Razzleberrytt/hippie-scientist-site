@@ -1,40 +1,23 @@
 {
-  "slug": "bilobetin",
   "id": "bilobetin",
+  "slug": "bilobetin",
   "name": "bilobetin",
-  "effects": [
-    "inflammatory_pathway_modulation",
-    "oxidative_stress_modulation"
+  "summary": "Biflavone from Ginkgo and related taxa associated with inflammatory pathway modulation.",
+  "description": "Biflavone from Ginkgo and related taxa associated with inflammatory pathway modulation.",
+  "compoundClass": "terpene lactone / biflavone",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30693991/"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/32573953/"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35319397/"
-    },
-    {
-      "title": "Reference",
-      "url": "https://www.nccih.nih.gov/health/ginkgo"
-    }
+  "targets": [
+    "platelet activating factor",
+    "antioxidant response",
+    "cerebral blood flow signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "biflavonoid",
-  "mechanism": "proposed mechanism based on preclinical data: anti-inflammatory and redox-modulating activity reported in Ginkgo constituent studies; isolated-compound evidence is preclinical.",
-  "herbs": [
-    "ginkgo-biloba"
-  ],
-  "contraindications": [
-    "No isolated-compound clinical interaction set established."
-  ],
-  "summary": "proposed mechanism based on preclinical data: anti-inflammatory and redox-modulating activity reported in Ginkgo constituent studies; isolated-compound evidence is preclinical.",
-  "description": "proposed mechanism based on preclinical data: anti-inflammatory and redox-modulating activity reported in Ginkgo constituent studies; isolated-compound evidence is preclinical.",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Ginkgo constituents are extract-specific. Bleeding interaction concerns apply with anticoagulants/antiplatelets.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
 }

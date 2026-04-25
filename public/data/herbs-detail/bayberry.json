@@ -1,0 +1,26 @@
+{
+  "name": "bayberry",
+  "slug": "bayberry",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "MAPK pathway modulation",
+    "NF-κB inhibition"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Fruit/berry preparations are commonly used as foods, juices, powders, capsules, or extracts; sugar and extract concentration vary.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

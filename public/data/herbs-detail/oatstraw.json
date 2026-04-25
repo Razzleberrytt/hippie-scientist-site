@@ -1,0 +1,26 @@
+{
+  "name": "oatstraw",
+  "slug": "oatstraw",
+  "summary": "It is best framed as a gentle nutritive herb with limited high-signal clinical depth.",
+  "description": "It is best framed as a gentle nutritive herb with limited high-signal clinical depth.",
+  "primaryActions": [],
+  "mechanisms": [
+    "nutritive support",
+    "calming support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "contraindications": [
+    "Celiac disease/gluten sensitivity unless certified gluten-free",
+    "pregnancy/breastfeeding supplement use needs review"
+  ],
+  "interactions": [
+    "Low documented interaction burden",
+    "caution if combined with strong sedatives due to intended calming use."
+  ],
+  "preparation": "Milky oat tops tincture, oatstraw infusion, and food oat preparations; milky oat and straw differ.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

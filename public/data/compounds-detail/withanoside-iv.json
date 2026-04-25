@@ -1,37 +1,22 @@
 {
-  "slug": "withanoside-iv",
   "id": "withanoside-iv",
-  "name": "withanoside IV",
-  "effects": [
-    "neuroprotective",
-    "adaptogen",
-    "multi-target signaling modulation"
+  "slug": "withanoside-iv",
+  "name": "withanoside iv",
+  "summary": "Steroidal lactone glycoside from ashwagandha associated with neuroregenerative activity.",
+  "description": "Steroidal lactone glycoside from ashwagandha associated with neuroregenerative activity.",
+  "compoundClass": "withanolide / steroidal lactone",
+  "mechanisms": [
+    "BDNF upregulation",
+    "neurite outgrowth promotion"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Withanoside-IV"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=withanoside+IV"
-    },
-    {
-      "title": "Reference",
-      "url": "https://www.nccih.nih.gov/health/ashwagandha"
-    }
+  "targets": [
+    "Neurotrophic signaling nodes",
+    "cholinergic systems"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "withanolide glycoside / steroidal lactone glycoside",
-  "mechanism": "proposed mechanism based on preclinical data: neuroprotective and neurite-outgrowth-associated effects are reported in Withania studies, but no established human mechanism exists.",
-  "herbs": [
-    "ashwagandha"
-  ],
-  "contraindications": [
-    "No compound-specific clinical drug interactions established."
-  ],
-  "summary": "proposed mechanism based on preclinical data: neuroprotective and neurite-outgrowth-associated effects are reported in Withania studies, but no established human mechanism exists.",
-  "description": "proposed mechanism based on preclinical data: neuroprotective and neurite-outgrowth-associated effects are reported in Withania studies, but no established human mechanism exists.",
-  "evidenceLevel": "preclinical",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Evidence usually comes from Withania extracts. Caution with pregnancy, liver disease, sedatives, thyroid medications, and autoimmune disease.",
+  "evidenceLevel": "animal / in vitro",
+  "relatedCompounds": []
 }

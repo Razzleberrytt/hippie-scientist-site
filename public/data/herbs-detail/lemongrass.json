@@ -1,0 +1,29 @@
+{
+  "name": "lemongrass",
+  "slug": "lemongrass",
+  "summary": "It is best framed as an aromatic culinary-medicinal grass with modest clinical depth.",
+  "description": "It is best framed as an aromatic culinary-medicinal grass with modest clinical depth.",
+  "primaryActions": [],
+  "mechanisms": [
+    "digestive support",
+    "calming support",
+    "aromatic support",
+    "TRPA1 modulation",
+    "sensory ion-channel modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "contraindications": [
+    "Pregnancy/breastfeeding supplement dosing without guidance",
+    "internal essential-oil use"
+  ],
+  "interactions": [
+    "Low documented interaction burden",
+    "caution with sedatives or antihypertensives at high doses."
+  ],
+  "preparation": "Leaf tea, culinary herb, tincture, and essential oil for topical/aromatic use.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,50 +1,31 @@
 {
   "name": "bacopa",
-  "latin": "bacopa",
-  "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
-  "activeCompounds": [
-    "Unresolved from current repository sources."
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "discontinue if hypersensitivity or allergic symptoms occur",
-    "avoid during pregnancy and breastfeeding unless advised by a clinician"
-  ],
-  "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "bacopa is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
-  "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Unresolved from current repository sources; perform medication and condition screening before use."
-  ],
-  "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
-  "region": "Unresolved from current repository sources.",
-  "therapeuticUses": [
-    "traditional support for mild digestive comfort",
-    "traditional stress resilience support"
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "bacopa",
-  "sideEffects": [
-    "allergic rash or itching in sensitive individuals",
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)"
+  "summary": "It is best framed around bacosides with slower-onset cognitive relevance.",
+  "description": "It is best framed around bacosides with slower-onset cognitive relevance.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Bacosides support cholinergic signaling and synaptic plasticity",
+    "modulate oxidative stress",
+    "neuroinflammation",
+    "ERK/PI3K-Akt pathways",
+    "and BDNF-related signaling."
   ],
-  "id": "bacopa",
-  "displayName": "bacopa",
-  "displayScientificName": "bacopa",
-  "scientificNormalized": "bacopa",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "bacopa entry normalized to a baseline profile; evidence remains limited in current repository sources."
+  "activeCompounds": [],
+  "safetyNotes": "Common adverse effects include nausea, cramping, diarrhea, and fatigue/sedation. Use caution with sedatives, thyroid-active therapy, pregnancy, and GI sensitivity.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without guidance",
+    "bradycardia or cholinergic medication use without review"
+  ],
+  "interactions": [
+    "May interact with sedatives",
+    "thyroid medications",
+    "anticholinergics/cholinergics",
+    "and antiepileptics."
+  ],
+  "preparation": "Whole herb extracts standardized to bacosides; onset in trials is often weeks, not acute.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

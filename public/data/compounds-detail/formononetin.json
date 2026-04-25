@@ -1,31 +1,25 @@
 {
-  "slug": "formononetin",
   "id": "formononetin",
+  "slug": "formononetin",
   "name": "formononetin",
-  "effects": [
-    "muscarinic receptor interaction"
+  "summary": "Isoflavone commonly reported from clover and astragalus with estrogen receptor and PI3K/Akt pathway effects.",
+  "description": "Isoflavone commonly reported from clover and astragalus with estrogen receptor and PI3K/Akt pathway effects.",
+  "compoundClass": "isoflavone / phytoestrogen",
+  "mechanisms": [
+    "estrogen receptor modulation",
+    "PI3K/Akt modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=amorpha%20fruticosa"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=formononetin"
-    }
+  "targets": [
+    "estrogen receptor signaling",
+    "AMPK",
+    "PPAR",
+    "antioxidant response",
+    "bone/metabolic signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "amorpha-fruticosa"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
 }

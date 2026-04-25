@@ -1,26 +1,32 @@
 {
-  "name": "Holy Basil",
+  "name": "holy basil",
   "slug": "holy-basil",
-  "scientificName": "Ocimum tenuiflorum",
-  "summary": "Holy Basil (Ocimum tenuiflorum) is a herb monograph focused on the leaf; aerial parts used in herbal preparations. It is associated with India, Southeast Asia. Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways. Generally safe; possible mild GI upset.",
-  "description": "Holy Basil is represented here as a monograph-style entry centered on the leaf; aerial parts. Key reported compounds include eugenol; ursolic acid; rosmarinic acid. Typical preparation forms: Leaf extracts, teas. Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways. Interaction profile: Anticoagulants, antidiabetic drugs. Use caution or avoid in: Pregnancy (limited data).",
-  "mechanism": "Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways",
-  "mechanismTags": [
-    "adaptogen",
-    "anti-inflammatory",
-    "antioxidant"
+  "summary": "Holy Basil centers on the leaf; aerial parts.",
+  "description": "Holy Basil centers on the leaf; aerial parts. Key reported compounds include eugenol; ursolic acid; rosmarinic acid. Typical preparation forms: Leaf extracts, teas. Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways. Interaction profile: Anticoagulants, antidiabetic drugs. Use caution or avoid in: Pregnancy (limited data).",
+  "primaryActions": [],
+  "mechanisms": [
+    "eugenol/ursolic-acid signaling",
+    "cortisol/stress-axis modulation",
+    "AMPK/glucose and inflammatory-pathway effects"
   ],
-  "activeCompounds": [
-    "eugenol",
-    "ursolic-acid",
-    "rosmarinic-acid"
+  "activeCompounds": [],
+  "safetyNotes": "May lower glucose and affect clotting; caution with diabetes drugs, anticoagulants, pregnancy, and perioperative use.",
+  "contraindications": [
+    "Pregnancy attempts/pregnancy without clinician guidance",
+    "hypoglycemia risk",
+    "bleeding disorder",
+    "upcoming surgery"
   ],
-  "safetyNotes": "Generally safe; possible mild GI upset",
   "interactions": [
-    "Anticoagulants",
-    "antidiabetic drugs"
+    "May add to antidiabetic",
+    "antihypertensive",
+    "sedative",
+    "anticoagulant",
+    "or antiplatelet effects."
   ],
-  "dosage": "Eugenol or ursolic acid content",
-  "preparation": "Leaf extracts, teas",
-  "region": "India, Southeast Asia"
+  "preparation": "Leaf tea, tincture, powder, and standardized extracts; seed preparations are a different data object.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

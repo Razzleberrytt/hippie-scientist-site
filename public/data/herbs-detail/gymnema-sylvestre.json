@@ -1,72 +1,34 @@
 {
   "name": "gymnema sylvestre",
-  "latin": "gymnema sylvestre",
-  "class": null,
-  "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "Proposed mechanisms include gymnemic-acid-related effects on intestinal glucose handling and sweet taste modulation, with possible downstream effects on glucose and lipid markers. Mechanistic evidence is mixed and not fully translated to standardized clinical dosing.",
-  "activeCompounds": [
-    "Gymnemic acids",
-    "Gymnemagenin"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
-    "Do not use with known allergy to this plant or related species."
-  ],
-  "safetyNotes": "Short-term supplementation is generally tolerated in available studies, but safety data are limited. Because glucose-lowering effects are possible, monitor for hypoglycemia risk when combined with antidiabetic medications.",
-  "sources": [
-    {
-      "title": "The effect of Gymnema sylvestre supplementation on glycemic control in type 2 diabetes patients: A systematic review and meta-analysis - PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34467577/"
-    },
-    {
-      "title": "The effects of Gymnema Sylvestre supplementation on lipid profile, glycemic control, blood pressure, and anthropometric indices in adults: A systematic review and meta-analysis - PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36580574/"
-    },
-    {
-      "title": "Effect of a deacyl gymnemic acid on glucose homeostasis & metabolic parameters in a rat model of metabolic syndrome - PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/23852298/"
-    },
-    {
-      "title": "Gymnema sylvestre - NCBI Taxonomy Browser",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Gymnema+sylvestre"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Gymnema sylvestre leaves are used in Ayurvedic preparations and modern supplements for metabolic health. Human studies include adjunct use in type 2 diabetes and dyslipidemia, but formulations and trial quality are variable.",
-  "dosage": "No single standardized dose is established across trials; studies use different extracts and durations. Use product-specific standardization and clinical monitoring when used for glycemic outcomes.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "May enhance glucose-lowering effects of insulin or oral antidiabetic drugs (hypoglycemia risk)."
-  ],
-  "legalStatus": "legal",
-  "preparation": "Most clinical literature uses leaf extracts or standardized capsules/tablets rather than whole-leaf culinary use.",
-  "region": "Native range is tropical and subtropical Asia, including the Indian subcontinent and surrounding regions.",
-  "therapeuticUses": [
-    "Traditional supportive use; indication depends on species part and preparation.",
-    "Evidence level varies; use only within established clinical or traditional context."
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "gymnema-sylvestre",
-  "sideEffects": [
-    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
-    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  "summary": "Gymnema sylvestre contains Gymnemagenin and is linked here to glucose absorption modulation.",
+  "description": "Gymnema sylvestre contains Gymnemagenin and is linked here to glucose absorption modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "gymnemic acid sweet-taste receptor antagonism",
+    "SGLT1/intestinal glucose absorption inhibition",
+    "pancreatic beta-cell and insulin-secretion effects",
+    "AMPK activation",
+    "lipid-metabolism modulation"
   ],
-  "id": "gymnema-sylvestre",
-  "displayName": "gymnema sylvestre",
-  "displayScientificName": "gymnema sylvestre",
-  "scientificNormalized": "gymnema sylvestre",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [
-    "gymnemic-acids"
+  "activeCompounds": [],
+  "safetyNotes": "Hypoglycemia risk increases with insulin, sulfonylureas, GLP-1 agonists, SGLT2 inhibitors, metformin, or other glucose-lowering medicines. Monitor glucose. GI upset can occur. Avoid pregnancy/breastfeeding. Stop before surgery because glucose variability may complicate perioperative management.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "hypoglycemia-prone patients without monitoring",
+    "perioperative use without clinician review."
   ],
-  "summary": "Gymnema sylvestre is a traditional South Asian medicinal plant studied mainly for glycemic control and cardiometabolic markers. Meta-analyses suggest possible benefit, but study quality and heterogeneity limit certainty."
+  "interactions": [
+    "Antidiabetics including insulin",
+    "sulfonylureas",
+    "GLP-1 agonists",
+    "SGLT2 inhibitors",
+    "and metformin",
+    "may compound glucose-lowering effects."
+  ],
+  "preparation": "Leaf powder/extracts standardized to gymnemic acids; chewing/tea can reduce sweet taste temporarily.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
 }

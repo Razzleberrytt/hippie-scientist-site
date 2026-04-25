@@ -1,36 +1,23 @@
 {
-  "slug": "dihydrokavain",
   "id": "dihydrokavain",
+  "slug": "dihydrokavain",
   "name": "dihydrokavain",
-  "effects": [
-    "gaba_a_modulation",
-    "multi-target signaling modulation"
+  "summary": "Major kavalactone from kava linked to calming CNS activity through GABAergic mechanisms.",
+  "description": "Major kavalactone from kava linked to calming CNS activity through GABAergic mechanisms.",
+  "compoundClass": "kavalactone",
+  "mechanisms": [
+    "GABA-A modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=kava"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=piper%20methysticum"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=dihydrokavain"
-    }
+  "targets": [
+    "GABAergic signaling",
+    "voltage-gated ion channels",
+    "monoamine signaling",
+    "CYP enzymes"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "Kavalactones modulate GABA_A receptor activity, inhibit voltage-gated sodium and calcium channels, and influence dopamine signaling.",
-  "herbs": [
-    "kava"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "Kavalactones modulate GABA_A receptor activity, inhibit voltage-gated sodium and calcium channels, and influence dopamine signaling.",
-  "description": "Kavalactones modulate GABA_A receptor activity, inhibit voltage-gated sodium and calcium channels, and influence dopamine signaling.",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
 }

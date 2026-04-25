@@ -1,0 +1,25 @@
+{
+  "id": "lawsone",
+  "slug": "lawsone",
+  "name": "lawsone",
+  "summary": "Naphthoquinone pigment linked to inflammatory signaling control.",
+  "description": "Naphthoquinone pigment linked to inflammatory signaling control.",
+  "compoundClass": "quinone / naphthoquinone-like phenolic",
+  "mechanisms": [
+    "MAPK pathway modulation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "ROS/redox cycling",
+    "NF-κB",
+    "apoptosis signaling",
+    "Nrf2",
+    "antimicrobial pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Often preclinical; concentrated or isolated quinones may be irritant/cytotoxic. Avoid pregnancy and use caution with liver disease or anticoagulants.",
+  "evidenceLevel": "preclinical",
+  "relatedCompounds": []
+}

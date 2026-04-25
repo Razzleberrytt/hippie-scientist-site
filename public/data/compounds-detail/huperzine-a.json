@@ -1,55 +1,25 @@
 {
-  "name": "huperzine A",
-  "herbs": [
-    "huperzia-serrata"
-  ],
-  "effects": [
-    "muscarinic receptor interaction",
-    "Acetylcholinesterase inhibition",
-    "cholinergic_modulation",
-    "synaptic acetylcholine increase"
-  ],
-  "contraindications": [
-    "Cholinergic adverse effects can include nausea, vomiting, diarrhea, sweating, bradycardia, and vivid dreams or insomnia",
-    "use greater caution in people with bradyarrhythmia or strong cholinergic drug exposure.",
-    "Anticholinergic drugs (functional opposition)",
-    "acetylcholinesterase inhibitors and other cholinergic drugs (possible additive cholinergic effects including bradycardia/GI effects)."
-  ],
-  "category": "sesquiterpene alkaloid",
-  "sources": [
-    {
-      "title": "Workbook source URL",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=huperzia%20serrata | https://pubchem.ncbi.nlm.nih.gov/#query=huperzine%20a | https://pubchem.ncbi.nlm.nih.gov/compound/Huperzine-A | https://pubmed.ncbi.nlm.nih.gov/12954533/ | https://pubmed.ncbi.nlm.nih.gov/27460655/"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "PubChem compound page (NIH)"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "USDA Plants database"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "trusted_gov_added"
-    },
-    {
-      "title": "Workbook source workbook",
-      "note": "Batch12_cholinergic_cognition_2026-04-07"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "slug": "huperzine-a",
   "id": "huperzine-a",
-  "displayName": "Huperzine A",
-  "description": "Huperzine A appears in records as a compound reported in huperzia serrata. Current source coverage is limited and still developing.",
-  "summary": "Huperzine A appears in records as a compound reported in huperzia serrata. Current source coverage is limited and still developing.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "mixed",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "huperzia-serrata"
+  "slug": "huperzine-a",
+  "name": "huperzine a",
+  "summary": "Lycopodium alkaloid widely associated with cholinergic and glutamatergic signaling.",
+  "description": "Lycopodium alkaloid widely associated with cholinergic and glutamatergic signaling.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "acetylcholinesterase inhibition",
+    "NMDA receptor modulation"
   ],
-  "mechanism": "Potent reversible acetylcholinesterase inhibitor that increases synaptic acetylcholine; this is the clearest and highest-signal mechanism in the batch."
+  "targets": [
+    "CNS/autonomic receptors",
+    "ion channels",
+    "CYP/P-gp",
+    "inflammatory signaling",
+    "apoptosis pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

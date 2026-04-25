@@ -1,0 +1,28 @@
+{
+  "name": "raspberry leaf",
+  "slug": "raspberry-leaf",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Uterine smooth-muscle tone modulation",
+    "calcium-channel/oxytocin-related uterine signaling uncertainty",
+    "tannin/polyphenol NF-κB and Nrf2 modulation."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Use during pregnancy only with obstetric supervision; avoid in high-risk pregnancy, preterm labor risk, prior uterine surgery concerns, bleeding disorders, or concurrent uterotonic/labor-inducing agents unless directed by a clinician.",
+  "contraindications": [
+    "High-risk pregnancy",
+    "early pregnancy without clinician guidance",
+    "history of preterm labor"
+  ],
+  "interactions": [
+    "Limited interaction data",
+    "caution with uterotonic agents or sedatives if blended products."
+  ],
+  "preparation": "Leaf tea/infusion, tablets, tincture; fruit is a separate food entry.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

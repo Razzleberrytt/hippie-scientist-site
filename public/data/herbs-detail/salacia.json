@@ -1,0 +1,27 @@
+{
+  "name": "salacia",
+  "slug": "salacia",
+  "summary": "Internal cross-linking supports Salacia through compounds such as mangiferin, kotalanol, salacinol.",
+  "description": "Internal cross-linking supports Salacia through compounds such as mangiferin, kotalanol, salacinol.",
+  "primaryActions": [],
+  "mechanisms": [
+    "salacinol/kotalanol alpha-glucosidase inhibition",
+    "intestinal carbohydrate absorption modulation",
+    "AMPK/PPAR-related metabolic signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May lower post-meal glucose; monitor with antidiabetic medications. GI effects are possible; avoid pregnancy/breastfeeding use without clinician supervision.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

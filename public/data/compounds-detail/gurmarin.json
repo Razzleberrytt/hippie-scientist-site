@@ -1,31 +1,21 @@
 {
-  "slug": "gurmarin",
   "id": "gurmarin",
+  "slug": "gurmarin",
   "name": "gurmarin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Peptide constituent associated with sweet-signal blocking and glycemic effects.",
+  "description": "Peptide constituent associated with sweet-signal blocking and glycemic effects.",
+  "compoundClass": "peptide",
+  "mechanisms": [
+    "sweet taste receptor modulation",
+    "glucose absorption modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=gymnema%20sylvestre"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=gurmarin"
-    }
+  "targets": [
+    "glucose transport/metabolism"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "Gymnemic acids suppress sweet taste receptors and reduce intestinal glucose absorption; may enhance insulin secretion.",
-  "herbs": [
-    "gymnema-sylvestre"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "Gymnemic acids suppress sweet taste receptors and reduce intestinal glucose absorption; may enhance insulin secretion.",
-  "description": "Gymnemic acids suppress sweet taste receptors and reduce intestinal glucose absorption; may enhance insulin secretion.",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
 }

@@ -1,31 +1,22 @@
 {
-  "slug": "artemisinin",
   "id": "artemisinin",
+  "slug": "artemisinin",
   "name": "artemisinin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Sesquiterpene lactone endoperoxide linked to redox and survival pathway effects.",
+  "description": "Sesquiterpene lactone endoperoxide linked to redox and survival pathway effects.",
+  "compoundClass": "sesquiterpene lactone endoperoxide",
+  "mechanisms": [
+    "ROS-mediated signaling modulation",
+    "PI3K/Akt modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Artemisia%20annua"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=artemisinin"
-    }
+  "targets": [
+    "PI3K/Akt",
+    "redox signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "Artemisinin, flavonoids, coumarins",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "artemisia-annua"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
 }

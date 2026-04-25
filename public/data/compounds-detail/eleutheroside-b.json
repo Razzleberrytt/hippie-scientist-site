@@ -1,0 +1,24 @@
+{
+  "id": "eleutheroside-b",
+  "slug": "eleutheroside-b",
+  "name": "eleutheroside b",
+  "summary": "Phenylpropanoid glycoside from Eleuthero associated with adaptogenic effects.",
+  "description": "Phenylpropanoid glycoside from Eleuthero associated with adaptogenic effects.",
+  "compoundClass": "lignan",
+  "mechanisms": [
+    "HPA-axis modulation",
+    "immune modulation"
+  ],
+  "targets": [
+    "CYP/P-gp modulation",
+    "Nrf2",
+    "AMPK",
+    "liver detoxification signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Schisandra-type lignans can affect drug-metabolizing enzymes/transporters; caution with complex medication regimens.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
+}

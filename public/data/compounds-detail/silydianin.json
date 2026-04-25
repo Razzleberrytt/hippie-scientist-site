@@ -1,31 +1,21 @@
 {
-  "slug": "silydianin",
   "id": "silydianin",
+  "slug": "silydianin",
   "name": "silydianin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Minor flavonolignan from milk thistle associated with liver-protective effects.",
+  "description": "Minor flavonolignan from milk thistle associated with liver-protective effects.",
+  "compoundClass": "phytochemical constituent",
+  "mechanisms": [
+    "Nrf2 activation",
+    "hepatocyte protection"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=silybum%20marianum"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=silydianin"
-    }
+  "targets": [
+    "Nrf2"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "milk-thistle"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
 }

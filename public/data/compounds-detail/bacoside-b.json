@@ -1,0 +1,25 @@
+{
+  "id": "bacoside-b",
+  "slug": "bacoside-b",
+  "name": "bacoside b",
+  "summary": "Bacopa saponin fraction linked to cognition-related signaling.",
+  "description": "Bacopa saponin fraction linked to cognition-related signaling.",
+  "compoundClass": "saponin / glycoside",
+  "mechanisms": [
+    "cholinergic modulation",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "AMPK",
+    "PPAR",
+    "immune cytokines",
+    "membrane signaling",
+    "glucose/lipid metabolism"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

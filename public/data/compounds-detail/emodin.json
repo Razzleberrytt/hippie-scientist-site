@@ -1,54 +1,25 @@
 {
-  "slug": "emodin",
   "id": "emodin",
+  "slug": "emodin",
   "name": "emodin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Anthraquinone reported from rhubarb with NF-κB and MAPK pathway activity.",
+  "description": "Anthraquinone reported from rhubarb with NF-κB and MAPK pathway activity.",
+  "compoundClass": "anthraquinone",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cassia%20occidentalis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Polygonum%20multiflorum"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Rheum%20palmatum"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11255441/"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11944761/"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7168079/"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=emodin"
-    }
+  "targets": [
+    "NF-κB",
+    "MAPK",
+    "apoptosis signaling",
+    "intestinal motility pathways",
+    "CYP/P-gp interaction pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "anthraquinone",
-  "mechanism": "NF-kB-linked anti-inflammatory signaling plus broader apoptosis/kinase-pathway effects.",
-  "herbs": [
-    "cassia-occidentalis",
-    "polygonum-multiflorum",
-    "rheum-palmatum"
-  ],
-  "contraindications": [
-    "CYP1A2/CYP3A4 substrates (possible altered exposure)",
-    "caution with hepatotoxic drugs."
-  ],
-  "summary": "NF-kB-linked anti-inflammatory signaling plus broader apoptosis/kinase-pathway effects.",
-  "description": "NF-kB-linked anti-inflammatory signaling plus broader apoptosis/kinase-pathway effects.",
-  "evidenceLevel": "Sprint3",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Anthraquinone laxative-like activity may cause diarrhea, electrolyte shifts, and interaction risks. Avoid chronic high-dose use, pregnancy, kidney disease, and stimulant-laxative stacking.",
+  "evidenceLevel": "preclinical; safety_known_by_class",
+  "relatedCompounds": []
 }

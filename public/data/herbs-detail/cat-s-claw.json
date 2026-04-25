@@ -1,0 +1,27 @@
+{
+  "name": "cat's claw",
+  "slug": "cat-s-claw",
+  "summary": "It is best framed around oxindole alkaloids with autoimmune and transplant-related caution.",
+  "description": "It is best framed around oxindole alkaloids with autoimmune and transplant-related caution.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Pentacyclic oxindole alkaloid immunomodulation",
+    "TNF-α and NF-κB modulation",
+    "cytokine signaling effects."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Avoid in pregnancy, breastfeeding, transplant recipients, and immunosuppressed users; caution with autoimmune disease, anticoagulants/antiplatelets, antihypertensives, and perioperative use.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,31 +1,22 @@
 {
-  "slug": "atractylenolide-iii",
   "id": "atractylenolide-iii",
+  "slug": "atractylenolide-iii",
   "name": "atractylenolide iii",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Sesquiterpene lactone associated with immune and cytoprotective pathways.",
+  "description": "Sesquiterpene lactone associated with immune and cytoprotective pathways.",
+  "compoundClass": "terpenoid",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Atractylodes%20macrocephala"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=atractylenolide%20iii"
-    }
+  "targets": [
+    "NF-κB",
+    "PI3K/Akt"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "atractylodes-macrocephala"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
 }

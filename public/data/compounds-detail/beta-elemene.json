@@ -1,0 +1,24 @@
+{
+  "id": "beta-elemene",
+  "slug": "beta-elemene",
+  "name": "beta-elemene",
+  "summary": "Sesquiterpene hydrocarbon associated with survival and apoptotic signaling.",
+  "description": "Sesquiterpene hydrocarbon associated with survival and apoptotic signaling.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "apoptosis pathway modulation (caspase activation)"
+  ],
+  "targets": [
+    "TRP channels",
+    "antimicrobial membranes",
+    "COX/LOX",
+    "GABAergic or adrenergic signaling depending compound"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

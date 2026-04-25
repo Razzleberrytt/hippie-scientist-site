@@ -1,0 +1,25 @@
+{
+  "id": "ononin",
+  "slug": "ononin",
+  "name": "ononin",
+  "summary": "Isoflavone glycoside tied to receptor-level estrogenic signaling.",
+  "description": "Isoflavone glycoside tied to receptor-level estrogenic signaling.",
+  "compoundClass": "isoflavone / phytoestrogen",
+  "mechanisms": [
+    "estrogen receptor modulation",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "estrogen receptor signaling",
+    "AMPK",
+    "PPAR",
+    "antioxidant response",
+    "bone/metabolic signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
+}

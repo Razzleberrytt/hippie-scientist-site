@@ -1,0 +1,32 @@
+{
+  "name": "gymnema",
+  "slug": "gymnema",
+  "summary": "Gymnema leaf is mainly anchored by gymnemic acids, a triterpene-glycoside cluster.",
+  "description": "Gymnema leaf is mainly anchored by gymnemic acids, a triterpene-glycoside cluster. The strongest mechanistic signal is sweet-taste suppression plus related effects on glucose handling, not generic wellness language. Keep human claims conservative and formulation-specific.",
+  "primaryActions": [],
+  "mechanisms": [
+    "glycemic support",
+    "sweet taste suppression",
+    "T1R2/T1R3 modulation",
+    "glucose absorption modulation",
+    "AMPK activation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated, but products positioned for glucose support should be handled cautiously in people already using glucose-lowering strategies.",
+  "contraindications": [
+    "Hypoglycemia risk",
+    "pregnancy/breastfeeding without clinician guidance",
+    "perioperative fasting"
+  ],
+  "interactions": [
+    "May potentiate insulin",
+    "sulfonylureas",
+    "metformin",
+    "and other glucose-lowering agents."
+  ],
+  "preparation": "Leaf powder/extracts standardized to gymnemic acids; chewing/tea can reduce sweet taste temporarily.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

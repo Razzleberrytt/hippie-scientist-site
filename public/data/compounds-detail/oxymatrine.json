@@ -1,31 +1,25 @@
 {
-  "slug": "oxymatrine",
   "id": "oxymatrine",
+  "slug": "oxymatrine",
   "name": "oxymatrine",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Matrine-related alkaloid associated with TGF-β-linked fibrosis pathways and NF-κB inhibition.",
+  "description": "Matrine-related alkaloid associated with TGF-β-linked fibrosis pathways and NF-κB inhibition.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "TGF-β signaling modulation",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Sophora%20flavescens"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=oxymatrine"
-    }
+  "targets": [
+    "CNS/autonomic receptors",
+    "ion channels",
+    "CYP/P-gp",
+    "inflammatory signaling",
+    "apoptosis pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "sophora-flavescens"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

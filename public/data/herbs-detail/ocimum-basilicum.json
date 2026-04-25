@@ -1,0 +1,33 @@
+{
+  "name": "ocimum basilicum",
+  "slug": "ocimum-basilicum",
+  "summary": "Ocimum basilicum contains Methyleugenol and is linked here to TRP channel modulation.",
+  "description": "Ocimum basilicum contains Methyleugenol and is linked here to TRP channel modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Linalool/eugenol-mediated TRP channel and GABA-A-related signaling",
+    "NF-κB inflammatory modulation",
+    "Nrf2 antioxidant signaling",
+    "eugenol-related platelet effects."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Culinary basil is low risk, but essential oils/extracts differ; caution with anticoagulants/antiplatelets, pregnancy, children, liver disease, and high-methyleugenol concentrated products.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "bleeding disorder or upcoming surgery",
+    "seizure disorder or sedative/alcohol use"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "anticoagulants/antiplatelets",
+    "sedatives/CNS depressants",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

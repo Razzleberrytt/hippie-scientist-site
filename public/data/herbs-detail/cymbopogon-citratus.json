@@ -1,47 +1,28 @@
 {
   "name": "cymbopogon citratus",
-  "latin": "Cymbopogon citratus",
-  "intensity": "No direct intensity data. Contextual inference: Calming, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, antimicrobial, digestive aid. No direct region data. Contextual inference: Calming, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, antimicrobial, digestive aid. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-  "activeCompounds": [],
-  "effects": [
-    "Calming",
-    "antimicrobial",
-    "digestive aid"
-  ],
-  "contraindications": [],
-  "safetyNotes": "safe; Generally well tolerated; rare allergic skin reactions or mild GI irritation; No direct toxicity data. Contextual inference: Calming; antimicrobial; digestive aid. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Calming; digestive aid. none.",
-  "sources": [
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Calming, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "1; 2 g; day dried leaf infusion",
-  "duration": "2–4 hours",
-  "interactions": [],
-  "legalStatus": "Legal worldwide",
-  "preparation": "Leaves used fresh or dried in teas and infusions; also distilled for lemongrass oil",
-  "region": "No direct region data. Contextual inference: Calming, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, antimicrobial, digestive aid. none. ; nan; nan",
-  "therapeuticUses": [],
-  "traditionalUse": "; nan; nan",
-  "sideEffects": [
-    "Generally well tolerated",
-    "rare allergic skin reactions or mild GI irritation"
-  ],
   "slug": "cymbopogon-citratus",
-  "id": "cymbopogon-citratus",
-  "displayName": "cymbopogon citratus",
-  "displayScientificName": "Cymbopogon citratus",
-  "scientificNormalized": "cymbopogon citratus",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": []
+  "summary": "Cymbopogon citratus contains Nerolidol and is linked here to GABA-A modulation.",
+  "description": "Cymbopogon citratus contains Nerolidol and is linked here to GABA-A modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Citral/myrcene activity",
+    "GABA-A-related signaling",
+    "vascular smooth-muscle and ACE-related effects",
+    "PI3K/Akt and NF-κB modulation."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Tea-level use is usually tolerated, but concentrated essential oil can irritate skin/mucosa and may cause CNS or GI effects; caution in pregnancy, breastfeeding, sedative use, hypotension, and antihypertensive therapy.",
+  "contraindications": [
+    "Pregnancy/breastfeeding supplement dosing without guidance",
+    "internal essential-oil use"
+  ],
+  "interactions": [
+    "Low documented interaction burden",
+    "caution with sedatives or antihypertensives at high doses."
+  ],
+  "preparation": "Leaf tea, culinary herb, tincture, and essential oil for topical/aromatic use.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

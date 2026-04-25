@@ -1,31 +1,22 @@
 {
-  "slug": "theanine",
   "id": "theanine",
+  "slug": "theanine",
   "name": "theanine",
-  "effects": [
-    "adenosine receptor antagonism"
+  "summary": "Non-protein amino acid from tea associated with calming and attention-related effects.",
+  "description": "Non-protein amino acid from tea associated with calming and attention-related effects.",
+  "compoundClass": "amino acid / tea constituent",
+  "mechanisms": [
+    "glutamate receptor modulation",
+    "GABA upregulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=camellia%20sinensis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=theanine"
-    }
+  "targets": [
+    "Glutamate receptors",
+    "GABA-related signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "EGCG inhibits catechol-O-methyltransferase (COMT) and activates AMPK; caffeine antagonizes adenosine A1 and A2A receptors.",
-  "herbs": [
-    "camellia-sinensis"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "EGCG inhibits catechol-O-methyltransferase (COMT) and activates AMPK; caffeine antagonizes adenosine A1 and A2A receptors.",
-  "description": "EGCG inhibits catechol-O-methyltransferase (COMT) and activates AMPK; caffeine antagonizes adenosine A1 and A2A receptors.",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated in tea/supplement studies; additive effects with sedatives or stimulants are possible but usually mild.",
+  "evidenceLevel": "human / animal / in vitro",
+  "relatedCompounds": []
 }

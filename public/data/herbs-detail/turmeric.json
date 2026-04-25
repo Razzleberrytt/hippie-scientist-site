@@ -1,75 +1,36 @@
 {
   "name": "turmeric",
-  "latin": "turmeric",
-  "intensity": "mild",
-  "mechanism": "Proposed mechanism: LiverTox describes putative anti-inflammatory effects (e.g., inhibition of leukotriene synthesis) and broader hypothesized pathways (e.g., intracellular kinase inhibition for antineoplastic effects), but these remain mechanistic hypotheses without strong clinical proof for outcomes.",
-  "activeCompounds": [
-    "Curcumin is the primary named constituent in NCCIH and LiverTox discussions",
-    "PubChem lists curcumin (CID 969516). LiverTox also notes curcumin comprises ~1–6% of whole turmeric extracts by dry weight."
-  ],
-  "effects": [
-    "May modestly reduce osteoarthritis pain and stiffness",
-    "Anti-inflammatory signal reduction in some trials",
-    "Adjunct symptom support rather than disease-modifying treatment"
-  ],
-  "contraindications": [
-    "Use caution with anticoagulant or antiplatelet therapy",
-    "Use caution with gallstones or biliary obstruction",
-    "Avoid high-dose supplemental use before surgery unless clinician advises"
-  ],
-  "safetyNotes": "NCCIH: conventionally formulated oral turmeric/curcumin is likely safe in recommended amounts for up to 2–3 months but can cause GI adverse effects; liver damage has been reported with some bioavailable curcumin products, and pregnancy use of supplements may be unsafe. LiverTox: turmeric is now a well-documented cause of clinically apparent liver injury (rare), often linked to high-bioavailability curcumin; advises stopping product if symptoms arise and avoiding rechallenge after injury.",
-  "sources": [
-    {
-      "title": "Turmeric: Usefulness and Safety (NCCIH)",
-      "url": "https://www.nccih.nih.gov/health/turmeric"
-    },
-    {
-      "title": "Turmeric (LiverTox; updated June 16, 2025)",
-      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548561/"
-    },
-    {
-      "title": "*Curcuma longa* L. (POWO)",
-      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A796451-1"
-    },
-    {
-      "title": "Curcumin (PubChem)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Curcumin"
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "description": "A spice/botanical product from the roots/rhizomes of *Curcuma longa*; supplements include turmeric extracts and curcumin-focused products with widely variable curcuminoid content; high-bioavailability curcumin formulations are common.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Potential additive bleeding risk with anticoagulant or antiplatelet medicines."
-  ],
-  "legalStatus": "legal",
-  "preparation": "Whole turmeric powder, turmeric extracts, and curcumin products (including enhanced-bioavailability forms using piperine or nanoparticle/lipid delivery methods described in LiverTox context).",
-  "region": "POWO lists turmeric as a cultigen from SW India.",
-  "therapeuticUses": [
-    "support for mild inflammatory discomfort",
-    "digestive support for dyspepsia and bile flow"
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "turmeric",
-  "sideEffects": [
-    "Gastrointestinal upset",
-    "Nausea or diarrhea",
-    "Headache in some users at higher doses"
+  "summary": "Turmeric centers on the unspecified.",
+  "description": "Turmeric centers on the unspecified. Key reported compounds include curcumin; demethoxycurcumin; bisdemethoxycurcumin. Typical preparation forms: The rhizomes are boiled, dried and ground into powder used as a spice, dye and supplement. Extracts standardized for curcuminoid content are available as capsules or tablets. The golden rhizomes of turmeric contain non‐volatile curcuminoids-curcumin (curcumin I), demethoxycurcumin (curcumin II) and bisdemethoxycurcumin (curcumin III)-as well as volatile mono‐ and sesquiterpenoids【768158627760254†L420-L432】【768158627760254†L442-L468】. Curcumin and related curcuminoids exhibit antioxidant and anti‐inflammatory effects by modulating multiple molecular targets (e.g., NF‐κB, Nrf2, COX‐2). Most data are preclinical; human evidence is limited, so this mechanism should be considered proposed. Interaction profile: Curcumin may enhance the effects of anticoagulant, antiplatelet or antidiabetic drugs and could interact with drugs metabolized by cytochrome P450 enzymes; caution is advised. Use caution or avoid in: Avoid high‐dose turmeric supplements in people with gallbladder obstruction, bleeding disorders or those taking anticoagulant or antiplatelet medications. Use is not recommended during pregnancy or breastfeeding.",
+  "primaryActions": [],
+  "mechanisms": [
+    "curcumin-mediated NF-κB inhibition",
+    "COX-2 and LOX downregulation",
+    "Nrf2 antioxidant-response activation",
+    "JAK/STAT and MAPK modulation",
+    "inflammatory cytokine reduction (TNF-α",
+    "IL-6)"
   ],
-  "id": "turmeric",
-  "displayName": "turmeric",
-  "displayScientificName": "turmeric",
-  "scientificNormalized": "turmeric",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "NCCIH: evidence is insufficient to definitively conclude benefit for most conditions; initial research suggests possible improvements in certain NAFLD measures and oral mucositis symptoms, but findings are not definitive. LiverTox: rigorous proof of efficacy in any medical condition is lacking.",
-  "scientificName": "Curcuma longa",
-  "mechanismTags": [
-    "anti-inflammatory",
-    "antioxidant"
-  ]
+  "activeCompounds": [],
+  "safetyNotes": "GI upset is common at higher doses. High-bioavailability extracts can materially increase exposure. Caution with anticoagulants/antiplatelets/NSAIDs, gallbladder disease or bile duct obstruction, kidney stones, iron deficiency, antidiabetic therapy, and hepatotoxic drugs/supplements. Hepatotoxicity case reports exist for some turmeric/curcumin products.",
+  "contraindications": [
+    "Bile duct obstruction or active gallbladder disease without clinician review",
+    "active liver disease or prior turmeric/curcumin-related liver injury",
+    "perioperative use without clinician review."
+  ],
+  "interactions": [
+    "Anticoagulants",
+    "antiplatelets",
+    "NSAIDs",
+    "antidiabetics",
+    "iron supplements",
+    "hepatotoxic drugs/supplements",
+    "and oncology medications where CYP/P-gp concerns are clinically relevant."
+  ],
+  "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
 }

@@ -1,15 +1,27 @@
 {
-  "name": "turmeric",
+  "name": "curcuma longa",
   "slug": "curcuma-longa",
-  "scientificName": "anti-inflammatory, NF-kB modulation",
-  "summary": "",
-  "description": "turmeric reference profile.",
-  "mechanism": "",
-  "mechanismTags": [],
+  "summary": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition.",
+  "description": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition.",
+  "primaryActions": [],
+  "mechanisms": [
+    "curcuminoid NF-κB inhibition",
+    "Nrf2 activation",
+    "COX/LOX and inflammatory cytokine modulation"
+  ],
   "activeCompounds": [],
-  "safetyNotes": "",
-  "interactions": [],
-  "dosage": "",
-  "preparation": "",
-  "region": "low bioavailability; may interact with anticoagulants"
+  "safetyNotes": "GI effects possible; caution with anticoagulants/antiplatelets, gallbladder disease, and liver-safety concerns at high doses.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

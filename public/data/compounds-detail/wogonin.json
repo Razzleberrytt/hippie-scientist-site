@@ -1,38 +1,27 @@
 {
-  "name": "wogonin",
-  "herbs": [
-    "nan"
-  ],
-  "effects": [
-    "Mild sedation",
-    "calm mood",
-    "anxiety relief",
-    "No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.",
-    "Nervine",
-    "anxiolytic",
-    "anti-inflammatory",
-    "used for insomnia and anxiety"
-  ],
-  "contraindications": [
-    "Avoid during pregnancy",
-    "caution with sedatives",
-    "pregnancy",
-    "sedative sensitivity."
-  ],
-  "category": "other",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "slug": "wogonin",
   "id": "wogonin",
-  "displayName": "wogonin",
-  "description": "wogonin appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
-  "summary": "wogonin appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
+  "slug": "wogonin",
+  "name": "wogonin",
+  "summary": "Wogonin is a flavone associated with Scutellaria research and immune-neuroinflammatory pathway studies. The compound is biologically interesting, but isolated human efficacy evidence remains thin.",
+  "description": "Scutellaria flavone associated with NF-κB inhibition and PI3K/Akt pathway effects.",
+  "compoundClass": "flavone aglycone",
+  "mechanisms": [
+    "NF-kB suppression",
+    "Nrf2-related antioxidant signaling",
+    "GABA-A-related neuroactive modulation",
+    "apoptosis pathway effects"
   ],
-  "mechanism": "American skullcap flavonoids are associated with anticonvulsant and anxiolytic activity; GABAergic signaling and broader neuroinhibitory effects have been proposed in preclinical work."
+  "targets": [
+    "NF-κB",
+    "MAPK",
+    "PI3K/Akt",
+    "apoptosis signaling",
+    "inflammatory cytokines"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical and extract-derived. Isolated-dose human safety is not well established; caution with liver disease, anticoagulants/antiplatelets, sedatives, and pregnancy.",
+  "evidenceLevel": "preclinical; human_indirect",
+  "relatedCompounds": []
 }

@@ -1,36 +1,25 @@
 {
-  "slug": "palmatine",
   "id": "palmatine",
+  "slug": "palmatine",
   "name": "palmatine",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Palmatine is a protoberberine alkaloid that often co-occurs with berberine-containing herbs. Its profile is driven mainly by preclinical metabolic, antimicrobial, and anti-inflammatory studies rather than direct clinical evidence.",
+  "description": "Protoberberine alkaloid found in berberine-containing herbs with metabolic and inflammatory pathway effects.",
+  "compoundClass": "protoberberine isoquinoline alkaloid",
+  "mechanisms": [
+    "AMPK activation",
+    "MAPK pathway modulation",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Coptis%20chinensis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Phellodendron%20amurense"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=palmatine"
-    }
+  "targets": [
+    "AMPK",
+    "NF-κB",
+    "microbial targets",
+    "CYP/P-gp interaction pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "coptis-chinensis",
-    "phellodendron-amurense"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Related to berberine-like alkaloids but less clinically characterized. Avoid pregnancy/breastfeeding and use caution with antidiabetic, anticoagulant, and CYP/P-gp substrate drugs.",
+  "evidenceLevel": "preclinical; human_indirect",
+  "relatedCompounds": []
 }

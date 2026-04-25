@@ -1,0 +1,25 @@
+{
+  "id": "momordicoside-k",
+  "slug": "momordicoside-k",
+  "name": "momordicoside k",
+  "summary": "Bitter melon cucurbitane glycoside linked to metabolic signaling.",
+  "description": "Bitter melon cucurbitane glycoside linked to metabolic signaling.",
+  "compoundClass": "saponin / glycoside",
+  "mechanisms": [
+    "AMPK activation",
+    "PPARγ activation"
+  ],
+  "targets": [
+    "AMPK",
+    "PPAR",
+    "immune cytokines",
+    "membrane signaling",
+    "glucose/lipid metabolism"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

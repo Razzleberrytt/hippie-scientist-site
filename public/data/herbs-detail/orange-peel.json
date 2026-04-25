@@ -1,0 +1,27 @@
+{
+  "name": "orange peel",
+  "slug": "orange-peel",
+  "summary": "Bulk-ingested support row carrying Hesperidin with pathway-level mechanism coverage.",
+  "description": "Bulk-ingested support row carrying Hesperidin with pathway-level mechanism coverage.",
+  "primaryActions": [],
+  "mechanisms": [
+    "AMPK activation",
+    "PI3K/Akt modulation",
+    "NF-κB inhibition"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally food-like; essential oil can irritate skin and photosensitivity is possible with some citrus oils.",
+  "contraindications": [
+    "Citrus allergy",
+    "internal essential-oil use without supervision"
+  ],
+  "interactions": [
+    "Lower interaction burden than grapefruit",
+    "but review with CYP-sensitive drugs if concentrated extracts are used."
+  ],
+  "preparation": "Dried peel tea/decoction, tincture, zest, and essential oil; bitter orange/sweet orange differ.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

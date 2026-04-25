@@ -1,18 +1,25 @@
 {
-  "slug": "echinacoside",
   "id": "echinacoside",
+  "slug": "echinacoside",
   "name": "echinacoside",
-  "effects": [],
-  "sources": [],
-  "lastUpdated": "2026-04-09",
-  "category": "provisional_from_herb_monograph",
-  "mechanism": "",
-  "herbs": [
-    "echinacea-purpurea"
+  "summary": "Echinacoside is a phenylethanoid glycoside found in Echinacea and Cistanche-related materials. It is mainly characterized by antioxidant, neuroprotective, and anti-inflammatory preclinical research rather than strong human intervention data.",
+  "description": "Phenylethanoid glycoside associated with neuroprotective and antioxidant-response pathways.",
+  "compoundClass": "phenylethanoid glycoside",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "Nrf2 activation"
   ],
-  "contraindications": [],
-  "summary": "",
-  "description": "",
-  "evidenceLevel": "herb_level_reference_only",
-  "aliases": []
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "antioxidant response",
+    "inflammatory cytokines",
+    "neuroprotective signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical/extract-derived; safety depends on source herb and product quality.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

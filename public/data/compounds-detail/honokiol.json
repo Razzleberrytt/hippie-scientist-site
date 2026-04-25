@@ -1,0 +1,24 @@
+{
+  "id": "honokiol",
+  "slug": "honokiol",
+  "name": "honokiol",
+  "summary": "Biphenolic compound from Magnolia bark with anxiolytic and anti-inflammatory activity.",
+  "description": "Biphenolic compound from Magnolia bark with anxiolytic and anti-inflammatory activity.",
+  "compoundClass": "neolignan",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "GABA-A modulation"
+  ],
+  "targets": [
+    "GABA-A signaling",
+    "NF-κB",
+    "cannabinoid/endocannabinoid signaling",
+    "inflammatory cytokines"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Sedation and additive CNS depressant effects are possible; pregnancy safety is not established.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

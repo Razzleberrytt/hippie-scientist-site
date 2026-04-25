@@ -1,31 +1,22 @@
 {
-  "slug": "berbamine",
   "id": "berbamine",
+  "slug": "berbamine",
   "name": "berbamine",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Bis-benzylisoquinoline alkaloid from barberry-type plants with anti-inflammatory and signaling-modulatory activity.",
+  "description": "Bis-benzylisoquinoline alkaloid from barberry-type plants with anti-inflammatory and signaling-modulatory activity.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "JAK/STAT inhibition",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Berberis%20vulgaris"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=berbamine"
-    }
+  "targets": [
+    "NF-κB",
+    "JAK/STAT"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "berberis-vulgaris"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Isolated alkaloid exposure may affect CYP/P-gp handling, glucose, blood pressure, and GI tolerance; avoid pregnancy/breastfeeding unless clinician-directed.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
 }

@@ -1,20 +1,27 @@
 {
-  "name": "Maca",
+  "name": "maca",
   "slug": "maca",
-  "scientificName": "Lepidium meyenii",
-  "summary": "Maca (Lepidium meyenii) is a root monograph focused on the root; hypocotyl used in herbal preparations. It is associated with Peru (Andes). May influence endocrine signaling and energy metabolism (unclear mechanism). Generally safe; mild GI upset possible.",
-  "description": "Maca is represented here as a monograph-style entry centered on the root; hypocotyl. Key reported compounds include macamides; macaenes; glucosinolates. Typical preparation forms: Dried root powder, extracts. May influence endocrine signaling and energy metabolism (unclear mechanism). Interaction profile: Limited data. Use caution or avoid in: Hormone-sensitive conditions (caution).",
-  "mechanism": "May influence endocrine signaling and energy metabolism (unclear mechanism)",
-  "mechanismTags": [
-    "adaptogen",
-    "hormonal"
+  "summary": "Maca centers on the root; hypocotyl.",
+  "description": "Maca centers on the root; hypocotyl. Key reported compounds include macamides; macaenes; glucosinolates. Typical preparation forms: Dried root powder, extracts. May influence endocrine signaling and energy metabolism (unclear mechanism). Interaction profile: Limited data. Use caution or avoid in: Hormone-sensitive conditions (caution).",
+  "primaryActions": [],
+  "mechanisms": [
+    "macamide/macaene signaling",
+    "HPA-axis and NO-related sexual-function pathways",
+    "non-estrogenic neuroendocrine modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally safe; mild GI upset possible",
-  "interactions": [
-    "Limited data"
+  "safetyNotes": "Avoid assuming hormone-like replacement; caution in hormone-sensitive conditions and pregnancy due to limited long-term data.",
+  "contraindications": [
+    "Hormone-sensitive conditions without clinician review",
+    "pregnancy/breastfeeding without clinician guidance"
   ],
-  "dosage": null,
-  "preparation": "Dried root powder, extracts",
-  "region": "Peru (Andes)"
+  "interactions": [
+    "Limited interaction data",
+    "review with hormone therapies or fertility treatments."
+  ],
+  "preparation": "Gelatinized or raw root powder and extracts; color phenotypes may differ.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

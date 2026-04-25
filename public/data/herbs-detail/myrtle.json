@@ -1,0 +1,26 @@
+{
+  "name": "myrtle",
+  "slug": "myrtle",
+  "summary": "It is best framed as an aromatic Mediterranean leaf botanical with modest modern evidence.",
+  "description": "It is best framed as an aromatic Mediterranean leaf botanical with modest modern evidence.",
+  "primaryActions": [],
+  "mechanisms": [
+    "aromatic support",
+    "antioxidant"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Aromatic herb/spice forms and essential oils differ greatly; essential oils require conservative topical/diluted use and are not interchangeable with teas.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

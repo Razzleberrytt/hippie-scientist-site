@@ -1,31 +1,26 @@
 {
-  "slug": "coptisine",
   "id": "coptisine",
+  "slug": "coptisine",
   "name": "coptisine",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Protoberberine alkaloid from Coptis with metabolic and inflammatory pathway activity.",
+  "description": "Protoberberine alkaloid from Coptis with metabolic and inflammatory pathway activity.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "AMPK activation",
+    "NF-κB inhibition",
+    "MAPK modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Coptis%20chinensis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=coptisine"
-    }
+  "targets": [
+    "CNS/autonomic receptors",
+    "ion channels",
+    "CYP/P-gp",
+    "inflammatory signaling",
+    "apoptosis pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "coptis-chinensis"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

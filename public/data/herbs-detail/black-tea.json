@@ -1,0 +1,30 @@
+{
+  "name": "black tea",
+  "slug": "black-tea",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "theaflavin/catechin antioxidant signaling",
+    "endothelial nitric oxide effects",
+    "lipid and blood-pressure pathway modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Caffeine-related insomnia/anxiety/reflux possible; caution with stimulants, iron absorption, and anticoagulant-sensitive users.",
+  "contraindications": [
+    "Severe caffeine sensitivity",
+    "pregnancy caffeine limits",
+    "iron deficiency timing caution"
+  ],
+  "interactions": [
+    "May interact with stimulants",
+    "sedatives",
+    "iron supplements",
+    "and some cardiovascular drugs."
+  ],
+  "preparation": "Oxidized Camellia sinensis leaf infusion; theaflavin/thearubigin content varies with processing.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

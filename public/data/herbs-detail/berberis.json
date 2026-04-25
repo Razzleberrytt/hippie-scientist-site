@@ -1,0 +1,38 @@
+{
+  "name": "berberis",
+  "slug": "berberis",
+  "summary": "It is best framed around berberine-bearing root bark with GI and medication-interaction caution.",
+  "description": "It is best framed around berberine-bearing root bark with GI and medication-interaction caution.",
+  "primaryActions": [],
+  "mechanisms": [
+    "berberine-mediated AMPK activation",
+    "LDL receptor/PCSK9 modulation",
+    "intestinal alpha-glucosidase inhibition",
+    "gut microbiome and bile-acid signaling effects",
+    "NF-κB/JAK-STAT inflammatory modulation",
+    "P-glycoprotein substrate/interaction relevance"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Avoid pregnancy, breastfeeding, and use in neonates/infants due to berberine-related bilirubin displacement/kernicterus concern. GI upset is common. Caution with antidiabetics, antihypertensives, anticoagulants/antiplatelets, cyclosporine/tacrolimus, macrolides, and CYP/P-gp substrates.",
+  "contraindications": [
+    "Pregnancy",
+    "breastfeeding",
+    "neonates/infants",
+    "clinician review for liver disease",
+    "complex medication regimens",
+    "or hypoglycemia-prone patients."
+  ],
+  "interactions": [
+    "Antidiabetics",
+    "antihypertensives",
+    "anticoagulants/antiplatelets",
+    "cyclosporine/tacrolimus",
+    "macrolides",
+    "CYP3A4/CYP2D6/P-gp substrates."
+  ],
+  "preparation": "Root/bark extracts containing berberine; avoid equating whole herb with purified berberine.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
+}

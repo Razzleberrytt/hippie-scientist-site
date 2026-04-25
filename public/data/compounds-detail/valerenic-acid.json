@@ -1,52 +1,23 @@
 {
-  "name": "Valerenic acid",
-  "herbs": [
-    "nan"
-  ],
-  "effects": [
-    "Sedation",
-    "muscle relaxation",
-    "sleep support",
-    "Sedative",
-    "anxiolytic",
-    "sleep aid"
-  ],
-  "contraindications": [
-    "Avoid with alcohol",
-    "benzodiazepines",
-    "or barbiturates"
-  ],
-  "category": "organic acid",
-  "sources": [
-    {
-      "title": "PubChem compound: Valerenic acid (CID 6440940)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6440940"
-    },
-    {
-      "title": "Wikipedia: Valerenic acid",
-      "url": "https://en.wikipedia.org/wiki/Valerenic_acid"
-    }
-  ],
-  "lastUpdated": "2026-04-03T00:00:00.000Z",
-  "slug": "valerenic-acid",
-  "description": "Valerenic acid is a valerian constituent linked to GABA-A receptor modulation and sedative pharmacology.",
-  "sideEffects": [
-    "Drowsiness",
-    "Dizziness",
-    "Mild gastrointestinal upset"
-  ],
-  "interactions": [
-    "Potential additive CNS depression with sedatives and alcohol."
-  ],
   "id": "valerenic-acid",
-  "displayName": "Valerenic acid",
-  "summary": "Valerenic acid is a valerian constituent linked to GABA-A receptor modulation and sedative pharmacology.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
+  "slug": "valerenic-acid",
+  "name": "valerenic acid",
+  "summary": "Valerenic acid is a valerian sesquiterpenoid associated with GABAergic calming effects.",
+  "description": "Valerenic acid is a valerian sesquiterpenoid associated with GABAergic calming effects.",
+  "compoundClass": "sesquiterpenoid / valerian constituent",
+  "mechanisms": [
+    "GABA-A modulation",
+    "voltage-gated calcium channel modulation"
   ],
-  "mechanism": "Valerenic acid binds beta-subunits of GABA-A receptors, enhancing chloride influx and inhibitory signaling."
+  "targets": [
+    "GABA-A signaling",
+    "adenosine signaling",
+    "CNS calming pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Evidence mostly comes from valerian extracts. Sedation and additive effects with CNS depressants are key concerns.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
 }

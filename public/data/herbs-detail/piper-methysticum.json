@@ -1,15 +1,30 @@
 {
-  "name": "kava",
+  "name": "piper methysticum",
   "slug": "piper-methysticum",
-  "scientificName": "GABAergic, anxiolytic",
-  "summary": null,
-  "description": null,
-  "mechanism": null,
-  "mechanismTags": [],
+  "summary": "Piper methysticum contains Kavalactones and is linked here to GABA-A modulation.",
+  "description": "Piper methysticum contains Kavalactones and is linked here to GABA-A modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "GABA-A receptor modulation",
+    "kavalactone effects on voltage-gated ion channels",
+    "MAO-B and glutamate-pathway modulation"
+  ],
   "activeCompounds": [],
-  "safetyNotes": null,
-  "interactions": [],
-  "dosage": null,
-  "preparation": null,
-  "region": "liver toxicity risk with misuse"
+  "safetyNotes": "Liver injury risk; avoid liver disease, alcohol, hepatotoxic drugs, and CNS depressants; avoid pregnancy/breastfeeding.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "active liver disease",
+    "seizure disorder or sedative/alcohol use"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "CYP/P-gp substrate medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

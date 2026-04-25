@@ -1,0 +1,22 @@
+{
+  "id": "punicalagin",
+  "slug": "punicalagin",
+  "name": "punicalagin",
+  "summary": "Major ellagitannin from pomegranate with strong polyphenolic bioactivity.",
+  "description": "Major ellagitannin from pomegranate with strong polyphenolic bioactivity.",
+  "compoundClass": "phytochemical constituent",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "ellagitannin-mediated antioxidant signaling"
+  ],
+  "targets": [
+    "Inflammatory mediators",
+    "redox-sensitive enzymes"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "human / animal / in vitro",
+  "relatedCompounds": []
+}

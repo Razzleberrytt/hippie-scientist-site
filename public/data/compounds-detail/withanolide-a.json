@@ -1,44 +1,24 @@
 {
-  "slug": "withanolide-a",
   "id": "withanolide-a",
-  "name": "withanolide A",
-  "effects": [
-    "inflammatory_pathway_modulation",
-    "neuroprotective",
-    "multi-target signaling modulation"
+  "slug": "withanolide-a",
+  "name": "withanolide a",
+  "summary": "Withanolide from ashwagandha associated with neuroactive pathway modulation.",
+  "description": "Withanolide from ashwagandha associated with neuroactive pathway modulation.",
+  "compoundClass": "withanolide / steroidal lactone",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "cholinergic modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Withanolide-A"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=withanolide+A+pharmacokinetics"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=withanolide+A+neuroinflammation"
-    },
-    {
-      "title": "Reference",
-      "url": "https://www.nccih.nih.gov/health/ashwagandha"
-    }
+  "targets": [
+    "HPA-axis modulation",
+    "NF-κB",
+    "GABAergic signaling",
+    "apoptosis pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "withanolide / steroidal lactone",
-  "mechanism": "proposed mechanism based on preclinical data: neuroprotective and anti-neuroinflammatory activity with reported effects on hippocampal neuroinflammation and neurotrophic/oxidative-stress signaling. Human target-level confirmation is limited.",
-  "herbs": [
-    "ashwagandha"
-  ],
-  "contraindications": [
-    "No compound-specific clinical drug interactions established."
-  ],
-  "summary": "proposed mechanism based on preclinical data: neuroprotective and anti-neuroinflammatory activity with reported effects on hippocampal neuroinflammation and neurotrophic/oxidative-stress signaling. Human target-level confirmation is limited.",
-  "description": "proposed mechanism based on preclinical data: neuroprotective and anti-neuroinflammatory activity with reported effects on hippocampal neuroinflammation and neurotrophic/oxidative-stress signaling. Human target-level confirmation is limited.",
-  "evidenceLevel": "preclinical",
-  "aliases": [
-    "WLD-A",
-    "withanolide A steroidal lactone"
-  ]
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Evidence usually comes from Withania extracts. Caution with pregnancy, liver disease, sedatives, thyroid medications, and autoimmune disease.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
 }

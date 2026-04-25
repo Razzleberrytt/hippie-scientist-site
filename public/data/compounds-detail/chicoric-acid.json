@@ -1,18 +1,25 @@
 {
-  "slug": "chicoric-acid",
   "id": "chicoric-acid",
+  "slug": "chicoric-acid",
   "name": "chicoric acid",
-  "effects": [],
-  "sources": [],
-  "lastUpdated": "2026-04-09",
-  "category": "provisional_from_herb_monograph",
-  "mechanism": "",
-  "herbs": [
-    "echinacea-purpurea"
+  "summary": "Caffeic acid derivative prominent in echinacea and chicory with anti-inflammatory signaling activity.",
+  "description": "Caffeic acid derivative prominent in echinacea and chicory with anti-inflammatory signaling activity.",
+  "compoundClass": "phenolic acid / polyphenol",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK modulation"
   ],
-  "contraindications": [],
-  "summary": "",
-  "description": "",
-  "evidenceLevel": "herb_level_reference_only",
-  "aliases": []
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "antioxidant response",
+    "glucose/lipid signaling",
+    "gut microbiome metabolism"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly food-associated; concentrated extracts may cause GI effects or interact with anticoagulants/antidiabetics depending matrix.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

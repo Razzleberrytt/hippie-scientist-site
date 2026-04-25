@@ -1,31 +1,24 @@
 {
-  "slug": "safranal",
   "id": "safranal",
+  "slug": "safranal",
   "name": "safranal",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Monoterpene aldehyde from saffron contributing to aroma and neuroactive effects.",
+  "description": "Monoterpene aldehyde from saffron contributing to aroma and neuroactive effects.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "GABA-A modulation",
+    "NMDA modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=crocus%20sativus"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=safranal"
-    }
+  "targets": [
+    "TRP channels",
+    "antimicrobial membranes",
+    "COX/LOX",
+    "GABAergic or adrenergic signaling depending compound"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "crocus-sativus"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

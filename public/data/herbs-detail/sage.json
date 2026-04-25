@@ -1,0 +1,36 @@
+{
+  "name": "sage",
+  "slug": "sage",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied. Lean bulk enrichment added: Carnosic acid.",
+  "primaryActions": [],
+  "mechanisms": [
+    "cognition",
+    "digestive support",
+    "antioxidant",
+    "Nrf2 activation",
+    "NF-κB inhibition",
+    "STAT3 inhibition",
+    "AMPK activation",
+    "PI3K/Akt modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated; review concentrated extract use.",
+  "contraindications": [
+    "Pregnancy",
+    "seizure disorder",
+    "high-dose essential oil use",
+    "breastfeeding where milk suppression is a concern"
+  ],
+  "interactions": [
+    "May interact with sedatives",
+    "anticonvulsants",
+    "antidiabetics",
+    "or cholinergic/anticholinergic drugs depending preparation."
+  ],
+  "preparation": "Leaf tea, tincture, culinary leaf, and essential oil; avoid internal essential-oil use unless professionally supervised.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

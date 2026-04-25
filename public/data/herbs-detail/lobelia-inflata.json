@@ -1,46 +1,27 @@
 {
   "name": "lobelia inflata",
-  "latin": "lobelia inflata",
-  "intensity": "moderate",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
-    "Do not use with known allergy to this plant or related species."
-  ],
-  "safetyNotes": "caution; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
-  "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [
-    "Traditional supportive use; indication depends on species part and preparation.",
-    "Evidence level varies; use only within established clinical or traditional context."
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "lobelia-inflata",
-  "sideEffects": [
-    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
-    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  "summary": "Lobelia inflata contains Lobeline and is linked here to nicotinic acetylcholine receptor modulation.",
+  "description": "Lobelia inflata contains Lobeline and is linked here to nicotinic acetylcholine receptor modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "nicotinic acetylcholine receptor modulation",
+    "dopamine transporter modulation"
   ],
-  "id": "lobelia-inflata",
-  "displayName": "lobelia inflata",
-  "displayScientificName": "lobelia inflata",
-  "scientificNormalized": "lobelia inflata",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": []
+  "activeCompounds": [],
+  "safetyNotes": "Contains lobeline and related alkaloids; nausea, vomiting, dizziness, and cardiopulmonary toxicity are concerns at excess intake.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "seizure disorder or sedative/alcohol use"
+  ],
+  "interactions": [
+    "Potential interaction concern with antihypertensives/diuretics",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
 }

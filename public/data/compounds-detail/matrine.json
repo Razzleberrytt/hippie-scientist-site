@@ -1,31 +1,25 @@
 {
-  "slug": "matrine",
   "id": "matrine",
+  "slug": "matrine",
   "name": "matrine",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Quinolizidine alkaloid from Sophora species commonly linked to PI3K/Akt and NF-κB pathway effects.",
+  "description": "Quinolizidine alkaloid from Sophora species commonly linked to PI3K/Akt and NF-κB pathway effects.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Sophora%20flavescens"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=matrine"
-    }
+  "targets": [
+    "CNS/autonomic receptors",
+    "ion channels",
+    "CYP/P-gp",
+    "inflammatory signaling",
+    "apoptosis pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "sophora-flavescens"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

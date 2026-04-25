@@ -1,0 +1,30 @@
+{
+  "name": "japanese knotweed",
+  "slug": "japanese-knotweed",
+  "summary": "Bulk-ingested support row carrying Emodin with pathway-level mechanism coverage.",
+  "description": "Bulk-ingested support row carrying Emodin with pathway-level mechanism coverage.",
+  "primaryActions": [],
+  "mechanisms": [
+    "resveratrol SIRT1/AMPK signaling",
+    "NF-κB modulation",
+    "Nrf2 antioxidant signaling",
+    "platelet-pathway effects"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Concentrated resveratrol-rich extracts may affect bleeding risk and drug metabolism. GI upset is possible at higher doses.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "bleeding disorders",
+    "anticoagulant/antiplatelet therapy without supervision",
+    "and surgery."
+  ],
+  "interactions": [
+    "Potential additive bleeding risk with anticoagulants/antiplatelets/NSAIDs",
+    "caution with CYP-metabolized drugs."
+  ],
+  "preparation": "Do not equate standardized resveratrol extracts with crude knotweed preparations.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

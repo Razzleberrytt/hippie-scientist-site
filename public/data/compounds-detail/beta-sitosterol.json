@@ -1,35 +1,25 @@
 {
-  "slug": "beta-sitosterol",
   "id": "beta-sitosterol",
+  "slug": "beta-sitosterol",
   "name": "beta-sitosterol",
-  "effects": [
-    "inflammatory_pathway_modulation",
-    "hormonal"
+  "summary": "Beta-sitosterol is a phytosterol widely distributed across medicinal plants and food plants. Human evidence is most relevant to cholesterol absorption and lower-urinary-tract endpoints, but many studies are mixture- or sterol-blend-based rather than isolated-compound-focused.",
+  "description": "Plant sterol associated with lipid-signaling and inflammatory pathway control.",
+  "compoundClass": "phytosterol",
+  "mechanisms": [
+    "Competition with intestinal cholesterol absorption",
+    "NPC1L1-related sterol transport effects",
+    "PPAR/LXR signaling modulation",
+    "NF-kB suppression"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "PubMed beta-sitosterol literature"
-    },
-    {
-      "title": "Reference",
-      "url": "PubChem"
-    }
+  "targets": [
+    "cholesterol absorption",
+    "inflammatory signaling",
+    "membrane sterol pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "phytosterol",
-  "mechanism": "Beta-sitosterol is a phytosterol associated with anti-inflammatory and androgen-related signaling effects in saw palmetto and other botanicals; in clinical literature it is also studied for lower urinary tract symptom support.",
-  "herbs": [
-    "saw-palmetto"
-  ],
-  "contraindications": [
-    "No major compound-specific interaction profile is locked here",
-    "theoretical overlap with hormone-active therapies remains possible."
-  ],
-  "summary": "Beta-sitosterol is a phytosterol associated with anti-inflammatory and androgen-related signaling effects in saw palmetto and other botanicals; in clinical literature it is also studied for lower urinary tract symptom support.",
-  "description": "Beta-sitosterol is a phytosterol associated with anti-inflammatory and androgen-related signaling effects in saw palmetto and other botanicals; in clinical literature it is also studied for lower urinary tract symptom support.",
-  "evidenceLevel": "human + preclinical",
-  "aliases": [
-    "β-sitosterol"
-  ]
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally food-associated, but supplements can affect lipid markers and may be unsuitable in sitosterolemia.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
 }

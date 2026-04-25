@@ -1,0 +1,26 @@
+{
+  "name": "roselle seed",
+  "slug": "roselle-seed",
+  "summary": "It should be framed distinctly from hibiscus calyx because seed and calyx use-cases differ.",
+  "description": "It should be framed distinctly from hibiscus calyx because seed and calyx use-cases differ.",
+  "primaryActions": [],
+  "mechanisms": [
+    "nutritive support",
+    "antioxidant"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Seed/fiber preparations are commonly used as whole seed, powder, capsules, or food ingredients; fluid intake and preparation form matter.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

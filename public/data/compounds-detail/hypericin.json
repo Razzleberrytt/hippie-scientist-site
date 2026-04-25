@@ -1,32 +1,22 @@
 {
-  "slug": "hypericin",
   "id": "hypericin",
+  "slug": "hypericin",
   "name": "hypericin",
-  "effects": [
-    "photodynamic activity",
-    "oxidative_stress_modulation"
+  "summary": "Hypericin is a napthodianthrone marker from St.",
+  "description": "Hypericin is a napthodianthrone marker from St. John’s wort with photodynamic signaling effects.",
+  "compoundClass": "naphthodianthrone",
+  "mechanisms": [
+    "PKC modulation",
+    "apoptosis pathway modulation (caspase activation)"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Hypericin"
-    },
-    {
-      "title": "Reference",
-      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548880/"
-    }
+  "targets": [
+    "apoptosis/caspase signaling",
+    "caspase signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "naphthodianthrone",
-  "mechanism": "proposed mechanism based on preclinical data: photodynamic and redox-active signaling; no established human antidepressant mechanism at isolated-compound level.",
-  "herbs": [
-    "st-johns-wort"
-  ],
-  "contraindications": [
-    "No isolated-compound clinical interaction set is established beyond herb-level St Johns wort interaction liability."
-  ],
-  "summary": "proposed mechanism based on preclinical data: photodynamic and redox-active signaling; no established human antidepressant mechanism at isolated-compound level.",
-  "description": "proposed mechanism based on preclinical data: photodynamic and redox-active signaling; no established human antidepressant mechanism at isolated-compound level.",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
 }

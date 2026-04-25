@@ -1,78 +1,27 @@
 {
-  "name": "apigenin",
-  "herbs": [
-    "amorpha-fruticosa",
-    "apium-graveolens",
-    "matricaria-chamomilla",
-    "turnera-diffusa"
-  ],
-  "effects": [
-    "Uterine tonic",
-    "astringent",
-    "anti-inflammatory",
-    "regulates menstruation and bleeding.",
-    "anti",
-    "inflammatory",
-    "Mood lift",
-    "mild stimulation",
-    "aphrodisiac",
-    "Mild euphoria",
-    "stimulation",
-    "relaxation",
-    "increased libido",
-    "Mild stimulation",
-    "mood enhancement",
-    "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism."
-  ],
-  "contraindications": [
-    "Excessive internal use may cause constipation or dry mucous membranes",
-    "caution in pregnancy or lactation",
-    "may interact with blood thinners due to tannin content【859641390196180†L297",
-    "L313】.",
-    "Avoid in bipolar disorder and pregnancy",
-    "Pregnancy",
-    "hormone-sensitive conditions"
-  ],
-  "category": "other",
-  "sources": [
-    {
-      "title": "Workbook source URL",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Apium%20graveolens | https://plants.sc.egov.usda.gov/home/search?query=Matricaria%20chamomilla | https://plants.sc.egov.usda.gov/home/search?query=amorpha%20fruticosa | https://plants.sc.egov.usda.gov/home/search?query=chamomile | https://plants.sc.egov.usda.gov/home/search?query=turnera%20diffusa | https://pubchem.ncbi.nlm.nih.gov/#query=apigenin"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "PubChem compound page (NIH)"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "USDA Plants database"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "scientific name"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "inferred_plus_trusted_gov"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "trusted_gov_added"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "slug": "apigenin",
   "id": "apigenin",
-  "displayName": "apigenin",
-  "description": "apigenin appears in records as a compound reported in alchemilla vulgaris and nan. Current source coverage is limited and still developing.",
-  "summary": "apigenin appears in records as a compound reported in alchemilla vulgaris and nan. Current source coverage is limited and still developing.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "alchemilla-vulgaris",
-    "nan"
+  "slug": "apigenin",
+  "name": "apigenin",
+  "summary": "Apigenin is a flavone found in chamomile, parsley, and related plants, with frequent discussion in neuroinflammatory and calm-support research. The evidence base is still dominated by in vitro and animal work despite clear mechanistic interest.",
+  "description": "Flavone found in chamomile and parsley, frequently linked to GABAergic and PI3K/Akt-related effects.",
+  "compoundClass": "flavone polyphenol",
+  "mechanisms": [
+    "GABA-A receptor modulation",
+    "PI3K/Akt modulation",
+    "NF-kB suppression",
+    "Nrf2-related antioxidant signaling"
   ],
-  "mechanism": "Chamomile's CNS effects are partly attributed to apigenin, which binds at the central benzodiazepine site associated with GABA_A receptor signaling; other constituents contribute anti-inflammatory and spasmolytic activity."
+  "targets": [
+    "GABAergic signaling",
+    "NF-κB",
+    "Nrf2",
+    "PI3K/Akt",
+    "inflammatory mediators"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Food exposure is low-risk; concentrated apigenin may be sedating and may interact with sedatives or CYP-metabolized drugs. Pregnancy/breastfeeding caution at supplement doses.",
+  "evidenceLevel": "preclinical; human_limited",
+  "relatedCompounds": []
 }

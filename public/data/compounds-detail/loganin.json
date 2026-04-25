@@ -1,31 +1,24 @@
 {
-  "slug": "loganin",
   "id": "loganin",
+  "slug": "loganin",
   "name": "loganin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Loganin is an iridoid glycoside tied to antioxidant-response and survival pathways.",
+  "description": "Loganin is an iridoid glycoside tied to antioxidant-response and survival pathways.",
+  "compoundClass": "iridoid glycoside",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "Nrf2 activation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cornus%20officinalis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=loganin"
-    }
+  "targets": [
+    "NF-κB",
+    "antioxidant response",
+    "inflammatory cytokines",
+    "gut/liver metabolism"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "iridoid glycosides",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "cornus-officinalis"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-compound evidence.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

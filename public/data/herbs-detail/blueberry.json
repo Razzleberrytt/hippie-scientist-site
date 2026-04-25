@@ -1,0 +1,28 @@
+{
+  "name": "blueberry",
+  "slug": "blueberry",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Anthocyanin-polyphenol activity",
+    "endothelial nitric oxide signaling",
+    "Nrf2 antioxidant response",
+    "NF-κB inflammatory modulation",
+    "AMPK and PPAR-related metabolic signaling."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Food-level use is usually low risk; concentrated extracts may affect glucose or platelet-related endpoints in sensitive users; caution with anticoagulant/antiplatelet therapy, diabetes medication, allergy, and kidney-restricted diets if high-potassium products are used.",
+  "contraindications": [
+    "Anticoagulant use without review for high-dose extracts",
+    "diabetes medication monitoring if large intake changes"
+  ],
+  "interactions": [
+    "Potential additive effects with antidiabetics or anticoagulants in concentrated extracts."
+  ],
+  "preparation": "Whole berries, juice, powder, freeze-dried extracts, anthocyanin-rich concentrates.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
+}

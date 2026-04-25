@@ -1,49 +1,26 @@
 {
-  "name": "luteolin",
-  "herbs": [
-    "albizia lebbeck",
-    "alchemilla vulgaris"
-  ],
-  "effects": [
-    "Used in Ayurveda for asthma",
-    "allergies",
-    "and anxiety",
-    "Uterine tonic",
-    "astringent",
-    "anti-inflammatory",
-    "regulates menstruation and bleeding.",
-    "anti",
-    "inflammatory"
-  ],
-  "contraindications": [
-    "No well‑documented contraindications",
-    "due to saponins and alkaloids",
-    "excessive intake may cause gastrointestinal irritation or interact with medications.",
-    "Excessive internal use may cause constipation or dry mucous membranes",
-    "caution in pregnancy or lactation",
-    "may interact with blood thinners due to tannin content【859641390196180†L297",
-    "L313】."
-  ],
-  "category": "flavonoid",
-  "sources": [
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "slug": "luteolin",
   "id": "luteolin",
-  "displayName": "luteolin",
-  "description": "luteolin is a compound reported in albizia lebbeck and alchemilla vulgaris. Available references are still early and incomplete.",
-  "summary": "luteolin is a compound reported in albizia lebbeck and alchemilla vulgaris. Available references are still early and incomplete.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "Batch9",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "albizia-lebbeck",
-    "alchemilla-vulgaris"
+  "slug": "luteolin",
+  "name": "luteolin",
+  "summary": "Flavone associated with thyme and artichoke, commonly linked to NF-κB and MAPK signaling.",
+  "description": "Flavone associated with thyme and artichoke, commonly linked to NF-κB and MAPK signaling.",
+  "compoundClass": "flavone / flavonoid",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
   ],
-  "mechanism": "Inhibits NF-kB and MAPK signaling"
+  "targets": [
+    "NF-κB",
+    "MAPK",
+    "PI3K/Akt",
+    "Nrf2",
+    "inflammatory cytokines",
+    "antioxidant response"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical and extract-derived. Use caution with sedatives, anticoagulants/antiplatelets, and liver disease depending source herb.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

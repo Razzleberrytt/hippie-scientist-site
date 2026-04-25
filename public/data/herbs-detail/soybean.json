@@ -1,0 +1,28 @@
+{
+  "name": "soybean",
+  "slug": "soybean",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "isoflavone estrogen-receptor modulation",
+    "lipid metabolism and bone-turnover signaling",
+    "antioxidant pathways"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Caution in hormone-sensitive conditions and with thyroid medication timing; allergy possible.",
+  "contraindications": [
+    "Soy allergy",
+    "hormone-sensitive conditions without clinician review",
+    "thyroid medication timing caution"
+  ],
+  "interactions": [
+    "May affect levothyroxine absorption timing",
+    "review with hormone therapies and anticoagulants if diet changes are large."
+  ],
+  "preparation": "Whole soy foods, protein isolate, isoflavone extracts; fermented/nonfermented forms differ.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

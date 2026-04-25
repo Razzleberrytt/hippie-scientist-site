@@ -1,0 +1,29 @@
+{
+  "name": "epimedium brevicornum",
+  "slug": "epimedium-brevicornum",
+  "summary": "Minimum source-backed intake for Epimedium brevicornum.",
+  "description": "Minimum source-backed intake for Epimedium brevicornum. Active compounds include epimedin A, epimedin B, and epimedin C. Mechanism support retained at nitric oxide signaling level for cluster activation readiness. Icariin support added to complete the PDE5-related signaling cluster.",
+  "primaryActions": [],
+  "mechanisms": [
+    "nitric oxide signaling",
+    "PDE5-related signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Evidence and safety are extract-specific. Use caution with cardiovascular disease, hormone-sensitive conditions, and sexual-performance stacks.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "significant heart rhythm or blood-pressure instability",
+    "hormone-sensitive conditions without clinician review."
+  ],
+  "interactions": [
+    "Potential additive effects with PDE-5 inhibitors",
+    "antihypertensives",
+    "anticoagulants/antiplatelets",
+    "and stimulant sexual-performance products."
+  ],
+  "preparation": "Aerial parts/leaves are used as decoction, granules, capsules, or icariin-standardized extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

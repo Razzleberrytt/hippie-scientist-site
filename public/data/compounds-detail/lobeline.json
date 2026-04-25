@@ -1,31 +1,25 @@
 {
-  "slug": "lobeline",
   "id": "lobeline",
+  "slug": "lobeline",
   "name": "lobeline",
-  "effects": [
-    "muscarinic receptor interaction"
+  "summary": "Piperidine alkaloid from Lobelia linked to nicotinic receptor and catecholamine signaling.",
+  "description": "Piperidine alkaloid from Lobelia linked to nicotinic receptor and catecholamine signaling.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "nicotinic acetylcholine receptor modulation",
+    "dopamine transporter modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=lobelia%20inflata"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=lobeline"
-    }
+  "targets": [
+    "CNS/autonomic receptors",
+    "ion channels",
+    "CYP/P-gp",
+    "inflammatory signaling",
+    "apoptosis pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "Lobeline acts as a partial agonist at nicotinic acetylcholine receptors and modulates dopamine release.",
-  "herbs": [
-    "lobelia-inflata"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "Lobeline acts as a partial agonist at nicotinic acetylcholine receptors and modulates dopamine release.",
-  "description": "Lobeline acts as a partial agonist at nicotinic acetylcholine receptors and modulates dopamine release.",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

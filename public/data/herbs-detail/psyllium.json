@@ -1,0 +1,28 @@
+{
+  "name": "psyllium",
+  "slug": "psyllium",
+  "summary": "Psyllium is not a classic phytochemical-heavy herb; its value comes from gel-forming husk fiber.",
+  "description": "Psyllium is not a classic phytochemical-heavy herb; its value comes from gel-forming husk fiber. That makes it more of a functional-fiber tool than a general botanical tonic. Position it around bowel regularity, stool softening, and cautious cardiometabolic support.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Gel-forming soluble fiber increases intestinal viscosity",
+    "binds bile acids and increases fecal bile-acid loss",
+    "slows gastric emptying and carbohydrate absorption",
+    "supports SCFA-mediated gut effects."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Must be taken with plenty of water; choking or bowel obstruction risk in dysphagia/strictures. Separate from oral medications by 2–4 hours. May cause bloating or gas.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Seed/fiber preparations are commonly used as whole seed, powder, capsules, or food ingredients; fluid intake and preparation form matter.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,33 @@
+{
+  "name": "dandelion",
+  "slug": "dandelion",
+  "summary": "It is best framed as a traditional food-like bitter herb rather than a strong cleansing intervention.",
+  "description": "It is best framed as a traditional food-like bitter herb rather than a strong cleansing intervention.",
+  "primaryActions": [],
+  "mechanisms": [
+    "potassium-rich leaf diuretic/natriuretic effects",
+    "bitter sesquiterpene lactone-mediated digestive secretion",
+    "inulin/fructan prebiotic effects",
+    "polyphenol-mediated Nrf2/NF-κB modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Avoid with Asteraceae/ragweed allergy. Caution with diuretics, lithium, kidney disease, bile duct obstruction/gallbladder disease, GERD, and antihypertensive or glucose-lowering therapy. Monitor potassium and volume status if combined with diuretics. Human efficacy evidence remains narrow, so claims should stay conservative.",
+  "contraindications": [
+    "Asteraceae allergy",
+    "bile duct obstruction",
+    "serious kidney disease unless supervised",
+    "pregnancy/breastfeeding without clinician review."
+  ],
+  "interactions": [
+    "Diuretics",
+    "lithium",
+    "antihypertensives",
+    "glucose-lowering therapy",
+    "theoretical quinolone absorption concern and additive GI irritation possible."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
+}

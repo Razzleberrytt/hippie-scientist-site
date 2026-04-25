@@ -1,66 +1,24 @@
 {
-  "name": "linalool",
-  "herbs": [
-    "acorus tatarinowii",
-    "nan",
-    "Silver Linden"
-  ],
-  "effects": [
-    "CNS stimulant",
-    "memory aid",
-    "and anti-epileptic in TCM",
-    "and anti",
-    "epileptic in TCM",
-    "Stress relief",
-    "respiratory support",
-    "antioxidant",
-    "mild energy boost",
-    "Adaptogen",
-    "anti-stress",
-    "immune support",
-    "Mild sedative",
-    "hallucinogenic in high doses",
-    "Anxiolytic",
-    "relaxing",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "β",
-    "asarone is potentially carcinogenic",
-    "avoid long",
-    "term or high",
-    "dose use",
-    "contraindicated in pregnancy and children.",
-    "Pregnancy (high doses)",
-    "blood clotting disorders",
-    "Pregnancy",
-    "high doses",
-    "None known"
-  ],
-  "category": "other",
-  "sources": [
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "slug": "linalool",
   "id": "linalool",
-  "displayName": "linalool",
-  "description": "linalool is a compound reported in acorus tatarinowii, nan, and related herbs. Available references are still early and incomplete.",
-  "summary": "linalool is a compound reported in acorus tatarinowii, nan, and related herbs. Available references are still early and incomplete.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "acorus-tatarinowii",
-    "nan",
-    "silver-linden"
+  "slug": "linalool",
+  "name": "linalool",
+  "summary": "Monoterpene alcohol linked to GABA-A and calcium-channel related effects.",
+  "description": "Monoterpene alcohol linked to GABA-A and calcium-channel related effects.",
+  "compoundClass": "monoterpene alcohol",
+  "mechanisms": [
+    "GABA-A modulation",
+    "voltage-gated calcium channel modulation"
   ],
-  "mechanism": "insufficient evidence"
+  "targets": [
+    "GABAergic signaling",
+    "glutamate signaling",
+    "inflammatory cytokines",
+    "olfactory/CNS pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Primarily essential-oil/aroma exposure; topical allergy and CNS sedation are possible. Avoid ingestion of essential oils without supervision.",
+  "evidenceLevel": "preclinical; human_limited_aroma",
+  "relatedCompounds": []
 }

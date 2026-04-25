@@ -1,0 +1,32 @@
+{
+  "name": "astragalus",
+  "slug": "astragalus",
+  "summary": "It is best framed around astragalosides and polysaccharides.",
+  "description": "It is best framed around astragalosides and polysaccharides.",
+  "primaryActions": [],
+  "mechanisms": [
+    "immune modulation",
+    "fatigue support",
+    "estrogen receptor modulation",
+    "PI3K/Akt modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
+  "contraindications": [
+    "Transplant/immunosuppression without clinician guidance",
+    "autoimmune flare risk",
+    "pregnancy without guidance"
+  ],
+  "interactions": [
+    "May counter immunosuppressants",
+    "may interact with lithium",
+    "diuretics",
+    "antidiabetics",
+    "and antivirals depending context."
+  ],
+  "preparation": "Root slices/decoction, powders, extracts; often used in formulas.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

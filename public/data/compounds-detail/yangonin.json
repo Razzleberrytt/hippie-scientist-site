@@ -1,35 +1,24 @@
 {
-  "name": "yangonin)",
-  "herbs": [
-    "nan"
-  ],
-  "effects": [
-    "Euphoria",
-    "calmness",
-    "muscle relaxation",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "Liver conditions",
-    "concurrent alcohol use"
-  ],
-  "category": "other",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "slug": "yangonin",
   "id": "yangonin",
-  "displayName": "yangonin)",
-  "description": "yangonin) is a compound reported in nan. Available references are still early and incomplete.",
-  "summary": "yangonin) is a compound reported in nan. Available references are still early and incomplete.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
+  "slug": "yangonin",
+  "name": "yangonin",
+  "summary": "Yangonin is a kavalactone with cannabinoid-related and monoamine-associated signaling.",
+  "description": "Yangonin is a kavalactone with cannabinoid-related and monoamine-associated signaling.",
+  "compoundClass": "kavalactone",
+  "mechanisms": [
+    "CB1 receptor modulation",
+    "MAO-B inhibition"
   ],
-  "mechanism": "Kavalactones modulate GABA_A receptor activity, inhibit voltage-gated sodium and calcium channels, and influence dopamine signaling."
+  "targets": [
+    "GABAergic signaling",
+    "voltage-gated ion channels",
+    "monoamine signaling",
+    "CYP enzymes"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
 }

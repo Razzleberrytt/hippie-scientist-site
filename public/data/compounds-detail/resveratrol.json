@@ -1,55 +1,28 @@
 {
-  "name": "Resveratrol",
-  "herbs": [
-    "nan"
-  ],
-  "effects": [
-    "Antioxidant activity in laboratory models",
-    "Human clinical outcome benefits remain uncertain"
-  ],
-  "contraindications": [
-    "High doses may cause GI effects",
-    "Use caution with anticoagulants and CYP-sensitive medicines"
-  ],
-  "category": "compound",
-  "sources": [
-    {
-      "title": "PubMed review literature on resveratrol",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/"
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "slug": "resveratrol",
   "id": "resveratrol",
-  "displayName": "Resveratrol",
-  "description": "Trans-resveratrol is the main supplemental isomer; human outcome evidence is inconsistent.",
-  "summary": "Grape-derived polyphenol with speculative anti-aging/cardiometabolic claims and low bioavailability.",
-  "mechanism": "Proposed SIRT1-related and vascular/oxidative signaling effects; clinical significance is uncertain.",
-  "safetyNotes": [
-    "Generally tolerated in short-term studies.",
-    "GI upset increases at higher doses."
-  ],
-  "interactions": [
-    "May affect CYP2C9/CYP3A4 metabolism and anticoagulant-sensitive contexts."
-  ],
-  "dosage": [
-    "No RDA; trial doses commonly ~150–1000 mg/day."
-  ],
-  "preparation": "Oral capsules; specialized formulations aim to improve absorption.",
-  "regulatoryStatus": "Sold as dietary supplement; no drug approval.",
-  "sourceType": "Plant polyphenol",
-  "activeCompounds": [
-    "Trans-resveratrol"
-  ],
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "Sprint4",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
-  ],
+  "slug": "resveratrol",
+  "name": "resveratrol",
+  "summary": "Resveratrol is a stilbene polyphenol best known from knotweed and grape-derived materials. It has substantial human literature across cardiometabolic and inflammatory biomarkers, although outcomes vary by dose, formulation, and population.",
+  "description": "Stilbene best known from knotweed and grape sources, strongly linked to SIRT1, AMPK, and NF-κB pathways.",
+  "compoundClass": "stilbene polyphenol",
   "mechanisms": [
-    "Proposed SIRT1-related and vascular/oxidative signaling effects; clinical significance is uncertain"
+    "SIRT1 activation",
+    "AMPK activation",
+    "NF-kB suppression",
+    "Nrf2 signaling support",
+    "endothelial nitric-oxide pathway modulation"
   ],
-  "compoundClass": "compound"
+  "targets": [
+    "SIRT1",
+    "AMPK",
+    "Nrf2",
+    "NF-κB",
+    "endothelial nitric oxide signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Usually well tolerated short-term; caution with anticoagulants/antiplatelets, hormone-sensitive conditions, pregnancy, and high-dose extracts.",
+  "evidenceLevel": "human_limited; multiple_meta_analyses_by_marker",
+  "relatedCompounds": []
 }

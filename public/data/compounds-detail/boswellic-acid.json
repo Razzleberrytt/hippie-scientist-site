@@ -1,0 +1,24 @@
+{
+  "id": "boswellic-acid",
+  "slug": "boswellic-acid",
+  "name": "boswellic acid",
+  "summary": "Pentacyclic triterpenoid boswellic acid from frankincense resin with 5-LOX and inflammatory pathway activity.",
+  "description": "Pentacyclic triterpenoid boswellic acid from frankincense resin with 5-LOX and inflammatory pathway activity.",
+  "compoundClass": "pentacyclic triterpene acid / boswellic acid",
+  "mechanisms": [
+    "5-lipoxygenase inhibition",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "5-LOX",
+    "NF-κB",
+    "leukotriene pathways",
+    "inflammatory cytokines"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Boswellia extracts can cause GI upset and may interact with anticoagulants/anti-inflammatory drugs; pregnancy safety is not established.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
+}

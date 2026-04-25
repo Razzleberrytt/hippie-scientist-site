@@ -1,41 +1,24 @@
 {
-  "slug": "anethole",
   "id": "anethole",
+  "slug": "anethole",
   "name": "anethole",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Phenylpropene from fennel and anise associated with digestive and anti-inflammatory actions.",
+  "description": "Phenylpropene from fennel and anise associated with digestive and anti-inflammatory actions.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "smooth muscle relaxation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Agastache%20foeniculum"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Foeniculum%20vulgare"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Pimpinella%20anisum"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=anethole"
-    }
+  "targets": [
+    "TRP channels",
+    "antimicrobial membranes",
+    "COX/LOX",
+    "GABAergic or adrenergic signaling depending compound"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "agastache-foeniculum",
-    "foeniculum-vulgare",
-    "pimpinella-anisum"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

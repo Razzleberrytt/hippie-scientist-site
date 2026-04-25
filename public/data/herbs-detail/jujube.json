@@ -1,43 +1,26 @@
 {
   "name": "jujube",
-  "latin": "jujube",
-  "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine",
-  "activeCompounds": [],
-  "effects": [
-    "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
-  ],
-  "contraindications": [
-    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
-    "Do not use with known allergy to this plant or related species."
-  ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Folk medicine.",
-  "dosage": "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "interactions": [],
-  "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-  "therapeuticUses": [
-    "Traditional supportive use; indication depends on species part and preparation.",
-    "Evidence level varies; use only within established clinical or traditional context."
-  ],
-  "traditionalUse": "Folk medicine",
   "slug": "jujube",
-  "sideEffects": [
-    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
-    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  "summary": "It is best framed as a food-like fruit/seed botanical with gentle traditional positioning.",
+  "description": "It is best framed as a food-like fruit/seed botanical with gentle traditional positioning.",
+  "primaryActions": [],
+  "mechanisms": [
+    "calming support",
+    "nutritive support"
   ],
-  "id": "jujube",
-  "displayName": "jujube",
-  "displayScientificName": "jujube",
-  "scientificNormalized": "jujube",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": []
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "contraindications": [
+    "Diabetes/glucose management if using sweet fruit products",
+    "pregnancy supplement dosing without guidance"
+  ],
+  "interactions": [
+    "May add to sedatives if seed extracts are used",
+    "monitor glucose with high fruit intake."
+  ],
+  "preparation": "Fruit, seed extracts, decoction, teas; seed and fruit differ pharmacologically.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
 }

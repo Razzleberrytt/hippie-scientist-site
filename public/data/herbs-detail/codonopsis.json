@@ -1,0 +1,26 @@
+{
+  "name": "codonopsis",
+  "slug": "codonopsis",
+  "summary": "It is best framed as a gentler tonic-style root with modest modern evidence.",
+  "description": "It is best framed as a gentler tonic-style root with modest modern evidence.",
+  "primaryActions": [],
+  "mechanisms": [
+    "traditional restorative support",
+    "fatigue support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

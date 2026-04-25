@@ -1,59 +1,24 @@
 {
-  "name": "Chamazulene",
-  "herbs": [
-    "matricaria-chamomilla"
-  ],
-  "effects": [
-    "gaba_a_modulation",
-    "multi-target signaling modulation",
-    "gabaergic_modulation",
-    "general or unknown targets",
-    "inflammatory_pathway_modulation"
-  ],
-  "contraindications": [
-    "Pregnancy",
-    "allergies to Asteraceae",
-    "bleeding disorders"
-  ],
-  "category": "other",
-  "sources": [
-    {
-      "title": "Workbook source URL",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Matricaria%20chamomilla | https://plants.sc.egov.usda.gov/home/search?query=chamomile | https://pubchem.ncbi.nlm.nih.gov/#query=chamazulene"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "PubChem compound page (NIH)"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "USDA Plants database"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "scientific name"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "inferred_plus_trusted_gov"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "trusted_gov_added"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "slug": "chamazulene",
   "id": "chamazulene",
-  "displayName": "Chamazulene",
-  "description": "Chamazulene appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
-  "summary": "Chamazulene appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
+  "slug": "chamazulene",
+  "name": "chamazulene",
+  "summary": "Aromatic azulene derivative linked to inflammatory mediator modulation.",
+  "description": "Aromatic azulene derivative linked to inflammatory mediator modulation.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "COX inhibition",
+    "leukotriene pathway modulation"
   ],
-  "mechanism": "Chamomile's CNS effects are partly attributed to apigenin, which binds at the central benzodiazepine site associated with GABA_A receptor signaling; other constituents contribute anti-inflammatory and spasmolytic activity."
+  "targets": [
+    "TRP channels",
+    "antimicrobial membranes",
+    "COX/LOX",
+    "GABAergic or adrenergic signaling depending compound"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

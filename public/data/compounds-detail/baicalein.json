@@ -1,37 +1,27 @@
 {
-  "slug": "baicalein",
   "id": "baicalein",
+  "slug": "baicalein",
   "name": "baicalein",
-  "effects": [
-    "gaba_a_modulation",
-    "multi-target signaling modulation"
+  "summary": "Baicalein is the aglycone partner of baicalin and is widely studied in inflammation, redox biology, and cancer-mechanism literature. The evidence remains mainly preclinical, with limited isolated human intervention data.",
+  "description": "Flavone aglycone from Scutellaria associated with NF-κB and MAPK pathway modulation.",
+  "compoundClass": "flavone aglycone",
+  "mechanisms": [
+    "NF-kB suppression",
+    "PI3K/Akt modulation",
+    "lipoxygenase-related inflammatory signaling effects",
+    "Nrf2 support"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Scutellaria%20baicalensis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=scutellaria%20lateriflora"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=baicalein"
-    }
+  "targets": [
+    "NF-κB",
+    "MAPK",
+    "PI3K/Akt",
+    "Nrf2",
+    "inflammatory cytokines"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "flavonoid",
-  "mechanism": "American skullcap flavonoids are associated with anticonvulsant and anxiolytic activity; GABAergic signaling and broader neuroinhibitory effects have been proposed in preclinical work.",
-  "herbs": [
-    "scutellaria-baicalensis",
-    "scutellaria-lateriflora"
-  ],
-  "contraindications": [
-    "Anticoagulants (↑ bleeding risk)"
-  ],
-  "summary": "American skullcap flavonoids are associated with anticonvulsant and anxiolytic activity; GABAergic signaling and broader neuroinhibitory effects have been proposed in preclinical work.",
-  "description": "American skullcap flavonoids are associated with anticonvulsant and anxiolytic activity; GABAergic signaling and broader neuroinhibitory effects have been proposed in preclinical work.",
-  "evidenceLevel": "Batch8",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical and extract-derived. Caution with anticoagulants/antiplatelets, liver disease, sedatives, and pregnancy at supplement doses.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

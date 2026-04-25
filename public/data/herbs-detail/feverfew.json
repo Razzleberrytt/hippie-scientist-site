@@ -1,0 +1,29 @@
+{
+  "name": "feverfew",
+  "slug": "feverfew",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "parthenolide-mediated NF-κB inhibition",
+    "serotonin/platelet modulation",
+    "TRPA1 and prostaglandin-pathway effects"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Avoid in pregnancy; possible mouth ulcers/GI upset; allergy risk in Asteraceae-sensitive users; caution with anticoagulants/antiplatelets.",
+  "contraindications": [
+    "Pregnancy",
+    "Asteraceae/ragweed allergy",
+    "anticoagulant use without clinician review",
+    "upcoming surgery"
+  ],
+  "interactions": [
+    "May increase bleeding risk with anticoagulants/antiplatelets/NSAIDs",
+    "caution with migraine medications."
+  ],
+  "preparation": "Leaf capsules/extracts standardized to parthenolide; fresh leaf chewing increases mouth irritation risk.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

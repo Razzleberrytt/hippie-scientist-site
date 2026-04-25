@@ -1,48 +1,30 @@
 {
   "name": "artemisia annua",
-  "latin": "Artemisia annua",
-  "intensity": "No direct intensity data. Contextual inference: Antimalarial, antiviral, immune modulating. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimalarial, antiviral, immune modulating. No direct region data. Contextual inference: Antimalarial, antiviral, immune modulating. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimalarial, antiviral, immune modulating. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-  "activeCompounds": [],
-  "effects": [
-    "Antimalarial",
-    "antiviral",
-    "immune modulating"
-  ],
-  "contraindications": [],
-  "safetyNotes": "safe; May cause allergic reactions or nausea; avoid in pregnancy; rare hepatotoxicity in sensitive individuals; No direct toxicity data. Contextual inference: Antimalarial; antiviral; immune modulating. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Antimalarial; immune modulating. none.",
-  "sources": [
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Antimalarial, antiviral, immune modulating. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "500; 1500 mg; day extract",
-  "duration": "4–8 hours",
-  "interactions": [],
-  "legalStatus": "Legal in many regions; artemisinin regulated",
-  "preparation": "Leaves and aerial parts used in decoctions or standardized extracts (e.g., artemisinin)",
-  "region": "No direct region data. Contextual inference: Antimalarial, antiviral, immune modulating. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimalarial, antiviral, immune modulating. none. ; nan; nan",
-  "therapeuticUses": [],
-  "traditionalUse": "; nan; nan",
-  "sideEffects": [
-    "May cause allergic reactions or nausea",
-    "avoid in pregnancy",
-    "rare hepatotoxicity in sensitive individuals"
-  ],
   "slug": "artemisia-annua",
-  "id": "artemisia-annua",
-  "displayName": "artemisia annua",
-  "displayScientificName": "Artemisia annua",
-  "scientificNormalized": "artemisia annua",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": []
+  "summary": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
+  "description": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "artemisinin endoperoxide activation under iron/heme conditions",
+    "parasite oxidative damage pathways",
+    "NF-κB and cytokine modulation reported preclinically"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Do not use crude Artemisia as a substitute for approved antimalarial therapy. Pregnancy, liver disease, and drug-interaction contexts require medical supervision.",
+  "contraindications": [
+    "Pregnancy/breastfeeding unless medically indicated",
+    "serious infection without medical care",
+    "liver disease",
+    "and unsupervised antimalarial use."
+  ],
+  "interactions": [
+    "Potential CYP/P-gp interactions and additive effects with antimalarials",
+    "hepatotoxic drugs",
+    "and seizure-threshold-lowering agents."
+  ],
+  "preparation": "Separate whole-herb Artemisia preparations from purified artemisinin derivatives; evidence and safety are not interchangeable.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
 }

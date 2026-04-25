@@ -1,31 +1,26 @@
 {
-  "slug": "epicatechin",
   "id": "epicatechin",
+  "slug": "epicatechin",
   "name": "epicatechin",
-  "effects": [
-    "adenosine receptor antagonism"
+  "summary": "Flavan-3-ol associated with cacao and tea, commonly linked to PI3K/Akt and endothelial nitric oxide signaling.",
+  "description": "Flavan-3-ol associated with cacao and tea, commonly linked to PI3K/Akt and endothelial nitric oxide signaling.",
+  "compoundClass": "flavanol / tea polyphenol",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "eNOS activation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Theobroma%20cacao"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=epicatechin"
-    }
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "AMPK",
+    "endothelial nitric oxide",
+    "antioxidant response",
+    "lipid/glucose signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "flavonoid",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "theobroma-cacao"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
 }

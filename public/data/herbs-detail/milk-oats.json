@@ -1,0 +1,26 @@
+{
+  "name": "milk oats",
+  "slug": "milk-oats",
+  "summary": "They are best framed as a gentle traditional tonic rather than a strong acute intervention.",
+  "description": "They are best framed as a gentle traditional tonic rather than a strong acute intervention.",
+  "primaryActions": [],
+  "mechanisms": [
+    "nutritive support",
+    "calming support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "contraindications": [
+    "Celiac/gluten sensitivity unless certified gluten-free",
+    "pregnancy/breastfeeding supplement use needs review"
+  ],
+  "interactions": [
+    "Low documented interaction burden",
+    "theoretical add-on sedation with CNS depressants."
+  ],
+  "preparation": "Fresh milky oat tincture is traditional; dried oatstraw infusion is a different preparation.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,41 +1,25 @@
 {
-  "slug": "tyrosol",
   "id": "tyrosol",
+  "slug": "tyrosol",
   "name": "tyrosol",
-  "effects": [
-    "oxidative_stress_modulation",
-    "cytoprotective",
-    "multi-target signaling modulation"
+  "summary": "Simple phenolic alcohol linked to antioxidant-response and survival signaling.",
+  "description": "Simple phenolic alcohol linked to antioxidant-response and survival signaling.",
+  "compoundClass": "olive phenolic secoiridoid/phenylethanol",
+  "mechanisms": [
+    "Nrf2 activation",
+    "PI3K/Akt modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Tyrosol"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=tyrosol+absorption"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=tyrosol+Nrf2"
-    }
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "lipid oxidation",
+    "endothelial signaling",
+    "antioxidant response"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "simple phenolic alcohol / phenethyl alcohol",
-  "mechanism": "proposed mechanism based on preclinical data: antioxidant and cytoprotective signaling, including Nrf2/HO-1-associated effects and ROS attenuation; human target-level confirmation is limited.",
-  "herbs": [
-    "rhodiola-rosea"
-  ],
-  "contraindications": [
-    "No established clinical drug interactions identified for isolated tyrosol."
-  ],
-  "summary": "proposed mechanism based on preclinical data: antioxidant and cytoprotective signaling, including Nrf2/HO-1-associated effects and ROS attenuation; human target-level confirmation is limited.",
-  "description": "proposed mechanism based on preclinical data: antioxidant and cytoprotective signaling, including Nrf2/HO-1-associated effects and ROS attenuation; human target-level confirmation is limited.",
-  "evidenceLevel": "human absorption + preclinical mechanism",
-  "aliases": [
-    "p-tyrosol",
-    "4-(2-hydroxyethyl)phenol",
-    "2-(4-hydroxyphenyl)ethanol"
-  ]
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Food-associated in olive/olive oil matrices; concentrated extracts may affect blood pressure, glucose, or bleeding risk.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
 }

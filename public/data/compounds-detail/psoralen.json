@@ -1,0 +1,24 @@
+{
+  "id": "psoralen",
+  "slug": "psoralen",
+  "name": "psoralen",
+  "summary": "Furocoumarin associated with phytoestrogen-like and MAPK-linked signaling effects.",
+  "description": "Furocoumarin associated with phytoestrogen-like and MAPK-linked signaling effects.",
+  "compoundClass": "coumarin / furanocoumarin",
+  "mechanisms": [
+    "estrogen receptor modulation",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "CYP enzymes",
+    "P-gp/OATP transporters",
+    "photoreactive DNA crosslinking",
+    "inflammatory signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

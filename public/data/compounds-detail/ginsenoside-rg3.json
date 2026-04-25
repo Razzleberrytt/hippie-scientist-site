@@ -1,0 +1,26 @@
+{
+  "id": "ginsenoside-rg3",
+  "slug": "ginsenoside-rg3",
+  "name": "ginsenoside rg3",
+  "summary": "Heat-processed ginsenoside linked to inflammatory and angiogenic pathway control.",
+  "description": "Heat-processed ginsenoside linked to inflammatory and angiogenic pathway control.",
+  "compoundClass": "triterpenoid saponin / ginsenoside",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "PI3K/Akt modulation",
+    "VEGF signaling inhibition"
+  ],
+  "targets": [
+    "PI3K/Akt",
+    "apoptosis signaling",
+    "angiogenesis pathways",
+    "NF-κB",
+    "immune signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical and extract-derived. Caution with anticoagulants, antidiabetics, immune therapies, and oncology regimens without supervision.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

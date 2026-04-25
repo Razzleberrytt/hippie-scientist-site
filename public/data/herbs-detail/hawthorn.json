@@ -1,0 +1,37 @@
+{
+  "name": "hawthorn",
+  "slug": "hawthorn",
+  "summary": "It is best framed around procyanidins and flavonoids.",
+  "description": "It is best framed around procyanidins and flavonoids.",
+  "primaryActions": [],
+  "mechanisms": [
+    "positive inotropic effects",
+    "coronary vasodilation via endothelial nitric oxide",
+    "vascular-tone modulation",
+    "antioxidant flavonoid/procyanidin effects",
+    "phosphodiesterase inhibition"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Use only with clinician oversight in heart failure or cardiovascular disease. May potentiate antihypertensives, nitrates, digoxin/cardiac glycosides, beta-blockers, antiarrhythmics, and anticoagulant/antiplatelet regimens. Dizziness, hypotension, palpitations, and GI upset can occur. Do not substitute for heart-failure therapy.",
+  "contraindications": [
+    "Unstable cardiac disease without medical care",
+    "pregnancy/breastfeeding without clinician review",
+    "unexplained chest pain",
+    "syncope",
+    "or severe dyspnea requires urgent medical care."
+  ],
+  "interactions": [
+    "Digoxin/cardiac glycosides",
+    "antihypertensives",
+    "nitrates",
+    "beta-blockers",
+    "antiarrhythmics",
+    "anticoagulants",
+    "and antiplatelets."
+  ],
+  "preparation": "Leaf/flower/berry tea, tincture, and flavonoid/OPC standardized extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
+}

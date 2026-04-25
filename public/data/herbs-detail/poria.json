@@ -1,0 +1,29 @@
+{
+  "name": "poria",
+  "slug": "poria",
+  "summary": "It is best framed as a traditional medicinal fungus with modest modern clinical depth.",
+  "description": "It is best framed as a traditional medicinal fungus with modest modern clinical depth.",
+  "primaryActions": [],
+  "mechanisms": [
+    "traditional fluid-balance support",
+    "calming support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "significant kidney disease or unstable electrolytes"
+  ],
+  "interactions": [
+    "Potential interaction concern with antihypertensives/diuretics",
+    "sedatives/CNS depressants",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

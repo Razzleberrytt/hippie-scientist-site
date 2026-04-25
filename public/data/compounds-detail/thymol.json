@@ -1,50 +1,24 @@
 {
-  "name": "thymol",
-  "herbs": [
-    "nan",
-    "thymus vulgaris"
-  ],
-  "effects": [
-    "Mild sedation",
-    "relaxation",
-    "antispasmodic",
-    "Mild sedative",
-    "carminative",
-    "Mood lift",
-    "mild stimulation",
-    "aphrodisiac",
-    "Mild euphoria",
-    "stimulation",
-    "increased libido",
-    "Mild stimulation",
-    "mood enhancement",
-    "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "Pregnancy",
-    "sedation-sensitive individuals",
-    "Avoid in bipolar disorder and pregnancy",
-    "hormone-sensitive conditions"
-  ],
-  "category": "Thymol, carvacrol, essential oils",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "slug": "thymol",
   "id": "thymol",
-  "displayName": "thymol",
-  "description": "thymol appears in records as a compound reported in nan and thymus vulgaris. Current source coverage is limited and still developing.",
-  "summary": "thymol appears in records as a compound reported in nan and thymus vulgaris. Current source coverage is limited and still developing.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan",
-    "thymus-vulgaris"
+  "slug": "thymol",
+  "name": "thymol",
+  "summary": "Thymol is a monoterpene phenol prominent in thyme and related aromatic herbs. The best-supported effects are antimicrobial and neuroactive membrane-level actions, with little direct clinical evidence for isolated-compound outcomes.",
+  "description": "Monoterpene phenol from thyme and oregano with antimicrobial and neuroactive properties.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "Membrane disruption",
+    "GABA-A receptor modulation",
+    "TRP-channel effects",
+    "antimicrobial permeability effects"
   ],
-  "mechanism": "insufficient evidence"
+  "targets": [
+    "GABA-A-related sites",
+    "membrane targets"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "animal / in vitro",
+  "relatedCompounds": []
 }

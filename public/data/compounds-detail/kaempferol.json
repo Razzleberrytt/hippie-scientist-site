@@ -1,54 +1,25 @@
 {
-  "name": "kaempferol",
-  "herbs": [
-    "st-johns-wort"
-  ],
-  "effects": [
-    "multi-target signaling modulation",
-    "general or unknown targets"
-  ],
-  "contraindications": [
-    "low",
-    "no well-documented interactions"
-  ],
-  "category": "Ethyl cinnamate, kaempferol, essential oils",
-  "sources": [
-    {
-      "title": "Workbook source URL",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Kaempferia%20galanga | https://pubchem.ncbi.nlm.nih.gov/#query=kaempferol"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "scientific name"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "PubChem compound page (NIH)"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "USDA Plants database"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "inferred_plus_trusted_gov"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "slug": "kaempferol",
   "id": "kaempferol",
-  "displayName": "kaempferol",
-  "description": "kaempferol is a compound reported in aerva lanata, albizia lebbeck, and related herbs. Available references are still early and incomplete.",
-  "summary": "kaempferol is a compound reported in aerva lanata, albizia lebbeck, and related herbs. Available references are still early and incomplete.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "aerva-lanata",
-    "albizia-lebbeck",
-    "alchemilla-vulgaris",
-    "linden"
+  "slug": "kaempferol",
+  "name": "kaempferol",
+  "summary": "Flavonol commonly associated with PI3K/Akt and NF-κB pathway modulation in botanical systems.",
+  "description": "Flavonol commonly associated with PI3K/Akt and NF-κB pathway modulation in botanical systems.",
+  "compoundClass": "flavonol polyphenol",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "NF-κB inhibition"
   ],
-  "mechanism": "insufficient evidence"
+  "targets": [
+    "NF-κB",
+    "Nrf2",
+    "PI3K/Akt",
+    "MAPK",
+    "inflammatory cytokines"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Food exposure is low-risk; high-dose supplement safety is less established. Caution with anticoagulants, antidiabetics, and complex oncology regimens.",
+  "evidenceLevel": "preclinical; human_limited",
+  "relatedCompounds": []
 }

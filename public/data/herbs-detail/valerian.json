@@ -1,75 +1,32 @@
 {
   "name": "valerian",
-  "latin": "valerian",
-  "intensity": "mild",
-  "mechanism": "Proposed mechanism: not established as strong human mechanism in Tier‑1 sources used here; PubChem describes valerenic acid as a constituent with GABA modulator role (descriptor-level evidence, not clinical proof).",
-  "activeCompounds": [
-    "Valerenic acid is described in PubChem as a constituent of valerian essential oil",
-    "valerian root contains mono-/sesquiterpenes and valepotriates per PubChem summary. (Treat as constituent identification, not efficacy attribution.)"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "avoid during pregnancy and breastfeeding unless advised by a clinician",
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
-    "discontinue if hypersensitivity or allergic symptoms occur"
-  ],
-  "safetyNotes": "NCCIH: generally safe short-term; studies report apparent safety with 300–600 mg daily for up to 6 weeks; long-term safety unknown; rare liver injury reports (often with multi-herb products); caution against combining with alcohol or sedatives due to possible sleep-inducing effects. EMA: may impair ability to drive/use machines; pregnancy/lactation safety not established (not recommended); GI symptoms may occur.",
-  "sources": [
-    {
-      "title": "Valerian: Usefulness and Safety (NCCIH)",
-      "url": "https://www.nccih.nih.gov/health/valerian"
-    },
-    {
-      "title": "EU herbal monograph on Valeriana officinalis L., radix (EMA)",
-      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-valeriana-officinalis-l-radix_en.pdf"
-    },
-    {
-      "title": "*Valeriana officinalis* L. (POWO)",
-      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A860012-1"
-    },
-    {
-      "title": "Valerenic acid (PubChem)",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Valerenic-acid"
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "description": "Roots and rhizomes used medicinally; sold as oral supplements; EMA also includes use as a bath additive (comminuted herb).",
-  "dosage": "EMA posology examples include: dry extract 400–600 mg per dose for mild nervous tension up to 3× daily; for sleep, dosing is timed \"half to one hour before bedtime\" (with preparation-specific doses), plus multiple other preparation-specific regimens; NCCIH notes 300–600 mg daily used with apparent safety up to 6 weeks.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "EMA: none reported. NCCIH cautions against combining with alcohol or sedatives (sleep-inducing effect possible though not proven)."
-  ],
-  "legalStatus": "legal",
-  "preparation": "Oral extracts (dry extracts, tinctures) and comminuted herb for tea; bath additive use is included in EMA monograph.",
-  "region": "Native range (POWO): Europe to NW Iran.",
-  "therapeuticUses": [
-    "traditional support for mild digestive comfort",
-    "traditional stress resilience support"
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "valerian",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "headache (more likely with higher intake)",
-    "allergic rash or itching in sensitive individuals"
+  "summary": "Valerian centers on the root; rhizome.",
+  "description": "Valerian centers on the root; rhizome. Key reported compounds include valerenic acid; valerenol; valerenal; valepotriates (valtrate, isovaltrate); sesquiterpenoids. Typical preparation forms: Dried roots/rhizomes as teas, tinctures, or extracts. Valerenic acid derivatives modulate GABA-A signaling and may inhibit GABA breakdown. Interaction profile: May potentiate sedatives and alcohol. Use caution or avoid in: Pregnancy, breastfeeding, liver disease, concurrent CNS depressants.",
+  "primaryActions": [],
+  "mechanisms": [
+    "valerenic-acid GABA-A receptor modulation",
+    "GABA degradation/transport effects",
+    "adenosine and serotonergic sleep-pathway modulation"
   ],
-  "id": "valerian",
-  "displayName": "valerian",
-  "displayScientificName": "valerian",
-  "scientificNormalized": "valerian",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "NCCIH: evidence for sleep/anxiety and other conditions is insufficient and inconsistent; a clinical practice guideline recommended against valerian for chronic insomnia. EMA: indications include relief of mild nervous tension and sleep disorders (traditional use for mental stress and to aid sleep).",
-  "scientificName": "Valeriana officinalis",
-  "mechanismTags": [
-    "gabaergic"
-  ]
+  "activeCompounds": [],
+  "safetyNotes": "Sedation and next-day drowsiness possible; avoid combining with alcohol, benzodiazepines, opioids, or other CNS depressants.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without clinician guidance",
+    "heavy sedative use",
+    "upcoming anesthesia"
+  ],
+  "interactions": [
+    "May potentiate alcohol",
+    "benzodiazepines",
+    "barbiturates",
+    "sleep aids",
+    "opioids",
+    "and other CNS depressants."
+  ],
+  "preparation": "Root/rhizome tea, tincture, capsules, and standardized extracts; odor reflects volatile constituents.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

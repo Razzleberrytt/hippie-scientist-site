@@ -1,25 +1,33 @@
 {
-  "name": "Ginger",
+  "name": "ginger",
   "slug": "ginger",
-  "scientificName": "Zingiber officinale",
-  "summary": "Ginger (Zingiber officinale) is a rhizome monograph focused on the unspecified used in herbal preparations. It is associated with Ginger does not occur in the wild; it is believed to have originated in Southeast Asia and is now cultivated across the humid tropics with India as the largest producer【418916103730052†L148-L163】. Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. Ginger is widely consumed as a food and supplement and is generally regarded as safe.",
-  "description": "Ginger is represented here as a monograph-style entry centered on the unspecified. Key reported compounds include [6]-gingerol; shogaols; zingerone; paradols. Typical preparation forms: The rhizome is used fresh, dried, pickled, preserved, candied or powdered. Supplements include encapsulated dried powders and extracts【418916103730052†L176-L189】. Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. These compounds modulate immune‑cell function and regulate signalling pathways including nuclear factor‑κB, MAPK and PI3K/Akt/mTOR, and they can activate AMP‑activated protein kinase (AMPK), NRF2, HO‑1 and PPARγ【69571933386645†L153-L169】【69571933386645†L240-L249】. Through these mechanisms ginger exhibits anti‑inflammatory, antioxidant and neuroprotective effects. Interaction profile: Ginger may increase the risk of bleeding when taken with anticoagulant or antiplatelet drugs and could lower blood glucose or blood pressure, potentiating antidiabetic or antihypertensive medications. Use caution or avoid in: Use cautiously in pregnancy, gallstone disease or bleeding disorders. Discontinue before surgery and avoid high‑dose supplements when taking anticoagulants.",
-  "mechanism": "Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. These compounds modulate immune‑cell function and regulate signalling pathways including nuclear factor‑κB, MAPK and PI3K/Akt/mTOR, and they can activate AMP‑activated protein kinase (AMPK), NRF2, HO‑1 and PPARγ【69571933386645†L153-L169】【69571933386645†L240-L249】. Through these mechanisms ginger exhibits anti‑inflammatory, antioxidant and neuroprotective effects.",
-  "mechanismTags": [
-    "anti-inflammatory",
-    "antioxidant",
-    "immunomodulatory"
+  "summary": "Ginger centers on the unspecified.",
+  "description": "Ginger centers on the unspecified. Key reported compounds include [6]-gingerol; shogaols; zingerone; paradols. Typical preparation forms: The rhizome is used fresh, dried, pickled, preserved, candied or powdered. Supplements include encapsulated dried powders and extracts【418916103730052†L176-L189】. Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. These compounds modulate immune‐cell function and regulate signalling pathways including nuclear factor‐κB, MAPK and PI3K/Akt/mTOR, and they can activate AMP‐activated protein kinase (AMPK), NRF2, HO‐1 and PPARγ【69571933386645†L153-L169】【69571933386645†L240-L249】. Through these mechanisms ginger exhibits anti‐inflammatory, antioxidant and neuroprotective effects. Interaction profile: Ginger may increase the risk of bleeding when taken with anticoagulant or antiplatelet drugs and could lower blood glucose or blood pressure, potentiating antidiabetic or antihypertensive medications. Use caution or avoid in: Use cautiously in pregnancy, gallstone disease or bleeding disorders. Discontinue before surgery and avoid high‐dose supplements when taking anticoagulants.",
+  "primaryActions": [],
+  "mechanisms": [
+    "5-HT3 receptor antagonism",
+    "gastric motility modulation",
+    "COX-2 and LOX inhibition",
+    "NF-κB inhibition",
+    "thromboxane/platelet-aggregation modulation"
   ],
-  "activeCompounds": [
-    "6-gingerol",
-    "zingerone"
+  "activeCompounds": [],
+  "safetyNotes": "Heartburn and GI upset are common at higher doses. Pregnancy use should stay within studied doses and clinician guidance. Caution with anticoagulants/antiplatelets, bleeding disorders, perioperative use, gallstones/biliary disease, antidiabetic therapy, and antihypertensive therapy.",
+  "contraindications": [
+    "Bleeding disorder or perioperative use without clinician review",
+    "gallstone/biliary disease without clinician review",
+    "high-dose use in pregnancy without clinician guidance."
   ],
-  "safetyNotes": "Ginger is widely consumed as a food and supplement and is generally regarded as safe. Research suggests it may help with mild nausea and menstrual cramps. Reported side effects at high doses include abdominal discomfort, heartburn, diarrhoea and irritation of the mouth or throat【799387966105800†L29-L56】. Clinical studies using up to 1 000 mg/day of dried powdered extract report adverse event rates similar to placebo【739669106228210†L96-L133】. The safety of high‑dose ginger during pregnancy has not been conclusively established.",
   "interactions": [
-    "Ginger may increase the risk of bleeding when taken with anticoagulant or antiplatelet drugs and could lower blood glucose or blood pressure",
-    "potentiating antidiabetic or antihypertensive medications."
+    "Potential additive bleeding risk with warfarin",
+    "DOACs",
+    "antiplatelets",
+    "and NSAIDs",
+    "may compound glucose- or blood-pressure-lowering therapy."
   ],
-  "dosage": "Typical adult dose is up to 1 000 mg/day of dried powdered extract for gastrointestinal complaints【739669106228210†L96-L133】.",
-  "preparation": "The rhizome is used fresh, dried, pickled, preserved, candied or powdered. Supplements include encapsulated dried powders and extracts【418916103730052†L176-L189】.",
-  "region": "Ginger does not occur in the wild; it is believed to have originated in Southeast Asia and is now cultivated across the humid tropics with India as the largest producer【418916103730052†L148-L163】."
+  "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
 }

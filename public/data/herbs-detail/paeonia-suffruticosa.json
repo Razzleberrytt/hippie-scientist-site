@@ -1,0 +1,28 @@
+{
+  "name": "paeonia suffruticosa",
+  "slug": "paeonia-suffruticosa",
+  "summary": "Paeonia suffruticosa contains Paeonol and is linked here to NF-κB inhibition.",
+  "description": "Paeonia suffruticosa contains Paeonol and is linked here to NF-κB inhibition.",
+  "primaryActions": [],
+  "mechanisms": [
+    "NF-κB inhibition",
+    "Nrf2 activation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "hormone-sensitive conditions without clinician review"
+  ],
+  "interactions": [
+    "Potential interaction concern with hormonal therapies",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,28 @@
+{
+  "name": "paeonia lactiflora",
+  "slug": "paeonia-lactiflora",
+  "summary": "Paeonia lactiflora contains Paeoniflorin and is linked here to PI3K/Akt modulation.",
+  "description": "Paeonia lactiflora contains Paeoniflorin and is linked here to PI3K/Akt modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "NF-κB inhibition",
+    "MAPK pathway modulation",
+    "monoamine reuptake inhibition"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May affect coagulation or immune signaling; use caution around anticoagulation.",
+  "contraindications": [
+    "Pregnancy without clinician guidance",
+    "anticoagulant use without review"
+  ],
+  "interactions": [
+    "Potential additive bleeding risk with anticoagulants/antiplatelets",
+    "may interact with immunomodulators."
+  ],
+  "preparation": "Root decoction/extract; often paired with licorice or other TCM herbs.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

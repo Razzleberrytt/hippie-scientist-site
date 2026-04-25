@@ -1,31 +1,25 @@
 {
-  "slug": "timosaponin-aiii",
   "id": "timosaponin-aiii",
+  "slug": "timosaponin-aiii",
   "name": "timosaponin aiii",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Steroidal saponin associated with survival and apoptotic signaling.",
+  "description": "Steroidal saponin associated with survival and apoptotic signaling.",
+  "compoundClass": "saponin / glycoside",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "apoptosis pathway modulation (caspase activation)"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Anemarrhena%20asphodeloides"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=timosaponin%20aiii"
-    }
+  "targets": [
+    "AMPK",
+    "PPAR",
+    "immune cytokines",
+    "membrane signaling",
+    "glucose/lipid metabolism"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "timosaponin AIII; saponins",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "anemarrhena-asphodeloides"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

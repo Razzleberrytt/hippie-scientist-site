@@ -1,31 +1,24 @@
 {
-  "slug": "11-keto-beta-boswellic-acid",
   "id": "11-keto-beta-boswellic-acid",
+  "slug": "11-keto-beta-boswellic-acid",
   "name": "11-keto-beta-boswellic acid",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Keto-boswellic acid associated with 5-LOX-related signaling and inflammatory modulation.",
+  "description": "Keto-boswellic acid associated with 5-LOX-related signaling and inflammatory modulation.",
+  "compoundClass": "pentacyclic triterpene acid / boswellic acid",
+  "mechanisms": [
+    "5-lipoxygenase inhibition",
+    "MAPK pathway modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=frankincense%20%28boswellia%29"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=11-keto-beta-boswellic%20acid"
-    }
+  "targets": [
+    "5-LOX",
+    "NF-κB",
+    "leukotriene pathways",
+    "inflammatory cytokines"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "organic acid",
-  "mechanism": "Boswellic acids, especially AKBA, act as relatively selective 5-lipoxygenase inhibitors and reduce leukotriene synthesis in inflammatory pathways.",
-  "herbs": [
-    "frankincense-boswellia"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "Boswellic acids, especially AKBA, act as relatively selective 5-lipoxygenase inhibitors and reduce leukotriene synthesis in inflammatory pathways.",
-  "description": "Boswellic acids, especially AKBA, act as relatively selective 5-lipoxygenase inhibitors and reduce leukotriene synthesis in inflammatory pathways.",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Boswellia extracts can cause GI upset and may interact with anticoagulants/anti-inflammatory drugs; pregnancy safety is not established.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
 }

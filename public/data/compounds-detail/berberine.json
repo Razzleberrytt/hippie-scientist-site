@@ -1,79 +1,29 @@
 {
-  "slug": "berberine",
   "id": "berberine",
+  "slug": "berberine",
   "name": "berberine",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Berberine is a protoberberine alkaloid concentrated in barberry-type herbs and used most often in metabolic research. Human evidence is strongest for glucose and lipid endpoints, while mechanistic literature consistently points to energy-sensing and inflammatory pathway effects.",
+  "description": "Isoquinoline alkaloid best known from barberry-type herbs with metabolic and inflammatory signaling activity.",
+  "compoundClass": "isoquinoline alkaloid",
+  "mechanisms": [
+    "AMPK activation",
+    "NF-kB suppression",
+    "PI3K/Akt modulation",
+    "gut-microbiome signaling effects",
+    "LDLR/PCSK9-related lipid regulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Berberis%20vulgaris"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Chelidonium%20majus"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Coptis%20chinensis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Hydrastis%20canadensis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Phellodendron%20amurense"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=argemone%20mexicana"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4898966/"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=berberine"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Berberine"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/16133554/"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/16873688/"
-    },
-    {
-      "title": "Reference",
-      "url": "https://www.nccih.nih.gov/health/in-the-news-berberine"
-    }
+  "targets": [
+    "AMPK",
+    "PCSK9",
+    "LDLR",
+    "gut microbiota",
+    "NF-κB",
+    "CYP/P-gp interaction pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "alkaloid",
-  "mechanism": "Activates AMPK and is reported to inhibit mitochondrial respiratory complex I; downstream effects include modulation of metabolic and inflammatory signaling.",
-  "herbs": [
-    "argemone-mexicana",
-    "berberis-vulgaris",
-    "chelidonium-majus",
-    "coptis-chinensis",
-    "hydrastis-canadensis",
-    "phellodendron-amurense"
-  ],
-  "contraindications": [
-    "Cyclosporine (documented ↑ blood concentration)",
-    "P-glycoprotein substrates (possible ↑ exposure)",
-    "CYP2D6/CYP2C9/CYP3A4 substrates (possible altered exposure)",
-    "antidiabetic drugs (additive glucose-lowering)."
-  ],
-  "summary": "Activates AMPK and is reported to inhibit mitochondrial respiratory complex I; downstream effects include modulation of metabolic and inflammatory signaling.",
-  "description": "Activates AMPK and is reported to inhibit mitochondrial respiratory complex I; downstream effects include modulation of metabolic and inflammatory signaling.",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "GI upset is common. Avoid pregnancy/breastfeeding and neonatal exposure; caution with antidiabetic drugs, antihypertensives, anticoagulants, immunosuppressants, and CYP/P-gp substrates.",
+  "evidenceLevel": "human_limited; meta_analysis_for_metabolic_markers",
+  "relatedCompounds": []
 }

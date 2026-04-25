@@ -1,49 +1,26 @@
 {
   "name": "plantago major",
-  "latin": "Plantago major",
-  "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, wound healing, demulcent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, demulcent. No direct region data. Contextual inference: Anti-inflammatory, wound healing, demulcent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, demulcent. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-  "activeCompounds": [],
-  "effects": [
-    "Anti-inflammatory",
-    "wound healing",
-    "demulcent",
-    "Anti",
-    "inflammatory"
-  ],
-  "contraindications": [],
-  "safetyNotes": "safe Generally safe rare allergic skin reactions No direct toxicity data. Contextual inference: Anti-inflammatory wound healing demulcent. Herbs often act via neurotransmitter modulation antioxidant effects or enzyme inhibition.. None. nan.. Herbs often act via neurotransmitter modulation or enzyme inhibition.. Anti-inflammatory demulcent. none.",
-  "sources": [
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Anti-inflammatory, wound healing, demulcent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "250 1000 mg day leaf extract",
-  "duration": "4–6 hours",
-  "interactions": [],
-  "legalStatus": "Legal globally",
-  "preparation": "Leaves fresh or dried for teas, poultices, or tinctures; seeds also used for mucilage (demulcent)",
-  "region": "No direct region data. Contextual inference: Anti-inflammatory, wound healing, demulcent. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, wound healing, demulcent. none. ; nan; nan",
-  "therapeuticUses": [],
-  "traditionalUse": "; nan; nan",
-  "sideEffects": [
-    "Generally safe",
-    "rare allergic skin reactions"
-  ],
   "slug": "plantago-major",
-  "id": "plantago-major",
-  "displayName": "plantago major",
-  "displayScientificName": "Plantago major",
-  "scientificNormalized": "plantago major",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": []
+  "summary": "Plantago major contains Aucubin and is linked here to NF-κB inhibition.",
+  "description": "Plantago major contains Aucubin and is linked here to NF-κB inhibition.",
+  "primaryActions": [],
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
 }

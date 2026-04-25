@@ -1,31 +1,22 @@
 {
-  "slug": "atractylenolide-ii",
   "id": "atractylenolide-ii",
+  "slug": "atractylenolide-ii",
   "name": "atractylenolide ii",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Atractylodes lactone linked to inflammatory signaling control.",
+  "description": "Atractylodes lactone linked to inflammatory signaling control.",
+  "compoundClass": "sesquiterpene lactone",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Atractylodes%20macrocephala"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=atractylenolide%20ii"
-    }
+  "targets": [
+    "NF-κB",
+    "MAPK"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "atractylodes-macrocephala"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
 }

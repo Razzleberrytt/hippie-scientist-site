@@ -1,21 +1,25 @@
 {
-  "slug": "genistein",
   "id": "genistein",
+  "slug": "genistein",
   "name": "genistein",
-  "effects": [
-    "ER modulation",
-    "Tyrosine kinase inhibition"
+  "summary": "Isoflavone strongly associated with soy and clover, commonly linked to estrogen receptor and PI3K/Akt signaling.",
+  "description": "Isoflavone strongly associated with soy and clover, commonly linked to estrogen receptor and PI3K/Akt signaling.",
+  "compoundClass": "isoflavone / phytoestrogen",
+  "mechanisms": [
+    "estrogen receptor modulation",
+    "PI3K/Akt modulation"
   ],
-  "sources": [],
-  "lastUpdated": "2026-04-09",
-  "category": "isoflavone",
-  "mechanism": "Tyrosine kinase inhibition and estrogen receptor modulation",
-  "herbs": [],
-  "contraindications": [
-    "Hormonal therapies (interaction possible)"
+  "targets": [
+    "estrogen receptor signaling",
+    "AMPK",
+    "PPAR",
+    "antioxidant response",
+    "bone/metabolic signaling"
   ],
-  "summary": "Tyrosine kinase inhibition and estrogen receptor modulation",
-  "description": "Tyrosine kinase inhibition and estrogen receptor modulation",
-  "evidenceLevel": "Batch9",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
 }

@@ -1,0 +1,29 @@
+{
+  "name": "clove",
+  "slug": "clove",
+  "summary": "Bulk-ingested support row carrying Eugenol with pathway-level mechanism coverage.",
+  "description": "Bulk-ingested support row carrying Eugenol with pathway-level mechanism coverage.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Eugenol-mediated COX-2/LOX modulation",
+    "TRPV1/TRPA1 sensory receptor interaction",
+    "platelet aggregation effects."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Clove oil can irritate skin/mucosa and high doses may be toxic; caution with anticoagulants/antiplatelets, liver disease, surgery, children, pregnancy, and concentrated essential oil ingestion.",
+  "contraindications": [
+    "Bleeding disorder",
+    "liver disease",
+    "children for clove oil ingestion",
+    "pregnancy supplement dosing without guidance"
+  ],
+  "interactions": [
+    "May increase bleeding risk with anticoagulants/antiplatelets",
+    "caution with hepatotoxic drugs."
+  ],
+  "preparation": "Culinary buds, teas, diluted topical oil; essential oil requires careful dilution.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

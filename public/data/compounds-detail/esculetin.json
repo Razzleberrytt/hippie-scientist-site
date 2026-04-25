@@ -1,31 +1,24 @@
 {
-  "slug": "esculetin",
   "id": "esculetin",
+  "slug": "esculetin",
   "name": "esculetin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Hydroxycoumarin reported from chicory and Artemisia with lipoxygenase and NF-κB pathway effects.",
+  "description": "Hydroxycoumarin reported from chicory and Artemisia with lipoxygenase and NF-κB pathway effects.",
+  "compoundClass": "coumarin / furanocoumarin",
+  "mechanisms": [
+    "5-lipoxygenase inhibition",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=casimiroa%20edulis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=esculetin"
-    }
+  "targets": [
+    "CYP enzymes",
+    "P-gp/OATP transporters",
+    "photoreactive DNA crosslinking",
+    "inflammatory signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "casimiroa-edulis"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

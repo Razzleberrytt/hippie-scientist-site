@@ -1,31 +1,24 @@
 {
-  "slug": "thymoquinone",
   "id": "thymoquinone",
+  "slug": "thymoquinone",
   "name": "thymoquinone",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Quinone constituent of Nigella sativa with reported NF-κB suppression and Nrf2 signaling support.",
+  "description": "Quinone constituent of Nigella sativa with reported NF-κB suppression and Nrf2 signaling support.",
+  "compoundClass": "benzoquinone / monoterpene quinone",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "Nrf2 activation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Nigella%20sativa"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=thymoquinone"
-    }
+  "targets": [
+    "NF-κB",
+    "Nrf2",
+    "apoptosis signaling",
+    "inflammatory cytokines"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "Thymoquinone, nigellone, essential oils",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "nigella-sativa"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Human evidence usually comes from Nigella sativa preparations rather than isolated thymoquinone. Avoid pregnancy-dose escalation; caution with anticoagulants, antidiabetics, antihypertensives, and liver disease.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

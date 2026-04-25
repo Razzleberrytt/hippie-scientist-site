@@ -1,48 +1,24 @@
 {
-  "name": "Myristicin",
-  "herbs": [
-    "nan",
-    "myristica fragrans"
-  ],
-  "effects": [
-    "Euphoria",
-    "hallucinations",
-    "nausea",
-    "dry mouth",
-    "sedation",
-    "altered perception",
-    "disorientation",
-    "No direct effects data. Contextual inference: Used in spice blends",
-    "aphrodisiacs",
-    "and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends",
-    "and as a psychoactive in folk rituals... Used in spice blends",
-    "and as a psychoactive in folk rituals.. Used in spice blends",
-    "and as a psychoactive in folk rituals."
-  ],
-  "contraindications": [
-    "Avoid in pregnancy",
-    "psychiatric conditions",
-    "or with antidepressants",
-    "hepatotoxic in large doses",
-    "Avoid high doses",
-    "dangerous interactions with MAOIs",
-    "SSRIs"
-  ],
-  "category": "essential oils",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "slug": "myristicin",
   "id": "myristicin",
-  "displayName": "Myristicin",
-  "description": "Myristicin appears in records as a compound reported in nan and myristica fragrans. Current source coverage is limited and still developing.",
-  "summary": "Myristicin appears in records as a compound reported in nan and myristica fragrans. Current source coverage is limited and still developing.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan",
-    "myristica-fragrans"
+  "slug": "myristicin",
+  "name": "myristicin",
+  "summary": "Nutmeg phenylpropene linked to monoamine and cholinergic pathway effects.",
+  "description": "Nutmeg phenylpropene linked to monoamine and cholinergic pathway effects.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "monoamine oxidase inhibition",
+    "acetylcholinesterase inhibition"
   ],
-  "mechanism": "insufficient evidence"
+  "targets": [
+    "TRP channels",
+    "antimicrobial membranes",
+    "COX/LOX",
+    "GABAergic or adrenergic signaling depending compound"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

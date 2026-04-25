@@ -1,78 +1,30 @@
 {
   "name": "lavandula angustifolia",
-  "latin": "lavandula angustifolia",
-  "intensity": "No direct intensity data. Contextual inference: Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways; anxiolytic and sedative.. ; nan; nan.. Linalool modulates GABA and serotonin pathways; anxiolytic and sedative.. Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. No direct region data. Contextual inference: Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. Linalool modulates gaba and serotonin pathways; anxiolytic and sedative.. ; nan; nan.. Linalool modulates GABA and serotonin pathways; anxiolytic and sedative.. Anxiolytic, sedative, anti-inflammatory; used in aromatherapy and teas. ; nan; nan. ; nan; nan",
-  "mechanism": "Proposed mechanism: not established as a definitive clinical mechanism in Tier‑1 sources; EMA monograph frames use as traditional for mild mental stress/exhaustion and to aid sleep (consistent with sedative effects) without requiring pharmacodynamic proof for traditional registration.",
-  "activeCompounds": [],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan.",
-    "Anxiolytic",
-    "sedative",
-    "anti-inflammatory",
-    "used in aromatherapy and teas",
-    "anti",
-    "inflammatory"
-  ],
-  "contraindications": [
-    "pregnancy (high doses)",
-    "hormone-sensitive conditions.",
-    "hormone",
-    "sensitive conditions."
-  ],
-  "safetyNotes": "Food-level use likely safe; short-term oral products might be safe in studied doses but can cause GI symptoms (diarrhea, headache, nausea, burping); aromatherapy is \"possibly safe\" but may cause headache/coughing; topical products may cause allergic skin reactions; rare reports of breast tissue swelling in children with topical lavender products—causality unclear. EMA notes driving/machinery impairment potential and advises against use in pregnancy/lactation due to insufficient data.",
-  "sources": [
-    {
-      "title": "Lavender: Usefulness and Safety (NCCIH)",
-      "url": "https://www.nccih.nih.gov/health/lavender"
-    },
-    {
-      "title": "Community herbal monograph on *Lavandula angustifolia* Miller, aetheroleum (EMA)",
-      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-lavandula-angustifolia-miller-aetheroleum_en.pdf"
-    },
-    {
-      "title": "POWO: *Lavandula angustifolia* Mill.",
-      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:449008-1"
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "description": "Aromatic plant native to the Mediterranean region; promoted for oral supplement use, aromatherapy, and topical use. POWO lists native range in parts of southern Europe (NE Spain to Italy).",
-  "dosage": "EMA (lavender oil): oral daily dose 20–80 mg; bath additive 1–3 g per full bath once daily; avoid in children under 12.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "EMA: none reported. NCCIH recommends clinician discussion for supplement-drug interactions generally; no specific lavender interactions are established in the Tier‑1 sources reviewed."
-  ],
-  "legalStatus": "Legal globally",
-  "preparation": "Essential oil obtained by steam distillation from flowering tops; used orally (liquid dosage form) and as bath additive.",
-  "region": "Native Mediterranean range; POWO: NE Spain to Italy.",
-  "therapeuticUses": [
-    "anxiety relief",
-    "sleep aid",
-    "calming effects."
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "lavandula-angustifolia",
-  "sideEffects": [
-    "drowsiness",
-    "allergic reactions."
+  "summary": "Lean bulk ingestion row for Lavandula angustifolia.",
+  "description": "Lean bulk ingestion row for Lavandula angustifolia. Key active compounds include Linalool.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Linalool/linalyl acetate modulate limbic signaling",
+    "voltage-gated calcium-channel activity",
+    "serotonergic tone",
+    "and GABA-A–related anxiolytic pathways."
   ],
-  "displayName": "lavandula angustifolia",
-  "displayScientificName": "lavandula angustifolia",
-  "scientificNormalized": "lavandula angustifolia",
-  "id": "lavandula-angustifolia",
-  "aliases": [
-    "lavender",
-    "Lavandula angustifolia"
+  "activeCompounds": [],
+  "safetyNotes": "May cause sedation, GI upset, lavender burps, or allergy. Avoid non-standard oral essential oil use; caution with CNS depressants, alcohol, driving, and pregnancy.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without guidance",
+    "internal essential-oil use",
+    "prepubertal endocrine concerns with topical overuse are debated"
   ],
-  "slugAliases": [
-    "lavender"
+  "interactions": [
+    "May potentiate sedatives",
+    "sleep medications",
+    "and CNS depressants."
   ],
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "Lavender is promoted for anxiety/stress and other conditions; NCCIH notes an oral lavender oil product may be beneficial for anxiety in some studies, but limitations include small samples, limited independent replication, and participant diversity concerns; aromatherapy evidence for anxiety/sleep is unclear."
+  "preparation": "Flower tea, aromatherapy, topical diluted essential oil, and oral standardized oil capsules.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

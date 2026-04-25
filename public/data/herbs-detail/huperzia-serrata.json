@@ -1,69 +1,26 @@
 {
   "name": "huperzia serrata",
-  "latin": "huperzia serrata",
-  "class": null,
-  "intensity": "mild",
-  "mechanism": "Huperzine A is a reversible acetylcholinesterase inhibitor; additional non-cholinergic neuroprotective pathways are proposed in preclinical work but are less certain clinically.",
-  "activeCompounds": [
-    "Huperzine A"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
-  ],
-  "contraindications": [
-    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
-    "Do not use with known allergy to this plant or related species."
-  ],
-  "safetyNotes": "Adverse effects are typically cholinergic (nausea, sweating, dizziness, bradycardia). Avoid combining with other cholinesterase inhibitors unless supervised; caution in conduction disease or bradyarrhythmia risk.",
-  "sources": [
-    {
-      "title": "Huperzine A and Its Neuroprotective Molecular Signaling in Alzheimer's Disease - PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34770940/"
-    },
-    {
-      "title": "A phase II trial of huperzine A in mild to moderate Alzheimer disease - PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/21502597/"
-    },
-    {
-      "title": "Huperzine A monohydrate | CID 139070639 - PubChem",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/139070639"
-    },
-    {
-      "title": "Huperzia serrata - NCBI Taxonomy Browser",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Huperzia+serrata"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Huperzia serrata has traditional East Asian medicinal use and is commonly represented in supplements via huperzine A. Most modern clinical interest centers on dementia-related outcomes.",
-  "dosage": "Clinical studies of huperzine A use specific purified-dose regimens; whole-herb standardization is inconsistent. Use only standardized products with medical oversight for cognitive indications.",
-  "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "interactions": [
-    "Potential additive cholinergic effects with acetylcholinesterase-inhibiting drugs.",
-    "Potential antagonistic pharmacology with anticholinergic medications."
-  ],
-  "legalStatus": "legal",
-  "preparation": "Used traditionally as herbal material, but modern use is commonly standardized huperzine A extract/capsule products.",
-  "region": "Native to East and Southeast Asia; traditionally used in Chinese medicine contexts.",
-  "therapeuticUses": [
-    "Traditional supportive use; indication depends on species part and preparation.",
-    "Evidence level varies; use only within established clinical or traditional context."
-  ],
-  "traditionalUse": "Folk medicine",
   "slug": "huperzia-serrata",
-  "sideEffects": [
-    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
-    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  "summary": "Huperzia serrata contains Huperzine A and is linked here to acetylcholinesterase inhibition.",
+  "description": "Huperzia serrata contains Huperzine A and is linked here to acetylcholinesterase inhibition.",
+  "primaryActions": [],
+  "mechanisms": [
+    "acetylcholinesterase inhibition",
+    "NMDA receptor modulation"
   ],
-  "id": "huperzia-serrata",
-  "displayName": "huperzia serrata",
-  "displayScientificName": "huperzia serrata",
-  "scientificNormalized": "huperzia serrata",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [
-    "huperzine-a"
+  "activeCompounds": [],
+  "safetyNotes": "Human safety data are limited for concentrated extracts. Use caution in pregnancy/breastfeeding, significant medical conditions, or prescription polypharmacy.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
   ],
-  "summary": "Huperzia serrata is a club moss known for the alkaloid huperzine A, studied mainly for cognitive disorders. Evidence suggests cholinesterase inhibition and possible symptomatic cognitive benefit, but trial quality and product variability remain important limits."
+  "interactions": [
+    "Potential interaction concern with antihypertensives/diuretics",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

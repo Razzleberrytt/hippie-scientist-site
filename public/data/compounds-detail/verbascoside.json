@@ -1,36 +1,25 @@
 {
-  "name": "Verbascoside",
-  "herbs": [
-    "aloysia citrodora"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [],
-  "category": "iridoid glycosides; flavonoids",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "slug": "verbascoside",
   "id": "verbascoside",
-  "displayName": "Verbascoside",
-  "description": "Verbascoside is a compound reported in aloysia citrodora. Available references are still early and incomplete.",
-  "summary": "Verbascoside is a compound reported in aloysia citrodora. Available references are still early and incomplete.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "aloysia-citrodora"
-  ],
-  "mechanism": "insufficient evidence",
+  "slug": "verbascoside",
+  "name": "verbascoside",
+  "summary": "Also known as acteoside; linked to inflammatory signaling control.",
+  "description": "Also known as acteoside; linked to inflammatory signaling control.",
+  "compoundClass": "phenylethanoid glycoside",
   "mechanisms": [
-    "insufficient evidence"
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
   ],
-  "compoundClass": "iridoid glycosides; flavonoids",
-  "safetyNotes": [
-    "Limited data."
-  ]
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "antioxidant response",
+    "inflammatory cytokines",
+    "neuroprotective signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical/extract-derived; safety depends on source herb and product quality.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

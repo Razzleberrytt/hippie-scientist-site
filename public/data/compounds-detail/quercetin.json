@@ -1,56 +1,28 @@
 {
-  "name": "Quercetin",
-  "herbs": [
-    "nan"
-  ],
-  "effects": [
-    "Shows antioxidant activity in lab models",
-    "Clinical efficacy remains uncertain"
-  ],
-  "contraindications": [
-    "Long-term high-dose safety is not well established",
-    "Potential CYP/P-glycoprotein interactions are mostly theoretical"
-  ],
-  "category": "compound",
-  "sources": [
-    {
-      "title": "PubMed review literature on quercetin",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/"
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "slug": "quercetin",
   "id": "quercetin",
-  "displayName": "Quercetin",
-  "description": "Non-essential phytochemical found in foods; supplement forms include aglycone and modified delivery products.",
-  "summary": "Plant flavonoid supplement with limited clinical efficacy and bioavailability constraints.",
-  "mechanism": "Proposed anti-inflammatory/mast-cell effects; translation of in vitro antioxidant findings to human outcomes remains uncertain.",
-  "safetyNotes": [
-    "Generally safe at dietary intake levels.",
-    "Short-term studies around 500 mg/day show limited toxicity."
-  ],
-  "interactions": [
-    "Potential CYP3A4/P-gp effects are theorized."
-  ],
-  "dosage": [
-    "Typical supplement studies use ~250–500 mg/day."
-  ],
-  "preparation": "Capsules/tablets, sometimes co-formulated for absorption.",
-  "regulatoryStatus": "Marketed as dietary supplement; no approved drug indication.",
-  "sourceType": "Plant-derived flavonoid",
-  "activeCompounds": [
-    "Quercetin",
-    "Quercetin-3-glucoside"
-  ],
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "Sprint4",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
-  ],
+  "slug": "quercetin",
+  "name": "quercetin",
+  "summary": "Quercetin is a broadly distributed flavonol found in many herbs, fruits, and vegetables. Human supplementation literature exists for blood-pressure, inflammatory, and exercise-recovery questions, but the overall signal is still mixed and endpoint-specific.",
+  "description": "Flavonol widely distributed in herbs and fruits, commonly linked to NF-κB, PI3K/Akt, and Nrf2 pathway modulation.",
+  "compoundClass": "flavonol polyphenol",
   "mechanisms": [
-    "Proposed anti-inflammatory/mast-cell effects; translation of in vitro antioxidant findings to human outcomes remains uncertain"
+    "NF-kB suppression",
+    "Nrf2 activation",
+    "PI3K/Akt modulation",
+    "mast-cell mediator stabilization",
+    "antioxidant redox signaling"
   ],
-  "compoundClass": "compound"
+  "targets": [
+    "NF-κB",
+    "Nrf2",
+    "PI3K/Akt",
+    "mast-cell mediators",
+    "CYP/P-gp interaction pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Food exposure is generally safe; high-dose supplements may affect drug transport/metabolism. Caution with anticoagulants, immunosuppressants, and kidney disease at high doses.",
+  "evidenceLevel": "human_limited; preclinical_strong",
+  "relatedCompounds": []
 }

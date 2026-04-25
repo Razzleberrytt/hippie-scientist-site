@@ -1,53 +1,35 @@
 {
   "name": "yerba mate",
-  "latin": "yerba mate",
-  "intensity": "moderate",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.",
-  "activeCompounds": [
-    "Caffeine",
-    "Theobromine",
-    "Chlorogenic acid"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America."
-  ],
-  "contraindications": [
-    "avoid during pregnancy and breastfeeding unless advised by a clinician",
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
-    "discontinue if hypersensitivity or allergic symptoms occur"
-  ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Consumed as a social and energizing herbal tea throughout south america..",
-  "dosage": "No direct dosage data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. No direct region data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.",
-  "duration": "No direct duration data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. No direct region data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.",
-  "interactions": [],
-  "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. No direct region data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.",
-  "region": "No direct region data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America.",
-  "therapeuticUses": [
-    "traditional support for mild digestive comfort",
-    "traditional stress resilience support"
-  ],
-  "traditionalUse": "Consumed as a social and energizing herbal tea throughout South America.",
   "slug": "yerba-mate",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "headache (more likely with higher intake)",
-    "allergic rash or itching in sensitive individuals"
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "caffeine/theobromine adenosine-receptor antagonism",
+    "chlorogenic-acid antioxidant signaling",
+    "AMPK-related metabolic signaling",
+    "saponin-mediated lipid metabolism"
   ],
-  "id": "yerba-mate",
-  "displayName": "yerba mate",
-  "displayScientificName": "yerba mate",
-  "scientificNormalized": "yerba mate",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [
+  "activeCompounds": [],
+  "safetyNotes": "Contains caffeine; excess intake may worsen insomnia, anxiety, palpitations, reflux, or blood pressure. Avoid very hot maté consumption patterns and stimulant stacking.",
+  "contraindications": [
+    "Uncontrolled hypertension",
+    "arrhythmia",
+    "severe anxiety/insomnia",
+    "pregnancy/breastfeeding caution",
+    "and stimulant sensitivity."
+  ],
+  "interactions": [
+    "Additive effects with stimulants",
     "caffeine",
-    "theobromine",
-    "chlorogenic-acid"
-  ]
+    "theophylline",
+    "decongestants",
+    "and stimulant medications",
+    "CYP1A2-modulating drugs may alter caffeine exposure."
+  ],
+  "preparation": "Prefer moderate-temperature tea/extracts with disclosed caffeine content; avoid very hot repeated consumption and energy-drink style stacking.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

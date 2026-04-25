@@ -1,34 +1,35 @@
 {
-  "name": "Ginkgo Biloba",
+  "name": "ginkgo biloba",
   "slug": "ginkgo-biloba",
-  "scientificName": "Ginkgo biloba",
-  "summary": "Ginkgo Biloba (Ginkgo biloba) is a tree monograph focused on the leaf used in herbal preparations. It is associated with Native to China; cultivated worldwide as an ornamental and medicinal tree. The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways. Appears safe at recommended doses, but fresh seeds are toxic.",
-  "description": "Ginkgo Biloba is represented here as a monograph-style entry centered on the leaf. Key reported compounds include ginkgolides A, B, C, J; bilobalide; ginkgetin; bilobetin; sciadopitysin. Typical preparation forms: Standardized leaf extract (EGb 761). The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways. Interaction profile: May potentiate NSAIDs, anticoagulants, antiplatelets, and interact with antidepressants and antidiabetic drugs. Use caution or avoid in: Pregnancy, breastfeeding, bleeding disorders, epilepsy, planned surgery.",
-  "mechanism": "The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways.",
-  "mechanismTags": [
-    "dopaminergic",
-    "serotonergic",
-    "cholinergic",
-    "antioxidant"
+  "summary": "Ginkgo Biloba centers on the leaf.",
+  "description": "Ginkgo Biloba centers on the leaf. Key reported compounds include ginkgolides A, B, C, J; bilobalide; ginkgetin; bilobetin; sciadopitysin. Typical preparation forms: Standardized leaf extract (EGb 761). The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways. Interaction profile: May potentiate NSAIDs, anticoagulants, antiplatelets, and interact with antidepressants and antidiabetic drugs. Use caution or avoid in: Pregnancy, breastfeeding, bleeding disorders, epilepsy, planned surgery.",
+  "primaryActions": [],
+  "mechanisms": [
+    "platelet-activating factor antagonism",
+    "antioxidant/free-radical scavenging",
+    "cerebral microcirculation and endothelial nitric-oxide modulation",
+    "mitochondrial protection",
+    "NF-κB/Nrf2 signaling modulation"
   ],
-  "activeCompounds": [
-    "ginkgolide-a",
-    "ginkgolide-b",
-    "ginkgolide-c",
-    "ginkgolide-j",
-    "bilobalide",
-    "ginkgetin",
-    "bilobetin",
-    "sciadopitysin"
+  "activeCompounds": [],
+  "safetyNotes": "Bleeding risk is the primary public-facing concern; avoid with anticoagulants/antiplatelets or before surgery unless clinician-supervised. Seizure-threshold concerns exist from ginkgotoxin, especially with seeds or high-risk patients. Avoid fresh seeds. Caution with antiepileptics, pregnancy, and complex medication regimens.",
+  "contraindications": [
+    "Active bleeding disorder",
+    "perioperative period without clinician review",
+    "seizure disorder unless supervised",
+    "avoid fresh seeds entirely."
   ],
-  "safetyNotes": "Appears safe at recommended doses, but fresh seeds are toxic. May increase bleeding risk and lower seizure threshold.",
   "interactions": [
-    "May potentiate NSAIDs",
-    "anticoagulants",
+    "Anticoagulants",
     "antiplatelets",
-    "and interact with antidepressants and antidiabetic drugs."
+    "NSAIDs",
+    "antiepileptics",
+    "and other narrow-therapeutic-index drugs",
+    "possible extract-specific CYP effects."
   ],
-  "dosage": "120–240 mg/day standardized extract",
-  "preparation": "Standardized leaf extract (EGb 761).",
-  "region": "Native to China; cultivated worldwide as an ornamental and medicinal tree."
+  "preparation": "Leaf preparations are commonly used as teas, powders, tinctures, or standardized extracts; topical use may differ from oral use.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
 }

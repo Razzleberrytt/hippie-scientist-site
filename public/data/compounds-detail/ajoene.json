@@ -1,31 +1,22 @@
 {
-  "slug": "ajoene",
   "id": "ajoene",
+  "slug": "ajoene",
   "name": "ajoene",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Organosulfur garlic derivative formed from allicin breakdown and linked to antiplatelet and inflammatory signaling effects.",
+  "description": "Organosulfur garlic derivative formed from allicin breakdown and linked to antiplatelet and inflammatory signaling effects.",
+  "compoundClass": "organosulfur compound",
+  "mechanisms": [
+    "platelet aggregation inhibition",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Allium%20sativum"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=ajoene"
-    }
+  "targets": [
+    "NF-κB",
+    "platelet aggregation"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "garlic"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "May affect platelet activity; use caution with anticoagulants/antiplatelets and before surgery.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
 }

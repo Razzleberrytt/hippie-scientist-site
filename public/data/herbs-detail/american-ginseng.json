@@ -1,51 +1,27 @@
 {
   "name": "american ginseng",
-  "latin": "american ginseng",
-  "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
-  "activeCompounds": [
-    "Unresolved from current repository sources."
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "avoid during pregnancy and breastfeeding unless advised by a clinician",
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
-  ],
-  "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "american ginseng is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
-  "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Unresolved from current repository sources; perform medication and condition screening before use."
-  ],
-  "legalStatus": "legal",
-  "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
-  "region": "Unresolved from current repository sources.",
-  "therapeuticUses": [
-    "traditional support for mild digestive comfort",
-    "non-specific traditional tonic use"
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "american-ginseng",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "headache (more likely with higher intake)"
+  "summary": "Internal cross-linking supports American Ginseng through compounds such as ginsenosides (including rb1, rg1), rb2.",
+  "description": "Internal cross-linking supports American Ginseng through compounds such as ginsenosides (including rb1, rg1), rb2.",
+  "primaryActions": [],
+  "mechanisms": [
+    "ginsenoside effects on AMPK/glucose uptake",
+    "nitric-oxide/endothelial signaling",
+    "HPA-axis and cognition pathways"
   ],
-  "id": "american-ginseng",
-  "displayName": "american ginseng",
-  "displayScientificName": "american ginseng",
-  "scientificNormalized": "american ginseng",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "american ginseng entry normalized to a baseline profile; evidence remains limited in current repository sources."
+  "activeCompounds": [],
+  "safetyNotes": "May lower glucose; caution with diabetes drugs, anticoagulants/warfarin, stimulants, insomnia, and pregnancy.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

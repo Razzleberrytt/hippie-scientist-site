@@ -1,53 +1,25 @@
 {
-  "name": "ferulic acid",
-  "herbs": [
-    "angelica-sinensis",
-    "ferula-assa-foetida",
-    "ligusticum-chuanxiong"
-  ],
-  "effects": [
-    "multi-target signaling modulation",
-    "general or unknown targets"
-  ],
-  "contraindications": [
-    "low",
-    "no well-documented interactions"
-  ],
-  "category": "Ferulic acid, ligustilide, polysaccharides",
-  "sources": [
-    {
-      "title": "Workbook source URL",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Angelica%20sinensis | https://plants.sc.egov.usda.gov/home/search?query=Ferula%20assa-foetida | https://plants.sc.egov.usda.gov/home/search?query=Ligusticum%20chuanxiong | https://pubchem.ncbi.nlm.nih.gov/#query=ferulic%20acid"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "scientific name"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "PubChem compound page (NIH)"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "USDA Plants database"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "inferred_plus_trusted_gov"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "slug": "ferulic-acid",
   "id": "ferulic-acid",
-  "displayName": "ferulic acid",
-  "description": "ferulic acid appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
-  "summary": "ferulic acid appears in records as a compound reported in adenostoma fasciculatum. Current source coverage is limited and still developing.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "adenostoma-fasciculatum"
+  "slug": "ferulic-acid",
+  "name": "ferulic acid",
+  "summary": "Phenolic acid common in grains and Angelica-related herbs, linked to Nrf2 and PI3K/Akt signaling.",
+  "description": "Phenolic acid common in grains and Angelica-related herbs, linked to Nrf2 and PI3K/Akt signaling.",
+  "compoundClass": "phenolic acid / polyphenol",
+  "mechanisms": [
+    "Nrf2 activation",
+    "PI3K/Akt modulation"
   ],
-  "mechanism": "insufficient evidence"
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "antioxidant response",
+    "glucose/lipid signaling",
+    "gut microbiome metabolism"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly food-associated; concentrated extracts may cause GI effects or interact with anticoagulants/antidiabetics depending matrix.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

@@ -1,31 +1,22 @@
 {
-  "slug": "cinnamaldehyde",
   "id": "cinnamaldehyde",
+  "slug": "cinnamaldehyde",
   "name": "cinnamaldehyde",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Major aromatic aldehyde in cinnamon bark influencing metabolic and inflammatory signaling.",
+  "description": "Major aromatic aldehyde in cinnamon bark influencing metabolic and inflammatory signaling.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "AMPK activation",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cinnamomum%20verum"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=cinnamaldehyde"
-    }
+  "targets": [
+    "TRPA1",
+    "inflammatory enzymes"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "Cinnamaldehyde, eugenol, coumarin (low)",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "cinnamomum-verum"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "animal / in vitro",
+  "relatedCompounds": []
 }

@@ -1,31 +1,24 @@
 {
-  "slug": "aucubin",
   "id": "aucubin",
+  "slug": "aucubin",
   "name": "aucubin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Aucubin is an iridoid glycoside associated with inflammatory pathway suppression.",
+  "description": "Aucubin is an iridoid glycoside associated with inflammatory pathway suppression.",
+  "compoundClass": "iridoid glycoside",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Plantago%20major"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=aucubin"
-    }
+  "targets": [
+    "NF-κB",
+    "antioxidant response",
+    "inflammatory cytokines",
+    "gut/liver metabolism"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "plantago-major"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-compound evidence.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

@@ -1,31 +1,25 @@
 {
-  "slug": "crocetin",
   "id": "crocetin",
+  "slug": "crocetin",
   "name": "crocetin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Saffron carotenoid aglycone linked to PI3K/Akt and Nrf2 pathway activity.",
+  "description": "Saffron carotenoid aglycone linked to PI3K/Akt and Nrf2 pathway activity.",
+  "compoundClass": "apocarotenoid",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "Nrf2 activation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=crocus%20sativus"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=crocetin"
-    }
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "oxidative-stress signaling",
+    "lipid metabolism",
+    "retinal/neurovascular pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "crocus-sativus"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Human evidence is limited and often saffron-derived. Caution with pregnancy, serotonergic drugs, anticoagulants, and blood-pressure-lowering regimens.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

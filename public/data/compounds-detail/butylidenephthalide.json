@@ -1,0 +1,24 @@
+{
+  "id": "butylidenephthalide",
+  "slug": "butylidenephthalide",
+  "name": "butylidenephthalide",
+  "summary": "Phthalide constituent associated with PI3K/Akt and inflammatory pathway modulation.",
+  "description": "Phthalide constituent associated with PI3K/Akt and inflammatory pathway modulation.",
+  "compoundClass": "phthalide",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "smooth muscle relaxation",
+    "nitric oxide/endothelial signaling",
+    "platelet aggregation pathways",
+    "inflammatory signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly extract-derived evidence. Potential additive bleeding, blood pressure, or sedative effects depending source herb.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

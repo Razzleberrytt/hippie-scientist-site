@@ -1,34 +1,25 @@
 {
-  "slug": "salidroside",
   "id": "salidroside",
+  "slug": "salidroside",
   "name": "salidroside",
-  "effects": [
-    "adaptogen",
-    "oxidative_stress_modulation",
-    "multi-target signaling modulation"
+  "summary": "Rhodiola marker glycoside associated with metabolic and cytoprotective pathway activity.",
+  "description": "Rhodiola marker glycoside associated with metabolic and cytoprotective pathway activity.",
+  "compoundClass": "phenylethanoid glycoside",
+  "mechanisms": [
+    "AMPK activation",
+    "PI3K/Akt modulation",
+    "Nrf2 activation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "PubMed/PMC salidroside reviews"
-    },
-    {
-      "title": "Reference",
-      "url": "PubChem"
-    }
+  "targets": [
+    "HPA-axis stress pathways",
+    "Nrf2",
+    "AMPK",
+    "mitochondrial and inflammatory signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "phenylpropanoid glycoside",
-  "mechanism": "Salidroside shows cytoprotective, metabolic, and stress-response activity across preclinical and limited human literature, with repeated linkage to AMPK, PI3K/Akt, and Nrf2-associated pathways.",
-  "herbs": [
-    "rhodiola-rosea"
-  ],
-  "contraindications": [
-    "No strong compound-specific clinical DDI retained",
-    "interaction risk remains limited but not fully excluded."
-  ],
-  "summary": "Salidroside shows cytoprotective, metabolic, and stress-response activity across preclinical and limited human literature, with repeated linkage to AMPK, PI3K/Akt, and Nrf2-associated pathways.",
-  "description": "Salidroside shows cytoprotective, metabolic, and stress-response activity across preclinical and limited human literature, with repeated linkage to AMPK, PI3K/Akt, and Nrf2-associated pathways.",
-  "evidenceLevel": "preclinical + limited human",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Human evidence mainly derives from Rhodiola extracts. Avoid pregnancy/breastfeeding and caution with bipolar disorder, stimulants, antidepressants, and sedatives.",
+  "evidenceLevel": "human_indirect_from_rhodiola_extracts",
+  "relatedCompounds": []
 }

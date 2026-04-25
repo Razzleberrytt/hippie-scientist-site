@@ -1,33 +1,24 @@
 {
-  "slug": "rosavin",
   "id": "rosavin",
+  "slug": "rosavin",
   "name": "rosavin",
-  "effects": [
-    "adaptogen",
-    "serotonergic",
-    "dopaminergic"
+  "summary": "Phenylpropanoid glycoside from Rhodiola linked to metabolic and cytoprotective signaling.",
+  "description": "Phenylpropanoid glycoside from Rhodiola linked to metabolic and cytoprotective signaling.",
+  "compoundClass": "phenylpropanoid glycoside / rosavin",
+  "mechanisms": [
+    "AMPK activation",
+    "PI3K/Akt modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "PubMed Rhodiola literature"
-    },
-    {
-      "title": "Reference",
-      "url": "PubChem"
-    }
+  "targets": [
+    "HPA-axis stress response",
+    "monoamine signaling",
+    "AMPK",
+    "antioxidant response"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "phenylpropanoid glycoside",
-  "mechanism": "Proposed mechanism based on preclinical and limited human data: rosavin is a characteristic Rhodiola rosea marker compound associated with adaptogenic and monoamine/stress-response effects in standardized extracts.",
-  "herbs": [
-    "rhodiola-rosea"
-  ],
-  "contraindications": [
-    "Potential additive effects with stimulants or serotonergic agents remain theoretical."
-  ],
-  "summary": "Proposed mechanism based on preclinical and limited human data: rosavin is a characteristic Rhodiola rosea marker compound associated with adaptogenic and monoamine/stress-response effects in standardized extracts.",
-  "description": "Proposed mechanism based on preclinical and limited human data: rosavin is a characteristic Rhodiola rosea marker compound associated with adaptogenic and monoamine/stress-response effects in standardized extracts.",
-  "evidenceLevel": "preclinical + limited human",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Evidence is mostly through Rhodiola extracts. May cause activation/insomnia or interact with stimulants/antidepressants.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
 }

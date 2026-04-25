@@ -1,35 +1,25 @@
 {
-  "name": "Nicotine",
-  "herbs": [
-    "nan",
-    "nicotiana rustica"
-  ],
-  "effects": [
-    "Stimulation",
-    "mood elevation",
-    "alertness",
-    "No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
-  ],
-  "contraindications": [
-    "Heart disease",
-    "pregnancy",
-    "epilepsy"
-  ],
-  "category": "other",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "slug": "nicotine",
   "id": "nicotine",
-  "displayName": "Nicotine",
-  "description": "Nicotine appears in records as a compound reported in nan and nicotiana rustica. Current source coverage is limited and still developing.",
-  "summary": "Nicotine appears in records as a compound reported in nan and nicotiana rustica. Current source coverage is limited and still developing.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan",
-    "nicotiana-rustica"
+  "slug": "nicotine",
+  "name": "nicotine",
+  "summary": "Canonical tobacco alkaloid with strong nicotinic and neurotransmitter pathway activity.",
+  "description": "Canonical tobacco alkaloid with strong nicotinic and neurotransmitter pathway activity.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "nicotinic acetylcholine receptor agonism",
+    "dopamine release modulation"
   ],
-  "mechanism": "Nicotine acts as an agonist at nicotinic acetylcholine receptors, increasing dopamine and norepinephrine release."
+  "targets": [
+    "CNS/autonomic receptors",
+    "ion channels",
+    "CYP/P-gp",
+    "inflammatory signaling",
+    "apoptosis pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

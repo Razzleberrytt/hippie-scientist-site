@@ -1,59 +1,27 @@
 {
   "name": "tongkat ali",
-  "latin": "Eurycoma longifolia",
-  "intensity": "moderate",
-  "mechanism": "Boosts free testosterone; reduces cortisol.",
-  "activeCompounds": [],
-  "effects": [
-    "Aphrodisiac",
-    "testosterone booster",
-    "and energy tonic"
-  ],
-  "contraindications": [
-    "heart disease",
-    "hormone-sensitive conditions.",
-    "hormone",
-    "sensitive conditions."
-  ],
-  "safetyNotes": "irritability; insomnia.; No direct toxicity data. Contextual inference: Aphrodisiac; testosterone booster; and energy tonic. Boosts free testosterone; reduces cortisol..; nan.. Boosts free testosterone; reduces cortisol.. Aphrodisiac; and energy tonic.",
-  "sources": [
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Aphrodisiac, testosterone booster, and energy tonic. Boosts free testosterone; reduces cortisol.. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Aphrodisiac; testosterone booster; and energy tonic. Boosts free testosterone; reduces cortisol..; nan.. Boosts free testosterone; reduces cortisol.. Aphrodisiac; and energy tonic. No direct region data. Contextual inference: Aphrodisiac; and energy tonic.; nan.",
-  "duration": "6–8 hours",
-  "interactions": [
-    "stimulants",
-    "steroids."
-  ],
-  "legalStatus": "Legal globally",
-  "preparation": "No direct preparation data. Contextual inference: Aphrodisiac, testosterone booster, and energy tonic. Boosts free testosterone; reduces cortisol.. ; nan; nan.. Boosts free testosterone; reduces cortisol.. Aphrodisiac, testosterone booster, and energy tonic. No direct region data. Contextual inference: Aphrodisiac, testosterone booster, and energy tonic. Boosts free testosterone; reduces cortisol.. ; nan; nan.. Boosts free testosterone; reduces cortisol.. Aphrodisiac, testosterone booster, and energy tonic. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Aphrodisiac, testosterone booster, and energy tonic. Boosts free testosterone; reduces cortisol.. ; nan; nan.. Boosts free testosterone; reduces cortisol.. Aphrodisiac, testosterone booster, and energy tonic. ; nan; nan",
-  "therapeuticUses": [
-    "libido",
-    "muscle mass",
-    "energy."
-  ],
-  "traditionalUse": "; nan; nan",
-  "sideEffects": [
-    "irritability",
-    "insomnia."
-  ],
   "slug": "tongkat-ali",
-  "id": "tongkat-ali",
-  "displayName": "tongkat ali",
-  "displayScientificName": "Eurycoma longifolia",
-  "scientificNormalized": "eurycoma longifolia",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": []
+  "summary": "It is best framed as a bitter root extract with endocrine and stimulation-related caution.",
+  "description": "It is best framed as a bitter root extract with endocrine and stimulation-related caution.",
+  "primaryActions": [],
+  "mechanisms": [
+    "quassinoid/eurycomanone signaling",
+    "HPA-axis and testosterone-related endocrine modulation",
+    "stress-response pathways"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May cause insomnia/restlessness; avoid pregnancy and hormone-sensitive conditions; caution with stimulant or endocrine-active regimens.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

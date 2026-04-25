@@ -1,49 +1,29 @@
 {
   "name": "artemisia absinthium",
-  "latin": "artemisia absinthium",
-  "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.",
-  "activeCompounds": [
-    "Thujone"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation."
-  ],
-  "contraindications": [
-    "use caution with chronic medical conditions and prescription medications",
-    "discontinue if hypersensitivity or allergic symptoms occur",
-    "use caution with stimulant medications or high caffeine intake"
-  ],
-  "safetyNotes": "caution; No direct toxicity data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Used in absinthe and traditional medicine for digestion and stimulation..",
-  "dosage": "No direct dosage data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. No direct region data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.",
-  "duration": "No direct duration data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. No direct region data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.",
-  "interactions": [],
-  "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. No direct region data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.",
-  "region": "No direct region data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.",
-  "therapeuticUses": [
-    "temporary support for focus during fatigue",
-    "traditional support for appetite and gut comfort"
-  ],
-  "traditionalUse": "Used in absinthe and traditional medicine for digestion and stimulation.",
   "slug": "artemisia-absinthium",
-  "sideEffects": [
-    "mild gastrointestinal upset",
-    "headache",
-    "restlessness"
+  "summary": "Artemisia absinthium contains Thujone and is linked here to GABA-A receptor antagonism.",
+  "description": "Artemisia absinthium contains Thujone and is linked here to GABA-A receptor antagonism.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Thujone-mediated GABA-A antagonism",
+    "bitter sesquiterpene lactone digestive signaling",
+    "TRP channel interaction",
+    "inflammatory pathway modulation."
   ],
-  "id": "artemisia-absinthium",
-  "displayName": "artemisia absinthium",
-  "displayScientificName": "artemisia absinthium",
-  "scientificNormalized": "artemisia absinthium",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [
-    "thujone"
-  ]
+  "activeCompounds": [],
+  "safetyNotes": "Thujone-containing wormwood can cause seizures/neurotoxicity at high doses; avoid in pregnancy, breastfeeding, seizure disorders, children, and with alcohol, sedatives, or other CNS-active drugs.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "seizure disorder or sedative/alcohol use"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Aromatic herb/spice forms and essential oils differ greatly; essential oils require conservative topical/diluted use and are not interchangeable with teas.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

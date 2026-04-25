@@ -1,0 +1,28 @@
+{
+  "name": "rooibos",
+  "slug": "rooibos",
+  "summary": "It is best framed as a mild tea herb with low-intensity wellness positioning.",
+  "description": "It is best framed as a mild tea herb with low-intensity wellness positioning.",
+  "primaryActions": [],
+  "mechanisms": [
+    "antioxidant support",
+    "soothing support",
+    "AMPK activation",
+    "Nrf2 activation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,69 +1,29 @@
 {
   "name": "bacopa monnieri",
-  "latin": "bacopa monnieri",
-  "class": "",
-  "intensity": "mild",
-  "mechanism": "Proposed mechanisms are based mainly on preclinical and translational studies: bacoside-rich extracts may influence cholinergic signaling, antioxidant defenses, and synaptic plasticity. These mechanisms are plausible but not fully established as clinical mechanisms in humans.",
-  "activeCompounds": [
-    "Bacoside A (bacoside mixture)",
-    "Bacopaside I"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "avoid during pregnancy and breastfeeding unless advised by a clinician",
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
-  ],
-  "safetyNotes": "Usually tolerated in studied doses, but gastrointestinal effects (nausea, cramping, loose stool) are common. Because long-term safety data are limited, use caution in pregnancy, breastfeeding, and in people taking multiple chronic medications.",
-  "sources": [
-    {
-      "title": "PubMed: The chronic effects of an extract of Bacopa monniera (Brahmi) on cognitive function in healthy human subjects",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/22971605/"
-    },
-    {
-      "title": "PubChem: Bacopaside I",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/16129691"
-    },
-    {
-      "title": "NCBI Taxonomy: Bacopa monnieri",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=176299"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Bacopa monnieri (water hyssop) is a creeping wetland plant used in Ayurvedic medicine as a cognitive tonic. Human studies are generally small and heterogeneous; some report improvements in delayed recall and information processing after about 8-12 weeks, while short-term effects are less consistent.",
-  "dosage": "No single evidence-based universal dose. Clinical trials commonly use standardized extract doses for roughly 8-12 weeks; use product-specific labeling and clinician guidance.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Interaction evidence in humans is limited; monitor closely when combining with sedatives, thyroid-active medicines, or anticholinergic/cholinergic drugs.",
-    "Use clinician oversight when combining standardized extracts with prescription medicines because product composition varies."
-  ],
-  "legalStatus": "legal",
-  "preparation": "Most clinical studies use standardized oral extracts (capsule/tablet) rather than whole fresh herb. Products are commonly standardized to bacosides.",
-  "region": "Native to tropical and subtropical wetlands of Asia and also distributed in Africa and parts of Oceania; cultivated more broadly for supplement use.",
-  "therapeuticUses": [
-    "traditional support for mild digestive comfort",
-    "non-specific traditional tonic use"
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "bacopa-monnieri",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "headache (more likely with higher intake)"
+  "summary": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
+  "description": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Bacosides support cholinergic signaling",
+    "antioxidant defenses",
+    "neuroinflammatory modulation",
+    "ERK/PI3K-Akt signaling",
+    "and BDNF-related synaptic plasticity."
   ],
-  "id": "bacopa-monnieri",
-  "displayName": "bacopa monnieri",
-  "displayScientificName": "bacopa monnieri",
-  "scientificNormalized": "bacopa monnieri",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [
-    "bacosides-a-and-b"
+  "activeCompounds": [],
+  "safetyNotes": "May cause nausea, diarrhea, abdominal cramping, fatigue, or sedation. Use caution with sedatives, thyroid-active drugs, pregnancy, and sensitive GI conditions.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
   ],
-  "summary": "Bacopa monnieri is an Ayurvedic herb used for memory and attention support; small randomized trials suggest modest cognitive benefits after several weeks, but evidence quality is mixed."
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

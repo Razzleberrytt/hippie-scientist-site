@@ -1,54 +1,25 @@
 {
   "name": "selaginella tamariscina",
-  "latin": "Selaginella tamariscina",
-  "intensity": "No direct intensity data. Contextual inference: Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-aging effects; traditional Chinese medicine. No direct region data. Contextual inference: Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-aging effects; traditional Chinese medicine. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-  "activeCompounds": [],
-  "effects": [
-    "Antioxidant and anti-aging effects",
-    "traditional Chinese medicine",
-    "Antioxidant and anti",
-    "aging effects"
-  ],
-  "contraindications": [
-    "avoid during pregnancy and breastfeeding unless clinician-guided",
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
-  ],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Antioxidant and anti-aging effects; traditional Chinese medicine. none.",
-  "sources": [
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Antioxidant and anti; aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Antioxidant and anti; traditional Chinese medicine. No direct region data. Contextual inference: Antioxidant and anti; traditional Chinese medicine. none.; nan.",
-  "duration": "6–8 hours",
-  "interactions": [],
-  "legalStatus": "Legal globally",
-  "preparation": "No direct preparation data. Contextual inference: Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-aging effects; traditional Chinese medicine. No direct region data. Contextual inference: Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-aging effects; traditional Chinese medicine. none. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Antioxidant and anti-aging effects; traditional chinese medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antioxidant and anti-aging effects; traditional Chinese medicine. none. ; nan; nan",
-  "therapeuticUses": [
-    "digestive support (bloating, gas, mild cramping)",
-    "historical use for symptom relief in regional folk medicine"
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "selaginella-tamariscina",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "allergic rash or itching in sensitive individuals"
+  "summary": "Minimum source-backed intake for ginkgetin and 5-lipoxygenase inhibition cluster completion.",
+  "description": "Minimum source-backed intake for ginkgetin and 5-lipoxygenase inhibition cluster completion.",
+  "primaryActions": [],
+  "mechanisms": [
+    "5-lipoxygenase inhibition"
   ],
-  "id": "selaginella-tamariscina",
-  "displayName": "selaginella tamariscina",
-  "displayScientificName": "Selaginella tamariscina",
-  "scientificNormalized": "selaginella tamariscina",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": []
+  "activeCompounds": [],
+  "safetyNotes": "Food-like use is generally lower risk, but concentrated extracts may not match dietary safety. Use caution with pregnancy/breastfeeding, allergy, and chronic high-dose supplementation.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
 }

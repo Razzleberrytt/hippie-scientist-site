@@ -1,0 +1,26 @@
+{
+  "id": "theaflavin",
+  "slug": "theaflavin",
+  "name": "theaflavin",
+  "summary": "Oxidative black tea polyphenol associated with NF-κB and MAPK pathway effects.",
+  "description": "Oxidative black tea polyphenol associated with NF-κB and MAPK pathway effects.",
+  "compoundClass": "flavanol / tea polyphenol",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "AMPK",
+    "endothelial nitric oxide",
+    "antioxidant response",
+    "lipid/glucose signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
+}

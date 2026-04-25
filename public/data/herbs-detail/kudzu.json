@@ -1,0 +1,29 @@
+{
+  "name": "kudzu",
+  "slug": "kudzu",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "puerarin/daidzin/daidzein isoflavone activity",
+    "aldehyde dehydrogenase modulation",
+    "estrogen-receptor interaction",
+    "antioxidant and vascular signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Isoflavone-rich preparations may interact with hormone-sensitive conditions and anticoagulant/antiplatelet therapy. Alcohol-use claims should not replace medical care.",
+  "contraindications": [
+    "Pregnancy/breastfeeding caution",
+    "hormone-sensitive cancers or conditions",
+    "and unsupervised alcohol-use disorder treatment."
+  ],
+  "interactions": [
+    "Potential additive effects with anticoagulants/antiplatelets and hormone-active therapies",
+    "caution with diabetes or blood-pressure medications."
+  ],
+  "preparation": "Evidence is strongest for standardized kudzu root extracts or isolated puerarin/daidzin; do not generalize to all crude preparations.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,24 @@
+{
+  "id": "cryptotanshinone",
+  "slug": "cryptotanshinone",
+  "name": "cryptotanshinone",
+  "summary": "Abietane diterpene from Salvia miltiorrhiza with anticancer properties.",
+  "description": "Abietane diterpene from Salvia miltiorrhiza with anticancer properties.",
+  "compoundClass": "diterpenoid quinone",
+  "mechanisms": [
+    "STAT3 inhibition",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "NF-κB",
+    "MAPK",
+    "platelet aggregation",
+    "cardiovascular/inflammatory signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Danshen constituents may affect bleeding and cardiovascular medications; use clinician review with anticoagulants/antiplatelets.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

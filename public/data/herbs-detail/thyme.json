@@ -1,0 +1,33 @@
+{
+  "name": "thyme",
+  "slug": "thyme",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "respiratory support",
+    "antimicrobial",
+    "digestive support",
+    "NF-κB inhibition",
+    "MAPK pathway modulation",
+    "TRPA1 activation",
+    "membrane disruption",
+    "GABA-A modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Culinary use is generally low-risk; concentrated oil/extracts can irritate mucosa and require dose caution.",
+  "contraindications": [
+    "Pregnancy/breastfeeding for medicinal-dose essential oil",
+    "significant GI irritation",
+    "thyme/Lamiaceae allergy."
+  ],
+  "interactions": [
+    "Potential additive irritation with other essential oils",
+    "theoretical caution with anticoagulants for high-dose extracts."
+  ],
+  "preparation": "Leaf is used as tea, culinary herb, tincture, syrup, or steam aromatic; essential oil should not be taken internally without qualified guidance.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

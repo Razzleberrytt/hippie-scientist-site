@@ -1,51 +1,27 @@
 {
   "name": "american yellow lotus",
-  "latin": "american yellow lotus",
-  "intensity": "mild",
-  "mechanism": "Proposed mechanism: unresolved from current repository sources; update when high-quality pharmacology evidence is available.",
-  "activeCompounds": [
-    "Unresolved from current repository sources."
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "avoid during pregnancy and breastfeeding unless advised by a clinician",
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
-  ],
-  "safetyNotes": "High caution: existing record indicates potential toxicity. Safety details remain unresolved in current repository sources; avoid unsupervised use and review authoritative references.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "american yellow lotus is included in this dataset, but species-specific clinical and pharmacology details remain unresolved in current repository sources.",
-  "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Unresolved from current repository sources; perform medication and condition screening before use."
-  ],
-  "legalStatus": "legal",
-  "preparation": "Unresolved from current repository sources; preparation depends on species part and intended context.",
-  "region": "Unresolved from current repository sources.",
-  "therapeuticUses": [
-    "traditional support for mild digestive comfort",
-    "non-specific traditional tonic use"
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "american-yellow-lotus",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "headache (more likely with higher intake)"
+  "summary": "Internal cross-linking supports American Yellow Lotus through compounds such as nuciferine, roemerine, n-methylasimilobine.",
+  "description": "Internal cross-linking supports American Yellow Lotus through compounds such as nuciferine, roemerine, n-methylasimilobine.",
+  "primaryActions": [],
+  "mechanisms": [
+    "aporphine alkaloid dopaminergic modulation",
+    "CNS sedative signaling",
+    "acetylcholinesterase and oxidative-stress pathway effects"
   ],
-  "id": "american-yellow-lotus",
-  "displayName": "american yellow lotus",
-  "displayScientificName": "american yellow lotus",
-  "scientificNormalized": "american yellow lotus",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "american yellow lotus entry normalized to a baseline profile; evidence remains limited in current repository sources."
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active alkaloid herb; avoid combining with sedatives, alcohol, dopamine-active drugs, or driving. Avoid pregnancy/breastfeeding and use caution with psychiatric conditions.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
 }

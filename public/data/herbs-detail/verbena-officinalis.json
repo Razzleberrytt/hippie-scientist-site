@@ -1,49 +1,27 @@
 {
   "name": "verbena officinalis",
-  "latin": "verbena officinalis",
-  "intensity": "No direct intensity data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. No direct region data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.",
-  "activeCompounds": [
-    "Verbenalin"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming."
-  ],
-  "contraindications": [
-    "avoid during pregnancy and breastfeeding unless advised by a clinician",
-    "Use caution with sedatives, alcohol, or other CNS depressants.",
-    "discontinue if hypersensitivity or allergic symptoms occur"
-  ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Used in european folk medicine for anxiety and dreaming..",
-  "dosage": "No direct dosage data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. No direct region data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.",
-  "duration": "No direct duration data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. No direct region data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.",
-  "interactions": [],
-  "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. No direct region data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.",
-  "region": "No direct region data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming.",
-  "therapeuticUses": [
-    "mild anxiolytic support",
-    "sleep onset support"
-  ],
-  "traditionalUse": "Used in European folk medicine for anxiety and dreaming.",
   "slug": "verbena-officinalis",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "headache (more likely with higher intake)",
-    "allergic rash or itching in sensitive individuals"
+  "summary": "Verbena officinalis contains Acteoside and is linked here to NF-κB inhibition.",
+  "description": "Verbena officinalis contains Acteoside and is linked here to NF-κB inhibition.",
+  "primaryActions": [],
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
   ],
-  "id": "verbena-officinalis",
-  "displayName": "verbena officinalis",
-  "displayScientificName": "verbena officinalis",
-  "scientificNormalized": "verbena officinalis",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [
-    "verbenalin"
-  ]
+  "activeCompounds": [],
+  "safetyNotes": "May cause drowsiness or impaired alertness. Avoid combining high-dose extracts with alcohol, sedatives, or other CNS depressants.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
 }

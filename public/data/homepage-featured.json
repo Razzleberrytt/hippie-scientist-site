@@ -1,95 +1,93 @@
 {
-  "generatedAt": "2026-04-20T14:08:55.504Z",
+  "generatedAt": "2026-04-25T13:57:53.169Z",
   "herbs": [
     {
       "name": "Curcuma longa",
       "slug": "curcuma-longa",
-      "summary": "Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation,…",
-      "tags": []
+      "summary": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition.",
+      "tags": [
+        "curcuminoid NF-κB inhibition",
+        "Nrf2 activation"
+      ]
     },
     {
       "name": "Camellia sinensis",
       "slug": "camellia-sinensis",
-      "summary": "Internal cross-linking supports Green Tea through compounds such as caffeine, theanine, catechins (egcg).",
-      "tags": [
-        "adenosine_antagonism",
-        "adora1"
-      ]
+      "summary": "Science-first herbal reference profile.",
+      "tags": []
     },
     {
       "name": "Withania somnifera",
       "slug": "withania-somnifera",
-      "summary": "Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant…",
+      "summary": "Science-first herbal reference profile.",
       "tags": []
     },
     {
       "name": "Panax ginseng",
       "slug": "panax-ginseng",
-      "summary": "Adaptogen, energy booster, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant…",
+      "summary": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
       "tags": [
-        "ampk"
+        "HPA-axis stress signaling"
       ]
     },
     {
       "name": "Ginkgo biloba",
       "slug": "ginkgo-biloba",
-      "summary": "Ginkgo Biloba is represented here as a monograph-style entry centered on the leaf. Key reported compounds…",
+      "summary": "Ginkgo Biloba centers on the leaf.",
       "tags": [
-        "antioxidant",
-        "cholinergic"
+        "mitochondrial protection"
       ]
     },
     {
       "name": "Rosmarinus officinalis",
       "slug": "rosmarinus-officinalis",
-      "summary": "Cognitive support, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant…",
-      "tags": [
-        "antioxidant",
-        "cognition"
-      ]
+      "summary": "Science-first herbal reference profile.",
+      "tags": []
     },
     {
       "name": "Glycyrrhiza glabra",
       "slug": "glycyrrhiza-glabra",
-      "summary": "Anti-inflammatory, expectorant, adrenal support. Herbs often act via neurotransmitter modulation, antioxidant…",
+      "summary": "Lean bulk ingestion row for Glycyrrhiza glabra.",
       "tags": [
-        "general or unknown targets"
+        "anti-inflammatory signaling"
       ]
     },
     {
       "name": "Nigella sativa",
       "slug": "nigella-sativa",
-      "summary": "Anti-inflammatory, antioxidant, immune modulating. Herbs often act via neurotransmitter modulation,…",
-      "tags": []
+      "summary": "Lean bulk ingestion row for Nigella sativa.",
+      "tags": [
+        "Nrf2/HO-1 activation",
+        "AMPK activation"
+      ]
     },
     {
       "name": "Centella asiatica",
       "slug": "centella-asiatica",
       "summary": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
-      "tags": []
+      "tags": [
+        "antioxidant/NF-κB modulation"
+      ]
     },
     {
       "name": "Zingiber officinale",
       "slug": "zingiber-officinale",
-      "summary": "Digestive stimulant, anti-nausea, anti-inflammatory. Herbs often act via neurotransmitter modulation,…",
+      "summary": "Science-first herbal reference profile.",
       "tags": []
     },
     {
       "name": "Silybum marianum",
       "slug": "silybum-marianum",
-      "summary": "Milk Thistle is represented here as a monograph-style entry centered on the seed; fruit. Key reported…",
-      "tags": [
-        "antioxidant",
-        "hepatoprotection"
-      ]
+      "summary": "Science-first herbal reference profile.",
+      "tags": []
     },
     {
       "name": "Rhodiola rosea",
       "slug": "rhodiola-rosea",
-      "summary": "Rhodiola Rosea is represented here as a monograph-style entry centered on the root. Key reported compounds…",
+      "summary": "Rhodiola rosea contains Rosavin and is linked here to AMPK activation.",
       "tags": [
-        "adaptogen",
-        "antioxidant"
+        "monoamine oxidase modulation",
+        "Nrf2 antioxidant signaling"
       ]
     }
   ],
@@ -97,62 +95,62 @@
     {
       "name": "Curcumin",
       "slug": "curcumin",
-      "summary": "Open profile and review mechanism, confidence, and safety details."
+      "summary": "Curcuminoid from turmeric commonly linked to NF-κB inhibition and Nrf2 activation."
     },
     {
       "name": "Epigallocatechin gallate",
       "slug": "epigallocatechin-gallate",
-      "summary": "Open profile and review mechanism, confidence, and safety details."
+      "summary": "Major green tea catechin widely studied for metabolic and inflammatory pathway effects."
     },
     {
       "name": "Withaferin A",
       "slug": "withaferin-a",
-      "summary": "Open profile and review mechanism, confidence, and safety details."
+      "summary": "Reactive withanolide from ashwagandha with strong inflammatory and stress-pathway effects."
     },
     {
       "name": "Ginsenoside Rg1",
       "slug": "ginsenoside-rg1",
-      "summary": "Open profile and review mechanism, confidence, and safety details."
+      "summary": "Major ginsenoside associated with neurovascular and survival signaling."
     },
     {
       "name": "Ginkgolide B",
       "slug": "ginkgolide-b",
-      "summary": "Open profile and review mechanism, confidence, and safety details."
+      "summary": "Terpene lactone from Ginkgo biloba affecting platelet activating factor."
     },
     {
       "name": "Carnosic acid",
       "slug": "carnosic-acid",
-      "summary": "Open profile and review mechanism, confidence, and safety details."
+      "summary": "Carnosic acid is a diterpene phenol best known from rosemary and sage. It is mainly supported by antioxidant,…"
     },
     {
       "name": "Glycyrrhizin",
       "slug": "glycyrrhizin",
-      "summary": "Open profile and review mechanism, confidence, and safety details."
+      "summary": "Triterpene saponin from licorice with HMGB1 and NF-κB pathway activity."
     },
     {
       "name": "Thymoquinone",
       "slug": "thymoquinone",
-      "summary": "Open profile and review mechanism, confidence, and safety details."
+      "summary": "Quinone constituent of Nigella sativa with reported NF-κB suppression and Nrf2 signaling support."
     },
     {
       "name": "Asiatic acid",
       "slug": "asiatic-acid",
-      "summary": "Open profile and review mechanism, confidence, and safety details."
+      "summary": "Triterpenoid aglycone associated with tissue repair and inflammatory pathway effects."
     },
     {
       "name": "Berberine",
       "slug": "berberine",
-      "summary": "Open profile and review mechanism, confidence, and safety details."
+      "summary": "Berberine is a protoberberine alkaloid concentrated in barberry-type herbs and used most often in metabolic…"
     },
     {
       "name": "Quercetin",
       "slug": "quercetin",
-      "summary": "Plant flavonoid supplement with limited clinical efficacy and bioavailability constraints."
+      "summary": "Quercetin is a broadly distributed flavonol found in many herbs, fruits, and vegetables. Human…"
     },
     {
       "name": "Resveratrol",
       "slug": "resveratrol",
-      "summary": "Grape-derived polyphenol with speculative anti-aging/cardiometabolic claims and low bioavailability."
+      "summary": "Resveratrol is a stilbene polyphenol best known from knotweed and grape-derived materials. It has substantial…"
     }
   ]
 }

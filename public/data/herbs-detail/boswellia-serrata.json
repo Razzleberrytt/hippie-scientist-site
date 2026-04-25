@@ -1,63 +1,28 @@
 {
   "name": "boswellia serrata",
-  "latin": "Boswellia serrata",
-  "class": "",
-  "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, analgesic, arthritic support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, arthritic support. No direct region data. Contextual inference: Anti-inflammatory, analgesic, arthritic support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, analgesic, arthritic support. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Boswellic acids, including AKBA, are proposed to modulate inflammatory pathways (such as 5-lipoxygenase-related signaling). These mechanisms are biologically plausible and partly supported in human biomarker data, but clinical response depends on extract chemistry.",
-  "activeCompounds": [
-    "Acetyl-11-keto-beta-boswellic acid (AKBA)",
-    "Beta-boswellic acid",
-    "Incensole acetate"
-  ],
-  "effects": [
-    "Anti-inflammatory",
-    "analgesic",
-    "arthritic support",
-    "Anti",
-    "inflammatory"
-  ],
-  "contraindications": [],
-  "safetyNotes": "Often tolerated in short-to-medium duration trials, with possible GI upset, reflux, diarrhea, or headache. Product quality and boswellic-acid standardization differ between brands, so adverse-effect risk may not be uniform.",
-  "sources": [
-    {
-      "title": "PubMed: Efficacy and Safety of Boswellia and Boswellia Extract for Osteoarthritis Patients",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29859753/"
-    },
-    {
-      "title": "PubChem: Acetyl-11-keto-beta-boswellic acid",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9850227"
-    },
-    {
-      "title": "NCBI Taxonomy: Boswellia serrata",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=42069"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Boswellia serrata (Indian frankincense) resin is used in oral standardized extracts for joint symptoms and other inflammatory complaints. Meta-analyses indicate potential improvement in osteoarthritis pain and function, but study quality and extract composition vary substantially.",
-  "dosage": "Clinical studies use varying standardized extract doses, so no single universal dose can be recommended across products and indications.",
-  "duration": "6–8 hours",
-  "interactions": [
-    "Direct high-quality interaction data are limited; use caution with anti-inflammatory and anticoagulant regimens until medication review is completed.",
-    "Use standardized single-ingredient extracts when possible to reduce uncertainty from mixed formulations."
-  ],
-  "legalStatus": "Widely legal; used in supplements and Ayurvedic medicine",
-  "preparation": "Typically used as gum-resin extracts in capsules/tablets standardized to boswellic acids.",
-  "region": "Native to dry regions of India and adjoining areas; resin is harvested from Boswellia species in South Asia and the Horn of Africa/Arabian region depending on species.",
-  "therapeuticUses": [],
-  "traditionalUse": "; nan; nan",
-  "sideEffects": [
-    "Mild GI symptoms like nausea or diarrhea",
-    "rare allergic reactions"
-  ],
   "slug": "boswellia-serrata",
-  "id": "boswellia-serrata",
-  "displayName": "boswellia serrata",
-  "displayScientificName": "Boswellia serrata",
-  "scientificNormalized": "boswellia serrata",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "Boswellia serrata resin extracts are used mainly for osteoarthritis and inflammatory symptom support; clinical studies suggest modest pain-function benefit in some preparations."
+  "summary": "Boswellia serrata contains Boswellic acid and is linked here to 5-lipoxygenase inhibition.",
+  "description": "Boswellia serrata contains Boswellic acid and is linked here to 5-lipoxygenase inhibition.",
+  "primaryActions": [],
+  "mechanisms": [
+    "AKBA/boswellic-acid 5-lipoxygenase inhibition",
+    "leukotriene reduction",
+    "NF-κB and MMP inflammatory-pathway modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "GI effects possible; caution with anticoagulants/antiplatelets and pregnancy; product standardization matters.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without clinician guidance",
+    "anticoagulant use without review"
+  ],
+  "interactions": [
+    "Potential additive effects with anti-inflammatory drugs",
+    "anticoagulants",
+    "and immunomodulators."
+  ],
+  "preparation": "Resin extracts standardized to boswellic acids/AKBA; gum resin and extract potency differ.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

@@ -1,52 +1,33 @@
 {
   "name": "angelica sinensis",
-  "latin": "Angelica sinensis",
-  "intensity": "No direct intensity data. Contextual inference: Blood tonic, hormone modulator, menstrual regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Blood tonic, hormone modulator, menstrual regulator. No direct region data. Contextual inference: Blood tonic, hormone modulator, menstrual regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Blood tonic, hormone modulator, menstrual regulator. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-  "activeCompounds": [],
-  "effects": [
-    "Blood tonic",
-    "hormone modulator",
-    "menstrual regulator"
-  ],
-  "contraindications": [],
-  "safetyNotes": "High-risk profile. Avoid self-experimentation or unsupervised use. Contraindicated in pregnancy/lactation and in people with cardiovascular, neurologic, hepatic, or psychiatric vulnerability unless specialist oversight exists.",
-  "sources": [
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "description": "angelica sinensis record normalized to schema-consistent baseline. Traditional use is documented, but indication-specific clinical evidence remains limited or mixed.",
-  "dosage": "250; 500 mg; day extract or 1; 3 g dried root",
-  "duration": "6–8 hours",
-  "interactions": [
-    "Unresolved: interaction profile is not adequately characterized in current repository sources.",
-    "Use medication review caution, especially with CNS-active, cardiovascular, anticoagulant, and hepatically metabolized drugs."
-  ],
-  "legalStatus": "Legal; widely used in TCM",
-  "preparation": "Roots sliced, dried, decocted or tinctured; often used in TCM formulas",
-  "region": "Regional native/cultivation details remain unresolved in current repository sources.",
-  "therapeuticUses": [],
-  "traditionalUse": "; nan; nan",
-  "sideEffects": [
-    "May increase bleeding risk",
-    "caution with anticoagulants",
-    "possible estrogenic effects"
-  ],
   "slug": "angelica-sinensis",
-  "id": "angelica-sinensis",
-  "displayName": "angelica sinensis",
-  "displayScientificName": "Angelica sinensis",
-  "scientificNormalized": "angelica sinensis",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "angelica sinensis baseline updated; key clinical fields remain unresolved where high-quality human evidence is limited."
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "ligustilide/ferulic-acid smooth-muscle and vascular effects",
+    "platelet-modulating activity",
+    "estrogen-receptor-related signaling",
+    "NF-κB modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Bleeding, photosensitivity, and hormone-sensitive-condition cautions are central. Avoid in pregnancy unless medically directed.",
+  "contraindications": [
+    "Pregnancy",
+    "bleeding disorders",
+    "hormone-sensitive conditions",
+    "surgery",
+    "and anticoagulant/antiplatelet therapy without supervision."
+  ],
+  "interactions": [
+    "Potential additive bleeding risk with anticoagulants",
+    "antiplatelets",
+    "NSAIDs",
+    "and some herbal blood-thinning stacks."
+  ],
+  "preparation": "Evidence often comes from traditional formulas; single-herb confidence should remain conservative.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
 }

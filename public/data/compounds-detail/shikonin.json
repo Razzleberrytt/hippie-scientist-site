@@ -1,0 +1,25 @@
+{
+  "id": "shikonin",
+  "slug": "shikonin",
+  "name": "shikonin",
+  "summary": "Naphthoquinone pigment associated with metabolic and inflammatory pathway effects.",
+  "description": "Naphthoquinone pigment associated with metabolic and inflammatory pathway effects.",
+  "compoundClass": "quinone / naphthoquinone-like phenolic",
+  "mechanisms": [
+    "PKM2 inhibition",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "ROS/redox cycling",
+    "NF-κB",
+    "apoptosis signaling",
+    "Nrf2",
+    "antimicrobial pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Often preclinical; concentrated or isolated quinones may be irritant/cytotoxic. Avoid pregnancy and use caution with liver disease or anticoagulants.",
+  "evidenceLevel": "preclinical",
+  "relatedCompounds": []
+}

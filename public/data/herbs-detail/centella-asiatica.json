@@ -1,81 +1,28 @@
 {
   "name": "centella asiatica",
-  "latin": "centella asiatica",
-  "class": "",
-  "intensity": "No direct intensity data. Contextual inference: Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. Boosts collagen synthesis, modulates gaba and blood flow.. ; nan; nan.. Boosts collagen synthesis, modulates GABA and blood flow.. Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. No direct region data. Contextual inference: Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. Boosts collagen synthesis, modulates gaba and blood flow.. ; nan; nan.. Boosts collagen synthesis, modulates GABA and blood flow.. Cognitive enhancer, anxiolytic, wound healing; triterpenes improve circulation. ; nan; nan. ; nan; nan",
-  "mechanism": "Triterpenes (for example asiaticoside and madecassoside derivatives) are associated with collagen-related signaling, microcirculatory effects, and anti-inflammatory pathways in preclinical work. Clinical mechanism confirmation remains incomplete.",
-  "activeCompounds": [
-    "Asiaticoside",
-    "Madecassoside",
-    "Asiatic acid"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine",
-    "Cognitive enhancer",
-    "anxiolytic",
-    "wound healing",
-    "triterpenes improve circulation"
-  ],
-  "contraindications": [
-    "liver conditions",
-    "pregnancy."
-  ],
-  "safetyNotes": "Usually tolerated in short-term use, but headache, GI upset, and sedation can occur. Rare hepatotoxicity cases have been reported with some gotu kola products; discontinue and seek medical assessment if liver-injury symptoms develop.",
-  "sources": [
-    {
-      "title": "PubMed: Centella asiatica in cosmetology",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/29224370/"
-    },
-    {
-      "title": "LiverTox: Gotu Kola",
-      "url": "https://www.ncbi.nlm.nih.gov/books/NBK589461/"
-    },
-    {
-      "title": "PubChem: Asiaticoside",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/119034"
-    },
-    {
-      "title": "NCBI Taxonomy: Centella asiatica",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4052"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Centella asiatica is used traditionally for skin healing and as a tonic. Modern studies most often examine triterpene-rich preparations for wound-related outcomes or chronic venous insufficiency symptoms; some positive findings exist, but many studies are small or use heterogeneous products.",
-  "dosage": "No broadly accepted single dose across indications. Prefer standardized products used in clinical studies and avoid prolonged unsupervised high-dose use.",
-  "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
-  "interactions": [
-    "Potential additive sedation with CNS depressants is plausible; monitor for drowsiness.",
-    "Given rare liver-injury reports, use caution with hepatotoxic drugs and avoid multi-ingredient products of unclear quality."
-  ],
-  "legalStatus": "Legal globally",
-  "preparation": "Used as dried herb infusion, topical formulations, and standardized oral triterpene extracts. Evidence is formulation-specific.",
-  "region": "Native to tropical and subtropical Asia, with distribution in parts of Africa and Oceania; cultivated widely for medicinal use.",
-  "therapeuticUses": [
-    "cognition",
-    "wound healing",
-    "anxiety."
-  ],
-  "traditionalUse": "Folk medicine",
   "slug": "centella-asiatica",
-  "sideEffects": [
-    "drowsiness",
-    "skin rash."
+  "summary": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
+  "description": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "asiaticoside/madecassoside effects on collagen synthesis",
+    "microcirculation and endothelial signaling",
+    "antioxidant/NF-κB modulation"
   ],
-  "displayName": "centella asiatica",
-  "displayScientificName": "centella asiatica",
-  "scientificNormalized": "centella asiatica",
-  "id": "centella-asiatica",
-  "aliases": [
-    "gotu kola",
-    "Centella asiatica"
+  "activeCompounds": [],
+  "safetyNotes": "Rare liver injury reported; avoid pregnancy and liver disease; caution with sedatives and hepatotoxic drugs.",
+  "contraindications": [
+    "Liver disease",
+    "pregnancy/breastfeeding without guidance",
+    "upcoming surgery"
   ],
-  "slugAliases": [
-    "gotu-kola"
+  "interactions": [
+    "May potentiate sedatives and hepatotoxic drugs/supplements",
+    "caution with antidiabetics."
   ],
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "Centella asiatica (gotu kola) is used for wound and venous-support indications; evidence suggests possible benefit in selected preparations, but overall certainty remains limited."
+  "preparation": "Leaf tea/powder, tincture, extracts standardized to asiaticoside/madecassoside; topical use differs.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

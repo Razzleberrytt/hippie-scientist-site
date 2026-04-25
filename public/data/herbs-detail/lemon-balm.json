@@ -1,27 +1,28 @@
 {
-  "name": "Lemon Balm",
+  "name": "lemon balm",
   "slug": "lemon-balm",
-  "scientificName": "Melissa officinalis",
-  "summary": "Lemon Balm (Melissa officinalis) is a herb monograph focused on the leaf; aerial parts used in herbal preparations. It is associated with Europe, Mediterranean. GABAergic (GABA transaminase inhibition); mild cholinergic activity. Generally safe; mild sedation possible.",
-  "description": "Lemon Balm is represented here as a monograph-style entry centered on the leaf; aerial parts. Key reported compounds include rosmarinic acid; citral; citronellal; linalool; flavonoids. Typical preparation forms: Leaf extracts, teas, tinctures. GABAergic (GABA transaminase inhibition); mild cholinergic activity. Interaction profile: Sedatives, thyroid medications. Use caution or avoid in: Hypothyroidism (caution).",
-  "mechanism": "GABAergic (GABA transaminase inhibition); mild cholinergic activity",
-  "mechanismTags": [
-    "gabaergic",
-    "cholinergic",
-    "antioxidant"
+  "summary": "Lemon Balm centers on the leaf; aerial parts.",
+  "description": "Lemon Balm centers on the leaf; aerial parts. Key reported compounds include rosmarinic acid; citral; citronellal; linalool; flavonoids. Typical preparation forms: Leaf extracts, teas, tinctures. GABAergic (GABA transaminase inhibition); mild cholinergic activity. Interaction profile: Sedatives, thyroid medications. Use caution or avoid in: Hypothyroidism (caution).",
+  "primaryActions": [],
+  "mechanisms": [
+    "GABA-transaminase inhibition",
+    "rosmarinic-acid anti-inflammatory signaling",
+    "cholinergic/acetylcholinesterase modulation"
   ],
-  "activeCompounds": [
-    "rosmarinic-acid",
-    "citral",
-    "citronellal",
-    "linalool"
+  "activeCompounds": [],
+  "safetyNotes": "Sedation possible; caution with CNS depressants, thyroid medication, pregnancy/breastfeeding, and perioperative use.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without clinician guidance",
+    "thyroid disease/thyroid medication review",
+    "heavy sedation risk"
   ],
-  "safetyNotes": "Generally safe; mild sedation possible",
   "interactions": [
-    "Sedatives",
-    "thyroid medications"
+    "May potentiate sedatives/CNS depressants",
+    "clinician review with thyroid medications."
   ],
-  "dosage": "Rosmarinic acid content",
-  "preparation": "Leaf extracts, teas, tinctures",
-  "region": "Europe, Mediterranean"
+  "preparation": "Leaf tea, tincture, glycerite, essential-oil-derived topical products, and standardized extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

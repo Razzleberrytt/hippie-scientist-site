@@ -1,0 +1,28 @@
+{
+  "name": "schisandra",
+  "slug": "schisandra",
+  "summary": "Liver + stress.",
+  "description": "Liver + stress.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Nrf2",
+    "Nrf2 activation",
+    "PI3K/Akt modulation",
+    "mitochondrial protection"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Can affect CYP/P-gp drug metabolism; review use with narrow-therapeutic-index drugs, sedatives, hepatotoxic drugs, and pregnancy/breastfeeding.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "active liver disease"
+  ],
+  "interactions": [
+    "Potential interactions with CYP-metabolized drugs."
+  ],
+  "preparation": "Berry decoction or extract; concentrated lignan extracts provide stronger exposure.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,30 @@
+{
+  "name": "papaya leaf",
+  "slug": "papaya-leaf",
+  "summary": "Internal cross-linking supports Papaya Leaf through compounds such as carpaine, papain, benzyl isothiocyanate.",
+  "description": "Internal cross-linking supports Papaya Leaf through compounds such as carpaine, papain, benzyl isothiocyanate.",
+  "primaryActions": [],
+  "mechanisms": [
+    "papain/chymopapain proteolytic enzymes",
+    "platelet-support signaling reported in dengue studies",
+    "flavonoid antioxidant signaling",
+    "inflammatory-pathway modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Claims are dengue/thrombocytopenia-adjunct specific and should not replace medical care. Latex allergy and pregnancy caution are important; monitor bleeding/platelet contexts clinically.",
+  "contraindications": [
+    "Pregnancy",
+    "papaya/latex allergy",
+    "severe dengue without medical care",
+    "and use with anticoagulants/antiplatelets without supervision."
+  ],
+  "interactions": [
+    "Potential additive effects with anticoagulant/antiplatelet therapy",
+    "theoretical interaction with diabetes medications."
+  ],
+  "preparation": "Evidence is strongest for standardized Carica papaya leaf extract/juice in dengue-associated thrombocytopenia studies.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

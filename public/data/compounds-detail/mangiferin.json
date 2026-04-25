@@ -1,36 +1,25 @@
 {
-  "slug": "mangiferin",
   "id": "mangiferin",
+  "slug": "mangiferin",
   "name": "mangiferin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Xanthone glucoside linked to metabolic and redox-responsive signaling.",
+  "description": "Xanthone glucoside linked to metabolic and redox-responsive signaling.",
+  "compoundClass": "xanthone / polyphenol",
+  "mechanisms": [
+    "AMPK activation",
+    "Nrf2 activation",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Anemarrhena%20asphodeloides"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Salacia%20reticulata"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=mangiferin"
-    }
+  "targets": [
+    "NF-κB",
+    "antioxidant response",
+    "apoptosis signaling",
+    "inflammatory cytokines"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "timosaponin AIII; saponins",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "anemarrhena-asphodeloides",
-    "salacia-reticulata"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical/extract-derived; concentrated Garcinia/mangosteen extracts may affect bleeding or liver risk depending product.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

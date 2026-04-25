@@ -1,68 +1,24 @@
 {
-  "name": "carvacrol",
-  "herbs": [
-    "monarda-fistulosa",
-    "origanum-vulgare",
-    "thymus-vulgaris"
-  ],
-  "effects": [
-    "Stress relief",
-    "respiratory support",
-    "antioxidant",
-    "mild energy boost",
-    "Adaptogen",
-    "anti-stress",
-    "immune support"
-  ],
-  "contraindications": [
-    "Irritation and sensitization potential at higher exposure",
-    "topical and mucosal tolerability matter.",
-    "Other topical irritants/counterirritants (possible additive sensory irritation)",
-    "CYP-mediated interactions remain plausible but not well established clinically."
-  ],
-  "category": "phenolic monoterpenoid",
-  "sources": [
-    {
-      "title": "Workbook source URL",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Monarda%20fistulosa | https://plants.sc.egov.usda.gov/home/search?query=Origanum%20vulgare | https://plants.sc.egov.usda.gov/home/search?query=thymus%20vulgaris | https://pmc.ncbi.nlm.nih.gov/articles/PMC8920929/ | https://pmc.ncbi.nlm.nih.gov/articles/PMC9632228/ | https://pubchem.ncbi.nlm.nih.gov/#query=carvacrol"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "PubChem compound page (NIH)"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "USDA Plants database"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "scientific name"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "inferred_plus_trusted_gov"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "trusted_gov_added"
-    },
-    {
-      "title": "Workbook source workbook",
-      "note": "precision_monographs_sprint3.xlsx"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "slug": "carvacrol",
   "id": "carvacrol",
-  "displayName": "carvacrol",
-  "description": "carvacrol appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
-  "summary": "carvacrol appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "Sprint3",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
+  "slug": "carvacrol",
+  "name": "carvacrol",
+  "summary": "Carvacrol is a monoterpenoid phenol concentrated in oregano and thyme chemotypes. It is best supported by preclinical antimicrobial and anti-inflammatory data, with human evidence for isolated use still sparse.",
+  "description": "Monoterpenoid phenol from oregano and thyme with antimicrobial and sensory effects.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "Membrane disruption",
+    "TRPA1/TRPV3-related sensory modulation",
+    "NF-kB suppression",
+    "antimicrobial permeability effects"
   ],
-  "mechanism": "Activates TRPV3 and TRPA1; broader anti-inflammatory signaling is supported in preclinical/review literature."
+  "targets": [
+    "TRPA1",
+    "membrane lipids"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "animal / in vitro",
+  "relatedCompounds": []
 }

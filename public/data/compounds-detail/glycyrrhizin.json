@@ -1,31 +1,24 @@
 {
-  "slug": "glycyrrhizin",
   "id": "glycyrrhizin",
+  "slug": "glycyrrhizin",
   "name": "glycyrrhizin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Triterpene saponin from licorice with HMGB1 and NF-κB pathway activity.",
+  "description": "Triterpene saponin from licorice with HMGB1 and NF-κB pathway activity.",
+  "compoundClass": "triterpenoid saponin glycoside",
+  "mechanisms": [
+    "HMGB1 inhibition",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Glycyrrhiza%20glabra"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=glycyrrhizin"
-    }
+  "targets": [
+    "11β-HSD2",
+    "mineralocorticoid-like sodium/potassium balance",
+    "HMGB1",
+    "inflammatory signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "Glycyrrhizin, flavonoids, saponins",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "glycyrrhiza-glabra"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Can contribute to hypertension, hypokalemia, edema, and arrhythmia risk. Avoid with uncontrolled hypertension, kidney disease, pregnancy unless supervised, diuretics, digoxin, corticosteroids, and antihypertensives.",
+  "evidenceLevel": "human_safety_known; mechanism_and_interaction_supported",
+  "relatedCompounds": []
 }

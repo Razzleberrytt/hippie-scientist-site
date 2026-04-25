@@ -1,0 +1,26 @@
+{
+  "name": "tamarind",
+  "slug": "tamarind",
+  "summary": "It is best framed as a food-form fruit with digestive and polyphenol relevance.",
+  "description": "It is best framed as a food-form fruit with digestive and polyphenol relevance.",
+  "primaryActions": [],
+  "mechanisms": [
+    "digestive support",
+    "antioxidant"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Fruit/berry preparations are commonly used as foods, juices, powders, capsules, or extracts; sugar and extract concentration vary.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

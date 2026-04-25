@@ -1,35 +1,25 @@
 {
-  "slug": "hydroxytyrosol",
   "id": "hydroxytyrosol",
+  "slug": "hydroxytyrosol",
   "name": "hydroxytyrosol",
-  "effects": [
-    "oxidative_stress_modulation",
-    "inflammatory_pathway_modulation",
-    "multi-target signaling modulation"
+  "summary": "Olive phenolic metabolite linked to Nrf2 activation and PI3K/Akt signaling.",
+  "description": "Olive phenolic metabolite linked to Nrf2 activation and PI3K/Akt signaling.",
+  "compoundClass": "phenylethanoid polyphenol",
+  "mechanisms": [
+    "Nrf2 activation",
+    "PI3K/Akt modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Hydroxytyrosol"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=hydroxytyrosol+pharmacokinetics"
-    }
+  "targets": [
+    "Nrf2",
+    "oxidative-stress pathways",
+    "LDL oxidation",
+    "endothelial signaling",
+    "NF-κB"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "simple phenolic alcohol / catechol phenol",
-  "mechanism": "proposed mechanism based on preclinical data: antioxidant and cytoprotective signaling with modulation of oxidative-stress and inflammatory pathways; human exposure and metabolism are well described, but target-level clinical mechanism is not fully established.",
-  "herbs": [],
-  "contraindications": [
-    "No established clinical drug interactions identified for isolated hydroxytyrosol."
-  ],
-  "summary": "proposed mechanism based on preclinical data: antioxidant and cytoprotective signaling with modulation of oxidative-stress and inflammatory pathways; human exposure and metabolism are well described, but target-level clinical mechanism is not fully established.",
-  "description": "proposed mechanism based on preclinical data: antioxidant and cytoprotective signaling with modulation of oxidative-stress and inflammatory pathways; human exposure and metabolism are well described, but target-level clinical mechanism is not fully established.",
-  "evidenceLevel": "human PK + preclinical mechanism",
-  "aliases": [
-    "3",
-    "4-dihydroxyphenylethanol",
-    "DOPET"
-  ]
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Food-associated from olive oil/olive leaf; high-dose supplement safety is less defined. Caution with blood-pressure and antiplatelet medication contexts.",
+  "evidenceLevel": "human_limited; food_based",
+  "relatedCompounds": []
 }

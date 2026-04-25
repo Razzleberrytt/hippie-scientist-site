@@ -1,31 +1,26 @@
 {
-  "slug": "astragaloside-iv",
   "id": "astragaloside-iv",
+  "slug": "astragaloside-iv",
   "name": "astragaloside iv",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Astragalus saponin linked to metabolic signaling and tissue-protective pathways.",
+  "description": "Astragalus saponin linked to metabolic signaling and tissue-protective pathways.",
+  "compoundClass": "cycloartane triterpenoid saponin",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "AMPK activation",
+    "TGF-β signaling modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Astragalus%20membranaceus"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=astragaloside%20iv"
-    }
+  "targets": [
+    "PI3K/Akt",
+    "AMPK",
+    "TGF-β/Smad",
+    "Nrf2",
+    "immune/inflammatory signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "Astragaloside IV, polysaccharides, flavonoids",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "astragalus-membranaceus"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or Astragalus-formula derived. Caution with immunosuppressants, autoimmune disease, anticoagulants, pregnancy, and transplant contexts.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

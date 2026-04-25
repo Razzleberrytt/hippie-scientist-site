@@ -1,0 +1,31 @@
+{
+  "name": "piper longum",
+  "slug": "piper-longum",
+  "summary": "Minimum source-backed intake for Piper longum.",
+  "description": "Minimum source-backed intake for Piper longum. Active compound support includes piperine and the herb is used here only to complete the bioavailability modulation cluster. Chavicine support added to mirror the existing pepper isomer pattern in this cluster.",
+  "primaryActions": [],
+  "mechanisms": [
+    "piperine/piperlongumine modulation of CYP/P-gp pathways",
+    "TRPV1 sensory signaling",
+    "NF-κB and oxidative-stress signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Concentrated extracts may alter drug exposure and irritate GI mucosa. Distinguish traditional culinary/low-dose use from high-piperine formulations.",
+  "contraindications": [
+    "Pregnancy/breastfeeding caution",
+    "significant reflux/ulcer disease",
+    "and prescription polypharmacy without supervision."
+  ],
+  "interactions": [
+    "Potential interactions with CYP/P-gp substrates",
+    "anticoagulants",
+    "antiepileptics",
+    "immunosuppressants",
+    "and other high-bioavailability supplement blends."
+  ],
+  "preparation": "Evidence is strongest for piperine-containing extracts rather than all long-pepper preparations.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

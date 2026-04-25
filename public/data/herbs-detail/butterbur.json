@@ -1,0 +1,29 @@
+{
+  "name": "butterbur",
+  "slug": "butterbur",
+  "summary": "Butterbur is a sesquiterpene-rich herb usually discussed around standardized root extracts.",
+  "description": "Butterbur is a sesquiterpene-rich herb usually discussed around standardized root extracts. Petasin and isopetasin are the anchor constituents most often linked to migraine and allergic-rhinitis relevance. The commercial problem is safety, because pyrrolizidine alkaloids (PAs) can damage the liver and lungs and may be carcinogenic. Keep claims narrow and safety-forward.",
+  "primaryActions": [],
+  "mechanisms": [
+    "petasin/isopetasin smooth-muscle effects",
+    "leukotriene and inflammatory-pathway modulation",
+    "trigeminal migraine-pathway effects"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Only PA-free extracts are acceptable; pyrrolizidine alkaloids can cause serious liver injury; avoid pregnancy/liver disease.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "liver disease",
+    "use of non-PA-free products",
+    "Asteraceae allergy"
+  ],
+  "interactions": [
+    "Caution with hepatotoxic drugs/supplements and enzyme-inducing medicines",
+    "clinician supervision advised."
+  ],
+  "preparation": "Use only certified PA-free root/rhizome or leaf extracts; raw/unprocessed plant is unsafe.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

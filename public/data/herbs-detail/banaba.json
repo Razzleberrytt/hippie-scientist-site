@@ -1,0 +1,26 @@
+{
+  "name": "banaba",
+  "slug": "banaba",
+  "summary": "It is best framed conservatively because evidence quality and standardization vary across products.",
+  "description": "It is best framed conservatively because evidence quality and standardization vary across products.",
+  "primaryActions": [],
+  "mechanisms": [
+    "corosolic-acid AMPK/GLUT4 modulation",
+    "α-glucosidase effects",
+    "postprandial glucose signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May potentiate antidiabetic drugs; monitor hypoglycemia risk; pregnancy/breastfeeding safety unclear.",
+  "contraindications": [
+    "Hypoglycemia risk",
+    "pregnancy/breastfeeding without clinician guidance"
+  ],
+  "interactions": [
+    "May potentiate antidiabetic medications and other glucose-lowering supplements."
+  ],
+  "preparation": "Leaf extracts standardized to corosolic acid or ellagitannin content; tea use also occurs.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

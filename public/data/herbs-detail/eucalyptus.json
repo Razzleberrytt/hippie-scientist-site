@@ -1,0 +1,28 @@
+{
+  "name": "eucalyptus",
+  "slug": "eucalyptus",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "respiratory support",
+    "antimicrobial",
+    "anti-inflammatory"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Eucalyptus oil is potentially toxic if ingested and can trigger bronchospasm in sensitive users; topical and inhaled use require dilution and caution.",
+  "contraindications": [
+    "Infants/young children for oil exposure near face",
+    "asthma/bronchospasm sensitivity",
+    "pregnancy/breastfeeding for internal oil use."
+  ],
+  "interactions": [
+    "Avoid combining internal oil with sedatives or hepatotoxic exposures",
+    "topical products may irritate skin or mucosa."
+  ],
+  "preparation": "Leaf is used as tea or steam; essential oil is used diluted topically or aromatically and should not be taken internally without medical supervision.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,31 +1,26 @@
 {
-  "slug": "carnosic-acid",
   "id": "carnosic-acid",
+  "slug": "carnosic-acid",
   "name": "carnosic acid",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Carnosic acid is a diterpene phenol best known from rosemary and sage. It is mainly supported by antioxidant, neuroprotective, and anti-inflammatory preclinical literature rather than robust human trials.",
+  "description": "Diterpene phenol associated with rosemary-family herbs and linked to Nrf2 and NF-κB pathways.",
+  "compoundClass": "phenolic diterpene",
+  "mechanisms": [
+    "Nrf2 activation",
+    "NF-kB suppression",
+    "redox-sensitive signaling modulation",
+    "mitochondrial protection pathways"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Rosmarinus%20officinalis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=carnosic%20acid"
-    }
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "oxidative-stress signaling",
+    "lipid peroxidation pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "organic acid",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "rosmarinus-officinalis"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Primarily food/herb exposure through rosemary/sage; concentrated isolated-dose safety is less established. Caution with anticoagulants, pregnancy, and liver disease at high doses.",
+  "evidenceLevel": "preclinical; human_indirect_from_rosemary",
+  "relatedCompounds": []
 }

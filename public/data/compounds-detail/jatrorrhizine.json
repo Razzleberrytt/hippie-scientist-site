@@ -1,36 +1,24 @@
 {
-  "slug": "jatrorrhizine",
   "id": "jatrorrhizine",
+  "slug": "jatrorrhizine",
   "name": "jatrorrhizine",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Protoberberine alkaloid associated with glucose and inflammatory signaling regulation.",
+  "description": "Protoberberine alkaloid associated with glucose and inflammatory signaling regulation.",
+  "compoundClass": "protoberberine isoquinoline alkaloid",
+  "mechanisms": [
+    "AMPK activation",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Phellodendron%20amurense"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=argemone%20mexicana"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=jatrorrhizine"
-    }
+  "targets": [
+    "AMPK",
+    "NF-κB",
+    "lipid/glucose metabolism",
+    "microbial targets"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "protopine alkaloids",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "argemone-mexicana",
-    "phellodendron-amurense"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical. Use berberine-family cautions: avoid pregnancy/breastfeeding and monitor with antidiabetic, antihypertensive, anticoagulant, and CYP/P-gp substrate drugs.",
+  "evidenceLevel": "preclinical; human_indirect",
+  "relatedCompounds": []
 }

@@ -1,62 +1,25 @@
 {
-  "name": "ellagic acid",
-  "herbs": [
-    "punica-granatum",
-    "vachellia-nilotica"
-  ],
-  "effects": [
-    "multi-target signaling modulation",
-    "NF-kB modulation",
-    "general or unknown targets",
-    "oxidative stress pathways"
-  ],
-  "contraindications": [
-    "low",
-    "Anticoagulants (possible ↑ bleeding risk)"
-  ],
-  "category": "polyphenol",
-  "sources": [
-    {
-      "title": "Workbook source URL",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Punica%20granatum | https://plants.sc.egov.usda.gov/home/search?query=acacia%20nilotica | https://pubchem.ncbi.nlm.nih.gov/#query=ellagic%20acid"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "PubChem compound page (NIH)"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "USDA Plants database"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "scientific name"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "inferred_plus_trusted_gov"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "trusted_gov_added"
-    },
-    {
-      "title": "Workbook source workbook",
-      "note": "master_monographs_v3.xlsx"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "slug": "ellagic-acid",
   "id": "ellagic-acid",
-  "displayName": "ellagic acid",
-  "description": "ellagic acid is a compound reported in agrimonia eupatoria. Available references are still early and incomplete.",
-  "summary": "ellagic acid is a compound reported in agrimonia eupatoria. Available references are still early and incomplete.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "Batch9",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "agrimonia-eupatoria"
+  "slug": "ellagic-acid",
+  "name": "ellagic acid",
+  "summary": "Polyphenolic acid associated with pomegranate and berry sources, linked to Nrf2 and NF-κB signaling.",
+  "description": "Polyphenolic acid associated with pomegranate and berry sources, linked to Nrf2 and NF-κB signaling.",
+  "compoundClass": "phenolic acid / polyphenol",
+  "mechanisms": [
+    "Nrf2 activation",
+    "NF-κB inhibition"
   ],
-  "mechanism": "Antioxidant and anti-inflammatory signaling"
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "antioxidant response",
+    "glucose/lipid signaling",
+    "gut microbiome metabolism"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly food-associated; concentrated extracts may cause GI effects or interact with anticoagulants/antidiabetics depending matrix.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

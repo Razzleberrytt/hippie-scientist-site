@@ -1,31 +1,24 @@
 {
-  "slug": "schisandrin",
   "id": "schisandrin",
+  "slug": "schisandrin",
   "name": "schisandrin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Lignan from Schisandra associated with Nrf2 activation and PI3K/Akt signaling.",
+  "description": "Lignan from Schisandra associated with Nrf2 activation and PI3K/Akt signaling.",
+  "compoundClass": "dibenzocyclooctadiene lignan",
+  "mechanisms": [
+    "Nrf2 activation",
+    "PI3K/Akt modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Schisandra%20chinensis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=schisandrin"
-    }
+  "targets": [
+    "Nrf2",
+    "CYP3A/P-gp pathways",
+    "mitochondrial oxidative-stress signaling",
+    "inflammatory cytokines"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "Schisandrin, gomisin, lignans",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "schisandra-chinensis"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Human safety is mostly extract-derived. Caution with CYP3A/P-gp substrate drugs, pregnancy, liver disease, and complex medication regimens.",
+  "evidenceLevel": "preclinical; human_indirect_from_schisandra",
+  "relatedCompounds": []
 }

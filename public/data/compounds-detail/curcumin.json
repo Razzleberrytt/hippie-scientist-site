@@ -1,33 +1,27 @@
 {
-  "slug": "curcumin",
   "id": "curcumin",
+  "slug": "curcumin",
   "name": "curcumin",
-  "effects": [
-    "nf-kb inhibition"
+  "summary": "Curcuminoid from turmeric commonly linked to NF-κB inhibition and Nrf2 activation.",
+  "description": "Curcuminoid from turmeric commonly linked to NF-κB inhibition and Nrf2 activation.",
+  "compoundClass": "diarylheptanoid polyphenol",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "Nrf2 activation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Curcuma%20longa"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=curcumin"
-    }
+  "targets": [
+    "NF-κB",
+    "Nrf2",
+    "COX-2",
+    "LOX",
+    "STAT3",
+    "AMPK",
+    "inflammatory cytokines"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "phenolic",
-  "mechanism": "Pleiotropic anti-inflammatory polyphenol associated with suppression of NF-kB and other inflammatory signaling; many reported targets exist, but oral PK limitations complicate translation.",
-  "herbs": [
-    "turmeric"
-  ],
-  "contraindications": [
-    "Anticoagulants/antiplatelets (potential additive bleeding risk)",
-    "CYP-metabolized drugs (possible altered exposure)",
-    "piperine-containing products may materially increase exposure"
-  ],
-  "summary": "Pleiotropic anti-inflammatory polyphenol associated with suppression of NF-kB and other inflammatory signaling; many reported targets exist, but oral PK limitations complicate translation.",
-  "description": "Pleiotropic anti-inflammatory polyphenol associated with suppression of NF-kB and other inflammatory signaling; many reported targets exist, but oral PK limitations complicate translation.",
-  "evidenceLevel": "Sprint4",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated in many trials, but high-dose extracts can cause GI upset and may interact with anticoagulants/antiplatelets or gallbladder disease contexts; piperine coformulas change exposure.",
+  "evidenceLevel": "human_limited; multiple_meta_analyses_by_indication",
+  "relatedCompounds": []
 }

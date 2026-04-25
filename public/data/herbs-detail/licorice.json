@@ -1,0 +1,35 @@
+{
+  "name": "licorice",
+  "slug": "licorice",
+  "summary": "Internal cross-linking supports Licorice through compounds such as glycyrrhizin.",
+  "description": "Internal cross-linking supports Licorice through compounds such as glycyrrhizin.",
+  "primaryActions": [],
+  "mechanisms": [
+    "glycyrrhizin/glycyrrhetinic acid 11β-HSD2 inhibition",
+    "mineralocorticoid-like sodium retention and potassium loss",
+    "HMGB1/NF-κB inflammatory modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Clinically important risk: hypertension, hypokalemia, edema, arrhythmia, and pseudoaldosteronism, especially with chronic/high-dose glycyrrhizin exposure.",
+  "contraindications": [
+    "Hypertension",
+    "kidney disease",
+    "heart failure",
+    "hypokalemia",
+    "pregnancy",
+    "and use of digoxin or potassium-wasting diuretics unless medically supervised."
+  ],
+  "interactions": [
+    "High-risk with diuretics",
+    "digoxin",
+    "corticosteroids",
+    "antihypertensives",
+    "stimulant laxatives",
+    "and drugs affected by potassium status."
+  ],
+  "preparation": "Differentiate glycyrrhizin-containing licorice from deglycyrrhizinated licorice (DGL); safety profile differs.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

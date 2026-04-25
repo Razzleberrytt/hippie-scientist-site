@@ -1,0 +1,25 @@
+{
+  "id": "neoandrographolide",
+  "slug": "neoandrographolide",
+  "name": "neoandrographolide",
+  "summary": "Andrographis diterpene glycoside associated with inflammatory and survival signaling modulation.",
+  "description": "Andrographis diterpene glycoside associated with inflammatory and survival signaling modulation.",
+  "compoundClass": "diterpenoid glycoside",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "NF-κB",
+    "Nrf2",
+    "MAPK",
+    "inflammatory cytokines",
+    "immune signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Human safety is mostly extract-derived. Avoid pregnancy; caution with immunosuppressants, anticoagulants, and users with severe allergy history.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

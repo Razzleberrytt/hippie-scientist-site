@@ -1,0 +1,31 @@
+{
+  "name": "black seed",
+  "slug": "black-seed",
+  "summary": "Bulk-ingested support row carrying Thymoquinone with pathway-level mechanism coverage.",
+  "description": "Bulk-ingested support row carrying Thymoquinone with pathway-level mechanism coverage.",
+  "primaryActions": [],
+  "mechanisms": [
+    "thymoquinone-mediated NF-κB inhibition",
+    "Nrf2/HO-1 antioxidant activation",
+    "AMPK-related glucose/lipid modulation",
+    "PPARγ/adiponectin signaling modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May lower glucose and blood pressure; monitor with antidiabetic or antihypertensive therapy. GI upset and allergic dermatitis can occur. Avoid high-dose supplemental oil in pregnancy. Caution with anticoagulants/antiplatelets and perioperative use.",
+  "contraindications": [
+    "Pregnancy at supplemental/high doses",
+    "known allergy",
+    "hypoglycemia-prone patients without monitoring."
+  ],
+  "interactions": [
+    "Antidiabetics",
+    "antihypertensives",
+    "anticoagulants/antiplatelets",
+    "possible additive metabolic or sedative effects."
+  ],
+  "preparation": "Seed/fiber preparations are commonly used as whole seed, powder, capsules, or food ingredients; fluid intake and preparation form matter.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
+}

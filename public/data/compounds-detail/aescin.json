@@ -1,31 +1,25 @@
 {
-  "slug": "aescin",
   "id": "aescin",
+  "slug": "aescin",
   "name": "aescin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Mixture of triterpene saponins from horse chestnut best known for venotonic and vascular permeability effects.",
+  "description": "Mixture of triterpene saponins from horse chestnut best known for venotonic and vascular permeability effects.",
+  "compoundClass": "saponin / glycoside",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "endothelial barrier modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Aesculus%20hippocastanum"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=aescin"
-    }
+  "targets": [
+    "AMPK",
+    "PPAR",
+    "immune cytokines",
+    "membrane signaling",
+    "glucose/lipid metabolism"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "aesculus-hippocastanum"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

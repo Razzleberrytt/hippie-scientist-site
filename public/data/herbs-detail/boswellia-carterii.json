@@ -1,0 +1,28 @@
+{
+  "name": "boswellia carterii",
+  "slug": "boswellia-carterii",
+  "summary": "It is best framed around boswellic acids with 5-lipoxygenase relevance.",
+  "description": "It is best framed around boswellic acids with 5-lipoxygenase relevance.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Boswellic acids inhibit 5-lipoxygenase-mediated leukotriene synthesis",
+    "modulate NF-κB",
+    "mPGES-1",
+    "and cytokine-driven inflammatory pathways."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May cause GI upset or reflux. Use caution with anticoagulants/antiplatelets, NSAIDs, pregnancy, and resin/extract quality variation.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

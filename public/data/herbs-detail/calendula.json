@@ -1,0 +1,29 @@
+{
+  "name": "calendula",
+  "slug": "calendula",
+  "summary": "It is best framed around topical and tissue-soothing use rather than overextended systemic claims.",
+  "description": "It is best framed around topical and tissue-soothing use rather than overextended systemic claims.",
+  "primaryActions": [],
+  "mechanisms": [
+    "triterpenoid and flavonoid anti-inflammatory signaling",
+    "NF-κB modulation",
+    "wound-healing granulation/epithelialization support",
+    "antimicrobial barrier support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Topical use can cause contact dermatitis or allergy, especially in Asteraceae-sensitive users. Oral/concentrated use needs pregnancy caution.",
+  "contraindications": [
+    "Asteraceae allergy",
+    "open/infected wounds without medical care",
+    "pregnancy for non-topical concentrated preparations."
+  ],
+  "interactions": [
+    "Topical interaction risk is low",
+    "avoid layering with irritating actives on compromised skin unless supervised."
+  ],
+  "preparation": "Evidence is strongest for topical creams/ointments used for radiation dermatitis, diaper dermatitis, wounds, or burns.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

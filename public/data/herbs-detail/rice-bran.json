@@ -1,0 +1,29 @@
+{
+  "name": "rice bran",
+  "slug": "rice-bran",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "γ-oryzanol and phytosterol effects on cholesterol absorption",
+    "bile-acid excretion and lipid metabolism modulation",
+    "AMPK/PPAR metabolic signaling",
+    "Nrf2 antioxidant response",
+    "dietary fiber/prebiotic effects."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Usually food-derived, but bran products can cause GI effects and may carry contaminant concerns if poorly sourced; use caution with diabetes medications, lipid-lowering therapy, grain allergy, and products lacking contaminant/heavy-metal quality controls.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
+}

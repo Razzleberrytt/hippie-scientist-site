@@ -1,34 +1,39 @@
 {
-  "name": "St Johns Wort",
+  "name": "st johns wort",
   "slug": "st-johns-wort",
-  "scientificName": "Hypericum perforatum",
-  "summary": "St. John's wort (Hypericum perforatum) is a herb monograph focused on the flowering tops used in herbal preparations. It is associated with Native to Europe and West Asia; naturalized in North America and other temperate regions. Hyperforin and related compounds inhibit monoamine reuptake and affect TRPC6-linked neuroplasticity; additional monoamine oxidase and stress-pathway effects have been proposed. Can cause photosensitivity, GI upset, dizziness, insomnia, restlessness.",
-  "description": "St. John's wort is represented here as a monograph-style entry centered on the flowering tops. Key reported compounds include hyperforin; hypericin; pseudohypericin; quercetin; rutin; kaempferol. Typical preparation forms: Dried flowering tops or standardized extracts. Hyperforin and related compounds inhibit monoamine reuptake and affect TRPC6-linked neuroplasticity; additional monoamine oxidase and stress-pathway effects have been proposed. Interaction profile: Major interactions with antidepressants, oral contraceptives, cyclosporine, tacrolimus, HIV meds, anticancer drugs, warfarin, digoxin and others. Use caution or avoid in: Pregnancy, breastfeeding, bipolar disorder, concomitant prescription meds with CYP/P-gp liability.",
-  "mechanism": "Hyperforin and related compounds inhibit monoamine reuptake and affect TRPC6-linked neuroplasticity; additional monoamine oxidase and stress-pathway effects have been proposed.",
-  "mechanismTags": [
-    "serotonergic",
-    "dopaminergic"
+  "summary": "St.",
+  "description": "St. John's wort centers on the flowering tops. Key reported compounds include hyperforin; hypericin; pseudohypericin; quercetin; rutin; kaempferol. Typical preparation forms: Dried flowering tops or standardized extracts. Hyperforin and related compounds inhibit monoamine reuptake and affect TRPC6-linked neuroplasticity; additional monoamine oxidase and stress-pathway effects have been proposed. Interaction profile: Major interactions with antidepressants, oral contraceptives, cyclosporine, tacrolimus, HIV meds, anticancer drugs, warfarin, digoxin and others. Use caution or avoid in: Pregnancy, breastfeeding, bipolar disorder, concomitant prescription meds with CYP/P-gp liability.",
+  "primaryActions": [],
+  "mechanisms": [
+    "hyperforin-mediated pregnane X receptor activation",
+    "CYP3A4",
+    "CYP2C9",
+    "CYP2C19",
+    "and P-glycoprotein induction",
+    "serotonin/norepinephrine/dopamine reuptake modulation",
+    "variable MAO-related effects"
   ],
-  "activeCompounds": [
-    "hyperforin",
-    "hypericin",
-    "pseudohypericin",
-    "quercetin",
-    "rutin",
-    "kaempferol"
+  "activeCompounds": [],
+  "safetyNotes": "High interaction risk. Avoid with SSRIs, SNRIs, MAOIs, triptans, and other serotonergic drugs due to serotonin-toxicity risk. Can reduce effectiveness of oral contraceptives, warfarin/DOACs, antiretrovirals, immunosuppressants, oncology drugs, and anticonvulsants. Photosensitivity and mania risk occur; do not stop or replace antidepressants without clinician guidance.",
+  "contraindications": [
+    "Current antidepressant/serotonergic therapy unless clinician-supervised",
+    "bipolar disorder/mania history",
+    "transplant/immunosuppression",
+    "pregnancy/breastfeeding without clinician review."
   ],
-  "safetyNotes": "Can cause photosensitivity, GI upset, dizziness, insomnia, restlessness. Strong inducer of CYP3A4 and P-gp.",
   "interactions": [
-    "Major interactions with antidepressants",
+    "CYP3A4/CYP2C9/CYP2C19 and P-gp substrates",
     "oral contraceptives",
-    "cyclosporine",
-    "tacrolimus",
-    "HIV meds",
-    "anticancer drugs",
-    "warfarin",
-    "digoxin and others."
+    "warfarin/DOACs",
+    "antiretrovirals",
+    "cyclosporine/tacrolimus",
+    "chemotherapy",
+    "anticonvulsants",
+    "SSRIs/SNRIs/MAOIs/triptans."
   ],
-  "dosage": "300 mg extract three times daily",
-  "preparation": "Dried flowering tops or standardized extracts.",
-  "region": "Native to Europe and West Asia; naturalized in North America and other temperate regions."
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
 }

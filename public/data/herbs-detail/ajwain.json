@@ -1,0 +1,26 @@
+{
+  "name": "ajwain",
+  "slug": "ajwain",
+  "summary": "It is best framed as a culinary-medicinal seed with strong traditional GI positioning.",
+  "description": "It is best framed as a culinary-medicinal seed with strong traditional GI positioning.",
+  "primaryActions": [],
+  "mechanisms": [
+    "digestive support",
+    "aromatic support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Seed/fiber preparations are commonly used as whole seed, powder, capsules, or food ingredients; fluid intake and preparation form matter.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

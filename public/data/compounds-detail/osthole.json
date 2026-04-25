@@ -1,31 +1,24 @@
 {
-  "slug": "osthole",
   "id": "osthole",
+  "slug": "osthole",
   "name": "osthole",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Prenylated coumarin reported from Cnidium and related Apiaceae with PDE4-linked and PI3K/Akt signaling activity.",
+  "description": "Prenylated coumarin reported from Cnidium and related Apiaceae with PDE4-linked and PI3K/Akt signaling activity.",
+  "compoundClass": "coumarin / furanocoumarin",
+  "mechanisms": [
+    "PDE4 inhibition",
+    "PI3K/Akt modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cnidium%20monnieri"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=osthole"
-    }
+  "targets": [
+    "CYP enzymes",
+    "P-gp/OATP transporters",
+    "photoreactive DNA crosslinking",
+    "inflammatory signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "Osthole, coumarins, volatile oils",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "cnidium-monnieri"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

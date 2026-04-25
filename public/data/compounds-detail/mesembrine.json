@@ -1,60 +1,25 @@
 {
-  "name": "Mesembrine",
-  "herbs": [
-    "kanna",
-    "nan"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan.",
-    "Euphoria",
-    "empathy",
-    "stress relief",
-    "stimulation",
-    "Mood elevation",
-    "sociability",
-    "mild stimulation",
-    "Mood elevator and anxiolytic",
-    "contains mesembrine alkaloids",
-    "Anxiolytic",
-    "mood enhancer",
-    "mild stimulant",
-    "dream enhancement",
-    "Dream enhancement",
-    "mood elevation",
-    "introspection",
-    "Mild entheogen",
-    "possible adaptogen",
-    "little data available"
-  ],
-  "contraindications": [
-    "MAOIs",
-    "SSRIs",
-    "SSRI use",
-    "pregnancy",
-    "bipolar disorder",
-    "ssris",
-    "maois.",
-    "Pregnancy",
-    "concurrent SSRI use"
-  ],
-  "category": "other",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "slug": "mesembrine",
   "id": "mesembrine",
-  "displayName": "Mesembrine",
-  "description": "Mesembrine appears in records as a compound reported in kanna and nan. Current source coverage is limited and still developing.",
-  "summary": "Mesembrine appears in records as a compound reported in kanna and nan. Current source coverage is limited and still developing.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "kanna",
-    "nan"
+  "slug": "mesembrine",
+  "name": "mesembrine",
+  "summary": "Major Kanna alkaloid best known for serotonin-reuptake and PDE4-related activity.",
+  "description": "Major Kanna alkaloid best known for serotonin-reuptake and PDE4-related activity.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "serotonin reuptake inhibition",
+    "PDE4 inhibition"
   ],
-  "mechanism": "insufficient evidence"
+  "targets": [
+    "CNS/autonomic receptors",
+    "ion channels",
+    "CYP/P-gp",
+    "inflammatory signaling",
+    "apoptosis pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

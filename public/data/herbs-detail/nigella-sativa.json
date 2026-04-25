@@ -1,15 +1,32 @@
 {
-  "name": "black-seed",
+  "name": "nigella sativa",
   "slug": "nigella-sativa",
-  "scientificName": "anti-inflammatory, antioxidant",
-  "summary": null,
-  "description": null,
-  "mechanism": null,
-  "mechanismTags": [],
+  "summary": "Lean bulk ingestion row for Nigella sativa.",
+  "description": "Lean bulk ingestion row for Nigella sativa. Key active compounds include Thymoquinone.",
+  "primaryActions": [],
+  "mechanisms": [
+    "thymoquinone-mediated NF-κB inhibition",
+    "Nrf2/HO-1 activation",
+    "AMPK activation",
+    "PPARγ/adiponectin modulation",
+    "pancreatic beta-cell and insulin-sensitivity effects"
+  ],
   "activeCompounds": [],
-  "safetyNotes": null,
-  "interactions": [],
-  "dosage": null,
-  "preparation": null,
-  "region": "generally safe"
+  "safetyNotes": "May reduce glucose, lipids, and blood pressure; monitor with antidiabetics, antihypertensives, anticoagulants, and antiplatelets. GI upset or allergic rash can occur. Avoid high-dose supplementation during pregnancy.",
+  "contraindications": [
+    "Pregnancy at supplemental/high doses",
+    "hypoglycemia-prone patients without monitoring",
+    "known allergy."
+  ],
+  "interactions": [
+    "Antidiabetics",
+    "antihypertensives",
+    "anticoagulants/antiplatelets",
+    "additive metabolic effects."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
 }

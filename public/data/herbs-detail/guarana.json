@@ -1,83 +1,35 @@
 {
-  "name": "guaraná",
-  "latin": "guaraná",
-  "class": null,
-  "intensity": "moderate",
-  "mechanism": "Likely mechanisms are primarily methylxanthine-mediated (especially caffeine) adenosine receptor antagonism and CNS stimulation, with possible contribution from seed polyphenols to antioxidant-related effects. Clinical relevance beyond stimulant effects is still uncertain.",
-  "activeCompounds": [
-    "Caffeine",
-    "Theobromine",
-    "Catechins"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
-    "Do not use with known allergy to this plant or related species."
-  ],
-  "safetyNotes": "Safety concerns are largely caffeine-related: insomnia, palpitations, anxiety, and GI upset at higher total stimulant intake. Use caution in people with arrhythmias, uncontrolled hypertension, pregnancy, or high concurrent caffeine exposure.",
-  "sources": [
-    {
-      "title": "Paullinia cupana Kunth | Plants of the World Online | Kew Science",
-      "url": "https://powo.science.kew.org/taxon/784110-1"
-    },
-    {
-      "title": "Guarana: revisiting a highly caffeinated plant from the Amazon - PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/23981847/"
-    },
-    {
-      "title": "Effect of Guarana (Paullinia cupana) on Cognitive Performance: A Systematic Review and Meta-Analysis - PubMed",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36678305/"
-    },
-    {
-      "title": "Caffeine | CID 2519 - PubChem",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Caffeine"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Guarana is prepared from roasted, dried seeds of Paullinia cupana and is used in beverages and supplements. Reviews describe caffeine-rich seeds (often with additional polyphenols such as catechins) and longstanding use in the Amazon region.",
-  "dosage": "Clinical studies use heterogeneous extracts and doses, so no single evidence-based standard dose is established. Product labels vary widely; caffeine-equivalent intake should be monitored.",
-  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "interactions": [
-    "Additive stimulant effects with caffeine-containing products.",
-    "Potential pharmacodynamic interaction with other sympathomimetic/stimulant agents."
-  ],
-  "legalStatus": "legal",
-  "preparation": "Typically used as roasted seed powder, aqueous extracts, capsules, or incorporated into beverages/energy products.",
-  "region": "Native to the Amazon basin in northern South America; cultivated and commercialized mainly in Brazil.",
-  "therapeuticUses": [
-    "Traditional supportive use; indication depends on species part and preparation.",
-    "Evidence level varies; use only within established clinical or traditional context."
-  ],
-  "traditionalUse": "Used in ritual, dreaming or folk medicine",
+  "name": "guarana",
   "slug": "guarana",
-  "sideEffects": [
-    "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
-    "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "caffeine-mediated adenosine A1/A2A antagonism",
+    "methylxanthine CNS stimulation",
+    "catecholamine/arousal signaling",
+    "polyphenol antioxidant signaling"
   ],
-  "displayName": "guaraná",
-  "displayScientificName": "guaraná",
-  "scientificNormalized": "guarana",
-  "id": "guarana",
-  "aliases": [
-    "guarana"
+  "activeCompounds": [],
+  "safetyNotes": "Caffeine exposure can cause insomnia, anxiety, tremor, tachycardia, blood-pressure elevation, and GI upset. Avoid stacking with energy drinks or other stimulants; use cautiously in pregnancy/breastfeeding and cardiovascular disease.",
+  "contraindications": [
+    "Uncontrolled hypertension",
+    "arrhythmia",
+    "severe anxiety/insomnia",
+    "stimulant sensitivity",
+    "and unsupervised pediatric use."
   ],
-  "slugAliases": [
-    "guaran"
+  "interactions": [
+    "Additive effects with caffeine",
+    "stimulants",
+    "theophylline",
+    "decongestants",
+    "and some ADHD medications",
+    "CYP1A2 inhibitors may increase caffeine exposure."
   ],
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "Guarana (Paullinia cupana) is an Amazonian seed product with high caffeine content and traditional stimulant use. Human evidence is strongest for short-term alertness/fatigue outcomes; broader therapeutic claims remain preliminary."
+  "preparation": "Use standardized preparations that disclose caffeine content; avoid concentrated stimulant blends.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

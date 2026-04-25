@@ -1,15 +1,32 @@
 {
-  "name": "holy-basil",
+  "name": "ocimum sanctum",
   "slug": "ocimum-sanctum",
-  "scientificName": "adaptogenic, cortisol modulation",
-  "summary": null,
-  "description": null,
-  "mechanism": null,
-  "mechanismTags": [],
+  "summary": "Ocimum sanctum contains Ursolic acid and is linked here to AMPK activation.",
+  "description": "Ocimum sanctum contains Ursolic acid and is linked here to AMPK activation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "eugenol/ursolic-acid signaling",
+    "cortisol/stress-axis modulation",
+    "AMPK/glucose and inflammatory-pathway effects"
+  ],
   "activeCompounds": [],
-  "safetyNotes": null,
-  "interactions": [],
-  "dosage": null,
-  "preparation": null,
-  "region": "generally safe"
+  "safetyNotes": "May lower glucose and affect clotting; caution with diabetes drugs, anticoagulants, pregnancy, and perioperative use.",
+  "contraindications": [
+    "Pregnancy attempts/pregnancy without clinician guidance",
+    "hypoglycemia risk",
+    "bleeding disorder",
+    "upcoming surgery"
+  ],
+  "interactions": [
+    "May add to antidiabetic",
+    "antihypertensive",
+    "sedative",
+    "anticoagulant",
+    "or antiplatelet effects."
+  ],
+  "preparation": "Leaf tea, tincture, powder, and standardized extracts; seed preparations are a different data object.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

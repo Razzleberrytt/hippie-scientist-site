@@ -1,99 +1,22 @@
 {
-  "name": "Alpha-asarone",
-  "herbs": [
-    "acorus-americanus",
-    "acorus-calamus",
-    "acorus-calamus-angustatus",
-    "acorus-tatarinowii"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan.",
-    "Stimulation",
-    "mental clarity",
-    "mild sedation (low dose)",
-    "hallucinations (high dose",
-    "beta-asarone rich)",
-    "Mild sedative",
-    "hallucinogenic in high doses",
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine",
-    "digestive aid",
-    "and purported hallucinogen",
-    "contains β-asarone",
-    "CNS stimulant",
-    "memory aid",
-    "and anti-epileptic in TCM",
-    "and anti",
-    "epileptic in TCM"
-  ],
-  "contraindications": [
-    "Pregnancy",
-    "seizures",
-    "liver disease",
-    "children",
-    "high doses",
-    "pregnancy",
-    "cancer risk (β-asarone in some strains).",
-    "β",
-    "asarone is potentially carcinogenic",
-    "avoid long",
-    "term or high",
-    "dose use",
-    "contraindicated in pregnancy and children."
-  ],
-  "category": "other",
-  "sources": [
-    {
-      "title": "Workbook source URL",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Acorus%20tatarinowii | https://plants.sc.egov.usda.gov/home/search?query=acorus%20americanus | https://plants.sc.egov.usda.gov/home/search?query=acorus%20calamus | https://plants.sc.egov.usda.gov/home/search?query=acorus%20calamus%20var.%20angustatus | https://pubchem.ncbi.nlm.nih.gov/#query=alpha-asarone"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "PubChem compound page (NIH)"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "USDA Plants database"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "scientific name"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "inferred_plus_trusted_gov"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "trusted_gov_added"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "slug": "alpha-asarone",
-  "displayName": "Alpha-asarone",
   "id": "alpha-asarone",
-  "aliases": [
-    "α-asarone"
+  "slug": "alpha-asarone",
+  "name": "alpha-asarone",
+  "summary": "Phenylpropanoid ether from Acorus species studied for CNS-active and cholinergic effects.",
+  "description": "Phenylpropanoid ether from Acorus species studied for CNS-active and cholinergic effects.",
+  "compoundClass": "phenylpropanoid ether",
+  "mechanisms": [
+    "GABA-A modulation",
+    "acetylcholinesterase inhibition"
   ],
-  "slugAliases": [
-    "asarone"
+  "targets": [
+    "GABA-A receptors",
+    "acetylcholinesterase"
   ],
-  "description": "Alpha-asarone is a compound reported in acorus americanus, nan, and related herbs. Available references are still early and incomplete.",
-  "summary": "Alpha-asarone is a compound reported in acorus americanus, nan, and related herbs. Available references are still early and incomplete.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "acorus-americanus",
-    "nan",
-    "acorus-tatarinowii"
-  ],
-  "mechanism": "insufficient evidence"
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "High-caution aromatic compound with toxicology concerns; avoid concentrated internal use and pregnancy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
 }

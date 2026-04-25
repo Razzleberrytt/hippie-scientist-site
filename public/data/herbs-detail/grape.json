@@ -1,0 +1,28 @@
+{
+  "name": "grape",
+  "slug": "grape",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "proanthocyanidin endothelial nitric-oxide signaling",
+    "antioxidant/NF-κB modulation",
+    "platelet and lipid pathway effects"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May interact with anticoagulants/antiplatelets; GI effects possible; supplement dose varies widely.",
+  "contraindications": [
+    "Anticoagulant use without review",
+    "grape allergy",
+    "pregnancy supplement dosing without guidance"
+  ],
+  "interactions": [
+    "Potential additive bleeding risk with anticoagulants/antiplatelets",
+    "may modestly affect blood pressure."
+  ],
+  "preparation": "Fruit, juice, seed extract, skin extract, and wine-derived polyphenols differ substantially.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

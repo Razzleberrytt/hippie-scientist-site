@@ -1,37 +1,25 @@
 {
-  "slug": "asiaticoside",
   "id": "asiaticoside",
+  "slug": "asiaticoside",
   "name": "asiaticoside",
-  "effects": [
-    "cox/nf-kb inhibition",
-    "multi-target signaling modulation"
+  "summary": "Centella triterpene glycoside linked to wound and matrix signaling pathways.",
+  "description": "Centella triterpene glycoside linked to wound and matrix signaling pathways.",
+  "compoundClass": "triterpenoid saponin glycoside",
+  "mechanisms": [
+    "TGF-β signaling modulation",
+    "MAPK pathway modulation",
+    "PI3K/Akt modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Centella%20asiatica"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=centella%20asiatica"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=asiaticoside"
-    }
+  "targets": [
+    "collagen synthesis",
+    "TGF-β signaling",
+    "wound-healing pathways",
+    "NF-κB"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "centella-asiatica",
-    "gotu-kola"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Human safety mostly from Centella extracts/topicals. Caution with liver disease, sedatives, pregnancy, and high-dose prolonged supplementation.",
+  "evidenceLevel": "human_indirect_from_centella; preclinical",
+  "relatedCompounds": []
 }

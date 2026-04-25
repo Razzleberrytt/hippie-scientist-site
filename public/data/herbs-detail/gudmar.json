@@ -1,0 +1,28 @@
+{
+  "name": "gudmar",
+  "slug": "gudmar",
+  "summary": "It should be framed consistently with gymnema while preserving alternate-name discoverability.",
+  "description": "It should be framed consistently with gymnema while preserving alternate-name discoverability.",
+  "primaryActions": [],
+  "mechanisms": [
+    "gymnemic-acid sweet taste receptor inhibition",
+    "intestinal glucose absorption modulation",
+    "pancreatic beta-cell/insulin signaling support",
+    "AMPK/GLUT4-related metabolic signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

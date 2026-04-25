@@ -1,31 +1,24 @@
 {
-  "slug": "harpagoside",
   "id": "harpagoside",
+  "slug": "harpagoside",
   "name": "harpagoside",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Harpagoside is a devil’s claw iridoid associated with pain and inflammatory pathway modulation.",
+  "description": "Harpagoside is a devil’s claw iridoid associated with pain and inflammatory pathway modulation.",
+  "compoundClass": "iridoid glycoside",
+  "mechanisms": [
+    "COX inhibition",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Harpagophytum%20procumbens"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=harpagoside"
-    }
+  "targets": [
+    "NF-κB",
+    "antioxidant response",
+    "inflammatory cytokines",
+    "gut/liver metabolism"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "iridoid glycosides",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "harpagophytum-procumbens"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-compound evidence.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

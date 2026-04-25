@@ -1,40 +1,31 @@
 {
   "name": "damiana",
-  "latin": "damiana",
-  "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "Pregnancy, urinary tract conditions"
-  ],
-  "safetyNotes": "safe; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
-  "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [
-    "Libido, nervous system support, mild stimulant"
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "damiana",
-  "id": "damiana",
-  "displayName": "damiana",
-  "displayScientificName": "damiana",
-  "scientificNormalized": "damiana",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": []
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "mood support",
+    "calming support",
+    "libido support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Human evidence is limited. Use conservative dosing; avoid stacking with sedatives, stimulants, or sexual-performance products without review.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "seizure disorder without clinician review",
+    "planned surgery or complex psychiatric medication regimens."
+  ],
+  "interactions": [
+    "Potential additive CNS effects with sedatives",
+    "alcohol",
+    "anxiolytics",
+    "and serotonergic or stimulant stacks",
+    "diabetes medication caution is theoretical."
+  ],
+  "preparation": "Leaf is used as tea, tincture, capsules, or aromatic blends; avoid high-dose extracts until safety is reviewed.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
 }

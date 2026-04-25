@@ -1,0 +1,27 @@
+{
+  "name": "bael",
+  "slug": "bael",
+  "summary": "Internal cross-linking supports Bael through compounds such as skimmianine, aegeline, marmelosin.",
+  "description": "Internal cross-linking supports Bael through compounds such as skimmianine, aegeline, marmelosin.",
+  "primaryActions": [],
+  "mechanisms": [
+    "tannin and coumarin-related gut barrier effects",
+    "intestinal motility and secretion modulation",
+    "alpha-glucosidase and antioxidant signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Constipating or GI-active effects are possible depending on preparation. Monitor with antidiabetic drugs and avoid pregnancy/breastfeeding use without clinician supervision.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

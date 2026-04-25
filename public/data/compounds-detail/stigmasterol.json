@@ -1,0 +1,23 @@
+{
+  "id": "stigmasterol",
+  "slug": "stigmasterol",
+  "name": "stigmasterol",
+  "summary": "Phytosterol linked to receptor-level lipid signaling and pathway modulation.",
+  "description": "Phytosterol linked to receptor-level lipid signaling and pathway modulation.",
+  "compoundClass": "phytosterol",
+  "mechanisms": [
+    "PPAR activation",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "cholesterol absorption",
+    "inflammatory signaling",
+    "membrane sterol pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally food-associated, but supplements can affect lipid markers and may be unsuitable in sitosterolemia.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
+}

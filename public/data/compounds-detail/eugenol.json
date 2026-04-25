@@ -1,61 +1,28 @@
 {
-  "name": "eugenol",
-  "herbs": [
-    "holy-basil"
-  ],
-  "effects": [
-    "inflammatory_pathway_modulation",
-    "analgesic",
-    "antimicrobial",
-    "COX",
-    "prostaglandins",
-    "TRPV1"
-  ],
-  "contraindications": [
-    "Generally safe at dietary levels, but high-dose exposure may increase liver-toxicity risk.",
-    "May enhance anticoagulant effects or bleeding tendency in susceptible settings."
-  ],
-  "category": "phenylpropanoid",
-  "sources": [
-    {
-      "title": "Workbook source URL",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Eugenol | https://pubmed.ncbi.nlm.nih.gov/16998128/ | https://www.fda.gov/food/food-additives-petitions/everything-added-food-united-states-eafus"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "PubChem"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "PubMed"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "FDA food-additive context"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "tier1_locked"
-    },
-    {
-      "title": "Workbook source workbook",
-      "note": "locked_compounds_batch1_2026-04-07"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "slug": "eugenol",
   "id": "eugenol",
-  "displayName": "eugenol",
-  "description": "eugenol appears in records as a compound reported in nan, pimenta dioica, and related herbs. Current source coverage is limited and still developing.",
-  "summary": "eugenol appears in records as a compound reported in nan, pimenta dioica, and related herbs. Current source coverage is limited and still developing.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "human + preclinical",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan",
-    "pimenta-dioica",
-    "tynanthus-panurensis"
+  "slug": "eugenol",
+  "name": "eugenol",
+  "summary": "Eugenol is a phenylpropanoid most associated with clove and other aromatic herbs. It is best supported by preclinical work showing analgesic, anti-inflammatory, antimicrobial, and membrane-active effects rather than broad human outcome evidence.",
+  "description": "Phenylpropanoid from clove associated with COX inhibition and TRP channel activity.",
+  "compoundClass": "phenylpropanoid",
+  "mechanisms": [
+    "COX-2 inhibition",
+    "TRPV1/TRPA1 modulation",
+    "voltage-gated sodium-channel effects",
+    "membrane disruption",
+    "NF-kB suppression"
   ],
-  "mechanism": "Exhibits analgesic and anti-inflammatory effects through prostaglandin-pathway inhibition and ion-channel modulation including TRPV1-related activity; also shows antimicrobial activity."
+  "targets": [
+    "TRPV1",
+    "COX/LOX pathways",
+    "NF-κB",
+    "microbial membrane effects",
+    "local anesthetic signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Food/flavor exposure differs from essential-oil or concentrated use. High doses may irritate mucosa and affect bleeding or liver safety; caution with anticoagulants and dental/topical overuse.",
+  "evidenceLevel": "human_limited_topical; preclinical",
+  "relatedCompounds": []
 }

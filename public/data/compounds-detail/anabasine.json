@@ -1,49 +1,24 @@
 {
-  "name": "anabasine",
-  "herbs": [
-    "nan"
-  ],
-  "effects": [
-    "muscarinic receptor interaction",
-    "cholinergic_modulation",
-    "dopaminergic_modulation"
-  ],
-  "contraindications": [
-    "Heart disease",
-    "pregnancy",
-    "epilepsy"
-  ],
-  "category": "other",
-  "sources": [
-    {
-      "title": "Workbook source URL",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=nicotiana%20rustica | https://pubchem.ncbi.nlm.nih.gov/#query=anabasine"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "PubChem compound page (NIH)"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "USDA Plants database"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "trusted_gov_added"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "slug": "anabasine",
   "id": "anabasine",
-  "displayName": "anabasine",
-  "description": "anabasine is a compound reported in nan. Available references are still early and incomplete.",
-  "summary": "anabasine is a compound reported in nan. Available references are still early and incomplete.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
+  "slug": "anabasine",
+  "name": "anabasine",
+  "summary": "Pyridine alkaloid associated with nicotinic receptor activity.",
+  "description": "Pyridine alkaloid associated with nicotinic receptor activity.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "nicotinic acetylcholine receptor modulation"
   ],
-  "mechanism": "Nicotine acts as an agonist at nicotinic acetylcholine receptors, increasing dopamine and norepinephrine release."
+  "targets": [
+    "CNS/autonomic receptors",
+    "ion channels",
+    "CYP/P-gp",
+    "inflammatory signaling",
+    "apoptosis pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

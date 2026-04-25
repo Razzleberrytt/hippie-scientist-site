@@ -1,50 +1,27 @@
 {
   "name": "boldo",
-  "latin": "boldo",
-  "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "Proposed mechanism: unresolved from current repository sources; update when stronger human evidence is available.",
-  "activeCompounds": [
-    "Unresolved from current repository sources."
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
-    "discontinue if hypersensitivity or allergic symptoms occur"
-  ],
-  "safetyNotes": "Safety not well characterized in current repository sources; avoid use in pregnancy/lactation and in people with major medical or psychiatric conditions without clinical supervision.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "boldo is included in this dataset. Species-specific efficacy and clinical characterization remain unresolved from current repository evidence.",
-  "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Unresolved from current repository sources; screen for medication and condition interactions before use."
-  ],
-  "preparation": "Unresolved from current repository sources; preparation depends on plant part and traditional context.",
-  "region": "Unresolved from current repository sources.",
-  "therapeuticUses": [
-    "non-specific traditional tonic use",
-    "traditional stress resilience support"
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "boldo",
-  "sideEffects": [
-    "headache (more likely with higher intake)",
-    "dry mouth"
+  "summary": "It is best framed as an aromatic bitter leaf botanical with modest human evidence.",
+  "description": "It is best framed as an aromatic bitter leaf botanical with modest human evidence.",
+  "primaryActions": [],
+  "mechanisms": [
+    "digestive support",
+    "hepatobiliary support"
   ],
-  "id": "boldo",
-  "displayName": "boldo",
-  "displayScientificName": "boldo",
-  "scientificNormalized": "boldo",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "boldo entry normalized to baseline; key clinical and pharmacology fields are unresolved where repository evidence is limited."
+  "activeCompounds": [],
+  "safetyNotes": "Avoid high-dose or prolonged internal use; alkaloid/essential-oil rich preparations may irritate the GI tract and are inappropriate in pregnancy, liver disease, or bile-duct obstruction.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "active liver disease"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Aromatic herb/spice forms and essential oils differ greatly; essential oils require conservative topical/diluted use and are not interchangeable with teas.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
 }

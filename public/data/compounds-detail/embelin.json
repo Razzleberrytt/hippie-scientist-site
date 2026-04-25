@@ -1,0 +1,25 @@
+{
+  "id": "embelin",
+  "slug": "embelin",
+  "name": "embelin",
+  "summary": "Benzoquinone compound linked to apoptotic and inflammatory signaling.",
+  "description": "Benzoquinone compound linked to apoptotic and inflammatory signaling.",
+  "compoundClass": "quinone / naphthoquinone-like phenolic",
+  "mechanisms": [
+    "XIAP inhibition",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "ROS/redox cycling",
+    "NF-κB",
+    "apoptosis signaling",
+    "Nrf2",
+    "antimicrobial pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Often preclinical; concentrated or isolated quinones may be irritant/cytotoxic. Avoid pregnancy and use caution with liver disease or anticoagulants.",
+  "evidenceLevel": "preclinical",
+  "relatedCompounds": []
+}

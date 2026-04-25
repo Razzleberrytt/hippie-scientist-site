@@ -1,0 +1,25 @@
+{
+  "id": "oleocanthal",
+  "slug": "oleocanthal",
+  "name": "oleocanthal",
+  "summary": "Oleocanthal is an olive phenolic aldehyde associated with COX-related anti-inflammatory signaling.",
+  "description": "Oleocanthal is an olive phenolic aldehyde associated with COX-related anti-inflammatory signaling.",
+  "compoundClass": "olive phenolic secoiridoid/phenylethanol",
+  "mechanisms": [
+    "COX inhibition",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "lipid oxidation",
+    "endothelial signaling",
+    "antioxidant response"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Food-associated in olive/olive oil matrices; concentrated extracts may affect blood pressure, glucose, or bleeding risk.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
+}

@@ -1,0 +1,28 @@
+{
+  "name": "cacao",
+  "slug": "cacao",
+  "summary": "It is best framed around flavanols and methylxanthines with stimulant awareness.",
+  "description": "It is best framed around flavanols and methylxanthines with stimulant awareness.",
+  "primaryActions": [],
+  "mechanisms": [
+    "flavanol nitric-oxide/endothelial signaling",
+    "ACE effects",
+    "antioxidant and platelet-function modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Caffeine/theobromine effects possible; caution with migraine sensitivity, reflux, stimulants, and anticoagulant contexts.",
+  "contraindications": [
+    "Severe caffeine sensitivity",
+    "migraine/reflux triggers",
+    "oxalate stone risk with high intake"
+  ],
+  "interactions": [
+    "May add to stimulant effects",
+    "high-flavanol products may modestly affect blood pressure."
+  ],
+  "preparation": "Cocoa powder, dark chocolate, cacao nibs, and flavanol-standardized extracts; sugar/fat content varies.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,25 @@
+{
+  "id": "guggulsterone",
+  "slug": "guggulsterone",
+  "name": "guggulsterone",
+  "summary": "Steroidal ketone associated with bile-acid receptor and inflammatory pathway effects.",
+  "description": "Steroidal ketone associated with bile-acid receptor and inflammatory pathway effects.",
+  "compoundClass": "saponin / glycoside",
+  "mechanisms": [
+    "FXR antagonism",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "AMPK",
+    "PPAR",
+    "immune cytokines",
+    "membrane signaling",
+    "glucose/lipid metabolism"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

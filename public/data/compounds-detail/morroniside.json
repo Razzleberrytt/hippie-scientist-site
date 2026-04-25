@@ -1,31 +1,24 @@
 {
-  "slug": "morroniside",
   "id": "morroniside",
+  "slug": "morroniside",
   "name": "morroniside",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Morroniside is a Cornus iridoid with cytoprotective pathway activity.",
+  "description": "Morroniside is a Cornus iridoid with cytoprotective pathway activity.",
+  "compoundClass": "iridoid glycoside",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "Nrf2 activation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Cornus%20officinalis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=morroniside"
-    }
+  "targets": [
+    "NF-κB",
+    "antioxidant response",
+    "inflammatory cytokines",
+    "gut/liver metabolism"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "iridoid glycosides",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "cornus-officinalis"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-compound evidence.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

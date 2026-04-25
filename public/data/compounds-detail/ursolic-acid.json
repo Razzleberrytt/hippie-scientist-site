@@ -1,35 +1,27 @@
 {
-  "name": "ursolic acid",
-  "herbs": [
-    "nan"
-  ],
-  "effects": [
-    "Stress relief",
-    "respiratory support",
-    "antioxidant",
-    "mild energy boost",
-    "Adaptogen",
-    "anti-stress",
-    "immune support"
-  ],
-  "contraindications": [
-    "Pregnancy (high doses)",
-    "blood clotting disorders"
-  ],
-  "category": "triterpenoid",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "slug": "ursolic-acid",
   "id": "ursolic-acid",
-  "displayName": "ursolic acid",
-  "description": "ursolic acid is a compound reported in nan. Available references are still early and incomplete.",
-  "summary": "ursolic acid is a compound reported in nan. Available references are still early and incomplete.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "preclinical + limited human",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
+  "slug": "ursolic-acid",
+  "name": "ursolic acid",
+  "summary": "Ursolic acid is a pentacyclic triterpene common in culinary and medicinal herbs. Its research profile is dominated by cell and animal studies covering inflammatory, metabolic, and muscle-related pathways rather than consistent clinical trials.",
+  "description": "Pentacyclic triterpene common in culinary and medicinal herbs with broad pathway effects.",
+  "compoundClass": "pentacyclic triterpenoid",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "STAT3 inhibition",
+    "AMPK activation",
+    "PI3K/Akt modulation"
   ],
-  "mechanism": "Anti-inflammatory and metabolic signaling modulator with reported NF-kB inhibition, AMPK activation, and downstream effects relevant to muscle protein synthesis and cellular stress response."
+  "targets": [
+    "NF-κB",
+    "STAT3",
+    "AMPK",
+    "PPAR",
+    "apoptosis signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical and food/herb associated. High-dose isolated use lacks robust human safety data; caution with pregnancy, liver disease, and anticancer/immunomodulating therapies.",
+  "evidenceLevel": "preclinical; human_limited",
+  "relatedCompounds": []
 }

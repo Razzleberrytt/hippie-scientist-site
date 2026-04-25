@@ -1,40 +1,24 @@
 {
-  "slug": "rosarin",
   "id": "rosarin",
+  "slug": "rosarin",
   "name": "rosarin",
-  "effects": [
-    "adaptogen",
-    "oxidative_stress_modulation",
-    "multi-target signaling modulation"
+  "summary": "Rhodiola glycoside associated with stress-response and signaling pathway effects.",
+  "description": "Rhodiola glycoside associated with stress-response and signaling pathway effects.",
+  "compoundClass": "phenylpropanoid glycoside / rosavin",
+  "mechanisms": [
+    "AMPK activation",
+    "MAPK pathway modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Rosarin"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=rosarin+rhodiola"
-    },
-    {
-      "title": "Reference",
-      "url": "https://www.nccih.nih.gov/health/rhodiola"
-    }
+  "targets": [
+    "HPA-axis stress response",
+    "monoamine signaling",
+    "AMPK",
+    "antioxidant response"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "phenylpropanoid glycoside",
-  "mechanism": "No established human mechanism. proposed mechanism based on preclinical data: antioxidant/stress-response activity inferred from Rhodiola constituent studies; used more reliably as a chemotaxonomic and extract-standardization marker than as a standalone validated pharmacologic agent.",
-  "herbs": [
-    "rhodiola-rosea"
-  ],
-  "contraindications": [
-    "No compound-specific clinical drug interactions established."
-  ],
-  "summary": "No established human mechanism. proposed mechanism based on preclinical data: antioxidant/stress-response activity inferred from Rhodiola constituent studies; used more reliably as a chemotaxonomic and extract-standardization marker than as a standalone validated pharmacologic agent.",
-  "description": "No established human mechanism. proposed mechanism based on preclinical data: antioxidant/stress-response activity inferred from Rhodiola constituent studies; used more reliably as a chemotaxonomic and extract-standardization marker than as a standalone validated pharmacologic agent.",
-  "evidenceLevel": "phytochemical identity strong; pharmacology limited",
-  "aliases": [
-    "rhodioloside B",
-    "rosarin glycoside"
-  ]
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Evidence is mostly through Rhodiola extracts. May cause activation/insomnia or interact with stimulants/antidepressants.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
 }

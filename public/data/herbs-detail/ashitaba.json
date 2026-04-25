@@ -1,0 +1,26 @@
+{
+  "name": "ashitaba",
+  "slug": "ashitaba",
+  "summary": "It is best framed around chalcone-rich chemistry with modest translational evidence.",
+  "description": "It is best framed around chalcone-rich chemistry with modest translational evidence.",
+  "primaryActions": [],
+  "mechanisms": [
+    "metabolic support",
+    "antioxidant"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without clinician guidance",
+    "anticoagulant use without review"
+  ],
+  "interactions": [
+    "Potential additive bleeding risk with anticoagulants/antiplatelets",
+    "limited clinical interaction data."
+  ],
+  "preparation": "Leaf/stem powder, tea, and extracts; chalcone content varies by product.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

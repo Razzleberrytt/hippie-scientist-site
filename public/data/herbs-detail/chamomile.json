@@ -1,68 +1,27 @@
 {
   "name": "chamomile",
-  "latin": "chamomile",
-  "class": "",
-  "intensity": "mild",
-  "mechanism": "Proposed activity includes flavonoids (for example apigenin) and volatile constituents with anti-inflammatory and possible GABA-modulating effects. These are mechanistic hypotheses with partial clinical support rather than definitive human mechanism proof.",
-  "activeCompounds": [
-    "Apigenin",
-    "Bisabolol",
-    "Chamazulene precursors (from matricin)"
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "avoid during pregnancy and breastfeeding",
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
-  ],
-  "safetyNotes": "Often well tolerated in food and tea amounts. Allergic reactions can occur, especially in people sensitive to ragweed-family plants. Concentrated supplements can cause side effects and should be used cautiously in pregnancy and in people with complex medication regimens.",
-  "sources": [
-    {
-      "title": "NCCIH: Chamomile",
-      "url": "https://www.nccih.nih.gov/health/chamomile"
-    },
-    {
-      "title": "PubChem: Apigenin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280443"
-    },
-    {
-      "title": "NCBI Taxonomy: Matricaria chamomilla",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=130304"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Chamomile (usually Matricaria chamomilla/recutita preparations) is used as tea and extracts for gastrointestinal discomfort, sleep support, and mild anxiety. Clinical evidence is mixed but suggests potential benefit for some mild anxiety and dyspepsia-related symptoms; it is not a replacement for urgent or severe-condition care.",
-  "dosage": "No universally accepted standardized dose across all indications. Tea and extract dosing varies by preparation; follow labeled concentrations and clinician advice.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Potential interaction concern with anticoagulants/antiplatelet drugs due to additive bleeding risk in susceptible patients.",
-    "Sedative effects may be additive with CNS depressants; monitor for excess drowsiness.",
-    "Check for product-specific cautions because chamomile supplement formulations vary widely."
-  ],
-  "legalStatus": "legal",
-  "preparation": "Common forms include infusion (tea), liquid extracts, and topical preparations. Clinical studies use non-uniform extract preparations, limiting direct dose comparisons.",
-  "region": "Native to Europe and Western Asia; now widely cultivated in Europe, North America, and other temperate regions.",
-  "therapeuticUses": [
-    "traditional support for mild digestive comfort"
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "chamomile",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "allergic rash or itching in sensitive individuals"
+  "summary": "It is best handled as a gentle calming botanical with broad traditional use and modest clinical depth.",
+  "description": "It is best handled as a gentle calming botanical with broad traditional use and modest clinical depth.",
+  "primaryActions": [],
+  "mechanisms": [
+    "apigenin GABA-A receptor interaction",
+    "flavonoid anti-inflammatory signaling",
+    "smooth-muscle and digestive-spasm modulation"
   ],
-  "id": "chamomile",
-  "displayName": "chamomile",
-  "displayScientificName": "chamomile",
-  "scientificNormalized": "chamomile",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "Chamomile is used for mild digestive discomfort, sleep complaints, and anxiety symptoms; evidence is strongest for mild short-term symptom relief and remains modest overall."
+  "activeCompounds": [],
+  "safetyNotes": "Allergy risk with Asteraceae sensitivity; sedation possible; caution with CNS depressants and anticoagulants.",
+  "contraindications": [
+    "Asteraceae/ragweed allergy",
+    "anticoagulant use without clinician review",
+    "pregnancy at medicinal doses without guidance"
+  ],
+  "interactions": [
+    "May potentiate sedatives/CNS depressants and anticoagulants/antiplatelets in susceptible users."
+  ],
+  "preparation": "Flower infusion, tincture, capsules, steam-distilled essential oil, and topical preparations.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
 }

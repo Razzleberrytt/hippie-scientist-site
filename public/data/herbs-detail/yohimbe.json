@@ -1,48 +1,38 @@
 {
   "name": "yohimbe",
-  "latin": "yohimbe",
-  "intensity": "moderate",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-  "activeCompounds": [],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "avoid during pregnancy and breastfeeding unless advised by a clinician",
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
-    "discontinue if hypersensitivity or allergic symptoms occur"
-  ],
-  "safetyNotes": "caution; No direct toxicity data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference:; nan.. No direct mechanismofaction data. Contextual inference:; nan..; nan. No direct effects data. Contextual inference:; nan.; nan. No direct region data. Contextual inference:",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
-  "legalStatus": "restricted",
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-  "therapeuticUses": [
-    "traditional support for mild digestive comfort",
-    "traditional stress resilience support"
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "yohimbe",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "headache (more likely with higher intake)",
-    "allergic rash or itching in sensitive individuals"
+  "summary": "Yohimbe is represented here as a bark-derived monograph anchored to yohimbine, an alpha-2 adrenergic antagonist with sympathomimetic effects.",
+  "description": "Yohimbe is represented here as a bark-derived monograph anchored to yohimbine, an alpha-2 adrenergic antagonist with sympathomimetic effects. The herb is more appropriately framed around safety review than routine recommendation. Potential effects include increased alertness and sexual-function relevance, but tolerability can be poor and adverse effects may include anxiety, tachycardia, blood-pressure elevation, agitation, insomnia, and gastrointestinal distress. Use should be conservative and exclusion-heavy in people with cardiovascular, psychiatric, seizure, renal, or hepatic vulnerability.",
+  "primaryActions": [],
+  "mechanisms": [
+    "yohimbine alpha-2 adrenergic receptor antagonism",
+    "increased sympathetic outflow",
+    "norepinephrine signaling",
+    "serotonergic and dopaminergic modulation"
   ],
-  "id": "yohimbe",
-  "displayName": "yohimbe",
-  "displayScientificName": "yohimbe",
-  "scientificNormalized": "yohimbe",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": []
+  "activeCompounds": [],
+  "safetyNotes": "High-risk stimulant herb. Reported adverse events include anxiety, agitation, hypertension, tachycardia, GI distress, and rare serious cardiovascular/neurologic events.",
+  "contraindications": [
+    "Hypertension",
+    "arrhythmia",
+    "heart disease",
+    "anxiety/panic disorder",
+    "bipolar disorder/mania",
+    "kidney or liver disease",
+    "pregnancy/breastfeeding."
+  ],
+  "interactions": [
+    "Avoid with stimulants",
+    "decongestants",
+    "MAOIs",
+    "antidepressants",
+    "clonidine",
+    "antihypertensives",
+    "and drugs affecting blood pressure or heart rhythm."
+  ],
+  "preparation": "Do not equate crude bark products with pharmaceutical yohimbine; supplement yohimbine content can vary substantially.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
 }

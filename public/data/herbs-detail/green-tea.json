@@ -1,0 +1,28 @@
+{
+  "name": "green tea",
+  "slug": "green-tea",
+  "summary": "Internal cross-linking supports Green Tea through compounds such as caffeine, theanine, catechins (egcg).",
+  "description": "Internal cross-linking supports Green Tea through compounds such as caffeine, theanine, catechins (egcg).",
+  "primaryActions": [],
+  "mechanisms": [
+    "EGCG/catechins activate AMPK",
+    "modulate lipid absorption and oxidation",
+    "support endothelial nitric-oxide signaling",
+    "and provide caffeine-mediated adenosine antagonism."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Caffeine may worsen insomnia, anxiety, palpitations, or reflux. High-dose green-tea extracts can cause liver injury, especially fasting use; caution with anticoagulants and liver disease.",
+  "contraindications": [
+    "Severe caffeine sensitivity",
+    "liver disease with high-EGCG extracts",
+    "pregnancy caffeine limits"
+  ],
+  "interactions": [
+    "May interact with stimulants and iron absorption timing."
+  ],
+  "preparation": "Infusion or standardized extract; lower-temperature steeping preserves catechins and theanine balance.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

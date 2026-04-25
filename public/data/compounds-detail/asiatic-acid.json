@@ -1,37 +1,25 @@
 {
-  "slug": "asiatic-acid",
   "id": "asiatic-acid",
+  "slug": "asiatic-acid",
   "name": "asiatic acid",
-  "effects": [
-    "cox/nf-kb inhibition",
-    "multi-target signaling modulation"
+  "summary": "Triterpenoid aglycone associated with tissue repair and inflammatory pathway effects.",
+  "description": "Triterpenoid aglycone associated with tissue repair and inflammatory pathway effects.",
+  "compoundClass": "pentacyclic triterpenoid",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "TGF-β signaling modulation",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Centella%20asiatica"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=centella%20asiatica"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=asiatic%20acid"
-    }
+  "targets": [
+    "TGF-β/Smad",
+    "collagen synthesis",
+    "NF-κB",
+    "wound-healing and inflammatory signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "organic acid",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "centella-asiatica",
-    "gotu-kola"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Human evidence mostly from Centella extracts/topicals. Caution with liver disease, sedatives, pregnancy, and high-dose oral extracts.",
+  "evidenceLevel": "human_indirect_from_centella_extracts",
+  "relatedCompounds": []
 }

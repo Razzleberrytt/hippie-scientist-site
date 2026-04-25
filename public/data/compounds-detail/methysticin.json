@@ -1,35 +1,24 @@
 {
-  "name": "methysticin",
-  "herbs": [
-    "nan"
-  ],
-  "effects": [
-    "Euphoria",
-    "calmness",
-    "muscle relaxation",
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "Liver conditions",
-    "concurrent alcohol use"
-  ],
-  "category": "other",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "slug": "methysticin",
   "id": "methysticin",
-  "displayName": "methysticin",
-  "description": "methysticin appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
-  "summary": "methysticin appears in records as a compound reported in nan. Current source coverage is limited and still developing.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "nan"
+  "slug": "methysticin",
+  "name": "methysticin",
+  "summary": "Kavalactone reported with GABAergic and monoamine-related activity.",
+  "description": "Kavalactone reported with GABAergic and monoamine-related activity.",
+  "compoundClass": "kavalactone",
+  "mechanisms": [
+    "GABA-A modulation",
+    "MAO-B inhibition"
   ],
-  "mechanism": "Kavalactones modulate GABA_A receptor activity, inhibit voltage-gated sodium and calcium channels, and influence dopamine signaling."
+  "targets": [
+    "GABAergic signaling",
+    "voltage-gated ion channels",
+    "monoamine signaling",
+    "CYP enzymes"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
 }

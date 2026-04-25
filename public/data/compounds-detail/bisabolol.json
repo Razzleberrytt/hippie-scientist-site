@@ -1,31 +1,24 @@
 {
-  "slug": "bisabolol",
   "id": "bisabolol",
+  "slug": "bisabolol",
   "name": "bisabolol",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Sesquiterpene alcohol associated with inflammatory pathway control.",
+  "description": "Sesquiterpene alcohol associated with inflammatory pathway control.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "COX inhibition",
+    "NF-κB inhibition"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Matricaria%20chamomilla"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=bisabolol"
-    }
+  "targets": [
+    "TRP channels",
+    "antimicrobial membranes",
+    "COX/LOX",
+    "GABAergic or adrenergic signaling depending compound"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "matricaria-chamomilla"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

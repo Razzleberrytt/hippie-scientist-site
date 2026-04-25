@@ -1,0 +1,22 @@
+{
+  "id": "aspalathin",
+  "slug": "aspalathin",
+  "name": "aspalathin",
+  "summary": "C-glucosyl dihydrochalcone characteristic of rooibos with metabolic and redox-signaling activity.",
+  "description": "C-glucosyl dihydrochalcone characteristic of rooibos with metabolic and redox-signaling activity.",
+  "compoundClass": "C-glucosyl dihydrochalcone",
+  "mechanisms": [
+    "AMPK activation",
+    "Nrf2 activation"
+  ],
+  "targets": [
+    "Nrf2",
+    "AMPK"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
+}

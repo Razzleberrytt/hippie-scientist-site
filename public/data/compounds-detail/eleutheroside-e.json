@@ -1,0 +1,24 @@
+{
+  "id": "eleutheroside-e",
+  "slug": "eleutheroside-e",
+  "name": "eleutheroside e",
+  "summary": "Lignan glycoside from Eleuthero linked to endurance and stress adaptation.",
+  "description": "Lignan glycoside from Eleuthero linked to endurance and stress adaptation.",
+  "compoundClass": "lignan",
+  "mechanisms": [
+    "AMPK activation",
+    "stress response modulation"
+  ],
+  "targets": [
+    "CYP/P-gp modulation",
+    "Nrf2",
+    "AMPK",
+    "liver detoxification signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Schisandra-type lignans can affect drug-metabolizing enzymes/transporters; caution with complex medication regimens.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
+}

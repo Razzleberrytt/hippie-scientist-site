@@ -1,61 +1,29 @@
 {
   "name": "mugwort",
-  "latin": "mugwort",
-  "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
-  "activeCompounds": [],
-  "effects": [
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
-  ],
-  "contraindications": [
-    "avoid during pregnancy and breastfeeding unless clinician-guided",
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance."
-  ],
-  "safetyNotes": "NCCIH: insufficient evidence to know whether oral or topical mugwort is safe; should not be used during pregnancy; breastfeeding safety is unknown.",
-  "sources": [
-    {
-      "title": "Mugwort: Usefulness and Safety (NCCIH)",
-      "url": "https://www.nccih.nih.gov/health/mugwort"
-    },
-    {
-      "title": "POWO: *Artemisia vulgaris* L.",
-      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:20812-2"
-    },
-    {
-      "title": "Significance of *Artemisia vulgaris* (Common Mugwort) in the History of Medicine (PMC, 2020)",
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7583039/"
-    }
-  ],
-  "lastUpdated": "2026-04-04",
-  "description": "Native to Europe and parts of Asia and Africa; now grows widely including North America; used historically in traditional medicines for GI and gynecological problems; currently promoted for multiple oral uses and in topical combination products. POWO lists native range: temperate Eurasia to Indo-China and North Africa.",
-  "dosage": "No direct dosage data. Contextual inference: Used in ritual dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual dreaming or folk medicine.. Used in ritual dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual dreaming or folk medicine. Used in ritual dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual dreaming or folk medicine",
-  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "interactions": [],
-  "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "region": "Native range: temperate Eurasia to Indo-China and North Africa (POWO); NCCIH describes native Europe and parts of Asia/Africa with global spread.",
-  "therapeuticUses": [
-    "digestive support (bloating, gas, mild cramping)",
-    "historical use for symptom relief in regional folk medicine"
-  ],
-  "traditionalUse": "Used in ritual, dreaming or folk medicine",
   "slug": "mugwort",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "allergic rash or itching in sensitive individuals"
+  "summary": "It is best framed conservatively because strong folklore and ritual associations often outrun clinical evidence.",
+  "description": "It is best framed conservatively because strong folklore and ritual associations often outrun clinical evidence.",
+  "primaryActions": [],
+  "mechanisms": [
+    "digestive support",
+    "traditional cycle support"
   ],
-  "id": "mugwort",
-  "displayName": "mugwort",
-  "displayScientificName": "mugwort",
-  "scientificNormalized": "mugwort",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "NCCIH states very little human research exists; there is not enough evidence to determine whether mugwort is safe or useful for any health condition."
+  "activeCompounds": [],
+  "safetyNotes": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
+  "contraindications": [
+    "Pregnancy",
+    "seizure disorder",
+    "Asteraceae allergy",
+    "internal essential-oil use"
+  ],
+  "interactions": [
+    "Caution with anticonvulsants",
+    "sedatives",
+    "and drugs affected by seizure threshold."
+  ],
+  "preparation": "Leaf tea/tincture, smoke/incense, and essential oil; internal essential oil is not appropriate for casual use.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
 }

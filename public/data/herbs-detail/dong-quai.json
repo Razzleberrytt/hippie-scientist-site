@@ -1,0 +1,34 @@
+{
+  "name": "dong quai",
+  "slug": "dong-quai",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "ligustilide and ferulic-acid vascular signaling",
+    "smooth-muscle modulation",
+    "phytoestrogen-like activity",
+    "platelet and inflammatory-pathway modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May increase bleeding risk and may not be appropriate in hormone-sensitive conditions. Pregnancy avoidance is important due to uterine/circulatory concerns.",
+  "contraindications": [
+    "Pregnancy",
+    "bleeding disorders",
+    "hormone-sensitive cancers/conditions",
+    "planned surgery",
+    "and anticoagulant therapy without supervision."
+  ],
+  "interactions": [
+    "Caution with anticoagulants",
+    "antiplatelets",
+    "NSAIDs",
+    "estrogenic therapies",
+    "and photosensitizing drugs."
+  ],
+  "preparation": "Often studied in formulas; do not generalize formula evidence to single-herb Angelica sinensis.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

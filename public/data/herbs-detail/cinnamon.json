@@ -1,0 +1,26 @@
+{
+  "name": "cinnamon",
+  "slug": "cinnamon",
+  "summary": "It is best framed conservatively because product form and species matter, especially around coumarin exposure in non-verum types.",
+  "description": "It is best framed conservatively because product form and species matter, especially around coumarin exposure in non-verum types.",
+  "primaryActions": [],
+  "mechanisms": [
+    "cinnamaldehyde/polyphenol insulin-signaling effects",
+    "AMPK/GLUT4 modulation",
+    "lipid-metabolism and inflammatory-pathway effects"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Cassia cinnamon can contain high coumarin; liver risk at high/chronic doses; monitor with diabetes drugs and anticoagulants.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Use caution with anticoagulants and glucose-lowering therapy."
+  ],
+  "preparation": "Bark powder or extract; species matters for coumarin exposure.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

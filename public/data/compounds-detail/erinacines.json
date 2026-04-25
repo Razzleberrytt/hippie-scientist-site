@@ -1,0 +1,21 @@
+{
+  "id": "erinacines",
+  "slug": "erinacines",
+  "name": "erinacines",
+  "summary": "Cyathane diterpenoids from lion’s mane mycelium studied for nerve growth factor and neurotrophic signaling.",
+  "description": "Cyathane diterpenoids from lion’s mane mycelium studied for nerve growth factor and neurotrophic signaling.",
+  "compoundClass": "terpenoid",
+  "mechanisms": [
+    "NGF induction",
+    "ERK/CREB pathway modulation"
+  ],
+  "targets": [
+    "pathway targets not fully resolved"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
+}

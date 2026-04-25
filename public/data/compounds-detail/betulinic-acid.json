@@ -1,31 +1,25 @@
 {
-  "slug": "betulinic-acid",
   "id": "betulinic-acid",
+  "slug": "betulinic-acid",
   "name": "betulinic acid",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Pentacyclic triterpenoid found across several botanicals and fungi, often studied for inflammatory and apoptotic signaling effects.",
+  "description": "Pentacyclic triterpenoid found across several botanicals and fungi, often studied for inflammatory and apoptotic signaling effects.",
+  "compoundClass": "triterpene / triterpenoid acid",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "apoptosis pathway modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Inonotus%20obliquus"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=betulinic%20acid"
-    }
+  "targets": [
+    "NF-κB",
+    "AMPK",
+    "PPAR",
+    "inflammatory cytokines",
+    "apoptosis signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "polysaccharides",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "inonotus-obliquus"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or extract-derived; concentrated doses may affect glucose, lipids, liver enzymes, or bleeding risk depending matrix.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

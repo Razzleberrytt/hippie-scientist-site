@@ -1,0 +1,31 @@
+{
+  "name": "grapefruit",
+  "slug": "grapefruit",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "intestinal CYP3A4 mechanism-based inhibition by furanocoumarins",
+    "P-gp modulation",
+    "OATP transporter effects",
+    "naringin/naringenin flavonoid signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Major food-drug interaction risk: can raise exposure of statins, calcium-channel blockers, immunosuppressants, antiarrhythmics, and other CYP3A4/OATP substrates.",
+  "contraindications": [
+    "Avoid or medically supervise with drugs labeled for grapefruit interaction",
+    "narrow-therapeutic-index drugs",
+    "and complex cardiovascular/transplant regimens."
+  ],
+  "interactions": [
+    "CYP3A4",
+    "P-gp",
+    "and OATP-mediated interactions",
+    "effects may persist beyond a single serving."
+  ],
+  "preparation": "Interaction risk varies by whole fruit, juice, cultivar, dose, and furanocoumarin content.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

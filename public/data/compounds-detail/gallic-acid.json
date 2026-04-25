@@ -1,48 +1,27 @@
 {
-  "name": "gallic acid",
-  "herbs": [
-    "vachellia-nilotica"
-  ],
-  "effects": [
-    "multi-target signaling modulation",
-    "general or unknown targets"
-  ],
-  "contraindications": [
-    "low",
-    "no well-documented interactions"
-  ],
-  "category": "tannins",
-  "sources": [
-    {
-      "title": "Workbook source URL",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=acacia%20nilotica | https://pubchem.ncbi.nlm.nih.gov/#query=gallic%20acid"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "PubChem compound page (NIH)"
-    },
-    {
-      "title": "Workbook source basis",
-      "note": "USDA Plants database"
-    },
-    {
-      "title": "Workbook source quality",
-      "note": "trusted_gov_added"
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "slug": "gallic-acid",
   "id": "gallic-acid",
-  "displayName": "gallic acid",
-  "description": "gallic acid appears in records as a compound reported in alchemilla vulgaris and nan. Current source coverage is limited and still developing.",
-  "summary": "gallic acid appears in records as a compound reported in alchemilla vulgaris and nan. Current source coverage is limited and still developing.",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "compound_level",
-  "relatedEntities": [],
-  "linkedHerbs": [
-    "alchemilla-vulgaris",
-    "nan"
+  "slug": "gallic-acid",
+  "name": "gallic acid",
+  "summary": "Gallic acid is a small phenolic acid present across many herbs, teas, and fruits. It is well represented in antioxidant and inflammatory pathway studies, but isolated human outcome evidence is limited.",
+  "description": "Simple phenolic acid widely reported from tea and fruit sources with MAPK and NF-κB pathway activity.",
+  "compoundClass": "phenolic acid / polyphenol",
+  "mechanisms": [
+    "NF-kB suppression",
+    "Nrf2-related antioxidant signaling",
+    "metal-chelation/redox effects",
+    "caspase-linked apoptosis signaling"
   ],
-  "mechanism": "insufficient evidence"
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "antioxidant response",
+    "glucose/lipid signaling",
+    "gut microbiome metabolism"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly food-associated; concentrated extracts may cause GI effects or interact with anticoagulants/antidiabetics depending matrix.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

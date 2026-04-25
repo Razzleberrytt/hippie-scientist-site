@@ -1,31 +1,22 @@
 {
-  "slug": "valerenol",
   "id": "valerenol",
+  "slug": "valerenol",
   "name": "valerenol",
-  "effects": [
-    "gaba_a_modulation"
+  "summary": "Valerenol is a valerian constituent linked to positive modulation of GABA-A signaling.",
+  "description": "Valerenol is a valerian constituent linked to positive modulation of GABA-A signaling.",
+  "compoundClass": "sesquiterpenoid / valerian constituent",
+  "mechanisms": [
+    "GABA-A modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=valerian"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=valerenol"
-    }
+  "targets": [
+    "GABA-A signaling",
+    "adenosine signaling",
+    "CNS calming pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "Valerenic acid binds beta-subunits of GABA-A receptors, enhancing chloride influx and inhibitory signaling.",
-  "herbs": [
-    "valerian"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "Valerenic acid binds beta-subunits of GABA-A receptors, enhancing chloride influx and inhibitory signaling.",
-  "description": "Valerenic acid binds beta-subunits of GABA-A receptors, enhancing chloride influx and inhibitory signaling.",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Evidence mostly comes from valerian extracts. Sedation and additive effects with CNS depressants are key concerns.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
 }

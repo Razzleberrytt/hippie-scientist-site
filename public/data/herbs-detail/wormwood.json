@@ -1,49 +1,32 @@
 {
   "name": "wormwood",
-  "latin": "wormwood",
-  "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
-  "activeCompounds": [],
-  "effects": [
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
-  ],
-  "contraindications": [
-    "avoid during pregnancy and breastfeeding unless advised by a clinician",
-    "Use caution with prescription medications and chronic conditions; monitor for intolerance.",
-    "discontinue if hypersensitivity or allergic symptoms occur"
-  ],
-  "safetyNotes": "Toxic – neurotoxic at high doses; No direct toxicity data. Contextual inference: Used in ritual; dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual; dreaming or folk medicine.. Used in ritual; dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual; dreaming or folk medicine. Used in ritual; dreaming or folk medicine",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Used in ritual, dreaming or folk medicine.",
-  "dosage": "No direct dosage data. Contextual inference: Used in ritual; dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual; dreaming or folk medicine.. Used in ritual; dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual; dreaming or folk medicine. Used in ritual; dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual; dreaming or folk medicine",
-  "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "interactions": [],
-  "legalStatus": "restricted",
-  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "therapeuticUses": [
-    "traditional support for mild digestive comfort",
-    "traditional stress resilience support"
-  ],
-  "traditionalUse": "Used in ritual, dreaming or folk medicine",
   "slug": "wormwood",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "headache (more likely with higher intake)",
-    "allergic rash or itching in sensitive individuals"
+  "summary": "Internal cross-linking supports Wormwood through compounds such as alpha-thujone, absinthin, beta-thujone.",
+  "description": "Internal cross-linking supports Wormwood through compounds such as alpha-thujone, absinthin, beta-thujone.",
+  "primaryActions": [],
+  "mechanisms": [
+    "thujone interaction with GABA-A signaling",
+    "bitter-receptor digestive signaling",
+    "sesquiterpene lactone inflammatory-pathway modulation"
   ],
-  "id": "wormwood",
-  "displayName": "wormwood",
-  "displayScientificName": "wormwood",
-  "scientificNormalized": "wormwood",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": []
+  "activeCompounds": [],
+  "safetyNotes": "Thujone-containing preparations can be neurotoxic at high exposure and may provoke seizures. Avoid concentrated essential oil or high-thujone products.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "seizure disorder",
+    "liver disease",
+    "children",
+    "and internal essential-oil use."
+  ],
+  "interactions": [
+    "Avoid with antiepileptics",
+    "sedatives",
+    "alcohol",
+    "and other neuroactive supplements or medicines."
+  ],
+  "preparation": "Use only regulated low-thujone preparations; essential oil is not equivalent to tea or standardized extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
 }

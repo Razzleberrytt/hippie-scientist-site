@@ -1,51 +1,27 @@
 {
   "name": "atractylodes macrocephala",
-  "latin": "Atractylodes macrocephala",
-  "intensity": "No direct intensity data. Contextual inference: Tonic for spleen and digestion in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic for spleen and digestion in TCM. No direct region data. Contextual inference: Tonic for spleen and digestion in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic for spleen and digestion in TCM. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-  "activeCompounds": [],
-  "effects": [
-    "Tonic for spleen and digestion in TCM"
-  ],
-  "contraindications": [
-    "discontinue if hypersensitivity or allergic symptoms occur",
-    "avoid during pregnancy and breastfeeding unless advised by a clinician"
-  ],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Tonic for spleen and digestion in tcm. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Tonic for spleen and digestion in TCM. none.",
-  "sources": [
-    {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
-    }
-  ],
-  "lastUpdated": "2026-03-21",
-  "description": "Tonic for spleen and digestion in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Tonic for spleen and digestion in tcm. Herbs often act via neurotransmitter modulation; antioxidant effects; or enzyme inhibition.. None.; nan.. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Tonic for spleen and digestion in TCM. No direct region data. Contextual inference: Tonic for spleen and digestion in tcm. Herbs often act via neurotransmitter modulation; or enzyme inhibition.. Tonic for spleen and digestion in TCM. none.; nan.",
-  "duration": "4–6 hours",
-  "interactions": [],
-  "legalStatus": "Legal globally",
-  "preparation": "No direct preparation data. Contextual inference: Tonic for spleen and digestion in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic for spleen and digestion in TCM. No direct region data. Contextual inference: Tonic for spleen and digestion in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic for spleen and digestion in TCM. none. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Tonic for spleen and digestion in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Tonic for spleen and digestion in TCM. none. ; nan; nan",
-  "therapeuticUses": [
-    "traditional support for appetite and gut comfort",
-    "digestive support (bloating, gas, mild cramping)"
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "atractylodes-macrocephala",
-  "sideEffects": [
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)",
-    "headache (more likely with higher intake)"
+  "summary": "Atractylodes macrocephala contains Atractylenolide I and is linked here to PI3K/Akt modulation.",
+  "description": "Atractylodes macrocephala contains Atractylenolide I and is linked here to PI3K/Akt modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
   ],
-  "id": "atractylodes-macrocephala",
-  "displayName": "atractylodes macrocephala",
-  "displayScientificName": "Atractylodes macrocephala",
-  "scientificNormalized": "atractylodes macrocephala",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": []
+  "activeCompounds": [],
+  "safetyNotes": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
 }

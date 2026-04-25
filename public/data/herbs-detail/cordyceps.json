@@ -1,0 +1,29 @@
+{
+  "name": "cordyceps",
+  "slug": "cordyceps",
+  "summary": "Cordyceps militaris is most often discussed around cordycepin plus polysaccharides and related nucleosides.",
+  "description": "Cordyceps militaris is most often discussed around cordycepin plus polysaccharides and related nucleosides. Commercial interest is high, but the evidence base is still strongest at the preclinical and cultivation/constituent level rather than for broad human outcome claims.",
+  "primaryActions": [],
+  "mechanisms": [
+    "immune modulation",
+    "anti-inflammatory",
+    "NF-kappaB modulation",
+    "Nrf2/HO-1",
+    "cordycepin"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Commercial products vary by species identity, cultivation method, and cordycepin content. Keep benefit claims conservative unless tied to a specific studied product.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Mushroom preparations may be hot-water extracts, dual extracts, powders, or isolated polysaccharide fractions; extraction method matters.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

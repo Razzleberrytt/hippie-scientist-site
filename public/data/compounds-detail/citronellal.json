@@ -1,35 +1,24 @@
 {
-  "slug": "citronellal",
   "id": "citronellal",
+  "slug": "citronellal",
   "name": "citronellal",
-  "effects": [
-    "gaba_a_modulation"
+  "summary": "Monoterpene aldehyde common in citronella-type oils, recognized for aromatic and sensory-channel activity.",
+  "description": "Monoterpene aldehyde common in citronella-type oils, recognized for aromatic and sensory-channel activity.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "TRPA1 modulation",
+    "sensory ion-channel modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Melissa%20Officinalis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=lemon%20balm"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=citronellal"
-    }
+  "targets": [
+    "TRP channels",
+    "antimicrobial membranes",
+    "COX/LOX",
+    "GABAergic or adrenergic signaling depending compound"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "lemon-balm"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

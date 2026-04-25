@@ -1,0 +1,25 @@
+{
+  "id": "corosolic-acid",
+  "slug": "corosolic-acid",
+  "name": "corosolic acid",
+  "summary": "Triterpenoid associated with glucose disposal and metabolic signaling.",
+  "description": "Triterpenoid associated with glucose disposal and metabolic signaling.",
+  "compoundClass": "triterpene / triterpenoid acid",
+  "mechanisms": [
+    "AMPK activation",
+    "GLUT4 translocation modulation"
+  ],
+  "targets": [
+    "NF-κB",
+    "AMPK",
+    "PPAR",
+    "inflammatory cytokines",
+    "apoptosis signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or extract-derived; concentrated doses may affect glucose, lipids, liver enzymes, or bleeding risk depending matrix.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

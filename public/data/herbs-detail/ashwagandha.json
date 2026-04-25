@@ -1,34 +1,35 @@
 {
-  "name": "Ashwagandha",
+  "name": "ashwagandha",
   "slug": "ashwagandha",
-  "scientificName": "Withania somnifera",
-  "summary": "Ashwagandha (Withania somnifera) is a shrub monograph focused on the root used in herbal preparations. It is associated with Native to India, the Middle East and parts of Africa and Asia. Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways. Short-term use appears safe; side effects include drowsiness and GI upset.",
-  "description": "Ashwagandha is represented here as a monograph-style entry centered on the root. Key reported compounds include withaferin A; withanolide D; withanolide A; withanoside IV; sitoindosides; alkaloids. Typical preparation forms: Root powders and standardized extracts. Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways. Interaction profile: May potentiate sedatives, antihypertensives, antidiabetics, thyroid hormones, and immunosuppressants. Use caution or avoid in: Pregnancy, breastfeeding, autoimmune disease, thyroid disorders, liver disease.",
-  "mechanism": "Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways.",
-  "mechanismTags": [
-    "adaptogen",
-    "anti-inflammatory",
-    "antioxidant",
-    "gabaergic"
+  "summary": "Ashwagandha centers on the root.",
+  "description": "Ashwagandha centers on the root. Key reported compounds include withaferin A; withanolide D; withanolide A; withanoside IV; sitoindosides; alkaloids. Typical preparation forms: Root powders and standardized extracts. Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways. Interaction profile: May potentiate sedatives, antihypertensives, antidiabetics, thyroid hormones, and immunosuppressants. Use caution or avoid in: Pregnancy, breastfeeding, autoimmune disease, thyroid disorders, liver disease.",
+  "primaryActions": [],
+  "mechanisms": [
+    "HPA-axis cortisol modulation",
+    "GABA-A receptor signaling modulation",
+    "NF-κB inhibition",
+    "Nrf2 antioxidant-response activation",
+    "PI3K/Akt neuroprotective signaling"
   ],
-  "activeCompounds": [
-    "withaferin-a",
-    "withanolide-d",
-    "withanolide-a",
-    "withanoside-iv",
-    "withanone",
-    "sitoindoside-ix",
-    "sitoindoside-x"
+  "activeCompounds": [],
+  "safetyNotes": "Avoid in pregnancy/breastfeeding unless clinician-supervised. Caution with thyroid disease or thyroid-hormone therapy, autoimmune disease/immunosuppressants, sedatives/CNS depressants, antihypertensives, and antidiabetics. Rare idiosyncratic liver injury is reported; avoid with active liver disease and stop if jaundice, dark urine, pruritus, or right-upper-quadrant pain occur.",
+  "contraindications": [
+    "Pregnancy",
+    "breastfeeding without clinician supervision",
+    "active liver disease or prior ashwagandha-related liver injury",
+    "clinician review for autoimmune disease or thyroid disorders."
   ],
-  "safetyNotes": "Short-term use appears safe; side effects include drowsiness and GI upset. Rare liver injury has been reported.",
   "interactions": [
-    "May potentiate sedatives",
+    "May potentiate sedatives/CNS depressants",
     "antihypertensives",
     "antidiabetics",
-    "thyroid hormones",
-    "and immunosuppressants."
+    "and thyroid hormone therapy",
+    "theoretical interaction with immunosuppressants",
+    "avoid stacking with hepatotoxic supplements/drugs."
   ],
-  "dosage": "300–500 mg root extract twice daily",
-  "preparation": "Root powders and standardized extracts.",
-  "region": "Native to India, the Middle East and parts of Africa and Asia."
+  "preparation": "Root powder and extracts are most common; higher-extract products shift compound ratios.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
 }

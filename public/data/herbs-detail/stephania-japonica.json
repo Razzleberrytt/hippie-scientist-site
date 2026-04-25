@@ -1,0 +1,26 @@
+{
+  "name": "stephania japonica",
+  "slug": "stephania-japonica",
+  "summary": "Stephania japonica lean monograph row enriched in bulk mode.",
+  "description": "Stephania japonica lean monograph row enriched in bulk mode.",
+  "primaryActions": [],
+  "mechanisms": [
+    "NF-κB inhibition",
+    "PI3K/Akt modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Alkaloid-rich herb; species substitution and nephrotoxicity/adulteration concerns require caution. Avoid pregnancy and unsupervised use.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

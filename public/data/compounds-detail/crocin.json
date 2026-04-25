@@ -1,36 +1,24 @@
 {
-  "slug": "crocin",
   "id": "crocin",
+  "slug": "crocin",
   "name": "crocin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Saffron carotenoid glycoside reported to influence PI3K/Akt and MAPK signaling.",
+  "description": "Saffron carotenoid glycoside reported to influence PI3K/Akt and MAPK signaling.",
+  "compoundClass": "carotenoid glycoside",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "MAPK pathway modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Gardenia%20jasminoides"
-    },
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=crocus%20sativus"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=crocin"
-    }
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "oxidative-stress signaling",
+    "serotonergic and dopaminergic pathways"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "crocus-sativus",
-    "gardenia-jasminoides"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Human safety is mostly inferred from saffron trials. Avoid pregnancy-dose escalation; caution with serotonergic drugs, anticoagulants, and hypotension-prone users.",
+  "evidenceLevel": "human_indirect_from_saffron; preclinical",
+  "relatedCompounds": []
 }

@@ -1,31 +1,24 @@
 {
-  "slug": "imperatorin",
   "id": "imperatorin",
+  "slug": "imperatorin",
   "name": "imperatorin",
-  "effects": [
-    "multi-target signaling modulation"
+  "summary": "Furanocoumarin associated with cholinesterase inhibition and calcium-channel-related signaling effects.",
+  "description": "Furanocoumarin associated with cholinesterase inhibition and calcium-channel-related signaling effects.",
+  "compoundClass": "coumarin / furanocoumarin",
+  "mechanisms": [
+    "acetylcholinesterase inhibition",
+    "voltage-gated calcium channel modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=casimiroa%20edulis"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=imperatorin"
-    }
+  "targets": [
+    "CYP enzymes",
+    "P-gp/OATP transporters",
+    "photoreactive DNA crosslinking",
+    "inflammatory signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "other",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "casimiroa-edulis"
-  ],
-  "contraindications": [
-    "no well-documented interactions"
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

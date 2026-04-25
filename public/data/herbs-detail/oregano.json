@@ -1,0 +1,31 @@
+{
+  "name": "oregano",
+  "slug": "oregano",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [],
+  "mechanisms": [
+    "antimicrobial",
+    "digestive support",
+    "respiratory support",
+    "TRPA1 activation",
+    "membrane disruption",
+    "GABA-A modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Culinary use is generally low-risk; oregano oil/high-thymol or carvacrol extracts can irritate GI mucosa and skin.",
+  "contraindications": [
+    "Pregnancy/breastfeeding for medicinal-dose essential oil",
+    "Lamiaceae allergy",
+    "active GI ulcer/irritation for concentrated extracts."
+  ],
+  "interactions": [
+    "Potential additive irritation with essential oils",
+    "theoretical bleeding or glucose interaction concerns at high supplemental doses."
+  ],
+  "preparation": "Leaf is used as food, tea, capsules, and tincture; oregano oil should be treated as a concentrated product, not a food-dose herb.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

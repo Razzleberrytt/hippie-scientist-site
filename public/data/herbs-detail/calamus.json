@@ -1,50 +1,32 @@
 {
   "name": "calamus",
-  "latin": "calamus",
-  "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "Proposed mechanism: unresolved from current repository sources; update when stronger human evidence is available.",
-  "activeCompounds": [
-    "Unresolved from current repository sources."
-  ],
-  "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
-  ],
-  "contraindications": [
-    "discontinue if hypersensitivity or allergic symptoms occur",
-    "avoid during pregnancy and breastfeeding unless advised by a clinician"
-  ],
-  "safetyNotes": "Safety not well characterized in current repository sources; avoid use in pregnancy/lactation and in people with major medical or psychiatric conditions without clinical supervision.",
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "calamus is included in this dataset. Species-specific efficacy and clinical characterization remain unresolved from current repository evidence.",
-  "dosage": "Unresolved from current repository sources; no high-quality standardized dosing evidence confirmed.",
-  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [
-    "Unresolved from current repository sources; screen for medication and condition interactions before use."
-  ],
-  "preparation": "Unresolved from current repository sources; preparation depends on plant part and traditional context.",
-  "region": "Unresolved from current repository sources.",
-  "therapeuticUses": [
-    "traditional support for mild digestive comfort",
-    "traditional stress resilience support"
-  ],
-  "traditionalUse": "; nan; nan",
   "slug": "calamus",
-  "sideEffects": [
-    "allergic rash or itching in sensitive individuals",
-    "mild gastrointestinal upset (nausea, cramping, or loose stool)"
+  "summary": "Internal cross-linking supports Calamus through compounds such as eugenol, alpha-asarone, beta-asarone.",
+  "description": "Internal cross-linking supports Calamus through compounds such as eugenol, alpha-asarone, beta-asarone.",
+  "primaryActions": [],
+  "mechanisms": [
+    "asarone-rich volatile oil activity",
+    "GABAergic and cholinergic CNS effects reported preclinically",
+    "smooth-muscle signaling"
   ],
-  "id": "calamus",
-  "displayName": "calamus",
-  "displayScientificName": "calamus",
-  "scientificNormalized": "calamus",
-  "identity": "",
-  "categoryUseContext": "",
-  "evidenceLevel": "",
-  "relatedEntities": [],
-  "relatedCompounds": [],
-  "summary": "calamus entry normalized to baseline; key clinical and pharmacology fields are unresolved where repository evidence is limited."
+  "activeCompounds": [],
+  "safetyNotes": "High-caution herb because beta-asarone-containing preparations have toxicology and regulatory concerns. Avoid internal use unless verified beta-asarone-free and professionally supervised.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "children",
+    "seizure disorder",
+    "liver disease",
+    "and internal high-dose use."
+  ],
+  "interactions": [
+    "Potential additive CNS effects with sedatives",
+    "alcohol",
+    "antiepileptics",
+    "and other neuroactive agents."
+  ],
+  "preparation": "Distinguish beta-asarone-free Acorus calamus chemotypes from beta-asarone-containing materials; do not generalize safety across chemotypes.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
 }

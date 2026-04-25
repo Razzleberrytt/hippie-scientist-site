@@ -1,32 +1,25 @@
 {
-  "slug": "madecassic-acid",
   "id": "madecassic-acid",
+  "slug": "madecassic-acid",
   "name": "madecassic acid",
-  "effects": [
-    "cox/nf-kb inhibition"
+  "summary": "Centella triterpenoid associated with matrix-remodeling and survival signaling.",
+  "description": "Centella triterpenoid associated with matrix-remodeling and survival signaling.",
+  "compoundClass": "triterpene / triterpenoid acid",
+  "mechanisms": [
+    "TGF-β signaling modulation",
+    "PI3K/Akt modulation"
   ],
-  "sources": [
-    {
-      "title": "Reference",
-      "url": "https://plants.sc.egov.usda.gov/home/search?query=Centella%20asiatica"
-    },
-    {
-      "title": "Reference",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/#query=madecassic%20acid"
-    }
+  "targets": [
+    "NF-κB",
+    "AMPK",
+    "PPAR",
+    "inflammatory cytokines",
+    "apoptosis signaling"
   ],
-  "lastUpdated": "2026-04-09",
-  "category": "organic acid",
-  "mechanism": "insufficient evidence",
-  "herbs": [
-    "gotu-kola"
-  ],
-  "contraindications": [
-    "sedatives",
-    "hepatotoxic drugs."
-  ],
-  "summary": "insufficient evidence",
-  "description": "insufficient evidence",
-  "evidenceLevel": "compound_level",
-  "aliases": []
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or extract-derived; concentrated doses may affect glucose, lipids, liver enzymes, or bleeding risk depending matrix.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
 }

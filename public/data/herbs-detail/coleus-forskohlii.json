@@ -1,0 +1,32 @@
+{
+  "name": "coleus forskohlii",
+  "slug": "coleus-forskohlii",
+  "summary": "Coleus forskohlii contains Forskolin and is linked here to adenylyl cyclase activation.",
+  "description": "Coleus forskohlii contains Forskolin and is linked here to adenylyl cyclase activation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "forskolin activation of adenylate cyclase",
+    "increased intracellular cAMP",
+    "protein kinase A signaling",
+    "smooth-muscle and lipolysis pathway effects"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May lower blood pressure or increase heart rate in sensitive users. Caution with anticoagulants, antihypertensives, nitrates, and perioperative use.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "hypotension",
+    "bleeding disorders",
+    "and cardiovascular disease without clinician oversight."
+  ],
+  "interactions": [
+    "Potential additive effects with antihypertensives",
+    "nitrates",
+    "antiplatelets/anticoagulants",
+    "and bronchodilator-style regimens."
+  ],
+  "preparation": "Evidence is strongest for standardized forskolin extracts, not all Coleus preparations.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

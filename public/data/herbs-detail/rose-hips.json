@@ -1,0 +1,27 @@
+{
+  "name": "rose hips",
+  "slug": "rose-hips",
+  "summary": "They are best framed as polyphenol- and vitamin-rich fruit material with modest but relevant human evidence.",
+  "description": "They are best framed as polyphenol- and vitamin-rich fruit material with modest but relevant human evidence.",
+  "primaryActions": [],
+  "mechanisms": [
+    "galactolipid/GOPO anti-inflammatory signaling",
+    "COX/LOX and cartilage inflammatory mediator modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "GI effects possible; caution with anticoagulants/antiplatelets and kidney-stone risk in susceptible users.",
+  "contraindications": [
+    "Kidney stone risk",
+    "iron overload disorders with high vitamin C intake",
+    "pregnancy/breastfeeding supplement review"
+  ],
+  "interactions": [
+    "May affect iron absorption",
+    "caution with anticoagulants if high-dose vitamin C/polyphenol products."
+  ],
+  "preparation": "Fruit/hip tea, powder, extracts, syrups; seed oil is a separate topical product.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}
