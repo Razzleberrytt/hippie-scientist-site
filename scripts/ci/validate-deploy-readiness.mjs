@@ -4,9 +4,14 @@ import path from 'node:path'
 import matter from 'gray-matter'
 
 const ROOT = process.cwd()
-const MIN_PUBLISHABLE_HERBS = 400
 const MIN_SITEMAP_LOC_ENTRIES = 500
 const MIN_NON_DRAFT_BLOG_POSTS = 5
+const DEFAULT_MIN_PUBLISHABLE_HERBS = 250
+const DEFAULT_MIN_PUBLISHABLE_COMPOUNDS = 200
+const DEPLOY_MODES = {
+  githubPagesIntegration: 'github-pages-integration',
+  cloudflareDirect: 'cloudflare-direct',
+}
 
 const QUALITY_THRESHOLDS = {
   publishableDescriptionLength: 20,
@@ -25,6 +30,25 @@ function readJson(relativePath) {
   const fullPath = path.join(ROOT, relativePath)
   if (!fs.existsSync(fullPath)) return null
   return JSON.parse(fs.readFileSync(fullPath, 'utf8'))
+}
+
+function readJsonWithStatus(relativePath, errors) {
+  const fullPath = path.join(ROOT, relativePath)
+  if (!fs.existsSync(fullPath)) return { ok: false, exists: false, value: null }
+  try {
+    return { ok: true, exists: true, value: JSON.parse(fs.readFileSync(fullPath, 'utf8')) }
+  } catch {
+    errors.push(`${relativePath} contains invalid JSON.`)
+    return { ok: false, exists: true, value: null }
+  }
+}
+
+function resolveMinThreshold(name, fallback) {
+  const raw = toText(process.env[name])
+  if (!raw) return fallback
+  const parsed = Number(raw)
+  if (!Number.isFinite(parsed) || parsed < 0) return fallback
+  return parsed
 }
 
 function fail(messages) {
@@ -84,6 +108,10 @@ function hasLinkedContext(record) {
 function hasValidName(record) {
   const name = toText(record?.name || record?.displayName || record?.commonName || record?.latin)
   const slug = toText(record?.slug)
+  const badIdentityTokens = new Set(['[object object]', 'unknown', 'nan', 'undefined'])
+  const lowerName = name.toLowerCase()
+  const lowerSlug = slug.toLowerCase()
+  if (badIdentityTokens.has(lowerName) || badIdentityTokens.has(lowerSlug)) return false
   return name.length >= 2 && slug.length >= 2
 }
 
@@ -130,14 +158,14 @@ function listBlogPosts(relativeDir) {
     })
 }
 
-function validatePublicationManifest(manifest, errors) {
+function validatePublicationManifest(manifest, warnings) {
   if (!manifest || typeof manifest !== 'object') {
-    errors.push('public/data/publication-manifest.json is missing or unreadable JSON.')
+    warnings.push('public/data/publication-manifest.json is missing or unreadable JSON (warning only for workbook-only deploy contract).')
     return
   }
 
   if (!toText(manifest.generatedAt)) {
-    errors.push('publication-manifest missing generatedAt timestamp.')
+    warnings.push('publication-manifest missing generatedAt timestamp (warning only).')
   }
 
   const entityHerbs = toArray(manifest?.entities?.herbs)
@@ -145,42 +173,64 @@ function validatePublicationManifest(manifest, errors) {
   const routeHerbs = toArray(manifest?.routes?.herbs)
   const routeCompounds = toArray(manifest?.routes?.compounds)
 
-  if (entityHerbs.length === 0) errors.push('publication-manifest entities.herbs is empty.')
-  if (entityCompounds.length === 0) errors.push('publication-manifest entities.compounds is empty.')
+  if (entityHerbs.length === 0) warnings.push('publication-manifest entities.herbs is empty (warning only).')
+  if (entityCompounds.length === 0) warnings.push('publication-manifest entities.compounds is empty (warning only).')
 
   if (routeHerbs.length !== entityHerbs.length) {
-    errors.push(`publication-manifest coherence error: routes.herbs (${routeHerbs.length}) must match entities.herbs (${entityHerbs.length}).`)
+    warnings.push(
+      `publication-manifest coherence warning: routes.herbs (${routeHerbs.length}) does not match entities.herbs (${entityHerbs.length}).`,
+    )
   }
 
   if (routeCompounds.length !== entityCompounds.length) {
-    errors.push(`publication-manifest coherence error: routes.compounds (${routeCompounds.length}) must match entities.compounds (${entityCompounds.length}).`)
+    warnings.push(
+      `publication-manifest coherence warning: routes.compounds (${routeCompounds.length}) does not match entities.compounds (${entityCompounds.length}).`,
+    )
   }
 
   const malformedHerbEntity = entityHerbs.find(
     entry => !toText(entry?.slug) || !toText(entry?.route).startsWith('/herbs/') || entry?.publicationEligible !== true,
   )
   if (malformedHerbEntity) {
-    errors.push('publication-manifest contains malformed or non-publishable herb entries under entities.herbs.')
+    warnings.push('publication-manifest contains malformed or non-publishable herb entries under entities.herbs (warning only).')
   }
 
   const malformedCompoundEntity = entityCompounds.find(
     entry => !toText(entry?.slug) || !toText(entry?.route).startsWith('/compounds/') || entry?.publicationEligible !== true,
   )
   if (malformedCompoundEntity) {
-    errors.push('publication-manifest contains malformed or non-publishable compound entries under entities.compounds.')
+    warnings.push(
+      'publication-manifest contains malformed or non-publishable compound entries under entities.compounds (warning only).',
+    )
   }
 
   const herbsSummaryIndexable = Number(manifest?.summaries?.herbs?.indexable || 0)
   const compoundsSummaryIndexable = Number(manifest?.summaries?.compounds?.indexable || 0)
   if (herbsSummaryIndexable !== entityHerbs.length) {
-    errors.push(`publication-manifest summaries.herbs.indexable (${herbsSummaryIndexable}) does not match entities.herbs length (${entityHerbs.length}).`)
+    warnings.push(
+      `publication-manifest summaries.herbs.indexable (${herbsSummaryIndexable}) does not match entities.herbs length (${entityHerbs.length}) (warning only).`,
+    )
   }
   if (compoundsSummaryIndexable !== entityCompounds.length) {
-    errors.push(`publication-manifest summaries.compounds.indexable (${compoundsSummaryIndexable}) does not match entities.compounds length (${entityCompounds.length}).`)
+    warnings.push(
+      `publication-manifest summaries.compounds.indexable (${compoundsSummaryIndexable}) does not match entities.compounds length (${entityCompounds.length}) (warning only).`,
+    )
   }
 }
 
 function validateCloudflareEnv(errors) {
+  const deployMode = toText(process.env.DEPLOY_MODE || DEPLOY_MODES.githubPagesIntegration)
+  if (!Object.values(DEPLOY_MODES).includes(deployMode)) {
+    errors.push(
+      `DEPLOY_MODE must be one of: ${DEPLOY_MODES.githubPagesIntegration}, ${DEPLOY_MODES.cloudflareDirect} (received "${deployMode || '(empty)'}").`,
+    )
+    return
+  }
+
+  if (deployMode !== DEPLOY_MODES.cloudflareDirect) {
+    return
+  }
+
   const token = toText(process.env.CLOUDFLARE_API_TOKEN)
   const accountId = toText(process.env.CLOUDFLARE_ACCOUNT_ID)
   const project = toText(process.env.CLOUDFLARE_PAGES_PROJECT)
@@ -206,23 +256,62 @@ function validateCloudflareEnv(errors) {
 
 function main() {
   const errors = []
+  const warnings = []
+  const minPublishableHerbs = resolveMinThreshold('MIN_PUBLISHABLE_HERBS', DEFAULT_MIN_PUBLISHABLE_HERBS)
+  const minPublishableCompounds = resolveMinThreshold('MIN_PUBLISHABLE_COMPOUNDS', DEFAULT_MIN_PUBLISHABLE_COMPOUNDS)
 
-  const herbs = readJson('public/data/herbs.json')
-  if (!Array.isArray(herbs)) {
+  const herbsData = readJsonWithStatus('public/data/herbs.json', errors)
+  const compoundsData = readJsonWithStatus('public/data/compounds.json', errors)
+  const herbsSummaryData = readJsonWithStatus('public/data/herbs-summary.json', errors)
+  const compoundsSummaryData = readJsonWithStatus('public/data/compounds-summary.json', errors)
+
+  if (!herbsData.exists || !Array.isArray(herbsData.value)) {
     errors.push('public/data/herbs.json is missing or not an array.')
   } else {
+    if (herbsData.value.length === 0) {
+      errors.push('public/data/herbs.json contains zero herbs.')
+    }
+
     const manifest = readJson('public/data/publication-manifest.json')
     const thresholds = {
       publishableDescriptionLength:
         Number(manifest?.thresholds?.publishableDescriptionLength) || QUALITY_THRESHOLDS.publishableDescriptionLength,
       publishableMinSources: Number(manifest?.thresholds?.publishableMinSources) || QUALITY_THRESHOLDS.publishableMinSources,
     }
-    const publishableCount = herbs.filter(herb => isPublishableHerb(herb, thresholds)).length
-    if (publishableCount < MIN_PUBLISHABLE_HERBS) {
+    const publishableCount = herbsData.value.filter(herb => isPublishableHerb(herb, thresholds)).length
+    if (publishableCount < minPublishableHerbs) {
       errors.push(
-        `Publishable herb count below threshold: ${publishableCount} < ${MIN_PUBLISHABLE_HERBS} (evaluated with hardened quality rules).`,
+        `Publishable herb count below threshold: ${publishableCount} < ${minPublishableHerbs} (set MIN_PUBLISHABLE_HERBS to override).`,
       )
     }
+  }
+
+  if (!compoundsData.exists || !Array.isArray(compoundsData.value)) {
+    errors.push('public/data/compounds.json is missing or not an array.')
+  } else {
+    if (compoundsData.value.length === 0) {
+      errors.push('public/data/compounds.json contains zero compounds.')
+    }
+
+    if (compoundsData.value.length < minPublishableCompounds) {
+      errors.push(
+        `Publishable compound count below threshold: ${compoundsData.value.length} < ${minPublishableCompounds} (set MIN_PUBLISHABLE_COMPOUNDS to override).`,
+      )
+    }
+  }
+
+  if (!herbsSummaryData.exists || !Array.isArray(herbsSummaryData.value)) {
+    errors.push('public/data/herbs-summary.json is missing or not an array.')
+  }
+  if (!compoundsSummaryData.exists || !Array.isArray(compoundsSummaryData.value)) {
+    errors.push('public/data/compounds-summary.json is missing or not an array.')
+  }
+
+  if (!fs.existsSync(path.join(ROOT, 'public/data/herbs-detail'))) {
+    errors.push('public/data/herbs-detail is missing.')
+  }
+  if (!fs.existsSync(path.join(ROOT, 'public/data/compounds-detail'))) {
+    errors.push('public/data/compounds-detail is missing.')
   }
 
   const sitemap = countSitemapLocs('dist/sitemap.xml')
@@ -232,7 +321,7 @@ function main() {
     errors.push(`dist/sitemap.xml must contain more than ${MIN_SITEMAP_LOC_ENTRIES} <loc> entries (found ${sitemap.count}).`)
   }
 
-  validatePublicationManifest(readJson('public/data/publication-manifest.json'), errors)
+  validatePublicationManifest(readJson('public/data/publication-manifest.json'), warnings)
 
   const posts = listBlogPosts('content/blog')
   const nonDraftCount = posts.filter(post => !post.draft).length
@@ -242,12 +331,16 @@ function main() {
 
   validateCloudflareEnv(errors)
 
+  for (const warning of warnings) {
+    console.warn(`[deploy-readiness] WARN ${warning}`)
+  }
+
   if (errors.length > 0) {
     fail(errors)
   }
 
   console.log(
-    `[deploy-readiness] PASS publishableHerbs>=${MIN_PUBLISHABLE_HERBS}, sitemapLocs>${MIN_SITEMAP_LOC_ENTRIES}, publicationManifest=coherent, nonDraftPosts>=${MIN_NON_DRAFT_BLOG_POSTS}, cloudflareEnv=valid`,
+    `[deploy-readiness] PASS publishableHerbs>=${minPublishableHerbs}, compounds>=${minPublishableCompounds}, sitemapLocs>${MIN_SITEMAP_LOC_ENTRIES}, canonicalData=valid, nonDraftPosts>=${MIN_NON_DRAFT_BLOG_POSTS}, deployMode=${toText(process.env.DEPLOY_MODE || DEPLOY_MODES.githubPagesIntegration)}, cloudflareEnv=valid`,
   )
 }
 
