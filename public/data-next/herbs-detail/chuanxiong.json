@@ -1,0 +1,21 @@
+{
+  "name": "chuanxiong",
+  "slug": "chuanxiong",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Chuanxiong through compounds such as ligustilide, ferulic acid, tetramethylpyrazine.",
+  "description": "Internal cross-linking supports Chuanxiong through compounds such as ligustilide, ferulic acid, tetramethylpyrazine.",
+  "mechanismTags": [
+    "ligustilide/tetramethylpyrazine-related vasodilation",
+    "platelet aggregation modulation",
+    "nitric-oxide and calcium-channel signaling",
+    "inflammatory-pathway modulation"
+  ],
+  "activeCompounds": [],
+  "interactions": [
+    "Potential additive effects with anticoagulants",
+    "antiplatelets",
+    "antihypertensives",
+    "nitrates",
+    "and migraine/circulation formulas."
+  ]
+}

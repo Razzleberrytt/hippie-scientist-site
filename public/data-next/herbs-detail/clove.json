@@ -1,0 +1,19 @@
+{
+  "name": "clove",
+  "slug": "clove",
+  "scientificName": "",
+  "summary": "Bulk-ingested support row carrying Eugenol with pathway-level mechanism coverage.",
+  "description": "Bulk-ingested support row carrying Eugenol with pathway-level mechanism coverage.",
+  "mechanismTags": [
+    "Eugenol-mediated COX-2/LOX modulation",
+    "TRPV1/TRPA1 sensory receptor interaction",
+    "platelet aggregation effects."
+  ],
+  "activeCompounds": [
+    "Eugenol"
+  ],
+  "interactions": [
+    "May increase bleeding risk with anticoagulants/antiplatelets",
+    "caution with hepatotoxic drugs."
+  ]
+}

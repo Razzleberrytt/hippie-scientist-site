@@ -1,0 +1,21 @@
+{
+  "name": "rice bran",
+  "slug": "rice-bran",
+  "scientificName": "",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "mechanismTags": [
+    "γ-oryzanol and phytosterol effects on cholesterol absorption",
+    "bile-acid excretion and lipid metabolism modulation",
+    "AMPK/PPAR metabolic signaling",
+    "Nrf2 antioxidant response",
+    "dietary fiber/prebiotic effects."
+  ],
+  "activeCompounds": [
+    "Ferulic acid"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

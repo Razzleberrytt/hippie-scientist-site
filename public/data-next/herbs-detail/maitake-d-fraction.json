@@ -1,0 +1,19 @@
+{
+  "name": "maitake d-fraction",
+  "slug": "maitake-d-fraction",
+  "scientificName": "",
+  "summary": "It should be framed distinctly from whole maitake because extract-standardization claims can exceed the underlying evidence.",
+  "description": "It should be framed distinctly from whole maitake because extract-standardization claims can exceed the underlying evidence.",
+  "mechanismTags": [
+    "beta-glucan/dectin-1 immune signaling",
+    "macrophage and NK-cell cytokine modulation",
+    "NF-κB-mediated immune-response modulation"
+  ],
+  "activeCompounds": [
+    "beta-glucans"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

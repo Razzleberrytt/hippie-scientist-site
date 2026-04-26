@@ -1,0 +1,23 @@
+{
+  "name": "coleus forskohlii",
+  "slug": "coleus-forskohlii",
+  "scientificName": "",
+  "summary": "It is best framed around forskolin with blood-pressure and stimulant-stack caution.",
+  "description": "It is best framed around forskolin with blood-pressure and stimulant-stack caution.",
+  "mechanismTags": [
+    "forskolin activation of adenylate cyclase",
+    "increased intracellular cAMP",
+    "protein kinase A signaling",
+    "smooth-muscle and lipolysis pathway effects"
+  ],
+  "activeCompounds": [
+    "Forskolin",
+    "forskolin"
+  ],
+  "interactions": [
+    "Potential additive effects with antihypertensives",
+    "nitrates",
+    "antiplatelets/anticoagulants",
+    "and bronchodilator-style regimens."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "luo han guo",
+  "slug": "luo-han-guo",
+  "scientificName": "",
+  "summary": "It is best framed as a fruit botanical with sweet mogrosides and soothing traditional use.",
+  "description": "It is best framed as a fruit botanical with sweet mogrosides and soothing traditional use.",
+  "mechanismTags": [
+    "throat support",
+    "sweetener-adjacent support"
+  ],
+  "activeCompounds": [
+    "mogroside v"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "antihypertensives/diuretics",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

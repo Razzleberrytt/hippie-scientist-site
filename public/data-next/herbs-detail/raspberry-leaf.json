@@ -1,0 +1,19 @@
+{
+  "name": "raspberry leaf",
+  "slug": "raspberry-leaf",
+  "scientificName": "",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "mechanismTags": [
+    "Uterine smooth-muscle tone modulation",
+    "calcium-channel/oxytocin-related uterine signaling uncertainty",
+    "tannin/polyphenol NF-κB and Nrf2 modulation."
+  ],
+  "activeCompounds": [
+    "Ellagic acid"
+  ],
+  "interactions": [
+    "Limited interaction data",
+    "caution with uterotonic agents or sedatives if blended products."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "sage",
+  "slug": "sage",
+  "scientificName": "",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied. Lean bulk enrichment added: Carnosic acid.",
+  "mechanismTags": [
+    "cognition",
+    "digestive support",
+    "antioxidant",
+    "Nrf2 activation",
+    "NF-κB inhibition",
+    "STAT3 inhibition",
+    "AMPK activation",
+    "PI3K/Akt modulation"
+  ],
+  "activeCompounds": [
+    "carvacrol",
+    "thujone",
+    "Carnosic acid",
+    "Ursolic acid",
+    "Oleanolic acid"
+  ],
+  "interactions": [
+    "May interact with sedatives",
+    "anticonvulsants",
+    "antidiabetics",
+    "or cholinergic/anticholinergic drugs depending preparation."
+  ]
+}

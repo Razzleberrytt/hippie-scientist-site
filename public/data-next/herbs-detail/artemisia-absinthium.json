@@ -1,0 +1,20 @@
+{
+  "name": "artemisia absinthium",
+  "slug": "artemisia-absinthium",
+  "scientificName": "",
+  "summary": "Artemisia absinthium contains Thujone and is linked here to GABA-A receptor antagonism.",
+  "description": "Artemisia absinthium contains Thujone and is linked here to GABA-A receptor antagonism.",
+  "mechanismTags": [
+    "Thujone-mediated GABA-A antagonism",
+    "bitter sesquiterpene lactone digestive signaling",
+    "TRP channel interaction",
+    "inflammatory pathway modulation."
+  ],
+  "activeCompounds": [
+    "Thujone"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

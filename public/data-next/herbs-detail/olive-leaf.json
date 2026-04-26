@@ -1,0 +1,20 @@
+{
+  "name": "olive leaf",
+  "slug": "olive-leaf",
+  "scientificName": "",
+  "summary": "Bulk-ingested support row carrying Oleuropein with pathway-level mechanism coverage.",
+  "description": "Bulk-ingested support row carrying Oleuropein with pathway-level mechanism coverage.",
+  "mechanismTags": [
+    "oleuropein/hydroxytyrosol antioxidant signaling",
+    "ACE/endothelial nitric oxide modulation",
+    "lipid and blood-pressure pathway effects"
+  ],
+  "activeCompounds": [
+    "Oleuropein",
+    "Hydroxytyrosol"
+  ],
+  "interactions": [
+    "May potentiate antihypertensives and antidiabetics",
+    "caution with anticoagulants if product has vascular effects."
+  ]
+}

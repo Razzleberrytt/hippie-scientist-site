@@ -1,0 +1,21 @@
+{
+  "name": "parsley",
+  "slug": "parsley",
+  "scientificName": "",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "mechanismTags": [
+    "Apigenin/flavone-mediated GABA-A modulation",
+    "Nrf2 antioxidant signaling",
+    "PI3K/Akt signaling",
+    "apiol/myristicin activity in concentrated preparations."
+  ],
+  "activeCompounds": [
+    "Apigenin"
+  ],
+  "interactions": [
+    "Potential interaction concern with antihypertensives/diuretics",
+    "sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

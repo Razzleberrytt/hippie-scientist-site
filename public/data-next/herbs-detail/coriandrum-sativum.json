@@ -1,0 +1,20 @@
+{
+  "name": "coriandrum sativum",
+  "slug": "coriandrum-sativum",
+  "scientificName": "",
+  "summary": "Coriandrum sativum lean monograph row enriched in bulk mode.",
+  "description": "Coriandrum sativum lean monograph row enriched in bulk mode.",
+  "mechanismTags": [
+    "Linalool-mediated GABA-A/glutamatergic modulation",
+    "α-glucosidase and insulin-signaling effects",
+    "Nrf2 and MAPK pathway modulation."
+  ],
+  "activeCompounds": [
+    "Umbelliferone"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

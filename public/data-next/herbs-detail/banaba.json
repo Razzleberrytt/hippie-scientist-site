@@ -1,0 +1,18 @@
+{
+  "name": "banaba",
+  "slug": "banaba",
+  "scientificName": "",
+  "summary": "It is best framed conservatively because evidence quality and standardization vary across products.",
+  "description": "It is best framed conservatively because evidence quality and standardization vary across products.",
+  "mechanismTags": [
+    "corosolic-acid AMPK/GLUT4 modulation",
+    "α-glucosidase effects",
+    "postprandial glucose signaling"
+  ],
+  "activeCompounds": [
+    "corosolic acid"
+  ],
+  "interactions": [
+    "May potentiate antidiabetic medications and other glucose-lowering supplements."
+  ]
+}

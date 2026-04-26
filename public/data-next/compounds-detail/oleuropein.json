@@ -1,0 +1,28 @@
+{
+  "name": "oleuropein",
+  "slug": "oleuropein",
+  "summary": "Olive secoiridoid associated with NF-κB and AMPK pathway modulation.",
+  "description": "Olive secoiridoid associated with NF-κB and AMPK pathway modulation.",
+  "compoundClass": "secoiridoid phenolic glycoside",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "AMPK activation"
+  ],
+  "targets": [
+    "AMPK",
+    "Nrf2",
+    "NF-κB",
+    "endothelial nitric oxide",
+    "lipid/glucose metabolism"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Generally food-associated via olive/olive leaf, but concentrated extracts may lower blood pressure or glucose. Monitor with antihypertensive or antidiabetic therapy.",
+  "evidenceLevel": "human_limited; preclinical_strong",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "medium",
+  "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific."
+}

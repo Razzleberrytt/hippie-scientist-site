@@ -1,0 +1,27 @@
+{
+  "name": "silibinin",
+  "slug": "silibinin",
+  "summary": "Major flavonolignan of milk thistle with STAT3 and PI3K/Akt pathway activity.",
+  "description": "Major flavonolignan of milk thistle with STAT3 and PI3K/Akt pathway activity.",
+  "compoundClass": "flavonolignan",
+  "mechanisms": [
+    "STAT3 inhibition",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "hepatic antioxidant pathways",
+    "inflammatory cytokines"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Generally well tolerated in milk-thistle trials; caution with Asteraceae allergy, antidiabetics, hormone-sensitive conditions, and CYP-metabolized drugs.",
+  "evidenceLevel": "human_limited; meta_analysis_by_liver/metabolic_markers",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 10,
+  "confidenceTier": "moderate",
+  "evidenceType": "meta_analysis",
+  "confidenceTier_v2": "high",
+  "confidenceReason": "Backed by meta-analysis or systematic-review level human evidence, with compound-specific cautions retained."
+}

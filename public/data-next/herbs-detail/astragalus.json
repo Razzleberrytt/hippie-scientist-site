@@ -1,0 +1,25 @@
+{
+  "name": "astragalus",
+  "slug": "astragalus",
+  "scientificName": "",
+  "summary": "It is best framed around astragalosides and polysaccharides.",
+  "description": "It is best framed around astragalosides and polysaccharides.",
+  "mechanismTags": [
+    "immune modulation",
+    "fatigue support",
+    "estrogen receptor modulation",
+    "PI3K/Akt modulation"
+  ],
+  "activeCompounds": [
+    "astragaloside iv",
+    "calycosin",
+    "Formononetin"
+  ],
+  "interactions": [
+    "May counter immunosuppressants",
+    "may interact with lithium",
+    "diuretics",
+    "antidiabetics",
+    "and antivirals depending context."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "carob",
+  "slug": "carob",
+  "scientificName": "",
+  "summary": "It is best framed as a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action.",
+  "description": "It is best framed as a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action.",
+  "mechanismTags": [
+    "digestive support",
+    "metabolic support"
+  ],
+  "activeCompounds": [
+    "d-pinitol"
+  ],
+  "interactions": [
+    "Fiber/tannin content may reduce absorption of some oral medications if taken together."
+  ]
+}

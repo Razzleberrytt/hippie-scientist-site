@@ -1,0 +1,18 @@
+{
+  "name": "roselle seed",
+  "slug": "roselle-seed",
+  "scientificName": "",
+  "summary": "It should be framed distinctly from hibiscus calyx because seed and calyx use-cases differ.",
+  "description": "It should be framed distinctly from hibiscus calyx because seed and calyx use-cases differ.",
+  "mechanismTags": [
+    "nutritive support",
+    "antioxidant"
+  ],
+  "activeCompounds": [
+    "tocopherols"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

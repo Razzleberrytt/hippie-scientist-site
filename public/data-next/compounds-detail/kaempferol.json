@@ -1,0 +1,28 @@
+{
+  "name": "kaempferol",
+  "slug": "kaempferol",
+  "summary": "Flavonol commonly associated with PI3K/Akt and NF-κB pathway modulation in botanical systems.",
+  "description": "Flavonol commonly associated with PI3K/Akt and NF-κB pathway modulation in botanical systems.",
+  "compoundClass": "flavonol polyphenol",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "NF-κB",
+    "Nrf2",
+    "PI3K/Akt",
+    "MAPK",
+    "inflammatory cytokines"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Food exposure is low-risk; high-dose supplement safety is less established. Caution with anticoagulants, antidiabetics, and complex oncology regimens.",
+  "evidenceLevel": "preclinical; human_limited",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 11,
+  "confidenceTier": "moderate",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "medium",
+  "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific."
+}

@@ -1,0 +1,30 @@
+{
+  "name": "biochanin a",
+  "slug": "biochanin-a",
+  "summary": "Biochanin A is an isoflavone present in red clover and other legumes, with interest centered on estrogen-related, metabolic, and anti-inflammatory signaling. Human evidence for the isolated compound remains limited compared with broader isoflavone mixtures.",
+  "description": "Methylated isoflavone associated with clover and soy, linked to estrogen receptor and inflammatory pathway activity.",
+  "compoundClass": "isoflavone / phytoestrogen",
+  "mechanisms": [
+    "Estrogen-receptor modulation",
+    "CYP/aromatase-related signaling effects",
+    "PPAR modulation",
+    "NF-kB suppression"
+  ],
+  "targets": [
+    "estrogen receptor signaling",
+    "AMPK",
+    "PPAR",
+    "antioxidant response",
+    "bone/metabolic signaling"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
+  "evidenceLevel": "human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Mechanistic support exists, but isolated human evidence is limited."
+}

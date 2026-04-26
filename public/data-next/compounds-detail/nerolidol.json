@@ -1,0 +1,27 @@
+{
+  "name": "nerolidol",
+  "slug": "nerolidol",
+  "summary": "Sesquiterpene alcohol associated with calming and cytoprotective signaling.",
+  "description": "Sesquiterpene alcohol associated with calming and cytoprotective signaling.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "GABA-A modulation",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "TRP channels",
+    "antimicrobial membranes",
+    "COX/LOX",
+    "GABAergic or adrenergic signaling depending compound"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

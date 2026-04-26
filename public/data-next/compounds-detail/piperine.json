@@ -1,0 +1,30 @@
+{
+  "name": "piperine",
+  "slug": "piperine",
+  "summary": "Piperine is the major pungent alkaloid of black pepper and a well-known bioavailability enhancer. Human evidence is strongest for pharmacokinetic interaction effects rather than broad stand-alone therapeutic outcomes.",
+  "description": "Alkaloid from black pepper enhancing bioavailability.",
+  "compoundClass": "piperidine alkaloid / bioenhancer",
+  "mechanisms": [
+    "TRPV1 activation",
+    "CYP3A4/CYP2C9 modulation",
+    "P-gp inhibition",
+    "intestinal permeability and absorption enhancement"
+  ],
+  "targets": [
+    "CYP3A4",
+    "CYP2C9",
+    "P-gp",
+    "intestinal permeability",
+    "TRPV1"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Pharmacokinetic interaction risk is the key issue. Use caution with narrow-therapeutic-index drugs, anticoagulants, antiepileptics, antidiabetics, and sedatives.",
+  "evidenceLevel": "human_limited_for_pk; safety_interaction_relevant",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 19,
+  "confidenceTier": "moderate",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "medium",
+  "confidenceReason": "Human data exist mainly for pharmacokinetic and bioenhancer effects, not broad clinical efficacy."
+}

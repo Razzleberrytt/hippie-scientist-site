@@ -1,0 +1,26 @@
+{
+  "name": "red clover",
+  "slug": "red-clover",
+  "scientificName": "",
+  "summary": "It should be framed conservatively because endocrine-adjacent claims outrun the evidence in many product contexts.",
+  "description": "It should be framed conservatively because endocrine-adjacent claims outrun the evidence in many product contexts.",
+  "mechanismTags": [
+    "isoflavone phytoestrogen signaling via estrogen receptors",
+    "lipid-metabolism modulation",
+    "antioxidant signaling"
+  ],
+  "activeCompounds": [
+    "genistein",
+    "biochanin A",
+    "calycosin",
+    "coumestrol",
+    "ononin",
+    "Genistein",
+    "Daidzein",
+    "Formononetin",
+    "Biochanin A"
+  ],
+  "interactions": [
+    "May interact with hormone therapies and anticoagulants/antiplatelets."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "fraxinus rhynchophylla",
+  "slug": "fraxinus-rhynchophylla",
+  "scientificName": "",
+  "summary": "Fraxinus rhynchophylla lean monograph row enriched in bulk mode.",
+  "description": "Fraxinus rhynchophylla lean monograph row enriched in bulk mode.",
+  "mechanismTags": [
+    "Nrf2 activation",
+    "NF-κB inhibition"
+  ],
+  "activeCompounds": [
+    "Fraxetin"
+  ],
+  "interactions": [
+    "Potential interaction concern with anticoagulants/antiplatelets",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "pueraria mirifica",
+  "slug": "pueraria-mirifica",
+  "scientificName": "",
+  "summary": "It is best framed very cautiously due to potent estrogenic positioning.",
+  "description": "It is best framed very cautiously due to potent estrogenic positioning.",
+  "mechanismTags": [
+    "Miroestrol/deoxymiroestrol phytoestrogen activity",
+    "estrogen receptor modulation",
+    "isoflavone-related endocrine signaling."
+  ],
+  "activeCompounds": [
+    "coumestrol",
+    "daidzin",
+    "deoxymiroestrol"
+  ],
+  "interactions": [
+    "Potential interaction concern with hormonal therapies",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

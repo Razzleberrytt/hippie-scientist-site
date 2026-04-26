@@ -1,0 +1,21 @@
+{
+  "name": "moringa",
+  "slug": "moringa",
+  "scientificName": "",
+  "summary": "It is best framed as a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood cure-all.",
+  "description": "It is best framed as a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood cure-all.",
+  "mechanismTags": [
+    "isothiocyanate and glucosinolate Nrf2 activation",
+    "AMPK-related glucose/lipid signaling",
+    "NF-κB modulation",
+    "polyphenol antioxidant pathways"
+  ],
+  "activeCompounds": [
+    "moringin",
+    "glucomoringin"
+  ],
+  "interactions": [
+    "Potential additive effects with antidiabetic and antihypertensive therapies",
+    "theoretical interaction with thyroid-active therapy in high-dose extracts."
+  ]
+}

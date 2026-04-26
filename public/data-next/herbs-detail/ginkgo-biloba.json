@@ -1,0 +1,33 @@
+{
+  "name": "ginkgo biloba",
+  "slug": "ginkgo-biloba",
+  "scientificName": "",
+  "summary": "Ginkgo Biloba centers on the leaf.",
+  "description": "Ginkgo Biloba centers on the leaf. Key reported compounds include ginkgolides A, B, C, J; bilobalide; ginkgetin; bilobetin; sciadopitysin. Typical preparation forms: Standardized leaf extract (EGb 761). The standardized leaf extract (EGb 761) contains terpene lactones and flavone glycosides that modulate multiple neurotransmitter systems and platelet-activating factor pathways. Interaction profile: May potentiate NSAIDs, anticoagulants, antiplatelets, and interact with antidepressants and antidiabetic drugs. Use caution or avoid in: Pregnancy, breastfeeding, bleeding disorders, epilepsy, planned surgery.",
+  "mechanismTags": [
+    "platelet-activating factor antagonism",
+    "antioxidant/free-radical scavenging",
+    "cerebral microcirculation and endothelial nitric-oxide modulation",
+    "mitochondrial protection",
+    "NF-κB/Nrf2 signaling modulation"
+  ],
+  "activeCompounds": [
+    "ginkgolides A, B, C, J",
+    "Ginkgolide B",
+    "Bilobalide",
+    "Quercetin",
+    "Kaempferol",
+    "Isorhamnetin",
+    "ginkgetin",
+    "bilobetin",
+    "ginkgolide B"
+  ],
+  "interactions": [
+    "Anticoagulants",
+    "antiplatelets",
+    "NSAIDs",
+    "antiepileptics",
+    "and other narrow-therapeutic-index drugs",
+    "possible extract-specific CYP effects."
+  ]
+}

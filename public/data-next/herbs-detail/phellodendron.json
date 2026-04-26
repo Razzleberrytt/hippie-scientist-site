@@ -1,0 +1,21 @@
+{
+  "name": "phellodendron",
+  "slug": "phellodendron",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Phellodendron through compounds such as berberine, jatrorrhizine, palmatine.",
+  "description": "Internal cross-linking supports Phellodendron through compounds such as berberine, jatrorrhizine, palmatine.",
+  "mechanismTags": [
+    "AMPK activation",
+    "NF-kB pathway inhibition",
+    "mitochondrial complex I inhibition"
+  ],
+  "activeCompounds": [
+    "berberine",
+    "palmatine"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "CYP/P-gp substrate medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

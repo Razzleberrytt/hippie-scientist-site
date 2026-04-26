@@ -1,0 +1,21 @@
+{
+  "name": "mucuna",
+  "slug": "mucuna",
+  "scientificName": "",
+  "summary": "It is best framed around L-DOPA-rich seeds with clear neurologic and stimulation-related caution.",
+  "description": "It is best framed around L-DOPA-rich seeds with clear neurologic and stimulation-related caution.",
+  "mechanismTags": [
+    "natural L-DOPA dopaminergic replacement pathway",
+    "antioxidant and mitochondrial support mechanisms"
+  ],
+  "activeCompounds": [
+    "L-DOPA"
+  ],
+  "interactions": [
+    "May interact with levodopa/carbidopa",
+    "MAOIs",
+    "antipsychotics",
+    "antihypertensives",
+    "and dopaminergic drugs."
+  ]
+}

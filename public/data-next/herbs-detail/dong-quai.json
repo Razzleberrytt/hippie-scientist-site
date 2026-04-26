@@ -1,0 +1,23 @@
+{
+  "name": "dong quai",
+  "slug": "dong-quai",
+  "scientificName": "",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "mechanismTags": [
+    "ligustilide and ferulic-acid vascular signaling",
+    "smooth-muscle modulation",
+    "phytoestrogen-like activity",
+    "platelet and inflammatory-pathway modulation"
+  ],
+  "activeCompounds": [
+    "curcumin"
+  ],
+  "interactions": [
+    "Caution with anticoagulants",
+    "antiplatelets",
+    "NSAIDs",
+    "estrogenic therapies",
+    "and photosensitizing drugs."
+  ]
+}

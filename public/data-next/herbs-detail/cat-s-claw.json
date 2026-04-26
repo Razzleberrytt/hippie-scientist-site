@@ -1,0 +1,17 @@
+{
+  "name": "cat's claw",
+  "slug": "cat-s-claw",
+  "scientificName": "",
+  "summary": "It is best framed around oxindole alkaloids with autoimmune and transplant-related caution.",
+  "description": "It is best framed around oxindole alkaloids with autoimmune and transplant-related caution.",
+  "mechanismTags": [
+    "Pentacyclic oxindole alkaloid immunomodulation",
+    "TNF-α and NF-κB modulation",
+    "cytokine signaling effects."
+  ],
+  "activeCompounds": [],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

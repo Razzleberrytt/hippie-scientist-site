@@ -1,0 +1,18 @@
+{
+  "name": "daphne odora",
+  "slug": "daphne-odora",
+  "scientificName": "",
+  "summary": "Daphne odora lean monograph row enriched in bulk mode.",
+  "description": "Daphne odora lean monograph row enriched in bulk mode.",
+  "mechanismTags": [
+    "JAK/STAT inhibition",
+    "NF-κB inhibition"
+  ],
+  "activeCompounds": [
+    "Daphnetin"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "thujone",
+  "slug": "thujone",
+  "summary": "Thujone is a monoterpene ketone best known for neuroactive and toxicity-relevant pharmacology in sage- and wormwood-related discussions. Its importance is driven more by receptor-level safety relevance than by positive human efficacy evidence.",
+  "description": "Monoterpene ketone associated with GABAergic and sensory signaling.",
+  "compoundClass": "monoterpene ketone",
+  "mechanisms": [
+    "GABA-A receptor antagonism",
+    "neuronal excitability enhancement",
+    "seizure-threshold lowering at higher exposures"
+  ],
+  "targets": [
+    "GABA-A receptors"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Neuroactive monoterpene; high exposure may increase seizure/neurotoxicity risk. Avoid pregnancy, seizure disorders, and concentrated essential-oil ingestion.",
+  "evidenceLevel": "in_vitro",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 7,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "The literature is mainly mechanistic and safety-focused rather than efficacy-driven in humans."
+}

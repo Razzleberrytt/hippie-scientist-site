@@ -1,0 +1,20 @@
+{
+  "name": "grape",
+  "slug": "grape",
+  "scientificName": "",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "mechanismTags": [
+    "proanthocyanidin endothelial nitric-oxide signaling",
+    "antioxidant/NF-κB modulation",
+    "platelet and lipid pathway effects"
+  ],
+  "activeCompounds": [
+    "Resveratrol",
+    "Pterostilbene"
+  ],
+  "interactions": [
+    "Potential additive bleeding risk with anticoagulants/antiplatelets",
+    "may modestly affect blood pressure."
+  ]
+}

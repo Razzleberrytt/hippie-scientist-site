@@ -1,0 +1,20 @@
+{
+  "name": "turkey tail",
+  "slug": "turkey-tail",
+  "scientificName": "",
+  "summary": "Immune modulation.",
+  "description": "Immune modulation.",
+  "mechanismTags": [
+    "PSK/PSP beta-glucan immune signaling",
+    "dectin-1/TLR pathway modulation",
+    "macrophage/NK-cell cytokine signaling",
+    "NF-κB immune-response modulation"
+  ],
+  "activeCompounds": [
+    "psk"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

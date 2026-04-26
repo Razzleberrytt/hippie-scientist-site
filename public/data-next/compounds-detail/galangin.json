@@ -1,0 +1,29 @@
+{
+  "name": "galangin",
+  "slug": "galangin",
+  "summary": "Flavonol from Alpinia officinarum with antimicrobial and anti-inflammatory roles.",
+  "description": "Flavonol from Alpinia officinarum with antimicrobial and anti-inflammatory roles.",
+  "compoundClass": "flavonol / flavonoid",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK modulation"
+  ],
+  "targets": [
+    "AMPK",
+    "Nrf2",
+    "NF-κB",
+    "inflammatory cytokines",
+    "endothelial nitric oxide",
+    "antioxidant response"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Mostly food/extract-derived human evidence. High-dose supplements may affect CYP/transporters or anticoagulant/antiplatelet risk.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 6,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

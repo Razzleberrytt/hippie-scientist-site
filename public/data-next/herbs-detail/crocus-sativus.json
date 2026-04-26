@@ -1,0 +1,20 @@
+{
+  "name": "crocus sativus",
+  "slug": "crocus-sativus",
+  "scientificName": "",
+  "summary": "Lean bulk ingestion row for Crocus sativus.",
+  "description": "Lean bulk ingestion row for Crocus sativus. Key active compounds include Crocin; Crocetin.",
+  "mechanismTags": [
+    "crocin/crocetin antioxidant signaling",
+    "serotonergic/dopaminergic modulation",
+    "HPA-axis and inflammatory-pathway effects"
+  ],
+  "activeCompounds": [
+    "Crocin",
+    "Crocetin"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ]
+}

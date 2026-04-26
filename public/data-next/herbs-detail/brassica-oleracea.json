@@ -1,0 +1,19 @@
+{
+  "name": "brassica oleracea",
+  "slug": "brassica-oleracea",
+  "scientificName": "",
+  "summary": "Minimum source-backed intake for Brassica oleracea.",
+  "description": "Minimum source-backed intake for Brassica oleracea. Active compound support includes sulforaphane. Mechanism support retained at Nrf2 activation level for future cluster completion.",
+  "mechanismTags": [
+    "glucosinolate-myrosinase conversion to isothiocyanates",
+    "Nrf2 antioxidant-response activation",
+    "phase II detoxification enzyme induction"
+  ],
+  "activeCompounds": [
+    "sulforaphane"
+  ],
+  "interactions": [
+    "Potential interaction concern with antihypertensives/diuretics",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

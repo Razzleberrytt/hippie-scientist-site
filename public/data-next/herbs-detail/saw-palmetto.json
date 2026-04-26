@@ -1,0 +1,24 @@
+{
+  "name": "saw palmetto",
+  "slug": "saw-palmetto",
+  "scientificName": "",
+  "summary": "Saw Palmetto centers on the berry.",
+  "description": "Saw Palmetto centers on the berry. Key reported compounds include fatty acids; phytosterols (beta-sitosterol). Typical preparation forms: Berry extracts. 5-alpha-reductase inhibition; anti-androgenic effects. Interaction profile: Hormonal therapies, anticoagulants. Use caution or avoid in: Pregnancy.",
+  "mechanismTags": [
+    "5-alpha-reductase inhibition",
+    "androgen receptor signaling modulation",
+    "anti-inflammatory COX/LOX pathway modulation",
+    "prostate epithelial anti-edema effects"
+  ],
+  "activeCompounds": [
+    "fatty acids",
+    "beta-sitosterol"
+  ],
+  "interactions": [
+    "Anticoagulants",
+    "antiplatelets",
+    "hormone-active therapies",
+    "and perioperative medications",
+    "possible additive bleeding concern."
+  ]
+}

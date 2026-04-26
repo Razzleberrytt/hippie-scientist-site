@@ -1,0 +1,20 @@
+{
+  "name": "notoginseng",
+  "slug": "notoginseng",
+  "scientificName": "",
+  "summary": "It is best framed as a saponin-rich Panax relative with specific vascular-support positioning.",
+  "description": "It is best framed as a saponin-rich Panax relative with specific vascular-support positioning.",
+  "mechanismTags": [
+    "vascular support",
+    "recovery support"
+  ],
+  "activeCompounds": [
+    "notoginsenoside r1"
+  ],
+  "interactions": [
+    "May interact with anticoagulants",
+    "antiplatelets",
+    "antihypertensives",
+    "and antidiabetics."
+  ]
+}

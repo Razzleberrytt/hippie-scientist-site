@@ -1,0 +1,27 @@
+{
+  "name": "thymol",
+  "slug": "thymol",
+  "summary": "Thymol is a monoterpene phenol prominent in thyme and related aromatic herbs. The best-supported effects are antimicrobial and neuroactive membrane-level actions, with little direct clinical evidence for isolated-compound outcomes.",
+  "description": "Monoterpene phenol from thyme and oregano with antimicrobial and neuroactive properties.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "Membrane disruption",
+    "GABA-A receptor modulation",
+    "TRP-channel effects",
+    "antimicrobial permeability effects"
+  ],
+  "targets": [
+    "GABA-A-related sites",
+    "membrane targets"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "animal / in vitro",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 15,
+  "confidenceTier": "moderate",
+  "evidenceType": "animal",
+  "confidenceTier_v2": "medium",
+  "confidenceReason": "Evidence is mainly mechanistic and antimicrobial, not strongly clinical."
+}

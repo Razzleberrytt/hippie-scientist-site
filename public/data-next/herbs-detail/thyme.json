@@ -1,0 +1,27 @@
+{
+  "name": "thyme",
+  "slug": "thyme",
+  "scientificName": "",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "mechanismTags": [
+    "respiratory support",
+    "antimicrobial",
+    "digestive support",
+    "NF-κB inhibition",
+    "MAPK pathway modulation",
+    "TRPA1 activation",
+    "membrane disruption",
+    "GABA-A modulation"
+  ],
+  "activeCompounds": [
+    "eucalyptol",
+    "Luteolin",
+    "carvacrol",
+    "thymol"
+  ],
+  "interactions": [
+    "Potential additive irritation with other essential oils",
+    "theoretical caution with anticoagulants for high-dose extracts."
+  ]
+}

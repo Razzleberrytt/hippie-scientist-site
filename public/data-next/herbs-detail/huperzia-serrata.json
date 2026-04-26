@@ -1,0 +1,19 @@
+{
+  "name": "huperzia serrata",
+  "slug": "huperzia-serrata",
+  "scientificName": "",
+  "summary": "Huperzia serrata contains Huperzine A and is linked here to acetylcholinesterase inhibition.",
+  "description": "Huperzia serrata contains Huperzine A and is linked here to acetylcholinesterase inhibition.",
+  "mechanismTags": [
+    "acetylcholinesterase inhibition",
+    "NMDA receptor modulation"
+  ],
+  "activeCompounds": [
+    "Huperzine A",
+    "Huperzine B"
+  ],
+  "interactions": [
+    "Potential interaction concern with antihypertensives/diuretics",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

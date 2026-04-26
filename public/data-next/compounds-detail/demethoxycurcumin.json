@@ -1,0 +1,28 @@
+{
+  "name": "demethoxycurcumin",
+  "slug": "demethoxycurcumin",
+  "summary": "Curcuminoid analog associated with inflammatory and antioxidant-response pathways.",
+  "description": "Curcuminoid analog associated with inflammatory and antioxidant-response pathways.",
+  "compoundClass": "curcuminoid / diarylheptanoid",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "Nrf2 activation"
+  ],
+  "targets": [
+    "NF-κB",
+    "Nrf2",
+    "COX/LOX",
+    "inflammatory cytokines",
+    "AMPK"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Human evidence is mostly formulation-dependent. High-dose curcuminoids may cause GI upset and interact with anticoagulants/antiplatelets.",
+  "evidenceLevel": "human_limited",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 6,
+  "confidenceTier": "low",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "medium",
+  "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific."
+}

@@ -1,0 +1,28 @@
+{
+  "name": "hydroxytyrosol",
+  "slug": "hydroxytyrosol",
+  "summary": "Olive phenolic metabolite linked to Nrf2 activation and PI3K/Akt signaling.",
+  "description": "Olive phenolic metabolite linked to Nrf2 activation and PI3K/Akt signaling.",
+  "compoundClass": "phenylethanoid polyphenol",
+  "mechanisms": [
+    "Nrf2 activation",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "Nrf2",
+    "oxidative-stress pathways",
+    "LDL oxidation",
+    "endothelial signaling",
+    "NF-κB"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Food-associated from olive oil/olive leaf; high-dose supplement safety is less defined. Caution with blood-pressure and antiplatelet medication contexts.",
+  "evidenceLevel": "human_limited; food_based",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "medium",
+  "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific."
+}

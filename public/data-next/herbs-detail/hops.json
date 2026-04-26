@@ -1,0 +1,20 @@
+{
+  "name": "hops",
+  "slug": "hops",
+  "scientificName": "",
+  "summary": "It is best framed around bitter-resin and prenylflavonoid chemistry with modest selected human evidence.",
+  "description": "It is best framed around bitter-resin and prenylflavonoid chemistry with modest selected human evidence.",
+  "mechanismTags": [
+    "calming support",
+    "sleep support"
+  ],
+  "activeCompounds": [
+    "humulone"
+  ],
+  "interactions": [
+    "May potentiate sedatives",
+    "alcohol",
+    "sleep medications",
+    "and other CNS depressants."
+  ]
+}

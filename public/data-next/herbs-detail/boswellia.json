@@ -1,0 +1,24 @@
+{
+  "name": "boswellia",
+  "slug": "boswellia",
+  "scientificName": "",
+  "summary": "It is best framed around boswellic acids with inflammatory-pathway relevance.",
+  "description": "It is best framed around boswellic acids with inflammatory-pathway relevance.",
+  "mechanismTags": [
+    "Boswellic acids",
+    "especially AKBA",
+    "inhibit 5-lipoxygenase and leukotriene synthesis",
+    "modulate NF-κB",
+    "mPGES-1",
+    "and inflammatory cytokine signaling."
+  ],
+  "activeCompounds": [
+    "akba",
+    "acetyl-11-keto-beta-boswellic acid"
+  ],
+  "interactions": [
+    "Potential additive effects with anti-inflammatory drugs",
+    "anticoagulants",
+    "and immunomodulators."
+  ]
+}

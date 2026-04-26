@@ -1,0 +1,17 @@
+{
+  "name": "marshmallow",
+  "slug": "marshmallow",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Marshmallow through compounds such as pectin.",
+  "description": "Internal cross-linking supports Marshmallow through compounds such as pectin.",
+  "mechanismTags": [
+    "mucilage polysaccharide barrier effects",
+    "local soothing demulcent action",
+    "mild anti-inflammatory signaling in mucosal tissues"
+  ],
+  "activeCompounds": [],
+  "interactions": [
+    "Separate from oral medications by at least 1–2 hours to reduce absorption interference",
+    "monitor with antidiabetic therapy."
+  ]
+}

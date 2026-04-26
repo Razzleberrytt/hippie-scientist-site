@@ -1,0 +1,19 @@
+{
+  "name": "milk oats",
+  "slug": "milk-oats",
+  "scientificName": "",
+  "summary": "They are best framed as a gentle traditional tonic rather than a strong acute intervention.",
+  "description": "They are best framed as a gentle traditional tonic rather than a strong acute intervention.",
+  "mechanismTags": [
+    "nutritive support",
+    "calming support"
+  ],
+  "activeCompounds": [
+    "avenacosides",
+    "avenanthramides"
+  ],
+  "interactions": [
+    "Low documented interaction burden",
+    "theoretical add-on sedation with CNS depressants."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "valepotriates",
+  "slug": "valepotriates",
+  "summary": "Valerian iridoid ester fraction associated with sedative and stress-signaling effects.",
+  "description": "Valerian iridoid ester fraction associated with sedative and stress-signaling effects.",
+  "compoundClass": "sesquiterpenoid / valerian constituent",
+  "mechanisms": [
+    "GABA-A modulation",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "GABA-A signaling",
+    "adenosine signaling",
+    "CNS calming pathways"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Evidence mostly comes from valerian extracts. Sedation and additive effects with CNS depressants are key concerns.",
+  "evidenceLevel": "human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

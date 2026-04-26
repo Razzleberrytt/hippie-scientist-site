@@ -1,0 +1,18 @@
+{
+  "name": "kuding tea",
+  "slug": "kuding-tea",
+  "scientificName": "",
+  "summary": "It should be framed as a bitter tea botanical with food-form relevance and modest modern evidence.",
+  "description": "It should be framed as a bitter tea botanical with food-form relevance and modest modern evidence.",
+  "mechanismTags": [
+    "antioxidant",
+    "cardiometabolic support"
+  ],
+  "activeCompounds": [
+    "kudinlactone"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

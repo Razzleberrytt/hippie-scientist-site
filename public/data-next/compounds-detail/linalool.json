@@ -1,0 +1,27 @@
+{
+  "name": "linalool",
+  "slug": "linalool",
+  "summary": "Monoterpene alcohol linked to GABA-A and calcium-channel related effects.",
+  "description": "Monoterpene alcohol linked to GABA-A and calcium-channel related effects.",
+  "compoundClass": "monoterpene alcohol",
+  "mechanisms": [
+    "GABA-A modulation",
+    "voltage-gated calcium channel modulation"
+  ],
+  "targets": [
+    "GABAergic signaling",
+    "glutamate signaling",
+    "inflammatory cytokines",
+    "olfactory/CNS pathways"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Primarily essential-oil/aroma exposure; topical allergy and CNS sedation are possible. Avoid ingestion of essential oils without supervision.",
+  "evidenceLevel": "preclinical; human_limited_aroma",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "medium",
+  "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific."
+}

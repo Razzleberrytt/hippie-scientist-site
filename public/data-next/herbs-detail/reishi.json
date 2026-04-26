@@ -1,0 +1,20 @@
+{
+  "name": "reishi",
+  "slug": "reishi",
+  "scientificName": "",
+  "summary": "Immune modulation.",
+  "description": "Immune modulation.",
+  "mechanismTags": [
+    "β-glucan immune modulation",
+    "triterpene effects on inflammatory signaling",
+    "antioxidant pathways"
+  ],
+  "activeCompounds": [
+    "beta-glucans"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

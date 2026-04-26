@@ -1,0 +1,23 @@
+{
+  "name": "artemisia capillaris",
+  "slug": "artemisia-capillaris",
+  "scientificName": "",
+  "summary": "Artemisia capillaris lean monograph row enriched in bulk mode.",
+  "description": "Artemisia capillaris lean monograph row enriched in bulk mode.",
+  "mechanismTags": [
+    "NF-κB inhibition",
+    "voltage-gated calcium channel modulation",
+    "5-lipoxygenase inhibition",
+    "Nrf2 activation"
+  ],
+  "activeCompounds": [
+    "Scopoletin",
+    "Esculetin",
+    "Fraxetin"
+  ],
+  "interactions": [
+    "Potential interaction concern with anticoagulants/antiplatelets",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

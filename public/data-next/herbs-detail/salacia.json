@@ -1,0 +1,19 @@
+{
+  "name": "salacia",
+  "slug": "salacia",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Salacia through compounds such as mangiferin, kotalanol, salacinol.",
+  "description": "Internal cross-linking supports Salacia through compounds such as mangiferin, kotalanol, salacinol.",
+  "mechanismTags": [
+    "salacinol/kotalanol alpha-glucosidase inhibition",
+    "intestinal carbohydrate absorption modulation",
+    "AMPK/PPAR-related metabolic signaling"
+  ],
+  "activeCompounds": [
+    "kotalanol"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

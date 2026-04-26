@@ -1,0 +1,26 @@
+{
+  "name": "cafestol",
+  "slug": "cafestol",
+  "summary": "Coffee diterpene best known from coffee lipids and studied for xenobiotic-response and inflammatory signaling effects.",
+  "description": "Coffee diterpene best known from coffee lipids and studied for xenobiotic-response and inflammatory signaling effects.",
+  "compoundClass": "diterpene / coffee alkaloid-related constituent",
+  "mechanisms": [
+    "Nrf2 activation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "lipid metabolism",
+    "bile acid signaling",
+    "adenosine/glucose metabolism depending compound"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Coffee matrix matters. Cafestol/kahweol can raise LDL with unfiltered coffee; caffeine-related effects may apply to coffee products.",
+  "evidenceLevel": "human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

@@ -1,0 +1,28 @@
+{
+  "name": "scutellaria baicalensis",
+  "slug": "scutellaria-baicalensis",
+  "scientificName": "",
+  "summary": "Lean bulk ingestion row for Scutellaria baicalensis.",
+  "description": "Lean bulk ingestion row for Scutellaria baicalensis. Key active compounds include Baicalin; Baicalein; Wogonin.",
+  "mechanismTags": [
+    "baicalin/baicalein/wogonin modulation of NF-κB",
+    "MAPK",
+    "PI3K/Akt",
+    "Nrf2",
+    "cytokines",
+    "and oxidative-stress pathways"
+  ],
+  "activeCompounds": [
+    "Baicalin",
+    "Baicalein",
+    "Wogonin",
+    "baicalein",
+    "baicalin"
+  ],
+  "interactions": [
+    "Potential interactions with anticoagulants/antiplatelets",
+    "sedatives",
+    "immunosuppressants",
+    "and hepatotoxic drugs."
+  ]
+}

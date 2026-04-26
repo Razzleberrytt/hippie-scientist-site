@@ -1,0 +1,20 @@
+{
+  "name": "feverfew",
+  "slug": "feverfew",
+  "scientificName": "",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "mechanismTags": [
+    "parthenolide-mediated NF-κB inhibition",
+    "serotonin/platelet modulation",
+    "TRPA1 and prostaglandin-pathway effects"
+  ],
+  "activeCompounds": [
+    "Actein",
+    "parthenolide"
+  ],
+  "interactions": [
+    "May increase bleeding risk with anticoagulants/antiplatelets/NSAIDs",
+    "caution with migraine medications."
+  ]
+}

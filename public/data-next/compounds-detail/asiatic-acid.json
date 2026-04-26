@@ -1,0 +1,28 @@
+{
+  "name": "asiatic acid",
+  "slug": "asiatic-acid",
+  "summary": "Triterpenoid aglycone associated with tissue repair and inflammatory pathway effects.",
+  "description": "Triterpenoid aglycone associated with tissue repair and inflammatory pathway effects.",
+  "compoundClass": "pentacyclic triterpenoid",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "TGF-β signaling modulation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "TGF-β/Smad",
+    "collagen synthesis",
+    "NF-κB",
+    "wound-healing and inflammatory signaling"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Human evidence mostly from Centella extracts/topicals. Caution with liver disease, sedatives, pregnancy, and high-dose oral extracts.",
+  "evidenceLevel": "human_indirect_from_centella_extracts",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 11,
+  "confidenceTier": "moderate",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

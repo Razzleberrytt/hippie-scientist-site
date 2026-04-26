@@ -1,0 +1,28 @@
+{
+  "name": "astragalus membranaceus",
+  "slug": "astragalus-membranaceus",
+  "scientificName": "",
+  "summary": "Astragalus membranaceus contains Astragaloside IV and is linked here to PI3K/Akt modulation.",
+  "description": "Astragalus membranaceus contains Astragaloside IV and is linked here to PI3K/Akt modulation.",
+  "mechanismTags": [
+    "PI3K/Akt modulation",
+    "AMPK activation",
+    "TGF-β signaling modulation",
+    "estrogen receptor modulation",
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
+  ],
+  "activeCompounds": [
+    "Astragaloside IV",
+    "Calycosin",
+    "Formononetin",
+    "Astragalin"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "antihypertensives/diuretics",
+    "hormonal therapies",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

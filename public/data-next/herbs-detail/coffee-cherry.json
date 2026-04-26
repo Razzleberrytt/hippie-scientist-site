@@ -1,0 +1,24 @@
+{
+  "name": "coffee cherry",
+  "slug": "coffee-cherry",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Coffee Cherry through compounds such as caffeine, trigonelline, cafestol.",
+  "description": "Internal cross-linking supports Coffee Cherry through compounds such as caffeine, trigonelline, cafestol.",
+  "mechanismTags": [
+    "chlorogenic-acid antioxidant signaling",
+    "caffeine adenosine-receptor antagonism",
+    "polyphenol Nrf2/AMPK-related pathways"
+  ],
+  "activeCompounds": [
+    "Caffeine",
+    "cafestol",
+    "kahweol"
+  ],
+  "interactions": [
+    "Additive effects with caffeine",
+    "stimulants",
+    "decongestants",
+    "theophylline",
+    "and CYP1A2-modulating drugs."
+  ]
+}

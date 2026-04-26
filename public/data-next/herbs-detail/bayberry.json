@@ -1,0 +1,18 @@
+{
+  "name": "bayberry",
+  "slug": "bayberry",
+  "scientificName": "",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "mechanismTags": [
+    "MAPK pathway modulation",
+    "NF-κB inhibition"
+  ],
+  "activeCompounds": [
+    "Myricetin"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

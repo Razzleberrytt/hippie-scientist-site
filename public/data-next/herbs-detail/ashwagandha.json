@@ -1,0 +1,28 @@
+{
+  "name": "ashwagandha",
+  "slug": "ashwagandha",
+  "scientificName": "",
+  "summary": "Ashwagandha centers on the root.",
+  "description": "Ashwagandha centers on the root. Key reported compounds include withaferin A; withanolide D; withanolide A; withanoside IV; sitoindosides; alkaloids. Typical preparation forms: Root powders and standardized extracts. Withanolides are thought to mediate adaptogenic and neuroprotective effects by modulating HPA-axis signaling, NF-κB, Nrf2 and GABAergic pathways. Interaction profile: May potentiate sedatives, antihypertensives, antidiabetics, thyroid hormones, and immunosuppressants. Use caution or avoid in: Pregnancy, breastfeeding, autoimmune disease, thyroid disorders, liver disease.",
+  "mechanismTags": [
+    "HPA-axis cortisol modulation",
+    "GABA-A receptor signaling modulation",
+    "NF-κB inhibition",
+    "Nrf2 antioxidant-response activation",
+    "PI3K/Akt neuroprotective signaling"
+  ],
+  "activeCompounds": [
+    "Withaferin A",
+    "Withanolide A",
+    "Withanoside IV",
+    "Withanoside V"
+  ],
+  "interactions": [
+    "May potentiate sedatives/CNS depressants",
+    "antihypertensives",
+    "antidiabetics",
+    "and thyroid hormone therapy",
+    "theoretical interaction with immunosuppressants",
+    "avoid stacking with hepatotoxic supplements/drugs."
+  ]
+}

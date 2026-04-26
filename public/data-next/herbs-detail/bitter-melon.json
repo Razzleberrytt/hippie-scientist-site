@@ -1,0 +1,24 @@
+{
+  "name": "bitter melon",
+  "slug": "bitter-melon",
+  "scientificName": "",
+  "summary": "It is best framed as a food-medicine with hypoglycemia-aware caution.",
+  "description": "It is best framed as a food-medicine with hypoglycemia-aware caution.",
+  "mechanismTags": [
+    "charantin and polypeptide-p hypoglycemic activity",
+    "AMPK activation",
+    "GLUT4 translocation",
+    "PPARγ modulation",
+    "pancreatic beta-cell and insulin-secretion effects"
+  ],
+  "activeCompounds": [
+    "Charantin",
+    "Momordicoside K"
+  ],
+  "interactions": [
+    "Insulin",
+    "sulfonylureas",
+    "GLP-1/SGLT2/metformin and other glucose-lowering therapy",
+    "monitor glucose."
+  ]
+}

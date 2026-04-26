@@ -1,0 +1,28 @@
+{
+  "name": "caffeic acid",
+  "slug": "caffeic-acid",
+  "summary": "Phenolic acid broadly present in herbs and coffee, commonly linked to NF-κB and MAPK signaling.",
+  "description": "Phenolic acid broadly present in herbs and coffee, commonly linked to NF-κB and MAPK signaling.",
+  "compoundClass": "phenolic acid / polyphenol",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "antioxidant response",
+    "glucose/lipid signaling",
+    "gut microbiome metabolism"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Mostly food-associated; concentrated extracts may cause GI effects or interact with anticoagulants/antidiabetics depending matrix.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

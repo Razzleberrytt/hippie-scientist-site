@@ -1,0 +1,22 @@
+{
+  "name": "guayusa",
+  "slug": "guayusa",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine.",
+  "description": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine.",
+  "mechanismTags": [
+    "caffeine-mediated adenosine A1/A2A antagonism",
+    "theobromine methylxanthine effects",
+    "chlorogenic-acid antioxidant signaling"
+  ],
+  "activeCompounds": [
+    "Caffeine"
+  ],
+  "interactions": [
+    "Additive effects with caffeine",
+    "stimulants",
+    "theophylline",
+    "decongestants",
+    "and stimulant medications."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "rehmannia glutinosa",
+  "slug": "rehmannia-glutinosa",
+  "scientificName": "",
+  "summary": "Rehmannia glutinosa contains Catalpol and is linked here to PI3K/Akt modulation.",
+  "description": "Rehmannia glutinosa contains Catalpol and is linked here to PI3K/Akt modulation.",
+  "mechanismTags": [
+    "PI3K/Akt modulation",
+    "AMPK activation"
+  ],
+  "activeCompounds": [
+    "Catalpol"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

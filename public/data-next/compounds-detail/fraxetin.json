@@ -1,0 +1,27 @@
+{
+  "name": "fraxetin",
+  "slug": "fraxetin",
+  "summary": "Methoxylated coumarin linked to Nrf2 activation and inflammatory pathway suppression.",
+  "description": "Methoxylated coumarin linked to Nrf2 activation and inflammatory pathway suppression.",
+  "compoundClass": "coumarin / furanocoumarin",
+  "mechanisms": [
+    "Nrf2 activation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "CYP enzymes",
+    "P-gp/OATP transporters",
+    "photoreactive DNA crosslinking",
+    "inflammatory signaling"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

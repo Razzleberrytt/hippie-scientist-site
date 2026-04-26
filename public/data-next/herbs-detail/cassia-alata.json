@@ -1,0 +1,16 @@
+{
+  "name": "cassia alata",
+  "slug": "cassia-alata",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Cassia Alata through compounds such as aloe-emodin, chrysophanol.",
+  "description": "Internal cross-linking supports Cassia Alata through compounds such as aloe-emodin, chrysophanol.",
+  "mechanismTags": [
+    "MAPK pathway",
+    "NF-kB inhibition"
+  ],
+  "activeCompounds": [],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ]
+}

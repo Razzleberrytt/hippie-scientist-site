@@ -1,0 +1,18 @@
+{
+  "name": "stellera chamaejasme",
+  "slug": "stellera-chamaejasme",
+  "scientificName": "",
+  "summary": "Stellera chamaejasme lean monograph row enriched in bulk mode.",
+  "description": "Stellera chamaejasme lean monograph row enriched in bulk mode.",
+  "mechanismTags": [
+    "JAK/STAT inhibition",
+    "NF-κB inhibition"
+  ],
+  "activeCompounds": [
+    "Daphnetin"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

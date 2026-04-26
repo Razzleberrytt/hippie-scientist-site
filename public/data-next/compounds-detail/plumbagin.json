@@ -1,0 +1,29 @@
+{
+  "name": "plumbagin",
+  "slug": "plumbagin",
+  "summary": "Naphthoquinone associated with inflammatory and redox-signaling effects.",
+  "description": "Naphthoquinone associated with inflammatory and redox-signaling effects.",
+  "compoundClass": "quinone / naphthoquinone-like phenolic",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "STAT3 inhibition",
+    "ROS-mediated signaling modulation"
+  ],
+  "targets": [
+    "ROS/redox cycling",
+    "NF-κB",
+    "apoptosis signaling",
+    "Nrf2",
+    "antimicrobial pathways"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Often preclinical; concentrated or isolated quinones may be irritant/cytotoxic. Avoid pregnancy and use caution with liver disease or anticoagulants.",
+  "evidenceLevel": "preclinical",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 6,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

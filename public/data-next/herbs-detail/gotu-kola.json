@@ -1,0 +1,20 @@
+{
+  "name": "gotu kola",
+  "slug": "gotu-kola",
+  "scientificName": "",
+  "summary": "NO support.",
+  "description": "NO support.",
+  "mechanismTags": [
+    "asiaticoside/madecassoside collagen synthesis",
+    "microcirculation/endothelial effects",
+    "antioxidant/NF-κB modulation"
+  ],
+  "activeCompounds": [
+    "Asiaticoside",
+    "Madecassoside"
+  ],
+  "interactions": [
+    "May potentiate sedatives and hepatotoxic drugs/supplements",
+    "caution with antidiabetics."
+  ]
+}

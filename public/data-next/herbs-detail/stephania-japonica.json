@@ -1,0 +1,18 @@
+{
+  "name": "stephania japonica",
+  "slug": "stephania-japonica",
+  "scientificName": "",
+  "summary": "Stephania japonica lean monograph row enriched in bulk mode.",
+  "description": "Stephania japonica lean monograph row enriched in bulk mode.",
+  "mechanismTags": [
+    "NF-κB inhibition",
+    "PI3K/Akt modulation"
+  ],
+  "activeCompounds": [
+    "Cepharanthine"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}
