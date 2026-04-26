@@ -1,126 +1,72 @@
-# SPEC-1: Hippie Scientist Rebuild Architecture
+# SPEC-1: Hippie Scientist Rebuild
 
 ## Purpose
 
-This document defines the architecture and delivery constraints for rebuilding Hippie Scientist without changing existing app code in this phase. The goal is to establish a clear, durable blueprint that supports incremental migration and safe data publishing.
+This specification defines rebuild governance and architecture boundaries for Hippie Scientist. This is a documentation-first phase intended to establish safe operating rules before any app or data-pipeline implementation work.
 
-## 1) Workbook-only Source of Truth
+## Canonical Data and Output Targets
 
-- The workbook under `data-sources` is the **only editorial source of truth** for herbs, compounds, goals, and related metadata.
-- No manual edits should be made to generated publish artifacts in `public/data`.
-- Every publishable dataset must be reproducible from workbook inputs through deterministic scripts.
-- Validation must run before artifact generation to prevent invalid slugs, missing required fields, and inconsistent references.
+- **Workbook-only source of truth:** `data-sources/herb_monograph_master.xlsx`
+- **Migration output:** `public/data-next`
+- **Final runtime output:** `public/data`
 
-## 2) Generated Data Separation
+These targets are mandatory and govern all future migration and publishing workflows.
 
-- Separate **authored inputs** from **generated outputs**:
-  - Authored input: workbook and source support files under `data-sources`.
-  - Generated output: versioned JSON artifacts under `public/data`.
-- Treat `public/data` as a deployment target, not authoring space.
-- Generation pipeline should produce lean route payloads suitable for initial page loads, with optional expanded records when needed.
+## Feature and Domain Architecture
 
-## 3) Framework Recommendation: Next.js + TypeScript
+Rebuild work should organize domain logic under feature-oriented modules:
 
-- Recommended target stack:
-  - **Next.js** (App Router or Pages Router selected during implementation planning)
-  - **TypeScript** for end-to-end type safety in routes, content models, and UI contracts
-- Rationale:
-  - Strong routing and static generation support
-  - Clear server/client boundaries
-  - Mature ecosystem for content-heavy sites
-  - Better maintainability through typed domain models
+- `src/features/herbs`
+- `src/features/compounds`
+- `src/features/search`
 
-## 4) Feature/Domain Architecture
+## Shared UI Layer
 
-Organize code by domain to mirror content model and keep logic discoverable:
+Reusable interface primitives and search UI should live in shared component layers:
 
-- `domains/herbs`
-- `domains/compounds`
-- `domains/goals`
-- `domains/common` (cross-domain taxonomies, references, and shared utilities)
+- `src/components/ui`
+- `src/components/search`
 
-Each domain should own:
+Shared UI should remain reusable and decoupled from domain-specific business logic.
 
-- route model + slug contract
-- schema/types for domain entities
-- selectors/transformers from generated data
-- domain-specific UI compositions
+## Central Route Registry
 
-## 5) Design System / UI Layer
+Route contracts and route builders should be managed in one place:
 
-- Introduce a shared UI layer for reusable primitives and tokens:
-  - typography
-  - spacing and layout primitives
-  - color and semantic tokens
-  - controls and card/list/detail patterns
-- Keep design-system primitives framework-agnostic where feasible.
-- Domain screens should compose UI primitives rather than duplicate styling logic.
+- `src/routes.ts`
 
-## 6) Route Registry
-
-Maintain a single route registry that maps domain entities to route contracts and generators.
-
-### Required preserved contracts
+Preserved route contracts:
 
 - `/herbs/:slug`
 - `/compounds/:slug`
 - `/goals/:slug`
 
-Registry responsibilities:
+## Data Access Layer
 
-- validate slug uniqueness and format
-- map route params to generated data records
-- provide canonical route builders used across app and generation scripts
+Generated runtime data should be consumed through centralized helpers and types:
 
-## 7) Import Boundaries
+- `src/data/runtime.ts`
+- `src/data/types.ts`
 
-Enforce directional imports to prevent architectural drift:
+## Script Surface for Rebuild Governance
 
-- `data pipeline -> generated artifacts`
-- `domain data adapters -> domain features`
-- `design system -> feature UI`
-- `routes -> domain feature entrypoints`
+The following script names are part of rebuild governance and should be used for data checking, generation, validation, and quality reporting:
 
-Boundary rules:
+- `data:check:workbook-source`
+- `data:inspect`
+- `data:check:generated`
+- `data:build:next`
+- `data:validate:next`
+- `data:report:quality:next`
 
-- domains do not import from app shells/pages directly
-- design-system code does not import domain business logic
-- generation scripts do not import runtime UI code
+## Branch Discipline
 
-## 8) Data Audit Scripts
+- One focused branch per task.
+- No mega-refactor PRs.
+- No manual generated JSON edits.
 
-Create or extend scripts that run in CI and local checks to audit generated content:
+## Related Governance Docs
 
-- required field coverage per domain
-- slug validity and uniqueness
-- orphan reference detection across herbs/compounds/goals
-- schema conformance checks
-- diff-oriented summaries for generated output changes
-
-Audit scripts should fail fast with actionable errors and line/record context where possible.
-
-## 9) Delivery Strategy: Small Branches, No Mega-Refactor PRs
-
-- Prefer small, focused branches that implement one architectural slice at a time.
-- Avoid mega-refactor pull requests that mix data pipeline changes, routing rewrites, and UI overhauls in one diff.
-- Suggested sequence:
-  1. schemas + validators
-  2. generation/audit scripts
-  3. route registry
-  4. domain adapters
-  5. UI migration by page slice
-- Each PR should preserve behavior or explicitly document intentional deltas.
-
-## 10) Non-goals for This Spec Drop
-
-- No workbook edits.
-- No refactor of existing runtime app code yet.
-- No deletion of existing source files.
-
-## Acceptance for This Document
-
-This spec is complete when:
-
-- it exists at `docs/SPEC-1-Hippie-Scientist-Rebuild.md`
-- it captures data-source, architecture, and delivery boundaries above
-- it can guide subsequent implementation PRs without requiring a mega-refactor plan
+- [Generated Data Policy](./generated-data-policy.md)
+- [Import Boundaries](./import-boundaries.md)
+- [Contractor Onboarding](./contractor-onboarding.md)
