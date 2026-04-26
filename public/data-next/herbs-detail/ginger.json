@@ -1,0 +1,24 @@
+{
+  "name": "ginger",
+  "slug": "ginger",
+  "scientificName": "",
+  "summary": "Ginger centers on the unspecified.",
+  "description": "Ginger centers on the unspecified. Key reported compounds include [6]-gingerol; shogaols; zingerone; paradols. Typical preparation forms: The rhizome is used fresh, dried, pickled, preserved, candied or powdered. Supplements include encapsulated dried powders and extracts【418916103730052†L176-L189】. Ginger rhizomes contain phenolic constituents such as gingerols, shogaols, zingerone and paradols. These compounds modulate immune‐cell function and regulate signalling pathways including nuclear factor‐κB, MAPK and PI3K/Akt/mTOR, and they can activate AMP‐activated protein kinase (AMPK), NRF2, HO‐1 and PPARγ【69571933386645†L153-L169】【69571933386645†L240-L249】. Through these mechanisms ginger exhibits anti‐inflammatory, antioxidant and neuroprotective effects. Interaction profile: Ginger may increase the risk of bleeding when taken with anticoagulant or antiplatelet drugs and could lower blood glucose or blood pressure, potentiating antidiabetic or antihypertensive medications. Use caution or avoid in: Use cautiously in pregnancy, gallstone disease or bleeding disorders. Discontinue before surgery and avoid high‐dose supplements when taking anticoagulants.",
+  "mechanismTags": [
+    "5-HT3 receptor antagonism",
+    "gastric motility modulation",
+    "COX-2 and LOX inhibition",
+    "NF-κB inhibition",
+    "thromboxane/platelet-aggregation modulation"
+  ],
+  "activeCompounds": [
+    "6-Gingerol"
+  ],
+  "interactions": [
+    "Potential additive bleeding risk with warfarin",
+    "DOACs",
+    "antiplatelets",
+    "and NSAIDs",
+    "may compound glucose- or blood-pressure-lowering therapy."
+  ]
+}

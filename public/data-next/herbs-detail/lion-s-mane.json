@@ -1,0 +1,21 @@
+{
+  "name": "lion's mane",
+  "slug": "lion-s-mane",
+  "scientificName": "",
+  "summary": "NGF stimulation.",
+  "description": "NGF stimulation.",
+  "mechanismTags": [
+    "hericenone/erinacine neurotrophic signaling",
+    "NGF-related pathways",
+    "anti-inflammatory and gut-brain-axis modulation"
+  ],
+  "activeCompounds": [
+    "hericenone c",
+    "erinacines",
+    "hericenones"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ]
+}

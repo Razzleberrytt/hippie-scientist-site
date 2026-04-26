@@ -1,0 +1,28 @@
+{
+  "name": "verbascoside",
+  "slug": "verbascoside",
+  "summary": "Also known as acteoside; linked to inflammatory signaling control.",
+  "description": "Also known as acteoside; linked to inflammatory signaling control.",
+  "compoundClass": "phenylethanoid glycoside",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "antioxidant response",
+    "inflammatory cytokines",
+    "neuroprotective signaling"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Mostly preclinical/extract-derived; safety depends on source herb and product quality.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 8,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

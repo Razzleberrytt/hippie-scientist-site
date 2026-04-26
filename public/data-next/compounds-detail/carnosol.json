@@ -1,0 +1,25 @@
+{
+  "name": "carnosol",
+  "slug": "carnosol",
+  "summary": "Phenolic diterpene from rosemary with antioxidant and anti-inflammatory pathway activity.",
+  "description": "Phenolic diterpene from rosemary with antioxidant and anti-inflammatory pathway activity.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "Nrf2 activation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "Keap1-sensitive redox targets",
+    "STAT3-related signaling"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "animal / in vitro",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 14,
+  "confidenceTier": "moderate",
+  "evidenceType": "animal",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Supported mainly by animal and preclinical evidence with limited direct human confirmation."
+}

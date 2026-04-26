@@ -1,0 +1,22 @@
+{
+  "name": "black tea",
+  "slug": "black-tea",
+  "scientificName": "",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "mechanismTags": [
+    "theaflavin/catechin antioxidant signaling",
+    "endothelial nitric oxide effects",
+    "lipid and blood-pressure pathway modulation"
+  ],
+  "activeCompounds": [
+    "Theaflavin",
+    "Thearubigin"
+  ],
+  "interactions": [
+    "May interact with stimulants",
+    "sedatives",
+    "iron supplements",
+    "and some cardiovascular drugs."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "pueraria lobata",
+  "slug": "pueraria-lobata",
+  "scientificName": "",
+  "summary": "Pueraria lobata contains Puerarin and is linked here to PI3K/Akt modulation.",
+  "description": "Pueraria lobata contains Puerarin and is linked here to PI3K/Akt modulation.",
+  "mechanismTags": [
+    "Puerarin-mediated PI3K/Akt/eNOS signaling",
+    "AMPK activation",
+    "estrogen receptor modulation",
+    "intestinal glucose transport/glucose absorption effects."
+  ],
+  "activeCompounds": [
+    "Puerarin",
+    "Daidzin",
+    "Ononin"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "hormonal therapies",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

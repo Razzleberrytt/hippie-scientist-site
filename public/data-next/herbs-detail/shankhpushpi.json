@@ -1,0 +1,18 @@
+{
+  "name": "shankhpushpi",
+  "slug": "shankhpushpi",
+  "scientificName": "",
+  "summary": "It is best framed as a traditional cognitive-support herb with limited modern clinical depth.",
+  "description": "It is best framed as a traditional cognitive-support herb with limited modern clinical depth.",
+  "mechanismTags": [
+    "traditional cognitive support",
+    "calming support"
+  ],
+  "activeCompounds": [
+    "convolvine"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

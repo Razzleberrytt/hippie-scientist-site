@@ -1,0 +1,22 @@
+{
+  "name": "calamus",
+  "slug": "calamus",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Calamus through compounds such as eugenol, alpha-asarone, beta-asarone.",
+  "description": "Internal cross-linking supports Calamus through compounds such as eugenol, alpha-asarone, beta-asarone.",
+  "mechanismTags": [
+    "asarone-rich volatile oil activity",
+    "GABAergic and cholinergic CNS effects reported preclinically",
+    "smooth-muscle signaling"
+  ],
+  "activeCompounds": [
+    "Eugenol",
+    "alpha-asarone"
+  ],
+  "interactions": [
+    "Potential additive CNS effects with sedatives",
+    "alcohol",
+    "antiepileptics",
+    "and other neuroactive agents."
+  ]
+}

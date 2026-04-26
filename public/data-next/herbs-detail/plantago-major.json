@@ -1,0 +1,18 @@
+{
+  "name": "plantago major",
+  "slug": "plantago-major",
+  "scientificName": "",
+  "summary": "Plantago major contains Aucubin and is linked here to NF-κB inhibition.",
+  "description": "Plantago major contains Aucubin and is linked here to NF-κB inhibition.",
+  "mechanismTags": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
+  ],
+  "activeCompounds": [
+    "Aucubin"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

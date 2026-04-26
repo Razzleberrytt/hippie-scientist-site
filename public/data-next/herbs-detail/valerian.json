@@ -1,0 +1,23 @@
+{
+  "name": "valerian",
+  "slug": "valerian",
+  "scientificName": "",
+  "summary": "Valerian centers on the root; rhizome.",
+  "description": "Valerian centers on the root; rhizome. Key reported compounds include valerenic acid; valerenol; valerenal; valepotriates (valtrate, isovaltrate); sesquiterpenoids. Typical preparation forms: Dried roots/rhizomes as teas, tinctures, or extracts. Valerenic acid derivatives modulate GABA-A signaling and may inhibit GABA breakdown. Interaction profile: May potentiate sedatives and alcohol. Use caution or avoid in: Pregnancy, breastfeeding, liver disease, concurrent CNS depressants.",
+  "mechanismTags": [
+    "valerenic-acid GABA-A receptor modulation",
+    "GABA degradation/transport effects",
+    "adenosine and serotonergic sleep-pathway modulation"
+  ],
+  "activeCompounds": [
+    "valerenic acid"
+  ],
+  "interactions": [
+    "May potentiate alcohol",
+    "benzodiazepines",
+    "barbiturates",
+    "sleep aids",
+    "opioids",
+    "and other CNS depressants."
+  ]
+}

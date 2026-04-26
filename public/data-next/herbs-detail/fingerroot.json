@@ -1,0 +1,17 @@
+{
+  "name": "fingerroot",
+  "slug": "fingerroot",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Fingerroot through compounds such as pinostrobin, pinocembrin, panduratin a.",
+  "description": "Internal cross-linking supports Fingerroot through compounds such as pinostrobin, pinocembrin, panduratin a.",
+  "mechanismTags": [
+    "panduratin A/pinostrobin NF-κB and MAPK modulation",
+    "COX/LOX inflammatory signaling",
+    "antimicrobial membrane and biofilm-pathway effects"
+  ],
+  "activeCompounds": [],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ]
+}

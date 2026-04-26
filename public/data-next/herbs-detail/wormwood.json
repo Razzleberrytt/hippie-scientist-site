@@ -1,0 +1,19 @@
+{
+  "name": "wormwood",
+  "slug": "wormwood",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Wormwood through compounds such as alpha-thujone, absinthin, beta-thujone.",
+  "description": "Internal cross-linking supports Wormwood through compounds such as alpha-thujone, absinthin, beta-thujone.",
+  "mechanismTags": [
+    "thujone interaction with GABA-A signaling",
+    "bitter-receptor digestive signaling",
+    "sesquiterpene lactone inflammatory-pathway modulation"
+  ],
+  "activeCompounds": [],
+  "interactions": [
+    "Avoid with antiepileptics",
+    "sedatives",
+    "alcohol",
+    "and other neuroactive supplements or medicines."
+  ]
+}

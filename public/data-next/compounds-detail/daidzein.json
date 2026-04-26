@@ -1,0 +1,28 @@
+{
+  "name": "daidzein",
+  "slug": "daidzein",
+  "summary": "Isoflavone found in soy and clover, frequently linked to estrogen receptor and MAPK pathway activity.",
+  "description": "Isoflavone found in soy and clover, frequently linked to estrogen receptor and MAPK pathway activity.",
+  "compoundClass": "isoflavone / phytoestrogen",
+  "mechanisms": [
+    "estrogen receptor modulation",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "estrogen receptor signaling",
+    "AMPK",
+    "PPAR",
+    "antioxidant response",
+    "bone/metabolic signaling"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
+  "evidenceLevel": "human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

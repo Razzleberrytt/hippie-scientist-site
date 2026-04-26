@@ -1,0 +1,20 @@
+{
+  "name": "syzygium aromaticum",
+  "slug": "syzygium-aromaticum",
+  "scientificName": "",
+  "summary": "Lean bulk ingestion row for Syzygium aromaticum.",
+  "description": "Lean bulk ingestion row for Syzygium aromaticum. Key active compounds include Eugenol.",
+  "mechanismTags": [
+    "Eugenol-mediated COX/LOX modulation",
+    "TRPV1/TRPA1 sensory receptor activity",
+    "platelet aggregation and oxidative-stress pathway effects."
+  ],
+  "activeCompounds": [
+    "Eugenol",
+    "eugenol"
+  ],
+  "interactions": [
+    "May increase bleeding risk with anticoagulants/antiplatelets",
+    "caution with hepatotoxic drugs."
+  ]
+}

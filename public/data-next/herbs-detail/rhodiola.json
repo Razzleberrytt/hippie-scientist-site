@@ -1,0 +1,23 @@
+{
+  "name": "rhodiola",
+  "slug": "rhodiola",
+  "scientificName": "",
+  "summary": "Adaptogenic stress modulation.",
+  "description": "Adaptogenic stress modulation.",
+  "mechanismTags": [
+    "adaptogen",
+    "fatigue resistance",
+    "cognitive support"
+  ],
+  "activeCompounds": [
+    "Salidroside",
+    "Rosavin",
+    "Rosarin",
+    "Rosin",
+    "Tyrosol"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ]
+}

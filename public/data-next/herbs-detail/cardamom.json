@@ -1,0 +1,19 @@
+{
+  "name": "cardamom",
+  "slug": "cardamom",
+  "scientificName": "",
+  "summary": "It is best framed as an aromatic culinary seed with modest translational evidence.",
+  "description": "It is best framed as an aromatic culinary seed with modest translational evidence.",
+  "mechanismTags": [
+    "digestive support",
+    "aromatic support"
+  ],
+  "activeCompounds": [
+    "terpinyl acetate",
+    "1,8-cineole"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ]
+}

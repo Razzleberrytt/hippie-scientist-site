@@ -1,0 +1,24 @@
+{
+  "name": "psoralea corylifolia",
+  "slug": "psoralea-corylifolia",
+  "scientificName": "",
+  "summary": "Psoralea corylifolia lean monograph row enriched in bulk mode.",
+  "description": "Psoralea corylifolia lean monograph row enriched in bulk mode.",
+  "mechanismTags": [
+    "psoralen/isopsoralen furanocoumarin photosensitization",
+    "estrogenic signaling",
+    "CYP interaction potential",
+    "oxidative-stress and inflammatory-pathway modulation"
+  ],
+  "activeCompounds": [
+    "Psoralen",
+    "Angelicin",
+    "Bergapten"
+  ],
+  "interactions": [
+    "Avoid with photosensitizing drugs",
+    "hepatotoxic drugs",
+    "anticoagulants",
+    "and hormone-active therapies unless supervised."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "valerenic acid",
+  "slug": "valerenic-acid",
+  "summary": "Valerenic acid is a valerian sesquiterpenoid associated with GABAergic calming effects.",
+  "description": "Valerenic acid is a valerian sesquiterpenoid associated with GABAergic calming effects.",
+  "compoundClass": "sesquiterpenoid / valerian constituent",
+  "mechanisms": [
+    "GABA-A modulation",
+    "voltage-gated calcium channel modulation"
+  ],
+  "targets": [
+    "GABA-A signaling",
+    "adenosine signaling",
+    "CNS calming pathways"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Evidence mostly comes from valerian extracts. Sedation and additive effects with CNS depressants are key concerns.",
+  "evidenceLevel": "human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 6,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

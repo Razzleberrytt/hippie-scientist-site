@@ -1,0 +1,27 @@
+{
+  "name": "diosgenin",
+  "slug": "diosgenin",
+  "summary": "Steroidal sapogenin broadly associated with endocrine and metabolic signaling.",
+  "description": "Steroidal sapogenin broadly associated with endocrine and metabolic signaling.",
+  "compoundClass": "steroidal sapogenin",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "PPARγ activation"
+  ],
+  "targets": [
+    "PPAR signaling",
+    "lipid metabolism",
+    "inflammatory cytokines",
+    "steroidal saponin pathways"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Mostly preclinical or food/herb-associated. Caution with hormone-sensitive conditions, pregnancy, and anticoagulant/antidiabetic medication contexts.",
+  "evidenceLevel": "preclinical; human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 6,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

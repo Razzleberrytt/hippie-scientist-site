@@ -1,0 +1,27 @@
+{
+  "name": "berberis",
+  "slug": "berberis",
+  "scientificName": "",
+  "summary": "It is best framed around berberine-bearing root bark with GI and medication-interaction caution.",
+  "description": "It is best framed around berberine-bearing root bark with GI and medication-interaction caution.",
+  "mechanismTags": [
+    "berberine-mediated AMPK activation",
+    "LDL receptor/PCSK9 modulation",
+    "intestinal alpha-glucosidase inhibition",
+    "gut microbiome and bile-acid signaling effects",
+    "NF-κB/JAK-STAT inflammatory modulation",
+    "P-glycoprotein substrate/interaction relevance"
+  ],
+  "activeCompounds": [
+    "berberine",
+    "berbamine"
+  ],
+  "interactions": [
+    "Antidiabetics",
+    "antihypertensives",
+    "anticoagulants/antiplatelets",
+    "cyclosporine/tacrolimus",
+    "macrolides",
+    "CYP3A4/CYP2D6/P-gp substrates."
+  ]
+}

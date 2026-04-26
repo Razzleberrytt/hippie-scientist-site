@@ -1,0 +1,18 @@
+{
+  "name": "ocotea odorifera",
+  "slug": "ocotea-odorifera",
+  "scientificName": "",
+  "summary": "Ocotea odorifera contains Safrole and is linked here to TRP channel modulation.",
+  "description": "Ocotea odorifera contains Safrole and is linked here to TRP channel modulation.",
+  "mechanismTags": [
+    "TRP channel modulation",
+    "MAPK pathway modulation"
+  ],
+  "activeCompounds": [
+    "Safrole"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ]
+}

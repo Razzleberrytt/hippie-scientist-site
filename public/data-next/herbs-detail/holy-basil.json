@@ -1,0 +1,25 @@
+{
+  "name": "holy basil",
+  "slug": "holy-basil",
+  "scientificName": "",
+  "summary": "Holy Basil centers on the leaf; aerial parts.",
+  "description": "Holy Basil centers on the leaf; aerial parts. Key reported compounds include eugenol; ursolic acid; rosmarinic acid. Typical preparation forms: Leaf extracts, teas. Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways. Interaction profile: Anticoagulants, antidiabetic drugs. Use caution or avoid in: Pregnancy (limited data).",
+  "mechanismTags": [
+    "eugenol/ursolic-acid signaling",
+    "cortisol/stress-axis modulation",
+    "AMPK/glucose and inflammatory-pathway effects"
+  ],
+  "activeCompounds": [
+    "Eugenol",
+    "Ursolic acid",
+    "Rosmarinic acid",
+    "methyl eugenol"
+  ],
+  "interactions": [
+    "May add to antidiabetic",
+    "antihypertensive",
+    "sedative",
+    "anticoagulant",
+    "or antiplatelet effects."
+  ]
+}

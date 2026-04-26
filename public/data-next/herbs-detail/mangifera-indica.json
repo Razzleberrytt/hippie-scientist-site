@@ -1,0 +1,20 @@
+{
+  "name": "mangifera indica",
+  "slug": "mangifera-indica",
+  "scientificName": "",
+  "summary": "Mangifera indica contains Mangiferin and is linked here to AMPK activation.",
+  "description": "Mangifera indica contains Mangiferin and is linked here to AMPK activation.",
+  "mechanismTags": [
+    "AMPK activation",
+    "Nrf2 activation",
+    "NF-κB inhibition"
+  ],
+  "activeCompounds": [
+    "Mangiferin"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "mangostin",
+  "slug": "mangostin",
+  "summary": "Xanthone associated with inflammatory and survival pathway effects.",
+  "description": "Xanthone associated with inflammatory and survival pathway effects.",
+  "compoundClass": "xanthone / polyphenol",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "PI3K/Akt modulation",
+    "apoptosis pathway modulation (caspase activation)"
+  ],
+  "targets": [
+    "NF-κB",
+    "antioxidant response",
+    "apoptosis signaling",
+    "inflammatory cytokines"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Mostly preclinical/extract-derived; concentrated Garcinia/mangosteen extracts may affect bleeding or liver risk depending product.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 6,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

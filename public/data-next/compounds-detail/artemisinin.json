@@ -1,0 +1,25 @@
+{
+  "name": "artemisinin",
+  "slug": "artemisinin",
+  "summary": "Sesquiterpene lactone endoperoxide linked to redox and survival pathway effects.",
+  "description": "Sesquiterpene lactone endoperoxide linked to redox and survival pathway effects.",
+  "compoundClass": "sesquiterpene lactone endoperoxide",
+  "mechanisms": [
+    "ROS-mediated signaling modulation",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "PI3K/Akt",
+    "redox signaling"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "human_limited",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "medium",
+  "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific."
+}

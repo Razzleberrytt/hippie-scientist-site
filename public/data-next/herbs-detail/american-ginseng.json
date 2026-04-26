@@ -1,0 +1,22 @@
+{
+  "name": "american ginseng",
+  "slug": "american-ginseng",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports American Ginseng through compounds such as ginsenosides (including rb1, rg1), rb2.",
+  "description": "Internal cross-linking supports American Ginseng through compounds such as ginsenosides (including rb1, rg1), rb2.",
+  "mechanismTags": [
+    "ginsenoside effects on AMPK/glucose uptake",
+    "nitric-oxide/endothelial signaling",
+    "HPA-axis and cognition pathways"
+  ],
+  "activeCompounds": [
+    "Ginsenoside RB1",
+    "Ginsenoside Rb1",
+    "Ginsenoside Rg1",
+    "Ginsenoside Rg3"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

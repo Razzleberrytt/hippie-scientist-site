@@ -1,0 +1,22 @@
+{
+  "name": "bacopa monnieri",
+  "slug": "bacopa-monnieri",
+  "scientificName": "",
+  "summary": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
+  "description": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
+  "mechanismTags": [
+    "Bacosides support cholinergic signaling",
+    "antioxidant defenses",
+    "neuroinflammatory modulation",
+    "ERK/PI3K-Akt signaling",
+    "and BDNF-related synaptic plasticity."
+  ],
+  "activeCompounds": [
+    "Bacoside A",
+    "Bacoside B"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ]
+}

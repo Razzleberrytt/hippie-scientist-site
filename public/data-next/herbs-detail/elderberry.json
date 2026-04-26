@@ -1,0 +1,16 @@
+{
+  "name": "elderberry",
+  "slug": "elderberry",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
+  "description": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
+  "mechanismTags": [
+    "anthocyanin/flavonoid antiviral and cytokine-modulating effects",
+    "influenza/respiratory symptom pathway support"
+  ],
+  "activeCompounds": [],
+  "interactions": [
+    "May counter immunosuppressants",
+    "caution with diuretics or antidiabetics depending product."
+  ]
+}

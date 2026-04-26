@@ -1,0 +1,21 @@
+{
+  "name": "garlic",
+  "slug": "garlic",
+  "scientificName": "",
+  "summary": "Garlic centers on the unspecified.",
+  "description": "Garlic centers on the unspecified. Key reported compounds include diallyl sulfide; diallyl disulfide; diallyl trisulfide; ajoene; S‐allyl‐cysteine. Typical preparation forms: Fresh or dried bulbs are used as food and in remedies. Commercial supplements include aged garlic extracts, oils and powders standardized for organosulfur content. Garlic bulbs contain organosulfur compounds such as diallyl sulfide, diallyl disulfide, diallyl trisulfide, ajoene and S‐allyl‐cysteine. These constituents exert antioxidant, anti‐inflammatory and immunomodulatory effects in vitro and in animal models by scavenging free radicals and modulating inflammatory pathways. Human evidence is limited, so this should be regarded as a proposed mechanism based on preclinical data. Interaction profile: Garlic may potentiate the effects of anticoagulant and antiplatelet drugs (e.g., warfarin, aspirin) and should be discontinued before surgery. It may also enhance the effects of antihypertensive or antidiabetic medicines. Use caution or avoid in: People with bleeding disorders, those taking anticoagulant or antiplatelet drugs and individuals scheduled for surgery should avoid high‐dose garlic supplements. Because safety during pregnancy and breastfeeding has not been established, garlic supplements are not recommended in these populations.",
+  "mechanismTags": [
+    "allicin/organosulfur signaling",
+    "ACE/endothelial nitric oxide modulation",
+    "HMG-CoA reductase and platelet aggregation modulation"
+  ],
+  "activeCompounds": [
+    "diallyl sulfide",
+    "ajoene"
+  ],
+  "interactions": [
+    "May increase bleeding risk with anticoagulants/antiplatelets",
+    "may potentiate antihypertensives",
+    "possible interaction with some antiretrovirals."
+  ]
+}

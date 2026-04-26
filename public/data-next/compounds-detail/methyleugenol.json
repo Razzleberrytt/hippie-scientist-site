@@ -1,0 +1,27 @@
+{
+  "name": "methyleugenol",
+  "slug": "methyleugenol",
+  "summary": "Phenylpropene associated with sensory and inhibitory neurotransmission pathways.",
+  "description": "Phenylpropene associated with sensory and inhibitory neurotransmission pathways.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "TRP channel modulation",
+    "GABA-A modulation"
+  ],
+  "targets": [
+    "TRP channels",
+    "antimicrobial membranes",
+    "COX/LOX",
+    "GABAergic or adrenergic signaling depending compound"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

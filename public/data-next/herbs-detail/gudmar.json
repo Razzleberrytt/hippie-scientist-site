@@ -1,0 +1,20 @@
+{
+  "name": "gudmar",
+  "slug": "gudmar",
+  "scientificName": "",
+  "summary": "It should be framed consistently with gymnema while preserving alternate-name discoverability.",
+  "description": "It should be framed consistently with gymnema while preserving alternate-name discoverability.",
+  "mechanismTags": [
+    "gymnemic-acid sweet taste receptor inhibition",
+    "intestinal glucose absorption modulation",
+    "pancreatic beta-cell/insulin signaling support",
+    "AMPK/GLUT4-related metabolic signaling"
+  ],
+  "activeCompounds": [
+    "gymnemic acids"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

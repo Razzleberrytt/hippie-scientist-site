@@ -1,0 +1,27 @@
+{
+  "name": "carvacrol",
+  "slug": "carvacrol",
+  "summary": "Carvacrol is a monoterpenoid phenol concentrated in oregano and thyme chemotypes. It is best supported by preclinical antimicrobial and anti-inflammatory data, with human evidence for isolated use still sparse.",
+  "description": "Monoterpenoid phenol from oregano and thyme with antimicrobial and sensory effects.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "Membrane disruption",
+    "TRPA1/TRPV3-related sensory modulation",
+    "NF-kB suppression",
+    "antimicrobial permeability effects"
+  ],
+  "targets": [
+    "TRPA1",
+    "membrane lipids"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "animal / in vitro",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 15,
+  "confidenceTier": "moderate",
+  "evidenceType": "animal",
+  "confidenceTier_v2": "medium",
+  "confidenceReason": "Human evidence is limited and most support comes from preclinical studies."
+}

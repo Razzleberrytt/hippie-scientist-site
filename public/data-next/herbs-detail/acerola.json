@@ -1,0 +1,17 @@
+{
+  "name": "acerola",
+  "slug": "acerola",
+  "scientificName": "",
+  "summary": "It is best framed as a vitamin-C-rich fruit botanical with food/supplement relevance.",
+  "description": "It is best framed as a vitamin-C-rich fruit botanical with food/supplement relevance.",
+  "mechanismTags": [
+    "antioxidant",
+    "nutritive support"
+  ],
+  "activeCompounds": [
+    "ascorbic acid"
+  ],
+  "interactions": [
+    "May affect iron absorption and some lab results at high vitamin C intakes."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "thunder god vine",
+  "slug": "thunder-god-vine",
+  "scientificName": "",
+  "summary": "Bulk-ingested support row carrying Celastrol with pathway-level mechanism coverage.",
+  "description": "Bulk-ingested support row carrying Celastrol with pathway-level mechanism coverage.",
+  "mechanismTags": [
+    "triptolide/celastrol-mediated NF-κB inhibition",
+    "HSP90 inhibition",
+    "calcineurin/T-cell signaling suppression",
+    "JAK/STAT modulation",
+    "pro-inflammatory cytokine inhibition"
+  ],
+  "activeCompounds": [
+    "Celastrol"
+  ],
+  "interactions": [
+    "Immunosuppressants",
+    "DMARDs",
+    "corticosteroids",
+    "hepatotoxic/nephrotoxic drugs",
+    "anticoagulants",
+    "and antiplatelets",
+    "specialist-only context."
+  ]
+}

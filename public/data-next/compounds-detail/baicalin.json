@@ -1,0 +1,31 @@
+{
+  "name": "baicalin",
+  "slug": "baicalin",
+  "summary": "Baicalin is a flavone glycoside associated with Scutellaria species and related TCM research. Its strongest support is preclinical, especially for inflammatory and oxidative-stress pathways, while direct isolated-compound human evidence remains limited.",
+  "description": "Flavone glycoside commonly reported from Scutellaria with anti-inflammatory and PI3K/Akt pathway activity.",
+  "compoundClass": "flavone glycoside",
+  "mechanisms": [
+    "NF-kB suppression",
+    "Nrf2 activation",
+    "MAPK modulation",
+    "cytokine-signaling reduction"
+  ],
+  "targets": [
+    "NF-κB",
+    "MAPK",
+    "PI3K/Akt",
+    "Nrf2",
+    "inflammatory cytokines",
+    "GABAergic signaling"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Mostly supported through Scutellaria extracts and preclinical data. Use caution with liver disease, sedatives, anticoagulants/antiplatelets, immunosuppressants, and pregnancy.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 9,
+  "confidenceTier": "low",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "The compound has repeated mechanistic support, but human evidence is still limited."
+}

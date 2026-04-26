@@ -1,0 +1,21 @@
+{
+  "name": "garcinia mangostana",
+  "slug": "garcinia-mangostana",
+  "scientificName": "",
+  "summary": "Garcinia mangostana contains Mangostin and is linked here to NF-κB inhibition.",
+  "description": "Garcinia mangostana contains Mangostin and is linked here to NF-κB inhibition.",
+  "mechanismTags": [
+    "NF-κB inhibition",
+    "PI3K/Akt modulation",
+    "apoptosis pathway modulation (caspase activation)",
+    "STAT3 inhibition"
+  ],
+  "activeCompounds": [
+    "Mangostin",
+    "Alpha-mangostin"
+  ],
+  "interactions": [
+    "Theoretical anticoagulant/antiplatelet interactions",
+    "product-specific evidence limited."
+  ]
+}

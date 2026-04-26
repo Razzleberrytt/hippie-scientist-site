@@ -1,0 +1,26 @@
+{
+  "name": "arjuna",
+  "slug": "arjuna",
+  "scientificName": "",
+  "summary": "It is best framed around bark polyphenols and triterpenes with specific cardiotonic-support positioning.",
+  "description": "It is best framed around bark polyphenols and triterpenes with specific cardiotonic-support positioning.",
+  "mechanismTags": [
+    "endothelial nitric oxide signaling",
+    "antioxidant myocardial protection",
+    "lipid-modulating tannins/flavonoids",
+    "mild positive inotropic and vascular effects"
+  ],
+  "activeCompounds": [
+    "arjunolic acid",
+    "Arjunic acid",
+    "Arjungenin",
+    "Arjunetin"
+  ],
+  "interactions": [
+    "Potential additive blood-pressure",
+    "antianginal",
+    "antiplatelet",
+    "and cardiac-medication effects",
+    "monitor with cardiovascular drugs."
+  ]
+}

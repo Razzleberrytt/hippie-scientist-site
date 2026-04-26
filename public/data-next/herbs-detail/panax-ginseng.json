@@ -1,0 +1,27 @@
+{
+  "name": "panax ginseng",
+  "slug": "panax-ginseng",
+  "scientificName": "",
+  "summary": "Energy + stress.",
+  "description": "Energy + stress.",
+  "mechanismTags": [
+    "Ginsenosides modulate AMPK and PI3K/Akt signaling",
+    "nitric-oxide/endothelial pathways",
+    "HPA-axis stress signaling",
+    "and glucose uptake/insulin-sensitivity pathways."
+  ],
+  "activeCompounds": [
+    "Ginsenoside RG1",
+    "Ginsenoside RB1",
+    "Ginsenoside Rg3",
+    "Ginsenoside Re",
+    "Ginsenoside Rd",
+    "Ginsenoside Rf",
+    "Ginsenoside Rb1",
+    "Ginsenoside Rg1"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

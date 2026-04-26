@@ -1,0 +1,19 @@
+{
+  "name": "cornus officinalis",
+  "slug": "cornus-officinalis",
+  "scientificName": "",
+  "summary": "Cornus officinalis contains Loganin and is linked here to PI3K/Akt modulation.",
+  "description": "Cornus officinalis contains Loganin and is linked here to PI3K/Akt modulation.",
+  "mechanismTags": [
+    "PI3K/Akt modulation",
+    "Nrf2 activation"
+  ],
+  "activeCompounds": [
+    "Loganin",
+    "Morroniside"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

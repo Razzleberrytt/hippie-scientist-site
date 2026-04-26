@@ -1,0 +1,25 @@
+{
+  "name": "glycyrrhiza glabra",
+  "slug": "glycyrrhiza-glabra",
+  "scientificName": "",
+  "summary": "Lean bulk ingestion row for Glycyrrhiza glabra.",
+  "description": "Lean bulk ingestion row for Glycyrrhiza glabra. Key active compounds include Glycyrrhizin.",
+  "mechanismTags": [
+    "glycyrrhizin/glycyrrhetinic-acid 11β-HSD2 inhibition",
+    "mineralocorticoid pathway activation",
+    "anti-inflammatory signaling"
+  ],
+  "activeCompounds": [
+    "Glycyrrhizin",
+    "Glycyrrhetinic acid",
+    "glycyrrhizin"
+  ],
+  "interactions": [
+    "High-risk with diuretics",
+    "corticosteroids",
+    "digoxin",
+    "antihypertensives",
+    "antiarrhythmics",
+    "and stimulant laxatives."
+  ]
+}

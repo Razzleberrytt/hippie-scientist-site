@@ -1,0 +1,22 @@
+{
+  "name": "cayenne",
+  "slug": "cayenne",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Cayenne through compounds such as capsaicin, capsorubin, dihydrocapsaicin.",
+  "description": "Internal cross-linking supports Cayenne through compounds such as capsaicin, capsorubin, dihydrocapsaicin.",
+  "mechanismTags": [
+    "TRPV1 activation/desensitization",
+    "substance P depletion",
+    "neurogenic inflammation modulation",
+    "local vasodilation signaling"
+  ],
+  "activeCompounds": [
+    "capsanthin",
+    "capsorubin",
+    "dihydrocapsaicin"
+  ],
+  "interactions": [
+    "Potential interaction concern with anticoagulants/antiplatelets",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

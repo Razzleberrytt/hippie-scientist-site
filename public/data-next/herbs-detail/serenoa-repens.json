@@ -1,0 +1,19 @@
+{
+  "name": "serenoa repens",
+  "slug": "serenoa-repens",
+  "scientificName": "",
+  "summary": "Serenoa repens contains Beta-sitosterol and is linked here to PPAR activation.",
+  "description": "Serenoa repens contains Beta-sitosterol and is linked here to PPAR activation.",
+  "mechanismTags": [
+    "5-alpha-reductase and androgen-signaling modulation",
+    "prostate inflammatory-pathway effects"
+  ],
+  "activeCompounds": [
+    "Beta-sitosterol",
+    "Stigmasterol"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

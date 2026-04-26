@@ -1,0 +1,28 @@
+{
+  "name": "hesperidin",
+  "slug": "hesperidin",
+  "summary": "Citrus flavanone glycoside linked to PI3K/Akt and NF-κB pathway effects.",
+  "description": "Citrus flavanone glycoside linked to PI3K/Akt and NF-κB pathway effects.",
+  "compoundClass": "flavanone glycoside",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "endothelial nitric oxide",
+    "NF-κB",
+    "Nrf2",
+    "lipid metabolism",
+    "capillary/vascular signaling"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Food-associated citrus flavonoid; concentrated use may interact with anticoagulant/antiplatelet or blood-pressure regimens. GI effects possible.",
+  "evidenceLevel": "human_limited; food_based",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "medium",
+  "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific."
+}

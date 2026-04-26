@@ -1,0 +1,17 @@
+{
+  "name": "anise hyssop",
+  "slug": "anise-hyssop",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Anise Hyssop through compounds such as limonene, anethole, estragole.",
+  "description": "Internal cross-linking supports Anise Hyssop through compounds such as limonene, anethole, estragole.",
+  "mechanismTags": [
+    "endocannabinoid_modulation"
+  ],
+  "activeCompounds": [
+    "anethole"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ]
+}

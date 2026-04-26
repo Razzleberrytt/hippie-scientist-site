@@ -1,0 +1,21 @@
+{
+  "name": "fenugreek",
+  "slug": "fenugreek",
+  "scientificName": "",
+  "summary": "Fenugreek lean herb row for high-speed phytochemical ingestion.",
+  "description": "Fenugreek lean herb row for high-speed phytochemical ingestion.",
+  "mechanismTags": [
+    "Galactomannan fiber slows carbohydrate absorption and bile-acid recycling",
+    "4-hydroxyisoleucine may affect insulin secretion/sensitivity",
+    "saponins influence lipid metabolism."
+  ],
+  "activeCompounds": [
+    "Diosgenin",
+    "Protodioscin",
+    "trigonelline"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

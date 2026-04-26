@@ -1,0 +1,23 @@
+{
+  "name": "licorice",
+  "slug": "licorice",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Licorice through compounds such as glycyrrhizin.",
+  "description": "Internal cross-linking supports Licorice through compounds such as glycyrrhizin.",
+  "mechanismTags": [
+    "glycyrrhizin/glycyrrhetinic acid 11β-HSD2 inhibition",
+    "mineralocorticoid-like sodium retention and potassium loss",
+    "HMGB1/NF-κB inflammatory modulation"
+  ],
+  "activeCompounds": [
+    "Glycyrrhizin"
+  ],
+  "interactions": [
+    "High-risk with diuretics",
+    "digoxin",
+    "corticosteroids",
+    "antihypertensives",
+    "stimulant laxatives",
+    "and drugs affected by potassium status."
+  ]
+}

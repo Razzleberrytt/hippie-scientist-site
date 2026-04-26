@@ -1,0 +1,27 @@
+{
+  "name": "thymoquinone",
+  "slug": "thymoquinone",
+  "summary": "Quinone constituent of Nigella sativa with reported NF-κB suppression and Nrf2 signaling support.",
+  "description": "Quinone constituent of Nigella sativa with reported NF-κB suppression and Nrf2 signaling support.",
+  "compoundClass": "benzoquinone / monoterpene quinone",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "Nrf2 activation"
+  ],
+  "targets": [
+    "NF-κB",
+    "Nrf2",
+    "apoptosis signaling",
+    "inflammatory cytokines"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Human evidence usually comes from Nigella sativa preparations rather than isolated thymoquinone. Avoid pregnancy-dose escalation; caution with anticoagulants, antidiabetics, antihypertensives, and liver disease.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 16,
+  "confidenceTier": "moderate",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

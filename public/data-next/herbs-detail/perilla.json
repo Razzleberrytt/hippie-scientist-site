@@ -1,0 +1,19 @@
+{
+  "name": "perilla",
+  "slug": "perilla",
+  "scientificName": "",
+  "summary": "It is best framed as a culinary-medicinal herb with modest but relevant translational evidence.",
+  "description": "It is best framed as a culinary-medicinal herb with modest but relevant translational evidence.",
+  "mechanismTags": [
+    "seasonal support",
+    "antioxidant",
+    "aromatic support"
+  ],
+  "activeCompounds": [
+    "perillaldehyde"
+  ],
+  "interactions": [
+    "May add to anticoagulant/antiplatelet effects",
+    "limited clinical data."
+  ]
+}

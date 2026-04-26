@@ -1,0 +1,22 @@
+{
+  "name": "black seed",
+  "slug": "black-seed",
+  "scientificName": "",
+  "summary": "Bulk-ingested support row carrying Thymoquinone with pathway-level mechanism coverage.",
+  "description": "Bulk-ingested support row carrying Thymoquinone with pathway-level mechanism coverage.",
+  "mechanismTags": [
+    "thymoquinone-mediated NF-κB inhibition",
+    "Nrf2/HO-1 antioxidant activation",
+    "AMPK-related glucose/lipid modulation",
+    "PPARγ/adiponectin signaling modulation"
+  ],
+  "activeCompounds": [
+    "Thymoquinone"
+  ],
+  "interactions": [
+    "Antidiabetics",
+    "antihypertensives",
+    "anticoagulants/antiplatelets",
+    "possible additive metabolic or sedative effects."
+  ]
+}

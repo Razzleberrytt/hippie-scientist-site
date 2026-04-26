@@ -1,0 +1,23 @@
+{
+  "name": "oregano",
+  "slug": "oregano",
+  "scientificName": "",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "mechanismTags": [
+    "antimicrobial",
+    "digestive support",
+    "respiratory support",
+    "TRPA1 activation",
+    "membrane disruption",
+    "GABA-A modulation"
+  ],
+  "activeCompounds": [
+    "carvacrol",
+    "thymol"
+  ],
+  "interactions": [
+    "Potential additive irritation with essential oils",
+    "theoretical bleeding or glucose interaction concerns at high supplemental doses."
+  ]
+}

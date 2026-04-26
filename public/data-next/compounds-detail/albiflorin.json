@@ -1,0 +1,27 @@
+{
+  "name": "albiflorin",
+  "slug": "albiflorin",
+  "summary": "Paeonia glycoside linked to neurotransmitter and signaling pathway effects.",
+  "description": "Paeonia glycoside linked to neurotransmitter and signaling pathway effects.",
+  "compoundClass": "monoterpene glycoside / phenolic from Paeonia",
+  "mechanisms": [
+    "MAPK pathway modulation",
+    "monoamine reuptake inhibition"
+  ],
+  "targets": [
+    "NF-κB",
+    "immune cytokines",
+    "smooth muscle/analgesic signaling",
+    "antioxidant response"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Mostly preparation-derived. Caution with anticoagulants, pregnancy, and immune-modulating therapies.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

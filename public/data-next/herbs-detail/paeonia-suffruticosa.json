@@ -1,0 +1,19 @@
+{
+  "name": "paeonia suffruticosa",
+  "slug": "paeonia-suffruticosa",
+  "scientificName": "",
+  "summary": "Paeonia suffruticosa contains Paeonol and is linked here to NF-κB inhibition.",
+  "description": "Paeonia suffruticosa contains Paeonol and is linked here to NF-κB inhibition.",
+  "mechanismTags": [
+    "NF-κB inhibition",
+    "Nrf2 activation"
+  ],
+  "activeCompounds": [
+    "Paeonol"
+  ],
+  "interactions": [
+    "Potential interaction concern with hormonal therapies",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "isatis",
+  "slug": "isatis",
+  "scientificName": "",
+  "summary": "It is best framed as a traditional-use herb with limited modern clinical depth.",
+  "description": "It is best framed as a traditional-use herb with limited modern clinical depth.",
+  "mechanismTags": [
+    "traditional immune support",
+    "throat support",
+    "CDK inhibition",
+    "STAT3 inhibition"
+  ],
+  "activeCompounds": [
+    "tryptanthrin",
+    "indirubin"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

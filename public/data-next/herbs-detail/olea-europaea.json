@@ -1,0 +1,22 @@
+{
+  "name": "olea europaea",
+  "slug": "olea-europaea",
+  "scientificName": "",
+  "summary": "Lean bulk ingestion row for Olea europaea.",
+  "description": "Lean bulk ingestion row for Olea europaea. Key active compounds include Oleuropein; Hydroxytyrosol.",
+  "mechanismTags": [
+    "oleuropein/hydroxytyrosol antioxidant signaling",
+    "ACE/endothelial nitric oxide modulation",
+    "lipid and blood-pressure pathway effects"
+  ],
+  "activeCompounds": [
+    "Oleuropein",
+    "Hydroxytyrosol",
+    "Oleocanthal",
+    "Oleacein"
+  ],
+  "interactions": [
+    "May potentiate antihypertensives and antidiabetics",
+    "caution with anticoagulants if product has vascular effects."
+  ]
+}

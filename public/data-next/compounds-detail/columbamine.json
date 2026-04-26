@@ -1,0 +1,27 @@
+{
+  "name": "columbamine",
+  "slug": "columbamine",
+  "summary": "Berberine-family alkaloid linked to metabolic regulation pathways.",
+  "description": "Berberine-family alkaloid linked to metabolic regulation pathways.",
+  "compoundClass": "protoberberine isoquinoline alkaloid",
+  "mechanisms": [
+    "AMPK activation",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "NF-κB",
+    "apoptosis signaling",
+    "microbial targets",
+    "AMPK-related pathways"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Human safety is not well established. Avoid pregnancy/breastfeeding; caution with CYP/P-gp substrates, antidiabetic drugs, and complex medication regimens.",
+  "evidenceLevel": "preclinical",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 6,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

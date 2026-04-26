@@ -1,0 +1,23 @@
+{
+  "name": "dandelion",
+  "slug": "dandelion",
+  "scientificName": "",
+  "summary": "It is best framed as a traditional food-like bitter herb rather than a strong cleansing intervention.",
+  "description": "It is best framed as a traditional food-like bitter herb rather than a strong cleansing intervention.",
+  "mechanismTags": [
+    "potassium-rich leaf diuretic/natriuretic effects",
+    "bitter sesquiterpene lactone-mediated digestive secretion",
+    "inulin/fructan prebiotic effects",
+    "polyphenol-mediated Nrf2/NF-κB modulation"
+  ],
+  "activeCompounds": [
+    "taraxasterol"
+  ],
+  "interactions": [
+    "Diuretics",
+    "lithium",
+    "antihypertensives",
+    "glucose-lowering therapy",
+    "theoretical quinolone absorption concern and additive GI irritation possible."
+  ]
+}

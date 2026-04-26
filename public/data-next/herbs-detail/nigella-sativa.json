@@ -1,0 +1,23 @@
+{
+  "name": "nigella sativa",
+  "slug": "nigella-sativa",
+  "scientificName": "",
+  "summary": "Lean bulk ingestion row for Nigella sativa.",
+  "description": "Lean bulk ingestion row for Nigella sativa. Key active compounds include Thymoquinone.",
+  "mechanismTags": [
+    "thymoquinone-mediated NF-κB inhibition",
+    "Nrf2/HO-1 activation",
+    "AMPK activation",
+    "PPARγ/adiponectin modulation",
+    "pancreatic beta-cell and insulin-sensitivity effects"
+  ],
+  "activeCompounds": [
+    "Thymoquinone"
+  ],
+  "interactions": [
+    "Antidiabetics",
+    "antihypertensives",
+    "anticoagulants/antiplatelets",
+    "additive metabolic effects."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "burdock",
+  "slug": "burdock",
+  "scientificName": "",
+  "summary": "It is best framed as a traditional root botanical with modest modern evidence rather than a definitive detox herb.",
+  "description": "It is best framed as a traditional root botanical with modest modern evidence rather than a definitive detox herb.",
+  "mechanismTags": [
+    "traditional skin support",
+    "anti-inflammatory"
+  ],
+  "activeCompounds": [
+    "arctiin"
+  ],
+  "interactions": [
+    "May add to antidiabetic or diuretic effects",
+    "use caution with lithium/diuretics if high intake."
+  ]
+}

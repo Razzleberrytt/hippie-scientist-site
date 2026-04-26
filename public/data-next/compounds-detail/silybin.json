@@ -1,0 +1,25 @@
+{
+  "name": "silybin",
+  "slug": "silybin",
+  "summary": "Major flavonolignan component of silymarin known for hepatoprotective signaling.",
+  "description": "Major flavonolignan component of silymarin known for hepatoprotective signaling.",
+  "compoundClass": "phytochemical constituent",
+  "mechanisms": [
+    "Nrf2 activation",
+    "TGF-β modulation"
+  ],
+  "targets": [
+    "TGF-β-related nodes",
+    "antioxidant enzymes"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "human / animal / in vitro",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 12,
+  "confidenceTier": "moderate",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "medium",
+  "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific."
+}

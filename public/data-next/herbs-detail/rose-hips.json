@@ -1,0 +1,18 @@
+{
+  "name": "rose hips",
+  "slug": "rose-hips",
+  "scientificName": "",
+  "summary": "They are best framed as polyphenol- and vitamin-rich fruit material with modest but relevant human evidence.",
+  "description": "They are best framed as polyphenol- and vitamin-rich fruit material with modest but relevant human evidence.",
+  "mechanismTags": [
+    "galactolipid/GOPO anti-inflammatory signaling",
+    "COX/LOX and cartilage inflammatory mediator modulation"
+  ],
+  "activeCompounds": [
+    "trans-tiliroside"
+  ],
+  "interactions": [
+    "May affect iron absorption",
+    "caution with anticoagulants if high-dose vitamin C/polyphenol products."
+  ]
+}

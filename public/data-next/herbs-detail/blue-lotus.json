@@ -1,0 +1,25 @@
+{
+  "name": "blue lotus",
+  "slug": "blue-lotus",
+  "scientificName": "",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "mechanismTags": [
+    "calming support",
+    "mood support",
+    "sleep support"
+  ],
+  "activeCompounds": [
+    "puerarin",
+    "nuciferine",
+    "apomorphine"
+  ],
+  "interactions": [
+    "Possible additive sedation with alcohol",
+    "benzodiazepines",
+    "sleep aids",
+    "opioids",
+    "antihistamines",
+    "and other calming botanicals."
+  ]
+}

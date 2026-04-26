@@ -1,0 +1,28 @@
+{
+  "name": "deoxyelephantopin",
+  "slug": "deoxyelephantopin",
+  "summary": "Sesquiterpene lactone linked to inflammatory and apoptotic signaling.",
+  "description": "Sesquiterpene lactone linked to inflammatory and apoptotic signaling.",
+  "compoundClass": "sesquiterpene lactone",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "STAT3 inhibition",
+    "apoptosis pathway modulation (caspase activation)"
+  ],
+  "targets": [
+    "NF-κB",
+    "STAT3",
+    "apoptosis/caspase signaling",
+    "caspase signaling"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 6,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

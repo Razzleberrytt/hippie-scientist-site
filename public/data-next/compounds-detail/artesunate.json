@@ -1,0 +1,25 @@
+{
+  "name": "artesunate",
+  "slug": "artesunate",
+  "summary": "Semi-synthetic artemisinin derivative retained here in natural-derivative context.",
+  "description": "Semi-synthetic artemisinin derivative retained here in natural-derivative context.",
+  "compoundClass": "semi-synthetic artemisinin derivative",
+  "mechanisms": [
+    "ROS-mediated signaling modulation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "NF-κB",
+    "redox signaling"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "human_strong",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "human_strong",
+  "confidenceTier_v2": "high",
+  "confidenceReason": "Supported by strong human clinical or regulatory evidence; claims should remain indication-specific."
+}

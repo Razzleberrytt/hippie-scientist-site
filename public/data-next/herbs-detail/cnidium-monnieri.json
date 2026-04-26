@@ -1,0 +1,24 @@
+{
+  "name": "cnidium monnieri",
+  "slug": "cnidium-monnieri",
+  "scientificName": "",
+  "summary": "Cnidium monnieri lean monograph row enriched in bulk mode.",
+  "description": "Cnidium monnieri lean monograph row enriched in bulk mode.",
+  "mechanismTags": [
+    "PDE4 inhibition",
+    "PI3K/Akt modulation",
+    "acetylcholinesterase inhibition",
+    "voltage-gated calcium channel modulation",
+    "MAPK pathway modulation"
+  ],
+  "activeCompounds": [
+    "Osthole",
+    "Imperatorin",
+    "Isoimperatorin"
+  ],
+  "interactions": [
+    "Potential interaction concern with antihypertensives/diuretics",
+    "anticoagulants/antiplatelets",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

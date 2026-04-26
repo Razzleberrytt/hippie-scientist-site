@@ -1,0 +1,21 @@
+{
+  "name": "atractylodes macrocephala",
+  "slug": "atractylodes-macrocephala",
+  "scientificName": "",
+  "summary": "Atractylodes macrocephala contains Atractylenolide I and is linked here to PI3K/Akt modulation.",
+  "description": "Atractylodes macrocephala contains Atractylenolide I and is linked here to PI3K/Akt modulation.",
+  "mechanismTags": [
+    "PI3K/Akt modulation",
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
+  ],
+  "activeCompounds": [
+    "Atractylenolide I",
+    "Atractylenolide II",
+    "Atractylenolide III"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

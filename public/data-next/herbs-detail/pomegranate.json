@@ -1,0 +1,24 @@
+{
+  "name": "pomegranate",
+  "slug": "pomegranate",
+  "scientificName": "",
+  "summary": "It is best framed as a polyphenol-rich fruit botanical with food-form relevance and moderate evidence.",
+  "description": "It is best framed as a polyphenol-rich fruit botanical with food-form relevance and moderate evidence.",
+  "mechanismTags": [
+    "vascular support",
+    "antioxidant",
+    "Nrf2 activation",
+    "NF-κB inhibition",
+    "MAPK pathway modulation",
+    "ellagitannin-mediated antioxidant signaling"
+  ],
+  "activeCompounds": [
+    "punicalagins",
+    "Ellagic acid",
+    "Gallic acid",
+    "punicalagin"
+  ],
+  "interactions": [
+    "Polyphenol-rich extracts may alter drug metabolism in some contexts."
+  ]
+}

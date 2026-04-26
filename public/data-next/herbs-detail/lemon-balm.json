@@ -1,0 +1,19 @@
+{
+  "name": "lemon balm",
+  "slug": "lemon-balm",
+  "scientificName": "",
+  "summary": "Lemon Balm centers on the leaf; aerial parts.",
+  "description": "Lemon Balm centers on the leaf; aerial parts. Key reported compounds include rosmarinic acid; citral; citronellal; linalool; flavonoids. Typical preparation forms: Leaf extracts, teas, tinctures. GABAergic (GABA transaminase inhibition); mild cholinergic activity. Interaction profile: Sedatives, thyroid medications. Use caution or avoid in: Hypothyroidism (caution).",
+  "mechanismTags": [
+    "GABA-transaminase inhibition",
+    "rosmarinic-acid anti-inflammatory signaling",
+    "cholinergic/acetylcholinesterase modulation"
+  ],
+  "activeCompounds": [
+    "Rosmarinic acid"
+  ],
+  "interactions": [
+    "May potentiate sedatives/CNS depressants",
+    "clinician review with thyroid medications."
+  ]
+}

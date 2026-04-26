@@ -1,0 +1,28 @@
+{
+  "name": "palmatine",
+  "slug": "palmatine",
+  "summary": "Palmatine is a protoberberine alkaloid that often co-occurs with berberine-containing herbs. Its profile is driven mainly by preclinical metabolic, antimicrobial, and anti-inflammatory studies rather than direct clinical evidence.",
+  "description": "Protoberberine alkaloid found in berberine-containing herbs with metabolic and inflammatory pathway effects.",
+  "compoundClass": "protoberberine isoquinoline alkaloid",
+  "mechanisms": [
+    "AMPK activation",
+    "MAPK pathway modulation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "AMPK",
+    "NF-κB",
+    "microbial targets",
+    "CYP/P-gp interaction pathways"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Related to berberine-like alkaloids but less clinically characterized. Avoid pregnancy/breastfeeding and use caution with antidiabetic, anticoagulant, and CYP/P-gp substrate drugs.",
+  "evidenceLevel": "preclinical; human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 7,
+  "confidenceTier": "low",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Most support is preclinical and does not yet establish strong human outcomes."
+}

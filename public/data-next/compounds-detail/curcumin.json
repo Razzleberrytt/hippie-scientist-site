@@ -1,0 +1,30 @@
+{
+  "name": "curcumin",
+  "slug": "curcumin",
+  "summary": "Curcuminoid from turmeric commonly linked to NF-κB inhibition and Nrf2 activation.",
+  "description": "Curcuminoid from turmeric commonly linked to NF-κB inhibition and Nrf2 activation.",
+  "compoundClass": "diarylheptanoid polyphenol",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "Nrf2 activation"
+  ],
+  "targets": [
+    "NF-κB",
+    "Nrf2",
+    "COX-2",
+    "LOX",
+    "STAT3",
+    "AMPK",
+    "inflammatory cytokines"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Generally well tolerated in many trials, but high-dose extracts can cause GI upset and may interact with anticoagulants/antiplatelets or gallbladder disease contexts; piperine coformulas change exposure.",
+  "evidenceLevel": "human_limited; multiple_meta_analyses_by_indication",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 20,
+  "confidenceTier": "moderate",
+  "evidenceType": "meta_analysis",
+  "confidenceTier_v2": "high",
+  "confidenceReason": "Backed by meta-analysis or systematic-review level human evidence, with compound-specific cautions retained."
+}

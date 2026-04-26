@@ -1,0 +1,27 @@
+{
+  "name": "deoxymiroestrol",
+  "slug": "deoxymiroestrol",
+  "summary": "Phytoestrogen precursor compound associated with Pueraria mirifica and estrogenic signaling.",
+  "description": "Phytoestrogen precursor compound associated with Pueraria mirifica and estrogenic signaling.",
+  "compoundClass": "isoflavone / phytoestrogen",
+  "mechanisms": [
+    "estrogen receptor modulation"
+  ],
+  "targets": [
+    "estrogen receptor signaling",
+    "AMPK",
+    "PPAR",
+    "antioxidant response",
+    "bone/metabolic signaling"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
+  "evidenceLevel": "human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 4,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

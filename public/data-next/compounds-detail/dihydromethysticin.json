@@ -1,0 +1,27 @@
+{
+  "name": "dihydromethysticin",
+  "slug": "dihydromethysticin",
+  "summary": "Kavalactone from kava associated with GABAergic activity and monoamine-related signaling.",
+  "description": "Kavalactone from kava associated with GABAergic activity and monoamine-related signaling.",
+  "compoundClass": "kavalactone",
+  "mechanisms": [
+    "GABA-A modulation",
+    "MAO-B inhibition"
+  ],
+  "targets": [
+    "GABAergic signaling",
+    "voltage-gated ion channels",
+    "monoamine signaling",
+    "CYP enzymes"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
+  "evidenceLevel": "human_limited",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 6,
+  "confidenceTier": "low",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "medium",
+  "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific."
+}

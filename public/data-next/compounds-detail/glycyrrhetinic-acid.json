@@ -1,0 +1,24 @@
+{
+  "name": "glycyrrhetinic acid",
+  "slug": "glycyrrhetinic-acid",
+  "summary": "Triterpenoid metabolite of glycyrrhizin associated with inflammatory signaling modulation.",
+  "description": "Triterpenoid metabolite of glycyrrhizin associated with inflammatory signaling modulation.",
+  "compoundClass": "triterpenoid sapogenin",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "HMGB1 inhibition"
+  ],
+  "targets": [
+    "NF-κB"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "in_vitro",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data."
+}

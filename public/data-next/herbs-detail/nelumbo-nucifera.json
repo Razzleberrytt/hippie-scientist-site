@@ -1,0 +1,19 @@
+{
+  "name": "nelumbo nucifera",
+  "slug": "nelumbo-nucifera",
+  "scientificName": "",
+  "summary": "Nelumbo nucifera lean monograph row enriched in bulk mode.",
+  "description": "Nelumbo nucifera lean monograph row enriched in bulk mode.",
+  "mechanismTags": [
+    "AMPK activation",
+    "NF-κB inhibition"
+  ],
+  "activeCompounds": [
+    "Magnoflorine"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "artichoke",
+  "slug": "artichoke",
+  "scientificName": "",
+  "summary": "It is best framed around bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims.",
+  "description": "It is best framed around bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims.",
+  "mechanismTags": [
+    "caffeoylquinic-acid signaling",
+    "bile-acid/cholesterol metabolism",
+    "HMG-CoA reductase and hepatic antioxidant modulation"
+  ],
+  "activeCompounds": [
+    "cynarin",
+    "Luteolin",
+    "Chlorogenic acid"
+  ],
+  "interactions": [
+    "May add to lipid-lowering or bile-flow effects",
+    "theoretical interaction with anticoagulants if high vitamin K diet changes."
+  ]
+}

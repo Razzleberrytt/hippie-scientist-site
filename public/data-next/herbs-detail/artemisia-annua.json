@@ -1,0 +1,22 @@
+{
+  "name": "artemisia annua",
+  "slug": "artemisia-annua",
+  "scientificName": "",
+  "summary": "Internal cross-linking supports Artemisia Annua through compounds such as artemisinin.",
+  "description": "Internal cross-linking supports Artemisia Annua through compounds such as artemisinin.",
+  "mechanismTags": [
+    "artemisinin endoperoxide activation under iron/heme conditions",
+    "parasite oxidative damage pathways",
+    "NF-κB and cytokine modulation reported preclinically"
+  ],
+  "activeCompounds": [
+    "Artemisinin",
+    "Artesunate",
+    "Artemisinin B"
+  ],
+  "interactions": [
+    "Potential CYP/P-gp interactions and additive effects with antimalarials",
+    "hepatotoxic drugs",
+    "and seizure-threshold-lowering agents."
+  ]
+}

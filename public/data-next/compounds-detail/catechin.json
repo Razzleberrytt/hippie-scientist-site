@@ -1,0 +1,31 @@
+{
+  "name": "catechin",
+  "slug": "catechin",
+  "summary": "Catechin is a flavanol found in tea, cacao, and many botanicals, but much of the human literature evaluates catechin-rich mixtures rather than isolated catechin alone. That makes the mechanism signal stronger than the isolated clinical signal.",
+  "description": "Flavan-3-ol common in tea and cacao, often linked to AMPK and Nrf2 pathway effects.",
+  "compoundClass": "flavanol / tea polyphenol",
+  "mechanisms": [
+    "Nrf2 activation",
+    "NF-kB suppression",
+    "endothelial nitric-oxide signaling support",
+    "antioxidant redox modulation"
+  ],
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "AMPK",
+    "endothelial nitric oxide",
+    "antioxidant response",
+    "lipid/glucose signaling"
+  ],
+  "foundIn": [],
+  "safetyNotes": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
+  "evidenceLevel": "human_indirect",
+  "review_status": "partial",
+  "source_status": "partial",
+  "sourceCount": 5,
+  "confidenceTier": "low",
+  "evidenceType": "human_limited",
+  "confidenceTier_v2": "low",
+  "confidenceReason": "Human findings are often mixture-based and do not cleanly support isolated catechin."
+}

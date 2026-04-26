@@ -1,0 +1,21 @@
+{
+  "name": "soybean",
+  "slug": "soybean",
+  "scientificName": "",
+  "summary": "Conservative evidence framing applied.",
+  "description": "Conservative evidence framing applied.",
+  "mechanismTags": [
+    "isoflavone estrogen-receptor modulation",
+    "lipid metabolism and bone-turnover signaling",
+    "antioxidant pathways"
+  ],
+  "activeCompounds": [
+    "Genistein",
+    "Daidzein",
+    "Biochanin A"
+  ],
+  "interactions": [
+    "May affect levothyroxine absorption timing",
+    "review with hormone therapies and anticoagulants if diet changes are large."
+  ]
+}

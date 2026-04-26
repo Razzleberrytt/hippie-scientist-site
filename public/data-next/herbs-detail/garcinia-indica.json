@@ -1,0 +1,20 @@
+{
+  "name": "garcinia indica",
+  "slug": "garcinia-indica",
+  "scientificName": "",
+  "summary": "Garcinia indica contains Garcinol and is linked here to NF-κB inhibition.",
+  "description": "Garcinia indica contains Garcinol and is linked here to NF-κB inhibition.",
+  "mechanismTags": [
+    "NF-κB inhibition",
+    "HAT inhibition",
+    "STAT3 inhibition"
+  ],
+  "activeCompounds": [
+    "Garcinol"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ]
+}
