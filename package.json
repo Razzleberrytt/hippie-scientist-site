@@ -189,7 +189,10 @@
     "data:validate:next": "node scripts/data/validate-data-next.mjs",
     "data:coverage:next": "node scripts/data/report-workbook-parser-coverage.mjs",
     "data:report:quality": "node scripts/data/report-workbook-parser-coverage.mjs --data-dir public/data",
-    "data:build:legacy": "node scripts/sync-updated-datasets.mjs && npm run clean:source-refs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-site-counts.mjs && node scripts/generate-homepage-data.mjs && node scripts/generate-homepage-featured.mjs && node scripts/generate-rss.mjs && npm run verify:affiliate-products"
+    "data:build:legacy": "node scripts/sync-updated-datasets.mjs && npm run clean:source-refs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-site-counts.mjs && node scripts/generate-homepage-data.mjs && node scripts/generate-homepage-featured.mjs && node scripts/generate-rss.mjs && npm run verify:affiliate-products",
+    "data:check:workbook-source": "node scripts/check-workbook-source.mjs",
+    "data:inspect": "node scripts/inspect-workbook.mjs",
+    "data:check:generated": "node scripts/check-generated-output.mjs"
   },
   "engines": {
     "node": ">=20 <21"
