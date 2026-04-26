@@ -71,8 +71,10 @@ const DETAIL_DIRS = {
 }
 
 const WORKBOOK_SHEETS = {
-  herbs: 'Herb Master Clean',
+  herbs: 'Herb Master V3',
   compounds: 'Compound Master V3',
+  claimRows: 'Claim Rows',
+  researchQueue: 'Research Queue',
 }
 
 const ROOT_CAUSES = {

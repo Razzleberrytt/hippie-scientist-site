@@ -1,12 +1,13 @@
 {
-  "generatedAt": "2026-04-25T13:57:52.037Z",
+  "generatedAt": "2026-04-26T18:18:21.410Z",
   "source": {
-    "workbookPath": "/workspaces/hippie-scientist-site/data-sources/herb_monograph_master.xlsx",
+    "workbookPath": "/workspace/hippie-scientist-site/data-sources/herb_monograph_master.xlsx",
     "sheets": {
-      "herbs": "Herb Master Clean",
+      "herbs": "Herb Master V3",
       "compounds": "Compound Master V3",
       "herbCompoundMap": "Herb Compound Map V3",
-      "claimRows": "Claim Rows"
+      "claimRows": "Claim Rows",
+      "researchQueue": "Research Queue"
     }
   },
   "output": "public/data",
@@ -18,6 +19,7 @@
     "herbDetails": 285,
     "compoundDetails": 235,
     "claimRows": 4349,
+    "researchQueueRows": 290,
     "skippedHerbs": 0,
     "skippedCompounds": 0
   }

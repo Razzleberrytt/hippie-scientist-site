@@ -11,9 +11,11 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '../..')
 
 const SHEETS = {
-  herbs: 'Herb Master Clean',
+  herbs: 'Herb Master V3',
   compounds: 'Compound Master V3',
   herbCompoundMap: 'Herb Compound Map V3',
+  claimRows: 'Claim Rows',
+  researchQueue: 'Research Queue',
 }
 
 const OUTPUTS = {

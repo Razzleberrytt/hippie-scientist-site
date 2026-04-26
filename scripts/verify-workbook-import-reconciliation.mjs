@@ -12,8 +12,11 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 const workbookPath = resolveWorkbookPath(repoRoot)
 const REQUIRED_WORKBOOK_SHEETS = {
-  herbs: ['Herb Monographs', 'Herb Master', 'Herb Master Clean'],
-  compounds: ['Compound Master V3', 'Compound Master'],
+  herbs: ['Herb Master V3'],
+  compounds: ['Compound Master V3'],
+  herbCompoundMap: ['Herb Compound Map V3'],
+  claimRows: ['Claim Rows'],
+  researchQueue: ['Research Queue'],
 }
 const herbsPath = path.join(repoRoot, 'public', 'data', 'herbs.json')
 const compoundsPath = path.join(repoRoot, 'public', 'data', 'compounds.json')
@@ -36,12 +39,18 @@ function resolveWorkbookSheet(workbook, candidates, label) {
 
 function baselineCounts() {
   const workbook = XLSX.readFile(workbookPath, {
-    sheets: [...REQUIRED_WORKBOOK_SHEETS.herbs, ...REQUIRED_WORKBOOK_SHEETS.compounds],
+    sheets: Object.values(REQUIRED_WORKBOOK_SHEETS).flat(),
   })
   const herbsSheet = resolveWorkbookSheet(workbook, REQUIRED_WORKBOOK_SHEETS.herbs, 'herbs')
   const compoundsSheet = resolveWorkbookSheet(workbook, REQUIRED_WORKBOOK_SHEETS.compounds, 'compounds')
   const herbRows = XLSX.utils.sheet_to_json(workbook.Sheets[herbsSheet], { defval: '', raw: false, blankrows: false })
   const compoundRows = XLSX.utils.sheet_to_json(workbook.Sheets[compoundsSheet], { defval: '', raw: false, blankrows: false })
+  const herbCompoundMapSheet = resolveWorkbookSheet(workbook, REQUIRED_WORKBOOK_SHEETS.herbCompoundMap, 'herbCompoundMap')
+  const claimRowsSheet = resolveWorkbookSheet(workbook, REQUIRED_WORKBOOK_SHEETS.claimRows, 'claimRows')
+  const researchQueueSheet = resolveWorkbookSheet(workbook, REQUIRED_WORKBOOK_SHEETS.researchQueue, 'researchQueue')
+  const herbCompoundMapRows = XLSX.utils.sheet_to_json(workbook.Sheets[herbCompoundMapSheet], { defval: '', raw: false, blankrows: false })
+  const claimRows = XLSX.utils.sheet_to_json(workbook.Sheets[claimRowsSheet], { defval: '', raw: false, blankrows: false })
+  const researchQueueRows = XLSX.utils.sheet_to_json(workbook.Sheets[researchQueueSheet], { defval: '', raw: false, blankrows: false })
 
   const herbs = JSON.parse(fs.readFileSync(herbsPath, 'utf8'))
   const compounds = JSON.parse(fs.readFileSync(compoundsPath, 'utf8'))
@@ -83,6 +92,9 @@ function baselineCounts() {
     herbRows: herbRows.length,
     herbMatches,
     compoundRows: compoundRows.length,
+    herbCompoundMapRows: herbCompoundMapRows.length,
+    claimRows: claimRows.length,
+    researchQueueRows: researchQueueRows.length,
     compoundMatches,
     missingRequiredHerbFields,
     herbRowsData: herbRows,
@@ -211,6 +223,9 @@ function main() {
   assert(reconciled.compoundMatched <= baseline.compoundRows, 'Suspicious over-matching detected for compounds.')
   assert(baseline.herbRows > 0, 'Herb Master has zero rows.')
   assert(baseline.compoundRows > 0, 'Compound Master has zero rows.')
+  assert(baseline.herbCompoundMapRows > 0, 'Herb Compound Map has zero rows.')
+  assert(baseline.claimRows > 0, 'Claim Rows has zero rows.')
+  assert(baseline.researchQueueRows > 0, 'Research Queue has zero rows.')
   assert(Array.isArray(workbookHerbs) && workbookHerbs.length > 0, 'workbook-herbs.json export is empty.')
   assert(Array.isArray(workbookCompounds) && workbookCompounds.length > 0, 'workbook-compounds.json export is empty.')
   assert(

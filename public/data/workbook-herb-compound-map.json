@@ -1,1442 +1,3326 @@
 [
   {
-    "herbSlug": "withaferin-a",
-    "herbName": "Withaferin A"
+    "herbSlug": "ashwagandha",
+    "herbName": "Ashwagandha",
+    "canonicalCompoundId": "withaferin-a",
+    "canonicalCompoundName": "Withaferin A"
   },
   {
-    "herbSlug": "triterpene-glycosides-actein-23-epi-26-deoxyactein",
-    "herbName": "triterpene glycosides (actein, 23-epi-26-deoxyactein)"
+    "herbSlug": "black-cohosh",
+    "herbName": "Black Cohosh",
+    "canonicalCompoundId": "triterpene-glycosides-actein-23-epi-26-deoxyactein",
+    "canonicalCompoundName": "triterpene glycosides (actein, 23-epi-26-deoxyactein)"
   },
   {
-    "herbSlug": "alkamides",
-    "herbName": "alkamides"
+    "herbSlug": "echinacea-purpurea",
+    "herbName": "Echinacea Purpurea",
+    "canonicalCompoundId": "alkamides",
+    "canonicalCompoundName": "alkamides"
   },
   {
-    "herbSlug": "diallyl-sulfide",
-    "herbName": "diallyl sulfide"
+    "herbSlug": "garlic",
+    "herbName": "Garlic",
+    "canonicalCompoundId": "diallyl-sulfide",
+    "canonicalCompoundName": "diallyl sulfide"
   },
   {
-    "herbSlug": "6-gingerol",
-    "herbName": "6-Gingerol"
+    "herbSlug": "ginger",
+    "herbName": "Ginger",
+    "canonicalCompoundId": "6-gingerol",
+    "canonicalCompoundName": "6-Gingerol"
   },
   {
-    "herbSlug": "ginkgolides-a-b-c-j",
-    "herbName": "ginkgolides A, B, C, J"
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgo Biloba",
+    "canonicalCompoundId": "ginkgolides-a-b-c-j",
+    "canonicalCompoundName": "ginkgolides A, B, C, J"
   },
   {
-    "herbSlug": "eugenol",
-    "herbName": "Eugenol"
+    "herbSlug": "holy-basil",
+    "herbName": "Holy Basil",
+    "canonicalCompoundId": "eugenol",
+    "canonicalCompoundName": "Eugenol"
   },
   {
-    "herbSlug": "kavain",
-    "herbName": "kavain"
+    "herbSlug": "kava",
+    "herbName": "Kava",
+    "canonicalCompoundId": "kavain",
+    "canonicalCompoundName": "kavain"
   },
   {
-    "herbSlug": "rosmarinic-acid",
-    "herbName": "Rosmarinic acid"
+    "herbSlug": "lemon-balm",
+    "herbName": "Lemon Balm",
+    "canonicalCompoundId": "rosmarinic-acid",
+    "canonicalCompoundName": "Rosmarinic acid"
   },
   {
-    "herbSlug": "macamides",
-    "herbName": "macamides"
+    "herbSlug": "maca",
+    "herbName": "Maca",
+    "canonicalCompoundId": "macamides",
+    "canonicalCompoundName": "macamides"
   },
   {
-    "herbSlug": "silybin-a-b",
-    "herbName": "silybin A/B"
+    "herbSlug": "milk-thistle",
+    "herbName": "Milk Thistle",
+    "canonicalCompoundId": "silybin-a-b",
+    "canonicalCompoundName": "silybin A/B"
   },
   {
-    "herbSlug": "l-menthol",
-    "herbName": "l‐menthol"
+    "herbSlug": "peppermint",
+    "herbName": "Peppermint",
+    "canonicalCompoundId": "l-menthol",
+    "canonicalCompoundName": "l‐menthol"
   },
   {
-    "herbSlug": "rosavin",
-    "herbName": "Rosavin"
+    "herbSlug": "rhodiola-rosea",
+    "herbName": "Rhodiola Rosea",
+    "canonicalCompoundId": "rosavin",
+    "canonicalCompoundName": "Rosavin"
   },
   {
-    "herbSlug": "fatty-acids",
-    "herbName": "fatty acids"
+    "herbSlug": "saw-palmetto",
+    "herbName": "Saw Palmetto",
+    "canonicalCompoundId": "fatty-acids",
+    "canonicalCompoundName": "fatty acids"
   },
   {
-    "herbSlug": "hyperforin",
-    "herbName": "Hyperforin"
+    "herbSlug": "st-johns-wort",
+    "herbName": "St Johns Wort",
+    "canonicalCompoundId": "hyperforin",
+    "canonicalCompoundName": "Hyperforin"
   },
   {
-    "herbSlug": "demethoxycurcumin",
-    "herbName": "Demethoxycurcumin"
+    "herbSlug": "turmeric",
+    "herbName": "Turmeric",
+    "canonicalCompoundId": "demethoxycurcumin",
+    "canonicalCompoundName": "Demethoxycurcumin"
   },
   {
-    "herbSlug": "valerenic-acid",
-    "herbName": "valerenic acid"
+    "herbSlug": "valerian",
+    "herbName": "Valerian",
+    "canonicalCompoundId": "valerenic-acid",
+    "canonicalCompoundName": "valerenic acid"
   },
   {
-    "herbSlug": "caffeine",
-    "herbName": "Caffeine"
+    "herbSlug": "guarana",
+    "herbName": "Guarana",
+    "canonicalCompoundId": "caffeine",
+    "canonicalCompoundName": "Caffeine"
   },
   {
-    "herbSlug": "apigenin",
-    "herbName": "Apigenin"
+    "herbSlug": "yerba-mate",
+    "herbName": "Yerba Mate",
+    "canonicalCompoundId": "apigenin",
+    "canonicalCompoundName": "Apigenin"
   },
   {
-    "herbSlug": "nuciferine",
-    "herbName": "nuciferine"
+    "herbSlug": "damiana",
+    "herbName": "Damiana",
+    "canonicalCompoundId": "nuciferine",
+    "canonicalCompoundName": "nuciferine"
   },
   {
-    "herbSlug": "puerarin",
-    "herbName": "puerarin"
+    "herbSlug": "blue-lotus",
+    "herbName": "Blue Lotus",
+    "canonicalCompoundId": "puerarin",
+    "canonicalCompoundName": "puerarin"
   },
   {
-    "herbSlug": "parthenolide",
-    "herbName": "parthenolide"
+    "herbSlug": "kudzu",
+    "herbName": "Kudzu",
+    "canonicalCompoundId": "parthenolide",
+    "canonicalCompoundName": "parthenolide"
   },
   {
-    "herbSlug": "petasin",
-    "herbName": "petasin"
+    "herbSlug": "yarrow",
+    "herbName": "Yarrow",
+    "canonicalCompoundId": "petasin",
+    "canonicalCompoundName": "petasin"
   },
   {
-    "herbSlug": "actein",
-    "herbName": "Actein"
+    "herbSlug": "feverfew",
+    "herbName": "Feverfew",
+    "canonicalCompoundId": "actein",
+    "canonicalCompoundName": "Actein"
   },
   {
-    "herbSlug": "curcumin",
-    "herbName": "curcumin"
+    "herbSlug": "butterbur",
+    "herbName": "Butterbur",
+    "canonicalCompoundId": "petasin",
+    "canonicalCompoundName": "petasin"
   },
   {
-    "herbSlug": "thymol",
-    "herbName": "thymol"
+    "herbSlug": "dong-quai",
+    "herbName": "Dong Quai",
+    "canonicalCompoundId": "curcumin",
+    "canonicalCompoundName": "curcumin"
   },
   {
-    "herbSlug": "carvacrol",
-    "herbName": "carvacrol"
+    "herbSlug": "rosemary",
+    "herbName": "Rosemary",
+    "canonicalCompoundId": "thymol",
+    "canonicalCompoundName": "thymol"
   },
   {
-    "herbSlug": "eucalyptol",
-    "herbName": "eucalyptol"
+    "herbSlug": "sage",
+    "herbName": "Sage",
+    "canonicalCompoundId": "carvacrol",
+    "canonicalCompoundName": "carvacrol"
   },
   {
-    "herbSlug": "cynarin",
-    "herbName": "cynarin"
+    "herbSlug": "thyme",
+    "herbName": "Thyme",
+    "canonicalCompoundId": "eucalyptol",
+    "canonicalCompoundName": "eucalyptol"
   },
   {
-    "herbSlug": "anethole",
-    "herbName": "anethole"
+    "herbSlug": "artichoke",
+    "herbName": "Artichoke",
+    "canonicalCompoundId": "cynarin",
+    "canonicalCompoundName": "cynarin"
   },
   {
-    "herbSlug": "cinnamaldehyde",
-    "herbName": "cinnamaldehyde"
+    "herbSlug": "fennel",
+    "herbName": "Fennel",
+    "canonicalCompoundId": "anethole",
+    "canonicalCompoundName": "anethole"
   },
   {
-    "herbSlug": "taraxasterol",
-    "herbName": "taraxasterol"
+    "herbSlug": "cinnamon",
+    "herbName": "Cinnamon",
+    "canonicalCompoundId": "cinnamaldehyde",
+    "canonicalCompoundName": "cinnamaldehyde"
   },
   {
-    "herbSlug": "arctiin",
-    "herbName": "arctiin"
+    "herbSlug": "dandelion",
+    "herbName": "Dandelion",
+    "canonicalCompoundId": "taraxasterol",
+    "canonicalCompoundName": "taraxasterol"
   },
   {
-    "herbSlug": "genistein",
-    "herbName": "genistein"
+    "herbSlug": "burdock",
+    "herbName": "Burdock",
+    "canonicalCompoundId": "arctiin",
+    "canonicalCompoundName": "arctiin"
   },
   {
-    "herbSlug": "avenanthramides",
-    "herbName": "avenanthramides"
+    "herbSlug": "chamomile",
+    "herbName": "Chamomile",
+    "canonicalCompoundId": "apigenin",
+    "canonicalCompoundName": "Apigenin"
   },
   {
-    "herbSlug": "faradiol",
-    "herbName": "faradiol"
+    "herbSlug": "red-clover",
+    "herbName": "Red Clover",
+    "canonicalCompoundId": "genistein",
+    "canonicalCompoundName": "genistein"
   },
   {
-    "herbSlug": "lapachol",
-    "herbName": "lapachol"
+    "herbSlug": "oatstraw",
+    "herbName": "Oatstraw",
+    "canonicalCompoundId": "avenanthramides",
+    "canonicalCompoundName": "avenanthramides"
   },
   {
-    "herbSlug": "gymnemic-acids",
-    "herbName": "gymnemic acids"
+    "herbSlug": "calendula",
+    "herbName": "Calendula",
+    "canonicalCompoundId": "faradiol",
+    "canonicalCompoundName": "faradiol"
   },
   {
-    "herbSlug": "corosolic-acid",
-    "herbName": "corosolic acid"
+    "herbSlug": "pau-d-arco",
+    "herbName": "Pau d'Arco",
+    "canonicalCompoundId": "lapachol",
+    "canonicalCompoundName": "lapachol"
   },
   {
-    "herbSlug": "1-deoxynojirimycin",
-    "herbName": "1-deoxynojirimycin"
+    "herbSlug": "gymnema",
+    "herbName": "Gymnema",
+    "canonicalCompoundId": "gymnemic-acids",
+    "canonicalCompoundName": "gymnemic acids"
   },
   {
-    "herbSlug": "nimbin",
-    "herbName": "nimbin"
+    "herbSlug": "banaba",
+    "herbName": "Banaba",
+    "canonicalCompoundId": "corosolic-acid",
+    "canonicalCompoundName": "corosolic acid"
   },
   {
-    "herbSlug": "thujone",
-    "herbName": "thujone"
+    "herbSlug": "mulberry-leaf",
+    "herbName": "Mulberry Leaf",
+    "canonicalCompoundId": "1-deoxynojirimycin",
+    "canonicalCompoundName": "1-deoxynojirimycin"
   },
   {
-    "herbSlug": "verbascoside",
-    "herbName": "verbascoside"
+    "herbSlug": "neem",
+    "herbName": "Neem",
+    "canonicalCompoundId": "nimbin",
+    "canonicalCompoundName": "nimbin"
   },
   {
-    "herbSlug": "avenacosides",
-    "herbName": "avenacosides"
+    "herbSlug": "mugwort",
+    "herbName": "Mugwort",
+    "canonicalCompoundId": "thujone",
+    "canonicalCompoundName": "thujone"
   },
   {
-    "herbSlug": "quadrangularin-a",
-    "herbName": "quadrangularin a"
+    "herbSlug": "lemon-verbena",
+    "herbName": "Lemon Verbena",
+    "canonicalCompoundId": "verbascoside",
+    "canonicalCompoundName": "verbascoside"
   },
   {
-    "herbSlug": "4-hydroxyderricin",
-    "herbName": "4-hydroxyderricin"
+    "herbSlug": "milk-oats",
+    "herbName": "Milk Oats",
+    "canonicalCompoundId": "avenacosides",
+    "canonicalCompoundName": "avenacosides"
   },
   {
-    "herbSlug": "punicalagins",
-    "herbName": "punicalagins"
+    "herbSlug": "cissus",
+    "herbName": "Cissus",
+    "canonicalCompoundId": "quadrangularin-a",
+    "canonicalCompoundName": "quadrangularin a"
   },
   {
-    "herbSlug": "moringin",
-    "herbName": "moringin"
+    "herbSlug": "ashitaba",
+    "herbName": "Ashitaba",
+    "canonicalCompoundId": "4-hydroxyderricin",
+    "canonicalCompoundName": "4-hydroxyderricin"
   },
   {
-    "herbSlug": "arjunolic-acid",
-    "herbName": "arjunolic acid"
+    "herbSlug": "pomegranate",
+    "herbName": "Pomegranate",
+    "canonicalCompoundId": "punicalagins",
+    "canonicalCompoundName": "punicalagins"
   },
   {
-    "herbSlug": "damnacanthal",
-    "herbName": "damnacanthal"
+    "herbSlug": "moringa",
+    "herbName": "Moringa",
+    "canonicalCompoundId": "moringin",
+    "canonicalCompoundName": "moringin"
   },
   {
-    "herbSlug": "a-type-proanthocyanidins",
-    "herbName": "a-type proanthocyanidins"
+    "herbSlug": "arjuna",
+    "herbName": "Arjuna",
+    "canonicalCompoundId": "arjunolic-acid",
+    "canonicalCompoundName": "arjunolic acid"
   },
   {
-    "herbSlug": "trans-tiliroside",
-    "herbName": "trans-tiliroside"
+    "herbSlug": "noni",
+    "herbName": "Noni",
+    "canonicalCompoundId": "damnacanthal",
+    "canonicalCompoundName": "damnacanthal"
   },
   {
-    "herbSlug": "alpha-pinene",
-    "herbName": "alpha-pinene"
+    "herbSlug": "cranberry",
+    "herbName": "Cranberry",
+    "canonicalCompoundId": "a-type-proanthocyanidins",
+    "canonicalCompoundName": "a-type proanthocyanidins"
   },
   {
-    "herbSlug": "myrtenyl-acetate",
-    "herbName": "myrtenyl acetate"
+    "herbSlug": "rose-hips",
+    "herbName": "Rose Hips",
+    "canonicalCompoundId": "trans-tiliroside",
+    "canonicalCompoundName": "trans-tiliroside"
   },
   {
-    "herbSlug": "ascorbic-acid",
-    "herbName": "ascorbic acid"
+    "herbSlug": "juniper",
+    "herbName": "Juniper",
+    "canonicalCompoundId": "alpha-pinene",
+    "canonicalCompoundName": "alpha-pinene"
   },
   {
-    "herbSlug": "alpha-mangostin",
-    "herbName": "alpha-mangostin"
+    "herbSlug": "myrtle",
+    "herbName": "Myrtle",
+    "canonicalCompoundId": "myrtenyl-acetate",
+    "canonicalCompoundName": "myrtenyl acetate"
   },
   {
-    "herbSlug": "boldine",
-    "herbName": "boldine"
+    "herbSlug": "acerola",
+    "herbName": "Acerola",
+    "canonicalCompoundId": "ascorbic-acid",
+    "canonicalCompoundName": "ascorbic acid"
   },
   {
-    "herbSlug": "pfaffic-acid",
-    "herbName": "pfaffic acid"
+    "herbSlug": "mangosteen",
+    "herbName": "Mangosteen",
+    "canonicalCompoundId": "alpha-mangostin",
+    "canonicalCompoundName": "alpha-mangostin"
   },
   {
-    "herbSlug": "ecdysterone",
-    "herbName": "ecdysterone"
+    "herbSlug": "boldo",
+    "herbName": "Boldo",
+    "canonicalCompoundId": "boldine",
+    "canonicalCompoundName": "boldine"
   },
   {
-    "herbSlug": "jatamansone",
-    "herbName": "jatamansone"
+    "herbSlug": "suma",
+    "herbName": "Suma",
+    "canonicalCompoundId": "pfaffic-acid",
+    "canonicalCompoundName": "pfaffic acid"
   },
   {
-    "herbSlug": "annonacin",
-    "herbName": "annonacin"
+    "herbSlug": "maral-root",
+    "herbName": "Maral Root",
+    "canonicalCompoundId": "ecdysterone",
+    "canonicalCompoundName": "ecdysterone"
   },
   {
-    "herbSlug": "catechins",
-    "herbName": "catechins"
+    "herbSlug": "jatamansi",
+    "herbName": "Jatamansi",
+    "canonicalCompoundId": "jatamansone",
+    "canonicalCompoundName": "jatamansone"
   },
   {
-    "herbSlug": "convolvine",
-    "herbName": "convolvine"
+    "herbSlug": "soursop",
+    "herbName": "Soursop",
+    "canonicalCompoundId": "annonacin",
+    "canonicalCompoundName": "annonacin"
   },
   {
-    "herbSlug": "humulone",
-    "herbName": "humulone"
+    "herbSlug": "ashoka",
+    "herbName": "Ashoka",
+    "canonicalCompoundId": "catechins",
+    "canonicalCompoundName": "catechins"
   },
   {
-    "herbSlug": "citral",
-    "herbName": "citral"
+    "herbSlug": "shankhpushpi",
+    "herbName": "Shankhpushpi",
+    "canonicalCompoundId": "convolvine",
+    "canonicalCompoundName": "convolvine"
   },
   {
-    "herbSlug": "perillaldehyde",
-    "herbName": "perillaldehyde"
+    "herbSlug": "hops",
+    "herbName": "Hops",
+    "canonicalCompoundId": "humulone",
+    "canonicalCompoundName": "humulone"
   },
   {
-    "herbSlug": "d-pinitol",
-    "herbName": "d-pinitol"
+    "herbSlug": "lemongrass",
+    "herbName": "Lemongrass",
+    "canonicalCompoundId": "citral",
+    "canonicalCompoundName": "citral"
   },
   {
-    "herbSlug": "tanshinone-iia",
-    "herbName": "Tanshinone IIA"
+    "herbSlug": "perilla",
+    "herbName": "Perilla",
+    "canonicalCompoundId": "perillaldehyde",
+    "canonicalCompoundName": "perillaldehyde"
   },
   {
-    "herbSlug": "geniposidic-acid",
-    "herbName": "geniposidic acid"
+    "herbSlug": "carob",
+    "herbName": "Carob",
+    "canonicalCompoundId": "d-pinitol",
+    "canonicalCompoundName": "d-pinitol"
   },
   {
-    "herbSlug": "echinacoside",
-    "herbName": "echinacoside"
+    "herbSlug": "danshen",
+    "herbName": "Danshen",
+    "canonicalCompoundId": "tanshinone-iia",
+    "canonicalCompoundName": "Tanshinone IIA"
   },
   {
-    "herbSlug": "jujuboside-a",
-    "herbName": "jujuboside a"
+    "herbSlug": "eucommia",
+    "herbName": "Eucommia",
+    "canonicalCompoundId": "geniposidic-acid",
+    "canonicalCompoundName": "geniposidic acid"
   },
   {
-    "herbSlug": "gallic-acid",
-    "herbName": "gallic acid"
+    "herbSlug": "cistanche",
+    "herbName": "Cistanche",
+    "canonicalCompoundId": "echinacoside",
+    "canonicalCompoundName": "echinacoside"
   },
   {
-    "herbSlug": "tenuifolin",
-    "herbName": "tenuifolin"
+    "herbSlug": "jujube",
+    "herbName": "Jujube",
+    "canonicalCompoundId": "jujuboside-a",
+    "canonicalCompoundName": "jujuboside a"
   },
   {
-    "herbSlug": "gastrodin",
-    "herbName": "gastrodin"
+    "herbSlug": "longan",
+    "herbName": "Longan",
+    "canonicalCompoundId": "gallic-acid",
+    "canonicalCompoundName": "gallic acid"
   },
   {
-    "herbSlug": "paeoniflorin",
-    "herbName": "paeoniflorin"
+    "herbSlug": "polygala",
+    "herbName": "Polygala",
+    "canonicalCompoundId": "tenuifolin",
+    "canonicalCompoundName": "tenuifolin"
   },
   {
-    "herbSlug": "saikosaponin-a",
-    "herbName": "saikosaponin a"
+    "herbSlug": "gastrodia",
+    "herbName": "Gastrodia",
+    "canonicalCompoundId": "gastrodin",
+    "canonicalCompoundName": "gastrodin"
   },
   {
-    "herbSlug": "tangshenoside-i",
-    "herbName": "tangshenoside i"
+    "herbSlug": "white-peony",
+    "herbName": "White Peony",
+    "canonicalCompoundId": "paeoniflorin",
+    "canonicalCompoundName": "paeoniflorin"
   },
   {
-    "herbSlug": "dendrobine",
-    "herbName": "dendrobine"
+    "herbSlug": "bupleurum",
+    "herbName": "Bupleurum",
+    "canonicalCompoundId": "saikosaponin-a",
+    "canonicalCompoundName": "saikosaponin a"
   },
   {
-    "herbSlug": "ophiopogonin-d",
-    "herbName": "ophiopogonin d"
+    "herbSlug": "codonopsis",
+    "herbName": "Codonopsis",
+    "canonicalCompoundId": "tangshenoside-i",
+    "canonicalCompoundName": "tangshenoside i"
   },
   {
-    "herbSlug": "quercitrin",
-    "herbName": "quercitrin"
+    "herbSlug": "dendrobium",
+    "herbName": "Dendrobium",
+    "canonicalCompoundId": "dendrobine",
+    "canonicalCompoundName": "dendrobine"
   },
   {
-    "herbSlug": "tryptanthrin",
-    "herbName": "tryptanthrin"
+    "herbSlug": "ophiopogon",
+    "herbName": "Ophiopogon",
+    "canonicalCompoundId": "ophiopogonin-d",
+    "canonicalCompoundName": "ophiopogonin d"
   },
   {
-    "herbSlug": "matrine",
-    "herbName": "matrine"
+    "herbSlug": "houttuynia",
+    "herbName": "Houttuynia",
+    "canonicalCompoundId": "quercitrin",
+    "canonicalCompoundName": "quercitrin"
   },
   {
-    "herbSlug": "notoginsenoside-r1",
-    "herbName": "notoginsenoside r1"
+    "herbSlug": "isatis",
+    "herbName": "Isatis",
+    "canonicalCompoundId": "tryptanthrin",
+    "canonicalCompoundName": "tryptanthrin"
   },
   {
-    "herbSlug": "mogroside-v",
-    "herbName": "mogroside v"
+    "herbSlug": "sophora-flavescens",
+    "herbName": "Sophora Flavescens",
+    "canonicalCompoundId": "matrine",
+    "canonicalCompoundName": "matrine"
   },
   {
-    "herbSlug": "kudinlactone",
-    "herbName": "kudinlactone"
+    "herbSlug": "notoginseng",
+    "herbName": "Notoginseng",
+    "canonicalCompoundId": "notoginsenoside-r1",
+    "canonicalCompoundName": "notoginsenoside r1"
   },
   {
-    "herbSlug": "atractylenolide-i",
-    "herbName": "atractylenolide i"
+    "herbSlug": "luo-han-guo",
+    "herbName": "Luo Han Guo",
+    "canonicalCompoundId": "mogroside-v",
+    "canonicalCompoundName": "mogroside v"
   },
   {
-    "herbSlug": "gomisin-a",
-    "herbName": "gomisin a"
+    "herbSlug": "kuding-tea",
+    "herbName": "Kuding Tea",
+    "canonicalCompoundId": "kudinlactone",
+    "canonicalCompoundName": "kudinlactone"
   },
   {
-    "herbSlug": "catuabine",
-    "herbName": "catuabine"
+    "herbSlug": "atractylodes",
+    "herbName": "Atractylodes",
+    "canonicalCompoundId": "atractylenolide-i",
+    "canonicalCompoundName": "atractylenolide i"
   },
   {
-    "herbSlug": "beta-sitosterol",
-    "herbName": "beta-sitosterol"
+    "herbSlug": "schisandra-berry",
+    "herbName": "Schisandra Berry",
+    "canonicalCompoundId": "gomisin-a",
+    "canonicalCompoundName": "gomisin a"
   },
   {
-    "herbSlug": "beta-glucans",
-    "herbName": "beta-glucans"
+    "herbSlug": "catuaba",
+    "herbName": "Catuaba",
+    "canonicalCompoundId": "catuabine",
+    "canonicalCompoundName": "catuabine"
   },
   {
-    "herbSlug": "pachymic-acid",
-    "herbName": "pachymic acid"
+    "herbSlug": "muira-puama",
+    "herbName": "Muira Puama",
+    "canonicalCompoundId": "beta-sitosterol",
+    "canonicalCompoundName": "beta-sitosterol"
   },
   {
-    "herbSlug": "catalpol",
-    "herbName": "catalpol"
+    "herbSlug": "maitake-d-fraction",
+    "herbName": "Maitake D-Fraction",
+    "canonicalCompoundId": "beta-glucans",
+    "canonicalCompoundName": "beta-glucans"
   },
   {
-    "herbSlug": "agaric-acid",
-    "herbName": "agaric acid"
+    "herbSlug": "poria",
+    "herbName": "Poria",
+    "canonicalCompoundId": "pachymic-acid",
+    "canonicalCompoundName": "pachymic acid"
   },
   {
-    "herbSlug": "alantolactone",
-    "herbName": "alantolactone"
+    "herbSlug": "rehmannia-prepared",
+    "herbName": "Rehmannia Prepared",
+    "canonicalCompoundId": "catalpol",
+    "canonicalCompoundName": "catalpol"
   },
   {
-    "herbSlug": "angelicin",
-    "herbName": "angelicin"
+    "herbSlug": "agarikon",
+    "herbName": "Agarikon",
+    "canonicalCompoundId": "agaric-acid",
+    "canonicalCompoundName": "agaric acid"
   },
   {
-    "herbSlug": "galangin",
-    "herbName": "galangin"
+    "herbSlug": "elecampane",
+    "herbName": "Elecampane",
+    "canonicalCompoundId": "alantolactone",
+    "canonicalCompoundName": "alantolactone"
   },
   {
-    "herbSlug": "piperine",
-    "herbName": "Piperine"
+    "herbSlug": "angelica-root",
+    "herbName": "Angelica Root",
+    "canonicalCompoundId": "angelicin",
+    "canonicalCompoundName": "angelicin"
   },
   {
-    "herbSlug": "terpinyl-acetate",
-    "herbName": "terpinyl acetate"
+    "herbSlug": "galangal",
+    "herbName": "Galangal",
+    "canonicalCompoundId": "galangin",
+    "canonicalCompoundName": "galangin"
   },
   {
-    "herbSlug": "mucilage",
-    "herbName": "mucilage"
+    "herbSlug": "black-pepper",
+    "herbName": "Black Pepper",
+    "canonicalCompoundId": "piperine",
+    "canonicalCompoundName": "Piperine"
   },
   {
-    "herbSlug": "carvone",
-    "herbName": "carvone"
+    "herbSlug": "cardamom",
+    "herbName": "Cardamom",
+    "canonicalCompoundId": "terpinyl-acetate",
+    "canonicalCompoundName": "terpinyl acetate"
   },
   {
-    "herbSlug": "mahanimbine",
-    "herbName": "mahanimbine"
+    "herbSlug": "holy-basil-seed",
+    "herbName": "Holy Basil Seed",
+    "canonicalCompoundId": "mucilage",
+    "canonicalCompoundName": "mucilage"
   },
   {
-    "herbSlug": "tocopherols",
-    "herbName": "tocopherols"
+    "herbSlug": "psyllium",
+    "herbName": "Psyllium",
+    "canonicalCompoundId": "mucilage",
+    "canonicalCompoundName": "mucilage"
   },
   {
-    "herbSlug": "tartaric-acid",
-    "herbName": "tartaric acid"
+    "herbSlug": "caraway",
+    "herbName": "Caraway",
+    "canonicalCompoundId": "carvone",
+    "canonicalCompoundName": "carvone"
   },
   {
-    "herbSlug": "akba",
-    "herbName": "akba"
+    "herbSlug": "ajwain",
+    "herbName": "Ajwain",
+    "canonicalCompoundId": "thymol",
+    "canonicalCompoundName": "thymol"
   },
   {
-    "herbSlug": "procyanidin-b2",
-    "herbName": "procyanidin b2"
+    "herbSlug": "holy-basil-purple",
+    "herbName": "Holy Basil Purple",
+    "canonicalCompoundId": "eugenol",
+    "canonicalCompoundName": "Eugenol"
   },
   {
-    "herbSlug": "astragaloside-iv",
-    "herbName": "astragaloside iv"
+    "herbSlug": "curry-leaf",
+    "herbName": "Curry Leaf",
+    "canonicalCompoundId": "mahanimbine",
+    "canonicalCompoundName": "mahanimbine"
   },
   {
-    "herbSlug": "salidroside",
-    "herbName": "Salidroside"
+    "herbSlug": "gudmar",
+    "herbName": "Gudmar",
+    "canonicalCompoundId": "gymnemic-acids",
+    "canonicalCompoundName": "gymnemic acids"
   },
   {
-    "herbSlug": "bacoside-a",
-    "herbName": "bacoside a"
+    "herbSlug": "roselle-seed",
+    "herbName": "Roselle Seed",
+    "canonicalCompoundId": "tocopherols",
+    "canonicalCompoundName": "tocopherols"
   },
   {
-    "herbSlug": "chrysin",
-    "herbName": "chrysin"
+    "herbSlug": "tamarind",
+    "herbName": "Tamarind",
+    "canonicalCompoundId": "tartaric-acid",
+    "canonicalCompoundName": "tartaric acid"
   },
   {
-    "herbSlug": "cordycepin",
-    "herbName": "cordycepin"
+    "herbSlug": "boswellia",
+    "herbName": "Boswellia",
+    "canonicalCompoundId": "akba",
+    "canonicalCompoundName": "akba"
   },
   {
-    "herbSlug": "hericenone-c",
-    "herbName": "hericenone c"
+    "herbSlug": "hawthorn",
+    "herbName": "Hawthorn",
+    "canonicalCompoundId": "procyanidin-b2",
+    "canonicalCompoundName": "procyanidin b2"
   },
   {
-    "herbSlug": "psk",
-    "herbName": "psk"
+    "herbSlug": "astragalus",
+    "herbName": "Astragalus",
+    "canonicalCompoundId": "astragaloside-iv",
+    "canonicalCompoundName": "astragaloside iv"
   },
   {
-    "herbSlug": "icariin",
-    "herbName": "Icariin"
+    "herbSlug": "nettle-root",
+    "herbName": "Nettle Root",
+    "canonicalCompoundId": "beta-sitosterol",
+    "canonicalCompoundName": "beta-sitosterol"
   },
   {
-    "herbSlug": "yohimbine",
-    "herbName": "Yohimbine"
+    "herbSlug": "rhodiola",
+    "herbName": "Rhodiola",
+    "canonicalCompoundId": "salidroside",
+    "canonicalCompoundName": "Salidroside"
   },
   {
-    "herbSlug": "eleutherosides",
-    "herbName": "eleutherosides"
+    "herbSlug": "bacopa",
+    "herbName": "Bacopa",
+    "canonicalCompoundId": "bacoside-a",
+    "canonicalCompoundName": "bacoside a"
   },
   {
-    "herbSlug": "bisdemethoxycurcumin",
-    "herbName": "Bisdemethoxycurcumin"
+    "herbSlug": "passionflower",
+    "herbName": "Passionflower",
+    "canonicalCompoundId": "chrysin",
+    "canonicalCompoundName": "chrysin"
   },
   {
-    "herbSlug": "theanine",
-    "herbName": "Theanine"
+    "herbSlug": "cordyceps",
+    "herbName": "Cordyceps",
+    "canonicalCompoundId": "cordycepin",
+    "canonicalCompoundName": "cordycepin"
   },
   {
-    "herbSlug": "hypericin",
-    "herbName": "Hypericin"
+    "herbSlug": "lion-s-mane",
+    "herbName": "Lion's Mane",
+    "canonicalCompoundId": "hericenone-c",
+    "canonicalCompoundName": "hericenone c"
   },
   {
-    "herbSlug": "ginkgolide-b",
-    "herbName": "Ginkgolide B"
+    "herbSlug": "reishi",
+    "herbName": "Reishi",
+    "canonicalCompoundId": "beta-glucans",
+    "canonicalCompoundName": "beta-glucans"
   },
   {
-    "herbSlug": "bilobalide",
-    "herbName": "Bilobalide"
+    "herbSlug": "turkey-tail",
+    "herbName": "Turkey Tail",
+    "canonicalCompoundId": "psk",
+    "canonicalCompoundName": "psk"
   },
   {
-    "herbSlug": "ginsenoside-rg1",
-    "herbName": "Ginsenoside RG1"
+    "herbSlug": "epimedium",
+    "herbName": "Epimedium",
+    "canonicalCompoundId": "icariin",
+    "canonicalCompoundName": "Icariin"
   },
   {
-    "herbSlug": "ginsenoside-rb1",
-    "herbName": "Ginsenoside RB1"
+    "herbSlug": "yohimbe",
+    "herbName": "Yohimbe",
+    "canonicalCompoundId": "yohimbine",
+    "canonicalCompoundName": "Yohimbine"
   },
   {
-    "herbSlug": "withanolide-a",
-    "herbName": "Withanolide A"
+    "herbSlug": "eleuthero",
+    "herbName": "Eleuthero",
+    "canonicalCompoundId": "eleutherosides",
+    "canonicalCompoundName": "eleutherosides"
   },
   {
-    "herbSlug": "harmine",
-    "herbName": "Harmine"
+    "herbSlug": "turmeric",
+    "herbName": "Turmeric",
+    "canonicalCompoundId": "curcumin",
+    "canonicalCompoundName": "curcumin"
   },
   {
-    "herbSlug": "harmaline",
-    "herbName": "Harmaline"
+    "herbSlug": "turmeric",
+    "herbName": "Turmeric",
+    "canonicalCompoundId": "bisdemethoxycurcumin",
+    "canonicalCompoundName": "Bisdemethoxycurcumin"
   },
   {
-    "herbSlug": "salvianolic-acid-b",
-    "herbName": "Salvianolic acid B"
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "caffeine",
+    "canonicalCompoundName": "Caffeine"
   },
   {
-    "herbSlug": "vasicine",
-    "herbName": "Vasicine"
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "theanine",
+    "canonicalCompoundName": "Theanine"
   },
   {
-    "herbSlug": "ibogaine",
-    "herbName": "Ibogaine"
+    "herbSlug": "hypericum-perforatum",
+    "herbName": "Hypericum perforatum",
+    "canonicalCompoundId": "hypericin",
+    "canonicalCompoundName": "Hypericin"
   },
   {
-    "herbSlug": "akuammine",
-    "herbName": "Akuammine"
+    "herbSlug": "hypericum-perforatum",
+    "herbName": "Hypericum perforatum",
+    "canonicalCompoundId": "hyperforin",
+    "canonicalCompoundName": "Hyperforin"
   },
   {
-    "herbSlug": "dehydrocorybulbine",
-    "herbName": "Dehydrocorybulbine"
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgo Biloba",
+    "canonicalCompoundId": "ginkgolide-b",
+    "canonicalCompoundName": "Ginkgolide B"
   },
   {
-    "herbSlug": "andrographolide",
-    "herbName": "Andrographolide"
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgo Biloba",
+    "canonicalCompoundId": "bilobalide",
+    "canonicalCompoundName": "Bilobalide"
   },
   {
-    "herbSlug": "phyllanthin",
-    "herbName": "Phyllanthin"
+    "herbSlug": "panax-ginseng",
+    "herbName": "Panax Ginseng",
+    "canonicalCompoundId": "ginsenoside-rg1",
+    "canonicalCompoundName": "Ginsenoside RG1"
   },
   {
-    "herbSlug": "l-dopa",
-    "herbName": "L-DOPA"
+    "herbSlug": "panax-ginseng",
+    "herbName": "Panax Ginseng",
+    "canonicalCompoundId": "ginsenoside-rb1",
+    "canonicalCompoundName": "Ginsenoside RB1"
   },
   {
-    "herbSlug": "dopamine",
-    "herbName": "Dopamine"
+    "herbSlug": "ashwagandha",
+    "herbName": "Ashwagandha",
+    "canonicalCompoundId": "withanolide-a",
+    "canonicalCompoundName": "Withanolide A"
   },
   {
-    "herbSlug": "resveratrol",
-    "herbName": "Resveratrol"
+    "herbSlug": "peganum-harmala",
+    "herbName": "Peganum harmala",
+    "canonicalCompoundId": "harmine",
+    "canonicalCompoundName": "Harmine"
   },
   {
-    "herbSlug": "quercetin",
-    "herbName": "Quercetin"
+    "herbSlug": "peganum-harmala",
+    "herbName": "Peganum harmala",
+    "canonicalCompoundId": "harmaline",
+    "canonicalCompoundName": "Harmaline"
   },
   {
-    "herbSlug": "baicalin",
-    "herbName": "Baicalin"
+    "herbSlug": "salvia-miltiorrhiza",
+    "herbName": "Salvia miltiorrhiza",
+    "canonicalCompoundId": "tanshinone-iia",
+    "canonicalCompoundName": "Tanshinone IIA"
   },
   {
-    "herbSlug": "baicalein",
-    "herbName": "Baicalein"
+    "herbSlug": "salvia-miltiorrhiza",
+    "herbName": "Salvia miltiorrhiza",
+    "canonicalCompoundId": "salvianolic-acid-b",
+    "canonicalCompoundName": "Salvianolic acid B"
   },
   {
-    "herbSlug": "carnosic-acid",
-    "herbName": "Carnosic acid"
+    "herbSlug": "justicia-adhatoda",
+    "herbName": "Justicia adhatoda",
+    "canonicalCompoundId": "vasicine",
+    "canonicalCompoundName": "Vasicine"
   },
   {
-    "herbSlug": "carnosol",
-    "herbName": "Carnosol"
+    "herbSlug": "tabernanthe-iboga",
+    "herbName": "Tabernanthe iboga",
+    "canonicalCompoundId": "ibogaine",
+    "canonicalCompoundName": "Ibogaine"
   },
   {
-    "herbSlug": "6-shogaol",
-    "herbName": "6-Shogaol"
+    "herbSlug": "picralima-nitida",
+    "herbName": "Picralima nitida",
+    "canonicalCompoundId": "akuammine",
+    "canonicalCompoundName": "Akuammine"
   },
   {
-    "herbSlug": "ginsenoside-rg3",
-    "herbName": "Ginsenoside Rg3"
+    "herbSlug": "corydalis-yanhusuo",
+    "herbName": "Corydalis yanhusuo",
+    "canonicalCompoundId": "dehydrocorybulbine",
+    "canonicalCompoundName": "Dehydrocorybulbine"
   },
   {
-    "herbSlug": "kaempferol",
-    "herbName": "Kaempferol"
+    "herbSlug": "andrographis-paniculata",
+    "herbName": "Andrographis paniculata",
+    "canonicalCompoundId": "andrographolide",
+    "canonicalCompoundName": "Andrographolide"
   },
   {
-    "herbSlug": "isorhamnetin",
-    "herbName": "Isorhamnetin"
+    "herbSlug": "phyllanthus-amarus",
+    "herbName": "Phyllanthus amarus",
+    "canonicalCompoundId": "phyllanthin",
+    "canonicalCompoundName": "Phyllanthin"
   },
   {
-    "herbSlug": "ginsenoside-re",
-    "herbName": "Ginsenoside Re"
+    "herbSlug": "mucuna-pruriens",
+    "herbName": "Mucuna pruriens",
+    "canonicalCompoundId": "l-dopa",
+    "canonicalCompoundName": "L-DOPA"
   },
   {
-    "herbSlug": "ginsenoside-rd",
-    "herbName": "Ginsenoside Rd"
+    "herbSlug": "mucuna-pruriens",
+    "herbName": "Mucuna pruriens",
+    "canonicalCompoundId": "dopamine",
+    "canonicalCompoundName": "Dopamine"
   },
   {
-    "herbSlug": "ginsenoside-rf",
-    "herbName": "Ginsenoside Rf"
+    "herbSlug": "pausinystalia-yohimbe",
+    "herbName": "Pausinystalia yohimbe",
+    "canonicalCompoundId": "yohimbine",
+    "canonicalCompoundName": "Yohimbine"
   },
   {
-    "herbSlug": "wogonin",
-    "herbName": "wogonin"
+    "herbSlug": "polygonum-cuspidatum",
+    "herbName": "Polygonum cuspidatum",
+    "canonicalCompoundId": "resveratrol",
+    "canonicalCompoundName": "Resveratrol"
   },
   {
-    "herbSlug": "wogonoside",
-    "herbName": "Wogonoside"
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "quercetin",
+    "canonicalCompoundName": "Quercetin"
   },
   {
-    "herbSlug": "alpha-bisabolol",
-    "herbName": "alpha-bisabolol"
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgo Biloba",
+    "canonicalCompoundId": "quercetin",
+    "canonicalCompoundName": "Quercetin"
   },
   {
-    "herbSlug": "chamazulene",
-    "herbName": "chamazulene"
+    "herbSlug": "hypericum-perforatum",
+    "herbName": "Hypericum perforatum",
+    "canonicalCompoundId": "quercetin",
+    "canonicalCompoundName": "Quercetin"
   },
   {
-    "herbSlug": "epimedin-a",
-    "herbName": "Epimedin A"
+    "herbSlug": "petroselinum-crispum",
+    "herbName": "Petroselinum crispum",
+    "canonicalCompoundId": "apigenin",
+    "canonicalCompoundName": "Apigenin"
   },
   {
-    "herbSlug": "epimedin-b",
-    "herbName": "Epimedin B"
+    "herbSlug": "vitis-vinifera",
+    "herbName": "Vitis vinifera",
+    "canonicalCompoundId": "resveratrol",
+    "canonicalCompoundName": "Resveratrol"
   },
   {
-    "herbSlug": "epimedin-c",
-    "herbName": "Epimedin C"
+    "herbSlug": "ilex-paraguariensis",
+    "herbName": "Ilex paraguariensis",
+    "canonicalCompoundId": "caffeine",
+    "canonicalCompoundName": "Caffeine"
   },
   {
-    "herbSlug": "egcg",
-    "herbName": "EGCG"
+    "herbSlug": "rosmarinus-officinalis",
+    "herbName": "Rosmarinus officinalis",
+    "canonicalCompoundId": "rosmarinic-acid",
+    "canonicalCompoundName": "Rosmarinic acid"
   },
   {
-    "herbSlug": "ecg",
-    "herbName": "ECG"
+    "herbSlug": "chinese-skullcap",
+    "herbName": "Chinese Skullcap",
+    "canonicalCompoundId": "baicalin",
+    "canonicalCompoundName": "Baicalin"
   },
   {
-    "herbSlug": "catechin",
-    "herbName": "Catechin"
+    "herbSlug": "zingiber-officinale",
+    "herbName": "Zingiber officinale",
+    "canonicalCompoundId": "6-gingerol",
+    "canonicalCompoundName": "6-Gingerol"
   },
   {
-    "herbSlug": "chavicine",
-    "herbName": "Chavicine"
+    "herbSlug": "chinese-skullcap",
+    "herbName": "Chinese Skullcap",
+    "canonicalCompoundId": "baicalein",
+    "canonicalCompoundName": "Baicalein"
   },
   {
-    "herbSlug": "apomorphine",
-    "herbName": "apomorphine"
+    "herbSlug": "rosmarinus-officinalis",
+    "herbName": "Rosmarinus officinalis",
+    "canonicalCompoundId": "carnosic-acid",
+    "canonicalCompoundName": "Carnosic acid"
   },
   {
-    "herbSlug": "cimicifugoside",
-    "herbName": "Cimicifugoside"
+    "herbSlug": "rosmarinus-officinalis",
+    "herbName": "Rosmarinus officinalis",
+    "canonicalCompoundId": "carnosol",
+    "canonicalCompoundName": "Carnosol"
   },
   {
-    "herbSlug": "isoferulic-acid",
-    "herbName": "Isoferulic acid"
+    "herbSlug": "zingiber-officinale",
+    "herbName": "Zingiber officinale",
+    "canonicalCompoundId": "6-shogaol",
+    "canonicalCompoundName": "6-Shogaol"
   },
   {
-    "herbSlug": "arjunic-acid",
-    "herbName": "Arjunic acid"
+    "herbSlug": "panax-ginseng",
+    "herbName": "Panax Ginseng",
+    "canonicalCompoundId": "ginsenoside-rg3",
+    "canonicalCompoundName": "Ginsenoside Rg3"
   },
   {
-    "herbSlug": "ursolic-acid",
-    "herbName": "Ursolic acid"
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgo Biloba",
+    "canonicalCompoundId": "kaempferol",
+    "canonicalCompoundName": "Kaempferol"
   },
   {
-    "herbSlug": "rosarin",
-    "herbName": "Rosarin"
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgo Biloba",
+    "canonicalCompoundId": "isorhamnetin",
+    "canonicalCompoundName": "Isorhamnetin"
   },
   {
-    "herbSlug": "rosin",
-    "herbName": "Rosin"
+    "herbSlug": "panax-ginseng",
+    "herbName": "Panax Ginseng",
+    "canonicalCompoundId": "ginsenoside-re",
+    "canonicalCompoundName": "Ginsenoside Re"
   },
   {
-    "herbSlug": "tyrosol",
-    "herbName": "Tyrosol"
+    "herbSlug": "panax-ginseng",
+    "herbName": "Panax Ginseng",
+    "canonicalCompoundId": "ginsenoside-rd",
+    "canonicalCompoundName": "Ginsenoside Rd"
   },
   {
-    "herbSlug": "arjungenin",
-    "herbName": "Arjungenin"
+    "herbSlug": "panax-ginseng",
+    "herbName": "Panax Ginseng",
+    "canonicalCompoundId": "ginsenoside-rf",
+    "canonicalCompoundName": "Ginsenoside Rf"
   },
   {
-    "herbSlug": "arjunetin",
-    "herbName": "Arjunetin"
+    "herbSlug": "chinese-skullcap",
+    "herbName": "Chinese Skullcap",
+    "canonicalCompoundId": "wogonin",
+    "canonicalCompoundName": "wogonin"
   },
   {
-    "herbSlug": "23-epi-26-deoxyactein",
-    "herbName": "23-epi-26-deoxyactein"
+    "herbSlug": "chinese-skullcap",
+    "herbName": "Chinese Skullcap",
+    "canonicalCompoundId": "wogonoside",
+    "canonicalCompoundName": "Wogonoside"
   },
   {
-    "herbSlug": "fukinolic-acid",
-    "herbName": "Fukinolic acid"
+    "herbSlug": "chamomile",
+    "herbName": "Chamomile",
+    "canonicalCompoundId": "alpha-bisabolol",
+    "canonicalCompoundName": "alpha-bisabolol"
   },
   {
-    "herbSlug": "withanoside-iv",
-    "herbName": "Withanoside IV"
+    "herbSlug": "chamomile",
+    "herbName": "Chamomile",
+    "canonicalCompoundId": "chamazulene",
+    "canonicalCompoundName": "chamazulene"
   },
   {
-    "herbSlug": "withanoside-v",
-    "herbName": "Withanoside V"
+    "herbSlug": "epimedium",
+    "herbName": "Epimedium",
+    "canonicalCompoundId": "epimedin-a",
+    "canonicalCompoundName": "Epimedin A"
   },
   {
-    "herbSlug": "icaritin",
-    "herbName": "Icaritin"
+    "herbSlug": "epimedium",
+    "herbName": "Epimedium",
+    "canonicalCompoundId": "epimedin-b",
+    "canonicalCompoundName": "Epimedin B"
   },
   {
-    "herbSlug": "desmethylicaritin",
-    "herbName": "Desmethylicaritin"
+    "herbSlug": "epimedium",
+    "herbName": "Epimedium",
+    "canonicalCompoundId": "epimedin-c",
+    "canonicalCompoundName": "Epimedin C"
   },
   {
-    "herbSlug": "isopetasin",
-    "herbName": "isopetasin"
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "egcg",
+    "canonicalCompoundName": "EGCG"
   },
   {
-    "herbSlug": "berberine",
-    "herbName": "berberine"
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "ecg",
+    "canonicalCompoundName": "ECG"
   },
   {
-    "herbSlug": "palmatine",
-    "herbName": "palmatine"
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "catechin",
+    "canonicalCompoundName": "Catechin"
   },
   {
-    "herbSlug": "1-8-cineole",
-    "herbName": "1,8-cineole"
+    "herbSlug": "black-pepper",
+    "herbName": "Black Pepper",
+    "canonicalCompoundId": "chavicine",
+    "canonicalCompoundName": "Chavicine"
   },
   {
-    "herbSlug": "limonene",
-    "herbName": "limonene"
+    "herbSlug": "blue-lotus",
+    "herbName": "Blue Lotus",
+    "canonicalCompoundId": "nuciferine",
+    "canonicalCompoundName": "nuciferine"
   },
   {
-    "herbSlug": "acetyl-11-keto-beta-boswellic-acid",
-    "herbName": "acetyl-11-keto-beta-boswellic acid"
+    "herbSlug": "blue-lotus",
+    "herbName": "Blue Lotus",
+    "canonicalCompoundId": "apomorphine",
+    "canonicalCompoundName": "apomorphine"
   },
   {
-    "herbSlug": "ginkgetin",
-    "herbName": "ginkgetin"
+    "herbSlug": "black-cohosh",
+    "herbName": "Black Cohosh",
+    "canonicalCompoundId": "cimicifugoside",
+    "canonicalCompoundName": "Cimicifugoside"
   },
   {
-    "herbSlug": "capsanthin",
-    "herbName": "capsanthin"
+    "herbSlug": "black-cohosh",
+    "herbName": "Black Cohosh",
+    "canonicalCompoundId": "isoferulic-acid",
+    "canonicalCompoundName": "Isoferulic acid"
   },
   {
-    "herbSlug": "capsorubin",
-    "herbName": "capsorubin"
+    "herbSlug": "arjuna",
+    "herbName": "Arjuna",
+    "canonicalCompoundId": "arjunic-acid",
+    "canonicalCompoundName": "Arjunic acid"
   },
   {
-    "herbSlug": "dihydrocapsaicin",
-    "herbName": "dihydrocapsaicin"
+    "herbSlug": "ajwain",
+    "herbName": "Ajwain",
+    "canonicalCompoundId": "carvacrol",
+    "canonicalCompoundName": "carvacrol"
   },
   {
-    "herbSlug": "biochanin-a",
-    "herbName": "biochanin A"
+    "herbSlug": "holy-basil",
+    "herbName": "Holy Basil",
+    "canonicalCompoundId": "ursolic-acid",
+    "canonicalCompoundName": "Ursolic acid"
   },
   {
-    "herbSlug": "calycosin",
-    "herbName": "calycosin"
+    "herbSlug": "holy-basil",
+    "herbName": "Holy Basil",
+    "canonicalCompoundId": "rosmarinic-acid",
+    "canonicalCompoundName": "Rosmarinic acid"
   },
   {
-    "herbSlug": "coumestrol",
-    "herbName": "coumestrol"
+    "herbSlug": "rhodiola",
+    "herbName": "Rhodiola",
+    "canonicalCompoundId": "rosavin",
+    "canonicalCompoundName": "Rosavin"
   },
   {
-    "herbSlug": "daidzin",
-    "herbName": "daidzin"
+    "herbSlug": "rhodiola",
+    "herbName": "Rhodiola",
+    "canonicalCompoundId": "rosarin",
+    "canonicalCompoundName": "Rosarin"
   },
   {
-    "herbSlug": "ononin",
-    "herbName": "ononin"
+    "herbSlug": "rhodiola",
+    "herbName": "Rhodiola",
+    "canonicalCompoundId": "rosin",
+    "canonicalCompoundName": "Rosin"
   },
   {
-    "herbSlug": "capsaicin",
-    "herbName": "capsaicin"
+    "herbSlug": "rhodiola",
+    "herbName": "Rhodiola",
+    "canonicalCompoundId": "tyrosol",
+    "canonicalCompoundName": "Tyrosol"
   },
   {
-    "herbSlug": "sulforaphane",
-    "herbName": "sulforaphane"
+    "herbSlug": "arjuna",
+    "herbName": "Arjuna",
+    "canonicalCompoundId": "arjungenin",
+    "canonicalCompoundName": "Arjungenin"
   },
   {
-    "herbSlug": "thymoquinone",
-    "herbName": "Thymoquinone"
+    "herbSlug": "arjuna",
+    "herbName": "Arjuna",
+    "canonicalCompoundId": "arjunetin",
+    "canonicalCompoundName": "Arjunetin"
   },
   {
-    "herbSlug": "oleuropein",
-    "herbName": "Oleuropein"
+    "herbSlug": "black-cohosh",
+    "herbName": "Black Cohosh",
+    "canonicalCompoundId": "actein",
+    "canonicalCompoundName": "Actein"
   },
   {
-    "herbSlug": "hydroxytyrosol",
-    "herbName": "Hydroxytyrosol"
+    "herbSlug": "black-cohosh",
+    "herbName": "Black Cohosh",
+    "canonicalCompoundId": "23-epi-26-deoxyactein",
+    "canonicalCompoundName": "23-epi-26-deoxyactein"
   },
   {
-    "herbSlug": "crocin",
-    "herbName": "Crocin"
+    "herbSlug": "ashwagandha",
+    "herbName": "Ashwagandha",
+    "canonicalCompoundId": "withanoside-iv",
+    "canonicalCompoundName": "Withanoside IV"
   },
   {
-    "herbSlug": "crocetin",
-    "herbName": "Crocetin"
+    "herbSlug": "ashwagandha",
+    "herbName": "Ashwagandha",
+    "canonicalCompoundId": "withanoside-v",
+    "canonicalCompoundName": "Withanoside V"
   },
   {
-    "herbSlug": "silibinin",
-    "herbName": "Silibinin"
+    "herbSlug": "epimedium",
+    "herbName": "Epimedium",
+    "canonicalCompoundId": "icaritin",
+    "canonicalCompoundName": "Icaritin"
   },
   {
-    "herbSlug": "glycyrrhizin",
-    "herbName": "Glycyrrhizin"
+    "herbSlug": "epimedium",
+    "herbName": "Epimedium",
+    "canonicalCompoundId": "desmethylicaritin",
+    "canonicalCompoundName": "Desmethylicaritin"
   },
   {
-    "herbSlug": "emodin",
-    "herbName": "Emodin"
+    "herbSlug": "butterbur",
+    "herbName": "Butterbur",
+    "canonicalCompoundId": "isopetasin",
+    "canonicalCompoundName": "isopetasin"
   },
   {
-    "herbSlug": "rhein",
-    "herbName": "Rhein"
+    "herbSlug": "anise-hyssop",
+    "herbName": "Anise Hyssop",
+    "canonicalCompoundId": "anethole",
+    "canonicalCompoundName": "anethole"
   },
   {
-    "herbSlug": "schisandrin",
-    "herbName": "Schisandrin"
+    "herbSlug": "sage",
+    "herbName": "Sage",
+    "canonicalCompoundId": "thujone",
+    "canonicalCompoundName": "thujone"
   },
   {
-    "herbSlug": "celastrol",
-    "herbName": "Celastrol"
+    "herbSlug": "echinacea-purpurea",
+    "herbName": "Echinacea Purpurea",
+    "canonicalCompoundId": "cynarin",
+    "canonicalCompoundName": "cynarin"
   },
   {
-    "herbSlug": "linalool",
-    "herbName": "Linalool"
+    "herbSlug": "eucalyptus",
+    "herbName": "Eucalyptus",
+    "canonicalCompoundId": "eucalyptol",
+    "canonicalCompoundName": "eucalyptol"
   },
   {
-    "herbSlug": "hesperidin",
-    "herbName": "Hesperidin"
+    "herbSlug": "milk-oats",
+    "herbName": "Milk Oats",
+    "canonicalCompoundId": "avenanthramides",
+    "canonicalCompoundName": "avenanthramides"
   },
   {
-    "herbSlug": "jatrorrhizine",
-    "herbName": "Jatrorrhizine"
+    "herbSlug": "kudzu",
+    "herbName": "Kudzu",
+    "canonicalCompoundId": "puerarin",
+    "canonicalCompoundName": "puerarin"
   },
   {
-    "herbSlug": "columbamine",
-    "herbName": "Columbamine"
+    "herbSlug": "feverfew",
+    "herbName": "Feverfew",
+    "canonicalCompoundId": "parthenolide",
+    "canonicalCompoundName": "parthenolide"
   },
   {
-    "herbSlug": "neoandrographolide",
-    "herbName": "Neoandrographolide"
+    "herbSlug": "eucalyptus",
+    "herbName": "Eucalyptus",
+    "canonicalCompoundId": "alpha-pinene",
+    "canonicalCompoundName": "alpha-pinene"
   },
   {
-    "herbSlug": "gymnemic-acid",
-    "herbName": "Gymnemic acid"
+    "herbSlug": "echinacea-purpurea",
+    "herbName": "Echinacea Purpurea",
+    "canonicalCompoundId": "echinacoside",
+    "canonicalCompoundName": "echinacoside"
   },
   {
-    "herbSlug": "charantin",
-    "herbName": "Charantin"
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "catechins",
+    "canonicalCompoundName": "catechins"
   },
   {
-    "herbSlug": "momordicoside-k",
-    "herbName": "Momordicoside K"
+    "herbSlug": "cacao",
+    "herbName": "Cacao",
+    "canonicalCompoundId": "catechins",
+    "canonicalCompoundName": "catechins"
   },
   {
-    "herbSlug": "diosgenin",
-    "herbName": "Diosgenin"
+    "herbSlug": "st-johns-wort",
+    "herbName": "St Johns Wort",
+    "canonicalCompoundId": "hypericin",
+    "canonicalCompoundName": "Hypericin"
   },
   {
-    "herbSlug": "protodioscin",
-    "herbName": "Protodioscin"
+    "herbSlug": "danshen",
+    "herbName": "Danshen",
+    "canonicalCompoundId": "salvianolic-acid-b",
+    "canonicalCompoundName": "Salvianolic acid B"
   },
   {
-    "herbSlug": "oleanolic-acid",
-    "herbName": "Oleanolic acid"
+    "herbSlug": "corydalis",
+    "herbName": "Corydalis",
+    "canonicalCompoundId": "dehydrocorybulbine",
+    "canonicalCompoundName": "Dehydrocorybulbine"
   },
   {
-    "herbSlug": "asiaticoside",
-    "herbName": "Asiaticoside"
+    "herbSlug": "mucuna",
+    "herbName": "Mucuna",
+    "canonicalCompoundId": "l-dopa",
+    "canonicalCompoundName": "L-DOPA"
   },
   {
-    "herbSlug": "madecassoside",
-    "herbName": "Madecassoside"
+    "herbSlug": "skullcap",
+    "herbName": "Skullcap",
+    "canonicalCompoundId": "baicalin",
+    "canonicalCompoundName": "Baicalin"
   },
   {
-    "herbSlug": "piperlongumine",
-    "herbName": "Piperlongumine"
+    "herbSlug": "st-johns-wort",
+    "herbName": "St Johns Wort",
+    "canonicalCompoundId": "kaempferol",
+    "canonicalCompoundName": "Kaempferol"
   },
   {
-    "herbSlug": "myricetin",
-    "herbName": "Myricetin"
+    "herbSlug": "catuba",
+    "herbName": "Catuba",
+    "canonicalCompoundId": "catuabine",
+    "canonicalCompoundName": "catuabine"
   },
   {
-    "herbSlug": "luteolin",
-    "herbName": "Luteolin"
+    "herbSlug": "rhodiola-rosea",
+    "herbName": "Rhodiola Rosea",
+    "canonicalCompoundId": "salidroside",
+    "canonicalCompoundName": "Salidroside"
   },
   {
-    "herbSlug": "naringenin",
-    "herbName": "Naringenin"
+    "herbSlug": "rhodiola-rosea",
+    "herbName": "Rhodiola Rosea",
+    "canonicalCompoundId": "rosarin",
+    "canonicalCompoundName": "Rosarin"
   },
   {
-    "herbSlug": "naringin",
-    "herbName": "Naringin"
+    "herbSlug": "rhodiola-rosea",
+    "herbName": "Rhodiola Rosea",
+    "canonicalCompoundId": "rosin",
+    "canonicalCompoundName": "Rosin"
   },
   {
-    "herbSlug": "rutin",
-    "herbName": "Rutin"
+    "herbSlug": "rhodiola-rosea",
+    "herbName": "Rhodiola Rosea",
+    "canonicalCompoundId": "tyrosol",
+    "canonicalCompoundName": "Tyrosol"
   },
   {
-    "herbSlug": "epicatechin",
-    "herbName": "Epicatechin"
+    "herbSlug": "berberis",
+    "herbName": "Berberis",
+    "canonicalCompoundId": "berberine",
+    "canonicalCompoundName": "berberine"
   },
   {
-    "herbSlug": "epigallocatechin-gallate-egcg",
-    "herbName": "Epigallocatechin gallate (EGCG)"
+    "herbSlug": "coptis",
+    "herbName": "Coptis",
+    "canonicalCompoundId": "berberine",
+    "canonicalCompoundName": "berberine"
   },
   {
-    "herbSlug": "theaflavin",
-    "herbName": "Theaflavin"
+    "herbSlug": "goldenseal",
+    "herbName": "Goldenseal",
+    "canonicalCompoundId": "berberine",
+    "canonicalCompoundName": "berberine"
   },
   {
-    "herbSlug": "thearubigin",
-    "herbName": "Thearubigin"
+    "herbSlug": "phellodendron",
+    "herbName": "Phellodendron",
+    "canonicalCompoundId": "berberine",
+    "canonicalCompoundName": "berberine"
   },
   {
-    "herbSlug": "pterostilbene",
-    "herbName": "Pterostilbene"
+    "herbSlug": "coptis",
+    "herbName": "Coptis",
+    "canonicalCompoundId": "palmatine",
+    "canonicalCompoundName": "palmatine"
   },
   {
-    "herbSlug": "daidzein",
-    "herbName": "Daidzein"
+    "herbSlug": "phellodendron",
+    "herbName": "Phellodendron",
+    "canonicalCompoundId": "palmatine",
+    "canonicalCompoundName": "palmatine"
   },
   {
-    "herbSlug": "formononetin",
-    "herbName": "Formononetin"
+    "herbSlug": "saw-palmetto",
+    "herbName": "Saw Palmetto",
+    "canonicalCompoundId": "beta-sitosterol",
+    "canonicalCompoundName": "beta-sitosterol"
   },
   {
-    "herbSlug": "ellagic-acid",
-    "herbName": "Ellagic acid"
+    "herbSlug": "coffee-cherry",
+    "herbName": "Coffee Cherry",
+    "canonicalCompoundId": "caffeine",
+    "canonicalCompoundName": "Caffeine"
   },
   {
-    "herbSlug": "ferulic-acid",
-    "herbName": "Ferulic acid"
+    "herbSlug": "guayusa",
+    "herbName": "Guayusa",
+    "canonicalCompoundId": "caffeine",
+    "canonicalCompoundName": "Caffeine"
   },
   {
-    "herbSlug": "chlorogenic-acid",
-    "herbName": "Chlorogenic acid"
+    "herbSlug": "yerba-mate",
+    "herbName": "Yerba Mate",
+    "canonicalCompoundId": "caffeine",
+    "canonicalCompoundName": "Caffeine"
   },
   {
-    "herbSlug": "caffeic-acid",
-    "herbName": "Caffeic acid"
+    "herbSlug": "oregano",
+    "herbName": "Oregano",
+    "canonicalCompoundId": "carvacrol",
+    "canonicalCompoundName": "carvacrol"
   },
   {
-    "herbSlug": "osthole",
-    "herbName": "Osthole"
+    "herbSlug": "calamus",
+    "herbName": "Calamus",
+    "canonicalCompoundId": "eugenol",
+    "canonicalCompoundName": "Eugenol"
   },
   {
-    "herbSlug": "imperatorin",
-    "herbName": "Imperatorin"
+    "herbSlug": "cardamom",
+    "herbName": "Cardamom",
+    "canonicalCompoundId": "1-8-cineole",
+    "canonicalCompoundName": "1,8-cineole"
   },
   {
-    "herbSlug": "isoimperatorin",
-    "herbName": "Isoimperatorin"
+    "herbSlug": "eucalyptus",
+    "herbName": "Eucalyptus",
+    "canonicalCompoundId": "1-8-cineole",
+    "canonicalCompoundName": "1,8-cineole"
   },
   {
-    "herbSlug": "psoralen",
-    "herbName": "Psoralen"
+    "herbSlug": "peppermint",
+    "herbName": "Peppermint",
+    "canonicalCompoundId": "eucalyptol",
+    "canonicalCompoundName": "eucalyptol"
   },
   {
-    "herbSlug": "bergapten",
-    "herbName": "Bergapten"
+    "herbSlug": "peppermint",
+    "herbName": "Peppermint",
+    "canonicalCompoundId": "limonene",
+    "canonicalCompoundName": "limonene"
   },
   {
-    "herbSlug": "scopoletin",
-    "herbName": "Scopoletin"
+    "herbSlug": "boswellia",
+    "herbName": "Boswellia",
+    "canonicalCompoundId": "acetyl-11-keto-beta-boswellic-acid",
+    "canonicalCompoundName": "acetyl-11-keto-beta-boswellic acid"
   },
   {
-    "herbSlug": "esculetin",
-    "herbName": "Esculetin"
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgo Biloba",
+    "canonicalCompoundId": "ginkgetin",
+    "canonicalCompoundName": "ginkgetin"
   },
   {
-    "herbSlug": "fraxetin",
-    "herbName": "Fraxetin"
+    "herbSlug": "cayenne",
+    "herbName": "Cayenne",
+    "canonicalCompoundId": "capsanthin",
+    "canonicalCompoundName": "capsanthin"
   },
   {
-    "herbSlug": "umbelliferone",
-    "herbName": "Umbelliferone"
+    "herbSlug": "cayenne",
+    "herbName": "Cayenne",
+    "canonicalCompoundId": "capsorubin",
+    "canonicalCompoundName": "capsorubin"
   },
   {
-    "herbSlug": "daphnetin",
-    "herbName": "Daphnetin"
+    "herbSlug": "cayenne",
+    "herbName": "Cayenne",
+    "canonicalCompoundId": "dihydrocapsaicin",
+    "canonicalCompoundName": "dihydrocapsaicin"
   },
   {
-    "herbSlug": "oxymatrine",
-    "herbName": "Oxymatrine"
+    "herbSlug": "red-clover",
+    "herbName": "Red Clover",
+    "canonicalCompoundId": "biochanin-a",
+    "canonicalCompoundName": "biochanin A"
   },
   {
-    "herbSlug": "tetrandrine",
-    "herbName": "Tetrandrine"
+    "herbSlug": "kudzu",
+    "herbName": "Kudzu",
+    "canonicalCompoundId": "biochanin-a",
+    "canonicalCompoundName": "biochanin A"
   },
   {
-    "herbSlug": "cepharanthine",
-    "herbName": "Cepharanthine"
+    "herbSlug": "astragalus",
+    "herbName": "Astragalus",
+    "canonicalCompoundId": "calycosin",
+    "canonicalCompoundName": "calycosin"
   },
   {
-    "herbSlug": "magnoflorine",
-    "herbName": "Magnoflorine"
+    "herbSlug": "red-clover",
+    "herbName": "Red Clover",
+    "canonicalCompoundId": "calycosin",
+    "canonicalCompoundName": "calycosin"
   },
   {
-    "herbSlug": "ligustilide",
-    "herbName": "Ligustilide"
+    "herbSlug": "red-clover",
+    "herbName": "Red Clover",
+    "canonicalCompoundId": "coumestrol",
+    "canonicalCompoundName": "coumestrol"
   },
   {
-    "herbSlug": "senkyunolide-a",
-    "herbName": "Senkyunolide A"
+    "herbSlug": "pueraria-mirifica",
+    "herbName": "Pueraria Mirifica",
+    "canonicalCompoundId": "coumestrol",
+    "canonicalCompoundName": "coumestrol"
   },
   {
-    "herbSlug": "butylidenephthalide",
-    "herbName": "Butylidenephthalide"
+    "herbSlug": "kudzu",
+    "herbName": "Kudzu",
+    "canonicalCompoundId": "daidzin",
+    "canonicalCompoundName": "daidzin"
   },
   {
-    "herbSlug": "xanthotoxin",
-    "herbName": "Xanthotoxin"
+    "herbSlug": "pueraria-mirifica",
+    "herbName": "Pueraria Mirifica",
+    "canonicalCompoundId": "daidzin",
+    "canonicalCompoundName": "daidzin"
   },
   {
-    "herbSlug": "boswellic-acid",
-    "herbName": "Boswellic acid"
+    "herbSlug": "red-clover",
+    "herbName": "Red Clover",
+    "canonicalCompoundId": "ononin",
+    "canonicalCompoundName": "ononin"
   },
   {
-    "herbSlug": "acetyl-beta-boswellic-acid",
-    "herbName": "Acetyl-beta-boswellic acid"
+    "herbSlug": "kudzu",
+    "herbName": "Kudzu",
+    "canonicalCompoundId": "ononin",
+    "canonicalCompoundName": "ononin"
   },
   {
-    "herbSlug": "11-keto-beta-boswellic-acid",
-    "herbName": "11-keto-beta-boswellic acid"
+    "herbSlug": "capsicum-frutescens",
+    "herbName": "Capsicum frutescens",
+    "canonicalCompoundId": "dihydrocapsaicin",
+    "canonicalCompoundName": "dihydrocapsaicin"
   },
   {
-    "herbSlug": "valerenol",
-    "herbName": "Valerenol"
+    "herbSlug": "capsicum-frutescens",
+    "herbName": "Capsicum frutescens",
+    "canonicalCompoundId": "capsanthin",
+    "canonicalCompoundName": "capsanthin"
   },
   {
-    "herbSlug": "kavalactones",
-    "herbName": "Kavalactones"
+    "herbSlug": "capsicum-frutescens",
+    "herbName": "Capsicum frutescens",
+    "canonicalCompoundId": "capsorubin",
+    "canonicalCompoundName": "capsorubin"
   },
   {
-    "herbSlug": "yangonin",
-    "herbName": "Yangonin"
+    "herbSlug": "capsicum-frutescens",
+    "herbName": "Capsicum frutescens",
+    "canonicalCompoundId": "capsaicin",
+    "canonicalCompoundName": "capsaicin"
   },
   {
-    "herbSlug": "methysticin",
-    "herbName": "Methysticin"
+    "herbSlug": "american-ginseng",
+    "herbName": "American Ginseng",
+    "canonicalCompoundId": "ginsenoside-rb1",
+    "canonicalCompoundName": "Ginsenoside RB1"
   },
   {
-    "herbSlug": "valepotriates",
-    "herbName": "Valepotriates"
+    "herbSlug": "boswellia-carterii",
+    "herbName": "Boswellia carterii",
+    "canonicalCompoundId": "acetyl-11-keto-beta-boswellic-acid",
+    "canonicalCompoundName": "acetyl-11-keto-beta-boswellic acid"
   },
   {
-    "herbSlug": "aucubin",
-    "herbName": "Aucubin"
+    "herbSlug": "selaginella-tamariscina",
+    "herbName": "Selaginella tamariscina",
+    "canonicalCompoundId": "ginkgetin",
+    "canonicalCompoundName": "ginkgetin"
   },
   {
-    "herbSlug": "harpagoside",
-    "herbName": "Harpagoside"
+    "herbSlug": "epimedium-brevicornum",
+    "herbName": "Epimedium brevicornum",
+    "canonicalCompoundId": "epimedin-a",
+    "canonicalCompoundName": "Epimedin A"
   },
   {
-    "herbSlug": "loganin",
-    "herbName": "Loganin"
+    "herbSlug": "epimedium-brevicornum",
+    "herbName": "Epimedium brevicornum",
+    "canonicalCompoundId": "epimedin-b",
+    "canonicalCompoundName": "Epimedin B"
   },
   {
-    "herbSlug": "morroniside",
-    "herbName": "Morroniside"
+    "herbSlug": "epimedium-brevicornum",
+    "herbName": "Epimedium brevicornum",
+    "canonicalCompoundId": "epimedin-c",
+    "canonicalCompoundName": "Epimedin C"
   },
   {
-    "herbSlug": "oleocanthal",
-    "herbName": "Oleocanthal"
+    "herbSlug": "piper-longum",
+    "herbName": "Piper longum",
+    "canonicalCompoundId": "piperine",
+    "canonicalCompoundName": "Piperine"
   },
   {
-    "herbSlug": "oleacein",
-    "herbName": "Oleacein"
+    "herbSlug": "brassica-oleracea",
+    "herbName": "Brassica oleracea",
+    "canonicalCompoundId": "sulforaphane",
+    "canonicalCompoundName": "sulforaphane"
   },
   {
-    "herbSlug": "acteoside",
-    "herbName": "Acteoside"
+    "herbSlug": "brassica-juncea",
+    "herbName": "Brassica juncea",
+    "canonicalCompoundId": "sulforaphane",
+    "canonicalCompoundName": "sulforaphane"
   },
   {
-    "herbSlug": "forskolin",
-    "herbName": "Forskolin"
+    "herbSlug": "piper-longum",
+    "herbName": "Piper longum",
+    "canonicalCompoundId": "chavicine",
+    "canonicalCompoundName": "Chavicine"
   },
   {
-    "herbSlug": "bacoside-b",
-    "herbName": "Bacoside B"
+    "herbSlug": "epimedium-brevicornum",
+    "herbName": "Epimedium brevicornum",
+    "canonicalCompoundId": "icariin",
+    "canonicalCompoundName": "Icariin"
   },
   {
-    "herbSlug": "glycyrrhetinic-acid",
-    "herbName": "Glycyrrhetinic acid"
+    "herbSlug": "skullcap",
+    "herbName": "Skullcap",
+    "canonicalCompoundId": "baicalein",
+    "canonicalCompoundName": "Baicalein"
   },
   {
-    "herbSlug": "shikonin",
-    "herbName": "Shikonin"
+    "herbSlug": "skullcap",
+    "herbName": "Skullcap",
+    "canonicalCompoundId": "wogonin",
+    "canonicalCompoundName": "Wogonin"
   },
   {
-    "herbSlug": "acetylshikonin",
-    "herbName": "Acetylshikonin"
+    "herbSlug": "black-seed",
+    "herbName": "Black Seed",
+    "canonicalCompoundId": "thymoquinone",
+    "canonicalCompoundName": "Thymoquinone"
   },
   {
-    "herbSlug": "plumbagin",
-    "herbName": "Plumbagin"
+    "herbSlug": "rosemary",
+    "herbName": "Rosemary",
+    "canonicalCompoundId": "carnosic-acid",
+    "canonicalCompoundName": "Carnosic acid"
   },
   {
-    "herbSlug": "lawsone",
-    "herbName": "Lawsone"
+    "herbSlug": "sage",
+    "herbName": "Sage",
+    "canonicalCompoundId": "carnosic-acid",
+    "canonicalCompoundName": "Carnosic acid"
   },
   {
-    "herbSlug": "embelin",
-    "herbName": "Embelin"
+    "herbSlug": "olive-leaf",
+    "herbName": "Olive Leaf",
+    "canonicalCompoundId": "oleuropein",
+    "canonicalCompoundName": "Oleuropein"
   },
   {
-    "herbSlug": "artemisinin",
-    "herbName": "Artemisinin"
+    "herbSlug": "olive-leaf",
+    "herbName": "Olive Leaf",
+    "canonicalCompoundId": "hydroxytyrosol",
+    "canonicalCompoundName": "Hydroxytyrosol"
   },
   {
-    "herbSlug": "artesunate",
-    "herbName": "Artesunate"
+    "herbSlug": "saffron",
+    "herbName": "Saffron",
+    "canonicalCompoundId": "crocin",
+    "canonicalCompoundName": "Crocin"
   },
   {
-    "herbSlug": "artemisinin-b",
-    "herbName": "Artemisinin B"
+    "herbSlug": "saffron",
+    "herbName": "Saffron",
+    "canonicalCompoundId": "crocetin",
+    "canonicalCompoundName": "Crocetin"
   },
   {
-    "herbSlug": "astragalin",
-    "herbName": "Astragalin"
+    "herbSlug": "milk-thistle",
+    "herbName": "Milk Thistle",
+    "canonicalCompoundId": "silibinin",
+    "canonicalCompoundName": "Silibinin"
   },
   {
-    "herbSlug": "mangiferin",
-    "herbName": "Mangiferin"
+    "herbSlug": "licorice",
+    "herbName": "Licorice",
+    "canonicalCompoundId": "glycyrrhizin",
+    "canonicalCompoundName": "Glycyrrhizin"
   },
   {
-    "herbSlug": "mangostin",
-    "herbName": "Mangostin"
+    "herbSlug": "japanese-knotweed",
+    "herbName": "Japanese Knotweed",
+    "canonicalCompoundId": "emodin",
+    "canonicalCompoundName": "Emodin"
   },
   {
-    "herbSlug": "garcinol",
-    "herbName": "Garcinol"
+    "herbSlug": "aloe-vera",
+    "herbName": "Aloe Vera",
+    "canonicalCompoundId": "emodin",
+    "canonicalCompoundName": "Emodin"
   },
   {
-    "herbSlug": "curcumol",
-    "herbName": "Curcumol"
+    "herbSlug": "aloe-vera",
+    "herbName": "Aloe Vera",
+    "canonicalCompoundId": "rhein",
+    "canonicalCompoundName": "Rhein"
   },
   {
-    "herbSlug": "curdione",
-    "herbName": "Curdione"
+    "herbSlug": "schisandra",
+    "herbName": "Schisandra",
+    "canonicalCompoundId": "schisandrin",
+    "canonicalCompoundName": "Schisandrin"
   },
   {
-    "herbSlug": "albiflorin",
-    "herbName": "Albiflorin"
+    "herbSlug": "thunder-god-vine",
+    "herbName": "Thunder God Vine",
+    "canonicalCompoundId": "celastrol",
+    "canonicalCompoundName": "Celastrol"
   },
   {
-    "herbSlug": "paeonol",
-    "herbName": "Paeonol"
+    "herbSlug": "clove",
+    "herbName": "Clove",
+    "canonicalCompoundId": "eugenol",
+    "canonicalCompoundName": "Eugenol"
   },
   {
-    "herbSlug": "timosaponin-aiii",
-    "herbName": "Timosaponin AIII"
+    "herbSlug": "lavender",
+    "herbName": "Lavender",
+    "canonicalCompoundId": "linalool",
+    "canonicalCompoundName": "Linalool"
   },
   {
-    "herbSlug": "mangiferin-aglycone",
-    "herbName": "Mangiferin aglycone"
+    "herbSlug": "orange-peel",
+    "herbName": "Orange Peel",
+    "canonicalCompoundId": "hesperidin",
+    "canonicalCompoundName": "Hesperidin"
   },
   {
-    "herbSlug": "lobeline",
-    "herbName": "Lobeline"
+    "herbSlug": "scutellaria-baicalensis",
+    "herbName": "Scutellaria baicalensis",
+    "canonicalCompoundId": "baicalin",
+    "canonicalCompoundName": "Baicalin"
   },
   {
-    "herbSlug": "huperzine-a",
-    "herbName": "Huperzine A"
+    "herbSlug": "scutellaria-baicalensis",
+    "herbName": "Scutellaria baicalensis",
+    "canonicalCompoundId": "baicalein",
+    "canonicalCompoundName": "Baicalein"
   },
   {
-    "herbSlug": "huperzine-b",
-    "herbName": "Huperzine B"
+    "herbSlug": "scutellaria-baicalensis",
+    "herbName": "Scutellaria baicalensis",
+    "canonicalCompoundId": "wogonin",
+    "canonicalCompoundName": "Wogonin"
   },
   {
-    "herbSlug": "anatabine",
-    "herbName": "Anatabine"
+    "herbSlug": "nigella-sativa",
+    "herbName": "Nigella sativa",
+    "canonicalCompoundId": "thymoquinone",
+    "canonicalCompoundName": "Thymoquinone"
   },
   {
-    "herbSlug": "anabasine",
-    "herbName": "Anabasine"
+    "herbSlug": "olea-europaea",
+    "herbName": "Olea europaea",
+    "canonicalCompoundId": "oleuropein",
+    "canonicalCompoundName": "Oleuropein"
   },
   {
-    "herbSlug": "nicotine",
-    "herbName": "Nicotine"
+    "herbSlug": "olea-europaea",
+    "herbName": "Olea europaea",
+    "canonicalCompoundId": "hydroxytyrosol",
+    "canonicalCompoundName": "Hydroxytyrosol"
   },
   {
-    "herbSlug": "beta-caryophyllene",
-    "herbName": "Beta-caryophyllene"
+    "herbSlug": "crocus-sativus",
+    "herbName": "Crocus sativus",
+    "canonicalCompoundId": "crocin",
+    "canonicalCompoundName": "Crocin"
   },
   {
-    "herbSlug": "caryophyllene-oxide",
-    "herbName": "Caryophyllene oxide"
+    "herbSlug": "crocus-sativus",
+    "herbName": "Crocus sativus",
+    "canonicalCompoundId": "crocetin",
+    "canonicalCompoundName": "Crocetin"
   },
   {
-    "herbSlug": "nerolidol",
-    "herbName": "Nerolidol"
+    "herbSlug": "glycyrrhiza-glabra",
+    "herbName": "Glycyrrhiza glabra",
+    "canonicalCompoundId": "glycyrrhizin",
+    "canonicalCompoundName": "Glycyrrhizin"
   },
   {
-    "herbSlug": "farnesol",
-    "herbName": "Farnesol"
+    "herbSlug": "rheum-palmatum",
+    "herbName": "Rheum palmatum",
+    "canonicalCompoundId": "emodin",
+    "canonicalCompoundName": "Emodin"
   },
   {
-    "herbSlug": "bisabolol",
-    "herbName": "Bisabolol"
+    "herbSlug": "rheum-palmatum",
+    "herbName": "Rheum palmatum",
+    "canonicalCompoundId": "rhein",
+    "canonicalCompoundName": "Rhein"
   },
   {
-    "herbSlug": "atractylenolide-ii",
-    "herbName": "Atractylenolide II"
+    "herbSlug": "schisandra-chinensis",
+    "herbName": "Schisandra chinensis",
+    "canonicalCompoundId": "schisandrin",
+    "canonicalCompoundName": "Schisandrin"
   },
   {
-    "herbSlug": "atractylenolide-iii",
-    "herbName": "Atractylenolide III"
+    "herbSlug": "tripterygium-wilfordii",
+    "herbName": "Tripterygium wilfordii",
+    "canonicalCompoundId": "celastrol",
+    "canonicalCompoundName": "Celastrol"
   },
   {
-    "herbSlug": "beta-elemene",
-    "herbName": "Beta-elemene"
+    "herbSlug": "syzygium-aromaticum",
+    "herbName": "Syzygium aromaticum",
+    "canonicalCompoundId": "eugenol",
+    "canonicalCompoundName": "Eugenol"
   },
   {
-    "herbSlug": "elemicin",
-    "herbName": "Elemicin"
+    "herbSlug": "lavandula-angustifolia",
+    "herbName": "Lavandula angustifolia",
+    "canonicalCompoundId": "linalool",
+    "canonicalCompoundName": "Linalool"
   },
   {
-    "herbSlug": "myristicin",
-    "herbName": "Myristicin"
+    "herbSlug": "bupleurum-falcatum",
+    "herbName": "Bupleurum falcatum",
+    "canonicalCompoundId": "saikosaponin-a",
+    "canonicalCompoundName": "Saikosaponin A"
   },
   {
-    "herbSlug": "safrole",
-    "herbName": "Safrole"
+    "herbSlug": "citrus-sinensis",
+    "herbName": "Citrus sinensis",
+    "canonicalCompoundId": "hesperidin",
+    "canonicalCompoundName": "Hesperidin"
   },
   {
-    "herbSlug": "methyleugenol",
-    "herbName": "Methyleugenol"
+    "herbSlug": "berberis-vulgaris",
+    "herbName": "Berberis vulgaris",
+    "canonicalCompoundId": "berberine",
+    "canonicalCompoundName": "Berberine"
   },
   {
-    "herbSlug": "asiatic-acid",
-    "herbName": "Asiatic acid"
+    "herbSlug": "phellodendron-amurense",
+    "herbName": "Phellodendron amurense",
+    "canonicalCompoundId": "berberine",
+    "canonicalCompoundName": "Berberine"
   },
   {
-    "herbSlug": "madecassic-acid",
-    "herbName": "Madecassic acid"
+    "herbSlug": "goldenseal",
+    "herbName": "Goldenseal",
+    "canonicalCompoundId": "palmatine",
+    "canonicalCompoundName": "Palmatine"
   },
   {
-    "herbSlug": "gymnemagenin",
-    "herbName": "Gymnemagenin"
+    "herbSlug": "phellodendron-amurense",
+    "herbName": "Phellodendron amurense",
+    "canonicalCompoundId": "palmatine",
+    "canonicalCompoundName": "Palmatine"
   },
   {
-    "herbSlug": "gurmarin",
-    "herbName": "Gurmarin"
+    "herbSlug": "coptis-chinensis",
+    "herbName": "Coptis chinensis",
+    "canonicalCompoundId": "palmatine",
+    "canonicalCompoundName": "Palmatine"
   },
   {
-    "herbSlug": "lagerstroemin",
-    "herbName": "Lagerstroemin"
+    "herbSlug": "goldenseal",
+    "herbName": "Goldenseal",
+    "canonicalCompoundId": "jatrorrhizine",
+    "canonicalCompoundName": "Jatrorrhizine"
   },
   {
-    "herbSlug": "mulberroside-a",
-    "herbName": "Mulberroside A"
+    "herbSlug": "phellodendron-amurense",
+    "herbName": "Phellodendron amurense",
+    "canonicalCompoundId": "jatrorrhizine",
+    "canonicalCompoundName": "Jatrorrhizine"
   },
   {
-    "herbSlug": "oxyresveratrol",
-    "herbName": "Oxyresveratrol"
+    "herbSlug": "berberis-vulgaris",
+    "herbName": "Berberis vulgaris",
+    "canonicalCompoundId": "columbamine",
+    "canonicalCompoundName": "Columbamine"
   },
   {
-    "herbSlug": "morin",
-    "herbName": "Morin"
+    "herbSlug": "coptis-chinensis",
+    "herbName": "Coptis chinensis",
+    "canonicalCompoundId": "columbamine",
+    "canonicalCompoundName": "Columbamine"
   },
   {
-    "herbSlug": "deoxyelephantopin",
-    "herbName": "Deoxyelephantopin"
+    "herbSlug": "andrographis-paniculata",
+    "herbName": "Andrographis paniculata",
+    "canonicalCompoundId": "neoandrographolide",
+    "canonicalCompoundName": "Neoandrographolide"
   },
   {
-    "herbSlug": "elephantopin",
-    "herbName": "Elephantopin"
+    "herbSlug": "gymnema",
+    "herbName": "Gymnema",
+    "canonicalCompoundId": "gymnemic-acid",
+    "canonicalCompoundName": "Gymnemic acid"
   },
   {
-    "herbSlug": "guggulsterone",
-    "herbName": "Guggulsterone"
+    "herbSlug": "bitter-melon",
+    "herbName": "Bitter Melon",
+    "canonicalCompoundId": "charantin",
+    "canonicalCompoundName": "Charantin"
   },
   {
-    "herbSlug": "commipheric-acid",
-    "herbName": "Commipheric acid"
+    "herbSlug": "bitter-melon",
+    "herbName": "Bitter Melon",
+    "canonicalCompoundId": "momordicoside-k",
+    "canonicalCompoundName": "Momordicoside K"
   },
   {
-    "herbSlug": "stigmasterol",
-    "herbName": "Stigmasterol"
+    "herbSlug": "fenugreek",
+    "herbName": "Fenugreek",
+    "canonicalCompoundId": "diosgenin",
+    "canonicalCompoundName": "Diosgenin"
   },
   {
-    "herbSlug": "ajoene",
-    "herbName": "ajoene"
+    "herbSlug": "wild-yam",
+    "herbName": "Wild Yam",
+    "canonicalCompoundId": "diosgenin",
+    "canonicalCompoundName": "Diosgenin"
   },
   {
-    "herbSlug": "acemannan",
-    "herbName": "acemannan"
+    "herbSlug": "tribulus-terrestris",
+    "herbName": "Tribulus terrestris",
+    "canonicalCompoundId": "protodioscin",
+    "canonicalCompoundName": "Protodioscin"
   },
   {
-    "herbSlug": "aescin",
-    "herbName": "aescin"
+    "herbSlug": "fenugreek",
+    "herbName": "Fenugreek",
+    "canonicalCompoundId": "protodioscin",
+    "canonicalCompoundName": "Protodioscin"
   },
   {
-    "herbSlug": "alpha-asarone",
-    "herbName": "alpha-asarone"
+    "herbSlug": "american-ginseng",
+    "herbName": "American Ginseng",
+    "canonicalCompoundId": "ginsenoside-rg1",
+    "canonicalCompoundName": "Ginsenoside Rg1"
   },
   {
-    "herbSlug": "aspalathin",
-    "herbName": "aspalathin"
+    "herbSlug": "american-ginseng",
+    "herbName": "American Ginseng",
+    "canonicalCompoundId": "ginsenoside-rg3",
+    "canonicalCompoundName": "Ginsenoside Rg3"
   },
   {
-    "herbSlug": "bacopaside-ii",
-    "herbName": "bacopaside II"
+    "herbSlug": "rosemary",
+    "herbName": "Rosemary",
+    "canonicalCompoundId": "ursolic-acid",
+    "canonicalCompoundName": "Ursolic acid"
   },
   {
-    "herbSlug": "berbamine",
-    "herbName": "berbamine"
+    "herbSlug": "sage",
+    "herbName": "Sage",
+    "canonicalCompoundId": "ursolic-acid",
+    "canonicalCompoundName": "Ursolic acid"
   },
   {
-    "herbSlug": "betulinic-acid",
-    "herbName": "betulinic acid"
+    "herbSlug": "rosemary",
+    "herbName": "Rosemary",
+    "canonicalCompoundId": "oleanolic-acid",
+    "canonicalCompoundName": "Oleanolic acid"
   },
   {
-    "herbSlug": "bilobetin",
-    "herbName": "bilobetin"
+    "herbSlug": "sage",
+    "herbName": "Sage",
+    "canonicalCompoundId": "oleanolic-acid",
+    "canonicalCompoundName": "Oleanolic acid"
   },
   {
-    "herbSlug": "cafestol",
-    "herbName": "cafestol"
+    "herbSlug": "hawthorn",
+    "herbName": "Hawthorn",
+    "canonicalCompoundId": "oleanolic-acid",
+    "canonicalCompoundName": "Oleanolic acid"
   },
   {
-    "herbSlug": "chicoric-acid",
-    "herbName": "chicoric acid"
+    "herbSlug": "gotu-kola",
+    "herbName": "Gotu Kola",
+    "canonicalCompoundId": "asiaticoside",
+    "canonicalCompoundName": "Asiaticoside"
   },
   {
-    "herbSlug": "citronellal",
-    "herbName": "citronellal"
+    "herbSlug": "gotu-kola",
+    "herbName": "Gotu Kola",
+    "canonicalCompoundId": "madecassoside",
+    "canonicalCompoundName": "Madecassoside"
   },
   {
-    "herbSlug": "coptisine",
-    "herbName": "coptisine"
+    "herbSlug": "bacopa-monnieri",
+    "herbName": "Bacopa monnieri",
+    "canonicalCompoundId": "bacoside-a",
+    "canonicalCompoundName": "Bacoside A"
   },
   {
-    "herbSlug": "deoxymiroestrol",
-    "herbName": "deoxymiroestrol"
+    "herbSlug": "piper-longum",
+    "herbName": "Piper longum",
+    "canonicalCompoundId": "piperlongumine",
+    "canonicalCompoundName": "Piperlongumine"
   },
   {
-    "herbSlug": "desmethoxyyangonin",
-    "herbName": "desmethoxyyangonin"
+    "herbSlug": "st-johns-wort",
+    "herbName": "St Johns Wort",
+    "canonicalCompoundId": "quercetin",
+    "canonicalCompoundName": "Quercetin"
   },
   {
-    "herbSlug": "dihydrokavain",
-    "herbName": "dihydrokavain"
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "myricetin",
+    "canonicalCompoundName": "Myricetin"
   },
   {
-    "herbSlug": "dihydromethysticin",
-    "herbName": "dihydromethysticin"
+    "herbSlug": "bayberry",
+    "herbName": "Bayberry",
+    "canonicalCompoundId": "myricetin",
+    "canonicalCompoundName": "Myricetin"
   },
   {
-    "herbSlug": "erinacines",
-    "herbName": "erinacines"
+    "herbSlug": "parsley",
+    "herbName": "Parsley",
+    "canonicalCompoundId": "apigenin",
+    "canonicalCompoundName": "Apigenin"
   },
   {
-    "herbSlug": "hericenones",
-    "herbName": "hericenones"
+    "herbSlug": "thyme",
+    "herbName": "Thyme",
+    "canonicalCompoundId": "luteolin",
+    "canonicalCompoundName": "Luteolin"
   },
   {
-    "herbSlug": "indirubin",
-    "herbName": "indirubin"
+    "herbSlug": "artichoke",
+    "herbName": "Artichoke",
+    "canonicalCompoundId": "luteolin",
+    "canonicalCompoundName": "Luteolin"
   },
   {
-    "herbSlug": "kahweol",
-    "herbName": "kahweol"
+    "herbSlug": "grapefruit",
+    "herbName": "Grapefruit",
+    "canonicalCompoundId": "naringenin",
+    "canonicalCompoundName": "Naringenin"
   },
   {
-    "herbSlug": "kotalanol",
-    "herbName": "kotalanol"
+    "herbSlug": "orange-peel",
+    "herbName": "Orange Peel",
+    "canonicalCompoundId": "naringenin",
+    "canonicalCompoundName": "Naringenin"
   },
   {
-    "herbSlug": "mesembrine",
-    "herbName": "mesembrine"
+    "herbSlug": "grapefruit",
+    "herbName": "Grapefruit",
+    "canonicalCompoundId": "naringin",
+    "canonicalCompoundName": "Naringin"
   },
   {
-    "herbSlug": "mesembrenone",
-    "herbName": "mesembrenone"
+    "herbSlug": "orange-peel",
+    "herbName": "Orange Peel",
+    "canonicalCompoundId": "naringin",
+    "canonicalCompoundName": "Naringin"
   },
   {
-    "herbSlug": "columbin",
-    "herbName": "columbin"
+    "herbSlug": "st-johns-wort",
+    "herbName": "St Johns Wort",
+    "canonicalCompoundId": "rutin",
+    "canonicalCompoundName": "Rutin"
   },
   {
-    "herbSlug": "cryptotanshinone",
-    "herbName": "cryptotanshinone"
+    "herbSlug": "buckwheat",
+    "herbName": "Buckwheat",
+    "canonicalCompoundId": "rutin",
+    "canonicalCompoundName": "Rutin"
   },
   {
-    "herbSlug": "honokiol",
-    "herbName": "honokiol"
+    "herbSlug": "cacao",
+    "herbName": "Cacao",
+    "canonicalCompoundId": "catechin",
+    "canonicalCompoundName": "Catechin"
   },
   {
-    "herbSlug": "magnolol",
-    "herbName": "magnolol"
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "epicatechin",
+    "canonicalCompoundName": "Epicatechin"
   },
   {
-    "herbSlug": "safranal",
-    "herbName": "safranal"
+    "herbSlug": "cacao",
+    "herbName": "Cacao",
+    "canonicalCompoundId": "epicatechin",
+    "canonicalCompoundName": "Epicatechin"
   },
   {
-    "herbSlug": "trigonelline",
-    "herbName": "trigonelline"
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "epigallocatechin-gallate-egcg",
+    "canonicalCompoundName": "Epigallocatechin gallate (EGCG)"
   },
   {
-    "herbSlug": "schisandrin-b",
-    "herbName": "schisandrin B"
+    "herbSlug": "black-tea",
+    "herbName": "Black Tea",
+    "canonicalCompoundId": "theaflavin",
+    "canonicalCompoundName": "Theaflavin"
   },
   {
-    "herbSlug": "eleutheroside-b",
-    "herbName": "eleutheroside B"
+    "herbSlug": "black-tea",
+    "herbName": "Black Tea",
+    "canonicalCompoundId": "thearubigin",
+    "canonicalCompoundName": "Thearubigin"
   },
   {
-    "herbSlug": "eleutheroside-e",
-    "herbName": "eleutheroside E"
+    "herbSlug": "japanese-knotweed",
+    "herbName": "Japanese Knotweed",
+    "canonicalCompoundId": "resveratrol",
+    "canonicalCompoundName": "Resveratrol"
   },
   {
-    "herbSlug": "punicalagin",
-    "herbName": "punicalagin"
+    "herbSlug": "grape",
+    "herbName": "Grape",
+    "canonicalCompoundId": "resveratrol",
+    "canonicalCompoundName": "Resveratrol"
   },
   {
-    "herbSlug": "glucomoringin",
-    "herbName": "glucomoringin"
+    "herbSlug": "blueberry",
+    "herbName": "Blueberry",
+    "canonicalCompoundId": "pterostilbene",
+    "canonicalCompoundName": "Pterostilbene"
   },
   {
-    "herbSlug": "methyl-eugenol",
-    "herbName": "methyl eugenol"
+    "herbSlug": "grape",
+    "herbName": "Grape",
+    "canonicalCompoundId": "pterostilbene",
+    "canonicalCompoundName": "Pterostilbene"
   },
   {
-    "herbSlug": "silybin",
-    "herbName": "silybin"
+    "herbSlug": "soybean",
+    "herbName": "Soybean",
+    "canonicalCompoundId": "genistein",
+    "canonicalCompoundName": "Genistein"
   },
   {
-    "herbSlug": "silychristin",
-    "herbName": "silychristin"
+    "herbSlug": "soybean",
+    "herbName": "Soybean",
+    "canonicalCompoundId": "daidzein",
+    "canonicalCompoundName": "Daidzein"
   },
   {
-    "herbSlug": "silydianin",
-    "herbName": "silydianin"
+    "herbSlug": "red-clover",
+    "herbName": "Red Clover",
+    "canonicalCompoundId": "daidzein",
+    "canonicalCompoundName": "Daidzein"
   },
   {
-    "herbSlug": "epigallocatechin",
-    "herbName": "epigallocatechin"
+    "herbSlug": "red-clover",
+    "herbName": "Red Clover",
+    "canonicalCompoundId": "formononetin",
+    "canonicalCompoundName": "Formononetin"
   },
   {
-    "herbSlug": "epicatechin-gallate",
-    "herbName": "epicatechin gallate"
+    "herbSlug": "astragalus",
+    "herbName": "Astragalus",
+    "canonicalCompoundId": "formononetin",
+    "canonicalCompoundName": "Formononetin"
   },
   {
-    "herbSlug": "epigallocatechin-gallate",
-    "herbName": "epigallocatechin gallate"
+    "herbSlug": "soybean",
+    "herbName": "Soybean",
+    "canonicalCompoundId": "biochanin-a",
+    "canonicalCompoundName": "Biochanin A"
   },
   {
-    "herbSlug": "gallocatechin",
-    "herbName": "gallocatechin"
+    "herbSlug": "pomegranate",
+    "herbName": "Pomegranate",
+    "canonicalCompoundId": "ellagic-acid",
+    "canonicalCompoundName": "Ellagic acid"
+  },
+  {
+    "herbSlug": "raspberry-leaf",
+    "herbName": "Raspberry Leaf",
+    "canonicalCompoundId": "ellagic-acid",
+    "canonicalCompoundName": "Ellagic acid"
+  },
+  {
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "gallic-acid",
+    "canonicalCompoundName": "Gallic acid"
+  },
+  {
+    "herbSlug": "pomegranate",
+    "herbName": "Pomegranate",
+    "canonicalCompoundId": "gallic-acid",
+    "canonicalCompoundName": "Gallic acid"
+  },
+  {
+    "herbSlug": "angelica-sinensis",
+    "herbName": "Angelica sinensis",
+    "canonicalCompoundId": "ferulic-acid",
+    "canonicalCompoundName": "Ferulic acid"
+  },
+  {
+    "herbSlug": "rice-bran",
+    "herbName": "Rice Bran",
+    "canonicalCompoundId": "ferulic-acid",
+    "canonicalCompoundName": "Ferulic acid"
+  },
+  {
+    "herbSlug": "coffee",
+    "herbName": "Coffee",
+    "canonicalCompoundId": "chlorogenic-acid",
+    "canonicalCompoundName": "Chlorogenic acid"
+  },
+  {
+    "herbSlug": "artichoke",
+    "herbName": "Artichoke",
+    "canonicalCompoundId": "chlorogenic-acid",
+    "canonicalCompoundName": "Chlorogenic acid"
+  },
+  {
+    "herbSlug": "echinacea-purpurea",
+    "herbName": "Echinacea Purpurea",
+    "canonicalCompoundId": "caffeic-acid",
+    "canonicalCompoundName": "Caffeic acid"
+  },
+  {
+    "herbSlug": "coffee",
+    "herbName": "Coffee",
+    "canonicalCompoundId": "caffeic-acid",
+    "canonicalCompoundName": "Caffeic acid"
+  },
+  {
+    "herbSlug": "cnidium-monnieri",
+    "herbName": "Cnidium monnieri",
+    "canonicalCompoundId": "osthole",
+    "canonicalCompoundName": "Osthole"
+  },
+  {
+    "herbSlug": "angelica-pubescens",
+    "herbName": "Angelica pubescens",
+    "canonicalCompoundId": "osthole",
+    "canonicalCompoundName": "Osthole"
+  },
+  {
+    "herbSlug": "angelica-dahurica",
+    "herbName": "Angelica dahurica",
+    "canonicalCompoundId": "imperatorin",
+    "canonicalCompoundName": "Imperatorin"
+  },
+  {
+    "herbSlug": "cnidium-monnieri",
+    "herbName": "Cnidium monnieri",
+    "canonicalCompoundId": "imperatorin",
+    "canonicalCompoundName": "Imperatorin"
+  },
+  {
+    "herbSlug": "angelica-dahurica",
+    "herbName": "Angelica dahurica",
+    "canonicalCompoundId": "isoimperatorin",
+    "canonicalCompoundName": "Isoimperatorin"
+  },
+  {
+    "herbSlug": "cnidium-monnieri",
+    "herbName": "Cnidium monnieri",
+    "canonicalCompoundId": "isoimperatorin",
+    "canonicalCompoundName": "Isoimperatorin"
+  },
+  {
+    "herbSlug": "psoralea-corylifolia",
+    "herbName": "Psoralea corylifolia",
+    "canonicalCompoundId": "psoralen",
+    "canonicalCompoundName": "Psoralen"
+  },
+  {
+    "herbSlug": "ficus-carica",
+    "herbName": "Ficus carica",
+    "canonicalCompoundId": "psoralen",
+    "canonicalCompoundName": "Psoralen"
+  },
+  {
+    "herbSlug": "psoralea-corylifolia",
+    "herbName": "Psoralea corylifolia",
+    "canonicalCompoundId": "angelicin",
+    "canonicalCompoundName": "Angelicin"
+  },
+  {
+    "herbSlug": "angelica-archangelica",
+    "herbName": "Angelica archangelica",
+    "canonicalCompoundId": "angelicin",
+    "canonicalCompoundName": "Angelicin"
+  },
+  {
+    "herbSlug": "citrus-bergamia",
+    "herbName": "Citrus bergamia",
+    "canonicalCompoundId": "bergapten",
+    "canonicalCompoundName": "Bergapten"
+  },
+  {
+    "herbSlug": "psoralea-corylifolia",
+    "herbName": "Psoralea corylifolia",
+    "canonicalCompoundId": "bergapten",
+    "canonicalCompoundName": "Bergapten"
+  },
+  {
+    "herbSlug": "morinda-citrifolia",
+    "herbName": "Morinda citrifolia",
+    "canonicalCompoundId": "scopoletin",
+    "canonicalCompoundName": "Scopoletin"
+  },
+  {
+    "herbSlug": "artemisia-capillaris",
+    "herbName": "Artemisia capillaris",
+    "canonicalCompoundId": "scopoletin",
+    "canonicalCompoundName": "Scopoletin"
+  },
+  {
+    "herbSlug": "cichorium-intybus",
+    "herbName": "Cichorium intybus",
+    "canonicalCompoundId": "esculetin",
+    "canonicalCompoundName": "Esculetin"
+  },
+  {
+    "herbSlug": "artemisia-capillaris",
+    "herbName": "Artemisia capillaris",
+    "canonicalCompoundId": "esculetin",
+    "canonicalCompoundName": "Esculetin"
+  },
+  {
+    "herbSlug": "fraxinus-rhynchophylla",
+    "herbName": "Fraxinus rhynchophylla",
+    "canonicalCompoundId": "fraxetin",
+    "canonicalCompoundName": "Fraxetin"
+  },
+  {
+    "herbSlug": "artemisia-capillaris",
+    "herbName": "Artemisia capillaris",
+    "canonicalCompoundId": "fraxetin",
+    "canonicalCompoundName": "Fraxetin"
+  },
+  {
+    "herbSlug": "angelica-archangelica",
+    "herbName": "Angelica archangelica",
+    "canonicalCompoundId": "umbelliferone",
+    "canonicalCompoundName": "Umbelliferone"
+  },
+  {
+    "herbSlug": "coriandrum-sativum",
+    "herbName": "Coriandrum sativum",
+    "canonicalCompoundId": "umbelliferone",
+    "canonicalCompoundName": "Umbelliferone"
+  },
+  {
+    "herbSlug": "daphne-odora",
+    "herbName": "Daphne odora",
+    "canonicalCompoundId": "daphnetin",
+    "canonicalCompoundName": "Daphnetin"
+  },
+  {
+    "herbSlug": "stellera-chamaejasme",
+    "herbName": "Stellera chamaejasme",
+    "canonicalCompoundId": "daphnetin",
+    "canonicalCompoundName": "Daphnetin"
+  },
+  {
+    "herbSlug": "sophora-alopecuroides",
+    "herbName": "Sophora alopecuroides",
+    "canonicalCompoundId": "matrine",
+    "canonicalCompoundName": "Matrine"
+  },
+  {
+    "herbSlug": "sophora-flavescens",
+    "herbName": "Sophora flavescens",
+    "canonicalCompoundId": "oxymatrine",
+    "canonicalCompoundName": "Oxymatrine"
+  },
+  {
+    "herbSlug": "sophora-alopecuroides",
+    "herbName": "Sophora alopecuroides",
+    "canonicalCompoundId": "oxymatrine",
+    "canonicalCompoundName": "Oxymatrine"
+  },
+  {
+    "herbSlug": "stephania-tetrandra",
+    "herbName": "Stephania tetrandra",
+    "canonicalCompoundId": "tetrandrine",
+    "canonicalCompoundName": "Tetrandrine"
+  },
+  {
+    "herbSlug": "cyclea-peltata",
+    "herbName": "Cyclea peltata",
+    "canonicalCompoundId": "tetrandrine",
+    "canonicalCompoundName": "Tetrandrine"
+  },
+  {
+    "herbSlug": "stephania-cepharantha",
+    "herbName": "Stephania cepharantha",
+    "canonicalCompoundId": "cepharanthine",
+    "canonicalCompoundName": "Cepharanthine"
+  },
+  {
+    "herbSlug": "stephania-japonica",
+    "herbName": "Stephania japonica",
+    "canonicalCompoundId": "cepharanthine",
+    "canonicalCompoundName": "Cepharanthine"
+  },
+  {
+    "herbSlug": "coptis-chinensis",
+    "herbName": "Coptis chinensis",
+    "canonicalCompoundId": "magnoflorine",
+    "canonicalCompoundName": "Magnoflorine"
+  },
+  {
+    "herbSlug": "nelumbo-nucifera",
+    "herbName": "Nelumbo nucifera",
+    "canonicalCompoundId": "magnoflorine",
+    "canonicalCompoundName": "Magnoflorine"
+  },
+  {
+    "herbSlug": "angelica-sinensis",
+    "herbName": "Angelica sinensis",
+    "canonicalCompoundId": "ligustilide",
+    "canonicalCompoundName": "Ligustilide"
+  },
+  {
+    "herbSlug": "ligusticum-chuanxiong",
+    "herbName": "Ligusticum chuanxiong",
+    "canonicalCompoundId": "ligustilide",
+    "canonicalCompoundName": "Ligustilide"
+  },
+  {
+    "herbSlug": "ligusticum-chuanxiong",
+    "herbName": "Ligusticum chuanxiong",
+    "canonicalCompoundId": "senkyunolide-a",
+    "canonicalCompoundName": "Senkyunolide A"
+  },
+  {
+    "herbSlug": "angelica-sinensis",
+    "herbName": "Angelica sinensis",
+    "canonicalCompoundId": "senkyunolide-a",
+    "canonicalCompoundName": "Senkyunolide A"
+  },
+  {
+    "herbSlug": "angelica-sinensis",
+    "herbName": "Angelica sinensis",
+    "canonicalCompoundId": "butylidenephthalide",
+    "canonicalCompoundName": "Butylidenephthalide"
+  },
+  {
+    "herbSlug": "ligusticum-chuanxiong",
+    "herbName": "Ligusticum chuanxiong",
+    "canonicalCompoundId": "butylidenephthalide",
+    "canonicalCompoundName": "Butylidenephthalide"
+  },
+  {
+    "herbSlug": "angelica-dahurica",
+    "herbName": "Angelica dahurica",
+    "canonicalCompoundId": "xanthotoxin",
+    "canonicalCompoundName": "Xanthotoxin"
+  },
+  {
+    "herbSlug": "pastinaca-sativa",
+    "herbName": "Pastinaca sativa",
+    "canonicalCompoundId": "xanthotoxin",
+    "canonicalCompoundName": "Xanthotoxin"
+  },
+  {
+    "herbSlug": "boswellia-serrata",
+    "herbName": "Boswellia serrata",
+    "canonicalCompoundId": "boswellic-acid",
+    "canonicalCompoundName": "Boswellic acid"
+  },
+  {
+    "herbSlug": "boswellia-serrata",
+    "herbName": "Boswellia serrata",
+    "canonicalCompoundId": "acetyl-beta-boswellic-acid",
+    "canonicalCompoundName": "Acetyl-beta-boswellic acid"
+  },
+  {
+    "herbSlug": "boswellia-serrata",
+    "herbName": "Boswellia serrata",
+    "canonicalCompoundId": "11-keto-beta-boswellic-acid",
+    "canonicalCompoundName": "11-keto-beta-boswellic acid"
+  },
+  {
+    "herbSlug": "boswellia-serrata",
+    "herbName": "Boswellia serrata",
+    "canonicalCompoundId": "acetyl-11-keto-beta-boswellic-acid",
+    "canonicalCompoundName": "Acetyl-11-keto-beta-boswellic acid"
+  },
+  {
+    "herbSlug": "valeriana-officinalis",
+    "herbName": "Valeriana officinalis",
+    "canonicalCompoundId": "valerenic-acid",
+    "canonicalCompoundName": "Valerenic acid"
+  },
+  {
+    "herbSlug": "valeriana-officinalis",
+    "herbName": "Valeriana officinalis",
+    "canonicalCompoundId": "valerenol",
+    "canonicalCompoundName": "Valerenol"
+  },
+  {
+    "herbSlug": "piper-methysticum",
+    "herbName": "Piper methysticum",
+    "canonicalCompoundId": "kavalactones",
+    "canonicalCompoundName": "Kavalactones"
+  },
+  {
+    "herbSlug": "piper-methysticum",
+    "herbName": "Piper methysticum",
+    "canonicalCompoundId": "kavain",
+    "canonicalCompoundName": "Kavain"
+  },
+  {
+    "herbSlug": "piper-methysticum",
+    "herbName": "Piper methysticum",
+    "canonicalCompoundId": "yangonin",
+    "canonicalCompoundName": "Yangonin"
+  },
+  {
+    "herbSlug": "piper-methysticum",
+    "herbName": "Piper methysticum",
+    "canonicalCompoundId": "methysticin",
+    "canonicalCompoundName": "Methysticin"
+  },
+  {
+    "herbSlug": "valeriana-officinalis",
+    "herbName": "Valeriana officinalis",
+    "canonicalCompoundId": "valepotriates",
+    "canonicalCompoundName": "Valepotriates"
+  },
+  {
+    "herbSlug": "plantago-major",
+    "herbName": "Plantago major",
+    "canonicalCompoundId": "aucubin",
+    "canonicalCompoundName": "Aucubin"
+  },
+  {
+    "herbSlug": "rehmannia-glutinosa",
+    "herbName": "Rehmannia glutinosa",
+    "canonicalCompoundId": "catalpol",
+    "canonicalCompoundName": "Catalpol"
+  },
+  {
+    "herbSlug": "harpagophytum-procumbens",
+    "herbName": "Harpagophytum procumbens",
+    "canonicalCompoundId": "harpagoside",
+    "canonicalCompoundName": "Harpagoside"
+  },
+  {
+    "herbSlug": "cornus-officinalis",
+    "herbName": "Cornus officinalis",
+    "canonicalCompoundId": "loganin",
+    "canonicalCompoundName": "Loganin"
+  },
+  {
+    "herbSlug": "cornus-officinalis",
+    "herbName": "Cornus officinalis",
+    "canonicalCompoundId": "morroniside",
+    "canonicalCompoundName": "Morroniside"
+  },
+  {
+    "herbSlug": "olea-europaea",
+    "herbName": "Olea europaea",
+    "canonicalCompoundId": "oleocanthal",
+    "canonicalCompoundName": "Oleocanthal"
+  },
+  {
+    "herbSlug": "olea-europaea",
+    "herbName": "Olea europaea",
+    "canonicalCompoundId": "oleacein",
+    "canonicalCompoundName": "Oleacein"
+  },
+  {
+    "herbSlug": "cistanche-deserticola",
+    "herbName": "Cistanche deserticola",
+    "canonicalCompoundId": "echinacoside",
+    "canonicalCompoundName": "Echinacoside"
+  },
+  {
+    "herbSlug": "verbena-officinalis",
+    "herbName": "Verbena officinalis",
+    "canonicalCompoundId": "acteoside",
+    "canonicalCompoundName": "Acteoside"
+  },
+  {
+    "herbSlug": "plantago-lanceolata",
+    "herbName": "Plantago lanceolata",
+    "canonicalCompoundId": "verbascoside",
+    "canonicalCompoundName": "Verbascoside"
+  },
+  {
+    "herbSlug": "coleus-forskohlii",
+    "herbName": "Coleus forskohlii",
+    "canonicalCompoundId": "forskolin",
+    "canonicalCompoundName": "Forskolin"
+  },
+  {
+    "herbSlug": "bacopa-monnieri",
+    "herbName": "Bacopa monnieri",
+    "canonicalCompoundId": "bacoside-b",
+    "canonicalCompoundName": "Bacoside B"
+  },
+  {
+    "herbSlug": "glycyrrhiza-glabra",
+    "herbName": "Glycyrrhiza glabra",
+    "canonicalCompoundId": "glycyrrhetinic-acid",
+    "canonicalCompoundName": "Glycyrrhetinic acid"
+  },
+  {
+    "herbSlug": "lithospermum-erythrorhizon",
+    "herbName": "Lithospermum erythrorhizon",
+    "canonicalCompoundId": "shikonin",
+    "canonicalCompoundName": "Shikonin"
+  },
+  {
+    "herbSlug": "lithospermum-erythrorhizon",
+    "herbName": "Lithospermum erythrorhizon",
+    "canonicalCompoundId": "acetylshikonin",
+    "canonicalCompoundName": "Acetylshikonin"
+  },
+  {
+    "herbSlug": "plumbago-zeylanica",
+    "herbName": "Plumbago zeylanica",
+    "canonicalCompoundId": "plumbagin",
+    "canonicalCompoundName": "Plumbagin"
+  },
+  {
+    "herbSlug": "lawsonia-inermis",
+    "herbName": "Lawsonia inermis",
+    "canonicalCompoundId": "lawsone",
+    "canonicalCompoundName": "Lawsone"
+  },
+  {
+    "herbSlug": "embelia-ribes",
+    "herbName": "Embelia ribes",
+    "canonicalCompoundId": "embelin",
+    "canonicalCompoundName": "Embelin"
+  },
+  {
+    "herbSlug": "artemisia-absinthium",
+    "herbName": "Artemisia absinthium",
+    "canonicalCompoundId": "thujone",
+    "canonicalCompoundName": "Thujone"
+  },
+  {
+    "herbSlug": "artemisia-annua",
+    "herbName": "Artemisia annua",
+    "canonicalCompoundId": "artemisinin",
+    "canonicalCompoundName": "Artemisinin"
+  },
+  {
+    "herbSlug": "artemisia-annua",
+    "herbName": "Artemisia annua",
+    "canonicalCompoundId": "artesunate",
+    "canonicalCompoundName": "Artesunate"
+  },
+  {
+    "herbSlug": "artemisia-annua",
+    "herbName": "Artemisia annua",
+    "canonicalCompoundId": "artemisinin-b",
+    "canonicalCompoundName": "Artemisinin B"
+  },
+  {
+    "herbSlug": "astragalus-membranaceus",
+    "herbName": "Astragalus membranaceus",
+    "canonicalCompoundId": "astragaloside-iv",
+    "canonicalCompoundName": "Astragaloside IV"
+  },
+  {
+    "herbSlug": "astragalus-membranaceus",
+    "herbName": "Astragalus membranaceus",
+    "canonicalCompoundId": "calycosin",
+    "canonicalCompoundName": "Calycosin"
+  },
+  {
+    "herbSlug": "astragalus-membranaceus",
+    "herbName": "Astragalus membranaceus",
+    "canonicalCompoundId": "formononetin",
+    "canonicalCompoundName": "Formononetin"
+  },
+  {
+    "herbSlug": "astragalus-membranaceus",
+    "herbName": "Astragalus membranaceus",
+    "canonicalCompoundId": "astragalin",
+    "canonicalCompoundName": "Astragalin"
+  },
+  {
+    "herbSlug": "pueraria-lobata",
+    "herbName": "Pueraria lobata",
+    "canonicalCompoundId": "puerarin",
+    "canonicalCompoundName": "Puerarin"
+  },
+  {
+    "herbSlug": "pueraria-lobata",
+    "herbName": "Pueraria lobata",
+    "canonicalCompoundId": "daidzin",
+    "canonicalCompoundName": "Daidzin"
+  },
+  {
+    "herbSlug": "pueraria-lobata",
+    "herbName": "Pueraria lobata",
+    "canonicalCompoundId": "ononin",
+    "canonicalCompoundName": "Ononin"
+  },
+  {
+    "herbSlug": "mangifera-indica",
+    "herbName": "Mangifera indica",
+    "canonicalCompoundId": "mangiferin",
+    "canonicalCompoundName": "Mangiferin"
+  },
+  {
+    "herbSlug": "garcinia-mangostana",
+    "herbName": "Garcinia mangostana",
+    "canonicalCompoundId": "mangostin",
+    "canonicalCompoundName": "Mangostin"
+  },
+  {
+    "herbSlug": "garcinia-mangostana",
+    "herbName": "Garcinia mangostana",
+    "canonicalCompoundId": "alpha-mangostin",
+    "canonicalCompoundName": "Alpha-mangostin"
+  },
+  {
+    "herbSlug": "garcinia-indica",
+    "herbName": "Garcinia indica",
+    "canonicalCompoundId": "garcinol",
+    "canonicalCompoundName": "Garcinol"
+  },
+  {
+    "herbSlug": "curcuma-zedoaria",
+    "herbName": "Curcuma zedoaria",
+    "canonicalCompoundId": "curcumol",
+    "canonicalCompoundName": "Curcumol"
+  },
+  {
+    "herbSlug": "curcuma-zedoaria",
+    "herbName": "Curcuma zedoaria",
+    "canonicalCompoundId": "curdione",
+    "canonicalCompoundName": "Curdione"
+  },
+  {
+    "herbSlug": "curcuma-longa",
+    "herbName": "Curcuma longa",
+    "canonicalCompoundId": "demethoxycurcumin",
+    "canonicalCompoundName": "Demethoxycurcumin"
+  },
+  {
+    "herbSlug": "curcuma-longa",
+    "herbName": "Curcuma longa",
+    "canonicalCompoundId": "bisdemethoxycurcumin",
+    "canonicalCompoundName": "Bisdemethoxycurcumin"
+  },
+  {
+    "herbSlug": "paeonia-lactiflora",
+    "herbName": "Paeonia lactiflora",
+    "canonicalCompoundId": "paeoniflorin",
+    "canonicalCompoundName": "Paeoniflorin"
+  },
+  {
+    "herbSlug": "paeonia-lactiflora",
+    "herbName": "Paeonia lactiflora",
+    "canonicalCompoundId": "albiflorin",
+    "canonicalCompoundName": "Albiflorin"
+  },
+  {
+    "herbSlug": "paeonia-suffruticosa",
+    "herbName": "Paeonia suffruticosa",
+    "canonicalCompoundId": "paeonol",
+    "canonicalCompoundName": "Paeonol"
+  },
+  {
+    "herbSlug": "anemarrhena-asphodeloides",
+    "herbName": "Anemarrhena asphodeloides",
+    "canonicalCompoundId": "timosaponin-aiii",
+    "canonicalCompoundName": "Timosaponin AIII"
+  },
+  {
+    "herbSlug": "anemarrhena-asphodeloides",
+    "herbName": "Anemarrhena asphodeloides",
+    "canonicalCompoundId": "mangiferin-aglycone",
+    "canonicalCompoundName": "Mangiferin aglycone"
+  },
+  {
+    "herbSlug": "lobelia-inflata",
+    "herbName": "Lobelia inflata",
+    "canonicalCompoundId": "lobeline",
+    "canonicalCompoundName": "Lobeline"
+  },
+  {
+    "herbSlug": "huperzia-serrata",
+    "herbName": "Huperzia serrata",
+    "canonicalCompoundId": "huperzine-a",
+    "canonicalCompoundName": "Huperzine A"
+  },
+  {
+    "herbSlug": "huperzia-serrata",
+    "herbName": "Huperzia serrata",
+    "canonicalCompoundId": "huperzine-b",
+    "canonicalCompoundName": "Huperzine B"
+  },
+  {
+    "herbSlug": "nicotiana-tabacum",
+    "herbName": "Nicotiana tabacum",
+    "canonicalCompoundId": "anatabine",
+    "canonicalCompoundName": "Anatabine"
+  },
+  {
+    "herbSlug": "nicotiana-glauca",
+    "herbName": "Nicotiana glauca",
+    "canonicalCompoundId": "anabasine",
+    "canonicalCompoundName": "Anabasine"
+  },
+  {
+    "herbSlug": "nicotiana-tabacum",
+    "herbName": "Nicotiana tabacum",
+    "canonicalCompoundId": "nicotine",
+    "canonicalCompoundName": "Nicotine"
+  },
+  {
+    "herbSlug": "piper-nigrum",
+    "herbName": "Piper nigrum",
+    "canonicalCompoundId": "beta-caryophyllene",
+    "canonicalCompoundName": "Beta-caryophyllene"
+  },
+  {
+    "herbSlug": "piper-nigrum",
+    "herbName": "Piper nigrum",
+    "canonicalCompoundId": "caryophyllene-oxide",
+    "canonicalCompoundName": "Caryophyllene oxide"
+  },
+  {
+    "herbSlug": "cymbopogon-citratus",
+    "herbName": "Cymbopogon citratus",
+    "canonicalCompoundId": "nerolidol",
+    "canonicalCompoundName": "Nerolidol"
+  },
+  {
+    "herbSlug": "matricaria-chamomilla",
+    "herbName": "Matricaria chamomilla",
+    "canonicalCompoundId": "farnesol",
+    "canonicalCompoundName": "Farnesol"
+  },
+  {
+    "herbSlug": "matricaria-chamomilla",
+    "herbName": "Matricaria chamomilla",
+    "canonicalCompoundId": "bisabolol",
+    "canonicalCompoundName": "Bisabolol"
+  },
+  {
+    "herbSlug": "matricaria-chamomilla",
+    "herbName": "Matricaria chamomilla",
+    "canonicalCompoundId": "chamazulene",
+    "canonicalCompoundName": "Chamazulene"
+  },
+  {
+    "herbSlug": "atractylodes-macrocephala",
+    "herbName": "Atractylodes macrocephala",
+    "canonicalCompoundId": "atractylenolide-i",
+    "canonicalCompoundName": "Atractylenolide I"
+  },
+  {
+    "herbSlug": "atractylodes-macrocephala",
+    "herbName": "Atractylodes macrocephala",
+    "canonicalCompoundId": "atractylenolide-ii",
+    "canonicalCompoundName": "Atractylenolide II"
+  },
+  {
+    "herbSlug": "atractylodes-macrocephala",
+    "herbName": "Atractylodes macrocephala",
+    "canonicalCompoundId": "atractylenolide-iii",
+    "canonicalCompoundName": "Atractylenolide III"
+  },
+  {
+    "herbSlug": "curcuma-wenyujin",
+    "herbName": "Curcuma wenyujin",
+    "canonicalCompoundId": "beta-elemene",
+    "canonicalCompoundName": "Beta-elemene"
+  },
+  {
+    "herbSlug": "myristica-fragrans",
+    "herbName": "Myristica fragrans",
+    "canonicalCompoundId": "elemicin",
+    "canonicalCompoundName": "Elemicin"
+  },
+  {
+    "herbSlug": "myristica-fragrans",
+    "herbName": "Myristica fragrans",
+    "canonicalCompoundId": "myristicin",
+    "canonicalCompoundName": "Myristicin"
+  },
+  {
+    "herbSlug": "ocotea-odorifera",
+    "herbName": "Ocotea odorifera",
+    "canonicalCompoundId": "safrole",
+    "canonicalCompoundName": "Safrole"
+  },
+  {
+    "herbSlug": "ocimum-basilicum",
+    "herbName": "Ocimum basilicum",
+    "canonicalCompoundId": "methyleugenol",
+    "canonicalCompoundName": "Methyleugenol"
+  },
+  {
+    "herbSlug": "ocimum-sanctum",
+    "herbName": "Ocimum sanctum",
+    "canonicalCompoundId": "ursolic-acid",
+    "canonicalCompoundName": "Ursolic acid"
+  },
+  {
+    "herbSlug": "centella-asiatica",
+    "herbName": "Centella asiatica",
+    "canonicalCompoundId": "asiatic-acid",
+    "canonicalCompoundName": "Asiatic acid"
+  },
+  {
+    "herbSlug": "centella-asiatica",
+    "herbName": "Centella asiatica",
+    "canonicalCompoundId": "madecassic-acid",
+    "canonicalCompoundName": "Madecassic acid"
+  },
+  {
+    "herbSlug": "centella-asiatica",
+    "herbName": "Centella asiatica",
+    "canonicalCompoundId": "asiaticoside",
+    "canonicalCompoundName": "Asiaticoside"
+  },
+  {
+    "herbSlug": "centella-asiatica",
+    "herbName": "Centella asiatica",
+    "canonicalCompoundId": "madecassoside",
+    "canonicalCompoundName": "Madecassoside"
+  },
+  {
+    "herbSlug": "gymnema-sylvestre",
+    "herbName": "Gymnema sylvestre",
+    "canonicalCompoundId": "gymnemagenin",
+    "canonicalCompoundName": "Gymnemagenin"
+  },
+  {
+    "herbSlug": "gymnema-sylvestre",
+    "herbName": "Gymnema sylvestre",
+    "canonicalCompoundId": "gurmarin",
+    "canonicalCompoundName": "Gurmarin"
+  },
+  {
+    "herbSlug": "lagerstroemia-speciosa",
+    "herbName": "Lagerstroemia speciosa",
+    "canonicalCompoundId": "corosolic-acid",
+    "canonicalCompoundName": "Corosolic acid"
+  },
+  {
+    "herbSlug": "lagerstroemia-speciosa",
+    "herbName": "Lagerstroemia speciosa",
+    "canonicalCompoundId": "lagerstroemin",
+    "canonicalCompoundName": "Lagerstroemin"
+  },
+  {
+    "herbSlug": "morus-alba",
+    "herbName": "Morus alba",
+    "canonicalCompoundId": "mulberroside-a",
+    "canonicalCompoundName": "Mulberroside A"
+  },
+  {
+    "herbSlug": "morus-alba",
+    "herbName": "Morus alba",
+    "canonicalCompoundId": "oxyresveratrol",
+    "canonicalCompoundName": "Oxyresveratrol"
+  },
+  {
+    "herbSlug": "morus-alba",
+    "herbName": "Morus alba",
+    "canonicalCompoundId": "morin",
+    "canonicalCompoundName": "Morin"
+  },
+  {
+    "herbSlug": "elephantopus-scaber",
+    "herbName": "Elephantopus scaber",
+    "canonicalCompoundId": "deoxyelephantopin",
+    "canonicalCompoundName": "Deoxyelephantopin"
+  },
+  {
+    "herbSlug": "elephantopus-scaber",
+    "herbName": "Elephantopus scaber",
+    "canonicalCompoundId": "elephantopin",
+    "canonicalCompoundName": "Elephantopin"
+  },
+  {
+    "herbSlug": "commiphora-mukul",
+    "herbName": "Commiphora mukul",
+    "canonicalCompoundId": "guggulsterone",
+    "canonicalCompoundName": "Guggulsterone"
+  },
+  {
+    "herbSlug": "commiphora-mukul",
+    "herbName": "Commiphora mukul",
+    "canonicalCompoundId": "commipheric-acid",
+    "canonicalCompoundName": "Commipheric acid"
+  },
+  {
+    "herbSlug": "serenoa-repens",
+    "herbName": "Serenoa repens",
+    "canonicalCompoundId": "beta-sitosterol",
+    "canonicalCompoundName": "Beta-sitosterol"
+  },
+  {
+    "herbSlug": "serenoa-repens",
+    "herbName": "Serenoa repens",
+    "canonicalCompoundId": "stigmasterol",
+    "canonicalCompoundName": "Stigmasterol"
+  },
+  {
+    "herbSlug": "garlic",
+    "herbName": "Garlic",
+    "canonicalCompoundId": "ajoene",
+    "canonicalCompoundName": "ajoene"
+  },
+  {
+    "herbSlug": "aloe-vera",
+    "herbName": "Aloe Vera",
+    "canonicalCompoundId": "acemannan",
+    "canonicalCompoundName": "acemannan"
+  },
+  {
+    "herbSlug": "horse-chestnut",
+    "herbName": "Horse Chestnut",
+    "canonicalCompoundId": "aescin",
+    "canonicalCompoundName": "aescin"
+  },
+  {
+    "herbSlug": "calamus",
+    "herbName": "Calamus",
+    "canonicalCompoundId": "alpha-asarone",
+    "canonicalCompoundName": "alpha-asarone"
+  },
+  {
+    "herbSlug": "rooibos",
+    "herbName": "Rooibos",
+    "canonicalCompoundId": "aspalathin",
+    "canonicalCompoundName": "aspalathin"
+  },
+  {
+    "herbSlug": "bacopa",
+    "herbName": "Bacopa",
+    "canonicalCompoundId": "bacopaside-ii",
+    "canonicalCompoundName": "bacopaside II"
+  },
+  {
+    "herbSlug": "berberis",
+    "herbName": "Berberis",
+    "canonicalCompoundId": "berbamine",
+    "canonicalCompoundName": "berbamine"
+  },
+  {
+    "herbSlug": "chaga",
+    "herbName": "Chaga",
+    "canonicalCompoundId": "betulinic-acid",
+    "canonicalCompoundName": "betulinic acid"
+  },
+  {
+    "herbSlug": "ginkgo-biloba",
+    "herbName": "Ginkgo Biloba",
+    "canonicalCompoundId": "bilobetin",
+    "canonicalCompoundName": "bilobetin"
+  },
+  {
+    "herbSlug": "coffee-cherry",
+    "herbName": "Coffee Cherry",
+    "canonicalCompoundId": "cafestol",
+    "canonicalCompoundName": "cafestol"
+  },
+  {
+    "herbSlug": "echinacea-purpurea",
+    "herbName": "Echinacea Purpurea",
+    "canonicalCompoundId": "chicoric-acid",
+    "canonicalCompoundName": "chicoric acid"
+  },
+  {
+    "herbSlug": "lemongrass",
+    "herbName": "Lemongrass",
+    "canonicalCompoundId": "citronellal",
+    "canonicalCompoundName": "citronellal"
+  },
+  {
+    "herbSlug": "coptis",
+    "herbName": "Coptis",
+    "canonicalCompoundId": "coptisine",
+    "canonicalCompoundName": "coptisine"
+  },
+  {
+    "herbSlug": "pueraria-mirifica",
+    "herbName": "Pueraria Mirifica",
+    "canonicalCompoundId": "deoxymiroestrol",
+    "canonicalCompoundName": "deoxymiroestrol"
+  },
+  {
+    "herbSlug": "kava",
+    "herbName": "Kava",
+    "canonicalCompoundId": "desmethoxyyangonin",
+    "canonicalCompoundName": "desmethoxyyangonin"
+  },
+  {
+    "herbSlug": "kava",
+    "herbName": "Kava",
+    "canonicalCompoundId": "dihydrokavain",
+    "canonicalCompoundName": "dihydrokavain"
+  },
+  {
+    "herbSlug": "kava",
+    "herbName": "Kava",
+    "canonicalCompoundId": "dihydromethysticin",
+    "canonicalCompoundName": "dihydromethysticin"
+  },
+  {
+    "herbSlug": "lion-s-mane",
+    "herbName": "Lion's Mane",
+    "canonicalCompoundId": "erinacines",
+    "canonicalCompoundName": "erinacines"
+  },
+  {
+    "herbSlug": "lion-s-mane",
+    "herbName": "Lion's Mane",
+    "canonicalCompoundId": "hericenones",
+    "canonicalCompoundName": "hericenones"
+  },
+  {
+    "herbSlug": "isatis",
+    "herbName": "Isatis",
+    "canonicalCompoundId": "indirubin",
+    "canonicalCompoundName": "indirubin"
+  },
+  {
+    "herbSlug": "coffee-cherry",
+    "herbName": "Coffee Cherry",
+    "canonicalCompoundId": "kahweol",
+    "canonicalCompoundName": "kahweol"
+  },
+  {
+    "herbSlug": "salacia",
+    "herbName": "Salacia",
+    "canonicalCompoundId": "kotalanol",
+    "canonicalCompoundName": "kotalanol"
+  },
+  {
+    "herbSlug": "kanna",
+    "herbName": "Kanna",
+    "canonicalCompoundId": "mesembrine",
+    "canonicalCompoundName": "mesembrine"
+  },
+  {
+    "herbSlug": "kanna",
+    "herbName": "Kanna",
+    "canonicalCompoundId": "mesembrenone",
+    "canonicalCompoundName": "mesembrenone"
+  },
+  {
+    "herbSlug": "terminalia-arjuna",
+    "herbName": "Terminalia arjuna",
+    "canonicalCompoundId": "arjunolic-acid",
+    "canonicalCompoundName": "arjunolic acid"
+  },
+  {
+    "herbSlug": "camellia-sinensis",
+    "herbName": "Camellia sinensis",
+    "canonicalCompoundId": "catechin",
+    "canonicalCompoundName": "catechin"
+  },
+  {
+    "herbSlug": "coffea-arabica",
+    "herbName": "Coffea arabica",
+    "canonicalCompoundId": "chlorogenic-acid",
+    "canonicalCompoundName": "chlorogenic acid"
+  },
+  {
+    "herbSlug": "tinospora-cordifolia",
+    "herbName": "Tinospora cordifolia",
+    "canonicalCompoundId": "columbin",
+    "canonicalCompoundName": "columbin"
+  },
+  {
+    "herbSlug": "salvia-miltiorrhiza",
+    "herbName": "Salvia miltiorrhiza",
+    "canonicalCompoundId": "cryptotanshinone",
+    "canonicalCompoundName": "cryptotanshinone"
+  },
+  {
+    "herbSlug": "dioscorea-villosa",
+    "herbName": "Dioscorea villosa",
+    "canonicalCompoundId": "diosgenin",
+    "canonicalCompoundName": "diosgenin"
+  },
+  {
+    "herbSlug": "alpinia-officinarum",
+    "herbName": "Alpinia officinarum",
+    "canonicalCompoundId": "galangin",
+    "canonicalCompoundName": "galangin"
+  },
+  {
+    "herbSlug": "magnolia-officinalis",
+    "herbName": "Magnolia officinalis",
+    "canonicalCompoundId": "honokiol",
+    "canonicalCompoundName": "honokiol"
+  },
+  {
+    "herbSlug": "magnolia-officinalis",
+    "herbName": "Magnolia officinalis",
+    "canonicalCompoundId": "magnolol",
+    "canonicalCompoundName": "magnolol"
+  },
+  {
+    "herbSlug": "citrus-sinensis",
+    "herbName": "Citrus sinensis",
+    "canonicalCompoundId": "naringenin",
+    "canonicalCompoundName": "naringenin"
+  },
+  {
+    "herbSlug": "piper-nigrum",
+    "herbName": "Piper nigrum",
+    "canonicalCompoundId": "piperine",
+    "canonicalCompoundName": "piperine"
+  },
+  {
+    "herbSlug": "saffron",
+    "herbName": "Saffron",
+    "canonicalCompoundId": "safranal",
+    "canonicalCompoundName": "safranal"
+  },
+  {
+    "herbSlug": "coffee",
+    "herbName": "Coffee",
+    "canonicalCompoundId": "trigonelline",
+    "canonicalCompoundName": "trigonelline"
+  },
+  {
+    "herbSlug": "fenugreek",
+    "herbName": "Fenugreek",
+    "canonicalCompoundId": "trigonelline",
+    "canonicalCompoundName": "trigonelline"
+  },
+  {
+    "herbSlug": "schisandra",
+    "herbName": "Schisandra",
+    "canonicalCompoundId": "schisandrin-b",
+    "canonicalCompoundName": "schisandrin B"
+  },
+  {
+    "herbSlug": "eleuthero",
+    "herbName": "Eleuthero",
+    "canonicalCompoundId": "eleutheroside-b",
+    "canonicalCompoundName": "eleutheroside B"
+  },
+  {
+    "herbSlug": "eleuthero",
+    "herbName": "Eleuthero",
+    "canonicalCompoundId": "eleutheroside-e",
+    "canonicalCompoundName": "eleutheroside E"
+  },
+  {
+    "herbSlug": "pomegranate",
+    "herbName": "Pomegranate",
+    "canonicalCompoundId": "punicalagin",
+    "canonicalCompoundName": "punicalagin"
+  },
+  {
+    "herbSlug": "rosemary",
+    "herbName": "Rosemary",
+    "canonicalCompoundId": "carnosol",
+    "canonicalCompoundName": "carnosol"
+  },
+  {
+    "herbSlug": "moringa",
+    "herbName": "Moringa",
+    "canonicalCompoundId": "glucomoringin",
+    "canonicalCompoundName": "glucomoringin"
+  },
+  {
+    "herbSlug": "holy-basil",
+    "herbName": "Holy Basil",
+    "canonicalCompoundId": "methyl-eugenol",
+    "canonicalCompoundName": "methyl eugenol"
+  },
+  {
+    "herbSlug": "thyme",
+    "herbName": "Thyme",
+    "canonicalCompoundId": "carvacrol",
+    "canonicalCompoundName": "carvacrol"
+  },
+  {
+    "herbSlug": "thyme",
+    "herbName": "Thyme",
+    "canonicalCompoundId": "thymol",
+    "canonicalCompoundName": "thymol"
+  },
+  {
+    "herbSlug": "oregano",
+    "herbName": "Oregano",
+    "canonicalCompoundId": "thymol",
+    "canonicalCompoundName": "thymol"
+  },
+  {
+    "herbSlug": "milk-thistle",
+    "herbName": "Milk Thistle",
+    "canonicalCompoundId": "silybin",
+    "canonicalCompoundName": "silybin"
+  },
+  {
+    "herbSlug": "milk-thistle",
+    "herbName": "Milk Thistle",
+    "canonicalCompoundId": "silychristin",
+    "canonicalCompoundName": "silychristin"
+  },
+  {
+    "herbSlug": "milk-thistle",
+    "herbName": "Milk Thistle",
+    "canonicalCompoundId": "silydianin",
+    "canonicalCompoundName": "silydianin"
+  },
+  {
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "epigallocatechin",
+    "canonicalCompoundName": "epigallocatechin"
+  },
+  {
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "epicatechin-gallate",
+    "canonicalCompoundName": "epicatechin gallate"
+  },
+  {
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "epigallocatechin-gallate",
+    "canonicalCompoundName": "epigallocatechin gallate"
+  },
+  {
+    "herbSlug": "green-tea",
+    "herbName": "Green Tea",
+    "canonicalCompoundId": "gallocatechin",
+    "canonicalCompoundName": "gallocatechin"
   }
 ]

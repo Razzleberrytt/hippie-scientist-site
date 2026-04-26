@@ -1,8 +1,8 @@
 {
   "name": "rhodiola rosea",
   "slug": "rhodiola-rosea",
-  "summary": "Rhodiola rosea contains Rosavin and is linked here to AMPK activation.",
-  "description": "Rhodiola rosea contains Rosavin and is linked here to AMPK activation.",
+  "summary": "Rhodiola Rosea centers on the root.",
+  "description": "Rhodiola Rosea centers on the root. Key reported compounds include rosavin; rosarin; rosin; salidroside; tyrosol. Typical preparation forms: Standardized root extracts. Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant. Interaction profile: SSRIs, MAOIs, stimulants. Use caution or avoid in: Bipolar disorder; avoid high doses before sleep.",
   "primaryActions": [],
   "mechanisms": [
     "HPA-axis stress-response modulation",
@@ -25,7 +25,7 @@
     "anxiolytics/sedatives",
     "and therapies affecting blood pressure or glucose."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
   "traditionalUses": [],
   "evidenceLevel": "meta_analysis",
   "relatedHerbs": [],

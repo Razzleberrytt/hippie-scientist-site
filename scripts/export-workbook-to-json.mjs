@@ -18,9 +18,11 @@ const repoRoot = path.resolve(__dirname, '..')
 const workbookPath = resolveWorkbookPath(repoRoot)
 const dataDir = path.join(repoRoot, 'public', 'data')
 const REQUIRED_WORKBOOK_SHEETS = {
-  herbs: ['Herb Monographs', 'Herb Master', 'Herb Master Clean'],
-  compounds: ['Compound Master V3', 'Compound Master'],
-  herbCompoundMap: ['Herb Compound Map V3', 'Herb Compound Map'],
+  herbs: ['Herb Master V3'],
+  compounds: ['Compound Master V3'],
+  herbCompoundMap: ['Herb Compound Map V3'],
+  claimRows: ['Claim Rows'],
+  researchQueue: ['Research Queue'],
 }
 const REQUIRED_SHEET_KEYS = Object.keys(REQUIRED_WORKBOOK_SHEETS)
 const RESOLVED_REQUIRED_COLUMNS = {
@@ -28,15 +30,9 @@ const RESOLVED_REQUIRED_COLUMNS = {
   compounds: ['name'],
   herbCompoundMap: ['herbSlug', 'canonicalCompoundId'],
 }
-const LEGACY_GOAL_BUNDLE_SHEET = 'Production Export V1'
-const EXPORT_WORKBOOK_SHEETS = [
-  ...REQUIRED_SHEET_KEYS.flatMap(sheetKey => REQUIRED_WORKBOOK_SHEETS[sheetKey]),
-  LEGACY_GOAL_BUNDLE_SHEET,
-]
-const OPTIONAL_WORKBOOK_SHEETS = new Set(['Production Export V1'])
-const SHEET_REQUIRED_COLUMNS = {
-  'Production Export V1': ['goal'],
-}
+const EXPORT_WORKBOOK_SHEETS = [...REQUIRED_SHEET_KEYS.flatMap(sheetKey => REQUIRED_WORKBOOK_SHEETS[sheetKey])]
+const OPTIONAL_WORKBOOK_SHEETS = new Set([])
+const SHEET_REQUIRED_COLUMNS = {}
 
 function createDiagnostics() {
   return {
@@ -240,6 +236,10 @@ function readSheetRows(workbook, sheetName, diagnostics, { optional = false, req
     return hasData
   })
 
+  if (!optional && nonEmptyRows.length === 0) {
+    throw new Error(`[export] Required worksheet "${sheetName}" has 0 data rows.`)
+  }
+
   return nonEmptyRows
 }
 
@@ -403,40 +403,6 @@ function exportHerbCompoundMap(workbook, diagnostics, resolvedSheets) {
   return deduped
 }
 
-function cleanGoalValue(value) {
-  if (typeof value === 'string' && value.trim().startsWith('=')) {
-    return null
-  }
-  return cleanScalar(value)
-}
-
-function exportGoalBundles(workbook, diagnostics) {
-  const rows = readSheetRows(workbook, LEGACY_GOAL_BUNDLE_SHEET, diagnostics, { optional: true })
-  const records = rows
-    .map(row => ({
-      goal: cleanGoalValue(row.goal),
-      rank: cleanGoalValue(row.rank),
-      stack: cleanGoalValue(row.stack),
-      score: cleanGoalValue(row.score),
-      segment: cleanGoalValue(row.segment),
-      condition_profile: cleanGoalValue(row.condition_profile),
-      lineup_slot: cleanGoalValue(row.lineup_slot),
-      intent: cleanGoalValue(row.intent),
-      time_of_day: cleanGoalValue(row.time_of_day),
-      balance_profile: cleanGoalValue(row.balance_profile),
-      safety_band: cleanGoalValue(row.safety_band),
-      recommendation_class: cleanGoalValue(row.recommendation_class),
-      goal_winner_flag: cleanGoalValue(row.goal_winner_flag),
-      tag: cleanGoalValue(row.tag),
-      release_version: cleanGoalValue(row.release_version),
-    }))
-    .filter(record => typeof record.goal === 'string' && record.goal.trim() !== '')
-
-  const deduped = dedupeBy(records, record => `${record.goal}::${record.rank}::${record.stack}`)
-  diagnostics.sheets['Production Export V1'].skippedRows += records.length - deduped.length
-  return deduped
-}
-
 function writeJson(filename, records) {
   const outputPath = path.join(dataDir, filename)
   fs.mkdirSync(path.dirname(outputPath), { recursive: true })
@@ -468,12 +434,14 @@ function main() {
 
   const herbsExport = exportHerbs(workbook, diagnostics, resolvedSheets)
   const compoundsExport = exportCompounds(workbook, diagnostics, resolvedSheets)
+  readSheetRows(workbook, resolvedSheets.claimRows, diagnostics)
+  readSheetRows(workbook, resolvedSheets.researchQueue, diagnostics)
   const fallbackUsage = [...herbsExport.fallbackUsage, ...compoundsExport.fallbackUsage]
 
   writeJson('workbook-herbs.json', herbsExport.records)
   writeJson('workbook-compounds.json', compoundsExport.records)
   writeJson('workbook-herb-compound-map.json', exportHerbCompoundMap(workbook, diagnostics, resolvedSheets))
-  writeJson('workbook-goal-bundles.json', exportGoalBundles(workbook, diagnostics))
+  writeJson('workbook-goal-bundles.json', [])
   writeReportJson('reports/workbook-fallback-usage.json', fallbackUsage)
   if (options.allowLegacyFallback) {
     console.warn(`[export] legacy fallback enabled via --allow-legacy-fallback. fallback rows used=${fallbackUsage.length}`)
