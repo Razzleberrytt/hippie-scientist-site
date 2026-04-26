@@ -1,31 +1,26 @@
 {
   "name": "sophora flavescens",
   "slug": "sophora-flavescens",
-  "summary": "Sophora flavescens lean monograph row enriched in bulk mode.",
-  "description": "Sophora flavescens lean monograph row enriched in bulk mode.",
+  "summary": "It should be framed conservatively because alkaloid-rich roots can have stronger tolerability issues.",
+  "description": "It should be framed conservatively because alkaloid-rich roots can have stronger tolerability issues.",
   "primaryActions": [],
   "mechanisms": [
-    "PI3K/Akt modulation",
-    "NF-κB inhibition",
-    "TGF-β signaling modulation"
+    "traditional skin support",
+    "GI support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Alkaloid-rich herb with meaningful safety-review needs; avoid casual internal use or unsupervised high-dose extracts.",
+  "safetyNotes": "Alkaloid-rich herb; use caution with liver disease, immunosuppressants, pregnancy/breastfeeding, and medications with narrow therapeutic windows.",
   "contraindications": [
-    "Pregnancy/breastfeeding",
-    "liver disease",
-    "arrhythmia/cardiac disease without clinician review",
-    "complex medication regimens."
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
   ],
   "interactions": [
-    "Potential interactions with hepatotoxic drugs",
-    "antiarrhythmics",
-    "immunomodulators",
-    "and sedative/CNS-active medicines are plausible and extract-specific."
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
   ],
-  "preparation": "Root is used as decoction, granule, capsule, or alkaloid-standardized extract; standardized alkaloid products are not equivalent to crude root.",
+  "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "none",
   "relatedHerbs": [],
   "region": ""
 }

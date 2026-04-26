@@ -503,8 +503,8 @@
   {
     "name": "artemisia annua",
     "slug": "artemisia-annua",
-    "summary": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
-    "description": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
+    "summary": "Internal cross-linking supports Artemisia Annua through compounds such as artemisinin.",
+    "description": "Internal cross-linking supports Artemisia Annua through compounds such as artemisinin.",
     "mechanisms": [
       "artemisinin endoperoxide activation under iron/heme conditions",
       "parasite oxidative damage pathways",
@@ -524,7 +524,7 @@
     ],
     "dosage": "",
     "preparation": "Separate whole-herb Artemisia preparations from purified artemisinin derivatives; evidence and safety are not interchangeable.",
-    "evidenceLevel": "in_vitro",
+    "evidenceLevel": "none",
     "review_status": "partial",
     "source_status": "partial",
     "sourceCount": 17,
@@ -2544,8 +2544,8 @@
   {
     "name": "coleus forskohlii",
     "slug": "coleus-forskohlii",
-    "summary": "Coleus forskohlii contains Forskolin and is linked here to adenylyl cyclase activation.",
-    "description": "Coleus forskohlii contains Forskolin and is linked here to adenylyl cyclase activation.",
+    "summary": "It is best framed around forskolin with blood-pressure and stimulant-stack caution.",
+    "description": "It is best framed around forskolin with blood-pressure and stimulant-stack caution.",
     "mechanisms": [
       "forskolin activation of adenylate cyclase",
       "increased intracellular cAMP",
@@ -6574,8 +6574,8 @@
   {
     "name": "panax ginseng",
     "slug": "panax-ginseng",
-    "summary": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
-    "description": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
+    "summary": "Energy + stress.",
+    "description": "Energy + stress.",
     "mechanisms": [
       "Ginsenosides modulate AMPK and PI3K/Akt signaling",
       "nitric-oxide/endothelial pathways",
@@ -7548,8 +7548,8 @@
   {
     "name": "rhodiola rosea",
     "slug": "rhodiola-rosea",
-    "summary": "Rhodiola rosea contains Rosavin and is linked here to AMPK activation.",
-    "description": "Rhodiola rosea contains Rosavin and is linked here to AMPK activation.",
+    "summary": "Rhodiola Rosea centers on the root.",
+    "description": "Rhodiola Rosea centers on the root. Key reported compounds include rosavin; rosarin; rosin; salidroside; tyrosol. Typical preparation forms: Standardized root extracts. Adaptogen; modulates HPA axis; influences serotonin, dopamine, norepinephrine; antioxidant. Interaction profile: SSRIs, MAOIs, stimulants. Use caution or avoid in: Bipolar disorder; avoid high doses before sleep.",
     "mechanisms": [
       "HPA-axis stress-response modulation",
       "salidroside/rosavin-related AMPK activation",
@@ -7571,7 +7571,7 @@
       "and therapies affecting blood pressure or glucose."
     ],
     "dosage": "",
-    "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+    "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
     "evidenceLevel": "meta_analysis",
     "review_status": "partial",
     "source_status": "partial",
@@ -8187,29 +8187,24 @@
   {
     "name": "sophora flavescens",
     "slug": "sophora-flavescens",
-    "summary": "Sophora flavescens lean monograph row enriched in bulk mode.",
-    "description": "Sophora flavescens lean monograph row enriched in bulk mode.",
+    "summary": "It should be framed conservatively because alkaloid-rich roots can have stronger tolerability issues.",
+    "description": "It should be framed conservatively because alkaloid-rich roots can have stronger tolerability issues.",
     "mechanisms": [
-      "PI3K/Akt modulation",
-      "NF-κB inhibition",
-      "TGF-β signaling modulation"
+      "traditional skin support",
+      "GI support"
     ],
-    "safetyNotes": "Alkaloid-rich herb with meaningful safety-review needs; avoid casual internal use or unsupervised high-dose extracts.",
+    "safetyNotes": "Alkaloid-rich herb; use caution with liver disease, immunosuppressants, pregnancy/breastfeeding, and medications with narrow therapeutic windows.",
     "contraindications": [
-      "Pregnancy/breastfeeding",
-      "liver disease",
-      "arrhythmia/cardiac disease without clinician review",
-      "complex medication regimens."
+      "pregnancy/breastfeeding without clinician supervision",
+      "known allergy to the plant/family"
     ],
     "interactions": [
-      "Potential interactions with hepatotoxic drugs",
-      "antiarrhythmics",
-      "immunomodulators",
-      "and sedative/CNS-active medicines are plausible and extract-specific."
+      "Potential additive effects with medications affecting the same body system",
+      "review high-dose extracts with a clinician."
     ],
     "dosage": "",
-    "preparation": "Root is used as decoction, granule, capsule, or alkaloid-standardized extract; standardized alkaloid products are not equivalent to crude root.",
-    "evidenceLevel": "in_vitro",
+    "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
+    "evidenceLevel": "none",
     "review_status": "partial",
     "source_status": "partial",
     "sourceCount": 12,

@@ -11,13 +11,11 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '../..')
 
 const REQUIRED_SHEETS = {
-  herbs: 'Herb Master Clean',
+  herbs: 'Herb Master V3',
   compounds: 'Compound Master V3',
   herbCompoundMap: 'Herb Compound Map V3',
-}
-
-const OPTIONAL_SHEETS = {
   claimRows: 'Claim Rows',
+  researchQueue: 'Research Queue',
 }
 
 const PLACEHOLDER_TOKENS = new Set(['', 'unknown', 'nan', 'null', 'undefined', '[object object]'])
@@ -112,7 +110,11 @@ function readSheetRows(workbook, sheetName, { optional = false } = {}) {
     blankrows: false,
   })
 
-  return rows.map(row => toSimpleRow(row))
+  const normalizedRows = rows.map(row => toSimpleRow(row))
+  if (!optional && normalizedRows.length === 0) {
+    throw new Error(`[data-next] Required sheet has 0 rows: ${sheetName}`)
+  }
+  return normalizedRows
 }
 
 function firstNonEmpty(row, keys) {
@@ -221,7 +223,8 @@ function run() {
   const herbRows = readSheetRows(workbook, REQUIRED_SHEETS.herbs)
   const compoundRows = readSheetRows(workbook, REQUIRED_SHEETS.compounds)
   const mapRows = readSheetRows(workbook, REQUIRED_SHEETS.herbCompoundMap)
-  const claimRows = readSheetRows(workbook, OPTIONAL_SHEETS.claimRows, { optional: true })
+  const claimRows = readSheetRows(workbook, REQUIRED_SHEETS.claimRows)
+  const researchQueueRows = readSheetRows(workbook, REQUIRED_SHEETS.researchQueue)
 
   const herbNameBySlug = new Map()
   const herbs = []
@@ -296,7 +299,8 @@ function run() {
         herbs: REQUIRED_SHEETS.herbs,
         compounds: REQUIRED_SHEETS.compounds,
         herbCompoundMap: REQUIRED_SHEETS.herbCompoundMap,
-        claimRows: workbook.Sheets[OPTIONAL_SHEETS.claimRows] ? OPTIONAL_SHEETS.claimRows : null,
+        claimRows: REQUIRED_SHEETS.claimRows,
+        researchQueue: REQUIRED_SHEETS.researchQueue,
       },
     },
     output: outputLabel,
@@ -308,6 +312,7 @@ function run() {
       herbDetails: herbs.length,
       compoundDetails: compounds.length,
       claimRows: claimRows.length,
+      researchQueueRows: researchQueueRows.length,
       skippedHerbs,
       skippedCompounds,
     },

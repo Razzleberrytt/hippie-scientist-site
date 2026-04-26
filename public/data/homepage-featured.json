@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-25T13:57:53.169Z",
+  "generatedAt": "2026-04-26T18:18:23.065Z",
   "herbs": [
     {
       "name": "Curcuma longa",
@@ -25,7 +25,7 @@
     {
       "name": "Panax ginseng",
       "slug": "panax-ginseng",
-      "summary": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
+      "summary": "Science-first herbal reference profile.",
       "tags": [
         "HPA-axis stress signaling"
       ]
@@ -84,7 +84,7 @@
     {
       "name": "Rhodiola rosea",
       "slug": "rhodiola-rosea",
-      "summary": "Rhodiola rosea contains Rosavin and is linked here to AMPK activation.",
+      "summary": "Rhodiola Rosea centers on the root.",
       "tags": [
         "monoamine oxidase modulation",
         "Nrf2 antioxidant signaling"

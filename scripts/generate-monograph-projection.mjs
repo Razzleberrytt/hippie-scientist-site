@@ -284,19 +284,30 @@ function sanitizeHerbCompoundMapRows(rows, { herbSlugSet, compoundSlugSet, compo
 
 function readWorkbookSheets(workbookPath) {
   const workbook = XLSX.readFile(workbookPath)
-  const herbSheet =
-    ['Herb Monographs', 'Herb Master', 'Herb Master Clean'].find((sheetName) => workbook.Sheets[sheetName]) ||
-    'Herb Monographs'
-  const herbRows = parseSheet(workbook, herbSheet)
-  if (herbRows.length === 0) {
-    throw new Error(`Missing worksheet rows: ${herbSheet}`)
+  const requiredSheets = ['Herb Master V3', 'Compound Master V3', 'Herb Compound Map V3', 'Claim Rows', 'Research Queue']
+  for (const sheetName of requiredSheets) {
+    if (!workbook.Sheets[sheetName]) {
+      throw new Error(`[projection] Missing required worksheet: ${sheetName}`)
+    }
+  }
+  const herbRows = parseSheet(workbook, 'Herb Master V3')
+  const compoundRows = parseSheet(workbook, 'Compound Master V3')
+  const mapRows = parseSheet(workbook, 'Herb Compound Map V3')
+  if (herbRows.length === 0 || compoundRows.length === 0 || mapRows.length === 0) {
+    throw new Error('[projection] Required V3 sheet has 0 rows.')
+  }
+  if (parseSheet(workbook, 'Claim Rows').length === 0) {
+    throw new Error('[projection] Required sheet has 0 rows: Claim Rows')
+  }
+  if (parseSheet(workbook, 'Research Queue').length === 0) {
+    throw new Error('[projection] Required sheet has 0 rows: Research Queue')
   }
 
   return {
     herbRows,
-    compoundRows: parseSheet(workbook, 'Compound Master V3'),
-    mapRows: parseSheet(workbook, 'Herb Compound Map V3'),
-    queueRows: parseSheet(workbook, 'Herb Enrichment Queue V3'),
+    compoundRows,
+    mapRows,
+    queueRows: parseSheet(workbook, 'Research Queue'),
   }
 }
 

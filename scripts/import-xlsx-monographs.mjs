@@ -13,11 +13,13 @@ const repoRoot = path.resolve(__dirname, '..')
 
 const workbookPath = resolveWorkbookPath(repoRoot)
 const SHEET_MAP = {
-  herbs: ['Herb Monographs', 'Herb Master', 'Herb Master Clean'],
-  compounds: ['Compound Master V3', 'Compound Master'],
-  herbCompoundMap: ['Herb Compound Map V3', 'Herb Compound Map'],
+  herbs: ['Herb Master V3'],
+  compounds: ['Compound Master V3'],
+  herbCompoundMap: ['Herb Compound Map V3'],
+  claimRows: ['Claim Rows'],
+  researchQueue: ['Research Queue'],
 }
-const REQUIRED_SHEET_KEYS = ['herbs', 'compounds', 'herbCompoundMap']
+const REQUIRED_SHEET_KEYS = ['herbs', 'compounds', 'herbCompoundMap', 'claimRows', 'researchQueue']
 const RESOLVED_REQUIRED_COLUMNS = {
   herbs: ['name'],
   compounds: ['name'],
@@ -34,26 +36,12 @@ const COLUMN_ALIASES = {
     canonicalCompoundName: ['canonicalcompoundname', 'canonical_compound_name'],
     canonicalCompoundId: ['canonicalcompoundid', 'canonical_compound_id'],
   },
-  'Herb Master': {
+  'Herb Master V3': {
     name: ['name', 'herb', 'herbname', 'herb_name'],
-  },
-  'Herb Monographs': {
-    name: ['name', 'herb', 'herbname', 'herb_name'],
-  },
-  'Herb Master Clean': {
-    name: ['name', 'herb', 'herbname', 'herb_name'],
-  },
-  'Compound Master': {
-    compoundName: ['compoundname', 'compound_name', 'compound', 'name'],
-    name: ['compoundname', 'compound_name', 'compound', 'name'],
   },
   'Compound Master V3': {
     compoundName: ['compoundname', 'compound_name', 'compound', 'name'],
     name: ['compoundname', 'compound_name', 'compound', 'name'],
-  },
-  'Herb Compound Map': {
-    herbName: ['herbname', 'herb_name'],
-    canonicalCompoundName: ['compoundname', 'compound_name'],
   },
   'Herb Compound Map V3': {
     herbName: ['herbname', 'herb_name'],
@@ -63,9 +51,8 @@ const COLUMN_ALIASES = {
 }
 const TARGET_WORKBOOK_SHEETS = [
   ...REQUIRED_SHEET_KEYS.flatMap(sheetKey => SHEET_MAP[sheetKey]),
-  'Production Export V1',
 ]
-const OPTIONAL_WORKBOOK_SHEETS = new Set(['Production Export V1'])
+const OPTIONAL_WORKBOOK_SHEETS = new Set([])
 const SHEET_REQUIRED_COLUMNS = {
   'Production Export V1': ['goal'],
 }
@@ -495,10 +482,10 @@ function canonicalizeRow(row, sheetName) {
   }
 
   const out = canonicalizeWorkbookRow(aliasedRow, sheetName)
-  if ((sheetName === 'Compound Master' || sheetName === 'Compound Master V3') && !out.compoundName && out.name) {
+  if (sheetName === 'Compound Master V3' && !out.compoundName && out.name) {
     out.compoundName = out.name
   }
-  if (sheetName === 'Herb Compound Map' || sheetName === 'Herb Compound Map V3') {
+  if (sheetName === 'Herb Compound Map V3') {
     if (!out.herbName && out.name) out.herbName = out.name
     if (!out.canonicalCompoundName && out.compoundName) out.canonicalCompoundName = out.compoundName
   }
@@ -568,11 +555,17 @@ function parseSheet(workbook, sheetName, diagnostics, { optional = false, requir
     sheetDiagnostics.parseWarnings.push(`Missing required columns: ${missingRequiredColumns.join(', ')}`)
   }
 
-  return canonicalRows.filter(row => {
+  const filteredRows = canonicalRows.filter(row => {
     const hasData = Object.values(row || {}).some(hasMeaningfulWorkbookValue)
     if (!hasData) sheetDiagnostics.skippedRows += 1
     return hasData
   })
+
+  if (!optional && filteredRows.length === 0) {
+    throw new Error(`[import-xlsx-monographs] Required worksheet "${sheetName}" has 0 data rows.`)
+  }
+
+  return filteredRows
 }
 
 function slugify(value) {
@@ -1138,7 +1131,8 @@ function main() {
   const herbCompoundMapRows = parseSheet(workbook, resolvedSheets.herbCompoundMap, diagnostics, {
     requiredColumns: RESOLVED_REQUIRED_COLUMNS.herbCompoundMap,
   })
-  parseSheet(workbook, 'Production Export V1', diagnostics, { optional: OPTIONAL_WORKBOOK_SHEETS.has('Production Export V1') })
+  parseSheet(workbook, resolvedSheets.claimRows, diagnostics)
+  parseSheet(workbook, resolvedSheets.researchQueue, diagnostics)
 
   const herbs = JSON.parse(fs.readFileSync(herbsPath, 'utf8'))
   let compounds = JSON.parse(fs.readFileSync(compoundsPath, 'utf8'))

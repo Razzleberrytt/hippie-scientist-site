@@ -1,8 +1,8 @@
 {
   "name": "artemisia annua",
   "slug": "artemisia-annua",
-  "summary": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
-  "description": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
+  "summary": "Internal cross-linking supports Artemisia Annua through compounds such as artemisinin.",
+  "description": "Internal cross-linking supports Artemisia Annua through compounds such as artemisinin.",
   "primaryActions": [],
   "mechanisms": [
     "artemisinin endoperoxide activation under iron/heme conditions",
@@ -24,7 +24,7 @@
   ],
   "preparation": "Separate whole-herb Artemisia preparations from purified artemisinin derivatives; evidence and safety are not interchangeable.",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "none",
   "relatedHerbs": [],
   "region": ""
 }
