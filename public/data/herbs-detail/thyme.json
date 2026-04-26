@@ -1,8 +1,8 @@
 {
   "name": "thyme",
   "slug": "thyme",
-  "summary": "Conservative evidence framing applied.",
-  "description": "Conservative evidence framing applied.",
+  "summary": "Mechanism context: respiratory support, antimicrobial, digestive support. Safety: Culinary use is generally low-risk; concentrated oil/extracts can irritate mucosa and require dose caution.. Interactions tracked: Potential additive irritation with other essential oils, theoretical caution with anticoagulants for high-dose extracts..",
+  "description": "Mechanism context: respiratory support, antimicrobial, digestive support. Safety: Culinary use is generally low-risk; concentrated oil/extracts can irritate mucosa and require dose caution.. Interactions tracked: Potential additive irritation with other essential oils, theoretical caution with anticoagulants for high-dose extracts..",
   "primaryActions": [],
   "mechanisms": [
     "respiratory support",

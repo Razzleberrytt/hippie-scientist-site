@@ -1,8 +1,8 @@
 {
   "name": "eucalyptus",
   "slug": "eucalyptus",
-  "summary": "Conservative evidence framing applied.",
-  "description": "Conservative evidence framing applied.",
+  "summary": "Mechanism context: respiratory support, antimicrobial, anti-inflammatory. Safety: Eucalyptus oil is potentially toxic if ingested and can trigger bronchospasm in sensitive users; topical and inhaled use require dilution and caution.. Interactions tracked: Avoid combining internal oil with sedatives or hepatotoxic exposures, topical products may irritate skin or mucosa..",
+  "description": "Mechanism context: respiratory support, antimicrobial, anti-inflammatory. Safety: Eucalyptus oil is potentially toxic if ingested and can trigger bronchospasm in sensitive users; topical and inhaled use require dilution and caution.. Interactions tracked: Avoid combining internal oil with sedatives or hepatotoxic exposures, topical products may irritate skin or mucosa..",
   "primaryActions": [],
   "mechanisms": [
     "respiratory support",

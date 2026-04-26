@@ -1,8 +1,8 @@
 {
   "name": "grape",
   "slug": "grape",
-  "summary": "Conservative evidence framing applied.",
-  "description": "Conservative evidence framing applied.",
+  "summary": "Mechanism context: proanthocyanidin endothelial nitric-oxide signaling, antioxidant/NF-κB modulation, platelet and lipid pathway effects. Safety: May interact with anticoagulants/antiplatelets; GI effects possible; supplement dose varies widely.. Interactions tracked: Potential additive bleeding risk with anticoagulants/antiplatelets, may modestly affect blood pressure..",
+  "description": "Mechanism context: proanthocyanidin endothelial nitric-oxide signaling, antioxidant/NF-κB modulation, platelet and lipid pathway effects. Safety: May interact with anticoagulants/antiplatelets; GI effects possible; supplement dose varies widely.. Interactions tracked: Potential additive bleeding risk with anticoagulants/antiplatelets, may modestly affect blood pressure..",
   "primaryActions": [],
   "mechanisms": [
     "proanthocyanidin endothelial nitric-oxide signaling",

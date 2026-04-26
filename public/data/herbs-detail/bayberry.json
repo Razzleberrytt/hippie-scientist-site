@@ -1,8 +1,8 @@
 {
   "name": "bayberry",
   "slug": "bayberry",
-  "summary": "Conservative evidence framing applied.",
-  "description": "Conservative evidence framing applied.",
+  "summary": "Mechanism context: MAPK pathway modulation, NF-κB inhibition. Safety: Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.. Interactions tracked: Potential interaction concern with immunosuppressants, use clinician review for high-dose extracts or chronic use..",
+  "description": "Mechanism context: MAPK pathway modulation, NF-κB inhibition. Safety: Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.. Interactions tracked: Potential interaction concern with immunosuppressants, use clinician review for high-dose extracts or chronic use..",
   "primaryActions": [],
   "mechanisms": [
     "MAPK pathway modulation",

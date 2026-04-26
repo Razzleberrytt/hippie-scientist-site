@@ -371,8 +371,8 @@
   {
     "name": "angelica sinensis",
     "slug": "angelica-sinensis",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: ligustilide/ferulic-acid smooth-muscle and vascular effects, platelet-modulating activity, estrogen-receptor-related signaling. Safety: Bleeding, photosensitivity, and hormone-sensitive-condition cautions are central. Avoid in pregnancy unless medically directed.. Interactions tracked: Potential additive bleeding risk with anticoagulants, antiplatelets, NSAIDs.",
+    "description": "",
     "mechanisms": [
       "ligustilide/ferulic-acid smooth-muscle and vascular effects",
       "platelet-modulating activity",
@@ -952,8 +952,8 @@
   {
     "name": "bayberry",
     "slug": "bayberry",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: MAPK pathway modulation, NF-κB inhibition. Safety: Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.. Interactions tracked: Potential interaction concern with immunosuppressants, use clinician review for high-dose extracts or chronic use..",
+    "description": "",
     "mechanisms": [
       "MAPK pathway modulation",
       "NF-κB inhibition"
@@ -1195,8 +1195,8 @@
   {
     "name": "black tea",
     "slug": "black-tea",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: theaflavin/catechin antioxidant signaling, endothelial nitric oxide effects, lipid and blood-pressure pathway modulation. Safety: Caffeine-related insomnia/anxiety/reflux possible; caution with stimulants, iron absorption, and anticoagulant-sensitive users.. Interactions tracked: May interact with stimulants, sedatives, iron supplements.",
+    "description": "",
     "mechanisms": [
       "theaflavin/catechin antioxidant signaling",
       "endothelial nitric oxide effects",
@@ -1228,8 +1228,8 @@
   {
     "name": "blue lotus",
     "slug": "blue-lotus",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: calming support, mood support, sleep support. Safety: Limited human safety data. Treat as a CNS-active botanical; avoid driving or combining with alcohol/sedatives.. Interactions tracked: Possible additive sedation with alcohol, benzodiazepines, sleep aids.",
+    "description": "",
     "mechanisms": [
       "calming support",
       "mood support",
@@ -1264,8 +1264,8 @@
   {
     "name": "blueberry",
     "slug": "blueberry",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: Anthocyanin-polyphenol activity, endothelial nitric oxide signaling, Nrf2 antioxidant response. Safety: Food-level use is usually low risk; concentrated extracts may affect glucose or platelet-related endpoints in sensitive users; caution with anticoagulant/antiplatelet therapy, diabetes medication, allergy, and kidney-restricted diets if high-potassium products are used.. Interactions tracked: Potential additive effects with antidiabetics or anticoagulants in concentrated extracts..",
+    "description": "",
     "mechanisms": [
       "Anthocyanin-polyphenol activity",
       "endothelial nitric oxide signaling",
@@ -1481,8 +1481,8 @@
   {
     "name": "buckwheat",
     "slug": "buckwheat",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: Rutin/quercetin polyphenol activity, endothelial nitric oxide signaling, α-glucosidase/α-amylase modulation. Safety: Food-level use is usually tolerated, but buckwheat allergy can be serious, including anaphylaxis; caution in known grain/pseudocereal allergy and when using concentrated extracts rather than food forms.. Interactions tracked: Potential interaction concern with antidiabetic medicines, antihypertensives/diuretics, immunosuppressants.",
+    "description": "",
     "mechanisms": [
       "Rutin/quercetin polyphenol activity",
       "endothelial nitric oxide signaling",
@@ -2474,8 +2474,8 @@
   {
     "name": "coffee",
     "slug": "coffee",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: chlorogenic-acid AMPK/glucose-metabolism effects, caffeine adenosine-receptor antagonism, endothelial and antioxidant signaling. Safety: Caffeine can worsen insomnia, anxiety, reflux, palpitations, and hypertension in sensitive users; pregnancy dose limits apply.. Interactions tracked: May interact with stimulants, sedatives, beta-agonists.",
+    "description": "",
     "mechanisms": [
       "chlorogenic-acid AMPK/glucose-metabolism effects",
       "caffeine adenosine-receptor antagonism",
@@ -3047,8 +3047,8 @@
   {
     "name": "damiana",
     "slug": "damiana",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: mood support, calming support, libido support. Safety: Human evidence is limited. Use conservative dosing; avoid stacking with sedatives, stimulants, or sexual-performance products without review.. Interactions tracked: Potential additive CNS effects with sedatives, alcohol, anxiolytics.",
+    "description": "",
     "mechanisms": [
       "mood support",
       "calming support",
@@ -3208,8 +3208,8 @@
   {
     "name": "dong quai",
     "slug": "dong-quai",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: ligustilide and ferulic-acid vascular signaling, smooth-muscle modulation, phytoestrogen-like activity. Safety: May increase bleeding risk and may not be appropriate in hormone-sensitive conditions. Pregnancy avoidance is important due to uterine/circulatory concerns.. Interactions tracked: Caution with anticoagulants, antiplatelets, NSAIDs.",
+    "description": "",
     "mechanisms": [
       "ligustilide and ferulic-acid vascular signaling",
       "smooth-muscle modulation",
@@ -3498,8 +3498,8 @@
   {
     "name": "eucalyptus",
     "slug": "eucalyptus",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: respiratory support, antimicrobial, anti-inflammatory. Safety: Eucalyptus oil is potentially toxic if ingested and can trigger bronchospasm in sensitive users; topical and inhaled use require dilution and caution.. Interactions tracked: Avoid combining internal oil with sedatives or hepatotoxic exposures, topical products may irritate skin or mucosa..",
+    "description": "",
     "mechanisms": [
       "respiratory support",
       "antimicrobial",
@@ -3617,8 +3617,8 @@
   {
     "name": "feverfew",
     "slug": "feverfew",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: parthenolide-mediated NF-κB inhibition, serotonin/platelet modulation, TRPA1 and prostaglandin-pathway effects. Safety: Avoid in pregnancy; possible mouth ulcers/GI upset; allergy risk in Asteraceae-sensitive users; caution with anticoagulants/antiplatelets.. Interactions tracked: May increase bleeding risk with anticoagulants/antiplatelets/NSAIDs, caution with migraine medications..",
+    "description": "",
     "mechanisms": [
       "parthenolide-mediated NF-κB inhibition",
       "serotonin/platelet modulation",
@@ -4077,8 +4077,8 @@
   {
     "name": "grape",
     "slug": "grape",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: proanthocyanidin endothelial nitric-oxide signaling, antioxidant/NF-κB modulation, platelet and lipid pathway effects. Safety: May interact with anticoagulants/antiplatelets; GI effects possible; supplement dose varies widely.. Interactions tracked: Potential additive bleeding risk with anticoagulants/antiplatelets, may modestly affect blood pressure..",
+    "description": "",
     "mechanisms": [
       "proanthocyanidin endothelial nitric-oxide signaling",
       "antioxidant/NF-κB modulation",
@@ -4108,8 +4108,8 @@
   {
     "name": "grapefruit",
     "slug": "grapefruit",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: intestinal CYP3A4 mechanism-based inhibition by furanocoumarins, P-gp modulation, OATP transporter effects. Safety: Major food-drug interaction risk: can raise exposure of statins, calcium-channel blockers, immunosuppressants, antiarrhythmics, and other CYP3A4/OATP substrates.. Interactions tracked: CYP3A4, P-gp, and OATP-mediated interactions.",
+    "description": "",
     "mechanisms": [
       "intestinal CYP3A4 mechanism-based inhibition by furanocoumarins",
       "P-gp modulation",
@@ -4173,8 +4173,8 @@
   {
     "name": "guarana",
     "slug": "guarana",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: caffeine-mediated adenosine A1/A2A antagonism, methylxanthine CNS stimulation, catecholamine/arousal signaling. Safety: Caffeine exposure can cause insomnia, anxiety, tremor, tachycardia, blood-pressure elevation, and GI upset. Avoid stacking with energy drinks or other stimulants; use cautiously in pregnancy/breastfeeding and cardiovascular disease.. Interactions tracked: Additive effects with caffeine, stimulants, theophylline.",
+    "description": "",
     "mechanisms": [
       "caffeine-mediated adenosine A1/A2A antagonism",
       "methylxanthine CNS stimulation",
@@ -4955,8 +4955,8 @@
   {
     "name": "kudzu",
     "slug": "kudzu",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: puerarin/daidzin/daidzein isoflavone activity, aldehyde dehydrogenase modulation, estrogen-receptor interaction. Safety: Isoflavone-rich preparations may interact with hormone-sensitive conditions and anticoagulant/antiplatelet therapy. Alcohol-use claims should not replace medical care.. Interactions tracked: Potential additive effects with anticoagulants/antiplatelets and hormone-active therapies, caution with diabetes or blood-pressure medications..",
+    "description": "",
     "mechanisms": [
       "puerarin/daidzin/daidzein isoflavone activity",
       "aldehyde dehydrogenase modulation",
@@ -6478,8 +6478,8 @@
   {
     "name": "oregano",
     "slug": "oregano",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: antimicrobial, digestive support, respiratory support. Safety: Culinary use is generally low-risk; oregano oil/high-thymol or carvacrol extracts can irritate GI mucosa and skin.. Interactions tracked: Potential additive irritation with essential oils, theoretical bleeding or glucose interaction concerns at high supplemental doses..",
+    "description": "",
     "mechanisms": [
       "antimicrobial",
       "digestive support",
@@ -6638,8 +6638,8 @@
   {
     "name": "parsley",
     "slug": "parsley",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: Apigenin/flavone-mediated GABA-A modulation, Nrf2 antioxidant signaling, PI3K/Akt signaling. Safety: Culinary use is usually low risk, but high-dose extracts/essential oil may be unsafe; avoid concentrated use in pregnancy, kidney disease, and with anticoagulants/warfarin-sensitive vitamin K management unless supervised.. Interactions tracked: Potential interaction concern with antihypertensives/diuretics, sedatives/CNS depressants, use clinician review for high-dose extracts or chronic use..",
+    "description": "",
     "mechanisms": [
       "Apigenin/flavone-mediated GABA-A modulation",
       "Nrf2 antioxidant signaling",
@@ -7335,8 +7335,8 @@
   {
     "name": "raspberry leaf",
     "slug": "raspberry-leaf",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: Uterine smooth-muscle tone modulation, calcium-channel/oxytocin-related uterine signaling uncertainty, tannin/polyphenol NF-κB and Nrf2 modulation.. Safety: Use during pregnancy only with obstetric supervision; avoid in high-risk pregnancy, preterm labor risk, prior uterine surgery concerns, bleeding disorders, or concurrent uterotonic/labor-inducing agents unless directed by a clinician.. Interactions tracked: Limited interaction data, caution with uterotonic agents or sedatives if blended products..",
+    "description": "",
     "mechanisms": [
       "Uterine smooth-muscle tone modulation",
       "calcium-channel/oxytocin-related uterine signaling uncertainty",
@@ -7584,8 +7584,8 @@
   {
     "name": "rice bran",
     "slug": "rice-bran",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: γ-oryzanol and phytosterol effects on cholesterol absorption, bile-acid excretion and lipid metabolism modulation, AMPK/PPAR metabolic signaling. Safety: Usually food-derived, but bran products can cause GI effects and may carry contaminant concerns if poorly sourced; use caution with diabetes medications, lipid-lowering therapy, grain allergy, and products lacking contaminant/heavy-metal quality controls.. Interactions tracked: Potential interaction concern with antidiabetic medicines, use clinician review for high-dose extracts or chronic use..",
+    "description": "",
     "mechanisms": [
       "γ-oryzanol and phytosterol effects on cholesterol absorption",
       "bile-acid excretion and lipid metabolism modulation",
@@ -7706,8 +7706,8 @@
   {
     "name": "rosemary",
     "slug": "rosemary",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied. Lean bulk enrichment added: Carnosic acid.",
+    "summary": "Mechanism context: cognition, antioxidant, digestive support. Safety: Generally well tolerated; review concentrated extract use.. Interactions tracked: Caution with concentrated extracts alongside anticoagulants..",
+    "description": "",
     "mechanisms": [
       "cognition",
       "antioxidant",
@@ -7769,8 +7769,8 @@
   {
     "name": "sage",
     "slug": "sage",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied. Lean bulk enrichment added: Carnosic acid.",
+    "summary": "Mechanism context: cognition, digestive support, antioxidant. Safety: Generally well tolerated; review concentrated extract use.. Interactions tracked: May interact with sedatives, anticonvulsants, antidiabetics.",
+    "description": "",
     "mechanisms": [
       "cognition",
       "digestive support",
@@ -8245,8 +8245,8 @@
   {
     "name": "soybean",
     "slug": "soybean",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: isoflavone estrogen-receptor modulation, lipid metabolism and bone-turnover signaling, antioxidant pathways. Safety: Caution in hormone-sensitive conditions and with thyroid medication timing; allergy possible.. Interactions tracked: May affect levothyroxine absorption timing, review with hormone therapies and anticoagulants if diet changes are large..",
+    "description": "",
     "mechanisms": [
       "isoflavone estrogen-receptor modulation",
       "lipid metabolism and bone-turnover signaling",
@@ -8564,8 +8564,8 @@
   {
     "name": "thyme",
     "slug": "thyme",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: respiratory support, antimicrobial, digestive support. Safety: Culinary use is generally low-risk; concentrated oil/extracts can irritate mucosa and require dose caution.. Interactions tracked: Potential additive irritation with other essential oils, theoretical caution with anticoagulants for high-dose extracts..",
+    "description": "",
     "mechanisms": [
       "respiratory support",
       "antimicrobial",
@@ -8962,8 +8962,8 @@
   {
     "name": "yarrow",
     "slug": "yarrow",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: digestive support, anti-inflammatory, women's health. Safety: Asteraceae-family herb; allergy is a practical concern. Avoid high-dose or prolonged internal use without review.. Interactions tracked: Potential additive effects with anticoagulants/antiplatelets, possible allergy cross-reactivity with ragweed-family plants..",
+    "description": "",
     "mechanisms": [
       "digestive support",
       "anti-inflammatory",
@@ -8993,8 +8993,8 @@
   {
     "name": "yerba mate",
     "slug": "yerba-mate",
-    "summary": "Conservative evidence framing applied.",
-    "description": "Conservative evidence framing applied.",
+    "summary": "Mechanism context: caffeine/theobromine adenosine-receptor antagonism, chlorogenic-acid antioxidant signaling, AMPK-related metabolic signaling. Safety: Contains caffeine; excess intake may worsen insomnia, anxiety, palpitations, reflux, or blood pressure. Avoid very hot maté consumption patterns and stimulant stacking.. Interactions tracked: Additive effects with stimulants, caffeine, theophylline.",
+    "description": "",
     "mechanisms": [
       "caffeine/theobromine adenosine-receptor antagonism",
       "chlorogenic-acid antioxidant signaling",

@@ -22,6 +22,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "11-keto-beta-boswellic-acid",
     "displayName": "11-keto-beta-boswellic acid"
   },
@@ -45,6 +48,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "acemannan",
     "displayName": "acemannan"
   },
@@ -72,6 +78,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Most clinically relevant evidence is at the Boswellia-extract level rather than isolated AKBA.",
     "id": "acetyl-11-keto-beta-boswellic-acid",
     "displayName": "acetyl-11-keto-beta-boswellic acid"
   },
@@ -98,6 +107,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "acetyl-beta-boswellic-acid",
     "displayName": "acetyl-beta-boswellic acid"
   },
@@ -125,6 +137,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "acetylshikonin",
     "displayName": "acetylshikonin"
   },
@@ -152,6 +167,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "acteoside",
     "displayName": "acteoside"
   },
@@ -179,6 +197,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "aescin",
     "displayName": "aescin"
   },
@@ -203,6 +224,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "ajoene",
     "displayName": "ajoene"
   },
@@ -229,6 +253,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "albiflorin",
     "displayName": "albiflorin"
   },
@@ -253,6 +280,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "alpha-asarone",
     "displayName": "alpha-asarone"
   },
@@ -280,6 +310,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "alpha-mangostin",
     "displayName": "alpha-mangostin"
   },
@@ -306,6 +339,9 @@
     "source_status": "partial",
     "sourceCount": 4,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "anabasine",
     "displayName": "anabasine"
   },
@@ -333,6 +369,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "anatabine",
     "displayName": "anatabine"
   },
@@ -361,6 +400,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "andrographolide",
     "displayName": "andrographolide"
   },
@@ -387,6 +429,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "anethole",
     "displayName": "anethole"
   },
@@ -413,6 +458,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Human therapeutic evidence is limited and safety context dominates interpretation.",
     "id": "angelicin",
     "displayName": "angelicin"
   },
@@ -442,6 +490,9 @@
     "source_status": "partial",
     "sourceCount": 11,
     "confidenceTier": "moderate",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Mechanisms are plausible and repeatedly studied, but human evidence is still limited.",
     "id": "apigenin",
     "displayName": "apigenin"
   },
@@ -469,6 +520,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "arjunolic-acid",
     "displayName": "arjunolic acid"
   },
@@ -493,6 +547,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "artemisinin",
     "displayName": "artemisinin"
   },
@@ -517,6 +574,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "artemisinin-b",
     "displayName": "artemisinin b"
   },
@@ -541,6 +601,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_strong",
+    "confidenceTier_v2": "high",
+    "confidenceReason": "Supported by strong human clinical or regulatory evidence; claims should remain indication-specific.",
     "id": "artesunate",
     "displayName": "artesunate"
   },
@@ -568,6 +631,9 @@
     "source_status": "partial",
     "sourceCount": 11,
     "confidenceTier": "moderate",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "asiatic-acid",
     "displayName": "asiatic acid"
   },
@@ -595,6 +661,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "asiaticoside",
     "displayName": "asiaticoside"
   },
@@ -619,6 +688,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "aspalathin",
     "displayName": "aspalathin"
   },
@@ -647,6 +719,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "astragalin",
     "displayName": "astragalin"
   },
@@ -675,6 +750,9 @@
     "source_status": "partial",
     "sourceCount": 13,
     "confidenceTier": "moderate",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "astragaloside-iv",
     "displayName": "astragaloside iv"
   },
@@ -699,6 +777,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "atractylenolide-i",
     "displayName": "atractylenolide i"
   },
@@ -723,6 +804,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "atractylenolide-ii",
     "displayName": "atractylenolide ii"
   },
@@ -747,6 +831,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "atractylenolide-iii",
     "displayName": "atractylenolide iii"
   },
@@ -773,6 +860,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "aucubin",
     "displayName": "aucubin"
   },
@@ -800,6 +890,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "bacopaside-ii",
     "displayName": "bacopaside ii"
   },
@@ -826,6 +919,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "bacoside-a",
     "displayName": "bacoside a"
   },
@@ -853,6 +949,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "bacoside-b",
     "displayName": "bacoside b"
   },
@@ -882,6 +981,9 @@
     "source_status": "partial",
     "sourceCount": 10,
     "confidenceTier": "moderate",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Support is mechanistic and preclinical rather than strongly clinical.",
     "id": "baicalein",
     "displayName": "baicalein"
   },
@@ -912,6 +1014,9 @@
     "source_status": "partial",
     "sourceCount": 9,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "The compound has repeated mechanistic support, but human evidence is still limited.",
     "id": "baicalin",
     "displayName": "baicalin"
   },
@@ -936,6 +1041,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "berbamine",
     "displayName": "berbamine"
   },
@@ -967,6 +1075,9 @@
     "source_status": "partial",
     "sourceCount": 27,
     "confidenceTier": "moderate",
+    "evidenceType": "meta_analysis",
+    "confidenceTier_v2": "high",
+    "confidenceReason": "Backed by meta-analysis or systematic-review level human evidence, with compound-specific cautions retained.",
     "id": "berberine",
     "displayName": "berberine"
   },
@@ -993,6 +1104,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "bergapten",
     "displayName": "bergapten"
   },
@@ -1019,6 +1133,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "beta-caryophyllene",
     "displayName": "beta-caryophyllene"
   },
@@ -1045,6 +1162,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "beta-elemene",
     "displayName": "beta-elemene"
   },
@@ -1072,6 +1192,9 @@
     "source_status": "partial",
     "sourceCount": 8,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "There is human evidence, but much of it is indirect, blend-based, or endpoint-specific.",
     "id": "beta-sitosterol",
     "displayName": "beta-sitosterol"
   },
@@ -1099,6 +1222,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "betulinic-acid",
     "displayName": "betulinic acid"
   },
@@ -1124,6 +1250,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "bilobetin",
     "displayName": "bilobetin"
   },
@@ -1153,6 +1282,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Mechanistic support exists, but isolated human evidence is limited.",
     "id": "biochanin-a",
     "displayName": "biochanin a"
   },
@@ -1179,6 +1311,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "bisabolol",
     "displayName": "bisabolol"
   },
@@ -1206,6 +1341,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "bisdemethoxycurcumin",
     "displayName": "bisdemethoxycurcumin"
   },
@@ -1232,6 +1370,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "boswellic-acid",
     "displayName": "boswellic acid"
   },
@@ -1258,6 +1399,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "butylidenephthalide",
     "displayName": "butylidenephthalide"
   },
@@ -1283,6 +1427,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "cafestol",
     "displayName": "cafestol"
   },
@@ -1310,6 +1457,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "caffeic-acid",
     "displayName": "caffeic acid"
   },
@@ -1339,6 +1489,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "The compound has plausible mechanisms but limited direct human evidence.",
     "id": "calycosin",
     "displayName": "calycosin"
   },
@@ -1367,6 +1520,9 @@
     "source_status": "partial",
     "sourceCount": 9,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Human evidence is limited and the literature is still mostly preclinical.",
     "id": "carnosic-acid",
     "displayName": "carnosic acid"
   },
@@ -1391,6 +1547,9 @@
     "source_status": "partial",
     "sourceCount": 14,
     "confidenceTier": "moderate",
+    "evidenceType": "animal",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Supported mainly by animal and preclinical evidence with limited direct human confirmation.",
     "id": "carnosol",
     "displayName": "carnosol"
   },
@@ -1417,6 +1576,9 @@
     "source_status": "partial",
     "sourceCount": 15,
     "confidenceTier": "moderate",
+    "evidenceType": "animal",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Human evidence is limited and most support comes from preclinical studies.",
     "id": "carvacrol",
     "displayName": "carvacrol"
   },
@@ -1443,6 +1605,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "caryophyllene-oxide",
     "displayName": "caryophyllene oxide"
   },
@@ -1469,6 +1634,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "catalpol",
     "displayName": "catalpol"
   },
@@ -1499,6 +1667,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Human findings are often mixture-based and do not cleanly support isolated catechin.",
     "id": "catechin",
     "displayName": "catechin"
   },
@@ -1526,6 +1697,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "animal",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Supported mainly by animal and preclinical evidence with limited direct human confirmation.",
     "id": "celastrol",
     "displayName": "celastrol"
   },
@@ -1553,6 +1727,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "cepharanthine",
     "displayName": "cepharanthine"
   },
@@ -1579,6 +1756,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "chamazulene",
     "displayName": "chamazulene"
   },
@@ -1605,6 +1785,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "charantin",
     "displayName": "charantin"
   },
@@ -1632,6 +1815,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "chicoric-acid",
     "displayName": "chicoric acid"
   },
@@ -1658,6 +1844,9 @@
     "source_status": "partial",
     "sourceCount": 17,
     "confidenceTier": "moderate",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "chlorogenic-acid",
     "displayName": "chlorogenic acid"
   },
@@ -1682,6 +1871,9 @@
     "source_status": "partial",
     "sourceCount": 13,
     "confidenceTier": "moderate",
+    "evidenceType": "animal",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Supported mainly by animal and preclinical evidence with limited direct human confirmation.",
     "id": "cinnamaldehyde",
     "displayName": "cinnamaldehyde"
   },
@@ -1708,6 +1900,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "citronellal",
     "displayName": "citronellal"
   },
@@ -1734,6 +1929,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "columbamine",
     "displayName": "columbamine"
   },
@@ -1758,6 +1956,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "columbin",
     "displayName": "columbin"
   },
@@ -1785,6 +1986,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "commipheric-acid",
     "displayName": "commipheric acid"
   },
@@ -1813,6 +2017,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "coptisine",
     "displayName": "coptisine"
   },
@@ -1840,6 +2047,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "corosolic-acid",
     "displayName": "corosolic acid"
   },
@@ -1867,6 +2077,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "crocetin",
     "displayName": "crocetin"
   },
@@ -1893,6 +2106,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "crocin",
     "displayName": "crocin"
   },
@@ -1919,6 +2135,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "cryptotanshinone",
     "displayName": "cryptotanshinone"
   },
@@ -1948,6 +2167,9 @@
     "source_status": "partial",
     "sourceCount": 20,
     "confidenceTier": "moderate",
+    "evidenceType": "meta_analysis",
+    "confidenceTier_v2": "high",
+    "confidenceReason": "Backed by meta-analysis or systematic-review level human evidence, with compound-specific cautions retained.",
     "id": "curcumin",
     "displayName": "curcumin"
   },
@@ -1975,6 +2197,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "curcumol",
     "displayName": "curcumol"
   },
@@ -2002,6 +2227,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "curdione",
     "displayName": "curdione"
   },
@@ -2029,6 +2257,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "daidzein",
     "displayName": "daidzein"
   },
@@ -2056,6 +2287,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "daidzin",
     "displayName": "daidzin"
   },
@@ -2082,6 +2316,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "daphnetin",
     "displayName": "daphnetin"
   },
@@ -2109,6 +2346,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "demethoxycurcumin",
     "displayName": "demethoxycurcumin"
   },
@@ -2136,6 +2376,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "deoxyelephantopin",
     "displayName": "deoxyelephantopin"
   },
@@ -2162,6 +2405,9 @@
     "source_status": "partial",
     "sourceCount": 4,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "deoxymiroestrol",
     "displayName": "deoxymiroestrol"
   },
@@ -2188,6 +2434,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "desmethoxyyangonin",
     "displayName": "desmethoxyyangonin"
   },
@@ -2213,6 +2462,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "dihydrokavain",
     "displayName": "dihydrokavain"
   },
@@ -2239,6 +2491,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "dihydromethysticin",
     "displayName": "dihydromethysticin"
   },
@@ -2265,6 +2520,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "diosgenin",
     "displayName": "diosgenin"
   },
@@ -2292,6 +2550,9 @@
     "source_status": "partial",
     "sourceCount": 3,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Most evidence is mechanistic or animal-based, not clinical.",
     "id": "echinacoside",
     "displayName": "echinacoside"
   },
@@ -2318,6 +2579,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "elemicin",
     "displayName": "elemicin"
   },
@@ -2342,6 +2606,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "elephantopin",
     "displayName": "elephantopin"
   },
@@ -2368,6 +2635,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "eleutheroside-b",
     "displayName": "eleutheroside b"
   },
@@ -2394,6 +2664,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "eleutheroside-e",
     "displayName": "eleutheroside e"
   },
@@ -2421,6 +2694,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "ellagic-acid",
     "displayName": "ellagic acid"
   },
@@ -2448,6 +2724,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "embelin",
     "displayName": "embelin"
   },
@@ -2475,6 +2754,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "emodin",
     "displayName": "emodin"
   },
@@ -2503,6 +2785,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "epicatechin",
     "displayName": "epicatechin"
   },
@@ -2527,6 +2812,9 @@
     "source_status": "partial",
     "sourceCount": 12,
     "confidenceTier": "moderate",
+    "evidenceType": "animal",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Supported mainly by animal and preclinical evidence with limited direct human confirmation.",
     "id": "epicatechin-gallate",
     "displayName": "epicatechin gallate"
   },
@@ -2555,6 +2843,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "epigallocatechin",
     "displayName": "epigallocatechin"
   },
@@ -2581,11 +2872,14 @@
     "source_status": "partial",
     "sourceCount": 27,
     "confidenceTier": "moderate",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "epigallocatechin-gallate",
     "displayName": "epigallocatechin gallate"
   },
   {
-    "name": "epigallocatechin gallate (egcg)",
+    "name": "epigallocatechin gallate (egcg",
     "slug": "epigallocatechin-gallate-egcg",
     "summary": "Major tea catechin with widely reported AMPK, NF-κB, and PI3K/Akt pathway activity.",
     "description": "Major tea catechin with widely reported AMPK, NF-κB, and PI3K/Akt pathway activity.",
@@ -2610,8 +2904,11 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "epigallocatechin-gallate-egcg",
-    "displayName": "epigallocatechin gallate (egcg)"
+    "displayName": "epigallocatechin gallate (egcg"
   },
   {
     "name": "erinacines",
@@ -2633,6 +2930,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "erinacines",
     "displayName": "erinacines"
   },
@@ -2659,6 +2959,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "esculetin",
     "displayName": "esculetin"
   },
@@ -2689,6 +2992,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Mechanistic and preclinical literature is strong, but direct human evidence remains limited.",
     "id": "eugenol",
     "displayName": "eugenol"
   },
@@ -2715,6 +3021,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "farnesol",
     "displayName": "farnesol"
   },
@@ -2742,6 +3051,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "ferulic-acid",
     "displayName": "ferulic acid"
   },
@@ -2769,6 +3081,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "formononetin",
     "displayName": "formononetin"
   },
@@ -2793,6 +3108,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "forskolin",
     "displayName": "forskolin"
   },
@@ -2819,6 +3137,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "fraxetin",
     "displayName": "fraxetin"
   },
@@ -2847,6 +3168,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "galangin",
     "displayName": "galangin"
   },
@@ -2876,6 +3200,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "The compound is biologically active, but isolated clinical evidence remains sparse.",
     "id": "gallic-acid",
     "displayName": "gallic acid"
   },
@@ -2904,6 +3231,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "gallocatechin",
     "displayName": "gallocatechin"
   },
@@ -2931,6 +3261,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "garcinol",
     "displayName": "garcinol"
   },
@@ -2958,6 +3291,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "genistein",
     "displayName": "genistein"
   },
@@ -2983,6 +3319,9 @@
     "source_status": "partial",
     "sourceCount": 22,
     "confidenceTier": "moderate",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "ginkgolide-b",
     "displayName": "ginkgolide b"
   },
@@ -3011,6 +3350,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "ginsenoside-rb1",
     "displayName": "ginsenoside rb1"
   },
@@ -3038,6 +3380,9 @@
     "source_status": "partial",
     "sourceCount": 18,
     "confidenceTier": "moderate",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "ginsenoside-rg1",
     "displayName": "ginsenoside rg1"
   },
@@ -3066,6 +3411,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "ginsenoside-rg3",
     "displayName": "ginsenoside rg3"
   },
@@ -3090,6 +3438,9 @@
     "source_status": "partial",
     "sourceCount": 11,
     "confidenceTier": "moderate",
+    "evidenceType": "animal",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Supported mainly by animal and preclinical evidence with limited direct human confirmation.",
     "id": "glucomoringin",
     "displayName": "glucomoringin"
   },
@@ -3113,6 +3464,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "glycyrrhetinic-acid",
     "displayName": "glycyrrhetinic acid"
   },
@@ -3139,6 +3493,9 @@
     "source_status": "partial",
     "sourceCount": 20,
     "confidenceTier": "moderate",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "glycyrrhizin",
     "displayName": "glycyrrhizin"
   },
@@ -3166,6 +3523,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "guggulsterone",
     "displayName": "guggulsterone"
   },
@@ -3189,6 +3549,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "gurmarin",
     "displayName": "gurmarin"
   },
@@ -3216,6 +3579,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "gymnemagenin",
     "displayName": "gymnemagenin"
   },
@@ -3242,6 +3608,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "gymnemic-acid",
     "displayName": "gymnemic acid"
   },
@@ -3268,6 +3637,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "harpagoside",
     "displayName": "harpagoside"
   },
@@ -3291,6 +3663,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "hericenones",
     "displayName": "hericenones"
   },
@@ -3318,6 +3693,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "hesperidin",
     "displayName": "hesperidin"
   },
@@ -3344,6 +3722,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "honokiol",
     "displayName": "honokiol"
   },
@@ -3371,6 +3752,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "huperzine-a",
     "displayName": "huperzine a"
   },
@@ -3398,6 +3782,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "huperzine-b",
     "displayName": "huperzine b"
   },
@@ -3425,6 +3812,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "hydroxytyrosol",
     "displayName": "hydroxytyrosol"
   },
@@ -3448,6 +3838,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "hyperforin",
     "displayName": "hyperforin"
   },
@@ -3472,6 +3865,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "hypericin",
     "displayName": "hypericin"
   },
@@ -3498,6 +3894,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "imperatorin",
     "displayName": "imperatorin"
   },
@@ -3521,6 +3920,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "indirubin",
     "displayName": "indirubin"
   },
@@ -3547,6 +3949,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "isoimperatorin",
     "displayName": "isoimperatorin"
   },
@@ -3573,6 +3978,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "jatrorrhizine",
     "displayName": "jatrorrhizine"
   },
@@ -3600,6 +4008,9 @@
     "source_status": "partial",
     "sourceCount": 11,
     "confidenceTier": "moderate",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "kaempferol",
     "displayName": "kaempferol"
   },
@@ -3625,6 +4036,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "kahweol",
     "displayName": "kahweol"
   },
@@ -3651,6 +4065,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "kavain",
     "displayName": "kavain"
   },
@@ -3677,6 +4094,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "kavalactones",
     "displayName": "kavalactones"
   },
@@ -3699,6 +4119,9 @@
     "source_status": "partial",
     "sourceCount": 4,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "kotalanol",
     "displayName": "kotalanol"
   },
@@ -3723,6 +4146,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "lagerstroemin",
     "displayName": "lagerstroemin"
   },
@@ -3750,6 +4176,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "lawsone",
     "displayName": "lawsone"
   },
@@ -3776,6 +4205,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "ligustilide",
     "displayName": "ligustilide"
   },
@@ -3802,6 +4234,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "linalool",
     "displayName": "linalool"
   },
@@ -3829,6 +4264,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "lobeline",
     "displayName": "lobeline"
   },
@@ -3855,6 +4293,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "loganin",
     "displayName": "loganin"
   },
@@ -3883,6 +4324,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "luteolin",
     "displayName": "luteolin"
   },
@@ -3910,6 +4354,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "madecassic-acid",
     "displayName": "madecassic acid"
   },
@@ -3937,6 +4384,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "madecassoside",
     "displayName": "madecassoside"
   },
@@ -3964,6 +4414,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "magnoflorine",
     "displayName": "magnoflorine"
   },
@@ -3990,6 +4443,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "magnolol",
     "displayName": "magnolol"
   },
@@ -4017,6 +4473,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "mangiferin",
     "displayName": "mangiferin"
   },
@@ -4043,6 +4502,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "mangiferin-aglycone",
     "displayName": "mangiferin aglycone"
   },
@@ -4070,6 +4532,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "mangostin",
     "displayName": "mangostin"
   },
@@ -4097,6 +4562,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "matrine",
     "displayName": "matrine"
   },
@@ -4124,6 +4592,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "mesembrenone",
     "displayName": "mesembrenone"
   },
@@ -4151,6 +4622,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "mesembrine",
     "displayName": "mesembrine"
   },
@@ -4177,6 +4651,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "methyl-eugenol",
     "displayName": "methyl eugenol"
   },
@@ -4203,6 +4680,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "methyleugenol",
     "displayName": "methyleugenol"
   },
@@ -4229,6 +4709,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "methysticin",
     "displayName": "methysticin"
   },
@@ -4256,6 +4739,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "momordicoside-k",
     "displayName": "momordicoside k"
   },
@@ -4284,6 +4770,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "morin",
     "displayName": "morin"
   },
@@ -4310,6 +4799,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "morroniside",
     "displayName": "morroniside"
   },
@@ -4334,6 +4826,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "mulberroside-a",
     "displayName": "mulberroside a"
   },
@@ -4362,6 +4857,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "myricetin",
     "displayName": "myricetin"
   },
@@ -4388,6 +4886,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "myristicin",
     "displayName": "myristicin"
   },
@@ -4416,6 +4917,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "naringenin",
     "displayName": "naringenin"
   },
@@ -4444,6 +4948,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "naringin",
     "displayName": "naringin"
   },
@@ -4471,6 +4978,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "neoandrographolide",
     "displayName": "neoandrographolide"
   },
@@ -4497,6 +5007,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "nerolidol",
     "displayName": "nerolidol"
   },
@@ -4524,6 +5037,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "nicotine",
     "displayName": "nicotine"
   },
@@ -4551,6 +5067,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "oleacein",
     "displayName": "oleacein"
   },
@@ -4579,6 +5098,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "oleanolic-acid",
     "displayName": "oleanolic acid"
   },
@@ -4606,6 +5128,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "oleocanthal",
     "displayName": "oleocanthal"
   },
@@ -4633,6 +5158,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "oleuropein",
     "displayName": "oleuropein"
   },
@@ -4660,6 +5188,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "ononin",
     "displayName": "ononin"
   },
@@ -4686,6 +5217,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "osthole",
     "displayName": "osthole"
   },
@@ -4713,6 +5247,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "oxymatrine",
     "displayName": "oxymatrine"
   },
@@ -4740,6 +5277,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "oxyresveratrol",
     "displayName": "oxyresveratrol"
   },
@@ -4766,6 +5306,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "paeoniflorin",
     "displayName": "paeoniflorin"
   },
@@ -4792,6 +5335,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "paeonol",
     "displayName": "paeonol"
   },
@@ -4819,6 +5365,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Most support is preclinical and does not yet establish strong human outcomes.",
     "id": "palmatine",
     "displayName": "palmatine"
   },
@@ -4848,6 +5397,9 @@
     "source_status": "partial",
     "sourceCount": 19,
     "confidenceTier": "moderate",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Human data exist mainly for pharmacokinetic and bioenhancer effects, not broad clinical efficacy.",
     "id": "piperine",
     "displayName": "piperine"
   },
@@ -4875,6 +5427,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "animal",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Supported mainly by animal and preclinical evidence with limited direct human confirmation.",
     "id": "piperlongumine",
     "displayName": "piperlongumine"
   },
@@ -4903,6 +5458,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "plumbagin",
     "displayName": "plumbagin"
   },
@@ -4930,6 +5488,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "protodioscin",
     "displayName": "protodioscin"
   },
@@ -4956,6 +5517,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "psoralen",
     "displayName": "psoralen"
   },
@@ -4983,6 +5547,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "pterostilbene",
     "displayName": "pterostilbene"
   },
@@ -5012,6 +5579,9 @@
     "source_status": "partial",
     "sourceCount": 8,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "There are human studies, but replication and external validation are still limited.",
     "id": "puerarin",
     "displayName": "puerarin"
   },
@@ -5036,6 +5606,9 @@
     "source_status": "partial",
     "sourceCount": 12,
     "confidenceTier": "moderate",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "punicalagin",
     "displayName": "punicalagin"
   },
@@ -5066,6 +5639,9 @@
     "source_status": "partial",
     "sourceCount": 17,
     "confidenceTier": "moderate",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Human data exist across several endpoints, but effects are mixed and not uniformly strong.",
     "id": "quercetin",
     "displayName": "quercetin"
   },
@@ -5096,6 +5672,9 @@
     "source_status": "partial",
     "sourceCount": 18,
     "confidenceTier": "moderate",
+    "evidenceType": "meta_analysis",
+    "confidenceTier_v2": "high",
+    "confidenceReason": "Multiple human trials and meta-analyses support biomarker-level effects, though clinical outcomes remain indication-specific.",
     "id": "resveratrol",
     "displayName": "resveratrol"
   },
@@ -5123,6 +5702,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "rhein",
     "displayName": "rhein"
   },
@@ -5149,6 +5731,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "rosarin",
     "displayName": "rosarin"
   },
@@ -5175,6 +5760,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "rosavin",
     "displayName": "rosavin"
   },
@@ -5201,6 +5789,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "rosin",
     "displayName": "rosin"
   },
@@ -5229,6 +5820,9 @@
     "source_status": "partial",
     "sourceCount": 15,
     "confidenceTier": "moderate",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Mechanistic support is clear, but isolated human evidence is still limited.",
     "id": "rosmarinic-acid",
     "displayName": "rosmarinic acid"
   },
@@ -5257,6 +5851,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "rutin",
     "displayName": "rutin"
   },
@@ -5283,6 +5880,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "safranal",
     "displayName": "safranal"
   },
@@ -5309,6 +5909,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "safrole",
     "displayName": "safrole"
   },
@@ -5336,6 +5939,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "saikosaponin-a",
     "displayName": "saikosaponin a"
   },
@@ -5363,6 +5969,9 @@
     "source_status": "partial",
     "sourceCount": 14,
     "confidenceTier": "moderate",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "salidroside",
     "displayName": "salidroside"
   },
@@ -5389,6 +5998,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "schisandrin",
     "displayName": "schisandrin"
   },
@@ -5413,6 +6025,9 @@
     "source_status": "partial",
     "sourceCount": 11,
     "confidenceTier": "moderate",
+    "evidenceType": "animal",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Supported mainly by animal and preclinical evidence with limited direct human confirmation.",
     "id": "schisandrin-b",
     "displayName": "schisandrin b"
   },
@@ -5439,6 +6054,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "scopoletin",
     "displayName": "scopoletin"
   },
@@ -5465,6 +6083,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "senkyunolide-a",
     "displayName": "senkyunolide a"
   },
@@ -5492,6 +6113,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "shikonin",
     "displayName": "shikonin"
   },
@@ -5518,6 +6142,9 @@
     "source_status": "partial",
     "sourceCount": 10,
     "confidenceTier": "moderate",
+    "evidenceType": "meta_analysis",
+    "confidenceTier_v2": "high",
+    "confidenceReason": "Backed by meta-analysis or systematic-review level human evidence, with compound-specific cautions retained.",
     "id": "silibinin",
     "displayName": "silibinin"
   },
@@ -5542,6 +6169,9 @@
     "source_status": "partial",
     "sourceCount": 12,
     "confidenceTier": "moderate",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "silybin",
     "displayName": "silybin"
   },
@@ -5565,6 +6195,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "silychristin",
     "displayName": "silychristin"
   },
@@ -5588,6 +6221,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "silydianin",
     "displayName": "silydianin"
   },
@@ -5613,6 +6249,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "stigmasterol",
     "displayName": "stigmasterol"
   },
@@ -5640,6 +6279,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "tetrandrine",
     "displayName": "tetrandrine"
   },
@@ -5668,6 +6310,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "theaflavin",
     "displayName": "theaflavin"
   },
@@ -5692,6 +6337,9 @@
     "source_status": "partial",
     "sourceCount": 11,
     "confidenceTier": "moderate",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "theanine",
     "displayName": "theanine"
   },
@@ -5720,6 +6368,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "thearubigin",
     "displayName": "thearubigin"
   },
@@ -5744,6 +6395,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "The literature is mainly mechanistic and safety-focused rather than efficacy-driven in humans.",
     "id": "thujone",
     "displayName": "thujone"
   },
@@ -5770,6 +6424,9 @@
     "source_status": "partial",
     "sourceCount": 15,
     "confidenceTier": "moderate",
+    "evidenceType": "animal",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Evidence is mainly mechanistic and antimicrobial, not strongly clinical.",
     "id": "thymol",
     "displayName": "thymol"
   },
@@ -5796,6 +6453,9 @@
     "source_status": "partial",
     "sourceCount": 16,
     "confidenceTier": "moderate",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "thymoquinone",
     "displayName": "thymoquinone"
   },
@@ -5823,6 +6483,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "timosaponin-aiii",
     "displayName": "timosaponin aiii"
   },
@@ -5848,6 +6511,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "trigonelline",
     "displayName": "trigonelline"
   },
@@ -5875,6 +6541,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "tyrosol",
     "displayName": "tyrosol"
   },
@@ -5901,6 +6570,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "umbelliferone",
     "displayName": "umbelliferone"
   },
@@ -5930,6 +6602,9 @@
     "source_status": "partial",
     "sourceCount": 14,
     "confidenceTier": "moderate",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "The signal is mechanistically rich but still predominantly preclinical.",
     "id": "ursolic-acid",
     "displayName": "ursolic acid"
   },
@@ -5955,6 +6630,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "valepotriates",
     "displayName": "valepotriates"
   },
@@ -5980,6 +6658,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "valerenic-acid",
     "displayName": "valerenic acid"
   },
@@ -6004,6 +6685,9 @@
     "source_status": "partial",
     "sourceCount": 4,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "valerenol",
     "displayName": "valerenol"
   },
@@ -6031,6 +6715,9 @@
     "source_status": "partial",
     "sourceCount": 8,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "verbascoside",
     "displayName": "verbascoside"
   },
@@ -6059,6 +6746,9 @@
     "source_status": "partial",
     "sourceCount": 22,
     "confidenceTier": "moderate",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "withaferin-a",
     "displayName": "withaferin a"
   },
@@ -6085,6 +6775,9 @@
     "source_status": "partial",
     "sourceCount": 7,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "withanolide-a",
     "displayName": "withanolide a"
   },
@@ -6109,6 +6802,9 @@
     "source_status": "partial",
     "sourceCount": 12,
     "confidenceTier": "moderate",
+    "evidenceType": "animal",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Supported mainly by animal and preclinical evidence with limited direct human confirmation.",
     "id": "withanoside-iv",
     "displayName": "withanoside iv"
   },
@@ -6138,6 +6834,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Evidence is mostly mechanistic and has not yet translated into strong human support.",
     "id": "wogonin",
     "displayName": "wogonin"
   },
@@ -6164,6 +6863,9 @@
     "source_status": "partial",
     "sourceCount": 5,
     "confidenceTier": "low",
+    "evidenceType": "in_vitro",
+    "confidenceTier_v2": "low",
+    "confidenceReason": "Primarily mechanistic/preclinical evidence with limited direct human compound data.",
     "id": "xanthotoxin",
     "displayName": "xanthotoxin"
   },
@@ -6190,6 +6892,9 @@
     "source_status": "partial",
     "sourceCount": 6,
     "confidenceTier": "low",
+    "evidenceType": "human_limited",
+    "confidenceTier_v2": "medium",
+    "confidenceReason": "Some human data exist, but evidence remains condition-, dose-, or preparation-specific.",
     "id": "yangonin",
     "displayName": "yangonin"
   }

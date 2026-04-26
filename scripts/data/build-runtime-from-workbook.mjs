@@ -19,6 +19,12 @@ const REQUIRED_SHEETS = {
 }
 
 const PLACEHOLDER_TOKENS = new Set(['', 'unknown', 'nan', 'null', 'undefined', '[object object]'])
+const PLACEHOLDER_PHRASES = [
+  'conservative evidence framing applied',
+  'reference profile',
+  'compound profile',
+  'herb profile',
+]
 const DEFAULT_SUMMARY = 'Profile pending review'
 
 function parseArgs(argv) {
@@ -55,6 +61,8 @@ function normalizeText(value) {
   if (typeof value === 'number' && Number.isNaN(value)) return ''
   const text = String(value).replace(/\s+/g, ' ').trim()
   if (!text) return ''
+  const lowered = text.toLowerCase()
+  if (PLACEHOLDER_PHRASES.some(phrase => lowered.includes(phrase))) return ''
   if (isPlaceholderToken(text)) return ''
   return text
 }
@@ -80,6 +88,18 @@ function normalizeSlug(value) {
     .replace(/&/g, ' and ')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
+}
+
+function normalizeDisplayName(value) {
+  const text = normalizeText(value)
+  if (!text) return ''
+  const balanced = text
+    .replace(/\(\s*\)/g, ' ')
+    .replace(/\)+$/g, '')
+    .replace(/\(+$/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  return balanced
 }
 
 function isPlaceholderToken(value) {
@@ -154,7 +174,7 @@ function withSummaryFallback(summary) {
 }
 
 function createHerbRecord(row) {
-  const name = firstNonEmpty(row, ['name', 'herbName'])
+  const name = normalizeDisplayName(firstNonEmpty(row, ['name', 'herbName']))
   const slug = normalizeSlug(firstNonEmpty(row, ['slug', 'herbSlug', 'name']))
   return {
     name,
@@ -176,7 +196,7 @@ function createHerbRecord(row) {
 }
 
 function createCompoundRecord(row, foundIn) {
-  const name = firstNonEmpty(row, ['name', 'compoundName', 'canonicalCompoundName', 'compound'])
+  const name = normalizeDisplayName(firstNonEmpty(row, ['name', 'compoundName', 'canonicalCompoundName', 'compound']))
   const slug = normalizeSlug(firstNonEmpty(row, ['slug', 'canonicalCompoundId', 'compoundName', 'name']))
   return {
     name,
@@ -193,7 +213,51 @@ function createCompoundRecord(row, foundIn) {
     source_status: normalizeOptionalString(firstNonEmpty(row, ['source_status', 'sourceStatus'])),
     sourceCount: parseSourceCount(row),
     confidenceTier: normalizeOptionalString(firstNonEmpty(row, ['confidenceTier', 'confidenceLevel'])),
+    evidenceType: normalizeOptionalString(firstNonEmpty(row, ['evidenceType', 'evidence_type'])),
+    confidenceTier_v2: normalizeOptionalString(firstNonEmpty(row, ['confidenceTier_v2'])),
+    confidenceReason: normalizeOptionalString(firstNonEmpty(row, ['confidenceReason'])),
   }
+}
+
+function composeCompoundDescription(record) {
+  const existing = normalizeOptionalString(record.description)
+  if (existing) return existing
+
+  const parts = []
+  if (normalizeOptionalString(record.summary) && record.summary !== DEFAULT_SUMMARY) {
+    parts.push(record.summary)
+  }
+  if (record.mechanisms.length > 0) {
+    parts.push(`Mechanisms tracked: ${record.mechanisms.slice(0, 3).join(', ')}.`)
+  }
+  const evidenceLine = [record.evidenceType, record.confidenceTier_v2 || record.confidenceTier]
+    .filter(Boolean)
+    .join(', ')
+  if (evidenceLine) {
+    parts.push(`Evidence context: ${evidenceLine}.`)
+  }
+  if (normalizeOptionalString(record.confidenceReason)) {
+    parts.push(`Confidence note: ${record.confidenceReason}.`)
+  }
+  if (record.foundIn.length > 0) {
+    parts.push(`Linked herbs: ${record.foundIn.slice(0, 5).join(', ')}.`)
+  }
+
+  const candidate = normalizeOptionalString(parts.join(' '))
+  if (candidate) return candidate
+  return `${record.name} is tracked as a reported constituent in the workbook. This profile is pending deeper mechanism and safety review.`
+}
+
+function composeHerbSummary(record) {
+  if (normalizeOptionalString(record.summary) && record.summary !== DEFAULT_SUMMARY) {
+    return record.summary
+  }
+  const parts = []
+  if (record.mechanisms.length > 0) parts.push(`Mechanism context: ${record.mechanisms.slice(0, 3).join(', ')}.`)
+  if (normalizeOptionalString(record.safetyNotes)) parts.push(`Safety: ${record.safetyNotes}.`)
+  if (record.interactions.length > 0) parts.push(`Interactions tracked: ${record.interactions.slice(0, 3).join(', ')}.`)
+  const fallback = normalizeOptionalString(parts.join(' '))
+  return fallback || DEFAULT_SUMMARY
 }
 
 function toSummaryRecord(record) {
@@ -269,8 +333,13 @@ function run() {
     if (compoundSlugSet.has(draft.slug)) continue
     compoundSlugSet.add(draft.slug)
     draft.foundIn = (foundInByCompoundSlug.get(draft.slug) || []).sort((a, b) => a.localeCompare(b))
+    draft.description = composeCompoundDescription(draft)
     compounds.push(draft)
   }
+
+  herbs.forEach(herb => {
+    herb.summary = composeHerbSummary(herb)
+  })
 
   herbs.sort((a, b) => a.slug.localeCompare(b.slug))
   compounds.sort((a, b) => a.slug.localeCompare(b.slug))

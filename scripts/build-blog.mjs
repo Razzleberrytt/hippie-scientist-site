@@ -355,6 +355,33 @@ function getCreatedDate(fp, fmDate) {
   return iso(Date.now());
 }
 
+function tokenizeTitle(value) {
+  return String(value || '')
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .map(token => token.trim())
+    .filter(token => token.length >= 4)
+}
+
+function alignExcerptToTitle({ title, excerpt, description }) {
+  const normalizedExcerpt = String(excerpt || '').trim()
+  if (!normalizedExcerpt) return String(description || '').trim()
+  const titleTokens = tokenizeTitle(title).slice(0, 6)
+  if (!titleTokens.length) return normalizedExcerpt
+  const primaryToken = titleTokens[titleTokens.length - 1]
+  const lowerExcerpt = normalizedExcerpt.toLowerCase()
+  const hasMatch = titleTokens.some(token => lowerExcerpt.includes(token))
+  const hasPrimaryMatch = primaryToken ? lowerExcerpt.includes(primaryToken) : false
+  if (hasMatch && hasPrimaryMatch) return normalizedExcerpt
+  const fallback = String(description || '').trim()
+  const trimmedTitle = String(title || '').trim()
+  if (trimmedTitle) {
+    return `${trimmedTitle} — research notes with conservative evidence and safety-first context.`
+  }
+  if (!fallback) return normalizedExcerpt
+  return toExcerpt(fallback, 220)
+}
+
 fs.mkdirSync(OUT, { recursive: true });
 fs.rmSync(POSTS_OUT, { recursive: true, force: true });
 fs.mkdirSync(POSTS_OUT, { recursive: true });
@@ -402,7 +429,7 @@ for (const file of files) {
   const sanitizedMarkdown = stripUnsafeMarkdownSyntax(content);
   const postHtml = marked.parse(sanitizedMarkdown);
   const contentWithoutTitle = sanitizedMarkdown.replace(/^\s*#\s+.+$/m, '').trim();
-  const excerpt = toExcerpt(contentWithoutTitle || sanitizedMarkdown, 220);
+  const rawExcerpt = toExcerpt(contentWithoutTitle || sanitizedMarkdown, 220);
   const words = sanitizedMarkdown.trim() ? sanitizedMarkdown.trim().split(/\s+/).length : 0;
   const readingTime = `${Math.max(1, Math.round(words / 225))} min read`;
   const created = getCreatedDate(filePath, data?.date);
@@ -425,10 +452,11 @@ for (const file of files) {
         })
         .filter(Boolean)
     : [];
-  const summary = excerpt;
   const cover = data.cover || data.featuredImage || data.image || data.hero || null;
   const title = data.title || rawSlug;
   const description = toExcerpt(data.description || contentWithoutTitle || sanitizedMarkdown, 200);
+  const excerpt = alignExcerptToTitle({ title, excerpt: rawExcerpt, description });
+  const summary = excerpt;
   const ogImage = data.ogImage || cover || null;
   const lastUpdated = iso(data.lastUpdated) || statISO(filePath);
 
@@ -487,7 +515,7 @@ const metadata = rows.map((row) => ({
   lastUpdated: row.lastUpdated,
   author: row.author,
   sources: row.sources,
-  excerpt: row.description,
+  excerpt: row.summary,
   description: row.description,
   summary: row.summary,
   tags: row.tags,

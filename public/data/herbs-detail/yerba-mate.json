@@ -1,8 +1,8 @@
 {
   "name": "yerba mate",
   "slug": "yerba-mate",
-  "summary": "Conservative evidence framing applied.",
-  "description": "Conservative evidence framing applied.",
+  "summary": "Mechanism context: caffeine/theobromine adenosine-receptor antagonism, chlorogenic-acid antioxidant signaling, AMPK-related metabolic signaling. Safety: Contains caffeine; excess intake may worsen insomnia, anxiety, palpitations, reflux, or blood pressure. Avoid very hot maté consumption patterns and stimulant stacking.. Interactions tracked: Additive effects with stimulants, caffeine, theophylline.",
+  "description": "Mechanism context: caffeine/theobromine adenosine-receptor antagonism, chlorogenic-acid antioxidant signaling, AMPK-related metabolic signaling. Safety: Contains caffeine; excess intake may worsen insomnia, anxiety, palpitations, reflux, or blood pressure. Avoid very hot maté consumption patterns and stimulant stacking.. Interactions tracked: Additive effects with stimulants, caffeine, theophylline.",
   "primaryActions": [],
   "mechanisms": [
     "caffeine/theobromine adenosine-receptor antagonism",

@@ -1,8 +1,8 @@
 {
   "name": "guarana",
   "slug": "guarana",
-  "summary": "Conservative evidence framing applied.",
-  "description": "Conservative evidence framing applied.",
+  "summary": "Mechanism context: caffeine-mediated adenosine A1/A2A antagonism, methylxanthine CNS stimulation, catecholamine/arousal signaling. Safety: Caffeine exposure can cause insomnia, anxiety, tremor, tachycardia, blood-pressure elevation, and GI upset. Avoid stacking with energy drinks or other stimulants; use cautiously in pregnancy/breastfeeding and cardiovascular disease.. Interactions tracked: Additive effects with caffeine, stimulants, theophylline.",
+  "description": "Mechanism context: caffeine-mediated adenosine A1/A2A antagonism, methylxanthine CNS stimulation, catecholamine/arousal signaling. Safety: Caffeine exposure can cause insomnia, anxiety, tremor, tachycardia, blood-pressure elevation, and GI upset. Avoid stacking with energy drinks or other stimulants; use cautiously in pregnancy/breastfeeding and cardiovascular disease.. Interactions tracked: Additive effects with caffeine, stimulants, theophylline.",
   "primaryActions": [],
   "mechanisms": [
     "caffeine-mediated adenosine A1/A2A antagonism",
