@@ -1,8 +1,8 @@
 {
   "name": "buckwheat",
   "slug": "buckwheat",
-  "summary": "Conservative evidence framing applied.",
-  "description": "Conservative evidence framing applied.",
+  "summary": "Mechanism context: Rutin/quercetin polyphenol activity, endothelial nitric oxide signaling, α-glucosidase/α-amylase modulation. Safety: Food-level use is usually tolerated, but buckwheat allergy can be serious, including anaphylaxis; caution in known grain/pseudocereal allergy and when using concentrated extracts rather than food forms.. Interactions tracked: Potential interaction concern with antidiabetic medicines, antihypertensives/diuretics, immunosuppressants.",
+  "description": "Mechanism context: Rutin/quercetin polyphenol activity, endothelial nitric oxide signaling, α-glucosidase/α-amylase modulation. Safety: Food-level use is usually tolerated, but buckwheat allergy can be serious, including anaphylaxis; caution in known grain/pseudocereal allergy and when using concentrated extracts rather than food forms.. Interactions tracked: Potential interaction concern with antidiabetic medicines, antihypertensives/diuretics, immunosuppressants.",
   "primaryActions": [],
   "mechanisms": [
     "Rutin/quercetin polyphenol activity",

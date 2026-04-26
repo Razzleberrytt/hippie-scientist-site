@@ -29,6 +29,9 @@ const asList = value => (Array.isArray(value) ? value : [])
 const PLACEHOLDER_PATTERNS = [
   /\bno direct\b/i,
   /\bcontextual inference\b/i,
+  /\bconservative evidence framing applied\b/i,
+  /\breference profile\b/i,
+  /\b(?:herb|compound) profile\b/i,
   /\bnot established\b/i,
   /\binsufficient data\b/i,
   /\[object\s+object\]/i,
@@ -42,6 +45,21 @@ function cleanNarrative(value) {
   if (!text) return ''
   if (PLACEHOLDER_PATTERNS.some(pattern => pattern.test(text))) return ''
   return text
+}
+
+function normalizeDisplayName(value, fallback = '') {
+  const base = asText(value || fallback)
+  if (!base) return ''
+  const normalized = base
+    .replace(/\(\s*\)/g, ' ')
+    .replace(/\)+$/g, '')
+    .replace(/\(+$/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  const opens = (normalized.match(/\(/g) || []).length
+  const closes = (normalized.match(/\)/g) || []).length
+  if (opens === closes) return normalized
+  return normalized.replace(/[()]/g, '').replace(/\s+/g, ' ').trim()
 }
 
 function normalizeCategoryLabel(record) {
@@ -308,7 +326,7 @@ function buildHerbSummary(record, governedSummaryByEntity) {
   return {
     id: asText(record.id || slug),
     slug,
-    name: common || scientific || slug,
+    name: normalizeDisplayName(common || scientific || slug, slug),
     common,
     scientific,
     summary: asText(record.summary || record.description || record.mechanism),
@@ -338,7 +356,7 @@ function buildCompoundSummary(record, governedSummaryByEntity) {
   return {
     id: asText(record.id || slug),
     slug,
-    name: asText(record.name || record.commonName || slug),
+    name: normalizeDisplayName(record.name || record.commonName || slug, slug),
     summary: narrative.summary,
     description: narrative.description,
     compoundClass: asText(record.compoundClass || record.className || record.class || record.type),

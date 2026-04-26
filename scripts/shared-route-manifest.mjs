@@ -142,6 +142,30 @@ function safeStr(value) {
   return normalized
 }
 
+function normalizeEntityLabel(value) {
+  const text = safeStr(value)
+  if (!text) return ''
+  return text
+    .replace(/\(\s*\)/g, ' ')
+    .replace(/\)+$/g, '')
+    .replace(/\(+$/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function buildRouteFallbackDescription(entry, fallbackKind, fallbackName) {
+  const explicit = clip(safeStr(entry?.description))
+  if (explicit && !/reference profile|compound profile|herb profile/i.test(explicit)) {
+    return explicit
+  }
+  const summary = clip(safeStr(entry?.summary || entry?.hero || ''))
+  if (summary) return summary
+  if (fallbackKind === 'compound') {
+    return clip(`${fallbackName} is tracked as a reported constituent in the workbook. This profile is pending deeper mechanism and safety review.`)
+  }
+  return clip(`${fallbackName} profile with evidence-aware summary, mechanism context, and safety notes when available.`)
+}
+
 function normalizeEvidenceLabelTitle(label) {
   return String(label || 'insufficient_evidence')
     .replace(/_/g, ' ')
@@ -759,17 +783,15 @@ export function getSharedRouteManifest() {
     const route = normalizePath(entry?.route || `/${fallbackKind}s/${entry?.slug || ''}`)
     if (!route.startsWith(`/${fallbackKind}s/`)) return null
     const slug = safeStr(route.split('/').pop())
-    const fallbackTitle =
-      safeStr(entry?.title) || `${safeStr(entry?.name) || route.split('/').pop()} | The Hippie Scientist`
-    const fallbackDescription = clip(
-      safeStr(entry?.description) || `${safeStr(entry?.name) || route.split('/').pop()} profile.`,
-    )
+    const fallbackName = normalizeEntityLabel(entry?.name) || route.split('/').pop()
+    const fallbackTitle = safeStr(entry?.title) || `${fallbackName} | The Hippie Scientist`
+    const fallbackDescription = buildRouteFallbackDescription(entry, fallbackKind, fallbackName)
     const summary =
       fallbackKind === 'herb'
         ? herbGovernedSummaryBySlug.get(slug)
         : compoundGovernedSummaryBySlug.get(slug)
     const governedSeo = buildGovernedSeoMeta({
-      name: safeStr(entry?.name) || slug,
+      name: fallbackName || slug,
       kind: fallbackKind === 'herb' ? 'Herb' : 'Compound',
       fallbackTitle,
       fallbackDescription,

@@ -1,8 +1,8 @@
 {
   "name": "grapefruit",
   "slug": "grapefruit",
-  "summary": "Conservative evidence framing applied.",
-  "description": "Conservative evidence framing applied.",
+  "summary": "Mechanism context: intestinal CYP3A4 mechanism-based inhibition by furanocoumarins, P-gp modulation, OATP transporter effects. Safety: Major food-drug interaction risk: can raise exposure of statins, calcium-channel blockers, immunosuppressants, antiarrhythmics, and other CYP3A4/OATP substrates.. Interactions tracked: CYP3A4, P-gp, and OATP-mediated interactions.",
+  "description": "Mechanism context: intestinal CYP3A4 mechanism-based inhibition by furanocoumarins, P-gp modulation, OATP transporter effects. Safety: Major food-drug interaction risk: can raise exposure of statins, calcium-channel blockers, immunosuppressants, antiarrhythmics, and other CYP3A4/OATP substrates.. Interactions tracked: CYP3A4, P-gp, and OATP-mediated interactions.",
   "primaryActions": [],
   "mechanisms": [
     "intestinal CYP3A4 mechanism-based inhibition by furanocoumarins",

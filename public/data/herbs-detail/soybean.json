@@ -1,8 +1,8 @@
 {
   "name": "soybean",
   "slug": "soybean",
-  "summary": "Conservative evidence framing applied.",
-  "description": "Conservative evidence framing applied.",
+  "summary": "Mechanism context: isoflavone estrogen-receptor modulation, lipid metabolism and bone-turnover signaling, antioxidant pathways. Safety: Caution in hormone-sensitive conditions and with thyroid medication timing; allergy possible.. Interactions tracked: May affect levothyroxine absorption timing, review with hormone therapies and anticoagulants if diet changes are large..",
+  "description": "Mechanism context: isoflavone estrogen-receptor modulation, lipid metabolism and bone-turnover signaling, antioxidant pathways. Safety: Caution in hormone-sensitive conditions and with thyroid medication timing; allergy possible.. Interactions tracked: May affect levothyroxine absorption timing, review with hormone therapies and anticoagulants if diet changes are large..",
   "primaryActions": [],
   "mechanisms": [
     "isoflavone estrogen-receptor modulation",

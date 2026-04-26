@@ -76,7 +76,7 @@ function sanitizeSurfaceText(value) {
 function hasPlaceholderText(value) {
   const text = String(value || '').toLowerCase()
   if (!text) return false
-  return ['no direct effects data', 'contextual inference', 'no direct mechanism', 'nan', '; nan', 'no direct '].some(
+  return ['no direct effects data', 'contextual inference', 'no direct mechanism', 'conservative evidence framing applied', 'nan', '; nan', 'no direct '].some(
     phrase => text.includes(phrase),
   )
 }
@@ -86,6 +86,7 @@ function hasGenericHomepageSummary(value) {
   if (!text) return true
   return [
     'reference profile',
+    'conservative evidence framing applied',
     'profile still being expanded',
     'review detail page for currently available data',
     'why it matters:',

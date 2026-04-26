@@ -1,8 +1,8 @@
 {
   "name": "blueberry",
   "slug": "blueberry",
-  "summary": "Conservative evidence framing applied.",
-  "description": "Conservative evidence framing applied.",
+  "summary": "Mechanism context: Anthocyanin-polyphenol activity, endothelial nitric oxide signaling, Nrf2 antioxidant response. Safety: Food-level use is usually low risk; concentrated extracts may affect glucose or platelet-related endpoints in sensitive users; caution with anticoagulant/antiplatelet therapy, diabetes medication, allergy, and kidney-restricted diets if high-potassium products are used.. Interactions tracked: Potential additive effects with antidiabetics or anticoagulants in concentrated extracts..",
+  "description": "Mechanism context: Anthocyanin-polyphenol activity, endothelial nitric oxide signaling, Nrf2 antioxidant response. Safety: Food-level use is usually low risk; concentrated extracts may affect glucose or platelet-related endpoints in sensitive users; caution with anticoagulant/antiplatelet therapy, diabetes medication, allergy, and kidney-restricted diets if high-potassium products are used.. Interactions tracked: Potential additive effects with antidiabetics or anticoagulants in concentrated extracts..",
   "primaryActions": [],
   "mechanisms": [
     "Anthocyanin-polyphenol activity",
