@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import posts from '@/data/blog/posts.json'
+import RelatedLinksSection from '@/components/related-links-section'
 import { getCompoundBySlug, getCompounds } from '@/lib/runtime-data'
 
 type Params = { params: Promise<{ slug: string }> }
@@ -15,6 +17,23 @@ type CompoundDetail = {
   mechanisms?: unknown
   safetyNotes?: string | null
 }
+
+type BlogPost = {
+  slug: string
+  title: string
+  excerpt?: string
+  date?: string
+  readingTime?: string
+}
+
+type RelatedLinkItem = {
+  href: string
+  title: string
+  description: string
+  eyebrow?: string
+}
+
+const allPosts = posts as BlogPost[]
 
 const formatSlugLabel = (slug: string): string =>
   slug
@@ -62,6 +81,93 @@ const toList = (value: unknown): string[] => {
   return []
 }
 
+const getPostSortValue = (post: BlogPost): number => {
+  if (!post.date) return 0
+  const value = new Date(post.date).getTime()
+  return Number.isNaN(value) ? 0 : value
+}
+
+const tokenize = (...values: Array<string | null | undefined>): string[] =>
+  [...new Set(
+    values
+      .join(' ')
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .map(token => token.trim())
+      .filter(token => token.length >= 3),
+  )]
+
+const getRelatedPosts = (compound: CompoundDetail): RelatedLinkItem[] => {
+  const tokens = tokenize(
+    compound.displayName,
+    compound.name,
+    compound.compoundClass,
+    compound.slug,
+  )
+
+  const scored = allPosts
+    .map(post => {
+      const title = post.title.toLowerCase()
+      const excerpt = (post.excerpt ?? '').toLowerCase()
+      const slug = post.slug.toLowerCase()
+
+      let score = 0
+
+      for (const token of tokens) {
+        if (title.includes(token)) score += 5
+        if (excerpt.includes(token)) score += 3
+        if (slug.includes(token)) score += 2
+      }
+
+      return { post, score }
+    })
+    .filter(entry => entry.score > 0)
+    .sort(
+      (a, b) =>
+        b.score - a.score || getPostSortValue(b.post) - getPostSortValue(a.post),
+    )
+    .slice(0, 3)
+    .map(({ post }) => ({
+      href: `/blog/${post.slug}`,
+      title: post.title,
+      description: post.excerpt?.trim() || 'Related blog post.',
+      eyebrow: 'Blog post',
+    }))
+
+  if (scored.length > 0) return scored
+
+  return [...allPosts]
+    .sort((a, b) => getPostSortValue(b) - getPostSortValue(a))
+    .slice(0, 3)
+    .map(post => ({
+      href: `/blog/${post.slug}`,
+      title: post.title,
+      description: post.excerpt?.trim() || 'Recent blog post.',
+      eyebrow: 'Recent post',
+    }))
+}
+
+const getExploreLinks = (): RelatedLinkItem[] => [
+  {
+    href: '/compounds',
+    title: 'Browse all compounds',
+    description: 'Go back to the compound library and keep exploring profiles.',
+    eyebrow: 'Library',
+  },
+  {
+    href: '/herbs',
+    title: 'Browse herbs',
+    description: 'See plant profiles, summaries, and quick reference notes.',
+    eyebrow: 'Library',
+  },
+  {
+    href: '/blog',
+    title: 'Read the blog',
+    description: 'Open short explainers, comparisons, and research-minded articles.',
+    eyebrow: 'Writing',
+  },
+]
+
 export async function generateStaticParams() {
   const compounds = (await getCompounds()) as CompoundDetail[]
   return compounds.map(compound => ({ slug: compound.slug }))
@@ -100,6 +206,8 @@ export default async function CompoundDetailPage({ params }: Params) {
   const hasDetails = Boolean(
     overviewText || compoundClass || mechanisms.length > 0 || safetyNotes,
   )
+  const relatedPosts = getRelatedPosts(compound)
+  const exploreLinks = getExploreLinks()
 
   return (
     <div className='space-y-8'>
@@ -127,7 +235,9 @@ export default async function CompoundDetailPage({ params }: Params) {
           {compoundClass ? <span>{compoundClass}</span> : <span>{compound.slug}</span>}
         </div>
 
-        <h1 className='mt-4 text-4xl font-bold tracking-tight sm:text-5xl'>{label}</h1>
+        <h1 className='mt-4 text-4xl font-bold tracking-tight sm:text-5xl'>
+          {label}
+        </h1>
 
         <p className='mt-4 max-w-3xl whitespace-pre-line text-base leading-7 text-white/75 sm:text-lg'>
           {leadText}
@@ -192,4 +302,80 @@ export default async function CompoundDetailPage({ params }: Params) {
                 More details
               </p>
 
-              <p
+              <p className='mt-4 text-sm leading-7 text-white/75 sm:text-base'>
+                This page is live, but the longer write-up for this compound has
+                not been added yet.
+              </p>
+            </section>
+          ) : null}
+        </div>
+
+        <aside className='space-y-6'>
+          <section className='ds-card'>
+            <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+              At a glance
+            </p>
+
+            <dl className='mt-4 space-y-4 text-sm'>
+              <div className='flex items-start justify-between gap-4 border-b border-white/10 pb-3'>
+                <dt className='text-white/55'>Type</dt>
+                <dd className='text-right font-medium text-white'>Compound</dd>
+              </div>
+
+              <div className='flex items-start justify-between gap-4 border-b border-white/10 pb-3'>
+                <dt className='text-white/55'>Class</dt>
+                <dd className='text-right font-medium text-white'>
+                  {compoundClass || 'Not listed'}
+                </dd>
+              </div>
+
+              <div className='flex items-start justify-between gap-4 border-b border-white/10 pb-3'>
+                <dt className='text-white/55'>Slug</dt>
+                <dd className='text-right font-medium text-white'>
+                  {compound.slug}
+                </dd>
+              </div>
+
+              <div className='flex items-start justify-between gap-4 border-b border-white/10 pb-3'>
+                <dt className='text-white/55'>Mechanisms listed</dt>
+                <dd className='text-right font-medium text-white'>
+                  {mechanisms.length}
+                </dd>
+              </div>
+
+              <div className='flex items-start justify-between gap-4'>
+                <dt className='text-white/55'>Safety section</dt>
+                <dd className='text-right font-medium text-white'>
+                  {safetyNotes ? 'Included' : 'Not yet'}
+                </dd>
+              </div>
+            </dl>
+          </section>
+
+          <section className='ds-card'>
+            <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+              Reminder
+            </p>
+
+            <p className='mt-4 text-sm leading-7 text-white/75'>
+              This site is for education and research context. It is not personal
+              medical advice.
+            </p>
+          </section>
+        </aside>
+      </div>
+
+      <RelatedLinksSection
+        eyebrow='Related writing'
+        title='Posts worth reading next'
+        items={relatedPosts}
+      />
+
+      <RelatedLinksSection
+        eyebrow='Keep exploring'
+        title='More to explore'
+        items={exploreLinks}
+      />
+    </div>
+  )
+}
