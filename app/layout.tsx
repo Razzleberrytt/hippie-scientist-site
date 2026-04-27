@@ -16,6 +16,15 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ]
 
+const footerLinks = [
+  { href: '/herbs', label: 'Herbs' },
+  { href: '/compounds', label: 'Compounds' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/disclaimer', label: 'Disclaimer' },
+]
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://thehippiescientist.net'),
   title: {
@@ -126,17 +135,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </p>
 
               <nav aria-label='Footer' className='flex flex-wrap gap-4'>
-                {navLinks
-                  .filter(link => link.href !== '/')
-                  .map(link => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className='transition hover:text-white'
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                {footerLinks.map(link => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className='transition hover:text-white'
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </nav>
             </div>
           </footer>
