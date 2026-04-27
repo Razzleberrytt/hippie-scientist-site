@@ -3,6 +3,14 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import posts from '@/data/blog/posts.json'
 import RelatedLinksSection from '@/components/related-links-section'
+import {
+  KeyValueSection,
+  SectionList,
+  SourcesSection,
+  normalizeProfileList,
+  normalizeProfileText,
+  normalizeSources,
+} from '@/components/profile-data-sections'
 import { getCompoundBySlug, getCompounds } from '@/lib/runtime-data'
 
 type Params = { params: Promise<{ slug: string }> }
@@ -15,7 +23,18 @@ type CompoundDetail = {
   description?: string | null
   compoundClass?: string | null
   mechanisms?: unknown
-  safetyNotes?: string | null
+  targets?: unknown
+  foundIn?: unknown
+  safetyNotes?: unknown
+  evidenceLevel?: unknown
+  evidenceType?: unknown
+  confidenceTier?: unknown
+  confidenceTier_v2?: unknown
+  confidenceReason?: unknown
+  sourceCount?: unknown
+  review_status?: unknown
+  source_status?: unknown
+  sources?: unknown
 }
 
 type BlogPost = {
@@ -66,21 +85,6 @@ const getOverviewText = (compound: CompoundDetail): string => {
   return description
 }
 
-const toList = (value: unknown): string[] => {
-  if (Array.isArray(value)) {
-    return value
-      .filter((item): item is string => typeof item === 'string')
-      .map(item => item.trim())
-      .filter(Boolean)
-  }
-
-  if (typeof value === 'string' && value.trim()) {
-    return [value.trim()]
-  }
-
-  return []
-}
-
 const getPostSortValue = (post: BlogPost): number => {
   if (!post.date) return 0
   const value = new Date(post.date).getTime()
@@ -88,14 +92,16 @@ const getPostSortValue = (post: BlogPost): number => {
 }
 
 const tokenize = (...values: Array<string | null | undefined>): string[] =>
-  [...new Set(
-    values
-      .join(' ')
-      .toLowerCase()
-      .split(/[^a-z0-9]+/)
-      .map(token => token.trim())
-      .filter(token => token.length >= 3),
-  )]
+  [
+    ...new Set(
+      values
+        .join(' ')
+        .toLowerCase()
+        .split(/[^a-z0-9]+/)
+        .map(token => token.trim())
+        .filter(token => token.length >= 3),
+    ),
+  ]
 
 const getRelatedPosts = (compound: CompoundDetail): RelatedLinkItem[] => {
   const tokens = tokenize(
@@ -201,11 +207,35 @@ export default async function CompoundDetailPage({ params }: Params) {
   const leadText = getLeadText(compound)
   const overviewText = getOverviewText(compound)
   const compoundClass = compound.compoundClass?.trim() ?? ''
-  const mechanisms = toList(compound.mechanisms)
-  const safetyNotes = compound.safetyNotes?.trim() ?? ''
+  const mechanisms = normalizeProfileList(compound.mechanisms)
+  const targets = normalizeProfileList(compound.targets)
+  const foundIn = normalizeProfileList(compound.foundIn)
+  const safetyNotes = normalizeProfileText(compound.safetyNotes)
+  const evidenceLevel = normalizeProfileText(compound.evidenceLevel)
+  const evidenceType = normalizeProfileText(compound.evidenceType)
+  const confidenceTier = normalizeProfileText(compound.confidenceTier)
+  const confidenceTierV2 = normalizeProfileText(compound.confidenceTier_v2)
+  const confidenceReason = normalizeProfileText(compound.confidenceReason)
+  const sourceCount = normalizeProfileText(compound.sourceCount)
+  const reviewStatus = normalizeProfileText(compound.review_status)
+  const sourceStatus = normalizeProfileText(compound.source_status)
+  const sources = normalizeSources(compound.sources)
+
   const hasDetails = Boolean(
-    overviewText || compoundClass || mechanisms.length > 0 || safetyNotes,
+    overviewText ||
+      compoundClass ||
+      mechanisms.length > 0 ||
+      targets.length > 0 ||
+      foundIn.length > 0 ||
+      safetyNotes ||
+      evidenceLevel ||
+      evidenceType ||
+      confidenceTier ||
+      confidenceTierV2 ||
+      confidenceReason ||
+      sourceCount,
   )
+
   const relatedPosts = getRelatedPosts(compound)
   const exploreLinks = getExploreLinks()
 
@@ -246,17 +276,10 @@ export default async function CompoundDetailPage({ params }: Params) {
 
       <div className='grid gap-6 lg:grid-cols-[1.45fr_0.85fr]'>
         <div className='space-y-6'>
-          {compoundClass ? (
-            <section className='ds-card'>
-              <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-                Class
-              </p>
-
-              <p className='mt-4 text-sm leading-7 text-white/75 sm:text-base'>
-                {compoundClass}
-              </p>
-            </section>
-          ) : null}
+          <KeyValueSection
+            title='Classification'
+            items={[{ label: 'Class', value: compoundClass }]}
+          />
 
           {overviewText ? (
             <section className='ds-card'>
@@ -270,19 +293,9 @@ export default async function CompoundDetailPage({ params }: Params) {
             </section>
           ) : null}
 
-          {mechanisms.length > 0 ? (
-            <section className='ds-card'>
-              <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-                Mechanisms
-              </p>
-
-              <ul className='mt-4 list-disc space-y-3 pl-5 text-sm leading-6 text-white/75 sm:text-base'>
-                {mechanisms.map(item => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
+          <SectionList title='Mechanisms' items={mechanisms} />
+          <SectionList title='Targets' items={targets} />
+          <SectionList title='Found in' items={foundIn} />
 
           {safetyNotes ? (
             <section className='ds-card'>
@@ -295,6 +308,22 @@ export default async function CompoundDetailPage({ params }: Params) {
               </p>
             </section>
           ) : null}
+
+          <KeyValueSection
+            title='Evidence and confidence'
+            items={[
+              { label: 'Evidence level', value: evidenceLevel },
+              { label: 'Evidence type', value: evidenceType },
+              { label: 'Confidence tier', value: confidenceTier },
+              { label: 'Confidence tier v2', value: confidenceTierV2 },
+              { label: 'Confidence reason', value: confidenceReason },
+              { label: 'Source count', value: sourceCount },
+              { label: 'Review status', value: reviewStatus },
+              { label: 'Source status', value: sourceStatus },
+            ]}
+          />
+
+          <SourcesSection sources={sources} />
 
           {!hasDetails ? (
             <section className='ds-card'>
@@ -311,46 +340,18 @@ export default async function CompoundDetailPage({ params }: Params) {
         </div>
 
         <aside className='space-y-6'>
-          <section className='ds-card'>
-            <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-              At a glance
-            </p>
-
-            <dl className='mt-4 space-y-4 text-sm'>
-              <div className='flex items-start justify-between gap-4 border-b border-white/10 pb-3'>
-                <dt className='text-white/55'>Type</dt>
-                <dd className='text-right font-medium text-white'>Compound</dd>
-              </div>
-
-              <div className='flex items-start justify-between gap-4 border-b border-white/10 pb-3'>
-                <dt className='text-white/55'>Class</dt>
-                <dd className='text-right font-medium text-white'>
-                  {compoundClass || 'Not listed'}
-                </dd>
-              </div>
-
-              <div className='flex items-start justify-between gap-4 border-b border-white/10 pb-3'>
-                <dt className='text-white/55'>Slug</dt>
-                <dd className='text-right font-medium text-white'>
-                  {compound.slug}
-                </dd>
-              </div>
-
-              <div className='flex items-start justify-between gap-4 border-b border-white/10 pb-3'>
-                <dt className='text-white/55'>Mechanisms listed</dt>
-                <dd className='text-right font-medium text-white'>
-                  {mechanisms.length}
-                </dd>
-              </div>
-
-              <div className='flex items-start justify-between gap-4'>
-                <dt className='text-white/55'>Safety section</dt>
-                <dd className='text-right font-medium text-white'>
-                  {safetyNotes ? 'Included' : 'Not yet'}
-                </dd>
-              </div>
-            </dl>
-          </section>
+          <KeyValueSection
+            title='At a glance'
+            items={[
+              { label: 'Type', value: 'Compound' },
+              { label: 'Class', value: compoundClass || 'Not listed' },
+              { label: 'Slug', value: compound.slug },
+              { label: 'Mechanisms listed', value: String(mechanisms.length) },
+              { label: 'Targets listed', value: targets.length ? String(targets.length) : 'Not listed' },
+              { label: 'Found in', value: foundIn.length ? String(foundIn.length) : 'Not listed' },
+              { label: 'Safety section', value: safetyNotes ? 'Included' : 'Not yet' },
+            ]}
+          />
 
           <section className='ds-card'>
             <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
