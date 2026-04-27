@@ -338,11 +338,15 @@ export default async function HerbDetailPage({ params }: Params) {
               { label: 'Mechanisms listed', value: String(mechanisms.length) },
               {
                 label: 'Contraindications',
-                value: contraindications.length ? String(contraindications.length) : 'Not listed',
+                value: contraindications.length
+                  ? String(contraindications.length)
+                  : 'Not listed',
               },
               {
                 label: 'Interactions',
-                value: interactions.length ? String(interactions.length) : 'Not listed',
+                value: interactions.length
+                  ? String(interactions.length)
+                  : 'Not listed',
               },
               {
                 label: 'Safety section',
