@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import posts from '@/data/blog/posts.json'
+import RelatedLinksSection from '@/components/related-links-section'
 import { getHerbBySlug, getHerbs } from '@/lib/runtime-data'
 
 type Params = { params: Promise<{ slug: string }> }
@@ -14,6 +16,23 @@ type HerbDetail = {
   mechanisms?: unknown
   safetyNotes?: string | null
 }
+
+type BlogPost = {
+  slug: string
+  title: string
+  excerpt?: string
+  date?: string
+  readingTime?: string
+}
+
+type RelatedLinkItem = {
+  href: string
+  title: string
+  description: string
+  eyebrow?: string
+}
+
+const allPosts = posts as BlogPost[]
 
 const formatSlugLabel = (slug: string): string =>
   slug
@@ -61,6 +80,88 @@ const toList = (value: unknown): string[] => {
   return []
 }
 
+const getPostSortValue = (post: BlogPost): number => {
+  if (!post.date) return 0
+  const value = new Date(post.date).getTime()
+  return Number.isNaN(value) ? 0 : value
+}
+
+const tokenize = (...values: Array<string | null | undefined>): string[] =>
+  [...new Set(
+    values
+      .join(' ')
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .map(token => token.trim())
+      .filter(token => token.length >= 3),
+  )]
+
+const getRelatedPosts = (herb: HerbDetail): RelatedLinkItem[] => {
+  const tokens = tokenize(herb.displayName, herb.name, herb.slug)
+
+  const scored = allPosts
+    .map(post => {
+      const title = post.title.toLowerCase()
+      const excerpt = (post.excerpt ?? '').toLowerCase()
+      const slug = post.slug.toLowerCase()
+
+      let score = 0
+
+      for (const token of tokens) {
+        if (title.includes(token)) score += 5
+        if (excerpt.includes(token)) score += 3
+        if (slug.includes(token)) score += 2
+      }
+
+      return { post, score }
+    })
+    .filter(entry => entry.score > 0)
+    .sort(
+      (a, b) =>
+        b.score - a.score || getPostSortValue(b.post) - getPostSortValue(a.post),
+    )
+    .slice(0, 3)
+    .map(({ post }) => ({
+      href: `/blog/${post.slug}`,
+      title: post.title,
+      description: post.excerpt?.trim() || 'Related blog post.',
+      eyebrow: 'Blog post',
+    }))
+
+  if (scored.length > 0) return scored
+
+  return [...allPosts]
+    .sort((a, b) => getPostSortValue(b) - getPostSortValue(a))
+    .slice(0, 3)
+    .map(post => ({
+      href: `/blog/${post.slug}`,
+      title: post.title,
+      description: post.excerpt?.trim() || 'Recent blog post.',
+      eyebrow: 'Recent post',
+    }))
+}
+
+const getExploreLinks = (): RelatedLinkItem[] => [
+  {
+    href: '/herbs',
+    title: 'Browse all herbs',
+    description: 'Go back to the herb library and keep exploring plant profiles.',
+    eyebrow: 'Library',
+  },
+  {
+    href: '/compounds',
+    title: 'Browse compounds',
+    description: 'See active constituents, classes, and quick research notes.',
+    eyebrow: 'Library',
+  },
+  {
+    href: '/blog',
+    title: 'Read the blog',
+    description: 'Open short explainers, comparisons, and research-minded articles.',
+    eyebrow: 'Writing',
+  },
+]
+
 export async function generateStaticParams() {
   const herbs = (await getHerbs()) as HerbDetail[]
   return herbs.map(herb => ({ slug: herb.slug }))
@@ -96,6 +197,8 @@ export default async function HerbDetailPage({ params }: Params) {
   const mechanisms = toList(herb.mechanisms)
   const safetyNotes = herb.safetyNotes?.trim() ?? ''
   const hasDetails = Boolean(overviewText || mechanisms.length > 0 || safetyNotes)
+  const relatedPosts = getRelatedPosts(herb)
+  const exploreLinks = getExploreLinks()
 
   return (
     <div className='space-y-8'>
@@ -123,7 +226,9 @@ export default async function HerbDetailPage({ params }: Params) {
           <span>{herb.slug}</span>
         </div>
 
-        <h1 className='mt-4 text-4xl font-bold tracking-tight sm:text-5xl'>{label}</h1>
+        <h1 className='mt-4 text-4xl font-bold tracking-tight sm:text-5xl'>
+          {label}
+        </h1>
 
         <p className='mt-4 max-w-3xl whitespace-pre-line text-base leading-7 text-white/75 sm:text-lg'>
           {leadText}
@@ -228,6 +333,18 @@ export default async function HerbDetailPage({ params }: Params) {
           </section>
         </aside>
       </div>
+
+      <RelatedLinksSection
+        eyebrow='Related writing'
+        title='Posts worth reading next'
+        items={relatedPosts}
+      />
+
+      <RelatedLinksSection
+        eyebrow='Keep exploring'
+        title='More to explore'
+        items={exploreLinks}
+      />
     </div>
   )
 }
