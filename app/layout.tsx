@@ -23,6 +23,7 @@ const footerLinks = [
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
   { href: '/disclaimer', label: 'Disclaimer' },
+  { href: '/privacy', label: 'Privacy' },
 ]
 
 export const metadata: Metadata = {
