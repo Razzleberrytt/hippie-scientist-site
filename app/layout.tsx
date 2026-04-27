@@ -13,6 +13,7 @@ const navLinks = [
   { href: '/compounds', label: 'Compounds' },
   { href: '/blog', label: 'Blog' },
   { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
 ]
 
 export const metadata: Metadata = {
