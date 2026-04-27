@@ -1,5 +1,9 @@
 node_modules
 /src/**/*.js
+.next
+out
+dist
+node_modules/
 
 
 # Ignore intermediate data and old site
