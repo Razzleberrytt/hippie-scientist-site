@@ -347,9 +347,18 @@ export default async function CompoundDetailPage({ params }: Params) {
               { label: 'Class', value: compoundClass || 'Not listed' },
               { label: 'Slug', value: compound.slug },
               { label: 'Mechanisms listed', value: String(mechanisms.length) },
-              { label: 'Targets listed', value: targets.length ? String(targets.length) : 'Not listed' },
-              { label: 'Found in', value: foundIn.length ? String(foundIn.length) : 'Not listed' },
-              { label: 'Safety section', value: safetyNotes ? 'Included' : 'Not yet' },
+              {
+                label: 'Targets listed',
+                value: targets.length ? String(targets.length) : 'Not listed',
+              },
+              {
+                label: 'Found in',
+                value: foundIn.length ? String(foundIn.length) : 'Not listed',
+              },
+              {
+                label: 'Safety section',
+                value: safetyNotes ? 'Included' : 'Not yet',
+              },
             ]}
           />
 
