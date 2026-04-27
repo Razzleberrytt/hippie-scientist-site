@@ -216,6 +216,40 @@ export default async function HomePage() {
           </div>
         </aside>
       </section>
+
+      <section className='grid gap-4 lg:grid-cols-2'>
+        <Link
+          href='/about'
+          className='group ds-card block transition hover:border-white/30 hover:bg-white/5'
+        >
+          <p className='text-xs font-medium uppercase tracking-[0.2em] text-white/50'>
+            Learn more
+          </p>
+          <h2 className='mt-3 text-2xl font-semibold'>About this project</h2>
+          <p className='mt-3 text-sm leading-6 text-white/70'>
+            Read what the site is for, how to use it, and what it is trying to do.
+          </p>
+          <span className='mt-5 inline-flex text-sm font-medium text-blue-300 transition group-hover:translate-x-0.5'>
+            Open About →
+          </span>
+        </Link>
+
+        <Link
+          href='/contact'
+          className='group ds-card block transition hover:border-white/30 hover:bg-white/5'
+        >
+          <p className='text-xs font-medium uppercase tracking-[0.2em] text-white/50'>
+            Get in touch
+          </p>
+          <h2 className='mt-3 text-2xl font-semibold'>Contact</h2>
+          <p className='mt-3 text-sm leading-6 text-white/70'>
+            Send feedback, corrections, ideas, or questions about the site.
+          </p>
+          <span className='mt-5 inline-flex text-sm font-medium text-blue-300 transition group-hover:translate-x-0.5'>
+            Open Contact →
+          </span>
+        </Link>
+      </section>
     </div>
   )
 }
