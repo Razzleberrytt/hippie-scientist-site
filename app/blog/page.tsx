@@ -26,6 +26,7 @@ const truncateText = (value: string | undefined, maxLength: number): string => {
 
 const formatDate = (value: string | undefined): string => {
   if (!value) return 'Undated'
+
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) return value
 
@@ -46,42 +47,97 @@ export default function BlogPage() {
     (a, b) => getPostSortValue(b) - getPostSortValue(a),
   )
 
+  const featuredPost = sortedPosts[0]
+  const remainingPosts = sortedPosts.slice(1)
+
   return (
     <div className='space-y-8'>
       <section className='rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8'>
         <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
           Writing
         </p>
+
         <h1 className='mt-2 text-4xl font-bold tracking-tight'>Blog</h1>
+
         <p className='mt-4 max-w-3xl text-base leading-7 text-white/75'>
           Short explainers, practical notes, and research-minded articles.
         </p>
-        <p className='mt-3 text-sm text-white/60'>{sortedPosts.length} posts available</p>
+
+        <p className='mt-3 text-sm text-white/60'>
+          {sortedPosts.length} posts available
+        </p>
       </section>
 
-      <section className='grid gap-4'>
-        {sortedPosts.map(post => (
+      {featuredPost ? (
+        <section>
+          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+            Latest post
+          </p>
+
           <Link
-            key={post.slug}
-            href={`/blog/${post.slug}`}
-            className='group ds-card block transition hover:border-white/30 hover:bg-white/5'
+            href={`/blog/${featuredPost.slug}`}
+            className='group mt-4 block rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-white/30 hover:bg-white/5 sm:p-8'
           >
             <div className='flex flex-wrap items-center gap-3 text-xs text-white/50'>
-              <span>{formatDate(post.date)}</span>
-              {post.readingTime ? <span>{post.readingTime}</span> : null}
+              <span>{formatDate(featuredPost.date)}</span>
+              {featuredPost.readingTime ? <span>{featuredPost.readingTime}</span> : null}
             </div>
 
-            <h2 className='mt-3 text-2xl font-semibold'>{post.title}</h2>
+            <h2 className='mt-3 text-3xl font-semibold tracking-tight'>
+              {featuredPost.title}
+            </h2>
 
-            <p className='mt-3 text-sm leading-6 text-white/70'>
-              {truncateText(post.excerpt, 220)}
+            <p className='mt-4 max-w-3xl text-sm leading-7 text-white/75 sm:text-base'>
+              {truncateText(featuredPost.excerpt, 260)}
             </p>
 
-            <span className='mt-4 inline-flex text-sm font-medium text-blue-300 transition group-hover:translate-x-0.5'>
+            <span className='mt-5 inline-flex text-sm font-medium text-blue-300 transition group-hover:translate-x-0.5'>
               Read post →
             </span>
           </Link>
-        ))}
+        </section>
+      ) : null}
+
+      <section className='space-y-4'>
+        <div>
+          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+            Archive
+          </p>
+          <h2 className='mt-2 text-3xl font-semibold'>All posts</h2>
+        </div>
+
+        <div className='grid gap-4'>
+          {remainingPosts.map(post => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className='group ds-card block transition hover:border-white/30 hover:bg-white/5'
+            >
+              <div className='flex flex-wrap items-center gap-3 text-xs text-white/50'>
+                <span>{formatDate(post.date)}</span>
+                {post.readingTime ? <span>{post.readingTime}</span> : null}
+              </div>
+
+              <h3 className='mt-3 text-2xl font-semibold'>{post.title}</h3>
+
+              <p className='mt-3 text-sm leading-6 text-white/70'>
+                {truncateText(post.excerpt, 220)}
+              </p>
+
+              <span className='mt-4 inline-flex text-sm font-medium text-blue-300 transition group-hover:translate-x-0.5'>
+                Read post →
+              </span>
+            </Link>
+          ))}
+
+          {sortedPosts.length === 0 ? (
+            <div className='ds-card'>
+              <p className='text-sm leading-6 text-white/70'>
+                No blog posts have been added yet.
+              </p>
+            </div>
+          ) : null}
+        </div>
       </section>
     </div>
   )
