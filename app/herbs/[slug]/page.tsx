@@ -3,6 +3,14 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import posts from '@/data/blog/posts.json'
 import RelatedLinksSection from '@/components/related-links-section'
+import {
+  KeyValueSection,
+  SectionList,
+  SourcesSection,
+  normalizeProfileList,
+  normalizeProfileText,
+  normalizeSources,
+} from '@/components/profile-data-sections'
 import { getHerbBySlug, getHerbs } from '@/lib/runtime-data'
 
 type Params = { params: Promise<{ slug: string }> }
@@ -14,7 +22,17 @@ type HerbDetail = {
   summary?: string | null
   description?: string | null
   mechanisms?: unknown
-  safetyNotes?: string | null
+  safetyNotes?: unknown
+  contraindications?: unknown
+  interactions?: unknown
+  dosage?: unknown
+  preparation?: unknown
+  evidenceLevel?: unknown
+  confidenceTier?: unknown
+  sourceCount?: unknown
+  review_status?: unknown
+  source_status?: unknown
+  sources?: unknown
 }
 
 type BlogPost = {
@@ -65,21 +83,6 @@ const getOverviewText = (herb: HerbDetail): string => {
   return description
 }
 
-const toList = (value: unknown): string[] => {
-  if (Array.isArray(value)) {
-    return value
-      .filter((item): item is string => typeof item === 'string')
-      .map(item => item.trim())
-      .filter(Boolean)
-  }
-
-  if (typeof value === 'string' && value.trim()) {
-    return [value.trim()]
-  }
-
-  return []
-}
-
 const getPostSortValue = (post: BlogPost): number => {
   if (!post.date) return 0
   const value = new Date(post.date).getTime()
@@ -87,14 +90,16 @@ const getPostSortValue = (post: BlogPost): number => {
 }
 
 const tokenize = (...values: Array<string | null | undefined>): string[] =>
-  [...new Set(
-    values
-      .join(' ')
-      .toLowerCase()
-      .split(/[^a-z0-9]+/)
-      .map(token => token.trim())
-      .filter(token => token.length >= 3),
-  )]
+  [
+    ...new Set(
+      values
+        .join(' ')
+        .toLowerCase()
+        .split(/[^a-z0-9]+/)
+        .map(token => token.trim())
+        .filter(token => token.length >= 3),
+    ),
+  ]
 
 const getRelatedPosts = (herb: HerbDetail): RelatedLinkItem[] => {
   const tokens = tokenize(herb.displayName, herb.name, herb.slug)
@@ -194,9 +199,32 @@ export default async function HerbDetailPage({ params }: Params) {
   const label = getHerbLabel(herb)
   const leadText = getLeadText(herb)
   const overviewText = getOverviewText(herb)
-  const mechanisms = toList(herb.mechanisms)
-  const safetyNotes = herb.safetyNotes?.trim() ?? ''
-  const hasDetails = Boolean(overviewText || mechanisms.length > 0 || safetyNotes)
+  const mechanisms = normalizeProfileList(herb.mechanisms)
+  const safetyNotes = normalizeProfileText(herb.safetyNotes)
+  const contraindications = normalizeProfileList(herb.contraindications)
+  const interactions = normalizeProfileList(herb.interactions)
+  const dosage = normalizeProfileText(herb.dosage)
+  const preparation = normalizeProfileText(herb.preparation)
+  const evidenceLevel = normalizeProfileText(herb.evidenceLevel)
+  const confidenceTier = normalizeProfileText(herb.confidenceTier)
+  const sourceCount = normalizeProfileText(herb.sourceCount)
+  const reviewStatus = normalizeProfileText(herb.review_status)
+  const sourceStatus = normalizeProfileText(herb.source_status)
+  const sources = normalizeSources(herb.sources)
+
+  const hasDetails = Boolean(
+    overviewText ||
+      mechanisms.length > 0 ||
+      safetyNotes ||
+      contraindications.length > 0 ||
+      interactions.length > 0 ||
+      dosage ||
+      preparation ||
+      evidenceLevel ||
+      confidenceTier ||
+      sourceCount,
+  )
+
   const relatedPosts = getRelatedPosts(herb)
   const exploreLinks = getExploreLinks()
 
@@ -242,25 +270,14 @@ export default async function HerbDetailPage({ params }: Params) {
               <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
                 Overview
               </p>
+
               <p className='mt-4 whitespace-pre-line text-sm leading-7 text-white/75 sm:text-base'>
                 {overviewText}
               </p>
             </section>
           ) : null}
 
-          {mechanisms.length > 0 ? (
-            <section className='ds-card'>
-              <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-                Mechanisms
-              </p>
-
-              <ul className='mt-4 list-disc space-y-3 pl-5 text-sm leading-6 text-white/75 sm:text-base'>
-                {mechanisms.map(item => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
+          <SectionList title='Mechanisms' items={mechanisms} />
 
           {safetyNotes ? (
             <section className='ds-card'>
@@ -273,6 +290,30 @@ export default async function HerbDetailPage({ params }: Params) {
               </p>
             </section>
           ) : null}
+
+          <SectionList title='Contraindications' items={contraindications} />
+          <SectionList title='Interactions' items={interactions} />
+
+          <KeyValueSection
+            title='Use and preparation'
+            items={[
+              { label: 'Dosage', value: dosage },
+              { label: 'Preparation', value: preparation },
+            ]}
+          />
+
+          <KeyValueSection
+            title='Evidence and confidence'
+            items={[
+              { label: 'Evidence level', value: evidenceLevel },
+              { label: 'Confidence tier', value: confidenceTier },
+              { label: 'Source count', value: sourceCount },
+              { label: 'Review status', value: reviewStatus },
+              { label: 'Source status', value: sourceStatus },
+            ]}
+          />
+
+          <SourcesSection sources={sources} />
 
           {!hasDetails ? (
             <section className='ds-card'>
@@ -289,37 +330,26 @@ export default async function HerbDetailPage({ params }: Params) {
         </div>
 
         <aside className='space-y-6'>
-          <section className='ds-card'>
-            <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-              At a glance
-            </p>
-
-            <dl className='mt-4 space-y-4 text-sm'>
-              <div className='flex items-start justify-between gap-4 border-b border-white/10 pb-3'>
-                <dt className='text-white/55'>Type</dt>
-                <dd className='text-right font-medium text-white'>Herb</dd>
-              </div>
-
-              <div className='flex items-start justify-between gap-4 border-b border-white/10 pb-3'>
-                <dt className='text-white/55'>Slug</dt>
-                <dd className='text-right font-medium text-white'>{herb.slug}</dd>
-              </div>
-
-              <div className='flex items-start justify-between gap-4 border-b border-white/10 pb-3'>
-                <dt className='text-white/55'>Mechanisms listed</dt>
-                <dd className='text-right font-medium text-white'>
-                  {mechanisms.length}
-                </dd>
-              </div>
-
-              <div className='flex items-start justify-between gap-4'>
-                <dt className='text-white/55'>Safety section</dt>
-                <dd className='text-right font-medium text-white'>
-                  {safetyNotes ? 'Included' : 'Not yet'}
-                </dd>
-              </div>
-            </dl>
-          </section>
+          <KeyValueSection
+            title='At a glance'
+            items={[
+              { label: 'Type', value: 'Herb' },
+              { label: 'Slug', value: herb.slug },
+              { label: 'Mechanisms listed', value: String(mechanisms.length) },
+              {
+                label: 'Contraindications',
+                value: contraindications.length ? String(contraindications.length) : 'Not listed',
+              },
+              {
+                label: 'Interactions',
+                value: interactions.length ? String(interactions.length) : 'Not listed',
+              },
+              {
+                label: 'Safety section',
+                value: safetyNotes ? 'Included' : 'Not yet',
+              },
+            ]}
+          />
 
           <section className='ds-card'>
             <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
