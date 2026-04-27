@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import posts from '@/data/blog/posts.json'
+import RelatedLinksSection from '@/components/related-links-section'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -43,6 +44,13 @@ type RenderSection = {
   bullets: string[]
 }
 
+type RelatedLinkItem = {
+  href: string
+  title: string
+  description: string
+  eyebrow?: string
+}
+
 const allPosts = posts as BlogPost[]
 
 const formatDate = (value: string | undefined): string => {
@@ -58,6 +66,12 @@ const formatDate = (value: string | undefined): string => {
   }).format(date)
 }
 
+const getPostSortValue = (post: BlogPost): number => {
+  if (!post.date) return 0
+  const value = new Date(post.date).getTime()
+  return Number.isNaN(value) ? 0 : value
+}
+
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value)
 
@@ -68,9 +82,7 @@ const toText = (value: unknown): string => {
 
 const toTextArray = (value: unknown): string[] => {
   if (Array.isArray(value)) {
-    return value
-      .map(item => toText(item))
-      .filter(Boolean)
+    return value.map(item => toText(item)).filter(Boolean)
   }
 
   const singleValue = toText(value)
@@ -82,6 +94,16 @@ const splitParagraphs = (value: string): string[] =>
     .split(/\n\s*\n/)
     .map(part => part.trim())
     .filter(Boolean)
+
+const tokenize = (...values: Array<string | null | undefined>): string[] =>
+  [...new Set(
+    values
+      .join(' ')
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .map(token => token.trim())
+      .filter(token => token.length >= 3),
+  )]
 
 const buildSectionsFromMarkdownishText = (value: string): RenderSection[] => {
   const sections: RenderSection[] = []
@@ -150,11 +172,7 @@ const buildSectionsFromStructuredData = (value: unknown): RenderSection[] => {
 
       if (paragraphs.length === 0 && bullets.length === 0) return null
 
-      return {
-        heading,
-        paragraphs,
-        bullets,
-      }
+      return { heading, paragraphs, bullets }
     })
     .filter((section): section is RenderSection => Boolean(section))
 }
@@ -202,6 +220,77 @@ const getSections = (post: BlogPost): RenderSection[] => {
   return buildFallbackSections(post)
 }
 
+const getRelatedPosts = (post: BlogPost): RelatedLinkItem[] => {
+  const tokens = tokenize(post.title, post.excerpt)
+
+  const scored = allPosts
+    .filter(candidate => candidate.slug !== post.slug)
+    .map(candidate => {
+      const title = candidate.title.toLowerCase()
+      const excerpt = (candidate.excerpt ?? '').toLowerCase()
+      const slug = candidate.slug.toLowerCase()
+
+      let score = 0
+
+      for (const token of tokens) {
+        if (title.includes(token)) score += 5
+        if (excerpt.includes(token)) score += 3
+        if (slug.includes(token)) score += 1
+      }
+
+      return { candidate, score }
+    })
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        getPostSortValue(b.candidate) - getPostSortValue(a.candidate),
+    )
+
+  const matching = scored
+    .filter(entry => entry.score > 0)
+    .slice(0, 3)
+    .map(({ candidate }) => ({
+      href: `/blog/${candidate.slug}`,
+      title: candidate.title,
+      description: candidate.excerpt?.trim() || 'Related blog post.',
+      eyebrow: 'Blog post',
+    }))
+
+  if (matching.length > 0) return matching
+
+  return [...allPosts]
+    .filter(candidate => candidate.slug !== post.slug)
+    .sort((a, b) => getPostSortValue(b) - getPostSortValue(a))
+    .slice(0, 3)
+    .map(candidate => ({
+      href: `/blog/${candidate.slug}`,
+      title: candidate.title,
+      description: candidate.excerpt?.trim() || 'Recent blog post.',
+      eyebrow: 'Recent post',
+    }))
+}
+
+const getExploreLinks = (): RelatedLinkItem[] => [
+  {
+    href: '/herbs',
+    title: 'Browse herbs',
+    description: 'Explore plant profiles, summaries, and quick reference notes.',
+    eyebrow: 'Library',
+  },
+  {
+    href: '/compounds',
+    title: 'Browse compounds',
+    description: 'See compound classes, mechanisms, and concise descriptions.',
+    eyebrow: 'Library',
+  },
+  {
+    href: '/blog',
+    title: 'Read more posts',
+    description: 'Go back to the blog archive and open more articles.',
+    eyebrow: 'Writing',
+  },
+]
+
 export async function generateStaticParams() {
   return allPosts.map(post => ({ slug: post.slug }))
 }
@@ -230,6 +319,8 @@ export default async function BlogPostPage({ params }: Params) {
   const htmlContent = getHtmlContent(post)
   const sections = getSections(post)
   const leadText = getLeadText(post)
+  const relatedPosts = getRelatedPosts(post)
+  const exploreLinks = getExploreLinks()
 
   return (
     <div className='space-y-8'>
@@ -292,9 +383,9 @@ export default async function BlogPostPage({ params }: Params) {
                     {section.heading}
                   </h2>
 
-                  {section.paragraphs.map(paragraph => (
+                  {section.paragraphs.map((paragraph, index) => (
                     <p
-                      key={paragraph}
+                      key={`${section.heading}-${index}`}
                       className='mt-4 whitespace-pre-line text-sm leading-7 text-white/75 sm:text-base'
                     >
                       {paragraph}
@@ -362,6 +453,18 @@ export default async function BlogPostPage({ params }: Params) {
           </section>
         </aside>
       </article>
+
+      <RelatedLinksSection
+        eyebrow='Keep reading'
+        title='Related posts'
+        items={relatedPosts}
+      />
+
+      <RelatedLinksSection
+        eyebrow='Keep exploring'
+        title='More to explore'
+        items={exploreLinks}
+      />
     </div>
   )
 }
