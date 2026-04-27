@@ -185,7 +185,7 @@
     "data:build:workbook": "node scripts/data/build-runtime-from-workbook.mjs --out public/data",
     "data:parity:report": "node scripts/data/report-migration-parity.mjs",
     "typecheck": "tsc --noEmit",
-    "check": "npm run lint && npm run typecheck && npm run build",
+    "check": "npm run lint && npm run typecheck && npm run data:build && npm run data:validate && npm run build && npm run verify:build && npm run verify:deploy-readiness",
     "data:validate:next": "node scripts/validate-runtime-data.mjs",
     "data:coverage:next": "node scripts/data/report-workbook-parser-coverage.mjs",
     "data:report:quality": "node scripts/data/report-workbook-parser-coverage.mjs --data-dir public/data",
