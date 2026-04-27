@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-body: 'Inter', 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --bg: #0a0c0f;
+  --surface-1: #12161c;
+  --surface-2: #181d24;
+  --surface-3: #202631;
+  --text-primary: #f3f5f7;
+  --text-secondary: #d8dde5;
+  --text-muted: #a8b1bf;
+  --border-subtle: rgb(175 189 209 / 18%);
+  --border-default: rgb(175 189 209 / 28%);
+  --accent-primary: #77a7ff;
+  --accent: var(--accent-primary);
+}
+
+html, body { background: var(--bg); color: var(--text-primary); font-family: var(--font-body); }
+
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8; }
+  .ds-card { @apply rounded-xl border p-4; border-color: var(--border-default); background: var(--surface-2); }
+}

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/generate-site-counts.mjs && node scripts/generate-homepage-data.mjs && node scripts/generate-stats.mjs && vite",
+    "dev": "next dev",
     "update-data": "node scripts/update-data.js",
     "dev:data": "node scripts/convert-herbs.mjs",
     "data:generate": "npm run prebuild:data",
@@ -18,15 +18,15 @@
     "check:images": "node tools/check-images.mjs",
     "rebuild:data": "npm run data:refresh",
     "prebuild": "npm run data:build && npm run clean:source-refs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-site-counts.mjs && node scripts/generate-homepage-data.mjs && node scripts/generate-homepage-featured.mjs && node scripts/generate-rss.mjs && npm run verify:affiliate-products",
-    "build:compile": "vite build",
-    "build": "npm run build:compile",
-    "postbuild": "node scripts/prerender-static.mjs && node scripts/generate-sitemap.mjs dist && node scripts/ensure-dist-redirects.mjs && npm run verify:enrichment-editorial && node scripts/validate-structured-data-smoke.mjs && node scripts/generate-version-json.mjs",
+    "build:compile": "next build",
+    "build": "npm run prebuild && next build",
+    "postbuild": "npm run verify:enrichment-editorial",
     "verify:build": "npm run verify:enrichment-editorial && npm run verify:enrichment-discovery && npm run verify:structured-data && npm run verify:redirects",
     "sitemap": "node scripts/generate-sitemap.mjs dist",
     "build:blog": "node scripts/build-blog.mjs",
     "build:graph": "node scripts/build-graph.mjs",
     "build:compounds": "tsx scripts/extract-compounds.ts",
-    "preview": "vite preview",
+    "preview": "next start",
     "lint": "eslint . --max-warnings=0",
     "verify:redirects": "node scripts/verify-redirects.mjs",
     "format": "prettier --write .",
@@ -193,7 +193,8 @@
     "data:check:workbook-source": "node scripts/check-workbook-source.mjs",
     "data:inspect": "node scripts/inspect-workbook.mjs",
     "data:check:generated": "node scripts/check-generated-output.mjs",
-    "data:report:quality:next": "node scripts/report-data-quality.mjs"
+    "data:report:quality:next": "node scripts/report-data-quality.mjs",
+    "start": "next start"
   },
   "engines": {
     "node": ">=20 <21"
@@ -237,7 +238,8 @@
     "three": "^0.180.0",
     "tsparticles": "^3.8.1",
     "xlsx": "^0.18.5",
-    "zustand": "^5.0.8"
+    "zustand": "^5.0.8",
+    "next": "^15.3.2"
   },
   "devDependencies": {
     "@fontsource/inter": "^5.1.0",
@@ -247,7 +249,6 @@
     "@types/react-dom": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
     "@typescript-eslint/parser": "^8.10.0",
-    "@vitejs/plugin-react": "^4.3.0",
     "chokidar": "^4.0.3",
     "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.0.0",
@@ -268,8 +269,6 @@
     "ts-node": "^10.9.2",
     "tsx": "^4.19.2",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.57.2",
-    "vite": "^6.0.0",
-    "vite-plugin-prerender": "^1.0.8"
+    "typescript-eslint": "^8.57.2"
   }
 }
