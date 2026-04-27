@@ -196,9 +196,10 @@
     "data:report:quality:next": "node scripts/report-data-quality.mjs",
     "start": "next start"
   },
-  "engines": {
-    "node": ">=20 <21"
-  },
+"id": "nodefix01",
+"engines": {
+  "node": ">=20 <=22"
+},
   "lint-staged": {
     "*.{ts,tsx}": "eslint --max-warnings=0",
     "*.{js,mjs,cjs}": "eslint --max-warnings=0"
