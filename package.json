@@ -22,7 +22,7 @@
     "build": "npm run prebuild && next build",
     "postbuild": "npm run verify:enrichment-editorial",
     "verify:build": "npm run verify:enrichment-editorial && npm run verify:enrichment-discovery && npm run verify:structured-data && npm run verify:redirects",
-    "sitemap": "node scripts/generate-sitemap.mjs dist",
+    "sitemap": "node scripts/generate-sitemap.mjs public",
     "build:blog": "node scripts/build-blog.mjs",
     "build:graph": "node scripts/build-graph.mjs",
     "build:compounds": "tsx scripts/extract-compounds.ts",

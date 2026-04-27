@@ -314,11 +314,11 @@ function main() {
     errors.push('public/data/compounds-detail is missing.')
   }
 
-  const sitemap = countSitemapLocs('dist/sitemap.xml')
+  const sitemap = countSitemapLocs('public/sitemap.xml')
   if (!sitemap.exists) {
-    errors.push('dist/sitemap.xml is missing (build/postbuild output required before deploy).')
+    errors.push('public/sitemap.xml is missing (run `npm run sitemap` before deploy).')
   } else if (sitemap.count <= MIN_SITEMAP_LOC_ENTRIES) {
-    errors.push(`dist/sitemap.xml must contain more than ${MIN_SITEMAP_LOC_ENTRIES} <loc> entries (found ${sitemap.count}).`)
+    errors.push(`public/sitemap.xml must contain more than ${MIN_SITEMAP_LOC_ENTRIES} <loc> entries (found ${sitemap.count}).`)
   }
 
   validatePublicationManifest(readJson('public/data/publication-manifest.json'), warnings)

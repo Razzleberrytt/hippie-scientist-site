@@ -49,7 +49,7 @@ jobs:
           if [ -f "data-sources/herb_monograph_master.xlsx" ]; then
             node scripts/export-workbook-to-json.mjs
             node scripts/build-publication-manifest-from-workbook.mjs
-            node scripts/generate-sitemap.mjs
+            node scripts/generate-sitemap.mjs public
           else
             echo "::warning::data-sources/herb_monograph_master.xlsx not found. Skipping workbook pipeline."
           fi
@@ -57,8 +57,14 @@ jobs:
       - name: Build production site (includes prebuild + postbuild)
         run: npm run build
 
+      - name: Generate sitemap + robots for Next public assets
+        run: npm run sitemap
+
       - name: Verify SPA redirects
         run: npm run verify:redirects
+
+      - name: Build Cloudflare Pages output from Next
+        run: npx @cloudflare/next-on-pages@1
 
       - name: Verify critical generated assets
         run: |
@@ -66,10 +72,11 @@ jobs:
             "public/data/herbs.json"
             "public/data/compounds.json"
             "public/data/indexable-herbs.json"
-            "dist/index.html"
-            "dist/sitemap.xml"
-            "dist/robots.txt"
-            "dist/_redirects"
+            "public/sitemap.xml"
+            "public/robots.txt"
+            ".vercel/output/config.json"
+            ".vercel/output/static"
+            ".vercel/output/functions"
           )
 
           missing=0
@@ -97,4 +104,4 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PAGES_PROJECT: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
-        run: npx wrangler@4 pages deploy dist --project-name "$CLOUDFLARE_PAGES_PROJECT" --branch "$GITHUB_REF_NAME"
+        run: npx wrangler@4 pages deploy .vercel/output/static --project-name "$CLOUDFLARE_PAGES_PROJECT" --branch "$GITHUB_REF_NAME"
