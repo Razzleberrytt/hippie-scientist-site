@@ -1,10 +1,522 @@
 [
   {
-    "slug": "coming-soon",
-    "title": "Content Coming Soon",
-    "excerpt": "Blog content is being prepared.",
-    "date": "2026-01-01",
-    "readingTime": "1 min",
-    "content": "This section will be populated with research-backed articles."
+    "slug": "2026-03-21-extraction-101-skullcap",
+    "title": "Extraction 101 — Skullcap",
+    "excerpt": "A practical primer on preparing skullcap with clear safety framing and evidence limits.",
+    "date": "2026-03-21",
+    "readingTime": "1 min read",
+    "content": "# Extraction 101 — Skullcap\n\nA practical extraction note for _Scutellaria lateriflora_ (American skullcap), with emphasis on preparation choices and conservative use.\n\n## Summary\n- Skullcap is traditionally prepared as tea, tincture, or low-heat infusion.\n- Reported effects are generally calming, though intensity varies by dose and plant quality.\n- Evidence is mixed: much of the data is traditional or early-stage.\n\n## Research Digest\nSkullcap contains flavonoids such as baicalin and wogonin analogues depending on species and processing. Mechanistic work suggests possible GABA-related and anti-inflammatory pathways, but findings vary by extract type and model.\n\n## Field Notes\n- Start with low concentrations and single-herb preparations before blending.\n- Track preparation method (solvent, ratio, time) because outcomes can differ.\n- Avoid assuming one species profile applies to all skullcap products.\n\n## Traditional Context\nSkullcap has a long history in Western herbal practice for nervous tension and rest support. Traditional use does not guarantee equivalent outcomes across modern extracts.\n\n## Safety Notes\n- **Contraindications:** Use caution with sedatives or alcohol.\n- **Reported side effects:** Possible drowsiness or lightheadedness in sensitive users.\n- **Risk level:** Generally mild to moderate when used conservatively, but product quality and dose matter."
+  },
+  {
+    "slug": "2026-03-20-pharmacology-basics-rhodiola",
+    "title": "Pharmacology Basics — Rhodiola",
+    "excerpt": "Pharmacology overview of Rhodiola with attention to active compounds like key active compounds, mechanisms of action, and safe practice.",
+    "date": "2026-03-20",
+    "readingTime": "1 min read",
+    "content": "# Pharmacology Basics — Rhodiola\n\n_Daily notes on Passionflower with attention to active compounds like Beta-caryophyllene and safe practice._\n\n## Highlights\n- Context and traditional notes\n- Quick pharmacology snapshot\n- Practical prep and safety pointers\n\n## Further Reading\n- Placeholder reference A\n- Placeholder reference B"
+  },
+  {
+    "slug": "2026-03-19-pharmacology-basics-passionflower",
+    "title": "Pharmacology Basics — Passionflower",
+    "excerpt": "Pharmacology overview of Passionflower with attention to active compounds like key active compounds, mechanisms of action, and safe practice.",
+    "date": "2026-03-19",
+    "readingTime": "1 min read",
+    "content": "# Pharmacology Basics — Passionflower\n\n_Daily notes on Valerian with attention to active compounds like Hordenine and safe practice._\n\n## Highlights\n- Context and traditional notes\n- Quick pharmacology snapshot\n- Practical prep and safety pointers\n\n## Further Reading\n- Placeholder reference A\n- Placeholder reference B"
+  },
+  {
+    "slug": "2026-03-18-research-digest-passionflower",
+    "title": "Research Digest — Passionflower",
+    "excerpt": "A concise, practical take on passionflower: what it helps with, what people get wrong, and when to skip it.",
+    "date": "2026-03-18",
+    "readingTime": "1 min read",
+    "content": "# Research Digest — Passionflower\n\nCan’t sleep because your body is tired but your mind is still racing? Passionflower is often a better fit for that pattern than stronger “knock-you-out” options.\n\n## What people misunderstand\n- **It’s not a hard sedative.** Passionflower is usually more helpful for mental overactivity and tension than severe insomnia on its own.\n- **Higher dose isn’t automatically better.** Too much can mean next-day grogginess without better sleep quality.\n- **It won’t fix bad inputs.** Late caffeine, high evening screen load, and chronic stress can overpower any herb.\n\n## Practical use guide\n- **Timing:** Take 30–60 minutes before bed for “wired but tired” evenings.\n- **Format:** Tea works well for a gentle start; tincture is easier for consistent dosing.\n- **Daytime use:** Keep doses low if using for stress support so focus stays intact.\n- **Blending:** Use as a support herb, not the entire formula, when building a calming blend.\n\n## Caution: when to skip it\n- Skip before driving, operating machinery, or tasks needing fast reaction time.\n- Avoid combining with alcohol or multiple sedating products unless advised by a clinician.\n- Check with a qualified professional first if pregnant, breastfeeding, or using medications that affect mood, sleep, or sedation.\n\nUsed well, passionflower is a targeted tool for nervous-system downshifting—not a cure-all.\n\nWant a beginner blend using this? → Build your blend"
+  },
+  {
+    "slug": "2026-03-17-traditional-use-ashwagandha",
+    "title": "Traditional Use — Ashwagandha",
+    "excerpt": "Traditional and ethnobotanical use of ashwagandha, including cultural context, core constituents, and modern applications.",
+    "date": "2026-03-17",
+    "readingTime": "1 min read",
+    "content": "# Traditional Use — Ashwagandha\n\n_Daily notes on Ashwagandha with attention to withanolides, traditional context, and safe practice._\n\n## Highlights\n- Context and traditional notes\n- Quick pharmacology snapshot\n- Practical prep and safety pointers\n\n## Further Reading\n- Placeholder reference A\n- Placeholder reference B"
+  },
+  {
+    "slug": "2025-10-14-field-notes-damiana-tuesday-notes",
+    "title": "Field Notes — Damiana (Tuesday Notes)",
+    "excerpt": "Field notes on Damiana covering practical use, active compounds like Beta-caryophyllene, and real-world observations.",
+    "date": "2025-10-14",
+    "readingTime": "1 min read",
+    "content": "# Field Notes — Damiana (Tuesday Notes)\n\n_Field notes on Damiana covering practical use, active compounds like Beta-caryophyllene, and real-world observations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Valerian** with **Harmine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Research, Culture.*"
+  },
+  {
+    "slug": "2025-10-13-formulation-tips-valerian-monday-notes",
+    "title": "Formulation Tips — Valerian (Monday Notes)",
+    "excerpt": "Formulation tips for Valerian with guidance on preparation, active compounds like Mesembrine, and practical blend considerations.",
+    "date": "2025-10-13",
+    "readingTime": "1 min read",
+    "content": "# Formulation Tips — Valerian (Monday Notes)\n\n_Formulation tips for Valerian with guidance on preparation, active compounds like Mesembrine, and practical blend considerations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Blue Lotus** with **Eugenol** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Compounds.*"
+  },
+  {
+    "slug": "2025-10-12-psychoactive-botany-skullcap-sunday-notes",
+    "title": "Psychoactive Botany — Skullcap (Sunday Notes)",
+    "excerpt": "Psychoactive botany overview of Skullcap, covering active compounds like Mesembrine, effects profile, and safe use.",
+    "date": "2025-10-12",
+    "readingTime": "1 min read",
+    "content": "# Psychoactive Botany — Skullcap (Sunday Notes)\n\n_Psychoactive botany overview of Skullcap, covering active compounds like Mesembrine, effects profile, and safe use._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Rhodiola** with **Choline** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Herbs.*"
+  },
+  {
+    "slug": "2025-10-11-blend-craft-reishi-saturday-notes",
+    "title": "Blend Craft — Reishi (Saturday Notes)",
+    "excerpt": "Blend craft notes for Reishi, exploring synergistic combinations, active compounds like Mesembrine, and usage recommendations.",
+    "date": "2025-10-11",
+    "readingTime": "1 min read",
+    "content": "# Blend Craft — Reishi (Saturday Notes)\n\n_Blend craft notes for Reishi, exploring synergistic combinations, active compounds like Mesembrine, and usage recommendations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Rhodiola** with **L-Theanine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Research, Herbs.*"
+  },
+  {
+    "slug": "2025-10-10-bioassays-damiana-friday-notes",
+    "title": "Bioassays — Damiana (Friday Notes)",
+    "excerpt": "Bioassay log for Damiana documenting subjective effects, active compounds like Myriscin, and safe experimentation notes.",
+    "date": "2025-10-10",
+    "readingTime": "1 min read",
+    "content": "# Bioassays — Damiana (Friday Notes)\n\n_Bioassay log for Damiana documenting subjective effects, active compounds like Myriscin, and safe experimentation notes._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Lion's Mane** with **Mesembrine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Culture.*"
+  },
+  {
+    "slug": "2025-10-09-bioassays-rhodiola-thursday-notes",
+    "title": "Bioassays — Rhodiola (Thursday Notes)",
+    "excerpt": "Bioassay log for Rhodiola documenting subjective effects, active compounds like Apigenin, and safe experimentation notes.",
+    "date": "2025-10-09",
+    "readingTime": "1 min read",
+    "content": "# Bioassays — Rhodiola (Thursday Notes)\n\n_Bioassay log for Rhodiola documenting subjective effects, active compounds like Apigenin, and safe experimentation notes._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Cordyceps** with **Myriscin** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Compounds.*"
+  },
+  {
+    "slug": "2025-10-08-safety-set-setting-cordyceps-wednesday-notes",
+    "title": "Safety & Set/Setting — Cordyceps (Wednesday Notes)",
+    "excerpt": "Safety and set/setting considerations for Cordyceps, including contraindications, active compounds like Hordenine, and responsible use practices.",
+    "date": "2025-10-08",
+    "readingTime": "1 min read",
+    "content": "# Safety & Set/Setting — Cordyceps (Wednesday Notes)\n\n_Safety and set/setting considerations for Cordyceps, including contraindications, active compounds like Hordenine, and responsible use practices._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Rhodiola** with **Thujone** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Blend Ideas, Compounds.*"
+  },
+  {
+    "slug": "2025-10-07-cultivar-notes-amanita-muscaria-tuesday-notes",
+    "title": "Cultivar Notes — Amanita muscaria (Tuesday Notes)",
+    "excerpt": "Cultivar and sourcing notes for Amanita muscaria, with focus on active compounds like Beta-caryophyllene and quality considerations.",
+    "date": "2025-10-07",
+    "readingTime": "1 min read",
+    "content": "# Cultivar Notes — Amanita muscaria (Tuesday Notes)\n\n_Cultivar and sourcing notes for Amanita muscaria, with focus on active compounds like Beta-caryophyllene and quality considerations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Mugwort** with **Mesembrine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Herbs.*"
+  },
+  {
+    "slug": "2025-10-06-formulation-tips-lion-s-mane-monday-notes",
+    "title": "Formulation Tips — Lion's Mane (Monday Notes)",
+    "excerpt": "Formulation tips for Lion's Mane with guidance on preparation, active compounds like Myriscin, and practical blend considerations.",
+    "date": "2025-10-06",
+    "readingTime": "1 min read",
+    "content": "# Formulation Tips — Lion's Mane (Monday Notes)\n\n_Formulation tips for Lion's Mane with guidance on preparation, active compounds like Myriscin, and practical blend considerations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Amanita muscaria** with **Beta-caryophyllene** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Research, Herbs.*"
+  },
+  {
+    "slug": "2025-10-05-microdosing-log-kava-sunday-notes",
+    "title": "Microdosing Log — Kava (Sunday Notes)",
+    "excerpt": "Daily notes on Kava with a focus on practical use, active compounds like Thujone, and safe experimentation.",
+    "date": "2025-10-05",
+    "readingTime": "1 min read",
+    "content": "# Microdosing Log — Kava (Sunday Notes)\n\n_Daily notes on Kava with a focus on practical use, active compounds like Thujone, and safe experimentation._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Calea zacatechichi** with **L-Theanine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Herbs.*"
+  },
+  {
+    "slug": "2025-10-04-blend-craft-damiana-saturday-notes",
+    "title": "Blend Craft — Damiana (Saturday Notes)",
+    "excerpt": "Blend craft notes for Damiana, exploring synergistic combinations, active compounds like Myriscin, and usage recommendations.",
+    "date": "2025-10-04",
+    "readingTime": "1 min read",
+    "content": "# Blend Craft — Damiana (Saturday Notes)\n\n_Blend craft notes for Damiana, exploring synergistic combinations, active compounds like Myriscin, and usage recommendations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Blue Lotus** with **Choline** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Compounds.*"
+  },
+  {
+    "slug": "2025-10-03-safety-set-setting-calea-zacatechichi-friday-notes",
+    "title": "Safety & Set/Setting — Calea zacatechichi (Friday Notes)",
+    "excerpt": "Safety and set/setting considerations for Calea zacatechichi, including contraindications, active compounds like Hordenine, and responsible use practices.",
+    "date": "2025-10-03",
+    "readingTime": "1 min read",
+    "content": "# Safety & Set/Setting — Calea zacatechichi (Friday Notes)\n\n_Safety and set/setting considerations for Calea zacatechichi, including contraindications, active compounds like Hordenine, and responsible use practices._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Cordyceps** with **Eugenol** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Compounds.*"
+  },
+  {
+    "slug": "2025-10-02-safety-set-setting-valerian-thursday-notes",
+    "title": "Safety & Set/Setting — Valerian (Thursday Notes)",
+    "excerpt": "Safety and set/setting considerations for Valerian, including contraindications, active compounds like Apigenin, and responsible use practices.",
+    "date": "2025-10-02",
+    "readingTime": "1 min read",
+    "content": "# Safety & Set/Setting — Valerian (Thursday Notes)\n\n_Safety and set/setting considerations for Valerian, including contraindications, active compounds like Apigenin, and responsible use practices._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Kava** with **L-Theanine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Research, Herbs.*"
+  },
+  {
+    "slug": "2025-10-01-field-notes-ashwagandha-wednesday-notes",
+    "title": "Field Notes — Ashwagandha (Wednesday Notes)",
+    "excerpt": "Field notes on Ashwagandha covering practical use, active compounds like Mesembrine, and real-world observations.",
+    "date": "2025-10-01",
+    "readingTime": "1 min read",
+    "content": "# Field Notes — Ashwagandha (Wednesday Notes)\n\n_Field notes on Ashwagandha covering practical use, active compounds like Mesembrine, and real-world observations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Valerian** with **Mesembrine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Culture.*"
+  },
+  {
+    "slug": "2025-09-30-cultivar-notes-amanita-muscaria-tuesday-notes",
+    "title": "Cultivar Notes — Amanita muscaria (Tuesday Notes)",
+    "excerpt": "Cultivar and sourcing notes for Amanita muscaria, with focus on active compounds like Beta-caryophyllene and quality considerations.",
+    "date": "2025-09-30",
+    "readingTime": "1 min read",
+    "content": "# Cultivar Notes — Amanita muscaria (Tuesday Notes)\n\n_Cultivar and sourcing notes for Amanita muscaria, with focus on active compounds like Beta-caryophyllene and quality considerations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Calea zacatechichi** with **L-Theanine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Culture.*"
+  },
+  {
+    "slug": "2025-09-29-bioassays-mugwort-monday-notes",
+    "title": "Bioassays — Mugwort (Monday Notes)",
+    "excerpt": "Bioassay log for Mugwort documenting subjective effects, active compounds like Myriscin, and safe experimentation notes.",
+    "date": "2025-09-29",
+    "readingTime": "1 min read",
+    "content": "# Bioassays — Mugwort (Monday Notes)\n\n_Bioassay log for Mugwort documenting subjective effects, active compounds like Myriscin, and safe experimentation notes._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Gotu Kola** with **Hordenine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Herbs.*"
+  },
+  {
+    "slug": "2025-09-28-field-notes-valerian-sunday-notes",
+    "title": "Field Notes — Valerian (Sunday Notes)",
+    "excerpt": "Field notes on Valerian covering practical use, active compounds like Harmine, and real-world observations.",
+    "date": "2025-09-28",
+    "readingTime": "1 min read",
+    "content": "# Field Notes — Valerian (Sunday Notes)\n\n_Field notes on Valerian covering practical use, active compounds like Harmine, and real-world observations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Lion's Mane** with **Myriscin** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Herbs.*"
+  },
+  {
+    "slug": "2025-09-27-formulation-tips-cordyceps-saturday-notes",
+    "title": "Formulation Tips — Cordyceps (Saturday Notes)",
+    "excerpt": "Formulation tips for Cordyceps with guidance on preparation, active compounds like Thujone, and practical blend considerations.",
+    "date": "2025-09-27",
+    "readingTime": "1 min read",
+    "content": "# Formulation Tips — Cordyceps (Saturday Notes)\n\n_Formulation tips for Cordyceps with guidance on preparation, active compounds like Thujone, and practical blend considerations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Amanita muscaria** with **Apigenin** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Culture.*"
+  },
+  {
+    "slug": "2025-09-26-microdosing-log-skullcap-friday-notes",
+    "title": "Microdosing Log — Skullcap (Friday Notes)",
+    "excerpt": "Microdosing log for Skullcap with observations on low-dose effects, active compounds like Beta-caryophyllene, and protocol guidance.",
+    "date": "2025-09-26",
+    "readingTime": "1 min read",
+    "content": "# Microdosing Log — Skullcap (Friday Notes)\n\n_Microdosing log for Skullcap with observations on low-dose effects, active compounds like Beta-caryophyllene, and protocol guidance._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Amanita muscaria** with **Thujone** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Herbs.*"
+  },
+  {
+    "slug": "2025-09-25-traditional-use-mugwort-thursday-notes",
+    "title": "Traditional Use — Mugwort (Thursday Notes)",
+    "excerpt": "Traditional and ethnobotanical use of Mugwort, including cultural context, active compounds like L-Theanine, and modern applications.",
+    "date": "2025-09-25",
+    "readingTime": "1 min read",
+    "content": "# Traditional Use — Mugwort (Thursday Notes)\n\n_Traditional and ethnobotanical use of Mugwort, including cultural context, active compounds like L-Theanine, and modern applications._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Gotu Kola** with **Myriscin** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Blend Ideas, Compounds.*"
+  },
+  {
+    "slug": "2025-09-24-traditional-use-rhodiola-wednesday-notes",
+    "title": "Traditional Use — Rhodiola (Wednesday Notes)",
+    "excerpt": "Traditional and ethnobotanical use of Rhodiola, including cultural context, active compounds like Myriscin, and modern applications.",
+    "date": "2025-09-24",
+    "readingTime": "1 min read",
+    "content": "# Traditional Use — Rhodiola (Wednesday Notes)\n\n_Traditional and ethnobotanical use of Rhodiola, including cultural context, active compounds like Myriscin, and modern applications._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Damiana** with **Myriscin** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Blend Ideas, Culture.*"
+  },
+  {
+    "slug": "2025-09-23-extraction-101-kava-tuesday-notes",
+    "title": "Extraction 101 — Kava (Tuesday Notes)",
+    "excerpt": "Daily notes on Kava with a focus on practical use, active compounds like Thujone, and safe experimentation.",
+    "date": "2025-09-23",
+    "readingTime": "1 min read",
+    "content": "# Extraction 101 — Kava (Tuesday Notes)\n\n_Daily notes on Kava with a focus on practical use, active compounds like Thujone, and safe experimentation._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Skullcap** with **Beta-caryophyllene** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Herbs.*"
+  },
+  {
+    "slug": "2025-09-22-field-notes-lion-s-mane-monday-notes",
+    "title": "Field Notes — Lion's Mane (Monday Notes)",
+    "excerpt": "Field notes on Lion's Mane covering practical use, active compounds like Myriscin, and real-world observations.",
+    "date": "2025-09-22",
+    "readingTime": "1 min read",
+    "content": "# Field Notes — Lion's Mane (Monday Notes)\n\n_Field notes on Lion's Mane covering practical use, active compounds like Myriscin, and real-world observations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Ashwagandha** with **Choline** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Culture.*"
+  },
+  {
+    "slug": "2025-09-21-research-digest-calea-zacatechichi-sunday-notes",
+    "title": "Research Digest — Calea zacatechichi (Sunday Notes)",
+    "excerpt": "Research digest for Calea zacatechichi covering recent findings, active compounds like Apigenin, and evidence-based use guidance.",
+    "date": "2025-09-21",
+    "readingTime": "1 min read",
+    "content": "# Research Digest — Calea zacatechichi (Sunday Notes)\n\n_Research digest for Calea zacatechichi covering recent findings, active compounds like Apigenin, and evidence-based use guidance._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Valerian** with **Hordenine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Research, Compounds.*"
+  },
+  {
+    "slug": "2025-09-20-microdosing-log-cordyceps-saturday-notes",
+    "title": "Microdosing Log — Cordyceps (Saturday Notes)",
+    "excerpt": "Microdosing log for Cordyceps with observations on low-dose effects, active compounds like L-Theanine, and protocol guidance.",
+    "date": "2025-09-20",
+    "readingTime": "1 min read",
+    "content": "# Microdosing Log — Cordyceps (Saturday Notes)\n\n_Microdosing log for Cordyceps with observations on low-dose effects, active compounds like L-Theanine, and protocol guidance._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Rhodiola** with **Harmine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Culture.*"
+  },
+  {
+    "slug": "2025-09-19-blend-craft-calea-zacatechichi-friday-notes",
+    "title": "Blend Craft — Calea zacatechichi (Friday Notes)",
+    "excerpt": "Blend craft notes for Calea zacatechichi, exploring synergistic combinations, active compounds like Beta-caryophyllene, and usage recommendations.",
+    "date": "2025-09-19",
+    "readingTime": "1 min read",
+    "content": "# Blend Craft — Calea zacatechichi (Friday Notes)\n\n_Blend craft notes for Calea zacatechichi, exploring synergistic combinations, active compounds like Beta-caryophyllene, and usage recommendations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Damiana** with **Harmine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Culture.*"
+  },
+  {
+    "slug": "2025-09-18-psychoactive-botany-ashwagandha-thursday-notes",
+    "title": "Psychoactive Botany — Ashwagandha (Thursday Notes)",
+    "excerpt": "Psychoactive botany overview of Ashwagandha, covering active compounds like Choline, effects profile, and safe use.",
+    "date": "2025-09-18",
+    "readingTime": "1 min read",
+    "content": "# Psychoactive Botany — Ashwagandha (Thursday Notes)\n\n_Psychoactive botany overview of Ashwagandha, covering active compounds like Choline, effects profile, and safe use._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Blue Lotus** with **Hordenine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Blend Ideas, Herbs.*"
+  },
+  {
+    "slug": "2025-09-17-psychoactive-botany-amanita-muscaria-wednesday-notes",
+    "title": "Psychoactive Botany — Amanita muscaria (Wednesday Notes)",
+    "excerpt": "Psychoactive botany overview of Amanita muscaria, covering active compounds like Eugenol, effects profile, and safe use.",
+    "date": "2025-09-17",
+    "readingTime": "1 min read",
+    "content": "# Psychoactive Botany — Amanita muscaria (Wednesday Notes)\n\n_Psychoactive botany overview of Amanita muscaria, covering active compounds like Eugenol, effects profile, and safe use._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Cordyceps** with **Thujone** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Research, Compounds.*"
+  },
+  {
+    "slug": "2025-09-16-cultivar-notes-damiana-tuesday-notes",
+    "title": "Cultivar Notes — Damiana (Tuesday Notes)",
+    "excerpt": "Cultivar and sourcing notes for Damiana, with focus on active compounds like Thujone and quality considerations.",
+    "date": "2025-09-16",
+    "readingTime": "1 min read",
+    "content": "# Cultivar Notes — Damiana (Tuesday Notes)\n\n_Cultivar and sourcing notes for Damiana, with focus on active compounds like Thujone and quality considerations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Lion's Mane** with **Choline** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Compounds.*"
+  },
+  {
+    "slug": "2025-09-15-traditional-use-gotu-kola-monday-notes",
+    "title": "Traditional Use — Gotu Kola (Monday Notes)",
+    "excerpt": "Traditional and ethnobotanical use of Gotu Kola, including cultural context, active compounds like Choline, and modern applications.",
+    "date": "2025-09-15",
+    "readingTime": "1 min read",
+    "content": "# Traditional Use — Gotu Kola (Monday Notes)\n\n_Traditional and ethnobotanical use of Gotu Kola, including cultural context, active compounds like Choline, and modern applications._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Rhodiola** with **L-Theanine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Compounds.*"
+  },
+  {
+    "slug": "2025-09-14-bioassays-ashwagandha-sunday-notes",
+    "title": "Bioassays — Ashwagandha (Sunday Notes)",
+    "excerpt": "Bioassay log for Ashwagandha documenting subjective effects, active compounds like Choline, and safe experimentation notes.",
+    "date": "2025-09-14",
+    "readingTime": "1 min read",
+    "content": "# Bioassays — Ashwagandha (Sunday Notes)\n\n_Bioassay log for Ashwagandha documenting subjective effects, active compounds like Choline, and safe experimentation notes._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Valerian** with **Harmine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Compounds.*"
+  },
+  {
+    "slug": "2025-09-13-formulation-tips-mugwort-saturday-notes",
+    "title": "Formulation Tips — Mugwort (Saturday Notes)",
+    "excerpt": "Formulation tips for Mugwort with guidance on preparation, active compounds like Harmine, and practical blend considerations.",
+    "date": "2025-09-13",
+    "readingTime": "1 min read",
+    "content": "# Formulation Tips — Mugwort (Saturday Notes)\n\n_Formulation tips for Mugwort with guidance on preparation, active compounds like Harmine, and practical blend considerations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Mugwort** with **Hordenine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Blend Ideas, Herbs.*"
+  },
+  {
+    "slug": "2025-09-12-safety-set-setting-gotu-kola-friday-notes",
+    "title": "Safety & Set/Setting — Gotu Kola (Friday Notes)",
+    "excerpt": "Safety and set/setting considerations for Gotu Kola, including contraindications, active compounds like Harmine, and responsible use practices.",
+    "date": "2025-09-12",
+    "readingTime": "1 min read",
+    "content": "# Safety & Set/Setting — Gotu Kola (Friday Notes)\n\n_Safety and set/setting considerations for Gotu Kola, including contraindications, active compounds like Harmine, and responsible use practices._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Damiana** with **Myriscin** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Blend Ideas, Compounds.*"
+  },
+  {
+    "slug": "2025-09-11-formulation-tips-skullcap-thursday-notes",
+    "title": "Formulation Tips — Skullcap (Thursday Notes)",
+    "excerpt": "Formulation tips for Skullcap with guidance on preparation, active compounds like Apigenin, and practical blend considerations.",
+    "date": "2025-09-11",
+    "readingTime": "1 min read",
+    "content": "# Formulation Tips — Skullcap (Thursday Notes)\n\n_Formulation tips for Skullcap with guidance on preparation, active compounds like Apigenin, and practical blend considerations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Gotu Kola** with **L-Theanine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Research, Compounds.*"
+  },
+  {
+    "slug": "2025-09-10-field-notes-damiana-wednesday-notes",
+    "title": "Field Notes — Damiana (Wednesday Notes)",
+    "excerpt": "Field notes on Damiana covering practical use, active compounds like Beta-caryophyllene, and real-world observations.",
+    "date": "2025-09-10",
+    "readingTime": "1 min read",
+    "content": "# Field Notes — Damiana (Wednesday Notes)\n\n_Field notes on Damiana covering practical use, active compounds like Beta-caryophyllene, and real-world observations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Cordyceps** with **Harmine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Compounds.*"
+  },
+  {
+    "slug": "2025-09-09-bioassays-blue-lotus-tuesday-notes",
+    "title": "Bioassays — Blue Lotus (Tuesday Notes)",
+    "excerpt": "Daily notes on Blue Lotus with a focus on practical use, active compounds like Eugenol, and safe experimentation.",
+    "date": "2025-09-09",
+    "readingTime": "1 min read",
+    "content": "# Bioassays — Blue Lotus (Tuesday Notes)\n\n_Daily notes on Blue Lotus with a focus on practical use, active compounds like Eugenol, and safe experimentation._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Passionflower** with **Harmine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Research, Culture.*"
+  },
+  {
+    "slug": "2025-09-08-safety-set-setting-gotu-kola-monday-notes",
+    "title": "Safety & Set/Setting — Gotu Kola (Monday Notes)",
+    "excerpt": "Safety and set/setting considerations for Gotu Kola, including contraindications, active compounds like L-Theanine, and responsible use practices.",
+    "date": "2025-09-08",
+    "readingTime": "1 min read",
+    "content": "# Safety & Set/Setting — Gotu Kola (Monday Notes)\n\n_Safety and set/setting considerations for Gotu Kola, including contraindications, active compounds like L-Theanine, and responsible use practices._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Ashwagandha** with **Myriscin** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Culture.*"
+  },
+  {
+    "slug": "2025-09-07-pharmacology-basics-blue-lotus-sunday-notes",
+    "title": "Pharmacology Basics — Blue Lotus (Sunday Notes)",
+    "excerpt": "Pharmacology overview of Blue Lotus with attention to active compounds like Hordenine, mechanisms of action, and safe practice.",
+    "date": "2025-09-07",
+    "readingTime": "1 min read",
+    "content": "# Pharmacology Basics — Blue Lotus (Sunday Notes)\n\n_Pharmacology overview of Blue Lotus with attention to active compounds like Hordenine, mechanisms of action, and safe practice._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Amanita muscaria** with **Choline** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Blend Ideas, Compounds.*"
+  },
+  {
+    "slug": "2025-09-06-pharmacology-basics-rhodiola-saturday-notes",
+    "title": "Pharmacology Basics — Rhodiola (Saturday Notes)",
+    "excerpt": "Pharmacology overview of Rhodiola with attention to active compounds like Myriscin, mechanisms of action, and safe practice.",
+    "date": "2025-09-06",
+    "readingTime": "1 min read",
+    "content": "# Pharmacology Basics — Rhodiola (Saturday Notes)\n\n_Pharmacology overview of Rhodiola with attention to active compounds like Myriscin, mechanisms of action, and safe practice._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Mugwort** with **Hordenine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Research, Compounds.*"
+  },
+  {
+    "slug": "2025-09-05-bioassays-reishi-friday-notes",
+    "title": "Bioassays — Reishi (Friday Notes)",
+    "excerpt": "Bioassay log for Reishi documenting subjective effects, active compounds like L-Theanine, and safe experimentation notes.",
+    "date": "2025-09-05",
+    "readingTime": "1 min read",
+    "content": "# Bioassays — Reishi (Friday Notes)\n\n_Bioassay log for Reishi documenting subjective effects, active compounds like L-Theanine, and safe experimentation notes._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Mugwort** with **Thujone** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Compounds.*"
+  },
+  {
+    "slug": "2025-09-04-bioassays-blue-lotus-thursday-notes",
+    "title": "Bioassays — Blue Lotus (Thursday Notes)",
+    "excerpt": "Bioassay log for Blue Lotus documenting subjective effects, active compounds like Eugenol, and safe experimentation notes.",
+    "date": "2025-09-04",
+    "readingTime": "1 min read",
+    "content": "# Bioassays — Blue Lotus (Thursday Notes)\n\n_Bioassay log for Blue Lotus documenting subjective effects, active compounds like Eugenol, and safe experimentation notes._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Gotu Kola** with **L-Theanine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Blend Ideas, Compounds.*"
+  },
+  {
+    "slug": "2025-09-03-pharmacology-basics-damiana-wednesday-notes",
+    "title": "Pharmacology Basics — Damiana (Wednesday Notes)",
+    "excerpt": "Pharmacology overview of Damiana with attention to active compounds like Apigenin, mechanisms of action, and safe practice.",
+    "date": "2025-09-03",
+    "readingTime": "1 min read",
+    "content": "# Pharmacology Basics — Damiana (Wednesday Notes)\n\n_Pharmacology overview of Damiana with attention to active compounds like Apigenin, mechanisms of action, and safe practice._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Reishi** with **Thujone** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Herbs.*"
+  },
+  {
+    "slug": "2025-09-02-cultivar-notes-rhodiola-tuesday-notes",
+    "title": "Cultivar Notes — Rhodiola (Tuesday Notes)",
+    "excerpt": "Cultivar and sourcing notes for Rhodiola, with focus on active compounds like Hordenine and quality considerations.",
+    "date": "2025-09-02",
+    "readingTime": "1 min read",
+    "content": "# Cultivar Notes — Rhodiola (Tuesday Notes)\n\n_Cultivar and sourcing notes for Rhodiola, with focus on active compounds like Hordenine and quality considerations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Skullcap** with **Beta-caryophyllene** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Herbs.*"
+  },
+  {
+    "slug": "2025-09-01-microdosing-log-blue-lotus-monday-notes",
+    "title": "Microdosing Log — Blue Lotus (Monday Notes)",
+    "excerpt": "Daily notes on Blue Lotus with a focus on practical use, active compounds like L-Theanine, and safe experimentation.",
+    "date": "2025-09-01",
+    "readingTime": "1 min read",
+    "content": "# Microdosing Log — Blue Lotus (Monday Notes)\n\n_Daily notes on Blue Lotus with a focus on practical use, active compounds like L-Theanine, and safe experimentation._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Kava** with **L-Theanine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Blend Ideas, Culture.*"
+  },
+  {
+    "slug": "2025-08-31-safety-set-setting-amanita-muscaria-sunday-notes",
+    "title": "Safety & Set/Setting — Amanita muscaria (Sunday Notes)",
+    "excerpt": "Safety and set/setting considerations for Amanita muscaria, including contraindications, active compounds like Mesembrine, and responsible use practices.",
+    "date": "2025-08-31",
+    "readingTime": "1 min read",
+    "content": "# Safety & Set/Setting — Amanita muscaria (Sunday Notes)\n\n_Safety and set/setting considerations for Amanita muscaria, including contraindications, active compounds like Mesembrine, and responsible use practices._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Mugwort** with **Eugenol** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Culture.*"
+  },
+  {
+    "slug": "2025-08-30-blend-craft-reishi-saturday-notes",
+    "title": "Blend Craft — Reishi (Saturday Notes)",
+    "excerpt": "Blend craft notes for Reishi, exploring synergistic combinations, active compounds like Choline, and usage recommendations.",
+    "date": "2025-08-30",
+    "readingTime": "1 min read",
+    "content": "# Blend Craft — Reishi (Saturday Notes)\n\n_Blend craft notes for Reishi, exploring synergistic combinations, active compounds like Choline, and usage recommendations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Cordyceps** with **Beta-caryophyllene** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Research, Compounds.*"
+  },
+  {
+    "slug": "2025-08-29-blend-craft-passionflower-friday-notes",
+    "title": "Blend Craft — Passionflower (Friday Notes)",
+    "excerpt": "Blend craft notes for Passionflower, exploring synergistic combinations, active compounds like Beta-caryophyllene, and usage recommendations.",
+    "date": "2025-08-29",
+    "readingTime": "1 min read",
+    "content": "# Blend Craft — Passionflower (Friday Notes)\n\n_Blend craft notes for Passionflower, exploring synergistic combinations, active compounds like Beta-caryophyllene, and usage recommendations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Mugwort** with **Thujone** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Herbs.*"
+  },
+  {
+    "slug": "2025-08-28-research-digest-gotu-kola-thursday-notes",
+    "title": "Research Digest — Gotu Kola (Thursday Notes)",
+    "excerpt": "Research digest for Gotu Kola covering recent findings, active compounds like Eugenol, and evidence-based use guidance.",
+    "date": "2025-08-28",
+    "readingTime": "1 min read",
+    "content": "# Research Digest — Gotu Kola (Thursday Notes)\n\n_Research digest for Gotu Kola covering recent findings, active compounds like Eugenol, and evidence-based use guidance._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Reishi** with **Choline** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Compounds.*"
+  },
+  {
+    "slug": "2025-08-27-blend-craft-calea-zacatechichi-wednesday-notes",
+    "title": "Blend Craft — Calea zacatechichi (Wednesday Notes)",
+    "excerpt": "Blend craft notes for Calea zacatechichi, exploring synergistic combinations, active compounds like Eugenol, and usage recommendations.",
+    "date": "2025-08-27",
+    "readingTime": "1 min read",
+    "content": "# Blend Craft — Calea zacatechichi (Wednesday Notes)\n\n_Blend craft notes for Calea zacatechichi, exploring synergistic combinations, active compounds like Eugenol, and usage recommendations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Valerian** with **Apigenin** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Culture.*"
+  },
+  {
+    "slug": "2025-08-26-pharmacology-basics-rhodiola-tuesday-notes",
+    "title": "Pharmacology Basics — Rhodiola (Tuesday Notes)",
+    "excerpt": "Pharmacology overview of Rhodiola with attention to active compounds like Myriscin, mechanisms of action, and safe practice.",
+    "date": "2025-08-26",
+    "readingTime": "1 min read",
+    "content": "# Pharmacology Basics — Rhodiola (Tuesday Notes)\n\n_Pharmacology overview of Rhodiola with attention to active compounds like Myriscin, mechanisms of action, and safe practice._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Skullcap** with **Hordenine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Compounds.*"
+  },
+  {
+    "slug": "2025-08-25-extraction-101-passionflower-monday-notes",
+    "title": "Extraction 101 — Passionflower (Monday Notes)",
+    "excerpt": "Practical extraction guide for Passionflower, covering preparation methods, key active compounds like Hordenine, and safe use considerations.",
+    "date": "2025-08-25",
+    "readingTime": "1 min read",
+    "content": "# Extraction 101 — Passionflower (Monday Notes)\n\n_Practical extraction guide for Passionflower, covering preparation methods, key active compounds like Hordenine, and safe use considerations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Skullcap** with **Mesembrine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Blend Ideas, Compounds.*"
+  },
+  {
+    "slug": "2025-08-24-safety-set-setting-skullcap-sunday-notes",
+    "title": "Safety & Set/Setting — Skullcap (Sunday Notes)",
+    "excerpt": "Safety and set/setting considerations for Skullcap, including contraindications, active compounds like Myriscin, and responsible use practices.",
+    "date": "2025-08-24",
+    "readingTime": "1 min read",
+    "content": "# Safety & Set/Setting — Skullcap (Sunday Notes)\n\n_Safety and set/setting considerations for Skullcap, including contraindications, active compounds like Myriscin, and responsible use practices._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Passionflower** with **Apigenin** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Research, Compounds.*"
+  },
+  {
+    "slug": "2025-08-23-psychoactive-botany-cordyceps-saturday-notes",
+    "title": "Psychoactive Botany — Cordyceps (Saturday Notes)",
+    "excerpt": "Daily notes on Cordyceps with a focus on practical use, active compounds like Mesembrine, and safe experimentation.",
+    "date": "2025-08-23",
+    "readingTime": "1 min read",
+    "content": "# Psychoactive Botany — Cordyceps (Saturday Notes)\n\n_Daily notes on Cordyceps with a focus on practical use, active compounds like Mesembrine, and safe experimentation._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Lion's Mane** with **Choline** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Blend Ideas, Herbs.*"
+  },
+  {
+    "slug": "2025-08-22-safety-set-setting-cordyceps-friday-notes",
+    "title": "Safety & Set/Setting — Cordyceps (Friday Notes)",
+    "excerpt": "Safety and set/setting considerations for Cordyceps, including contraindications, active compounds like Apigenin, and responsible use practices.",
+    "date": "2025-08-22",
+    "readingTime": "1 min read",
+    "content": "# Safety & Set/Setting — Cordyceps (Friday Notes)\n\n_Safety and set/setting considerations for Cordyceps, including contraindications, active compounds like Apigenin, and responsible use practices._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Calea zacatechichi** with **Mesembrine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Culture.*"
+  },
+  {
+    "slug": "2025-08-21-pharmacology-basics-gotu-kola-thursday-notes",
+    "title": "Pharmacology Basics — Gotu Kola (Thursday Notes)",
+    "excerpt": "Pharmacology overview of Gotu Kola with attention to active compounds like Eugenol, mechanisms of action, and safe practice.",
+    "date": "2025-08-21",
+    "readingTime": "1 min read",
+    "content": "# Pharmacology Basics — Gotu Kola (Thursday Notes)\n\n_Pharmacology overview of Gotu Kola with attention to active compounds like Eugenol, mechanisms of action, and safe practice._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Kava** with **Eugenol** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Compounds.*"
+  },
+  {
+    "slug": "2025-08-20-blend-craft-kava-wednesday-notes",
+    "title": "Blend Craft — Kava (Wednesday Notes)",
+    "excerpt": "Blend craft notes for Kava, exploring synergistic combinations, active compounds like Hordenine, and usage recommendations.",
+    "date": "2025-08-20",
+    "readingTime": "1 min read",
+    "content": "# Blend Craft — Kava (Wednesday Notes)\n\n_Blend craft notes for Kava, exploring synergistic combinations, active compounds like Hordenine, and usage recommendations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Gotu Kola** with **Thujone** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Field Notes, Herbs.*"
+  },
+  {
+    "slug": "2025-08-19-formulation-tips-passionflower-tuesday-notes",
+    "title": "Formulation Tips — Passionflower (Tuesday Notes)",
+    "excerpt": "Formulation tips for Passionflower with guidance on preparation, active compounds like Mesembrine, and practical blend considerations.",
+    "date": "2025-08-19",
+    "readingTime": "1 min read",
+    "content": "# Formulation Tips — Passionflower (Tuesday Notes)\n\n_Formulation tips for Passionflower with guidance on preparation, active compounds like Mesembrine, and practical blend considerations._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Amanita muscaria** with **Harmine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Research, Herbs.*"
+  },
+  {
+    "slug": "2025-08-18-research-digest-cordyceps-monday-notes",
+    "title": "Research Digest — Cordyceps (Monday Notes)",
+    "excerpt": "Research digest for Cordyceps covering recent findings, active compounds like Mesembrine, and evidence-based use guidance.",
+    "date": "2025-08-18",
+    "readingTime": "1 min read",
+    "content": "# Research Digest — Cordyceps (Monday Notes)\n\n_Research digest for Cordyceps covering recent findings, active compounds like Mesembrine, and evidence-based use guidance._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Mugwort** with **L-Theanine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Culture.*"
+  },
+  {
+    "slug": "2025-08-17-traditional-use-calea-zacatechichi-sunday-notes",
+    "title": "Traditional Use — Calea zacatechichi (Sunday Notes)",
+    "excerpt": "Traditional and ethnobotanical use of Calea zacatechichi, including cultural context, active compounds like Choline, and modern applications.",
+    "date": "2025-08-17",
+    "readingTime": "1 min read",
+    "content": "# Traditional Use — Calea zacatechichi (Sunday Notes)\n\n_Traditional and ethnobotanical use of Calea zacatechichi, including cultural context, active compounds like Choline, and modern applications._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Rhodiola** with **Myriscin** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Blend Ideas, Herbs.*"
+  },
+  {
+    "slug": "2025-08-16-psychoactive-botany-rhodiola-saturday-notes",
+    "title": "Psychoactive Botany — Rhodiola (Saturday Notes)",
+    "excerpt": "Psychoactive botany overview of Rhodiola, covering active compounds like Hordenine, effects profile, and safe use.",
+    "date": "2025-08-16",
+    "readingTime": "1 min read",
+    "content": "# Psychoactive Botany — Rhodiola (Saturday Notes)\n\n_Psychoactive botany overview of Rhodiola, covering active compounds like Hordenine, effects profile, and safe use._\n\n## Highlights\n\n- Context and traditional use\n- Pharmacology snapshot and key actives\n- Practical tips: preparation, dosing ranges, safety\n\n## Quick Blend Idea\n\nTry pairing **Blue Lotus** with **L-Theanine** for a complementary effect profile. Start low, go slow.\n\n## Further Reading\n\n- Placeholder reference A\n- Placeholder reference B\n\n*Filed in: Safety, Herbs.*"
   }
 ]

@@ -1,539 +1,97 @@
-#!/usr/bin/env node
-import fs from "fs";
-import path from "path";
-import { execSync } from "node:child_process";
-import matter from "gray-matter";
-import { marked } from "marked";
+import fs from 'node:fs';
+import path from 'node:path';
+import matter from 'gray-matter';
 
-// Configure marked to ensure proper spacing and semantic tags
-marked.setOptions({
-  breaks: true,
-  headerIds: true,
-  mangle: false,
-});
+const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
+const OUTPUT_PATH = path.join(process.cwd(), 'data', 'blog', 'posts.json');
 
-const ROOT = process.cwd();
-const BLOG_SRC = path.join(ROOT, "content", "blog");
-const OUT = path.join(ROOT, "public", "blogdata");
-const POSTS_OUT = path.join(OUT, "posts");
-const DATA_OUT = path.join(ROOT, "src", "data", "blog", "posts.json");
-const PUBLIC_POSTS = path.join(ROOT, "public", "blog", "posts.json");
-const DEFAULT_AUTHOR = "The Hippie Scientist";
+const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
-function iso(d) {
-  const date = new Date(d);
+const toIsoDate = value => {
+  const date = new Date(String(value));
   if (Number.isNaN(date.getTime())) return null;
   return date.toISOString().slice(0, 10);
-}
+};
 
-function statISO(p) {
-  try {
-    const st = fs.statSync(p);
-    const fallback = st.birthtimeMs || st.mtimeMs;
-    if (fallback) {
-      const formatted = iso(fallback);
-      if (formatted) return formatted;
-    }
-  } catch {
-    // Ignore file stat failures and fall back to current date.
+const estimateReadingTime = text => {
+  const words = String(text)
+    .replace(/[#*_`>\-]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean).length;
+  return `${Math.max(1, Math.round(words / 200))} min read`;
+};
+
+const normalizeExcerpt = (excerpt, fallback) => {
+  const preferred = String(excerpt || '').trim();
+  if (preferred) return preferred;
+
+  const compact = String(fallback || '').replace(/\s+/g, ' ').trim();
+  if (!compact) return 'No summary yet.';
+  return compact.length > 220 ? `${compact.slice(0, 219).trimEnd()}…` : compact;
+};
+
+const getSlugFromFilename = fileName =>
+  fileName.replace(/\.(mdx)$/i, '').toLowerCase();
+
+const validateSlug = slug => SLUG_PATTERN.test(slug);
+
+function buildPostFromFile(fileName) {
+  const filePath = path.join(BLOG_DIR, fileName);
+  const source = fs.readFileSync(filePath, 'utf8');
+  const { data, content } = matter(source);
+
+  const rawSlug = String(data.slug || getSlugFromFilename(fileName)).trim().toLowerCase();
+  const title = String(data.title || '').trim();
+  const date = toIsoDate(data.date);
+
+  if (!validateSlug(rawSlug)) {
+    throw new Error(`Invalid slug "${rawSlug}" in ${fileName}.`);
   }
-  return iso(Date.now()) ?? new Date().toISOString().slice(0, 10);
-}
-
-function escapeAttr(value) {
-  if (value === undefined || value === null) return "";
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/"/g, "&quot;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-}
-
-function buildHtmlDocument({ title, description, slug, body, ogImage }) {
-  const canonical = `https://thehippiescientist.net/blog/${slug}/`;
-  const fallbackDescription = description || "";
-  const fallbackImage = ogImage || "/og-default.jpg";
-  const pageTitle = `${title} — The Hippie Scientist`;
-  const indentedBody = body
-    .split("\n")
-    .map((line) => (line ? `      ${line}` : ""))
-    .join("\n");
-
-  return `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>${escapeAttr(pageTitle)}</title>
-    <meta name="description" content="${escapeAttr(fallbackDescription)}" />
-    <link rel="canonical" href="${escapeAttr(canonical)}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="${escapeAttr(title)}" />
-    <meta property="og:description" content="${escapeAttr(fallbackDescription)}" />
-    <meta property="og:url" content="${escapeAttr(canonical)}" />
-    <meta property="og:image" content="${escapeAttr(fallbackImage)}" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${escapeAttr(title)}" />
-    <meta name="twitter:description" content="${escapeAttr(fallbackDescription)}" />
-    <meta name="twitter:image" content="${escapeAttr(fallbackImage)}" />
-  </head>
-  <body>
-    <main id="blog-post">
-${indentedBody}
-    </main>
-  </body>
-</html>
-`;
-}
-
-function ensureCanonical(html, slug) {
-  const cleanSlug = String(slug || "").replace(/^\/+|\/+$/g, "");
-  if (!cleanSlug) return html;
-  const canonicalHref = `https://thehippiescientist.net/blog/${cleanSlug}/`;
-  const canonicalTag = `<link rel="canonical" href="${escapeAttr(canonicalHref)}">`;
-  const canonicalRe = /<link[^>]+rel=["']canonical["'][^>]*>/i;
-
-  if (canonicalRe.test(html)) {
-    return html.replace(canonicalRe, canonicalTag);
+  if (!title) {
+    throw new Error(`Missing required frontmatter field "title" in ${fileName}.`);
+  }
+  if (!date) {
+    throw new Error(`Missing or invalid required frontmatter field "date" in ${fileName}.`);
   }
 
-  if (/<\/head>/i.test(html)) {
-    return html.replace(/<\/head>/i, `    ${canonicalTag}\n  </head>`);
-  }
+  const excerpt = normalizeExcerpt(data.excerpt, data.summary || content);
 
-  return `${canonicalTag}\n${html}`;
-}
-
-function upsertHeadTag(html, testRe, tag) {
-  if (testRe.test(html)) {
-    return html.replace(testRe, tag);
-  }
-  if (/<\/head>/i.test(html)) {
-    return html.replace(/<\/head>/i, `    ${tag}\n  </head>`);
-  }
-  return `${tag}\n${html}`;
-}
-
-function ensureSocialMeta(html, { slug, ogImage }) {
-  const cleanSlug = String(slug || "").replace(/^\/+|\/+$/g, "");
-  const canonicalHref = cleanSlug ? `https://thehippiescientist.net/blog/${cleanSlug}/` : "https://thehippiescientist.net/";
-  const image = ogImage || "/og-default.jpg";
-
-  const entries = [
-    {
-      regex: /<meta[^>]+property=["']og:type["'][^>]*>/i,
-      tag: '<meta property="og:type" content="article" />',
-    },
-    {
-      regex: /<meta[^>]+property=["']og:url["'][^>]*>/i,
-      tag: `<meta property="og:url" content="${escapeAttr(canonicalHref)}" />`,
-    },
-    {
-      regex: /<meta[^>]+property=["']og:image["'][^>]*>/i,
-      tag: `<meta property="og:image" content="${escapeAttr(image)}" />`,
-    },
-    {
-      regex: /<meta[^>]+name=["']twitter:card["'][^>]*>/i,
-      tag: '<meta name="twitter:card" content="summary_large_image" />',
-    },
-    {
-      regex: /<meta[^>]+name=["']twitter:image["'][^>]*>/i,
-      tag: `<meta name="twitter:image" content="${escapeAttr(image)}" />`,
-    },
-  ];
-
-  let next = html;
-  for (const { regex, tag } of entries) {
-    next = upsertHeadTag(next, regex, tag);
-  }
-  return next;
-}
-
-function ensureTitleAndDescription(html, { title, description }) {
-  const pageTitle = title ? `${title} — The Hippie Scientist` : "The Hippie Scientist";
-  const fallbackDescription = description || "";
-  const titleTag = `<title>${escapeAttr(pageTitle)}</title>`;
-  const titleRe = /<title>.*?<\/title>/i;
-
-  let next = html;
-  if (titleRe.test(next)) {
-    next = next.replace(titleRe, titleTag);
-  } else if (/<\/head>/i.test(next)) {
-    next = next.replace(/<\/head>/i, `    ${titleTag}\n  </head>`);
-  } else {
-    next = `${titleTag}\n${next}`;
-  }
-
-  next = upsertHeadTag(
-    next,
-    /<meta[^>]+name=["']description["'][^>]*>/i,
-    `<meta name="description" content="${escapeAttr(fallbackDescription)}" />`,
-  );
-
-  return next;
-}
-
-function stripUnsafeMarkdownSyntax(markdown) {
-  if (!markdown) return "";
-
-  const withoutModuleLines = markdown
-    .split("\n")
-    .filter((line) => {
-      const trimmed = line.trimStart();
-      return !trimmed.startsWith("import ") && !trimmed.startsWith("export ");
-    })
-    .join("\n");
-
-  const withoutJsx = withoutModuleLines
-    .split("\n")
-    .filter((line) => {
-      const trimmed = line.trim();
-      // Remove JSX/component-style tags such as <Callout ...>...</Callout> and </Callout>
-      if (/^<\/?[A-Z][\w.-]*\b/.test(trimmed)) return false;
-      // Remove embedded JS expression lines often used in MDX
-      if (/^\{[\s\S]*\}$/.test(trimmed)) return false;
-      return true;
-    })
-    .join("\n");
-
-  return withoutJsx.replace(/\n{3,}/g, "\n\n").trim();
-}
-
-
-function stripMarkdownToText(markdown) {
-  if (!markdown) return "";
-  return markdown
-    .replace(/```[\s\S]*?```/g, " ")
-    .replace(/`([^`]+)`/g, "$1")
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
-    .replace(/\[[^\]]+\]\([^)]*\)/g, "$1")
-    .replace(/^\s{0,3}#{1,6}\s+/gm, "")
-    .replace(/^>\s?/gm, "")
-    .replace(/^\s*[-*+]\s+/gm, "")
-    .replace(/^\s*\d+\.\s+/gm, "")
-    .replace(/[>*_~]/g, "")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function toExcerpt(markdown, max = 220) {
-  const clean = stripMarkdownToText(markdown);
-  if (!clean) return "Research notes focused on mechanisms, context, and safety.";
-  if (clean.length <= max) return clean;
-  return `${clean.slice(0, max - 1).trimEnd()}…`;
-}
-
-function isTargetedNotesTitle(title = "") {
-  const normalized = String(title).toLowerCase();
-  return [
-    "tuesday notes",
-    "wednesday notes",
-    "daily notes",
-    "field notes",
-    "cultivar notes",
-    "safety & set/setting",
-  ].some((pattern) => normalized.includes(pattern));
-}
-
-function extractPrimaryHerbFromTitle(title = "") {
-  const match = String(title).match(/—\s*([^(\n]+?)(?:\s*\(|$)/);
-  return match ? match[1].trim() : "";
-}
-
-function includesTerm(haystack = "", needle = "") {
-  const source = String(haystack).toLowerCase();
-  const value = String(needle).toLowerCase().trim();
-  if (!value) return false;
-  return source.includes(value);
-}
-
-function hasNotesConsistencyMismatch({ title = "", summary = "", content = "" }) {
-  if (!isTargetedNotesTitle(title)) return false;
-  const herb = extractPrimaryHerbFromTitle(title);
-  if (!herb) return true;
-
-  const summaryMatches = includesTerm(summary, herb);
-  const contentMatches = includesTerm(content, herb);
-  const dailyClause =
-    summary.toLowerCase().includes("daily notes on") &&
-    !summary.toLowerCase().includes(`daily notes on ${herb.toLowerCase()}`);
-
-  return !summaryMatches || !contentMatches || dailyClause;
-}
-
-function normalizeTitleForSimilarity(title = "") {
-  return String(title)
-    .toLowerCase()
-    .replace(/\([^)]*notes\)/g, "")
-    .replace(/[^a-z0-9\s]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function validateDuplicatePostMetadata(rows = []) {
-  const duplicateTitles = new Map();
-  const duplicateSlugs = new Map();
-  const nearDuplicateBuckets = new Map();
-
-  for (const row of rows) {
-    const titleKey = String(row.title || "").trim().toLowerCase();
-    const slugKey = String(row.slug || "").trim().toLowerCase();
-    const nearTitleKey = normalizeTitleForSimilarity(row.title || "");
-
-    if (titleKey) {
-      const entries = duplicateTitles.get(titleKey) || [];
-      entries.push(row.slug);
-      duplicateTitles.set(titleKey, entries);
-    }
-
-    if (slugKey) {
-      const entries = duplicateSlugs.get(slugKey) || [];
-      entries.push(row.title);
-      duplicateSlugs.set(slugKey, entries);
-    }
-
-    if (nearTitleKey) {
-      const entries = nearDuplicateBuckets.get(nearTitleKey) || [];
-      entries.push({ title: row.title, slug: row.slug });
-      nearDuplicateBuckets.set(nearTitleKey, entries);
-    }
-  }
-
-  const exactTitleDuplicates = [...duplicateTitles.entries()].filter(([, entries]) => entries.length > 1);
-  const exactSlugDuplicates = [...duplicateSlugs.entries()].filter(([, entries]) => entries.length > 1);
-  const nearDuplicates = [...nearDuplicateBuckets.entries()].filter(([, entries]) => {
-    if (entries.length <= 1) return false;
-    const uniqueTitles = new Set(entries.map((entry) => entry.title));
-    return uniqueTitles.size > 1;
-  });
-
-  if (nearDuplicates.length) {
-    for (const [, entries] of nearDuplicates) {
-      const summary = entries.map((entry) => `"${entry.title}" (${entry.slug})`).join(", ");
-      console.warn(`[blog:validation] Near-duplicate titles detected: ${summary}`);
-    }
-  }
-
-  if (exactTitleDuplicates.length) {
-    for (const [titleKey, entries] of exactTitleDuplicates) {
-      console.warn(`[blog:validation] Duplicate title "${titleKey}" used by slugs: ${entries.join(", ")}`);
-    }
-  }
-
-  if (exactSlugDuplicates.length) {
-    for (const [slugKey, entries] of exactSlugDuplicates) {
-      console.error(`[blog:validation] Duplicate slug "${slugKey}" used by titles: ${entries.join(" | ")}`);
-    }
-    process.exit(1);
-  }
-}
-
-/**
- * Resolve the post's creation date with this precedence:
- * 1) front-matter 'date'
- * 2) first Git commit author date (if repo)
- * 3) file system birthtime
- * 4) now
- */
-function getCreatedDate(fp, fmDate) {
-  const frontMatter = fmDate ? iso(fmDate) : null;
-  if (frontMatter) return frontMatter;
-
-  try {
-    const cmd = `git log --follow --diff-filter=A --format=%aI -- "${fp}" | tail -n 1`;
-    const out = execSync(cmd, { stdio: ["ignore", "pipe", "ignore"] }).toString().trim();
-    const gitDate = out ? iso(out) : null;
-    if (gitDate) return gitDate;
-  } catch {
-    // Ignore git date resolution errors and fall back to filesystem date.
-  }
-
-  const fsDate = statISO(fp);
-  if (fsDate) return fsDate;
-
-  return iso(Date.now());
-}
-
-function tokenizeTitle(value) {
-  return String(value || '')
-    .toLowerCase()
-    .split(/[^a-z0-9]+/)
-    .map(token => token.trim())
-    .filter(token => token.length >= 4)
-}
-
-function alignExcerptToTitle({ title, excerpt, description }) {
-  const normalizedExcerpt = String(excerpt || '').trim()
-  if (!normalizedExcerpt) return String(description || '').trim()
-  const titleTokens = tokenizeTitle(title).slice(0, 6)
-  if (!titleTokens.length) return normalizedExcerpt
-  const primaryToken = titleTokens[titleTokens.length - 1]
-  const lowerExcerpt = normalizedExcerpt.toLowerCase()
-  const hasMatch = titleTokens.some(token => lowerExcerpt.includes(token))
-  const hasPrimaryMatch = primaryToken ? lowerExcerpt.includes(primaryToken) : false
-  if (hasMatch && hasPrimaryMatch) return normalizedExcerpt
-  const fallback = String(description || '').trim()
-  const trimmedTitle = String(title || '').trim()
-  if (trimmedTitle) {
-    return `${trimmedTitle} — research notes with conservative evidence and safety-first context.`
-  }
-  if (!fallback) return normalizedExcerpt
-  return toExcerpt(fallback, 220)
-}
-
-fs.mkdirSync(OUT, { recursive: true });
-fs.rmSync(POSTS_OUT, { recursive: true, force: true });
-fs.mkdirSync(POSTS_OUT, { recursive: true });
-
-const files = fs.existsSync(BLOG_SRC)
-  ? fs
-      .readdirSync(BLOG_SRC)
-      .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
-  : [];
-const rows = [];
-let consistencyBlocked = 0;
-
-for (const file of files) {
-  const rawSlug = file.replace(/\.(md|mdx)$/, "");
-  const filePath = path.join(BLOG_SRC, file);
-  const raw = fs.readFileSync(filePath, "utf-8");
-  const { data, content } = matter(raw);
-  const slug = String(data?.slug || rawSlug || "").replace(/^\/+|\/+$/g, "");
-  const staleDir = path.resolve("public", "blog", slug);
-  const staleLegacy = path.resolve("public", "blog", `${slug}.html`);
-  const fileSlugDir = path.resolve("public", "blog", rawSlug);
-  const fileSlugLegacy = path.resolve("public", "blog", `${rawSlug}.html`);
-  if (data?.draft) {
-    fs.rmSync(staleDir, { recursive: true, force: true });
-    fs.rmSync(staleLegacy, { force: true });
-    fs.rmSync(fileSlugDir, { recursive: true, force: true });
-    fs.rmSync(fileSlugLegacy, { force: true });
-    continue;
-  }
-  if (
-    hasNotesConsistencyMismatch({
-      title: data?.title || rawSlug,
-      summary: data?.summary || data?.description || "",
-      content,
-    })
-  ) {
-    consistencyBlocked += 1;
-    fs.rmSync(staleDir, { recursive: true, force: true });
-    fs.rmSync(staleLegacy, { force: true });
-    fs.rmSync(fileSlugDir, { recursive: true, force: true });
-    fs.rmSync(fileSlugLegacy, { force: true });
-    console.warn(`[blog:consistency] Skipping ${file}: title/summary/content herb mismatch.`);
-    continue;
-  }
-  const sanitizedMarkdown = stripUnsafeMarkdownSyntax(content);
-  const postHtml = marked.parse(sanitizedMarkdown);
-  const contentWithoutTitle = sanitizedMarkdown.replace(/^\s*#\s+.+$/m, '').trim();
-  const rawExcerpt = toExcerpt(contentWithoutTitle || sanitizedMarkdown, 220);
-  const words = sanitizedMarkdown.trim() ? sanitizedMarkdown.trim().split(/\s+/).length : 0;
-  const readingTime = `${Math.max(1, Math.round(words / 225))} min read`;
-  const created = getCreatedDate(filePath, data?.date);
-  const tags = Array.isArray(data.tags) ? data.tags.map((tag) => String(tag)) : [];
-  const author = data.author ? String(data.author) : DEFAULT_AUTHOR;
-  const sources = Array.isArray(data.sources)
-    ? data.sources
-        .map((source) => {
-          if (typeof source === 'string') {
-            return { title: source, url: source };
-          }
-          if (source && typeof source === 'object') {
-            const title = String(source.title || source.url || '').trim();
-            const url = String(source.url || '').trim();
-            const note = String(source.note || '').trim();
-            if (!title && !url) return null;
-            return { title: title || url, url: url || title, note: note || undefined };
-          }
-          return null;
-        })
-        .filter(Boolean)
-    : [];
-  const cover = data.cover || data.featuredImage || data.image || data.hero || null;
-  const title = data.title || rawSlug;
-  const description = toExcerpt(data.description || contentWithoutTitle || sanitizedMarkdown, 200);
-  const excerpt = alignExcerptToTitle({ title, excerpt: rawExcerpt, description });
-  const summary = excerpt;
-  const ogImage = data.ogImage || cover || null;
-  const lastUpdated = iso(data.lastUpdated) || statISO(filePath);
-
-  const postHtmlPath = path.join(POSTS_OUT, `${slug}.html`);
-  fs.mkdirSync(path.dirname(postHtmlPath), { recursive: true });
-  fs.writeFileSync(postHtmlPath, postHtml, "utf-8");
-
-  const post = {
-    slug,
+  return {
+    slug: rawSlug,
     title,
-    date: created,
-    lastUpdated,
-    author,
-    sources,
-    description,
-    summary,
-    tags,
-    readingTime,
-    cover: cover || undefined,
-    featuredImage: cover || undefined,
-    ogImage: ogImage || undefined,
+    excerpt,
+    date,
+    readingTime: estimateReadingTime(content),
+    content: content.trim(),
   };
-
-  let html = buildHtmlDocument({
-    title: post.title,
-    description: post.description,
-    slug: post.slug,
-    body: postHtml,
-    ogImage,
-  });
-
-  html = ensureCanonical(html, slug);
-  html = ensureSocialMeta(html, { slug, ogImage });
-  html = ensureTitleAndDescription(html, { title: post.title, description: post.description });
-
-  const outDir = path.resolve("public", "blog", slug);
-  const outFile = path.join(outDir, "index.html");
-  const legacyFile = path.resolve("public", "blog", `${slug}.html`);
-
-  fs.rmSync(legacyFile, { force: true });
-  fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(outFile, html, "utf-8");
-
-  rows.push(post);
 }
 
-validateDuplicatePostMetadata(rows);
+function run() {
+  if (!fs.existsSync(BLOG_DIR)) {
+    throw new Error(`Blog content directory not found: ${BLOG_DIR}`);
+  }
 
-rows.sort((a, b) => (a.date < b.date ? 1 : -1));
-fs.writeFileSync(path.join(OUT, "index.json"), JSON.stringify(rows, null, 2), "utf-8");
+  const files = fs
+    .readdirSync(BLOG_DIR)
+    .filter(fileName => fileName.toLowerCase().endsWith('.mdx'))
+    .sort((a, b) => a.localeCompare(b));
 
-const metadata = rows.map((row) => ({
-  slug: row.slug,
-  title: row.title,
-  date: row.date,
-  lastUpdated: row.lastUpdated,
-  author: row.author,
-  sources: row.sources,
-  excerpt: row.summary,
-  description: row.description,
-  summary: row.summary,
-  tags: row.tags,
-  readingTime: row.readingTime,
-  cover: row.cover,
-  featuredImage: row.featuredImage,
-  ogImage: row.ogImage,
-}));
+  const posts = files.map(buildPostFromFile);
 
-fs.mkdirSync(path.dirname(DATA_OUT), { recursive: true });
-fs.writeFileSync(DATA_OUT, JSON.stringify(metadata, null, 2), "utf-8");
+  const seen = new Set();
+  for (const post of posts) {
+    if (seen.has(post.slug)) {
+      throw new Error(`Duplicate slug detected: ${post.slug}`);
+    }
+    seen.add(post.slug);
+  }
 
-fs.mkdirSync(path.dirname(PUBLIC_POSTS), { recursive: true });
-fs.writeFileSync(PUBLIC_POSTS, JSON.stringify(metadata, null, 2), "utf-8");
+  posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-console.log(
-  `Built ${rows.length} posts → /public/blogdata & /public/blog/{slug}/index.html (duplicates validated)`
-);
-if (consistencyBlocked > 0) {
-  console.log(`[blog:consistency] Blocked ${consistencyBlocked} mismatched notes posts from publishing.`);
+  fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
+  fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(posts, null, 2)}\n`, 'utf8');
+
+  console.log(`[build-blog] Wrote ${posts.length} posts to ${OUTPUT_PATH}`);
 }
+
+run();
