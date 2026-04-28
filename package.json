@@ -20,7 +20,7 @@
     "rebuild:data": "npm run data:refresh",
     "prebuild": "npm run data:build && npm run clean:source-refs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-site-counts.mjs && node scripts/generate-homepage-data.mjs && node scripts/generate-homepage-featured.mjs && node scripts/generate-rss.mjs && npm run verify:affiliate-products",
     "build:compile": "next build",
-    "build": "npm run generate:a-tier && npm run prebuild && next build",
+ "build": "npm run generate:a-tier && npm run prebuild && next build",
     "postbuild": "npm run verify:enrichment-editorial",
     "verify:build": "npm run verify:enrichment-editorial && npm run verify:enrichment-discovery && npm run verify:structured-data && npm run verify:redirects",
     "sitemap": "node scripts/generate-sitemap.mjs public",
