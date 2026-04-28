@@ -1,9 +1,23 @@
-import fs from "fs";
-import path from "path";
+import fs from 'fs'
+import path from 'path'
+
+type TierItem = {
+  slug: string
+  name?: string
+  domain?: string
+}
+
+type TierPayload = {
+  global?: TierItem[]
+  contextual?: TierItem[]
+}
 
 export default function ATierPage() {
-  const filePath = path.join(process.cwd(), "public/data/a-tier-index.json");
-  const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+  const filePath = path.join(process.cwd(), 'public/data/a-tier-index.json')
+  const data = JSON.parse(fs.readFileSync(filePath, 'utf-8')) as TierPayload
+
+  const globalItems = Array.isArray(data.global) ? data.global : []
+  const contextualItems = Array.isArray(data.contextual) ? data.contextual : []
 
   return (
     <main className="p-6 text-white">
@@ -12,9 +26,9 @@ export default function ATierPage() {
       <section className="mb-10">
         <h2 className="text-xl font-semibold mb-4">Global A-Tier</h2>
         <ul>
-          {data.global.map((item: any) => (
+          {globalItems.map(item => (
             <li key={item.slug}>
-              {item.name} — {item.domain}
+              {item.name ?? item.slug} — {item.domain ?? 'General'}
             </li>
           ))}
         </ul>
@@ -23,13 +37,13 @@ export default function ATierPage() {
       <section>
         <h2 className="text-xl font-semibold mb-4">Context-Specific A-Tier</h2>
         <ul>
-          {data.contextual.map((item: any) => (
+          {contextualItems.map(item => (
             <li key={item.slug}>
-              {item.name} — {item.domain}
+              {item.name ?? item.slug} — {item.domain ?? 'General'}
             </li>
           ))}
         </ul>
       </section>
     </main>
-  );
+  )
 }

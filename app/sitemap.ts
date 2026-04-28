@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next'
 import posts from '@/data/blog/posts.json'
 import { getCompounds, getHerbs } from '@/lib/runtime-data'
 
+export const dynamic = 'force-static'
+
 type SlugRecord = {
   slug: string
 }

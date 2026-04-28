@@ -1,5 +1,7 @@
 import { ImageResponse } from 'next/og'
 
+export const dynamic = 'force-static'
+
 export const alt = 'The Hippie Scientist — science-first herb education'
 export const size = {
   width: 1200,
