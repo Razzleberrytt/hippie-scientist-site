@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from '@/lib/router-compat'
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
 import type { CompoundCompleteness, HerbCompleteness } from '@/utils/getDataCompleteness'
 import {

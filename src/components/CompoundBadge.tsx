@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '@/lib/router-compat'
 import TagBadge from './TagBadge'
 import InfoTooltip from './InfoTooltip'
 import { slugify } from '../utils/slugify'

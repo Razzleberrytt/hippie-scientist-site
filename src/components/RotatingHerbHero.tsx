@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from '@/lib/motion'
-import { Link } from 'react-router-dom'
+import { Link } from '@/lib/router-compat'
 import { useHerbData } from '@/lib/herb-data'
 import { slugify } from '../utils/slugify'
 import type { Herb } from '../types'

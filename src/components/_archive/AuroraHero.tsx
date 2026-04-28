@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from '@/lib/motion'
-import { Link } from 'react-router-dom'
+import { Link } from '@/lib/router-compat'
 
 type AuroraHeroProps = {
   title: string

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '@/lib/router-compat'
 import { getConsent, setConsent, initConsentDefault, getSystemNoTracking } from '../lib/consent'
 
 export default function ConsentBanner() {
