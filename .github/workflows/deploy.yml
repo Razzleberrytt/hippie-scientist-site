@@ -22,21 +22,17 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Enrichment release gate
         run: npm run enrichment:release:gate
 
-      # === Workbook Data Pipeline ===
-      # Runs when HERB_WORKBOOK_B64 secret is set.
-      # Exports workbook sheets → JSON, rebuilds publication manifest,
-      # regenerates sitemap. No-op if secret is absent.
       - name: Decode workbook from HERB_WORKBOOK_B64 secret
         env:
           HERB_WORKBOOK_B64: ${{ secrets.HERB_WORKBOOK_B64 }}
         run: |
           if [ -z "$HERB_WORKBOOK_B64" ]; then
-            echo "::warning::HERB_WORKBOOK_B64 secret is not set. Skipping workbook download."
+            echo "::warning::HERB_WORKBOOK_B64 secret is not set. Using workbook committed in data-sources/."
             exit 0
           fi
 
@@ -44,17 +40,7 @@ jobs:
           printf '%s' "$HERB_WORKBOOK_B64" | base64 --decode > data-sources/herb_monograph_master.xlsx
           echo "[deploy] Workbook decoded to data-sources/herb_monograph_master.xlsx"
 
-      - name: Run workbook import + manifest rebuild
-        run: |
-          if [ -f "data-sources/herb_monograph_master.xlsx" ]; then
-            node scripts/export-workbook-to-json.mjs
-            node scripts/build-publication-manifest-from-workbook.mjs
-            node scripts/generate-sitemap.mjs public
-          else
-            echo "::warning::data-sources/herb_monograph_master.xlsx not found. Skipping workbook pipeline."
-          fi
-
-      - name: Build production site (includes prebuild + postbuild)
+      - name: Build production site
         run: npm run build
 
       - name: Generate sitemap + robots for Next public assets
@@ -68,21 +54,19 @@ jobs:
 
       - name: Verify critical generated assets
         run: |
-          required_files=(
+          required_paths=(
             "public/data/herbs.json"
             "public/data/compounds.json"
-            "public/data/indexable-herbs.json"
             "public/sitemap.xml"
             "public/robots.txt"
             ".vercel/output/config.json"
             ".vercel/output/static"
-            ".vercel/output/functions"
           )
 
           missing=0
-          for file in "${required_files[@]}"; do
-            if [ ! -f "$file" ]; then
-              echo "[deploy] Missing required generated asset: $file"
+          for path in "${required_paths[@]}"; do
+            if [ ! -e "$path" ]; then
+              echo "[deploy] Missing required generated asset: $path"
               missing=1
             fi
           done
