@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "generate:a-tier": "node scripts/generate-a-tier-index.mjs",
     "dev": "next dev",
     "update-data": "node scripts/update-data.js",
     "dev:data": "node scripts/convert-herbs.mjs",
