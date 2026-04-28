@@ -2,77 +2,57 @@
   "name": "hippie-scientist-site",
   "version": "1.0.0",
   "private": true,
-
   "engines": {
     "node": ">=20 <=22"
   },
-
   "scripts": {
     "dev": "next dev",
     "start": "next start",
-
     "build": "npm run generate:a-tier && npm run prebuild && next build",
-
     "check": "npm run data:build && npm run data:validate && npm run build",
-
     "enrichment:release:gate": "echo \"Skipping enrichment release gate\"",
-
     "generate:a-tier": "node scripts/generate-a-tier-index.mjs",
-
     "prebuild": "npm run data:build && node scripts/clean-source-refs.mjs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-homepage-data.mjs",
-
     "data:build": "node scripts/data/build-runtime-from-workbook.mjs --out public/data",
     "data:validate": "node scripts/data/validate-data-next.mjs --data-dir public/data",
-
+    "sitemap": "node scripts/generate-sitemap.mjs public",
+    "verify:redirects": "echo \"Skipping legacy dist/_redirects check for Next/Cloudflare Pages build\"",
     "lint": "eslint . --max-warnings=0",
     "format": "prettier --write ."
   },
-
   "dependencies": {
     "next": "^15.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-
     "xlsx": "^0.18.5",
-
     "clsx": "^2.1.1",
     "slugify": "^1.6.6",
     "zustand": "^5.0.8",
-
     "gray-matter": "^4.0.3",
     "marked": "^12.0.2",
     "react-markdown": "^10.1.0",
     "rehype-raw": "^7.0.0",
-
     "framer-motion": "^10.18.0",
     "lucide-react": "^0.298.0",
-
     "fuse.js": "^7.1.0",
-
     "ajv": "^8.18.0",
     "ajv-formats": "^3.0.1",
-
     "papaparse": "^5.5.3",
     "csv-parse": "^5.5.6",
-
     "three": "^0.180.0",
     "tsparticles": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/engine": "^3.8.1",
-
     "dompurify": "^3.3.3",
     "resend": "^6.9.4"
   },
-
   "devDependencies": {
     "typescript": "^5.8.3",
     "tsx": "^4.19.2",
     "ts-node": "^10.9.2",
-
     "@types/node": "^20.19.37",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-
     "eslint": "^9.11.1",
     "@typescript-eslint/parser": "^8.10.0",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
@@ -80,22 +60,17 @@
     "eslint-plugin-react-hooks": "^7.0.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-config-prettier": "^9.0.0",
-
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.14",
-
     "postcss": "^8.4.31",
     "tailwindcss": "^3.4.3",
     "autoprefixer": "^10.4.19",
-
     "stylelint": "^16.9.0",
     "stylelint-config-standard": "^36.0.0",
-
     "chokidar": "^4.0.3",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.7"
   },
-
   "lint-staged": {
     "*.{ts,tsx}": "eslint --max-warnings=0",
     "*.{js,mjs,cjs}": "eslint --max-warnings=0"
