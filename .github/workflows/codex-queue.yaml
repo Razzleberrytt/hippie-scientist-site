@@ -1,8 +1,0 @@
-version: 1
-status: inactive
-mode: manual
-last_updated: 2026-03-30
-notes:
-  - "Queue snapshot retired."
-  - "Codex no longer relies on a current-step queue in this repository."
-steps: []
