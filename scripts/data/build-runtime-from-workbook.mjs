@@ -98,6 +98,13 @@ function first(row, keys) {
   return ''
 }
 
+function isWorkbookDataRow(row) {
+  return Object.entries(row).some(([key, value]) => {
+    if (key.startsWith('__')) return false
+    return Boolean(cleanText(value))
+  })
+}
+
 function readSheet(workbook, sheetName) {
   const sheet = workbook.Sheets[sheetName]
 
@@ -110,6 +117,14 @@ function readSheet(workbook, sheetName) {
     raw: false,
     blankrows: false,
   })
+    .map((row, index) => ({
+      ...row,
+      __meta: {
+        sheetName,
+        excelRow: index + 2,
+      },
+    }))
+    .filter(isWorkbookDataRow)
 
   if (!rows.length) {
     throw new Error(`[data] Required sheet has zero rows: ${sheetName}`)
@@ -144,13 +159,44 @@ function isPublishable(record) {
   return record.qualityTier === 'strong' || record.qualityTier === 'publishable'
 }
 
+function identityDebug(record) {
+  const raw = record.__raw || {}
+  const meta = record.__meta || raw.__meta || {}
+  const identityKeys = [
+    'slug',
+    'herbSlug',
+    'compoundSlug',
+    'name',
+    'herbName',
+    'commonName',
+    'compoundName',
+    'canonicalCompoundName',
+    'canonicalCompoundId',
+    'id',
+  ]
+
+  const rawIdentity = Object.fromEntries(
+    identityKeys
+      .filter(key => Object.prototype.hasOwnProperty.call(raw, key))
+      .map(key => [key, raw[key]]),
+  )
+
+  return [
+    `sheet=${meta.sheetName || 'unknown'}`,
+    `excelRow=${meta.excelRow || 'unknown'}`,
+    `name=${JSON.stringify(record.name || '')}`,
+    `slug=${JSON.stringify(record.slug || '')}`,
+    `rawIdentity=${JSON.stringify(rawIdentity)}`,
+  ].join(' ')
+}
+
 function assertIdentity(record, type) {
   if (!record.name || !record.slug) {
-    throw new Error(`[data] Invalid ${type}: missing name or slug`)
+    throw new Error(`[data] Invalid ${type}: missing name or slug (${identityDebug(record)})`)
   }
 
   if (record.name.length <= 1 || record.slug.length <= 1) {
-    throw new Error(`[data] Invalid ${type}: weak identity for ${record.slug || record.name}`)
+    throw new Error(`[data] Invalid ${type}: weak identity (${identityDebug(record)})`)
   }
 }
 
@@ -159,6 +205,8 @@ function herbFromRow(row) {
   const slug = slugify(first(row, ['slug', 'herbSlug', 'name', 'herbName']))
 
   return {
+    __meta: row.__meta,
+    __raw: row,
     id: slug,
     name,
     slug,
@@ -183,6 +231,8 @@ function compoundFromRow(row) {
   const slug = slugify(first(row, ['slug', 'canonicalCompoundId', 'compoundName', 'name']))
 
   return {
+    __meta: row.__meta,
+    __raw: row,
     id: slug,
     name,
     slug,
@@ -200,6 +250,11 @@ function compoundFromRow(row) {
     confidenceReason: first(row, ['confidenceReason']),
     qualityTier: qualityTier(row),
   }
+}
+
+function publicRecord(record) {
+  const { __meta, __raw, ...publicFields } = record
+  return publicFields
 }
 
 function summaryRecord(record) {
@@ -287,8 +342,8 @@ function run() {
     )
   }
 
-  const publishableHerbs = allHerbs.filter(isPublishable)
-  const publishableCompounds = allCompounds.filter(isPublishable)
+  const publishableHerbs = allHerbs.filter(isPublishable).map(publicRecord)
+  const publishableCompounds = allCompounds.filter(isPublishable).map(publicRecord)
 
   const invalidPublishable = [
     ...publishableHerbs
