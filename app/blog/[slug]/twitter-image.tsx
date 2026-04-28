@@ -1,6 +1,8 @@
 import { ImageResponse } from 'next/og'
 import posts from '@/data/blog/posts.json'
 
+export const dynamic = 'force-static'
+
 export const alt = 'The Hippie Scientist blog post preview'
 export const size = {
   width: 1200,
@@ -21,6 +23,10 @@ type BlogPost = {
 }
 
 const allPosts = posts as BlogPost[]
+
+export function generateStaticParams() {
+  return allPosts.map(post => ({ slug: post.slug }))
+}
 
 const formatSlugLabel = (slug: string): string =>
   slug

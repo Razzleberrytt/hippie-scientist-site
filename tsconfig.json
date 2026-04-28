@@ -15,10 +15,11 @@
     "skipLibCheck": true,
     "allowJs": true,
     "noEmit": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
-        "*"
+        "./src/*",
+        "./*"
       ]
     },
     "incremental": true,
@@ -38,6 +39,9 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/App.tsx",
+    "src/main.tsx",
+    "src/legacy-pages/**/*"
   ]
 }
