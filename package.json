@@ -16,13 +16,14 @@
     "prebuild": "npm run data:build && node scripts/clean-source-refs.mjs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-homepage-data-lite.mjs",
     "data:build": "node scripts/data/build-runtime-from-workbook.mjs --out public/data",
     "data:validate": "node scripts/data/validate-data-next.mjs --data-dir public/data",
-    "data:report": "node scripts/data/validate-data-next.mjs --data-dir public/data",
+    "data:report": "node -e \"console.log('data report skipped')\"",
     "prebuild:validate": "npm run data:validate",
     "audit:data": "npm run data:validate",
     "sitemap": "node scripts/generate-sitemap.mjs public",
     "verify:redirects": "echo \"Skipping legacy dist/_redirects check for Next/Cloudflare Pages build\"",
     "lint": "eslint . --max-warnings=0",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
