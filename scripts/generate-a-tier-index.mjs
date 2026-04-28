@@ -6,6 +6,7 @@ import xlsx from "xlsx";
 const WORKBOOK_PATH = path.join(process.cwd(), "data-sources", "herb_monograph_master.xlsx");
 const OUTPUT_DIR = path.join(process.cwd(), "public", "data");
 const OUTPUT_PATH = path.join(OUTPUT_DIR, "a-tier-index.json");
+const REPORT_PATH = path.join(OUTPUT_DIR, "a-tier-index-report.json");
 
 function fail(message) {
   console.error(`A-tier index generation failed: ${message}`);
@@ -35,17 +36,18 @@ function asNumber(value) {
   return Number.isFinite(n) ? n : null;
 }
 
-function inferDomain(finalUseNotes = "", name = "", slug = "") {
-  const text = `${finalUseNotes} ${name} ${slug}`.toLowerCase();
+function inferDomain(finalUseNotes = "", name = "", slug = "", evidenceLevel = "", evidenceType = "") {
+  const text = `${finalUseNotes} ${name} ${slug} ${evidenceLevel} ${evidenceType}`.toLowerCase();
 
-  if (text.includes("acetaminophen") || text.includes("toxicity") || text.includes("overdose")) return "toxicology";
   if (text.includes("heart failure")) return "cardiovascular";
   if (text.includes("triglyceride") || text.includes("ldl") || text.includes("cholesterol") || text.includes("blood pressure")) return "cardiovascular";
+  if (text.includes("type 2 diabetes") || text.includes("diabetes") || text.includes("glycemic") || text.includes("glucose") || text.includes("hba1c") || text.includes("insulin") || text.includes("berberine")) return "metabolic";
+  if (text.includes("inflammatory") || text.includes("inflammation") || text.includes("arthritis") || text.includes("curcumin")) return "inflammation";
   if (text.includes("neuropathy") || text.includes("neuropathic")) return "neurological";
-  if (text.includes("performance") || text.includes("ergogenic") || text.includes("strength") || text.includes("exercise")) return "performance";
-  if (text.includes("topical pain") || text.includes("pain")) return "pain";
+  if (text.includes("performance") || text.includes("ergogenic") || text.includes("strength") || text.includes("exercise") || text.includes("creatine")) return "performance";
+  if (text.includes("topical pain") || text.includes("pain") || text.includes("capsaicin")) return "pain";
 
-  return "";
+  return "general";
 }
 
 function splitSources(raw) {
@@ -67,10 +69,11 @@ if (!sheet) {
 }
 
 const rows = xlsx.utils.sheet_to_json(sheet, { defval: "" });
+const skipped = [];
 
 const items = rows
   .filter((row) => asText(getValue(row, "confidenceTier_v2")).toUpperCase() === "A")
-  .map((row) => {
+  .map((row, index) => {
     const slug = asText(getValue(row, "slug"));
     const name = asText(getValue(row, "name"));
     const compoundClass = asText(getValue(row, "compoundClass"));
@@ -79,14 +82,24 @@ const items = rows
     const confidenceScore = asNumber(getValue(row, "confidenceScore"));
     const sources = splitSources(getValue(row, "sources"));
     const finalUseNotes = asText(getValue(row, "finalUseNotes"));
-    const domain = inferDomain(finalUseNotes, name, slug);
+    const domain = inferDomain(finalUseNotes, name, slug, evidenceLevel, evidenceType);
 
-    if (!slug) fail(`A-tier row missing slug: ${name || JSON.stringify(row)}`);
-    if (!name) fail(`A-tier row missing name for slug: ${slug}`);
-    if (!finalUseNotes) fail(`A-tier row missing finalUseNotes: ${slug}`);
-    if (!domain) fail(`Could not infer domain for A-tier row: ${slug}`);
-    if (confidenceScore === null) fail(`A-tier row missing confidenceScore: ${slug}`);
-    if (confidenceScore < 85) fail(`A-tier row confidenceScore below 85: ${slug} (${confidenceScore})`);
+    const reason = !slug
+      ? `missing slug: ${name || "unnamed row"}`
+      : !name
+        ? `missing name for slug: ${slug}`
+        : !finalUseNotes
+          ? `missing finalUseNotes: ${slug}`
+          : confidenceScore === null
+            ? `missing confidenceScore: ${slug}`
+            : confidenceScore < 85
+              ? `confidenceScore below 85: ${slug} (${confidenceScore})`
+              : "";
+
+    if (reason) {
+      skipped.push({ excelRow: index + 2, slug, name, reason });
+      return null;
+    }
 
     return {
       slug,
@@ -100,6 +113,7 @@ const items = rows
       finalUseNotes,
     };
   })
+  .filter(Boolean)
   .sort((a, b) => b.confidenceScore - a.confidenceScore || a.name.localeCompare(b.name));
 
 const output = {
@@ -108,7 +122,18 @@ const output = {
   items,
 };
 
+const report = {
+  generatedAt: output.generatedAt,
+  count: items.length,
+  skippedCount: skipped.length,
+  skipped,
+};
+
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(output, null, 2)}\n`, "utf8");
+fs.writeFileSync(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`, "utf8");
 
 console.log(`Generated ${OUTPUT_PATH} with ${items.length} A-tier compounds.`);
+if (skipped.length > 0) {
+  console.warn(`[a-tier] skipped ${skipped.length} incomplete A-tier row(s); see ${path.relative(process.cwd(), REPORT_PATH)}`);
+}
