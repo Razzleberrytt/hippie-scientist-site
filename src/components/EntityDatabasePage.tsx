@@ -611,7 +611,7 @@ function MultiSelectFilter({
                 value={option}
                 className='ui-active:bg-white/10 cursor-pointer rounded-md px-2 py-1'
               >
-                {({ selected: isSelected }) => (
+                {({ selected: isSelected }: { selected: boolean }) => (
                   <span className={isSelected ? 'text-cyan-300' : 'text-white/85'}>
                     {isSelected ? '✓ ' : ''}
                     {option}

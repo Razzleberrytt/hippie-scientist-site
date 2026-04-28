@@ -42,7 +42,7 @@ export function validateEmail(email: string): string | null {
 }
 
 function resolveFormEndpoint(): string {
-  const env = import.meta.env as Record<string, string | undefined>
+  const env = import.meta.env as unknown as Record<string, string | undefined>
 
   if (env.VITE_FORM_ENDPOINT) {
     return env.VITE_FORM_ENDPOINT
