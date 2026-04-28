@@ -189,11 +189,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   const label = getCompoundLabel(compound)
   const description = getLeadText(compound)
+  const canonicalPath = `/compounds/${compound.slug}`
 
   return {
     title: `${label} | Compound`,
     description,
-    alternates: { canonical: `/compounds/${compound.slug}` },
+    alternates: { canonical: canonicalPath },
+    openGraph: {
+      url: canonicalPath,
+    },
   }
 }
 
