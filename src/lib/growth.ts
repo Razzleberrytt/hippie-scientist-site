@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { readStorage, writeStorage } from '@/utils/storageState'
-import { useLocation } from 'react-router-dom'
+import { useLocation } from '@/lib/router-compat'
 
 export type SavedEntityType = 'herb' | 'compound' | 'article' | 'blend'
 

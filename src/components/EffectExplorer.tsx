@@ -1,5 +1,5 @@
 import { useDeferredValue, useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '@/lib/router-compat'
 import { effectSuggestions, rankHerbsByEffect } from '@/utils/effectSearch'
 import type { Herb } from '@/types'
 import { asStringArray } from '@/utils/asStringArray'

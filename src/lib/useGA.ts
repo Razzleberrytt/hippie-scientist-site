@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "@/lib/router-compat";
 import { CONSENT_GRANTED_EVENT, CONSENT_STORAGE_KEY, getConsent } from "./consent";
 import { loadAnalytics } from "./loadAnalytics";
 declare global { interface Window { gtag?: (...args:any[]) => void } }

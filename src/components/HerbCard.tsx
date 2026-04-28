@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { FlaskConical } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link } from '@/lib/router-compat'
 import Card from './ui/Card'
 import { formatBrowseTitle } from '@/utils/titleDisplay'
 import { normalizeTagList } from '@/lib/tagNormalization'

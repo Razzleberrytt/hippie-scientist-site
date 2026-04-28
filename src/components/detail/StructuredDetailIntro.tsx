@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from '@/lib/router-compat'
 import { useEffect } from 'react'
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
 import { trackGovernedEvent, type GovernedPageType } from '@/lib/governedAnalytics'
