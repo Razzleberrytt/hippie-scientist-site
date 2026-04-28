@@ -1,24 +1,45 @@
-import { useMemo } from 'react'
-import { useSearchParams } from 'react-router-dom'
+"use client";
+
+import { useMemo } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   DEFAULT_FILTER_STATE,
   parseFilterStateFromSearchParams,
-  toSearchParamsFromFilterState,
-  type EntryFilterState,
-} from '@/utils/filterModel'
+  serializeFilterStateToSearchParams,
+  type FilterState,
+} from "../lib/filterState";
 
-export function useUrlFilterState(defaults: EntryFilterState = DEFAULT_FILTER_STATE) {
-  const [searchParams, setSearchParams] = useSearchParams()
+export function useUrlFilterState() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-  const state = useMemo(
-    () => parseFilterStateFromSearchParams(searchParams, defaults),
-    [defaults, searchParams]
-  )
+  const filterState = useMemo(() => {
+    return parseFilterStateFromSearchParams(searchParams);
+  }, [searchParams]);
 
-  const setState = (updater: EntryFilterState | ((prev: EntryFilterState) => EntryFilterState)) => {
-    const nextState = typeof updater === 'function' ? updater(state) : updater
-    setSearchParams(toSearchParamsFromFilterState(nextState), { replace: true })
+  function setFilterState(nextState: Partial<FilterState>) {
+    const mergedState: FilterState = {
+      ...DEFAULT_FILTER_STATE,
+      ...filterState,
+      ...nextState,
+    };
+
+    const nextParams = serializeFilterStateToSearchParams(mergedState);
+    const queryString = nextParams.toString();
+
+    router.replace(queryString ? `${pathname}?${queryString}` : pathname, {
+      scroll: false,
+    });
   }
 
-  return [state, setState] as const
+  function resetFilterState() {
+    router.replace(pathname, { scroll: false });
+  }
+
+  return {
+    filterState,
+    setFilterState,
+    resetFilterState,
+  };
 }
