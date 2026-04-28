@@ -303,18 +303,31 @@ function run() {
 
   const herbs = herbRows.map(herbFromRow)
   const compounds = compoundRows.map(compoundFromRow)
+  const seenCompoundNames = new Map()
+  const dedupedCompounds = compounds.filter(compound => {
+    const key = compound.name.toLowerCase().trim()
+    if (seenCompoundNames.has(key)) {
+      console.warn(
+        `[data] duplicate compound dropped: ${compound.slug} (dupe of ${seenCompoundNames.get(key)})`,
+      )
+      return false
+    }
+    seenCompoundNames.set(key, compound.slug)
+    return true
+  })
 
   console.log(
     `[data] herbs: ${herbs.length} total, ${herbs.filter(h => h.summary).length} with summary`,
   )
   console.log(`[data] compounds: ${compounds.length} total`)
+  console.log(`[data] compounds: ${dedupedCompounds.length} after canonical-name dedupe`)
 
   for (const herb of herbs) assertIdentity(herb, 'herb')
-  for (const compound of compounds) assertIdentity(compound, 'compound')
+  for (const compound of dedupedCompounds) assertIdentity(compound, 'compound')
 
   const duplicateSlugs = [
     ...detectDuplicates(herbs, 'herb'),
-    ...detectDuplicates(compounds, 'compound'),
+    ...detectDuplicates(dedupedCompounds, 'compound'),
   ]
 
   if (duplicateSlugs.length > 0) {
@@ -341,14 +354,14 @@ function run() {
     }
   }
 
-  for (const compound of compounds) {
+  for (const compound of dedupedCompounds) {
     compound.foundIn = (foundInByCompound.get(compound.slug) || []).sort((a, b) =>
       a.localeCompare(b),
     )
   }
 
   const publishableHerbs = herbs.filter(isPublishable).map(publicRecord)
-  const publishableCompounds = compounds.filter(isPublishable).map(publicRecord)
+  const publishableCompounds = dedupedCompounds.filter(isPublishable).map(publicRecord)
   const exportedHerbs = herbs.map(publicRecord)
 
   const invalidPublishable = [
@@ -392,11 +405,12 @@ function run() {
     totals: {
       workbookHerbs: herbs.length,
       workbookCompounds: compounds.length,
+      dedupedWorkbookCompounds: dedupedCompounds.length,
       exportedHerbs: exportedHerbs.length,
       publishableHerbs: publishableHerbs.length,
       publishableCompounds: publishableCompounds.length,
       needsWorkHerbs: herbs.filter(record => !isPublishable(record)).length,
-      needsWorkCompounds: compounds.filter(record => !isPublishable(record)).length,
+      needsWorkCompounds: dedupedCompounds.filter(record => !isPublishable(record)).length,
       claimRows: claimRows.length,
       researchQueueRows: researchQueueRows.length,
       missingHerbDosage: herbs.filter(record => !record.dosage).length,
@@ -419,7 +433,7 @@ function run() {
   console.log(`[data] workbook=${path.relative(repoRoot, workbookPath)}`)
   console.log(`[data] output=${outputLabel}`)
   console.log(`[data] herbs=${exportedHerbs.length}/${herbs.length}`)
-  console.log(`[data] compounds=${publishableCompounds.length}/${compounds.length}`)
+  console.log(`[data] compounds=${publishableCompounds.length}/${dedupedCompounds.length}`)
   console.log(`[data] build-report=${path.join(outputLabel, 'build-report.json')}`)
 }
 
