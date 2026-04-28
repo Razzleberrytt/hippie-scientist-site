@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run generate:a-tier && npm run prebuild && next build",
+    "check": "npm run lint && npm run data:build && npm run data:validate && npm run build",
     "start": "next start",
 
     "generate:a-tier": "node scripts/generate-a-tier-index.mjs",
