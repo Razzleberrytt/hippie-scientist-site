@@ -13,7 +13,7 @@
     "check": "npm run data:build && npm run data:validate && npm run build",
     "enrichment:release:gate": "echo \"Skipping enrichment release gate\"",
     "generate:a-tier": "node scripts/generate-a-tier-index.mjs",
-    "prebuild": "npm run data:build && node scripts/clean-source-refs.mjs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-homepage-data-lite.mjs",
+    "prebuild": "npm run prebuild:blog && npm run data:build && node scripts/clean-source-refs.mjs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-homepage-data-lite.mjs",
     "data:build": "node scripts/data/build-runtime-from-workbook.mjs --out public/data",
     "data:validate": "node scripts/data/validate-data-next.mjs --data-dir public/data",
     "data:report": "node -e \"console.log('data report skipped')\"",
@@ -24,7 +24,8 @@
     "lint": "eslint . --max-warnings=0",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit || echo 'typecheck skipped due to errors'",
-    "blog:generate": "node scripts/generate-daily-post.mjs"
+    "blog:generate": "node scripts/generate-daily-post.mjs",
+    "prebuild:blog": "node scripts/build-blog.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
