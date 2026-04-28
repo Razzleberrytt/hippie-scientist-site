@@ -301,22 +301,27 @@ function run() {
   const claimRows = readSheet(workbook, REQUIRED_SHEETS.claimRows)
   const researchQueueRows = readSheet(workbook, REQUIRED_SHEETS.researchQueue)
 
-  const allHerbs = herbRows.map(herbFromRow)
-  const allCompounds = compoundRows.map(compoundFromRow)
+  const herbs = herbRows.map(herbFromRow)
+  const compounds = compoundRows.map(compoundFromRow)
 
-  for (const herb of allHerbs) assertIdentity(herb, 'herb')
-  for (const compound of allCompounds) assertIdentity(compound, 'compound')
+  console.log(
+    `[data] herbs: ${herbs.length} total, ${herbs.filter(h => h.summary).length} with summary`,
+  )
+  console.log(`[data] compounds: ${compounds.length} total`)
+
+  for (const herb of herbs) assertIdentity(herb, 'herb')
+  for (const compound of compounds) assertIdentity(compound, 'compound')
 
   const duplicateSlugs = [
-    ...detectDuplicates(allHerbs, 'herb'),
-    ...detectDuplicates(allCompounds, 'compound'),
+    ...detectDuplicates(herbs, 'herb'),
+    ...detectDuplicates(compounds, 'compound'),
   ]
 
   if (duplicateSlugs.length > 0) {
     throw new Error(`[data] Duplicate slugs found:\n${duplicateSlugs.join('\n')}`)
   }
 
-  const herbNameBySlug = new Map(allHerbs.map(herb => [herb.slug, herb.name]))
+  const herbNameBySlug = new Map(herbs.map(herb => [herb.slug, herb.name]))
   const foundInByCompound = new Map()
 
   for (const row of mapRows) {
@@ -336,14 +341,15 @@ function run() {
     }
   }
 
-  for (const compound of allCompounds) {
+  for (const compound of compounds) {
     compound.foundIn = (foundInByCompound.get(compound.slug) || []).sort((a, b) =>
       a.localeCompare(b),
     )
   }
 
-  const publishableHerbs = allHerbs.filter(isPublishable).map(publicRecord)
-  const publishableCompounds = allCompounds.filter(isPublishable).map(publicRecord)
+  const publishableHerbs = herbs.filter(isPublishable).map(publicRecord)
+  const publishableCompounds = compounds.filter(isPublishable).map(publicRecord)
+  const exportedHerbs = herbs.map(publicRecord)
 
   const invalidPublishable = [
     ...publishableHerbs
@@ -365,12 +371,12 @@ function run() {
   fs.rmSync(outputDir, { recursive: true, force: true })
   fs.mkdirSync(outputDir, { recursive: true })
 
-  writeJson(path.join(outputDir, 'herbs.json'), publishableHerbs)
+  writeJson(path.join(outputDir, 'herbs.json'), exportedHerbs)
   writeJson(path.join(outputDir, 'compounds.json'), publishableCompounds)
-  writeJson(path.join(outputDir, 'herbs-summary.json'), publishableHerbs.map(summaryRecord))
+  writeJson(path.join(outputDir, 'herbs-summary.json'), exportedHerbs.map(summaryRecord))
   writeJson(path.join(outputDir, 'compounds-summary.json'), publishableCompounds.map(summaryRecord))
 
-  for (const herb of publishableHerbs) {
+  for (const herb of exportedHerbs) {
     writeJson(path.join(outputDir, 'herbs-detail', `${herb.slug}.json`), herb)
   }
 
@@ -384,15 +390,16 @@ function run() {
     sourceWorkbook: path.relative(repoRoot, workbookPath),
     output: outputLabel,
     totals: {
-      workbookHerbs: allHerbs.length,
-      workbookCompounds: allCompounds.length,
+      workbookHerbs: herbs.length,
+      workbookCompounds: compounds.length,
+      exportedHerbs: exportedHerbs.length,
       publishableHerbs: publishableHerbs.length,
       publishableCompounds: publishableCompounds.length,
-      needsWorkHerbs: allHerbs.filter(record => !isPublishable(record)).length,
-      needsWorkCompounds: allCompounds.filter(record => !isPublishable(record)).length,
+      needsWorkHerbs: herbs.filter(record => !isPublishable(record)).length,
+      needsWorkCompounds: compounds.filter(record => !isPublishable(record)).length,
       claimRows: claimRows.length,
       researchQueueRows: researchQueueRows.length,
-      missingHerbDosage: allHerbs.filter(record => !record.dosage).length,
+      missingHerbDosage: herbs.filter(record => !record.dosage).length,
       duplicateSlugs: duplicateSlugs.length,
       invalidPublishable: invalidPublishable.length,
     },
@@ -411,8 +418,8 @@ function run() {
 
   console.log(`[data] workbook=${path.relative(repoRoot, workbookPath)}`)
   console.log(`[data] output=${outputLabel}`)
-  console.log(`[data] herbs=${publishableHerbs.length}/${allHerbs.length}`)
-  console.log(`[data] compounds=${publishableCompounds.length}/${allCompounds.length}`)
+  console.log(`[data] herbs=${exportedHerbs.length}/${herbs.length}`)
+  console.log(`[data] compounds=${publishableCompounds.length}/${compounds.length}`)
   console.log(`[data] build-report=${path.join(outputLabel, 'build-report.json')}`)
 }
 
