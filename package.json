@@ -197,10 +197,9 @@
     "data:report:quality:next": "node scripts/report-data-quality.mjs",
     "start": "next start"
   },
-"id": "nodefix01",
-"engines": {
-  "node": ">=20 <=22"
-},
+  "engines": {
+    "node": ">=20 <=22"
+  },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --max-warnings=0",
     "*.{js,mjs,cjs}": "eslint --max-warnings=0"
@@ -223,6 +222,7 @@
     "jspdf": "^4.2.1",
     "lucide-react": "^0.298.0",
     "marked": "^12.0.2",
+    "next": "^15.3.2",
     "papaparse": "^5.5.3",
     "react": "^18.2.0",
     "react-countup": "^6.5.3",
@@ -240,37 +240,5 @@
     "three": "^0.180.0",
     "tsparticles": "^3.8.1",
     "xlsx": "^0.18.5",
-    "zustand": "^5.0.8",
-    "next": "^15.3.2"
+    "zustand": "^5.0.8"
   },
-  "devDependencies": {
-    "@fontsource/inter": "^5.1.0",
-    "@resvg/resvg-js": "^2.6.2",
-    "@types/node": "^20.19.37",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@typescript-eslint/eslint-plugin": "^8.10.0",
-    "@typescript-eslint/parser": "^8.10.0",
-    "chokidar": "^4.0.3",
-    "eslint": "^9.11.1",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-react": "^7.34.4",
-    "eslint-plugin-react-hooks": "^7.0.0",
-    "eslint-plugin-react-refresh": "^0.5.2",
-    "globals": "^17.4.0",
-    "husky": "^9.1.6",
-    "lint-staged": "^15.2.7",
-    "postcss": "^8.4.31",
-    "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.14",
-    "puppeteer": "^22.0.0",
-    "satori": "^0.10.13",
-    "stylelint": "^16.9.0",
-    "stylelint-config-standard": "^36.0.0",
-    "ts-node": "^10.9.2",
-    "tsx": "^4.19.2",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.57.2"
-  }
-}
