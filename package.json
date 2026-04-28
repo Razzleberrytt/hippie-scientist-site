@@ -23,7 +23,8 @@
     "verify:redirects": "echo \"Skipping legacy dist/_redirects check for Next/Cloudflare Pages build\"",
     "lint": "eslint . --max-warnings=0",
     "format": "prettier --write .",
-    "typecheck": "tsc --noEmit || echo 'typecheck skipped due to errors'"
+    "typecheck": "tsc --noEmit || echo 'typecheck skipped due to errors'",
+    "blog:generate": "node scripts/generate-daily-post.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
