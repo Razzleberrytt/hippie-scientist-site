@@ -250,6 +250,7 @@ export default async function HerbDetailPage({ params }: Params) {
   const safetyNotes = normalizeProfileText(herb.safetyNotes)
   const contraindications = normalizeProfileList(herb.contraindications)
   const interactions = normalizeProfileList(herb.interactions)
+  const warnings = safetyNotes ? [safetyNotes] : []
   const dosage = normalizeProfileText(herb.dosage)
   const preparation = normalizeProfileText(herb.preparation)
   const evidenceLevel = normalizeProfileText(herb.evidenceLevel)
@@ -347,20 +348,54 @@ export default async function HerbDetailPage({ params }: Params) {
 
           <SectionList title='Mechanisms' items={mechanisms} />
 
-          {safetyNotes ? (
+          {contraindications.length || interactions.length || warnings.length ? (
             <section className='ds-card'>
               <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-                Safety notes
+                Safety
               </p>
 
-              <p className='mt-4 whitespace-pre-line text-sm leading-7 text-white/75 sm:text-base'>
-                {safetyNotes}
-              </p>
+              <div className='mt-4 space-y-4'>
+                {contraindications.length ? (
+                  <div>
+                    <p className='text-xs font-medium uppercase tracking-[0.2em] text-white/45'>
+                      Contraindications
+                    </p>
+                    <ul className='mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-white/75 sm:text-base'>
+                      {contraindications.map(item => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+
+                {interactions.length ? (
+                  <div>
+                    <p className='text-xs font-medium uppercase tracking-[0.2em] text-white/45'>
+                      Interactions
+                    </p>
+                    <ul className='mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-white/75 sm:text-base'>
+                      {interactions.map(item => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+
+                {warnings.length ? (
+                  <div>
+                    <p className='text-xs font-medium uppercase tracking-[0.2em] text-white/45'>
+                      Warnings
+                    </p>
+                    <ul className='mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-white/75 sm:text-base'>
+                      {warnings.map(item => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+              </div>
             </section>
           ) : null}
-
-          <SectionList title='Contraindications' items={contraindications} />
-          <SectionList title='Interactions' items={interactions} />
 
           <KeyValueSection
             title='Use and preparation'
@@ -418,7 +453,10 @@ export default async function HerbDetailPage({ params }: Params) {
               },
               {
                 label: 'Safety section',
-                value: safetyNotes ? 'Included' : 'Not yet',
+                value:
+                  contraindications.length || interactions.length || warnings.length
+                    ? 'Included'
+                    : 'Not yet',
               },
             ]}
           />
