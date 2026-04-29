@@ -39,6 +39,9 @@ export type ResearchClaim = {
   evidenceClass: EvidenceClass
   sourceRefIds: string[]
   strengthNote?: string
+  evidenceGrade?: 'A' | 'B'
+  population?: string
+  primaryPmids?: string[]
 }
 
 export type EvidenceLabel =

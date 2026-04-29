@@ -13,6 +13,50 @@ type ClaimSectionConfig = {
   items: ResearchClaim[]
 }
 
+function EvidenceMeta({ item }: { item: ResearchClaim }) {
+  const pmids = item.primaryPmids || []
+  const hasEvidence = Boolean(
+    item.evidenceGrade || item.population || pmids.length > 0,
+  )
+  if (!hasEvidence) return null
+
+  return (
+    <div className='mt-2 rounded-lg border border-white/10 bg-white/[0.02] px-2.5 py-2 text-xs text-white/75'>
+      <p className='font-semibold uppercase tracking-[0.14em] text-white/55'>Evidence</p>
+      <div className='mt-1 flex flex-wrap gap-x-3 gap-y-1'>
+        {item.evidenceGrade && (
+          <span>
+            <span className='text-white/55'>Grade:</span> {item.evidenceGrade}
+          </span>
+        )}
+        {item.population && (
+          <span>
+            <span className='text-white/55'>Population:</span> {item.population}
+          </span>
+        )}
+        {pmids.length > 0 && (
+          <span>
+            <span className='text-white/55'>PMID:</span>{' '}
+            {pmids.map((pmid, index) => (
+              <span key={pmid}>
+                <a
+                  href={`https://pubmed.ncbi.nlm.nih.gov/${pmid}/`}
+                  target='_blank'
+                  rel='noreferrer'
+                  className='text-cyan-200 underline-offset-2 hover:underline'
+                >
+                  {pmid}
+                </a>
+                {index < pmids.length - 1 ? ', ' : ''}
+              </span>
+            ))}
+          </span>
+        )}
+      </div>
+    </div>
+  )
+}
+
 function ClaimList({
   items,
   topicType,
@@ -35,6 +79,7 @@ function ClaimList({
           <li key={item.claim}>
             <span>{item.claim}</span>
             {item.strengthNote && <span className='block text-xs text-white/65'>{item.strengthNote}</span>}
+            <EvidenceMeta item={item} />
           </li>
         ))}
       </ul>
