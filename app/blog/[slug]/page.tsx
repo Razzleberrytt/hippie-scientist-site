@@ -32,6 +32,8 @@ type BlogPost = {
   html?: unknown
   sections?: unknown
   summary?: unknown
+  profile_status?: string
+  summary_quality?: string
   researchDigest?: unknown
   fieldNotes?: unknown
   traditionalContext?: unknown
@@ -210,6 +212,17 @@ const getHtmlContent = (post: BlogPost): string =>
 const getTextContent = (post: BlogPost): string =>
   toText(post.content) || toText(post.body) || toText(post.markdown)
 
+const isStubPost = (post: BlogPost): boolean => {
+  const content = getTextContent(post)
+  const wordCount = content.split(/\s+/).filter(Boolean).length
+
+  return (
+    wordCount < 300 ||
+    post.profile_status === 'minimal' ||
+    post.summary_quality === 'none'
+  )
+}
+
 const getSections = (post: BlogPost): RenderSection[] => {
   const structuredSections = buildSectionsFromStructuredData(post.sections)
   if (structuredSections.length > 0) return structuredSections
@@ -307,6 +320,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: `${post.title} | The Hippie Scientist`,
     description: getLeadText(post),
     alternates: { canonical: `/blog/${post.slug}` },
+    robots: isStubPost(post) ? { index: false, follow: true } : undefined,
   }
 }
 
