@@ -360,27 +360,31 @@ function validateClaims(claims, validSlugs) {
   }
 }
 
-function validateMapRows(mapRows, herbSlugs, compoundSlugs) {
-  const bad = []
+function cleanAndValidateMapRows(mapRows, herbSlugs, compoundSlugs) {
+  const kept = []
+  const removed = []
   const missingCompounds = []
 
   mapRows.forEach((row, index) => {
     if (!row.herb_slug || !herbSlugs.has(row.herb_slug)) {
-      bad.push(`map row ${index + 2}: invalid herb_slug "${row.herb_slug}"`)
+      removed.push(`map row ${index + 2}: invalid herb_slug "${row.herb_slug}"`)
+      return
     }
 
     if (!row.compound_slug) {
-      bad.push(`map row ${index + 2}: missing compound_slug`)
-    } else if (!compoundSlugs.has(row.compound_slug)) {
-      missingCompounds.push(`map row ${index + 2}: compound not found "${row.compound_slug}"`)
+      removed.push(`map row ${index + 2}: missing compound_slug`)
+      return
     }
+
+    if (!compoundSlugs.has(row.compound_slug)) {
+      missingCompounds.push(`map row ${index + 2}: compound not found "${row.compound_slug}"`)
+      return
+    }
+
+    kept.push(row)
   })
 
-  if (bad.length) {
-    throw new Error(`[data] Invalid Herb Compound Map rows:\n${bad.slice(0, 50).join('\n')}`)
-  }
-
-  return missingCompounds
+  return { kept, removed, missingCompounds }
 }
 
 function writeJson(outputDir, filename, data) {
@@ -426,11 +430,15 @@ function main() {
 
   validateClaims(claims, validClaimSlugs)
 
-  const herbCompoundMap = rawMapRows
+  const normalizedMapRows = rawMapRows
     .map(normalizeMapRow)
     .filter(row => row.herb_slug || row.compound_slug)
 
-  const mapWarnings = validateMapRows(herbCompoundMap, herbSlugs, compoundSlugs)
+  const {
+    kept: herbCompoundMap,
+    removed: removedMapRows,
+    missingCompounds: mapWarnings,
+  } = cleanAndValidateMapRows(normalizedMapRows, herbSlugs, compoundSlugs)
 
   fs.mkdirSync(outputDir, { recursive: true })
 
@@ -449,9 +457,11 @@ function main() {
       claims: claims.length,
       herbCompoundMap: herbCompoundMap.length,
       blankClaimRowsRemoved,
+      orphanMapRowsRemoved: removedMapRows.length,
       mapCompoundWarnings: mapWarnings.length,
     },
     warnings: {
+      orphanMapRowsRemoved: removedMapRows.slice(0, 100),
       mapCompoundWarnings: mapWarnings.slice(0, 100),
     },
     validation: {
@@ -460,6 +470,7 @@ function main() {
       duplicateHerbSlugs: 0,
       duplicateCompoundSlugs: 0,
       invalidClaimRows: 0,
+      orphanMapRowsRemoved: removedMapRows.length,
     },
   }
 
@@ -480,6 +491,10 @@ function main() {
 
   if (blankClaimRowsRemoved > 0) {
     console.log(`[data] Removed ${blankClaimRowsRemoved} blank Claim Rows`)
+  }
+
+  if (removedMapRows.length > 0) {
+    console.warn(`[data] Removed ${removedMapRows.length} orphan Herb Compound Map rows`)
   }
 
   if (mapWarnings.length > 0) {
