@@ -1,21 +1,35 @@
-import fs from "node:fs";
-import path from "node:path";
+import fs from 'node:fs'
+import path from 'node:path'
 
-const dataDir = path.resolve("public/data");
+const dataDir = path.resolve('public/data')
 
-fs.mkdirSync(dataDir, { recursive: true });
+const arrayArtifacts = ['enrichment-governed.json', 'source-registry.json']
 
-const files = {
-  // governedResearch.ts expects this file to be an ARRAY.
-  "enrichment-governed.json": [],
+fs.mkdirSync(dataDir, { recursive: true })
 
-  // governedResearch.ts expects this file to be an ARRAY.
-  "source-registry.json": []
-};
+for (const filename of arrayArtifacts) {
+  const filePath = path.join(dataDir, filename)
 
-for (const [filename, content] of Object.entries(files)) {
-  const filePath = path.join(dataDir, filename);
+  if (!fs.existsSync(filePath)) {
+    fs.writeFileSync(filePath, '[]\n')
+    console.log(`[static-stubs] created missing array artifact: ${filePath}`)
+    continue
+  }
 
-  fs.writeFileSync(filePath, JSON.stringify(content, null, 2) + "\n");
-  console.log(`[static-stubs] ensured ${filePath}`);
+  let parsed
+  try {
+    parsed = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+  } catch {
+    fs.writeFileSync(filePath, '[]\n')
+    console.warn(`[static-stubs] reset invalid JSON artifact to array: ${filePath}`)
+    continue
+  }
+
+  if (!Array.isArray(parsed)) {
+    fs.writeFileSync(filePath, '[]\n')
+    console.warn(`[static-stubs] reset non-array artifact to array: ${filePath}`)
+    continue
+  }
+
+  console.log(`[static-stubs] artifact already valid array: ${filePath}`)
 }
