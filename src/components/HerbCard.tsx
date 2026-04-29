@@ -7,6 +7,17 @@ import { normalizeTagList } from '@/lib/tagNormalization'
 import { getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
 import { hasPlaceholderText, sanitizeSurfaceText } from '@/lib/summary'
 
+const normalizeEvidenceTier = (rawTier?: string): 'a' | 'b' | 'c' | null => {
+  if (!rawTier) return null
+  const value = rawTier.toLowerCase()
+
+  if (value.includes('tier-a') || value.includes('a-tier') || value.includes('tier a') || value == 'a') return 'a'
+  if (value.includes('tier-b') || value.includes('b-tier') || value.includes('tier b') || value == 'b') return 'b'
+  if (value.includes('tier-c') || value.includes('c-tier') || value.includes('tier c') || value == 'c') return 'c'
+
+  return null
+}
+
 interface HerbCardProps {
   name: string
   summary: string
@@ -66,9 +77,19 @@ function HerbCard({
 
   const chipClass =
     'inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[0.68rem] font-medium text-white/55'
+  const evidenceTier = normalizeEvidenceTier(evidence_tier || evidenceLevel)
+
+  if (evidenceTier === 'c') return null
+
+  const evidenceCardClass =
+    evidenceTier === 'a'
+      ? 'border-emerald-300/35 bg-emerald-500/[0.07] shadow-[0_0_0_1px_rgba(16,185,129,0.15)]'
+      : evidenceTier === 'b'
+        ? 'border-white/8 bg-white/[0.02] opacity-80'
+        : 'border-white/8 bg-white/[0.03]'
 
   return (
-    <Card className='group relative flex h-full flex-col gap-2.5 rounded-[var(--radius-lg)] border border-white/8 bg-white/[0.03] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/16 hover:bg-white/[0.055] hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)]'>
+    <Card className={`group relative flex h-full flex-col gap-2.5 rounded-[var(--radius-lg)] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/16 hover:bg-white/[0.055] hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] ${evidenceCardClass}`}>
       <div
         aria-hidden
         className='pointer-events-none absolute inset-0 rounded-[var(--radius-lg)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 shadow-[inset_0_0_0_1px_rgba(14,207,179,0.12)]'
