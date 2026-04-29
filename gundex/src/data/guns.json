@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Glock 19",
+    "manufacturer": "Glock",
+    "type": "Pistol",
+    "caliber": "9mm",
+    "action": "Semi-auto",
+    "capacity": "15+1",
+    "weight": "1.3 lb",
+    "countryOfOrigin": "Austria",
+    "tags": ["Compact", "Polymer", "EDC"],
+    "image": "https://via.placeholder.com/300x200"
+  },
+  {
+    "name": "Colt M4A1",
+    "manufacturer": "Colt",
+    "type": "Rifle",
+    "caliber": "5.56 NATO",
+    "action": "Semi-auto",
+    "capacity": "30+1",
+    "weight": "6.36 lb",
+    "countryOfOrigin": "United States",
+    "tags": ["Carbine", "Military"],
+    "image": "https://via.placeholder.com/300x200"
+  },
+  {
+    "name": "Remington 870",
+    "manufacturer": "Remington",
+    "type": "Shotgun",
+    "caliber": "12 Gauge",
+    "action": "Pump-action",
+    "capacity": "6+1",
+    "weight": "7.0 lb",
+    "countryOfOrigin": "United States",
+    "tags": ["Hunting", "Tactical"],
+    "image": "https://via.placeholder.com/300x200"
+  },
+  {
+    "name": "AK-47",
+    "manufacturer": "Kalashnikov Concern",
+    "type": "Rifle",
+    "caliber": "7.62x39mm",
+    "action": "Semi-auto",
+    "capacity": "30+1",
+    "weight": "8.3 lb",
+    "countryOfOrigin": "Russia",
+    "tags": ["Classic", "Durable"],
+    "image": "https://via.placeholder.com/300x200"
+  },
+  {
+    "name": "Sig Sauer P320",
+    "manufacturer": "Sig Sauer",
+    "type": "Pistol",
+    "caliber": "9mm",
+    "action": "Semi-auto",
+    "capacity": "17+1",
+    "weight": "1.8 lb",
+    "countryOfOrigin": "Germany",
+    "tags": ["Modular", "Duty"],
+    "image": "https://via.placeholder.com/300x200"
+  },
+  {
+    "name": "Heckler & Koch MP5",
+    "manufacturer": "Heckler & Koch",
+    "type": "SMG",
+    "caliber": "9mm",
+    "action": "Semi-auto",
+    "capacity": "30+1",
+    "weight": "6.6 lb",
+    "countryOfOrigin": "Germany",
+    "tags": ["Iconic", "Compact"],
+    "image": "https://via.placeholder.com/300x200"
+  },
+  {
+    "name": "Springfield M1A",
+    "manufacturer": "Springfield Armory",
+    "type": "Rifle",
+    "caliber": "7.62 NATO",
+    "action": "Semi-auto",
+    "capacity": "20+1",
+    "weight": "9.2 lb",
+    "countryOfOrigin": "United States",
+    "tags": ["Precision", "Civilian"],
+    "image": "https://via.placeholder.com/300x200"
+  },
+  {
+    "name": "Mossberg 500",
+    "manufacturer": "Mossberg",
+    "type": "Shotgun",
+    "caliber": "12 Gauge",
+    "action": "Pump-action",
+    "capacity": "5+1",
+    "weight": "7.5 lb",
+    "countryOfOrigin": "United States",
+    "tags": ["Versatile", "Affordable"],
+    "image": "https://via.placeholder.com/300x200"
+  },
+  {
+    "name": "FN SCAR 17S",
+    "manufacturer": "FN Herstal",
+    "type": "Rifle",
+    "caliber": "7.62 NATO",
+    "action": "Semi-auto",
+    "capacity": "20+1",
+    "weight": "8.0 lb",
+    "countryOfOrigin": "Belgium",
+    "tags": ["Modern", "Modular"],
+    "image": "https://via.placeholder.com/300x200"
+  },
+  {
+    "name": "Walther PPQ",
+    "manufacturer": "Walther",
+    "type": "Pistol",
+    "caliber": "9mm",
+    "action": "Semi-auto",
+    "capacity": "15+1",
+    "weight": "1.5 lb",
+    "countryOfOrigin": "Germany",
+    "tags": ["Ergonomic", "Carry"],
+    "image": "https://via.placeholder.com/300x200"
+  }
+]
