@@ -13,7 +13,7 @@
     "check": "npm run data:build && npm run data:validate && npm run build",
     "enrichment:release:gate": "echo \"Skipping enrichment release gate\"",
     "generate:a-tier": "node scripts/generate-a-tier-index.mjs",
-    "prebuild": "npm run prebuild:blog && npm run data:build && node scripts/clean-source-refs.mjs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-homepage-data-lite.mjs",
+    "prebuild": "npm run prebuild:blog && npm run data:build && node scripts/ensure-static-data-stubs.mjs && node scripts/clean-source-refs.mjs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-homepage-data-lite.mjs",
     "data:build": "node scripts/data/build-runtime-from-workbook.mjs --out public/data",
     "data:validate": "node scripts/data/validate-data-next.mjs --data-dir public/data",
     "data:report": "node -e \"console.log('data report skipped')\"",
