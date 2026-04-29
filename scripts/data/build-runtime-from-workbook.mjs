@@ -10,437 +10,254 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '../..')
 
-const REQUIRED_SHEETS = {
-  herbs: 'Herb Master V3',
+const SHEETS = {
   compounds: 'Compound Master V3',
+  claims: 'Claim Rows',
   herbCompoundMap: 'Herb Compound Map V3',
-  claimRows: 'Claim Rows',
-  researchQueue: 'Research Queue',
 }
 
-const PLACEHOLDER_TOKENS = new Set([
-  '',
-  'unknown',
-  'nan',
-  'null',
-  'undefined',
-  '[object object]',
+const ALLOWED_DOMAINS = new Set([
+  'performance',
+  'metabolic',
+  'cardiovascular',
+  'cognition',
+  'sleep',
+  'stress',
+  'liver',
+  'pain',
 ])
 
-const DEFAULT_SUMMARY = 'Profile pending review'
+const ALLOWED_TIME_TO_EFFECT = new Set(['acute', 'short-term', 'chronic'])
 
 function parseArgs(argv) {
   const args = argv.slice(2)
-  let relativeOut = 'public/data'
+  let outDir = 'public/data'
 
   for (let i = 0; i < args.length; i += 1) {
     if (args[i] === '--out') {
-      relativeOut = args[i + 1] || ''
+      outDir = args[i + 1] || ''
       i += 1
     } else if (args[i].startsWith('--out=')) {
-      relativeOut = args[i].slice('--out='.length)
+      outDir = args[i].slice('--out='.length)
     }
   }
 
-  if (!relativeOut.trim()) {
+  if (!String(outDir).trim()) {
     throw new Error('[data] Missing --out value')
   }
 
-  return {
-    outputDir: path.resolve(repoRoot, relativeOut),
-    outputLabel: relativeOut,
-  }
+  return path.resolve(repoRoot, outDir)
 }
 
-function cleanText(value) {
+function clean(value) {
   if (value === null || value === undefined) return ''
-  if (typeof value === 'number' && Number.isNaN(value)) return ''
-
   const text = String(value).replace(/\s+/g, ' ').trim()
-  if (!text) return ''
-
-  if (PLACEHOLDER_TOKENS.has(text.toLowerCase())) return ''
-
   return text
 }
 
-function cleanList(value) {
-  const text = cleanText(value)
-  if (!text) return []
-
-  return [
-    ...new Set(
-      text
-        .split(/[;|,\n]/)
-        .map(item => cleanText(item))
-        .filter(Boolean),
-    ),
-  ]
-}
-
-function slugify(value) {
-  return cleanText(value)
+function toSlug(value) {
+  return clean(value)
     .toLowerCase()
-    .replace(/α/g, 'alpha')
-    .replace(/β/g, 'beta')
-    .replace(/γ/g, 'gamma')
-    .replace(/δ/g, 'delta')
     .replace(/&/g, ' and ')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
 }
 
-function first(row, keys) {
+function toNumber(value) {
+  const n = Number.parseFloat(clean(value))
+  return Number.isFinite(n) ? n : null
+}
+
+function getFirst(row, keys) {
   for (const key of keys) {
-    const value = cleanText(row[key])
-    if (value) return value
+    if (Object.prototype.hasOwnProperty.call(row, key)) {
+      const value = clean(row[key])
+      if (value) return value
+    }
   }
   return ''
 }
 
-function isWorkbookDataRow(row) {
-  return Object.entries(row).some(([key, value]) => {
-    if (key.startsWith('__')) return false
-    return Boolean(cleanText(value))
-  })
+function getList(row, keys) {
+  const value = getFirst(row, keys)
+  if (!value) return []
+  return value
+    .split(/[;,|\n]/)
+    .map(item => clean(item))
+    .filter(Boolean)
 }
 
-function readSheet(workbook, sheetName) {
-  const sheet = workbook.Sheets[sheetName]
+function isDataRow(row) {
+  return Object.values(row).some(value => clean(value))
+}
 
+function readSheetRows(workbook, sheetName) {
+  const sheet = workbook.Sheets[sheetName]
   if (!sheet) {
-    throw new Error(`[data] Missing required workbook sheet: ${sheetName}`)
+    throw new Error(`[data] Missing required sheet: ${sheetName}`)
   }
 
-  const rows = XLSX.utils.sheet_to_json(sheet, {
+  return XLSX.utils.sheet_to_json(sheet, {
     defval: '',
     raw: false,
     blankrows: false,
-  })
-    .map((row, index) => ({
-      ...row,
-      __meta: {
-        sheetName,
-        excelRow: index + 2,
-      },
-    }))
-    .filter(isWorkbookDataRow)
+  }).filter(isDataRow)
+}
 
-  if (!rows.length) {
-    throw new Error(`[data] Required sheet has zero rows: ${sheetName}`)
+function normalizeDomain(value) {
+  const raw = clean(value).toLowerCase()
+  if (!raw) return null
+
+  const compact = raw.replace(/\s+/g, ' ').trim()
+  const stripped = compact.replace(/[^a-z\- ]+/g, '')
+
+  const map = new Map([
+    ['performance', 'performance'],
+    ['metabolic', 'metabolic'],
+    ['metabolism', 'metabolic'],
+    ['cardiovascular', 'cardiovascular'],
+    ['cardio', 'cardiovascular'],
+    ['cognition', 'cognition'],
+    ['cognitive', 'cognition'],
+    ['sleep', 'sleep'],
+    ['stress', 'stress'],
+    ['liver', 'liver'],
+    ['pain', 'pain'],
+  ])
+
+  const mapped = map.get(stripped)
+  if (mapped && ALLOWED_DOMAINS.has(mapped)) return mapped
+
+  if (ALLOWED_DOMAINS.has(stripped)) return stripped
+  return null
+}
+
+function normalizeTimeToEffect(value) {
+  const raw = clean(value).toLowerCase()
+  if (!raw) return null
+
+  if (ALLOWED_TIME_TO_EFFECT.has(raw)) return raw
+  if (raw.includes('acute')) return 'acute'
+  if (raw.includes('short')) return 'short-term'
+  if (raw.includes('chronic') || raw.includes('long')) return 'chronic'
+  return null
+}
+
+function evidenceRank(grade) {
+  const normalized = clean(grade).toUpperCase()
+  const rank = {
+    'A+': 7,
+    A: 6,
+    'A-': 5,
+    B: 4,
+    C: 3,
+    D: 2,
+    E: 1,
   }
 
-  return rows
-}
-
-function numeric(value) {
-  const parsed = Number.parseInt(cleanText(value), 10)
-  return Number.isFinite(parsed) ? parsed : 0
-}
-
-function qualityTier(row) {
-  const direct = first(row, [
-    'qualityTier',
-    'quality_tier',
-    'publicationStatus',
-    'publication_status',
-    'confidenceTier_v2',
-  ]).toLowerCase()
-
-  if (direct.includes('strong')) return 'strong'
-  if (direct.includes('publish')) return 'publishable'
-  if (direct.includes('a')) return 'strong'
-  if (direct.includes('b')) return 'publishable'
-
-  const hasName = Boolean(cleanText(row.name || row.commonName))
-  const hasSlug = Boolean(cleanText(row.slug))
-  const hasSummary = Boolean(cleanText(row.summary || row.description))
-  const hasSafety = Boolean(cleanText(row.safetyNotes))
-  if (hasName && hasSlug && hasSummary && hasSafety) return 'publishable'
-
-  return 'needs_work'
-}
-
-function isPublishable(record) {
-  return record.qualityTier === 'strong' || record.qualityTier === 'publishable'
-}
-
-function identityDebug(record) {
-  const raw = record.__raw || {}
-  const meta = record.__meta || raw.__meta || {}
-  const identityKeys = [
-    'slug',
-    'herbSlug',
-    'compoundSlug',
-    'name',
-    'herbName',
-    'commonName',
-    'compoundName',
-    'canonicalCompoundName',
-    'canonicalCompoundId',
-    'id',
-  ]
-
-  const rawIdentity = Object.fromEntries(
-    identityKeys
-      .filter(key => Object.prototype.hasOwnProperty.call(raw, key))
-      .map(key => [key, raw[key]]),
-  )
-
-  return [
-    `sheet=${meta.sheetName || 'unknown'}`,
-    `excelRow=${meta.excelRow || 'unknown'}`,
-    `name=${JSON.stringify(record.name || '')}`,
-    `slug=${JSON.stringify(record.slug || '')}`,
-    `rawIdentity=${JSON.stringify(rawIdentity)}`,
-  ].join(' ')
-}
-
-function assertIdentity(record, type) {
-  if (!record.name || !record.slug) {
-    throw new Error(`[data] Invalid ${type}: missing name or slug (${identityDebug(record)})`)
+  if (Object.prototype.hasOwnProperty.call(rank, normalized)) {
+    return rank[normalized]
   }
 
-  if (record.name.length <= 1 || record.slug.length <= 1) {
-    throw new Error(`[data] Invalid ${type}: weak identity (${identityDebug(record)})`)
+  return 0
+}
+
+function pickBestClaim(current, candidate) {
+  if (!current) return candidate
+
+  const gradeDelta = evidenceRank(candidate.evidence_grade) - evidenceRank(current.evidence_grade)
+  if (gradeDelta > 0) return candidate
+
+  if (gradeDelta === 0) {
+    const effectDelta = (candidate.effect_size ?? -Infinity) - (current.effect_size ?? -Infinity)
+    if (effectDelta > 0) return candidate
   }
+
+  return current
 }
 
-function herbFromRow(row) {
-  const name = first(row, ['name', 'herbName', 'commonName'])
-  const slug = slugify(first(row, ['slug', 'herbSlug', 'name', 'herbName']))
+function buildClaimsIndex(claimRows) {
+  const bySlug = new Map()
 
-  return {
-    __meta: row.__meta,
-    __raw: row,
-    id: slug,
-    name,
-    slug,
-    summary: first(row, ['summary', 'hero']) || DEFAULT_SUMMARY,
-    description: first(row, ['description']),
-    mechanisms: cleanList(first(row, ['mechanisms', 'mechanism', 'pathwayTargets'])),
-    safetyNotes: first(row, ['safetyNotes', 'safety']),
-    contraindications: cleanList(first(row, ['contraindications'])),
-    interactions: cleanList(first(row, ['interactions'])),
-    dosage: first(row, ['dosage', 'dose']),
-    preparation: first(row, ['preparation']),
-    region: first(row, ['region']),
-    evidenceLevel: first(row, ['evidenceLevel', 'evidenceTier', 'evidence_tier']),
-    sourceCount: numeric(first(row, ['sourceCount', 'source_count', 'sourcesCount'])),
-    confidenceTier: first(row, ['confidenceTier', 'confidenceLevel', 'confidenceTier_v2']),
-    qualityTier: qualityTier(row),
-  }
-}
+  for (const row of claimRows) {
+    const slug = toSlug(
+      getFirst(row, ['slug', 'compound_slug', 'compoundSlug', 'compound_id', 'compound', 'compound_name']),
+    )
 
-function compoundFromRow(row) {
-  const name = first(row, ['name', 'compoundName', 'canonicalCompoundName', 'compound'])
-  const slug = slugify(first(row, ['slug', 'canonicalCompoundId', 'compoundName', 'name']))
+    if (!slug) continue
 
-  return {
-    __meta: row.__meta,
-    __raw: row,
-    id: slug,
-    name,
-    slug,
-    summary: first(row, ['summary']) || DEFAULT_SUMMARY,
-    description: first(row, ['description']),
-    compoundClass: first(row, ['compoundClass', 'class']),
-    mechanisms: cleanList(first(row, ['mechanisms', 'mechanism', 'mechanismTags'])),
-    targets: cleanList(first(row, ['targets', 'pathwayTargets'])),
-    foundIn: [],
-    safetyNotes: first(row, ['safetyNotes', 'safety']),
-    evidenceLevel: first(row, ['evidenceLevel', 'evidenceTier', 'evidence_tier']),
-    evidenceType: first(row, ['evidenceType', 'evidence_type']),
-    sourceCount: numeric(first(row, ['sourceCount', 'source_count', 'sourcesCount'])),
-    confidenceTier: first(row, ['confidenceTier', 'confidenceLevel', 'confidenceTier_v2']),
-    confidenceReason: first(row, ['confidenceReason']),
-    qualityTier: qualityTier(row),
-  }
-}
-
-function publicRecord(record) {
-  const { __meta, __raw, ...publicFields } = record
-  return publicFields
-}
-
-function summaryRecord(record) {
-  return {
-    id: record.id,
-    name: record.name,
-    slug: record.slug,
-    summary: record.summary || DEFAULT_SUMMARY,
-    evidenceLevel: record.evidenceLevel || '',
-    sourceCount: record.sourceCount || 0,
-    confidenceTier: record.confidenceTier || '',
-    qualityTier: record.qualityTier,
-  }
-}
-
-function writeJson(filePath, payload) {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true })
-  fs.writeFileSync(filePath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8')
-}
-
-function detectDuplicates(records, type) {
-  const seen = new Set()
-  const duplicates = []
-
-  for (const record of records) {
-    if (seen.has(record.slug)) {
-      duplicates.push(`${type}:${record.slug}`)
+    const claim = {
+      evidence_grade: getFirst(row, ['evidence_grade', 'evidenceGrade', 'grade', 'evidence']),
+      minimum_effective_dose: getFirst(row, ['minimum_effective_dose', 'minimumEffectiveDose', 'med', 'dose']),
+      effect_size: toNumber(getFirst(row, ['effect_size', 'effectSize'])),
+      population_tags: getList(row, ['population_tags', 'populationTags', 'population']).map(toSlug),
     }
-    seen.add(record.slug)
+
+    const current = bySlug.get(slug)
+    bySlug.set(slug, pickBestClaim(current, claim))
   }
 
-  return duplicates
+  return bySlug
 }
 
-function run() {
-  const { outputDir, outputLabel } = parseArgs(process.argv)
+function assertRequired(record, field) {
+  if (record[field] === null || record[field] === undefined || record[field] === '') {
+    throw new Error(`[data] Missing required field: ${field} for slug=${record.slug || 'unknown'}`)
+  }
+}
 
+function main() {
+  const outputDir = parseArgs(process.argv)
   const workbookPath = resolveWorkbookPath(repoRoot)
-  const workbook = XLSX.readFile(workbookPath)
+  const workbook = XLSX.readFile(workbookPath, { cellDates: false })
 
-  const herbRows = readSheet(workbook, REQUIRED_SHEETS.herbs)
-  const compoundRows = readSheet(workbook, REQUIRED_SHEETS.compounds)
-  const mapRows = readSheet(workbook, REQUIRED_SHEETS.herbCompoundMap)
-  const claimRows = readSheet(workbook, REQUIRED_SHEETS.claimRows)
-  const researchQueueRows = readSheet(workbook, REQUIRED_SHEETS.researchQueue)
+  const compoundsRows = readSheetRows(workbook, SHEETS.compounds)
+  const claimRows = readSheetRows(workbook, SHEETS.claims)
+  readSheetRows(workbook, SHEETS.herbCompoundMap)
 
-  const herbs = herbRows.map(herbFromRow)
-  const compounds = compoundRows.map(compoundFromRow)
-  const seenCompoundNames = new Map()
-  const dedupedCompounds = compounds.filter(compound => {
-    const key = compound.name.toLowerCase().trim()
-    if (seenCompoundNames.has(key)) {
-      console.warn(
-        `[data] duplicate compound dropped: ${compound.slug} (dupe of ${seenCompoundNames.get(key)})`,
-      )
-      return false
+  const claimsBySlug = buildClaimsIndex(claimRows)
+
+  const compounds = compoundsRows
+    .map(row => {
+    const slug = toSlug(getFirst(row, ['slug', 'compound_slug', 'compoundSlug', 'canonicalCompoundId', 'compound_id', 'name', 'compound_name', 'compoundName']))
+
+    const benefit = toNumber(getFirst(row, ['benefit_score', 'benefitScore']))
+    const risk = toNumber(getFirst(row, ['risk_score', 'riskScore']))
+    const explicitNet = toNumber(getFirst(row, ['net_score', 'netScore']))
+    const netScore = explicitNet ?? (benefit !== null && risk !== null ? benefit - risk : null)
+
+    const claim = claimsBySlug.get(slug) || {
+      evidence_grade: null,
+      minimum_effective_dose: null,
+      effect_size: null,
+      population_tags: [],
     }
-    seenCompoundNames.set(key, compound.slug)
-    return true
+
+    if (!slug) return null
+
+    const record = {
+      slug,
+      domain: normalizeDomain(getFirst(row, ['domain', 'primary_domain', 'goal_domain'])),
+      net_score: netScore,
+      evidence_grade: claim.evidence_grade || null,
+      pathway_bucket: getFirst(row, ['pathway_bucket', 'pathwayBucket']) || null,
+      minimum_effective_dose: claim.minimum_effective_dose || null,
+      time_to_effect: normalizeTimeToEffect(getFirst(row, ['time_to_effect', 'timeToEffect'])),
+      population_tags: claim.population_tags,
+      interaction_type: getFirst(row, ['interaction_type', 'interactionType']) || null,
+    }
+
+    assertRequired(record, 'slug')
+
+    return record
   })
+    .filter(Boolean)
 
-  console.log(
-    `[data] herbs: ${herbs.length} total, ${herbs.filter(h => h.summary).length} with summary`,
-  )
-  console.log(`[data] compounds: ${compounds.length} total`)
-  console.log(`[data] compounds: ${dedupedCompounds.length} after canonical-name dedupe`)
-
-  for (const herb of herbs) assertIdentity(herb, 'herb')
-  for (const compound of dedupedCompounds) assertIdentity(compound, 'compound')
-
-  const duplicateSlugs = [
-    ...detectDuplicates(herbs, 'herb'),
-    ...detectDuplicates(dedupedCompounds, 'compound'),
-  ]
-
-  if (duplicateSlugs.length > 0) {
-    throw new Error(`[data] Duplicate slugs found:\n${duplicateSlugs.join('\n')}`)
-  }
-
-  const herbNameBySlug = new Map(herbs.map(herb => [herb.slug, herb.name]))
-  const foundInByCompound = new Map()
-
-  for (const row of mapRows) {
-    const herbSlug = slugify(first(row, ['herbSlug', 'herb', 'herbName']))
-    const compoundSlug = slugify(
-      first(row, ['compoundSlug', 'slug', 'canonicalCompoundId', 'canonicalCompoundName', 'compoundName']),
-    )
-
-    if (!herbSlug || !compoundSlug) continue
-
-    const herbName = herbNameBySlug.get(herbSlug) || herbSlug
-    const list = foundInByCompound.get(compoundSlug) || []
-
-    if (!list.includes(herbName)) {
-      list.push(herbName)
-      foundInByCompound.set(compoundSlug, list)
-    }
-  }
-
-  for (const compound of dedupedCompounds) {
-    compound.foundIn = (foundInByCompound.get(compound.slug) || []).sort((a, b) =>
-      a.localeCompare(b),
-    )
-  }
-
-  const publishableHerbs = herbs.filter(isPublishable).map(publicRecord)
-  const publishableCompounds = dedupedCompounds.filter(isPublishable).map(publicRecord)
-  const exportedHerbs = herbs.map(publicRecord)
-
-  const invalidPublishable = [
-    ...publishableHerbs
-      .filter(herb => !herb.description)
-      .map(herb => `herb:${herb.slug}: missing description`),
-    ...publishableCompounds
-      .filter(compound => !compound.description && !compound.summary)
-      .map(compound => `compound:${compound.slug}: missing description/summary`),
-  ]
-
-  if (invalidPublishable.length > 0) {
-    throw new Error(
-      `[data] Publishable records failed validation:\n${invalidPublishable
-        .slice(0, 50)
-        .join('\n')}`,
-    )
-  }
-
-  fs.rmSync(outputDir, { recursive: true, force: true })
   fs.mkdirSync(outputDir, { recursive: true })
+  const outFile = path.join(outputDir, 'compounds.json')
+  fs.writeFileSync(outFile, `${JSON.stringify(compounds, null, 2)}\n`, 'utf8')
 
-  writeJson(path.join(outputDir, 'herbs.json'), exportedHerbs)
-  writeJson(path.join(outputDir, 'compounds.json'), publishableCompounds)
-  writeJson(path.join(outputDir, 'herbs-summary.json'), exportedHerbs.map(summaryRecord))
-  writeJson(path.join(outputDir, 'compounds-summary.json'), publishableCompounds.map(summaryRecord))
-
-  for (const herb of exportedHerbs) {
-    writeJson(path.join(outputDir, 'herbs-detail', `${herb.slug}.json`), herb)
-  }
-
-  for (const compound of publishableCompounds) {
-    writeJson(path.join(outputDir, 'compounds-detail', `${compound.slug}.json`), compound)
-  }
-
-  const buildReport = {
-    generatedAt: new Date().toISOString(),
-    dataVersion: 'v1',
-    sourceWorkbook: path.relative(repoRoot, workbookPath),
-    output: outputLabel,
-    totals: {
-      workbookHerbs: herbs.length,
-      workbookCompounds: compounds.length,
-      dedupedWorkbookCompounds: dedupedCompounds.length,
-      exportedHerbs: exportedHerbs.length,
-      publishableHerbs: publishableHerbs.length,
-      publishableCompounds: publishableCompounds.length,
-      needsWorkHerbs: herbs.filter(record => !isPublishable(record)).length,
-      needsWorkCompounds: dedupedCompounds.filter(record => !isPublishable(record)).length,
-      claimRows: claimRows.length,
-      researchQueueRows: researchQueueRows.length,
-      missingHerbDosage: herbs.filter(record => !record.dosage).length,
-      duplicateSlugs: duplicateSlugs.length,
-      invalidPublishable: invalidPublishable.length,
-    },
-    rules: {
-      sourceOfTruth: 'data-sources/herb_monograph_master.xlsx',
-      generatedOnly: 'public/data',
-      uiMustNotRepairBadData: true,
-      needsWorkExcludedFromRoutes: true,
-      duplicateSlugsFailBuild: true,
-      missingIdentityFailsBuild: true,
-    },
-  }
-
-  writeJson(path.join(outputDir, 'build-report.json'), buildReport)
-  writeJson(path.join(outputDir, '_meta', 'build-info.json'), buildReport)
-
-  console.log(`[data] workbook=${path.relative(repoRoot, workbookPath)}`)
-  console.log(`[data] output=${outputLabel}`)
-  console.log(`[data] herbs=${exportedHerbs.length}/${herbs.length}`)
-  console.log(`[data] compounds=${publishableCompounds.length}/${dedupedCompounds.length}`)
-  console.log(`[data] build-report=${path.join(outputLabel, 'build-report.json')}`)
+  console.log(`[data] Wrote ${compounds.length} compounds → ${path.relative(repoRoot, outFile)}`)
 }
 
-run()
+main()
