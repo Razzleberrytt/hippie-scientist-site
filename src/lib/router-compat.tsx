@@ -1,46 +1,73 @@
 "use client";
 
-import LinkNext from "next/link";
-import { usePathname } from "next/navigation";
+import NextLink, { type LinkProps as NextLinkProps } from "next/link";
+import {
+  usePathname,
+  useRouter,
+  useSearchParams as useNextSearchParams,
+} from "next/navigation";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 
-type LinkClassName =
-  | string
-  | ((args: { isActive: boolean }) => string | undefined);
+type ClassNameValue = string | ((args: { isActive: boolean }) => string | undefined);
 
-type RouterLinkProps = Omit<
+type BaseCompatProps = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
   "href" | "className"
 > & {
-  to: string;
-  href?: string;
-  className?: LinkClassName;
+  to?: NextLinkProps["href"];
+  href?: NextLinkProps["href"];
+  className?: ClassNameValue;
   children?: ReactNode;
 };
 
-export function RouterLink({
-  to,
-  href,
-  className,
-  children,
-  ...rest
-}: RouterLinkProps) {
-  const pathname = usePathname();
-  const destination = href ?? to;
+function normalizePath(value: NextLinkProps["href"]): string {
+  if (typeof value === "string") return value;
+  return value.pathname ?? "";
+}
 
+export function RouterLink({ to, href, className, children, ...rest }: BaseCompatProps) {
+  const pathname = usePathname() ?? "";
+  const destination = href ?? to ?? "#";
+  const destinationPath = normalizePath(destination);
   const isActive =
-    pathname === destination || pathname.startsWith(`${destination}/`);
-
+    !!destinationPath &&
+    (pathname === destinationPath || pathname.startsWith(`${destinationPath}/`));
   const resolvedClassName =
     typeof className === "function" ? className({ isActive }) : className;
 
   return (
-    <LinkNext href={destination} className={resolvedClassName} {...rest}>
+    <NextLink href={destination} className={resolvedClassName} {...rest}>
       {children}
-    </LinkNext>
+    </NextLink>
   );
 }
 
 export const Link = RouterLink;
 export const NavLink = RouterLink;
 export const LinkCompat = RouterLink;
+
+export function useNavigate() {
+  const router = useRouter();
+  return (to: string) => router.push(to);
+}
+
+export function useLocation() {
+  const pathname = usePathname() ?? "";
+  const searchParams = useNextSearchParams();
+  const search = searchParams.toString();
+  return { pathname, search: search ? `?${search}` : "" };
+}
+
+export function useSearchParams(): [URLSearchParams, (next: URLSearchParams) => void] {
+  const router = useRouter();
+  const pathname = usePathname() ?? "";
+  const params = useNextSearchParams();
+  const mutable = new URLSearchParams(params.toString());
+
+  const setSearchParams = (next: URLSearchParams) => {
+    const query = next.toString();
+    router.push(query ? `${pathname}?${query}` : pathname);
+  };
+
+  return [mutable, setSearchParams];
+}
