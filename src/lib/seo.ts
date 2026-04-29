@@ -441,3 +441,26 @@ export function faqPageJsonLd(args: {
     url: toAbsoluteUrl(args.pagePath),
   }
 }
+
+export function commonSupplementFaqJsonLd(pagePath: string) {
+  return faqPageJsonLd({
+    pagePath,
+    questions: [
+      {
+        question: 'Does it work?',
+        answer:
+          'Effects vary by person and evidence quality. Review the page evidence section and discuss options with a qualified clinician.',
+      },
+      {
+        question: 'How much to take?',
+        answer:
+          'There is no one-size-fits-all dose. Use product labeling as a baseline and confirm a personalized plan with a clinician.',
+      },
+      {
+        question: 'Is it safe?',
+        answer:
+          'Safety depends on your health status, medications, and dose. Check interactions and contraindications before use and seek professional advice.',
+      },
+    ],
+  })
+}
