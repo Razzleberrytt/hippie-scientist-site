@@ -11,7 +11,13 @@ import {
   normalizeProfileText,
   normalizeSources,
 } from '@/components/profile-data-sections'
-import { getHerbBySlug, getHerbs } from '@/lib/runtime-data'
+import {
+  getCompoundBySlug,
+  getCompounds,
+  getHerbBySlug,
+  getHerbCompoundMap,
+  getHerbs,
+} from '@/lib/runtime-data'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -167,6 +173,26 @@ const getRelatedPosts = (herb: HerbDetail): RelatedLinkItem[] => {
     }))
 }
 
+
+const getRelatedCompounds = async (herb: HerbDetail): Promise<RelatedLinkItem[]> => {
+  const [compoundMap, compounds] = await Promise.all([
+    getHerbCompoundMap(),
+    getCompounds(),
+  ])
+  const validCompoundSlugs = new Set(compounds.map(compound => compound.slug))
+
+  return compoundMap
+    .filter(entry => entry.herbSlug === herb.slug)
+    .filter(entry => validCompoundSlugs.has(entry.canonicalCompoundId))
+    .slice(0, 6)
+    .map(entry => ({
+      href: `/compounds/${entry.canonicalCompoundId}`,
+      title: entry.canonicalCompoundName?.trim() || formatSlugLabel(entry.canonicalCompoundId),
+      description: `Explore ${entry.canonicalCompoundName?.trim() || formatSlugLabel(entry.canonicalCompoundId)} and its role in ${getHerbLabel(herb)}.`,
+      eyebrow: 'Related compound',
+    }))
+}
+
 const getExploreLinks = (): RelatedLinkItem[] => [
   {
     href: '/herbs',
@@ -247,6 +273,7 @@ export default async function HerbDetailPage({ params }: Params) {
   )
 
   const relatedPosts = getRelatedPosts(herb)
+  const relatedCompounds = await getRelatedCompounds(herb)
   const exploreLinks = getExploreLinks()
   const availableForms = [...PLACEHOLDER_FORMS]
   const exampleProducts = getProductSlots(label)
@@ -450,6 +477,12 @@ export default async function HerbDetailPage({ params }: Params) {
           </section>
         </aside>
       </div>
+
+      <RelatedLinksSection
+        eyebrow='Related'
+        title='Compounds linked to this herb'
+        items={relatedCompounds}
+      />
 
       <RelatedLinksSection
         eyebrow='Related writing'

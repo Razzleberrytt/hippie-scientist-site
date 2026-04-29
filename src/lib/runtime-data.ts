@@ -12,6 +12,14 @@ type RuntimeHerb = {
   safetyNotes?: string
 }
 
+
+type RuntimeHerbCompoundMapEntry = {
+  herbSlug: string
+  herbName?: string
+  canonicalCompoundId: string
+  canonicalCompoundName?: string
+}
+
 type RuntimeCompound = {
   slug: string
   displayName?: string
@@ -41,6 +49,16 @@ export const getCompounds = cache(async (): Promise<RuntimeCompound[]> => {
   return Array.isArray(compounds) ? compounds : []
 })
 
+
+export const getHerbCompoundMap = cache(async (): Promise<RuntimeHerbCompoundMapEntry[]> => {
+  try {
+    const rows = await readJsonFile<RuntimeHerbCompoundMapEntry[]>('workbook-herb-compound-map.json')
+    return Array.isArray(rows) ? rows : []
+  } catch {
+    return []
+  }
+})
+
 export async function getHerbBySlug(slug: string) {
   const herbs = await getHerbs()
   return herbs.find(herb => herb.slug === slug)
@@ -51,4 +69,4 @@ export async function getCompoundBySlug(slug: string) {
   return compounds.find(compound => compound.slug === slug)
 }
 
-export type { RuntimeHerb, RuntimeCompound }
+export type { RuntimeHerb, RuntimeCompound, RuntimeHerbCompoundMapEntry }

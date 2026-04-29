@@ -11,7 +11,12 @@ import {
   normalizeProfileText,
   normalizeSources,
 } from '@/components/profile-data-sections'
-import { getCompoundBySlug, getCompounds } from '@/lib/runtime-data'
+import {
+  getCompoundBySlug,
+  getCompounds,
+  getHerbCompoundMap,
+  getHerbs,
+} from '@/lib/runtime-data'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -153,6 +158,23 @@ const getRelatedPosts = (compound: CompoundDetail): RelatedLinkItem[] => {
     }))
 }
 
+
+const getRelatedHerbs = async (compound: CompoundDetail): Promise<RelatedLinkItem[]> => {
+  const [compoundMap, herbs] = await Promise.all([getHerbCompoundMap(), getHerbs()])
+  const validHerbSlugs = new Set(herbs.map(herb => herb.slug))
+
+  return compoundMap
+    .filter(entry => entry.canonicalCompoundId === compound.slug)
+    .filter(entry => validHerbSlugs.has(entry.herbSlug))
+    .slice(0, 6)
+    .map(entry => ({
+      href: `/herbs/${entry.herbSlug}`,
+      title: entry.herbName?.trim() || formatSlugLabel(entry.herbSlug),
+      description: `See how ${entry.herbName?.trim() || formatSlugLabel(entry.herbSlug)} relates to ${getCompoundLabel(compound)}.`,
+      eyebrow: 'Related herb',
+    }))
+}
+
 const getExploreLinks = (): RelatedLinkItem[] => [
   {
     href: '/compounds',
@@ -241,6 +263,7 @@ export default async function CompoundDetailPage({ params }: Params) {
   )
 
   const relatedPosts = getRelatedPosts(compound)
+  const relatedHerbs = await getRelatedHerbs(compound)
   const exploreLinks = getExploreLinks()
 
   return (
@@ -396,6 +419,12 @@ export default async function CompoundDetailPage({ params }: Params) {
           </section>
         </aside>
       </div>
+
+      <RelatedLinksSection
+        eyebrow='Related'
+        title='Herbs containing this compound'
+        items={relatedHerbs}
+      />
 
       <RelatedLinksSection
         eyebrow='Related writing'
