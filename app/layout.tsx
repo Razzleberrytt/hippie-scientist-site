@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
+import MobileNav from '@/components/mobile-nav'
 import '@fontsource/inter/400.css'
 import '@fontsource/inter/500.css'
 import '@fontsource/inter/600.css'
@@ -105,26 +106,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 ))}
               </nav>
 
-              <details className='relative md:hidden'>
-                <summary className='list-none rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white/90 transition hover:border-white/30 hover:bg-white/5'>
-                  Menu
-                </summary>
-
-                <nav
-                  aria-label='Mobile'
-                  className='absolute right-0 top-full z-20 mt-2 w-52 rounded-2xl border border-white/10 bg-[var(--surface-2)] p-2 shadow-2xl'
-                >
-                  {navLinks.map(link => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className='block rounded-xl px-4 py-3 text-sm font-medium text-white/80 transition hover:bg-white/5 hover:text-white'
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </nav>
-              </details>
+              <MobileNav links={navLinks} />
             </div>
           </header>
 
