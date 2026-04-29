@@ -25,7 +25,7 @@
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit || echo 'typecheck skipped due to errors'",
     "blog:generate": "node scripts/generate-daily-post.mjs",
- "patch:a-tier": "node scripts/data/apply-a-tier-patch.mjs",
+    "patch:a-tier": "node scripts/data/apply-a-tier-patch.mjs",
     "prebuild:blog": "node scripts/build-blog.mjs"
   },
   "dependencies": {
