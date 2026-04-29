@@ -23,12 +23,12 @@ const getMechanism = (compoundName: string): string => {
 }
 
 const getUseCase = (compoundSlug: string): string => {
-  const match = aTierIndex.global.find(item => item.slug === resolveTierSlug(compoundSlug))
+  const match = aTierIndex.items.find(item => item.slug === resolveTierSlug(compoundSlug))
   return match ? `Primary domain in current dataset: ${match.domain}.` : 'Not available in current dataset.'
 }
 
 const getEvidenceStrength = (compoundSlug: string): string => {
-  const match = aTierIndex.global.find(item => item.slug === resolveTierSlug(compoundSlug))
+  const match = aTierIndex.items.find(item => item.slug === resolveTierSlug(compoundSlug))
   return match ? `Confidence score in current dataset: ${match.confidenceScore}/100.` : 'Not available in current dataset.'
 }
 
