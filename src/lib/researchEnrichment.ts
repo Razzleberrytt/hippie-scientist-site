@@ -144,12 +144,22 @@ function asClaims(value: unknown): ResearchClaim[] {
         ? row.sourceRefIds.map(id => cleanText(id)).filter(Boolean)
         : []
       const strengthNote = cleanText(row.strengthNote)
+      const evidenceGradeText = cleanText(row.evidence_grade)
+      const evidenceGrade =
+        evidenceGradeText === 'A' || evidenceGradeText === 'B' ? evidenceGradeText : null
+      const population = cleanText(row.population)
+      const primaryPmids = Array.isArray(row.primary_pmids)
+        ? row.primary_pmids.map(item => cleanText(item)).filter(Boolean)
+        : []
       if (!claim || !evidenceClass || sourceRefIds.length === 0) return null
       return {
         claim,
         evidenceClass,
         sourceRefIds: Array.from(new Set(sourceRefIds)),
         ...(strengthNote ? { strengthNote } : {}),
+        ...(evidenceGrade ? { evidenceGrade } : {}),
+        ...(population ? { population } : {}),
+        ...(primaryPmids.length > 0 ? { primaryPmids: Array.from(new Set(primaryPmids)) } : {}),
       }
     })
     .filter((item): item is ResearchClaim => Boolean(item))
