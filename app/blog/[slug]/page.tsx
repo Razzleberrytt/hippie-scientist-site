@@ -210,6 +210,11 @@ const getHtmlContent = (post: BlogPost): string =>
 const getTextContent = (post: BlogPost): string =>
   toText(post.content) || toText(post.body) || toText(post.markdown)
 
+const isStubPost = (post: BlogPost): boolean => {
+  const content = getTextContent(post)
+  return !content || content.split(/\s+/).filter(Boolean).length < 300
+}
+
 const getSections = (post: BlogPost): RenderSection[] => {
   const structuredSections = buildSectionsFromStructuredData(post.sections)
   if (structuredSections.length > 0) return structuredSections
@@ -307,6 +312,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: `${post.title} | The Hippie Scientist`,
     description: getLeadText(post),
     alternates: { canonical: `/blog/${post.slug}` },
+    robots: isStubPost(post) ? { index: false, follow: false } : undefined,
   }
 }
 
