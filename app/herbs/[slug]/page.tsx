@@ -50,6 +50,27 @@ type RelatedLinkItem = {
   eyebrow?: string
 }
 
+
+type ProductSlot = {
+  name: string
+  format: string
+  note: string
+}
+
+const PLACEHOLDER_FORMS = [
+  'Capsules',
+  'Tincture',
+  'Tea cut',
+  'Powder',
+] as const
+
+const getProductSlots = (label: string): ProductSlot[] =>
+  PLACEHOLDER_FORMS.map((format, index) => ({
+    name: `${label} ${format}`,
+    format,
+    note: `Placeholder example product ${index + 1}. Affiliate placement coming later.`,
+  }))
+
 const allPosts = posts as BlogPost[]
 
 const formatSlugLabel = (slug: string): string =>
@@ -227,6 +248,8 @@ export default async function HerbDetailPage({ params }: Params) {
 
   const relatedPosts = getRelatedPosts(herb)
   const exploreLinks = getExploreLinks()
+  const availableForms = [...PLACEHOLDER_FORMS]
+  const exampleProducts = getProductSlots(label)
 
   return (
     <div className='space-y-8'>
@@ -382,6 +405,48 @@ export default async function HerbDetailPage({ params }: Params) {
               This site is for education and research context. It is not personal
               medical advice.
             </p>
+          </section>
+
+          <section className='ds-card'>
+            <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+              Available forms
+            </p>
+
+            <ul className='mt-4 space-y-2 text-sm text-white/80'>
+              {availableForms.map(form => (
+                <li
+                  key={form}
+                  className='rounded-xl border border-white/10 bg-white/[0.02] px-3 py-2'
+                >
+                  {form}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className='ds-card'>
+            <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+              Example products
+            </p>
+
+            <p className='mt-3 text-xs text-white/55'>
+              Placeholder products only. No affiliate links are active yet.
+            </p>
+
+            <ul className='mt-4 space-y-3'>
+              {exampleProducts.map(product => (
+                <li
+                  key={product.name}
+                  className='rounded-xl border border-white/10 bg-white/[0.02] p-3'
+                >
+                  <p className='text-sm font-medium text-white/90'>{product.name}</p>
+                  <p className='mt-1 text-xs uppercase tracking-[0.16em] text-white/50'>
+                    {product.format}
+                  </p>
+                  <p className='mt-2 text-xs leading-6 text-white/70'>{product.note}</p>
+                </li>
+              ))}
+            </ul>
           </section>
         </aside>
       </div>
