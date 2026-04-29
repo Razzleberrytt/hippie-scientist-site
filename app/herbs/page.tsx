@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import LibraryBrowser from '@/components/library-browser'
+import { isATier } from '@/lib/a-tier'
 import { getHerbs } from '@/lib/runtime-data'
 
 type HerbListItem = {
@@ -16,6 +17,7 @@ type BrowserItem = {
   summary: string
   href: string
   typeLabel: string
+  aTier: boolean
 }
 
 const formatSlugLabel = (slug: string): string =>
@@ -49,8 +51,9 @@ export default async function HerbsPage() {
     summary: getHerbSummary(herb),
     href: `/herbs/${herb.slug}`,
     typeLabel: 'Herb profile',
+    aTier: isATier(herb.slug),
   }))
-// trigger deploy
+
   return (
     <LibraryBrowser
       eyebrow='Library'

@@ -9,6 +9,7 @@ type LibraryItem = {
   summary: string
   href: string
   typeLabel: string
+  aTier?: boolean
 }
 
 type LibraryBrowserProps = {
@@ -49,6 +50,7 @@ export default function LibraryBrowser({
   const [query, setQuery] = useState('')
   const [sortMode, setSortMode] = useState<SortMode>('a-z')
   const [letterFilter, setLetterFilter] = useState<string | LetterFilter>('all')
+  const [aTierOnly, setATierOnly] = useState(false)
 
   const availableLetters = useMemo(() => {
     const letters = new Set(items.map(item => getFirstFilterChar(item.title)))
@@ -70,16 +72,19 @@ export default function LibraryBrowser({
       const matchesLetter =
         letterFilter === 'all' ? true : firstChar === letterFilter
 
-      return matchesQuery && matchesLetter
+      const matchesATier = aTierOnly ? item.aTier === true : true
+
+      return matchesQuery && matchesLetter && matchesATier
     })
 
     return sortItems(matchingItems, sortMode)
-  }, [items, letterFilter, query, sortMode])
+  }, [aTierOnly, items, letterFilter, query, sortMode])
 
   const clearFilters = () => {
     setQuery('')
     setSortMode('a-z')
     setLetterFilter('all')
+    setATierOnly(false)
   }
 
   return (
@@ -121,6 +126,18 @@ export default function LibraryBrowser({
               <option value='a-z'>A to Z</option>
               <option value='z-a'>Z to A</option>
             </select>
+          </label>
+        </div>
+
+        <div className='mt-6'>
+          <label className='inline-flex items-center gap-2 text-sm text-white/80'>
+            <input
+              type='checkbox'
+              checked={aTierOnly}
+              onChange={event => setATierOnly(event.target.checked)}
+              className='h-4 w-4 rounded border-white/20 bg-white/[0.04] accent-blue-300'
+            />
+            A-tier only
           </label>
         </div>
 
@@ -184,8 +201,9 @@ export default function LibraryBrowser({
           </span>
 
           {letterFilter !== 'all' ? <span>Letter: {letterFilter}</span> : null}
+          {aTierOnly ? <span>A-tier only</span> : null}
 
-          {(query.trim() || letterFilter !== 'all' || sortMode !== 'a-z') ? (
+          {(query.trim() || letterFilter !== 'all' || sortMode !== 'a-z' || aTierOnly) ? (
             <button
               type='button'
               onClick={clearFilters}
@@ -210,6 +228,11 @@ export default function LibraryBrowser({
               </p>
 
               <h2 className='mt-3 text-xl font-semibold'>{item.title}</h2>
+              {item.aTier ? (
+                <span className='mt-2 inline-flex w-fit rounded-full border border-blue-300/40 bg-blue-400/10 px-2 py-0.5 text-xs font-medium uppercase tracking-wide text-blue-200'>
+                  A-tier
+                </span>
+              ) : null}
 
               <p className='mt-3 flex-1 text-sm leading-6 text-white/70'>
                 {item.summary}

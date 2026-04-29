@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import LibraryBrowser from '@/components/library-browser'
+import { isATier } from '@/lib/a-tier'
 import { getCompounds } from '@/lib/runtime-data'
 
 type CompoundListItem = {
@@ -16,6 +17,7 @@ type BrowserItem = {
   summary: string
   href: string
   typeLabel: string
+  aTier: boolean
 }
 
 const formatSlugLabel = (slug: string): string =>
@@ -49,6 +51,7 @@ export default async function CompoundsPage() {
     summary: getCompoundSummary(compound),
     href: `/compounds/${compound.slug}`,
     typeLabel: 'Compound profile',
+    aTier: isATier(compound.slug),
   }))
 
   return (
