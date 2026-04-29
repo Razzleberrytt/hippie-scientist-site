@@ -19,6 +19,10 @@ type RollupEntry = {
   }
 }
 
+type GovernedRollupPayload = {
+  items?: RollupEntry[]
+}
+
 type SourceRegistryEntry = {
   sourceId: string
   sourceType: string
@@ -123,8 +127,12 @@ export function isPublishableGovernedEnrichment(enrichment: ResearchEnrichment |
   return true
 }
 
+const governedRollupItems = Array.isArray(governedRollup)
+  ? (governedRollup as RollupEntry[])
+  : ((governedRollup as GovernedRollupPayload)?.items ?? [])
+
 const rollupMap = new Map(
-  (governedRollup as RollupEntry[]).map(entry => {
+  governedRollupItems.map(entry => {
     const researchEnrichment = {
       ...entry.researchEnrichment,
       sourceRefs: toSourceRefs(entry.researchEnrichment.sourceRegistryIds),

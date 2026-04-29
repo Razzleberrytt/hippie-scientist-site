@@ -18,6 +18,7 @@ import {
   getHerbCompoundMap,
   getHerbs,
 } from '@/lib/runtime-data'
+import { commonSupplementFaqJsonLd } from '@/lib/seo'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -329,6 +330,7 @@ export default async function HerbDetailPage({ params }: Params) {
   const exploreLinks = getExploreLinks()
   const availableForms = [...PLACEHOLDER_FORMS]
   const exampleProducts = getProductSlots(label)
+  const faqJsonLd = commonSupplementFaqJsonLd(`/herbs/${herb.slug}`)
 
   return (
     <div className='space-y-8'>
@@ -350,6 +352,12 @@ export default async function HerbDetailPage({ params }: Params) {
           }),
         }}
       />
+      {faqJsonLd ? (
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      ) : null}
       <nav className='flex flex-wrap gap-3 text-sm text-white/60'>
         <Link
           href='/herbs'
