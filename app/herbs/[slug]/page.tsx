@@ -230,6 +230,24 @@ export default async function HerbDetailPage({ params }: Params) {
 
   return (
     <div className='space-y-8'>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: getHerbLabel(herb),
+            description: getLeadText(herb),
+            url: `https://thehippiescientist.net/herbs/${herb.slug}`,
+            publisher: {
+              '@type': 'Organization',
+              name: 'The Hippie Scientist',
+              url: 'https://thehippiescientist.net',
+            },
+            mainEntityOfPage: `https://thehippiescientist.net/herbs/${herb.slug}`,
+          }),
+        }}
+      />
       <nav className='flex flex-wrap gap-3 text-sm text-white/60'>
         <Link
           href='/herbs'

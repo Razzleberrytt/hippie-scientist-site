@@ -338,6 +338,25 @@ export default async function BlogPostPage({ params }: Params) {
 
   return (
     <div className='space-y-8'>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: post.title,
+            description: getLeadText(post),
+            url: `https://thehippiescientist.net/blog/${post.slug}`,
+            datePublished: post.date,
+            publisher: {
+              '@type': 'Organization',
+              name: 'The Hippie Scientist',
+              url: 'https://thehippiescientist.net',
+            },
+            mainEntityOfPage: `https://thehippiescientist.net/blog/${post.slug}`,
+          }),
+        }}
+      />
       <nav className='flex flex-wrap gap-3 text-sm text-white/60'>
         <Link
           href='/blog'

@@ -245,6 +245,24 @@ export default async function CompoundDetailPage({ params }: Params) {
 
   return (
     <div className='space-y-8'>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: getCompoundLabel(compound),
+            description: getLeadText(compound),
+            url: `https://thehippiescientist.net/compounds/${compound.slug}`,
+            publisher: {
+              '@type': 'Organization',
+              name: 'The Hippie Scientist',
+              url: 'https://thehippiescientist.net',
+            },
+            mainEntityOfPage: `https://thehippiescientist.net/compounds/${compound.slug}`,
+          }),
+        }}
+      />
       <nav className='flex flex-wrap gap-3 text-sm text-white/60'>
         <Link
           href='/compounds'
