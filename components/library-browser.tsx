@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { Fragment, useEffect, useMemo, useState } from 'react'
 
 type LibraryItem = {
   slug: string
@@ -47,8 +47,17 @@ export default function LibraryBrowser({
   items,
 }: LibraryBrowserProps) {
   const [query, setQuery] = useState('')
+  const [debouncedQuery, setDebouncedQuery] = useState('')
   const [sortMode, setSortMode] = useState<SortMode>('a-z')
   const [letterFilter, setLetterFilter] = useState<string | LetterFilter>('all')
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      setDebouncedQuery(query)
+    }, 180)
+
+    return () => window.clearTimeout(timeoutId)
+  }, [query])
 
   const availableLetters = useMemo(() => {
     const letters = new Set(items.map(item => getFirstFilterChar(item.title)))
@@ -59,7 +68,7 @@ export default function LibraryBrowser({
   }, [items])
 
   const filteredItems = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase()
+    const normalizedQuery = debouncedQuery.trim().toLowerCase()
 
     const matchingItems = items.filter(item => {
       const matchesQuery = normalizedQuery
@@ -74,7 +83,30 @@ export default function LibraryBrowser({
     })
 
     return sortItems(matchingItems, sortMode)
-  }, [items, letterFilter, query, sortMode])
+  }, [debouncedQuery, items, letterFilter, sortMode])
+
+  const renderHighlightedText = (value: string) => {
+    const highlightQuery = debouncedQuery.trim()
+    if (!highlightQuery) return value
+
+    const escaped = highlightQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    const matcher = new RegExp(`(${escaped})`, 'ig')
+    const parts = value.split(matcher)
+
+    return parts.map((part, index) => {
+      const isMatch = part.toLowerCase() === highlightQuery.toLowerCase()
+      if (!isMatch) return <Fragment key={`${part}-${index}`}>{part}</Fragment>
+
+      return (
+        <mark
+          key={`${part}-${index}`}
+          className='rounded bg-blue-300/30 px-1 text-white'
+        >
+          {part}
+        </mark>
+      )
+    })
+  }
 
   const clearFilters = () => {
     setQuery('')
@@ -209,10 +241,12 @@ export default function LibraryBrowser({
                 {item.typeLabel}
               </p>
 
-              <h2 className='mt-3 text-xl font-semibold'>{item.title}</h2>
+              <h2 className='mt-3 text-xl font-semibold'>
+                {renderHighlightedText(item.title)}
+              </h2>
 
               <p className='mt-3 flex-1 text-sm leading-6 text-white/70'>
-                {item.summary}
+                {renderHighlightedText(item.summary)}
               </p>
 
               <span className='mt-4 inline-flex text-sm font-medium text-blue-300 transition group-hover:translate-x-0.5'>
