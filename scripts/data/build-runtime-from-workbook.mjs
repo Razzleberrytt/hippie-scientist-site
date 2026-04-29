@@ -152,6 +152,12 @@ function qualityTier(row) {
   if (direct.includes('a')) return 'strong'
   if (direct.includes('b')) return 'publishable'
 
+  const hasName = Boolean(cleanText(row.name || row.commonName))
+  const hasSlug = Boolean(cleanText(row.slug))
+  const hasSummary = Boolean(cleanText(row.summary || row.description))
+  const hasSafety = Boolean(cleanText(row.safetyNotes))
+  if (hasName && hasSlug && hasSummary && hasSafety) return 'publishable'
+
   return 'needs_work'
 }
 
