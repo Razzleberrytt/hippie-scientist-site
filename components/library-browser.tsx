@@ -9,6 +9,8 @@ type LibraryItem = {
   summary: string
   href: string
   typeLabel: string
+  domain?: string
+  isATier?: boolean
 }
 
 type LibraryBrowserProps = {
@@ -50,6 +52,8 @@ export default function LibraryBrowser({
   const [debouncedQuery, setDebouncedQuery] = useState('')
   const [sortMode, setSortMode] = useState<SortMode>('a-z')
   const [letterFilter, setLetterFilter] = useState<string | LetterFilter>('all')
+  const [domainFilter, setDomainFilter] = useState<string>('all')
+  const [aTierOnly, setATierOnly] = useState(false)
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
@@ -78,12 +82,20 @@ export default function LibraryBrowser({
       const firstChar = getFirstFilterChar(item.title)
       const matchesLetter =
         letterFilter === 'all' ? true : firstChar === letterFilter
+      const matchesDomain = domainFilter === 'all' ? true : item.domain === domainFilter
+      const matchesATier = aTierOnly ? Boolean(item.isATier) : true
 
-      return matchesQuery && matchesLetter
+      return matchesQuery && matchesLetter && matchesDomain && matchesATier
     })
 
     return sortItems(matchingItems, sortMode)
-  }, [debouncedQuery, items, letterFilter, sortMode])
+  }, [aTierOnly, debouncedQuery, domainFilter, items, letterFilter, sortMode])
+
+  const availableDomains = useMemo(() => {
+    return Array.from(
+      new Set(items.map(item => item.domain).filter((domain): domain is string => Boolean(domain)))
+    )
+  }, [items])
 
   const renderHighlightedText = (value: string) => {
     const highlightQuery = debouncedQuery.trim()
@@ -112,6 +124,8 @@ export default function LibraryBrowser({
     setQuery('')
     setSortMode('a-z')
     setLetterFilter('all')
+    setDomainFilter('all')
+    setATierOnly(false)
   }
 
   return (
@@ -154,6 +168,38 @@ export default function LibraryBrowser({
               <option value='z-a'>Z to A</option>
             </select>
           </label>
+
+          <label className='block'>
+            <span className='mb-2 block text-sm font-medium text-white/70'>
+              Domain
+            </span>
+            <select
+              value={domainFilter}
+              onChange={event => setDomainFilter(event.target.value)}
+              className='w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white outline-none transition focus:border-white/30 focus:bg-white/[0.06] sm:min-w-40'
+            >
+              <option value='all'>All domains</option>
+              {availableDomains.map(domain => (
+                <option key={domain} value={domain}>
+                  {domain.charAt(0).toUpperCase() + domain.slice(1)}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+
+        <div className='mt-3'>
+          <button
+            type='button'
+            onClick={() => setATierOnly(current => !current)}
+            className={`rounded-full border px-3 py-1.5 text-xs font-medium transition ${
+              aTierOnly
+                ? 'border-white/30 bg-white/10 text-white'
+                : 'border-white/10 text-white/70 hover:border-white/25 hover:bg-white/5 hover:text-white'
+            }`}
+          >
+            A-tier only
+          </button>
         </div>
 
         <div className='mt-6'>
@@ -216,8 +262,10 @@ export default function LibraryBrowser({
           </span>
 
           {letterFilter !== 'all' ? <span>Letter: {letterFilter}</span> : null}
+          {domainFilter !== 'all' ? <span>Domain: {domainFilter}</span> : null}
+          {aTierOnly ? <span>A-tier only</span> : null}
 
-          {(query.trim() || letterFilter !== 'all' || sortMode !== 'a-z') ? (
+          {(query.trim() || letterFilter !== 'all' || domainFilter !== 'all' || aTierOnly || sortMode !== 'a-z') ? (
             <button
               type='button'
               onClick={clearFilters}
