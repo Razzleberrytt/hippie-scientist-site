@@ -40,6 +40,8 @@ type CompoundDetail = {
   review_status?: unknown
   source_status?: unknown
   sources?: unknown
+  primaryDomain?: unknown
+  claimRows?: unknown
 }
 
 type BlogPost = {
@@ -73,6 +75,48 @@ const getCompoundLabel = (compound: Partial<CompoundDetail>): string => {
 
 const normalizeText = (value?: string | null): string =>
   value?.replace(/\s+/g, ' ').trim() ?? ''
+
+const VAGUE_BEST_FOR_TERMS = new Set([
+  'general wellness',
+  'wellness',
+  'overall health',
+  'balance',
+  'support',
+])
+
+const toBestForLine = (value: string): string => {
+  const cleaned = normalizeText(value).replace(/\.$/, '')
+  if (!cleaned) return ''
+  const prefixed = cleaned.toLowerCase().startsWith('best for ')
+    ? cleaned
+    : `Best for ${cleaned.charAt(0).toLowerCase()}${cleaned.slice(1)}`
+  return prefixed
+}
+
+const getBestForItems = (
+  compound: CompoundDetail,
+  existingText: string[],
+): string[] => {
+  const existing = existingText.map(text => normalizeText(text).toLowerCase()).filter(Boolean)
+  const primaryDomain = normalizeProfileText(compound.primaryDomain)
+  const claimRows = normalizeProfileList(compound.claimRows)
+  const candidates = [primaryDomain, ...claimRows]
+
+  const results: string[] = []
+  const seen = new Set<string>()
+  for (const candidate of candidates) {
+    const line = toBestForLine(candidate)
+    const compact = normalizeText(line).toLowerCase()
+    if (!compact) continue
+    if ([...VAGUE_BEST_FOR_TERMS].some(term => compact.endsWith(term))) continue
+    if (existing.some(text => text.includes(compact) || compact.includes(text))) continue
+    if (seen.has(compact)) continue
+    seen.add(compact)
+    results.push(line)
+    if (results.length === 3) break
+  }
+  return results
+}
 
 const getLeadText = (compound: CompoundDetail): string =>
   compound.description?.trim() ||
@@ -246,6 +290,13 @@ export default async function CompoundDetailPage({ params }: Params) {
   const reviewStatus = normalizeProfileText(compound.review_status)
   const sourceStatus = normalizeProfileText(compound.source_status)
   const sources = normalizeSources(compound.sources)
+  const bestForItems = getBestForItems(compound, [
+    leadText,
+    overviewText,
+    ...mechanisms,
+    ...targets,
+    ...foundIn,
+  ])
 
   const hasDetails = Boolean(
     overviewText ||
@@ -339,6 +390,7 @@ export default async function CompoundDetailPage({ params }: Params) {
           ) : null}
 
           <SectionList title='Mechanisms' items={mechanisms} />
+          <SectionList title='Best for' items={bestForItems} />
           <SectionList title='Targets' items={targets} />
           <SectionList title='Found in' items={foundIn} />
 

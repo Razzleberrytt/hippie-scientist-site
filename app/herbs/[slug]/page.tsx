@@ -39,6 +39,8 @@ type HerbDetail = {
   review_status?: unknown
   source_status?: unknown
   sources?: unknown
+  primaryDomain?: unknown
+  claimRows?: unknown
 }
 
 type BlogPost = {
@@ -93,6 +95,48 @@ const getHerbLabel = (herb: Partial<HerbDetail>): string => {
 
 const normalizeText = (value?: string | null): string =>
   value?.replace(/\s+/g, ' ').trim() ?? ''
+
+const VAGUE_BEST_FOR_TERMS = new Set([
+  'general wellness',
+  'wellness',
+  'overall health',
+  'balance',
+  'support',
+])
+
+const toBestForLine = (value: string): string => {
+  const cleaned = normalizeText(value).replace(/\.$/, '')
+  if (!cleaned) return ''
+  const prefixed = cleaned.toLowerCase().startsWith('best for ')
+    ? cleaned
+    : `Best for ${cleaned.charAt(0).toLowerCase()}${cleaned.slice(1)}`
+  return prefixed
+}
+
+const getBestForItems = (
+  herb: HerbDetail,
+  existingText: string[],
+): string[] => {
+  const existing = existingText.map(text => normalizeText(text).toLowerCase()).filter(Boolean)
+  const primaryDomain = normalizeProfileText(herb.primaryDomain)
+  const claimRows = normalizeProfileList(herb.claimRows)
+  const candidates = [primaryDomain, ...claimRows]
+
+  const results: string[] = []
+  const seen = new Set<string>()
+  for (const candidate of candidates) {
+    const line = toBestForLine(candidate)
+    const compact = normalizeText(line).toLowerCase()
+    if (!compact) continue
+    if ([...VAGUE_BEST_FOR_TERMS].some(term => compact.endsWith(term))) continue
+    if (existing.some(text => text.includes(compact) || compact.includes(text))) continue
+    if (seen.has(compact)) continue
+    seen.add(compact)
+    results.push(line)
+    if (results.length === 3) break
+  }
+  return results
+}
 
 const getLeadText = (herb: HerbDetail): string =>
   herb.description?.trim() ||
@@ -258,6 +302,13 @@ export default async function HerbDetailPage({ params }: Params) {
   const reviewStatus = normalizeProfileText(herb.review_status)
   const sourceStatus = normalizeProfileText(herb.source_status)
   const sources = normalizeSources(herb.sources)
+  const bestForItems = getBestForItems(herb, [
+    leadText,
+    overviewText,
+    ...mechanisms,
+    ...contraindications,
+    ...interactions,
+  ])
 
   const hasDetails = Boolean(
     overviewText ||
@@ -346,6 +397,7 @@ export default async function HerbDetailPage({ params }: Params) {
           ) : null}
 
           <SectionList title='Mechanisms' items={mechanisms} />
+          <SectionList title='Best for' items={bestForItems} />
 
           {safetyNotes ? (
             <section className='ds-card'>
