@@ -22,14 +22,15 @@ type TierItem = {
 }
 
 type TierPayload = {
-  global?: TierItem[]
-  contextual?: TierItem[]
+  generatedAt?: string
+  count?: number
+  items?: TierItem[]
 }
 
 export default function ATierPage() {
   const filePath = path.join(process.cwd(), 'public/data/a-tier-index.json')
   const data = JSON.parse(fs.readFileSync(filePath, 'utf-8')) as TierPayload
-  const allItems = [...(data.global ?? []), ...(data.contextual ?? [])]
+  const allItems = data.items ?? []
 
   const grouped = DOMAIN_ORDER.reduce<Record<Domain, TierItem[]>>((acc, domain) => {
     acc[domain] = allItems
