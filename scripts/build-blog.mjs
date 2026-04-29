@@ -73,7 +73,7 @@ function run() {
 
   const files = fs
     .readdirSync(BLOG_DIR)
-    .filter(fileName => fileName.toLowerCase().endsWith('.mdx'))
+    .filter(fileName => /\.(md|mdx)$/i.test(fileName))
     .sort((a, b) => a.localeCompare(b));
 
   const posts = files.map(buildPostFromFile);
