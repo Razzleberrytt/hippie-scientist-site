@@ -48,8 +48,6 @@
   ],
   "exclude": [
     "node_modules",
-    "src/dev/**/*",
-    "src/hooks/**/*",
-    "src/utils/**/*"
+    "src/dev/**/*"
   ]
 }
