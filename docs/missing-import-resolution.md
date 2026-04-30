@@ -15,3 +15,5 @@
 - Resolved active `@/hooks/useSubmissionForm` blocker via deletion-first MVP decision: deleted inactive `src/components/EmailCapture.tsx` and its only importer `src/components/ContextualLeadMagnet.tsx`.
 - Did not create a synthetic `useSubmissionForm` hook, fake endpoint behavior, or backend/provider integration.
 - Erased remaining legacy email-capture surfaces by deleting `NewsletterCard`, `NewsletterSignup`, and `InteractionLeadCapture`, all of which depended on missing `@/hooks/useSubmissionForm`.
+- Continued deletion-first cleanup for unreachable components still triggering typecheck through stale imports: removed `ErrorBoundary`, `EntityDatabasePage`, `FavoriteStar`, `FeaturedHerbTeaser`, `HerbCard`, `HerbList`, `HerbDetails`, `RotatingHerbHero`, `SearchFilter`, `TagFilterBar`, and `StatsCounters`.
+- `npm run check` now advances further; next blocker is `src/components/TagBadge.tsx` missing `../utils/tagUtils`.

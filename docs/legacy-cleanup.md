@@ -75,3 +75,15 @@
   - `src/components/NewsletterSignup.tsx`
   - `src/components/interactions/InteractionLeadCapture.tsx`
 - Decision: delete inactive email-capture surfaces rather than rebuilding deprecated form-hook stack.
+
+## 2026-04-30 — Resolve further legacy typecheck conflicts
+
+- Deleted additional inactive components that were still being typechecked but not imported by active `app/**` routes:
+  - `src/components/ErrorBoundary.tsx`
+  - `src/components/EntityDatabasePage.tsx`
+  - `src/components/FavoriteStar.tsx`
+  - `src/components/FeaturedHerbTeaser.tsx`
+  - `src/components/HerbCard.tsx`
+  - `src/components/HerbCard.css`
+  - `src/components/HerbList.tsx`
+- These files referenced missing legacy utilities/hooks and were removed instead of recreating stale dependencies.
