@@ -1,4 +1,4 @@
-# The Hippie Scientist
+# The Hippie Scientist sucks
 
 Data-driven educational site for psychoactive herbs and compounds.
 
