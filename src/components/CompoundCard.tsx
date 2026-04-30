@@ -1,8 +1,5 @@
 import { motion } from '@/lib/motion'
 import { buildCardSummary } from '@/lib/summary'
-import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
-import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
-import { formatBrowseTitle } from '@/utils/titleDisplay'
 import { cleanEffectChips, sanitizeSummaryText } from '@/lib/sanitize'
 import { normalizeTagList } from '@/lib/tagNormalization'
 import { getPrimaryEffects, getProfileStatus, getSummaryQuality, resolveHeroSummary, shouldRenderSummary } from '@/lib/workbookRender'
@@ -31,6 +28,26 @@ export interface CompoundWithRefs extends Compound {
   name: string
   herbsFound: HerbRef[]
   effectClass?: string
+}
+
+function extractPrimaryEffects(effects: string[], maxItems = 2): string[] {
+  return effects
+    .map(effect => effect.trim())
+    .filter(Boolean)
+    .slice(0, maxItems)
+}
+
+function calculateCompoundConfidence(input: { mechanism: string; effects: string[]; compounds: string[] }): string {
+  const score = [input.mechanism, ...input.effects, ...input.compounds].filter(Boolean).length
+  if (score >= 5) return 'high'
+  if (score >= 3) return 'medium'
+  return 'low'
+}
+
+function formatBrowseTitle(value: string, maxLength = 60): string {
+  const title = value.trim()
+  if (title.length <= maxLength) return title
+  return `${title.slice(0, Math.max(0, maxLength - 1)).trim()}…`
 }
 
 function getMechanism(compound: CompoundWithRefs): string {
