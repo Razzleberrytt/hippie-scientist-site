@@ -1,10 +1,14 @@
 import React from 'react'
 import { useHerbData } from '@/lib/herb-data'
-import { metaCategory } from '../hooks/useFilteredHerbs'
 
 interface Props {
   selected: string[]
   onChange?: (cats: string[]) => void
+}
+
+function metaCategory(category: string): string {
+  const value = category.trim()
+  return value || 'Uncategorized'
 }
 
 export default function CategoryFilter({ selected, onChange }: Props) {
