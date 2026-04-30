@@ -17,11 +17,12 @@ const coreRoutes = [
 ]
 
 const repoRoot = process.cwd()
-const appOutputRoot = path.join(repoRoot, '.next', 'server', 'app')
+const staticDir = process.env.STATIC_OUTPUT_DIR || 'out'
+const staticOutputRoot = path.join(repoRoot, staticDir)
 
-function routeToBuildPath(route) {
-  if (route === '/') return path.join(appOutputRoot, 'page.js')
-  return path.join(appOutputRoot, route.replace(/^\//, ''), 'page.js')
+function routeToStaticPath(route) {
+  if (route === '/') return path.join(staticOutputRoot, 'index.html')
+  return path.join(staticOutputRoot, route.replace(/^\//, ''), 'index.html')
 }
 
 function assertExists(filePath, label) {
@@ -30,10 +31,12 @@ function assertExists(filePath, label) {
   }
 }
 
+assertExists(staticOutputRoot, 'static export directory')
+
 for (const route of coreRoutes) {
-  assertExists(routeToBuildPath(route), `build output for route ${route}`)
+  assertExists(routeToStaticPath(route), `static export output for route ${route}`)
 }
 
-assertExists(path.join(repoRoot, 'public', '_redirects'), 'Cloudflare fallback redirects file')
+assertExists(path.join(staticOutputRoot, '_redirects'), 'Cloudflare fallback redirects file')
 
-console.log(`[verify:core-routes] Verified ${coreRoutes.length} core routes and public/_redirects.`)
+console.log(`[verify:core-routes] Verified ${coreRoutes.length} core routes and ${staticDir}/_redirects.`)
