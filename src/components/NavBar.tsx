@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { PUBLIC_ROUTES } from "@/lib/publicRoutes";
 
 const linkBase =
   "rounded-full px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 transition";
@@ -20,21 +21,21 @@ export default function NavBar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         
         {/* Logo / Brand */}
-        <Link href="/" className="text-sm font-semibold tracking-wide text-white">
+        <Link href={PUBLIC_ROUTES.home} className="text-sm font-semibold tracking-wide text-white">
           The Hippie Scientist
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden items-center gap-1.5 md:flex">
-          <Link href="/herbs" className={navClass(pathname, "/herbs")}>
+          <Link href={PUBLIC_ROUTES.herbs} className={navClass(pathname, PUBLIC_ROUTES.herbs)}>
             Herbs
           </Link>
 
-          <Link href="/compounds" className={navClass(pathname, "/compounds")}>
+          <Link href={PUBLIC_ROUTES.compounds} className={navClass(pathname, PUBLIC_ROUTES.compounds)}>
             Compounds
           </Link>
 
-          <Link href="/blog" className={navClass(pathname, "/blog")}>
+          <Link href={PUBLIC_ROUTES.blog} className={navClass(pathname, PUBLIC_ROUTES.blog)}>
             Blog
           </Link>
         </div>
@@ -42,7 +43,7 @@ export default function NavBar() {
         {/* Right Side */}
         <div className="flex items-center gap-2">
           <Link
-            href="/build-a-blend"
+            href={PUBLIC_ROUTES.build}
             className="rounded-full bg-white/10 px-3 py-2 text-sm text-white hover:bg-white/20 transition"
           >
             Build a Blend

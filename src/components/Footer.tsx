@@ -4,22 +4,21 @@ import ConsentManager from './ConsentManager'
 import { onOpenConsent } from '../lib/consentBus'
 import NonEmpty from './NonEmpty'
 import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
+import { PUBLIC_ROUTES } from '@/lib/publicRoutes'
 
 const exploreLinks = [
-  { href: '/herbs', label: 'Herb Database' },
-  { href: '/compounds', label: 'Compounds' },
-  { href: '/build', label: 'Build a Blend' },
-  { href: '/collections/herbs-for-relaxation', label: 'Collections' },
-]
+  { href: PUBLIC_ROUTES.herbs, label: 'Herb Database' },
+  { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
+  { href: PUBLIC_ROUTES.build, label: 'Build a Blend' },
+  ]
 
 const safetyLinks = [
-  { href: '/methodology', label: 'Methodology' },
-  { href: '/disclaimer', label: 'Disclaimer' },
-  { href: '/contact', label: 'Contact' },
+    { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
+  { href: PUBLIC_ROUTES.contact, label: 'Contact' },
 ]
 
 const legalLinks = [
-  { href: '/privacy', label: 'Privacy Policy' },
+  { href: PUBLIC_ROUTES.privacy, label: 'Privacy Policy' },
   { href: '/sitemap', label: 'Sitemap' },
 ]
 

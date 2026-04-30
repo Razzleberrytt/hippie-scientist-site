@@ -2,31 +2,13 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import MobileNav from '@/components/mobile-nav'
+import { PRIMARY_FOOTER_LINKS, PRIMARY_NAV_LINKS, PUBLIC_ROUTES } from '@/lib/publicRoutes'
 import '@fontsource/inter/400.css'
 import '@fontsource/inter/500.css'
 import '@fontsource/inter/600.css'
 import '@fontsource/inter/700.css'
 import './globals.css'
 
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/herbs', label: 'Herbs' },
-  { href: '/compounds', label: 'Compounds' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
-]
-
-const footerLinks = [
-  { href: '/herbs', label: 'Herbs' },
-  { href: '/compounds', label: 'Compounds' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/disclaimer', label: 'Disclaimer' },
-  { href: '/privacy', label: 'Privacy' },
-]
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thehippiescientist.net'),
@@ -90,12 +72,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <div className='min-h-screen bg-[var(--bg)] text-[var(--text-primary)]'>
           <header className='border-b border-white/10'>
             <div className='container-page flex min-h-16 items-center justify-between gap-4 py-4'>
-              <Link href='/' className='text-lg font-semibold tracking-tight'>
+              <Link href={PUBLIC_ROUTES.home} className='text-lg font-semibold tracking-tight'>
                 The Hippie Scientist
               </Link>
 
               <nav aria-label='Primary' className='hidden items-center gap-2 md:flex'>
-                {navLinks.map(link => (
+                {PRIMARY_NAV_LINKS.map(link => (
                   <Link
                     key={link.href}
                     href={link.href}
@@ -106,7 +88,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 ))}
               </nav>
 
-              <MobileNav links={navLinks} />
+              <MobileNav links={PRIMARY_NAV_LINKS} />
             </div>
           </header>
 
@@ -119,7 +101,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </p>
 
               <nav aria-label='Footer' className='flex flex-wrap gap-4'>
-                {footerLinks.map(link => (
+                {PRIMARY_FOOTER_LINKS.map(link => (
                   <Link
                     key={link.href}
                     href={link.href}
