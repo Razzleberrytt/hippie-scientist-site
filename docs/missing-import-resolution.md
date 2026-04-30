@@ -2,6 +2,10 @@
 
 ## 2026-04-30
 
+- MVP cleanup decision update: removed `src/components/EmailCapture.tsx` from active use instead of rebuilding legacy form dependencies.
+- Removed `src/components/ContextualLeadMagnet.tsx` because it was the active importer of `EmailCapture`.
+- Did **not** recreate `@/hooks/useSubmissionForm` as part of this MVP cleanup pass.
+- Deferred form capture from MVP scope; no form backend integration, fake success behavior, or hardcoded endpoints were introduced.
 - Resolved the current TS2307 blocker in `src/components/CuratedProductModule.tsx` by removing the missing type-only import from `@/data/curatedProducts` and defining a local `CuratedProductEntityType` union (`'herb' | 'compound' | 'goal'`) in the component.
 - This keeps behavior unchanged while avoiding restoration of deleted hand-authored data modules.
 - Added explicit `string` typing for `item` callback parameters in `CuratedProductModule` list rendering to resolve the current implicit-`any` TypeScript blocker without introducing product data.
@@ -21,3 +25,8 @@
 - Endpoint behavior: submission flows through existing `src/lib/formSubmission.ts` endpoint resolution (`VITE_FORM_ENDPOINT` first, then legacy fallbacks). If no endpoint is configured, it returns the existing honest `missingEndpoint` message; no fake success behavior or backend integration was added.
 - No new form service/backend was introduced, and no analytics/product/recommendation/effect data was added in this pass.
 - Re-ran `npm run check`; next blocker is now `./src/components/ErrorBoundary.tsx:2:34` missing `../utils/devMessages` (outside EmailCapture/form-submission scope).
+- Follow-up cleanup: disabled legacy dev-message dependency by removing `../utils/devMessages` imports/calls from active files (`ErrorBoundary`, consent/debug, full-count diagnostics, theme persistence warning, analytics init debug).
+- Re-ran `npm run check`; next blocker moved to `./src/components/FavoriteStar.tsx:2:34` missing `../hooks/useHerbFavorites`.
+- `FavoriteStar` was unused in active imports and removed from active source to keep MVP minimal and unblock the next essential check path.
+- Re-ran `npm run check`; next blocker moved to `./src/components/FeaturedHerbTeaser.tsx:8:39` missing `../utils/format`.
+- `FeaturedHerbTeaser` was also unused in active imports and removed from active source as another nonessential legacy blocker.

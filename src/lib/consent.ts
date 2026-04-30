@@ -1,5 +1,3 @@
-import { recordDevMessage } from '../utils/devMessages'
-
 export type ConsentStatus = 'granted' | 'denied'
 
 export const CONSENT_STORAGE_KEY = 'consent.v1'
@@ -60,7 +58,5 @@ export function applyGaConsent(status: ConsentStatus) {
 }
 
 export function debugConsent() {
-  if (import.meta.env.MODE !== 'production') {
-    recordDevMessage('warning', '[consent] status snapshot', getConsent())
-  }
+  return getConsent()
 }

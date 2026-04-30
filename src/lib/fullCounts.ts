@@ -1,5 +1,3 @@
-import { recordDevMessage } from '../utils/devMessages'
-
 type AnyEntity = {
   id?: string
   latinName?: string
@@ -99,12 +97,6 @@ export async function getFullCounts() {
   const [herbRaw, compRaw] = await Promise.all([loadHerbCandidates(), loadCompoundCandidates()])
   const herbs = dedupe(herbRaw ?? [])
   const compounds = dedupe(compRaw ?? [])
-  if (herbs.length < 100) {
-    recordDevMessage(
-      'warning',
-      `[THS] Herb count seems low (${herbs.length}). Check data source paths. Tried multiple locations.`
-    )
-  }
   return { herbCount: herbs.length, compoundCount: compounds.length }
 }
 
