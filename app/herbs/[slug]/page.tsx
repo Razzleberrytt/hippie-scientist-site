@@ -18,6 +18,7 @@ import {
   getHerbCompoundMap,
   getHerbs,
 } from '@/lib/runtime-data'
+import { getHerbSearchLinks } from '@/lib/affiliate'
 import { commonSupplementFaqJsonLd } from '@/lib/seo'
 
 type Params = { params: Promise<{ slug: string }> }
@@ -280,6 +281,7 @@ export default async function HerbDetailPage({ params }: Params) {
   if (!herb) notFound()
 
   const label = getHerbLabel(herb)
+  const affiliateLinks = getHerbSearchLinks(label)
   const leadText = getLeadText(herb)
   const overviewText = getOverviewText(herb)
   const overviewItems = [
@@ -416,6 +418,31 @@ export default async function HerbDetailPage({ params }: Params) {
             </p>
           </section>
 
+          {affiliateLinks.length > 0 ? (
+            <section className='ds-card'>
+              <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+                Shop forms
+              </p>
+
+              <p className='mt-2 text-xs leading-5 text-white/50'>
+                As an Amazon Associate I earn from qualifying purchases.
+              </p>
+
+              <div className='mt-4 flex flex-wrap gap-2'>
+                {affiliateLinks.map(link => (
+                  <a
+                    key={link.label}
+                    href={link.url}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='rounded-full border border-white/10 px-3 py-1 text-sm text-white/75 transition hover:border-white/25 hover:bg-white/5 hover:text-white'
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </section>
+          ) : null}
         </aside>
       </div>
 
