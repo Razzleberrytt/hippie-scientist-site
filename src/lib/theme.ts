@@ -1,5 +1,3 @@
-import { recordDevMessage } from '../utils/devMessages';
-
 const THEME_KEY = 'ths:theme';
 const ACCENT_KEY = 'ths:accent';
 
@@ -9,8 +7,8 @@ export type AccentChoice = 'blue' | 'lime' | 'pink';
 function safeSetItem(key: string, value: string) {
   try {
     localStorage.setItem(key, value);
-  } catch (error) {
-    recordDevMessage('warning', 'Unable to persist preference', error);
+  } catch {
+    // no-op: preference storage can fail in restricted browser modes
   }
 }
 

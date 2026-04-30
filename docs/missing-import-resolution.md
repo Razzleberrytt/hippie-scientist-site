@@ -25,3 +25,8 @@
 - Endpoint behavior: submission flows through existing `src/lib/formSubmission.ts` endpoint resolution (`VITE_FORM_ENDPOINT` first, then legacy fallbacks). If no endpoint is configured, it returns the existing honest `missingEndpoint` message; no fake success behavior or backend integration was added.
 - No new form service/backend was introduced, and no analytics/product/recommendation/effect data was added in this pass.
 - Re-ran `npm run check`; next blocker is now `./src/components/ErrorBoundary.tsx:2:34` missing `../utils/devMessages` (outside EmailCapture/form-submission scope).
+- Follow-up cleanup: disabled legacy dev-message dependency by removing `../utils/devMessages` imports/calls from active files (`ErrorBoundary`, consent/debug, full-count diagnostics, theme persistence warning, analytics init debug).
+- Re-ran `npm run check`; next blocker moved to `./src/components/FavoriteStar.tsx:2:34` missing `../hooks/useHerbFavorites`.
+- `FavoriteStar` was unused in active imports and removed from active source to keep MVP minimal and unblock the next essential check path.
+- Re-ran `npm run check`; next blocker moved to `./src/components/FeaturedHerbTeaser.tsx:8:39` missing `../utils/format`.
+- `FeaturedHerbTeaser` was also unused in active imports and removed from active source as another nonessential legacy blocker.

@@ -1,5 +1,4 @@
 import { getConsent } from './consent'
-import { recordDevMessage } from '../utils/devMessages'
 
 declare global {
   interface Window {
@@ -48,9 +47,6 @@ export function loadAnalytics() {
   // });
 
   loaded = true
-  if (import.meta.env.MODE !== 'production') {
-    recordDevMessage('warning', '[analytics] Consent granted, analytics initialized.')
-  }
 }
 
 export function onConsentChange() {
