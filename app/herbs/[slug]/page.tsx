@@ -12,7 +12,7 @@ import {
   normalizeSources,
 } from '@/components/profile-data-sections'
 import {
-  getCompoundBySlug,
+  getClaims,
   getCompounds,
   getHerbBySlug,
   getHerbCompoundMap,
@@ -42,6 +42,13 @@ type HerbDetail = {
   sources?: unknown
   primaryDomain?: unknown
   claimRows?: unknown
+  evidence_grade?: unknown
+  net_score?: unknown
+  primary_effects?: unknown
+  mechanism_summary?: unknown
+  dosage_range?: unknown
+  oral_form?: unknown
+  contraindications_interactions?: unknown
 }
 
 type BlogPost = {
@@ -59,26 +66,6 @@ type RelatedLinkItem = {
   eyebrow?: string
 }
 
-
-type ProductSlot = {
-  name: string
-  format: string
-  note: string
-}
-
-const PLACEHOLDER_FORMS = [
-  'Capsules',
-  'Tincture',
-  'Tea cut',
-  'Powder',
-] as const
-
-const getProductSlots = (label: string): ProductSlot[] =>
-  PLACEHOLDER_FORMS.map((format, index) => ({
-    name: `${label} ${format}`,
-    format,
-    note: `Placeholder example product ${index + 1}. Affiliate placement coming later.`,
-  }))
 
 const allPosts = posts as BlogPost[]
 
@@ -227,13 +214,17 @@ const getRelatedCompounds = async (herb: HerbDetail): Promise<RelatedLinkItem[]>
   const validCompoundSlugs = new Set(compounds.map(compound => compound.slug))
 
   return compoundMap
-    .filter(entry => entry.herbSlug === herb.slug)
-    .filter(entry => validCompoundSlugs.has(entry.canonicalCompoundId))
+    .filter(entry => (entry.herbSlug || entry.herb_slug) === herb.slug)
+    .map(entry => ({
+      slug: entry.canonicalCompoundId || entry.compound_slug || '',
+      name: entry.canonicalCompoundName || '',
+    }))
+    .filter(entry => validCompoundSlugs.has(entry.slug))
     .slice(0, 6)
     .map(entry => ({
-      href: `/compounds/${entry.canonicalCompoundId}`,
-      title: entry.canonicalCompoundName?.trim() || formatSlugLabel(entry.canonicalCompoundId),
-      description: `Explore ${entry.canonicalCompoundName?.trim() || formatSlugLabel(entry.canonicalCompoundId)} and its role in ${getHerbLabel(herb)}.`,
+      href: `/compounds/${entry.slug}`,
+      title: entry.name.trim() || formatSlugLabel(entry.slug),
+      description: `Explore ${entry.name.trim() || formatSlugLabel(entry.slug)} and its role in ${getHerbLabel(herb)}.`,
       eyebrow: 'Related compound',
     }))
 }
@@ -291,45 +282,32 @@ export default async function HerbDetailPage({ params }: Params) {
   const label = getHerbLabel(herb)
   const leadText = getLeadText(herb)
   const overviewText = getOverviewText(herb)
-  const mechanisms = normalizeProfileList(herb.mechanisms)
-  const safetyNotes = normalizeProfileText(herb.safetyNotes)
-  const contraindications = normalizeProfileList(herb.contraindications)
-  const interactions = normalizeProfileList(herb.interactions)
-  const warnings = safetyNotes ? [safetyNotes] : []
-  const dosage = normalizeProfileText(herb.dosage)
-  const preparation = normalizeProfileText(herb.preparation)
-  const evidenceLevel = normalizeProfileText(herb.evidenceLevel)
-  const confidenceTier = normalizeProfileText(herb.confidenceTier)
-  const sourceCount = normalizeProfileText(herb.sourceCount)
-  const reviewStatus = normalizeProfileText(herb.review_status)
-  const sourceStatus = normalizeProfileText(herb.source_status)
-  const sources = normalizeSources(herb.sources)
-  const bestForItems = getBestForItems(herb, [
-    leadText,
-    overviewText,
-    ...mechanisms,
-    ...contraindications,
-    ...interactions,
-  ])
-
-  const hasDetails = Boolean(
-    overviewText ||
-      mechanisms.length > 0 ||
-      safetyNotes ||
-      contraindications.length > 0 ||
-      interactions.length > 0 ||
-      dosage ||
-      preparation ||
-      evidenceLevel ||
-      confidenceTier ||
-      sourceCount,
-  )
+  const overviewItems = [
+    { label: 'Name', value: normalizeProfileText(herb.name) || label },
+    { label: 'Evidence grade', value: normalizeProfileText(herb.evidence_grade) },
+    { label: 'Net score', value: normalizeProfileText(herb.net_score) },
+    { label: 'Primary effects', value: normalizeProfileList(herb.primary_effects).join(', ') },
+  ].filter(item => item.value)
+  const mechanismSummary = normalizeProfileText(herb.mechanism_summary)
+  const dosageItems = [
+    { label: 'Dosage range', value: normalizeProfileText(herb.dosage_range) },
+    { label: 'Oral form', value: normalizeProfileText(herb.oral_form) },
+  ].filter(item => item.value)
+  const safetyItems = [
+    { label: 'Safety notes', value: normalizeProfileText(herb.safetyNotes) },
+    {
+      label: 'Contraindications & interactions',
+      value: normalizeProfileList(herb.contraindications_interactions).join(', '),
+    },
+  ].filter(item => item.value)
+  const claims = (await getClaims())
+    .filter(item => (item.target_slug || item.targetSlug) === herb.slug)
+    .map(item => normalizeProfileText(item.claim || item.text || item.title))
+    .filter(Boolean)
 
   const relatedPosts = getRelatedPosts(herb)
   const relatedCompounds = await getRelatedCompounds(herb)
   const exploreLinks = getExploreLinks()
-  const availableForms = [...PLACEHOLDER_FORMS]
-  const exampleProducts = getProductSlots(label)
   const faqJsonLd = commonSupplementFaqJsonLd(`/herbs/${herb.slug}`)
 
   return (
@@ -393,103 +371,27 @@ export default async function HerbDetailPage({ params }: Params) {
 
       <div className='grid gap-6 lg:grid-cols-[1.45fr_0.85fr]'>
         <div className='space-y-6'>
-          {overviewText ? (
+          {overviewItems.length > 0 ? (
             <section className='ds-card'>
               <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
                 Overview
               </p>
-
-              <p className='mt-4 whitespace-pre-line text-sm leading-7 text-white/75 sm:text-base'>
-                {overviewText}
-              </p>
+              <dl className='mt-4 space-y-3 text-sm text-white/75'>
+                {overviewItems.map(item => (
+                  <div key={item.label}>
+                    <dt className='text-xs uppercase tracking-[0.2em] text-white/45'>{item.label}</dt>
+                    <dd className='mt-1 whitespace-pre-line'>{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
             </section>
           ) : null}
 
-          <SectionList title='Mechanisms' items={mechanisms} />
-          <SectionList title='Best for' items={bestForItems} />
+          {mechanismSummary ? <SectionList title='Mechanism' items={[mechanismSummary]} /> : null}
 
-          {contraindications.length || interactions.length || warnings.length ? (
-            <section className='ds-card'>
-              <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-                Safety
-              </p>
-
-              <div className='mt-4 space-y-4'>
-                {contraindications.length ? (
-                  <div>
-                    <p className='text-xs font-medium uppercase tracking-[0.2em] text-white/45'>
-                      Contraindications
-                    </p>
-                    <ul className='mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-white/75 sm:text-base'>
-                      {contraindications.map(item => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : null}
-
-                {interactions.length ? (
-                  <div>
-                    <p className='text-xs font-medium uppercase tracking-[0.2em] text-white/45'>
-                      Interactions
-                    </p>
-                    <ul className='mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-white/75 sm:text-base'>
-                      {interactions.map(item => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : null}
-
-                {warnings.length ? (
-                  <div>
-                    <p className='text-xs font-medium uppercase tracking-[0.2em] text-white/45'>
-                      Warnings
-                    </p>
-                    <ul className='mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-white/75 sm:text-base'>
-                      {warnings.map(item => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : null}
-              </div>
-            </section>
-          ) : null}
-
-          <KeyValueSection
-            title='Use and preparation'
-            items={[
-              { label: 'Dosage', value: dosage },
-              { label: 'Preparation', value: preparation },
-            ]}
-          />
-
-          <KeyValueSection
-            title='Evidence and confidence'
-            items={[
-              { label: 'Evidence level', value: evidenceLevel },
-              { label: 'Confidence tier', value: confidenceTier },
-              { label: 'Source count', value: sourceCount },
-              { label: 'Review status', value: reviewStatus },
-              { label: 'Source status', value: sourceStatus },
-            ]}
-          />
-
-          <SourcesSection sources={sources} />
-
-          {!hasDetails ? (
-            <section className='ds-card'>
-              <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-                More details
-              </p>
-
-              <p className='mt-4 text-sm leading-7 text-white/75 sm:text-base'>
-                This page is live, but the longer write-up for this herb has not
-                been added yet.
-              </p>
-            </section>
-          ) : null}
+          <KeyValueSection title='Dosage' items={dosageItems} />
+          <KeyValueSection title='Safety' items={safetyItems} />
+          <SectionList title='Evidence' items={claims} />
         </div>
 
         <aside className='space-y-6'>
@@ -498,26 +400,8 @@ export default async function HerbDetailPage({ params }: Params) {
             items={[
               { label: 'Type', value: 'Herb' },
               { label: 'Slug', value: herb.slug },
-              { label: 'Mechanisms listed', value: String(mechanisms.length) },
-              {
-                label: 'Contraindications',
-                value: contraindications.length
-                  ? String(contraindications.length)
-                  : 'Not listed',
-              },
-              {
-                label: 'Interactions',
-                value: interactions.length
-                  ? String(interactions.length)
-                  : 'Not listed',
-              },
-              {
-                label: 'Safety section',
-                value:
-                  contraindications.length || interactions.length || warnings.length
-                    ? 'Included'
-                    : 'Not yet',
-              },
+              { label: 'Evidence claims', value: claims.length ? String(claims.length) : '' },
+              { label: 'Linked compounds', value: relatedCompounds.length ? String(relatedCompounds.length) : '' },
             ]}
           />
 
@@ -532,47 +416,6 @@ export default async function HerbDetailPage({ params }: Params) {
             </p>
           </section>
 
-          <section className='ds-card'>
-            <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-              Available forms
-            </p>
-
-            <ul className='mt-4 space-y-2 text-sm text-white/80'>
-              {availableForms.map(form => (
-                <li
-                  key={form}
-                  className='rounded-xl border border-white/10 bg-white/[0.02] px-3 py-2'
-                >
-                  {form}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section className='ds-card'>
-            <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-              Example products
-            </p>
-
-            <p className='mt-3 text-xs text-white/55'>
-              Placeholder products only. No affiliate links are active yet.
-            </p>
-
-            <ul className='mt-4 space-y-3'>
-              {exampleProducts.map(product => (
-                <li
-                  key={product.name}
-                  className='rounded-xl border border-white/10 bg-white/[0.02] p-3'
-                >
-                  <p className='text-sm font-medium text-white/90'>{product.name}</p>
-                  <p className='mt-1 text-xs uppercase tracking-[0.16em] text-white/50'>
-                    {product.format}
-                  </p>
-                  <p className='mt-2 text-xs leading-6 text-white/70'>{product.note}</p>
-                </li>
-              ))}
-            </ul>
-          </section>
         </aside>
       </div>
 
