@@ -48,8 +48,6 @@
   ],
   "exclude": [
     "node_modules",
-    "src/App.tsx",
-    "src/main.tsx",
     "src/legacy-pages/**/*",
     "src/dev/**/*",
     "src/hooks/**/*",
