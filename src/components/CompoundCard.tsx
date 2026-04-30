@@ -1,5 +1,4 @@
 import { motion } from '@/lib/motion'
-import type { Compound } from '@/types/compound'
 import { buildCardSummary } from '@/lib/summary'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
@@ -11,6 +10,21 @@ import { hasPlaceholderText, sanitizeSurfaceText } from '@/lib/summary'
 
 interface HerbRef {
   name: string
+}
+
+type Compound = {
+  slug?: string
+  name: string
+  displayName?: string
+  description?: string
+  mechanism?: string
+  mechanisms?: string[]
+  effects?: string[] | string
+  curatedData?: {
+    summary?: string
+    keyEffects?: string[]
+  }
+  rawData?: Record<string, unknown>
 }
 
 export interface CompoundWithRefs extends Compound {
@@ -26,6 +40,10 @@ function getMechanism(compound: CompoundWithRefs): string {
 
   if (typeof compound.mechanism === 'string' && compound.mechanism.trim()) {
     return compound.mechanism
+  }
+
+  if (Array.isArray(compound.mechanisms) && compound.mechanisms.length > 0) {
+    return compound.mechanisms.filter(Boolean).join('; ')
   }
 
   return ''
