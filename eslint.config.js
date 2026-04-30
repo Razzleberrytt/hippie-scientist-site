@@ -7,7 +7,7 @@ import prettier from 'eslint-config-prettier'
 import globals from 'globals'
 
 export default [
-  { ignores: ['dist/**', 'node_modules/**'] },
+  { ignores: ['dist/**', 'out/**', '.next/**', 'node_modules/**', 'src/legacy-pages/**'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
