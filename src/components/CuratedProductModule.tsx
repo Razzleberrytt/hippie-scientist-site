@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { appendAnalyticsEvent } from '@/utils/analytics/eventStorage'
+import { appendAnalyticsEvent } from '@/lib/analyticsEventStorage'
 import type { CuratedProductEntityType } from '@/data/curatedProducts'
 import { trackAffiliateLinkClick, type AffiliateUseCaseAnchor } from '@/lib/affiliateClickTracking'
 import type { RenderableCuratedProduct } from '@/lib/curatedProducts'
