@@ -78,26 +78,9 @@ export default async function HomePage() {
             </p>
 
             <div className='mt-6 grid gap-3 sm:flex sm:flex-wrap'>
-              <Link
-                href='/herbs'
-                className='rounded-2xl bg-emerald-300 px-5 py-3 text-center text-sm font-bold text-slate-950 shadow-lg shadow-emerald-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-200'
-              >
-                Browse herbs
-              </Link>
-
-              <Link
-                href='/compounds'
-                className='rounded-2xl border border-white/15 bg-white/[0.04] px-5 py-3 text-center text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.08]'
-              >
-                Browse compounds
-              </Link>
-
-              <Link
-                href='/a-tier'
-                className='rounded-2xl border border-amber-300/25 bg-amber-300/10 px-5 py-3 text-center text-sm font-bold text-amber-100 transition hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-amber-300/15'
-              >
-                See A-tier picks
-              </Link>
+              <Link href='/herbs' className='rounded-2xl bg-emerald-300 px-5 py-3 text-center text-sm font-bold text-slate-950 shadow-lg shadow-emerald-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-200'>Browse herbs</Link>
+              <Link href='/compounds' className='rounded-2xl border border-white/15 bg-white/[0.04] px-5 py-3 text-center text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.08]'>Browse compounds</Link>
+              <Link href='/a-tier' className='rounded-2xl border border-amber-300/25 bg-amber-300/10 px-5 py-3 text-center text-sm font-bold text-amber-100 transition hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-amber-300/15'>See A-tier picks</Link>
             </div>
           </div>
 
@@ -115,9 +98,7 @@ export default async function HomePage() {
 
             <div className='rounded-2xl border border-white/10 bg-white/[0.04] p-4'>
               <p className='text-xs uppercase tracking-[0.18em] text-white/45'>Core promise</p>
-              <p className='mt-2 text-sm leading-6 text-white/70'>
-                No miracle-cure hype. Mechanisms, context, and safety signals stay separated from personal medical advice.
-              </p>
+              <p className='mt-2 text-sm leading-6 text-white/70'>No miracle-cure hype. Mechanisms, context, and safety signals stay separated from personal medical advice.</p>
             </div>
           </div>
         </div>
@@ -144,6 +125,30 @@ export default async function HomePage() {
           <p className='mt-2 text-sm leading-6 text-white/62'>A focused path for people who want practical discovery instead of endless browsing.</p>
           <span className='mt-4 inline-flex text-sm font-bold text-violet-200 transition group-hover:translate-x-1'>Explore sleep →</span>
         </Link>
+      </section>
+
+      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
+        <div className='flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between'>
+          <div>
+            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/45'>Explore by goal</p>
+            <h2 className='mt-1 text-2xl font-bold text-white'>Start with what you want help with</h2>
+          </div>
+          <Link href='/a-tier' className='text-sm font-bold text-amber-200'>Browse A-tier →</Link>
+        </div>
+        <div className='mt-4 grid gap-3 md:grid-cols-3'>
+          <Link href='/top/sleep' className='rounded-2xl border border-violet-300/20 bg-violet-300/10 p-4 transition hover:bg-violet-300/15'>
+            <h3 className='font-bold text-white'>Sleep support</h3>
+            <p className='mt-1 text-sm leading-6 text-white/60'>Ranked herbs connected to rest, calm, and sleep context.</p>
+          </Link>
+          <Link href='/top/stress' className='rounded-2xl border border-emerald-300/20 bg-emerald-300/10 p-4 transition hover:bg-emerald-300/15'>
+            <h3 className='font-bold text-white'>Stress support</h3>
+            <p className='mt-1 text-sm leading-6 text-white/60'>Herbs connected to stress, calm, cortisol, and adaptogen context.</p>
+          </Link>
+          <Link href='/top/focus' className='rounded-2xl border border-blue-300/20 bg-blue-300/10 p-4 transition hover:bg-blue-300/15'>
+            <h3 className='font-bold text-white'>Focus support</h3>
+            <p className='mt-1 text-sm leading-6 text-white/60'>Compounds and research anchors for cognition and focus discovery.</p>
+          </Link>
+        </div>
       </section>
 
       <section className='grid gap-4 lg:grid-cols-2'>
@@ -201,9 +206,7 @@ export default async function HomePage() {
           <div>
             <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/45'>Harm-reduction mindset</p>
             <h2 className='mt-2 text-2xl font-bold text-white sm:text-3xl'>Useful does not mean risk-free.</h2>
-            <p className='mt-3 text-sm leading-6 text-white/65'>
-              This site is educational. Check interactions, safety notes, medications, pregnancy, surgery, and health conditions before treating any herb or compound as personally appropriate.
-            </p>
+            <p className='mt-3 text-sm leading-6 text-white/65'>This site is educational. Check interactions, safety notes, medications, pregnancy, surgery, and health conditions before treating any herb or compound as personally appropriate.</p>
           </div>
           <div className='grid gap-2 text-sm text-white/68'>
             <div className='rounded-2xl border border-white/10 bg-black/15 p-3'>Mechanisms are context, not proof.</div>
