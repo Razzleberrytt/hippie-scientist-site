@@ -9,24 +9,13 @@
   "scripts": {
     "dev": "next dev",
     "start": "next start",
-    "build": "npm run prebuild && npm run generate:a-tier && next build",
-    "check": "npm run data:build && npm run data:validate && npm run build",
-    "enrichment:release:gate": "echo \"Skipping enrichment release gate\"",
-    "generate:a-tier": "node scripts/generate-a-tier-index.mjs",
-    "prebuild": "npm run prebuild:blog && npm run data:build && node scripts/ensure-static-data-stubs.mjs && node scripts/clean-source-refs.mjs && node scripts/dedupe-entities.mjs && node scripts/generate-entity-payloads.mjs && node scripts/generate-homepage-data-lite.mjs",
     "data:build": "node scripts/data/build-runtime-from-workbook.mjs --out public/data",
     "data:validate": "node scripts/data/validate-data-next.mjs --data-dir public/data",
-    "data:report": "node -e \"console.log('data report skipped')\"",
-    "prebuild:validate": "npm run data:validate",
-    "audit:data": "npm run data:validate",
-    "sitemap": "node scripts/generate-sitemap.mjs public",
-    "verify:redirects": "echo \"Skipping legacy dist/_redirects check for Next/Cloudflare Pages build\"",
+    "data:audit": "node scripts/check-generated-output.mjs",
+    "guard:source-of-truth": "node scripts/data/verify-workbook-only-path.mjs",
     "lint": "eslint . --max-warnings=0",
-    "format": "prettier --write .",
-    "typecheck": "tsc --noEmit || echo 'typecheck skipped due to errors'",
-    "blog:generate": "node scripts/generate-daily-post.mjs",
-    "patch:a-tier": "node scripts/data/apply-a-tier-patch.mjs",
-    "prebuild:blog": "node scripts/build-blog.mjs"
+    "build": "npm run data:build && npm run data:validate && npm run data:audit && npm run guard:source-of-truth && next build && npm run verify:build",
+    "verify:build": "node scripts/verify-redirects.mjs && node scripts/ci/validate-deploy-readiness.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
