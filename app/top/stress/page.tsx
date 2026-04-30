@@ -55,8 +55,10 @@ const matchesGoal = (herb: HerbRecord): boolean => {
 }
 
 export const metadata: Metadata = {
-  title: 'Best Herbs for Stress Support',
-  description: 'A dataset-driven stress-support herb page with profiles, product-form links, and safety-first context.',
+  title: 'Best Herbs for Stress (2026 Evidence-Aware Guide)',
+  description:
+    'Compare herbs for stress, anxiety, calm, cortisol, and adaptogen support. Ranked from The Hippie Scientist workbook dataset with safety-first context.',
+  alternates: { canonical: '/top/stress' },
 }
 
 export default async function StressPage() {
@@ -66,9 +68,23 @@ export default async function StressPage() {
   return (
     <main className='mx-auto max-w-6xl space-y-6 px-4 py-8 sm:px-6 lg:px-8'>
       <section className='rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.16),transparent_35%),linear-gradient(135deg,rgba(255,255,255,0.07),rgba(255,255,255,0.025))] p-6 shadow-2xl shadow-black/25 sm:p-8'>
-        <p className='text-xs font-bold uppercase tracking-[0.2em] text-emerald-100/70'>Goal guide</p>
-        <h1 className='mt-3 text-4xl font-black tracking-tight text-white sm:text-6xl'>Best Herbs for Stress Support</h1>
-        <p className='mt-4 max-w-3xl text-base leading-7 text-white/70'>Explore herbs connected to stress, calm, cortisol, and adaptogen-style support in the current workbook dataset.</p>
+        <p className='text-xs font-bold uppercase tracking-[0.2em] text-emerald-100/70'>Stress guide</p>
+        <h1 className='mt-3 text-4xl font-black tracking-tight text-white sm:text-6xl'>Best Herbs for Stress</h1>
+        <p className='mt-4 max-w-3xl text-base leading-7 text-white/70'>
+          These herbs are commonly connected with stress, anxiety, calm, cortisol, and adaptogen-style support. Rankings use the current workbook dataset as a discovery layer, not as personal medical advice.
+        </p>
+      </section>
+
+      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
+        <h2 className='text-2xl font-bold text-white'>What herbs help with stress and anxiety?</h2>
+        <p className='mt-3 text-sm leading-6 text-white/65'>
+          Common stress-support herbs include adaptogens and calming botanicals such as ashwagandha, rhodiola, lemon balm, passionflower, and other plants that may appear in the dataset when their profile mentions stress, calm, cortisol, anxiety, relaxation, or adaptogen context.
+        </p>
+        <div className='mt-4 flex flex-wrap gap-2'>
+          <Link href='/compare/ashwagandha-vs-rhodiola-rosea' className='rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm font-bold text-emerald-100 hover:bg-emerald-300/15'>Compare ashwagandha vs rhodiola</Link>
+          <Link href='/top/sleep' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70 hover:bg-white/5'>Best herbs for sleep</Link>
+          <Link href='/top/focus' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70 hover:bg-white/5'>Best supplements for focus</Link>
+        </div>
       </section>
 
       <section className='grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
@@ -83,12 +99,21 @@ export default async function StressPage() {
               </div>
               <p className='mt-3 text-sm leading-6 text-white/65'>{text(herb.summary) || text(herb.description) || 'Profile summary coming soon.'}</p>
               <div className='mt-4 flex flex-wrap gap-2'>
-                <Link href={`/herbs/${herb.slug}/`} className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/75 transition hover:bg-white/5 hover:text-white'>Open profile</Link>
-                {links[0] ? <a href={links[0].url} target='_blank' rel='noopener noreferrer sponsored' className='rounded-2xl bg-emerald-300 px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-emerald-200'>Compare products →</a> : null}
+                <Link href={`/herbs/${herb.slug}/`} className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/75 transition hover:bg-white/5 hover:text-white'>Read {label} profile</Link>
+                {links[0] ? <a href={links[0].url} target='_blank' rel='noopener noreferrer sponsored' className='rounded-2xl bg-emerald-300 px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-emerald-200'>Compare {label} products →</a> : null}
               </div>
             </article>
           )
         })}
+      </section>
+
+      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5'>
+        <h2 className='text-2xl font-bold text-white'>Related natural wellness guides</h2>
+        <div className='mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
+          <Link href='/top/sleep' className='rounded-2xl border border-violet-300/20 bg-violet-300/10 p-4 text-white hover:bg-violet-300/15'>Best herbs for sleep</Link>
+          <Link href='/top/focus' className='rounded-2xl border border-blue-300/20 bg-blue-300/10 p-4 text-white hover:bg-blue-300/15'>Best supplements for focus</Link>
+          <Link href='/herbs' className='rounded-2xl border border-emerald-300/20 bg-emerald-300/10 p-4 text-white hover:bg-emerald-300/15'>Browse all herbs</Link>
+        </div>
       </section>
     </main>
   )
