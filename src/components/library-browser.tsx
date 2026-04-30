@@ -34,6 +34,17 @@ const truncate = (value: string | undefined, maxLength: number): string => {
   return `${text.slice(0, maxLength - 1).trimEnd()}…`
 }
 
+const titleInitial = (title: string): string => {
+  const first = title.trim().charAt(0).toUpperCase()
+  return /[A-Z0-9]/.test(first) ? first : '•'
+}
+
+const fallbackTag = (item: BrowserItem): string => {
+  if (item.isATier) return 'A-tier'
+  if (item.domain) return item.domain
+  return item.typeLabel?.replace(' profile', '') || 'Profile'
+}
+
 export default function LibraryBrowser({
   eyebrow = 'Library',
   title,
@@ -70,32 +81,32 @@ export default function LibraryBrowser({
   }, [sortedItems, letter, query])
 
   return (
-    <div className='mx-auto w-full max-w-7xl space-y-6 px-4 py-6 sm:px-6 lg:px-8'>
-      <section className='rounded-3xl border border-white/10 bg-white/[0.03] p-5 shadow-2xl shadow-black/20 sm:p-8'>
-        <p className='text-xs font-semibold uppercase tracking-[0.22em] text-emerald-200/70'>
-          {eyebrow}
-        </p>
-
-        <div className='mt-3 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between'>
-          <div className='max-w-3xl'>
-            <h1 className='text-4xl font-bold tracking-tight text-white sm:text-5xl'>
+    <div className='mx-auto w-full max-w-7xl space-y-4 px-3 py-4 sm:px-6 lg:px-8'>
+      <section className='overflow-hidden rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.16),transparent_35%),linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-4 shadow-xl shadow-black/20 sm:p-6'>
+        <div className='flex items-start justify-between gap-3'>
+          <div className='min-w-0'>
+            <p className='text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-emerald-200/75'>
+              {eyebrow}
+            </p>
+            <h1 className='mt-2 text-3xl font-bold tracking-tight text-white sm:text-5xl'>
               {title}
             </h1>
-            {description ? (
-              <p className='mt-3 text-base leading-7 text-white/70 sm:text-lg'>
-                {description}
-              </p>
-            ) : null}
           </div>
 
-          <div className='rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white/65'>
-            <span className='font-semibold text-white'>{filteredItems.length}</span>{' '}
-            shown / {sortedItems.length} total
+          <div className='shrink-0 rounded-2xl border border-white/10 bg-black/25 px-3 py-2 text-right text-xs text-white/60'>
+            <div className='text-lg font-bold leading-none text-white'>{filteredItems.length}</div>
+            <div>of {sortedItems.length}</div>
           </div>
         </div>
+
+        {description ? (
+          <p className='mt-3 max-w-3xl text-sm leading-6 text-white/65 sm:text-base'>
+            {description}
+          </p>
+        ) : null}
       </section>
 
-      <section className='sticky top-0 z-20 -mx-4 border-y border-white/10 bg-[#080a12]/95 px-4 py-4 backdrop-blur sm:mx-0 sm:rounded-3xl sm:border sm:bg-white/[0.03] sm:p-4'>
+      <section className='sticky top-0 z-20 -mx-3 border-y border-white/10 bg-[#080a12]/95 px-3 py-3 backdrop-blur sm:mx-0 sm:rounded-3xl sm:border sm:bg-white/[0.035] sm:p-3'>
         <label className='sr-only' htmlFor='library-search'>
           Search {title}
         </label>
@@ -104,17 +115,17 @@ export default function LibraryBrowser({
           value={query}
           onChange={event => setQuery(event.target.value)}
           placeholder={searchPlaceholder}
-          className='w-full rounded-2xl border border-white/15 bg-white px-4 py-3 text-base text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-emerald-300 focus:ring-4 focus:ring-emerald-300/20'
+          className='w-full rounded-2xl border border-white/15 bg-white/95 px-4 py-3 text-base text-slate-950 outline-none transition placeholder:text-slate-500 focus:border-emerald-300 focus:ring-4 focus:ring-emerald-300/20'
         />
 
-        <div className='mt-3 flex gap-2 overflow-x-auto pb-1'>
+        <div className='mt-2 flex gap-1.5 overflow-x-auto pb-1'>
           <button
             type='button'
             onClick={() => setLetter('')}
-            className={`shrink-0 rounded-full border px-3 py-2 text-sm font-medium transition ${
+            className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
               letter === ''
                 ? 'border-emerald-300 bg-emerald-300 text-slate-950'
-                : 'border-white/10 bg-white/[0.03] text-white/70 hover:border-white/25 hover:text-white'
+                : 'border-white/10 bg-white/[0.04] text-white/65 hover:border-white/25 hover:text-white'
             }`}
           >
             All
@@ -124,10 +135,10 @@ export default function LibraryBrowser({
               key={item}
               type='button'
               onClick={() => setLetter(current => (current === item ? '' : item))}
-              className={`shrink-0 rounded-full border px-3 py-2 text-sm font-medium transition ${
+              className={`shrink-0 rounded-full border px-2.5 py-1.5 text-xs font-semibold transition ${
                 letter === item
                   ? 'border-emerald-300 bg-emerald-300 text-slate-950'
-                  : 'border-white/10 bg-white/[0.03] text-white/70 hover:border-white/25 hover:text-white'
+                  : 'border-white/10 bg-white/[0.04] text-white/65 hover:border-white/25 hover:text-white'
               }`}
             >
               {item}
@@ -137,47 +148,50 @@ export default function LibraryBrowser({
       </section>
 
       {filteredItems.length > 0 ? (
-        <section className='grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
-          {filteredItems.map(item => (
-            <Link
-              key={item.slug}
-              href={item.href}
-              className='group block rounded-3xl border border-white/10 bg-white/[0.035] p-5 shadow-xl shadow-black/10 transition hover:-translate-y-0.5 hover:border-emerald-300/40 hover:bg-white/[0.06] focus:outline-none focus:ring-4 focus:ring-emerald-300/20'
-            >
-              <div className='flex flex-wrap items-center gap-2'>
-                {item.typeLabel ? (
-                  <span className='rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs font-medium text-white/60'>
-                    {item.typeLabel}
-                  </span>
-                ) : null}
-                {item.domain ? (
-                  <span className='rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-xs font-medium capitalize text-emerald-100'>
-                    {item.domain}
-                  </span>
-                ) : null}
-                {item.isATier ? (
-                  <span className='rounded-full border border-amber-300/25 bg-amber-300/10 px-3 py-1 text-xs font-semibold text-amber-100'>
-                    A-tier
-                  </span>
-                ) : null}
-              </div>
+        <section className='grid gap-3 sm:grid-cols-2 xl:grid-cols-3'>
+          {filteredItems.map(item => {
+            const tag = fallbackTag(item)
+            return (
+              <Link
+                key={item.slug}
+                href={item.href}
+                className='group relative block overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.065] to-white/[0.025] p-4 shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:border-emerald-300/40 hover:from-white/[0.09] hover:to-emerald-300/[0.035] focus:outline-none focus:ring-4 focus:ring-emerald-300/20'
+              >
+                <div className='absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-2xl border border-white/10 bg-black/20 text-sm font-bold text-emerald-100/80'>
+                  {titleInitial(item.title)}
+                </div>
 
-              <h2 className='mt-4 text-xl font-semibold leading-snug tracking-tight text-white group-hover:text-emerald-100'>
-                {item.title}
-              </h2>
+                <div className='flex max-w-[calc(100%-3rem)] flex-wrap items-center gap-1.5'>
+                  <span className='rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2.5 py-1 text-[0.68rem] font-semibold capitalize leading-none text-emerald-100'>
+                    {tag}
+                  </span>
+                  {item.typeLabel ? (
+                    <span className='rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-[0.68rem] font-medium leading-none text-white/55'>
+                      {item.typeLabel}
+                    </span>
+                  ) : null}
+                </div>
 
-              <p className='mt-3 text-sm leading-6 text-white/65'>
-                {truncate(item.summary, 170)}
-              </p>
+                <h2 className='mt-3 pr-10 text-lg font-semibold leading-snug tracking-tight text-white group-hover:text-emerald-100 sm:text-xl'>
+                  {item.title}
+                </h2>
 
-              <div className='mt-5 inline-flex items-center text-sm font-semibold text-emerald-200 transition group-hover:translate-x-1'>
-                Open profile <span aria-hidden='true' className='ml-1'>→</span>
-              </div>
-            </Link>
-          ))}
+                <p className='mt-2 line-clamp-3 min-h-[4.5rem] text-sm leading-6 text-white/62'>
+                  {truncate(item.summary, 140)}
+                </p>
+
+                <div className='mt-3 flex items-center justify-between border-t border-white/10 pt-3'>
+                  <span className='text-xs text-white/40'>/{item.slug}</span>
+                  <span className='text-sm font-semibold text-emerald-200 transition group-hover:translate-x-1'>
+                    Open →
+                  </span>
+                </div>
+              </Link>
+            )
+          })}
         </section>
       ) : (
-        <section className='rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center'>
+        <section className='rounded-3xl border border-white/10 bg-white/[0.03] p-6 text-center'>
           <p className='text-base font-medium text-white'>{emptyLabel}</p>
           <button
             type='button'
