@@ -2,6 +2,10 @@
 
 ## 2026-04-30
 
+- MVP cleanup decision update: removed `src/components/EmailCapture.tsx` from active use instead of rebuilding legacy form dependencies.
+- Removed `src/components/ContextualLeadMagnet.tsx` because it was the active importer of `EmailCapture`.
+- Did **not** recreate `@/hooks/useSubmissionForm` as part of this MVP cleanup pass.
+- Deferred form capture from MVP scope; no form backend integration, fake success behavior, or hardcoded endpoints were introduced.
 - Resolved the current TS2307 blocker in `src/components/CuratedProductModule.tsx` by removing the missing type-only import from `@/data/curatedProducts` and defining a local `CuratedProductEntityType` union (`'herb' | 'compound' | 'goal'`) in the component.
 - This keeps behavior unchanged while avoiding restoration of deleted hand-authored data modules.
 - Added explicit `string` typing for `item` callback parameters in `CuratedProductModule` list rendering to resolve the current implicit-`any` TypeScript blocker without introducing product data.
