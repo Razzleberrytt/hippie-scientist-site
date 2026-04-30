@@ -15,7 +15,8 @@
     "guard:source-of-truth": "node scripts/data/verify-workbook-only-path.mjs",
     "lint": "eslint . --max-warnings=0",
     "build": "npm run data:build && npm run data:validate && npm run data:audit && npm run guard:source-of-truth && next build && npm run verify:build",
-    "verify:build": "node scripts/verify-redirects.mjs && node scripts/verify-css-assets.mjs && node scripts/ci/validate-deploy-readiness.mjs"
+    "verify:build": "node scripts/verify-redirects.mjs && node scripts/verify-css-assets.mjs && node scripts/ci/validate-deploy-readiness.mjs && npm run data:verify",
+    "data:verify": "node scripts/data/verify-generated-data.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
