@@ -32,16 +32,27 @@
   },
   "include": [
     "next-env.d.ts",
-    "app",
-    "src",
-    "public/blogdata/index.json",
-    "api/**/*.ts",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "src/lib/runtime-data.ts",
+    "src/lib/public-routes.ts",
+    "src/lib/affiliate.ts",
+    "src/lib/seo.ts",
+    "src/components/mobile-nav.tsx",
+    "src/components/library-browser.tsx",
+    "src/components/related-links-section.tsx",
+    "src/components/profile-data-sections.tsx",
+    "src/data/blog/posts.json",
+    "src/data/seoCollections.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
     "src/App.tsx",
     "src/main.tsx",
-    "src/legacy-pages/**/*"
+    "src/legacy-pages/**/*",
+    "src/dev/**/*",
+    "src/hooks/**/*",
+    "src/utils/**/*"
   ]
 }
