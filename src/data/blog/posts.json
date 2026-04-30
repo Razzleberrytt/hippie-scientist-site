@@ -1,1 +1,48 @@
-[]
+[
+  {
+    "slug": "how-to-read-herb-profiles",
+    "title": "How to Read Herb Profiles Without Overclaiming",
+    "excerpt": "A plain-English guide to reading herb pages on The Hippie Scientist with evidence, safety, and context in mind.",
+    "date": "2026-04-30",
+    "readingTime": "3 min read",
+    "summary_quality": "starter",
+    "profile_status": "partial",
+    "sections": [
+      {
+        "heading": "Start with the evidence layer",
+        "content": "The Hippie Scientist separates practical research notes from marketing language. A strong profile should make clear what is supported by human evidence, what is mechanistic, and what still needs more review."
+      },
+      {
+        "heading": "Use safety notes seriously",
+        "content": "Herbs and compounds can interact with medications, health conditions, pregnancy, surgery, and other supplements. Use the safety section as a caution signal, not as personal medical advice."
+      },
+      {
+        "heading": "Treat the workbook as the source of truth",
+        "content": "The site is generated from the project workbook. When a page is incomplete, the fix belongs in the workbook or production queue rather than a hand-edited website patch."
+      }
+    ]
+  },
+  {
+    "slug": "herbs-compounds-and-context",
+    "title": "Herbs, Compounds, and Context",
+    "excerpt": "Why plant profiles are more useful when active compounds, mechanisms, safety notes, and evidence tiers are connected.",
+    "date": "2026-04-29",
+    "readingTime": "4 min read",
+    "summary_quality": "starter",
+    "profile_status": "partial",
+    "sections": [
+      {
+        "heading": "Plants are not single-ingredient products",
+        "content": "A plant profile can include many constituents. The compound map helps connect an herb to specific constituents without pretending the whole herb behaves like one isolated molecule."
+      },
+      {
+        "heading": "Mechanisms are not proof by themselves",
+        "content": "Mechanism notes can explain why something might matter, but they should not be treated as proof of a real-world outcome unless human evidence supports the claim."
+      },
+      {
+        "heading": "Context makes the library more honest",
+        "content": "A useful profile should show what is known, what is uncertain, and where safety caution is appropriate. That is the difference between an educational library and supplement hype."
+      }
+    ]
+  }
+]
