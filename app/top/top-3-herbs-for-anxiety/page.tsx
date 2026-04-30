@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
+import { AffiliateConversionCard } from '@/components/affiliate-conversion-card'
 
 type Herb = {
   slug: string
@@ -62,6 +63,9 @@ export default async function TopThreeAnxietyHerbsPage() {
   const preferred = preferredSlugs.map(slug => bySlug.get(slug)).filter((herb): herb is Herb => Boolean(herb))
   const fallback = herbs.filter(herb => matches(herb) && !preferred.some(item => item.slug === herb.slug)).sort((a, b) => scoreFor(b) - scoreFor(a)).slice(0, Math.max(0, 3 - preferred.length))
   const picks = [...preferred, ...fallback].slice(0, 3)
+  const best = picks[0]
+  const bestLabel = best ? labelFor(best) : 'Ashwagandha'
+  const bestLinks = getHerbSearchLinks(bestLabel)
 
   return (
     <main className='mx-auto max-w-5xl space-y-6 px-4 py-8 text-white sm:px-6 lg:px-8'>
@@ -70,6 +74,15 @@ export default async function TopThreeAnxietyHerbsPage() {
         <h1 className='mt-3 text-4xl font-black tracking-tight sm:text-6xl'>Top 3 Herbs for Anxiety</h1>
         <p className='mt-4 max-w-3xl text-base leading-7 text-white/70'>A practical starting point for calm, relaxation, and anxiety-related herb research. Educational context only, not medical advice.</p>
       </section>
+
+      <AffiliateConversionCard
+        title={bestLabel}
+        description='Best overall starting point for calm, relaxation, and stress-linked anxiety research.'
+        href={bestLinks[0]?.url || '#'}
+        cta={`View ${bestLabel} options →`}
+        secondaryHref='/top/stress'
+        secondaryCta='Compare stress-support herbs →'
+      />
 
       <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
         <h2 className='text-2xl font-bold'>Fast answer</h2>
@@ -90,8 +103,8 @@ export default async function TopThreeAnxietyHerbsPage() {
               <h2 className='mt-2 text-3xl font-bold'>{label}</h2>
               <p className='mt-4 text-sm leading-6 text-white/68'>{summaryFor(herb)}</p>
               <div className='mt-5 flex flex-wrap gap-2'>
-                <Link href={`/herbs/${herb.slug}/`} className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/75 hover:bg-white/5'>Read {label} profile</Link>
-                {links[0] ? <a href={links[0].url} target='_blank' rel='noopener noreferrer sponsored' className='rounded-2xl bg-emerald-300 px-4 py-2 text-sm font-bold text-slate-950 hover:bg-emerald-200'>Compare {label} products →</a> : null}
+                {links[0] ? <a href={links[0].url} target='_blank' rel='noopener noreferrer sponsored' className='rounded-2xl bg-emerald-300 px-4 py-2 text-sm font-bold text-slate-950 hover:bg-emerald-200'>View {label} products →</a> : null}
+                <Link href={`/herbs/${herb.slug}/`} className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/75 hover:bg-white/5'>Learn more →</Link>
               </div>
             </article>
           )
