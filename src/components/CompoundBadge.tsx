@@ -1,16 +1,12 @@
 import React from 'react'
 import { Link } from '@/lib/router-compat'
+import { slugify } from '@/lib/slug'
 import TagBadge from './TagBadge'
-import InfoTooltip from './InfoTooltip'
-import { slugify } from '../utils/slugify'
-import { compounds as compoundList } from '../data/compounds/compounds'
 
 export default function CompoundBadge({ name }: { name: string }) {
-  const info = compoundList.find(c => c.name.toLowerCase() === name.toLowerCase())
-  const badge = (
+  return (
     <Link to={`/compounds/${slugify(name)}`} className='inline-block'>
       <TagBadge label={name} variant='green' />
     </Link>
   )
-  return info ? <InfoTooltip text={info.type}>{badge}</InfoTooltip> : badge
 }
