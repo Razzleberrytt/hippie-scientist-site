@@ -1,5 +1,4 @@
 import { Button } from './ui/Button'
-import { recordDevMessage } from '../utils/devMessages'
 
 type BundleUpgradeCardProps = {
   sourcePage: string
@@ -29,7 +28,7 @@ export default function BundleUpgradeCard({
         })
       )
     } catch (error) {
-      recordDevMessage('warning', 'Unable to store bundle interest', error)
+      console.warn('Unable to store bundle interest', error)
     }
 
     window.open(BUNDLE_LINK, '_blank', 'noopener,noreferrer')
