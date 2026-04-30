@@ -2,8 +2,9 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useLocation } from '@/lib/router-compat'
 import { TWITTER_HANDLE, buildMeta } from '@/lib/seo'
-import ogManifest from '@/data/og-manifest.json'
 import type { PageType } from '@/lib/seo'
+
+const ogManifest: { default: boolean; herb: string[]; blog: string[] } = { default: false, herb: [], blog: [] }
 
 type OpenGraphOverrides = {
   title?: string
