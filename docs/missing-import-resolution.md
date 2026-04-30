@@ -12,3 +12,5 @@
 - Per deletion-first cleanup, removed stale unreachable component `src/components/EffectExplorer.tsx` instead of restoring its missing dependency `@/utils/effectSearch`.
 - Did not recreate deleted hand-authored modules or synthetic JSON.
 - Documented legacy cleanup classification and deferred effect-search feature in `docs/legacy-cleanup.md`.
+- Resolved active `@/hooks/useSubmissionForm` blocker via deletion-first MVP decision: deleted inactive `src/components/EmailCapture.tsx` and its only importer `src/components/ContextualLeadMagnet.tsx`.
+- Did not create a synthetic `useSubmissionForm` hook, fake endpoint behavior, or backend/provider integration.

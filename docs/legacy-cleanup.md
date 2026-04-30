@@ -47,3 +47,23 @@
 - `npm run check` progressed past workbook audit and now fails in active build/typecheck code:
   - `./src/components/EmailCapture.tsx:4:35`
   - `Type error: Cannot find module '@/hooks/useSubmissionForm' or its corresponding type declarations.`
+
+## 2026-04-30 — EmailCapture blocker resolution
+
+### Decision
+- `EmailCapture` is not required for current MVP active App Router routes.
+- Chose deletion-first path: remove inactive lead-capture UI instead of creating `@/hooks/useSubmissionForm`.
+
+### Reachability evidence
+- `EmailCapture` was only imported by `src/components/ContextualLeadMagnet.tsx`.
+- `ContextualLeadMagnet` had no imports from `app/**` or other active roots.
+
+### Classification
+- `src/components/EmailCapture.tsx` → `DELETE_OBSOLETE`
+- `src/components/ContextualLeadMagnet.tsx` → `DELETE_OBSOLETE`
+
+### Active imports removed
+- None from active routes; deleted an isolated inactive chain.
+
+### Deferred features
+- Newsletter/lead capture form UX and submit flow remain deferred.
