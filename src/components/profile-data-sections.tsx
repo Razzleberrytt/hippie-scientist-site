@@ -14,6 +14,10 @@ type SourceItem = {
   pmid?: string | number
 }
 
+function isSourceItem(item: SourceItem | null): item is SourceItem {
+  return item !== null
+}
+
 export function normalizeProfileText(value: unknown): string {
   if (value === null || value === undefined) return ''
 
@@ -57,26 +61,26 @@ export function normalizeSources(value: unknown): SourceItem[] {
 
   const values = Array.isArray(value) ? value : [value]
 
-  return values
-    .map(item => {
-      if (typeof item === 'string' || typeof item === 'number') {
-        const label = normalizeProfileText(item)
-        return label ? { label } : null
-      }
+  const normalized = values.map((item): SourceItem | null => {
+    if (typeof item === 'string' || typeof item === 'number') {
+      const label = normalizeProfileText(item)
+      return label ? { label } : null
+    }
 
-      if (typeof item === 'object' && item) {
-        const record = item as SourceItem
-        const label = normalizeProfileText(
-          record.label ?? record.title ?? record.name ?? record.source ?? record.citation ?? record.pmid,
-        )
-        const url = normalizeProfileText(record.url ?? record.href)
-        if (!label && !url) return null
-        return { ...record, label, url }
-      }
+    if (typeof item === 'object' && item) {
+      const record = item as SourceItem
+      const label = normalizeProfileText(
+        record.label ?? record.title ?? record.name ?? record.source ?? record.citation ?? record.pmid,
+      )
+      const url = normalizeProfileText(record.url ?? record.href)
+      if (!label && !url) return null
+      return { ...record, label, url }
+    }
 
-      return null
-    })
-    .filter((item): item is SourceItem => Boolean(item))
+    return null
+  })
+
+  return normalized.filter(isSourceItem)
 }
 
 export function KeyValueSection({ title, items }: { title: string; items: KeyValueItem[] }) {
