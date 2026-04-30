@@ -1,98 +1,63 @@
+// upgraded comparison page with conversion focus
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import aTierIndex from '@/../public/data/a-tier-index.json'
 import { getCompounds } from '@/lib/runtime-data'
+import { buildAmazonSearchUrl } from '@/lib/affiliate'
 
-type Params = { params: Promise<{ slug: string }> }
-type ComparisonConfig = { slug: string; title: string; left: string; right: string }
-type ATierItem = { slug: string; name: string; domain: string; confidenceScore: number }
-
-const COMPARISONS: ComparisonConfig[] = [
-  { slug: 'creatine-vs-caffeine', title: 'Creatine vs Caffeine', left: 'creatine', right: 'caffeine' },
-  { slug: 'epa-vs-dha', title: 'EPA vs DHA', left: 'epa', right: 'dha' },
+const COMPARISONS = [
+  { slug: 'creatine-vs-caffeine', a: 'creatine', b: 'caffeine' },
+  { slug: 'epa-vs-dha', a: 'epa', b: 'dha' },
+  { slug: 'ashwagandha-vs-rhodiola', a: 'ashwagandha', b: 'rhodiola' },
+  { slug: 'magnesium-vs-l-theanine', a: 'magnesium', b: 'l-theanine' },
 ]
 
-const aTierItems: ATierItem[] = [...aTierIndex.global, ...aTierIndex.contextual]
-
-const DIMENSIONS = ['Mechanism', 'Use case', 'Evidence strength'] as const
-type Dimension = (typeof DIMENSIONS)[number]
-
-const resolveTierSlug = (compoundSlug: string): string =>
-  compoundSlug === 'epa' || compoundSlug === 'dha' ? 'omega-3' : compoundSlug
-
-const normalize = (value: string): string => value.trim().toLowerCase()
-
-const formatMechanism = (mechanisms?: string[]): string => {
-  if (!Array.isArray(mechanisms) || mechanisms.length === 0) return 'Not available in current dataset.'
-  return mechanisms.filter(Boolean).join('; ')
-}
-
-async function getMechanism(compoundSlug: string): Promise<string> {
-  const compounds = await getCompounds()
-  const normalizedSlug = normalize(compoundSlug)
-  const match = compounds.find(item => normalize(item.slug) === normalizedSlug || normalize(item.name ?? '') === normalizedSlug || normalize(item.displayName ?? '') === normalizedSlug)
-  return formatMechanism(match?.mechanisms)
-}
-
-const findTierItem = (compoundSlug: string): ATierItem | undefined => {
-  const tierSlug = resolveTierSlug(compoundSlug)
-  return aTierItems.find(item => item.slug === tierSlug)
-}
-
-const getUseCase = (compoundSlug: string): string => {
-  const match = findTierItem(compoundSlug)
-  return match ? `Primary domain in current dataset: ${match.domain}.` : 'Not available in current dataset.'
-}
-
-const getEvidenceStrength = (compoundSlug: string): string => {
-  const match = findTierItem(compoundSlug)
-  return match ? `Confidence score in current dataset: ${match.confidenceScore}/100.` : 'Not available in current dataset.'
-}
-
-const getCell = async (compound: string, dimension: Dimension): Promise<string> => {
-  if (dimension === 'Mechanism') return getMechanism(compound)
-  if (dimension === 'Use case') return getUseCase(compound)
-  return getEvidenceStrength(compound)
-}
-
 export function generateStaticParams() {
-  return COMPARISONS.map(item => ({ slug: item.slug }))
+  return COMPARISONS.map(c => ({ slug: c.slug }))
 }
 
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
+export default async function Page({ params }) {
   const { slug } = await params
-  const comparison = COMPARISONS.find(item => item.slug === slug)
-  if (!comparison) return { title: 'Comparison Not Found | The Hippie Scientist' }
-  return {
-    title: `${comparison.title} | Compound Comparison`,
-    description: `Direct comparison of ${comparison.left.toUpperCase()} and ${comparison.right.toUpperCase()} using current dataset fields only.`,
-    alternates: { canonical: `/compare/${comparison.slug}` },
-  }
-}
+  const config = COMPARISONS.find(c => c.slug === slug)
+  if (!config) notFound()
 
-export default async function ComparePage({ params }: Params) {
-  const { slug } = await params
-  const comparison = COMPARISONS.find(item => item.slug === slug)
-  if (!comparison) notFound()
+  const compounds = await getCompounds()
 
-  const rows = await Promise.all(
-    DIMENSIONS.map(async dimension => ({
-      dimension,
-      left: await getCell(comparison.left, dimension),
-      right: await getCell(comparison.right, dimension),
-    })),
-  )
+  const get = (s) => compounds.find(c => c.slug === s)
+
+  const A = get(config.a)
+  const B = get(config.b)
+
+  const scoreA = Number(A?.net_score || 0)
+  const scoreB = Number(B?.net_score || 0)
+
+  const winner = scoreA >= scoreB ? A : B
 
   return (
-    <main className='mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8'>
-      <h1 className='text-3xl font-semibold tracking-tight text-white sm:text-4xl'>{comparison.title}</h1>
-      <p className='mt-3 text-sm text-zinc-300'>Scope: mechanism, use case, and evidence strength from current workbook-generated data only.</p>
-      <div className='mt-8 overflow-x-auto'>
-        <table className='w-full min-w-[720px] border-collapse text-left'>
-          <thead><tr className='border-b border-white/20 text-sm text-zinc-300'><th className='px-3 py-3 font-medium'>Dimension</th><th className='px-3 py-3 font-medium'>{comparison.left.toUpperCase()}</th><th className='px-3 py-3 font-medium'>{comparison.right.toUpperCase()}</th></tr></thead>
-          <tbody>{rows.map(row => (<tr key={row.dimension} className='border-b border-white/10 align-top'><th className='px-3 py-4 text-sm font-semibold text-white'>{row.dimension}</th><td className='px-3 py-4 text-sm text-zinc-200'>{row.left}</td><td className='px-3 py-4 text-sm text-zinc-200'>{row.right}</td></tr>))}</tbody>
-        </table>
+    <div className='mx-auto max-w-5xl space-y-6 px-4 py-10'>
+      <h1 className='text-4xl font-bold text-white'>
+        {config.a} vs {config.b}
+      </h1>
+
+      <div className='rounded-2xl bg-emerald-300/10 border border-emerald-300/20 p-4'>
+        <p className='text-emerald-100'>🏆 Winner: {winner?.slug}</p>
       </div>
-    </main>
+
+      <div className='grid md:grid-cols-2 gap-4'>
+        {[A, B].map((c) => (
+          <div key={c.slug} className='border p-4 rounded-xl text-white'>
+            <h2 className='text-xl font-bold'>{c.slug}</h2>
+            <p className='text-sm text-white/70 mt-2'>{c.summary}</p>
+
+            <a
+              href={buildAmazonSearchUrl(c.slug)}
+              target='_blank'
+              className='mt-4 inline-block bg-emerald-300 text-black px-4 py-2 rounded-lg font-bold'
+            >
+              Buy →
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
