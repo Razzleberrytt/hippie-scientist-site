@@ -8,3 +8,7 @@
 - Removed `console.warn` from `src/components/BundleUpgradeCard.tsx` catch handling; storage failures now no-op safely and still open the bundle link.
 - Removed `console.warn` from `src/lib/analyticsEventStorage.ts` catch handling; analytics storage failures now no-op safely.
 - No product data modules were restored and no fake analytics data was introduced.
+
+- Per deletion-first cleanup, removed stale unreachable component `src/components/EffectExplorer.tsx` instead of restoring its missing dependency `@/utils/effectSearch`.
+- Did not recreate deleted hand-authored modules or synthetic JSON.
+- Documented legacy cleanup classification and deferred effect-search feature in `docs/legacy-cleanup.md`.
