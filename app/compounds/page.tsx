@@ -3,6 +3,7 @@ import LibraryBrowser from '@/components/library-browser'
 import { getCompounds } from '@/lib/runtime-data'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
+import { compoundDetailRoute } from '@/lib/public-routes'
 
 type CompoundListItem = {
   slug: string
@@ -78,7 +79,7 @@ export default async function CompoundsPage() {
     slug: compound.slug,
     title: getCompoundTitle(compound),
     summary: getCompoundSummary(compound),
-    href: `/compounds/${compound.slug}`,
+    href: compoundDetailRoute(compound.slug),
     typeLabel: 'Compound profile',
     domain: inferDomain(compound),
     isATier: aTierSlugs.has(compound.slug),

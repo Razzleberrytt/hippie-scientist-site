@@ -3,6 +3,7 @@ import LibraryBrowser from '@/components/library-browser'
 import { getHerbs } from '@/lib/runtime-data'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
+import { herbDetailRoute } from '@/lib/public-routes'
 
 type HerbListItem = {
   slug: string
@@ -78,7 +79,7 @@ export default async function HerbsPage() {
     slug: herb.slug,
     title: getHerbTitle(herb),
     summary: getHerbSummary(herb),
-    href: `/herbs/${herb.slug}`,
+    href: herbDetailRoute(herb.slug),
     typeLabel: 'Herb profile',
     domain: inferDomain(herb),
     isATier: aTierSlugs.has(herb.slug),
