@@ -1,5 +1,10 @@
 import { ReactNode } from 'react'
-import type { BlogSource } from '@/types/blog'
+
+type BlogSource = {
+  title: string
+  url: string
+  note?: string
+}
 
 type BlogPostLayoutProps = {
   title?: string
