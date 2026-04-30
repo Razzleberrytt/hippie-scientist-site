@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { getRepoRoot } from './workbook-source.mjs'
 
-const TARGETS = ['public/data', 'public/data-next', 'public/data/projections']
+const TARGETS = ['public/data']
 
 function walkFiles(dirPath) {
   const files = []
