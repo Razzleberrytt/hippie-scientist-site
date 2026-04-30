@@ -48,7 +48,6 @@
   ],
   "exclude": [
     "node_modules",
-    "src/legacy-pages/**/*",
     "src/dev/**/*",
     "src/hooks/**/*",
     "src/utils/**/*"
