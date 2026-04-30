@@ -1,23 +1,52 @@
-export const AMAZON_ASSOCIATE_ID = "razzleberry02-20";
+export const AMAZON_ASSOCIATE_ID = 'razzleberry02-20'
 
-export function buildAmazonSearchUrl(query: string) {
-  const encoded = encodeURIComponent(query);
-  return `https://www.amazon.com/s?k=${encoded}&tag=${AMAZON_ASSOCIATE_ID}`;
+type AffiliateSearchLink = {
+  label: string
+  url: string
+  helperText: string
 }
 
-export function getHerbSearchLinks(herbName: string) {
+export function buildAmazonSearchUrl(query: string) {
+  const encoded = encodeURIComponent(query)
+  return `https://www.amazon.com/s?k=${encoded}&tag=${AMAZON_ASSOCIATE_ID}`
+}
+
+export function getHerbSearchLinks(herbName: string): AffiliateSearchLink[] {
   return [
     {
-      label: "Extract",
-      url: buildAmazonSearchUrl(`${herbName} extract standardized`)
+      label: 'Capsules',
+      url: buildAmazonSearchUrl(`${herbName} capsules supplement`),
+      helperText: 'Common daily-use format',
     },
     {
-      label: "Capsule",
-      url: buildAmazonSearchUrl(`${herbName} capsules`)
+      label: 'Extracts',
+      url: buildAmazonSearchUrl(`${herbName} extract standardized supplement`),
+      helperText: 'Compare concentrated forms',
     },
     {
-      label: "Tea",
-      url: buildAmazonSearchUrl(`${herbName} tea`)
-    }
-  ];
+      label: 'Powder or tea',
+      url: buildAmazonSearchUrl(`${herbName} powder tea`),
+      helperText: 'Loose or traditional forms',
+    },
+  ]
+}
+
+export function getCompoundSearchLinks(compoundName: string): AffiliateSearchLink[] {
+  return [
+    {
+      label: 'Supplements',
+      url: buildAmazonSearchUrl(`${compoundName} supplement`),
+      helperText: 'General product search',
+    },
+    {
+      label: 'Capsules',
+      url: buildAmazonSearchUrl(`${compoundName} capsules`),
+      helperText: 'Common supplement form',
+    },
+    {
+      label: 'Powder',
+      url: buildAmazonSearchUrl(`${compoundName} powder`),
+      helperText: 'Bulk or mixable options',
+    },
+  ]
 }
