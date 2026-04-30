@@ -13,6 +13,16 @@ const DOC_PREFIXES = ['docs/']
 const EDITORIAL_BLOG_PREFIX = 'content/blog/'
 const TEST_FIXTURE_HINTS = ['fixture', '__fixtures__', 'test', 'spec', 'mock', 'sample']
 const CODE_HINT_EXTENSIONS = new Set(['.ts', '.tsx', '.js', '.mjs'])
+const DATA_FILE_EXTENSIONS = new Set(['.json', '.csv', '.yaml', '.yml', '.txt'])
+const NEVER_BLOCK_PATHS = new Set(['AGENTS.md', 'CHANGELOG.md', 'README.md', 'package-lock.json', 'next-env.d.ts', 'eslint.config.js'])
+const NEVER_BLOCK_PREFIXES = ['src/lib/', 'scripts/', '.github/']
+const NON_BLOCKING_PREFIXES = ['ops/', 'schemas/', 'src/content/', 'content/', 'reports/', 'data/blog/']
+const EXPLICIT_BLOCK_PATHS = new Set([
+  'public/database.json',
+  'config/entity-graph.json',
+  'public/blog/posts.json',
+  'public/blogdata/index.json',
+])
 
 const dataPatterns = [
   { regex: /\b(herb|botanical|latinName|commonName|activeCompounds?|therapeuticUses?|safety|contraindications?|interactions?)\b/i, entityType: 'herb' },
@@ -51,7 +61,9 @@ function hasAnyDataPattern(text) {
 
 function looksLikeHardcodedDataBlob(text) {
   const compact = text.slice(0, 30000)
-  return hardcodedDataSignals.some((pattern) => pattern.test(compact))
+  const hugeLiteral = hardcodedDataSignals.some((pattern) => pattern.test(compact))
+  const repeatedKeys = (compact.match(/"(herb|compound|safety|claim|evidence|reference)s?"/gi) ?? []).length
+  return hugeLiteral && compact.length > 5000 && repeatedKeys >= 8
 }
 
 function isTestFixture(rel) {
@@ -61,6 +73,16 @@ function isTestFixture(rel) {
 
 function classifyFile(rel, text) {
   const ext = path.extname(rel).toLowerCase()
+
+  if (NEVER_BLOCK_PATHS.has(rel) || NEVER_BLOCK_PREFIXES.some((p) => rel.startsWith(p))) {
+    return { classification: 'RUNTIME_OR_DOC_CODE', allowed: true }
+  }
+  if (rel === 'data/seoCollections.ts') {
+    return { classification: 'RUNTIME_OR_DOC_CODE', allowed: true }
+  }
+  if (NON_BLOCKING_PREFIXES.some((p) => rel.startsWith(p))) {
+    return { classification: 'PROCESS_ARTIFACT', allowed: true }
+  }
 
   if (rel === APPROVED_SOURCE) {
     return { classification: 'CANONICAL_WORKBOOK', allowed: true }
@@ -86,7 +108,6 @@ function classifyFile(rel, text) {
   }
 
   if (DOC_PREFIXES.some((p) => rel.startsWith(p))) {
-    if (hasAnyDataPattern(text)) return { classification: 'UNKNOWN_NEEDS_REVIEW', allowed: false }
     return { classification: 'STATIC_SITE_COPY', allowed: true }
   }
 
@@ -98,8 +119,25 @@ function classifyFile(rel, text) {
   }
 
   if (rel.startsWith('content/')) {
-    if (hasAnyDataPattern(text)) return { classification: 'UNKNOWN_NEEDS_REVIEW', allowed: false }
     return { classification: 'STATIC_SITE_COPY', allowed: true }
+  }
+
+  if (ext === '.md' || ext === '.mdx') {
+    return { classification: 'STATIC_SITE_COPY', allowed: true }
+  }
+
+  if (rel === 'public/manifest.json' || rel === 'public/blend-guide.txt') {
+    return { classification: 'STATIC_SITE_COPY', allowed: true }
+  }
+
+  if (EXPLICIT_BLOCK_PATHS.has(rel)) {
+    return { classification: 'OBSOLETE_DUPLICATE_SOURCE', allowed: false }
+  }
+
+  if (DATA_FILE_EXTENSIONS.has(ext) && !rel.startsWith('public/data/') && !rel.startsWith('public/data-next/')) {
+    if (hasAnyDataPattern(text)) {
+      return { classification: 'UNKNOWN_NEEDS_REVIEW', allowed: false }
+    }
   }
 
   return { classification: 'UNKNOWN_NEEDS_REVIEW', allowed: false }
