@@ -27,8 +27,8 @@ export default function BundleUpgradeCard({
           timestamp: new Date().toISOString(),
         })
       )
-    } catch (error) {
-      console.warn('Unable to store bundle interest', error)
+    } catch {
+      // Ignore storage failures and continue to checkout link.
     }
 
     window.open(BUNDLE_LINK, '_blank', 'noopener,noreferrer')
