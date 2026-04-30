@@ -87,3 +87,11 @@
   - `src/components/HerbCard.css`
   - `src/components/HerbList.tsx`
 - These files referenced missing legacy utilities/hooks and were removed instead of recreating stale dependencies.
+
+## 2026-04-30 — Conflict resolution pass
+
+- Removed `TagBadge` legacy chain to resolve the current missing import blocker without reviving `../utils/tagUtils`:
+  - `src/components/TagBadge.tsx`
+  - `src/components/BlendSummaryCard.tsx`
+  - `src/components/CompoundBadge.tsx`
+- These components were not imported by active `app/**` roots.
