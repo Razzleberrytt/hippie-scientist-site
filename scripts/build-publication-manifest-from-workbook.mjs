@@ -51,12 +51,35 @@ function toSlugMap(records) {
 }
 
 function isHerbEligible(workbookHerb) {
-  const frontendReady = String(workbookHerb?.frontendReadyFlag ?? '').trim() === 'Yes'
-  const ready = String(workbookHerb?.readinessFlag ?? '').trim() === 'Ready'
-  const nearReady = String(workbookHerb?.readinessFlag ?? '').trim() === 'Near ready'
-  const completenessPct = parsePercent(workbookHerb?.completenessPct)
-  const nearReadyWithCoverage = nearReady && completenessPct >= 60
-  return frontendReady || ready || nearReadyWithCoverage
+  // Primary gate: publicationStatus / publish_status from the workbook
+  // These are the actual columns that exist in herb_monograph_master.xlsx
+  const pub = String(
+    workbookHerb?.publicationStatus ??
+    workbookHerb?.publish_status ??
+    workbookHerb?.publishStatus ??
+    ''
+  ).trim().toLowerCase()
+
+  const ELIGIBLE_STATUSES = new Set([
+    'publishable',
+    'publish',
+    'publishable_if_dosage_section_omitted',
+    'near_ready',
+    'near ready',
+    'ready',
+    'yes',
+  ])
+
+  if (ELIGIBLE_STATUSES.has(pub)) return true
+
+  // Legacy fallback: frontendReadyFlag / readinessFlag (if ever added back to workbook)
+  if (String(workbookHerb?.frontendReadyFlag ?? '').trim() === 'Yes') return true
+  if (String(workbookHerb?.readinessFlag ?? '').trim() === 'Ready') return true
+
+  // Data-quality fallback: description >= 80 chars AND has any source reference
+  const desc = String(workbookHerb?.description ?? '').trim()
+  const sources = String(workbookHerb?.sources ?? '').trim()
+  return desc.length >= 80 && sources.length > 0
 }
 
 function isCompoundEligible(compound) {
