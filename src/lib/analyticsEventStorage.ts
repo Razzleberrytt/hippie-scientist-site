@@ -19,7 +19,7 @@ export function appendAnalyticsEvent(event: AnalyticsEvent): void {
     ].slice(-MAX_EVENTS)
 
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
-  } catch (error) {
-    console.warn('Unable to store analytics event', error)
+  } catch {
+    // Ignore storage failures to avoid disrupting the current interaction.
   }
 }

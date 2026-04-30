@@ -146,7 +146,7 @@ export default function CuratedProductModule({
               <div className='mt-2 rounded-lg border border-rose-300/30 bg-rose-500/10 p-2'>
                 <p className='text-xs font-medium text-rose-100'>Caution notes</p>
                 <ul className='mt-1 list-disc space-y-1 pl-4 text-xs text-rose-100/90'>
-                  {product.cautionNotes.map(item => (
+                  {product.cautionNotes.map((item: string) => (
                     <li key={`${product.productId}-caution-${item}`}>{item}</li>
                   ))}
                 </ul>
@@ -162,7 +162,7 @@ export default function CuratedProductModule({
             <div className='mt-2'>
               <p className='text-xs font-medium text-white/80'>Who it may fit</p>
               <ul className='mt-1 list-disc space-y-1 pl-4 text-xs text-white/70'>
-                {product.bestFor.map(item => (
+                {product.bestFor.map((item: string) => (
                   <li key={`${product.productId}-fit-${item}`}>{item}</li>
                 ))}
               </ul>
