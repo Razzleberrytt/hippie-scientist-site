@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { SEO_COLLECTIONS } from '@/data/seoCollections'
+import { seoCollections } from '@/data/seoCollections'
 import { getCompounds, getHerbs } from '@/lib/runtime-data'
 
 type Params = { params: Promise<{ slug: string }> }
@@ -11,12 +11,12 @@ function textMatchesAny(text: string, filters: string[]) {
 }
 
 export async function generateStaticParams() {
-  return SEO_COLLECTIONS.map(collection => ({ slug: collection.slug }))
+  return seoCollections.map(collection => ({ slug: collection.slug }))
 }
 
 export default async function CollectionPage({ params }: Params) {
   const { slug } = await params
-  const collection = SEO_COLLECTIONS.find(item => item.slug === slug)
+  const collection = seoCollections.find(item => item.slug === slug)
   if (!collection) notFound()
 
   const herbs = await getHerbs()
