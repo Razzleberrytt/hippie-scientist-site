@@ -6,16 +6,28 @@ const repoRoot = process.cwd()
 const reportDir = path.join(repoRoot, 'reports')
 
 const APPROVED_SOURCE = path.join('data-sources', 'herb_monograph_master.xlsx')
-const APPROVED_GENERATED_PREFIXES = ['public/data/', 'public/data-next/', 'src/generated/']
-const TINY_FIXTURE_HINTS = ['fixture', '__fixtures__', 'test', 'spec', 'mock']
-const SCAN_EXTENSIONS = new Set(['.json', '.csv', '.yaml', '.yml'])
+const GENERATED_PREFIXES = ['public/data/', 'public/data-next/', 'src/generated/']
+const SCAN_EXTENSIONS = new Set(['.json', '.csv', '.yaml', '.yml', '.ts', '.tsx', '.js', '.mjs', '.md', '.mdx', '.txt'])
+const DATA_CODE_PREFIXES = ['src/', 'app/', 'components/', 'scripts/']
+const DOC_PREFIXES = ['docs/']
+const EDITORIAL_BLOG_PREFIX = 'content/blog/'
+const TEST_FIXTURE_HINTS = ['fixture', '__fixtures__', 'test', 'spec', 'mock', 'sample']
+const CODE_HINT_EXTENSIONS = new Set(['.ts', '.tsx', '.js', '.mjs'])
 
 const dataPatterns = [
-  { regex: /\b(activeCompounds?|therapeuticUses?|safety|contraindications?|interactions?)\b/i, entityType: 'herb' },
+  { regex: /\b(herb|botanical|latinName|commonName|activeCompounds?|therapeuticUses?|safety|contraindications?|interactions?)\b/i, entityType: 'herb' },
   { regex: /\bcompound(s)?\b/i, entityType: 'compound' },
-  { regex: /\breference(s)?\b|doi|pubmed/i, entityType: 'reference' },
+  { regex: /\breference(s)?\b|doi|pubmed|citation/i, entityType: 'reference' },
   { regex: /\brelatedHerbs?|relationships?|synerg(y|ies)\b/i, entityType: 'relationship' },
-  { regex: /\bpublication\b|publishedAt|reviewedAt|contentMetadata\b/i, entityType: 'publication-metadata' },
+  { regex: /\bpublication\b|publishedAt|reviewedAt|contentMetadata\b/i, entityType: 'publication' },
+  { regex: /\b(education|learn|overview|benefits|uses)\b/i, entityType: 'educational-content' },
+]
+
+const hardcodedDataSignals = [
+  /(const|let|var)\s+\w+\s*=\s*\[[\s\S]{0,12000}\]/i,
+  /(const|let|var)\s+\w+\s*=\s*\{[\s\S]{0,12000}\}/i,
+  /export\s+const\s+\w+\s*=\s*\[[\s\S]{0,12000}\]/i,
+  /export\s+const\s+\w+\s*=\s*\{[\s\S]{0,12000}\}/i,
 ]
 
 function walk(dir) {
@@ -24,7 +36,7 @@ function walk(dir) {
   while (stack.length) {
     const current = stack.pop()
     for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
-      if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === 'dist') continue
+      if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === 'dist' || entry.name === '.next') continue
       const abs = path.join(current, entry.name)
       if (entry.isDirectory()) stack.push(abs)
       else out.push(abs)
@@ -33,29 +45,76 @@ function walk(dir) {
   return out
 }
 
-function isTinyFixture(rel) {
-  return TINY_FIXTURE_HINTS.some((hint) => rel.toLowerCase().includes(hint))
+function hasAnyDataPattern(text) {
+  return dataPatterns.find((p) => p.regex.test(text)) ?? null
 }
 
-function isApproved(rel) {
-  if (rel === APPROVED_SOURCE) return true
-  if (APPROVED_GENERATED_PREFIXES.some((p) => rel.startsWith(p))) return true
-  if (isTinyFixture(rel)) return true
-  if (rel.startsWith('docs/') || rel.startsWith('content/') || rel.startsWith('src/') || rel.startsWith('scripts/')) return true
-  return false
+function looksLikeHardcodedDataBlob(text) {
+  const compact = text.slice(0, 30000)
+  return hardcodedDataSignals.some((pattern) => pattern.test(compact))
 }
 
-function issueFor(rel, entityType, problem, severity = 'error', fixTarget = 'WORKBOOK_FIX') {
+function isTestFixture(rel) {
+  const lower = rel.toLowerCase()
+  return TEST_FIXTURE_HINTS.some((hint) => lower.includes(hint))
+}
+
+function classifyFile(rel, text) {
+  const ext = path.extname(rel).toLowerCase()
+
+  if (rel === APPROVED_SOURCE) {
+    return { classification: 'CANONICAL_WORKBOOK', allowed: true }
+  }
+
+  if (GENERATED_PREFIXES.some((p) => rel.startsWith(p))) {
+    return { classification: 'GENERATED_OUTPUT', allowed: true }
+  }
+
+  if (isTestFixture(rel)) {
+    return { classification: 'SYNTHETIC_TEST_FIXTURE', allowed: true }
+  }
+
+  if (DATA_CODE_PREFIXES.some((p) => rel.startsWith(p))) {
+    const isCode = CODE_HINT_EXTENSIONS.has(ext)
+    if (!isCode) {
+      return { classification: 'UNKNOWN_NEEDS_REVIEW', allowed: false }
+    }
+    if (looksLikeHardcodedDataBlob(text) && hasAnyDataPattern(text)) {
+      return { classification: 'UNKNOWN_NEEDS_REVIEW', allowed: false }
+    }
+    return { classification: 'GENERATOR_OR_VALIDATOR_CODE', allowed: true }
+  }
+
+  if (DOC_PREFIXES.some((p) => rel.startsWith(p))) {
+    if (hasAnyDataPattern(text)) return { classification: 'UNKNOWN_NEEDS_REVIEW', allowed: false }
+    return { classification: 'STATIC_SITE_COPY', allowed: true }
+  }
+
+  if (rel.startsWith(EDITORIAL_BLOG_PREFIX)) {
+    if (hasAnyDataPattern(text)) {
+      return { classification: 'OBSOLETE_DUPLICATE_SOURCE', allowed: false }
+    }
+    return { classification: 'STATIC_SITE_COPY', allowed: true }
+  }
+
+  if (rel.startsWith('content/')) {
+    if (hasAnyDataPattern(text)) return { classification: 'UNKNOWN_NEEDS_REVIEW', allowed: false }
+    return { classification: 'STATIC_SITE_COPY', allowed: true }
+  }
+
+  return { classification: 'UNKNOWN_NEEDS_REVIEW', allowed: false }
+}
+
+function issueFor({ rel, classification, entityType, problem, severity = 'error', fixTarget = 'WORKBOOK_FIX', suggestedWorkbookAction = null, suggestedProcessAction = null }) {
   return {
     severity,
+    path: rel,
+    classification,
     entityType,
-    entityId: null,
-    field: null,
     problem,
     fixTarget,
-    suggestedWorkbookAction: fixTarget === 'WORKBOOK_FIX' ? 'Update the relevant workbook sheet/row and regenerate outputs.' : null,
-    suggestedProcessAction: fixTarget === 'WORKBOOK_GPT_FIX' ? 'Update workbook-GPT prompts/parsers so this value is produced from workbook inputs.' : null,
-    path: rel,
+    suggestedWorkbookAction,
+    suggestedProcessAction,
   }
 }
 
@@ -65,20 +124,39 @@ for (const abs of files) {
   const rel = path.relative(repoRoot, abs).replaceAll(path.sep, '/')
   const ext = path.extname(rel).toLowerCase()
   if (!SCAN_EXTENSIONS.has(ext)) continue
-  if (!rel.startsWith('public/') && !rel.startsWith('data-sources/') && !rel.startsWith('config/')) continue
   if (rel === 'reports/source-of-truth-audit.json' || rel === 'reports/source-of-truth-audit.md') continue
 
   const text = fs.readFileSync(abs, 'utf8')
-  const matched = dataPatterns.find((p) => p.regex.test(text))
-  if (!matched) continue
+  const matched = hasAnyDataPattern(text)
+  if (!matched && !(DATA_CODE_PREFIXES.some((p) => rel.startsWith(p)) && looksLikeHardcodedDataBlob(text))) continue
 
-  if (rel.startsWith('public/data/') || rel.startsWith('public/data-next/')) {
-    issues.push(issueFor(rel, matched.entityType, 'Generated-output symptom detected. Do not edit this file directly; correct workbook/process and regenerate.', 'warning', 'WORKBOOK_GPT_FIX'))
+  const { classification, allowed } = classifyFile(rel, text)
+
+  if (classification === 'GENERATED_OUTPUT') {
+    issues.push(issueFor({
+      rel,
+      classification,
+      entityType: matched?.entityType ?? 'unknown',
+      problem: 'Workbook-derived generated output contains production data. Do not edit directly.',
+      severity: 'warning',
+      fixTarget: 'WORKBOOK_GPT_FIX',
+      suggestedProcessAction: 'Adjust workbook->generator pipeline and regenerate from data-sources/herb_monograph_master.xlsx.',
+    }))
     continue
   }
 
-  if (!isApproved(rel)) {
-    issues.push(issueFor(rel, matched.entityType, 'Production data-like content exists outside workbook, generator/validator code, approved outputs, or tiny fixtures.', 'error', 'WORKBOOK_FIX'))
+  if (!allowed) {
+    const fixTarget = classification === 'UNKNOWN_NEEDS_REVIEW' ? 'WORKBOOK_GPT_FIX' : 'WORKBOOK_FIX'
+    issues.push(issueFor({
+      rel,
+      classification,
+      entityType: matched?.entityType ?? 'unknown',
+      problem: 'Production-like herb/compound/relationship/safety/reference/publication/educational content exists outside the canonical workbook flow.',
+      severity: 'error',
+      fixTarget,
+      suggestedWorkbookAction: fixTarget === 'WORKBOOK_FIX' ? 'Move canonical records into workbook sheets and regenerate outputs.' : null,
+      suggestedProcessAction: fixTarget === 'WORKBOOK_GPT_FIX' ? 'Quarantine/delete duplicate source or add a documented generator if this file is intentionally derived.' : null,
+    }))
   }
 }
 
@@ -86,6 +164,7 @@ const blockingCount = issues.filter((i) => i.severity === 'error').length
 const summary = {
   generatedAt: new Date().toISOString(),
   workbookSourceOfTruth: APPROVED_SOURCE,
+  scannedExtensions: [...SCAN_EXTENSIONS],
   blockingCount,
   warningCount: issues.length - blockingCount,
   issueCount: issues.length,
@@ -100,12 +179,13 @@ const md = [
   '',
   `- Workbook source of truth: \`${APPROVED_SOURCE}\``,
   `- Generated at: ${summary.generatedAt}`,
+  `- Scanned extensions: ${summary.scannedExtensions.join(', ')}`,
   `- Blocking issues: ${blockingCount}`,
   `- Warnings: ${summary.warningCount}`,
   '',
   '## Issues',
   '',
-  ...issues.map((i, idx) => `### ${idx + 1}. ${i.severity.toUpperCase()} — ${i.entityType}\n- path: \`${i.path}\`\n- problem: ${i.problem}\n- fixTarget: ${i.fixTarget}\n- suggestedWorkbookAction: ${i.suggestedWorkbookAction ?? 'n/a'}\n- suggestedProcessAction: ${i.suggestedProcessAction ?? 'n/a'}\n`),
+  ...issues.map((i, idx) => `### ${idx + 1}. ${i.severity.toUpperCase()} — ${i.entityType}\n- path: \`${i.path}\`\n- classification: ${i.classification}\n- problem: ${i.problem}\n- fixTarget: ${i.fixTarget}\n- suggestedWorkbookAction: ${i.suggestedWorkbookAction ?? 'n/a'}\n- suggestedProcessAction: ${i.suggestedProcessAction ?? 'n/a'}\n`),
 ]
 fs.writeFileSync(path.join(reportDir, 'source-of-truth-audit.md'), md.join('\n'))
 
