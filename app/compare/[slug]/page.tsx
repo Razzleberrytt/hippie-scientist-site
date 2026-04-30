@@ -5,11 +5,14 @@ import { getCompounds } from '@/lib/runtime-data'
 
 type Params = { params: Promise<{ slug: string }> }
 type ComparisonConfig = { slug: string; title: string; left: string; right: string }
+type ATierItem = { slug: string; name: string; domain: string; confidenceScore: number }
 
 const COMPARISONS: ComparisonConfig[] = [
   { slug: 'creatine-vs-caffeine', title: 'Creatine vs Caffeine', left: 'creatine', right: 'caffeine' },
   { slug: 'epa-vs-dha', title: 'EPA vs DHA', left: 'epa', right: 'dha' },
 ]
+
+const aTierItems: ATierItem[] = [...aTierIndex.global, ...aTierIndex.contextual]
 
 const DIMENSIONS = ['Mechanism', 'Use case', 'Evidence strength'] as const
 type Dimension = (typeof DIMENSIONS)[number]
@@ -31,13 +34,18 @@ async function getMechanism(compoundSlug: string): Promise<string> {
   return formatMechanism(match?.mechanisms)
 }
 
+const findTierItem = (compoundSlug: string): ATierItem | undefined => {
+  const tierSlug = resolveTierSlug(compoundSlug)
+  return aTierItems.find(item => item.slug === tierSlug)
+}
+
 const getUseCase = (compoundSlug: string): string => {
-  const match = aTierIndex.items.find(item => item.slug === resolveTierSlug(compoundSlug))
+  const match = findTierItem(compoundSlug)
   return match ? `Primary domain in current dataset: ${match.domain}.` : 'Not available in current dataset.'
 }
 
 const getEvidenceStrength = (compoundSlug: string): string => {
-  const match = aTierIndex.items.find(item => item.slug === resolveTierSlug(compoundSlug))
+  const match = findTierItem(compoundSlug)
   return match ? `Confidence score in current dataset: ${match.confidenceScore}/100.` : 'Not available in current dataset.'
 }
 
