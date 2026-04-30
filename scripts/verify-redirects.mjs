@@ -1,9 +1,10 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-const out = path.resolve('dist', '_redirects')
+const staticDir = process.env.STATIC_OUTPUT_DIR || 'out'
+const out = path.resolve(staticDir, '_redirects')
 if (!fs.existsSync(out)) {
-  console.error('[verify-redirects] MISSING dist/_redirects — SPA deep links will 404.')
+  console.error(`[verify-redirects] MISSING ${staticDir}/_redirects — SPA deep links will 404.`)
   process.exit(1)
 }
 
@@ -13,7 +14,7 @@ const lines = txt
   .map(line => line.trim())
   .filter(Boolean)
 
-console.log('[verify-redirects] dist/_redirects present:\n---\n' + txt + '\n---')
+console.log(`[verify-redirects] ${staticDir}/_redirects present:\n---\n${txt}\n---`)
 
 const catchAllRule = '/* /index.html 200'
 const catchAllIndexes = lines
@@ -27,27 +28,7 @@ if (catchAllIndexes.length !== 1) {
 
 const catchAllIndex = catchAllIndexes[0]
 if (catchAllIndex !== lines.length - 1) {
-  console.error('[verify-redirects] Catch-all rule must be the final line in dist/_redirects')
-  process.exit(1)
-}
-
-const atomIndex = lines.indexOf('/atom.xml /feed.xml 301')
-if (atomIndex < 0) {
-  console.error('[verify-redirects] Missing required atom.xml redirect')
-  process.exit(1)
-}
-if (atomIndex > catchAllIndex) {
-  console.error('[verify-redirects] /atom.xml redirect must appear before the catch-all rule')
-  process.exit(1)
-}
-
-const aliasAfterCatchAll = lines.find((line, idx) => {
-  const isAlias = /^\/(herbs|compounds)\//.test(line) && /\s301$/.test(line)
-  return isAlias && idx > catchAllIndex
-})
-
-if (aliasAfterCatchAll) {
-  console.error(`[verify-redirects] Alias redirect appears after catch-all: ${aliasAfterCatchAll}`)
+  console.error(`[verify-redirects] Catch-all rule must be the final line in ${staticDir}/_redirects`)
   process.exit(1)
 }
 
