@@ -8,16 +8,34 @@ type RuntimeHerb = {
   name?: string
   summary?: string
   description?: string
+  evidence_grade?: string
+  net_score?: string | number
+  primary_effects?: string[] | string
+  mechanism_summary?: string
+  dosage_range?: string
+  oral_form?: string
   mechanisms?: string[]
   safetyNotes?: string
+  contraindications_interactions?: string[] | string
 }
 
 
 type RuntimeHerbCompoundMapEntry = {
+  herb_slug?: string
   herbSlug: string
   herbName?: string
+  compound_slug?: string
   canonicalCompoundId: string
   canonicalCompoundName?: string
+}
+
+type RuntimeClaim = {
+  target_slug?: string
+  targetSlug?: string
+  claim?: string
+  text?: string
+  title?: string
+  evidence?: string
 }
 
 type RuntimeCompound = {
@@ -52,7 +70,21 @@ export const getCompounds = cache(async (): Promise<RuntimeCompound[]> => {
 
 export const getHerbCompoundMap = cache(async (): Promise<RuntimeHerbCompoundMapEntry[]> => {
   try {
-    const rows = await readJsonFile<RuntimeHerbCompoundMapEntry[]>('workbook-herb-compound-map.json')
+    const rows = await readJsonFile<RuntimeHerbCompoundMapEntry[]>('herb-compound-map.json')
+    return Array.isArray(rows) ? rows : []
+  } catch {
+    try {
+      const rows = await readJsonFile<RuntimeHerbCompoundMapEntry[]>('workbook-herb-compound-map.json')
+      return Array.isArray(rows) ? rows : []
+    } catch {
+      return []
+    }
+  }
+})
+
+export const getClaims = cache(async (): Promise<RuntimeClaim[]> => {
+  try {
+    const rows = await readJsonFile<RuntimeClaim[]>('claims.json')
     return Array.isArray(rows) ? rows : []
   } catch {
     return []
@@ -69,4 +101,4 @@ export async function getCompoundBySlug(slug: string) {
   return compounds.find(compound => compound.slug === slug)
 }
 
-export type { RuntimeHerb, RuntimeCompound, RuntimeHerbCompoundMapEntry }
+export type { RuntimeClaim, RuntimeHerb, RuntimeCompound, RuntimeHerbCompoundMapEntry }
