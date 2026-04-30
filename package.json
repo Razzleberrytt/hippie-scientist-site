@@ -22,8 +22,6 @@
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
     "@headlessui/react": "^2.2.10",
-    "@tsparticles/engine": "^3.8.1",
-    "@tsparticles/react": "^3.0.0",
     "ajv": "^8.18.0",
     "ajv-formats": "^3.0.1",
     "clsx": "^2.1.1",
@@ -39,8 +37,6 @@
     "react-dom": "^18.2.0",
     "slugify": "^1.6.6",
     "sonner": "^2.0.7",
-    "three": "^0.180.0",
-    "tsparticles": "^3.8.1",
     "xlsx": "^0.18.5",
     "zustand": "^5.0.8"
   },
