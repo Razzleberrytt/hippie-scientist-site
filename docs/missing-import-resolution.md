@@ -14,3 +14,4 @@
 - Documented legacy cleanup classification and deferred effect-search feature in `docs/legacy-cleanup.md`.
 - Resolved active `@/hooks/useSubmissionForm` blocker via deletion-first MVP decision: deleted inactive `src/components/EmailCapture.tsx` and its only importer `src/components/ContextualLeadMagnet.tsx`.
 - Did not create a synthetic `useSubmissionForm` hook, fake endpoint behavior, or backend/provider integration.
+- Erased remaining legacy email-capture surfaces by deleting `NewsletterCard`, `NewsletterSignup`, and `InteractionLeadCapture`, all of which depended on missing `@/hooks/useSubmissionForm`.

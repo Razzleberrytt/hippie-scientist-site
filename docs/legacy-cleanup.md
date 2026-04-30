@@ -67,3 +67,11 @@
 
 ### Deferred features
 - Newsletter/lead capture form UX and submit flow remain deferred.
+
+## 2026-04-30 — Erase remaining email-capture legacy surface
+
+- Removed remaining components that imported missing `@/hooks/useSubmissionForm`:
+  - `src/components/NewsletterCard.tsx`
+  - `src/components/NewsletterSignup.tsx`
+  - `src/components/interactions/InteractionLeadCapture.tsx`
+- Decision: delete inactive email-capture surfaces rather than rebuilding deprecated form-hook stack.
