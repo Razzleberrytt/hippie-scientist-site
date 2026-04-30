@@ -40,7 +40,6 @@ const titleInitial = (title: string): string => {
 }
 
 const fallbackTag = (item: BrowserItem): string => {
-  if (item.isATier) return 'A-tier'
   if (item.domain) return item.domain
   return item.typeLabel?.replace(' profile', '') || 'Profile'
 }
@@ -60,7 +59,10 @@ export default function LibraryBrowser({
     () =>
       [...items]
         .filter(item => normalizeText(item.slug) && normalizeText(item.title))
-        .sort((a, b) => a.title.localeCompare(b.title)),
+        .sort((a, b) => {
+          if (a.isATier !== b.isATier) return a.isATier ? -1 : 1
+          return a.title.localeCompare(b.title)
+        }),
     [items],
   )
 
@@ -70,7 +72,7 @@ export default function LibraryBrowser({
     return sortedItems.filter(item => {
       const title = normalizeText(item.title)
       const matchesLetter = !letter || title.toUpperCase().startsWith(letter)
-      const haystack = [item.title, item.slug, item.summary, item.domain, item.typeLabel]
+      const haystack = [item.title, item.slug, item.summary, item.domain, item.typeLabel, item.isATier ? 'top pick a tier' : '']
         .map(normalizeText)
         .filter(Boolean)
         .join(' ')
@@ -162,6 +164,11 @@ export default function LibraryBrowser({
                 </div>
 
                 <div className='flex max-w-[calc(100%-3rem)] flex-wrap items-center gap-1.5'>
+                  {item.isATier ? (
+                    <span className='rounded-full border border-amber-300/30 bg-amber-300/10 px-2.5 py-1 text-[0.68rem] font-black uppercase leading-none tracking-[0.12em] text-amber-100'>
+                      ★ Top Pick
+                    </span>
+                  ) : null}
                   <span className='rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2.5 py-1 text-[0.68rem] font-semibold capitalize leading-none text-emerald-100'>
                     {tag}
                   </span>
