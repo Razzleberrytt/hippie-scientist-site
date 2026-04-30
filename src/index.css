@@ -1,3 +1,6 @@
+/* Legacy Vite stylesheet entry (src/main.tsx).
+   The active Next.js app imports CSS only via app/layout.tsx -> app/globals.css.
+   Keep this file quarantined unless the Vite entrypoint is restored. */
 @import './styles/theme.css';
 @import './styles/tokens.css';
 @import './styles/tags.css';
