@@ -21,3 +21,7 @@
 - Endpoint behavior: submission flows through existing `src/lib/formSubmission.ts` endpoint resolution (`VITE_FORM_ENDPOINT` first, then legacy fallbacks). If no endpoint is configured, it returns the existing honest `missingEndpoint` message; no fake success behavior or backend integration was added.
 - No new form service/backend was introduced, and no analytics/product/recommendation/effect data was added in this pass.
 - Re-ran `npm run check`; next blocker is now `./src/components/ErrorBoundary.tsx:2:34` missing `../utils/devMessages` (outside EmailCapture/form-submission scope).
+- ErrorBoundary/devMessages decision: **ErrorBoundary kept as active infrastructure** because `src/components/EntityDatabasePage.tsx` imports and renders `ErrorBoundary`; removing it would break active page rendering.
+- Created `src/utils/devMessages.ts` with a tiny, data-free API (`recordDevMessage`) compatible with active infrastructure imports (`ErrorBoundary`, `consent`, `loadAnalytics`, `fullCounts`, `theme`).
+- Utility behavior is intentionally minimal and infrastructure-only: production no-op plus bounded in-memory dev message buffer for non-production diagnostics; no console calls, no browser-only APIs, and no domain/content datasets.
+- Re-ran `npm run check`; this unblocks the missing `../utils/devMessages` error and allows typechecking to proceed to the next blocker.
