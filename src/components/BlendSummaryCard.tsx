@@ -2,11 +2,23 @@ import React from 'react'
 import type { Herb } from '../types'
 import TagBadge from './TagBadge'
 import { Button } from '@/components/ui/Button'
-import { herbName, splitField } from '../utils/herb'
 
 interface Props {
   herbs: Herb[]
   onSave?: () => void
+}
+
+function herbName(herb: Herb): string {
+  return herb.common ?? herb.commonName ?? herb.name ?? herb.slug
+}
+
+function splitField(value: string[] | string | unknown): string[] {
+  if (Array.isArray(value)) return value.filter((item): item is string => typeof item === 'string' && item.trim().length > 0)
+  if (typeof value !== 'string') return []
+  return value
+    .split(/[;,|]/)
+    .map(item => item.trim())
+    .filter(Boolean)
 }
 
 function generateName(herbs: Herb[]): string {
@@ -19,7 +31,7 @@ function generateSummary(herbs: Herb[]): string {
   if (!herbs.length) return 'Select herbs to see a summary of the blend.'
   const names = herbs.map(h => herbName(h)).join(', ')
   const effects = Array.from(new Set(herbs.flatMap(h => splitField(h.effects)))).join(', ')
-  return `Combines ${names} for effects including ${effects}.`
+  return effects ? `Combines ${names} for effects including ${effects}.` : `Combines ${names}.`
 }
 
 export default function BlendSummaryCard({ herbs, onSave }: Props) {
