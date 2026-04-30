@@ -247,31 +247,33 @@ function validatePublicationManifest(manifest, warnings) {
   }
 }
 
-function validateCloudflareEnv(errors) {
+function validateCloudflareEnv(errors, warnings) {
   const deployMode = toText(process.env.DEPLOY_MODE || DEPLOY_MODES.githubPagesIntegration)
   if (!Object.values(DEPLOY_MODES).includes(deployMode)) {
     errors.push(
       `DEPLOY_MODE must be one of: ${DEPLOY_MODES.githubPagesIntegration}, ${DEPLOY_MODES.cloudflareDirect} (received "${deployMode || '(empty)'}").`,
     )
-    return
-  }
-
-  if (deployMode !== DEPLOY_MODES.cloudflareDirect) {
-    return
+    return deployMode
   }
 
   const token = toText(process.env.CLOUDFLARE_API_TOKEN)
   const accountId = toText(process.env.CLOUDFLARE_ACCOUNT_ID)
   const project = toText(process.env.CLOUDFLARE_PAGES_PROJECT)
-
   const missing = []
   if (!token) missing.push('CLOUDFLARE_API_TOKEN')
   if (!accountId) missing.push('CLOUDFLARE_ACCOUNT_ID')
   if (!project) missing.push('CLOUDFLARE_PAGES_PROJECT')
 
+  const requireDirectSecrets = toText(process.env.REQUIRE_CLOUDFLARE_DIRECT_SECRETS).toLowerCase() === 'true'
+
   if (missing.length > 0) {
-    errors.push(`Cloudflare deploy secrets missing: ${missing.join(', ')}. Configure these as GitHub Actions repository secrets before deploy.`)
-    return
+    const message = `Cloudflare direct deploy secrets missing: ${missing.join(', ')}.`
+    if (deployMode === DEPLOY_MODES.cloudflareDirect && requireDirectSecrets) {
+      errors.push(`${message} Configure these as GitHub Actions repository secrets before direct API deploy.`)
+    } else {
+      warnings.push(`${message} Assuming Cloudflare Pages GitHub integration will build from the repository.`)
+    }
+    return deployMode
   }
 
   if (!/^[a-f0-9]{32}$/i.test(accountId)) {
@@ -281,6 +283,8 @@ function validateCloudflareEnv(errors) {
   if (!/^[a-z0-9][a-z0-9-]{1,62}$/.test(project)) {
     errors.push('CLOUDFLARE_PAGES_PROJECT appears malformed (use lowercase letters, numbers, and hyphens).')
   }
+
+  return deployMode
 }
 
 function main() {
@@ -367,7 +371,7 @@ function main() {
     warnings.push(`content/blog includes fewer than ${MIN_NON_DRAFT_BLOG_POSTS} non-draft posts (found ${nonDraftCount}); blog detail routing is disabled for static MVP.`)
   }
 
-  validateCloudflareEnv(errors)
+  const deployMode = validateCloudflareEnv(errors, warnings)
 
   for (const warning of warnings) {
     console.warn(`[deploy-readiness] WARN ${warning}`)
@@ -378,7 +382,7 @@ function main() {
   }
 
   console.log(
-    `[deploy-readiness] PASS deployableHerbs>=${minPublishableHerbs}, deployableCompounds>=${minPublishableCompounds}, sitemapLocs>${MIN_SITEMAP_LOC_ENTRIES}, canonicalData=valid, deployMode=${toText(process.env.DEPLOY_MODE || DEPLOY_MODES.githubPagesIntegration)}, cloudflareEnv=valid`,
+    `[deploy-readiness] PASS deployableHerbs>=${minPublishableHerbs}, deployableCompounds>=${minPublishableCompounds}, sitemapLocs>${MIN_SITEMAP_LOC_ENTRIES}, canonicalData=valid, deployMode=${deployMode}, cloudflareEnv=valid-for-current-mode`,
   )
 }
 
