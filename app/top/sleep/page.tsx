@@ -36,11 +36,7 @@ const getEvidenceRank = (grade?: string): number => EVIDENCE_WEIGHT[(grade ?? ''
 const herbLabel = (herb: SleepHerb): string => {
   const preferred = herb.displayName?.trim() || herb.name?.trim()
   if (preferred) return preferred
-  return herb.slug
-    .split('-')
-    .filter(Boolean)
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ')
+  return herb.slug.split('-').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ')
 }
 
 const includesSleep = (herb: SleepHerb): boolean => {
@@ -50,8 +46,10 @@ const includesSleep = (herb: SleepHerb): boolean => {
 }
 
 export const metadata: Metadata = {
-  title: 'Top Herbs for Sleep',
-  description: 'Ranked sleep-support herbs using dataset-driven evidence grade and net score.',
+  title: 'Best Herbs for Sleep (Natural Sleep Aids Guide 2026)',
+  description:
+    'Discover natural sleep aids and herbs for insomnia, relaxation, and better rest. Ranked using evidence, mechanisms, and real-world usage.',
+  alternates: { canonical: '/top/sleep' },
 }
 
 export default async function TopSleepPage() {
@@ -68,82 +66,57 @@ export default async function TopSleepPage() {
   const topThree = ranked.slice(0, 3)
 
   return (
-    <main className='min-h-screen bg-slate-950 text-slate-100'>
-      <div className='mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 lg:px-8'>
-        <section className='space-y-3'>
-          <p className='text-xs uppercase tracking-[0.2em] text-cyan-300'>Top Picks</p>
-          <h1 className='text-3xl font-semibold sm:text-4xl'>Top Herbs for Sleep</h1>
-          <p className='max-w-2xl text-sm text-slate-300 sm:text-base'>
-            Ranked from the live dataset by net score, then evidence grade.
-          </p>
-        </section>
+    <main className='mx-auto max-w-6xl space-y-6 px-4 py-8 text-white'>
+      <section className='rounded-[2rem] border border-white/10 bg-white/[0.04] p-6'>
+        <h1 className='text-4xl font-bold'>Best Herbs for Sleep</h1>
+        <p className='mt-4 text-white/70'>
+          These herbs are commonly used as natural sleep aids for insomnia, relaxation, and improving sleep quality.
+        </p>
+      </section>
 
-        <section className='mt-8'>
-          <h2 className='text-xl font-semibold'>Top 3 Herbs</h2>
-          <div className='mt-4 grid gap-4'>
-            {topThree.map(herb => {
-              const label = herbLabel(herb)
-              const links = getHerbSearchLinks(label)
-              return (
-                <article key={herb.slug} className='rounded-xl border border-slate-800 bg-slate-900 p-4'>
-                  <div className='flex items-center justify-between gap-3'>
-                    <h3 className='text-lg font-semibold'>{label}</h3>
-                    <span className='rounded-full bg-slate-800 px-2 py-1 text-xs'>Evidence {herb.evidence_grade ?? 'N/A'}</span>
-                  </div>
-                  <p className='mt-3 text-sm text-slate-300'>
-                    {herb.mechanism_summary?.trim() || 'Mechanism summary not yet available in dataset.'}
-                  </p>
-                  <div className='mt-4 flex flex-wrap gap-2'>
-                    {links.map(link => (
-                      <a key={link.url} href={link.url} target='_blank' rel='nofollow sponsored noopener noreferrer' className='rounded-md bg-cyan-500/20 px-3 py-1.5 text-sm text-cyan-200 hover:bg-cyan-500/30'>
-                        {link.label}
-                      </a>
-                    ))}
-                    <Link href={`/herbs/${herb.slug}`} className='rounded-md border border-slate-700 px-3 py-1.5 text-sm text-slate-200 hover:bg-slate-800'>
-                      View profile
-                    </Link>
-                  </div>
-                </article>
-              )
-            })}
-          </div>
-        </section>
+      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5'>
+        <h2 className='text-2xl font-bold'>What herbs help with sleep and insomnia?</h2>
+        <p className='mt-3 text-white/65'>
+          Natural sleep herbs often support relaxation, reduce stress, or improve sleep onset. Popular examples include valerian, ashwagandha, lemon balm, and calming botanicals.
+        </p>
+        <div className='mt-4 flex flex-wrap gap-2'>
+          <Link href='/compare/ashwagandha-vs-rhodiola-rosea'>Ashwagandha vs Rhodiola</Link>
+          <Link href='/top/stress'>Best herbs for stress</Link>
+          <Link href='/top/focus'>Best supplements for focus</Link>
+        </div>
+      </section>
 
-        <section className='mt-10'>
-          <h2 className='text-xl font-semibold'>Full Ranked List</h2>
-          <div className='mt-4 grid gap-3'>
-            {ranked.map(herb => {
-              const label = herbLabel(herb)
-              const effects = normalizeArray(herb.primary_effects)
-              const links = getHerbSearchLinks(label)
-              return (
-                <article key={herb.slug} className='rounded-lg border border-slate-800 bg-slate-900 p-4'>
-                  <h3 className='text-base font-semibold'>{label}</h3>
-                  <p className='mt-1 text-sm text-slate-300'>Evidence grade: {herb.evidence_grade ?? 'N/A'}</p>
-                  <p className='text-sm text-slate-300'>Net score: {Number.isFinite(toScore(herb.net_score)) ? toScore(herb.net_score) : 'N/A'}</p>
-                  <p className='mt-1 text-sm text-slate-300'>Primary effects: {effects.length > 0 ? effects.join(', ') : 'N/A'}</p>
-                  <div className='mt-3 flex flex-wrap gap-2'>
-                    {links.map(link => (
-                      <a key={link.url} href={link.url} target='_blank' rel='nofollow sponsored noopener noreferrer' className='rounded-md bg-slate-800 px-3 py-1.5 text-xs text-slate-200 hover:bg-slate-700'>
-                        {link.label}
-                      </a>
-                    ))}
-                  </div>
-                </article>
-              )
-            })}
-          </div>
-        </section>
+      <section>
+        <h2 className='text-xl font-semibold'>Top 3 Herbs</h2>
+        <div className='mt-4 grid gap-4'>
+          {topThree.map(herb => {
+            const label = herbLabel(herb)
+            const links = getHerbSearchLinks(label)
+            return (
+              <article key={herb.slug} className='border p-4 rounded-xl'>
+                <h3 className='text-lg font-semibold'>{label}</h3>
+                <p className='mt-2 text-sm text-white/70'>
+                  {herb.mechanism_summary || 'Mechanism summary not yet available.'}
+                </p>
+                <div className='mt-3 flex gap-2 flex-wrap'>
+                  <Link href={`/herbs/${herb.slug}`}>Read {label} profile</Link>
+                  {links[0] && (
+                    <a href={links[0].url} target='_blank'>Compare {label} products →</a>
+                  )}
+                </div>
+              </article>
+            )
+          })}
+        </div>
+      </section>
 
-        <section className='mt-10 rounded-xl border border-slate-800 bg-slate-900 p-4'>
-          <h2 className='text-xl font-semibold'>Decision Helper</h2>
-          <ul className='mt-3 space-y-2 text-sm text-slate-200'>
-            <li><span className='text-cyan-300'>Sleep latency</span> → valerian</li>
-            <li><span className='text-cyan-300'>Stress-linked sleep issues</span> → ashwagandha</li>
-            <li><span className='text-cyan-300'>Mild calm support</span> → lemon balm</li>
-          </ul>
-        </section>
-      </div>
+      <section className='border-t border-white/10 pt-6'>
+        <h2 className='text-2xl font-bold'>Related guides</h2>
+        <div className='mt-3 flex gap-3 flex-wrap'>
+          <Link href='/top/stress'>Best herbs for stress</Link>
+          <Link href='/top/focus'>Best supplements for focus</Link>
+        </div>
+      </section>
     </main>
   )
 }
