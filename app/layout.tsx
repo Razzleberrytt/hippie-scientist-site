@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import MobileNav from '@/components/mobile-nav'
+import { PUBLIC_ROUTES } from '@/lib/public-routes'
 import '@fontsource/inter/400.css'
 import '@fontsource/inter/500.css'
 import '@fontsource/inter/600.css'
@@ -9,23 +10,26 @@ import '@fontsource/inter/700.css'
 import './globals.css'
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/herbs', label: 'Herbs' },
-  { href: '/compounds', label: 'Compounds' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+  { href: PUBLIC_ROUTES.home, label: 'Home' },
+  { href: PUBLIC_ROUTES.herbs, label: 'Herbs' },
+  { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
+  { href: PUBLIC_ROUTES.build, label: 'Build' },
+  { href: PUBLIC_ROUTES.blog, label: 'Blog' },
+  { href: PUBLIC_ROUTES.learning, label: 'Learning' },
+  { href: PUBLIC_ROUTES.about, label: 'About' },
+  { href: PUBLIC_ROUTES.contact, label: 'Contact' },
 ]
 
 const footerLinks = [
-  { href: '/herbs', label: 'Herbs' },
-  { href: '/compounds', label: 'Compounds' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/disclaimer', label: 'Disclaimer' },
-  { href: '/privacy', label: 'Privacy' },
+  { href: PUBLIC_ROUTES.herbs, label: 'Herbs' },
+  { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
+  { href: PUBLIC_ROUTES.build, label: 'Build' },
+  { href: PUBLIC_ROUTES.blog, label: 'Blog' },
+  { href: PUBLIC_ROUTES.learning, label: 'Learning' },
+  { href: PUBLIC_ROUTES.about, label: 'About' },
+  { href: PUBLIC_ROUTES.contact, label: 'Contact' },
+  { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
+  { href: PUBLIC_ROUTES.privacy, label: 'Privacy' },
 ]
 
 export const metadata: Metadata = {
@@ -90,7 +94,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <div className='min-h-screen bg-[var(--bg)] text-[var(--text-primary)]'>
           <header className='border-b border-white/10'>
             <div className='container-page flex min-h-16 items-center justify-between gap-4 py-4'>
-              <Link href='/' className='text-lg font-semibold tracking-tight'>
+              <Link href={PUBLIC_ROUTES.home} className='text-lg font-semibold tracking-tight'>
                 The Hippie Scientist
               </Link>
 
