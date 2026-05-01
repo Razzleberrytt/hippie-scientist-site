@@ -4,7 +4,12 @@ import { notFound } from 'next/navigation'
 import { getCompoundBySlug,getCompounds } from '@/lib/runtime-data'
 import { getCompoundSearchLinks } from '@/lib/affiliate'
 
-const comparisons=['creatine-vs-beta-alanine','magnesium-vs-glycine','caffeine-vs-l-theanine','ashwagandha-vs-rhodiola','citicoline-vs-alpha-gpc']
+const comparisons=[
+  'creatine-vs-beta-alanine',
+  'magnesium-vs-glycine',
+  'caffeine-vs-l-theanine',
+  'cdp-choline-vs-alpha-gpc'
+]
 
 export async function generateStaticParams(){const c=await getCompounds();return c.map((x:any)=>({slug:x.slug}))}
 
@@ -27,7 +32,9 @@ export default async function Page({params}:any){
           <h2 className='text-xl font-bold text-white'>Compare With</h2>
           <div className='mt-2 flex flex-wrap gap-2'>
             {compareLinks.map(c=> (
-              <Link key={c} href={`/compare/${c}`} className='text-sm text-white/70 hover:text-white'>{c.replace('-vs-',' vs ')}</Link>
+              <Link key={c} href={`/compare/${c}`} className='text-sm text-white/70 hover:text-white'>
+                {c.replace('-vs-',' vs ')}
+              </Link>
             ))}
           </div>
         </section>
