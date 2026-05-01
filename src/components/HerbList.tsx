@@ -5,6 +5,7 @@ import HerbCard from './HerbCard'
 import { buildCardSummary } from '@/lib/summary'
 import { hasVal } from '@/lib/pretty'
 import { slugify } from '@/lib/slug'
+import { validateHerb } from '@/utils/validate'
 
 const containerVariants = {
   hidden: {},
@@ -50,6 +51,7 @@ const dedupeHerbsBySlug = (items: Herb[]): Herb[] => {
   const bySlug = new Map<string, Herb>()
 
   for (const herb of items) {
+    if (!validateHerb(herb)) continue
     const slug = herbSlug(herb)
     if (!slug) continue
 
