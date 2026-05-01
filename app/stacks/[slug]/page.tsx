@@ -14,7 +14,7 @@ export default function StackPage({ params }: { params: { slug: string } }) {
   return (
     <div className='space-y-6'>
       <h1 className='text-4xl font-black text-white'>{stack.title}</h1>
-      <p className='text-white/70'>Simple, science-backed stack for {stack.goal.replace('_', ' ')}</p>
+      <p className='text-white/70'>{stack.short_description}</p>
 
       <div className='grid gap-4'>
         {stack.stack.map((item: any, i: number) => (
@@ -23,7 +23,12 @@ export default function StackPage({ params }: { params: { slug: string } }) {
       </div>
 
       <div className='rounded-2xl border border-white/10 bg-white/[0.04] p-4'>
-        <h3 className='font-bold text-white'>Who it's for</h3>
+        <h3 className='font-bold text-white'>How to use</h3>
+        <p className='text-white/70 mt-1'>Follow listed dosages consistently. Combine timing as shown and evaluate response over 2–4 weeks.</p>
+      </div>
+
+      <div className='rounded-2xl border border-white/10 bg-white/[0.04] p-4'>
+        <h3 className='font-bold text-white'>Who it’s for</h3>
         <p className='text-white/70 mt-1'>{stack.who_for}</p>
       </div>
 
@@ -33,7 +38,7 @@ export default function StackPage({ params }: { params: { slug: string } }) {
       </div>
 
       <button className='w-full rounded-2xl bg-emerald-300 py-3 font-bold text-black'>
-        {stack.cta}
+        View Best Products
       </button>
     </div>
   )
