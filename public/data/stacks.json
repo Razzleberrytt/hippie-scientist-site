@@ -1,0 +1,226 @@
+[
+  {
+    "slug": "fat-loss",
+    "title": "Best Supplements for Fat Loss",
+    "goal": "fat_loss",
+    "stack": [
+      {
+        "compound": "caffeine",
+        "dosage": "100–200 mg",
+        "timing": "morning",
+        "role": "anchor"
+      },
+      {
+        "compound": "green-tea-extract-egcg",
+        "dosage": "300–500 mg",
+        "timing": "morning",
+        "role": "amplifier"
+      },
+      {
+        "compound": "capsaicin",
+        "dosage": "2–10 mg",
+        "timing": "with meals",
+        "role": "amplifier"
+      }
+    ],
+    "who_for": "People trying to lose fat while keeping the plan simple and stimulant-aware.",
+    "avoid_if": "Stimulant sensitive, uncontrolled blood pressure, pregnancy, heart rhythm issues, or using stimulant medications.",
+    "cta": "View Best Products"
+  },
+  {
+    "slug": "muscle",
+    "title": "Best Supplements for Muscle",
+    "goal": "muscle",
+    "stack": [
+      {
+        "compound": "creatine",
+        "dosage": "3–5 g",
+        "timing": "daily",
+        "role": "anchor"
+      },
+      {
+        "compound": "beta-alanine",
+        "dosage": "3.2–6.4 g",
+        "timing": "split doses",
+        "role": "amplifier"
+      },
+      {
+        "compound": "citrulline-malate",
+        "dosage": "6–8 g",
+        "timing": "30–60 min pre-workout",
+        "role": "amplifier"
+      }
+    ],
+    "who_for": "Lifters and active adults who want a practical strength, volume, and workout-support stack.",
+    "avoid_if": "Kidney disease, pregnancy, significant medical conditions, or if pre-workout vasodilators do not agree with you.",
+    "cta": "View Best Products"
+  },
+  {
+    "slug": "stress",
+    "title": "Best Supplements for Stress",
+    "goal": "stress",
+    "stack": [
+      {
+        "compound": "ashwagandha",
+        "dosage": "300–600 mg",
+        "timing": "daily with food",
+        "role": "anchor"
+      },
+      {
+        "compound": "l-theanine",
+        "dosage": "100–200 mg",
+        "timing": "as needed",
+        "role": "amplifier"
+      },
+      {
+        "compound": "magnesium-glycinate",
+        "dosage": "100–300 mg elemental magnesium",
+        "timing": "evening",
+        "role": "amplifier"
+      }
+    ],
+    "who_for": "People who want calmer days without building a complicated supplement routine.",
+    "avoid_if": "Pregnancy, thyroid conditions, autoimmune conditions, sedative medications, or sensitivity to calming supplements.",
+    "cta": "View Best Products"
+  },
+  {
+    "slug": "sleep",
+    "title": "Best Supplements for Sleep",
+    "goal": "sleep",
+    "stack": [
+      {
+        "compound": "magnesium-glycinate",
+        "dosage": "100–300 mg elemental magnesium",
+        "timing": "evening",
+        "role": "anchor"
+      },
+      {
+        "compound": "l-theanine",
+        "dosage": "100–200 mg",
+        "timing": "30–60 min before bed",
+        "role": "amplifier"
+      },
+      {
+        "compound": "melatonin",
+        "dosage": "0.3–3 mg",
+        "timing": "30–60 min before bed",
+        "role": "amplifier"
+      }
+    ],
+    "who_for": "People who want a simple nighttime support stack for winding down and sleep timing.",
+    "avoid_if": "Pregnancy, sedative medications, untreated sleep apnea, shift-work complexity, or next-day grogginess from sleep aids.",
+    "cta": "View Best Products"
+  },
+  {
+    "slug": "cardiovascular",
+    "title": "Best Supplements for Cardiovascular Support",
+    "goal": "cardiovascular",
+    "stack": [
+      {
+        "compound": "omega-3-fatty-acids",
+        "dosage": "1–2 g EPA/DHA",
+        "timing": "with meals",
+        "role": "anchor"
+      },
+      {
+        "compound": "coq10",
+        "dosage": "100–200 mg",
+        "timing": "with fat-containing meal",
+        "role": "amplifier"
+      },
+      {
+        "compound": "beetroot-nitrate",
+        "dosage": "400–800 mg nitrate equivalent",
+        "timing": "daily or pre-workout",
+        "role": "amplifier"
+      }
+    ],
+    "who_for": "Adults looking for a clean heart-health support stack built around common evidence-aware compounds.",
+    "avoid_if": "Blood thinners, blood pressure medications, upcoming surgery, fish allergy, or clinician-advised supplement restrictions.",
+    "cta": "View Best Products"
+  },
+  {
+    "slug": "cognition",
+    "title": "Best Supplements for Cognition",
+    "goal": "cognition",
+    "stack": [
+      {
+        "compound": "citicoline",
+        "dosage": "250–500 mg",
+        "timing": "morning",
+        "role": "anchor"
+      },
+      {
+        "compound": "l-theanine",
+        "dosage": "100–200 mg",
+        "timing": "with caffeine or as needed",
+        "role": "amplifier"
+      },
+      {
+        "compound": "bacopa-monnieri",
+        "dosage": "300 mg standardized extract",
+        "timing": "daily with food",
+        "role": "amplifier"
+      }
+    ],
+    "who_for": "People who want focused, low-clutter support for attention, mental effort, and long-term cognitive routines.",
+    "avoid_if": "Cholinergic medications, sedatives, pregnancy, bipolar history, or if bacopa causes digestive side effects.",
+    "cta": "View Best Products"
+  },
+  {
+    "slug": "metabolic",
+    "title": "Best Supplements for Metabolic Support",
+    "goal": "metabolic",
+    "stack": [
+      {
+        "compound": "berberine",
+        "dosage": "500 mg",
+        "timing": "with meals",
+        "role": "anchor"
+      },
+      {
+        "compound": "fiber-psyllium",
+        "dosage": "5–10 g",
+        "timing": "with water before meals",
+        "role": "amplifier"
+      },
+      {
+        "compound": "cinnamon-extract",
+        "dosage": "500–1000 mg",
+        "timing": "with carbohydrate-containing meals",
+        "role": "amplifier"
+      }
+    ],
+    "who_for": "People working on glucose, appetite, and meal-response habits alongside nutrition basics.",
+    "avoid_if": "Diabetes medications, pregnancy, liver disease, low blood sugar episodes, or difficulty spacing fiber from medications.",
+    "cta": "View Best Products"
+  },
+  {
+    "slug": "detox",
+    "title": "Best Supplements for Detox Support",
+    "goal": "detox",
+    "stack": [
+      {
+        "compound": "nac",
+        "dosage": "600–1200 mg",
+        "timing": "daily",
+        "role": "anchor"
+      },
+      {
+        "compound": "milk-thistle-silymarin",
+        "dosage": "140–420 mg silymarin",
+        "timing": "with meals",
+        "role": "amplifier"
+      },
+      {
+        "compound": "broccoli-sprout-sulforaphane",
+        "dosage": "10–30 mg sulforaphane equivalent",
+        "timing": "with food",
+        "role": "amplifier"
+      }
+    ],
+    "who_for": "People who want liver and antioxidant-pathway support without cleanse hype or extreme protocols.",
+    "avoid_if": "Pregnancy, active liver disease without medical guidance, blood thinners, chemotherapy, or sulfur sensitivity.",
+    "cta": "View Best Products"
+  }
+]
