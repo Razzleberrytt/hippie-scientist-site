@@ -6,6 +6,8 @@ import { normalizeTagList } from '@/lib/tagNormalization'
 import { getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
 import { hasPlaceholderText, sanitizeSurfaceText } from '@/lib/summary'
 
+const FALLBACK = 'Traditionally used with growing research interest.'
+
 const normalizeEvidenceTier = (rawTier?: string): 'a' | 'b' | 'c' | null => {
   if (!rawTier) return null
   const value = rawTier.toLowerCase()
@@ -56,11 +58,19 @@ function HerbCard({
     || normalizeTagList([...tags, ...mechanismTags], { caseStyle: 'title', maxItems: 1 })[0]
   const title = formatBrowseTitle(name, 60)
   const isTitleTruncated = title !== name
-  const summaryCandidate = sanitizeSurfaceText(
-    hero?.trim() || summary?.trim() || (summaryQuality === 'strong' ? coreInsight?.trim() : ''),
-  )
-  const summaryText =
-    summaryCandidate && !hasPlaceholderText(summaryCandidate) ? summaryCandidate : 'Traditionally used in herbal practice with emerging scientific interest.'
+
+  const raw = hero?.trim() || summary?.trim() || (summaryQuality === 'strong' ? coreInsight?.trim() : '')
+  const cleaned = sanitizeSurfaceText(raw)
+
+  const isWeak = String(summary_quality || '').toLowerCase() === 'none'
+  const isBad = !cleaned || hasPlaceholderText(raw) || hasPlaceholderText(cleaned)
+
+  const summaryText = isWeak || isBad
+    ? FALLBACK
+    : cleaned.length > 120
+      ? `${cleaned.slice(0,119).trimEnd()}…`
+      : cleaned
+
   const evidenceTier = normalizeEvidenceTier(evidence_tier || evidenceLevel)
   const letterBadge = title.charAt(0).toUpperCase()
 
