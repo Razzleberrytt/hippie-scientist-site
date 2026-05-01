@@ -37,11 +37,14 @@ const formatName = (slug: string) =>
     .map(p => p.charAt(0).toUpperCase() + p.slice(1))
     .join(' ')
 
+const goalSlug = (goal: string) => goal.replace(/_/g, '-')
+
 export default function StackPage({ params }: { params: { slug: string } }) {
   const stack = stacks.find((s) => s.slug === params.slug)
 
   if (!stack) return notFound()
 
+  const cleanGoal = goalSlug(stack.goal || stack.slug)
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -75,10 +78,7 @@ export default function StackPage({ params }: { params: { slug: string } }) {
               <div key={i} className='space-y-2'>
                 <StackCard item={item} />
 
-                <Link
-                  href={`/compounds/${compoundSlug}`}
-                  className='text-emerald-300 text-sm'
-                >
+                <Link href={`/compounds/${compoundSlug}`} className='text-emerald-300 text-sm'>
                   Learn more about {formatName(compoundSlug)}
                 </Link>
 
@@ -136,6 +136,14 @@ export default function StackPage({ params }: { params: { slug: string } }) {
           <p className='text-white/70 mt-2'>{stack.who_for}</p>
         </section>
       )}
+
+      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
+        <h2 className='text-2xl font-bold text-white'>Explore More</h2>
+        <div className='mt-4 flex flex-wrap gap-3'>
+          <Link href={`/goals/${cleanGoal}`} className='rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm font-bold text-emerald-100 transition hover:bg-emerald-300/20'>Explore {formatName(cleanGoal)} goal</Link>
+          <Link href={`/${cleanGoal}-supplements`} className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/75 transition hover:bg-white/5 hover:text-white'>Best supplements for {formatName(cleanGoal)}</Link>
+        </div>
+      </section>
     </div>
   )
 }
