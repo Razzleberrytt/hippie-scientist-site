@@ -85,6 +85,7 @@ const list = (value: unknown): string[] => {
   if (typeof value === 'string') {
     return value
       .split(/\n|;|\|/)
+      .flatMap(item => item.split(/,(?=\s*[a-zA-Z])/))
       .map(item => item.replace(/^[-*•]\s*/, '').trim())
       .filter(isRenderable)
   }
@@ -94,14 +95,6 @@ const list = (value: unknown): string[] => {
 
 const getHerbLabel = (herb: Partial<HerbDetail>): string =>
   text(herb.displayName) || text(herb.name) || formatSlugLabel(herb.slug ?? 'herb')
-
-const getLeadText = (herb: HerbDetail): string => {
-  const lead = text(herb.summary) || text(herb.description)
-  return isRenderable(lead) ? lead : 'A full write-up for this herb is being prepared.'
-}
-
-const truncate = (value: string, max = 145): string =>
-  value.length <= max ? value : `${value.slice(0, max - 1).trimEnd()}…`
 
 const unique = (items: string[]): string[] => {
   const seen = new Set<string>()
@@ -116,6 +109,37 @@ const unique = (items: string[]): string[] => {
     })
 }
 
+const sentenceList = (items: string[]): string => {
+  const clean = unique(items).slice(0, 3)
+  if (clean.length === 0) return ''
+  if (clean.length === 1) return clean[0]
+  if (clean.length === 2) return `${clean[0]} and ${clean[1]}`
+  return `${clean[0]}, ${clean[1]}, and ${clean[2]}`
+}
+
+const getLeadText = (herb: HerbDetail): string => {
+  const effects = unique(list(herb.primary_effects)).slice(0, 3)
+  if (effects.length) return `Traditionally used for ${sentenceList(effects)}.`
+  return 'Traditionally used in herbal medicine for a range of supportive applications.'
+}
+
+const cleanMechanism = (item: string): string => {
+  const cleaned = item
+    .replace(/\([^)]*\)/g, '')
+    .replace(/\bmay\b/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  if (!cleaned) return ''
+  const lower = cleaned.charAt(0).toLowerCase() + cleaned.slice(1)
+  if (/^(supports|influences|modulates|helps|affects|promotes|inhibits|activates)\b/i.test(cleaned)) {
+    return cleaned.charAt(0).toUpperCase() + cleaned.slice(1)
+  }
+  return `Supports ${lower}`
+}
+
+const truncate = (value: string, max = 145): string =>
+  value.length <= max ? value : `${value.slice(0, max - 1).trimEnd()}…`
+
 const visibleTags = (items: string[], max = 4) => {
   const cleaned = unique(items)
   return { shown: cleaned.slice(0, max), hidden: Math.max(cleaned.length - max, 0) }
@@ -125,8 +149,8 @@ const scoreTone = (score: string) => {
   const n = Number(score)
   if (Number.isNaN(n)) return 'border-white/10 bg-white/[0.035] text-white/80'
   if (n < 0) return 'border-red-300/25 bg-red-400/10 text-red-100'
-  if (n > 0) return 'border-emerald-300/25 bg-emerald-300/10 text-emerald-100'
-  return 'border-white/10 bg-white/[0.035] text-white/80'
+  if (n <= 50) return 'border-amber-300/25 bg-amber-300/10 text-amber-100'
+  return 'border-emerald-300/25 bg-emerald-300/10 text-emerald-100'
 }
 
 const splitSafety = (items: string[]) => {
@@ -165,7 +189,7 @@ const getRelatedCompounds = async (herb: HerbDetail): Promise<RelatedLinkItem[]>
     .map(entry => ({
       href: `/compounds/${entry.slug}/`,
       title: text(entry.name) || formatSlugLabel(entry.slug),
-      description: `Explore how this compound relates to ${getHerbLabel(herb)}.`,
+      description: 'Shares similar mechanisms or occurs in this herb.',
       eyebrow: 'Compound',
     }))
 }
@@ -189,7 +213,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 function MiniList({ title, items }: { title: string; items: string[] }) {
-  const visible = unique(items).slice(0, 5)
+  const visible = unique(items).slice(0, 4)
   if (!visible.length) return null
   return (
     <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
@@ -201,7 +225,7 @@ function MiniList({ title, items }: { title: string; items: string[] }) {
   )
 }
 
-function KeyFacts({ items }: { items: Array<{ label: string; value: string; tone?: string }> }) {
+function KeyFacts({ items }: { items: Array<{ label: string; value: string; hint?: string; tone?: string }> }) {
   const visible = items.filter(item => isRenderable(item.value))
   if (!visible.length) return null
   return (
@@ -212,6 +236,7 @@ function KeyFacts({ items }: { items: Array<{ label: string; value: string; tone
           <div key={item.label} className={`rounded-2xl border p-3 ${item.tone || 'border-white/10 bg-black/15'}`}>
             <dt className='text-xs uppercase tracking-[0.16em] text-white/55'>{item.label}</dt>
             <dd className='mt-1 text-white/85'>{item.value}</dd>
+            {item.hint ? <dd className='mt-1 text-xs text-white/55'>{item.hint}</dd> : null}
           </div>
         ))}
       </dl>
@@ -255,13 +280,14 @@ export default async function HerbDetailPage({ params }: Params) {
   const label = getHerbLabel(herb)
   const leadText = getLeadText(herb)
   const affiliateLinks = getHerbSearchLinks(label)
+  const commonUses = unique(list(herb.primary_effects)).slice(0, 6)
   const claims = unique((await getClaims())
     .filter((item: any) => (item.target_slug || item.targetSlug) === herb.slug)
     .map((item: any) => text(item.claim || item.text || item.title)))
   const bestForTags = getBestForTags(herb, claims)
   const tagState = visibleTags(bestForTags)
   const relatedCompounds = await getRelatedCompounds(herb)
-  const mechanisms = unique([text(herb.mechanism_summary), ...list(herb.mechanisms)])
+  const mechanisms = unique([text(herb.mechanism_summary), ...list(herb.mechanisms)]).map(cleanMechanism).filter(Boolean).slice(0, 4)
   const safetyItems = unique([
     text(herb.safetyNotes),
     ...list(herb.contraindications),
@@ -304,6 +330,7 @@ export default async function HerbDetailPage({ params }: Params) {
 
         <h1 className='mt-4 text-4xl font-black tracking-tight text-white sm:text-6xl'>{label}</h1>
         <p className='mt-4 max-w-3xl text-base leading-7 text-white/80 sm:text-lg'>{leadText}</p>
+        <p className='mt-3 text-sm font-medium text-emerald-100/80'>Built from human evidence and mechanism-backed compound data.</p>
 
         {tagState.shown.length ? (
           <div className='mt-5 flex flex-wrap gap-2'>
@@ -319,6 +346,15 @@ export default async function HerbDetailPage({ params }: Params) {
         ) : null}
       </section>
 
+      {commonUses.length ? (
+        <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
+          <h2 className='text-lg font-bold text-white/90'>Common Uses</h2>
+          <ul className='mt-3 grid gap-2 text-sm leading-6 text-white/80 sm:grid-cols-2'>
+            {commonUses.map(use => <li key={use} className='rounded-2xl border border-white/10 bg-black/15 px-4 py-3'>{use}</li>)}
+          </ul>
+        </section>
+      ) : null}
+
       <div className='grid gap-6 lg:grid-cols-[1.35fr_0.85fr]'>
         <main className='space-y-6'>
           <KeyFacts
@@ -327,19 +363,20 @@ export default async function HerbDetailPage({ params }: Params) {
               { label: 'Primary effects', value: unique(list(herb.primary_effects)).slice(0, 4).join(', ') },
               { label: 'Dosage range', value: text(herb.dosage_range) || text(herb.dosage) },
               { label: 'Oral form', value: text(herb.oral_form) || text(herb.preparation) },
-              { label: 'Overall Score', value: netScore, tone: scoreTone(netScore) },
+              { label: 'Overall Confidence Score', value: netScore, hint: '-100 to +100', tone: scoreTone(netScore) },
             ]}
           />
-          <MiniList title='Mechanisms' items={mechanisms} />
+          <MiniList title='How It Works' items={mechanisms} />
           <MiniList title='Evidence Notes' items={claims} />
           <SafetyPanel avoidIf={safety.avoidIf} useCautionWith={safety.useCautionWith} />
         </main>
 
         <aside className='space-y-6'>
           <section className='rounded-3xl border border-emerald-300/20 bg-emerald-300/10 p-5 shadow-xl shadow-emerald-950/10 sm:p-6'>
-            <p className='text-xs font-bold uppercase tracking-[0.2em] text-emerald-100'>Product forms</p>
+            <p className='text-xs font-bold uppercase tracking-[0.2em] text-emerald-100'>Choose the Right Form</p>
             <h2 className='mt-2 text-lg font-bold text-white'>Find {label}</h2>
-            <p className='mt-2 text-xs leading-5 text-emerald-100/80'>As an Amazon Associate I earn from qualifying purchases.</p>
+            <p className='mt-2 text-sm leading-6 text-emerald-100/80'>Different forms affect potency, absorption, and convenience.</p>
+            <p className='mt-1 text-xs leading-5 text-emerald-100/70'>As an Amazon Associate I earn from qualifying purchases.</p>
             <div className='mt-4 grid gap-2'>
               {affiliateLinks.map(link => (
                 <a key={link.label} href={link.url} target='_blank' rel='noopener noreferrer sponsored' className='flex min-h-11 w-full items-center justify-between rounded-2xl border border-emerald-300/25 bg-black/20 px-4 py-3 text-sm font-semibold text-emerald-50 transition hover:bg-emerald-300/20 active:scale-[0.99]'>
@@ -359,7 +396,8 @@ export default async function HerbDetailPage({ params }: Params) {
 
       {relatedCompounds.length ? (
         <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
-          <h2 className='text-lg font-bold text-white/90'>Related Compounds</h2>
+          <h2 className='text-lg font-bold text-white/90'>Similar Active Compounds</h2>
+          <p className='mt-2 text-sm leading-6 text-white/70'>These compounds share similar mechanisms or occur in this herb.</p>
           <div className='mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
             {relatedCompounds.map(item => (
               <Link key={item.href} href={item.href} className='block min-h-11 rounded-2xl border border-white/10 bg-black/15 p-4 transition hover:border-emerald-300/30 hover:bg-white/[0.055] active:scale-[0.99]'>
