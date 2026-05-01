@@ -1,52 +1,72 @@
 [
   {
     "slug": "fat-loss",
-    "title": "Fat Loss Stack",
-    "goal": "fat loss",
+    "title": "Best Supplements for Fat Loss",
+    "goal": "fat_loss",
+    "short_description": "A simple stack for energy, thermogenesis, and appetite support.",
     "stack": [
-      { "compound": "caffeine", "role": "anchor" },
-      { "compound": "green-tea-extract-egcg", "role": "amplifier" },
-      { "compound": "capsaicin", "role": "amplifier" }
-    ]
+      { "compound": "caffeine", "dosage": "100–200 mg", "timing": "morning", "role": "anchor" },
+      { "compound": "green-tea-extract-egcg", "dosage": "300–500 mg", "timing": "morning", "role": "amplifier" },
+      { "compound": "capsaicin", "dosage": "2–10 mg", "timing": "with meals", "role": "amplifier" }
+    ],
+    "who_for": "People trying to lose fat while keeping the plan simple and stimulant-aware.",
+    "avoid_if": "Stimulant sensitivity, uncontrolled blood pressure, pregnancy, heart rhythm issues, or stimulant medications.",
+    "cta": "View Best Products"
   },
   {
     "slug": "sleep",
-    "title": "Sleep Stack",
+    "title": "Best Supplements for Sleep",
     "goal": "sleep",
+    "short_description": "A nighttime stack for winding down, sleep timing, and a cleaner bedtime routine.",
     "stack": [
-      { "compound": "magnesium", "role": "anchor" },
-      { "compound": "glycine", "role": "support" },
-      { "compound": "melatonin", "role": "finisher" }
-    ]
+      { "compound": "magnesium", "dosage": "100–300 mg elemental magnesium", "timing": "evening", "role": "anchor" },
+      { "compound": "glycine", "dosage": "3 g", "timing": "30–60 min before bed", "role": "support" },
+      { "compound": "melatonin", "dosage": "0.3–3 mg", "timing": "30–60 min before bed", "role": "finisher" }
+    ],
+    "who_for": "People who want simple nighttime support for winding down and sleep timing.",
+    "avoid_if": "Pregnancy, sedative medications, untreated sleep apnea, shift-work complexity, or next-day grogginess from sleep aids.",
+    "cta": "View Best Products"
   },
   {
     "slug": "stress",
-    "title": "Stress Stack",
+    "title": "Best Supplements for Stress",
     "goal": "stress",
+    "short_description": "A calm-focused stack for daily stress load without a complicated routine.",
     "stack": [
-      { "compound": "ashwagandha", "role": "anchor" },
-      { "compound": "l-theanine", "role": "support" },
-      { "compound": "rhodiola-rosea", "role": "amplifier" }
-    ]
+      { "compound": "ashwagandha", "dosage": "300–600 mg", "timing": "daily with food", "role": "anchor" },
+      { "compound": "l-theanine", "dosage": "100–200 mg", "timing": "as needed", "role": "support" },
+      { "compound": "rhodiola-rosea", "dosage": "200–400 mg", "timing": "morning", "role": "amplifier" }
+    ],
+    "who_for": "People who want calmer days without building a complicated supplement routine.",
+    "avoid_if": "Pregnancy, thyroid conditions, autoimmune conditions, sedative medications, bipolar history, or sensitivity to calming supplements.",
+    "cta": "View Best Products"
   },
   {
     "slug": "cognition",
-    "title": "Cognition Stack",
+    "title": "Best Supplements for Cognition",
     "goal": "cognition",
+    "short_description": "A focus stack for attention, mental effort, and long-term cognitive routines.",
     "stack": [
-      { "compound": "alpha-gpc", "role": "anchor" },
-      { "compound": "citicoline", "role": "support" },
-      { "compound": "caffeine", "role": "amplifier" }
-    ]
+      { "compound": "alpha-gpc", "dosage": "300–600 mg", "timing": "morning", "role": "anchor" },
+      { "compound": "citicoline", "dosage": "250–500 mg", "timing": "morning", "role": "support" },
+      { "compound": "caffeine", "dosage": "50–150 mg", "timing": "morning or early afternoon", "role": "amplifier" }
+    ],
+    "who_for": "People who want focused, low-clutter support for attention, mental effort, and long-term cognitive routines.",
+    "avoid_if": "Cholinergic medications, stimulant sensitivity, pregnancy, bipolar history, or anxiety worsened by caffeine.",
+    "cta": "View Best Products"
   },
   {
     "slug": "performance",
-    "title": "Performance Stack",
+    "title": "Best Supplements for Performance",
     "goal": "performance",
+    "short_description": "A strength-focused stack for training output, volume, and repeat performance.",
     "stack": [
-      { "compound": "creatine", "role": "anchor" },
-      { "compound": "beta-alanine", "role": "support" },
-      { "compound": "citrulline-malate", "role": "amplifier" }
-    ]
+      { "compound": "creatine", "dosage": "3–5 g", "timing": "daily", "role": "anchor" },
+      { "compound": "beta-alanine", "dosage": "3.2–6.4 g", "timing": "split doses", "role": "support" },
+      { "compound": "citrulline-malate", "dosage": "6–8 g", "timing": "30–60 min pre-workout", "role": "amplifier" }
+    ],
+    "who_for": "Lifters and active adults who want practical strength, volume, and workout support.",
+    "avoid_if": "Kidney disease, pregnancy, major medical conditions, or poor tolerance to pre-workout vasodilators.",
+    "cta": "View Best Products"
   }
 ]
