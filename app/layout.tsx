@@ -66,6 +66,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <footer className='border-t border-white/10'>
             <div className='container-page py-8 text-sm text-white/60'>
               <p>© The Hippie Scientist — Educational use only</p>
+              <p className='mt-1 text-xs text-white/45'>Official site branding stays in the footer only.</p>
               <div className='mt-4 flex flex-wrap gap-4'>
                 {footerLinks.map(link => (
                   <Link key={link.href} href={link.href} className='hover:text-white'>
