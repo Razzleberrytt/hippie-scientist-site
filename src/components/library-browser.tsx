@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 type BrowserItem = {
   slug: string
@@ -49,11 +49,17 @@ export default function LibraryBrowser({
   title,
   description,
   searchPlaceholder = 'Search by name, slug, or summary',
-  emptyLabel = 'No matching profiles found.',
+  emptyLabel = 'No herbs found',
   items,
 }: LibraryBrowserProps) {
   const [query, setQuery] = useState('')
+  const [debouncedQuery, setDebouncedQuery] = useState('')
   const [letter, setLetter] = useState('')
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setDebouncedQuery(query), 300)
+    return () => window.clearTimeout(timer)
+  }, [query])
 
   const sortedItems = useMemo(
     () =>
@@ -67,7 +73,7 @@ export default function LibraryBrowser({
   )
 
   const filteredItems = useMemo(() => {
-    const q = query.trim().toLowerCase()
+    const q = debouncedQuery.trim().toLowerCase()
 
     return sortedItems.filter(item => {
       const title = normalizeText(item.title)
@@ -80,7 +86,7 @@ export default function LibraryBrowser({
       const matchesQuery = !q || haystack.includes(q)
       return matchesLetter && matchesQuery
     })
-  }, [sortedItems, letter, query])
+  }, [sortedItems, letter, debouncedQuery])
 
   return (
     <div className='mx-auto w-full max-w-7xl space-y-4 px-3 py-4 sm:px-6 lg:px-8'>
@@ -120,14 +126,14 @@ export default function LibraryBrowser({
           className='w-full rounded-2xl border border-white/15 bg-white/95 px-4 py-3 text-base text-slate-950 outline-none transition placeholder:text-slate-500 focus:border-emerald-300 focus:ring-4 focus:ring-emerald-300/20'
         />
 
-        <div className='mt-2 flex gap-1.5 overflow-x-auto pb-1'>
+        <div className='mt-3 flex gap-2 overflow-x-auto pb-2 [-webkit-overflow-scrolling:touch] scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/15'>
           <button
             type='button'
             onClick={() => setLetter('')}
-            className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+            className={`min-h-10 shrink-0 rounded-full border px-4 py-2 text-xs font-bold transition ${
               letter === ''
-                ? 'border-emerald-300 bg-emerald-300 text-slate-950'
-                : 'border-white/10 bg-white/[0.04] text-white/65 hover:border-white/25 hover:text-white'
+                ? 'border-emerald-200 bg-emerald-300 text-slate-950 shadow-[0_0_18px_rgba(110,231,183,0.22)]'
+                : 'border-white/10 bg-white/[0.04] text-white/72 hover:border-emerald-300/35 hover:bg-white/[0.08] hover:text-white'
             }`}
           >
             All
@@ -137,10 +143,10 @@ export default function LibraryBrowser({
               key={item}
               type='button'
               onClick={() => setLetter(current => (current === item ? '' : item))}
-              className={`shrink-0 rounded-full border px-2.5 py-1.5 text-xs font-semibold transition ${
+              className={`min-h-10 min-w-10 shrink-0 rounded-full border px-3 py-2 text-xs font-bold transition ${
                 letter === item
-                  ? 'border-emerald-300 bg-emerald-300 text-slate-950'
-                  : 'border-white/10 bg-white/[0.04] text-white/65 hover:border-white/25 hover:text-white'
+                  ? 'border-emerald-200 bg-emerald-300 text-slate-950 shadow-[0_0_18px_rgba(110,231,183,0.22)]'
+                  : 'border-white/10 bg-white/[0.04] text-white/72 hover:border-emerald-300/35 hover:bg-white/[0.08] hover:text-white'
               }`}
             >
               {item}
@@ -199,11 +205,13 @@ export default function LibraryBrowser({
         </section>
       ) : (
         <section className='rounded-3xl border border-white/10 bg-white/[0.03] p-6 text-center'>
-          <p className='text-base font-medium text-white'>{emptyLabel}</p>
+          <p className='text-base font-semibold text-white'>No herbs found</p>
+          <p className='mt-2 text-sm text-white/60'>{emptyLabel}</p>
           <button
             type='button'
             onClick={() => {
               setQuery('')
+              setDebouncedQuery('')
               setLetter('')
             }}
             className='mt-4 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white/75 transition hover:border-white/30 hover:bg-white/5 hover:text-white'
