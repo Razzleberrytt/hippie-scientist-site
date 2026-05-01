@@ -1,90 +1,32 @@
-# Cloudflare Pages deployment
+# Cloudflare Pages Deployment
 
-## Production deploy mode
+## Production mode
 
-Production is Cloudflare Pages with GitHub integration.
+Canonical production hosting is **Cloudflare Pages**.
 
-That means Cloudflare watches the GitHub repository, runs the build command, and deploys the static output directory. The repo does **not** need Cloudflare API deploy secrets for the normal production path.
+## Required commands
 
-## Build command
-
-Use the repository build command:
-
-```bash
-npm run build
-```
-
-This command runs the canonical sequence:
-
-1. `npm run data:build`
-2. `npm run data:validate`
-3. `npm run data:audit`
-4. `npm run guard:source-of-truth`
-5. `next build`
-6. `npm run verify:build`
+- Build: `npm run build`
+- Verify: `npm run verify:build`
 
 ## Static output directory
 
-This repo uses `next.config.mjs` with `output: 'export'`, so the static export output is written to:
+- Next App Router static export output: `out/`
+- Cloudflare Pages deploy target: `out/`
 
-- `out/`
+## Pages project settings
 
-Cloudflare Pages should deploy `out/` directly.
-
-## Cloudflare Pages settings
-
-Use these settings in the Cloudflare Pages project:
-
-- Framework preset: `None` or `Next.js static export` if available
+- Framework preset: `None` (static)
 - Build command: `npm run build`
 - Build output directory: `out`
 - Node version: `22`
 
-## Required secrets
+## Redirect and header infrastructure
 
-### Normal GitHub integration deploy
+- `public/_redirects` and `public/_headers` are Cloudflare static infrastructure files.
+- They must be present in deploy output (`out/_redirects`, `out/_headers`) after build/export.
 
-No Cloudflare API secrets are required for the normal production path.
+## Data ownership policy
 
-The deploy-readiness script treats missing direct API secrets as a warning when using GitHub integration.
-
-### Direct API deploy only
-
-Only set these if you intentionally switch to direct API deployment:
-
-- `CLOUDFLARE_API_TOKEN`
-- `CLOUDFLARE_ACCOUNT_ID`
-- `CLOUDFLARE_PAGES_PROJECT`
-
-If direct API deploy becomes required, set:
-
-```bash
-DEPLOY_MODE=cloudflare-direct
-REQUIRE_CLOUDFLARE_DIRECT_SECRETS=true
-```
-
-## Node version
-
-CI deploy should use Node `22` because `package.json` allows `>=20 <=22`.
-
-## SPA fallback behavior
-
-SPA fallback is provided by `public/_redirects` and must be present in deployed output as `out/_redirects`.
-
-Required catch-all rule:
-
-```txt
-/* /index.html 200
-```
-
-`npm run verify:build` checks redirects in the same static output directory that Cloudflare deploys (`STATIC_OUTPUT_DIR`, default `out`).
-
-## Source-of-truth rule
-
-The workbook remains the only canonical production data source:
-
-```txt
-data-sources/herb_monograph_master.xlsx
-```
-
-Generated JSON under `public/data/` is build output only. Do not manually patch generated JSON to fix content problems.
+- Workbook (`data-sources/herb_monograph_master.xlsx`) is the only source of truth.
+- `public/data/**` and `public/blogdata/**` are generated artifacts and must not be manually edited.
