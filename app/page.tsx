@@ -78,22 +78,21 @@ export default async function HomePage() {
             </p>
 
             <div className='mt-6 grid gap-3 sm:flex sm:flex-wrap'>
-              <Link href='/herbs' className='rounded-2xl bg-emerald-300 px-5 py-3 text-center text-sm font-bold text-slate-950 shadow-lg shadow-emerald-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-200'>Browse herbs</Link>
+              <Link href='/herbs' className='rounded-2xl bg-emerald-300 px-6 py-3 text-center text-sm font-black text-slate-950 shadow-lg shadow-emerald-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-200'>Browse herbs</Link>
               <Link href='/compounds' className='rounded-2xl border border-white/15 bg-white/[0.04] px-5 py-3 text-center text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.08]'>Browse compounds</Link>
-              <Link href='/a-tier' className='rounded-2xl border border-amber-300/25 bg-amber-300/10 px-5 py-3 text-center text-sm font-bold text-amber-100 transition hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-amber-300/15'>See A-tier picks</Link>
             </div>
           </div>
 
           <div className='grid gap-3 rounded-3xl border border-white/10 bg-black/20 p-4 backdrop-blur'>
             <div className='grid grid-cols-2 gap-3'>
-              <Link href='/herbs' className='rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition hover:border-emerald-300/35 hover:bg-white/[0.07]'>
+              <div className='rounded-2xl border border-white/10 bg-white/[0.04] p-4'>
                 <p className='text-xs uppercase tracking-[0.18em] text-white/45'>Herbs</p>
                 <p className='mt-2 text-3xl font-black text-white'>{herbs.length}</p>
-              </Link>
-              <Link href='/compounds' className='rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition hover:border-emerald-300/35 hover:bg-white/[0.07]'>
+              </div>
+              <div className='rounded-2xl border border-white/10 bg-white/[0.04] p-4'>
                 <p className='text-xs uppercase tracking-[0.18em] text-white/45'>Compounds</p>
                 <p className='mt-2 text-3xl font-black text-white'>{compounds.length}</p>
-              </Link>
+              </div>
             </div>
 
             <div className='rounded-2xl border border-white/10 bg-white/[0.04] p-4'>
@@ -127,13 +126,23 @@ export default async function HomePage() {
         </Link>
       </section>
 
+      <section className='rounded-3xl border border-amber-300/20 bg-amber-300/10 p-5 sm:p-6'>
+        <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
+          <div>
+            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-amber-100/70'>Curated picks</p>
+            <h2 className='mt-1 text-2xl font-bold text-white'>Want the strongest profiles first?</h2>
+            <p className='mt-2 max-w-2xl text-sm leading-6 text-white/65'>After browsing the library, use A-tier picks to focus on the cleanest, highest-confidence entries.</p>
+          </div>
+          <Link href='/a-tier' className='rounded-2xl border border-amber-300/30 bg-black/20 px-5 py-3 text-center text-sm font-bold text-amber-100 transition hover:bg-amber-300/15'>See A-tier picks</Link>
+        </div>
+      </section>
+
       <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
         <div className='flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between'>
           <div>
             <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/45'>Explore by goal</p>
             <h2 className='mt-1 text-2xl font-bold text-white'>Start with what you want help with</h2>
           </div>
-          <Link href='/a-tier' className='text-sm font-bold text-amber-200'>Browse A-tier →</Link>
         </div>
         <div className='mt-4 grid gap-3 md:grid-cols-3'>
           <Link href='/top/sleep' className='rounded-2xl border border-violet-300/20 bg-violet-300/10 p-4 transition hover:bg-violet-300/15'>
