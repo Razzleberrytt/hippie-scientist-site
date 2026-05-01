@@ -1,0 +1,249 @@
+[
+  {
+    "compound": "creatine",
+    "products": [
+      {
+        "name": "Creatine Monohydrate Powder",
+        "brand": "Optimum Nutrition",
+        "price": "$19.99",
+        "rating": 4.7,
+        "link": "AFFILIATE_LINK_HERE"
+      },
+      {
+        "name": "Micronized Creatine Monohydrate",
+        "brand": "BulkSupplements",
+        "price": "$24.96",
+        "rating": 4.6,
+        "link": "AFFILIATE_LINK_HERE"
+      }
+    ]
+  },
+  {
+    "compound": "caffeine",
+    "products": [
+      {
+        "name": "Caffeine Tablets",
+        "brand": "Nutricost",
+        "price": "$12.95",
+        "rating": 4.6,
+        "link": "AFFILIATE_LINK_HERE"
+      },
+      {
+        "name": "Clean Energy Caffeine Capsules",
+        "brand": "Sports Research",
+        "price": "$16.99",
+        "rating": 4.5,
+        "link": "AFFILIATE_LINK_HERE"
+      }
+    ]
+  },
+  {
+    "compound": "ashwagandha",
+    "products": [
+      {
+        "name": "KSM-66 Ashwagandha",
+        "brand": "Physician's Choice",
+        "price": "$21.99",
+        "rating": 4.6,
+        "link": "AFFILIATE_LINK_HERE"
+      },
+      {
+        "name": "Sensoril Ashwagandha Capsules",
+        "brand": "NOW Foods",
+        "price": "$18.99",
+        "rating": 4.5,
+        "link": "AFFILIATE_LINK_HERE"
+      }
+    ]
+  },
+  {
+    "compound": "magnesium",
+    "products": [
+      {
+        "name": "Magnesium Glycinate Capsules",
+        "brand": "Doctor's Best",
+        "price": "$17.99",
+        "rating": 4.6,
+        "link": "AFFILIATE_LINK_HERE"
+      },
+      {
+        "name": "Magnesium Glycinate Powder",
+        "brand": "Thorne",
+        "price": "$29.00",
+        "rating": 4.7,
+        "link": "AFFILIATE_LINK_HERE"
+      }
+    ]
+  },
+  {
+    "compound": "magnesium-glycinate",
+    "products": [
+      {
+        "name": "Magnesium Glycinate Capsules",
+        "brand": "Doctor's Best",
+        "price": "$17.99",
+        "rating": 4.6,
+        "link": "AFFILIATE_LINK_HERE"
+      },
+      {
+        "name": "Magnesium Bisglycinate",
+        "brand": "Pure Encapsulations",
+        "price": "$31.40",
+        "rating": 4.7,
+        "link": "AFFILIATE_LINK_HERE"
+      }
+    ]
+  },
+  {
+    "compound": "omega-3-fatty-acids",
+    "products": [
+      {
+        "name": "Omega-3 Fish Oil Softgels",
+        "brand": "Nordic Naturals",
+        "price": "$27.16",
+        "rating": 4.8,
+        "link": "AFFILIATE_LINK_HERE"
+      },
+      {
+        "name": "Triple Strength Omega-3",
+        "brand": "Sports Research",
+        "price": "$24.95",
+        "rating": 4.7,
+        "link": "AFFILIATE_LINK_HERE"
+      }
+    ]
+  },
+  {
+    "compound": "berberine",
+    "products": [
+      {
+        "name": "Berberine HCl Capsules",
+        "brand": "Thorne",
+        "price": "$38.00",
+        "rating": 4.7,
+        "link": "AFFILIATE_LINK_HERE"
+      },
+      {
+        "name": "Berberine Plus",
+        "brand": "Integrative Therapeutics",
+        "price": "$35.50",
+        "rating": 4.6,
+        "link": "AFFILIATE_LINK_HERE"
+      }
+    ]
+  },
+  {
+    "compound": "coq10",
+    "products": [
+      {
+        "name": "CoQ10 Softgels",
+        "brand": "Qunol",
+        "price": "$26.99",
+        "rating": 4.8,
+        "link": "AFFILIATE_LINK_HERE"
+      },
+      {
+        "name": "Ubiquinol CoQ10",
+        "brand": "Jarrow Formulas",
+        "price": "$32.99",
+        "rating": 4.7,
+        "link": "AFFILIATE_LINK_HERE"
+      }
+    ]
+  },
+  {
+    "compound": "l-theanine",
+    "products": [
+      {
+        "name": "L-Theanine Capsules",
+        "brand": "NOW Foods",
+        "price": "$15.99",
+        "rating": 4.7,
+        "link": "AFFILIATE_LINK_HERE"
+      },
+      {
+        "name": "Suntheanine L-Theanine",
+        "brand": "Doctor's Best",
+        "price": "$18.99",
+        "rating": 4.6,
+        "link": "AFFILIATE_LINK_HERE"
+      }
+    ]
+  },
+  {
+    "compound": "glycine",
+    "products": [
+      {
+        "name": "Glycine Powder",
+        "brand": "BulkSupplements",
+        "price": "$18.96",
+        "rating": 4.7,
+        "link": "AFFILIATE_LINK_HERE"
+      },
+      {
+        "name": "Glycine Capsules",
+        "brand": "NOW Foods",
+        "price": "$14.99",
+        "rating": 4.6,
+        "link": "AFFILIATE_LINK_HERE"
+      }
+    ]
+  },
+  {
+    "compound": "melatonin",
+    "products": [
+      {
+        "name": "Melatonin Tablets",
+        "brand": "Natrol",
+        "price": "$11.99",
+        "rating": 4.7,
+        "link": "AFFILIATE_LINK_HERE"
+      },
+      {
+        "name": "Low Dose Melatonin",
+        "brand": "Life Extension",
+        "price": "$9.00",
+        "rating": 4.6,
+        "link": "AFFILIATE_LINK_HERE"
+      }
+    ]
+  },
+  {
+    "compound": "beta-alanine",
+    "products": [
+      {
+        "name": "Beta-Alanine Powder",
+        "brand": "Nutricost",
+        "price": "$21.95",
+        "rating": 4.6,
+        "link": "AFFILIATE_LINK_HERE"
+      },
+      {
+        "name": "CarnoSyn Beta-Alanine",
+        "brand": "NOW Sports",
+        "price": "$24.99",
+        "rating": 4.5,
+        "link": "AFFILIATE_LINK_HERE"
+      }
+    ]
+  },
+  {
+    "compound": "citrulline-malate",
+    "products": [
+      {
+        "name": "Citrulline Malate Powder",
+        "brand": "BulkSupplements",
+        "price": "$23.96",
+        "rating": 4.6,
+        "link": "AFFILIATE_LINK_HERE"
+      },
+      {
+        "name": "L-Citrulline Malate",
+        "brand": "Nutricost",
+        "price": "$24.95",
+        "rating": 4.5,
+        "link": "AFFILIATE_LINK_HERE"
+      }
+    ]
+  }
+]
