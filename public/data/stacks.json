@@ -3,6 +3,7 @@
     "slug": "fat-loss",
     "title": "Best Supplements for Fat Loss",
     "goal": "fat_loss",
+    "short_description": "A simple stimulant-aware stack for energy, thermogenesis, and appetite support.",
     "stack": [
       {
         "compound": "caffeine",
@@ -24,13 +25,14 @@
       }
     ],
     "who_for": "People trying to lose fat while keeping the plan simple and stimulant-aware.",
-    "avoid_if": "Stimulant sensitive, uncontrolled blood pressure, pregnancy, heart rhythm issues, or using stimulant medications.",
+    "avoid_if": "Stimulant sensitivity, uncontrolled blood pressure, pregnancy, heart rhythm issues, or stimulant medications.",
     "cta": "View Best Products"
   },
   {
     "slug": "muscle",
     "title": "Best Supplements for Muscle",
     "goal": "muscle",
+    "short_description": "A strength-focused stack for training output, volume, and repeat performance.",
     "stack": [
       {
         "compound": "creatine",
@@ -51,14 +53,15 @@
         "role": "amplifier"
       }
     ],
-    "who_for": "Lifters and active adults who want a practical strength, volume, and workout-support stack.",
-    "avoid_if": "Kidney disease, pregnancy, significant medical conditions, or if pre-workout vasodilators do not agree with you.",
+    "who_for": "Lifters and active adults who want practical strength, volume, and workout support.",
+    "avoid_if": "Kidney disease, pregnancy, major medical conditions, or poor tolerance to pre-workout vasodilators.",
     "cta": "View Best Products"
   },
   {
     "slug": "stress",
     "title": "Best Supplements for Stress",
     "goal": "stress",
+    "short_description": "A calm-focused stack for daily stress load without a complicated routine.",
     "stack": [
       {
         "compound": "ashwagandha",
@@ -87,6 +90,7 @@
     "slug": "sleep",
     "title": "Best Supplements for Sleep",
     "goal": "sleep",
+    "short_description": "A nighttime stack for winding down, sleep timing, and a cleaner bedtime routine.",
     "stack": [
       {
         "compound": "magnesium-glycinate",
@@ -107,7 +111,7 @@
         "role": "amplifier"
       }
     ],
-    "who_for": "People who want a simple nighttime support stack for winding down and sleep timing.",
+    "who_for": "People who want simple nighttime support for winding down and sleep timing.",
     "avoid_if": "Pregnancy, sedative medications, untreated sleep apnea, shift-work complexity, or next-day grogginess from sleep aids.",
     "cta": "View Best Products"
   },
@@ -115,6 +119,7 @@
     "slug": "cardiovascular",
     "title": "Best Supplements for Cardiovascular Support",
     "goal": "cardiovascular",
+    "short_description": "A heart-support stack built around fats, mitochondrial support, and nitric oxide.",
     "stack": [
       {
         "compound": "omega-3-fatty-acids",
@@ -143,6 +148,7 @@
     "slug": "cognition",
     "title": "Best Supplements for Cognition",
     "goal": "cognition",
+    "short_description": "A focus stack for attention, mental effort, and long-term cognitive routines.",
     "stack": [
       {
         "compound": "citicoline",
@@ -164,13 +170,14 @@
       }
     ],
     "who_for": "People who want focused, low-clutter support for attention, mental effort, and long-term cognitive routines.",
-    "avoid_if": "Cholinergic medications, sedatives, pregnancy, bipolar history, or if bacopa causes digestive side effects.",
+    "avoid_if": "Cholinergic medications, sedatives, pregnancy, bipolar history, or digestive side effects from bacopa.",
     "cta": "View Best Products"
   },
   {
     "slug": "metabolic",
     "title": "Best Supplements for Metabolic Support",
     "goal": "metabolic",
+    "short_description": "A meal-response stack for glucose, appetite, and metabolic basics.",
     "stack": [
       {
         "compound": "berberine",
@@ -199,6 +206,7 @@
     "slug": "detox",
     "title": "Best Supplements for Detox Support",
     "goal": "detox",
+    "short_description": "A no-cleanse-hype stack for antioxidant pathways and liver-support context.",
     "stack": [
       {
         "compound": "nac",
