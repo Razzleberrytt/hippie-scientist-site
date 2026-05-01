@@ -1,68 +1,46 @@
 # Build and Verification Flow
 
-This document is the contractor-facing source of truth for build, verification, and generated artifacts.
+Contractor-facing source of truth for build and deploy verification.
 
-## 1) Script groups by purpose
+## Canonical production target
 
-### Data generation
-- `npm run data:generate` (alias of `prebuild:data`): converts local CSV inputs and enrichment outputs into canonical JSON data.
-- `npm run autofill:data`: fills missing non-critical herb fields.
-- `npm run data:entity-payloads`: creates summary/detail entity payload shards in `public/data/*-summary.json` and `public/data/*-detail/`.
-- `npm run data:refresh`: end-to-end local operator refresh (`data:generate` + `autofill:data` + `data:validate`).
+- Host: **Cloudflare Pages**
+- Build command: `npm run build`
+- Verification command: `npm run verify:build`
+- Static output directory: `out/`
+- Deploy target directory: `out/`
 
-### Prerender/publication
-- `npm run build`: canonical production build entry point.
-  - Lifecycle order: `prebuild` -> `build:compile` -> `postbuild`.
-- `npm run prebuild`: generates data-derived publication inputs and feed artifacts.
-- `npm run build:compile`: runs `vite build` only.
-- `npm run postbuild`: runs static prerender + sitemap/robots generation + publishing/prerender verifications.
+## Canonical scripts
 
-### Verification / quality gates
-- `npm run data:validate`: schema + data audit checks for checked-in herb data.
-- `npm run verify:prerender`: route-manifest and prerender consistency checks.
-- `npm run verify:publishing`: publishing gate checks against indexable/publication manifests.
-- `npm run verify:redirects`: confirms `dist/_redirects` is present.
-- `npm run verify:build`: postbuild verification bundle (`verify:prerender` + `verify:publishing` + `verify:redirects`).
+- `npm run check` → alias to `npm run build`
+- `npm run build` → workbook data generation + validation + source-of-truth guards + `next build` + `npm run verify:build`
+- `npm run verify:build` → core route checks + redirect checks + CSS asset checks + deploy readiness + generated-data verification
 
-### Reporting
-- `npm run data:report`: writes herb data coverage reports under `scripts/out/`.
-- `npm run report:entity-route-payloads`: writes payload import-size report to `ops/reports/entity-route-payloads.json`.
-- `npm run report:ops`: combined reporting helper (`data:report` + `report:entity-route-payloads`).
+## Workbook-only source of truth
 
-## 2) Required local workflow (recommended)
+- Source of truth workbook: `data-sources/herb_monograph_master.xlsx`
+- Generated runtime JSON: `public/data/**`
+- Generated blog data: `public/blogdata/**`
+- Generated JSON is disposable build output; do not manually edit it.
 
-### Fast path (app + publication verification)
-1. `npm ci`
-2. `npm run build`
-3. `npm run verify:build`
+Source errors must be triaged as one of:
 
-### Local operator data refresh path (only when CSV inputs are available)
-1. `npm ci`
-2. `npm run data:refresh`
-3. `npm run build`
-4. `npm run verify:build`
-5. `npm run report:ops`
+- `WORKBOOK_FIX`
+- `WORKBOOK_GPT_FIX`
+- `GENERATOR_FIX`
 
-## 3) Generated artifact policy
+## Generated artifact policy
 
-### Must be committed (source-controlled generated artifacts)
-These are runtime/publication inputs and must stay committed:
-- `public/data/*.json` (including `quality-report.json`, `publication-manifest.json`, indexable lists, summaries)
-- `public/data/herbs-detail/*.json` and `public/data/compounds-detail/*.json`
-- `public/blogdata/**` (blog index and generated post metadata)
-- `src/generated/site-counts.json` and `src/generated/homepage-data.json`
-- `public/feed.xml` and `public/rss.xml`
-- `public/sitemap.xml` and `public/robots.txt` (public-root crawl assets)
+### Source-controlled generated artifacts
 
-### Generated in CI/build only (do not commit)
-- `dist/**` build output (including `dist/sitemap.xml`, `dist/robots.txt`, `dist/_redirects`, prerendered HTML, and verification artifacts)
+- `public/data/**`
+- `public/blogdata/**`
 
-### Reports/artifacts for diagnostics only (do not commit unless explicitly requested)
-- `scripts/out/**` (`coverage.json`, `coverage.md`, `missing_key_fields.csv`)
-- `ops/reports/*.json` (for example `entity-route-payloads.json`)
+### Build/deploy artifacts (do not commit)
 
-## 4) Consolidation notes applied
+- `out/**` static export output
+- `.next/**` local build artifacts
 
-- `build` now relies on npm lifecycle hooks instead of manually invoking `prebuild` inside the script, preventing duplicate `prebuild` execution.
-- Added explicit grouped entry points (`data:generate`, `data:validate`, `verify:build`, `report:ops`) while preserving existing script names for backward compatibility.
-- `data:refresh+build` now uses canonical `npm run build` so local+build flow includes standard `prebuild/postbuild` publication checks.
+### Cloudflare static infra files
+
+- `public/_redirects` and `public/_headers` are static infrastructure files copied to `out/` for Cloudflare Pages behavior.
