@@ -84,38 +84,38 @@ function HerbCard({
         : 'border-white/8 bg-white/[0.03]'
 
   return (
-    <Card className={`group relative flex h-full flex-col gap-3 rounded-[var(--radius-lg)] p-4 pr-12 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/16 hover:bg-white/[0.055] hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] ${evidenceCardClass}`}>
-      <span className='absolute right-4 top-4 flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/[0.035] text-xs font-semibold text-white/35'>
-        {letterBadge}
-      </span>
+    <Link
+      to={detailUrl}
+      className='block transform transition duration-200 hover:scale-[1.01] active:scale-[0.98]'
+    >
+      <Card className={`group relative flex h-full flex-col gap-3 rounded-[var(--radius-lg)] p-4 pr-12 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/16 hover:bg-white/[0.055] hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] ${evidenceCardClass}`}>
+        <span className='absolute right-4 top-4 flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/[0.035] text-xs font-semibold text-white/35'>
+          {letterBadge}
+        </span>
 
-      <header className='space-y-2'>
-        <h2
-          title={isTitleTruncated ? name : undefined}
-          className='line-clamp-2 text-base font-semibold leading-snug text-white'
-        >
-          {title}
-        </h2>
-        {primaryTag ? (
-          <span className='inline-flex w-fit rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[0.7rem] font-medium text-white/60'>
-            {primaryTag}
-          </span>
+        <header className='space-y-2'>
+          <h2
+            title={isTitleTruncated ? name : undefined}
+            className='line-clamp-2 text-base font-semibold leading-snug text-white'
+          >
+            {title}
+          </h2>
+          {primaryTag ? (
+            <span className='inline-flex w-fit rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[0.7rem] font-medium text-white/60'>
+              {primaryTag}
+            </span>
+          ) : null}
+        </header>
+
+        {showSummary ? (
+          <p className='line-clamp-3 text-sm leading-6 text-white/70'>{summaryText}</p>
         ) : null}
-      </header>
 
-      {showSummary ? (
-        <p className='line-clamp-3 text-sm leading-6 text-white/70'>{summaryText}</p>
-      ) : null}
-
-      <footer className='mt-auto pt-1'>
-        <Link
-          to={detailUrl}
-          className='inline-flex min-h-8 items-center rounded-md border border-white/15 bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-white/80 transition duration-300 hover:border-cyan-300/45 hover:text-white'
-        >
-          Open →
-        </Link>
-      </footer>
-    </Card>
+        <footer className='mt-auto pt-1 flex justify-end'>
+          <span className='text-xs font-medium text-white/70'>Open →</span>
+        </footer>
+      </Card>
+    </Link>
   )
 }
 
