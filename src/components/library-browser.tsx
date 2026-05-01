@@ -27,29 +27,9 @@ const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 const normalizeText = (value: unknown): string =>
   typeof value === 'string' ? value.trim() : ''
 
-const truncate = (value: string | undefined, maxLength: number): string => {
-  const text = normalizeText(value)
-  if (!text) return 'Profile summary coming soon.'
-  if (text.length <= maxLength) return text
-  return `${text.slice(0, maxLength - 1).trimEnd()}…`
-}
-
-const titleInitial = (title: string): string => {
-  const first = title.trim().charAt(0).toUpperCase()
-  return /[A-Z0-9]/.test(first) ? first : '•'
-}
-
-const fallbackTag = (item: BrowserItem): string => {
-  if (item.domain) return item.domain
-  return item.typeLabel?.replace(' profile', '') || 'Profile'
-}
-
 export default function LibraryBrowser({
-  eyebrow = 'Library',
   title,
-  description,
   searchPlaceholder = 'Search by name, slug, or summary',
-  emptyLabel = 'No herbs found',
   items,
 }: LibraryBrowserProps) {
   const [query, setQuery] = useState('')
@@ -67,12 +47,13 @@ export default function LibraryBrowser({
     const q = debouncedQuery.toLowerCase()
     return sortedItems.filter(item => {
       const t = normalizeText(item.title)
-      return (!letter || t.startsWith(letter)) && (!q || `${item.title} ${item.slug} ${item.summary}`.toLowerCase().includes(q))
+      return (!letter || t.toUpperCase().startsWith(letter)) && (!q || `${item.title} ${item.slug} ${item.summary}`.toLowerCase().includes(q))
     })
   }, [sortedItems, letter, debouncedQuery])
 
   return (
     <div className='mx-auto w-full max-w-7xl space-y-6 px-3 py-4'>
+      <h1 className='text-3xl font-bold text-white'>{title}</h1>
 
       <input
         value={query}
@@ -84,20 +65,23 @@ export default function LibraryBrowser({
       <div className='flex gap-4 overflow-x-auto'>
         <button onClick={() => setLetter('')}>All</button>
         {LETTERS.map(l => (
-          <button key={l} onClick={() => setLetter(l)}>{l}</button>
+          <button key={l} onClick={() => setLetter(current => current === l ? '' : l)}>{l}</button>
         ))}
       </div>
 
       {filteredItems.length > 0 ? (
         <div className='grid gap-6'>
           {filteredItems.map(item => (
-            <Link key={item.slug} href={item.href}>{item.title}</Link>
+            <Link key={item.slug} href={item.href} className='rounded-2xl border border-white/10 p-4 text-white'>
+              {item.title}
+            </Link>
           ))}
         </div>
       ) : (
-        <p>No herbs found</p>
+        <div className='rounded-2xl border border-white/10 p-6 text-center text-white/70'>
+          No data available yet.
+        </div>
       )}
-
     </div>
   )
 }
