@@ -7,6 +7,8 @@ type Product = {
 }
 
 export default function AffiliateProductCard({ product }: { product: Product }) {
+  const compoundName = product.name.split(' ')[0]
+
   return (
     <div className='rounded-2xl border border-white/10 bg-white/[0.04] p-4 space-y-2'>
       <h4 className='font-bold text-white'>{product.name}</h4>
@@ -18,7 +20,7 @@ export default function AffiliateProductCard({ product }: { product: Product }) 
         rel="noopener noreferrer sponsored"
         className='block w-full text-center rounded-xl bg-emerald-300 py-2 font-bold text-black'
       >
-        View Product
+        Shop {compoundName}
       </a>
     </div>
   )
