@@ -3,7 +3,6 @@ import Link from 'next/link'
 import stacksData from '@/public/data/stacks.json'
 import compoundsData from '@/public/data/compounds.json'
 import StackCard from '@/components/StackCard'
-import AffiliateBlock from '@/components/AffiliateBlock'
 import type { Metadata } from 'next'
 import type { Stack, StackItem, CompoundSummary } from '@/types/stack'
 import { isValidSlug } from '@/utils/safeLink'
@@ -49,34 +48,49 @@ export default function StackPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className='space-y-8'>
-
-      <section className='space-y-4'>
-        <h2 className='text-2xl font-bold text-white'>Stack Breakdown</h2>
-        <div className='grid gap-4'>
-          {stack.stack.map((item: StackItem, i: number) => {
-            const compound = compoundMap.get(item.compound)
-            const compoundSlug = compound?.slug || item.compound
-
-            return (
-              <div key={i} className='space-y-2'>
-                <StackCard item={item} />
-
-                {isValidSlug(compoundSlug) ? (
-                  <Link href={`/compounds/${compoundSlug}`} className='text-emerald-300 text-sm'>
-                    Learn more about {formatName(compoundSlug)}
-                  </Link>
-                ) : (
-                  <span className='text-white/60 text-sm'>
-                    {formatName(compoundSlug)}
-                  </span>
-                )}
-
-              </div>
-            )
-          })}
-        </div>
+      <section className='space-y-3'>
+        <h1 className='text-4xl font-black text-white'>{stack.title}</h1>
+        {stack.short_description ? <p className='text-white/80'>{stack.short_description}</p> : null}
       </section>
 
+      {stack.stack?.length ? (
+        <section className='space-y-4'>
+          <h2 className='text-2xl font-bold text-white'>Stack Breakdown</h2>
+          <div className='grid gap-4'>
+            {stack.stack.map((item: StackItem, i: number) => {
+              const compound = compoundMap.get(item.compound)
+              const compoundSlug = compound?.slug || item.compound
+
+              return (
+                <div key={`${compoundSlug}-${i}`} className='space-y-2 rounded-2xl border border-white/10 bg-white/[0.035] p-4'>
+                  <StackCard item={item} />
+                  {isValidSlug(compoundSlug) ? (
+                    <Link href={`/compounds/${compoundSlug}`} className='text-emerald-300 text-sm'>
+                      Learn more about {formatName(compoundSlug)}
+                    </Link>
+                  ) : (
+                    <span className='text-white/60 text-sm'>{formatName(compoundSlug)}</span>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </section>
+      ) : (
+        <p className='rounded-2xl border border-white/10 p-5 text-white/70'>No data available yet.</p>
+      )}
+
+      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
+        <h2 className='text-2xl font-bold text-white'>Explore More</h2>
+        <div className='mt-4 flex flex-wrap gap-3'>
+          <Link href={`/goals/${cleanGoal}`} className='rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm font-bold text-emerald-100 transition hover:bg-emerald-300/20'>
+            Explore {formatName(cleanGoal)} goal
+          </Link>
+          <Link href={`/${cleanGoal}-supplements`} className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/75 transition hover:bg-white/5 hover:text-white'>
+            Best supplements for {formatName(cleanGoal)}
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }
