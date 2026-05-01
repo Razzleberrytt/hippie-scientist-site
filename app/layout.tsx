@@ -11,9 +11,9 @@ import './globals.css'
 
 const navLinks = [
   { href: PUBLIC_ROUTES.home, label: 'Home' },
-  { href: PUBLIC_ROUTES.herbs, label: 'Herbs' },
+  { href: PUBLIC_ROUTES.herbs, label: 'Browse Herbs' },
   { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
-  { href: PUBLIC_ROUTES.build, label: 'Build' },
+  { href: PUBLIC_ROUTES.build, label: 'Build a Blend' },
   { href: PUBLIC_ROUTES.blog, label: 'Blog' },
   { href: PUBLIC_ROUTES.learning, label: 'Learning' },
   { href: PUBLIC_ROUTES.about, label: 'About' },
@@ -21,9 +21,9 @@ const navLinks = [
 ]
 
 const footerLinks = [
-  { href: PUBLIC_ROUTES.herbs, label: 'Herbs' },
+  { href: PUBLIC_ROUTES.herbs, label: 'Browse Herbs' },
   { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
-  { href: PUBLIC_ROUTES.build, label: 'Build' },
+  { href: PUBLIC_ROUTES.build, label: 'Build a Blend' },
   { href: PUBLIC_ROUTES.blog, label: 'Blog' },
   { href: PUBLIC_ROUTES.learning, label: 'Learning' },
   { href: PUBLIC_ROUTES.about, label: 'About' },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: '%s | The Hippie Scientist',
   },
   description:
-    'Plain-English, science-first education about herbs, compounds, and related research notes.',
+    'Search herbs and compounds with plain-English summaries, safety context, active constituents, and evidence-aware discovery paths.',
   applicationName: 'The Hippie Scientist',
   keywords: [
     'herbs',
@@ -49,6 +49,9 @@ export const metadata: Metadata = {
     'phytochemistry',
     'herbal education',
     'science communication',
+    'supplement research',
+    'herb safety',
+    'active constituents',
   ],
   alternates: {
     canonical: '/',
@@ -59,13 +62,13 @@ export const metadata: Metadata = {
     siteName: 'The Hippie Scientist',
     title: 'The Hippie Scientist',
     description:
-      'Plain-English, science-first education about herbs, compounds, and related research notes.',
+      'Search herbs and compounds with plain-English summaries, safety context, active constituents, and evidence-aware discovery paths.',
   },
   twitter: {
     card: 'summary',
     title: 'The Hippie Scientist',
     description:
-      'Plain-English, science-first education about herbs, compounds, and related research notes.',
+      'Search herbs and compounds with plain-English summaries, safety context, active constituents, and evidence-aware discovery paths.',
   },
   robots: {
     index: true,
