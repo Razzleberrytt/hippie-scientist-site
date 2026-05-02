@@ -12,6 +12,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "strict": true,
+    "noImplicitAny": false,
     "skipLibCheck": true,
     "allowJs": true,
     "noEmit": true,
