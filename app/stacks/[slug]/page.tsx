@@ -26,6 +26,14 @@ const priorityScore = (item: any) => {
   return priority.some(value => slug === value || slug.includes(value)) ? 1 : 0
 }
 
+const itemDecisionLabel = (item: any) => {
+  const role = String(item.role || '').toLowerCase()
+  if (role.includes('anchor') || role.includes('core')) return 'Best for: starting the stack'
+  if (role.includes('amplifier')) return 'Best for: boosting results'
+  if (role.includes('support')) return 'Best for: rounding out support'
+  return 'Best for: beginners / fast decisions'
+}
+
 export async function generateStaticParams() {
   const stacks = await getStacks()
   return stacks.map(s => ({ slug: s.slug }))
@@ -70,6 +78,19 @@ export default async function StackPage({ params }) {
         <h1 className="text-4xl font-black text-white">{stack.title}</h1>
         <p className="text-white/70">{stack.summary || stack.short_description}</p>
         <p className="text-xs text-white/40">Used by thousands researching better health decisions</p>
+
+        <section className="rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.05] p-4">
+          <p className="text-sm text-white/80">
+            If your goal is <span className="font-bold">{goal.toLowerCase()}</span>, this stack is your best starting point.
+          </p>
+        </section>
+
+        <div>
+          <a href={`https://www.amazon.com/s?k=${bundleQuery}+supplement&tag=razzleberry02-20`} target="_blank" rel="noopener noreferrer sponsored" className="block rounded-xl bg-emerald-400 py-4 text-center text-lg font-black text-black">
+            Start with this stack →
+          </a>
+          <p className="mt-2 text-center text-xs text-white/40">Most beginners start here</p>
+        </div>
 
         <section className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
           <h2 className="text-xl font-bold text-white">Why buy this stack</h2>
@@ -118,6 +139,7 @@ export default async function StackPage({ params }) {
             return (
               <div key={i} className="space-y-3">
                 <StackCard item={item} />
+                <p className="text-xs text-white/50">{itemDecisionLabel(item)}</p>
                 <div className="flex flex-wrap gap-3 rounded-2xl border border-white/10 bg-white/[0.025] p-3 text-xs font-bold">
                   {compoundSlug ? (
                     <Link href={`/compounds/${compoundSlug}`} className="text-emerald-300">View compound profile →</Link>
