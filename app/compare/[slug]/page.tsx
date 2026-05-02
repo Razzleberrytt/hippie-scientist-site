@@ -75,12 +75,19 @@ export default async function Page({ params }: Params) {
         <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-200/70">Supplement comparison</p>
         <h1 className="mt-3 text-4xl font-black text-white">{displayName(a)} vs {displayName(b)}</h1>
         <p className="mt-3 max-w-3xl text-white/72">Compare benefits, evidence, safety, and best use cases before choosing what to buy.</p>
+        <p className="mt-3 text-xs text-white/40">Used by thousands researching better health decisions</p>
       </section>
 
       <section className="rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.05] p-5">
         <h2 className="text-xl font-bold text-white">Best choice</h2>
         <p className="mt-2 font-semibold text-white">{displayName(winner)} is the better default option based on available evidence signals.</p>
+        <p className="mt-2 text-sm text-white/60">Most people choose this for simplicity and results.</p>
         <AffiliateBlock compound={winner.slug} intentLabel="Shop winner" />
+        <div className="mt-6 border-t border-white/10 pt-5">
+          <h3 className="text-lg font-bold text-white">Alternative option</h3>
+          <AffiliateBlock compound={loser.slug} intentLabel="Alternative pick" />
+          <p className="mt-2 text-xs text-white/40">Often bought together - Popular right now</p>
+        </div>
       </section>
 
       <section className="grid gap-4 md:grid-cols-2">
