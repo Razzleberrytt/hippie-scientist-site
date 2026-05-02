@@ -1,38 +1,65 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getStacks, getCompounds } from '@/lib/runtime-data'
+import { getStacks } from '@/lib/runtime-data'
 import StackCard from '@/components/StackCard'
 import AffiliateBlock from '@/components/AffiliateBlock'
 
-type Params = { params: Promise<{ slug: string }> }
-
-export default async function StackPage({ params }: Params) {
-  const { slug } = await params
-
+export async function generateStaticParams() {
   const stacks = await getStacks()
-  const compounds = await getCompounds()
+  return stacks.map(s => ({ slug: s.slug }))
+}
 
-  const stack = stacks.find((item) => item.slug === slug)
+export async function generateMetadata({ params }) {
+  const { slug } = await params
+  const stacks = await getStacks()
+  const stack = stacks.find(s => s.slug === slug)
+  return {
+    title: stack?.title || 'Stack',
+    description: stack?.summary || ''
+  }
+}
+
+export default async function StackPage({ params }) {
+  const { slug } = await params
+  const stacks = await getStacks()
+
+  const stack = stacks.find(s => s.slug === slug)
   if (!stack) return notFound()
 
   const items = stack.compounds || stack.stack || []
+
+  const bundleQuery = items.map(i => i.compound_slug || i.compound).join('+')
 
   return (
     <div className="space-y-10">
 
       <section className="space-y-4">
         <h1 className="text-4xl font-black text-white">{stack.title}</h1>
-        <p className="text-white/70">{stack.summary || stack.short_description}</p>
+        <p className="text-white/70">{stack.summary}</p>
 
-        {/* 🔥 PRIMARY MONETIZATION BLOCK */}
-        <div className="mt-4 rounded-2xl border border-emerald-300/20 p-5 bg-emerald-300/[0.05]">
-          <h2 className="text-xl font-bold text-white">Buy this stack</h2>
-          <p className="text-sm text-white/60">Top supplements used in this stack.</p>
+        {/* 🔥 FULL STACK BUNDLE */}
+        <div className="rounded-2xl border border-amber-300/20 bg-amber-300/[0.05] p-5">
+          <h2 className="text-xl font-bold text-white">Buy full stack</h2>
+          <a
+            href={`https://www.amazon.com/s?k=${bundleQuery}+supplement&tag=razzleberry02-20`}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            className="mt-3 block rounded-xl bg-amber-300 py-3 text-center font-black text-black"
+          >
+            Shop full stack →
+          </a>
+        </div>
 
-          <div className="mt-4 grid gap-3">
+        {/* 🔥 PRIMARY CTA */}
+        <div className="rounded-2xl border border-emerald-300/20 p-5 bg-emerald-300/[0.05]">
+          <h2 className="text-xl font-bold text-white">Top picks from this stack</h2>
+          <div className="mt-3 grid gap-3">
             {items.slice(0, 3).map((item, i) => (
-              <AffiliateBlock key={i} compound={item.compound_slug || item.compound} />
+              <AffiliateBlock
+                key={i}
+                compound={item.compound_slug || item.compound}
+                intentLabel={i === 0 ? 'Primary (most effective)' : undefined}
+              />
             ))}
           </div>
         </div>
@@ -41,12 +68,15 @@ export default async function StackPage({ params }: Params) {
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-white">Stack Breakdown</h2>
         <div className="grid gap-5">
-          {items.map((item, index) => (
-            <div key={index} className="space-y-3">
+          {items.map((item, i) => (
+            <div key={i} className="space-y-3">
               <StackCard item={item} />
 
-              {/* 🔥 INLINE CTA */}
-              <AffiliateBlock compound={item.compound_slug || item.compound} />
+              <AffiliateBlock
+                compound={item.compound_slug || item.compound}
+                intentLabel={item.role === 'anchor' ? 'Core compound' : undefined}
+                compact
+              />
             </div>
           ))}
         </div>
