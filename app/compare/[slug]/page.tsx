@@ -61,6 +61,7 @@ export default async function Page({ params }: Params) {
   if (!a || !b) return notFound()
 
   const winner = evidenceScore(a) >= evidenceScore(b) ? a : b
+  const loser = winner.slug === a.slug ? b : a
   const relatedStack = stacks.find((s: any) =>
     (s.compounds || s.stack || []).some((i: any) => {
       const compoundSlug = i.compound_slug || i.compound
